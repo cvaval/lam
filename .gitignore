@@ -40,3 +40,9 @@ yarn-error.log*
 
 # cache de build TypeScript
 *.tsbuildinfo
+
+# Logs des tâches planifiées (OCR fascicules)
+logs/
+
+# Dump de migration des données (SQLite → Postgres) — local, ne pas committer
+prisma/migration-dump/

@@ -11,8 +11,11 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  // Supabase : URL POOLÉE (PgBouncer, port 6543) pour l'application/runtime.
+  url       = env("DATABASE_URL")
+  // Supabase : URL DIRECTE (port 5432) pour les migrations (prisma migrate / db push).
+  directUrl = env("DIRECT_URL")
 }
 
 // ─────────────────────────────── Comptes & accès ───────────────────────────────

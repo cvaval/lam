@@ -17,7 +17,13 @@
     "search:reindex": "tsx scripts/reindex.ts",
     "setup:opensearch": "bash scripts/setup-opensearch.sh",
     "setup:opensearch:revert": "bash scripts/setup-opensearch.sh --revert",
-    "setup": "prisma generate && prisma db push && tsx prisma/seed.ts"
+    "setup": "prisma generate && prisma db push && tsx prisma/seed.ts",
+    "db:migrate": "prisma migrate dev",
+    "db:deploy": "prisma migrate deploy",
+    "db:import": "tsx scripts/import-db.ts",
+    "db:export": "tsx scripts/export-db.ts",
+    "db:rls": "tsx scripts/enable-rls.ts",
+    "postinstall": "prisma generate"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"

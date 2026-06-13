@@ -188,7 +188,10 @@ async function main() {
     const body = `[Fascicule scanné du journal officiel « Le Moniteur » — ${r.pages || '?'} page(s)${e.files.length > 1 ? `, ${e.files.length} parties` : ''}. Texte intégral non encore océrisé : se référer au PDF source. Fichier : ${e.files.map((f) => f.split('/').pop()).join(' ; ')}]`
     await prisma.document.create({
       data: {
-        type: 'INDEX',
+        // Fascicule scanné du Moniteur = source de législation → onglet
+        // « Législation haïtienne » (et non l'Index Moniteur, réservé aux
+        // références d'index sans PDF). Le texte intégral suit par OCR.
+        type: 'LEGISLATION',
         status: 'PUBLIE',
         titleFr: label,
         bodyOriginal: body,
