@@ -1,0 +1,4 @@
+# Données locales / dumps — jamais déployés (le runtime lit Supabase)
+prisma/migration-dump/
+prisma/*.db
+prisma/dev.db*
