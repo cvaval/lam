@@ -15,6 +15,7 @@ import { splitKeywords } from '@/lib/ai/keywords'
 import { parseCirculaireRef } from '@/lib/brh/gaps'
 import type { CircRef } from '@/lib/doc/crossref'
 import { parseRichBlocks } from '@/lib/doc/richblocks'
+import { parseEditionHeader } from '@/lib/doc/edition-meta'
 import { pickLocale } from '@/lib/i18n/pick'
 import { DOC_TYPE_META } from '@/lib/brand'
 import type { DocType, DocStatus } from '@/lib/types'
@@ -79,6 +80,8 @@ export default async function DocPage({ params }: { params: { locale: string; id
     }
   }
 
+  const editionHeader = parseEditionHeader(doc.metaJson)
+
   return (
     <article className="mx-auto max-w-3xl space-y-6">
       <Link href={`/${locale}/search?type=${meta.slug}`} className="text-sm text-lank/50 hover:text-lank">
@@ -112,6 +115,19 @@ export default async function DocPage({ params }: { params: { locale: string; id
           {doc.holder && <span>{doc.holder}</span>}
           {doc.niceClasses && <span>Nice {doc.niceClasses}</span>}
           {doc.bhdaNumber && <span>BHDA {doc.bhdaNumber}</span>}
+          {/* En-tête du fascicule (numéro Moniteur) capturé au téléversement */}
+          {editionHeader?.anneeParution != null && (
+            <span>
+              {editionHeader.anneeParution}
+              <sup>e</sup> {t.doc.anneeLabel}
+            </span>
+          )}
+          {editionHeader?.directeurGeneral && (
+            <span>
+              {t.doc.dgLabel} : {editionHeader.directeurGeneral}
+            </span>
+          )}
+          {editionHeader?.issn && <span>ISSN {editionHeader.issn}</span>}
         </div>
         {/* Mots-clés thématiques — cliquables vers la recherche */}
         {doc.keywords && (

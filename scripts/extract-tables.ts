@@ -74,12 +74,15 @@ async function main() {
   // Cibles : --only (un numéro), sinon tous les docs tabulaires (ou --all).
   // Par défaut on SAUTE celles qui ont déjà des tableaux (reprise après quota) ;
   // --force les retraite.
-  const targets = docs.filter((d) => {
+  const limit = args.includes('--limit') ? Math.max(1, Number(args[args.indexOf('--limit') + 1])) : 0
+  let targets = docs.filter((d) => {
     if (!d.number || !byNumber.has(d.number)) return false
     if (!only && !force && d.richBlocksJson) return false
     if (only) return d.number.includes(only)
     return all || tableScore(d.bodyOriginal) >= 3
   })
+  // --limit : traiter par petits lots (évite que le run dépasse le délai et soit tué).
+  if (limit) targets = targets.slice(0, limit)
 
   console.log(`\n${targets.length} circulaire(s) ciblée(s)${commit ? ' — écriture' : ' — inventaire seul'} :\n`)
   let written = 0

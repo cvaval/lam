@@ -44,6 +44,18 @@ export const ExtractionSchema = z.object({
     .nullable()
     .describe("SPECIALE si l'en-tête porte « NUMÉRO SPÉCIAL » / « ÉDITION SPÉCIALE », sinon REGULIERE ; null si circulaire BRH"),
   publicationDate: z.string().nullable().describe('Date de publication (ou date de la circulaire) au format YYYY-MM-DD'),
+  // En-tête du fascicule (méthodologie Le Moniteur — table « numero »)
+  anneeParution: z
+    .number()
+    .int()
+    .nullable()
+    .describe("Année de parution / « … Année » du journal (ex. « 178e Année » ⇒ 178) — null si circulaire BRH ou absente"),
+  directeurGeneral: z
+    .string()
+    .nullable()
+    .describe("Nom du Directeur général mentionné dans l'ours / le bas de l'en-tête — null si absent"),
+  issn: z.string().nullable().describe('ISSN du journal si imprimé (ex. 1683-2930) — null sinon'),
+  ville: z.string().nullable().describe("Ville de publication (généralement « Port-au-Prince ») — null si absente"),
   publications: z
     .array(
       z.object({
@@ -51,6 +63,26 @@ export const ExtractionSchema = z.object({
         category: z
           .enum(['LOI', 'DECRET', 'ARRETE', 'AVIS', 'SOCIETE', 'MARQUE', 'CIRCULAIRE', 'AUTRE'])
           .describe('Nature juridique de la publication'),
+        // Données structurées de société pour les AVIS commerciaux (SA/SARL…) —
+        // alimentent l'index des sociétés. null pour les autres natures.
+        societe: z
+          .object({
+            denomination: z.string().describe('Dénomination sociale exacte, ex. « PARA BELLUM S.A. »'),
+            formeJuridique: z.string().nullable().describe('Forme juridique, ex. « Société Anonyme » — null si absente'),
+            siegeSocial: z.string().nullable().describe('Siège social (commune/adresse) — null si absent'),
+            nif: z.string().nullable().describe("Numéro d'identification fiscale (NIF/immatriculation DGI) — null si absent"),
+            patente: z.string().nullable().describe('Numéro de patente — null si absent'),
+            capital: z.number().nullable().describe('Capital social en chiffres (sans devise) — null si absent'),
+            devise: z.string().nullable().describe('Devise du capital (ex. HTG, USD) — null si absente'),
+            typeOperation: z
+              .enum(['constitution', 'modification', 'dissolution'])
+              .nullable()
+              .describe("Nature de l'opération sociale publiée — null si indéterminée"),
+            notaire: z.string().nullable().describe("Notaire instrumentant l'acte — null si absent"),
+            dateActe: z.string().nullable().describe("Date de l'acte de société au format YYYY-MM-DD — null si absente"),
+          })
+          .nullable()
+          .describe('Présent UNIQUEMENT si la publication est un AVIS de société (constitution/modification/dissolution) ; null sinon'),
       }),
     )
     .describe("Tous les titres de publications listés au sommaire / en première page, dans l'ordre ; liste vide si circulaire BRH"),
@@ -76,6 +108,28 @@ export const ExtractionSchema = z.object({
 
 export type ExtractionResult = z.infer<typeof ExtractionSchema>
 
+/** Données structurées d'une société publiée en AVIS (méthodologie Le Moniteur). */
+export interface SocieteData {
+  denomination: string
+  formeJuridique: string | null
+  siegeSocial: string | null
+  nif: string | null
+  patente: string | null
+  capital: number | null
+  devise: string | null
+  typeOperation: 'constitution' | 'modification' | 'dissolution' | null
+  notaire: string | null
+  dateActe: string | null
+}
+
+/** En-tête d'un fascicule du Moniteur (table « numero » de la méthodologie). */
+export interface EditionMeta {
+  anneeParution: number | null
+  directeurGeneral: string | null
+  issn: string | null
+  ville: string | null
+}
+
 export interface ExtractOutcome {
   ai: boolean
   documentKind: 'MONITEUR' | 'CIRCULAIRE_BRH'
@@ -83,6 +137,8 @@ export interface ExtractOutcome {
     moniteurNumber: string | null
     editionType: 'REGULIERE' | 'SPECIALE' | null
     publicationDate: string | null
+    /** en-tête du fascicule (année de parution, directeur général, ISSN, ville) */
+    meta: EditionMeta
   }
   circulaire: {
     number: number | null
@@ -91,7 +147,7 @@ export interface ExtractOutcome {
   }
   /** mots-clés thématiques du document (indexation par thèmes) */
   keywords: string[]
-  publications: { title: string; category: IndexCategory; type: DocType }[]
+  publications: { title: string; category: IndexCategory; type: DocType; societe: SocieteData | null }[]
 }
 
 const MAX_AI_PAGES = 4
@@ -134,9 +190,11 @@ Laisse moniteurNumber et editionType à null et publications vide.
 
 Si c'est une édition du MONITEUR :
 1. L'en-tête de la première page porte le numéro de l'édition (« No. … ») et sa date. Les éditions spéciales portent la mention « NUMÉRO SPÉCIAL » ou « ÉDITION SPÉCIALE ».
-2. Le SOMMAIRE (ou la première page) liste les publications de l'édition : lois, décrets, arrêtés, avis (souvent des autorisations de fonctionnement de sociétés anonymes), extraits du registre des marques de fabrique et de commerce, circulaires, communiqués. Certains titres sont doublés en créole haïtien (« Arete ki… ») : ce sont des publications distinctes, garde-les.
-3. Distingue soigneusement les TITRES de publications du corps de texte, des en-têtes de rubrique et des mentions d'éditeur. Un titre décrit un acte (« Arrêté nommant… », « Loi portant… », « Avis autorisant… »).
-4. Corrige l'orthographe évidente cassée par l'OCR (accents, espaces) sans réécrire le sens.
+2. Remplis l'en-tête du fascicule : anneeParution (« 178e Année » ⇒ 178), directeurGeneral (nom du Directeur général dans l'ours), issn (ex. 1683-2930) et ville (généralement « Port-au-Prince ») — null pour ce qui est absent.
+3. Le SOMMAIRE (ou la première page) liste les publications de l'édition : lois, décrets, arrêtés, avis (souvent des autorisations de fonctionnement de sociétés anonymes), extraits du registre des marques de fabrique et de commerce, circulaires, communiqués. Certains titres sont doublés en créole haïtien (« Arete ki… ») : ce sont des publications distinctes, garde-les.
+4. Distingue soigneusement les TITRES de publications du corps de texte, des en-têtes de rubrique et des mentions d'éditeur. Un titre décrit un acte (« Arrêté nommant… », « Loi portant… », « Avis autorisant… »).
+5. Pour chaque AVIS de société (constitution, modification de capital, dissolution d'une SA/SARL…), remplis l'objet « societe » avec les données structurées visibles (dénomination, forme juridique, siège, NIF/immatriculation, patente, capital en chiffres, devise, type d'opération, notaire, date de l'acte). Mets « societe » à null pour toute autre nature (loi, décret, arrêté, marque…).
+6. Corrige l'orthographe évidente cassée par l'OCR (accents, espaces) sans réécrire le sens.
 Laisse circulaireNumber, circulaireTitle et matiere à null.
 
 Dans TOUS les cas, remplis keywords : 5 à 10 mots-clés thématiques en français pour l'indexation par thèmes (matières juridiques, notions, institutions, objets du texte), du plus au moins central, courts (1 à 5 mots), minuscules sauf noms propres et sigles (BRH, UCREF, KYC…) — jamais le numéro ni la date du document.
@@ -199,7 +257,11 @@ Réponds UNIQUEMENT en JSON valide selon cette structure (respecte les valeurs d
   "moniteurNumber": "35" | null,
   "editionType": "REGULIERE" | "SPECIALE" | null,
   "publicationDate": "2024-01-15" | null,
-  "publications": [{"title": "Arrêté nommant…", "category": "LOI"|"DECRET"|"ARRETE"|"AVIS"|"SOCIETE"|"MARQUE"|"CIRCULAIRE"|"AUTRE"}],
+  "anneeParution": 178 | null,
+  "directeurGeneral": "Nom Prénom" | null,
+  "issn": "1683-2930" | null,
+  "ville": "Port-au-Prince" | null,
+  "publications": [{"title": "Arrêté nommant…", "category": "LOI"|"DECRET"|"ARRETE"|"AVIS"|"SOCIETE"|"MARQUE"|"CIRCULAIRE"|"AUTRE", "societe": null | {"denomination": "X S.A.", "formeJuridique": "Société Anonyme"|null, "siegeSocial": null, "nif": null, "patente": null, "capital": 5000000|null, "devise": "HTG"|null, "typeOperation": "constitution"|"modification"|"dissolution"|null, "notaire": null, "dateActe": "2022-12-22"|null}}],
   "circulaireNumber": 114 | null,
   "circulaireTitle": "Objet de la circulaire" | null,
   "matiere": "Droit bancaire - Politique monétaire" | null,
@@ -300,6 +362,7 @@ export async function ocrDocument(pdfBytes: Uint8Array): Promise<OcrResult> {
           ],
         },
       ],
+      config: { maxOutputTokens: 65536 },
     })
     const text = cleanOcrText(response.text ?? '')
     return { text, pages, truncated: total > pages }
@@ -419,7 +482,7 @@ export async function extractRichTables(pdfBytes: Uint8Array, bodyText: string):
           ],
         },
       ],
-      config: { responseMimeType: 'application/json' },
+      config: { responseMimeType: 'application/json', maxOutputTokens: 65536 },
     })
     // Tolérant : on garde les blocs bruts (un champ manquant/atypique ne doit pas
     // tout jeter) — le nettoyage/validation final vit dans parseRichBlocks
@@ -472,6 +535,33 @@ const FR_MONTHS: Record<string, number> = {
   juillet: 7, aout: 8, septembre: 9, octobre: 10, novembre: 11, decembre: 12,
 }
 
+/** Détection légère d'une société à partir du titre d'un AVIS (repli sans IA). */
+export function parseSocieteFromTitle(title: string): SocieteData | null {
+  const f = fold(title)
+  if (!/soci[ée]t[ée]|\bs\.?a\.?\b|\bsarl\b|\bdenomm/.test(f)) return null
+  // « … dénommée : "PARA BELLUM S.A." … » ou « … société anonyme PARA BELLUM S.A. »
+  const quoted = title.match(/[«"“]([^»"”\n]{2,80})[»"”]/)
+  const named = title.match(/d[ée]nomm[ée]e?\s*:?\s*([A-ZÀ-Ü0-9][^,\n.]{2,80})/)
+  const denomination = (quoted?.[1] ?? named?.[1] ?? '').trim()
+  if (!denomination) return null
+  let typeOperation: SocieteData['typeOperation'] = null
+  if (/dissol/.test(f)) typeOperation = 'dissolution'
+  else if (/modif|augmentation|capital|fusion/.test(f)) typeOperation = 'modification'
+  else if (/constitu|fonctionnement|autoris/.test(f)) typeOperation = 'constitution'
+  return {
+    denomination,
+    formeJuridique: /\bs\.?a\.?\b|anonyme/.test(f) ? 'Société Anonyme' : null,
+    siegeSocial: null,
+    nif: null,
+    patente: null,
+    capital: null,
+    devise: null,
+    typeOperation,
+    notaire: null,
+    dateActe: null,
+  }
+}
+
 export function heuristicExtract(firstPageText: string): ExtractionResult {
   const text = firstPageText.slice(0, 12000)
   const f = fold(text)
@@ -490,6 +580,10 @@ export function heuristicExtract(firstPageText: string): ExtractionResult {
       publicationDate: dateM
         ? `${dateM[3]}-${String(FR_MONTHS[dateM[2]]).padStart(2, '0')}-${String(Number(dateM[1])).padStart(2, '0')}`
         : null,
+      anneeParution: null,
+      directeurGeneral: null,
+      issn: null,
+      ville: null,
       publications: [],
       circulaireNumber: Number.isFinite(num) ? num : null,
       circulaireTitle: objetM ? objetM[1].replace(/\s+/g, ' ').trim() : `Circulaire BRH n° ${num}`,
@@ -524,12 +618,24 @@ export function heuristicExtract(firstPageText: string): ExtractionResult {
   }
   if (current) titles.push(current)
 
+  // En-tête : « 178e Année » et ISSN si présents.
+  const anneeM = f.match(/(\d{1,3})\s*e?\s*ann[ée]e/)
+  const issnM = text.match(/issn\s*:?\s*([\dX-]{8,12})/i)
+  const villeM = /port-au-prince/.test(f) ? 'Port-au-Prince' : null
+
   return {
     documentKind: 'MONITEUR',
     moniteurNumber: numMatch?.[1] ?? null,
     editionType: special ? 'SPECIALE' : numMatch ? 'REGULIERE' : null,
     publicationDate,
-    publications: titles.slice(0, 60).map((title) => ({ title, category: lineCategory(title) })),
+    anneeParution: anneeM ? Number(anneeM[1]) : null,
+    directeurGeneral: null,
+    issn: issnM ? issnM[1] : null,
+    ville: villeM,
+    publications: titles.slice(0, 60).map((title) => {
+      const category = lineCategory(title)
+      return { title, category, societe: category === 'SOCIETE' || category === 'AVIS' ? parseSocieteFromTitle(title) : null }
+    }),
     circulaireNumber: null,
     circulaireTitle: null,
     matiere: null,
@@ -546,6 +652,12 @@ export function toOutcome(result: ExtractionResult, ai: boolean): ExtractOutcome
       moniteurNumber: result.moniteurNumber,
       editionType: result.editionType,
       publicationDate: result.publicationDate,
+      meta: {
+        anneeParution: result.anneeParution ?? null,
+        directeurGeneral: result.directeurGeneral ?? null,
+        issn: result.issn ?? null,
+        ville: result.ville ?? null,
+      },
     },
     circulaire: {
       number: result.circulaireNumber,
@@ -553,11 +665,17 @@ export function toOutcome(result: ExtractionResult, ai: boolean): ExtractOutcome
       matiere: result.matiere,
     },
     keywords: normalizeKeywords(result.keywords),
-    publications: result.publications.map((p) => ({
-      title: p.title,
-      category: (INDEX_CATEGORIES as readonly string[]).includes(p.category) ? (p.category as IndexCategory) : 'AUTRE',
-      type: categoryToDocType(p.category as IndexCategory),
-    })),
+    publications: result.publications.map((p) => {
+      const category = (INDEX_CATEGORIES as readonly string[]).includes(p.category)
+        ? (p.category as IndexCategory)
+        : 'AUTRE'
+      return {
+        title: p.title,
+        category,
+        type: categoryToDocType(category),
+        societe: p.societe ?? null,
+      }
+    }),
   }
 }
 

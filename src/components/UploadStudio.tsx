@@ -7,23 +7,50 @@ import { postJson, postForm } from '@/lib/http'
 import { type DocType, type Locale } from '@/lib/types'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 
+interface SocieteData {
+  denomination: string
+  formeJuridique: string | null
+  siegeSocial: string | null
+  nif: string | null
+  patente: string | null
+  capital: number | null
+  devise: string | null
+  typeOperation: 'constitution' | 'modification' | 'dissolution' | null
+  notaire: string | null
+  dateActe: string | null
+}
+
 interface ExtractedPub {
   selected: boolean
   title: string
   type: DocType
+  category?: string
+  societe: SocieteData | null
 }
 
 type DocKind = 'MONITEUR' | 'CIRCULAIRE_BRH'
+
+interface EditionMeta {
+  anneeParution: number | null
+  directeurGeneral: string | null
+  issn: string | null
+  ville: string | null
+}
 
 interface ExtractResponse {
   ok: boolean
   ai: boolean
   aiError?: string
   documentKind: DocKind
-  edition: { moniteurNumber: string | null; editionType: 'REGULIERE' | 'SPECIALE' | null; publicationDate: string | null }
+  edition: {
+    moniteurNumber: string | null
+    editionType: 'REGULIERE' | 'SPECIALE' | null
+    publicationDate: string | null
+    meta: EditionMeta
+  }
   circulaire: { number: number | null; title: string | null; matiere: string | null }
   keywords: string[]
-  publications: { title: string; type: DocType }[]
+  publications: { title: string; type: DocType; category?: string; societe: SocieteData | null }[]
   bodyText: string
   textLayer: boolean
 }
@@ -52,6 +79,10 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
   const [editionType, setEditionType] = useState<'REGULIERE' | 'SPECIALE'>('REGULIERE')
   const [moniteurNumber, setMoniteurNumber] = useState('')
   const [pubDate, setPubDate] = useState('')
+  // En-tête du fascicule (méthodologie Le Moniteur)
+  const [anneeParution, setAnneeParution] = useState('')
+  const [directeurGeneral, setDirecteurGeneral] = useState('')
+  const [issn, setIssn] = useState('')
 
   // Circulaire BRH (modifiable après analyse)
   const [circNumber, setCircNumber] = useState('')
@@ -75,7 +106,7 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
   const [status, setStatus] = useState('PUBLIE')
 
   const [busy, setBusy] = useState(false)
-  const [done, setDone] = useState<{ count: number; firstId?: string } | null>(null)
+  const [done, setDone] = useState<{ count: number; firstId?: string; societes?: number } | null>(null)
   const [gaps, setGaps] = useState<{ year: number; missing: string[] } | null>(null)
   const [brhGaps, setBrhGaps] = useState<{ missing: string[] } | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -112,9 +143,13 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
         if (data.edition.editionType) setEditionType(data.edition.editionType)
         if (data.edition.moniteurNumber) setMoniteurNumber(data.edition.moniteurNumber)
         if (data.edition.publicationDate) setPubDate(data.edition.publicationDate)
+        const m = data.edition.meta
+        if (m?.anneeParution != null) setAnneeParution(String(m.anneeParution))
+        if (m?.directeurGeneral) setDirecteurGeneral(m.directeurGeneral)
+        if (m?.issn) setIssn(m.issn)
       }
       if (data.keywords?.length) setKeywords(data.keywords.join(', '))
-      setPubs(data.publications.map((p) => ({ selected: true, title: p.title, type: p.type })))
+      setPubs(data.publications.map((p) => ({ selected: true, title: p.title, type: p.type, category: p.category, societe: p.societe ?? null })))
       if (data.bodyText && !body) setBody(data.bodyText)
     } catch {
       setError(t.cms.analyzeFailed)
@@ -162,7 +197,15 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
     editionType,
     moniteurNumber: moniteurNumber.trim() || undefined,
     publicationDate: pubDate || undefined,
+    anneeParution: anneeParution.trim() ? Number(anneeParution) : undefined,
+    directeurGeneral: directeurGeneral.trim() || undefined,
+    issn: issn.trim() || undefined,
   }
+
+  function patchSociete(i: number, patch: Partial<SocieteData>) {
+    setPubs((list) => list.map((p, k) => (k === i && p.societe ? { ...p, societe: { ...p.societe, ...patch } } : p)))
+  }
+  const societeCount = pubs.filter((p) => p.selected && p.societe).length
 
   // Publication en lot : un document par titre sélectionné.
   async function publishSelected() {
@@ -175,11 +218,13 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
     const res = await postJson('/api/admin/upload', {
       ...editionPayload,
       bodyOriginal: body,
-      publications: pubs.filter((p) => p.selected).map((p) => ({ titleFr: p.title.trim(), type: p.type })),
+      publications: pubs
+        .filter((p) => p.selected)
+        .map((p) => ({ titleFr: p.title.trim(), type: p.type, category: p.category, societe: p.societe ?? undefined })),
     })
     setBusy(false)
     if (res.ok) {
-      setDone({ count: res.data.count, firstId: res.data.ids?.[0] })
+      setDone({ count: res.data.count, firstId: res.data.ids?.[0], societes: res.data.societes })
       setGaps(res.data.gaps ?? null)
       setBrhGaps(null)
       setPubs((list) => list.filter((p) => !p.selected))
@@ -246,6 +291,7 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
         <div className="flex items-center justify-between rounded-xl border border-fey/30 bg-fey-50 px-4 py-3 text-sm text-fey">
           <span>
             ✔ {done.count} {t.cms.published}
+            {done.societes ? ` · ${done.societes} ${t.cms.societeCreated}` : ''}
           </span>
           {done.firstId && (
             <a href={`/${locale}/doc/${done.firstId}`} className="font-semibold underline">
@@ -379,6 +425,10 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
                 className={fieldCls}
               />
             </div>
+            {/* En-tête du fascicule (méthodologie Le Moniteur) */}
+            <Field label={t.cms.anneeParution} value={anneeParution} onChange={setAnneeParution} placeholder="178" />
+            <Field label={t.cms.directeurGeneral} value={directeurGeneral} onChange={setDirecteurGeneral} />
+            <Field label={t.cms.issn} value={issn} onChange={setIssn} placeholder="1683-2930" />
           </div>
         ) : (
           <div className="space-y-4">
@@ -460,33 +510,83 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
               {busy ? t.common.loading : `${t.cms.publishSelected} (${selectedCount})`}
             </button>
           </div>
-          <p className="mb-3 text-xs text-lank/45">{t.cms.editHint}</p>
-          <div className="max-h-96 space-y-2 overflow-y-auto pr-1">
+          <p className="mb-3 text-xs text-lank/45">
+            {t.cms.editHint}
+            {societeCount > 0 && <span className="ml-1 font-medium text-fey">· {societeCount} {t.cms.societeLinked}</span>}
+          </p>
+          <div className="max-h-[28rem] space-y-2 overflow-y-auto pr-1">
             {pubs.map((p, i) => (
-              <div key={i} className="flex items-start gap-2 rounded-lg border border-lank/10 bg-paper/60 p-2">
-                <input
-                  type="checkbox"
-                  checked={p.selected}
-                  onChange={(e) => patchPub(i, { selected: e.target.checked })}
-                  className="mt-2 h-4 w-4 accent-lank"
-                />
-                <textarea
-                  value={p.title}
-                  onChange={(e) => patchPub(i, { title: e.target.value })}
-                  rows={2}
-                  className="flex-1 resize-y rounded-md border border-lank/15 bg-white px-2.5 py-1.5 text-sm outline-none focus:border-sitwon"
-                />
-                <select
-                  value={p.type}
-                  onChange={(e) => patchPub(i, { type: e.target.value as DocType })}
-                  className="rounded-md border border-lank/15 bg-white px-2 py-1.5 text-xs outline-none focus:border-sitwon"
-                >
-                  {FULLTEXT_TYPE_LIST.map((m) => (
-                    <option key={m.type} value={m.type}>
-                      {m.badge}
-                    </option>
-                  ))}
-                </select>
+              <div key={i} className="rounded-lg border border-lank/10 bg-paper/60 p-2">
+                <div className="flex items-start gap-2">
+                  <input
+                    type="checkbox"
+                    checked={p.selected}
+                    onChange={(e) => patchPub(i, { selected: e.target.checked })}
+                    className="mt-2 h-4 w-4 accent-lank"
+                  />
+                  <textarea
+                    value={p.title}
+                    onChange={(e) => patchPub(i, { title: e.target.value })}
+                    rows={2}
+                    className="flex-1 resize-y rounded-md border border-lank/15 bg-white px-2.5 py-1.5 text-sm outline-none focus:border-sitwon"
+                  />
+                  <select
+                    value={p.type}
+                    onChange={(e) => patchPub(i, { type: e.target.value as DocType })}
+                    className="rounded-md border border-lank/15 bg-white px-2 py-1.5 text-xs outline-none focus:border-sitwon"
+                  >
+                    {FULLTEXT_TYPE_LIST.map((m) => (
+                      <option key={m.type} value={m.type}>
+                        {m.badge}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                {/* Acte de société : champs structurés → fiche société de l'index */}
+                {p.societe && (
+                  <div className="ml-6 mt-2 rounded-md border border-fey/30 bg-fey-50/50 p-2">
+                    <p className="mb-1.5 flex items-center gap-1 text-[11px] font-semibold text-fey">
+                      🏢 {t.cms.societeBlock}
+                    </p>
+                    <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                      <input
+                        value={p.societe.denomination}
+                        onChange={(e) => patchSociete(i, { denomination: e.target.value })}
+                        placeholder={t.cms.societeDenom}
+                        className="col-span-2 rounded border border-lank/15 bg-white px-2 py-1 text-xs outline-none focus:border-sitwon"
+                      />
+                      <input
+                        value={p.societe.nif ?? ''}
+                        onChange={(e) => patchSociete(i, { nif: e.target.value || null })}
+                        placeholder={t.cms.societeNif}
+                        className="rounded border border-lank/15 bg-white px-2 py-1 text-xs outline-none focus:border-sitwon"
+                      />
+                      <select
+                        value={p.societe.typeOperation ?? ''}
+                        onChange={(e) => patchSociete(i, { typeOperation: (e.target.value || null) as SocieteData['typeOperation'] })}
+                        className="rounded border border-lank/15 bg-white px-1.5 py-1 text-xs outline-none focus:border-sitwon"
+                      >
+                        <option value="">{t.cms.societeOp}</option>
+                        <option value="constitution">{t.cms.opConstitution}</option>
+                        <option value="modification">{t.cms.opModification}</option>
+                        <option value="dissolution">{t.cms.opDissolution}</option>
+                      </select>
+                      <input
+                        value={p.societe.capital ?? ''}
+                        onChange={(e) => patchSociete(i, { capital: e.target.value ? Number(e.target.value) : null })}
+                        placeholder={t.cms.societeCapital}
+                        inputMode="numeric"
+                        className="rounded border border-lank/15 bg-white px-2 py-1 text-xs outline-none focus:border-sitwon"
+                      />
+                      <input
+                        value={p.societe.notaire ?? ''}
+                        onChange={(e) => patchSociete(i, { notaire: e.target.value || null })}
+                        placeholder={t.cms.societeNotaire}
+                        className="col-span-2 rounded border border-lank/15 bg-white px-2 py-1 text-xs outline-none focus:border-sitwon"
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>

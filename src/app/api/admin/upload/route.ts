@@ -5,7 +5,7 @@ import { prisma } from '@/lib/db'
 import { getCurrentUser } from '@/lib/auth/session'
 import { can } from '@/lib/rbac'
 import { audit } from '@/lib/auth/audit'
-import { buildSearchText } from '@/lib/search/normalize'
+import { buildSearchText, fold } from '@/lib/search/normalize'
 import { invalidateSearchIndexes } from '@/lib/search'
 import { createOpenSearchClient } from '@/lib/search/client'
 import { indexNameForType } from '@/lib/search/mappings'
@@ -23,10 +23,28 @@ export const runtime = 'nodejs'
 //  - simple : un document (titleFr + bodyOriginal) ;
 //  - lot : une édition du Moniteur (type régulière/spéciale + numéro + date) et
 //    ses publications extraites — un document créé par titre sélectionné.
+// Données structurées de société (AVIS commerciaux) — méthodologie Le Moniteur.
+// Présentes pour créer/lier une fiche société à l'index lors de la publication.
+const societeSchema = z.object({
+  denomination: z.string().min(2).max(200),
+  formeJuridique: z.string().max(120).nullable().optional(),
+  siegeSocial: z.string().max(200).nullable().optional(),
+  nif: z.string().max(60).nullable().optional(),
+  patente: z.string().max(60).nullable().optional(),
+  capital: z.number().nullable().optional(),
+  devise: z.string().max(10).nullable().optional(),
+  typeOperation: z.enum(['constitution', 'modification', 'dissolution']).nullable().optional(),
+  notaire: z.string().max(160).nullable().optional(),
+  dateActe: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable().optional(),
+})
+
 const publicationSchema = z.object({
   titleFr: z.string().min(3),
   type: z.enum(DOC_TYPES),
   bodyOriginal: z.string().optional(), // sinon : texte partagé de l'édition
+  // Nature de l'acte (sommaire) — pilote le rattachement société/marque.
+  category: z.enum(['LOI', 'DECRET', 'ARRETE', 'AVIS', 'SOCIETE', 'MARQUE', 'CIRCULAIRE', 'AUTRE']).optional(),
+  societe: societeSchema.nullable().optional(),
 })
 
 const schema = z.object({
@@ -50,6 +68,11 @@ const schema = z.object({
   moniteurNumber: z.string().max(20).optional(),
   publicationDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
   moniteurRef: z.string().optional(),
+  // En-tête du fascicule (méthodologie Le Moniteur — table « numero »)
+  anneeParution: z.number().int().positive().max(999).nullable().optional(),
+  directeurGeneral: z.string().max(160).nullable().optional(),
+  issn: z.string().max(20).nullable().optional(),
+  ville: z.string().max(120).nullable().optional(),
   // Métadonnées de circulaire BRH (mode « Circulaire BRH » de l'UploadStudio)
   circulaireNumber: z.number().int().positive().optional(),
   effectiveDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(), // entrée en vigueur
@@ -122,6 +145,82 @@ async function indexInOpenSearch(docs: Document[]) {
   }
 }
 
+type Societe = z.infer<typeof societeSchema>
+
+/** Opération sociale → type de lien CompanyPublication. */
+function operationToKind(op: Societe['typeOperation'], category?: string): string {
+  if (category === 'MARQUE') return 'MARQUE'
+  switch (op) {
+    case 'constitution':
+      return 'STATUTS'
+    case 'modification':
+      return 'MODIF_CAPITAL'
+    case 'dissolution':
+      return 'DISSOLUTION'
+    default:
+      return 'AUTRE'
+  }
+}
+
+/**
+ * Crée ou retrouve une fiche société (dédup par NIF, sinon par nom accent-folé) et
+ * la relie au document publié — c'est le pivot de Lam : recoupement d'une même
+ * société à travers tous les numéros du Moniteur. Best-effort : une erreur ici ne
+ * doit pas faire échouer la publication de l'acte.
+ */
+async function linkSociete(s: Societe, doc: Document, label: string | null, category?: string): Promise<boolean> {
+  try {
+    const searchName = fold(s.denomination).replace(/\s+/g, ' ').trim()
+    const nif = s.nif?.trim() || null
+    let company =
+      (nif ? await prisma.company.findFirst({ where: { nif } }) : null) ??
+      (await prisma.company.findFirst({ where: { searchName } }))
+
+    const capital = s.capital != null ? `${s.capital.toLocaleString('fr-FR')} ${s.devise ?? 'HTG'}`.trim() : null
+    if (!company) {
+      company = await prisma.company.create({
+        data: { name: s.denomination.trim(), searchName, nif, capital, address: s.siegeSocial?.trim() || null },
+      })
+    } else {
+      // Enrichit les champs vides d'une fiche déjà connue (sans écraser l'existant).
+      await prisma.company.update({
+        where: { id: company.id },
+        data: {
+          nif: company.nif ?? nif,
+          capital: company.capital ?? capital,
+          address: company.address ?? (s.siegeSocial?.trim() || null),
+        },
+      })
+    }
+
+    await prisma.companyPublication.create({
+      data: {
+        companyId: company.id,
+        documentId: doc.id,
+        kind: operationToKind(s.typeOperation, category),
+        label: doc.titleFr.slice(0, 200),
+        date: s.dateActe ? new Date(`${s.dateActe}T00:00:00Z`) : doc.publicationDate,
+        moniteurRef: label,
+      },
+    })
+    return true
+  } catch (e) {
+    console.warn('Rattachement société échoué (acte publié quand même) :', e)
+    return false
+  }
+}
+
+/** Sérialise l'en-tête du numéro pour Document.metaJson (null si rien à stocker). */
+function editionMetaJson(d: z.infer<typeof schema>): string | null {
+  const meta = {
+    anneeParution: d.anneeParution ?? null,
+    directeurGeneral: d.directeurGeneral ?? null,
+    issn: d.issn ?? null,
+    ville: d.ville ?? null,
+  }
+  return Object.values(meta).some((v) => v != null) ? JSON.stringify({ edition: meta }) : null
+}
+
 export async function POST(req: NextRequest) {
   const user = await getCurrentUser()
   if (!user || !can(user.role, 'upload.publish')) return apiError('forbidden', 403)
@@ -131,6 +230,7 @@ export async function POST(req: NextRequest) {
   const d = parsed.data
 
   const { number, label, date } = editionIdentity(d)
+  const metaJson = editionMetaJson(d)
   const common = {
     moniteurRef: label,
     number,
@@ -139,11 +239,13 @@ export async function POST(req: NextRequest) {
     source: 'CMS',
     sealed: true, // [Publier] appose le sceau
     publishedById: user.id,
+    metaJson,
   }
 
   // ── Mode lot : une édition, N publications ──
   if (d.publications?.length) {
     const created: Document[] = []
+    let societes = 0
     for (const pub of d.publications) {
       const body = pub.bodyOriginal?.trim() || d.bodyOriginal
       // Mots-clés PAR publication : le lexique sur le titre (les mots-clés de
@@ -161,6 +263,10 @@ export async function POST(req: NextRequest) {
         },
       })
       created.push(doc)
+      // Acte de société → fiche société liée (méthodologie Le Moniteur).
+      if (pub.societe) {
+        if (await linkSociete(pub.societe, doc, label, pub.category)) societes++
+      }
     }
     const ids = created.map((doc) => doc.id)
     await audit({
@@ -168,11 +274,11 @@ export async function POST(req: NextRequest) {
       actorId: user.id,
       targetType: 'DOCUMENT',
       targetId: ids[0],
-      meta: { count: ids.length, edition: number, editionType: d.editionType },
+      meta: { count: ids.length, edition: number, editionType: d.editionType, societes },
     })
     invalidateSearchIndexes()
     await indexInOpenSearch(created)
-    return NextResponse.json({ ok: true, ids, count: ids.length, gaps: await gapsForYear(date) })
+    return NextResponse.json({ ok: true, ids, count: ids.length, societes, gaps: await gapsForYear(date) })
   }
 
   // ── Mode simple ──
