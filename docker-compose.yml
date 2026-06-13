@@ -1,0 +1,39 @@
+# Pile de production optionnelle (§09) : OpenSearch + Postgres.
+# En dev, l'application tourne sans Docker (SQLite + moteur FTS intégré).
+#
+#   docker compose up -d
+#   # puis, dans .env : SEARCH_PROVIDER=opensearch  et  DATABASE_URL=postgresql://...
+services:
+  opensearch:
+    image: opensearchproject/opensearch:2.13.0
+    container_name: lamveritab-opensearch
+    environment:
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=Lam_Veritab_2026!
+      - DISABLE_INSTALL_DEMO_CONFIG=true
+      - DISABLE_SECURITY_PLUGIN=true # dev uniquement
+    ulimits:
+      memlock: { soft: -1, hard: -1 }
+      nofile: { soft: 65536, hard: 65536 }
+    ports:
+      - "9200:9200"
+    volumes:
+      - opensearch-data:/usr/share/opensearch/data
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: lamveritab-postgres
+    environment:
+      - POSTGRES_USER=lamveritab
+      - POSTGRES_PASSWORD=lamveritab
+      - POSTGRES_DB=lamveritab
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  opensearch-data:
+  postgres-data:

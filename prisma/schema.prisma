@@ -1,0 +1,408 @@
+// Lam Veritab — schéma de données
+// « Le fruit du savoir » — plateforme trilingue de recherche juridique haïtienne.
+//
+// Provider : SQLite par défaut (zéro infrastructure). Pour la production, basculer
+// vers PostgreSQL en changeant `provider` + DATABASE_URL (aucun autre changement requis).
+// SQLite ne supporte pas les `enum` Prisma : les valeurs énumérées sont des String,
+// validées au niveau applicatif (src/lib/types.ts) et documentées en commentaire.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ─────────────────────────────── Comptes & accès ───────────────────────────────
+
+/// Cabinet, banque ou institution (palier Enstitisyon — multi-utilisateurs / sièges).
+model Organization {
+  id        String   @id @default(cuid())
+  name      String
+  kind      String   @default("CABINET") // CABINET | BANQUE | INSTITUTION | EDITEUR
+  seatLimit Int      @default(5)
+  createdAt DateTime @default(now())
+  users     User[]
+}
+
+/// Utilisateur. role ∈ {SITWAYEN, PWOFESYONEL, ENSTITISYON, EDITEUR, MASTER_ADMIN}
+/// status ∈ {PENDING, ACTIVE, SUSPENDED}. Aucun compte n'accède au contenu payant
+/// sans activation par le master admin (§03).
+model User {
+  id             String   @id @default(cuid())
+  email          String   @unique
+  passwordHash   String
+  name           String?
+  role           String   @default("SITWAYEN")
+  status         String   @default("PENDING")
+  locale         String   @default("fr") // fr | en | ht — mémorisé par compte (§02)
+
+  // 2FA / TOTP (§04, §09)
+  totpSecret     String?
+  totpEnabled    Boolean  @default(false)
+
+  // Quota de recherche mensuel (Sitwayen gratuit) — illimité = null
+  monthlyQuota   Int?     @default(30)
+  quotaUsed      Int      @default(0)
+  quotaResetAt   DateTime @default(now())
+
+  // Palier octroyé par code promo : expire à cette date (puis retour Sitwayen).
+  planExpiresAt  DateTime?
+
+  // Accès restreint à l'Index du Moniteur uniquement (références, pas de texte
+  // intégral) — option activée par le master admin.
+  indexOnly      Boolean  @default(false)
+
+  // Verrouillage anti-bruteforce : 5 échecs → 15 min (§04)
+  failedLogins   Int      @default(0)
+  lockedUntil    DateTime?
+
+  organizationId String?
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+
+  // Traçabilité de l'activation (master admin)
+  requestedAt    DateTime @default(now())
+  activatedAt    DateTime?
+  activatedById  String?
+  activatedBy    User?    @relation("Activator", fields: [activatedById], references: [id])
+  activatedUsers User[]   @relation("Activator")
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  sessions       Session[]
+  trustedDevices TrustedDevice[]
+  favorites      Favorite[]
+  searchLogs     SearchLog[]
+  alerts         Alert[]
+  exports          ExportRecord[]
+  auditLogs        AuditLog[] @relation("AuditActor")
+  publishedDocs    Document[] @relation("Publisher")
+  promoRedemptions PromoRedemption[]
+  assignedPromoCodes PromoCode[] @relation("PromoAssignee")
+  createdPromoCodes  PromoCode[] @relation("PromoCreator")
+
+  @@index([status])
+  @@index([role])
+}
+
+/// Code promo (§09 — paiement). Le master admin génère des codes qui octroient un
+/// palier payant gratuitement pour une durée donnée. Un code peut être assigné à un
+/// compte précis (« donner un code à un compte ») ou être ouvert à la redemption.
+model PromoCode {
+  id               String   @id @default(cuid())
+  code             String   @unique
+  label            String?
+  grantsRole       String   @default("PWOFESYONEL") // palier octroyé
+  durationDays     Int?     // null = permanent
+  percentOff       Int?     // remise indicative (affichage paiement)
+  maxRedemptions   Int?     // null = illimité
+  redeemedCount    Int      @default(0)
+  expiresAt        DateTime? // date limite d'utilisation du code
+  active           Boolean  @default(true)
+  assignedToUserId String?  // code réservé/attribué à un compte précis
+  assignedTo       User?    @relation("PromoAssignee", fields: [assignedToUserId], references: [id], onDelete: SetNull)
+  createdById      String?
+  createdBy        User?    @relation("PromoCreator", fields: [createdById], references: [id], onDelete: SetNull)
+  createdAt        DateTime @default(now())
+  redemptions      PromoRedemption[]
+
+  @@index([active])
+}
+
+/// Utilisation d'un code promo par un compte (un seul par couple code/compte).
+model PromoRedemption {
+  id          String    @id @default(cuid())
+  promoCodeId String
+  promoCode   PromoCode @relation(fields: [promoCodeId], references: [id], onDelete: Cascade)
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  grantedRole String
+  expiresAt   DateTime?
+  redeemedAt  DateTime  @default(now())
+
+  @@unique([promoCodeId, userId])
+  @@index([userId])
+}
+
+/// Session serveur (cookie opaque httpOnly). twoFactorVerified passe à true après
+/// validation du code 6 chiffres. Éditeur/Admin : 2FA à chaque session (§04).
+model Session {
+  id               String   @id @default(cuid())
+  token            String   @unique
+  userId           String
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  twoFactorVerified Boolean @default(false)
+  ip               String?
+  userAgent        String?
+  createdAt        DateTime @default(now())
+  expiresAt        DateTime
+
+  @@index([userId])
+}
+
+/// Appareil de confiance — fenêtre de 30 jours (cookie signé + empreinte) (§04, §09).
+/// Indisponible pour Éditeur et Master Admin (2FA à chaque session).
+model TrustedDevice {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  deviceId    String   // identifiant aléatoire stocké dans un cookie signé HMAC
+  fingerprint String   // empreinte UA + entête (dissuasion du vol de cookie)
+  label       String?
+  lastIp      String?
+  createdAt   DateTime @default(now())
+  expiresAt   DateTime // createdAt + 30 jours
+
+  @@unique([userId, deviceId])
+  @@index([userId])
+}
+
+// ─────────────────────────────── Corpus juridique ──────────────────────────────
+
+/// Document du corpus. type ∈ {LEGISLATION, CIRCULAIRE_BRH, JURISPRUDENCE,
+/// DOCTRINE, LOI_FINANCES, MARQUE, INDEX} — 6 services à texte intégral (§01)
+/// + l'Index du Moniteur (références seules, sans texte intégral).
+///
+/// RÈGLE ABSOLUE (§02) : `bodyOriginal` est le texte officiel, dans sa langue de
+/// publication, JAMAIS traduit. Les champs éditoriaux (titres, résumés, « Sa sa vle
+/// di / What it means ») existent en FR/EN/HT et sont balisés comme éditoriaux.
+model Document {
+  id             String   @id @default(cuid())
+  type           String
+  status         String   @default("PUBLIE") // EN_VIGUEUR | ABROGE | MODIFIE | PUBLIE
+
+  // Titres descriptifs éditoriaux (traduisibles)
+  titleFr        String
+  titleEn        String?
+  titleHt        String?
+
+  // Texte officiel — NON traduit
+  bodyOriginal   String
+  originalLang   String   @default("fr")
+
+  // Résumés éditoriaux & encadrés pédagogiques « Sa sa vle di / What it means »
+  summaryFr      String?
+  summaryEn      String?
+  summaryHt      String?
+  meansFr        String?
+  meansEn        String?
+  meansHt        String?
+
+  // Source & publication au Moniteur
+  moniteurRef    String?  // ex. « Le Moniteur n° 112 du 9 juin 2020 »
+  publicationDate DateTime?
+  // Date d'entrée en vigueur (distincte de la signature/publication) — circulaires
+  // BRH notamment : « à compter du … ». Nullable, affichée à côté de publicationDate.
+  effectiveDate  DateTime?
+  sourcePdfUrl   String?
+  number         String?  // n° de loi / n° de circulaire / n° d'arrêt
+
+  // Champs filtrables spécifiques par type (nullables)
+  juridiction    String?  // JURISPRUDENCE : CASSATION | APPEL | PREMIERE_INSTANCE
+  matiere        String?  // JURISPRUDENCE / DOCTRINE : civil, commercial, fiscal…
+  author         String?  // DOCTRINE
+  revue          String?  // DOCTRINE
+  year           Int?     // DOCTRINE
+  fiscalYear     Int?     // LOI_FINANCES : exercice fiscal
+  niceClasses    String?  // MARQUE : classes de Nice, CSV « 35,41,42 »
+  bhdaNumber     String?  // MARQUE : n° de dépôt BHDA
+  holder         String?  // MARQUE : titulaire (texte) — voir aussi Company
+  imageUrl       String?  // MARQUE : reproduction de la marque si publiée
+
+  // Mots-clés thématiques (FR), séparés par « ; » — extraits par IA au téléversement
+  // (repli heuristique sans clé API) ou par scripts/backfill-keywords.ts. Cherchables
+  // via searchText et SEARCH_FIELD_WEIGHTS ; affichés en chips sur la fiche document.
+  keywords       String?
+
+  // Le long terme : champs additionnels en JSON (stocké en texte pour portabilité SQLite)
+  metaJson       String?
+
+  // Rendu enrichi (tableaux + encadrés colorés) reconstruit du rendu visuel du PDF
+  // par l'IA vision (src/lib/ai/extract.ts) ou à la main. JSON sérialisé de RichBlock[]
+  // (src/lib/doc/richblocks.ts). AFFICHAGE seulement — bodyOriginal reste le texte
+  // officiel brut (§02) ; la couche texte OCR aplatit tableaux et couleurs.
+  richBlocksJson String?
+
+  // Texte de recherche accent-folé (minuscules) — préfiltrage SQL du moteur FTS à grande
+  // échelle (Index du Moniteur ~28k). Recalculé à chaque écriture.
+  searchText     String?
+
+  // Provenance (ex. "MONITEUR" pour l'Index du Moniteur 1900-2023) — ré-import idempotent.
+  source         String?
+
+  // Sous-catégorie d'une entrée d'index (LOI, DECRET, ARRETE, AVIS, SOCIETE, MARQUE…).
+  // Les avis-sociétés groupés (SOCIETE) sont représentés par des fiches Société
+  // individuelles : on les masque de la recherche au profit de la société (réf. unique).
+  category       String?
+
+  // Type d'édition du Moniteur : REGULIERE | SPECIALE (saisi au téléversement,
+  // ou déduit de la référence pour l'Index — « SP » dans le numéro).
+  editionType    String?
+
+  sealed         Boolean  @default(false) // sceau apposé à la publication (§00, §08)
+  publishedById  String?
+  publishedBy    User?    @relation("Publisher", fields: [publishedById], references: [id])
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  versions       DocumentVersion[]
+  citationsFrom  Citation[]  @relation("CitationFrom")
+  citationsTo    Citation[]  @relation("CitationTo")
+  favorites      Favorite[]
+  exports        ExportRecord[]
+  publications   CompanyPublication[]
+
+  @@index([type])
+  @@index([status])
+  @@index([fiscalYear])
+  @@index([bhdaNumber])
+  @@index([source])
+  @@index([publicationDate])
+  @@index([category])
+}
+
+/// Versions consolidées + historique des modifications (type 1 — §01).
+model DocumentVersion {
+  id            String   @id @default(cuid())
+  documentId    String
+  document      Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  versionLabel  String   // ex. « Version consolidée au 31/12/2021 »
+  status        String   @default("EN_VIGUEUR")
+  effectiveDate DateTime?
+  body          String
+  changeNote    String?  // ex. « Modifié par la loi du … art. 4 »
+  createdAt     DateTime @default(now())
+
+  @@index([documentId])
+}
+
+/// Citations croisées (doctrine → législation commentée ; jurisprudence → article…). §01
+model Citation {
+  id     String   @id @default(cuid())
+  fromId String
+  toId   String
+  kind   String   @default("CITE") // CITE | COMMENTE | MODIFIE | ABROGE | APPLIQUE
+  from   Document @relation("CitationFrom", fields: [fromId], references: [id], onDelete: Cascade)
+  to     Document @relation("CitationTo", fields: [toId], references: [id], onDelete: Cascade)
+
+  @@unique([fromId, toId, kind])
+  @@index([toId])
+}
+
+// ───────────────────── Index transversal sociétés / marques ────────────────────
+
+/// Fiche société : agrège toutes ses publications au Moniteur (statuts, modifications
+/// de capital, marques déposées). Couche d'indexation transversale, pas un 7ᵉ type (§01).
+model Company {
+  id           String   @id @default(cuid())
+  name         String
+  searchName   String?  // nom accent-folé (minuscules) — recherche accent-insensible
+  rcNumber     String?  // registre du commerce
+  nif          String?  // numéro d'identité fiscale (DGI)
+  capital      String?
+  address      String?
+  createdAt    DateTime @default(now())
+  publications CompanyPublication[]
+
+  @@index([name])
+}
+
+/// Lien société ↔ publication. Une publication peut pointer un document (statuts,
+/// modif. de capital, marque déposée).
+model CompanyPublication {
+  id          String   @id @default(cuid())
+  companyId   String
+  company     Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  documentId  String?
+  document    Document? @relation(fields: [documentId], references: [id], onDelete: SetNull)
+  kind        String   // STATUTS | MODIF_CAPITAL | DISSOLUTION | MARQUE | AUTRE
+  label       String
+  date        DateTime?
+  moniteurRef String?
+
+  @@index([companyId])
+}
+
+// ──────────────────────────── Usage & personnalisation ─────────────────────────
+
+model Favorite {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  documentId String
+  document   Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, documentId])
+  @@index([userId])
+}
+
+/// Journal des recherches — alimente le KPI « recherches aujourd'hui » (§08).
+model SearchLog {
+  id           String   @id @default(cuid())
+  userId       String?
+  user         User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  query        String
+  locale       String   @default("fr")
+  type         String?  // type filtré, le cas échéant
+  resultsCount Int      @default(0)
+  createdAt    DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+/// Alertes de veille réglementaire (palier Pro ; sectorielles pour Enstitisyon). §03
+// P2 — NON CÂBLÉ : alertes de veille (roadmap §10). Aucun code applicatif ne lit
+// ni n'écrit cette table pour l'instant ; conservée pour la phase 2.
+model Alert {
+  id             String   @id @default(cuid())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  label          String
+  type           String?  // type de document surveillé
+  query          String?
+  sector         String?  // alerte sectorielle (Enstitisyon)
+  active         Boolean  @default(true)
+  lastNotifiedAt DateTime?
+  createdAt      DateTime @default(now())
+
+  @@index([userId])
+}
+
+/// Trace d'export PDF scellé — anti-scraping : le sceau embarque l'identifiant du
+/// compte exportateur (filigrane dynamique, §09).
+model ExportRecord {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  documentId  String
+  document    Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  watermarkId String   // identifiant tatoué dans le PDF (compte + horodatage)
+  ip          String?
+  createdAt   DateTime @default(now())
+
+  @@index([userId])
+}
+
+/// Journal de sécurité / audit (§08). action ∈ {LOGIN_OK, LOGIN_FAIL, LOCKOUT,
+/// 2FA_OK, 2FA_FAIL, ACCOUNT_ACTIVATED, ACCOUNT_SUSPENDED, ROLE_CHANGED,
+/// 2FA_RESET, DOC_PUBLISHED, EXPORT, SCRAPING_ALERT, …}.
+model AuditLog {
+  id           String   @id @default(cuid())
+  actorId      String?
+  actor        User?    @relation("AuditActor", fields: [actorId], references: [id], onDelete: SetNull)
+  action       String
+  targetType   String?  // USER | DOCUMENT | SESSION …
+  targetId     String?
+  ip           String?
+  userAgent    String?
+  metaJson     String?
+  createdAt    DateTime @default(now())
+
+  @@index([action])
+  @@index([createdAt])
+}
