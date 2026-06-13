@@ -67,12 +67,16 @@ async function main() {
 
   const docs = await prisma.document.findMany({
     where: { type: 'CIRCULAIRE_BRH' },
-    select: { id: true, number: true, titleFr: true, bodyOriginal: true },
+    select: { id: true, number: true, titleFr: true, bodyOriginal: true, richBlocksJson: true },
   })
+  const force = args.includes('--force')
 
   // Cibles : --only (un numéro), sinon tous les docs tabulaires (ou --all).
+  // Par défaut on SAUTE celles qui ont déjà des tableaux (reprise après quota) ;
+  // --force les retraite.
   const targets = docs.filter((d) => {
     if (!d.number || !byNumber.has(d.number)) return false
+    if (!only && !force && d.richBlocksJson) return false
     if (only) return d.number.includes(only)
     return all || tableScore(d.bodyOriginal) >= 3
   })
