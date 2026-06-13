@@ -54,6 +54,19 @@ interface RelevanceCtx {
 const CANDIDATE_LIMIT = 1200
 const FUZZY_CANDIDATE_LIMIT = 600
 
+// Projection : colonnes réellement lues en JS (scoring + affichage). Exclut
+// volontairement `searchText` (jamais lu hors WHERE) et `bodyOriginal` (corps
+// volumineux, jusqu'à ~460k car.) — sans cette projection, chaque requête
+// transférait des Mo inutiles pour jusqu'à 1200 candidats (5-37 s/requête).
+const DOC_SELECT = {
+  id: true, type: true, status: true,
+  titleFr: true, titleEn: true, titleHt: true,
+  summaryFr: true, summaryEn: true, summaryHt: true,
+  number: true, bhdaNumber: true, holder: true, author: true,
+  keywords: true, revue: true, matiere: true, juridiction: true,
+  moniteurRef: true, publicationDate: true, niceClasses: true, imageUrl: true,
+} satisfies Prisma.DocumentSelect
+
 interface Weighted {
   value: string | null | undefined
   weight: number
@@ -101,40 +114,47 @@ export class FtsProvider implements SearchProvider {
           orderBy: { publicationDate: 'desc' },
           skip: (page - 1) * size,
           take: size,
+          select: DOC_SELECT,
         }),
       ])
-      return {
-        total,
-        hits: docs.map((d) => toDocHit(d, terms, query.locale, 0.5, false)),
-        expandedTerms: terms,
-        provider: 'fts',
-      }
+      const hits = docs.map((d) => toDocHit(d, terms, query.locale, 0.5, false))
+      await this.enrichSnippets(hits, terms)
+      return { total, hits, expandedTerms: terms, provider: 'fts' }
     }
 
-    // ── 1) Correspondances exactes ──
+    // ── 1) Correspondances exactes ── (documents et sociétés en parallèle : -1 aller-retour)
     const ctx = { groups, queryFold }
-    const exactDocs = await this.fetchDocHits(terms, base, query.locale, ctx, false)
-    const exactCompanies = await this.fetchCompanyHits(terms, query, ctx, false, new Set())
+    const [exactDocs, exactCompanies] = await Promise.all([
+      this.fetchDocHits(terms, base, query.locale, ctx, false),
+      this.fetchCompanyHits(terms, query, ctx, false, new Set()),
+    ])
     const exact = [...exactDocs, ...exactCompanies].sort((a, b) => b.score - a.score || sortByDate(a, b))
 
     // ── 2) Correspondances approchantes (orthographe proche) ──
-    const queryWords = fold(query.q).split(/\s+/).filter((w) => w.length >= 4)
-    const exactSet = new Set(terms)
-    const fuzzyTermSet = new Set<string>()
-    for (const w of queryWords) {
-      for (const f of await fuzzyExpand(w)) if (!exactSet.has(f)) fuzzyTermSet.add(f)
-    }
-    const fuzzyTerms = [...fuzzyTermSet]
-
+    // Tentée UNIQUEMENT si l'exact ne remplit pas une page : évite de construire le
+    // vocabulaire fuzzy (lecture du corpus, coûteuse à froid) pour la grande majorité
+    // des requêtes qui ont des correspondances exactes. La correction orthographique
+    // n'intervient que lorsque l'exact est insuffisant.
     let fuzzy: SearchHit[] = []
-    if (fuzzyTerms.length) {
-      const seenDocIds = new Set(exactDocs.map((h) => h.id))
-      const seenCoIds = new Set(exactCompanies.map((h) => h.id))
-      const fDocs = (await this.fetchDocHits(fuzzyTerms, base, query.locale, ctx, true, FUZZY_CANDIDATE_LIMIT)).filter(
-        (h) => !seenDocIds.has(h.id),
-      )
-      const fCos = await this.fetchCompanyHits(fuzzyTerms, query, ctx, true, seenCoIds)
-      fuzzy = [...fDocs, ...fCos].sort((a, b) => b.score - a.score || sortByDate(a, b))
+    let fuzzyTerms: string[] = []
+    if (exact.length < size) {
+      const queryWords = fold(query.q).split(/\s+/).filter((w) => w.length >= 4)
+      const exactSet = new Set(terms)
+      const fuzzyTermSet = new Set<string>()
+      for (const w of queryWords) {
+        for (const f of await fuzzyExpand(w)) if (!exactSet.has(f)) fuzzyTermSet.add(f)
+      }
+      fuzzyTerms = [...fuzzyTermSet]
+      if (fuzzyTerms.length) {
+        const seenDocIds = new Set(exactDocs.map((h) => h.id))
+        const seenCoIds = new Set(exactCompanies.map((h) => h.id))
+        const [fDocsRaw, fCos] = await Promise.all([
+          this.fetchDocHits(fuzzyTerms, base, query.locale, ctx, true, FUZZY_CANDIDATE_LIMIT),
+          this.fetchCompanyHits(fuzzyTerms, query, ctx, true, seenCoIds),
+        ])
+        const fDocs = fDocsRaw.filter((h) => !seenDocIds.has(h.id))
+        fuzzy = [...fDocs, ...fCos].sort((a, b) => b.score - a.score || sortByDate(a, b))
+      }
     }
 
     // Déduplication par clé (société = id, document = titre folé) — exact prioritaire.
@@ -149,7 +169,28 @@ export class FtsProvider implements SearchProvider {
 
     const total = all.length
     const start = (page - 1) * size
-    return { total, hits: all.slice(start, start + size), expandedTerms: [...terms, ...fuzzyTerms], provider: 'fts' }
+    const pageHits = all.slice(start, start + size)
+    // Les extraits (snippets) issus du corps ne sont calculés que pour la page affichée
+    // — le corps n'est jamais transféré pour l'ensemble des candidats.
+    await this.enrichSnippets(pageHits, [...terms, ...fuzzyTerms])
+    return { total, hits: pageHits, expandedTerms: [...terms, ...fuzzyTerms], provider: 'fts' }
+  }
+
+  /**
+   * Restaure l'extrait texte (snippet) à partir du corps du document — UNIQUEMENT pour
+   * les hits document de la page affichée dont le résumé est absent (snippet vide). Le
+   * corps (`bodyOriginal`) n'est ainsi jamais transféré pour l'ensemble des candidats,
+   * seulement pour les ≤ 20-50 résultats réellement montrés.
+   */
+  private async enrichSnippets(hits: SearchHit[], terms: string[]): Promise<void> {
+    const need = hits.filter((h) => h.kind === 'document' && !h.snippet)
+    if (!need.length) return
+    const rows = await prisma.document.findMany({
+      where: { id: { in: need.map((h) => h.id) } },
+      select: { id: true, bodyOriginal: true },
+    })
+    const bodyById = new Map(rows.map((r) => [r.id, r.bodyOriginal]))
+    for (const h of need) h.snippet = makeSnippet(bodyById.get(h.id) || h.title, terms)
   }
 
   private async fetchDocHits(
@@ -169,7 +210,7 @@ export class FtsProvider implements SearchProvider {
         ...(base.category == null ? [{ OR: [{ category: null }, { category: { not: 'SOCIETE' } }] }] : []),
       ],
     }
-    const docs = await prisma.document.findMany({ where, take: limit, orderBy: { publicationDate: 'desc' } })
+    const docs = await prisma.document.findMany({ where, take: limit, orderBy: { publicationDate: 'desc' }, select: DOC_SELECT })
     const hits: SearchHit[] = []
     for (const d of docs) {
       const fieldScore = scoreFields(weightedFields(d), terms)
@@ -241,7 +282,7 @@ export class FtsProvider implements SearchProvider {
   }
 }
 
-type DocRow = Awaited<ReturnType<typeof prisma.document.findMany>>[number]
+type DocRow = Prisma.DocumentGetPayload<{ select: typeof DOC_SELECT }>
 
 function weightedFields(d: DocRow): Weighted[] {
   // Poids issus de SEARCH_FIELD_WEIGHTS — source unique (search/fields.ts).
@@ -253,7 +294,9 @@ function weightedFields(d: DocRow): Weighted[] {
 
 function toDocHit(d: DocRow, terms: string[], locale: Locale, score: number, fuzzy: boolean): SearchHit {
   const meta = DOC_TYPE_META[d.type as DocType]
-  const snippetSource = pickLocale(d.summaryFr, d.summaryEn, d.summaryHt, locale) || d.bodyOriginal || d.titleFr
+  // Le corps (bodyOriginal) n'est PAS chargé ici (perf) : l'extrait provient du résumé ;
+  // à défaut, snippet vide → restauré depuis le corps par enrichSnippets() (page affichée).
+  const snippetSource = pickLocale(d.summaryFr, d.summaryEn, d.summaryHt, locale) || ''
   return {
     kind: 'document',
     id: d.id,
