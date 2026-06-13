@@ -229,12 +229,40 @@ async function geminiGenerate(
   }
 }
 
+// Appel Anthropic résilient : réessaie les erreurs TRANSITOIRES — coupures réseau
+// (ECONNRESET, « terminated », socket hang up), surcharge (429/529) et 5xx — avec
+// un backoff exponentiel. Le streaming OCR sur de gros PDF est sujet aux coupures
+// mi-flux que le SDK ne rejoue pas seul. Une erreur déterministe est propagée.
+async function anthropicCall<T>(label: string, fn: () => Promise<T>): Promise<T> {
+  const MAX_ATTEMPTS = 5
+  for (let attempt = 1; ; attempt++) {
+    try {
+      return await fn()
+    } catch (e) {
+      const msg = String((e as { message?: string })?.message ?? e)
+      const status = (e as { status?: number })?.status
+      const transient =
+        status === 429 ||
+        status === 500 ||
+        status === 502 ||
+        status === 503 ||
+        status === 529 ||
+        /ECONNRESET|terminated|ETIMEDOUT|socket hang up|fetch failed|network|aborted|overloaded/i.test(msg)
+      if (!transient || attempt >= MAX_ATTEMPTS) throw e
+      const waitMs = Math.min(2000 * 2 ** (attempt - 1), 30000) // 2s, 4s, 8s, 16s, 30s
+      console.warn(`[ai] ${label} : erreur transitoire (tentative ${attempt}/${MAX_ATTEMPTS}) → retry dans ${waitMs / 1000}s — ${msg.slice(0, 80)}`)
+      await new Promise((r) => setTimeout(r, waitMs))
+    }
+  }
+}
+
 // ── Anthropic : extraction ──
 
 async function anthropicExtract(pdfBytes: Uint8Array, model: string): Promise<ExtractionResult> {
   const client = new Anthropic()
   const data = await firstPagesBase64(pdfBytes)
-  const response = await client.messages.parse({
+  const response = await anthropicCall('extraction', () =>
+    client.messages.parse({
     model,
     max_tokens: 16000,
     thinking: { type: 'adaptive' },
@@ -248,7 +276,8 @@ async function anthropicExtract(pdfBytes: Uint8Array, model: string): Promise<Ex
       },
     ],
     output_config: { format: zodOutputFormat(ExtractionSchema) },
-  })
+    }),
+  )
   if (!response.parsed_output) throw new Error('Extraction IA : sortie non analysable')
   return response.parsed_output
 }
@@ -360,21 +389,23 @@ async function geminiOcr(data: string, model: string): Promise<string> {
 async function anthropicOcr(data: string, model: string): Promise<string> {
   // Transcription mécanique : effort bas, streaming.
   const client = new Anthropic()
-  const stream = client.messages.stream({
-    model,
-    max_tokens: 64000,
-    output_config: { effort: 'low' },
-    messages: [
-      {
-        role: 'user',
-        content: [
-          { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data } },
-          { type: 'text', text: OCR_PROMPT },
-        ],
-      },
-    ],
+  const message = await anthropicCall('OCR', () => {
+    const stream = client.messages.stream({
+      model,
+      max_tokens: 64000,
+      output_config: { effort: 'low' },
+      messages: [
+        {
+          role: 'user',
+          content: [
+            { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data } },
+            { type: 'text', text: OCR_PROMPT },
+          ],
+        },
+      ],
+    })
+    return stream.finalMessage()
   })
-  const message = await stream.finalMessage()
   return cleanOcrText(
     message.content
       .filter((b): b is Anthropic.TextBlock => b.type === 'text')
@@ -418,27 +449,37 @@ async function geminiDate(data: string, model: string): Promise<unknown> {
 
 async function anthropicDate(data: string, model: string): Promise<unknown> {
   const client = new Anthropic()
-  const response = await client.messages.parse({
-    model,
-    max_tokens: 2000,
-    messages: [
-      {
-        role: 'user',
-        content: [
-          { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data } },
-          { type: 'text', text: DATE_PROMPT },
-        ],
-      },
-    ],
-    output_config: { format: zodOutputFormat(DateSchema) },
-  })
+  const response = await anthropicCall('date', () =>
+    client.messages.parse({
+      model,
+      max_tokens: 2000,
+      messages: [
+        {
+          role: 'user',
+          content: [
+            { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data } },
+            { type: 'text', text: DATE_PROMPT },
+          ],
+        },
+      ],
+      output_config: { format: zodOutputFormat(DateSchema) },
+    }),
+  )
   return response.parsed_output
 }
 
 /** Lit la date de publication sur la 1re page d'un fascicule scanné ; null si illisible. */
 export async function extractMoniteurDate(pdfBytes: Uint8Array): Promise<string | null> {
   if (!isAiConfigured()) return null
-  const data = await firstPagesBase64(pdfBytes, 1)
+  // Page 1 isolée (rapide/économique) ; si pdf-lib ne sait pas charger ce scan
+  // (xref/objets mal formés), repli sur le PDF brut — l'IA vision le lit quand même.
+  let data: string
+  try {
+    data = await firstPagesBase64(pdfBytes, 1)
+  } catch {
+    if (pdfBytes.length > 25_000_000) return null // trop volumineux pour l'envoi inline
+    data = Buffer.from(pdfBytes).toString('base64')
+  }
   const defaults = { anthropic: 'claude-opus-4-8', gemini: 'gemini-2.5-flash' }
 
   const raw = await withAiFallback({
@@ -540,21 +581,23 @@ async function geminiRich(data: string, prompt: string, model: string): Promise<
 
 async function anthropicRich(data: string, prompt: string, model: string): Promise<unknown[]> {
   const client = new Anthropic()
-  const response = await client.messages.parse({
-    model,
-    max_tokens: 32000,
-    thinking: { type: 'adaptive' },
-    messages: [
-      {
-        role: 'user',
-        content: [
-          { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data } },
-          { type: 'text', text: prompt },
-        ],
-      },
-    ],
-    output_config: { format: zodOutputFormat(RichTablesSchema) },
-  })
+  const response = await anthropicCall('tableaux', () =>
+    client.messages.parse({
+      model,
+      max_tokens: 32000,
+      thinking: { type: 'adaptive' },
+      messages: [
+        {
+          role: 'user',
+          content: [
+            { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data } },
+            { type: 'text', text: prompt },
+          ],
+        },
+      ],
+      output_config: { format: zodOutputFormat(RichTablesSchema) },
+    }),
+  )
   return response.parsed_output?.blocks ?? []
 }
 
