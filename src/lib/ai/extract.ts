@@ -142,6 +142,29 @@ Laisse circulaireNumber, circulaireTitle et matiere à null.
 Dans TOUS les cas, remplis keywords : 5 à 10 mots-clés thématiques en français pour l'indexation par thèmes (matières juridiques, notions, institutions, objets du texte), du plus au moins central, courts (1 à 5 mots), minuscules sauf noms propres et sigles (BRH, UCREF, KYC…) — jamais le numéro ni la date du document.
 Rends le résultat structuré.`
 
+// Appel Gemini résilient : sur 429 (limite par minute du tier gratuit), attend le
+// délai indiqué par l'API (retryDelay) puis réessaie. Évite d'épuiser un lot à
+// cause du débit ; n'aide pas si la limite QUOTIDIENNE est atteinte (échoue après
+// les tentatives — il faut alors attendre la réinitialisation à minuit Pacifique).
+async function geminiGenerate(
+  ai: GoogleGenAI,
+  params: Parameters<GoogleGenAI['models']['generateContent']>[0],
+): Promise<Awaited<ReturnType<GoogleGenAI['models']['generateContent']>>> {
+  const MAX_ATTEMPTS = 5
+  for (let attempt = 1; ; attempt++) {
+    try {
+      return await ai.models.generateContent(params)
+    } catch (e) {
+      const msg = String((e as { message?: string })?.message ?? e)
+      const is429 = /\b429\b|RESOURCE_EXHAUSTED|exceeded your current quota/i.test(msg)
+      if (!is429 || attempt >= MAX_ATTEMPTS) throw e
+      const m = msg.match(/retryDelay"?:?\s*"?(\d+)s/i)
+      const waitMs = ((m ? Number(m[1]) : 30) + 2) * 1000
+      await new Promise((r) => setTimeout(r, waitMs))
+    }
+  }
+}
+
 // ── Anthropic : extraction ──
 
 async function anthropicExtract(pdfBytes: Uint8Array, model: string): Promise<ExtractionResult> {
@@ -186,7 +209,7 @@ Réponds UNIQUEMENT en JSON valide selon cette structure (respecte les valeurs d
 async function geminiExtract(pdfBytes: Uint8Array, model: string): Promise<ExtractionResult> {
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! })
   const data = await firstPagesBase64(pdfBytes)
-  const response = await ai.models.generateContent({
+  const response = await geminiGenerate(ai, {
     model,
     contents: [
       {
@@ -266,7 +289,7 @@ export async function ocrDocument(pdfBytes: Uint8Array): Promise<OcrResult> {
 
   if (getProvider() === 'gemini') {
     const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! })
-    const response = await ai.models.generateContent({
+    const response = await geminiGenerate(ai, {
       model,
       contents: [
         {
@@ -385,7 +408,7 @@ export async function extractRichTables(pdfBytes: Uint8Array, bodyText: string):
 
   if (getProvider() === 'gemini') {
     const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! })
-    const response = await ai.models.generateContent({
+    const response = await geminiGenerate(ai, {
       model,
       contents: [
         {
