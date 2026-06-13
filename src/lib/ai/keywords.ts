@@ -4,7 +4,7 @@ import { GoogleGenAI } from '@google/genai'
 // L'helper zod du SDK requiert l'API zod v4 (sous-chemin fourni par zod ≥ 3.25).
 import { z } from 'zod/v4'
 import { fold } from '../search/normalize'
-import { getProvider, isAiConfigured, resolveModel, parseGeminiJson } from './provider'
+import { getProvider, isAiConfigured, modelFor, withAiFallback, parseGeminiJson, type AiProvider } from './provider'
 
 /**
  * Mots-clés THÉMATIQUES d'un document (indexation par thèmes pour la recherche).
@@ -197,8 +197,13 @@ async function aiKeywords(
   input: { titleFr?: string | null; matiere?: string | null; body?: string | null },
   model?: string,
 ): Promise<string[]> {
-  const m = model ?? resolveModel({ anthropic: 'claude-opus-4-8', gemini: 'gemini-2.0-flash' })
-  return getProvider() === 'gemini' ? geminiKeywords(input, m) : anthropicKeywords(input, m)
+  const defaults = { anthropic: 'claude-opus-4-8', gemini: 'gemini-2.0-flash' }
+  // Un modèle explicite ne s'applique qu'au PRIMAIRE ; le repli garde son défaut.
+  const pick = (p: AiProvider) => (model && p === getProvider() ? model : modelFor(p, defaults))
+  return withAiFallback({
+    gemini: () => geminiKeywords(input, pick('gemini')),
+    anthropic: () => anthropicKeywords(input, pick('anthropic')),
+  })
 }
 
 /** Point d'entrée : IA si configurée, heuristique sinon (jamais d'échec sec). */

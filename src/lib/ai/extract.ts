@@ -7,7 +7,7 @@ import { PDFDocument } from 'pdf-lib'
 import { fold } from '../search/normalize'
 import { heuristicKeywords, normalizeKeywords } from './keywords'
 import { INDEX_CATEGORIES, type DocType, type IndexCategory } from '../types'
-import { getProvider, isAiConfigured, resolveModel, parseGeminiJson } from './provider'
+import { modelFor, withAiFallback, parseGeminiJson, isAiConfigured } from './provider'
 
 /**
  * Extraction intelligente (CMS §08). À partir des premières pages d'un document
@@ -200,24 +200,30 @@ Laisse circulaireNumber, circulaireTitle et matiere à null.
 Dans TOUS les cas, remplis keywords : 5 à 10 mots-clés thématiques en français pour l'indexation par thèmes (matières juridiques, notions, institutions, objets du texte), du plus au moins central, courts (1 à 5 mots), minuscules sauf noms propres et sigles (BRH, UCREF, KYC…) — jamais le numéro ni la date du document.
 Rends le résultat structuré.`
 
-// Appel Gemini résilient : sur 429 (limite par minute du tier gratuit), attend le
-// délai indiqué par l'API (retryDelay) puis réessaie. Évite d'épuiser un lot à
-// cause du débit ; n'aide pas si la limite QUOTIDIENNE est atteinte (échoue après
-// les tentatives — il faut alors attendre la réinitialisation à minuit Pacifique).
+// Appel Gemini résilient. Réessaie UNIQUEMENT les erreurs transitoires :
+//  - 429 par minute (tier gratuit) : l'API donne un retryDelay court → on patiente.
+//  - 503 « modèle surchargé » : backoff croissant.
+// Le quota QUOTIDIEN épuisé (« exceeded your current quota » sans retryDelay
+// exploitable) n'est PAS transitoire : on échoue tout de suite pour laisser le
+// repli (Claude) prendre le relais sans attente inutile (withAiFallback).
 async function geminiGenerate(
   ai: GoogleGenAI,
   params: Parameters<GoogleGenAI['models']['generateContent']>[0],
 ): Promise<Awaited<ReturnType<GoogleGenAI['models']['generateContent']>>> {
-  const MAX_ATTEMPTS = 5
+  const MAX_ATTEMPTS = 6
   for (let attempt = 1; ; attempt++) {
     try {
       return await ai.models.generateContent(params)
     } catch (e) {
       const msg = String((e as { message?: string })?.message ?? e)
-      const is429 = /\b429\b|RESOURCE_EXHAUSTED|exceeded your current quota/i.test(msg)
-      if (!is429 || attempt >= MAX_ATTEMPTS) throw e
       const m = msg.match(/retryDelay"?:?\s*"?(\d+)s/i)
-      const waitMs = ((m ? Number(m[1]) : 30) + 2) * 1000
+      const delaySec = m ? Number(m[1]) : null
+      const is429 = /\b429\b|RESOURCE_EXHAUSTED|exceeded your current quota/i.test(msg)
+      const is503 = /\b503\b|UNAVAILABLE|high demand/i.test(msg)
+      // Transitoire = 503, ou 429 par-minute avec un délai d'attente court (≤ 60 s).
+      const transient = is503 || (is429 && delaySec !== null && delaySec <= 60)
+      if (!transient || attempt >= MAX_ATTEMPTS) throw e
+      const waitMs = (delaySec ?? 8 * attempt) * 1000 + 2000
       await new Promise((r) => setTimeout(r, waitMs))
     }
   }
@@ -341,34 +347,18 @@ export interface OcrResult {
  * Note Gemini : limite de sortie ~8 192 tokens (≈ 24 pages denses). Les très
  * longs documents peuvent être tronqués — préférer Anthropic pour les scans longs.
  */
-export async function ocrDocument(pdfBytes: Uint8Array): Promise<OcrResult> {
-  if (!isAiConfigured()) throw new Error('OCR indisponible : aucune clé IA configurée')
-  const src = await PDFDocument.load(pdfBytes, { ignoreEncryption: true })
-  const total = src.getPageCount()
-  const pages = Math.min(total, MAX_OCR_PAGES)
-  const data = await firstPagesBase64(pdfBytes, pages)
-  const model = resolveModel({ anthropic: 'claude-opus-4-8', gemini: 'gemini-2.0-flash' })
+async function geminiOcr(data: string, model: string): Promise<string> {
+  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! })
+  const response = await geminiGenerate(ai, {
+    model,
+    contents: [{ role: 'user', parts: [{ inlineData: { mimeType: 'application/pdf', data } }, { text: OCR_PROMPT }] }],
+    config: { maxOutputTokens: 65536 },
+  })
+  return cleanOcrText(response.text ?? '')
+}
 
-  if (getProvider() === 'gemini') {
-    const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! })
-    const response = await geminiGenerate(ai, {
-      model,
-      contents: [
-        {
-          role: 'user',
-          parts: [
-            { inlineData: { mimeType: 'application/pdf', data } },
-            { text: OCR_PROMPT },
-          ],
-        },
-      ],
-      config: { maxOutputTokens: 65536 },
-    })
-    const text = cleanOcrText(response.text ?? '')
-    return { text, pages, truncated: total > pages }
-  }
-
-  // Anthropic — transcription mécanique : effort bas, streaming.
+async function anthropicOcr(data: string, model: string): Promise<string> {
+  // Transcription mécanique : effort bas, streaming.
   const client = new Anthropic()
   const stream = client.messages.stream({
     model,
@@ -385,13 +375,84 @@ export async function ocrDocument(pdfBytes: Uint8Array): Promise<OcrResult> {
     ],
   })
   const message = await stream.finalMessage()
-  const text = cleanOcrText(
+  return cleanOcrText(
     message.content
       .filter((b): b is Anthropic.TextBlock => b.type === 'text')
       .map((b) => b.text)
       .join('\n'),
   )
+}
+
+export async function ocrDocument(pdfBytes: Uint8Array): Promise<OcrResult> {
+  if (!isAiConfigured()) throw new Error('OCR indisponible : aucune clé IA configurée')
+  const src = await PDFDocument.load(pdfBytes, { ignoreEncryption: true })
+  const total = src.getPageCount()
+  const pages = Math.min(total, MAX_OCR_PAGES)
+  const data = await firstPagesBase64(pdfBytes, pages)
+  const defaults = { anthropic: 'claude-opus-4-8', gemini: 'gemini-2.0-flash' }
+  const text = await withAiFallback({
+    gemini: () => geminiOcr(data, modelFor('gemini', defaults)),
+    anthropic: () => anthropicOcr(data, modelFor('anthropic', defaults)),
+  })
   return { text, pages, truncated: total > pages }
+}
+
+// ── Date de publication d'un fascicule du Moniteur (haut de la 1re page) ──
+
+const DATE_PROMPT = `Ce document est la première page d'un numéro du journal officiel d'Haïti « LE MONITEUR ».
+La DATE DE PUBLICATION est imprimée en haut de la page, généralement à droite de l'en-tête, sous une forme comme « Port-au-Prince — Lundi 4 Janvier 2021 », « Jeudi 18 Mars 2021 » ou « PORT-AU-PRINCE, JEUDI 7 AVRIL 2016 ».
+Lis cette date (ignore les autres dates du corps du texte, comme « loi du 14 mai 2012 »).
+Réponds UNIQUEMENT par un objet JSON : {"date":"YYYY-MM-DD"} si tu la lis avec certitude, sinon {"date":null}.`
+
+const DateSchema = z.object({ date: z.string().nullable() })
+
+async function geminiDate(data: string, model: string): Promise<unknown> {
+  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! })
+  const response = await geminiGenerate(ai, {
+    model,
+    contents: [{ role: 'user', parts: [{ inlineData: { mimeType: 'application/pdf', data } }, { text: DATE_PROMPT }] }],
+    config: { responseMimeType: 'application/json' },
+  })
+  return parseGeminiJson(response.text ?? '{}')
+}
+
+async function anthropicDate(data: string, model: string): Promise<unknown> {
+  const client = new Anthropic()
+  const response = await client.messages.parse({
+    model,
+    max_tokens: 2000,
+    messages: [
+      {
+        role: 'user',
+        content: [
+          { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data } },
+          { type: 'text', text: DATE_PROMPT },
+        ],
+      },
+    ],
+    output_config: { format: zodOutputFormat(DateSchema) },
+  })
+  return response.parsed_output
+}
+
+/** Lit la date de publication sur la 1re page d'un fascicule scanné ; null si illisible. */
+export async function extractMoniteurDate(pdfBytes: Uint8Array): Promise<string | null> {
+  if (!isAiConfigured()) return null
+  const data = await firstPagesBase64(pdfBytes, 1)
+  const defaults = { anthropic: 'claude-opus-4-8', gemini: 'gemini-2.5-flash' }
+
+  const raw = await withAiFallback({
+    gemini: () => geminiDate(data, modelFor('gemini', defaults)),
+    anthropic: () => anthropicDate(data, modelFor('anthropic', defaults)),
+  })
+
+  const parsed = DateSchema.safeParse(raw)
+  const date = parsed.success ? parsed.data.date : null
+  // Validation stricte : YYYY-MM-DD plausible (année 1845..année courante+1).
+  if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return null
+  const y = Number(date.slice(0, 4))
+  if (y < 1845 || y > 2100) return null
+  return date
 }
 
 // ── Extraction des tableaux & encadrés colorés (rendu visuel du PDF) ──
@@ -461,38 +522,23 @@ Réponds UNIQUEMENT en JSON valide : {"blocks": [{"type": "table"|"note", "capti
  * afterText/untilText littérales (src/lib/doc/richblocks.ts → buildBodySegments).
  * Nécessite ANTHROPIC_API_KEY ou GEMINI_API_KEY selon LV_AI_PROVIDER.
  */
-export async function extractRichTables(pdfBytes: Uint8Array, bodyText: string): Promise<RichExtractionResult> {
-  if (!isAiConfigured()) throw new Error('Extraction des tableaux indisponible : aucune clé IA configurée')
-  const src = await PDFDocument.load(pdfBytes, { ignoreEncryption: true })
-  const pages = Math.min(src.getPageCount(), MAX_OCR_PAGES)
-  const data = await firstPagesBase64(pdfBytes, pages)
-  const prompt = RICH_PROMPT.replace('{BODY}', bodyText.slice(0, 60_000))
-  const model = resolveModel({ anthropic: 'claude-opus-4-8', gemini: 'gemini-2.0-flash' })
+async function geminiRich(data: string, prompt: string, model: string): Promise<unknown[]> {
+  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! })
+  const response = await geminiGenerate(ai, {
+    model,
+    contents: [
+      { role: 'user', parts: [{ inlineData: { mimeType: 'application/pdf', data } }, { text: prompt + GEMINI_RICH_JSON_HINT }] },
+    ],
+    config: { responseMimeType: 'application/json', maxOutputTokens: 65536 },
+  })
+  // Tolérant : on garde les blocs bruts (un champ manquant/atypique ne doit pas
+  // tout jeter) — le nettoyage/validation final vit dans parseRichBlocks
+  // (src/lib/doc/richblocks.ts), appliqué avant stockage et affichage.
+  const parsed = parseGeminiJson(response.text ?? '{"blocks":[]}') as { blocks?: unknown }
+  return Array.isArray(parsed?.blocks) ? parsed.blocks : []
+}
 
-  if (getProvider() === 'gemini') {
-    const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! })
-    const response = await geminiGenerate(ai, {
-      model,
-      contents: [
-        {
-          role: 'user',
-          parts: [
-            { inlineData: { mimeType: 'application/pdf', data } },
-            { text: prompt + GEMINI_RICH_JSON_HINT },
-          ],
-        },
-      ],
-      config: { responseMimeType: 'application/json', maxOutputTokens: 65536 },
-    })
-    // Tolérant : on garde les blocs bruts (un champ manquant/atypique ne doit pas
-    // tout jeter) — le nettoyage/validation final vit dans parseRichBlocks
-    // (src/lib/doc/richblocks.ts), appliqué avant stockage et affichage.
-    const parsed = parseGeminiJson(response.text ?? '{"blocks":[]}') as { blocks?: unknown }
-    const blocks = Array.isArray(parsed?.blocks) ? parsed.blocks : []
-    return { blocks, pages }
-  }
-
-  // Anthropic
+async function anthropicRich(data: string, prompt: string, model: string): Promise<unknown[]> {
   const client = new Anthropic()
   const response = await client.messages.parse({
     model,
@@ -509,7 +555,21 @@ export async function extractRichTables(pdfBytes: Uint8Array, bodyText: string):
     ],
     output_config: { format: zodOutputFormat(RichTablesSchema) },
   })
-  const blocks = response.parsed_output?.blocks ?? []
+  return response.parsed_output?.blocks ?? []
+}
+
+export async function extractRichTables(pdfBytes: Uint8Array, bodyText: string): Promise<RichExtractionResult> {
+  if (!isAiConfigured()) throw new Error('Extraction des tableaux indisponible : aucune clé IA configurée')
+  const src = await PDFDocument.load(pdfBytes, { ignoreEncryption: true })
+  const pages = Math.min(src.getPageCount(), MAX_OCR_PAGES)
+  const data = await firstPagesBase64(pdfBytes, pages)
+  const prompt = RICH_PROMPT.replace('{BODY}', bodyText.slice(0, 60_000))
+  const defaults = { anthropic: 'claude-opus-4-8', gemini: 'gemini-2.0-flash' }
+
+  const blocks = await withAiFallback({
+    gemini: () => geminiRich(data, prompt, modelFor('gemini', defaults)),
+    anthropic: () => anthropicRich(data, prompt, modelFor('anthropic', defaults)),
+  })
   return { blocks, pages }
 }
 
@@ -679,14 +739,15 @@ export function toOutcome(result: ExtractionResult, ai: boolean): ExtractOutcome
   }
 }
 
-/** Point d'entrée : IA (Anthropic ou Gemini) si configurée, heuristique sinon. */
+/** Point d'entrée : IA (primaire + repli automatique) si configurée, heuristique sinon. */
 export async function extractDocument(pdfBytes: Uint8Array, firstPageText: string): Promise<ExtractOutcome> {
   if (isAiConfigured()) {
-    const model = resolveModel({ anthropic: 'claude-opus-4-8', gemini: 'gemini-2.0-flash' })
-    return toOutcome(
-      getProvider() === 'gemini' ? await geminiExtract(pdfBytes, model) : await anthropicExtract(pdfBytes, model),
-      true,
-    )
+    const defaults = { anthropic: 'claude-opus-4-8', gemini: 'gemini-2.0-flash' }
+    const result = await withAiFallback({
+      gemini: () => geminiExtract(pdfBytes, modelFor('gemini', defaults)),
+      anthropic: () => anthropicExtract(pdfBytes, modelFor('anthropic', defaults)),
+    })
+    return toOutcome(result, true)
   }
   return toOutcome(heuristicExtract(firstPageText), false)
 }

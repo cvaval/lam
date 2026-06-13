@@ -36,9 +36,10 @@ interface Edition {
   files: string[]
 }
 
-/** « Le Moniteur [Spécial] No. 30-A … » → { special, num, suffix }. */
+/** « Le Moniteur [Spécial] No. 30-A … » → { special, num, suffix }.
+ *  NB : noms de fichiers macOS en NFD (« Spe´cial ») → normalisation NFC obligatoire. */
 function parseEditionName(name: string): { special: boolean; num: number; suffix: string } | null {
-  const s = name.replace(/\.pdf$/i, '')
+  const s = name.normalize('NFC').replace(/\.pdf$/i, '')
   const special = /sp[ée]cial/i.test(s)
   const m = s.match(/No\.?\s*(\d+)\s*(?:-\s*([A-Za-z])\b)?/i)
   if (!m) return null
@@ -46,7 +47,7 @@ function parseEditionName(name: string): { special: boolean; num: number; suffix
 }
 
 function monthFromName(name: string): number | null {
-  const up = name.toUpperCase()
+  const up = name.normalize('NFC').toUpperCase()
   for (const [k, v] of Object.entries(MONTHS)) if (up.includes(k)) return v
   return null
 }

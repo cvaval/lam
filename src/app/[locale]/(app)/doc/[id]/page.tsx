@@ -10,6 +10,7 @@ import { canReadFull, can } from '@/lib/rbac'
 import { guard, LIMITS } from '@/lib/security/ratelimit'
 import { RateLimitNotice } from '@/components/RateLimitNotice'
 import { StatusChip } from '@/components/StatusChip'
+import { BackLink } from '@/components/BackLink'
 import { OfficialText } from '@/components/OfficialText'
 import { splitKeywords } from '@/lib/ai/keywords'
 import { parseCirculaireRef } from '@/lib/brh/gaps'
@@ -59,6 +60,9 @@ export default async function DocPage({ params }: { params: { locale: string; id
   // Tableaux & encadrés colorés (reproduction du rendu visuel du PDF) — affichés
   // seulement en lecture intégrale, pour ne pas déborder de l'extrait du paywall.
   const richBlocks = fullAccess ? parseRichBlocks(doc.richBlocksJson) : []
+  // Annexes téléchargeables (Word/Excel) : circulaires dont les annexes sont des
+  // tableaux/formulaires reconstruits. Réservé aux paliers exportateurs (§09).
+  const annexCount = richBlocks.filter((b) => b.type === 'table').length
 
   // Liens croisés entre circulaires BRH : index numéro → fiche du corpus.
   // « article N de la présente circulaire » → ancre #art-N de la fiche courante.
@@ -84,9 +88,7 @@ export default async function DocPage({ params }: { params: { locale: string; id
 
   return (
     <article className="mx-auto max-w-3xl space-y-6">
-      <Link href={`/${locale}/search?type=${meta.slug}`} className="text-sm text-lank/50 hover:text-lank">
-        ← {meta.label[locale]}
-      </Link>
+      <BackLink fallback={`/${locale}/search?type=${meta.slug}`} label={meta.label[locale]} />
 
       <header className="space-y-3">
         <div className="flex flex-wrap items-center gap-2">
@@ -166,6 +168,33 @@ export default async function DocPage({ params }: { params: { locale: string; id
           </a>
         )}
       </div>
+
+      {/* Annexes à compléter : téléchargement Word (formulaires) / Excel (tableaux),
+          filigrane Lam + mention légale (src/lib/annexes/generate.ts). */}
+      {type === 'CIRCULAIRE_BRH' && fullAccess && can(user.role, 'export.sealed') && annexCount > 0 && (
+        <div className="rounded-xl border border-lank/10 bg-paper/60 px-4 py-3">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="text-sm font-semibold text-lank">{t.doc.annexes}</p>
+              <p className="text-xs text-lank/55">{t.doc.annexesHint}</p>
+            </div>
+            <div className="flex gap-2">
+              <a
+                href={`/api/doc/${doc.id}/annexes?format=docx&locale=${locale}`}
+                className="inline-flex items-center gap-1.5 rounded-lg border border-lank/15 bg-white px-3 py-1.5 text-sm font-medium text-lank hover:bg-lank-50"
+              >
+                ↓ Word
+              </a>
+              <a
+                href={`/api/doc/${doc.id}/annexes?format=xlsx&locale=${locale}`}
+                className="inline-flex items-center gap-1.5 rounded-lg border border-lank/15 bg-white px-3 py-1.5 text-sm font-medium text-lank hover:bg-lank-50"
+              >
+                ↓ Excel
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       {doc.status === 'ABROGE' && (
         <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-2.5 text-sm text-red-700">

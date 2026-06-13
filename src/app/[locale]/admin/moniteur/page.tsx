@@ -4,6 +4,7 @@ import { requireAdmin } from '@/lib/auth/guard'
 import { prisma } from '@/lib/db'
 import { formatDate } from '@/lib/i18n/format'
 import { loadGaps } from '@/lib/moniteur/gaps'
+import { loadMissingFascicules } from '@/lib/moniteur/fascicules'
 
 export const dynamic = 'force-dynamic'
 
@@ -71,6 +72,10 @@ export default async function AdminMoniteurPage({
   // Numéros manquants de l'année (numéros sautés + lettres sautées).
   const missing = (await loadGaps(year)).find((g) => g.year === year)?.missing ?? []
 
+  // Fascicules PDF manquants (éditions connues sans scan importé) — null si aucun
+  // scan importé pour cette année.
+  const fascicules = await loadMissingFascicules(year)
+
 
   return (
     <div className="space-y-6">
@@ -100,12 +105,15 @@ export default async function AdminMoniteurPage({
       </div>
 
       {/* Résumé de l'année */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
+      <div className={`grid grid-cols-1 gap-4 sm:grid-cols-2 ${fascicules ? 'lg:grid-cols-5' : 'lg:grid-cols-4'}`}>
         {[
           { label: t.moniteur.regular, value: regulieres.length, alert: false },
           { label: t.moniteur.special, value: speciales.length, alert: false },
           { label: t.moniteur.indexedEntries, value: totalEntries, alert: false },
           { label: t.moniteur.missing, value: missing.length, alert: missing.length > 0 },
+          ...(fascicules
+            ? [{ label: t.moniteur.fasciculesMissing, value: fascicules.missing.length, alert: fascicules.missing.length > 0 }]
+            : []),
         ].map((k) => (
           <div
             key={k.label}
@@ -146,6 +154,33 @@ export default async function AdminMoniteurPage({
           </div>
         )}
       </section>
+
+      {/* Fascicules PDF manquants (éditions connues sans scan importé) */}
+      {fascicules && (
+        <section className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
+          <h2 className="text-sm font-semibold text-lank">
+            {t.moniteur.fasciculesMissing} — {year}
+          </h2>
+          <p className="mt-1 text-xs text-lank/45">{t.moniteur.fasciculesHint}</p>
+          {fascicules.missing.length === 0 ? (
+            <p className="mt-3 text-sm text-fey">✔ {t.moniteur.fasciculesComplete}</p>
+          ) : (
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {fascicules.missing.map((m) => (
+                <span
+                  key={m.ref}
+                  title={m.special ? t.moniteur.special : t.moniteur.regular}
+                  className={`rounded-full border px-2.5 py-1 font-mono text-xs ${
+                    m.special ? 'border-endeks/40 bg-endeks-50 text-endeks-700' : 'border-brim/40 bg-brim-50 text-brim-700'
+                  }`}
+                >
+                  {m.ref}
+                </span>
+              ))}
+            </div>
+          )}
+        </section>
+      )}
 
       <EditionTable title={`${t.moniteur.regular} — ${year}`} rows={regulieres} t={t} locale={locale} fmtDate={(d) => formatDate(locale as any, d)} />
       <EditionTable title={`${t.moniteur.special} — ${year}`} rows={speciales} t={t} locale={locale} fmtDate={(d) => formatDate(locale as any, d)} accent />

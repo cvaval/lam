@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { TypeBadge } from './TypeBadge'
 import { StatusChip } from './StatusChip'
+import { formatDate } from '@/lib/i18n/format'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { SearchHit } from '@/lib/search/types'
 import type { DocType, Locale } from '@/lib/types'
@@ -58,6 +59,7 @@ export function ResultCard({ hit, locale, t }: { hit: SearchHit; locale: Locale;
             <p className="mt-1.5 text-sm leading-relaxed text-lank/65" dangerouslySetInnerHTML={{ __html: hit.snippet }} />
           )}
           <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-lank/45">
+            {hit.publicationDate && <span>{formatDate(locale, hit.publicationDate)}</span>}
             {hit.moniteurRef && <span>{hit.moniteurRef}</span>}
             {hit.bhdaNumber && <span>BHDA {hit.bhdaNumber}</span>}
             {hit.niceClasses && <span>{t.search.niceClass}: {hit.niceClasses}</span>}
