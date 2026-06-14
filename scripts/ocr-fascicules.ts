@@ -50,6 +50,9 @@ async function main() {
   const limit = args.includes('--limit') ? Math.max(1, Number(args[args.indexOf('--limit') + 1])) : 50
   const chunk = args.includes('--chunk') ? Math.max(4, Number(args[args.indexOf('--chunk') + 1])) : 8
   const commit = args.includes('--commit')
+  // --continue : ne s'arrête PAS sur une erreur de quota/saturation (run Claude payant
+  // qu'on veut mener jusqu'au bout) ; sans le flag (tâche gratuite Gemini), on stoppe net.
+  const keepGoing = args.includes('--continue')
 
   const source = year ? { equals: `MONITEUR_PDF_${year}` } : { startsWith: 'MONITEUR_PDF_' }
   const all = await prisma.document.findMany({
@@ -94,7 +97,7 @@ async function main() {
       done++
       console.log(`  ✓ ${d.number} : ${text.length}c`)
     } catch (e) {
-      if (isExhausted(e)) {
+      if (isExhausted(e) && !keepGoing) {
         console.log(`  ⏸ ${d.number} : quota IA épuisé — arrêt propre, reprise au prochain run.`)
         stoppedByQuota = true
         break
