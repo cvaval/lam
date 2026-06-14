@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Logo } from '@/components/Logo'
 import { LocaleSwitcher } from '@/components/LocaleSwitcher'
 import { CookieBanner } from '@/components/CookieBanner'
+import { HeroVisual } from '@/components/HeroVisual'
 import { PUBLICATIONS } from '@/lib/publications'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale } from '@/lib/types'
@@ -33,21 +34,26 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
 
       {/* Hero */}
       <section className="bg-lank text-cream">
-        <div className="mx-auto max-w-6xl px-4 py-16 lg:py-24">
-          <p className="font-mono text-xs uppercase tracking-[0.22em] text-sitwon">{tr("République d'Haïti · recherche juridique", 'Republic of Haiti · legal research', 'Repiblik Ayiti · rechèch jiridik')}</p>
-          <h1 className="mt-5 max-w-3xl font-serif text-4xl font-semibold leading-[1.05] lg:text-6xl">{t.home.title}</h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-cream/75">
-            {tr(
-              "Recherchez Le Moniteur, l'index de la législation haïtienne et les circulaires de la Banque de la République d'Haïti — sourcés aux textes publiés.",
-              'Search Le Moniteur, the index of Haitian legislation and the circulars of the Bank of the Republic of Haiti — sourced from the published texts.',
-              'Chèche nan Monitè a, endèks lejislasyon ayisyen an ak sikilè Bank Repiblik Ayiti a — ki soti nan tèks ki pibliye yo.',
-            )}
-          </p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <Link href={`/${locale}/register`} className="rounded-full bg-sitwon px-6 py-3 text-sm font-semibold text-lank hover:bg-sitwon/90">{t.nav.createAccount}</Link>
-            <Link href={`/${locale}/login`} className="rounded-full border border-cream/35 px-6 py-3 text-sm font-semibold text-cream hover:bg-white/10">{t.nav.login}</Link>
+        <div className="mx-auto grid max-w-6xl items-center gap-y-14 gap-x-12 px-4 py-16 lg:grid-cols-[1.05fr_1fr] lg:py-24">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.22em] text-sitwon">{tr("République d'Haïti · recherche juridique", 'Republic of Haiti · legal research', 'Repiblik Ayiti · rechèch jiridik')}</p>
+            <h1 className="mt-5 font-serif text-4xl font-semibold leading-[1.05] lg:text-[3.4rem]">
+              {tr('Le droit haïtien au bout des doigts.', 'Haitian law at your fingertips.', 'Dwa ayisyen an nan pwent dwèt ou.')}
+            </h1>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/75">
+              {tr(
+                "Accédez instantanément aux lois, décrets, circulaires de la BRH et à bien d'autres ressources dans la première bibliothèque juridique virtuelle d'Haïti.",
+                "Instantly access laws, decrees, BRH circulars and many other resources in Haiti's first virtual legal library.",
+                "Jwenn lwa, dekrè, sikilè BRH yo ak anpil lòt resous nan yon batman je — nan premye bibliyotèk jiridik vityèl Ayiti a.",
+              )}
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Link href={`/${locale}/register`} className="rounded-full bg-sitwon px-6 py-3 text-sm font-semibold text-lank hover:bg-sitwon/90">{t.nav.createAccount}</Link>
+              <Link href={`/${locale}/login`} className="rounded-full border border-cream/35 px-6 py-3 text-sm font-semibold text-cream hover:bg-white/10">{t.nav.login}</Link>
+            </div>
+            <p className="mt-5 font-mono text-xs text-cream/45">🔒 {tr('La recherche nécessite une connexion sécurisée.', 'Search requires a secure sign-in.', 'Rechèch la mande yon koneksyon sekirize.')}</p>
           </div>
-          <p className="mt-5 font-mono text-xs text-cream/45">🔒 {tr('La recherche nécessite une connexion sécurisée.', 'Search requires a secure sign-in.', 'Rechèch la mande yon koneksyon sekirize.')}</p>
+          <div className="pb-8 lg:pb-0"><HeroVisual /></div>
         </div>
       </section>
 
