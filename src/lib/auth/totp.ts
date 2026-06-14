@@ -1,8 +1,9 @@
 import { authenticator } from 'otplib'
 import QRCode from 'qrcode'
 
-// Fenêtre de tolérance d'un pas (±30 s) pour absorber le décalage d'horloge.
-authenticator.options = { window: 1 }
+// Fenêtre de tolérance de deux pas (±60 s) pour absorber le décalage d'horloge
+// entre le serveur et le téléphone de l'utilisateur (cause n°1 des codes rejetés).
+authenticator.options = { window: 2 }
 
 const ISSUER = process.env.TOTP_ISSUER ?? 'Lam'
 

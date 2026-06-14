@@ -144,17 +144,22 @@ export function VerifyForm({
         </p>
       )}
 
-      <label className={`flex items-center justify-center gap-2 text-xs ${sensitive ? 'opacity-40' : 'text-lank/70'}`}>
-        <input
-          type="checkbox"
-          checked={trust}
-          disabled={sensitive}
-          onChange={(e) => setTrust(e.target.checked)}
-          className="h-4 w-4 rounded border-lank/30 accent-lank"
-        />
-        {t.verify.trust} / {t.verify.trustAlt}
-      </label>
-      {sensitive && <p className="text-center text-[11px] text-lank/40">{t.verify.sensitiveNote}</p>}
+      {/* Appareil de confiance : indisponible pour les rôles sensibles (admin/éditeur),
+          qui refont la 2FA à chaque session. On masque la case (au lieu de la griser)
+          pour ne pas donner l'impression d'un contrôle cassé ; la note explique pourquoi. */}
+      {sensitive ? (
+        <p className="text-center text-[11px] text-lank/45">{t.verify.sensitiveNote}</p>
+      ) : (
+        <label className="flex cursor-pointer items-center justify-center gap-2 text-xs text-lank/70">
+          <input
+            type="checkbox"
+            checked={trust}
+            onChange={(e) => setTrust(e.target.checked)}
+            className="h-4 w-4 rounded border-lank/30 accent-lank"
+          />
+          {t.verify.trust} / {t.verify.trustAlt}
+        </label>
+      )}
 
       <button
         type="submit"
