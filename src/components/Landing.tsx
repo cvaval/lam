@@ -78,20 +78,21 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
       {/* Mission */}
       <section className="bg-lank text-cream">
         <div className="mx-auto max-w-6xl px-4 py-20">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-sitwon">{tr('Notre mission', 'Our mission', 'Misyon nou')}</p>
-          <p className="mt-5 max-w-2xl font-serif text-2xl leading-snug lg:text-3xl">{tr("L'accès au droit est un bien commun.", 'Access to the law is a common good.', 'Aksè ak dwa se yon byen komen.')}</p>
-          <p className="mt-6 max-w-3xl leading-relaxed text-cream/75">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-soley">{tr('Mission', 'Mission', 'Misyon')}</p>
+          <p className="mt-7 text-base leading-relaxed text-cream/90 lg:text-lg">
             {tr(
-              "Lam est née d'une conviction : dans un État de droit, nul ne devrait avoir à deviner ce que dit la loi. Le droit haïtien — éparpillé dans des décennies de Moniteur, de circulaires et de textes épars — doit être trouvable, lisible et vérifiable par tous, qu'un texte soit en vigueur ou non.",
-              "Lam was born of a conviction: in a state governed by the rule of law, no one should have to guess what the law says. Haitian law — scattered across decades of the Moniteur, circulars and disparate texts — must be findable, readable and verifiable by everyone, whether a text is in force or not.",
-              "Lam soti nan yon konviksyon : nan yon Eta dedwa, pèsòn pa ta dwe oblije devine sa lalwa di. Dwa ayisyen an dwe ka jwenn, ka li epi tout moun ka verifye l, kit yon tèks anvigè ou non.",
+              "Notre mission est de centraliser, structurer et rendre accessible l'information juridique haïtienne afin d'aider chacun à identifier rapidement les sources de droit applicables. En réunissant sur une plateforme unique la législation, les publications du Moniteur et les circulaires administratives, Lam offre un accès simplifié, fiable et moderne au droit.",
+              'Our mission is to centralize, structure and make Haitian legal information accessible, helping everyone quickly identify the applicable sources of law. By bringing together on a single platform the legislation, the publications of the Moniteur and administrative circulars, Lam offers simplified, reliable and modern access to the law.',
+              "Misyon nou se santralize, estriktire epi rann enfòmasyon jiridik ayisyen an aksesib, pou ede tout moun jwenn rapidman sous dwa ki aplikab yo. Lè li reyini sou yon sèl platfòm lejislasyon an, piblikasyon Monitè yo ak sikilè administratif yo, Lam ofri yon aksè senp, fyab epi modèn ak dwa a.",
             )}
           </p>
-          <div className="mt-7 flex flex-wrap gap-2 font-mono text-xs uppercase tracking-wide text-sitwon">
-            {[tr('Les juristes', 'Legal professionals', 'Jiris yo'), tr("Les hommes et femmes d'affaires", 'Business owners', 'Fanm ak gason dafè yo'), tr('Les citoyens concernés', 'Concerned citizens', 'Sitwayen konsène yo')].map((w, i) => (
-              <span key={i} className="rounded-full border border-sitwon/40 px-3 py-1.5">{w}</span>
-            ))}
-          </div>
+          <p className="mt-5 text-base leading-relaxed text-cream/70 lg:text-lg">
+            {tr(
+              "Au-delà d'un simple moteur de recherche, Lam vise à démocratiser l'accès au droit. En facilitant l'accès à une information juridique complète et organisée, la plateforme contribue à renforcer la transparence, la sécurité juridique, l'égalité devant la loi et l'État de droit.",
+              'Beyond a simple search engine, Lam aims to democratize access to the law. By facilitating access to comprehensive, organized legal information, the platform helps strengthen transparency, legal certainty, equality before the law and the rule of law.',
+              "Pi lwen pase yon senp motè rechèch, Lam vize demokratize aksè ak dwa. Lè li fasilite aksè ak yon enfòmasyon jiridik konplè epi òganize, platfòm nan ede ranfòse transparans, sekirite jiridik, egalite devan lalwa ak Eta dedwa.",
+            )}
+          </p>
         </div>
       </section>
 
