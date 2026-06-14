@@ -110,13 +110,13 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
         </div>
       </section>
 
-      {/* Confiance */}
+      {/* Atouts */}
       <section className="border-y border-lank/10 bg-white">
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 md:grid-cols-3">
           {[
-            { tF: 'Connexion à deux facteurs', tE: 'Two-factor authentication', tH: 'Koneksyon ak de faktè', dF: 'Chaque compte est protégé par une authentification à deux facteurs (2FA).', dE: 'Every account is protected by two-factor authentication (2FA).', dH: 'Chak kont pwoteje ak yon otantifikasyon ak de faktè (2FA).' },
-            { tF: 'Données chiffrées', tE: 'Encrypted data', tH: 'Done chifre', dF: 'Communications et données chiffrées (TLS, chiffrement au repos) ; domaine protégé par DNSSEC.', dE: 'Encrypted communications and data (TLS, encryption at rest); domain protected by DNSSEC.', dH: 'Kominikasyon ak done chifre (TLS, chifreman lè y ap poze) ; domèn pwoteje ak DNSSEC.' },
-            { tF: 'Fidélité aux sources', tE: 'Faithful to the sources', tH: 'Fidelite ak sous yo', dF: 'Toute erreur de transcription signalée est corrigée dans les meilleurs délais.', dE: 'Any transcription error reported is corrected as soon as possible.', dH: 'Nenpòt erè transkripsyon yo siyale ap korije pi vit posib.' },
+            { tF: 'Sources centralisées', tE: 'Centralized sources', tH: 'Sous santralize', dF: 'Retrouvez au même endroit la législation, la jurisprudence, les circulaires, la doctrine, les lois de finances et les publications du Moniteur.', dE: 'Find legislation, case law, circulars, legal doctrine, finance laws and the publications of the Moniteur all in one place.', dH: 'Jwenn nan yon sèl kote lejislasyon, jurisprudans, sikilè, doktrin, lwa finans ak piblikasyon Monitè yo.' },
+            { tF: 'Information structurée', tE: 'Structured information', tH: 'Enfòmasyon estriktire', dF: "Chaque document est classé, indexé et relié aux informations pertinentes pour faciliter la recherche et l'analyse juridique.", dE: 'Every document is classified, indexed and linked to relevant information to make legal research and analysis easier.', dH: 'Chak dokiman klase, endekse epi konekte ak enfòmasyon ki enpòtan yo pou fasilite rechèch ak analiz jiridik.' },
+            { tF: 'Accès simplifié au droit', tE: 'Simplified access to the law', tH: 'Aksè senp ak dwa a', dF: "Une plateforme conçue pour permettre aux professionnels, aux institutions et aux citoyens d'accéder plus facilement à l'information juridique haïtienne.", dE: 'A platform designed to help professionals, institutions and citizens access Haitian legal information more easily.', dH: 'Yon platfòm ki fèt pou pèmèt pwofesyonèl, enstitisyon ak sitwayen jwenn enfòmasyon jiridik ayisyen an pi fasilman.' },
           ].map((it, i) => (
             <div key={i}>
               <h4 className="font-serif text-lg font-semibold text-lank">{tr(it.tF, it.tE, it.tH)}</h4>
