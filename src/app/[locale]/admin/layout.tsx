@@ -24,10 +24,14 @@ export default async function AdminLayout({
   return (
     <div className="flex min-h-screen bg-paper">
       <aside className="hidden w-60 shrink-0 flex-col bg-lank px-4 py-5 md:flex">
-        <div className="mb-1 flex items-center gap-2 px-2 text-cream">
+        <Link
+          href={`/${locale}/dashboard`}
+          title={t.nav.dashboard}
+          className="mb-1 flex items-center gap-2 rounded-lg px-2 py-1 text-cream transition hover:bg-white/10"
+        >
           <FruitMark size={24} tone="dark" />
           <span className="text-sm font-extrabold lowercase tracking-tight">{BRAND.wordmark}</span>
-        </div>
+        </Link>
         <p className="mb-6 px-2 text-[10px] font-semibold uppercase tracking-widest text-sitwon">
           {user.role === 'MASTER_ADMIN' ? 'Master Admin' : t.roles.EDITEUR}
         </p>
@@ -41,10 +45,10 @@ export default async function AdminLayout({
 
       <div className="flex-1">
         <header className="flex items-center justify-between border-b border-lank/10 bg-white px-6 py-3 md:justify-end">
-          <div className="flex items-center gap-2 text-lank md:hidden">
+          <Link href={`/${locale}/dashboard`} title={t.nav.dashboard} className="flex items-center gap-2 text-lank md:hidden">
             <FruitMark size={22} />
             <span className="text-xs font-semibold uppercase tracking-wide text-lank/60">Admin</span>
-          </div>
+          </Link>
           <LocaleSwitcher current={locale} />
         </header>
         <div className="px-6 py-6">{children}</div>
