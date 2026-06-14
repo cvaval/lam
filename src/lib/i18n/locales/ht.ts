@@ -122,6 +122,15 @@ export const ht: Dictionary = {
     indexNote:
       "Antre nan Endèks Monitè a. Referans piblikasyon ; tèks konplè a pa disponib nan fich sa a. Gade sèvis tèks konplè yo pou vèsyon konplè yo.",
   },
+  legal: {
+    back: 'Retounen nan akèy',
+    toc: 'Somè',
+    updated: 'Dènye mizajou',
+    frenchNote: 'Dokiman referans an franse. An ka de tradiksyon, se sèlman vèsyon fransè a ki fè lwa.',
+    cgu: 'Kondisyon Jeneral Itilizasyon',
+    confidentialite: 'Politik konfidansyalite',
+    mentions: 'Mansyon legal',
+  },
   paywall: {
     extractOnly: 'W ap li yon ekstrè.',
     upgrade: 'Pase nan palye Pwofesyonèl pou lekti konplè, ekspò sele ak alèt.',

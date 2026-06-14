@@ -126,6 +126,15 @@ export const fr = {
     indexNote:
       "Entrée de l'Index du Moniteur. Référence de publication ; le texte intégral n'est pas disponible dans cette fiche. Consultez les services à texte intégral pour les versions complètes.",
   },
+  legal: {
+    back: 'Retour à l’accueil',
+    toc: 'Sommaire',
+    updated: 'Dernière mise à jour',
+    frenchNote: 'Document de référence en français. En cas de traduction, seule la version française fait foi.',
+    cgu: 'Conditions Générales d’Utilisation',
+    confidentialite: 'Politique de confidentialité',
+    mentions: 'Mentions légales',
+  },
   paywall: {
     extractOnly: 'Vous lisez un extrait.',
     upgrade: 'Passez au palier Pwofesyonèl pour la lecture intégrale, l’export scellé et les alertes.',

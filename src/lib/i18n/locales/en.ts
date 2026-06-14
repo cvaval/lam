@@ -122,6 +122,15 @@ export const en: Dictionary = {
     indexNote:
       'Moniteur index entry. Publication reference; the full text is not available in this record. See the full-text services for complete versions.',
   },
+  legal: {
+    back: 'Back to home',
+    toc: 'Contents',
+    updated: 'Last updated',
+    frenchNote: 'Authoritative document in French. In case of translation, only the French version prevails.',
+    cgu: 'Terms of Use',
+    confidentialite: 'Privacy Policy',
+    mentions: 'Legal notice',
+  },
   paywall: {
     extractOnly: 'You are reading an extract.',
     upgrade: 'Upgrade to the Pwofesyonèl tier for full reading, sealed export and alerts.',

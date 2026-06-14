@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { TopBar } from '@/components/TopBar'
 import { dictFor } from '@/lib/i18n/server'
 import { requireUser } from '@/lib/auth/guard'
@@ -36,9 +37,15 @@ export default async function AppLayout({
       <main className="mx-auto max-w-6xl px-4 py-6">{children}</main>
       {/* Avertissement juridique permanent : seules les versions françaises font foi. */}
       <footer className="mx-auto max-w-6xl px-4 pb-6">
-        <p className="border-t border-lank/10 pt-4 text-center text-[11px] leading-relaxed text-lank/45">
-          {t.doc.unofficialNote}
-        </p>
+        <div className="border-t border-lank/10 pt-4">
+          <nav className="mb-3 flex flex-wrap justify-center gap-x-5 gap-y-2 text-[11px] text-lank/55">
+            <Link className="hover:text-lank" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
+            <Link className="hover:text-lank" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
+            <Link className="hover:text-lank" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
+            <a className="hover:text-lank" href="mailto:legal@lam.ht">Contact</a>
+          </nav>
+          <p className="text-center text-[11px] leading-relaxed text-lank/45">{t.doc.unofficialNote}</p>
+        </div>
       </footer>
     </div>
   )

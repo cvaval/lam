@@ -48,6 +48,11 @@ export default async function LoginPage({ params }: { params: { locale: string }
         </div>
 
         <footer className="text-xs text-lank/40">
+          <nav className="mb-2 flex flex-wrap gap-x-4 gap-y-1">
+            <Link className="hover:text-lank" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
+            <Link className="hover:text-lank" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
+            <Link className="hover:text-lank" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
+          </nav>
           {`Lam · ${t.brand.baseline} · ${t.common.poweredBy}`}
         </footer>
       </section>
