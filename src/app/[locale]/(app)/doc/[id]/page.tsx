@@ -56,7 +56,10 @@ export default async function DocPage({ params }: { params: { locale: string; id
   const means = pickLocale(doc.meansFr, doc.meansEn, doc.meansHt, locale)
   const title = pickLocale(doc.titleFr, doc.titleEn, doc.titleHt, locale) || doc.titleFr
 
-  const extract = fullAccess ? doc.bodyOriginal : doc.bodyOriginal.slice(0, 650)
+  // bodyClean : version corrigée (OCR + orthographe) par l'IA — affichée si disponible,
+  // bodyOriginal sinon. L'original reste intact en base (§02).
+  const body = doc.bodyClean ?? doc.bodyOriginal
+  const extract = fullAccess ? body : body.slice(0, 650)
   // Tableaux & encadrés colorés (reproduction du rendu visuel du PDF) — affichés
   // seulement en lecture intégrale, pour ne pas déborder de l'extrait du paywall.
   const richBlocks = fullAccess ? parseRichBlocks(doc.richBlocksJson) : []

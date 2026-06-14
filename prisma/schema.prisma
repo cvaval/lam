@@ -223,6 +223,11 @@ model Document {
   // Le long terme : champs additionnels en JSON (stocké en texte pour portabilité SQLite)
   metaJson       String?
 
+  // Texte corrigé (OCR + orthographe) par l'IA — AFFICHAGE seulement, jamais stocké
+  // en remplacement de bodyOriginal (§02). Produit par scripts/clean-body.ts via
+  // Gemini ou Claude. Null = non encore traité, on affiche bodyOriginal.
+  bodyClean      String?
+
   // Rendu enrichi (tableaux + encadrés colorés) reconstruit du rendu visuel du PDF
   // par l'IA vision (src/lib/ai/extract.ts) ou à la main. JSON sérialisé de RichBlock[]
   // (src/lib/doc/richblocks.ts). AFFICHAGE seulement — bodyOriginal reste le texte
