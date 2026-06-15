@@ -18,8 +18,11 @@ import { withAiFallback, modelFor } from './provider'
 
 const MODELS = { anthropic: 'claude-haiku-4-5-20251001', gemini: 'gemini-2.0-flash' }
 
-// Caractères max par appel IA (~20k tokens input)
-const MAX_CHARS = 80_000
+// Caractères max par tranche. DOIT rester petit : le texte corrigé (≈ même longueur
+// que l'entrée) doit tenir dans la limite de tokens de SORTIE de l'IA — sinon il est
+// tronqué et rejeté par le garde-fou « résultat trop court ». ~24k car. ≈ 7-8k tokens
+// de sortie, compatible Claude (max_tokens 16k) ET le repli Gemini (max 8192 tokens).
+const MAX_CHARS = 24_000
 
 const PROMPT = `Tu es correcteur de textes juridiques officiels haïtiens (lois de finances, décrets, circulaires BRH).
 Corrige UNIQUEMENT les erreurs d'orthographe, de grammaire et d'OCR dans le texte suivant.
