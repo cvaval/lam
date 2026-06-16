@@ -47,11 +47,7 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
                 "Jwenn lwa, dekrè, sikilè BRH yo ak anpil lòt resous nan yon batman je — nan premye bibliyotèk jiridik vityèl Ayiti a.",
               )}
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Link href={`/${locale}/register`} className="rounded-full bg-sitwon px-6 py-3 text-sm font-semibold text-lank hover:bg-sitwon/90">{t.nav.createAccount}</Link>
-              <Link href={`/${locale}/login`} className="rounded-full border border-cream/35 px-6 py-3 text-sm font-semibold text-cream hover:bg-white/10">{t.nav.login}</Link>
-            </div>
-            <p className="mt-5 font-mono text-xs text-cream/45">🔒 {tr('La recherche nécessite une connexion sécurisée.', 'Search requires a secure sign-in.', 'Rechèch la mande yon koneksyon sekirize.')}</p>
+            <p className="mt-8 font-mono text-xs text-cream/45">🔒 {tr('La recherche nécessite une connexion sécurisée.', 'Search requires a secure sign-in.', 'Rechèch la mande yon koneksyon sekirize.')}</p>
           </div>
           <div className="pb-8 lg:pb-0"><HeroVisual /></div>
         </div>
