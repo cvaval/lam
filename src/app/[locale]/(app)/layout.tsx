@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import { TopBar } from '@/components/TopBar'
+import { IdleTimer } from '@/components/IdleTimer'
 import { dictFor } from '@/lib/i18n/server'
 import { requireUser } from '@/lib/auth/guard'
 import { trustedDeviceDaysLeft } from '@/lib/auth/devices'
+import { IDLE_TIMEOUT_MINUTES, IDLE_WARNING_SECONDS } from '@/lib/auth/session'
 
 // Tout l'espace authentifié est rendu par requête (session/cookies).
 export const dynamic = 'force-dynamic'
@@ -20,6 +22,8 @@ export default async function AppLayout({
 
   return (
     <div className="min-h-screen bg-paper">
+      {/* Déconnexion automatique pour inactivité (§sécurité). */}
+      <IdleTimer locale={locale} idleMinutes={IDLE_TIMEOUT_MINUTES} warningSeconds={IDLE_WARNING_SECONDS} />
       <TopBar
         locale={locale}
         t={t}

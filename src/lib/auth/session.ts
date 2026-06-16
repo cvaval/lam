@@ -8,6 +8,20 @@ const SESSION_COOKIE = 'lv_session'
 export const DEVICE_COOKIE = 'lv_device'
 const SESSION_TTL_DAYS = 7
 
+/**
+ * Déconnexion automatique pour inactivité (§sécurité).
+ *  - IDLE_TIMEOUT_MINUTES : appliqué côté NAVIGATEUR (minuteur précis basé sur
+ *    l'activité réelle souris/clavier/défilement), avec un avertissement avant.
+ *  - Le SERVEUR applique un filet plus large (IDLE_BACKSTOP_MS) : invalide la
+ *    session après une inactivité prolongée sans aucune requête (navigateur
+ *    abandonné / JS désactivé) — infalsifiable. Le « +5 min » absorbe le délai
+ *    entre les pings d'activité du client.
+ */
+export const IDLE_TIMEOUT_MINUTES = 15
+export const IDLE_WARNING_SECONDS = 60
+const IDLE_BACKSTOP_MS = (IDLE_TIMEOUT_MINUTES + 5) * 60_000
+const TOUCH_THROTTLE_MS = 60_000
+
 function baseCookieOpts(maxAgeSeconds: number) {
   return {
     httpOnly: true,
@@ -91,9 +105,21 @@ const loadSession = cache(async () => {
   if (!token) return null
   const session = await prisma.session.findUnique({ where: { token }, include: { user: true } })
   if (!session) return null
-  if (session.expiresAt.getTime() < Date.now()) {
+  const now = Date.now()
+  if (session.expiresAt.getTime() < now) {
     await prisma.session.delete({ where: { id: session.id } }).catch(() => {})
     return null
+  }
+  // Inactivité (filet serveur) : invalide après IDLE_BACKSTOP_MS sans aucune requête.
+  // lastSeenAt absent (session créée avant la fonctionnalité) → initialisé, pas de coupure.
+  const last = session.lastSeenAt?.getTime()
+  if (last !== undefined && now - last > IDLE_BACKSTOP_MS) {
+    await prisma.session.delete({ where: { id: session.id } }).catch(() => {})
+    return null
+  }
+  // Marque l'activité (throttle : au plus une écriture par minute et par session).
+  if (last === undefined || now - last > TOUCH_THROTTLE_MS) {
+    await prisma.session.update({ where: { id: session.id }, data: { lastSeenAt: new Date(now) } }).catch(() => {})
   }
   return session
 })

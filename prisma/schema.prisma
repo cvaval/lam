@@ -142,6 +142,9 @@ model Session {
   userAgent        String?
   createdAt        DateTime @default(now())
   expiresAt        DateTime
+  // Dernière activité — déconnexion auto pour inactivité (§sécurité). Null pour les
+  // sessions antérieures à la fonctionnalité → initialisé à la première requête.
+  lastSeenAt       DateTime?
 
   @@index([userId])
 }
