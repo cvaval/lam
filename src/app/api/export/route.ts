@@ -3,6 +3,7 @@ import { apiError } from '@/lib/api'
 import { prisma } from '@/lib/db'
 import { getCurrentUser } from '@/lib/auth/session'
 import { can } from '@/lib/rbac'
+import { canReadService } from '@/lib/access'
 import { buildSealedPdf } from '@/lib/pdf/seal'
 import { audit } from '@/lib/auth/audit'
 import { randomToken } from '@/lib/auth/crypto'
@@ -30,6 +31,8 @@ export async function GET(req: NextRequest) {
 
   const doc = await prisma.document.findUnique({ where: { id } })
   if (!doc) return apiError('notFound', 404)
+  // Défense en profondeur : pas d'export d'un service non accordé à ce compte (§03).
+  if (!canReadService(user, doc.type as DocType)) return apiError('forbidden', 403)
 
   const watermarkId = `${user.id.slice(-6)}-${randomToken(4)}`.toUpperCase()
   const meta = DOC_TYPE_META[doc.type as DocType]

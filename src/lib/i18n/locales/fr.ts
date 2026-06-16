@@ -161,8 +161,11 @@ export const fr = {
     reactivate: 'Réactiver',
     changeType: 'Changer de type',
     reset2fa: 'Réinitialiser 2FA',
-    indexOnly: 'Index seulement',
-    fullAccess: 'Accès complet',
+    services: 'Services',
+    indexAlwaysOn: 'Index du Moniteur (toujours actif)',
+    sourcePdfPerm: 'PDF original',
+    staffAllServices: 'Compte interne — accès à tous les services et au PDF original.',
+    save: 'Enregistrer',
     history: 'Historique',
     activateNote:
       "L'activation déclenche l'e-mail de bienvenue bilingue + l'enrôlement 2FA obligatoire à la première connexion.",

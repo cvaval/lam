@@ -54,9 +54,12 @@ model User {
   // Palier octroyé par code promo : expire à cette date (puis retour Sitwayen).
   planExpiresAt  DateTime?
 
-  // Accès restreint à l'Index du Moniteur uniquement (références, pas de texte
-  // intégral) — option activée par le master admin.
-  indexOnly      Boolean  @default(false)
+  // Services à texte intégral accordés à ce compte — CSV de DocType
+  // (ex. "LEGISLATION,LOI_FINANCES"). Vide = Index du Moniteur seulement (défaut §03).
+  // INDEX est toujours accessible ; EDITEUR/MASTER_ADMIN voient tout (cf. src/lib/access.ts).
+  services       String   @default("")
+  // Autorise l'affichage du lien vers le PDF original du document retranscrit.
+  canViewSourcePdf Boolean @default(false)
 
   // Verrouillage anti-bruteforce : 5 échecs → 15 min (§04)
   failedLogins   Int      @default(0)

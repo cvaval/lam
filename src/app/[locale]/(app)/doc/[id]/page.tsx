@@ -6,7 +6,8 @@ import { dictFor } from '@/lib/i18n/server'
 import { formatDate } from '@/lib/i18n/format'
 import { requireUser } from '@/lib/auth/guard'
 import { prisma } from '@/lib/db'
-import { canReadFull, can } from '@/lib/rbac'
+import { can } from '@/lib/rbac'
+import { canReadService, canSeeSourcePdf } from '@/lib/access'
 import { guard, LIMITS } from '@/lib/security/ratelimit'
 import { RateLimitNotice } from '@/components/RateLimitNotice'
 import { StatusChip } from '@/components/StatusChip'
@@ -42,12 +43,11 @@ export default async function DocPage({ params }: { params: { locale: string; id
 
   const type = doc.type as DocType
   const isIndex = type === 'INDEX'
-  // Accès « Index seulement » : pas de lecture des textes intégraux.
-  if (user.indexOnly && !isIndex) redirect(`/${locale}/search?type=index`)
+  // Accès par service (§03) : un type non accordé est invisible → redirection vers l'Index.
+  // L'Index reste toujours accessible ; un service accordé donne la lecture intégrale.
+  if (!canReadService(user, type)) redirect(`/${locale}/search?type=index`)
 
   const meta = DOC_TYPE_META[type]
-  // L'Index ne contient que des références → toujours visible en entier (pas de paywall).
-  const fullAccess = isIndex || canReadFull(user.role)
   const fav = await prisma.favorite.findUnique({
     where: { userId_documentId: { userId: user.id, documentId: doc.id } },
   })
@@ -57,12 +57,11 @@ export default async function DocPage({ params }: { params: { locale: string; id
   const title = pickLocale(doc.titleFr, doc.titleEn, doc.titleHt, locale) || doc.titleFr
 
   // bodyClean : version corrigée (OCR + orthographe) par l'IA — affichée si disponible,
-  // bodyOriginal sinon. L'original reste intact en base (§02).
+  // bodyOriginal sinon. L'original reste intact en base (§02). L'accès étant accordé par
+  // service (sinon redirection ci-dessus), le texte est toujours affiché en intégralité.
   const body = doc.bodyClean ?? doc.bodyOriginal
-  const extract = fullAccess ? body : body.slice(0, 650)
-  // Tableaux & encadrés colorés (reproduction du rendu visuel du PDF) — affichés
-  // seulement en lecture intégrale, pour ne pas déborder de l'extrait du paywall.
-  const richBlocks = fullAccess ? parseRichBlocks(doc.richBlocksJson) : []
+  // Tableaux & encadrés colorés (reproduction du rendu visuel du PDF).
+  const richBlocks = parseRichBlocks(doc.richBlocksJson)
   // Annexes téléchargeables (Word/Excel) : circulaires dont les annexes sont des
   // tableaux/formulaires reconstruits. Réservé aux paliers exportateurs (§09).
   const annexCount = richBlocks.filter((b) => b.type === 'table').length
@@ -162,10 +161,13 @@ export default async function DocPage({ params }: { params: { locale: string; id
             ↓ {t.doc.export}
           </a>
         ) : null}
-        {doc.sourcePdfUrl && (
+        {/* PDF original du document retranscrit — permission par utilisateur (§03). */}
+        {canSeeSourcePdf(user) && doc.sourcePdfUrl && (
           <a
             href={doc.sourcePdfUrl}
-            className="inline-flex items-center rounded-lg border border-lank/15 bg-white px-3 py-1.5 text-sm text-lank/70"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center rounded-lg border border-lank/15 bg-white px-3 py-1.5 text-sm text-lank/70 hover:bg-lank-50"
           >
             {t.doc.source}
           </a>
@@ -174,7 +176,7 @@ export default async function DocPage({ params }: { params: { locale: string; id
 
       {/* Annexes à compléter : téléchargement Word (formulaires) / Excel (tableaux),
           filigrane Lam + mention légale (src/lib/annexes/generate.ts). */}
-      {type === 'CIRCULAIRE_BRH' && fullAccess && can(user.role, 'export.sealed') && annexCount > 0 && (
+      {type === 'CIRCULAIRE_BRH' && can(user.role, 'export.sealed') && annexCount > 0 && (
         <div className="rounded-xl border border-lank/10 bg-paper/60 px-4 py-3">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
@@ -255,22 +257,7 @@ export default async function DocPage({ params }: { params: { locale: string; id
           {t.doc.unofficialNote}
         </p>
         <div className="relative">
-          <OfficialText text={extract} hrefFor={hrefFor} rich={richBlocks} />
-          {!fullAccess && (
-            <div className="relative">
-              <div className="pointer-events-none absolute inset-x-0 -top-24 h-24 bg-gradient-to-b from-transparent to-white" />
-              <div className="rounded-xl border border-soley/40 bg-soley-50 p-5 text-center">
-                <p className="text-sm font-medium text-lank">{t.paywall.extractOnly}</p>
-                <p className="mx-auto mt-1 max-w-md text-sm text-lank/65">{t.paywall.upgrade}</p>
-                <Link
-                  href={`/${locale}/account`}
-                  className="mt-3 inline-block rounded-lg bg-lank px-4 py-2 text-sm font-semibold text-white"
-                >
-                  {t.paywall.cta}
-                </Link>
-              </div>
-            </div>
-          )}
+          <OfficialText text={body} hrefFor={hrefFor} rich={richBlocks} />
         </div>
       </section>
 

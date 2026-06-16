@@ -12,6 +12,7 @@ import { consumeSearchQuota } from '@/lib/quota'
 import { guard, LIMITS } from '@/lib/security/ratelimit'
 import { RateLimitNotice } from '@/components/RateLimitNotice'
 import { can } from '@/lib/rbac'
+import { accessibleTypes, isIndexOnly } from '@/lib/access'
 import { DOC_TYPE_LIST } from '@/lib/brand'
 import { TYPE_SLUGS, isIndexCategory, type DocType, type DocStatus } from '@/lib/types'
 
@@ -32,9 +33,15 @@ export default async function SearchPage({
 
   const q = (searchParams.q ?? '').slice(0, 300)
   const typeSlug = searchParams.type
-  // Accès « Index seulement » : la recherche est verrouillée sur l'Index.
-  const indexOnly = user.indexOnly
-  const selectedType = indexOnly ? 'INDEX' : typeSlug ? TYPE_SLUGS[typeSlug] : undefined
+  // Accès par service (§03) : la recherche est bornée aux types accordés (l'Index toujours).
+  const allowed = accessibleTypes(user)
+  const indexOnly = isIndexOnly(user)
+  const requestedType = typeSlug ? TYPE_SLUGS[typeSlug] : undefined
+  const selectedType = indexOnly
+    ? ('INDEX' as DocType)
+    : requestedType && allowed.includes(requestedType)
+      ? requestedType
+      : undefined
   const page = Math.max(1, Number(searchParams.page ?? '1') || 1)
 
   // Quota mensuel (Sitwayen).
@@ -50,7 +57,8 @@ export default async function SearchPage({
         {
           q,
           locale,
-          types: selectedType ? [selectedType] : undefined,
+          // Sans type choisi : on cherche dans TOUS les types accordés (jamais au-delà).
+          types: selectedType ? [selectedType] : allowed,
           status: (searchParams.status as DocStatus) || undefined,
           juridiction: searchParams.juridiction,
           matiere: searchParams.matiere,
@@ -123,7 +131,7 @@ export default async function SearchPage({
           >
             {t.search.allTypes}
           </Link>
-          {DOC_TYPE_LIST.map((m) => (
+          {DOC_TYPE_LIST.filter((m) => allowed.includes(m.type)).map((m) => (
             <Link
               key={m.type}
               href={`/${locale}/search?${qs({ q }, { type: m.slug })}`}

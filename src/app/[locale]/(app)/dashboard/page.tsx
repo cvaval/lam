@@ -5,6 +5,7 @@ import { dictFor } from '@/lib/i18n/server'
 import { requireUser } from '@/lib/auth/guard'
 import { prisma } from '@/lib/db'
 import { DOC_TYPE_LIST, COLOR_CLASSES } from '@/lib/brand'
+import { accessibleTypes } from '@/lib/access'
 import type { DocType } from '@/lib/types'
 
 // Écran 3 — Tableau de bord : accès rapides + Nouveauté (§07).
@@ -13,10 +14,9 @@ export default async function DashboardPage({ params }: { params: { locale: stri
   const user = await requireUser(locale)
 
   const fifteenDaysAgo = new Date(Date.now() - 15 * 86400_000)
-  // Accès « Index seulement » : restreint l'affichage à l'Index.
-  const newWhere = user.indexOnly
-    ? { createdAt: { gte: fifteenDaysAgo }, type: 'INDEX' }
-    : { createdAt: { gte: fifteenDaysAgo } }
+  // Accès par service (§03) : on ne montre que les types accordés (l'Index toujours).
+  const allowed = accessibleTypes(user)
+  const newWhere = { createdAt: { gte: fifteenDaysAgo }, type: { in: allowed } }
 
   const [recent, favorites, newCount, newDocs, newByTypeRaw] = await Promise.all([
     prisma.searchLog.findMany({
@@ -38,8 +38,8 @@ export default async function DashboardPage({ params }: { params: { locale: stri
   ])
   const newByType = new Map(newByTypeRaw.map((g) => [g.type, g._count._all]))
 
-  // Tuiles d'accès : 6 services + Index, ou Index seul si accès restreint.
-  const tiles = user.indexOnly ? DOC_TYPE_LIST.filter((m) => m.type === 'INDEX') : DOC_TYPE_LIST
+  // Tuiles d'accès : seulement les services accordés + l'Index (toujours).
+  const tiles = DOC_TYPE_LIST.filter((m) => allowed.includes(m.type))
 
   return (
     <div className="space-y-8">

@@ -2,20 +2,27 @@ import { cache } from 'react'
 import { cookies } from 'next/headers'
 import { prisma } from '../db'
 import { randomToken } from './crypto'
-import type { Role, UserStatus, Locale } from '../types'
+import { parseServices } from '../access'
+import type { Role, UserStatus, Locale, DocType } from '../types'
 
 const SESSION_COOKIE = 'lv_session'
 export const DEVICE_COOKIE = 'lv_device'
 const SESSION_TTL_DAYS = 7
 
 /**
- * Déconnexion automatique pour inactivité (§sécurité).
- *  - IDLE_TIMEOUT_MINUTES : appliqué côté NAVIGATEUR (minuteur précis basé sur
- *    l'activité réelle souris/clavier/défilement), avec un avertissement avant.
- *  - Le SERVEUR applique un filet plus large (IDLE_BACKSTOP_MS) : invalide la
- *    session après une inactivité prolongée sans aucune requête (navigateur
- *    abandonné / JS désactivé) — infalsifiable. Le « +5 min » absorbe le délai
- *    entre les pings d'activité du client.
+ * Déconnexion automatique pour inactivité (§sécurité). Deux mécanismes de portées
+ * distinctes — ne pas les confondre :
+ *  - IDLE_TIMEOUT_MINUTES : la véritable déconnexion d'inactivité HUMAINE, appliquée
+ *    côté NAVIGATEUR (minuteur précis basé sur l'activité réelle souris/clavier/
+ *    défilement, voir IdleTimer), avec un avertissement avant la coupure.
+ *  - Le SERVEUR applique un filet plus large (IDLE_BACKSTOP_MS) : il invalide la
+ *    session après une absence TOTALE de requêtes (navigateur abandonné / onglet
+ *    fermé / JS désactivé). Ce filet ne mesure PAS l'inactivité humaine : loadSession()
+ *    rafraîchit lastSeenAt sur toute requête authentifiée — y compris un simple ping
+ *    /api/auth/heartbeat. Un appelant (client légitime comme script automatisé) qui
+ *    émet une requête à intervalle < IDLE_BACKSTOP_MS garde donc la session vivante
+ *    indéfiniment ; la garantie se limite au cas « plus aucune requête n'arrive ».
+ *    Le « +5 min » absorbe le délai entre les pings d'activité du client.
  */
 export const IDLE_TIMEOUT_MINUTES = 15
 export const IDLE_WARNING_SECONDS = 60
@@ -43,7 +50,10 @@ export interface SessionUser {
   organizationId: string | null
   monthlyQuota: number | null
   quotaUsed: number
-  indexOnly: boolean
+  /** Services à texte intégral accordés (l'Index reste toujours accessible). */
+  services: DocType[]
+  /** Autorisé à voir le lien vers le PDF original ? */
+  canViewSourcePdf: boolean
   /** échéance du palier promo (null = permanent) */
   planExpiresAt: Date | null
 }
@@ -59,7 +69,8 @@ function toSessionUser(u: {
   organizationId: string | null
   monthlyQuota: number | null
   quotaUsed: number
-  indexOnly: boolean
+  services: string
+  canViewSourcePdf: boolean
   planExpiresAt: Date | null
 }): SessionUser {
   return {
@@ -73,7 +84,8 @@ function toSessionUser(u: {
     organizationId: u.organizationId,
     monthlyQuota: u.monthlyQuota,
     quotaUsed: u.quotaUsed,
-    indexOnly: u.indexOnly,
+    services: parseServices(u.services),
+    canViewSourcePdf: u.canViewSourcePdf,
     planExpiresAt: u.planExpiresAt,
   }
 }

@@ -7,6 +7,7 @@ import { PAGE_SIZE } from '@/lib/search/types'
 import { consumeSearchQuota } from '@/lib/quota'
 import { guard, LIMITS } from '@/lib/security/ratelimit'
 import { can } from '@/lib/rbac'
+import { accessibleTypes } from '@/lib/access'
 import { TYPE_SLUGS, isDocType, isIndexCategory, type DocType, type DocStatus } from '@/lib/types'
 
 export const runtime = 'nodejs'
@@ -30,14 +31,18 @@ export async function GET(req: NextRequest) {
     if (!quota.allowed) return apiError('quota', 429)
   }
 
+  // Services accessibles (l'Index toujours ; staff = tout). La recherche est TOUJOURS
+  // bornée à ces types — un service non accordé ne doit jamais apparaître (§03).
+  const allowed = accessibleTypes(user)
   const typeParam = sp.get('type')
-  let types: DocType[] | undefined
+  let types: DocType[]
   if (typeParam) {
     const resolved = TYPE_SLUGS[typeParam] ?? (isDocType(typeParam) ? (typeParam as DocType) : undefined)
-    if (resolved) types = [resolved]
+    // Type demandé mais non accordé → repli sur l'Index (pas de fuite).
+    types = resolved && allowed.includes(resolved) ? [resolved] : ['INDEX']
+  } else {
+    types = allowed
   }
-  // Accès « Index seulement » : verrouille la recherche sur l'Index.
-  if (user.indexOnly) types = ['INDEX']
 
   const fiscalYearRaw = sp.get('fiscalYear')
   const result = await runSearch(

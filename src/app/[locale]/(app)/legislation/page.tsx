@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { dictFor } from '@/lib/i18n/server'
 import { requireUser } from '@/lib/auth/guard'
+import { canReadService } from '@/lib/access'
 import { prisma } from '@/lib/db'
 
 export const dynamic = 'force-dynamic'
@@ -23,7 +24,7 @@ const L = {
 export default async function LegislationPage({ params }: { params: { locale: string } }) {
   const { locale, t } = dictFor(params.locale)
   const user = await requireUser(locale)
-  if (user.indexOnly) redirect(`/${locale}/dashboard`)
+  if (!canReadService(user, 'LEGISLATION')) redirect(`/${locale}/dashboard`)
 
   // Une source MONITEUR_PDF_{année} par année cataloguée → année + nombre d'éditions.
   const groups = await prisma.document.groupBy({

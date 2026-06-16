@@ -1,4 +1,5 @@
-import type { Role, UserStatus } from '../types'
+import type { Role, UserStatus, DocType } from '../types'
+import { parseServices } from '../access'
 
 /** DTO d'un compte présenté dans la console admin (sérialisable client). */
 export interface AdminUser {
@@ -9,7 +10,10 @@ export interface AdminUser {
   status: UserStatus
   requestedAt: string
   activatedAt: string | null
-  indexOnly: boolean
+  /** Services à texte intégral accordés (l'Index reste toujours accessible). */
+  services: DocType[]
+  /** Autorisé à voir le lien vers le PDF original ? */
+  canViewSourcePdf: boolean
 }
 
 /**
@@ -28,7 +32,8 @@ export function toAdminUser(u: {
   status: string
   requestedAt: Date
   activatedAt: Date | null
-  indexOnly: boolean
+  services: string
+  canViewSourcePdf: boolean
 }): AdminUser {
   return {
     id: u.id,
@@ -38,6 +43,7 @@ export function toAdminUser(u: {
     status: u.status as UserStatus,
     requestedAt: u.requestedAt.toISOString(),
     activatedAt: u.activatedAt?.toISOString() ?? null,
-    indexOnly: u.indexOnly,
+    services: parseServices(u.services),
+    canViewSourcePdf: u.canViewSourcePdf,
   }
 }

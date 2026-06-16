@@ -1,6 +1,7 @@
 import { notFound, redirect } from 'next/navigation'
 import { dictFor } from '@/lib/i18n/server'
 import { requireUser } from '@/lib/auth/guard'
+import { canReadService } from '@/lib/access'
 import { prisma } from '@/lib/db'
 import { LegislationYearView } from '@/components/LegislationYearView'
 
@@ -16,7 +17,7 @@ function parseNum(number: string): { special: boolean; num: number; suffix: stri
 export default async function LegislationYearPage({ params }: { params: { locale: string; year: string } }) {
   const { locale } = dictFor(params.locale)
   const user = await requireUser(locale)
-  if (user.indexOnly) redirect(`/${locale}/dashboard`)
+  if (!canReadService(user, 'LEGISLATION')) redirect(`/${locale}/dashboard`)
 
   const year = Number(params.year)
   if (!Number.isInteger(year) || year < 1800 || year > 3000) notFound()

@@ -7,15 +7,18 @@ import { audit, type AuditAction } from '@/lib/auth/audit'
 import { revokeTrustedDevices } from '@/lib/auth/devices'
 import { sendMail, welcomeEmail } from '@/lib/mail'
 import { quotaForRole } from '@/lib/quota'
-import { ROLES, type Role } from '@/lib/types'
+import { serializeServices } from '@/lib/access'
+import { ROLES, type Role, type DocType } from '@/lib/types'
 
 export const runtime = 'nodejs'
 
 const schema = z.object({
-  action: z.enum(['activate', 'reject', 'suspend', 'reactivate', 'changeType', 'reset2fa', 'setIndexOnly']),
+  action: z.enum(['activate', 'reject', 'suspend', 'reactivate', 'changeType', 'reset2fa', 'setServices']),
   userId: z.string().min(1),
   role: z.enum(ROLES).optional(),
-  indexOnly: z.boolean().optional(),
+  // Services à texte intégral accordés (valeurs invalides filtrées par serializeServices).
+  services: z.array(z.string()).optional(),
+  canViewSourcePdf: z.boolean().optional(),
 })
 
 export async function POST(req: NextRequest) {
@@ -24,7 +27,7 @@ export async function POST(req: NextRequest) {
 
   const parsed = schema.safeParse(await req.json().catch(() => null))
   if (!parsed.success) return apiError('invalidFields', 400)
-  const { action, userId, role, indexOnly } = parsed.data
+  const { action, userId, role, services, canViewSourcePdf } = parsed.data
 
   const target = await prisma.user.findUnique({ where: { id: userId } })
   if (!target) return apiError('notFound', 404)
@@ -78,9 +81,15 @@ export async function POST(req: NextRequest) {
       await prisma.session.deleteMany({ where: { userId } })
       auditAction = '2FA_RESET'
       break
-    case 'setIndexOnly':
-      // Accès restreint à l'Index du Moniteur (références seules).
-      await prisma.user.update({ where: { id: userId }, data: { indexOnly: !!indexOnly } })
+    case 'setServices':
+      // Services à texte intégral accordés (§03). L'Index reste toujours accessible.
+      await prisma.user.update({
+        where: { id: userId },
+        data: {
+          services: serializeServices((services ?? []) as DocType[]),
+          canViewSourcePdf: !!canViewSourcePdf,
+        },
+      })
       auditAction = 'ROLE_CHANGED'
       break
   }
@@ -90,7 +99,13 @@ export async function POST(req: NextRequest) {
     actorId: admin.id,
     targetType: 'USER',
     targetId: userId,
-    meta: { email: target.email, role: role ?? target.role, ...(action === 'setIndexOnly' ? { indexOnly: !!indexOnly } : {}) },
+    meta: {
+      email: target.email,
+      role: role ?? target.role,
+      ...(action === 'setServices'
+        ? { services: serializeServices((services ?? []) as DocType[]), canViewSourcePdf: !!canViewSourcePdf }
+        : {}),
+    },
   })
   return NextResponse.json({ ok: true })
 }

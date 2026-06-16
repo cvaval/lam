@@ -3,12 +3,13 @@ import { apiError } from '@/lib/api'
 import { prisma } from '@/lib/db'
 import { getCurrentUser } from '@/lib/auth/session'
 import { can } from '@/lib/rbac'
+import { canReadService } from '@/lib/access'
 import { audit } from '@/lib/auth/audit'
 import { getClientCtx } from '@/lib/auth/request'
 import { guard, LIMITS } from '@/lib/security/ratelimit'
 import { parseRichBlocks } from '@/lib/doc/richblocks'
 import { buildAnnexesDocx, buildAnnexesXlsx, hasAnnexes } from '@/lib/annexes/generate'
-import { isLocale, DEFAULT_LOCALE } from '@/lib/types'
+import { isLocale, DEFAULT_LOCALE, type DocType } from '@/lib/types'
 
 export const runtime = 'nodejs'
 
@@ -41,6 +42,8 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
 
   const doc = await prisma.document.findUnique({ where: { id: params.id } })
   if (!doc) return apiError('notFound', 404)
+  // Défense en profondeur : pas d'annexes d'un service non accordé à ce compte (§03).
+  if (!canReadService(user, doc.type as DocType)) return apiError('forbidden', 403)
 
   const rich = parseRichBlocks(doc.richBlocksJson)
   if (!hasAnnexes(rich)) return apiError('notFound', 404)
