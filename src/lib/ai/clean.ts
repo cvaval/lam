@@ -39,8 +39,43 @@ Restitue UNIQUEMENT le texte corrigé, sans commentaire.
 ---
 `
 
+// Erreur transitoire (réseau coupé, timeout, socket fermé) — distincte d'une
+// saturation de quota. Mérite un nouvel essai sur le MÊME fournisseur, pas un repli.
+function isTransient(e: unknown): boolean {
+  const msg = String((e as { message?: string })?.message ?? e).toLowerCase()
+  const code = String((e as { code?: string })?.code ?? '')
+  return (
+    /connection error|econnreset|etimedout|econnrefused|enotfound|socket hang up|network|fetch failed|terminated/.test(
+      msg,
+    ) || /ECONNRESET|ETIMEDOUT|ECONNREFUSED|ENOTFOUND|EPIPE/.test(code)
+  )
+}
+
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
+
+// Réessaie une opération sur erreur transitoire (réseau), avec backoff exponentiel.
+// Le repli inter-fournisseurs (saturation) reste géré par withAiFallback en interne.
+async function withRetry<T>(fn: () => Promise<T>, tries = 4): Promise<T> {
+  let lastErr: unknown
+  for (let i = 0; i < tries; i++) {
+    try {
+      return await fn()
+    } catch (e) {
+      lastErr = e
+      if (i < tries - 1 && isTransient(e)) {
+        const delay = 2000 * 2 ** i // 2s, 4s, 8s
+        console.warn(`[ai] erreur réseau, nouvel essai dans ${delay / 1000}s : ${String((e as Error)?.message ?? e).slice(0, 100)}`)
+        await sleep(delay)
+        continue
+      }
+      throw e
+    }
+  }
+  throw lastErr
+}
+
 async function cleanChunk(text: string): Promise<string> {
-  return withAiFallback({
+  return withRetry(() => withAiFallback({
     gemini: async () => {
       const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! })
       const response = await ai.models.generateContent({
@@ -59,7 +94,7 @@ async function cleanChunk(text: string): Promise<string> {
       const block = msg.content.find((b): b is Anthropic.TextBlock => b.type === 'text')
       return block?.text.trim() ?? text
     },
-  })
+  }))
 }
 
 /**
