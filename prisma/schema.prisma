@@ -277,6 +277,9 @@ model Document {
   @@index([source])
   @@index([publicationDate])
   @@index([category])
+  // Recherche sous-chaîne (LIKE '%terme%') accélérée — index GIN trigramme (extension
+  // pg_trgm). Posé en prod via CREATE INDEX CONCURRENTLY (même nom via map:).
+  @@index([searchText(ops: raw("gin_trgm_ops"))], type: Gin, map: "Document_searchText_trgm_idx")
 }
 
 /// Versions consolidées + historique des modifications (type 1 — §01).
@@ -323,6 +326,8 @@ model Company {
   publications CompanyPublication[]
 
   @@index([name])
+  // Recherche sous-chaîne du nom (LIKE '%terme%') — index GIN trigramme (pg_trgm).
+  @@index([searchName(ops: raw("gin_trgm_ops"))], type: Gin, map: "Company_searchName_trgm_idx")
 }
 
 /// Lien société ↔ publication. Une publication peut pointer un document (statuts,
