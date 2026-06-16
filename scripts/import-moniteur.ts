@@ -12,6 +12,7 @@ import { join } from 'node:path'
 import { randomUUID } from 'node:crypto'
 import { PrismaClient } from '@prisma/client'
 import { buildSearchText, fold } from '../src/lib/search/normalize'
+import { extractCompanies, companyId, companyKey } from '../src/lib/moniteur/companies'
 import { audit } from '../src/lib/auth/audit'
 import type { IndexCategory } from '../src/lib/types'
 
@@ -58,27 +59,9 @@ function classify(text: string): { category: IndexCategory; company?: 'STATUTS' 
 }
 
 const CREOLE_START = /^(arete|lwa|dekre|avi ki|kominike|nominasyon|odonans)/
-const QUOTE_RE = /[«"“]([^«»"“”]{3,90})[»"”]/g
 
-function extractCompanies(text: string): string[] {
-  const out = new Set<string>()
-  let m: RegExpExecArray | null
-  while ((m = QUOTE_RE.exec(text))) {
-    const name = m[1].replace(/\s+/g, ' ').trim()
-    const f = fold(name)
-    if (name.length < 3) continue
-    if (!/[a-zà-ÿ]/i.test(name)) continue
-    if (f.includes('registre des marques') || f.includes('le moniteur') || f === 'statuts') continue
-    out.add(name)
-  }
-  return [...out].slice(0, 8)
-}
-
-function hashId(s: string): string {
-  let h = 5381
-  for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0
-  return (h >>> 0).toString(36)
-}
+// Extraction des sociétés (noms avec/ sans guillemets) + id déterministe : source
+// unique partagée avec le backfill — src/lib/moniteur/companies.ts.
 
 // Localise le fichier d'index : variable d'env explicite, sinon le plus gros .json
 // trouvé dans le dossier de données (aucun nom de fichier codé en dur).
@@ -225,10 +208,10 @@ export async function importMoniteurIndex(
 
     if (company) {
       for (const name of extractCompanies(clean)) {
-        const key = fold(name).replace(/\s+/g, ' ').trim()
+        const key = companyKey(name)
         let c = companies.get(key)
         if (!c) {
-          c = { id: `idx-c-${hashId(key)}`, name }
+          c = { id: companyId(name), name }
           companies.set(key, c)
         }
         publications.push({
