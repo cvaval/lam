@@ -27,7 +27,9 @@ export class OpenSearchProvider implements SearchProvider {
 
     const types = query.types?.length ? query.types : (DOC_TYPES as readonly DocType[])
     const indices = types.map(indexNameForType)
-    if (query.includeCompanies !== false && !query.types?.length) indices.push(COMPANIES_INDEX)
+    // Parité avec FtsProvider : les sociétés (Index) sont incluses en recherche large ou
+    // dès que l'Index est dans le périmètre ; masquées seulement si filtre de type précis hors Index.
+    if (query.includeCompanies !== false && (!query.types?.length || query.types.includes('INDEX'))) indices.push(COMPANIES_INDEX)
 
     const filter: any[] = []
     if (query.status) filter.push({ term: { status: query.status } })

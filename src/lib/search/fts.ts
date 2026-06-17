@@ -230,7 +230,14 @@ export class FtsProvider implements SearchProvider {
     fuzzy: boolean,
     exclude: Set<string>,
   ): Promise<SearchHit[]> {
-    if (query.includeCompanies === false || query.types?.length) return []
+    // Les sociétés appartiennent à l'Index : on les affiche en recherche large (« tous »)
+    // ou dès que l'Index est dans le périmètre, et on ne les masque QUE si l'utilisateur a
+    // filtré sur un type de document précis HORS Index. Régression §03 : la refonte « accès
+    // par service » passait désormais le périmètre d'accès complet (allowed, jamais vide)
+    // comme `types`, ce qui faisait tomber l'ancienne garde `query.types?.length` et
+    // masquait TOUTES les sociétés de la recherche.
+    if (query.includeCompanies === false) return []
+    if (query.types?.length && !query.types.includes('INDEX')) return []
     const include = { publications: { take: 1, orderBy: { date: 'desc' as const } }, _count: { select: { publications: true } } }
     // Recherche sur le nom accent-folé (searchName) pour matcher « Société » avec « societe ».
     const orWhere = {
