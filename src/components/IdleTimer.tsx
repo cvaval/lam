@@ -1,7 +1,6 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/navigation'
 import type { Locale } from '@/lib/types'
 
 /**
@@ -37,7 +36,6 @@ export function IdleTimer({
   idleMinutes: number
   warningSeconds: number
 }) {
-  const router = useRouter()
   const [warning, setWarning] = useState(false)
   const [remaining, setRemaining] = useState(warningSeconds)
 
@@ -54,13 +52,23 @@ export function IdleTimer({
   const logout = useCallback(async () => {
     if (loggingOut.current) return
     loggingOut.current = true
+    // La requête de déconnexion ne doit JAMAIS bloquer la redirection : si elle traîne
+    // (cold start serverless, réseau lent), on redirige quand même après 2,5 s.
+    // `keepalive` laisse la requête aboutir même après la navigation.
     try {
-      await fetch('/api/auth/logout', { method: 'POST' })
+      await Promise.race([
+        fetch('/api/auth/logout', { method: 'POST', keepalive: true }),
+        new Promise((resolve) => setTimeout(resolve, 2500)),
+      ])
     } catch {
       /* on redirige quand même */
     }
-    router.push(`/${locale}/login?timeout=1`)
-  }, [router, locale])
+    // Redirection DURE (rechargement complet) : réévalue l'authentification côté serveur
+    // et purge tout l'état client. Un router.push (navigation douce) pouvait laisser
+    // l'application affichée alors que la session venait d'être détruite → « pas de
+    // déconnexion » perçue par l'utilisateur.
+    window.location.assign(`/${locale}/login?timeout=1`)
+  }, [locale])
 
   const beat = useCallback((force = false) => {
     const now = Date.now()
