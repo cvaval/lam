@@ -79,4 +79,7 @@ export const LIMITS = {
   // donc 6/min laisse de la marge (multi-onglets, clic « Rester connecté ») tout en
   // bornant la lecture DB déclenchée par chaque ping.
   heartbeat: { limit: 6, windowMs: 60_000 },
+  // Réinitialisation de mot de passe : anti-abus (énumération d'e-mails, spam d'envois).
+  forgot: { limit: 5, windowMs: 600_000 },
+  reset: { limit: 10, windowMs: 600_000 },
 }

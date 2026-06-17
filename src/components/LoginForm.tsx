@@ -72,7 +72,7 @@ export function LoginForm({ locale, t }: { locale: Locale; t: Dictionary }) {
       </button>
 
       <div className="text-center">
-        <a href={`/${locale}/login`} className="text-xs text-lank/50 hover:text-lank">
+        <a href={`/${locale}/forgot`} className="text-xs text-lank/50 hover:text-lank">
           {t.home.forgot}
         </a>
       </div>

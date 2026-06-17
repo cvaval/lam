@@ -58,3 +58,30 @@ export function lockoutEmail(email: string, minutes: number) {
       `Several sign-in attempts failed on your account. It is locked for ${minutes} minutes.`,
   }
 }
+
+export function resetPasswordEmail(email: string, link: string, minutes: number) {
+  return {
+    to: email,
+    subject: 'Réinitialisation de votre mot de passe Lam · Password reset',
+    text: [
+      `Bonjou,`,
+      ``,
+      `Vous avez demandé à réinitialiser votre mot de passe Lam. Ouvrez ce lien`,
+      `(valable ${minutes} minutes) pour choisir un nouveau mot de passe :`,
+      link,
+      ``,
+      `Si vous n'êtes pas à l'origine de cette demande, ignorez cet e-mail : votre`,
+      `mot de passe reste inchangé.`,
+      ``,
+      `— — —`,
+      ``,
+      `You requested a password reset for your Lam account. Open this link`,
+      `(valid for ${minutes} minutes) to choose a new password:`,
+      link,
+      ``,
+      `If you didn't request this, ignore this email — your password stays unchanged.`,
+      ``,
+      `— ${BRAND.name} · ${BRAND.domain}`,
+    ].join('\n'),
+  }
+}

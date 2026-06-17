@@ -1,4 +1,4 @@
-import { createHmac, randomBytes, timingSafeEqual } from 'node:crypto'
+import { createHash, createHmac, randomBytes, timingSafeEqual } from 'node:crypto'
 
 // Le cookie de session stocke un token aléatoire vérifié en base (jamais signé) ;
 // seul le cookie d'appareil de confiance est signé — un seul secret suffit.
@@ -6,6 +6,12 @@ const DEVICE_SECRET = process.env.TRUSTED_DEVICE_SECRET ?? 'dev-device-secret'
 
 export function randomToken(bytes = 32): string {
   return randomBytes(bytes).toString('base64url')
+}
+
+/** Empreinte SHA-256 (hex) — stockage des jetons à usage unique (réinit. mot de passe).
+ *  On ne stocke jamais le jeton en clair : une fuite de la base ne livre rien d'utilisable. */
+export function sha256Hex(value: string): string {
+  return createHash('sha256').update(value).digest('hex')
 }
 
 // Caractères lisibles (sans I/O/0/1/l ambigus) pour mots de passe & codes promo.

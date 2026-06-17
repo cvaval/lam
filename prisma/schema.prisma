@@ -61,6 +61,11 @@ model User {
   // Autorise l'affichage du lien vers le PDF original du document retranscrit.
   canViewSourcePdf Boolean @default(false)
 
+  // Réinitialisation de mot de passe : jeton à usage unique (haché SHA-256) + expiration
+  // (1 h). Émis par /api/auth/forgot, consommé par /api/auth/reset. Null = aucune demande.
+  resetTokenHash      String?
+  resetTokenExpiresAt DateTime?
+
   // Verrouillage anti-bruteforce : 5 échecs → 15 min (§04)
   failedLogins   Int      @default(0)
   lockedUntil    DateTime?
