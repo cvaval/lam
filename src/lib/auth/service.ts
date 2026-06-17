@@ -2,7 +2,7 @@ import { prisma } from '../db'
 import type { ClientCtx } from './request'
 import { verifyPassword } from './password'
 import { normalizeEmail } from './email'
-import { generateTotpSecret, verifyTotp, totpQrDataUrl } from './totp'
+import { generateTotpSecret, verifyTotp, totpQrDataUrl, totpDelta } from './totp'
 import { deviceFingerprint } from './crypto'
 import { createSession, getPendingSession, markTwoFactorVerified } from './session'
 import { issueTrustedDevice, getValidTrustedDevice } from './devices'
@@ -25,6 +25,7 @@ async function registerFailedAttempt(
   user: { id: string; email: string; failedLogins: number; lockedUntil: Date | null },
   action: 'LOGIN_FAIL' | '2FA_FAIL',
   ctx: ClientCtx,
+  meta?: Record<string, unknown>,
 ): Promise<boolean> {
   const failed = user.failedLogins + 1
   const locking = failed >= MAX_FAILED
@@ -35,7 +36,7 @@ async function registerFailedAttempt(
       lockedUntil: locking ? new Date(Date.now() + LOCK_MINUTES * 60_000) : user.lockedUntil,
     },
   })
-  await audit({ action, actorId: user.id, ip: ctx.ip, userAgent: ctx.userAgent })
+  await audit({ action, actorId: user.id, ip: ctx.ip, userAgent: ctx.userAgent, meta })
   if (locking) {
     await audit({ action: 'LOCKOUT', actorId: user.id, ip: ctx.ip, userAgent: ctx.userAgent })
     await sendMail(lockoutEmail(user.email, LOCK_MINUTES))
@@ -80,7 +81,7 @@ export async function attemptLogin(email: string, password: string, ctx: ClientC
   const downgraded = await downgradeIfPlanExpired(user)
   const role = (downgraded ? 'SITWAYEN' : user.role) as Role
   const sensitive = isSensitiveRole(role)
-  const fingerprint = deviceFingerprint(ctx.userAgent, ctx.acceptLang)
+  const fingerprint = deviceFingerprint(ctx.userAgent)
 
   // Comptes sensibles (Éditeur/Admin) : 2FA à chaque session, pas d'appareil de confiance.
   const trusted = sensitive ? null : await getValidTrustedDevice(user.id, fingerprint)
@@ -127,7 +128,16 @@ async function finishTwoFactor(
     data: { failedLogins: 0, lockedUntil: null, ...(enrolled ? { totpEnabled: true } : {}) },
   })
   if (trustDevice && !sensitive) {
-    await issueTrustedDevice(userId, deviceFingerprint(ctx.userAgent, ctx.acceptLang), ctx.ip)
+    // Confort uniquement : la 2FA est DÉJÀ validée (markTwoFactorVerified ci-dessus).
+    // Une panne d'émission d'« appareil de confiance » ne doit JAMAIS faire échouer la
+    // connexion — sinon /api/auth/verify renverrait 500 et l'écran afficherait « code
+    // invalide » alors que la session est vérifiée (ce qui ne frappait que les rôles
+    // non sensibles, seuls à atteindre cette ligne).
+    try {
+      await issueTrustedDevice(userId, deviceFingerprint(ctx.userAgent), ctx.ip)
+    } catch (e) {
+      console.error('issueTrustedDevice (non bloquant) :', e)
+    }
   }
   if (enrolled) await audit({ action: '2FA_ENROLLED', actorId: userId, ip: ctx.ip })
   await audit({ action: '2FA_OK', actorId: userId, ip: ctx.ip, userAgent: ctx.userAgent, meta: { trustDevice: trustDevice && !sensitive } })
@@ -147,7 +157,11 @@ export async function verifyTwoFactor(code: string, trustDevice: boolean, ctx: C
   const enrolling = !user.totpEnabled
 
   if (!verifyTotp(code, user.totpSecret)) {
-    const locking = await registerFailedAttempt(user, '2FA_FAIL', ctx)
+    // Diagnostic : delta d'horloge (null = mauvais secret ; |delta|>2 = téléphone déréglé).
+    const locking = await registerFailedAttempt(user, '2FA_FAIL', ctx, {
+      delta: totpDelta(code, user.totpSecret),
+      enrolling,
+    })
     return { ok: false, error: locking ? 'locked' : 'badCode' }
   }
 

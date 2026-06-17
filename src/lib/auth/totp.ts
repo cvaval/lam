@@ -27,6 +27,20 @@ export function verifyTotp(token: string, secret: string): boolean {
   }
 }
 
+/**
+ * Décalage (en pas de 30 s) entre le code saisi et l'horloge serveur, recherché sur
+ * une fenêtre LARGE (±10 pas = ±5 min) — DIAGNOSTIC uniquement, n'autorise rien.
+ * Journalisé sur 2FA_FAIL : un |delta| > 2 révèle une horloge de téléphone déréglée
+ * (cause n°1 des « codes invalides »), distincte d'un mauvais secret (delta = null).
+ */
+export function totpDelta(token: string, secret: string): number | null {
+  try {
+    return authenticator.clone({ window: [10, 10] }).checkDelta(token.replace(/\s/g, ''), secret)
+  } catch {
+    return null
+  }
+}
+
 /** Code courant — réservé au confort de démonstration en dev (jamais en prod). */
 export function currentTotp(secret: string): string {
   return authenticator.generate(secret)

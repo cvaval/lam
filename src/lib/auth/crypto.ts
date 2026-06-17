@@ -48,7 +48,17 @@ export function unsign(signed: string | undefined | null): string | null {
   return value
 }
 
-/** Empreinte d'appareil (dissuasion du vol de cookie) — UA + langue. */
-export function deviceFingerprint(userAgent: string | null, acceptLang: string | null): string {
-  return hmac(DEVICE_SECRET, `${userAgent ?? ''}|${acceptLang ?? ''}`).slice(0, 24)
+/**
+ * Empreinte d'appareil (dissuasion du vol de cookie) — User-Agent SEULEMENT.
+ *
+ * N'inclut PLUS Accept-Language : sur un site trilingue (FR/EN/HT) la langue varie
+ * d'une connexion à l'autre, et les CDN/proxys normalisent cet en-tête. L'y inclure
+ * faisait échouer la reconnaissance de l'« appareil de confiance » au moindre
+ * changement de langue → la 2FA était redemandée à CHAQUE connexion pour les comptes
+ * non sensibles (les seuls à disposer d'appareils de confiance), donnant l'impression
+ * que « la 2FA ne marche pas pour les utilisateurs ». L'admin (rôle sensible, 2FA à
+ * chaque session, sans appareil de confiance) n'était pas affecté.
+ */
+export function deviceFingerprint(userAgent: string | null): string {
+  return hmac(DEVICE_SECRET, userAgent ?? '').slice(0, 24)
 }
