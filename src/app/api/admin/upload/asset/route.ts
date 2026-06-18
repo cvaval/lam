@@ -31,10 +31,15 @@ export async function POST(req: NextRequest) {
 
   if (kind === 'pdf') {
     if (!buf.subarray(0, 5).toString('latin1').startsWith('%PDF')) return apiError('notPdf', 400)
-    const url = await uploadToBlob(`source-pdf/uploads/${randomUUID()}.pdf`, buf, 'application/pdf', {
-      multipart: buf.length > 20_000_000,
-    })
-    return NextResponse.json({ ok: true, kind: 'pdf', sourcePdfUrl: url })
+    try {
+      const url = await uploadToBlob(`source-pdf/uploads/${randomUUID()}.pdf`, buf, 'application/pdf', {
+        multipart: buf.length > 20_000_000,
+      })
+      return NextResponse.json({ ok: true, kind: 'pdf', sourcePdfUrl: url })
+    } catch (e) {
+      console.error('upload PDF → Blob échec :', e)
+      return apiError('blobUpload', 502)
+    }
   }
 
   // kind === 'word' : .docx (zip → commence par « PK »)

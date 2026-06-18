@@ -10,6 +10,12 @@ import { put, get, type GetBlobResult } from '@vercel/blob'
 
 const BLOB_HOST = '.blob.vercel-storage.com'
 
+// Jeton RW statique passé EXPLICITEMENT (lu à l'APPEL, pas au chargement du module :
+// les scripts définissent process.env après l'import). Dans une Function Vercel, le
+// SDK privilégie sinon le jeton OIDC (lecture OK mais l'écriture échouait → 500 au
+// put). Le jeton explicite est prioritaire (cf. doc « Resolution order »).
+const rwToken = () => process.env.BLOB_READ_WRITE_TOKEN
+
 /** Une URL Blob (migrée) — par opposition aux anciens chemins locaux (non servables). */
 export function isBlobUrl(u: string | null | undefined): boolean {
   return typeof u === 'string' && u.includes(BLOB_HOST)
@@ -32,11 +38,12 @@ export async function uploadToBlob(
     addRandomSuffix: false,
     allowOverwrite: true,
     multipart: opts.multipart,
+    token: rwToken(),
   })
   return res.url
 }
 
 /** Récupère un blob privé (flux + métadonnées) pour le streamer via une Function. */
 export async function getPrivateBlob(url: string): Promise<GetBlobResult | null> {
-  return get(url, { access: 'private' })
+  return get(url, { access: 'private', token: rwToken() })
 }
