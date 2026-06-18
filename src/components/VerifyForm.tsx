@@ -11,12 +11,15 @@ export function VerifyForm({
   t,
   enroll,
   qr,
+  secretKey,
   sensitive,
 }: {
   locale: Locale
   t: Dictionary
   enroll: boolean
   qr: string | null
+  /** Clé TOTP brute (base32) — saisie manuelle si le scan échoue. */
+  secretKey?: string | null
   sensitive: boolean
 }) {
   const router = useRouter()
@@ -96,6 +99,27 @@ export function VerifyForm({
           </p>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={qr} alt="QR TOTP" width={170} height={170} className="mx-auto rounded-lg" />
+          {secretKey && (
+            <div className="mt-3 border-t border-lank/10 pt-3">
+              <p className="text-[11px] text-lank/50">
+                {locale === 'en'
+                  ? "Can't scan? Enter this key manually:"
+                  : locale === 'ht'
+                  ? 'Ou pa ka eskane? Antre kle sa a alamen:'
+                  : 'Impossible de scanner ? Saisissez cette clé manuellement :'}
+              </p>
+              <p className="mt-1 select-all font-mono text-sm font-semibold tracking-widest text-lank">
+                {secretKey.replace(/(.{4})/g, '$1 ').trim()}
+              </p>
+            </div>
+          )}
+          <p className="mt-3 rounded-lg bg-soley-50 px-3 py-2 text-[11px] leading-relaxed text-lank/70">
+            {locale === 'en'
+              ? '⏰ Make sure your phone’s date & time are set to automatic — a clock that is off by more than ~2 min makes every code fail.'
+              : locale === 'ht'
+              ? '⏰ Asire dat ak lè telefòn ou an regle otomatikman — si lè a dekale plis pase ~2 min, chak kòd ap refize.'
+              : "⏰ Vérifiez que la date et l’heure de votre téléphone sont réglées sur automatique — une horloge décalée de plus de ~2 min fait échouer chaque code."}
+          </p>
         </div>
       )}
 

@@ -40,7 +40,7 @@ export default async function VerifyPage({ params }: { params: { locale: string 
             <FruitMark size={40} className="mb-2" />
             <h1 className="text-lg font-semibold text-lank">{t.verify.title}</h1>
           </div>
-          <VerifyForm locale={locale} t={t} enroll={enroll} qr={enrollment?.qr ?? null} sensitive={sensitive} />
+          <VerifyForm locale={locale} t={t} enroll={enroll} qr={enrollment?.qr ?? null} secretKey={enrollment?.secret ?? null} sensitive={sensitive} />
         </div>
       </div>
     </main>
