@@ -63,6 +63,10 @@ const schema = z.object({
   keywords: z.array(z.string().max(80)).max(15).optional(),
   // Texte de l'édition / du document
   bodyOriginal: z.string().min(1),
+  // Version HTML (depuis Word) + PDF original (depuis le Blob) — studio §08.
+  bodyClean: z.string().optional(),
+  richBlocksJson: z.string().optional(),
+  sourcePdfUrl: z.string().url().optional(),
   // Métadonnées d'édition du Moniteur
   editionType: z.enum(['REGULIERE', 'SPECIALE']).optional(),
   moniteurNumber: z.string().max(20).optional(),
@@ -294,6 +298,10 @@ export async function POST(req: NextRequest) {
       titleFr: d.titleFr,
       titleEn: d.titleEn,
       bodyOriginal: d.bodyOriginal,
+      // Version HTML (Word) : texte propre + tableaux ; PDF original (Blob privé).
+      bodyClean: d.bodyClean ?? null,
+      richBlocksJson: d.richBlocksJson ?? null,
+      sourcePdfUrl: d.sourcePdfUrl ?? null,
       summaryFr: d.summaryFr,
       keywords,
       // Entrée en vigueur (circulaires BRH) — distincte de la date de signature.

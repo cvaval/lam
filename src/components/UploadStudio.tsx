@@ -105,6 +105,12 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
   const [manualType, setManualType] = useState<DocType | ''>('')
   const [status, setStatus] = useState('PUBLIE')
 
+  // Pièces téléversées (Tâche §08) : Word → version HTML (texte + tableaux) ; PDF → original (Blob privé).
+  const [pdfBlobUrl, setPdfBlobUrl] = useState<string | null>(null)
+  const [richBlocksJson, setRichBlocksJson] = useState<string | null>(null)
+  const [assetBusy, setAssetBusy] = useState<'' | 'pdf' | 'word'>('')
+  const [assetNote, setAssetNote] = useState<string | null>(null)
+
   const [busy, setBusy] = useState(false)
   const [done, setDone] = useState<{ count: number; firstId?: string; societes?: number } | null>(null)
   const [gaps, setGaps] = useState<{ year: number; missing: string[] } | null>(null)
@@ -187,6 +193,31 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
     }
   }
 
+  // Word (.docx) → « version HTML » : remplit l'éditeur (texte propre) + les tableaux.
+  async function importWord(f?: File) {
+    if (!f) return
+    setAssetBusy('word'); setAssetNote(null); setError(null)
+    const fd = new FormData(); fd.set('file', f); fd.set('kind', 'word')
+    const res = await postForm<{ ok: boolean; bodyClean?: string; richBlocksJson?: string | null; tableCount?: number }>('/api/admin/upload/asset', fd)
+    setAssetBusy('')
+    if (res.ok && res.data?.bodyClean) {
+      setBody(res.data.bodyClean)
+      setRichBlocksJson(res.data.richBlocksJson ?? null)
+      setAssetNote(`Word importé ✓ · ${res.data.tableCount ?? 0} tableau(x) — texte modifiable ci-dessous`)
+    } else setError('Échec de l’import Word (.docx attendu).')
+  }
+
+  // PDF → fichier original, stocké dans le Blob privé (servi via /api/doc/[id]/pdf).
+  async function attachPdf(f?: File) {
+    if (!f) return
+    setAssetBusy('pdf'); setAssetNote(null); setError(null)
+    const fd = new FormData(); fd.set('file', f); fd.set('kind', 'pdf')
+    const res = await postForm<{ ok: boolean; sourcePdfUrl?: string }>('/api/admin/upload/asset', fd)
+    setAssetBusy('')
+    if (res.ok && res.data?.sourcePdfUrl) { setPdfBlobUrl(res.data.sourcePdfUrl); setAssetNote('PDF original joint ✓') }
+    else setError('Échec du téléversement du PDF.')
+  }
+
   function patchPub(i: number, patch: Partial<ExtractedPub>) {
     setPubs((list) => list.map((p, k) => (k === i ? { ...p, ...patch } : p)))
   }
@@ -244,6 +275,8 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
       type: manualType,
       titleFr,
       bodyOriginal: body,
+      richBlocksJson: richBlocksJson ?? undefined,
+      sourcePdfUrl: pdfBlobUrl ?? undefined,
       status,
       keywords: parseKeywordsInput(keywords),
     })
@@ -270,6 +303,8 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
       type: 'CIRCULAIRE_BRH',
       titleFr: circTitle.trim(),
       bodyOriginal: body,
+      richBlocksJson: richBlocksJson ?? undefined,
+      sourcePdfUrl: pdfBlobUrl ?? undefined,
       circulaireNumber: num,
       publicationDate: circDate || undefined,
       effectiveDate: circEffDate || undefined,
@@ -366,6 +401,30 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
             {!analysis.textLayer && <span className="text-soley-700">{t.cms.noTextLayer}</span>}
           </div>
         )}
+      </div>
+
+      {/* 1bis — Pièces : Word → version HTML · PDF → fichier original (Blob privé) */}
+      <div className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
+        <h2 className="mb-1 text-sm font-semibold text-lank">Pièces du document</h2>
+        <p className="mb-3 text-xs text-lank/50">
+          Word (.docx) = version HTML (texte propre + tableaux, modifiable ci-dessous) · PDF = fichier original (accès réservé).
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <label className="flex-1 cursor-pointer rounded-xl border-2 border-dashed border-lank/20 px-4 py-4 text-center text-sm text-lank/60 hover:border-sitwon">
+            <input
+              type="file"
+              accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+              className="hidden"
+              onChange={(e) => importWord(e.target.files?.[0])}
+            />
+            {assetBusy === 'word' ? 'Conversion du Word…' : '📄 Importer un Word (.docx) → version HTML'}
+          </label>
+          <label className="flex-1 cursor-pointer rounded-xl border-2 border-dashed border-lank/20 px-4 py-4 text-center text-sm text-lank/60 hover:border-sitwon">
+            <input type="file" accept="application/pdf" className="hidden" onChange={(e) => attachPdf(e.target.files?.[0])} />
+            {assetBusy === 'pdf' ? 'Téléversement…' : pdfBlobUrl ? '✓ PDF original joint — remplacer' : '📎 Joindre le PDF original'}
+          </label>
+        </div>
+        {assetNote && <p className="mt-2 text-xs text-fey">{assetNote}</p>}
       </div>
 
       {/* 2 — Nature du document : édition du Moniteur ↔ circulaire BRH */}

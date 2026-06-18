@@ -38,6 +38,9 @@ yarn-error.log*
 # outils locaux (Claude Code)
 /.claude/
 
+# lien projet Vercel (local)
+/.vercel/
+
 # cache de build TypeScript
 *.tsbuildinfo
 
@@ -46,3 +49,4 @@ logs/
 
 # Dump de migration des données (SQLite → Postgres) — local, ne pas committer
 prisma/migration-dump/
+.env*
