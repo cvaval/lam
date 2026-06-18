@@ -9,7 +9,7 @@
  * Volontairement heuristique + relecture humaine/IA : les titres et dates extraits
  * sont affichés pour validation ; les corrections vivent dans MANUAL_FIXES.
  */
-import { readdirSync, readFileSync, statSync } from 'node:fs'
+import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { PrismaClient } from '@prisma/client'
 import { PDFParse } from 'pdf-parse'
@@ -380,6 +380,46 @@ async function main() {
     })
     created++
   }
+
+  // ── Versions HTML pérennisées (réserves obligatoires) ──────────────────────────
+  // Enrichissements bodyClean + richBlocksJson (tableaux de coefficients) générés
+  // depuis CirculaireAuxBanques.docx, RÉAPPLIQUÉS à chaque ré-import pour survivre à
+  // la purge ; + 3 circulaires absentes du recueil (86-12, 86-12-A, 78-1).
+  // Source de vérité : scripts/brh-enrichments.json (régénérable depuis la base).
+  const enrichPath = join(process.cwd(), 'scripts', 'brh-enrichments.json')
+  if (existsSync(enrichPath)) {
+    const { html, supplement } = JSON.parse(readFileSync(enrichPath, 'utf8')) as {
+      html: { number: string; bodyClean: string | null; richBlocksJson: string | null }[]
+      supplement: { number: string; title: string; date: string | null; bodyOriginal: string; bodyClean: string | null; richBlocksJson: string | null }[]
+    }
+    let enriched = 0
+    for (const h of html) {
+      const r = await prisma.document.updateMany({
+        where: { type: 'CIRCULAIRE_BRH', number: h.number },
+        data: { bodyClean: h.bodyClean, richBlocksJson: h.richBlocksJson },
+      })
+      if (r.count === 0) console.warn(`   ⚠ enrichissement non appliqué (cible absente) : ${h.number}`)
+      enriched += r.count
+    }
+    let supp = 0
+    for (const s of supplement) {
+      if (await prisma.document.findFirst({ where: { type: 'CIRCULAIRE_BRH', number: s.number }, select: { id: true } })) continue
+      await prisma.document.create({
+        data: {
+          type: 'CIRCULAIRE_BRH', status: 'PUBLIE', titleFr: s.title,
+          bodyOriginal: s.bodyOriginal, bodyClean: s.bodyClean, richBlocksJson: s.richBlocksJson,
+          number: s.number, publicationDate: s.date ? new Date(`${s.date}T00:00:00Z`) : null,
+          matiere: 'Droit bancaire', source: 'BRH', sealed: true,
+          searchText: buildSearchText({ titleFr: s.title, number: s.number, bodyOriginal: s.bodyOriginal, matiere: 'Droit bancaire' }),
+        },
+      })
+      supp++
+    }
+    console.log(`   versions HTML réappliquées : ${enriched} enrichies · ${supp} suppléments créés`)
+  } else {
+    console.warn('   ⚠ scripts/brh-enrichments.json introuvable — versions HTML NON réappliquées.')
+  }
+
   console.log(`✅  ${created} circulaires importées.`)
 }
 
