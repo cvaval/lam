@@ -245,6 +245,13 @@ model Document {
   // officiel brut (§02) ; la couche texte OCR aplatit tableaux et couleurs.
   richBlocksJson String?
 
+  // Sommaire (table des matières) reconnu par OCR sur la 1re page du PDF, pour
+  // l'aperçu au clic sur une édition non encore océrisée (src/lib/ai/extract.ts →
+  // ocrSommaire). Cache rempli à la demande par la route /api/doc/[id]/sommaire (ou
+  // en lot via scripts/ocr-sommaires.ts). AFFICHAGE seulement — bodyOriginal reste
+  // le texte officiel (§02). Null = pas encore océrisé.
+  sommaireOcr    String?
+
   // Texte de recherche accent-folé (minuscules) — préfiltrage SQL du moteur FTS à grande
   // échelle (Index du Moniteur ~28k). Recalculé à chaque écriture.
   searchText     String?

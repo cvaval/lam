@@ -428,6 +428,21 @@ export async function ocrDocument(pdfBytes: Uint8Array): Promise<OcrResult> {
   return { text, pages, truncated: total > pages }
 }
 
+// OCR ciblé du SOMMAIRE (table des matières) : on ne transcrit QUE les premières
+// pages, là où vit le sommaire d'un fascicule du Moniteur — pour l'aperçu au clic
+// (§07), à coût borné (vs ocrDocument qui transcrit tout le fascicule). Texte brut
+// nettoyé ; l'appelant en extrait le bloc SOMMAIRE (src/lib/doc/sommaire.ts).
+const MAX_SOMMAIRE_PAGES = 2
+export async function ocrSommaire(pdfBytes: Uint8Array): Promise<string> {
+  if (!isAiConfigured()) throw new Error('OCR indisponible : aucune clé IA configurée')
+  const data = await firstPagesBase64(pdfBytes, MAX_SOMMAIRE_PAGES)
+  const defaults = { anthropic: 'claude-opus-4-8', gemini: 'gemini-2.0-flash' }
+  return withAiFallback({
+    gemini: () => geminiOcr(data, modelFor('gemini', defaults)),
+    anthropic: () => anthropicOcr(data, modelFor('anthropic', defaults)),
+  })
+}
+
 // ── Date de publication d'un fascicule du Moniteur (haut de la 1re page) ──
 
 const DATE_PROMPT = `Ce document est la première page d'un numéro du journal officiel d'Haïti « LE MONITEUR ».

@@ -17,7 +17,7 @@ interface Month {
 }
 
 interface Sommaire {
-  source: 'text' | 'index' | 'excerpt' | 'none'
+  source: 'text' | 'index' | 'excerpt' | 'ocr' | 'none'
   text?: string | null
   items?: { title: string; category: string | null }[]
 }
@@ -32,7 +32,7 @@ const LBL = {
   editions: { fr: 'éditions', en: 'editions', ht: 'edisyon' },
   special: { fr: 'Spécial', en: 'Special', ht: 'Espesyal' },
   sommaire: { fr: 'Sommaire de l’édition', en: 'Edition summary', ht: 'Somè edisyon an' },
-  loading: { fr: 'Chargement…', en: 'Loading…', ht: 'Chajman…' },
+  loading: { fr: 'Lecture du sommaire…', en: 'Reading summary…', ht: 'N ap li somè a…' },
   fullText: { fr: 'Lire le texte intégral', en: 'Read full text', ht: 'Li tèks konplè a' },
   none: { fr: 'Sommaire non disponible pour cette édition.', en: 'No summary available for this edition.', ht: 'Pa gen somè pou edisyon sa a.' },
 } as const
