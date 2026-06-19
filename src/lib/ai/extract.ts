@@ -435,7 +435,16 @@ export async function ocrDocument(pdfBytes: Uint8Array): Promise<OcrResult> {
 const MAX_SOMMAIRE_PAGES = 2
 export async function ocrSommaire(pdfBytes: Uint8Array): Promise<string> {
   if (!isAiConfigured()) throw new Error('OCR indisponible : aucune clé IA configurée')
-  const data = await firstPagesBase64(pdfBytes, MAX_SOMMAIRE_PAGES)
+  // Page 1-2 isolées (économique) ; si pdf-lib ne sait pas charger ce scan (xref/objets
+  // mal formés → « Failed to parse number »), repli sur le PDF brut : l'IA vision le lit
+  // quand même (le sommaire reste en tête, on le découpe ensuite via extractSommaire).
+  let data: string
+  try {
+    data = await firstPagesBase64(pdfBytes, MAX_SOMMAIRE_PAGES)
+  } catch {
+    if (pdfBytes.length > 25_000_000) throw new Error('PDF illisible par pdf-lib et trop volumineux pour OCR inline')
+    data = Buffer.from(pdfBytes).toString('base64')
+  }
   const defaults = { anthropic: 'claude-opus-4-8', gemini: 'gemini-2.0-flash' }
   return withAiFallback({
     gemini: () => geminiOcr(data, modelFor('gemini', defaults)),
