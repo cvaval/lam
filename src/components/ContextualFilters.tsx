@@ -113,6 +113,20 @@ export function ContextualFilters({
             {brhYears.map((y) => chip(y, { year: active.year === y ? undefined : y }, active.year === y))}
           </div>
         )}
+        {/* Tri : signature (défaut) / entrée en vigueur / numéro ↑↓ */}
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="inline-flex items-center gap-1 text-xs text-lank/40">
+            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+              <path d="M3 6h11M3 12h8M3 18h5" strokeLinecap="round" />
+              <path d="M18 9l3-3 3 3M21 6v12" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Trier:
+          </span>
+          {chip('Date de signature', { sort: 'sig' }, (active.sort ?? 'sig') === 'sig')}
+          {chip('Entrée en vigueur', { sort: 'eff' }, active.sort === 'eff')}
+          {chip('N° croissant', { sort: 'num-asc' }, active.sort === 'num-asc')}
+          {chip('N° décroissant', { sort: 'num-desc' }, active.sort === 'num-desc')}
+        </div>
       </div>
     )
   }

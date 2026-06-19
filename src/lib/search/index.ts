@@ -43,6 +43,7 @@ export async function runSearch(query: SearchQuery, userId?: string | null): Pro
     category: query.category ?? null,
     year: query.year ?? null,
     num: query.num ?? null,
+    sort: query.sort ?? null,
     includeCompanies: query.includeCompanies !== false,
     locale: query.locale,
     page: query.page ?? 1,

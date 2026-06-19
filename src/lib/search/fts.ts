@@ -10,6 +10,7 @@ import { DOC_TYPE_META } from '../brand'
 import { PAGE_SIZE, MAX_PAGE_SIZE } from './types'
 import type { SearchProvider, SearchQuery, SearchResult, SearchHit } from './types'
 import type { DocType, DocStatus, Locale } from '../types'
+import { parseCirculaireRef } from '../brh/gaps'
 
 // Mots vides ignorés pour le calcul de couverture (un mot « de » ne compte pas).
 const STOPWORDS = new Set([
@@ -105,17 +106,27 @@ export class FtsProvider implements SearchProvider {
     }
     if (query.num) base.number = { contains: query.num }
 
-    // ── Navigation (sans requête texte) : pagination SQL pure ──
+    // ── Navigation (sans requête texte) : pagination SQL, ou tri par numéro en mémoire ──
     if (!terms.length) {
+      // Tri par NUMÉRO : `number` est une chaîne (« Circulaire n° 131 ») → tri numérique
+      // impossible en SQL. On charge l'ensemble filtré (borné) et on trie en JS.
+      if (query.sort === 'num-asc' || query.sort === 'num-desc') {
+        const allDocs = await prisma.document.findMany({ where: base, take: 5000, select: DOC_SELECT })
+        sortByCirculaireNumber(allDocs, query.sort === 'num-desc' ? -1 : 1)
+        const pageDocs = allDocs.slice((page - 1) * size, (page - 1) * size + size)
+        const hits = pageDocs.map((d) => toDocHit(d, terms, query.locale, 0.5, false))
+        await this.enrichSnippets(hits, terms)
+        return { total: allDocs.length, hits, expandedTerms: terms, provider: 'fts' }
+      }
+      // Tri par DATE : signature (publicationDate, défaut) ou entrée en vigueur, récent
+      // d'abord, sans-date en fin.
+      const orderBy: Prisma.DocumentOrderByWithRelationInput =
+        query.sort === 'eff'
+          ? { effectiveDate: { sort: 'desc', nulls: 'last' } }
+          : { publicationDate: { sort: 'desc', nulls: 'last' } }
       const [total, docs] = await Promise.all([
         prisma.document.count({ where: base }),
-        prisma.document.findMany({
-          where: base,
-          orderBy: { publicationDate: 'desc' },
-          skip: (page - 1) * size,
-          take: size,
-          select: DOC_SELECT,
-        }),
+        prisma.document.findMany({ where: base, orderBy, skip: (page - 1) * size, take: size, select: DOC_SELECT }),
       ])
       const hits = docs.map((d) => toDocHit(d, terms, query.locale, 0.5, false))
       await this.enrichSnippets(hits, terms)
@@ -347,4 +358,20 @@ function scoreFields(fields: Weighted[], terms: string[]): number {
 
 function sortByDate(a: SearchHit, b: SearchHit): number {
   return (b.publicationDate ?? '').localeCompare(a.publicationDate ?? '')
+}
+
+/** Tri des circulaires par numéro (série, base, révision) ; réfs non standard en fin. */
+function sortByCirculaireNumber(docs: DocRow[], dir: 1 | -1): void {
+  const serieOrd = (s?: string) => (s === 'CIRCULAIRE' ? 0 : s === 'LETTRE' ? 1 : 2)
+  docs.sort((a, b) => {
+    const pa = parseCirculaireRef(a.number)
+    const pb = parseCirculaireRef(b.number)
+    const so = serieOrd(pa?.serie) - serieOrd(pb?.serie)
+    if (so) return so
+    if (!pa && !pb) return 0
+    if (!pa) return 1
+    if (!pb) return -1
+    if (pa.base !== pb.base) return (pa.base - pb.base) * dir
+    return ((pa.rev ?? 0) - (pb.rev ?? 0)) * dir
+  })
 }

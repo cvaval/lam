@@ -43,6 +43,8 @@ export default async function SearchPage({
       ? requestedType
       : undefined
   const page = Math.max(1, Number(searchParams.page ?? '1') || 1)
+  // Tri (navigation) : date de signature (défaut) / entrée en vigueur / numéro ↑↓.
+  const sortParam = (['sig', 'eff', 'num-asc', 'num-desc'] as const).find((s) => s === searchParams.sort)
 
   // Quota mensuel (Sitwayen).
   let quotaBlocked = false
@@ -68,6 +70,7 @@ export default async function SearchPage({
           year: searchParams.year && /^\d{4}$/.test(searchParams.year) ? Number(searchParams.year) : undefined,
           num: searchParams.num?.trim().slice(0, 20) || undefined,
           includeCompanies: can(user.role, 'index.companies'),
+          sort: sortParam,
           page,
           size: PAGE_SIZE,
         },
@@ -104,7 +107,7 @@ export default async function SearchPage({
       .sort((a, b) => Number(a) - Number(b))
   }
 
-  const baseParams: SP = { q, type: typeSlug, num: searchParams.num, year: searchParams.year }
+  const baseParams: SP = { q, type: typeSlug, num: searchParams.num, year: searchParams.year, sort: searchParams.sort }
   const totalPages = Math.ceil(result.total / PAGE_SIZE)
 
   return (

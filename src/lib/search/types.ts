@@ -20,6 +20,9 @@ export interface SearchQuery {
   /** numéro contenu dans Document.number (filtre circulaires BRH par numéro) */
   num?: string
   includeCompanies?: boolean
+  /** tri en mode navigation (sans requête texte) : date de signature (défaut),
+   * date d'entrée en vigueur, numéro croissant/décroissant. */
+  sort?: 'sig' | 'eff' | 'num-asc' | 'num-desc'
   page?: number
   size?: number
 }
