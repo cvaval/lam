@@ -117,6 +117,7 @@ export const ht: Dictionary = {
     anneeLabel: 'Ane',
     dgLabel: 'Direktè jeneral',
     abrogatedBanner: 'Tèks sa a abowje. Gade vèsyon an vigè a.',
+    abrogatedByPrefix: 'Tèks sa a abowje pa',
     keywords: 'Mo kle',
     verified: 'Dokiman verifye',
     indexNote:

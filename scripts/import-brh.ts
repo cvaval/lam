@@ -197,6 +197,11 @@ const MANUAL_FIXES: Record<string, { title?: string; date?: string; skip?: boole
   'Circulaire 131 - (OCR).pdf': {
     title: 'Circulaire BRH n° 131 — Protection des consommateurs de produits et services financiers',
   },
+  // n° 87-1 (refonte 2026 de la classification des prêts, distincte du n° 87 de 1997) :
+  // gérée HORS pipeline (source 'BRH-WEB', version HTML du .docx) via
+  // scripts/import-circulaires-docx.ts → on SAUTE le PDF ici pour éviter un doublon
+  // source='BRH' au ré-import.
+  'CIRCULAIRE-87-1.pdf': { skip: true, note: 'Gérée hors pipeline (BRH-WEB) — import-circulaires-docx.ts' },
   '05_Lettre-Circulaire.pdf': { title: 'Lettre-Circulaire BRH n° 05 — Restructuration de prêts' },
   '06_Lettre-Circulaire.pdf': { title: "Lettre-Circulaire BRH n° 06 aux banques commerciales et banques d'épargne et de logement" },
   '07_Lettre-Circulaire.pdf': { title: "Lettre-Circulaire BRH n° 07 aux banques commerciales, banques d'épargne et de logement et maisons de transfert" },
@@ -388,9 +393,13 @@ async function main() {
   // Source de vérité : scripts/brh-enrichments.json (régénérable depuis la base).
   const enrichPath = join(process.cwd(), 'scripts', 'brh-enrichments.json')
   if (existsSync(enrichPath)) {
-    const { html, supplement } = JSON.parse(readFileSync(enrichPath, 'utf8')) as {
+    const { html, supplement, status } = JSON.parse(readFileSync(enrichPath, 'utf8')) as {
       html: { number: string; bodyClean: string | null; richBlocksJson: string | null }[]
       supplement: { number: string; title: string; date: string | null; bodyOriginal: string; bodyClean: string | null; richBlocksJson: string | null }[]
+      // Statuts éditoriaux (ex. ABROGE) + renvoi d'abrogation (abrogatedByNumber) — la
+      // création remet status='PUBLIE'/abrogatedByNumber=null, donc on les RÉAPPLIQUE à
+      // chaque import. Source de vérité : brh-enrichments.json.
+      status?: { number: string; status: string; abrogatedByNumber?: string | null }[]
     }
     let enriched = 0
     for (const h of html) {
@@ -415,7 +424,16 @@ async function main() {
       })
       supp++
     }
-    console.log(`   versions HTML réappliquées : ${enriched} enrichies · ${supp} suppléments créés`)
+    let statusSet = 0
+    for (const st of status ?? []) {
+      const r = await prisma.document.updateMany({
+        where: { type: 'CIRCULAIRE_BRH', number: st.number },
+        data: { status: st.status, ...(st.abrogatedByNumber !== undefined ? { abrogatedByNumber: st.abrogatedByNumber } : {}) },
+      })
+      if (r.count === 0) console.warn(`   ⚠ statut non appliqué (cible absente) : ${st.number}`)
+      statusSet += r.count
+    }
+    console.log(`   versions HTML réappliquées : ${enriched} enrichies · ${supp} suppléments créés · ${statusSet} statuts éditoriaux`)
   } else {
     console.warn('   ⚠ scripts/brh-enrichments.json introuvable — versions HTML NON réappliquées.')
   }

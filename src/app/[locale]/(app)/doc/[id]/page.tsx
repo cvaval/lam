@@ -53,6 +53,16 @@ export default async function DocPage({ params }: { params: { locale: string; id
     where: { userId_documentId: { userId: user.id, documentId: doc.id } },
   })
 
+  // Renvoi d'abrogation : le texte qui abroge celui-ci, résolu par NUMÉRO (robuste au
+  // ré-import qui change les id) → note + lien sur la fiche (statut ABROGE).
+  const abrogatedBy =
+    doc.status === 'ABROGE' && doc.abrogatedByNumber
+      ? await prisma.document.findFirst({
+          where: { type: 'CIRCULAIRE_BRH', number: doc.abrogatedByNumber },
+          select: { id: true, number: true },
+        })
+      : null
+
   const summary = pickLocale(doc.summaryFr, doc.summaryEn, doc.summaryHt, locale)
   const means = pickLocale(doc.meansFr, doc.meansEn, doc.meansHt, locale)
   const title = pickLocale(doc.titleFr, doc.titleEn, doc.titleHt, locale) || doc.titleFr
@@ -206,7 +216,22 @@ export default async function DocPage({ params }: { params: { locale: string; id
 
       {doc.status === 'ABROGE' && (
         <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-2.5 text-sm text-red-700">
-          {t.doc.abrogatedBanner}
+          {abrogatedBy ? (
+            <>
+              {t.doc.abrogatedByPrefix}{' '}
+              <Link
+                href={`/${locale}/doc/${abrogatedBy.id}`}
+                className="font-semibold underline underline-offset-2 hover:text-red-900"
+              >
+                {abrogatedBy.number}
+              </Link>
+              .
+            </>
+          ) : doc.abrogatedByNumber ? (
+            `${t.doc.abrogatedByPrefix} ${doc.abrogatedByNumber}.`
+          ) : (
+            t.doc.abrogatedBanner
+          )}
         </div>
       )}
 

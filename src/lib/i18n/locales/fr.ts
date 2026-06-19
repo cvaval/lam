@@ -121,6 +121,7 @@ export const fr = {
     anneeLabel: 'Année',
     dgLabel: 'Directeur général',
     abrogatedBanner: 'Ce texte est abrogé. Consultez la version en vigueur.',
+    abrogatedByPrefix: 'Ce texte est abrogé par la',
     keywords: 'Mots-clés',
     verified: 'Dokiman verifye',
     indexNote:

@@ -117,6 +117,7 @@ export const en: Dictionary = {
     anneeLabel: 'Year',
     dgLabel: 'Director General',
     abrogatedBanner: 'This text is repealed. See the version in force.',
+    abrogatedByPrefix: 'This text is repealed by',
     keywords: 'Keywords',
     verified: 'Verified document',
     indexNote:
