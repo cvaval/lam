@@ -57,6 +57,9 @@ export default async function AdminBrhPage({ params }: { params: { locale: strin
     matiere: d.matiere,
     pubLabel: formatDate(locale, d.publicationDate),
     effLabel: formatDate(locale, d.effectiveDate),
+    // Valeurs triables (epoch ms, null = sans date) — tri par date côté client.
+    pubTs: d.publicationDate?.getTime() ?? null,
+    effTs: d.effectiveDate?.getTime() ?? null,
     year: (d.publicationDate ?? d.effectiveDate)?.getUTCFullYear() ?? null,
   }))
 
