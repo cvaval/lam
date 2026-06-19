@@ -162,17 +162,17 @@ export default async function DocPage({ params }: { params: { locale: string; id
             ↓ {t.doc.export}
           </a>
         ) : null}
-        {/* PDF original retranscrit — permission par utilisateur (§03). Servi par une
-            route authentifiée depuis le store Blob privé ; affiché seulement quand le
-            PDF est migré (URL Blob), jamais pour les anciens chemins locaux (404). */}
-        {canSeeSourcePdf(user) && isBlobUrl(doc.sourcePdfUrl) && (
+        {/* PDF original — servi par une route authentifiée depuis le Blob privé, seulement
+            si migré (URL Blob). Circulaires BRH : TÉLÉCHARGEMENT ouvert à tout lecteur de
+            circulaires. Autres types : lien « source » réservé (canSeeSourcePdf). */}
+        {isBlobUrl(doc.sourcePdfUrl) && (type === 'CIRCULAIRE_BRH' || canSeeSourcePdf(user)) && (
           <a
-            href={`/api/doc/${doc.id}/pdf`}
+            href={`/api/doc/${doc.id}/pdf${type === 'CIRCULAIRE_BRH' ? '?download=1' : ''}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center rounded-lg border border-lank/15 bg-white px-3 py-1.5 text-sm text-lank/70 hover:bg-lank-50"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-lank/15 bg-white px-3 py-1.5 text-sm text-lank/70 hover:bg-lank-50"
           >
-            {t.doc.source}
+            {type === 'CIRCULAIRE_BRH' ? '↓ Télécharger le PDF' : t.doc.source}
           </a>
         )}
       </div>
