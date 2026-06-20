@@ -202,6 +202,10 @@ const MANUAL_FIXES: Record<string, { title?: string; date?: string; skip?: boole
   // scripts/import-circulaires-docx.ts → on SAUTE le PDF ici pour éviter un doublon
   // source='BRH' au ré-import.
   'CIRCULAIRE-87-1.pdf': { skip: true, note: 'Gérée hors pipeline (BRH-WEB) — import-circulaires-docx.ts' },
+  // 106_Circulaire.pdf CONFLATE deux textes (106 p.1-3 + 106-1 p.4-6). Désormais gérés
+  // séparément hors pipeline (source 'BRH-WEB', PDF officiels distincts) via
+  // scripts/apply-version-arbitrage.ts → on saute le fichier conflaté.
+  '106_Circulaire.pdf': { skip: true, note: '106 + 106-1 gérées hors pipeline (BRH-WEB) — apply-version-arbitrage.ts' },
   '05_Lettre-Circulaire.pdf': { title: 'Lettre-Circulaire BRH n° 05 — Restructuration de prêts' },
   '06_Lettre-Circulaire.pdf': { title: "Lettre-Circulaire BRH n° 06 aux banques commerciales et banques d'épargne et de logement" },
   '07_Lettre-Circulaire.pdf': { title: "Lettre-Circulaire BRH n° 07 aux banques commerciales, banques d'épargne et de logement et maisons de transfert" },
