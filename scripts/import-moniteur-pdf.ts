@@ -192,7 +192,7 @@ async function main() {
         // « Législation haïtienne » (et non l'Index Moniteur, réservé aux
         // références d'index sans PDF). Le texte intégral suit par OCR.
         type: 'LEGISLATION',
-        status: 'PUBLIE',
+        status: 'EN_VIGUEUR',
         titleFr: label,
         bodyOriginal: body,
         number: ref,

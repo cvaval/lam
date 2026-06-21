@@ -262,7 +262,7 @@ export async function POST(req: NextRequest) {
           titleFr: pub.titleFr,
           bodyOriginal: body,
           keywords,
-          status: pub.type === 'LEGISLATION' ? 'EN_VIGUEUR' : 'PUBLIE',
+          status: pub.type === 'LEGISLATION' || pub.type === 'CIRCULAIRE_BRH' ? 'EN_VIGUEUR' : 'PUBLIE',
           searchText: buildSearchText({ titleFr: pub.titleFr, number, moniteurRef: label, keywords, bodyOriginal: body }),
         },
       })
@@ -306,7 +306,7 @@ export async function POST(req: NextRequest) {
       keywords,
       // Entrée en vigueur (circulaires BRH) — distincte de la date de signature.
       effectiveDate: d.effectiveDate ? new Date(`${d.effectiveDate}T00:00:00Z`) : null,
-      status: d.status ?? (d.type === 'LEGISLATION' ? 'EN_VIGUEUR' : 'PUBLIE'),
+      status: d.status ?? (d.type === 'LEGISLATION' || d.type === 'CIRCULAIRE_BRH' ? 'EN_VIGUEUR' : 'PUBLIE'),
       fiscalYear: d.fiscalYear,
       juridiction: d.juridiction,
       matiere: d.matiere,

@@ -162,7 +162,6 @@ const MANUAL_FIXES: Record<string, { title?: string; date?: string; skip?: boole
   },
   '103-1_Circulaire.pdf': { title: 'Circulaire BRH n° 103-1 — Règles applicables aux chèques émis en Haïti' },
   '105-1_Circulaire.pdf': { title: 'Circulaire BRH n° 105-1 — Transmission des informations sur les crédits octroyés' },
-  '106_Circulaire.pdf': { title: 'Circulaire BRH n° 106 — Constitution des réserves obligatoires sur toutes les ressources utilisées' },
   '107-3_Circulaire.pdf': { title: 'Circulaire BRH n° 107-3 — Connaissance du client (LBC/FT)' },
   '109-1_Circulaire.pdf': { title: "Circulaire BRH n° 109-1 — Divulgation et affichage des taux d'intérêt, tarifs, frais et commissions" },
   '110-1_Circulaire.pdf': { title: 'Circulaire BRH n° 110-1 — Pénalités pour retards de soumission des rapports' },
@@ -376,7 +375,7 @@ async function main() {
     await prisma.document.create({
       data: {
         type: 'CIRCULAIRE_BRH',
-        status: 'PUBLIE',
+        status: 'EN_VIGUEUR',
         titleFr: r.title,
         bodyOriginal: r.body,
         number: r.number,
@@ -419,7 +418,7 @@ async function main() {
       if (await prisma.document.findFirst({ where: { type: 'CIRCULAIRE_BRH', number: s.number }, select: { id: true } })) continue
       await prisma.document.create({
         data: {
-          type: 'CIRCULAIRE_BRH', status: 'PUBLIE', titleFr: s.title,
+          type: 'CIRCULAIRE_BRH', status: 'EN_VIGUEUR', titleFr: s.title,
           bodyOriginal: s.bodyOriginal, bodyClean: s.bodyClean, richBlocksJson: s.richBlocksJson,
           number: s.number, publicationDate: s.date ? new Date(`${s.date}T00:00:00Z`) : null,
           matiere: 'Droit bancaire', source: 'BRH', sealed: true,

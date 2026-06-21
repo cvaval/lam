@@ -54,7 +54,7 @@ async function main() {
       prisma.document.create({
         data: {
           type: 'CIRCULAIRE_BRH',
-          status: 'PUBLIE',
+          status: 'EN_VIGUEUR',
           titleFr: r.title,
           bodyOriginal: r.body,
           number: r.number,
