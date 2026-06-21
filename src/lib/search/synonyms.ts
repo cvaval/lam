@@ -49,6 +49,40 @@ export const SYNONYMS: Record<string, string[]> = {
   capital: ['capital'],
   bylaws: ['statuts'],
   incorporation: ['constitution', 'statuts'],
+
+  // ── Matières bancaires / BRH (FR + EN) ──
+  blanchiment: ['lbc', 'lbc/ft', 'lutte contre le blanchiment', 'financement du terrorisme', 'aml'],
+  'money laundering': ['blanchiment', 'lbc', 'lutte contre le blanchiment'],
+  aml: ['blanchiment', 'lbc/ft'],
+  'reserve requirements': ['réserves obligatoires', 'reserves obligatoires'],
+  'réserves obligatoires': ['reserve', 'coefficient de réserves'],
+  'exchange rate': ['taux de change', 'change', 'devises'],
+  change: ['taux de change', 'devises', 'foreign exchange'],
+  microfinance: ['imf', 'institution de microfinance', 'microcrédit', 'microcredit'],
+  imf: ['microfinance', 'institution de microfinance'],
+  cooperative: ['coopérative', 'cooperative', 'cec', 'caisse populaire'],
+  coopérative: ['cec', 'caisse populaire', "coopérative d'épargne et de crédit"],
+  cec: ['coopérative', 'caisse populaire', "coopérative d'épargne et de crédit"],
+  'consumer protection': ['protection du consommateur', 'protection de la clientèle'],
+  'secret bancaire': ['banking secrecy', 'confidentialité bancaire'],
+  'banking secrecy': ['secret bancaire'],
+  insurance: ['assurance'],
+  ucref: ['unité centrale de renseignements financiers'],
+  ulcc: ['unité de lutte contre la corruption'],
+
+  // ── Créole haïtien → français (§02 : le corpus est en français) ──
+  lwa: ['loi', 'législation'],
+  sikilè: ['circulaire'],
+  sirkilè: ['circulaire'],
+  tribinal: ['tribunal', 'cour', 'juridiction'],
+  jijman: ['jugement', 'arrêt'],
+  jeneral: ['arrêté'],
+  sosyete: ['société', 'societe'],
+  bankè: ['banque', 'bancaire'],
+  rezèv: ['réserve', 'réserves obligatoires'],
+  enpo: ['impôt', 'taxe', 'fiscal'],
+  taks: ['taxe', 'impôt'],
+  asirans: ['assurance'],
 }
 
 const NORMALIZE = (s: string) => fold(s).trim()
