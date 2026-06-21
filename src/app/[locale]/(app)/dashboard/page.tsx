@@ -49,7 +49,7 @@ export default async function DashboardPage({ params }: { params: { locale: stri
           {user.name ? `, ${user.name.split(' ')[0]}` : ''}.
         </p>
         <div className="mt-3">
-          <SearchBox locale={locale} placeholder={t.dashboard.omnibox} size="lg" remember />
+          <SearchBox locale={locale} placeholder={t.dashboard.omnibox} size="lg" />
         </div>
       </div>
 
