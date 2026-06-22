@@ -14,7 +14,6 @@ import { join } from 'node:path'
 import { PrismaClient } from '@prisma/client'
 import { PDFParse } from 'pdf-parse'
 import { buildSearchText } from '../src/lib/search/normalize'
-import { RECUEIL_SOURCE, splitRecueil } from './recueil-reserves'
 import { audit } from '../src/lib/auth/audit'
 
 const prisma = new PrismaClient()
@@ -43,10 +42,10 @@ const SKIP_PATTERNS = [
 
 // Cas particuliers nommés sans convention.
 const SPECIAL: Record<string, ParsedName> = {
-  // RECUEIL : ce PDF réunit ~24 textes sur les réserves obligatoires. parseName le
-  // reconnaît (num du texte de tête), puis il est ÉCLATÉ en autant de lignes plus
-  // bas (splitRecueil) — il ne devient jamais un Document unique.
-  'CirculaireAuxBanques.pdf': { kind: 'CIRCULAIRE', num: '01-19', noteNo: null, altScan: false },
+  // (Le recueil CirculaireAuxBanques.pdf n'est plus éclaté : ses ~24 circulaires de
+  // réserves obligatoires sont désormais des téléversements individuels autoritatifs
+  // source='BRH-WEB' — scripts/import-circ-batch.ts/import-reserves-batch.ts. Le PDF
+  // est donc SAUTÉ (SUPERSEDED_BY_WEB) pour éviter tout doublon.)
   'circulaires_maisons_transfert.pdf': { kind: 'CIRCULAIRE', num: '98', noteNo: null, altScan: true }, // n° 98 « maisons de transfert » (98_Circulaire.pdf = banques)
   // Fichier mal nommé : le texte OCR dit « NOTE ADDITIONNELLE — CIRCULAIRE 99-3 »
   // (vigilance renforcée LBC/FT), pas une Lettre-Circulaire n° 93-3.
@@ -56,8 +55,8 @@ const SPECIAL: Record<string, ParsedName> = {
 // Fichiers du dossier dont la circulaire est désormais gérée HORS pipeline via le
 // recueil 2017 (source 'BRH-WEB', version officielle docx) — scripts/import-recueil-2017.ts.
 // On les SAUTE pour ne pas recréer un doublon source='BRH' au ré-import (dédup §
-// « la nouvelle version prévaut »). NB : 72-3, 78-1, 86-12-L viennent du recueil
-// CirculaireAuxBanques (splitRecueil) — à réconcilier avant tout ré-import.
+// « la nouvelle version prévaut »). (72-3, 78-1, 86-12-L et toutes les réserves
+// obligatoires sont maintenant des téléversements individuels — cf. SUPERSEDED_BY_WEB.)
 const SUPERSEDED_BY_RECUEIL = new Set([
   '87_Circulaire.pdf', '93_Circulaire.pdf', '97_Circulaire.pdf', '98_Circulaire.pdf',
   'circulaires_maisons_transfert.pdf', '103-1_Circulaire.pdf', '83-4_Circulaire.pdf',
@@ -69,6 +68,9 @@ const SUPERSEDED_BY_RECUEIL = new Set([
 // 'BRH-WEB', version fournie qui prévaut) — scripts/import-circ-batch.ts. On SAUTE
 // le PDF du dossier pour ne pas recréer un doublon source='BRH' au ré-import.
 const SUPERSEDED_BY_WEB = new Set([
+  // Recueil des réserves obligatoires : éclatement abandonné → les ~24 circulaires
+  // sont des téléversements individuels (import-reserves-batch.ts), le PDF est sauté.
+  'CirculaireAuxBanques.pdf',
   '121_Circulaire.pdf',
   '126_Circulaire.pdf',
   'Circulaire-129.pdf',
@@ -165,7 +167,6 @@ export function extractAudience(text: string): string | null {
 // clé = nom de fichier ; valeurs = champs à forcer.
 const MANUAL_FIXES: Record<string, { title?: string; date?: string; skip?: boolean; note?: string }> = {
   // Relecture IA du 12 juin 2026 (inventaire --dir … sans --commit) :
-  // (CirculaireAuxBanques.pdf : recueil éclaté par splitRecueil — titres/dates dans recueil-reserves.ts.)
   '63-3_Circulaire.pdf': { title: 'Circulaire BRH n° 63-3 aux banques et autres institutions financières' },
   '81-6_Circulaire.pdf': { title: 'Circulaire BRH n° 81-6 — Gestion du risque de change' },
   '82-3_Circulaire.pdf': { title: 'Circulaire BRH n° 82-3 — Actionnariat des institutions financières' },
@@ -317,17 +318,10 @@ async function main() {
     rows.push({ file, kind: parsed.kind, num: parsed.num, noteNo: parsed.noteNo, number, title, date, dateFrom, textLen: cleanText.length, body, flags })
   }
 
-  // Éclatement du recueil « réserves obligatoires » en ses textes constituants
-  // (cf. recueil-reserves.ts). Sa ligne unique est remplacée par ~23 lignes ; on
-  // clé le dédoublonnage sur le `number` complet pour ne pas fusionner avec les PDF
-  // autonomes de même base (ex. le n° 87 « classification des prêts »).
-  const expanded: Row[] = []
-  for (const r of rows) {
-    if (r.file !== RECUEIL_SOURCE) { expanded.push(r); continue }
-    for (const s of splitRecueil(r.body)) {
-      expanded.push({ file: r.file, kind: s.kind, num: s.number, noteNo: null, number: s.number, title: s.title, date: s.date, dateFrom: 'recueil', textLen: s.body.length, body: s.body, flags: [] })
-    }
-  }
+  // (L'éclatement du recueil « réserves obligatoires » a été retiré : ces circulaires
+  // sont désormais des téléversements individuels source='BRH-WEB'. Le PDF recueil est
+  // sauté plus haut, donc `rows` ne contient plus de ligne recueil à éclater.)
+  const expanded: Row[] = rows
 
   // Doublons de scan : même numéro + même note → on garde la couche texte la plus riche.
   const byKey = new Map<string, Row[]>()
