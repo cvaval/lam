@@ -1,7 +1,20 @@
 import Link from 'next/link'
 import { parseOfficialText } from '@/lib/doc/officiel'
 import { segmentText, type CircRef } from '@/lib/doc/crossref'
-import { buildBodySegments, type RichBlock, type RichTable, type RichNote } from '@/lib/doc/richblocks'
+import { buildBodySegments, type RichBlock, type RichTable, type RichNote, type RichCell } from '@/lib/doc/richblocks'
+import { TableActions } from './TableActions'
+import type { Locale } from '@/lib/types'
+
+const TABLE_LABEL: Record<Locale, string> = { fr: 'Tableau', en: 'Table', ht: 'Tablo' }
+
+// Cellule essentiellement numérique (montant, taux, %) → alignée à droite + chiffres
+// tabulaires quand aucun alignement n'est donné. Conservateur : doit commencer par un
+// chiffre et ne contenir que chiffres/séparateurs/devise (jamais « article 12 »).
+function isNumericCell(s: string): boolean {
+  const t = s.trim()
+  if (!t || t.length > 24 || !/\d/.test(t)) return false
+  return /^[(-]?\d[\d\s.,%)/-]*(\s?(HTG|USD|G|\$|%))?$/.test(t)
+}
 
 /**
  * Rendu structuré du texte officiel : puces, numérotations (marqueur original
@@ -19,10 +32,12 @@ export function OfficialText({
   text,
   hrefFor,
   rich = [],
+  locale = 'fr',
 }: {
   text: string
   hrefFor?: (ref: CircRef) => string | null
   rich?: RichBlock[]
+  locale?: Locale
 }) {
   const segments = buildBodySegments(text, rich)
   const usedAnchors = new Set<string>()
@@ -109,38 +124,59 @@ export function OfficialText({
     })
   }
 
-  function renderTable(t: RichTable, key: string) {
+  function renderCell(cell: RichCell, c: number, isHeader: boolean, scope?: 'col' | 'row') {
+    const Tag = isHeader ? 'th' : 'td'
+    // Couleurs = palette Lam (jamais les hex bruts du PDF) : en-tête → soley-50,
+    // cellule ombrée non-en-tête → paper. `cell.bg` ne sert que d'indicateur d'ombrage.
+    const shade = isHeader ? 'bg-soley-50' : cell.bg ? 'bg-paper' : ''
+    // Alignement : explicite prioritaire ; sinon les nombres se calent à droite.
+    const auto = !isHeader && !cell.align && isNumericCell(cell.text)
+    const align = cell.align ?? (auto ? 'right' : undefined)
     return (
-      <figure key={key} className="my-4 overflow-x-auto">
-        {t.caption && <figcaption className="mb-1.5 text-sm font-semibold text-lank">{t.caption}</figcaption>}
-        <table className="w-full border-collapse text-[13px] text-lank/90">
-          <tbody>
-            {t.rows.map((row, r) => (
-              <tr key={r}>
-                {row.map((cell, c) => {
-                  const Tag = cell.header ? 'th' : 'td'
-                  // Couleurs = palette Lam (jamais les hex bruts du PDF) : en-tête →
-                  // soley-50 (couleur du type « Circulaires BRH »), cellule ombrée
-                  // non-en-tête → paper. `cell.bg` ne sert que d'indicateur d'ombrage.
-                  const shade = cell.header ? 'bg-soley-50' : cell.bg ? 'bg-paper' : ''
-                  return (
-                    <Tag
-                      key={c}
-                      colSpan={cell.colSpan}
-                      rowSpan={cell.rowSpan}
-                      style={cell.align ? { textAlign: cell.align } : undefined}
-                      className={`border border-lank/20 px-2.5 py-1.5 align-top text-lank/90 ${shade} ${
-                        cell.header || cell.bold ? 'font-semibold text-lank' : ''
-                      }`}
-                    >
-                      {render(cell.text)}
-                    </Tag>
-                  )
-                })}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <Tag
+        key={c}
+        scope={scope}
+        colSpan={cell.colSpan}
+        rowSpan={cell.rowSpan}
+        style={align ? { textAlign: align } : undefined}
+        className={`border border-lank/20 px-2.5 py-1.5 align-top text-lank/90 ${shade} ${auto ? 'tabular-nums' : ''} ${
+          isHeader || cell.bold ? 'font-semibold text-lank' : ''
+        }`}
+      >
+        {render(cell.text)}
+      </Tag>
+    )
+  }
+
+  function renderTable(t: RichTable, key: string, num: number) {
+    // En-tête sémantique : si la 1re ligne est entièrement en-tête → <thead> + scope.
+    const firstAllHeader = t.rows[0]?.length > 0 && t.rows[0].every((c) => c.header)
+    const headerRow = firstAllHeader ? t.rows[0] : null
+    const bodyRows = firstAllHeader ? t.rows.slice(1) : t.rows
+    // Légende numérotée (« Tableau N ») ; repli déterministe si pas de caption —
+    // AFFICHAGE seulement, jamais écrit en base (§02).
+    const fb = (t.caption || t.rows[0]?.find((c) => c.header)?.text || t.rows[0]?.[0]?.text || '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .slice(0, 70)
+    const caption = `${TABLE_LABEL[locale] ?? TABLE_LABEL.fr} ${num}${fb ? ' — ' + fb : ''}`
+    return (
+      <figure key={key} id={`tableau-${num}`} className="my-4 scroll-mt-24">
+        <div className="mb-1.5 flex items-start justify-between gap-3">
+          <figcaption className="text-sm font-semibold text-lank">{caption}</figcaption>
+          <TableActions rows={t.rows} locale={locale} />
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse text-[13px] text-lank/90">
+            <caption className="sr-only">{caption}</caption>
+            {headerRow && <thead><tr>{headerRow.map((cell, c) => renderCell(cell, c, true, 'col'))}</tr></thead>}
+            <tbody>
+              {bodyRows.map((row, r) => (
+                <tr key={r}>{row.map((cell, c) => renderCell(cell, c, !!cell.header, cell.header && c === 0 ? 'row' : undefined))}</tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </figure>
     )
   }
@@ -158,15 +194,17 @@ export function OfficialText({
     )
   }
 
+  let tableNo = 0 // numérotation « Tableau N » par ordre d'AFFICHAGE (orphelins en fin inclus)
   return (
     <div className="official-text space-y-3 text-[15px] text-lank/90">
-      {segments.map((seg, i) =>
-        seg.kind === 'text'
-          ? renderTextSegment(seg.text, i)
-          : seg.block.type === 'table'
-            ? renderTable(seg.block, `rich-${i}`)
-            : renderNote(seg.block, `rich-${i}`),
-      )}
+      {segments.map((seg, i) => {
+        if (seg.kind === 'text') return renderTextSegment(seg.text, i)
+        if (seg.block.type === 'table') {
+          tableNo += 1
+          return renderTable(seg.block, `rich-${i}`, tableNo)
+        }
+        return renderNote(seg.block, `rich-${i}`)
+      })}
     </div>
   )
 }

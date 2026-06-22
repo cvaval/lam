@@ -285,7 +285,7 @@ export default async function DocPage({ params }: { params: { locale: string; id
           {t.doc.unofficialNote}
         </p>
         <div className="relative">
-          <OfficialText text={body} hrefFor={hrefFor} rich={richBlocks} />
+          <OfficialText text={body} hrefFor={hrefFor} rich={richBlocks} locale={locale} />
         </div>
       </section>
 

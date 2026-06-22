@@ -52,3 +52,42 @@ mark.hl {
   font-family: Georgia, Cambria, 'Times New Roman', serif;
   line-height: 1.7;
 }
+
+/* Tableaux : neutraliser le pre-wrap hérité (rafales d'espaces OCR → colonnes
+   désalignées), zébrures et survol pour le balayage des longs états chiffrés. */
+.official-text table td,
+.official-text table th {
+  white-space: normal;
+}
+.official-text tbody tr:nth-child(even) {
+  background-color: rgba(27, 31, 61, 0.035);
+}
+.official-text tbody tr:hover {
+  background-color: rgba(27, 31, 61, 0.06);
+}
+
+/* Impression / PDF : ne pas couper les colonnes, répéter l'en-tête, éviter les
+   coupures de ligne au saut de page. */
+@media print {
+  .official-text figure {
+    overflow: visible !important;
+  }
+  .official-text figure > div {
+    overflow: visible !important;
+  }
+  .official-text table {
+    width: 100%;
+    font-size: 10pt;
+  }
+  .official-text thead {
+    display: table-header-group;
+  }
+  .official-text tr {
+    break-inside: avoid;
+  }
+  .official-text th,
+  .official-text td {
+    white-space: normal;
+    word-break: break-word;
+  }
+}
