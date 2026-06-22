@@ -81,7 +81,7 @@ export default async function TarifsPage({
       <p className="text-sm text-lank/55">
         {total.toLocaleString('fr')} {t.tarifs.results}
         {q && <> · « {q} »</>}
-        {total > MAX && <span className="text-lank/40"> · {MAX} {t.tarifs.results} affichées</span>}
+        {total > MAX && <span className="text-lank/40"> · {MAX} {t.tarifs.results} {t.tarifs.shownMax}</span>}
       </p>
 
       {rows.length === 0 ? (

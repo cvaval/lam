@@ -196,6 +196,7 @@ export const fr = {
     subtitle: 'Positions tarifaires (Système Harmonisé) et taux applicables — droit de douane, TCA, accises.',
     searchPlaceholder: 'Code SH ou désignation du produit…',
     results: 'positions',
+    shownMax: 'affichées',
     empty: 'Aucune position tarifaire pour cette recherche.',
     emptyAll: 'La table des tarifs est vide pour le moment.',
     thCode: 'Code SH',

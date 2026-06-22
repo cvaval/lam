@@ -35,20 +35,27 @@ export function TariffAdmin({ locale, t, q, total, rows }: { locale: Locale; t: 
   function startEdit(r: TariffRow) { setAdding(false); setEditingId(r.id); setDraft(toDraft(r)); setError('') }
   function cancel() { setAdding(false); setEditingId(null); setError('') }
 
+  // Code d'erreur machine → message traduit (repli actionFailed : couvre notFound et inconnus).
+  const errMsg = (code: string) => (t.errors as Record<string, string>)[code] ?? t.errors.actionFailed
+
   async function send(method: 'POST' | 'PATCH' | 'DELETE', payload: Record<string, unknown>) {
     setBusy(true); setError('')
     try {
       const res = await fetch('/api/admin/tarifs', { method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
       const j = await res.json().catch(() => null)
-      if (!res.ok || !j?.ok) { setError(j?.error ? String(j.error) : 'error'); return false }
+      if (!res.ok || !j?.ok) { setError(errMsg(j?.error ? String(j.error) : 'actionFailed')); return false }
       cancel()
       router.refresh()
       return true
+    } catch {
+      // Échec réseau (hors-ligne, DNS) : signaler à l'admin, ne pas laisser un rejet non capturé.
+      setError(errMsg('actionFailed'))
+      return false
     } finally { setBusy(false) }
   }
 
   function save() {
-    if (!draft.code.trim() || !draft.designation.trim()) { setError('invalidFields'); return }
+    if (!draft.code.trim() || !draft.designation.trim()) { setError(errMsg('invalidFields')); return }
     if (adding) void send('POST', draft)
     else if (editingId) void send('PATCH', { id: editingId, ...draft })
   }

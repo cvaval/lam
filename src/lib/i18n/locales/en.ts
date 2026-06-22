@@ -191,6 +191,7 @@ export const en: Dictionary = {
     subtitle: 'Tariff lines (Harmonized System) and applicable rates — customs duty, sales tax, excise.',
     searchPlaceholder: 'HS code or product description…',
     results: 'lines',
+    shownMax: 'shown',
     empty: 'No tariff line for this search.',
     emptyAll: 'The tariff table is empty for now.',
     thCode: 'HS code',

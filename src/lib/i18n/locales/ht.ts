@@ -191,6 +191,7 @@ export const ht: Dictionary = {
     subtitle: 'Pozisyon tarifè yo (Sistèm Amonize) ak to ki aplikab — dwa ladwàn, TCA, aksiz.',
     searchPlaceholder: 'Kòd SH oswa non pwodwi a…',
     results: 'pozisyon',
+    shownMax: 'afiche',
     empty: 'Pa gen okenn pozisyon tarifè pou rechèch sa a.',
     emptyAll: 'Tablo tarif la vid pou kounye a.',
     thCode: 'Kòd SH',
