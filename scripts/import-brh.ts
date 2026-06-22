@@ -53,7 +53,20 @@ const SPECIAL: Record<string, ParsedName> = {
   '93-3_Lettre-Circulaire.pdf': { kind: 'CIRCULAIRE', num: '99-3', noteNo: 1, altScan: false },
 }
 
+// Fichiers du dossier dont la circulaire est désormais gérée HORS pipeline via le
+// recueil 2017 (source 'BRH-WEB', version officielle docx) — scripts/import-recueil-2017.ts.
+// On les SAUTE pour ne pas recréer un doublon source='BRH' au ré-import (dédup §
+// « la nouvelle version prévaut »). NB : 72-3, 78-1, 86-12-L viennent du recueil
+// CirculaireAuxBanques (splitRecueil) — à réconcilier avant tout ré-import.
+const SUPERSEDED_BY_RECUEIL = new Set([
+  '87_Circulaire.pdf', '93_Circulaire.pdf', '97_Circulaire.pdf', '98_Circulaire.pdf',
+  'circulaires_maisons_transfert.pdf', '103-1_Circulaire.pdf', '83-4_Circulaire.pdf',
+  '04_Lettre-Circulaire.pdf', '05_Lettre-Circulaire.pdf', '06_Lettre-Circulaire.pdf',
+  '07_Lettre-Circulaire.pdf', '09-1_Lettre-Circulaire.pdf', '11_Lettre-Circulaire.pdf',
+])
+
 export function parseName(file: string): ParsedName | 'skip' | null {
+  if (SUPERSEDED_BY_RECUEIL.has(file)) return 'skip'
   if (SKIP_PATTERNS.some((re) => re.test(file))) return 'skip'
   if (SPECIAL[file]) return SPECIAL[file]
 
