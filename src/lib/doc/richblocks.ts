@@ -183,12 +183,31 @@ export function buildBodySegments(body: string, rich: RichBlock[]): BodySegment[
   // → placement par défaut en fin (à signaler), vs bloc volontairement sans ancre.
   const tail: { block: RichBlock; orphan: boolean }[] = []
 
+  // Curseur de progression : ancres cherchées dans l'ORDRE du document (les richBlocks
+  // sont produits dans l'ordre), avec repli sur une recherche globale si l'ancre
+  // n'apparaît pas après le curseur (bloc hors séquence ou ancre répétée).
+  let cursor = 0
   for (const b of rich) {
-    const hadAnchor = Boolean((b.afterText && b.afterText.length >= 6) || (b.untilText && b.untilText.length >= 6))
-    const after = b.afterText && b.afterText.length >= 6 ? looseIndexOf(body, b.afterText) : null
-    const until = b.untilText && b.untilText.length >= 6 ? looseIndexOf(body, b.untilText, after ? after.end : 0) : null
-    if (after && until && until.start > after.end) cuts.push({ start: after.end, end: until.start, block: b })
-    else tail.push({ block: b, orphan: hadAnchor })
+    const hasAfter = Boolean(b.afterText && b.afterText.length >= 6)
+    const hasUntil = Boolean(b.untilText && b.untilText.length >= 6)
+    const hadAnchor = hasAfter || hasUntil
+    const after = hasAfter ? (looseIndexOf(body, b.afterText!, cursor) ?? looseIndexOf(body, b.afterText!)) : null
+    if (hasUntil) {
+      // Remplacement d'une zone aplatie par l'OCR, entre afterText et untilText.
+      const until = looseIndexOf(body, b.untilText!, after ? after.end : cursor) ?? looseIndexOf(body, b.untilText!)
+      if (after && until && until.start > after.end) {
+        cuts.push({ start: after.end, end: until.start, block: b })
+        cursor = until.start
+        continue
+      }
+    } else if (after) {
+      // Insertion APRÈS l'ancre (cas docx : le tableau SUIT le texte, ne remplace rien)
+      // → coupe de largeur nulle (start === end) qui ne retire aucun texte.
+      cuts.push({ start: after.end, end: after.end, block: b })
+      cursor = after.end
+      continue
+    }
+    tail.push({ block: b, orphan: hadAnchor })
   }
 
   cuts.sort((a, b) => a.start - b.start)
