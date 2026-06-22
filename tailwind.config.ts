@@ -35,6 +35,8 @@ const config: Config = {
         sitwon: { DEFAULT: BRAND_COLORS.sitwon, 50: '#f1fae1', 100: '#dcf2b9', 600: '#7cb23a', 700: '#5e8a2a' },
         // Endèks = mauve de l'Index du Moniteur (7ᵉ service, références) —
         endeks: { DEFAULT: '#7C6F9B', 50: '#f1eff6', 100: '#dcd6e8', 600: '#5f5379', 700: '#473e5c' },
+        // Kannèl = cannelle des Tarifs douaniers (8ᵉ section) —
+        kannel: { DEFAULT: '#B5651D', 50: '#f7efe6', 100: '#e8d2ba', 600: '#94501a', 700: '#6e3b13' },
         // — Surfaces neutres —
         paper: '#FBFAF7', // fond crème « papier juridique »
         cream: BRAND_COLORS.cream, // crème du logotype sur fond navy

@@ -441,3 +441,25 @@ model AuditLog {
   @@index([action])
   @@index([createdAt])
 }
+
+/// Tarif douanier — table dynamique des positions du Système Harmonisé (SH) et de
+/// leurs taux (droit de douane, TCA, accises). Éditable ligne par ligne au Master
+/// Admin. Donnée structurée, distincte des Documents ; le corpus documentaire douanier
+/// reste des Document type='TARIF_DOUANIER'. §01/§03
+model CustomsTariff {
+  id          String   @id @default(cuid())
+  code        String   // code SH / position tarifaire (ex. « 0101.21.00 »)
+  designation String   // désignation des marchandises
+  unite       String?  // unité de quantité (ex. « kg », « u »)
+  dd          String?  // droit de douane (texte : « 10 % », « 0 % », « Exonéré »)
+  tca         String?  // taxe sur le chiffre d'affaires
+  accises     String?  // droits d'accises / taxe spécifique
+  note        String?  // remarque / renvoi
+  chapter     String?  // chapitre SH (ex. « 01 ») pour le regroupement
+  position    Int      @default(0) // ordre d'affichage dans un chapitre
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([code])
+  @@index([chapter])
+}

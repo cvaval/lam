@@ -11,12 +11,12 @@ import type { DocType, Locale } from './types'
  */
 export interface DocTypeMeta {
   type: DocType
-  num: 1 | 2 | 3 | 4 | 5 | 6 | 7
+  num: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
   slug: string
   /** nom de couleur (créole) tel que défini au Brand Book */
   pastille: string
   /** clé de couleur Tailwind (cf. tailwind.config.ts) */
-  color: 'lank' | 'soley' | 'brim' | 'lagon' | 'fey' | 'sitwon' | 'endeks'
+  color: 'lank' | 'soley' | 'brim' | 'lagon' | 'fey' | 'sitwon' | 'endeks' | 'kannel'
   badge: string
   /** titres traduisibles du type */
   label: Record<Locale, string>
@@ -154,6 +154,24 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
       ht: 'Referans tèks ki pibliye nan Monitè a (1900-2023) — lwa, konpayi, mak. Referans ak dat piblikasyon ; san tèks konplè.',
     },
   },
+  TARIF_DOUANIER: {
+    type: 'TARIF_DOUANIER',
+    num: 8,
+    slug: 'tarifs',
+    pastille: 'Kannèl',
+    color: 'kannel',
+    badge: 'DOUANES',
+    label: {
+      fr: 'Tarifs douaniers',
+      en: 'Customs tariffs',
+      ht: 'Tarif ladwàn',
+    },
+    feature: {
+      fr: 'Table des positions tarifaires (codes SH) et de leurs taux — droit de douane, TCA, accises ; recherche par code ou produit. Plus le corpus douanier : Tarif AGD, décrets et circulaires des douanes.',
+      en: 'Tariff schedule (HS codes) and their rates — customs duty, sales tax, excise; search by code or product. Plus the customs corpus: AGD tariff, decrees and customs circulars.',
+      ht: 'Tablo pozisyon tarifè yo (kòd SH) ak to yo — dwa ladwàn, TCA, aksiz ; chèche pa kòd oswa pwodwi. Plis dokiman ladwàn yo : Tarif AGD, dekrè ak sikilè ladwàn.',
+    },
+  },
 }
 
 export const DOC_TYPE_LIST = Object.values(DOC_TYPE_META).sort((a, b) => a.num - b.num)
@@ -167,6 +185,7 @@ export const COLOR_CLASSES: Record<DocTypeMeta['color'], { dot: string; badge: s
   fey: { dot: 'bg-fey', badge: 'bg-fey text-white', ring: 'ring-fey', text: 'text-fey' },
   sitwon: { dot: 'bg-sitwon', badge: 'bg-sitwon text-lank', ring: 'ring-sitwon', text: 'text-sitwon-700' },
   endeks: { dot: 'bg-endeks', badge: 'bg-endeks text-white', ring: 'ring-endeks', text: 'text-endeks-700' },
+  kannel: { dot: 'bg-kannel', badge: 'bg-kannel text-white', ring: 'ring-kannel', text: 'text-kannel-700' },
 }
 
 /** Le sous-ensemble « 6 services de textes intégraux » (sans l'Index). */
