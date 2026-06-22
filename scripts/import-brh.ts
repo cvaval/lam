@@ -65,8 +65,19 @@ const SUPERSEDED_BY_RECUEIL = new Set([
   '07_Lettre-Circulaire.pdf', '09-1_Lettre-Circulaire.pdf', '11_Lettre-Circulaire.pdf',
 ])
 
+// Circulaires désormais gérées HORS pipeline via téléversement docx+pdf (source
+// 'BRH-WEB', version fournie qui prévaut) — scripts/import-circ-batch.ts. On SAUTE
+// le PDF du dossier pour ne pas recréer un doublon source='BRH' au ré-import.
+const SUPERSEDED_BY_WEB = new Set([
+  '121_Circulaire.pdf',
+  '126_Circulaire.pdf',
+  'Circulaire-129.pdf',
+  'Circulaire-129-1-Aux-Institutions-FinancieEres-6-feevrier-2026-Lutte-contre-le-blanchiment-de-capitaux._0001.pdf',
+  'Circulaire 131 - Aux-Institutions-Financieres-6-fevrier-2026-Protection-des-consommateurs-de-produits-et-services-financiers_0001.pdf',
+])
+
 export function parseName(file: string): ParsedName | 'skip' | null {
-  if (SUPERSEDED_BY_RECUEIL.has(file)) return 'skip'
+  if (SUPERSEDED_BY_RECUEIL.has(file) || SUPERSEDED_BY_WEB.has(file)) return 'skip'
   if (SKIP_PATTERNS.some((re) => re.test(file))) return 'skip'
   if (SPECIAL[file]) return SPECIAL[file]
 
