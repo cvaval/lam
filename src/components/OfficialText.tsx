@@ -3,6 +3,7 @@ import { parseOfficialText } from '@/lib/doc/officiel'
 import { segmentText, type CircRef } from '@/lib/doc/crossref'
 import { buildBodySegments, tableShortCaption, type RichBlock, type RichTable, type RichNote, type RichCell } from '@/lib/doc/richblocks'
 import { TableActions } from './TableActions'
+import { TableFilter } from './TableFilter'
 import { highlightRegex } from '@/lib/search/highlight'
 import type { Locale } from '@/lib/types'
 
@@ -175,14 +176,18 @@ export function OfficialText({
     // fonctionne ; sinon simple défilement horizontal. Large → indice de défilement mobile.
     const longTable = bodyRows.length > 20
     const wide = Math.max(1, ...t.rows.map((r) => r.reduce((n, c) => n + (c.colSpan ?? 1), 0))) >= 4
+    const showFilter = bodyRows.length >= 8 // filtre utile dès qu'il y a assez de lignes
     return (
       <figure key={key} id={`tableau-${num}`} className="my-4 scroll-mt-24">
-        <div className="mb-1.5 flex items-start justify-between gap-3">
+        <div className="mb-1.5 flex flex-wrap items-center justify-between gap-2">
           <figcaption className="text-sm font-semibold text-lank">
             {caption}
             {orphan && <span className="ml-2 text-xs font-normal text-lank/45">({ORPHAN_LABEL[locale] ?? ORPHAN_LABEL.fr})</span>}
           </figcaption>
-          <TableActions rows={t.rows} locale={locale} />
+          <div className="flex items-center gap-2">
+            {showFilter && <TableFilter figureId={`tableau-${num}`} total={bodyRows.length} locale={locale} />}
+            <TableActions rows={t.rows} locale={locale} />
+          </div>
         </div>
         <div
           role="region"
