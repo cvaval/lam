@@ -90,10 +90,17 @@ async function main() {
     const richJson = richBlocks.length ? JSON.stringify(richBlocks) : null
     const isLettre = /lettre[- ]circulaire/i.test(rawText.slice(0, 600))
 
-    // Numéro canonique
+    // Numéro canonique. Anomalies connues : « C187 » (#26) n'est PAS un n° de la série
+    // publique mais une réf. interne « BRH/SBIF/08 No 187 » (lettre à l'APB) — datée,
+    // comme les autres réfs internes, pour ne pas polluer la séquence 1-131.
+    const ANOMALIES: Record<string, { number: string; numLabel: string }> = {
+      '26': { number: 'Circulaire du 8 septembre 2008', numLabel: 'Circulaire BRH du 8 septembre 2008 (BRH/SBIF/08 n° 187)' },
+    }
     let number: string, numLabel: string
     const cm = j.ref.match(/^C(\d[0-9A-Za-z.-]*)$/i)
-    if (cm) {
+    if (ANOMALIES[j.order]) {
+      ({ number, numLabel } = ANOMALIES[j.order])
+    } else if (cm) {
       let num = cm[1].replace(/\./g, '-')
       if (isLettre) num = num.replace(/^(\d)(\D|$)/, '0$1$2') // pad 1 chiffre (lettres : 7 → 07)
       number = `${isLettre ? 'Lettre-Circulaire' : 'Circulaire'} n° ${num}`
