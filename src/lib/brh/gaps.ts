@@ -108,8 +108,13 @@ export function findMissingCirculaires(refs: (string | null | undefined)[]): Brh
     const present = [...bases.keys()].sort((a, b) => a - b)
     const missing: MissingCirculaire[] = []
 
-    // 1) Numéros de base sautés (trous internes uniquement).
+    // 1) Numéros de base sautés (trous internes uniquement). On n'extrapole PAS à
+    // travers un saut anormalement grand (> MAX_RUN) : c'est une frontière de série
+    // ou un numéro hors-séquence (ex. « 187 » de 2008, série réelle ≈ 1-140), pas une
+    // longue suite de numéros réellement manquants — sinon des dizaines de faux trous.
+    const MAX_RUN = 15
     for (let i = 1; i < present.length; i++) {
+      if (present[i] - present[i - 1] > MAX_RUN) continue
       for (let n = present[i - 1] + 1; n < present[i]; n++) {
         missing.push({ serie, base: n, rev: null, ref: formatCirculaireRef(n, serie), reason: 'numero' })
       }

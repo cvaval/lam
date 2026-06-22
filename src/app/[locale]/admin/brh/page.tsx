@@ -75,6 +75,36 @@ export default async function AdminBrhPage({ params }: { params: { locale: strin
     { gaps: gaps.lettres, label: t.brh.serieLettres },
   ]
 
+  // Vue d'ensemble — TOUTES les circulaires (les KPI par série ne couvrent que la
+  // numérotation canonique ; ici on rend compte aussi des séries CEC, microfinance,
+  // réserves, anciennes par date et sous-séries/notes, pour un total exact.
+  const cat = { c: 0, l: 0, cec: 0, imf: 0, res: 0, anc: 0, oth: 0 }
+  for (const d of docs) {
+    const n = d.number ?? ''
+    const r = parseCirculaireRef(n)
+    if (r?.serie === 'CIRCULAIRE') cat.c++
+    else if (r?.serie === 'LETTRE') cat.l++
+    else if (/CEC/i.test(n)) cat.cec++
+    else if (/IMF/i.test(n)) cat.imf++
+    else if (/CIRC-RES/i.test(n)) cat.res++
+    else if (/\bdu\b/i.test(n)) cat.anc++
+    else cat.oth++
+  }
+  const ov = (o: { fr: string; en: string; ht: string }) => o[locale as 'fr' | 'en' | 'ht'] ?? o.fr
+  const overview = {
+    heading: ov({ fr: "Vue d'ensemble", en: 'Overview', ht: 'Apèsi jeneral' }),
+    total: ov({ fr: 'Total circulaires BRH', en: 'Total BRH circulars', ht: 'Total sikilè BRH' }),
+    cards: [
+      { label: ov({ fr: 'Circulaires (numérotées)', en: 'Circulars (numbered)', ht: 'Sikilè (nimewote)' }), value: cat.c },
+      { label: ov({ fr: 'Lettres-Circulaires', en: 'Letter-circulars', ht: 'Lèt-sikilè' }), value: cat.l },
+      { label: ov({ fr: 'Coopératives (CEC)', en: 'Cooperatives (CEC)', ht: 'Koperativ (CEC)' }), value: cat.cec },
+      { label: ov({ fr: 'Microfinance (IMF)', en: 'Microfinance (IMF)', ht: 'Mikwofinans (IMF)' }), value: cat.imf },
+      { label: ov({ fr: 'Réserves (CIRC-RES)', en: 'Reserves (CIRC-RES)', ht: 'Rezèv (CIRC-RES)' }), value: cat.res },
+      { label: ov({ fr: 'Anciennes (par date)', en: 'Older (by date)', ht: 'Ansyen (pa dat)' }), value: cat.anc },
+      { label: ov({ fr: 'Autres (sous-séries, notes)', en: 'Other (sub-series, notes)', ht: 'Lòt (sou-seri, nòt)' }), value: cat.oth },
+    ],
+  }
+
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-end justify-between gap-4">
@@ -89,6 +119,22 @@ export default async function AdminBrhPage({ params }: { params: { locale: strin
           ↓ {t.brh.missingCsv}
         </a>
       </div>
+
+      {/* Vue d'ensemble — TOUTES les circulaires (total exact, toutes séries). */}
+      <section className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
+        <div className="flex items-baseline justify-between">
+          <h2 className="text-sm font-semibold text-lank">{overview.heading}</h2>
+          <p className="text-sm text-lank/55">{overview.total} : <span className="font-mono text-lg font-semibold text-lank">{docs.length}</span></p>
+        </div>
+        <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7">
+          {overview.cards.map((k) => (
+            <div key={k.label} className="rounded-xl border border-lank/10 bg-paper/40 p-3">
+              <p className="font-mono text-xl font-semibold tracking-tight text-lank">{k.value}</p>
+              <p className="mt-1 text-[11px] leading-tight text-lank/45">{k.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Une section par série : KPIs + numéros manquants (pastilles) */}
       {series.map(({ gaps: sg, label }) => {
