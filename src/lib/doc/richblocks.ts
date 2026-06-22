@@ -145,7 +145,15 @@ export function parseRichBlocks(json: string | null | undefined): RichBlock[] {
 
 // ── Découpage du corps : remplacement de zone ──────────────────────────────────
 
-export type BodySegment = { kind: 'text'; text: string } | { kind: 'rich'; block: RichBlock }
+export type BodySegment = { kind: 'text'; text: string } | { kind: 'rich'; block: RichBlock; orphan?: boolean }
+
+/** Légende courte d'un tableau (caption, sinon 1re cellule d'en-tête, sinon 1re cellule) — AFFICHAGE seul, jamais écrit en base (§02). */
+export function tableShortCaption(t: RichTable): string {
+  return (t.caption || t.rows[0]?.find((c) => c.header)?.text || t.rows[0]?.[0]?.text || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 70)
+}
 
 /** Recherche tolérante aux espaces multiples / sauts de ligne de l'OCR. */
 function looseIndexOf(hay: string, needle: string, from = 0): { start: number; end: number } | null {
@@ -171,13 +179,16 @@ export function buildBodySegments(body: string, rich: RichBlock[]): BodySegment[
 
   type Cut = { start: number; end: number; block: RichBlock }
   const cuts: Cut[] = []
-  const tail: RichBlock[] = []
+  // orphan = le bloc AVAIT une ancre (afterText/untilText) qui n'a PAS été retrouvée
+  // → placement par défaut en fin (à signaler), vs bloc volontairement sans ancre.
+  const tail: { block: RichBlock; orphan: boolean }[] = []
 
   for (const b of rich) {
+    const hadAnchor = Boolean((b.afterText && b.afterText.length >= 6) || (b.untilText && b.untilText.length >= 6))
     const after = b.afterText && b.afterText.length >= 6 ? looseIndexOf(body, b.afterText) : null
     const until = b.untilText && b.untilText.length >= 6 ? looseIndexOf(body, b.untilText, after ? after.end : 0) : null
     if (after && until && until.start > after.end) cuts.push({ start: after.end, end: until.start, block: b })
-    else tail.push(b)
+    else tail.push({ block: b, orphan: hadAnchor })
   }
 
   cuts.sort((a, b) => a.start - b.start)
@@ -198,6 +209,6 @@ export function buildBodySegments(body: string, rich: RichBlock[]): BodySegment[
     pos = c.end
   }
   if (pos < body.length) segs.push({ kind: 'text', text: body.slice(pos) })
-  for (const b of tail) segs.push({ kind: 'rich', block: b })
+  for (const t of tail) segs.push({ kind: 'rich', block: t.block, orphan: t.orphan })
   return segs
 }

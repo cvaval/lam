@@ -17,7 +17,7 @@ import { OfficialText } from '@/components/OfficialText'
 import { splitKeywords } from '@/lib/ai/keywords'
 import { parseCirculaireRef } from '@/lib/brh/gaps'
 import type { CircRef } from '@/lib/doc/crossref'
-import { parseRichBlocks } from '@/lib/doc/richblocks'
+import { parseRichBlocks, buildBodySegments, tableShortCaption, type RichTable } from '@/lib/doc/richblocks'
 import { parseEditionHeader } from '@/lib/doc/edition-meta'
 import { pickLocale } from '@/lib/i18n/pick'
 import { DOC_TYPE_META } from '@/lib/brand'
@@ -76,6 +76,18 @@ export default async function DocPage({ params }: { params: { locale: string; id
   // Annexes téléchargeables (Word/Excel) : circulaires dont les annexes sont des
   // tableaux/formulaires reconstruits. Réservé aux paliers exportateurs (§09).
   const annexCount = richBlocks.filter((b) => b.type === 'table').length
+
+  // Sommaire des tableaux : numérotation par ordre d'AFFICHAGE (même source que
+  // OfficialText → buildBodySegments), pour des ancres #tableau-N cohérentes.
+  const tableEntries = buildBodySegments(body, richBlocks)
+    .filter((s) => s.kind === 'rich' && s.block.type === 'table')
+    .map((s, i) => ({ num: i + 1, cap: tableShortCaption((s as { block: RichTable }).block), orphan: Boolean((s as { orphan?: boolean }).orphan) }))
+  const tl = (o: { fr: string; en: string; ht: string }) => o[locale as 'fr' | 'en' | 'ht'] ?? o.fr
+  const TLBL = {
+    heading: tl({ fr: 'Tableaux du document', en: 'Document tables', ht: 'Tablo dokiman an' }),
+    table: tl({ fr: 'Tableau', en: 'Table', ht: 'Tablo' }),
+    orphan: tl({ fr: 'emplacement approximatif', en: 'approximate position', ht: 'kote apwoksimatif' }),
+  }
 
   // Liens croisés entre circulaires BRH : index numéro → fiche du corpus.
   // « article N de la présente circulaire » → ancre #art-N de la fiche courante.
@@ -284,6 +296,24 @@ export default async function DocPage({ params }: { params: { locale: string; id
         <p className="mb-3 rounded-lg bg-lank-50 px-3 py-2 text-[11px] leading-relaxed text-lank/60">
           {t.doc.unofficialNote}
         </p>
+        {tableEntries.length >= 2 && (
+          <details className="mb-4 rounded-xl border border-lank/10 bg-paper/40 px-4 py-2.5">
+            <summary className="cursor-pointer select-none text-xs font-semibold uppercase tracking-wide text-lank/55">
+              {TLBL.heading} ({tableEntries.length})
+            </summary>
+            <ul className="mt-2 grid gap-1 sm:grid-cols-2">
+              {tableEntries.map((e) => (
+                <li key={e.num}>
+                  <a href={`#tableau-${e.num}`} className="text-sm text-endeks-700 hover:underline">
+                    {TLBL.table} {e.num}
+                    {e.cap && <span className="text-lank/60"> — {e.cap}</span>}
+                    {e.orphan && <span className="text-lank/40"> ({TLBL.orphan})</span>}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </details>
+        )}
         <div className="relative">
           <OfficialText text={body} hrefFor={hrefFor} rich={richBlocks} locale={locale} />
         </div>
