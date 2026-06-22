@@ -31,7 +31,9 @@ export default async function SearchPage({
     return <RateLimitNotice t={t} />
   }
 
-  const q = (searchParams.q ?? '').slice(0, 300)
+  // ?q peut arriver en tableau (lien forgé « ?q=a&q=b ») malgré le type SP : normaliser.
+  const rawQ = Array.isArray(searchParams.q) ? searchParams.q[0] : searchParams.q
+  const q = (rawQ ?? '').slice(0, 300)
   const typeSlug = searchParams.type
   // Accès par service (§03) : la recherche est bornée aux types accordés (l'Index toujours).
   const allowed = accessibleTypes(user)

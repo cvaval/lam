@@ -32,15 +32,33 @@ function foldPattern(term: string): string {
   return out
 }
 
+// Classe « caractère de mot » tolérante aux accents (Latin-1) pour les frontières.
+const WORD = 'A-Za-zÀ-ÿ0-9'
+
+/**
+ * Motif d'alternance pour surligner une liste de termes folés. Termes les plus longs
+ * d'abord (priorité d'alternance). Les termes COURTS (≤ 3 car.) exigent des frontières
+ * de mot — sinon « sa » surlignerait l'intérieur de « passage », « sans », « casino ».
+ */
+function buildHighlightPattern(terms: string[]): string | null {
+  const usable = terms.filter((t) => t && t.length >= 2).sort((a, b) => b.length - a.length)
+  if (!usable.length) return null
+  return usable
+    .map((t) => {
+      const p = foldPattern(t)
+      return t.length <= 3 ? `(?<![${WORD}])(?:${p})(?![${WORD}])` : p
+    })
+    .join('|')
+}
+
 /**
  * Regex globale, insensible aux accents, pour surligner des termes folés dans du texte
  * brut rendu en React (split sur le groupe capturé → segments alternés texte/marque).
  * null si aucun terme exploitable.
  */
 export function highlightRegex(terms: string[]): RegExp | null {
-  const usable = terms.filter((t) => t && t.length >= 2)
-  if (!usable.length) return null
-  const pattern = usable.map(foldPattern).sort((a, b) => b.length - a.length).join('|')
+  const pattern = buildHighlightPattern(terms)
+  if (!pattern) return null
   try {
     return new RegExp(`(${pattern})`, 'gi')
   } catch {
@@ -55,11 +73,10 @@ export function highlightRegex(terms: string[]): RegExp | null {
  */
 export function makeSnippet(text: string, terms: string[], maxLen = 240): string {
   if (!text) return ''
-  const usable = terms.filter((t) => t.length >= 2)
+  const pattern = buildHighlightPattern(terms)
 
   let re: RegExp | null = null
-  if (usable.length) {
-    const pattern = usable.map(foldPattern).sort((a, b) => b.length - a.length).join('|')
+  if (pattern) {
     try {
       re = new RegExp(`(${pattern})`, 'gi')
     } catch {

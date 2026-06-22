@@ -104,7 +104,10 @@ export function expandQuery(q: string): string[] {
 
   for (const [key, expansions] of Object.entries(SYNONYMS)) {
     const nkey = NORMALIZE(key)
-    if (out.has(nkey) || raw.includes(nkey)) {
+    // Déclenchement par TOKEN/bigramme exact (out), ou par phrase pour les clés
+    // multi-mots (espace) — jamais par sous-chaîne d'un mot unique : « incorporation »
+    // ne doit pas activer la clé « corporation » (→ surlignage parasite de « sa »).
+    if (out.has(nkey) || (nkey.includes(' ') && raw.includes(nkey))) {
       for (const e of expansions) out.add(NORMALIZE(e))
     }
   }

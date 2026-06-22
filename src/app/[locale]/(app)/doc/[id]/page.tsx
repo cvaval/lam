@@ -29,7 +29,7 @@ export default async function DocPage({
   searchParams,
 }: {
   params: { locale: string; id: string }
-  searchParams: { q?: string }
+  searchParams: { q?: string | string[] }
 }) {
   const { locale, t } = dictFor(params.locale)
   const user = await requireUser(locale)
@@ -98,7 +98,9 @@ export default async function DocPage({
 
   // Termes recherchés à surligner dans le texte et les tableaux (depuis ?q= au clic
   // d'un résultat de recherche) — mêmes termes étendus que le moteur (synonymes).
-  const hlTerms = (searchParams?.q ?? '').trim() ? expandQuery(searchParams.q!.slice(0, 200)) : undefined
+  // ?q peut arriver en tableau (lien forgé « ?q=a&q=b ») : normaliser avant .trim/.slice.
+  const rawQ = Array.isArray(searchParams?.q) ? searchParams.q[0] : searchParams?.q
+  const hlTerms = rawQ?.trim() ? expandQuery(rawQ.slice(0, 200)) : undefined
 
   // Liens croisés entre circulaires BRH : index numéro → fiche du corpus.
   // « article N de la présente circulaire » → ancre #art-N de la fiche courante.

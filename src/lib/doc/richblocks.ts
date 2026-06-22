@@ -198,6 +198,11 @@ export function buildBodySegments(body: string, rich: RichBlock[]): BodySegment[
     if (c.start >= lastEnd) {
       clean.push(c)
       lastEnd = c.end
+    } else {
+      // Chevauchement de zones (ancres recoupées / tableaux trop proches) : ne JAMAIS
+      // jeter le bloc perdant — le replacer en fin, signalé orphelin (emplacement
+      // approximatif), pour qu'aucun tableau ne disparaisse silencieusement.
+      tail.push({ block: c.block, orphan: true })
     }
   }
 

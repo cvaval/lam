@@ -11,22 +11,44 @@ const LBL = {
 } as const
 
 /**
- * Sérialise les lignes en TSV (collable tel quel dans Excel/Sheets/Word). Les
- * colSpan sont développés en champs vides pour conserver l'alignement des colonnes ;
- * tabulations/retours internes neutralisés. Affichage seul — aucune donnée modifiée.
+ * Sérialise les lignes en grille TSV rectangulaire (collable tel quel dans
+ * Excel/Sheets/Word). colSpan ET rowSpan sont développés en champs vides pour
+ * conserver l'alignement des colonnes : un rowSpan occupe les cellules des lignes
+ * suivantes (report par colonne), sinon les cellules fusionnées verticalement
+ * décaleraient les colonnes vers la gauche. Affichage seul — aucune donnée modifiée.
  */
-function toTsv(rows: RichCell[][]): string {
-  return rows
-    .map((row) =>
-      row
-        .flatMap((c) => {
-          const text = (c.text ?? '').replace(/[\t\n\r]+/g, ' ').trim()
-          const span = c.colSpan && c.colSpan > 1 ? c.colSpan : 1
-          return [text, ...Array(span - 1).fill('')]
-        })
-        .join('\t'),
-    )
-    .join('\n')
+export function toTsv(rows: RichCell[][]): string {
+  const grid: string[][] = []
+  const carry: number[] = [] // carry[col] = lignes restantes occupées par un rowSpan au-dessus
+  for (const row of rows) {
+    const out: string[] = []
+    let col = 0
+    let ci = 0
+    while (ci < row.length || col < carry.length) {
+      if ((carry[col] ?? 0) > 0) {
+        out[col] = '' // colonne occupée par un rowSpan d'une ligne précédente
+        carry[col] -= 1
+        col += 1
+        continue
+      }
+      if (ci >= row.length) {
+        col += 1
+        continue
+      }
+      const c = row[ci++]
+      const text = (c.text ?? '').replace(/[\t\n\r]+/g, ' ').trim()
+      const cs = c.colSpan && c.colSpan > 1 ? c.colSpan : 1
+      const rs = c.rowSpan && c.rowSpan > 1 ? c.rowSpan : 1
+      for (let k = 0; k < cs; k++) {
+        out[col] = k === 0 ? text : ''
+        if (rs > 1) carry[col] = rs - 1
+        col += 1
+      }
+    }
+    grid.push(out)
+  }
+  const width = Math.max(0, ...grid.map((r) => r.length))
+  return grid.map((r) => Array.from({ length: width }, (_, i) => r[i] ?? '').join('\t')).join('\n')
 }
 
 /** Bouton « Copier » d'un tableau (îlot client dans OfficialText, composant serveur). */

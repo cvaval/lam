@@ -143,8 +143,9 @@ export function OfficialText({
   function renderCell(cell: RichCell, c: number, isHeader: boolean, scope?: 'col' | 'row', sticky = false) {
     const Tag = isHeader ? 'th' : 'td'
     // Couleurs = palette Lam (jamais les hex bruts du PDF) : en-tête → soley-50,
-    // cellule ombrée non-en-tête → paper. `cell.bg` ne sert que d'indicateur d'ombrage.
-    const shade = isHeader ? 'bg-soley-50' : cell.bg ? 'bg-paper' : ''
+    // cellule ombrée non-en-tête → ton soley translucide (lit la zébrure du <tr> par
+    // transparence au lieu de la masquer comme un fond opaque). `cell.bg` = indicateur d'ombrage.
+    const shade = isHeader ? 'bg-soley-50' : cell.bg ? 'bg-soley-100/50' : ''
     // Alignement : explicite prioritaire ; sinon les nombres se calent à droite.
     const auto = !isHeader && !cell.align && isNumericCell(cell.text)
     const align = cell.align ?? (auto ? 'right' : undefined)
@@ -174,9 +175,12 @@ export function OfficialText({
     const caption = `${TABLE_LABEL[locale] ?? TABLE_LABEL.fr} ${num}${cap ? ' — ' + cap : ''}`
     // Tableau long → panneau défilant à hauteur bornée pour que l'en-tête figé (sticky)
     // fonctionne ; sinon simple défilement horizontal. Large → indice de défilement mobile.
-    const longTable = bodyRows.length > 20
+    const longTable = bodyRows.length > 12 // borne la hauteur + en-tête figé dès ~13 lignes
     const wide = Math.max(1, ...t.rows.map((r) => r.reduce((n, c) => n + (c.colSpan ?? 1), 0))) >= 4
-    const showFilter = bodyRows.length >= 8 // filtre utile dès qu'il y a assez de lignes
+    // Filtre masquant des <tr> : sûr seulement sans fusion verticale (sinon un rowSpan
+    // masqué décale/efface des colonnes des lignes dépendantes).
+    const hasRowSpan = bodyRows.some((row) => row.some((c) => (c.rowSpan ?? 1) > 1))
+    const showFilter = bodyRows.length >= 8 && !hasRowSpan
     return (
       <figure key={key} id={`tableau-${num}`} className="my-4 scroll-mt-24">
         <div className="mb-1.5 flex flex-wrap items-center justify-between gap-2">
@@ -185,7 +189,7 @@ export function OfficialText({
             {orphan && <span className="ml-2 text-xs font-normal text-lank/45">({ORPHAN_LABEL[locale] ?? ORPHAN_LABEL.fr})</span>}
           </figcaption>
           <div className="flex items-center gap-2">
-            {showFilter && <TableFilter figureId={`tableau-${num}`} total={bodyRows.length} locale={locale} />}
+            {showFilter && <TableFilter total={bodyRows.length} locale={locale} />}
             <TableActions rows={t.rows} locale={locale} />
           </div>
         </div>
@@ -200,7 +204,11 @@ export function OfficialText({
             {headerRow && <thead><tr>{headerRow.map((cell, c) => renderCell(cell, c, true, 'col', true))}</tr></thead>}
             <tbody>
               {bodyRows.map((row, r) => (
-                <tr key={r}>{row.map((cell, c) => renderCell(cell, c, !!cell.header, cell.header && c === 0 ? 'row' : undefined))}</tr>
+                // Zébrage piloté par classe (et non :nth-child) pour rester correct après
+                // filtrage : TableFilter recalcule .zebra sur les lignes visibles.
+                <tr key={r} className={r % 2 === 1 ? 'zebra' : undefined}>
+                  {row.map((cell, c) => renderCell(cell, c, !!cell.header, cell.header && c === 0 ? 'row' : undefined))}
+                </tr>
               ))}
             </tbody>
           </table>

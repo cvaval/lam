@@ -59,11 +59,20 @@ mark.hl {
 .official-text table th {
   white-space: normal;
 }
-.official-text tbody tr:nth-child(even) {
+/* Zébrage par classe (.zebra émise par OfficialText sur une ligne sur deux) plutôt
+   que :nth-child(even) : reste correct quand TableFilter masque des lignes et
+   recalcule .zebra sur les seules lignes visibles. */
+.official-text tbody tr.zebra {
   background-color: rgba(27, 31, 61, 0.035);
 }
 .official-text tbody tr:hover {
   background-color: rgba(27, 31, 61, 0.06);
+}
+/* Surlignage à plat dans les cellules : la barre box-shadow inset de mark.hl
+   déborderait sous la ligne suivante (line-height serré, retour à la ligne). */
+.official-text td mark.hl,
+.official-text th mark.hl {
+  box-shadow: none;
 }
 
 /* Impression / PDF : ne pas couper les colonnes, répéter l'en-tête, éviter les
