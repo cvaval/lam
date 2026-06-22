@@ -3,6 +3,7 @@ import { parseOfficialText } from '@/lib/doc/officiel'
 import { segmentText, type CircRef } from '@/lib/doc/crossref'
 import { buildBodySegments, tableShortCaption, type RichBlock, type RichTable, type RichNote, type RichCell } from '@/lib/doc/richblocks'
 import { TableActions } from './TableActions'
+import { highlightRegex } from '@/lib/search/highlight'
 import type { Locale } from '@/lib/types'
 
 const TABLE_LABEL: Record<Locale, string> = { fr: 'Tableau', en: 'Table', ht: 'Tablo' }
@@ -35,14 +36,26 @@ export function OfficialText({
   hrefFor,
   rich = [],
   locale = 'fr',
+  terms,
 }: {
   text: string
   hrefFor?: (ref: CircRef) => string | null
   rich?: RichBlock[]
   locale?: Locale
+  /** termes recherchés à surligner (folés) — propagés depuis ?q= au clic d'un résultat */
+  terms?: string[]
 }) {
   const segments = buildBodySegments(text, rich)
   const usedAnchors = new Set<string>()
+  const hlRe = terms && terms.length ? highlightRegex(terms) : null
+
+  // Surligne les termes recherchés dans un texte brut (split sur le groupe capturé).
+  function hl(value: string) {
+    if (!hlRe) return value
+    const parts = value.split(hlRe)
+    if (parts.length <= 1) return value
+    return parts.map((p, i) => (i % 2 === 1 ? <mark key={i} className="hl">{p}</mark> : p))
+  }
 
   function markerAnchor(marker: string): string | undefined {
     if (!/^\(?\d{1,3}[.)\-–°]?\)?$/.test(marker)) return undefined
@@ -61,11 +74,11 @@ export function OfficialText({
     return id
   }
 
-  // Renvois croisés → liens, sinon texte brut.
+  // Renvois croisés → liens, sinon texte brut ; termes recherchés surlignés (hl).
   function render(textValue: string) {
-    if (!hrefFor) return textValue
+    if (!hrefFor) return hl(textValue)
     const segs = segmentText(textValue, hrefFor)
-    if (segs.length === 1 && !segs[0].href) return textValue
+    if (segs.length === 1 && !segs[0].href) return hl(textValue)
     return segs.map((s, i) =>
       s.href ? (
         <Link
@@ -73,10 +86,10 @@ export function OfficialText({
           href={s.href}
           className="font-medium text-lank underline decoration-lank/30 underline-offset-2 hover:decoration-lank"
         >
-          {s.text}
+          {hl(s.text)}
         </Link>
       ) : (
-        <span key={i}>{s.text}</span>
+        <span key={i}>{hl(s.text)}</span>
       ),
     )
   }

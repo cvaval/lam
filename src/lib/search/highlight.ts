@@ -33,6 +33,22 @@ function foldPattern(term: string): string {
 }
 
 /**
+ * Regex globale, insensible aux accents, pour surligner des termes folés dans du texte
+ * brut rendu en React (split sur le groupe capturé → segments alternés texte/marque).
+ * null si aucun terme exploitable.
+ */
+export function highlightRegex(terms: string[]): RegExp | null {
+  const usable = terms.filter((t) => t && t.length >= 2)
+  if (!usable.length) return null
+  const pattern = usable.map(foldPattern).sort((a, b) => b.length - a.length).join('|')
+  try {
+    return new RegExp(`(${pattern})`, 'gi')
+  } catch {
+    return null
+  }
+}
+
+/**
  * Construit un extrait centré sur la première occurrence d'un terme, échappe le HTML,
  * puis entoure les termes de <mark class="hl">…</mark>. La localisation comme le
  * surlignage replient les accents (un terme folé matche le texte accentué).

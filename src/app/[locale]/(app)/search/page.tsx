@@ -173,7 +173,7 @@ export default async function SearchPage({
                   <span className="h-px flex-1 bg-endeks/30" />
                 </div>
               )}
-              <ResultCard hit={h} locale={locale} t={t} />
+              <ResultCard hit={h} locale={locale} t={t} q={q} />
             </Fragment>
           )
         })}

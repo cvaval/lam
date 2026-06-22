@@ -18,12 +18,19 @@ import { splitKeywords } from '@/lib/ai/keywords'
 import { parseCirculaireRef } from '@/lib/brh/gaps'
 import type { CircRef } from '@/lib/doc/crossref'
 import { parseRichBlocks, buildBodySegments, tableShortCaption, type RichTable } from '@/lib/doc/richblocks'
+import { expandQuery } from '@/lib/search/synonyms'
 import { parseEditionHeader } from '@/lib/doc/edition-meta'
 import { pickLocale } from '@/lib/i18n/pick'
 import { DOC_TYPE_META } from '@/lib/brand'
 import type { DocType, DocStatus } from '@/lib/types'
 
-export default async function DocPage({ params }: { params: { locale: string; id: string } }) {
+export default async function DocPage({
+  params,
+  searchParams,
+}: {
+  params: { locale: string; id: string }
+  searchParams: { q?: string }
+}) {
   const { locale, t } = dictFor(params.locale)
   const user = await requireUser(locale)
 
@@ -88,6 +95,10 @@ export default async function DocPage({ params }: { params: { locale: string; id
     table: tl({ fr: 'Tableau', en: 'Table', ht: 'Tablo' }),
     orphan: tl({ fr: 'emplacement approximatif', en: 'approximate position', ht: 'kote apwoksimatif' }),
   }
+
+  // Termes recherchés à surligner dans le texte et les tableaux (depuis ?q= au clic
+  // d'un résultat de recherche) — mêmes termes étendus que le moteur (synonymes).
+  const hlTerms = (searchParams?.q ?? '').trim() ? expandQuery(searchParams.q!.slice(0, 200)) : undefined
 
   // Liens croisés entre circulaires BRH : index numéro → fiche du corpus.
   // « article N de la présente circulaire » → ancre #art-N de la fiche courante.
@@ -315,7 +326,7 @@ export default async function DocPage({ params }: { params: { locale: string; id
           </details>
         )}
         <div className="relative">
-          <OfficialText text={body} hrefFor={hrefFor} rich={richBlocks} locale={locale} />
+          <OfficialText text={body} hrefFor={hrefFor} rich={richBlocks} locale={locale} terms={hlTerms} />
         </div>
       </section>
 

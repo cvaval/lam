@@ -8,12 +8,14 @@ import type { DocType, Locale } from '@/lib/types'
 
 // Convention : t est passé en prop (le parent a déjà le dictionnaire) — pas de
 // getDictionary par carte.
-export function ResultCard({ hit, locale, t }: { hit: SearchHit; locale: Locale; t: Dictionary }) {
+export function ResultCard({ hit, locale, t, q }: { hit: SearchHit; locale: Locale; t: Dictionary; q?: string }) {
+  // Propage la requête au document/société → surlignage des termes à l'arrivée (§09).
+  const qs = q && q.trim() ? `?q=${encodeURIComponent(q.trim().slice(0, 200))}` : ''
 
   if (hit.kind === 'company') {
     return (
       <Link
-        href={`/${locale}/company/${hit.id}`}
+        href={`/${locale}/company/${hit.id}${qs}`}
         className="block rounded-2xl border border-lank/10 bg-white p-4 shadow-card transition hover:-translate-y-0.5 hover:shadow-lg"
       >
         <div className="flex flex-wrap items-center gap-2">
@@ -39,7 +41,7 @@ export function ResultCard({ hit, locale, t }: { hit: SearchHit; locale: Locale;
   const type = hit.type as DocType
   return (
     <Link
-      href={`/${locale}/doc/${hit.id}`}
+      href={`/${locale}/doc/${hit.id}${qs}`}
       className="block rounded-2xl border border-lank/10 bg-white p-4 shadow-card transition hover:-translate-y-0.5 hover:shadow-lg"
     >
       <div className="flex items-start gap-3">
