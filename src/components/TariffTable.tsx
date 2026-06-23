@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { highlightRegex } from '@/lib/search/highlight'
+import { tariffLabel } from '@/lib/tarif-format'
 import { TariffCalculator } from './TariffCalculator'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale } from '@/lib/types'
@@ -216,9 +217,7 @@ export function TariffTable({
                 </thead>
                 <tbody>
                   {rows.map((r, i) => {
-                    const m = r.designation.match(/^(-+)\s*/)
-                    const level = m ? m[1].length : 0
-                    const label = m ? r.designation.slice(m[0].length) : r.designation
+                    const { level, label } = tariffLabel(r.designation)
                     return (
                       <tr key={r.id} className={i % 2 === 1 ? 'bg-[rgba(27,31,61,0.025)]' : ''}>
                         <td className="whitespace-nowrap px-3 py-1.5 align-top">

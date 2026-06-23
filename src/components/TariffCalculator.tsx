@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import { tariffLabel } from '@/lib/tarif-format'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { TariffRow } from './TariffTable'
 
@@ -64,7 +65,7 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
           <div>
             <h2 className="font-semibold text-lank">{t.tarifs.calcTitle}</h2>
             <p className="mt-0.5 text-xs text-lank/55">
-              <span className="font-mono">{row.code}</span> — {row.designation.replace(/^[-\s]+/, '')}
+              <span className="font-mono">{row.code}</span> — {tariffLabel(row.designation).label}
             </p>
           </div>
           <button type="button" onClick={onClose} aria-label={t.tarifs.close} className="rounded-lg px-2 py-1 text-lank/50 hover:bg-paper">✕</button>

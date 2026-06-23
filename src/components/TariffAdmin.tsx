@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { tariffLabel } from '@/lib/tarif-format'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale } from '@/lib/types'
 
@@ -155,7 +156,7 @@ export function TariffAdmin({ locale, t, q, total, rows }: { locale: Locale; t: 
               ) : (
                 <tr key={r.id} className="border-b border-lank/5 last:border-0 hover:bg-paper">
                   <td className="whitespace-nowrap px-3 py-1.5 font-mono text-xs font-medium text-lank">{r.code}</td>
-                  <td className="px-3 py-1.5">{r.designation}{r.note && <span className="mt-0.5 block text-[11px] text-lank/45">{r.note}</span>}{r.ddRef && <span className="mt-0.5 block text-[11px] text-kannel-700/80">ⓘ {r.ddRef}</span>}</td>
+                  <td className="px-3 py-1.5">{tariffLabel(r.designation).label}{r.note && <span className="mt-0.5 block text-[11px] text-lank/45">{r.note}</span>}{r.ddRef && <span className="mt-0.5 block text-[11px] text-kannel-700/80">ⓘ {r.ddRef}</span>}</td>
                   <td className="whitespace-nowrap px-3 py-1.5 text-lank/70">{r.unite ?? '—'}</td>
                   <td className="px-3 py-1.5 text-right tabular-nums whitespace-nowrap">{r.dd ?? '—'}</td>
                   <td className="px-3 py-1.5 text-right tabular-nums whitespace-nowrap">{r.tca ?? '—'}</td>
