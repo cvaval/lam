@@ -243,6 +243,16 @@ export const en: Dictionary = {
     confirmDel: 'Delete this tariff line?',
     saved: 'Saved',
   },
+  codeIndex: {
+    title: 'Thematic index (AI)',
+    sub: 'Browse the Code by theme; related themes and cross-references between articles suggested by AI.',
+    searchPlaceholder: 'Search a theme or topic…',
+    allThemes: 'All themes',
+    relatedThemes: 'Related themes',
+    related: 'See also',
+    articles: 'articles',
+    noResult: 'No theme or article for this search.',
+  },
   moniteur: {
     title: 'Le Moniteur — editions by year',
     subtitle: 'Complete list of regular and special editions, with publication number and date.',

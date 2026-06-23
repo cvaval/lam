@@ -243,6 +243,16 @@ export const ht: Dictionary = {
     confirmDel: 'Efase pozisyon tarifè sa a ?',
     saved: 'Anrejistre',
   },
+  codeIndex: {
+    title: 'Endèks tematik (AI)',
+    sub: 'Pakouri Kòd la pa tèm ; tèm pwòch ak referans ant atik yo sijere pa AI.',
+    searchPlaceholder: 'Chèche yon tèm oswa yon sijè…',
+    allThemes: 'Tout tèm yo',
+    relatedThemes: 'Tèm pwòch',
+    related: 'Lye',
+    articles: 'atik',
+    noResult: 'Pa gen tèm ni atik pou rechèch sa a.',
+  },
   moniteur: {
     title: 'Le Moniteur — edisyon pa ane',
     subtitle: 'Lis konplè edisyon regilye ak espesyal yo, ak nimewo ak dat piblikasyon.',

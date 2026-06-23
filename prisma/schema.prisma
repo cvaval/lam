@@ -256,6 +256,11 @@ model Document {
   // le texte officiel (§02). Null = pas encore océrisé.
   sommaireOcr    String?
 
+  // Index thématique par article (codes/lois longs) : JSON [{num, heading, themes[], summary}]
+  // produit par IA (scripts/index-code-themes.ts). Alimente la recherche par thème, les
+  // suggestions de thèmes similaires et les renvois entre articles. Null = non indexé.
+  themeIndexJson String?
+
   // Texte de recherche accent-folé (minuscules) — préfiltrage SQL du moteur FTS à grande
   // échelle (Index du Moniteur ~28k). Recalculé à chaque écriture.
   searchText     String?

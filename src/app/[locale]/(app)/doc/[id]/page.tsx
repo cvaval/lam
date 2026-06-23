@@ -18,6 +18,7 @@ import { splitKeywords } from '@/lib/ai/keywords'
 import { parseCirculaireRef } from '@/lib/brh/gaps'
 import type { CircRef } from '@/lib/doc/crossref'
 import { parseRichBlocks, buildBodySegments, tableShortCaption, type RichTable } from '@/lib/doc/richblocks'
+import { CodeThemeBrowser, type ThemeArticle } from '@/components/CodeThemeBrowser'
 import { expandQuery } from '@/lib/search/synonyms'
 import { parseEditionHeader } from '@/lib/doc/edition-meta'
 import { pickLocale } from '@/lib/i18n/pick'
@@ -80,6 +81,9 @@ export default async function DocPage({
   const body = doc.bodyClean ?? doc.bodyOriginal
   // Tableaux & encadrés colorés (reproduction du rendu visuel du PDF).
   const richBlocks = parseRichBlocks(doc.richBlocksJson)
+  // Index thématique IA (codes/lois longs) — alimente le navigateur par thème + renvois.
+  let themeIndex: ThemeArticle[] = []
+  try { if (doc.themeIndexJson) themeIndex = JSON.parse(doc.themeIndexJson) as ThemeArticle[] } catch { themeIndex = [] }
   // Annexes téléchargeables (Word/Excel) : circulaires dont les annexes sont des
   // tableaux/formulaires reconstruits. Réservé aux paliers exportateurs (§09).
   const annexCount = richBlocks.filter((b) => b.type === 'table').length
@@ -309,6 +313,9 @@ export default async function DocPage({
         <p className="mb-3 rounded-lg bg-lank-50 px-3 py-2 text-[11px] leading-relaxed text-lank/60">
           {t.doc.unofficialNote}
         </p>
+        {themeIndex.length > 0 && (
+          <div className="mb-4"><CodeThemeBrowser index={themeIndex} t={t} /></div>
+        )}
         {tableEntries.length >= 2 && (
           <details className="mb-4 rounded-xl border border-lank/10 bg-paper/40 px-4 py-2.5">
             <summary className="cursor-pointer select-none text-xs font-semibold uppercase tracking-wide text-lank/55">

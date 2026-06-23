@@ -248,6 +248,16 @@ export const fr = {
     confirmDel: 'Supprimer cette position tarifaire ?',
     saved: 'Enregistré',
   },
+  codeIndex: {
+    title: 'Index thématique (IA)',
+    sub: 'Naviguez le Code par thème ; thèmes proches et renvois entre articles suggérés par l’IA.',
+    searchPlaceholder: 'Rechercher un thème ou un sujet…',
+    allThemes: 'Tous les thèmes',
+    relatedThemes: 'Thèmes proches',
+    related: 'Liés',
+    articles: 'articles',
+    noResult: 'Aucun thème ni article pour cette recherche.',
+  },
   moniteur: {
     title: 'Le Moniteur — éditions par année',
     subtitle: 'Liste complète des éditions régulières et spéciales, avec numéro et date de publication.',
