@@ -1,11 +1,12 @@
 import Link from 'next/link'
 import { SearchBox } from '@/components/SearchBox'
 import { Pastille, TypeBadge } from '@/components/TypeBadge'
+import { SectionTiles, type SectionTile } from '@/components/SectionTiles'
 import { dictFor } from '@/lib/i18n/server'
 import { requireUser } from '@/lib/auth/guard'
 import { prisma } from '@/lib/db'
-import { DOC_TYPE_LIST, COLOR_CLASSES } from '@/lib/brand'
-import { accessibleTypes } from '@/lib/access'
+import { DOC_TYPE_LIST } from '@/lib/brand'
+import { accessibleTypes, orderTypes } from '@/lib/access'
 import type { DocType } from '@/lib/types'
 
 // Écran 3 — Tableau de bord : accès rapides + Nouveauté (§07).
@@ -38,8 +39,24 @@ export default async function DashboardPage({ params }: { params: { locale: stri
   ])
   const newByType = new Map(newByTypeRaw.map((g) => [g.type, g._count._all]))
 
-  // Tuiles d'accès : seulement les services accordés + l'Index (toujours).
-  const tiles = DOC_TYPE_LIST.filter((m) => allowed.includes(m.type))
+  // Tuiles d'accès : services accordés + l'Index (toujours), dans l'ORDRE choisi par
+  // l'utilisateur (glisser-déposer, persisté côté compte) ; nouveaux onglets à la fin.
+  const metaByType = new Map(DOC_TYPE_LIST.map((m) => [m.type, m]))
+  const tiles: SectionTile[] = orderTypes(
+    DOC_TYPE_LIST.filter((m) => allowed.includes(m.type)).map((m) => m.type),
+    user.sectionOrder,
+  ).map((type) => {
+    const m = metaByType.get(type)!
+    return {
+      type,
+      slug: m.slug,
+      num: m.num,
+      color: m.color,
+      label: m.label[locale],
+      feature: m.feature[locale],
+      newCount: newByType.get(type) ?? 0,
+    }
+  })
 
   return (
     <div className="space-y-8">
@@ -54,34 +71,23 @@ export default async function DashboardPage({ params }: { params: { locale: stri
       </div>
 
       <section>
-        <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-lank/45">{t.dashboard.quickAccess}</h2>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {tiles.map((m) => (
-            <Link
-              key={m.type}
-              href={`/${locale}/type/${m.slug}`}
-              className="group relative overflow-hidden rounded-2xl border border-lank/10 bg-white p-5 shadow-card transition hover:-translate-y-0.5 hover:shadow-lg"
-            >
-              <span className={`absolute inset-x-0 top-0 h-1 ${COLOR_CLASSES[m.color].dot}`} />
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-xs text-lank/40">0{m.num}</span>
-                <span className="flex items-center gap-2">
-                  {(newByType.get(m.type) ?? 0) > 0 && (
-                    <span
-                      title={`${(newByType.get(m.type) ?? 0).toLocaleString('fr')} ${t.dashboard.newEntries}`}
-                      className="inline-flex h-5 items-center rounded-full bg-sitwon px-2 text-[10px] font-bold uppercase tracking-wide text-lank"
-                    >
-                      {t.dashboard.whatsNew}
-                    </span>
-                  )}
-                  <Pastille type={m.type as DocType} />
-                </span>
-              </div>
-              <h3 className="mt-3 font-semibold leading-snug text-lank">{m.label[locale]}</h3>
-              <p className="mt-1.5 text-xs leading-relaxed text-lank/55">{m.feature[locale]}</p>
-            </Link>
-          ))}
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <h2 className="text-xs font-semibold uppercase tracking-wide text-lank/45">{t.dashboard.quickAccess}</h2>
+          <span className="text-[11px] text-lank/35">{t.dashboard.reorderTip}</span>
         </div>
+        <SectionTiles
+          tiles={tiles}
+          locale={locale}
+          labels={{
+            whatsNew: t.dashboard.whatsNew,
+            newEntries: t.dashboard.newEntries,
+            reorderHint: t.dashboard.reorderHint,
+            moved: t.dashboard.reorderMoved,
+            position: t.dashboard.reorderPosition,
+            of: t.dashboard.reorderOf,
+            saveError: t.dashboard.reorderSaveError,
+          }}
+        />
       </section>
 
       {/* Nouveauté — données importées ces 15 derniers jours */}

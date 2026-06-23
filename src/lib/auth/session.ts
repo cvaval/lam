@@ -52,6 +52,8 @@ export interface SessionUser {
   quotaUsed: number
   /** Services à texte intégral accordés (l'Index reste toujours accessible). */
   services: DocType[]
+  /** Ordre des onglets/rubriques choisi par l'utilisateur (CSV de DocType ; '' = défaut). */
+  sectionOrder: string
   /** Autorisé à voir le lien vers le PDF original ? */
   canViewSourcePdf: boolean
   /** échéance du palier promo (null = permanent) */
@@ -70,6 +72,7 @@ function toSessionUser(u: {
   monthlyQuota: number | null
   quotaUsed: number
   services: string
+  sectionOrder: string
   canViewSourcePdf: boolean
   planExpiresAt: Date | null
 }): SessionUser {
@@ -85,6 +88,7 @@ function toSessionUser(u: {
     monthlyQuota: u.monthlyQuota,
     quotaUsed: u.quotaUsed,
     services: parseServices(u.services),
+    sectionOrder: u.sectionOrder ?? '',
     canViewSourcePdf: u.canViewSourcePdf,
     planExpiresAt: u.planExpiresAt,
   }

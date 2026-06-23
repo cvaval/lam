@@ -58,3 +58,27 @@ export function isIndexOnly(u: { role: Role; services: DocType[] }): boolean {
 export function canSeeSourcePdf(u: { role: Role; canViewSourcePdf: boolean }): boolean {
   return isStaff(u.role) || u.canViewSourcePdf
 }
+
+/**
+ * Ordonne une liste de types selon la préférence de l'utilisateur (CSV de DocType, ex. issu
+ * d'un glisser-déposer des onglets). Les types présents dans la préférence viennent en tête,
+ * dans cet ordre ; les types absents (NOUVEAUX onglets ajoutés après coup, ou jamais rangés)
+ * sont conservés à la fin dans l'ordre canonique reçu. Robuste aux valeurs inconnues/doublons.
+ */
+export function orderTypes(types: DocType[], orderCsv: string | null | undefined): DocType[] {
+  const allowed = new Set(types)
+  const seen = new Set<DocType>()
+  const out: DocType[] = []
+  for (const raw of (orderCsv ?? '').split(',')) {
+    const t = raw.trim() as DocType
+    if (allowed.has(t) && !seen.has(t)) { out.push(t); seen.add(t) }
+  }
+  for (const t of types) if (!seen.has(t)) { out.push(t); seen.add(t) }
+  return out
+}
+
+/** Normalise une liste de types en CSV (dédupliqué, types valides uniquement) pour stockage. */
+export function serializeSectionOrder(types: readonly DocType[]): string {
+  const valid = new Set<DocType>(DOC_TYPES)
+  return [...new Set(types)].filter((t) => valid.has(t)).join(',')
+}

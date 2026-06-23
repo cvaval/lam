@@ -57,6 +57,12 @@ export const en: Dictionary = {
     whatsNew: "What's new",
     whatsNewSub: 'Data imported in the last 15 days',
     newEntries: 'new entries',
+    reorderHint: 'Drag to reorder (or arrow keys)',
+    reorderTip: 'Drag the ⠿ handle to reorder',
+    reorderMoved: 'moved',
+    reorderPosition: 'position',
+    reorderOf: 'of',
+    reorderSaveError: 'Save failed — order restored',
     viewAll: 'View all',
   },
   search: {

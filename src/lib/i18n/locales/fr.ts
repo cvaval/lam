@@ -61,6 +61,12 @@ export const fr = {
     whatsNew: 'Nouveauté',
     whatsNewSub: 'Données importées ces 15 derniers jours',
     newEntries: 'nouvelles entrées',
+    reorderHint: 'Glisser pour réorganiser (ou flèches du clavier)',
+    reorderTip: 'Glissez la poignée ⠿ pour réorganiser',
+    reorderMoved: 'déplacé',
+    reorderPosition: 'position',
+    reorderOf: 'sur',
+    reorderSaveError: "Échec de l'enregistrement — ordre rétabli",
     viewAll: 'Voir tout',
   },
   search: {

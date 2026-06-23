@@ -57,6 +57,12 @@ export const ht: Dictionary = {
     whatsNew: 'Nouvote',
     whatsNewSub: 'Done ki enpòte nan 15 dènye jou yo',
     newEntries: 'nouvo antre',
+    reorderHint: 'Trennen pou reòganize (oswa flèch klavye)',
+    reorderTip: 'Trennen ponyèt ⠿ la pou reòganize',
+    reorderMoved: 'deplase',
+    reorderPosition: 'pozisyon',
+    reorderOf: 'sou',
+    reorderSaveError: 'Echèk anrejistreman — lòd retabli',
     viewAll: 'Gade tout',
   },
   search: {

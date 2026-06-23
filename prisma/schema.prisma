@@ -58,6 +58,11 @@ model User {
   // (ex. "LEGISLATION,LOI_FINANCES"). Vide = Index du Moniteur seulement (défaut §03).
   // INDEX est toujours accessible ; EDITEUR/MASTER_ADMIN voient tout (cf. src/lib/access.ts).
   services       String   @default("")
+  // Ordre d'affichage des onglets/rubriques choisi par l'utilisateur (réorganisables au
+  // glisser-déposer) : CSV de DocType (ex. "INDEX,DOCTRINE,TARIF_DOUANIER,…"). Vide = ordre
+  // canonique (num). Les types absents (nouveaux onglets) sont ajoutés à la fin. Persisté
+  // côté compte → suit l'utilisateur sur toute machine.
+  sectionOrder   String   @default("")
   // Autorise l'affichage du lien vers le PDF original du document retranscrit.
   canViewSourcePdf Boolean @default(false)
 
