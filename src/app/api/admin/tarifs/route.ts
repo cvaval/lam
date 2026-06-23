@@ -29,8 +29,10 @@ const norm = (v: string | null | undefined) => {
 const deriveChapter = (code: string) => (code.replace(/\D/g, '').slice(0, 2) || null)
 
 function toData(d: Fields) {
+  const code = d.code.trim()
   return {
-    code: d.code.trim(),
+    code,
+    searchCode: code.replace(/\D/g, '') || null, // recherche par chiffres seuls
     designation: d.designation.trim(),
     unite: norm(d.unite),
     dd: norm(d.dd),

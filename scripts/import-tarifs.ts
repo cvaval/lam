@@ -62,7 +62,7 @@ async function main() {
   const iUnite = idx('unite_normalisee'), iDd = idx('droit_douane_pct'), iChap = idx('chapitre'), iAudit = idx('audit_statut')
   if ([iCode, iRaw, iLib, iUnite, iDd, iChap].some((i) => i < 0)) { console.error('Colonnes manquantes', header); process.exit(1) }
 
-  const data: { code: string; designation: string; unite: string | null; dd: string | null; tca: null; accises: null; note: null; chapter: string | null; position: number }[] = []
+  const data: { code: string; searchCode: string | null; designation: string; unite: string | null; dd: string | null; tca: null; accises: null; note: null; chapter: string | null; position: number }[] = []
   let skipped = 0
   let nonValide = 0
   for (let r = 1; r < all.length; r++) {
@@ -73,7 +73,7 @@ async function main() {
     if (!code || !designation) { skipped++; continue }
     if ((row[iAudit] ?? '').trim() !== 'VALIDÉ') nonValide++
     data.push({
-      code, designation,
+      code, searchCode: norm((row[iRaw] ?? '').replace(/\D/g, '')), designation,
       unite: norm(row[iUnite]),
       dd: fmtDd(row[iDd]),
       tca: null, accises: null, note: null,

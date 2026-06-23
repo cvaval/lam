@@ -1,6 +1,7 @@
 import { prisma } from '@/lib/db'
 import { dictFor } from '@/lib/i18n/server'
 import { requireAdmin } from '@/lib/auth/guard'
+import { tariffWhere } from '@/lib/tarifs'
 import { TariffAdmin } from '@/components/TariffAdmin'
 
 export const dynamic = 'force-dynamic'
@@ -18,9 +19,7 @@ export default async function AdminTarifsPage({
 
   const rawQ = Array.isArray(searchParams?.q) ? searchParams.q[0] : searchParams?.q
   const q = (rawQ ?? '').trim().slice(0, 120)
-  const where = q
-    ? { OR: [{ code: { contains: q, mode: 'insensitive' as const } }, { designation: { contains: q, mode: 'insensitive' as const } }] }
-    : {}
+  const where = tariffWhere(q)
   const [total, rows] = await Promise.all([
     prisma.customsTariff.count({ where }),
     prisma.customsTariff.findMany({

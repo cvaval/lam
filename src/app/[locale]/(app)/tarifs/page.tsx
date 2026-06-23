@@ -7,6 +7,7 @@ import { requireUser } from '@/lib/auth/guard'
 import { guard, LIMITS } from '@/lib/security/ratelimit'
 import { RateLimitNotice } from '@/components/RateLimitNotice'
 import { canReadService } from '@/lib/access'
+import { tariffWhere } from '@/lib/tarifs'
 import { highlightRegex } from '@/lib/search/highlight'
 
 export const dynamic = 'force-dynamic'
@@ -33,9 +34,7 @@ export default async function TarifsPage({
 
   const rawQ = Array.isArray(searchParams?.q) ? searchParams.q[0] : searchParams?.q
   const q = (rawQ ?? '').trim().slice(0, 120)
-  const where = q
-    ? { OR: [{ code: { contains: q, mode: 'insensitive' as const } }, { designation: { contains: q, mode: 'insensitive' as const } }] }
-    : {}
+  const where = tariffWhere(q)
 
   const [total, rows, docCount] = await Promise.all([
     prisma.customsTariff.count({ where }),
