@@ -34,7 +34,7 @@ export async function GET(req: NextRequest) {
       where,
       orderBy: [{ chapter: 'asc' }, { position: 'asc' }, { code: 'asc' }],
       take: MAX,
-      select: { id: true, code: true, designation: true, unite: true, dd: true, tca: true, accises: true, note: true },
+      select: { id: true, code: true, designation: true, unite: true, dd: true, ddRef: true, tca: true, accises: true, note: true },
     }),
     prisma.customsTariff.count({ where }),
   ])

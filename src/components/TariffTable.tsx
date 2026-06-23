@@ -12,6 +12,7 @@ export interface TariffRow {
   designation: string
   unite: string | null
   dd: string | null
+  ddRef: string | null
   tca: string | null
   accises: string | null
   note: string | null
@@ -129,7 +130,18 @@ export function TariffTable({
                     {r.note && <span className="mt-0.5 block text-[11px] text-lank/45">{r.note}</span>}
                   </td>
                   <td className="whitespace-nowrap px-3 py-1.5 text-lank/70">{r.unite ?? '—'}</td>
-                  <td className={numCls}>{r.dd ?? '—'}</td>
+                  <td className={numCls}>
+                    {r.dd ?? '—'}
+                    {r.ddRef && (
+                      <span
+                        title={r.ddRef}
+                        aria-label={r.ddRef}
+                        className="ml-1 cursor-help align-super text-[9px] font-bold text-kannel-700"
+                      >
+                        ⓘ
+                      </span>
+                    )}
+                  </td>
                   <td className={numCls}>{r.tca ?? '—'}</td>
                   <td className={numCls}>{r.accises ?? '—'}</td>
                 </tr>

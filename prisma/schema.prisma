@@ -453,6 +453,7 @@ model CustomsTariff {
   designation String   // désignation des marchandises
   unite       String?  // unité de quantité (ex. « kg », « u »)
   dd          String?  // droit de douane (texte : « 10 % », « 0 % », « Exonéré »)
+  ddRef       String?  // loi de finances ayant fixé/modifié le DD (info-bulle)
   tca         String?  // taxe sur le chiffre d'affaires
   accises     String?  // droits d'accises / taxe spécifique
   note        String?  // remarque / renvoi

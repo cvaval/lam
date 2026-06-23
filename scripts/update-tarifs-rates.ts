@@ -19,7 +19,7 @@ const prisma = new PrismaClient({ datasources: { db: { url: env.DIRECT_URL || en
 const COMMIT = process.argv.includes('--commit')
 
 async function main() {
-  const map = JSON.parse(readFileSync(join(process.cwd(), 'scripts', 'tarifs-latest-rates.json'), 'utf8')) as Record<string, { pos: string; dd: string; ex: string }>
+  const map = JSON.parse(readFileSync(join(process.cwd(), 'scripts', 'tarifs-latest-rates.json'), 'utf8')) as Record<string, { pos: string; dd: string; ex: string; ref: string }>
   const changes: { code: string; from: string; to: string; ex: string }[] = []
   let same = 0, notFound = 0
   for (const [sc, v] of Object.entries(map)) {
@@ -32,8 +32,8 @@ async function main() {
   console.log(`inchangées : ${same} · à mettre à jour : ${changes.length} · absentes : ${notFound}\n`)
   for (const c of changes) console.log(`  ${c.code.padEnd(12)} ${(c.from).padStart(9)} → ${(c.to).padEnd(10)} (${c.ex})`)
   if (!COMMIT) { console.log('\nSIMULATION — relancer avec --commit.'); await prisma.$disconnect(); return }
-  for (const [sc, v] of Object.entries(map)) await prisma.customsTariff.updateMany({ where: { searchCode: sc }, data: { dd: v.dd } })
-  await audit({ action: 'DOC_PUBLISHED', targetType: 'TARIFF', meta: { op: 'latest-dd', source: 'Évolution tarifaire', updated: changes.length } }, prisma)
+  for (const [sc, v] of Object.entries(map)) await prisma.customsTariff.updateMany({ where: { searchCode: sc }, data: { dd: v.dd, ddRef: v.ref } })
+  await audit({ action: 'DOC_PUBLISHED', targetType: 'TARIFF', meta: { op: 'latest-dd', source: 'Évolution tarifaire', updated: changes.length, refsSet: Object.keys(map).length } }, prisma)
   console.log(`\n✓ ${changes.length} taux mis à jour.`)
   await prisma.$disconnect()
 }

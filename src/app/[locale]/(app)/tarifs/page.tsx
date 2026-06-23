@@ -38,7 +38,7 @@ export default async function TarifsPage({ params }: { params: { locale: string 
     prisma.customsTariff.findMany({
       orderBy: [{ chapter: 'asc' }, { position: 'asc' }, { code: 'asc' }],
       take: INITIAL,
-      select: { id: true, code: true, designation: true, unite: true, dd: true, tca: true, accises: true, note: true },
+      select: { id: true, code: true, designation: true, unite: true, dd: true, ddRef: true, tca: true, accises: true, note: true },
     }),
     prisma.customsTariff.count(),
     prisma.document.count({ where: { type: 'TARIF_DOUANIER' } }),
