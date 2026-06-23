@@ -87,11 +87,11 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
     slug: 'doctrine',
     pastille: 'Lagon',
     color: 'lagon',
-    badge: 'DOCTRINE',
+    badge: 'ANNOTÉE',
     label: {
-      fr: 'Doctrine haïtienne',
-      en: 'Haitian legal doctrine',
-      ht: 'Doktrin ayisyen',
+      fr: 'Législation annotée',
+      en: 'Annotated legislation',
+      ht: 'Lejislasyon anote',
     },
     feature: {
       fr: 'Auteur, revue, année ; citations croisées vers la législation commentée.',
