@@ -39,6 +39,16 @@ const RULES: { label: string; rate: string; where: Where }[] = [
   { label: 'Alcools 30 %', rate: '30 %', where: { OR: [...ALCOHOL_PREFIX.map((p) => ({ searchCode: { startsWith: p } })), { searchCode: '22089011' }] } },
   { label: 'Sauces tomate 15 %', rate: '15 %', where: { searchCode: { in: TOMATO } } },
   { label: 'Véhicules ≥ 2200 cm³ 15 %', rate: '15 %', where: { searchCode: { in: VEHICLES } } },
+  // Boissons énergisantes : sous-position dédiée 2202.10 11 (créée plus bas).
+  { label: 'Boissons énergisantes 30 %', rate: '30 %', where: { searchCode: '22021011' } },
+  // Produits pétroliers (chap. 27) — codes confirmés via le tarif mis à jour ; montants
+  // fixes/% selon « En vigueur » (gazoline = texte légal 90 % CIF ; mémo actuel ≈ 3,30 G/gallon).
+  { label: 'Gazoline / essence', rate: '90 % CIF', where: { searchCode: '27101211' } },
+  { label: 'Kérosène', rate: '23,00 G/gallon', where: { searchCode: '27101212' } },
+  { label: 'Gas-oil (diesel)', rate: '25,00 G/gallon', where: { searchCode: '27101213' } },
+  { label: 'Mazout / huiles lubrifiantes 2 %', rate: '2 %', where: { searchCode: { in: ['27101214', '27101219'] } } },
+  { label: 'AV-JET 3 %', rate: '3 %', where: { searchCode: '27101215' } },
+  { label: 'Propane importé', rate: '0,025 G/livre', where: { searchCode: '27111200' } },
 ]
 
 async function main() {
@@ -54,6 +64,12 @@ async function main() {
   console.log(`\naccises renseignées : ${touched} · sans accise (null) : ${total - touched}`)
 
   if (!COMMIT) { console.log('\nSIMULATION — relancer avec --commit pour écrire.'); await prisma.$disconnect(); return }
+
+  // Sous-position dédiée aux boissons énergisantes (le tarif n'a que 2202.10 00 générique).
+  if (!(await prisma.customsTariff.findFirst({ where: { searchCode: '22021011' }, select: { id: true } }))) {
+    await prisma.customsTariff.create({ data: { code: '2202.10 11', searchCode: '22021011', designation: '-- Boissons énergisantes', unite: 'l', dd: '20 %', chapter: '22', position: 22021011 } })
+    console.log('  + créé 2202.10 11 — Boissons énergisantes')
+  }
 
   await prisma.customsTariff.updateMany({ data: { tca: '10 %' } })
   await prisma.customsTariff.updateMany({ data: { accises: null } }) // reset (idempotent)
