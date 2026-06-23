@@ -11,16 +11,17 @@ export interface TariffRow {
   designation: string
   unite: string | null
   dd: string | null
+  ddRef: string | null
   tca: string | null
   accises: string | null
   note: string | null
   chapter: string | null
   position: number
 }
-type Draft = { code: string; designation: string; unite: string; dd: string; tca: string; accises: string; note: string }
-const EMPTY: Draft = { code: '', designation: '', unite: '', dd: '', tca: '', accises: '', note: '' }
+type Draft = { code: string; designation: string; unite: string; dd: string; ddRef: string; tca: string; accises: string; note: string }
+const EMPTY: Draft = { code: '', designation: '', unite: '', dd: '', ddRef: '', tca: '', accises: '', note: '' }
 const toDraft = (r: TariffRow): Draft => ({
-  code: r.code, designation: r.designation, unite: r.unite ?? '', dd: r.dd ?? '', tca: r.tca ?? '', accises: r.accises ?? '', note: r.note ?? '',
+  code: r.code, designation: r.designation, unite: r.unite ?? '', dd: r.dd ?? '', ddRef: r.ddRef ?? '', tca: r.tca ?? '', accises: r.accises ?? '', note: r.note ?? '',
 })
 
 export function TariffAdmin({ locale, t, q, total, rows }: { locale: Locale; t: Dictionary; q: string; total: number; rows: TariffRow[] }) {
@@ -30,6 +31,7 @@ export function TariffAdmin({ locale, t, q, total, rows }: { locale: Locale; t: 
   const [draft, setDraft] = useState<Draft>(EMPTY)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
+  const [saved, setSaved] = useState(false)
 
   function startAdd() { setEditingId(null); setAdding(true); setDraft(EMPTY); setError('') }
   function startEdit(r: TariffRow) { setAdding(false); setEditingId(r.id); setDraft(toDraft(r)); setError('') }
@@ -45,6 +47,8 @@ export function TariffAdmin({ locale, t, q, total, rows }: { locale: Locale; t: 
       const j = await res.json().catch(() => null)
       if (!res.ok || !j?.ok) { setError(errMsg(j?.error ? String(j.error) : 'actionFailed')); return false }
       cancel()
+      setSaved(true)
+      setTimeout(() => setSaved(false), 2200)
       router.refresh()
       return true
     } catch {
@@ -94,6 +98,7 @@ export function TariffAdmin({ locale, t, q, total, rows }: { locale: Locale; t: 
       </div>
 
       {error && <p className="rounded-lg bg-brim-50 px-3 py-2 text-sm text-brim-700">{error}</p>}
+      {saved && <p role="status" className="rounded-lg bg-fey/10 px-3 py-2 text-sm font-medium text-fey">✓ {t.tarifs.saved}</p>}
 
       {adding && (
         <div className="rounded-xl border border-kannel/40 bg-kannel-50 p-3">
@@ -105,8 +110,11 @@ export function TariffAdmin({ locale, t, q, total, rows }: { locale: Locale; t: 
             {field('tca', t.tarifs.thTca)}
             {field('accises', t.tarifs.thAccises)}
           </div>
-          <div className="mt-2 flex items-center gap-2">
+          <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
+            {field('ddRef', t.tarifs.thRef)}
             {field('note', t.tarifs.thNote)}
+          </div>
+          <div className="mt-2 flex items-center justify-end gap-2">
             <button type="button" disabled={busy} onClick={save} className="shrink-0 rounded-lg bg-kannel px-3 py-1.5 text-sm font-medium text-white hover:bg-kannel-600 disabled:opacity-50">{t.tarifs.save}</button>
             <button type="button" onClick={cancel} className="shrink-0 rounded-lg border border-lank/15 px-3 py-1.5 text-sm text-lank/70 hover:bg-paper">{t.tarifs.cancel}</button>
           </div>
@@ -134,7 +142,7 @@ export function TariffAdmin({ locale, t, q, total, rows }: { locale: Locale; t: 
               editingId === r.id ? (
                 <tr key={r.id} className="bg-kannel-50/60">
                   <td className="px-2 py-1.5">{field('code', t.tarifs.thCode, true)}</td>
-                  <td className="px-2 py-1.5">{field('designation', t.tarifs.thDesignation)}{field('note', t.tarifs.thNote)}</td>
+                  <td className="space-y-1 px-2 py-1.5">{field('designation', t.tarifs.thDesignation)}{field('note', t.tarifs.thNote)}{field('ddRef', t.tarifs.thRef)}</td>
                   <td className="px-2 py-1.5">{field('unite', t.tarifs.thUnite)}</td>
                   <td className="px-2 py-1.5">{field('dd', t.tarifs.thDd)}</td>
                   <td className="px-2 py-1.5">{field('tca', t.tarifs.thTca)}</td>
@@ -147,7 +155,7 @@ export function TariffAdmin({ locale, t, q, total, rows }: { locale: Locale; t: 
               ) : (
                 <tr key={r.id} className="border-b border-lank/5 last:border-0 hover:bg-paper">
                   <td className="whitespace-nowrap px-3 py-1.5 font-mono text-xs font-medium text-lank">{r.code}</td>
-                  <td className="px-3 py-1.5">{r.designation}{r.note && <span className="mt-0.5 block text-[11px] text-lank/45">{r.note}</span>}</td>
+                  <td className="px-3 py-1.5">{r.designation}{r.note && <span className="mt-0.5 block text-[11px] text-lank/45">{r.note}</span>}{r.ddRef && <span className="mt-0.5 block text-[11px] text-kannel-700/80">ⓘ {r.ddRef}</span>}</td>
                   <td className="whitespace-nowrap px-3 py-1.5 text-lank/70">{r.unite ?? '—'}</td>
                   <td className="px-3 py-1.5 text-right tabular-nums whitespace-nowrap">{r.dd ?? '—'}</td>
                   <td className="px-3 py-1.5 text-right tabular-nums whitespace-nowrap">{r.tca ?? '—'}</td>

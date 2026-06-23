@@ -7,10 +7,9 @@ import { requireUser } from '@/lib/auth/guard'
 import { guard, LIMITS } from '@/lib/security/ratelimit'
 import { RateLimitNotice } from '@/components/RateLimitNotice'
 import { canReadService } from '@/lib/access'
+import { chapterLabel } from '@/lib/sh-chapters'
 
 export const dynamic = 'force-dynamic'
-
-const INITIAL = 100 // = MAX de TariffTable / de l'API de recherche
 
 // Prélèvements connexes (à l'import, distincts du droit de douane) — source : Tarif
 // NDP SH2022 mis à jour, feuille « Prélèvements connexes » (lois de finances citées).
@@ -34,15 +33,14 @@ export default async function TarifsPage({ params }: { params: { locale: string 
     return <RateLimitNotice t={t} />
   }
 
-  const [rows, total, docCount] = await Promise.all([
-    prisma.customsTariff.findMany({
-      orderBy: [{ chapter: 'asc' }, { position: 'asc' }, { code: 'asc' }],
-      take: INITIAL,
-      select: { id: true, code: true, designation: true, unite: true, dd: true, ddRef: true, tca: true, accises: true, note: true },
-    }),
-    prisma.customsTariff.count(),
+  const [grouped, docCount, total] = await Promise.all([
+    prisma.customsTariff.groupBy({ by: ['chapter'], _count: { _all: true }, orderBy: { chapter: 'asc' } }),
     prisma.document.count({ where: { type: 'TARIF_DOUANIER' } }),
+    prisma.customsTariff.count(),
   ])
+  const chapters = grouped
+    .filter((g) => g.chapter)
+    .map((g) => ({ code: g.chapter as string, label: chapterLabel(g.chapter as string), count: g._count._all }))
 
   return (
     <div className="space-y-5">
@@ -57,7 +55,7 @@ export default async function TarifsPage({ params }: { params: { locale: string 
         <span className="hidden h-1.5 w-16 shrink-0 rounded-full bg-kannel sm:block" />
       </div>
 
-      <TariffTable locale={locale} t={t} initialRows={rows} initialTotal={total} docCount={docCount} />
+      <TariffTable locale={locale} t={t} chapters={chapters} total={total} docCount={docCount} />
 
       {/* Prélèvements connexes (référence) */}
       <details className="rounded-2xl border border-lank/10 bg-white shadow-card">

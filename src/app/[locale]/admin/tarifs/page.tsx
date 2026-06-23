@@ -26,7 +26,7 @@ export default async function AdminTarifsPage({
       where,
       orderBy: [{ chapter: 'asc' }, { position: 'asc' }, { code: 'asc' }],
       take: 500,
-      select: { id: true, code: true, designation: true, unite: true, dd: true, tca: true, accises: true, note: true, chapter: true, position: true },
+      select: { id: true, code: true, designation: true, unite: true, dd: true, ddRef: true, tca: true, accises: true, note: true, chapter: true, position: true },
     }),
   ])
 
