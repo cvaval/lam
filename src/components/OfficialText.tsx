@@ -67,9 +67,9 @@ export function OfficialText({
   }
 
   function headingAnchor(textLine: string): string | undefined {
-    const m = textLine.match(/^(?:article|section)\s+(\d{1,3})\b/i)
+    const m = textLine.match(/^(?:article|section)\s+(\d{1,3}|premier)\b/i)
     if (!m) return undefined
-    const id = `art-${m[1]}`
+    const id = `art-${m[1].toLowerCase() === 'premier' ? '1' : m[1]}`
     if (usedAnchors.has(id)) return undefined
     usedAnchors.add(id)
     return id
@@ -136,7 +136,10 @@ export function OfficialText({
           </p>
         )
       }
-      return <p key={key}>{render(b.text)}</p>
+      // Les articles longs (« Article 12.- … ») ne sont pas des intertitres mais doivent
+      // tout de même porter une ancre #art-N (renvois croisés, index thématique).
+      const pid = headingAnchor(b.text)
+      return <p key={key} id={pid} className={pid ? 'scroll-mt-24' : undefined}>{render(b.text)}</p>
     })
   }
 
