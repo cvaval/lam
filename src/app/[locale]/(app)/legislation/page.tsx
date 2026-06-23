@@ -10,7 +10,7 @@ export const dynamic = 'force-dynamic'
 // Navigation Législation (Le Moniteur) : liste des années disponibles.
 // Cliquer une année → ventilation par mois puis par numéro (legislation/[year]).
 const L = {
-  title: { fr: 'Législation haïtienne', en: 'Haitian legislation', ht: 'Lejislasyon ayisyen' },
+  title: { fr: 'Éditions Le Moniteur', en: 'Le Moniteur editions', ht: 'Edisyon Le Moniteur' },
   sub: {
     fr: 'Le Moniteur — journal officiel. Choisissez une année pour parcourir les éditions par mois et par numéro.',
     en: 'Le Moniteur — official journal. Pick a year to browse editions by month and number.',

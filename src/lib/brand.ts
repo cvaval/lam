@@ -33,11 +33,11 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
     slug: 'legislation',
     pastille: 'Lank',
     color: 'lank',
-    badge: 'LÉGISLATION',
+    badge: 'LE MONITEUR',
     label: {
-      fr: 'Législation haïtienne',
-      en: 'Haitian legislation',
-      ht: 'Lejislasyon ayisyen',
+      fr: 'Éditions Le Moniteur',
+      en: 'Le Moniteur editions',
+      ht: 'Edisyon Le Moniteur',
     },
     feature: {
       fr: 'Versions consolidées + historique des modifications ; statut En vigueur / Abrogé.',
