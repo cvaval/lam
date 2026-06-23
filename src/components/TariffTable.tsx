@@ -51,6 +51,7 @@ export function TariffTable({
   const [count, setCount] = useState(0)
   const [loading, setLoading] = useState(false)
   const [rate, setRate] = useState(false)
+  const [rateMore, setRateMore] = useState(false)
   const [calcRow, setCalcRow] = useState<TariffRow | null>(null)
   const [copied, setCopied] = useState<string | null>(null)
   const abortRef = useRef<AbortController | null>(null)
@@ -61,6 +62,7 @@ export function TariffTable({
     const ac = new AbortController()
     abortRef.current = ac
     setLoading(true)
+    setRateMore(false)
     if (reset) setRate(false)
     try {
       const p = new URLSearchParams()
@@ -68,15 +70,21 @@ export function TariffTable({
       if (ch) p.set('chapter', ch)
       p.set('skip', String(skip))
       const res = await fetch(`/api/tarifs/search?${p.toString()}`, { signal: ac.signal })
-      if (res.status === 429) { setRate(true); if (reset) { setRows([]); setCount(0) }; return }
+      if (abortRef.current !== ac) return // requête supplantée → ne pas committer
+      if (res.status === 429) {
+        // Débit dépassé : plein écran si recherche initiale, en ligne si « charger plus »
+        // (ne pas effacer les lignes déjà affichées).
+        if (reset) { setRate(true); setRows([]); setCount(0) } else setRateMore(true)
+        return
+      }
       const j = await res.json()
-      if (!j?.ok) return
+      if (abortRef.current !== ac || !j?.ok) return
       setRows((prev) => (reset ? (j.rows as TariffRow[]) : [...prev, ...(j.rows as TariffRow[])]))
       if (typeof j.total === 'number' && j.total >= 0) setCount(j.total)
     } catch {
       /* annulé / réseau */
     } finally {
-      setLoading(false)
+      if (abortRef.current === ac) setLoading(false)
     }
   }
 
@@ -89,7 +97,7 @@ export function TariffTable({
     }
     setLoading(true)
     const id = setTimeout(() => void doFetch(q, chapter, 0, true), q.trim().length >= 2 ? 200 : 0)
-    return () => clearTimeout(id)
+    return () => { clearTimeout(id); abortRef.current?.abort() }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q, chapter])
 
@@ -189,7 +197,7 @@ export function TariffTable({
           </div>
 
           {rate ? (
-            <div className="rounded-2xl border border-soley/40 bg-soley-50 p-6 text-center text-sm text-lank">{t.tarifs.rateLimited}</div>
+            <div role="alert" className="rounded-2xl border border-soley/40 bg-soley-50 p-6 text-center text-sm text-lank">{t.tarifs.rateLimited}</div>
           ) : rows.length === 0 && !loading ? (
             <div className="rounded-2xl border border-lank/10 bg-white p-10 text-center text-lank/45">{t.tarifs.empty}</div>
           ) : (
@@ -215,7 +223,7 @@ export function TariffTable({
                       <tr key={r.id} className={i % 2 === 1 ? 'bg-[rgba(27,31,61,0.025)]' : ''}>
                         <td className="whitespace-nowrap px-3 py-1.5 align-top">
                           <span className="font-mono text-xs font-medium text-lank">{codeHl(r.code)}</span>
-                          <button type="button" onClick={() => copy(r.code)} title={t.tarifs.copyCode} aria-label={t.tarifs.copyCode} className="ml-1.5 text-[10px] text-lank/40 hover:text-kannel-700">
+                          <button type="button" onClick={() => copy(r.code)} title={t.tarifs.copyCode} aria-label={t.tarifs.copyCode} className="ml-1 inline-flex h-6 w-6 items-center justify-center rounded text-xs text-lank/40 hover:bg-kannel-50 hover:text-kannel-700">
                             {copied === r.code ? '✓' : '⧉'}
                           </button>
                         </td>
@@ -240,9 +248,13 @@ export function TariffTable({
 
           {hasMore && !rate && (
             <div className="text-center">
-              <button type="button" onClick={() => void doFetch(q, chapter, rows.length, false)} disabled={loading} className="rounded-lg border border-lank/15 bg-white px-4 py-2 text-sm font-medium text-lank hover:bg-paper disabled:opacity-50">
-                {t.tarifs.loadMore} ({(count - rows.length).toLocaleString('fr')})
-              </button>
+              {rateMore ? (
+                <p role="alert" className="text-sm text-soley-700">{t.tarifs.rateLimited}</p>
+              ) : (
+                <button type="button" onClick={() => void doFetch(q, chapter, rows.length, false)} disabled={loading} className="rounded-lg border border-lank/15 bg-white px-4 py-2 text-sm font-medium text-lank hover:bg-paper disabled:opacity-50">
+                  {t.tarifs.loadMore} ({(count - rows.length).toLocaleString('fr')})
+                </button>
+              )}
             </div>
           )}
         </>

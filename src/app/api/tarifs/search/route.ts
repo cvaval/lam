@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
 
   const ctx = getClientCtx(req)
   if (!(await guard({ action: 'tarif', subject: user.id, limit: 150, windowMs: 60_000 }, { actorId: user.id, ip: ctx.ip }))) {
-    return NextResponse.json({ ok: false, reason: 'rate' }, { status: 429 })
+    return apiError('rate', 429)
   }
 
   const sp = req.nextUrl.searchParams

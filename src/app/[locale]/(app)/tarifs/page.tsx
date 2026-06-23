@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { redirect } from 'next/navigation'
 import { Pastille } from '@/components/TypeBadge'
 import { TariffTable } from '@/components/TariffTable'
@@ -55,7 +56,9 @@ export default async function TarifsPage({ params }: { params: { locale: string 
         <span className="hidden h-1.5 w-16 shrink-0 rounded-full bg-kannel sm:block" />
       </div>
 
-      <TariffTable locale={locale} t={t} chapters={chapters} total={total} docCount={docCount} />
+      <Suspense fallback={<div className="h-24 animate-pulse rounded-2xl bg-lank/5" />}>
+        <TariffTable locale={locale} t={t} chapters={chapters} total={total} docCount={docCount} />
+      </Suspense>
 
       {/* Prélèvements connexes (référence) */}
       <details className="rounded-2xl border border-lank/10 bg-white shadow-card">
