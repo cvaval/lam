@@ -248,29 +248,32 @@ export async function POST(req: NextRequest) {
 
   // ── Mode lot : une édition, N publications ──
   if (d.publications?.length) {
-    const created: Document[] = []
+    // Création ATOMIQUE de l'édition (tout ou rien) : un échec en cours de boucle ne doit
+    // plus laisser une édition à moitié publiée+scellée sans trace (constat d'audit).
+    const created = await prisma.$transaction(
+      d.publications.map((pub) => {
+        const body = pub.bodyOriginal?.trim() || d.bodyOriginal
+        // Mots-clés PAR publication : le lexique sur le titre (les mots-clés de
+        // l'édition entière décriraient mal chaque acte individuel).
+        const keywords = joinKeywords(heuristicKeywords({ titleFr: pub.titleFr }))
+        return prisma.document.create({
+          data: {
+            ...common,
+            type: pub.type,
+            titleFr: pub.titleFr,
+            bodyOriginal: body,
+            keywords,
+            status: pub.type === 'LEGISLATION' || pub.type === 'CIRCULAIRE_BRH' ? 'EN_VIGUEUR' : 'PUBLIE',
+            searchText: buildSearchText({ titleFr: pub.titleFr, number, moniteurRef: label, keywords, bodyOriginal: body }),
+          },
+        })
+      }),
+    )
+    // Liens sociétés HORS transaction (best-effort : n'invalide pas la publication).
     let societes = 0
-    for (const pub of d.publications) {
-      const body = pub.bodyOriginal?.trim() || d.bodyOriginal
-      // Mots-clés PAR publication : le lexique sur le titre (les mots-clés de
-      // l'édition entière décriraient mal chaque acte individuel).
-      const keywords = joinKeywords(heuristicKeywords({ titleFr: pub.titleFr }))
-      const doc = await prisma.document.create({
-        data: {
-          ...common,
-          type: pub.type,
-          titleFr: pub.titleFr,
-          bodyOriginal: body,
-          keywords,
-          status: pub.type === 'LEGISLATION' || pub.type === 'CIRCULAIRE_BRH' ? 'EN_VIGUEUR' : 'PUBLIE',
-          searchText: buildSearchText({ titleFr: pub.titleFr, number, moniteurRef: label, keywords, bodyOriginal: body }),
-        },
-      })
-      created.push(doc)
-      // Acte de société → fiche société liée (méthodologie Le Moniteur).
-      if (pub.societe) {
-        if (await linkSociete(pub.societe, doc, label, pub.category)) societes++
-      }
+    for (let i = 0; i < created.length; i++) {
+      const pub = d.publications[i]
+      if (pub.societe && (await linkSociete(pub.societe, created[i], label, pub.category))) societes++
     }
     const ids = created.map((doc) => doc.id)
     await audit({

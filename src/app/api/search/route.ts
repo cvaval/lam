@@ -57,7 +57,9 @@ export async function GET(req: NextRequest) {
       niceClass: sp.get('niceClass') || undefined,
       category: isIndexCategory(sp.get('category') ?? '') ? sp.get('category')! : undefined,
       includeCompanies: can(user.role, 'index.companies'),
-      page: Number(sp.get('page') ?? '1'),
+      // Page bornée et sûre : un ?page non numérique ne doit pas propager NaN jusqu'à Prisma
+      // (500 brut / contrat d'erreur rompu — constat d'audit §16).
+      page: Math.max(1, Math.trunc(Number(sp.get('page'))) || 1),
       size: PAGE_SIZE,
     },
     user.id,

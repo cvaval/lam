@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { parseOfficialText } from '@/lib/doc/officiel'
+import { articleAnchorFromHeading } from '@/lib/doc/anchors'
 import { segmentText, type CircRef } from '@/lib/doc/crossref'
 import { buildBodySegments, tableShortCaption, type RichBlock, type RichTable, type RichNote, type RichCell } from '@/lib/doc/richblocks'
 import { TableActions } from './TableActions'
@@ -67,10 +68,9 @@ export function OfficialText({
   }
 
   function headingAnchor(textLine: string): string | undefined {
-    const m = textLine.match(/^(?:article|section)\s+(\d{1,3}|premier)\b/i)
-    if (!m) return undefined
-    const id = `art-${m[1].toLowerCase() === 'premier' ? '1' : m[1]}`
-    if (usedAnchors.has(id)) return undefined
+    // Normalisation partagée avec CodeThemeBrowser (gère « 1er »/« premier » et bis/ter).
+    const id = articleAnchorFromHeading(textLine)
+    if (!id || usedAnchors.has(id)) return undefined
     usedAnchors.add(id)
     return id
   }

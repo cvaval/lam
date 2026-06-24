@@ -211,7 +211,7 @@ export default async function DocPage({
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-lg border border-lank/15 bg-white px-3 py-1.5 text-sm text-lank/70 hover:bg-lank-50"
           >
-            {type === 'CIRCULAIRE_BRH' ? '↓ Télécharger le PDF' : t.doc.source}
+            {type === 'CIRCULAIRE_BRH' ? `↓ ${t.doc.downloadPdf}` : t.doc.source}
           </a>
         )}
       </div>

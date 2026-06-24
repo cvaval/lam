@@ -12,9 +12,9 @@ export const LOCALES = ['fr', 'en', 'ht'] as const
 export type Locale = (typeof LOCALES)[number]
 export const DEFAULT_LOCALE: Locale = 'fr'
 
-// Les 6 services de textes intégraux (§01) + l'Index du Moniteur (références) + les
-// Tarifs douaniers (corpus documentaire + table de tarifs). Ordre canonique 1→6,
-// Index 7ᵉ, Tarifs douaniers 8ᵉ.
+// 7 services à texte intégral (§01) — Législation, Circulaires BRH, Jurisprudence, Doctrine,
+// Lois de finances, Marques, Tarifs douaniers — + l'Index du Moniteur (références seules).
+// Ordre canonique : 1→6, Index 7ᵉ, Tarifs douaniers 8ᵉ (referenceOnly = INDEX uniquement).
 export const DOC_TYPES = [
   'LEGISLATION',
   'CIRCULAIRE_BRH',

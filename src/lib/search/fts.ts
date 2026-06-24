@@ -88,7 +88,8 @@ export class FtsProvider implements SearchProvider {
     const terms = expandQuery(query.q)
     const queryFold = fold(query.q)
     const groups = buildGroups(query.q)
-    const page = Math.max(1, query.page ?? 1)
+    // Défense en profondeur : un page NaN/≤0 retombe sur 1 (jamais de skip négatif/NaN).
+    const page = Math.max(1, Math.trunc(query.page ?? 1) || 1)
     const size = Math.min(MAX_PAGE_SIZE, query.size ?? PAGE_SIZE)
 
     const base: Prisma.DocumentWhereInput = {}
@@ -212,10 +213,15 @@ export class FtsProvider implements SearchProvider {
     fuzzy: boolean,
     limit = CANDIDATE_LIMIT,
   ): Promise<SearchHit[]> {
+    // Pour le WHERE `contains`, on écarte les termes < 3 car. : l'index GIN trigram ne les
+    // couvre pas → scan séquentiel (constat d'audit §20). Les termes complets restent utilisés
+    // pour le scoring/surlignage. Repli sur tous les termes si la requête EST courte.
+    const idxTerms = terms.filter((t) => t.length >= 3)
+    const orTerms = idxTerms.length ? idxTerms : terms
     const where: Prisma.DocumentWhereInput = {
       ...base,
       AND: [
-        { OR: terms.map((t) => ({ searchText: { contains: t } })) },
+        { OR: orTerms.map((t) => ({ searchText: { contains: t } })) },
         // Masque les avis-sociétés groupés (représentés par les fiches Société) —
         // sauf si une sous-catégorie est explicitement filtrée par l'utilisateur.
         ...(base.category == null ? [{ OR: [{ category: null }, { category: { not: 'SOCIETE' } }] }] : []),
@@ -251,8 +257,10 @@ export class FtsProvider implements SearchProvider {
     if (query.types?.length && !query.types.includes('INDEX')) return []
     const include = { publications: { take: 1, orderBy: { date: 'desc' as const } }, _count: { select: { publications: true } } }
     // Recherche sur le nom accent-folé (searchName) pour matcher « Société » avec « societe ».
+    const cTerms = terms.filter((t) => t.length >= 3)
+    const effTerms = cTerms.length ? cTerms : terms // index trigram : ≥3 car. (audit §20)
     const orWhere = {
-      OR: terms.flatMap((t) => [{ searchName: { contains: t } }, { nif: { contains: t } }, { rcNumber: { contains: t } }]),
+      OR: effTerms.flatMap((t) => [{ searchName: { contains: t } }, { nif: { contains: t } }, { rcNumber: { contains: t } }]),
     }
     // Pour une requête multi-mots, on exige d'abord que le NOM contienne TOUS les mots
     // (la société dont le nom correspond le mieux est ainsi trouvée à coup sûr), puis

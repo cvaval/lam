@@ -121,6 +121,7 @@ export const fr = {
     removeFavorite: 'Retirer des favoris',
     export: 'Exporter le PDF scellé',
     source: 'PDF source',
+    downloadPdf: 'Télécharger le PDF',
     annexes: 'Télécharger les annexes',
     annexesHint: 'Formulaires et tableaux à compléter — filigrane Lam, à vérifier avant usage.',
     moniteur: 'Publié au',
@@ -263,6 +264,7 @@ export const fr = {
     related: 'Liés',
     articles: 'articles',
     noResult: 'Aucun thème ni article pour cette recherche.',
+    articleLabel: 'Article',
   },
   moniteur: {
     title: 'Le Moniteur — éditions par année',

@@ -45,6 +45,9 @@ model User {
   // 2FA / TOTP (§04, §09)
   totpSecret     String?
   totpEnabled    Boolean  @default(false)
+  // Dernier « pas » TOTP (floor(epoch/30)+delta) accepté : un code n'est validé qu'une
+  // fois (anti-rejeu §04). Un code dont le pas est ≤ lastTotpStep est refusé.
+  lastTotpStep   Int?
 
   // Quota de recherche mensuel (Sitwayen gratuit) — illimité = null
   monthlyQuota   Int?     @default(30)
@@ -370,6 +373,7 @@ model CompanyPublication {
   moniteurRef String?
 
   @@index([companyId])
+  @@index([documentId])
 }
 
 // ──────────────────────────── Usage & personnalisation ─────────────────────────
@@ -384,6 +388,7 @@ model Favorite {
 
   @@unique([userId, documentId])
   @@index([userId])
+  @@index([documentId])
 }
 
 /// Journal des recherches — alimente le KPI « recherches aujourd'hui » (§08).
@@ -431,6 +436,7 @@ model ExportRecord {
   createdAt   DateTime @default(now())
 
   @@index([userId])
+  @@index([documentId])
 }
 
 /// Journal de sécurité / audit (§08). action ∈ {LOGIN_OK, LOGIN_FAIL, LOCKOUT,

@@ -27,7 +27,9 @@ export default async function DashboardPage({ params }: { params: { locale: stri
       take: 6,
     }),
     prisma.favorite.findMany({
-      where: { userId: user.id },
+      // Défense en profondeur (§03) : ne jamais afficher un favori d'un service non accordé
+      // (titre/type) même si la création a contourné le contrôle (cf. /api/favorite).
+      where: { userId: user.id, document: { type: { in: allowed } } },
       orderBy: { createdAt: 'desc' },
       take: 6,
       include: { document: true },

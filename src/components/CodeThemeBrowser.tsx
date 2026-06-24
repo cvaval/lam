@@ -2,11 +2,13 @@
 
 import { useMemo, useState } from 'react'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
+import { articleAnchorFromNum } from '@/lib/doc/anchors'
 
 export interface ThemeArticle { num: string; heading: string; themes: string[]; summary: string }
 
 const fold = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
-const anchorOf = (num: string) => `art-${num.replace(/\D.*$/, '')}` // « 12 » / « 1-bis » → art-12 / art-1
+// Normalisation partagée avec OfficialText : « 12 » → art-12, « 95-bis » → art-95-bis.
+const anchorOf = (num: string) => articleAnchorFromNum(num)
 
 /**
  * Index thématique du Code des Douanes : recherche par thème (ou sujet), navigation par
@@ -110,7 +112,7 @@ export function CodeThemeBrowser({ index, t }: { index: ThemeArticle[]; t: Dicti
                 return (
                   <li key={a.num} className="py-2">
                     <div className="flex flex-wrap items-baseline gap-x-2">
-                      <a href={`#${anchorOf(a.num)}`} className="font-semibold text-lank underline decoration-lank/30 underline-offset-2 hover:decoration-lank">Article {a.num.replace('-', ' ')}</a>
+                      <a href={`#${anchorOf(a.num)}`} className="font-semibold text-lank underline decoration-lank/30 underline-offset-2 hover:decoration-lank">{t.codeIndex.articleLabel} {a.num.replace('-', ' ')}</a>
                       {a.summary && <span className="text-sm text-lank/70">{a.summary}</span>}
                     </div>
                     <div className="mt-1 flex flex-wrap items-center gap-1.5">

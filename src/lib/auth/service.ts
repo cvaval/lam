@@ -2,7 +2,7 @@ import { prisma } from '../db'
 import type { ClientCtx } from './request'
 import { verifyPassword } from './password'
 import { normalizeEmail } from './email'
-import { generateTotpSecret, verifyTotp, totpQrDataUrl, totpDelta } from './totp'
+import { generateTotpSecret, verifyTotpStep, totpQrDataUrl, totpDelta } from './totp'
 import { deviceFingerprint } from './crypto'
 import { createSession, getPendingSession, markTwoFactorVerified } from './session'
 import { issueTrustedDevice, getValidTrustedDevice } from './devices'
@@ -156,7 +156,8 @@ export async function verifyTwoFactor(code: string, trustDevice: boolean, ctx: C
   const sensitive = isSensitiveRole(user.role as Role)
   const enrolling = !user.totpEnabled
 
-  if (!verifyTotp(code, user.totpSecret)) {
+  const step = verifyTotpStep(code, user.totpSecret)
+  if (step === null) {
     // Diagnostic : delta d'horloge (null = mauvais secret ; |delta|>2 = téléphone déréglé).
     const locking = await registerFailedAttempt(user, '2FA_FAIL', ctx, {
       delta: totpDelta(code, user.totpSecret),
@@ -164,6 +165,12 @@ export async function verifyTwoFactor(code: string, trustDevice: boolean, ctx: C
     })
     return { ok: false, error: locking ? 'locked' : 'badCode' }
   }
+  // Anti-rejeu (§04) : un code déjà consommé (pas ≤ dernier accepté) est refusé, même valide.
+  if (user.lastTotpStep != null && step <= user.lastTotpStep) {
+    const locking = await registerFailedAttempt(user, '2FA_FAIL', ctx, { replay: true, enrolling })
+    return { ok: false, error: locking ? 'locked' : 'badCode' }
+  }
+  await prisma.user.update({ where: { id: user.id }, data: { lastTotpStep: step } })
 
   await finishTwoFactor(user.id, pending.session.id, trustDevice, sensitive, ctx, enrolling)
   return { ok: true }

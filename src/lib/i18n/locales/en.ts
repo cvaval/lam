@@ -117,6 +117,7 @@ export const en: Dictionary = {
     removeFavorite: 'Remove from favorites',
     export: 'Export sealed PDF',
     source: 'Source PDF',
+    downloadPdf: 'Download the PDF',
     annexes: 'Download annexes',
     annexesHint: 'Forms and tables to complete — Lam watermark, verify before use.',
     moniteur: 'Published in',
@@ -258,6 +259,7 @@ export const en: Dictionary = {
     related: 'See also',
     articles: 'articles',
     noResult: 'No theme or article for this search.',
+    articleLabel: 'Article',
   },
   moniteur: {
     title: 'Le Moniteur — editions by year',

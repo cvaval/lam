@@ -71,8 +71,10 @@ export async function GET(req: NextRequest) {
       select: docSelect,
     })
     for (const d of direct) {
-      if (seen.has(d.id)) continue
+      const tkey = 't:' + fold(titleOf(d))
+      if (seen.has(d.id) || seen.has(tkey)) continue
       seen.add(d.id)
+      seen.add(tkey)
       out.push({ kind: 'direct', id: d.id, type: d.type as DocType, number: d.number, title: titleOf(d) })
     }
   }
@@ -95,8 +97,13 @@ export async function GET(req: NextRequest) {
       fold(`${d.titleFr} ${d.titleEn ?? ''} ${d.titleHt ?? ''} ${d.number ?? ''}`).includes(f)
     docs.sort((a, b) => Number(inTitle(b)) - Number(inTitle(a))) // titre d'abord, ordre par date conservé sinon
     for (const d of docs) {
-      if (seen.has(d.id)) continue
+      // Dédup par ID ET par TITRE folé (comme le moteur FTS) : un même texte dual-listé —
+      // ex. Code des Douanes en Législation ET en « Législation annotée » — ne doit pas
+      // produire deux suggestions identiques (constat d'audit §3/§17).
+      const tkey = 't:' + fold(titleOf(d))
+      if (seen.has(d.id) || seen.has(tkey)) continue
       seen.add(d.id)
+      seen.add(tkey)
       out.push({ kind: 'doc', id: d.id, type: d.type as DocType, number: d.number, title: titleOf(d) })
       if (out.filter((o) => o.kind === 'doc').length >= 6) break
     }

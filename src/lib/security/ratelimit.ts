@@ -82,4 +82,10 @@ export const LIMITS = {
   // Réinitialisation de mot de passe : anti-abus (énumération d'e-mails, spam d'envois).
   forgot: { limit: 5, windowMs: 600_000 },
   reset: { limit: 10, windowMs: 600_000 },
+  // Connexion / 2FA : frein PAR IP (le verrouillage est par compte) contre la force brute
+  // distribuée de mots de passe et de codes TOTP, et le DoS par verrouillage (§04, audit).
+  login: { limit: 12, windowMs: 60_000 },
+  verify: { limit: 12, windowMs: 60_000 },
+  // Activation de code promo : empêche le brute-force de codes (auto-élévation de palier).
+  redeem: { limit: 8, windowMs: 3_600_000 },
 }

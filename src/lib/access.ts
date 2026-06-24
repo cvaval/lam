@@ -2,8 +2,9 @@
  * Accès au contenu PAR SERVICE, par utilisateur (§03).
  *
  * Remplace l'ancien drapeau binaire `indexOnly`. Le master admin active, pour chaque
- * compte, la liste des services à texte intégral (les 6 types §01) ; l'Index du Moniteur
- * est TOUJOURS accessible (socle). Un service non accordé est invisible (recherche,
+ * compte, la liste des services à texte intégral (les 7 types non-référence : Législation,
+ * Circulaires BRH, Jurisprudence, Doctrine, Lois de finances, Marques, Tarifs douaniers) ;
+ * l'Index du Moniteur est TOUJOURS accessible (socle). Un service non accordé est invisible (recherche,
  * tableau de bord, fiche document → redirigés vers l'Index).
  *
  * Règles :
@@ -16,7 +17,7 @@
 import { DOC_TYPES, type DocType, type Role } from './types'
 import { FULLTEXT_TYPE_LIST } from './brand'
 
-/** Les 6 services à texte intégral (sans l'Index). Source : registre §01. */
+/** Les services à texte intégral (tout sauf l'Index, soit 7 types). Source : registre (referenceOnly=false). */
 export const FULLTEXT_TYPES: DocType[] = FULLTEXT_TYPE_LIST.map((m) => m.type)
 const FULLTEXT = new Set<DocType>(FULLTEXT_TYPES)
 

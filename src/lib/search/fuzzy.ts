@@ -56,6 +56,11 @@ export function resetVocab(): void {
   VOCAB = null
 }
 
+/** Préchauffe le vocabulaire hors chemin de requête (à appeler après un déploiement/import). */
+export function warmVocab(): void {
+  void ensureVocab()
+}
+
 // Distance de Levenshtein bornée : abandonne dès que le minimum d'une ligne dépasse max.
 function boundedLevenshtein(a: string, b: string, max: number): number {
   const la = a.length
@@ -86,8 +91,13 @@ function boundedLevenshtein(a: string, b: string, max: number): number {
 export async function fuzzyExpand(term: string, maxDist = 2, limit = 6): Promise<string[]> {
   const t = fold(term)
   if (t.length < 4) return []
-  await ensureVocab()
-  if (!VOCAB) return []
+  // Construction du vocabulaire coûteuse à froid (tout le corpus) : si pas encore prête, on
+  // la lance EN ARRIÈRE-PLAN et on renvoie [] cette fois (résultats exacts seulement) pour ne
+  // pas bloquer la requête (risque de timeout Vercel — audit §21). Le fuzzy suit dès qu'il est prêt.
+  if (!VOCAB) {
+    void ensureVocab()
+    return []
+  }
   const out: { w: string; d: number; f: number }[] = []
   for (const w of VOCAB.words) {
     if (w === t) continue

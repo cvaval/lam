@@ -3,6 +3,8 @@ import { cookies } from 'next/headers'
 import { prisma } from '../db'
 import { randomToken } from './crypto'
 import { parseServices } from '../access'
+import { downgradeIfPlanExpired } from '../promo'
+import { SITWAYEN_MONTHLY_QUOTA } from '../quota'
 import type { Role, UserStatus, Locale, DocType } from '../types'
 
 const SESSION_COOKIE = 'lv_session'
@@ -145,7 +147,14 @@ export async function getCurrentUser(): Promise<SessionUser | null> {
   const session = await loadSession()
   if (!session || !session.twoFactorVerified) return null
   if (session.user.status !== 'ACTIVE') return null
-  return toSessionUser(session.user)
+  const u = session.user
+  // Palier promo expiré : rétrograder MAINTENANT plutôt qu'à la prochaine connexion (§07,
+  // audit) — sinon rôle/quota élevés conservés jusqu'à ~7 j. downgradeIfPlanExpired ne fait
+  // rien si non expiré ou si le compte est staff.
+  if (u.planExpiresAt && u.planExpiresAt.getTime() <= Date.now() && (await downgradeIfPlanExpired(u))) {
+    return toSessionUser({ ...u, role: 'SITWAYEN', planExpiresAt: null, monthlyQuota: SITWAYEN_MONTHLY_QUOTA })
+  }
+  return toSessionUser(u)
 }
 
 /** Session en attente de 2FA (pour l'écran /verify) — null si déjà vérifiée. */

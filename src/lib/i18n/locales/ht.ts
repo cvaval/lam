@@ -117,6 +117,7 @@ export const ht: Dictionary = {
     removeFavorite: 'Retire nan favori',
     export: 'Ekspòte PDF sele a',
     source: 'PDF sous',
+    downloadPdf: 'Telechaje PDF a',
     annexes: 'Telechaje anèks yo',
     annexesHint: 'Fòmilè ak tablo pou ranpli — filigran Lam, verifye anvan itilizasyon.',
     moniteur: 'Pibliye nan',
@@ -258,6 +259,7 @@ export const ht: Dictionary = {
     related: 'Lye',
     articles: 'atik',
     noResult: 'Pa gen tèm ni atik pou rechèch sa a.',
+    articleLabel: 'Atik',
   },
   moniteur: {
     title: 'Le Moniteur — edisyon pa ane',
