@@ -33,6 +33,7 @@ interface Edition {
   num: number
   suffix: string // « A » pour « Spécial No. 30-A »
   monthIdx: number
+  day: number | null // jour de parution lu dans le nom de fichier (ex. « 2Avril » → 2)
   files: string[]
 }
 
@@ -52,18 +53,32 @@ function monthFromName(name: string): number | null {
   return null
 }
 
+/** « … No.44 2Avril 2026.pdf » → 2. Le jour précède le nom du mois dans le fichier
+ *  (best-effort : null si absent — ex. « No.50 Avril 2026 » → date approx. au 1er). */
+function dayFromName(name: string): number | null {
+  const m = name
+    .normalize('NFC')
+    .match(/(\d{1,2})\s*(?:janvier|f[ée]vrier|mars|avril|mai|juin|juillet|ao[ûu]t|septembre|octobre|novembre|d[ée]cembre)/i)
+  if (!m) return null
+  const d = Number(m[1])
+  return d >= 1 && d <= 31 ? d : null
+}
+
 function editionKey(e: { special: boolean; num: number; suffix: string }): string {
   return `${e.special ? 'SP' : 'R'}-${e.num}-${e.suffix}`
 }
 
 function editionRef(e: Edition, year: number): string {
-  return e.special ? `LM${year}-SP${e.num}${e.suffix}` : `LM${year}-${e.num}`
+  // Le suffixe (-A, -B…) distingue des éditions DISTINCTES du même numéro : il doit figurer
+  // dans la référence des éditions RÉGULIÈRES aussi (sinon No.31, No.31-A… se collisionnent
+  // toutes sur LM{year}-31). Les spéciales l'incluaient déjà.
+  return e.special ? `LM${year}-SP${e.num}${e.suffix}` : `LM${year}-${e.num}${e.suffix ? `-${e.suffix}` : ''}`
 }
 
 function editionLabel(e: Edition, year: number): string {
   const month = MONTH_FR[e.monthIdx]
   if (e.special) return `Le Moniteur — Édition spéciale n° ${e.num}${e.suffix ? `-${e.suffix}` : ''} — ${month} ${year}`
-  return `Le Moniteur n° ${e.num} — ${month} ${year}`
+  return `Le Moniteur n° ${e.num}${e.suffix ? `-${e.suffix}` : ''} — ${month} ${year}`
 }
 
 async function pageCount(file: string): Promise<number> {
@@ -96,14 +111,14 @@ function collectEditions(dir: string): Edition[] {
           continue
         }
         const sub = readdirSync(entryPath).filter((f) => f.toLowerCase().endsWith('.pdf')).map((f) => join(entryPath, f))
-        addEdition(byKey, { ...parsed, monthIdx, files: sub })
+        addEdition(byKey, { ...parsed, monthIdx, day: dayFromName(sub[0] ?? entry), files: sub })
       } else if (entry.toLowerCase().endsWith('.pdf')) {
         const parsed = parseEditionName(entry)
         if (!parsed) {
           console.warn(`⚠ fichier non reconnu : ${entry}`)
           continue
         }
-        addEdition(byKey, { ...parsed, monthIdx, files: [entryPath] })
+        addEdition(byKey, { ...parsed, monthIdx, day: dayFromName(entry), files: [entryPath] })
       }
     }
   }
@@ -115,8 +130,10 @@ function collectEditions(dir: string): Edition[] {
 function addEdition(byKey: Map<string, Edition>, e: Edition) {
   const key = editionKey(e)
   const existing = byKey.get(key)
-  if (existing) existing.files.push(...e.files)
-  else byKey.set(key, e)
+  if (existing) {
+    existing.files.push(...e.files)
+    if (existing.day == null) existing.day = e.day
+  } else byKey.set(key, e)
 }
 
 async function purgeDemo(actorId: string | null) {
@@ -184,7 +201,7 @@ async function main() {
     const label = editionLabel(e, year)
     const moniteurRef = e.special
       ? `Le Moniteur — Édition spéciale n° ${e.num}${e.suffix ? `-${e.suffix}` : ''} de ${MONTH_FR[e.monthIdx]} ${year}`
-      : `Le Moniteur n° ${e.num} de ${MONTH_FR[e.monthIdx]} ${year}`
+      : `Le Moniteur n° ${e.num}${e.suffix ? `-${e.suffix}` : ''} de ${MONTH_FR[e.monthIdx]} ${year}`
     const body = `[Fascicule scanné du journal officiel « Le Moniteur » — ${r.pages || '?'} page(s)${e.files.length > 1 ? `, ${e.files.length} parties` : ''}. Texte intégral non encore océrisé : se référer au PDF source. Fichier : ${e.files.map((f) => f.split('/').pop()).join(' ; ')}]`
     await prisma.document.create({
       data: {
@@ -197,13 +214,14 @@ async function main() {
         bodyOriginal: body,
         number: ref,
         moniteurRef,
-        publicationDate: new Date(Date.UTC(year, e.monthIdx, 1)),
+        // Jour lu dans le nom de fichier quand disponible (sinon 1er du mois, approx.).
+        publicationDate: new Date(Date.UTC(year, e.monthIdx, e.day ?? 1)),
         editionType: e.special ? 'SPECIALE' : 'REGULIERE',
         sourcePdfUrl: e.files[0],
         source: SOURCE,
         sealed: true,
         // Année de parution dérivée (Le Moniteur, fondé en 1845 : année = millésime − 1845).
-        metaJson: JSON.stringify({ edition: { anneeParution: year - 1845, directeurGeneral: null, issn: null, ville: 'Port-au-Prince' }, pages: r.pages, parts: e.files.length }),
+        metaJson: JSON.stringify({ edition: { anneeParution: year - 1845, directeurGeneral: null, issn: null, ville: 'Port-au-Prince' }, pages: r.pages, parts: e.files.length, dateSource: e.day != null ? 'filename' : 'approx' }),
         searchText: buildSearchText({ titleFr: label, number: ref, moniteurRef }),
       },
     })
