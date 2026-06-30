@@ -72,6 +72,7 @@ export function documentMapping() {
       author: txt,
       revue: { type: 'keyword' },
       keywords: txt, // mots-clés thématiques « kw1; kw2 » — cherchables, analyseur FR
+      themeLabels: txt, // libellés des thèmes rattachés (FR/EN/HT) — recherche par thème
       matiere: { type: 'keyword' },
       juridiction: { type: 'keyword' },
       niceClasses: { type: 'keyword' },

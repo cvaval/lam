@@ -273,6 +273,11 @@ model Document {
   // échelle (Index du Moniteur ~28k). Recalculé à chaque écriture.
   searchText     String?
 
+  // Libellés (FR/EN/HT) des thèmes rattachés (cache dénormalisé) — champ CHERCHABLE
+  // (cf. SEARCH_FIELD_WEIGHTS) : permet de retrouver un texte par son thème. Recalculé
+  // par reindexDocument() à chaque écriture de DocumentTheme. Null = aucun thème.
+  themeLabels    String?
+
   // Provenance (ex. "MONITEUR" pour l'Index du Moniteur 1900-2023) — ré-import idempotent.
   source         String?
 

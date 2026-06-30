@@ -18,6 +18,7 @@ export interface SearchableDoc {
   author?: string | null
   revue?: string | null
   keywords?: string | null
+  themeLabels?: string | null
   matiere?: string | null
   juridiction?: string | null
   moniteurRef?: string | null

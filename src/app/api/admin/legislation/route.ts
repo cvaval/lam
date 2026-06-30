@@ -7,6 +7,7 @@ import { audit, type AuditAction } from '@/lib/auth/audit'
 import { getClientCtx } from '@/lib/auth/request'
 import { setDocumentThemes } from '@/lib/legislation/themes'
 import { amendArticle, abrogateArticle } from '@/lib/legislation/amendments'
+import { reindexDocument } from '@/lib/search/reindex'
 
 export const runtime = 'nodejs'
 
@@ -74,7 +75,8 @@ export async function POST(req: NextRequest) {
     switch (d.action) {
       case 'setThemes': {
         await setDocumentThemes(d.documentId, d.themeIds, d.primaryThemeId ?? null)
-        // NB : la réindexation recherche (searchText + OpenSearch) viendra en Phase 3.
+        // Recherche par thème : recalcule themeLabels + searchText et ré-indexe (§3D).
+        await reindexDocument(d.documentId)
         action = 'DOC_THEMED'
         targetId = d.documentId
         meta = { count: d.themeIds.length, primary: d.primaryThemeId ?? null }

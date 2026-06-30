@@ -21,6 +21,7 @@ export const SEARCH_FIELD_WEIGHTS: { field: keyof SearchableDoc; weight: number 
   { field: 'holder', weight: 5 },
   { field: 'author', weight: 4 },
   { field: 'keywords', weight: 4 },
+  { field: 'themeLabels', weight: 4 }, // libellés des thèmes rattachés — recherche par thème
   { field: 'revue', weight: 3 },
   { field: 'matiere', weight: 3 },
   { field: 'juridiction', weight: 3 },
