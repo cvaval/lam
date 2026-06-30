@@ -75,6 +75,10 @@ export const LIMITS = {
   search: { limit: 80, windowMs: 60_000 },
   doc: { limit: 150, windowMs: 60_000 },
   export: { limit: 20, windowMs: 60_000 },
+  // Recherche dans le Code (au fil de la frappe, débouncée) : frein large pour le littéral ;
+  // bucket SÉPARÉ et serré pour l'expansion IA (chaque appel = un appel Gemini facturé).
+  codeSearch: { limit: 90, windowMs: 60_000 },
+  codeSearchAi: { limit: 15, windowMs: 60_000 },
   // Heartbeat : le client légitime ne bat qu'une fois / 5 min par onglet (IdleTimer),
   // donc 6/min laisse de la marge (multi-onglets, clic « Rester connecté ») tout en
   // bornant la lecture DB déclenchée par chaque ping.

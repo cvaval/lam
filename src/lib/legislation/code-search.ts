@@ -26,7 +26,14 @@ export interface CodeHit {
 }
 
 // Segmentation mise en cache par document (recalculée seulement si le doc change d'id).
+// Bornée (LRU simple) : un ré-import crée un nouvel id → on purge les entrées périmées.
 const cache = new Map<string, CodeArticle[]>()
+const CACHE_MAX = 8
+
+/** Course contre un timeout : un appel IA lent ne doit pas bloquer la requête. */
+function withTimeout<T>(p: Promise<T>, ms = 7000): Promise<T> {
+  return Promise.race([p, new Promise<T>((_, reject) => setTimeout(() => reject(new Error('ai-timeout')), ms))])
+}
 
 export async function getCodeArticles(docId: string): Promise<CodeArticle[]> {
   const hit = cache.get(docId)
@@ -45,6 +52,7 @@ export async function getCodeArticles(docId: string): Promise<CodeArticle[]> {
     const body = b.text.replace(/^Article\s+[^\n.]*[.\-–]\s*/i, '').replace(/\s+/g, ' ').trim()
     arts.push({ n: Number(m[1]), anchor: b.anchor, label: labelFromAnchor(b.anchor), fold: fold(b.text), snippet: body.slice(0, 180) })
   }
+  if (cache.size >= CACHE_MAX) cache.delete(cache.keys().next().value as string) // évince la plus ancienne
   cache.set(docId, arts)
   return arts
 }
@@ -92,12 +100,12 @@ export async function expandThemes(query: string): Promise<string[]> {
     return await withAiFallback({
       gemini: async () => {
         const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! })
-        const r = await ai.models.generateContent({ model: modelFor('gemini', defaults), contents: prompt, config: { responseMimeType: 'application/json' } })
+        const r = await withTimeout(ai.models.generateContent({ model: modelFor('gemini', defaults), contents: prompt, config: { responseMimeType: 'application/json' } }))
         return take(parseGeminiJson(r.text ?? '{}'))
       },
       anthropic: async () => {
         const a = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY! })
-        const r = await a.messages.create({ model: modelFor('anthropic', defaults), max_tokens: 300, messages: [{ role: 'user', content: prompt }] })
+        const r = await withTimeout(a.messages.create({ model: modelFor('anthropic', defaults), max_tokens: 300, messages: [{ role: 'user', content: prompt }] }))
         const txt = r.content.map((c) => (c.type === 'text' ? c.text : '')).join('')
         return take(JSON.parse(txt.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim()))
       },

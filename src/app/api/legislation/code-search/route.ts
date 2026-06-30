@@ -3,6 +3,7 @@ import { apiError } from '@/lib/api'
 import { getCurrentUser } from '@/lib/auth/session'
 import { prisma } from '@/lib/db'
 import { canReadService } from '@/lib/access'
+import { guard, LIMITS } from '@/lib/security/ratelimit'
 import type { DocType } from '@/lib/types'
 import { getCodeArticles, matchArticles, expandThemes } from '@/lib/legislation/code-search'
 
@@ -18,8 +19,15 @@ export async function GET(req: NextRequest) {
   if (!user) return apiError('unauthorized', 401)
   const docId = req.nextUrl.searchParams.get('docId') ?? ''
   const q = (req.nextUrl.searchParams.get('q') ?? '').slice(0, 100).trim()
-  const useAi = req.nextUrl.searchParams.get('ai') === '1'
+  let useAi = req.nextUrl.searchParams.get('ai') === '1'
   if (!docId || q.length < 2) return NextResponse.json({ ok: true, results: [], themes: [] })
+
+  // Anti-abus (§09) : frein large sur la recherche, bucket SÉPARÉ et serré sur l'IA (coût
+  // Gemini). Dépassement IA → on dégrade vers la recherche littérale plutôt que d'échouer.
+  if (!(await guard({ action: 'code-search', subject: user.id, ...LIMITS.codeSearch }, { actorId: user.id })))
+    return apiError('rate', 429)
+  if (useAi && !(await guard({ action: 'code-search-ai', subject: user.id, ...LIMITS.codeSearchAi }, { actorId: user.id })))
+    useAi = false
 
   const doc = await prisma.document.findUnique({ where: { id: docId }, select: { type: true } })
   if (!doc || !canReadService(user, doc.type as DocType)) return apiError('unauthorized', 403)

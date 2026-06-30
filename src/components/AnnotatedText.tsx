@@ -24,11 +24,12 @@ export function AnnotatedText({
   locale?: Locale
   terms?: string[]
 }) {
-  const blocks = segmentAnnotated(text, annotations.toc)
+  const blocks = segmentAnnotated(text, annotations.toc ?? [])
   const juris = annotations.jurisprudence ?? {}
   const backlinks = indexBacklinks(annotations.indexEntries ?? [])
   const crossRefMap = new Map((annotations.crossRefs ?? []).map((c) => [c.anchor, c]))
   const shownIndex = new Set<string>()
+  let titleShown = false // 1ʳᵉ ligne de la page de titre = plus grande (déterministe, sans `first:`)
   const lt = (o: Record<Locale, string>) => o[locale] ?? o.fr
 
   return (
@@ -37,10 +38,16 @@ export function AnnotatedText({
         // ── En-têtes de section ──
         if (b.kind === 'section') {
           const xref = crossRefMap.get(b.anchor)
+          const bigTitle = b.tocKind === 'title' && !titleShown
+          if (b.tocKind === 'title') titleShown = true
           const header =
             b.tocKind === 'title' ? (
-              // Page de titre du décret (CODE DU TRAVAIL / DUVALIER…) — centrée.
-              <p key={i} id={b.anchor} className="scroll-mt-24 text-center font-serif font-bold uppercase tracking-wide text-lank first:text-xl first:text-soley-700">
+              // Page de titre du décret (CODE DU TRAVAIL / DUVALIER…) — centrée ; 1ʳᵉ ligne agrandie.
+              <p
+                key={i}
+                id={b.anchor}
+                className={`scroll-mt-24 text-center font-serif font-bold uppercase tracking-wide ${bigTitle ? 'text-xl text-soley-700' : 'text-lank'}`}
+              >
                 {b.text}
               </p>
             ) : b.level === 1 ? (
