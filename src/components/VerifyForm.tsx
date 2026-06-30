@@ -38,6 +38,11 @@ export function VerifyForm({
       .catch(() => {})
   }, [])
 
+  // Curseur prêt sur la première case dès l'arrivée à la double authentification.
+  useEffect(() => {
+    refs.current[0]?.focus()
+  }, [])
+
   function setDigit(i: number, v: string) {
     const clean = v.replace(/\D/g, '')
     if (!clean) {
