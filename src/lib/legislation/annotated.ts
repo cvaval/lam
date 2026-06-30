@@ -30,6 +30,11 @@ export interface IndexEntry {
   subject: string
   ctRefs: number[] // numéros d'articles du Code
 }
+export interface CrossRefEntry {
+  anchor: string // ancre de section (sec-N) où afficher le renvoi
+  articles: number[] // articles du Code visés (liens #art-N)
+  note?: string
+}
 export interface Annotations {
   title: string
   annotationAuthor: string
@@ -38,6 +43,7 @@ export interface Annotations {
   connexes: { title: string; anchor: string }[]
   jurisprudence: Record<string, JurisCase[]> // clé = ancre d'article (art-N)
   indexEntries: IndexEntry[]
+  crossRefs?: CrossRefEntry[] // renvois croisés éditoriaux (section → articles du Code)
 }
 
 export interface Backlink {
@@ -80,6 +86,7 @@ export function parseAnnotations(json: string | null | undefined): Annotations |
       connexes: Array.isArray(a.connexes) ? a.connexes : [],
       jurisprudence: a.jurisprudence && typeof a.jurisprudence === 'object' ? a.jurisprudence : {},
       indexEntries: Array.isArray(a.indexEntries) ? a.indexEntries : [],
+      crossRefs: Array.isArray(a.crossRefs) ? a.crossRefs : [],
     }
   } catch {
     return null

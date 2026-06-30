@@ -27,6 +27,7 @@ export function AnnotatedText({
   const blocks = segmentAnnotated(text, annotations.toc)
   const juris = annotations.jurisprudence ?? {}
   const backlinks = indexBacklinks(annotations.indexEntries ?? [])
+  const crossRefMap = new Map((annotations.crossRefs ?? []).map((c) => [c.anchor, c]))
   const shownIndex = new Set<string>()
   const lt = (o: Record<Locale, string>) => o[locale] ?? o.fr
 
@@ -35,49 +36,54 @@ export function AnnotatedText({
       {blocks.map((b, i) => {
         // ── En-têtes de section ──
         if (b.kind === 'section') {
-          if (b.tocKind === 'title') {
-            // Page de titre du décret (CODE DU TRAVAIL / DUVALIER…) — centrée.
-            return (
+          const xref = crossRefMap.get(b.anchor)
+          const header =
+            b.tocKind === 'title' ? (
+              // Page de titre du décret (CODE DU TRAVAIL / DUVALIER…) — centrée.
               <p key={i} id={b.anchor} className="scroll-mt-24 text-center font-serif font-bold uppercase tracking-wide text-lank first:text-xl first:text-soley-700">
                 {b.text}
               </p>
-            )
-          }
-          if (b.level === 1) {
-            // TITRE / ANNEXE : séparateur majeur.
-            return (
-              <h3
-                key={i}
-                id={b.anchor}
-                className="mt-7 flex scroll-mt-24 items-center gap-2.5 border-b-2 border-soley/30 pb-2 font-serif text-lg font-bold uppercase tracking-wide text-lank first:mt-0"
-              >
+            ) : b.level === 1 ? (
+              // TITRE / ANNEXE : séparateur majeur.
+              <h3 key={i} id={b.anchor} className="mt-7 flex scroll-mt-24 items-center gap-2.5 border-b-2 border-soley/30 pb-2 font-serif text-lg font-bold uppercase tracking-wide text-lank first:mt-0">
                 <span aria-hidden className="h-5 w-1.5 rounded-full bg-soley" />
                 {b.text}
               </h3>
-            )
-          }
-          if (b.level === 3) {
-            // Chapitre : « Chapitre N — Titre ».
-            return (
+            ) : b.level === 3 ? (
+              // Chapitre : « Chapitre N — Titre ».
               <h5 key={i} id={b.anchor} className="mt-5 flex scroll-mt-24 items-baseline gap-2 font-serif text-[15px] font-semibold text-lank">
                 <span aria-hidden className="text-base leading-none text-soley-600">§</span>
                 {b.text}
               </h5>
-            )
-          }
-          if (b.level === 4) {
-            // Section (sous-titre d'un chapitre).
-            return (
+            ) : b.level === 4 ? (
+              // Section (sous-titre d'un chapitre).
               <p key={i} id={b.anchor} className="mt-3 scroll-mt-24 pl-4 text-[12.5px] font-semibold uppercase tracking-wide text-lank/50">
                 {b.text}
               </p>
+            ) : (
+              // Niveau 2 : sous-titre (livre / « LOI No. X »).
+              <p key={i} id={b.anchor} className="scroll-mt-24 pt-1 text-sm font-semibold uppercase tracking-wide text-soley-700">
+                {b.text}
+              </p>
             )
-          }
-          // Niveau 2 : sous-titre (livre / « LOI No. X »).
+          if (!xref) return header
+          // Renvoi croisé éditorial vers des articles du Code (ex. Liberté syndicale → art. 225).
           return (
-            <p key={i} id={b.anchor} className="scroll-mt-24 pt-1 text-sm font-semibold uppercase tracking-wide text-soley-700">
-              {b.text}
-            </p>
+            <div key={i}>
+              {header}
+              <p className="mt-2 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5 rounded-md border border-sitwon/30 bg-sitwon-50 px-3 py-1.5 text-[11.5px] text-lank/75">
+                <span className="font-bold uppercase tracking-wide text-sitwon-700">↪ Renvoi au Code&nbsp;:</span>
+                {xref.articles.map((n, k, arr) => (
+                  <span key={n}>
+                    <a href={`#art-${n}`} className="font-semibold text-sitwon-700 hover:underline">
+                      article {n}
+                    </a>
+                    {k < arr.length - 1 && <span className="text-lank/30">, </span>}
+                  </span>
+                ))}
+                {xref.note && <span className="text-lank/55">— {xref.note}</span>}
+              </p>
+            </div>
           )
         }
 
