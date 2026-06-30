@@ -32,6 +32,10 @@ import { getAmendments } from '@/lib/legislation/amendments'
 import { applyAmendments } from '@/lib/legislation/segment'
 import { labelFromAnchor } from '@/lib/legislation/articles'
 import { AmendmentHistory, type AmendItem } from '@/components/AmendmentHistory'
+import { parseAnnotations } from '@/lib/legislation/annotated'
+import { AnnotatedText } from '@/components/AnnotatedText'
+import { DocumentToc } from '@/components/DocumentToc'
+import { IndexAlphabetique } from '@/components/IndexAlphabetique'
 
 export default async function DocPage({
   params,
@@ -110,6 +114,10 @@ export default async function DocPage({
       })),
     }
   })
+
+  // Texte annoté (Code du travail, annoté par J.-F. Salès) : table des matières + jurisprudence
+  // + index, stockés hors du texte officiel (annotationsJson). Active le lecteur annoté.
+  const annotations = parseAnnotations(doc.annotationsJson)
 
   // Tableaux & encadrés colorés (reproduction du rendu visuel du PDF).
   const richBlocks = parseRichBlocks(doc.richBlocksJson)
@@ -392,9 +400,23 @@ export default async function DocPage({
             </ul>
           </details>
         )}
-        <div className="relative">
-          <OfficialText text={effectiveBody} hrefFor={hrefFor} rich={richBlocks} locale={locale} terms={hlTerms} amendedAnchors={amendedAnchors} />
-        </div>
+        {/* Texte annoté : table des matières repliable + jurisprudence repliable par article.
+            Sinon, rendu standard du texte officiel. */}
+        {annotations ? (
+          <>
+            <DocumentToc groups={annotations.navToc} locale={locale} />
+            {annotations.indexEntries?.length > 0 && (
+              <IndexAlphabetique entries={annotations.indexEntries} locale={locale} />
+            )}
+            <div className="relative">
+              <AnnotatedText text={effectiveBody} annotations={annotations} locale={locale} terms={hlTerms} />
+            </div>
+          </>
+        ) : (
+          <div className="relative">
+            <OfficialText text={effectiveBody} hrefFor={hrefFor} rich={richBlocks} locale={locale} terms={hlTerms} amendedAnchors={amendedAnchors} />
+          </div>
+        )}
       </section>
 
       {amendItems.length > 0 && <AmendmentHistory items={amendItems} locale={locale} />}

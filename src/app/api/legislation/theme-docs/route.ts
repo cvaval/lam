@@ -15,6 +15,6 @@ export async function GET(req: NextRequest) {
   const docs = await documentsInTheme(themeId, user, { take: 300 })
   return NextResponse.json({
     ok: true,
-    docs: docs.map((d) => ({ id: d.id, type: d.type, titleFr: d.titleFr, titleEn: d.titleEn, titleHt: d.titleHt, number: d.number, status: d.status })),
+    docs: docs.map((d) => ({ id: d.id, type: d.type, titleFr: d.titleFr, titleEn: d.titleEn, titleHt: d.titleHt, number: d.number, status: d.status, anchor: d.anchor })),
   })
 }

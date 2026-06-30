@@ -269,6 +269,11 @@ model Document {
   // suggestions de thèmes similaires et les renvois entre articles. Null = non indexé.
   themeIndexJson String?
 
+  // Annotations éditoriales d'un texte annoté (ex. Code du travail, annoté par J.-F. Salès) :
+  // JSON { toc, jurisprudence (par ancre d'article art-N), connexes, indexEntries }. AFFICHAGE
+  // seulement — bodyOriginal reste le texte officiel (§02). Null = pas d'annotations.
+  annotationsJson String?
+
   // Texte de recherche accent-folé (minuscules) — préfiltrage SQL du moteur FTS à grande
   // échelle (Index du Moniteur ~28k). Recalculé à chaque écriture.
   searchText     String?
@@ -531,6 +536,9 @@ model DocumentTheme {
   theme      Theme    @relation(fields: [themeId], references: [id], onDelete: Cascade)
   isPrimary  Boolean  @default(false)
   assignedBy String? // "ADMIN" | "AI" | userId
+  // Ancre facultative dans le document (ex. "sec-44") : permet à un sous-thème (loi connexe
+  // d'un document unique) de pointer vers SA section interne — lien /doc/[id]#anchor.
+  anchor     String?
   createdAt  DateTime @default(now())
 
   @@id([documentId, themeId])

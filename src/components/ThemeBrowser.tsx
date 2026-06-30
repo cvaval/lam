@@ -22,6 +22,8 @@ interface DocRow {
   titleHt: string | null
   number: string | null
   status: string
+  /** Ancre interne (ex. "sec-44") quand le thème pointe vers une section d'un document unique. */
+  anchor?: string | null
 }
 
 const TYPE_SHORT: Record<string, string> = {
@@ -171,7 +173,7 @@ export function ThemeBrowser({
           <ul className="divide-y divide-lank/5">
             {docs.map((d) => (
               <li key={d.id}>
-                <Link href={`/${locale}/doc/${d.id}`} className="flex items-start gap-2.5 px-3 py-2.5 transition hover:bg-white">
+                <Link href={`/${locale}/doc/${d.id}${d.anchor ? '#' + d.anchor : ''}`} className="flex items-start gap-2.5 px-3 py-2.5 transition hover:bg-white">
                   <span className="mt-0.5 shrink-0 rounded bg-lank/5 px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-lank/50">{TYPE_SHORT[d.type] ?? d.type}</span>
                   <span className="min-w-0">
                     <span className="block text-sm text-lank">{docTitle(d)}</span>

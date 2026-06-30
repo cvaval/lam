@@ -40,6 +40,7 @@ export function OfficialText({
   locale = 'fr',
   terms,
   amendedAnchors,
+  noAnchors = false,
 }: {
   text: string
   hrefFor?: (ref: CircRef) => string | null
@@ -49,6 +50,9 @@ export function OfficialText({
   terms?: string[]
   /** ancres d'articles amendés → marqueur « ✎ modifié » renvoyant vers l'historique. */
   amendedAnchors?: Set<string>
+  /** supprime l'émission d'ancres #art-N (ex. articles d'annexe à numérotation propre,
+   *  pour ne pas dupliquer les id des articles du Code). */
+  noAnchors?: boolean
 }) {
   const segments = buildBodySegments(text, rich)
   const usedAnchors = new Set<string>()
@@ -63,6 +67,7 @@ export function OfficialText({
   }
 
   function markerAnchor(marker: string): string | undefined {
+    if (noAnchors) return undefined
     if (!/^\(?\d{1,3}[.)\-–°]?\)?$/.test(marker)) return undefined
     const id = `art-${marker.replace(/\D/g, '')}`
     if (usedAnchors.has(id)) return undefined
@@ -71,6 +76,7 @@ export function OfficialText({
   }
 
   function headingAnchor(textLine: string): string | undefined {
+    if (noAnchors) return undefined
     // Normalisation partagée avec CodeThemeBrowser (gère « 1er »/« premier » et bis/ter).
     const id = articleAnchorFromHeading(textLine)
     if (!id || usedAnchors.has(id)) return undefined

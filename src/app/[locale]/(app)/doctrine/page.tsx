@@ -29,7 +29,13 @@ export default async function DoctrinePage({ params }: { params: { locale: strin
   const cutoff = new Date(Date.now() - RECENT_DAYS * 86400_000)
   const [tree, grouped, recent] = await Promise.all([
     getThemeTree({ activeOnly: true }),
-    prisma.documentTheme.groupBy({ by: ['themeId'], _count: { themeId: true } }),
+    // Compteurs « N textes » filtrés par accès §03 — sinon le badge pourrait inclure des docs
+    // d'un type non accordé (écart compte↔liste, qui elle est filtrée par documentsInTheme).
+    prisma.documentTheme.groupBy({
+      by: ['themeId'],
+      where: { document: { type: { in: accessibleTypes(user) } } },
+      _count: { themeId: true },
+    }),
     // Sous-thèmes ayant reçu un document récent (téléversé/thématisé ou modifié) — filtré accès §03.
     prisma.documentTheme.findMany({
       where: { document: { updatedAt: { gte: cutoff }, type: { in: accessibleTypes(user) } } },

@@ -78,8 +78,11 @@ export async function documentsInTheme(
   const themes = await listThemes()
   const ids = descendantIds(themeId, themes)
   if (ids.length === 0) return []
-  return prisma.document.findMany({
+  const docs = await prisma.document.findMany({
     where: {
+      // SÉCURITÉ-CRITIQUE (§03) : ce filtre est la seule barrière entre l'API publique
+      // theme-docs et les titres de docs non accordés. Ne JAMAIS le retirer/élargir sans
+      // garder les appelants clients filtrés.
       type: { in: accessibleTypes(user) },
       themes: { some: { themeId: { in: ids } } },
     },
@@ -88,6 +91,15 @@ export async function documentsInTheme(
     skip: opts.skip,
     take: opts.take,
   })
+  // Deep-link : si le doc est rattaché DIRECTEMENT au thème interrogé avec une ancre (ex. un
+  // chapitre / une loi connexe d'un document unique → sa section interne), on la renvoie pour
+  // ouvrir /doc/[id]#sec-N. Un thème parent (rattachement sans ancre) ouvre le doc en tête.
+  const direct = await prisma.documentTheme.findMany({
+    where: { themeId, documentId: { in: docs.map((d) => d.id) }, anchor: { not: null } },
+    select: { documentId: true, anchor: true },
+  })
+  const anchorBy = new Map(direct.map((dt) => [dt.documentId, dt.anchor]))
+  return docs.map((d) => ({ ...d, anchor: anchorBy.get(d.id) ?? null }))
 }
 
 // ─────────────────────────── Gestion (back-office) ───────────────────────────
