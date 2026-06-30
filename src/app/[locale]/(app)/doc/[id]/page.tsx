@@ -25,7 +25,7 @@ import { pickLocale } from '@/lib/i18n/pick'
 import { DOC_TYPE_META } from '@/lib/brand'
 import type { DocType, DocStatus } from '@/lib/types'
 import { getThemeTree } from '@/lib/legislation/themes'
-import { resolveCrossRefs } from '@/lib/legislation/refs'
+import { resolveCrossRefs, outgoingRefs, backlinks } from '@/lib/legislation/refs'
 import { listArticles } from '@/lib/legislation/articles'
 import { LegislationAdminPanel } from '@/components/LegislationAdminPanel'
 import { getAmendments } from '@/lib/legislation/amendments'
@@ -131,6 +131,12 @@ export default async function DocPage({
     table: tl({ fr: 'Tableau', en: 'Table', ht: 'Tablo' }),
     orphan: tl({ fr: 'emplacement approximatif', en: 'approximate position', ht: 'kote apwoksimatif' }),
   }
+
+  // Renvois croisés (CrossRef) résolus + rétroliens — affichés sur la fiche, access-aware (§03).
+  const [outRefs, inRefs] = await Promise.all([
+    outgoingRefs(doc.id, user),
+    backlinks({ id: doc.id, type: doc.type, number: doc.number }, user),
+  ])
 
   // Outils éditoriaux (Master Admin) : thèmes, renvois et amendements de cette fiche.
   const adminPanel =
@@ -408,11 +414,32 @@ export default async function DocPage({
         </section>
       )}
 
-      {/* Citations croisées */}
-      {(doc.citationsFrom.length > 0 || doc.citationsTo.length > 0) && (
+      {/* Citations croisées & renvois : CrossRef éditoriaux (sortants) + rétroliens + Citation legacy */}
+      {(doc.citationsFrom.length > 0 || doc.citationsTo.length > 0 || outRefs.length > 0 || inRefs.length > 0) && (
         <section className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
           <h2 className="mb-3 text-sm font-semibold text-lank">{t.doc.citations}</h2>
           <ul className="space-y-2">
+            {outRefs.map((r) => {
+              const inner = (
+                <>
+                  {r.type && <Pastille type={r.type} />}
+                  <span className="text-lank/45">{r.kind} →</span> {r.label}
+                  {r.anchor && <span className="text-xs text-lank/40">(art. {r.anchor.replace('art-', '')})</span>}
+                  {r.pending && <span className="text-xs text-soley-600">· cible non importée</span>}
+                </>
+              )
+              return (
+                <li key={r.refId}>
+                  {r.accessible && r.toId ? (
+                    <Link href={`/${locale}/doc/${r.toId}${r.anchor ? '#' + r.anchor : ''}`} className="flex items-center gap-2 text-sm text-lank hover:underline">
+                      {inner}
+                    </Link>
+                  ) : (
+                    <span className="flex items-center gap-2 text-sm text-lank/70">{inner}</span>
+                  )}
+                </li>
+              )
+            })}
             {doc.citationsFrom.map((c) => (
               <li key={c.id}>
                 <Link href={`/${locale}/doc/${c.to.id}`} className="flex items-center gap-2 text-sm text-lank hover:underline">
@@ -421,6 +448,25 @@ export default async function DocPage({
                 </Link>
               </li>
             ))}
+            {inRefs.map((b) => {
+              const inner = (
+                <>
+                  <Pastille type={b.fromType} />
+                  <span className="text-lank/45">← {b.kind}</span> {b.fromTitleFr}
+                </>
+              )
+              return (
+                <li key={`bl-${b.refId}`}>
+                  {b.accessible ? (
+                    <Link href={`/${locale}/doc/${b.fromId}`} className="flex items-center gap-2 text-sm text-lank hover:underline">
+                      {inner}
+                    </Link>
+                  ) : (
+                    <span className="flex items-center gap-2 text-sm text-lank/70">{inner}</span>
+                  )}
+                </li>
+              )
+            })}
             {doc.citationsTo.map((c) => (
               <li key={c.id}>
                 <Link href={`/${locale}/doc/${c.from.id}`} className="flex items-center gap-2 text-sm text-lank hover:underline">

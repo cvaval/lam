@@ -223,7 +223,9 @@ Droit économique & des affaires                           [economique]
 Droit fiscal & douanier                                   [fiscal-douanier]
   ├─ Fiscalité / impôts (DGI)     ( Décret 2005 sur l'impôt sur le revenu · Code fiscal Paillant )
   ├─ Lois de finances
-  └─ Tarifs douaniers
+  └─ Douane
+        ├─ Tarifs douaniers
+        └─ Code douanier          ( Code des Douanes — décret Moniteur Spécial N°11 )
 Social                                                    [social]
   ├─ Droit du travail & sécurité sociale
   ├─ Santé publique

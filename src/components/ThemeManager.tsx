@@ -24,6 +24,19 @@ const COLORS = ['#7c3aed', '#2563eb', '#0891b2', '#059669', '#ca8a04', '#dc2626'
 type Draft = { labelFr: string; labelEn: string; labelHt: string; color: string | null }
 const emptyDraft: Draft = { labelFr: '', labelEn: '', labelHt: '', color: null }
 
+function flattenTree(nodes: ThemeNode[], depth = 0, out: { node: ThemeNode; depth: number }[] = []) {
+  for (const n of nodes) {
+    out.push({ node: n, depth })
+    flattenTree(n.children, depth + 1, out)
+  }
+  return out
+}
+function subtreeIds(node: ThemeNode, set = new Set<string>()) {
+  set.add(node.id)
+  node.children.forEach((c) => subtreeIds(c, set))
+  return set
+}
+
 export function ThemeManager({
   locale,
   initialTree,
@@ -39,6 +52,8 @@ export function ThemeManager({
   const [addingUnder, setAddingUnder] = useState<string | null | undefined>(undefined) // undefined=fermé, null=racine
   const [editingId, setEditingId] = useState<string | null>(null)
   const [draft, setDraft] = useState<Draft>(emptyDraft)
+  const [movingId, setMovingId] = useState<string | null>(null)
+  const [moveTarget, setMoveTarget] = useState<string>('') // parentId cible ('' = racine)
 
   const refresh = useCallback(async () => {
     const res = await fetch('/api/admin/themes')
@@ -72,18 +87,31 @@ export function ThemeManager({
 
   function startAdd(parentId: string | null) {
     setEditingId(null)
+    setMovingId(null)
     setDraft(emptyDraft)
     setAddingUnder(parentId)
   }
   function startEdit(n: ThemeNode) {
     setAddingUnder(undefined)
+    setMovingId(null)
     setEditingId(n.id)
     setDraft({ labelFr: n.labelFr, labelEn: n.labelEn ?? '', labelHt: n.labelHt ?? '', color: n.color })
+  }
+  function startMove(n: ThemeNode) {
+    setAddingUnder(undefined)
+    setEditingId(null)
+    setMoveTarget(n.parentId ?? '')
+    setMovingId(n.id)
   }
   function cancel() {
     setAddingUnder(undefined)
     setEditingId(null)
+    setMovingId(null)
     setDraft(emptyDraft)
+  }
+  async function doMove(id: string) {
+    const ok = await act({ action: 'update', id, parentId: moveTarget || null }, 'Thème déplacé.')
+    if (ok) cancel()
   }
 
   async function submitAdd(parentId: string | null) {
@@ -152,6 +180,35 @@ export function ThemeManager({
     )
   }
 
+  function renderMoveForm(node: ThemeNode) {
+    const exclude = subtreeIds(node)
+    const candidates = flattenTree(tree).filter(({ node: n }) => !exclude.has(n.id))
+    return (
+      <div className="mt-2 space-y-2 rounded-lg border border-lank/15 bg-paper p-3">
+        <p className="text-xs text-lank/60">
+          Déplacer « <span className="font-medium text-lank">{node.labelFr}</span> » sous :
+        </p>
+        <div className="flex items-center gap-2">
+          <select value={moveTarget} onChange={(e) => setMoveTarget(e.target.value)} className="flex-1 rounded-md border border-lank/15 bg-white px-2 py-1.5 text-sm outline-none focus:border-sitwon">
+            <option value="">— Racine (domaine de tête) —</option>
+            {candidates.map(({ node: c, depth }) => (
+              <option key={c.id} value={c.id}>
+                {'  '.repeat(depth)}
+                {c.labelFr}
+              </option>
+            ))}
+          </select>
+          <button type="button" disabled={busy} onClick={() => doMove(node.id)} className="rounded-md bg-lank px-3 py-1.5 text-xs font-semibold text-cream hover:bg-lank-600 disabled:opacity-50">
+            Déplacer
+          </button>
+          <button type="button" onClick={cancel} className="rounded-md border border-lank/15 px-3 py-1.5 text-xs text-lank/70 hover:bg-paper">
+            Annuler
+          </button>
+        </div>
+      </div>
+    )
+  }
+
   function Row({ node, siblings, index, depth }: { node: ThemeNode; siblings: ThemeNode[]; index: number; depth: number }) {
     const label = locale === 'en' ? node.labelEn : locale === 'ht' ? node.labelHt : node.labelFr
     const docs = docCounts[node.id] ?? 0
@@ -168,6 +225,7 @@ export function ThemeManager({
             <button onClick={() => reorder(siblings, index, 1)} disabled={busy || index === siblings.length - 1} className="rounded px-1 text-lank/50 hover:bg-lank/10 disabled:opacity-30" title="Descendre">↓</button>
             <button onClick={() => startAdd(node.id)} className="rounded px-1.5 text-xs text-lank/60 hover:bg-lank/10" title="Ajouter un sous-thème">+ sous-thème</button>
             <button onClick={() => startEdit(node)} className="rounded px-1.5 text-xs text-lank/60 hover:bg-lank/10">Renommer</button>
+            <button onClick={() => startMove(node)} className="rounded px-1.5 text-xs text-lank/60 hover:bg-lank/10">Déplacer</button>
             <button onClick={() => act({ action: 'update', id: node.id, active: !node.active }, node.active ? 'Thème archivé.' : 'Thème restauré.')} className="rounded px-1.5 text-xs text-lank/60 hover:bg-lank/10">
               {node.active ? 'Archiver' : 'Restaurer'}
             </button>
@@ -176,6 +234,7 @@ export function ThemeManager({
         </div>
         {editingId === node.id && renderDraftForm(() => submitEdit(node.id), 'Enregistrer')}
         {addingUnder === node.id && renderDraftForm(() => submitAdd(node.id), 'Créer le sous-thème')}
+        {movingId === node.id && renderMoveForm(node)}
         {node.children.length > 0 && (
           <ul>
             {node.children.map((c, i) => (

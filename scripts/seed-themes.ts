@@ -59,7 +59,16 @@ const TAXONOMY: Node[] = [
     children: [
       { slug: 'fiscalite-impots', fr: 'Fiscalité / impôts (DGI)', en: 'Taxation (DGI)', ht: 'Fiskalite / enpo (DGI)' },
       { slug: 'lois-de-finances', fr: 'Lois de finances', en: 'Finance acts', ht: 'Lwa finans' },
-      { slug: 'tarifs-douaniers', fr: 'Tarifs douaniers', en: 'Customs tariffs', ht: 'Tarif ladwàn' },
+      {
+        slug: 'douane',
+        fr: 'Douane',
+        en: 'Customs',
+        ht: 'Ladwàn',
+        children: [
+          { slug: 'tarifs-douaniers', fr: 'Tarifs douaniers', en: 'Customs tariffs', ht: 'Tarif ladwàn' },
+          { slug: 'code-douanier', fr: 'Code douanier', en: 'Customs code', ht: 'Kòd ladwàn' },
+        ],
+      },
     ],
   },
   {

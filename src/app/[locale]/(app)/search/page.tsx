@@ -13,7 +13,7 @@ import { guard, LIMITS } from '@/lib/security/ratelimit'
 import { RateLimitNotice } from '@/components/RateLimitNotice'
 import { can } from '@/lib/rbac'
 import { accessibleTypes, isIndexOnly } from '@/lib/access'
-import { DOC_TYPE_LIST } from '@/lib/brand'
+import { DOC_TYPE_LIST, DOC_TYPE_META } from '@/lib/brand'
 import { TYPE_SLUGS, isIndexCategory, type DocType, type DocStatus } from '@/lib/types'
 
 export default async function SearchPage({
@@ -112,8 +112,19 @@ export default async function SearchPage({
   const baseParams: SP = { q, type: typeSlug, num: searchParams.num, year: searchParams.year, sort: searchParams.sort }
   const totalPages = Math.ceil(result.total / PAGE_SIZE)
 
+  // Retour vers l'accueil de la section quand la recherche est filtrée sur un type qui
+  // en possède une (ex. « Législation annotée » → /doctrine, « Le Moniteur » → /legislation).
+  const landingSlug = selectedType
+    ? ({ DOCTRINE: 'doctrine', LEGISLATION: 'legislation', TARIF_DOUANIER: 'tarifs' } as Partial<Record<DocType, string>>)[selectedType]
+    : undefined
+
   return (
     <div className="space-y-5">
+      {landingSlug && selectedType && (
+        <Link href={`/${locale}/${landingSlug}`} className="inline-flex items-center gap-1 text-sm font-medium text-endeks-700 hover:underline">
+          ← {DOC_TYPE_META[selectedType].label[locale]}
+        </Link>
+      )}
       <div>
         <p className="text-sm text-lank/55">
           {result.total} {t.search.results} {q && <>· {t.search.resultsFor} « {q} »</>}
