@@ -49,7 +49,17 @@ const L = {
   empty: { fr: 'Aucun texte accessible dans ce thème pour le moment.', en: 'No accessible text in this theme yet.', ht: 'Pa gen tèks aksesib nan tèm sa a pou kounye a.' },
 } as const
 
-export function ThemeBrowser({ locale, tree, counts }: { locale: Locale; tree: ThemeNode[]; counts: Record<string, number> }) {
+export function ThemeBrowser({
+  locale,
+  tree,
+  counts,
+  recentThemeIds,
+}: {
+  locale: Locale
+  tree: ThemeNode[]
+  counts: Record<string, number>
+  recentThemeIds: string[]
+}) {
   const [expanded, setExpanded] = useState<Set<string>>(new Set())
   const [selected, setSelected] = useState<string | null>(null)
   const [docs, setDocs] = useState<DocRow[] | null>(null)
@@ -66,6 +76,50 @@ export function ThemeBrowser({ locale, tree, counts }: { locale: Locale; tree: T
     tree.forEach(walk)
     return memo
   }, [tree, counts])
+
+  // Sous-arbres contenant un document récent → badge « Nouveau » (remonté aux ancêtres).
+  const recentRollup = useMemo(() => {
+    const recent = new Set(recentThemeIds)
+    const has = new Set<string>()
+    const mark = (n: ThemeNode): boolean => {
+      let h = recent.has(n.id)
+      for (const c of n.children) if (mark(c)) h = true
+      if (h) has.add(n.id)
+      return h
+    }
+    tree.forEach(mark)
+    return has
+  }, [tree, recentThemeIds])
+
+  function expandToRecent(node: ThemeNode) {
+    const ids: string[] = []
+    const collect = (n: ThemeNode) => {
+      if (recentRollup.has(n.id)) {
+        ids.push(n.id)
+        n.children.forEach(collect)
+      }
+    }
+    collect(node)
+    setExpanded((prev) => new Set([...prev, ...ids]))
+  }
+  const isEmpty = (n: ThemeNode) => (subtotal.get(n.id) ?? 0) === 0
+
+  function NewBadge({ node }: { node: ThemeNode }) {
+    if (!recentRollup.has(node.id)) return null
+    return (
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation()
+          expandToRecent(node)
+        }}
+        title="Nouveau document — voir la sous-section"
+        className="mr-3 shrink-0 rounded-full bg-sitwon px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-lank transition hover:bg-sitwon-600 hover:text-cream"
+      >
+        Nouveau
+      </button>
+    )
+  }
 
   const toggleExpand = (id: string) =>
     setExpanded((prev) => {
@@ -139,9 +193,10 @@ export function ThemeBrowser({ locale, tree, counts }: { locale: Locale; tree: T
     const color = node.color || DEFAULT_COLOR
     const open = expanded.has(node.id)
     const hasChildren = node.children.length > 0
+    const empty = isEmpty(node)
     return (
       <li>
-        <div className="overflow-hidden rounded-2xl border border-lank/10 bg-white shadow-card transition hover:shadow-lg">
+        <div className={`overflow-hidden rounded-2xl border border-lank/10 bg-white shadow-card transition hover:shadow-lg ${empty ? 'opacity-55' : ''}`}>
           <div className="flex items-center gap-1">
             {hasChildren ? (
               <button type="button" onClick={() => toggleExpand(node.id)} aria-expanded={open} aria-label={open ? 'Replier' : 'Déplier'} className="flex h-12 w-9 items-center justify-center text-lank/40 hover:text-lank">
@@ -150,15 +205,16 @@ export function ThemeBrowser({ locale, tree, counts }: { locale: Locale; tree: T
             ) : (
               <span className="w-3" />
             )}
-            <button type="button" onClick={() => select(node.id)} className="flex flex-1 items-center gap-3 py-2.5 pr-4 text-left">
+            <button type="button" disabled={empty} onClick={empty ? undefined : () => select(node.id)} className={`flex flex-1 items-center gap-3 py-2.5 pr-2 text-left ${empty ? 'cursor-default' : ''}`}>
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl" style={{ backgroundColor: color + '22' }}>
                 <span className="h-4 w-4 rounded-md" style={{ backgroundColor: color }} />
               </span>
               <span className="min-w-0">
                 <span className="block text-[15px] font-semibold text-lank">{label(node)}</span>
-                <span className="block text-xs text-lank/45">{countText(node)}</span>
+                <span className="block text-xs text-lank/45">{empty ? 'Aucun texte pour le moment' : countText(node)}</span>
               </span>
             </button>
+            <NewBadge node={node} />
           </div>
           {(open || selected === node.id) && (
             <div className="border-t border-lank/5 px-3 pb-3 pt-1">
@@ -182,9 +238,10 @@ export function ThemeBrowser({ locale, tree, counts }: { locale: Locale; tree: T
     const open = expanded.has(node.id)
     const isSel = selected === node.id
     const hasChildren = node.children.length > 0
+    const empty = isEmpty(node)
     return (
       <li>
-        <div className="flex items-center gap-1.5 rounded-lg hover:bg-paper" style={{ paddingLeft: (depth - 1) * 18 }}>
+        <div className={`flex items-center gap-1.5 rounded-lg hover:bg-paper ${empty ? 'opacity-55' : ''}`} style={{ paddingLeft: (depth - 1) * 18 }}>
           {hasChildren ? (
             <button type="button" onClick={() => toggleExpand(node.id)} aria-expanded={open} aria-label={open ? 'Replier' : 'Déplier'} className="flex h-7 w-6 items-center justify-center text-lank/40 hover:text-lank">
               <span className={`text-[10px] transition-transform ${open ? 'rotate-90' : ''}`}>▶</span>
@@ -193,10 +250,11 @@ export function ThemeBrowser({ locale, tree, counts }: { locale: Locale; tree: T
             <span className="w-6" />
           )}
           <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: domainColor }} />
-          <button type="button" onClick={() => select(node.id)} className={`flex-1 py-1.5 text-left text-sm ${isSel ? 'font-semibold text-lank' : 'text-lank/75 hover:text-lank'}`}>
+          <button type="button" disabled={empty} onClick={empty ? undefined : () => select(node.id)} className={`flex-1 py-1.5 text-left text-sm ${empty ? 'cursor-default text-lank/40' : isSel ? 'font-semibold text-lank' : 'text-lank/75 hover:text-lank'}`}>
             {label(node)}
             <span className="ml-2 text-xs font-normal text-lank/35">{countText(node)}</span>
           </button>
+          <NewBadge node={node} />
         </div>
         {isSel && <div style={{ paddingLeft: (depth - 1) * 18 + 26 }}><DocList themeId={node.id} /></div>}
         {open && hasChildren && (
