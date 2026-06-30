@@ -35,6 +35,14 @@ export function AnnotatedText({
       {blocks.map((b, i) => {
         // ── En-têtes de section ──
         if (b.kind === 'section') {
+          if (b.tocKind === 'title') {
+            // Page de titre du décret (CODE DU TRAVAIL / DUVALIER…) — centrée.
+            return (
+              <p key={i} id={b.anchor} className="scroll-mt-24 text-center font-serif font-bold uppercase tracking-wide text-lank first:text-xl first:text-soley-700">
+                {b.text}
+              </p>
+            )
+          }
           if (b.level === 1) {
             // TITRE / ANNEXE : séparateur majeur.
             return (
@@ -83,25 +91,26 @@ export function AnnotatedText({
         const extra = (
           <>
             {subjects && subjects.length > 0 && (
-              <div className="mt-2 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5">
+              <div className="mt-2 flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
                 <span className="rounded bg-soley-50 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-soley-700">{lt(INDEX_LBL)}</span>
-                {subjects.slice(0, 6).map((s, k, arr) => (
-                  <span key={s.subject} className="text-[11px]">
-                    {s.refs.length > 0 ? (
-                      <a
-                        href={`#art-${s.refs[0]}`}
-                        title={`Articles : ${s.refs.join(', ')}`}
-                        className="text-soley-700 underline decoration-soley/30 underline-offset-2 hover:decoration-soley"
-                      >
-                        {s.subject}
-                      </a>
-                    ) : (
-                      <span className="text-lank/55">{s.subject}</span>
+                {subjects.slice(0, 8).map((s) => (
+                  <span key={s.subject} className="text-[11px] text-lank/55">
+                    {s.subject}
+                    {s.refs.length > 0 && (
+                      <>
+                        {' → '}
+                        {s.refs.slice(0, 4).map((r, j, a) => (
+                          <span key={r}>
+                            <a href={`#art-${r}`} className="font-semibold text-soley-700 hover:underline">
+                              {r}
+                            </a>
+                            {j < a.length - 1 ? ', ' : s.refs.length > 4 ? '…' : ''}
+                          </span>
+                        ))}
+                      </>
                     )}
-                    {k < arr.length - 1 && <span className="text-lank/25"> ·</span>}
                   </span>
                 ))}
-                {subjects.length > 6 && <span className="text-[11px] text-lank/40">+{subjects.length - 6}</span>}
               </div>
             )}
             {cases && cases.length > 0 && <Jurisprudence cases={cases} locale={locale} />}

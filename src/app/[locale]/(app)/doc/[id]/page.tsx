@@ -367,10 +367,11 @@ export default async function DocPage({
         </section>
       )}
 
-      {/* Texte officiel — jamais traduit (§02). Texte annoté : menu latéral (sommaire +
-          index + recherche) à droite ; sinon rendu standard pleine largeur. */}
+      {/* Texte officiel — jamais traduit (§02). Texte annoté : menu latéral (recherche +
+          sommaire + index) à GAUCHE ; sinon rendu standard pleine largeur. */}
       {annotations ? (
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
+        <div className="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:items-start">
+          <CodeSidebar docId={doc.id} groups={annotations.navToc} indexEntries={annotations.indexEntries} locale={locale} />
           <section className="min-w-0 rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
             <div className="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-lank/10 pb-3">
               <h2 className="text-sm font-semibold text-lank">{t.doc.officialText}</h2>
@@ -381,7 +382,6 @@ export default async function DocPage({
             <p className="mb-3 rounded-lg bg-lank-50 px-3 py-2 text-[11px] leading-relaxed text-lank/60">{t.doc.unofficialNote}</p>
             <AnnotatedText text={effectiveBody} annotations={annotations} locale={locale} terms={hlTerms} />
           </section>
-          <CodeSidebar docId={doc.id} groups={annotations.navToc} indexEntries={annotations.indexEntries} locale={locale} />
         </div>
       ) : (
         <section className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">

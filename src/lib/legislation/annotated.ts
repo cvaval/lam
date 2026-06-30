@@ -87,7 +87,7 @@ export function parseAnnotations(json: string | null | undefined): Annotations |
 }
 
 export type AnnBlock =
-  | { kind: 'section'; anchor: string; level: number; text: string }
+  | { kind: 'section'; anchor: string; level: number; tocKind: string; text: string }
   | { kind: 'body'; anchor: string | null; jurisKey: string | null; noAnchors: boolean; text: string }
 
 /** Clé de jurisprudence qualifiée par section (anti-collision Code ↔ annexes). */
@@ -141,7 +141,7 @@ export function segmentAnnotated(body: string, toc: TocEntry[]): AnnBlock[] {
     const line = raw.trim()
     if (tocPtr < toc.length && normLine(line) === normLine(toc[tocPtr].label)) {
       flush()
-      blocks.push({ kind: 'section', anchor: toc[tocPtr].anchor, level: toc[tocPtr].level, text: line })
+      blocks.push({ kind: 'section', anchor: toc[tocPtr].anchor, level: toc[tocPtr].level, tocKind: toc[tocPtr].kind, text: line })
       curSection = toc[tocPtr].anchor
       if (toc[tocPtr].kind === 'connexe') inAnnexe = true
       tocPtr++

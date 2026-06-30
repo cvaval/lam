@@ -5,7 +5,7 @@ import { fold } from '@/lib/search/normalize'
 import type { Locale } from '@/lib/types'
 import type { NavGroup, NavItem, IndexEntry } from '@/lib/legislation/annotated'
 
-type Tab = 'search' | 'toc' | 'index'
+type Tab = 'toc' | 'index'
 
 const L = {
   search: { fr: 'Recherche', en: 'Search', ht: 'Rechèch' },
@@ -57,13 +57,18 @@ export function CodeSidebar({
       </button>
 
       <div className={`${open ? 'block' : 'hidden'} lg:block`}>
-        <div className="flex border-t border-lank/10 lg:border-t-0">
-          {(['search', 'toc', 'index'] as Tab[]).map((t) => (
+        {/* Recherche — toujours en haut, au-dessus du sommaire et de l'index. */}
+        <div className="border-t border-lank/10 lg:border-t-0">
+          <SearchPanel docId={docId} locale={locale} lt={lt} />
+        </div>
+        {/* Onglets Sommaire | Index */}
+        <div className="flex border-y border-lank/10">
+          {(['toc', 'index'] as Tab[]).map((t) => (
             <button
               key={t}
               type="button"
               onClick={() => setTab(t)}
-              className={`flex-1 border-b-2 px-3 py-2.5 text-xs font-semibold transition ${
+              className={`flex-1 border-b-2 px-3 py-2 text-xs font-semibold transition ${
                 tab === t ? 'border-soley text-lank' : 'border-transparent text-lank/45 hover:text-lank/70'
               }`}
             >
@@ -71,8 +76,7 @@ export function CodeSidebar({
             </button>
           ))}
         </div>
-        <div className="max-h-[60vh] overflow-auto lg:max-h-[calc(100vh-9rem)]">
-          {tab === 'search' && <SearchPanel docId={docId} locale={locale} lt={lt} />}
+        <div className="max-h-[48vh] overflow-auto lg:max-h-[calc(100vh-16rem)]">
           {tab === 'toc' && <TocPanel groups={groups} />}
           {tab === 'index' && <IndexPanel entries={indexEntries} locale={locale} lt={lt} />}
         </div>
@@ -151,7 +155,7 @@ function SearchPanel({ docId, locale, lt }: { docId: string; locale: Locale; lt:
         ) : hits.length === 0 ? (
           <p className="px-1 text-xs text-lank/45">{lt(L.none)}</p>
         ) : (
-          <ul className="space-y-1">
+          <ul className="max-h-[34vh] space-y-1 overflow-auto">
             {hits.map((h) => (
               <li key={h.anchor}>
                 <a href={`#${h.anchor}`} className="block rounded-lg px-2 py-1.5 transition hover:bg-paper">
@@ -190,7 +194,9 @@ function TocPanel({ groups }: { groups: NavGroup[] }) {
 
 function TreeNode({ item, depth }: { item: NavItem; depth: number }) {
   const hasKids = !!item.children && item.children.length > 0
-  const [open, setOpen] = useState(false)
+  // Livres (niveau 0) dépliés par défaut → les chapitres sont visibles d'emblée ;
+  // niveaux plus profonds (sections) repliés.
+  const [open, setOpen] = useState(depth === 0)
   return (
     <li>
       <div className="flex items-start gap-1" style={{ paddingLeft: depth * 8 }}>
