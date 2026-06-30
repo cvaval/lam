@@ -191,6 +191,7 @@ export const ht: Dictionary = {
     moniteurNav: 'Le Moniteur',
     brhNav: 'Sikilè BRH',
     tarifsNav: 'Tarif ladwàn',
+    themesNav: 'Lejislasyon anote : tèm',
     applyPromo: 'Aplike yon kòd',
   },
   tarifs: {

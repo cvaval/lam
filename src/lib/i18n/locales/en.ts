@@ -191,6 +191,7 @@ export const en: Dictionary = {
     moniteurNav: 'Le Moniteur',
     brhNav: 'BRH Circulars',
     tarifsNav: 'Customs tariffs',
+    themesNav: 'Annotated legislation: themes',
     applyPromo: 'Apply a code',
   },
   tarifs: {

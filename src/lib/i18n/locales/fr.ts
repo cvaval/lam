@@ -196,6 +196,7 @@ export const fr = {
     moniteurNav: 'Le Moniteur',
     brhNav: 'Circulaires BRH',
     tarifsNav: 'Tarifs douaniers',
+    themesNav: 'Législation annotée : thèmes',
     applyPromo: 'Appliquer un code',
   },
   tarifs: {

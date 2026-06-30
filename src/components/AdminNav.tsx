@@ -15,6 +15,7 @@ export function AdminNav({ locale, t, role }: { locale: Locale; t: Dictionary; r
     ...(isAdmin ? [{ href: `/${locale}/admin/moniteur`, label: t.admin.moniteurNav }] : []),
     ...(isAdmin ? [{ href: `/${locale}/admin/brh`, label: t.admin.brhNav }] : []),
     ...(isAdmin ? [{ href: `/${locale}/admin/tarifs`, label: t.admin.tarifsNav }] : []),
+    ...(isAdmin ? [{ href: `/${locale}/admin/themes`, label: t.admin.themesNav }] : []),
     { href: `/${locale}/admin/upload`, label: t.admin.upload },
     ...(isAdmin ? [{ href: `/${locale}/admin/logs`, label: t.admin.logs }] : []),
   ]

@@ -13,6 +13,8 @@
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:seed": "tsx prisma/seed.ts",
+    "seed:themes": "tsx scripts/seed-themes.ts",
+    "themes:tree": "tsx scripts/themes-tree.ts",
     "db:reset": "prisma db push --force-reset && tsx prisma/seed.ts",
     "import:index": "tsx scripts/import-moniteur.ts",
     "search:reindex": "tsx scripts/reindex.ts",

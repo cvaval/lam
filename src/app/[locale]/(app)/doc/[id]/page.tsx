@@ -24,6 +24,14 @@ import { parseEditionHeader } from '@/lib/doc/edition-meta'
 import { pickLocale } from '@/lib/i18n/pick'
 import { DOC_TYPE_META } from '@/lib/brand'
 import type { DocType, DocStatus } from '@/lib/types'
+import { getThemeTree } from '@/lib/legislation/themes'
+import { resolveCrossRefs } from '@/lib/legislation/refs'
+import { listArticles } from '@/lib/legislation/articles'
+import { LegislationAdminPanel } from '@/components/LegislationAdminPanel'
+import { getAmendments } from '@/lib/legislation/amendments'
+import { applyAmendments } from '@/lib/legislation/segment'
+import { labelFromAnchor } from '@/lib/legislation/articles'
+import { AmendmentHistory, type AmendItem } from '@/components/AmendmentHistory'
 
 export default async function DocPage({
   params,
@@ -79,6 +87,30 @@ export default async function DocPage({
   // bodyOriginal sinon. L'original reste intact en base (§02). L'accès étant accordé par
   // service (sinon redirection ci-dessus), le texte est toujours affiché en intégralité.
   const body = doc.bodyClean ?? doc.bodyOriginal
+
+  // Amendements au niveau article (overlay §02) : le texte affiché montre par défaut la
+  // version EN VIGUEUR de chaque article amendé ; l'historique (anciennes versions) reste
+  // lisible plus bas (AmendmentHistory). Aucune ligne d'overlay = texte original inchangé.
+  const amendments = await getAmendments(doc.id)
+  const effectiveBody = applyAmendments(body, amendments)
+  const amendedAnchors = amendments.size ? new Set(amendments.keys()) : undefined
+  const amendItems: AmendItem[] = [...amendments.values()].map((ov) => {
+    const ab = ov.history.find((v) => v.status === 'ABROGE')
+    const statusLine = ov.abrogated
+      ? `Abrogé${ab?.effectiveDate ? ' le ' + formatDate(locale, ab.effectiveDate) : ''}${ab?.amendedByNumber ? ' — ' + ab.amendedByNumber : ''}`
+      : `En vigueur${ov.inForce?.effectiveDate ? ' depuis le ' + formatDate(locale, ov.inForce.effectiveDate) : ''}${ov.inForce?.amendedByNumber ? ' (' + ov.inForce.amendedByNumber + ')' : ''}`
+    return {
+      anchor: ov.anchor,
+      label: ov.label ?? labelFromAnchor(ov.anchor),
+      abrogated: ov.abrogated,
+      statusLine,
+      history: ov.history.map((v) => ({
+        heading: `${v.status === 'ABROGE' ? 'Version abrogée' : 'Ancienne version'}${v.effectiveDate ? ' — ' + formatDate(locale, v.effectiveDate) : ''}${v.amendedByNumber ? ' (' + v.amendedByNumber + ')' : ''}`,
+        body: v.body,
+      })),
+    }
+  })
+
   // Tableaux & encadrés colorés (reproduction du rendu visuel du PDF).
   const richBlocks = parseRichBlocks(doc.richBlocksJson)
   // Index thématique IA (codes/lois longs) — alimente le navigateur par thème + renvois.
@@ -90,7 +122,7 @@ export default async function DocPage({
 
   // Sommaire des tableaux : numérotation par ordre d'AFFICHAGE (même source que
   // OfficialText → buildBodySegments), pour des ancres #tableau-N cohérentes.
-  const tableEntries = buildBodySegments(body, richBlocks)
+  const tableEntries = buildBodySegments(effectiveBody, richBlocks)
     .filter((s) => s.kind === 'rich' && s.block.type === 'table')
     .map((s, i) => ({ num: i + 1, cap: tableShortCaption((s as { block: RichTable }).block), orphan: Boolean((s as { orphan?: boolean }).orphan) }))
   const tl = (o: { fr: string; en: string; ht: string }) => o[locale as 'fr' | 'en' | 'ht'] ?? o.fr
@@ -99,6 +131,26 @@ export default async function DocPage({
     table: tl({ fr: 'Tableau', en: 'Table', ht: 'Tablo' }),
     orphan: tl({ fr: 'emplacement approximatif', en: 'approximate position', ht: 'kote apwoksimatif' }),
   }
+
+  // Outils éditoriaux (Master Admin) : thèmes, renvois et amendements de cette fiche.
+  const adminPanel =
+    user.role === 'MASTER_ADMIN'
+      ? await (async () => {
+          const [tree, dThemes, crossRefs] = await Promise.all([
+            getThemeTree({ activeOnly: true }),
+            prisma.documentTheme.findMany({ where: { documentId: doc.id }, select: { themeId: true, isPrimary: true } }),
+            prisma.crossRef.findMany({ where: { fromId: doc.id }, orderBy: { position: 'asc' } }),
+          ])
+          const resolved = await resolveCrossRefs(crossRefs)
+          return {
+            tree,
+            currentThemeIds: dThemes.map((dt) => dt.themeId),
+            primaryThemeId: dThemes.find((dt) => dt.isPrimary)?.themeId ?? null,
+            articles: listArticles(body),
+            refs: resolved.map((r) => ({ refId: r.refId, kind: r.kind, label: r.label, toId: r.toId, pending: r.pending, anchor: r.anchor })),
+          }
+        })()
+      : null
 
   // Termes recherchés à surligner dans le texte et les tableaux (depuis ?q= au clic
   // d'un résultat de recherche) — mêmes termes étendus que le moteur (synonymes).
@@ -335,9 +387,11 @@ export default async function DocPage({
           </details>
         )}
         <div className="relative">
-          <OfficialText text={body} hrefFor={hrefFor} rich={richBlocks} locale={locale} terms={hlTerms} />
+          <OfficialText text={effectiveBody} hrefFor={hrefFor} rich={richBlocks} locale={locale} terms={hlTerms} amendedAnchors={amendedAnchors} />
         </div>
       </section>
+
+      {amendItems.length > 0 && <AmendmentHistory items={amendItems} locale={locale} />}
 
       {/* Versions & historique (type 1) */}
       {doc.versions.length > 0 && (
@@ -377,6 +431,17 @@ export default async function DocPage({
             ))}
           </ul>
         </section>
+      )}
+
+      {adminPanel && (
+        <LegislationAdminPanel
+          documentId={doc.id}
+          themeTree={adminPanel.tree}
+          currentThemeIds={adminPanel.currentThemeIds}
+          primaryThemeId={adminPanel.primaryThemeId}
+          articles={adminPanel.articles}
+          refs={adminPanel.refs}
+        />
       )}
     </article>
   )

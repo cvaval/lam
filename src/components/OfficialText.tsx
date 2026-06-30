@@ -39,6 +39,7 @@ export function OfficialText({
   rich = [],
   locale = 'fr',
   terms,
+  amendedAnchors,
 }: {
   text: string
   hrefFor?: (ref: CircRef) => string | null
@@ -46,6 +47,8 @@ export function OfficialText({
   locale?: Locale
   /** termes recherchés à surligner (folés) — propagés depuis ?q= au clic d'un résultat */
   terms?: string[]
+  /** ancres d'articles amendés → marqueur « ✎ modifié » renvoyant vers l'historique. */
+  amendedAnchors?: Set<string>
 }) {
   const segments = buildBodySegments(text, rich)
   const usedAnchors = new Set<string>()
@@ -73,6 +76,16 @@ export function OfficialText({
     if (!id || usedAnchors.has(id)) return undefined
     usedAnchors.add(id)
     return id
+  }
+
+  // Marqueur « ✎ modifié » sur un article amendé → lien vers son historique (#hist-art-N).
+  function amendMark(id: string | undefined) {
+    if (!id || !amendedAnchors?.has(id)) return null
+    return (
+      <a href={`#hist-${id}`} className="ml-1.5 align-super text-[10px] font-semibold text-sitwon-600 no-underline hover:underline" title="Article amendé — voir l'historique">
+        ✎ modifié
+      </a>
+    )
   }
 
   // Renvois croisés → liens, sinon texte brut ; termes recherchés surlignés (hl).
@@ -133,13 +146,19 @@ export function OfficialText({
         return (
           <p key={key} id={id} className="scroll-mt-24 pt-1.5 font-semibold text-lank">
             {render(b.text)}
+            {amendMark(id)}
           </p>
         )
       }
       // Les articles longs (« Article 12.- … ») ne sont pas des intertitres mais doivent
       // tout de même porter une ancre #art-N (renvois croisés, index thématique).
       const pid = headingAnchor(b.text)
-      return <p key={key} id={pid} className={pid ? 'scroll-mt-24' : undefined}>{render(b.text)}</p>
+      return (
+        <p key={key} id={pid} className={pid ? 'scroll-mt-24' : undefined}>
+          {render(b.text)}
+          {amendMark(pid)}
+        </p>
+      )
     })
   }
 

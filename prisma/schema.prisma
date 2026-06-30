@@ -299,6 +299,12 @@ model Document {
   exports        ExportRecord[]
   publications   CompanyPublication[]
 
+  // ── Section Législation annotée : thématisation + renvois + amendements (§ thèmes) ──
+  themes          DocumentTheme[]
+  refsFrom        CrossRef[]       @relation("RefFrom")
+  refsTo          CrossRef[]       @relation("RefTo")
+  articleVersions ArticleVersion[]
+
   @@index([type])
   @@index([status])
   @@index([fiscalYear])
@@ -481,4 +487,95 @@ model CustomsTariff {
   @@index([code])
   @@index([searchCode])
   @@index([chapter])
+}
+
+// ───────────── Législation annotée : thèmes · renvois · amendements ─────────────
+// Voir docs/architecture-legislation-themes.md. Deux unicités sont garanties au niveau
+// applicatif (Prisma ne génère pas d'index partiel) ET renforcées par les index partiels
+// de prisma/sql/legislation-themes-indexes.sql (à appliquer après `db push`) :
+//   • un seul DocumentTheme.isPrimary par documentId ;
+//   • une seule ArticleVersion EN_VIGUEUR par (documentId, anchor).
+
+/// Taxonomie de thèmes hiérarchique, trilingue, au niveau du corpus. Liste d'adjacence
+/// (sous-arbre par CTE récursive). slug IMMUABLE. active=false = archivé (masqué, conservé).
+model Theme {
+  id       String  @id @default(cuid())
+  slug     String  @unique
+  labelFr  String
+  labelEn  String?
+  labelHt  String?
+  parentId String?
+  parent   Theme?  @relation("ThemeTree", fields: [parentId], references: [id], onDelete: Restrict)
+  children Theme[] @relation("ThemeTree")
+  position Int     @default(0)
+  color    String?
+  icon     String?
+  active   Boolean @default(true)
+
+  documents DocumentTheme[]
+
+  @@index([parentId])
+}
+
+/// Rattachement document ↔ thème (M:N — un texte peut vivre dans plusieurs thèmes).
+/// isPrimary ≤ 1 par doc (thème de tête / fil d'Ariane), garanti côté applicatif.
+model DocumentTheme {
+  documentId String
+  document   Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  themeId    String
+  theme      Theme    @relation(fields: [themeId], references: [id], onDelete: Cascade)
+  isPrimary  Boolean  @default(false)
+  assignedBy String? // "ADMIN" | "AI" | userId
+  createdAt  DateTime @default(now())
+
+  @@id([documentId, themeId])
+  @@index([themeId])
+}
+
+/// Référence croisée dynamique (généralise Citation + abrogatedByNumber). Cible RÉSOLUE
+/// (toId) OU par DÉSIGNATION (toType+toNumber, robuste au ré-import) ; toAnchor = renvoi
+/// vers un article précis ("art-12"). Résolution déterministe (cf. lib/legislation/refs).
+model CrossRef {
+  id        String    @id @default(cuid())
+  fromId    String
+  from      Document  @relation("RefFrom", fields: [fromId], references: [id], onDelete: Cascade)
+  toId      String?
+  to        Document? @relation("RefTo", fields: [toId], references: [id], onDelete: SetNull)
+  toType    String?
+  toNumber  String?
+  toAnchor  String?
+  toLabel   String?
+  kind      String    @default("CITE") // CITE | COMMENTE | MODIFIE | ABROGE | APPLIQUE | VOIR
+  note      String?
+  source    String    @default("EDITORIAL") // EDITORIAL | AUTO
+  position  Int       @default(0)
+  createdAt DateTime  @default(now())
+
+  @@index([fromId])
+  @@index([toId])
+  @@index([toType, toNumber])
+}
+
+/// Amendement au niveau ARTICLE (overlay ; bodyOriginal reste canonique §02). La version
+/// EN_VIGUEUR est lue par défaut ; MODIFIE/ABROGE = historique dépliable au lecteur.
+/// ≤ 1 EN_VIGUEUR par (documentId, anchor), garanti côté applicatif.
+model ArticleVersion {
+  id              String    @id @default(cuid())
+  documentId      String
+  document        Document  @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  anchor          String // "art-95-bis" — clé de l'article (src/lib/doc/anchors.ts)
+  label           String? // "Article 95 bis" (affichage)
+  body            String // texte officiel de CETTE version
+  status          String    @default("EN_VIGUEUR") // EN_VIGUEUR | MODIFIE | ABROGE
+  effectiveDate   DateTime?
+  amendedByDocId  String?
+  amendedByNumber String?
+  supersedesId    String?
+  note            String?
+  origin          String    @default("MANUAL") // MANUAL | AUTO
+  seq             Int       @default(0)
+  createdAt       DateTime  @default(now())
+
+  @@index([documentId, anchor])
+  @@index([amendedByDocId])
 }

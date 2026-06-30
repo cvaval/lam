@@ -28,6 +28,16 @@ export type AuditAction =
   | 'EXPORT'
   | 'SCRAPING_ALERT'
   | 'QUOTA_BLOCKED'
+  // Législation annotée : thèmes, renvois, amendements
+  | 'THEME_CREATED'
+  | 'THEME_UPDATED'
+  | 'THEME_ARCHIVED'
+  | 'THEME_DELETED'
+  | 'DOC_THEMED'
+  | 'CROSSREF_ADDED'
+  | 'CROSSREF_REMOVED'
+  | 'ARTICLE_AMENDED'
+  | 'ARTICLE_ABROGATED'
 
 export async function audit(
   opts: {
