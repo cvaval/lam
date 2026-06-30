@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { fold } from '@/lib/search/normalize'
 import type { Locale } from '@/lib/types'
+import { cleanIndexSubject } from '@/lib/legislation/annotated'
 import type { NavGroup, NavItem, IndexEntry } from '@/lib/legislation/annotated'
 
 type Tab = 'toc' | 'index'
@@ -225,7 +226,21 @@ function TreeNode({ item, depth }: { item: NavItem; depth: number }) {
 // ─────────────────────────── Index alphabétique ───────────────────────────
 function IndexPanel({ entries, locale, lt }: { entries: IndexEntry[]; locale: Locale; lt: (o: Record<Locale, string>) => string }) {
   const [q, setQ] = useState('')
-  const folded = useMemo(() => entries.map((e) => ({ e, f: fold(e.subject) })), [entries])
+  // Nettoie « X — définition » / « Définitions — X » → « X » et déduplique (fusionne les renvois) ;
+  // le tri alphabétique est appliqué ensuite.
+  const cleaned = useMemo(() => {
+    const m = new Map<string, { subject: string; refs: Set<number> }>()
+    for (const e of entries) {
+      const subject = cleanIndexSubject(e.subject)
+      if (!subject) continue // « Définition » nue ignorée
+      const k = fold(subject)
+      const cur = m.get(k)
+      if (cur) e.ctRefs.forEach((n) => cur.refs.add(n))
+      else m.set(k, { subject, refs: new Set(e.ctRefs) })
+    }
+    return [...m.values()].map((v) => ({ subject: v.subject, ctRefs: [...v.refs].sort((a, b) => a - b) }))
+  }, [entries])
+  const folded = useMemo(() => cleaned.map((e) => ({ e, f: fold(e.subject) })), [cleaned])
   const groups = useMemo(() => {
     const fq = fold(q.trim())
     const filtered = fq ? folded.filter((x) => x.f.includes(fq)) : folded

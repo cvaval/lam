@@ -1,6 +1,6 @@
 import { OfficialText } from './OfficialText'
 import { Jurisprudence } from './Jurisprudence'
-import { segmentAnnotated, indexBacklinks, type Annotations, type Backlink } from '@/lib/legislation/annotated'
+import { segmentAnnotated, indexBacklinks, cleanIndexSubject, type Annotations, type Backlink } from '@/lib/legislation/annotated'
 import { labelFromAnchor } from '@/lib/legislation/articles'
 import type { Locale } from '@/lib/types'
 
@@ -101,27 +101,26 @@ export function AnnotatedText({
           subjects = backlinks.get(b.anchor)
           if (subjects) shownIndex.add(b.anchor)
         }
+        // Renvois d'index : on ne garde que ceux qui pointent vers d'AUTRES articles (cliquables) ;
+        // les sujets sans renvoi (gris, sans lien) sont retirés. Libellés nettoyés (« définition »).
+        const linked = subjects?.filter((s) => s.refs.length > 0 && cleanIndexSubject(s.subject)) ?? []
         const extra = (
           <>
-            {subjects && subjects.length > 0 && (
+            {linked.length > 0 && (
               <div className="mt-2 flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
                 <span className="rounded bg-soley-50 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-soley-700">{lt(INDEX_LBL)}</span>
-                {subjects.slice(0, 8).map((s) => (
+                {linked.slice(0, 8).map((s) => (
                   <span key={s.subject} className="text-[11px] text-lank/55">
-                    {s.subject}
-                    {s.refs.length > 0 && (
-                      <>
-                        {' → '}
-                        {s.refs.slice(0, 4).map((r, j, a) => (
-                          <span key={r}>
-                            <a href={`#art-${r}`} className="font-semibold text-soley-700 hover:underline">
-                              {r}
-                            </a>
-                            {j < a.length - 1 ? ', ' : s.refs.length > 4 ? '…' : ''}
-                          </span>
-                        ))}
-                      </>
-                    )}
+                    {cleanIndexSubject(s.subject)}
+                    {' → '}
+                    {s.refs.slice(0, 4).map((r, j, a) => (
+                      <span key={r}>
+                        <a href={`#art-${r}`} className="font-semibold text-soley-700 hover:underline">
+                          {r}
+                        </a>
+                        {j < a.length - 1 ? ', ' : s.refs.length > 4 ? '…' : ''}
+                      </span>
+                    ))}
                   </span>
                 ))}
               </div>

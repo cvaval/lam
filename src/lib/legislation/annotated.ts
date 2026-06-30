@@ -30,6 +30,20 @@ export interface IndexEntry {
   subject: string
   ctRefs: number[] // numéros d'articles du Code
 }
+/**
+ * Nettoie un sujet d'index : retire la mention « définition(s) » en préfixe (« Définitions — X »)
+ * ou en suffixe (« X — définition ») pour ne garder que le terme, première lettre en capitale.
+ */
+export function cleanIndexSubject(s: string): string {
+  if (/^d[ée]finitions?\s*$/i.test(s.trim())) return '' // entrée « Définition » nue (sans terme) → ignorée
+  const t = s
+    .replace(/^d[ée]finitions?\s*[—–-]\s*/i, '')
+    .replace(/\s*[—–-]\s*d[ée]finitions?\s*$/i, '')
+    .trim()
+  const r = t || s
+  return r.charAt(0).toUpperCase() + r.slice(1)
+}
+
 export interface CrossRefEntry {
   anchor: string // ancre de section (sec-N) où afficher le renvoi
   articles: number[] // articles du Code visés (liens #art-N)
