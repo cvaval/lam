@@ -13,6 +13,7 @@ export interface JurisCase {
 export interface NavItem {
   label: string
   anchor: string // sec-N
+  children?: NavItem[] // sous-niveau (chapitres d'un livre, divisions d'une annexe)
 }
 export interface NavGroup {
   label: string
@@ -39,19 +40,26 @@ export interface Annotations {
   indexEntries: IndexEntry[]
 }
 
+export interface Backlink {
+  subject: string
+  refs: number[] // AUTRES articles du même sujet (l'article courant exclu) — cibles cliquables
+}
+
 /**
- * Renvoi inverse de l'index : numéro d'article du Code (ancre art-N) → sujets qui le citent.
- * Permet d'afficher, sous chaque article, les entrées de l'index qui y renvoient.
+ * Renvoi inverse de l'index : numéro d'article du Code (ancre art-N) → entrées d'index qui le
+ * citent, chacune avec les AUTRES articles du même sujet. Affiché sous chaque article ; chaque
+ * sujet renvoie (cliquable) vers un article connexe traitant du même thème.
  */
-export function indexBacklinks(entries: IndexEntry[]): Map<string, string[]> {
-  const m = new Map<string, string[]>()
+export function indexBacklinks(entries: IndexEntry[]): Map<string, Backlink[]> {
+  const m = new Map<string, Backlink[]>()
   for (const e of entries) {
     for (const n of e.ctRefs) {
       const k = `art-${n}`
+      const refs = e.ctRefs.filter((r) => r !== n)
       const arr = m.get(k)
       if (arr) {
-        if (!arr.includes(e.subject)) arr.push(e.subject)
-      } else m.set(k, [e.subject])
+        if (!arr.some((x) => x.subject === e.subject)) arr.push({ subject: e.subject, refs })
+      } else m.set(k, [{ subject: e.subject, refs }])
     }
   }
   return m

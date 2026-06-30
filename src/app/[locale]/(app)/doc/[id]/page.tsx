@@ -34,8 +34,7 @@ import { labelFromAnchor } from '@/lib/legislation/articles'
 import { AmendmentHistory, type AmendItem } from '@/components/AmendmentHistory'
 import { parseAnnotations } from '@/lib/legislation/annotated'
 import { AnnotatedText } from '@/components/AnnotatedText'
-import { DocumentToc } from '@/components/DocumentToc'
-import { IndexAlphabetique } from '@/components/IndexAlphabetique'
+import { CodeSidebar } from '@/components/CodeSidebar'
 
 export default async function DocPage({
   params,
@@ -195,7 +194,7 @@ export default async function DocPage({
   const editionHeader = parseEditionHeader(doc.metaJson)
 
   return (
-    <article className="mx-auto max-w-3xl space-y-6">
+    <article className={`mx-auto space-y-6 ${annotations ? 'max-w-6xl' : 'max-w-3xl'}`}>
       <BackLink fallback={`/${locale}/search?type=${meta.slug}`} label={meta.label[locale]} />
 
       <header className="space-y-3">
@@ -368,56 +367,55 @@ export default async function DocPage({
         </section>
       )}
 
-      {/* Texte officiel — jamais traduit (§02) */}
-      <section className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
-        <div className="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-lank/10 pb-3">
-          <h2 className="text-sm font-semibold text-lank">{t.doc.officialText}</h2>
-          <span className="rounded-md bg-soley-50 px-2 py-1 text-[11px] text-soley-700">
-            {locale === 'fr' ? t.doc.officialBannerFr : t.doc.officialBanner}
-          </span>
-        </div>
-        <p className="mb-3 rounded-lg bg-lank-50 px-3 py-2 text-[11px] leading-relaxed text-lank/60">
-          {t.doc.unofficialNote}
-        </p>
-        {themeIndex.length > 0 && (
-          <div className="mb-4"><CodeThemeBrowser index={themeIndex} t={t} /></div>
-        )}
-        {tableEntries.length >= 2 && (
-          <details className="mb-4 rounded-xl border border-lank/10 bg-paper/40 px-4 py-2.5">
-            <summary className="cursor-pointer select-none text-xs font-semibold uppercase tracking-wide text-lank/55">
-              {TLBL.heading} ({tableEntries.length})
-            </summary>
-            <ul className="mt-2 grid gap-1 sm:grid-cols-2">
-              {tableEntries.map((e) => (
-                <li key={e.num}>
-                  <a href={`#tableau-${e.num}`} className="text-sm text-endeks-700 hover:underline">
-                    {TLBL.table} {e.num}
-                    {e.cap && <span className="text-lank/60"> — {e.cap}</span>}
-                    {e.orphan && <span className="text-lank/40"> ({TLBL.orphan})</span>}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </details>
-        )}
-        {/* Texte annoté : table des matières repliable + jurisprudence repliable par article.
-            Sinon, rendu standard du texte officiel. */}
-        {annotations ? (
-          <>
-            <DocumentToc groups={annotations.navToc} locale={locale} />
-            {annotations.indexEntries?.length > 0 && (
-              <IndexAlphabetique entries={annotations.indexEntries} locale={locale} />
-            )}
-            <div className="relative">
-              <AnnotatedText text={effectiveBody} annotations={annotations} locale={locale} terms={hlTerms} />
+      {/* Texte officiel — jamais traduit (§02). Texte annoté : menu latéral (sommaire +
+          index + recherche) à droite ; sinon rendu standard pleine largeur. */}
+      {annotations ? (
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
+          <section className="min-w-0 rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
+            <div className="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-lank/10 pb-3">
+              <h2 className="text-sm font-semibold text-lank">{t.doc.officialText}</h2>
+              <span className="rounded-md bg-soley-50 px-2 py-1 text-[11px] text-soley-700">
+                {locale === 'fr' ? t.doc.officialBannerFr : t.doc.officialBanner}
+              </span>
             </div>
-          </>
-        ) : (
+            <p className="mb-3 rounded-lg bg-lank-50 px-3 py-2 text-[11px] leading-relaxed text-lank/60">{t.doc.unofficialNote}</p>
+            <AnnotatedText text={effectiveBody} annotations={annotations} locale={locale} terms={hlTerms} />
+          </section>
+          <CodeSidebar docId={doc.id} groups={annotations.navToc} indexEntries={annotations.indexEntries} locale={locale} />
+        </div>
+      ) : (
+        <section className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-lank/10 pb-3">
+            <h2 className="text-sm font-semibold text-lank">{t.doc.officialText}</h2>
+            <span className="rounded-md bg-soley-50 px-2 py-1 text-[11px] text-soley-700">
+              {locale === 'fr' ? t.doc.officialBannerFr : t.doc.officialBanner}
+            </span>
+          </div>
+          <p className="mb-3 rounded-lg bg-lank-50 px-3 py-2 text-[11px] leading-relaxed text-lank/60">{t.doc.unofficialNote}</p>
+          {themeIndex.length > 0 && <div className="mb-4"><CodeThemeBrowser index={themeIndex} t={t} /></div>}
+          {tableEntries.length >= 2 && (
+            <details className="mb-4 rounded-xl border border-lank/10 bg-paper/40 px-4 py-2.5">
+              <summary className="cursor-pointer select-none text-xs font-semibold uppercase tracking-wide text-lank/55">
+                {TLBL.heading} ({tableEntries.length})
+              </summary>
+              <ul className="mt-2 grid gap-1 sm:grid-cols-2">
+                {tableEntries.map((e) => (
+                  <li key={e.num}>
+                    <a href={`#tableau-${e.num}`} className="text-sm text-endeks-700 hover:underline">
+                      {TLBL.table} {e.num}
+                      {e.cap && <span className="text-lank/60"> — {e.cap}</span>}
+                      {e.orphan && <span className="text-lank/40"> ({TLBL.orphan})</span>}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
           <div className="relative">
             <OfficialText text={effectiveBody} hrefFor={hrefFor} rich={richBlocks} locale={locale} terms={hlTerms} amendedAnchors={amendedAnchors} />
           </div>
-        )}
-      </section>
+        </section>
+      )}
 
       {amendItems.length > 0 && <AmendmentHistory items={amendItems} locale={locale} />}
 
