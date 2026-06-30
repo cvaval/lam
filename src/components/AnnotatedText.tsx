@@ -49,12 +49,20 @@ export function AnnotatedText({
             )
           }
           if (b.level === 3) {
-            // Chapitre : « Chapitre N — Titre » (numéro + titre, sous-titre le cas échéant).
+            // Chapitre : « Chapitre N — Titre ».
             return (
               <h5 key={i} id={b.anchor} className="mt-5 flex scroll-mt-24 items-baseline gap-2 font-serif text-[15px] font-semibold text-lank">
                 <span aria-hidden className="text-base leading-none text-soley-600">§</span>
                 {b.text}
               </h5>
+            )
+          }
+          if (b.level === 4) {
+            // Section (sous-titre d'un chapitre).
+            return (
+              <p key={i} id={b.anchor} className="mt-3 scroll-mt-24 pl-4 text-[12.5px] font-semibold uppercase tracking-wide text-lank/50">
+                {b.text}
+              </p>
             )
           }
           // Niveau 2 : sous-titre (livre / « LOI No. X »).

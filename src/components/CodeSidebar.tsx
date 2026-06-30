@@ -11,6 +11,7 @@ const L = {
   search: { fr: 'Recherche', en: 'Search', ht: 'Rechèch' },
   toc: { fr: 'Sommaire', en: 'Contents', ht: 'Somè' },
   index: { fr: 'Index', en: 'Index', ht: 'Endèks' },
+  menu: { fr: 'Menu du Code', en: 'Code menu', ht: 'Meni Kòd la' },
   ph: { fr: 'Rechercher dans le Code…', en: 'Search the Code…', ht: 'Chèche nan Kòd la…' },
   phIndex: { fr: 'Filtrer un sujet…', en: 'Filter a subject…', ht: 'Filtre yon sijè…' },
   ai: { fr: 'Thèmes proches (IA)', en: 'Related themes (AI)', ht: 'Tèm pwòch (IA)' },
@@ -40,27 +41,41 @@ export function CodeSidebar({
 }) {
   const lt = (o: Record<Locale, string>) => o[locale] ?? o.fr
   const [tab, setTab] = useState<Tab>('toc')
+  const [open, setOpen] = useState(false) // mobile : replié par défaut (toujours ouvert sur desktop)
 
   return (
-    <aside className="order-first max-h-[70vh] overflow-hidden rounded-2xl border border-lank/10 bg-white shadow-card lg:order-none lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)]">
-      <div className="flex border-b border-lank/10">
-        {(['search', 'toc', 'index'] as Tab[]).map((t) => (
-          <button
-            key={t}
-            type="button"
-            onClick={() => setTab(t)}
-            className={`flex-1 px-3 py-2.5 text-xs font-semibold transition ${
-              tab === t ? 'border-b-2 border-soley text-lank' : 'text-lank/45 hover:text-lank/70'
-            }`}
-          >
-            {lt(L[t])}
-          </button>
-        ))}
-      </div>
-      <div className="max-h-[calc(70vh-2.6rem)] overflow-auto lg:max-h-[calc(100vh-9rem)]">
-        {tab === 'search' && <SearchPanel docId={docId} locale={locale} lt={lt} />}
-        {tab === 'toc' && <TocPanel groups={groups} />}
-        {tab === 'index' && <IndexPanel entries={indexEntries} locale={locale} lt={lt} />}
+    <aside className="order-first rounded-2xl border border-lank/10 bg-white shadow-card lg:order-none lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:overflow-hidden">
+      {/* Bascule mobile : un bouton compact qui ouvre le menu (sur desktop, masqué). */}
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="flex w-full items-center gap-2 px-4 py-3 text-left lg:hidden"
+      >
+        <span className="text-xs font-bold uppercase tracking-wide text-lank/70">{lt(L.menu)}</span>
+        <span aria-hidden className="ml-auto text-lank/40">{open ? '▴' : '▾'}</span>
+      </button>
+
+      <div className={`${open ? 'block' : 'hidden'} lg:block`}>
+        <div className="flex border-t border-lank/10 lg:border-t-0">
+          {(['search', 'toc', 'index'] as Tab[]).map((t) => (
+            <button
+              key={t}
+              type="button"
+              onClick={() => setTab(t)}
+              className={`flex-1 border-b-2 px-3 py-2.5 text-xs font-semibold transition ${
+                tab === t ? 'border-soley text-lank' : 'border-transparent text-lank/45 hover:text-lank/70'
+              }`}
+            >
+              {lt(L[t])}
+            </button>
+          ))}
+        </div>
+        <div className="max-h-[60vh] overflow-auto lg:max-h-[calc(100vh-9rem)]">
+          {tab === 'search' && <SearchPanel docId={docId} locale={locale} lt={lt} />}
+          {tab === 'toc' && <TocPanel groups={groups} />}
+          {tab === 'index' && <IndexPanel entries={indexEntries} locale={locale} lt={lt} />}
+        </div>
       </div>
     </aside>
   )
