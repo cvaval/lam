@@ -11,44 +11,59 @@ function pct(s: string | null): number {
   const m = s.replace(',', '.').match(/(\d+(?:\.\d+)?)\s*%/)
   return m ? Number(m[1]) / 100 : 0
 }
-// Accise : pourcentage (base CIF+DD, ou CIF seul si « X % CIF ») OU montant fixe
-// (« 25,00 G/gallon », « 0,025 G/livre »).
-function parseAccise(s: string | null): { kind: 'pct'; v: number; cifOnly: boolean } | { kind: 'fixed'; v: number; unit: string } | { kind: 'none' } {
+// Accise : soit un pourcentage AD VALOREM (« 10 % »), soit un montant SPÉCIFIQUE par unité
+// (« 25,00 G/gallon », « 0,025 G/livre »). L'ad valorem se calcule sur la valeur en douane ;
+// le spécifique reste quantité × montant (hors valeur en douane).
+function parseAccise(s: string | null): { kind: 'pct'; v: number } | { kind: 'fixed'; v: number; unit: string } | { kind: 'none' } {
   if (!s) return { kind: 'none' }
   const fixed = s.replace(',', '.').match(/(\d+(?:\.\d+)?)\s*G\s*\/\s*(\w+)/i)
   if (fixed) return { kind: 'fixed', v: Number(fixed[1]), unit: fixed[2] }
-  if (s.includes('%')) return { kind: 'pct', v: pct(s), cifOnly: /cif/i.test(s) }
+  if (s.includes('%')) return { kind: 'pct', v: pct(s) }
   return { kind: 'none' }
 }
 // Saisie FR : point = séparateur de milliers (retiré), virgule = décimale ; borné à 0.
 const num = (s: string) => Math.max(0, Number((s ?? '').replace(/[\s.]/g, '').replace(/,/g, '.')) || 0)
 const fmt = (n: number) => new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 2 }).format(Math.round(n * 100) / 100)
 
-/** Modale d'estimation des droits et taxes à l'import pour une position tarifaire. */
+/**
+ * Modale d'estimation des droits et taxes à l'import pour une position tarifaire.
+ * TOUTES les charges ad valorem sont calculées sur la VALEUR EN DOUANE (choix produit) ;
+ * TPI et taxe environnementale (TPE) ne s'appliquent qu'aux véhicules.
+ */
 export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dictionary; onClose: () => void }) {
-  const [cif, setCif] = useState('')
+  const [valeur, setValeur] = useState('')
   const [qty, setQty] = useState('')
-  const [acompte, setAcompte] = useState(true)
-  const [bordereau, setBordereau] = useState(true)
+  // Véhicule : pré-coché si la position relève du chapitre 87 (véhicules) du SH.
+  const vehicleByCode = /^87/.test((row.code ?? '').replace(/\D/g, ''))
+  const [vehicle, setVehicle] = useState(vehicleByCode)
+  const [vehicleOld, setVehicleOld] = useState(false)
   const acc = useMemo(() => parseAccise(row.accises), [row.accises])
 
-  const C = num(cif)
+  const V = num(valeur)
   const Q = num(qty)
-  const ddPct = pct(row.dd)
-  const ddAmt = C * ddPct
-  const base = C + ddAmt // valeur en douane majorée du droit de douane
-  const tcaAmt = base * 0.1
   const acciseMissing = acc.kind === 'fixed' && Q <= 0
-  const acciseAmt = acc.kind === 'pct' ? (acc.cifOnly ? C : base) * acc.v : acc.kind === 'fixed' ? Q * acc.v : 0
-  const acompteAmt = acompte ? C * 0.02 : 0
-  const bordereauAmt = bordereau ? (ddAmt + tcaAmt + acciseAmt) * 0.01 : 0
-  const total = ddAmt + tcaAmt + acciseAmt + acompteAmt + bordereauAmt
-  const grand = C + total
+  const daaAmt = acc.kind === 'pct' ? V * acc.v : acc.kind === 'fixed' ? Q * acc.v : 0
+
+  // Chaque charge = taux × valeur en douane (sauf accise spécifique = quantité × montant).
+  const charges: { label: string; amt: number; show: boolean; missing?: boolean }[] = [
+    { label: `${t.tarifs.calcDd}${row.dd ? ` (${row.dd})` : ''}`, amt: V * pct(row.dd), show: true },
+    { label: `${t.tarifs.calcDaa}${row.accises ? ` (${row.accises})` : ''}`, amt: daaAmt, show: acc.kind !== 'none', missing: acciseMissing },
+    { label: t.tarifs.calcFv, amt: V * 0.06, show: true },
+    { label: t.tarifs.calcTca, amt: V * 0.1, show: true },
+    { label: t.tarifs.calcTt, amt: V * 0.1, show: true },
+    { label: t.tarifs.calcCfgdct, amt: V * 0.02, show: true },
+    { label: t.tarifs.calcDs, amt: V * 0.02, show: true },
+    { label: t.tarifs.calcTpi, amt: V * 0.2, show: vehicle },
+    { label: t.tarifs.calcTpe, amt: V * 0.25, show: vehicle && vehicleOld },
+  ]
+  const shown = charges.filter((c) => c.show)
+  const total = shown.reduce((s, c) => s + (c.missing ? 0 : c.amt), 0)
+  const grand = V + total
 
   const Line = ({ label, value, strong = false }: { label: string; value: string; strong?: boolean }) => (
     <div className={`flex items-center justify-between gap-4 py-1.5 ${strong ? 'border-t border-lank/15 pt-2 font-semibold text-lank' : 'text-lank/80'}`}>
       <span className="text-sm">{label}</span>
-      <span className="tabular-nums text-sm">{value}</span>
+      <span className="shrink-0 tabular-nums text-sm">{value}</span>
     </div>
   )
 
@@ -73,9 +88,9 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
 
         <div className="mt-4 space-y-3">
           <label className="block">
-            <span className="text-xs font-medium text-lank/60">{t.tarifs.cifValue}</span>
+            <span className="text-xs font-medium text-lank/60">{t.tarifs.calcValeurDouane}</span>
             <input
-              type="text" inputMode="decimal" value={cif} onChange={(e) => setCif(e.target.value)} autoFocus
+              type="text" inputMode="decimal" value={valeur} onChange={(e) => setValeur(e.target.value)} autoFocus
               placeholder="0" className="mt-1 w-full rounded-lg border border-lank/15 px-3 py-2 text-sm tabular-nums outline-none focus:border-kannel"
             />
           </label>
@@ -85,18 +100,22 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
               <input type="text" inputMode="decimal" value={qty} onChange={(e) => setQty(e.target.value)} placeholder="0" className={`mt-1 w-full rounded-lg border px-3 py-2 text-sm tabular-nums outline-none focus:border-kannel ${acciseMissing ? 'border-brim' : 'border-lank/15'}`} />
             </label>
           )}
-          <div className="flex flex-wrap gap-4 text-sm text-lank/80">
-            <label className="inline-flex items-center gap-2"><input type="checkbox" className="h-4 w-4" checked={acompte} onChange={(e) => setAcompte(e.target.checked)} /> {t.tarifs.calcAcompte}</label>
-            <label className="inline-flex items-center gap-2"><input type="checkbox" className="h-4 w-4" checked={bordereau} onChange={(e) => setBordereau(e.target.checked)} /> {t.tarifs.calcBordereau}</label>
+          <div className="flex flex-col gap-2 text-sm text-lank/80">
+            <label className="inline-flex items-center gap-2">
+              <input type="checkbox" className="h-4 w-4" checked={vehicle} onChange={(e) => setVehicle(e.target.checked)} /> {t.tarifs.calcVehicle}
+            </label>
+            {vehicle && (
+              <label className="ml-6 inline-flex items-center gap-2">
+                <input type="checkbox" className="h-4 w-4" checked={vehicleOld} onChange={(e) => setVehicleOld(e.target.checked)} /> {t.tarifs.calcVehicleOld}
+              </label>
+            )}
           </div>
         </div>
 
         <div className="mt-4 rounded-xl border border-lank/10 bg-paper px-4 py-2">
-          <Line label={`${t.tarifs.thDd} (${row.dd ?? '—'})`} value={`${fmt(ddAmt)} HTG`} />
-          <Line label={`${t.tarifs.thTca} (10 %)`} value={`${fmt(tcaAmt)} HTG`} />
-          {acc.kind !== 'none' && <Line label={`${t.tarifs.thAccises} (${row.accises})`} value={acciseMissing ? `— (${t.tarifs.quantity} ?)` : `${fmt(acciseAmt)} HTG`} />}
-          {acompte && <Line label={t.tarifs.calcAcompte} value={`${fmt(acompteAmt)} HTG`} />}
-          {bordereau && <Line label={t.tarifs.calcBordereau} value={`${fmt(bordereauAmt)} HTG`} />}
+          {shown.map((c) => (
+            <Line key={c.label} label={c.label} value={c.missing ? `— (${t.tarifs.quantity} ?)` : `${fmt(c.amt)} HTG`} />
+          ))}
           <Line label={t.tarifs.calcTotal} value={`${fmt(total)} HTG`} strong />
           <Line label={t.tarifs.calcGrand} value={`${fmt(grand)} HTG`} strong />
         </div>
