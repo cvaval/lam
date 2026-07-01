@@ -101,9 +101,19 @@ export function AnnotatedText({
           subjects = backlinks.get(b.anchor)
           if (subjects) shownIndex.add(b.anchor)
         }
-        // Renvois d'index : on ne garde que ceux qui pointent vers d'AUTRES articles (cliquables) ;
-        // les sujets sans renvoi (gris, sans lien) sont retirés. Libellés nettoyés (« définition »).
-        const linked = subjects?.filter((s) => s.refs.length > 0 && cleanIndexSubject(s.subject)) ?? []
+        // Renvois d'index : sujets pointant vers d'AUTRES articles (cliquables), libellés nettoyés
+        // (« définition ») et DÉDUPLIQUÉS (plusieurs sujets se nettoient parfois en un même terme
+        // → on fusionne leurs articles). Les sujets sans renvoi (gris) sont retirés.
+        const dedup = new Map<string, Set<number>>()
+        for (const s of subjects ?? []) {
+          if (s.refs.length === 0) continue
+          const cs = cleanIndexSubject(s.subject)
+          if (!cs) continue
+          const cur = dedup.get(cs)
+          if (cur) s.refs.forEach((r) => cur.add(r))
+          else dedup.set(cs, new Set(s.refs))
+        }
+        const linked = [...dedup.entries()].map(([subject, refs]) => ({ subject, refs: [...refs].sort((x, y) => x - y) }))
         const extra = (
           <>
             {linked.length > 0 && (
@@ -111,7 +121,7 @@ export function AnnotatedText({
                 <span className="rounded bg-soley-50 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-soley-700">{lt(INDEX_LBL)}</span>
                 {linked.slice(0, 8).map((s) => (
                   <span key={s.subject} className="text-[11px] text-lank/55">
-                    {cleanIndexSubject(s.subject)}
+                    {s.subject}
                     {' → '}
                     {s.refs.slice(0, 4).map((r, j, a) => (
                       <span key={r}>
