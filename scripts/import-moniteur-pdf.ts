@@ -13,7 +13,7 @@
  * l'extraction des actes/sociétés se font ensuite par édition (OCR à la demande)
  * ou en lot quand le quota IA le permet — voir UploadStudio / scripts d'OCR.
  */
-import { readdirSync, statSync, readFileSync } from 'node:fs'
+import { readdirSync, statSync, readFileSync, realpathSync } from 'node:fs'
 import { join } from 'node:path'
 import { PrismaClient } from '@prisma/client'
 import { PDFDocument } from 'pdf-lib'
@@ -64,6 +64,17 @@ function dayFromName(name: string): number | null {
   return d >= 1 && d <= 31 ? d : null
 }
 
+/** « 20190104 No 1.pdf » → { monthIdx: 0, day: 4 }. Fascicules classés « par numéro » (dossier
+ *  à plat, sans nom de mois) : le mois ET le jour de parution sont dans le préfixe AAAAMMJJ. */
+function dateFromName(name: string): { monthIdx: number; day: number } | null {
+  const m = name.normalize('NFC').match(/^(\d{4})(\d{2})(\d{2})\b/)
+  if (!m) return null
+  const monthIdx = Number(m[2]) - 1
+  const day = Number(m[3])
+  if (monthIdx < 0 || monthIdx > 11 || day < 1 || day > 31) return null
+  return { monthIdx, day }
+}
+
 function editionKey(e: { special: boolean; num: number; suffix: string }): string {
   return `${e.special ? 'SP' : 'R'}-${e.num}-${e.suffix}`
 }
@@ -97,7 +108,24 @@ function collectEditions(dir: string): Edition[] {
     if (!statSync(monthPath).isDirectory()) continue
     const monthIdx = monthFromName(monthEntry)
     if (monthIdx == null) {
-      console.warn(`⚠ mois non reconnu, ignoré : ${monthEntry}`)
+      // Dossier « à plat » sans nom de mois (ex. « 2019 Moniteur par numéro », « … Numéros
+      // spéciaux ») : chaque PDF porte un préfixe AAAAMMJJ → mois ET jour lus dans le fichier.
+      // (Les dossiers réellement inconnus, sans PDF daté, restent ignorés avec un avertissement.)
+      let dated = 0
+      for (const entry of readdirSync(monthPath)) {
+        if (!entry.toLowerCase().endsWith('.pdf')) continue
+        const entryPath = join(monthPath, entry)
+        if (statSync(entryPath).isDirectory()) continue
+        const parsed = parseEditionName(entry)
+        const dt = dateFromName(entry)
+        if (!parsed || !dt) {
+          console.warn(`⚠ fichier daté non reconnu : ${entry}`)
+          continue
+        }
+        addEdition(byKey, { ...parsed, monthIdx: dt.monthIdx, day: dt.day, files: [realpathSync(entryPath)] })
+        dated++
+      }
+      if (!dated) console.warn(`⚠ mois non reconnu, ignoré : ${monthEntry}`)
       continue
     }
     for (const entry of readdirSync(monthPath)) {
@@ -110,7 +138,7 @@ function collectEditions(dir: string): Edition[] {
           console.warn(`⚠ sous-dossier non reconnu : ${entry}`)
           continue
         }
-        const sub = readdirSync(entryPath).filter((f) => f.toLowerCase().endsWith('.pdf')).map((f) => join(entryPath, f))
+        const sub = readdirSync(entryPath).filter((f) => f.toLowerCase().endsWith('.pdf')).map((f) => realpathSync(join(entryPath, f)))
         addEdition(byKey, { ...parsed, monthIdx, day: dayFromName(sub[0] ?? entry), files: sub })
       } else if (entry.toLowerCase().endsWith('.pdf')) {
         const parsed = parseEditionName(entry)
@@ -118,7 +146,7 @@ function collectEditions(dir: string): Edition[] {
           console.warn(`⚠ fichier non reconnu : ${entry}`)
           continue
         }
-        addEdition(byKey, { ...parsed, monthIdx, day: dayFromName(entry), files: [entryPath] })
+        addEdition(byKey, { ...parsed, monthIdx, day: dayFromName(entry), files: [realpathSync(entryPath)] })
       }
     }
   }
