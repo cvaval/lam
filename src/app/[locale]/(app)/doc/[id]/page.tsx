@@ -380,7 +380,7 @@ export default async function DocPage({
               </span>
             </div>
             <p className="mb-3 rounded-lg bg-lank-50 px-3 py-2 text-[11px] leading-relaxed text-lank/60">{t.doc.unofficialNote}</p>
-            <AnnotatedText text={effectiveBody} annotations={annotations} locale={locale} terms={hlTerms} />
+            <AnnotatedText text={effectiveBody} annotations={annotations} locale={locale} terms={hlTerms} hideInlineIndex={doc.source === 'CONSTITUTION_1987'} />
           </section>
         </div>
       ) : (

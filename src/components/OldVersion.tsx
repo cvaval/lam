@@ -29,7 +29,7 @@ export function OldVersion({ text, locale }: { text: string; locale: Locale }) {
         <span className="ml-auto text-[11px] font-medium text-lagon-700">{open ? lt(LBL.hide) : lt(LBL.show)}</span>
       </button>
       {open && (
-        <p className="whitespace-pre-wrap border-t border-lagon-600/20 bg-white/60 px-4 py-3 text-[13px] italic leading-relaxed text-lank/70">
+        <p className="whitespace-pre-wrap border-t border-lagon-600/20 bg-white/60 px-4 py-2.5 text-[11.5px] italic leading-relaxed text-lank/60">
           {text}
         </p>
       )}

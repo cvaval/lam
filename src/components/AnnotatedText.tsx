@@ -27,11 +27,15 @@ export function AnnotatedText({
   annotations,
   locale = 'fr',
   terms,
+  hideInlineIndex = false,
 }: {
   text: string
   annotations: Annotations
   locale?: Locale
   terms?: string[]
+  /** Masque les renvois d'index sous chaque article (l'index reste dans le menu latéral).
+   *  Constitution : la ligne « sujet → n°s » sous les articles est retirée à la demande. */
+  hideInlineIndex?: boolean
 }) {
   const blocks = segmentAnnotated(text, annotations.toc ?? [])
   const juris = annotations.jurisprudence ?? {}
@@ -41,6 +45,11 @@ export function AnnotatedText({
   const statusMap = annotations.status ?? {}
   const labelsMap = annotations.labels ?? {}
   const shownIndex = new Set<string>()
+  // Le Préambule est un chapitre du sommaire (pas un article) : son ancienne version (1987)
+  // ne s'accroche à aucune ancre #art-N. On la rattache au bloc de corps qui suit son en-tête.
+  const preambleAnchor = (annotations.toc ?? []).find((e) => /^pr[ée]ambule$/i.test(e.label))?.anchor
+  const oldPreamble = oldVersions['preambule']
+  let preambleBodyNext = false
   let titleShown = false // 1ʳᵉ ligne de la page de titre = plus grande (déterministe, sans `first:`)
   const lt = (o: Record<Locale, string>) => o[locale] ?? o.fr
 
@@ -49,6 +58,7 @@ export function AnnotatedText({
       {blocks.map((b, i) => {
         // ── En-têtes de section ──
         if (b.kind === 'section') {
+          if (b.anchor === preambleAnchor) preambleBodyNext = true // le corps suivant portera l'ancien préambule
           const xref = crossRefMap.get(b.anchor)
           const bigTitle = b.tocKind === 'title' && !titleShown
           if (b.tocKind === 'title') titleShown = true
@@ -107,6 +117,8 @@ export function AnnotatedText({
         }
 
         // ── Corps : article ou préambule ──
+        const showOldPreamble = preambleBodyNext // consommé par le bloc de corps suivant l'en-tête
+        preambleBodyNext = false
         const cases = b.jurisKey ? juris[b.jurisKey] : undefined
         let subjects: Backlink[] | undefined
         if (b.anchor && !shownIndex.has(b.anchor)) {
@@ -131,7 +143,7 @@ export function AnnotatedText({
         }))
         const extra = (
           <>
-            {linked.length > 0 && (
+            {!hideInlineIndex && linked.length > 0 && (
               <div className="mt-2 flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
                 <span className="rounded bg-soley-50 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-soley-700">{lt(INDEX_LBL)}</span>
                 {linked.slice(0, 8).map((s) => (
@@ -179,6 +191,7 @@ export function AnnotatedText({
         return (
           <div key={i} className="scroll-mt-24">
             <OfficialText text={b.text} locale={locale} terms={terms} noAnchors={b.noAnchors} />
+            {showOldPreamble && oldPreamble && <OldVersion text={oldPreamble} locale={locale} />}
             {extra}
           </div>
         )
