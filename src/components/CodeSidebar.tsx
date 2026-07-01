@@ -3,8 +3,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { fold } from '@/lib/search/normalize'
 import type { Locale } from '@/lib/types'
-import { cleanIndexSubject } from '@/lib/legislation/annotated'
-import type { NavGroup, NavItem, IndexEntry } from '@/lib/legislation/annotated'
+import { cleanIndexSubject, prettyRef } from '@/lib/legislation/annotated'
+import type { NavGroup, NavItem, IndexEntry, ArtRef } from '@/lib/legislation/annotated'
 
 type Tab = 'toc' | 'index'
 
@@ -229,7 +229,7 @@ function IndexPanel({ entries, locale, lt }: { entries: IndexEntry[]; locale: Lo
   // Nettoie « X — définition » / « Définitions — X » → « X » et déduplique (fusionne les renvois) ;
   // le tri alphabétique est appliqué ensuite.
   const cleaned = useMemo(() => {
-    const m = new Map<string, { subject: string; refs: Set<number> }>()
+    const m = new Map<string, { subject: string; refs: Set<ArtRef> }>()
     for (const e of entries) {
       const subject = cleanIndexSubject(e.subject)
       if (!subject) continue // « Définition » nue ignorée
@@ -238,7 +238,10 @@ function IndexPanel({ entries, locale, lt }: { entries: IndexEntry[]; locale: Lo
       if (cur) e.ctRefs.forEach((n) => cur.refs.add(n))
       else m.set(k, { subject, refs: new Set(e.ctRefs) })
     }
-    return [...m.values()].map((v) => ({ subject: v.subject, ctRefs: [...v.refs].sort((a, b) => a - b) }))
+    return [...m.values()].map((v) => ({
+      subject: v.subject,
+      ctRefs: [...v.refs].sort((a, b) => String(a).localeCompare(String(b), undefined, { numeric: true })),
+    }))
   }, [entries])
   const folded = useMemo(() => cleaned.map((e) => ({ e, f: fold(e.subject) })), [cleaned])
   const groups = useMemo(() => {
@@ -276,7 +279,7 @@ function IndexPanel({ entries, locale, lt }: { entries: IndexEntry[]; locale: Lo
                 <span className="text-lank/40">{lt(L.art)}</span>
                 {e.ctRefs.map((n, k) => (
                   <span key={`${n}-${k}`}>
-                    <a href={`#art-${n}`} className="font-medium text-soley-700 hover:underline">{n}</a>
+                    <a href={`#art-${n}`} className="font-medium text-soley-700 hover:underline">{prettyRef(n)}</a>
                     {k < e.ctRefs.length - 1 && <span className="text-lank/30"> ·</span>}
                   </span>
                 ))}

@@ -11,8 +11,13 @@ export interface ArticleRef {
 }
 
 export function labelFromAnchor(anchor: string): string {
-  const m = anchor.match(/^art-(\d+)(?:-(bis|ter|quater))?/)
-  return m ? `Article ${m[1]}${m[2] ? ' ' + m[2] : ''}` : anchor
+  if (!/^art-/.test(anchor)) return anchor
+  // « 95-bis » → « 95 bis » (Code) · « 12-1 » → « 12.1 », « 190-ter-5 » → « 190 ter.5 » (Constitution)
+  const label = anchor
+    .replace(/^art-/, '')
+    .replace(/-(bis|ter|quater)/g, ' $1')
+    .replace(/-/g, '.')
+  return `Article ${label}`
 }
 
 export function listArticles(body: string): ArticleRef[] {

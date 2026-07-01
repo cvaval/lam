@@ -26,9 +26,17 @@ export interface TocEntry {
   anchor: string // sec-N
   kind: string // "code" | "connexe"
 }
+// ctRefs : numéro d'article (Code du travail → entiers) OU désignation d'ancre (Constitution →
+// « 12-1 », « 190-ter-5 »). Dans les deux cas, le lien se construit `#art-${ref}`.
+export type ArtRef = number | string
 export interface IndexEntry {
   subject: string
-  ctRefs: number[] // numéros d'articles du Code
+  ctRefs: ArtRef[]
+}
+
+/** Affichage joli d'une référence d'article : « 12-1 » → « 12.1 », « 190-ter-5 » → « 190ter.5 ». */
+export function prettyRef(r: ArtRef): string {
+  return String(r).replace(/-(bis|ter|quater)/g, '$1').replace(/-/g, '.')
 }
 /**
  * Nettoie un sujet d'index : retire la mention « définition(s) » en préfixe (« Définitions — X »)
@@ -58,11 +66,15 @@ export interface Annotations {
   jurisprudence: Record<string, JurisCase[]> // clé = ancre d'article (art-N)
   indexEntries: IndexEntry[]
   crossRefs?: CrossRefEntry[] // renvois croisés éditoriaux (section → articles du Code)
+  // Constitution : ancienne version (1987) par article, statut d'amendement, libellé d'article.
+  oldVersions?: Record<string, string> // ancre → texte de l'ancienne version (repliable)
+  status?: Record<string, string | null> // ancre → « modifié » | « nouveau » | « abrogé »
+  labels?: Record<string, string> // ancre → « Article 12.1 » (numérotation complexe)
 }
 
 export interface Backlink {
   subject: string
-  refs: number[] // AUTRES articles du même sujet (l'article courant exclu) — cibles cliquables
+  refs: ArtRef[] // AUTRES articles du même sujet (l'article courant exclu) — cibles cliquables
 }
 
 /**
@@ -101,6 +113,9 @@ export function parseAnnotations(json: string | null | undefined): Annotations |
       jurisprudence: a.jurisprudence && typeof a.jurisprudence === 'object' ? a.jurisprudence : {},
       indexEntries: Array.isArray(a.indexEntries) ? a.indexEntries : [],
       crossRefs: Array.isArray(a.crossRefs) ? a.crossRefs : [],
+      oldVersions: a.oldVersions && typeof a.oldVersions === 'object' ? a.oldVersions : {},
+      status: a.status && typeof a.status === 'object' ? a.status : {},
+      labels: a.labels && typeof a.labels === 'object' ? a.labels : {},
     }
   } catch {
     return null

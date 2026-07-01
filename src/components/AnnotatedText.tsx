@@ -1,12 +1,21 @@
 import { OfficialText } from './OfficialText'
 import { Jurisprudence } from './Jurisprudence'
-import { segmentAnnotated, indexBacklinks, cleanIndexSubject, type Annotations, type Backlink } from '@/lib/legislation/annotated'
+import { OldVersion } from './OldVersion'
+import { segmentAnnotated, indexBacklinks, cleanIndexSubject, prettyRef, type Annotations, type Backlink, type ArtRef } from '@/lib/legislation/annotated'
 import { labelFromAnchor } from '@/lib/legislation/articles'
 import type { Locale } from '@/lib/types'
 
 const INDEX_LBL: Record<Locale, string> = { fr: 'Index', en: 'Index', ht: 'Endèks' }
-// En-tête « Article N.- » en tête d'un bloc d'article : retiré du corps (affiché en badge).
-const LEAD_ART = /^Article\s+(?:premier|\d{1,3})\s*(?:er|ère|re|e|°)?\s*(?:bis|ter|quater)?\s*[.)\-–]+\s*/i
+// En-tête d'article en tête d'un bloc (« Article 12.- … » du Code ou « Article 12.1 » seul de la
+// Constitution) : retiré du corps (affiché en badge). Gère la numérotation décimale/bis/ter.
+const LEAD_ART =
+  /^(?:article|section)\s+(?:premier|\d{1,3}(?:\s*(?:er|ère))?(?:\s*(?:bis|ter|quater))?(?:[.\-]\d+)*)\s*[.)\-–]*\s*/i
+// Statut d'amendement (Constitution) → pastille colorée.
+const STATUS_BADGE: Record<string, { fr: string; cls: string }> = {
+  modifié: { fr: 'modifié', cls: 'bg-brim-50 text-brim-700' },
+  nouveau: { fr: 'nouveau', cls: 'bg-sitwon-50 text-sitwon-700' },
+  abrogé: { fr: 'abrogé', cls: 'bg-red-50 text-red-700' },
+}
 
 /**
  * Lecteur d'un texte annoté (Code du travail) : chapitres et articles en unités visuelles
@@ -28,6 +37,9 @@ export function AnnotatedText({
   const juris = annotations.jurisprudence ?? {}
   const backlinks = indexBacklinks(annotations.indexEntries ?? [])
   const crossRefMap = new Map((annotations.crossRefs ?? []).map((c) => [c.anchor, c]))
+  const oldVersions = annotations.oldVersions ?? {}
+  const statusMap = annotations.status ?? {}
+  const labelsMap = annotations.labels ?? {}
   const shownIndex = new Set<string>()
   let titleShown = false // 1ʳᵉ ligne de la page de titre = plus grande (déterministe, sans `first:`)
   const lt = (o: Record<Locale, string>) => o[locale] ?? o.fr
@@ -104,7 +116,7 @@ export function AnnotatedText({
         // Renvois d'index : sujets pointant vers d'AUTRES articles (cliquables), libellés nettoyés
         // (« définition ») et DÉDUPLIQUÉS (plusieurs sujets se nettoient parfois en un même terme
         // → on fusionne leurs articles). Les sujets sans renvoi (gris) sont retirés.
-        const dedup = new Map<string, Set<number>>()
+        const dedup = new Map<string, Set<ArtRef>>()
         for (const s of subjects ?? []) {
           if (s.refs.length === 0) continue
           const cs = cleanIndexSubject(s.subject)
@@ -113,7 +125,10 @@ export function AnnotatedText({
           if (cur) s.refs.forEach((r) => cur.add(r))
           else dedup.set(cs, new Set(s.refs))
         }
-        const linked = [...dedup.entries()].map(([subject, refs]) => ({ subject, refs: [...refs].sort((x, y) => x - y) }))
+        const linked = [...dedup.entries()].map(([subject, refs]) => ({
+          subject,
+          refs: [...refs].sort((x, y) => String(x).localeCompare(String(y), undefined, { numeric: true })),
+        }))
         const extra = (
           <>
             {linked.length > 0 && (
@@ -124,9 +139,9 @@ export function AnnotatedText({
                     {s.subject}
                     {' → '}
                     {s.refs.slice(0, 4).map((r, j, a) => (
-                      <span key={r}>
+                      <span key={String(r)}>
                         <a href={`#art-${r}`} className="font-semibold text-soley-700 hover:underline">
-                          {r}
+                          {prettyRef(r)}
                         </a>
                         {j < a.length - 1 ? ', ' : s.refs.length > 4 ? '…' : ''}
                       </span>
@@ -139,15 +154,24 @@ export function AnnotatedText({
           </>
         )
 
-        // Article : badge « Article N » (porte l'ancre) + corps allégé de son en-tête.
+        // Article : badge « Article N » (porte l'ancre) + statut d'amendement + corps allégé de
+        // son en-tête + ancienne version repliable (Constitution).
         if (b.anchor && LEAD_ART.test(b.text)) {
           const body = b.text.replace(LEAD_ART, '').trimStart()
+          const label = labelsMap[b.anchor] ?? labelFromAnchor(b.anchor)
+          const st = statusMap[b.anchor]
+          const badge = st ? STATUS_BADGE[st] : undefined
+          const old = oldVersions[b.anchor]
           return (
             <article key={i} className="scroll-mt-24 rounded-r-lg border-l-2 border-soley/20 pl-4 transition-colors hover:border-soley/60">
-              <h4 id={b.noAnchors ? undefined : b.anchor} className="mb-1 scroll-mt-24 font-serif text-[15px] font-bold text-soley-700">
-                {labelFromAnchor(b.anchor)}
+              <h4 id={b.noAnchors ? undefined : b.anchor} className="mb-1 flex scroll-mt-24 flex-wrap items-center gap-2">
+                <span className="font-serif text-[15px] font-bold text-soley-700">{label}</span>
+                {badge && (
+                  <span className={`rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${badge.cls}`}>{badge.fr}</span>
+                )}
               </h4>
               <OfficialText text={body} locale={locale} terms={terms} noAnchors />
+              {old && <OldVersion text={old} locale={locale} />}
               {extra}
             </article>
           )
