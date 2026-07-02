@@ -249,6 +249,7 @@ export const ht: Dictionary = {
     calcVehicle: 'Machin (chapit 87)',
     calcVehicleAuto: '(deteksyon otomatik)',
     calcVehicleOld: 'Machin ki gen plis pase 7 an',
+    calcVehicleOldHint: '(pa defo — dekoche si li resan)',
     calcTotal: 'Total estime (dwa ak taks)',
     calcGrand: 'Pri revyen estime (valè nan ladwàn + dwa ak taks)',
     calcDisclaimer: 'Estimasyon endikatif — chak chaj kalkile sou valè nan ladwàn. Dwa aksiz espesifik (pa inite) pa baze sou valè nan ladwàn. San dwa kontenè ak frè pò ; konfime ak AGD / DGI.',

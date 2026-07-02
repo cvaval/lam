@@ -38,7 +38,10 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
   const vehicleByCode = /^87/.test((row.code ?? '').replace(/\D/g, ''))
   const [vehicleOverride, setVehicleOverride] = useState<boolean | null>(null)
   const vehicle = vehicleOverride ?? vehicleByCode
-  const [vehicleOld, setVehicleOld] = useState(false)
+  // « Plus de 7 ans » (→ TPE 25 %) : coché par défaut pour le chapitre 87 (à décocher pour
+  // un véhicule récent — l'âge ne se déduit pas du tarif). Override manuel possible.
+  const [vehicleOldOverride, setVehicleOldOverride] = useState<boolean | null>(null)
+  const vehicleOld = vehicleOldOverride ?? vehicleByCode
   const acc = useMemo(() => parseAccise(row.accises), [row.accises])
 
   const V = num(valeur)
@@ -109,7 +112,8 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
             </label>
             {vehicle && (
               <label className="ml-6 inline-flex items-center gap-2">
-                <input type="checkbox" className="h-4 w-4" checked={vehicleOld} onChange={(e) => setVehicleOld(e.target.checked)} /> {t.tarifs.calcVehicleOld}
+                <input type="checkbox" className="h-4 w-4" checked={vehicleOld} onChange={(e) => setVehicleOldOverride(e.target.checked)} /> {t.tarifs.calcVehicleOld}
+                {vehicleByCode && <span className="text-xs text-lank/45">{t.tarifs.calcVehicleOldHint}</span>}
               </label>
             )}
           </div>

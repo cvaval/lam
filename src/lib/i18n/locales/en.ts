@@ -249,6 +249,7 @@ export const en: Dictionary = {
     calcVehicle: 'Vehicle (chapter 87)',
     calcVehicleAuto: '(auto-detected)',
     calcVehicleOld: 'Vehicle over 7 years old',
+    calcVehicleOldHint: '(default — uncheck if recent)',
     calcTotal: 'Estimated total (duties & taxes)',
     calcGrand: 'Estimated landed cost (customs value + duties & taxes)',
     calcDisclaimer: 'Indicative estimate — each charge is computed on the customs value. Specific (per-unit) excise is not based on the customs value. Excludes container levy and port fees; confirm with AGD / DGI.',

@@ -254,6 +254,7 @@ export const fr = {
     calcVehicle: 'Véhicule (chapitre 87)',
     calcVehicleAuto: '(détecté automatiquement)',
     calcVehicleOld: 'Véhicule de plus de 7 ans',
+    calcVehicleOldHint: '(par défaut — décocher si récent)',
     calcTotal: 'Total estimé (droits et taxes)',
     calcGrand: 'Coût de revient estimé (valeur en douane + droits et taxes)',
     calcDisclaimer: 'Estimation indicative — chaque charge est calculée sur la valeur en douane. Les droits d’accise spécifiques (par unité) ne sont pas basés sur la valeur en douane. Hors droit de conteneur et frais portuaires ; à confirmer auprès de l’AGD / DGI.',
