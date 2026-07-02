@@ -252,6 +252,7 @@ export const fr = {
     calcTpi: 'TPI — Taxe de première immatriculation (20 %)',
     calcTpe: 'TPE — Taxe de protection de l’environnement (25 %)',
     calcVehicle: 'Véhicule (chapitre 87)',
+    calcVehicleAuto: '(détecté automatiquement)',
     calcVehicleOld: 'Véhicule de plus de 7 ans',
     calcTotal: 'Total estimé (droits et taxes)',
     calcGrand: 'Coût de revient estimé (valeur en douane + droits et taxes)',

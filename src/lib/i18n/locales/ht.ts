@@ -247,6 +247,7 @@ export const ht: Dictionary = {
     calcTpi: 'TPI — Taks premye imatrikilasyon (20 %)',
     calcTpe: 'TPE — Taks pwoteksyon anviwònman (25 %)',
     calcVehicle: 'Machin (chapit 87)',
+    calcVehicleAuto: '(deteksyon otomatik)',
     calcVehicleOld: 'Machin ki gen plis pase 7 an',
     calcTotal: 'Total estime (dwa ak taks)',
     calcGrand: 'Pri revyen estime (valè nan ladwàn + dwa ak taks)',

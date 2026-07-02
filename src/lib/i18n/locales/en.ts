@@ -247,6 +247,7 @@ export const en: Dictionary = {
     calcTpi: 'TPI — First-registration tax (20%)',
     calcTpe: 'TPE — Environmental protection tax (25%)',
     calcVehicle: 'Vehicle (chapter 87)',
+    calcVehicleAuto: '(auto-detected)',
     calcVehicleOld: 'Vehicle over 7 years old',
     calcTotal: 'Estimated total (duties & taxes)',
     calcGrand: 'Estimated landed cost (customs value + duties & taxes)',

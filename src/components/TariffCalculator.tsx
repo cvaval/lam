@@ -33,9 +33,11 @@ const fmt = (n: number) => new Intl.NumberFormat('fr-FR', { maximumFractionDigit
 export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dictionary; onClose: () => void }) {
   const [valeur, setValeur] = useState('')
   const [qty, setQty] = useState('')
-  // Véhicule : pré-coché si la position relève du chapitre 87 (véhicules) du SH.
+  // Véhicule : détecté AUTOMATIQUEMENT pour le chapitre 87 (véhicules) du SH → TPI ajoutée
+  // d'office. L'utilisateur peut forcer/annuler (override) ; sinon la détection par code prime.
   const vehicleByCode = /^87/.test((row.code ?? '').replace(/\D/g, ''))
-  const [vehicle, setVehicle] = useState(vehicleByCode)
+  const [vehicleOverride, setVehicleOverride] = useState<boolean | null>(null)
+  const vehicle = vehicleOverride ?? vehicleByCode
   const [vehicleOld, setVehicleOld] = useState(false)
   const acc = useMemo(() => parseAccise(row.accises), [row.accises])
 
@@ -102,7 +104,8 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
           )}
           <div className="flex flex-col gap-2 text-sm text-lank/80">
             <label className="inline-flex items-center gap-2">
-              <input type="checkbox" className="h-4 w-4" checked={vehicle} onChange={(e) => setVehicle(e.target.checked)} /> {t.tarifs.calcVehicle}
+              <input type="checkbox" className="h-4 w-4" checked={vehicle} onChange={(e) => setVehicleOverride(e.target.checked)} /> {t.tarifs.calcVehicle}
+              {vehicleByCode && <span className="text-xs text-lank/45">{t.tarifs.calcVehicleAuto}</span>}
             </label>
             {vehicle && (
               <label className="ml-6 inline-flex items-center gap-2">
