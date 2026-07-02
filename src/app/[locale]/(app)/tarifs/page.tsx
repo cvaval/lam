@@ -12,17 +12,6 @@ import { chapterLabel } from '@/lib/sh-chapters'
 
 export const dynamic = 'force-dynamic'
 
-// Prélèvements connexes (à l'import, distincts du droit de douane) — source : Tarif
-// NDP SH2022 mis à jour, feuille « Prélèvements connexes » (lois de finances citées).
-const LEVIES: { levy: string; rate: string; base: string; ref: string }[] = [
-  { levy: 'Acompte d’impôt sur le revenu', rate: '2 %', base: 'Valeur en douane des importations', ref: 'Moniteur n° 19, 6 mars 1995' },
-  { levy: 'Droit spécial sur bordereau de douane', rate: '1 %', base: 'Montant des impôts et taxes du bordereau', ref: 'Loi de finances 2013-2014' },
-  { levy: 'Droit sur conteneur maritime', rate: '40 USD', base: 'Par conteneur', ref: 'Loi de finances 2013-2014' },
-  { levy: 'Droit sur conteneur terrestre', rate: '5 000 HTG', base: 'Par conteneur', ref: 'Loi de finances 2013-2014' },
-  { levy: 'Taxe environnementale (pneus, batteries…)', rate: '10 %', base: 'Valeur CIF', ref: 'L.F. rectificative 2014-2015' },
-  { levy: 'Taxe environnementale (certains véhicules)', rate: '25 %', base: 'Valeur CIF (selon âge et catégorie)', ref: 'L.F. rectificative 2014-2015' },
-]
-
 export default async function TarifsPage({ params }: { params: { locale: string } }) {
   const { locale, t } = dictFor(params.locale)
   const user = await requireUser(locale)
@@ -42,6 +31,19 @@ export default async function TarifsPage({ params }: { params: { locale: string 
   const chapters = grouped
     .filter((g) => g.chapter)
     .map((g) => ({ code: g.chapter as string, label: chapterLabel(g.chapter as string), count: g._count._all }))
+
+  // Prélèvements connexes (à l'import, distincts du droit de douane, s'ajoutent à la
+  // liquidation) — ALIGNÉS sur la calculatrice : mêmes charges/sigles, base = valeur en
+  // douane. DD et accise (DAA) restent par position (dans le tableau des tarifs).
+  const levies: { levy: string; scope: string }[] = [
+    { levy: t.tarifs.calcFv, scope: t.tarifs.leviesScopeAll },
+    { levy: t.tarifs.calcTca, scope: t.tarifs.leviesScopeAll },
+    { levy: t.tarifs.calcTt, scope: t.tarifs.leviesScopeAll },
+    { levy: t.tarifs.calcCfgdct, scope: t.tarifs.leviesScopeAll },
+    { levy: t.tarifs.calcDs, scope: t.tarifs.leviesScopeAll },
+    { levy: t.tarifs.calcTpi, scope: t.tarifs.calcVehicle },
+    { levy: t.tarifs.calcTpe, scope: t.tarifs.calcVehicleOld },
+  ]
 
   return (
     <div className="space-y-5">
@@ -71,18 +73,14 @@ export default async function TarifsPage({ params }: { params: { locale: string 
             <thead>
               <tr className="border-b border-lank/15 bg-paper text-left text-xs uppercase tracking-wide text-lank/55">
                 <th scope="col" className="px-4 py-2 font-semibold">{t.tarifs.thLevy}</th>
-                <th scope="col" className="px-4 py-2 text-right font-semibold">{t.tarifs.thRate}</th>
-                <th scope="col" className="px-4 py-2 font-semibold">{t.tarifs.thBase}</th>
-                <th scope="col" className="px-4 py-2 font-semibold">{t.tarifs.thRef}</th>
+                <th scope="col" className="px-4 py-2 font-semibold">{t.tarifs.thScope}</th>
               </tr>
             </thead>
             <tbody>
-              {LEVIES.map((l, i) => (
+              {levies.map((l, i) => (
                 <tr key={i} className={i % 2 === 1 ? 'bg-[rgba(27,31,61,0.025)]' : ''}>
                   <td className="px-4 py-1.5 font-medium text-lank">{l.levy}</td>
-                  <td className="whitespace-nowrap px-4 py-1.5 text-right tabular-nums font-medium">{l.rate}</td>
-                  <td className="px-4 py-1.5 text-lank/75">{l.base}</td>
-                  <td className="px-4 py-1.5 text-xs text-lank/55">{l.ref}</td>
+                  <td className="px-4 py-1.5 text-lank/75">{l.scope}</td>
                 </tr>
               ))}
             </tbody>
