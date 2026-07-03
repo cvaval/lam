@@ -27,6 +27,29 @@ const LBL = {
 const ACTIVITY_EVENTS = ['mousemove', 'mousedown', 'keydown', 'scroll', 'touchstart', 'wheel'] as const
 const HEARTBEAT_THROTTLE_MS = 5 * 60_000
 
+// ── Synchronisation ENTRE ONGLETS (localStorage, même origine) ──
+// Sans elle, un onglet laissé en arrière-plan atteint son délai d'inactivité et DÉTRUIT la
+// session serveur pendant que l'utilisateur travaille dans un autre onglet : son clic suivant
+// (ex. tuile « Tarifs douaniers ») tombe sur une session morte → « déconnexion » incomprise.
+export const ACTIVITY_KEY = 'lv:last-activity'
+export const LOGGED_OUT_KEY = 'lv:logged-out'
+const ACTIVITY_WRITE_THROTTLE_MS = 5_000
+
+function markCrossTabActivity() {
+  try {
+    localStorage.setItem(ACTIVITY_KEY, String(Date.now()))
+  } catch {
+    /* stockage indisponible (navigation privée…) : repli sur le comportement par onglet */
+  }
+}
+function lastCrossTabActivity(): number {
+  try {
+    return Number(localStorage.getItem(ACTIVITY_KEY) || 0)
+  } catch {
+    return 0
+  }
+}
+
 export function IdleTimer({
   locale,
   idleMinutes,
@@ -52,6 +75,13 @@ export function IdleTimer({
   const logout = useCallback(async () => {
     if (loggingOut.current) return
     loggingOut.current = true
+    // Préviens les AUTRES onglets : ils basculent vers /login immédiatement au lieu de
+    // rester affichés sur une session détruite (clic suivant = « déconnexion » incomprise).
+    try {
+      localStorage.setItem(LOGGED_OUT_KEY, String(Date.now()))
+    } catch {
+      /* sans stockage, les autres onglets découvriront la déconnexion à leur prochain appel */
+    }
     // La requête de déconnexion ne doit JAMAIS bloquer la redirection : si elle traîne
     // (cold start serverless, réseau lent), on redirige quand même après 2,5 s.
     // `keepalive` laisse la requête aboutir même après la navigation.
@@ -84,12 +114,23 @@ export function IdleTimer({
     setWarning(false)
     const warnAfterMs = Math.max(1000, idleMinutes * 60_000 - warningSeconds * 1000)
     idleTimer.current = setTimeout(() => {
+      // L'utilisateur est peut-être actif dans un AUTRE onglet : dans ce cas on réarme en
+      // silence (cet onglet n'est pas un poste abandonné, la session doit vivre).
+      if (Date.now() - lastCrossTabActivity() < warnAfterMs) {
+        arm()
+        return
+      }
       setWarning(true)
       setRemaining(warningSeconds)
       countdown.current = setInterval(() => {
         setRemaining((r) => {
           if (r <= 1) {
             if (countdown.current) clearInterval(countdown.current)
+            // Dernier contrôle inter-onglets avant de détruire la session.
+            if (Date.now() - lastCrossTabActivity() < warnAfterMs) {
+              arm()
+              return warningSeconds
+            }
             logout()
             return 0
           }
@@ -100,19 +141,39 @@ export function IdleTimer({
   }, [idleMinutes, warningSeconds, logout])
 
   useEffect(() => {
+    let lastWrite = 0
     const onActivity = () => {
-      if (loggingOut.current || warningRef.current) return // pendant l'avertissement : clic explicite requis
+      if (loggingOut.current) return
+      const now = Date.now()
+      if (now - lastWrite > ACTIVITY_WRITE_THROTTLE_MS) {
+        lastWrite = now
+        markCrossTabActivity() // partage l'activité avec les autres onglets
+      }
+      if (warningRef.current) return // pendant l'avertissement : clic explicite requis (même poste)
       arm()
       beat()
     }
+    // Événements des AUTRES onglets : activité → réarmer (l'utilisateur est bien au poste,
+    // même si c'est dans un autre onglet) ; déconnexion → quitter proprement partout.
+    const onStorage = (e: StorageEvent) => {
+      if (loggingOut.current) return
+      if (e.key === LOGGED_OUT_KEY && e.newValue) {
+        loggingOut.current = true
+        window.location.assign(`/${locale}/login?timeout=1`)
+        return
+      }
+      if (e.key === ACTIVITY_KEY) arm() // dissout aussi un avertissement en cours : présence avérée
+    }
     for (const e of ACTIVITY_EVENTS) window.addEventListener(e, onActivity, { passive: true })
+    window.addEventListener('storage', onStorage)
     arm()
     return () => {
       for (const e of ACTIVITY_EVENTS) window.removeEventListener(e, onActivity)
+      window.removeEventListener('storage', onStorage)
       if (idleTimer.current) clearTimeout(idleTimer.current)
       if (countdown.current) clearInterval(countdown.current)
     }
-  }, [arm, beat])
+  }, [arm, beat, locale])
 
   if (!warning) return null
 

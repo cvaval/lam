@@ -8,6 +8,7 @@ import { LocaleSwitcher } from './LocaleSwitcher'
 import { SearchBox } from './SearchBox'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import { postJson } from '@/lib/http'
+import { LOGGED_OUT_KEY } from './IdleTimer'
 import type { Locale } from '@/lib/types'
 
 export function TopBar({
@@ -30,6 +31,13 @@ export function TopBar({
 
   async function logout() {
     await postJson('/api/auth/logout')
+    // Préviens les AUTRES onglets (IdleTimer les bascule vers /login) : sans cela ils
+    // restent affichés sur une session détruite et le clic suivant y « déconnecte ».
+    try {
+      localStorage.setItem(LOGGED_OUT_KEY, String(Date.now()))
+    } catch {
+      /* sans stockage : les autres onglets le découvriront à leur prochaine requête */
+    }
     router.push(`/${locale}/login`)
   }
 
