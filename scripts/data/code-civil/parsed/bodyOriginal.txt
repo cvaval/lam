@@ -2284,9 +2284,9 @@ S'il résulte de ces vices ou défauts quelque perte pour le preneur, le bailleu
 Art. 1493 Si, pendant la durée du bail, la chose louée est détruite en totalité par cas fortuit, le bail est résilié de plein droit; si elle n’est détruite qu’en partie, le preneur peut, suivant les circonstances, demander ou une diminution de prix, ou la résiliation même du bail. Dans l’un et l'autre cas, il n'y a lieu à aucun dédommagement. C. dv, 938, 1021, 1087, 1495, 15015, 1506, 1512, 1539, 1650, 1651.
 S'il avait été convenu que les loyers seraient payables d'avance, le terme qui aurait été ainsi payé, sera, en cas de résiliation du bail restitué au preneur, jusqu’à concurrence de sa non-jouissance.
 Art. 1494 Le bailleur ne peut pendant la durée du bail changer la forme de la chose louée.- C. civ., 1499, 1500, 1648.
-Art. 1495 Si, durant le bail, la chose louée a besoin de réparations urgentes et qui ne puissent être différées jusqu’à la fin le preneur doit les souffrir, quelque incommodité qu'elles lui causent, et quoiqu'il soit privé, pendant qu'elles se font, d’une partie de la chose louée.- C. civ., 1491.- C. p. c,, 142-2.
+Art. 1495 Si, durant le bail, la chose louée a besoin de réparations urgentes et qui ne puissent être différées jusqu’à la fin le preneur doit les souffrir, quelque incommodité qu'elles lui causent, et quoiqu'il soit privé, pendant qu'elles se font, d’une partie de la chose louée.- C. civ., 1491.- C. p. c., 142-2.
 Mais, si ces réparations durent plus d’un mois, le prix du bail sera diminué à proportion du temps et de la partie de la chose louée dont il aura été privé.- C. civ., 1168.
-Si les réparations sont de telle nature qu'elles rendent inhabitable ce qui est nécessaire au logement du preneur et de sa famille, celui-ci pourra faire résilier le baïil.- C. civ., 1491-1493, 1500, 1565.
+Si les réparations sont de telle nature qu'elles rendent inhabitable ce qui est nécessaire au logement du preneur et de sa famille, celui-ci pourra faire résilier le bail.- C. civ., 1491-1493, 1500, 1565.
 Art. 1496 Le bailleur n'est pas tenu de garantir le preneur du trouble que des tiers apportent par voies de fait à sa jouissance, sans prétendre d’ailleurs aucun droit sur la chose louée; sauf au preneur à les poursuivre en son nom personnel- C. civ., 1497, 1498.
 Art. 1497 Si, au contraire, le locataire ou le fermier ont été troublés dans leur jouissance par suite d’une action concernant la propriété du fonds, ils ont droit a une diminution proportionnée sur le prix du bail à loyer ou à la ferme, pourvu que le trouble et l'empêchement aient été dénoncés au propriétaire.- C. civ., 1492, 1496, 1498, 1538.
 Art. 1498 Si ceux qui ont commis les voies de fait prétendent avoir quelque droit sur la chose louée, ou si le preneur est lui-même cité en justice pour se voir condamner au délaissement de la totalité ou de partie de cette chose, ou à souffrir l'exercice de quelque servitude, il doit appeler le bailleur en garantie, et doit être mis hors d'instance, s’il l'exige, en nommant le bailleur pour lequel il possède. C. civ., 517, 1496, 1497, 1538.- C. p. c., 176 et s.
@@ -2294,21 +2294,22 @@ Art. 1499 Le preneur est tenu de deux obligations principales,
 Art. 1500 Si le preneur emploie la chose louée à un autre usage que celui auquel elle a été destinée, ou dont il puisse résulter un dommage pour le bailleur, celui-ci peut, suivant les circonstances, faire résilier le baïl.- c. civ, 1490-2, 1492, 1494, 1499, 1530, 1436.
 Art. 1501 S'il a été fait un état des lieux, entre le bailleur et le preneur, celui-ci doit rendre la chose telle qu'il l’a reçue, suivant cet état, excepté ce qui a péri ou a été dégradé par vétusté ou force majeure.- C. civ., 938, 1021, 1087, 1493, 1504, 1506, 1412, 1526, 1539, 1650, 1651.
 Art. 1502 S'il n'a pas été fait un état des lieux, le preneur est présumé les avoir reçus en bon état de réparations locatives, et doit les rendre tels sauf la preuve contraire.- C. civ., 1492, 1506, 1525, 1526.- C. p. c., 8-7.
-Art. 1503 Il répond des dégradations ou des pertes qui arrivent pendant sa jouissance, à moins qu'il ne prouve qu’elles ont eu lieu sans sa faute. c. civ, 1168, 1506, 1536.
-Art. 1504 Il répond de l'incendie, à moins qu'il ne prouve que l'incendie est arrivé par cas fortuit ou force majeure, ou par vice de construction.- C. civ., 497 938, 1021, 1087, 1172, 1493, 1501, 1512, 1539.
-Ou que le feu a été communiqué par une propriété voisine.- C. civ., 1505, 1716. C.pén, 72, 356.
-Art. 1505 S'il y a plusieurs locataires, tous sont solidairement responsables de l'incendie. C. civ., 987, 1504.
+Art. 1503 Il répond des dégradations ou des pertes qui arrivent pendant sa jouissance, à moins qu'il ne prouve qu’elles ont eu lieu sans sa faute.- C. civ., 1168, 1506, 1536.
+Art. 1504 Il répond de l'incendie, à moins qu'il ne prouve que l'incendie est arrivé par cas fortuit ou force majeure, ou par vice de construction.- C. civ., 497, 938, 1021, 1087, 1172, 1493, 1501, 1512, 1539.
+Ou que le feu a été communiqué par une propriété voisine.- C. civ., 1505, 1716.- C. pén., 72, 356.
+Art. 1505 S'il y a plusieurs locataires, tous sont solidairement responsables de l'incendie.- C. civ., 987, 1504.
 À moins qu'ils ne prouvent que l'incendie a commencé dans l'habitation de l'un d'eux, auquel cas celui-là seul en est tenu ;- C. civ., 1168.
-Ou que quelques-uns ne prouvent que l'incendie n'a pu commencer chez eux, auquel cas ceux-là n'en sont pas tenus. La preuve faite que l'incendie a éclaté chez tel locataire déterminé détruit la solidarité stipulée. La responsabilité de l'incendie et la liquidation éventuelle de dommages-intérêts relèvent du pouvoir souverain d'appréciation des premiers juges. Cass., 5 décembre 1895, Aff. Gostalle.
+Ou que quelques-uns ne prouvent que l'incendie n'a pu commencer chez eux, auquel cas ceux-là n'en sont pas tenus.
+La preuve faite que l'incendie a éclaté chez tel locataire déterminé détruit la solidarité stipulée.
 Art. 1506 Le preneur est tenu des dégradations et des pertes qui arrivent par le fait des personnes de sa maison, ou de sous-locataires.- C. civ., 1168, 1488, 1501, 1503, 1512, 1524, 1533.
 Art. 1507 Si le bail a été fait sans écrit, lune des parties ne pourra donner congé à l'autre qu'en observant les délais fixés par l'usage des lieux.- C. civ., 949, 1486, 1508, 1510, 1519, 1529, 1532, 1545
 Art. 1508 Le bail cesse de plein droit à l'expiration du terme fixé, lorsqu'il a été fait par écrit, sans qu’il soit nécessaire de donner congé.- C. civ., 925, 930, 1507, 1510, 1512 et s, 1532, 1545.
 Art. 1509 Si, à l'expiration des baux écrits, le preneur reste et est laissé en possession, il s'opère un nouveau bail dont l'effet est réglé par l’article relatif aux locations faites sans écrit.- C. civ., 1486, 1487, 1507, 1510, 1529, 1544, 1546.
 Art. 1510 Lorsqu'il y a congé signifié, le preneur, quoiqu'il ait continué sa jouissance, ne peut invoquer la tacite reconduction.- C. civ., 1507-1509, 1532.
-Art. 1511 Dans le cas des deux articles précédents, la caution donnée pour le bail ne s'étend pas aux obligations résultant de la prolongation.- C. &, 1890, 1800, 1805.
-Art. 1512 Le contrat de louage se résout par la perte de la chose louée, et par le défaut respectif du bailleur et du preneur de remplir leurs engagements. C. civ., 938, 974, 1021, 1037, ets, 1490, 1491, 1493, 1499, 1501, 1506, 1530, 1539, 1650, 1651.
+Art. 1511 Dans le cas des deux articles précédents, la caution donnée pour le bail ne s'étend pas aux obligations résultant de la prolongation.- C. civ., 1890, 1800, 1805.
+Art. 1512 Le contrat de louage se résout par la perte de la chose louée, et par le défaut respectif du bailleur et du preneur de remplir leurs engagements.- C. civ., 938, 974, 1021, 1037 et s, 1490, 1491, 1493, 1499, 1501, 1506, 1530, 1539, 1650, 1651.
 Art. 1513 Le contrat de louage n'est point résolu par la mort du bailleur, ni par celle du preneur.- C. civ., 584, 914, 1512, 1564, 2004.
-Art. 1514 Si le bailleur vend la chose louée, l'acquéreur ne peut expulser le fermier ou le locataire qui a un bail authentique, ou dont la date est certaine, à moins qu'il se soit réservé ce droit par le contrat du baïil.- C. civ., 925, 1102, 1113, 1515 et s, 1529, 1521. En matière de bail, le nouvel acquéreur, prenant la place de son auteur, doit laisser le preneur continuer le bail consenti par le vendeur, si ce bail à date certaine antérieurement à la vente. Cass., 20 mai 1948, Bull. 1947-48.
+Art. 1514 Si le bailleur vend la chose louée, l'acquéreur ne peut expulser le fermier ou le locataire qui a un bail authentique, ou dont la date est certaine, à moins qu'il se soit réservé ce droit par le contrat du bail.- C. civ., 925, 1102, 1113, 1515 et s, 1529, 1521.
 Art. 1515 S'il a été convenu, lors du bail, qu'en cas de vente l'acquéreur pourrait expulser le fermier ou le locataire, et qu’il n'ait été fait aucune stipulation sur les dommages-intérêts, le bailleur est tenu d’indemniser le fermier ou le locataire de la manière suivante.- C. civ., 939, 1168.
 Art. 1516 S'il s’agit d’une maison, appartement ou boutique, le bailleur paie, à titre de dommages-intérêts, au locataire évincé, une somme égale au prix du loyer pendant le temps, qui, suivant l’usage des lieux est accordé entre le congé et la sortie. C. civ., 949.
 Art. 1517 S'il s’agit des biens ruraux, l'indemnité que le bailleur doit payer au fermier, est du tiers du prix du bail pour tout le temps qui reste à courir.
@@ -2369,7 +2370,7 @@ Pour le paiement du salaire, et pour les à-comptes.- C. civ.,, 96, 829, 1152, 1
 Des voituries par terre et par eau
 Art. 1552 Les voituriers par terre et par eau sont assujettis, pour la garde et la conservation des choses qui leur sont confiées, aux mêmes obligations que les aubergistes, dont il est parlé en la loi No 26, sur le dépôt et le séquestre.- C. civ., 928, 1549, 1553 et s, 1717 et s, 1748 et s, 1869-6°;- C. pén., 332, 394-2, 395.
 Art. 1553 Ils répondent non seulement de ce qu'ils ont déjà reçu dans leur bâtiment ou voiture, mais encore de ce qu’il leur a été remis dans les embarcadères, wharf ou port, à la douane ou dans les magasins pour être placé dans leur bâtiment ou voiture.- C. civ., 1087, 1168.
-Art. 1554 Ils sont responsables de la perte ou des avaries des choses qui leur sont confiées, à moins qu’ils ne prouvent qu'elles ont été perdues ou avariées par cas fortuit ou force majeure.- C. civ., 938, 1021, 1087, 1088, 1168 et s. La clause de non-garantie dans un contrat contre lui, et d'imposer à l'expéditeur ou au de transport est valable, mais a seulement pour destinataire de la charge de prouver la faute du effet de décharger l'entrepreneur du transport transporteur. de la présomption générale de faute édictée
+Art. 1554 Ils sont responsables de la perte ou des avaries des choses qui leur sont confiées, à moins qu’ils ne prouvent qu'elles ont été perdues ou avariées par cas fortuit ou force majeure.- C. civ., 938, 1021, 1087, 1088, 1168 et s.
 Art. 1555 Les entrepreneurs et directeurs de voitures et roulages publics, les maîtres de barques et navires, sont en outre assujettis à des règlements particuliers qui font la loi entre eux et les autres citoyens.- C. pén. 394.
 SECTION II — Des devis et des marchés
 Art. 1556 Lorsqu'on charge quelqu'un de faire un ouvrage, on peut convenir qu'il fournira seulement son travail ou son industrie, ou bien qu'il fournira aussi la matière.- C. civ., 466, 472-475, 1483, 1549, 1557 et s, 1563, 1564, 1869-27.
@@ -2380,18 +2381,19 @@ Art. 1560 S'il s’agit d’un ouvrage à plusieurs pièces ou à la mesure, la 
 Art. 1561 Si l'édifice construit à prix fait périt en tout ou en partie par le vice de la construction, même par le vice du sol, les architecte et entrepreneur en sont responsables pendant cinq ans.- C. civ., 1021, 1087, 1562-1568, 1870-# et 5, 1877, 1907.
 Art. 1562 Lorsqu'un architecte ou un entrepreneur s’est chargé de la construction à forfait d'un bâtiment d’après un plan arrêté et convenu avec le propriétaire du sol, il ne peut demander aucune augmentation du prix, ni sous le prétexte de l'augmentation de la main-d'oeuvre ou des matériaux, ni sous celui de changements ou d’augmentations faits sur ce plan, si ces changements ou augmentations n'ont pas été autorisés par écrit, et le prix convenu avec le propriétaire.- C. civ., 925, 1561, 1563, 1870-4°, 1877.
 Art. 1563 Le maître peut résilier, par sa seule volonté, le marché à forfait, quoique l'ouvrage soit déjà commencé, en dédommageant l'entrepreneur de toutes ses dépenses, de tous ses travaux, et de tout ce qu'il aurait pu gagner dans cette entreprise.- C. civ., 939, 1168, 1562.
-La disposition relative aux marchés à forfait, quoique l'ouvrage soit déjà commencé, ne disqui permet au maître, sous certaines condi- tingue pas si l'ouvrier fournit ou non la matière, tions, de résilier le contrat par sa seule volonté
 Art. 1564 Le contrat de louage d'ouvrage est dissous par la mort de l'ouvrier, de l'architecte ou entrepreneur.- C. civ., 914 1023, 1513, 1565.
 Art. 1565 Mais le propriétaire est tenu de payer, en proportion du prix porté par la convention, à leur succession, la valeur des ouvrages faits et celle des matériaux préparés, lors seulement que ces travaux ou ces matériaux peuvent lui être utiles.- C. civ., 584, 925, 1564.
 Art. 1566 L'entrepreneur répond du fait des personnes qu'il emploie.- C. civ., 1170.
-Art. 1567 Les maçons charpentiers, et autres ouvriers qui ont été employés à la construction d'un bâtiment ou d’autres ouvrages faits à l'entreprise, n’ont d'action contre celui pour lequel les ouvrages ont été faits, que jusqu’à concurrence de ce dont il se trouve débiteur envers l'entrepreneur, au moment où leur action est intentée.- C. civ., 1568, 1870-4°, et ®, 1877. C. p. c,, 69, 71, 79.
+Art. 1567 Les maçons charpentiers, et autres ouvriers qui ont été employés à la construction d'un bâtiment ou d’autres ouvrages faits à l'entreprise, n’ont d'action contre celui pour lequel les ouvrages ont été faits, que jusqu’à concurrence de ce dont il se trouve débiteur envers l'entrepreneur, au moment où leur action est intentée.- C. civ., 1568, 1870-4° et 5°, 1877.- C. p. c., 69, 71, 79.
 Art. 1568 Les maçons, charpentiers, serruriers, et autres ouvriers qui font directement des marchés à prix fait, sont astreints aux règles prescrites dans la présente section. Ils sont entrepreneurs dans la partie qu'ils traitent. C. civ., 1567.
 CHAPITRE IV — DU BAIL À CHEPTEL
 Dispositions générales
 Art. 1569 Le bail à cheptel est un contrat par lequel l'une des parties donne à l'autre un fonds de bétail pour le garder, le nourrir et le soigner, sous les conditions convenues entre elles.- C. civ., 428, 925, 1480, 1481, 1483, 1570 et s, 1828.
-Art. 1570 Il y a plusieurs sortes de cheptels: Le cheptel simple ou ordinaire ;- C. civ., 1573 et s.
+Art. 1570 Il y a plusieurs sortes de cheptels:
+Le cheptel simple ou ordinaire ;- C. civ., 1573 et s.
 Le cheptel à moitié ;- C. civ., 1587 et s.
-Le cheptel donné au fermier ou colon partiaire.- C. civ., 1590 et s. Il y a encore üne quatrième espèce do contrat improprement appelé cheptel. C. civ., 1600 et s.
+Le cheptel donné au fermier ou colon partiaire.- C. civ., 1590 et s.
+Il y a encore une quatrième espèce de contrat improprement appelée cheptel.- C. civ., 1600 et s.
 Art. 1571 On peut donner à cheptel toute espèce d'animaux susceptibles de croît et de profit pour l'agriculture ou le commerce.
 Art. 1572 À défaut de conventions particulières, ces contrats se règlent par l'usage des lieux ou par les principes qui suivent.- C. civ., 925, 1581.
 SECTION II — Du cheptel simple
@@ -2400,12 +2402,15 @@ Art. 1574 Lestimation donnée au cheptel dans le bail n'en transporte pas la pro
 Art. 1575 Le preneur doit les soins d’un bon père de famille à la conservation du cheptel. C. civ., 928, 1499, 1579.
 Art. 1576 Il n'est tenu du cas fortuit que lorsqu'il a été précédé de quelque faute de sa part, sans laquelle la perte ne serait pas arrivée. C. civ., 938, 1087, 1168, 1542 et s, 1577-1579.
 DU BAIL À CHEPTEL
-Art. 1577 En cas de contestation, le preneur est tenu de prouver le cas fortuit, et le bailleur est tenu de prouver la faute qu'il impute au preneur. C. civ., 1100, 1126, 1133, 1576.
-Le juge qui possède une preuve non com- de toute responsabilité. Cass., 1° décembre battue que le cheptel a péri sans la faute du 1927 Aff. Dorismond vs. Jn-Charles. preneur doit nécessairement dégager celui-ci
+Art. 1577 En cas de contestation, le preneur est tenu de prouver le cas fortuit, et le bailleur est tenu de prouver la faute qu'il impute au preneur.- C. civ., 1100, 1126, 1133, 1576.
 Art. 1578 Le preneur que est déchargé par le cas fortuit, est toujours tenu de rendre compte des peaux de bêtes.- C. civ., 505, 1757.
 Art. 1579 Si le cheptel périt en entier sans la faute du preneur, la perte en est pour le bailleur.- C. civ., 504, 505, 1021, 1087, 1088, 1168, 1596.
 S'il n'en périt qu'une partie, la perte est supportée en commun, d’après le prix de l'estimation originaire, et celui de l'estimation du baïl.- C. civ., 1574, 1576, 1580, 1581, 1584, 1596.
-Art. 1580 On peut stipuler, Que le preneur supportera la perte totale du cheptel, quoique arrivée par cas fortuit et sans sa faute, Ou qu'il supportera, dans la perte, une part plus grande que dans le profit, Ou que le bailleur prélèvera, à la fin du bail, quelque chose de plus que le cheptel qu'il a fourni, Toute convention semblable est nulle.- C. civ., 18, 1588, 1597, 1624.
+Art. 1580 On peut stipuler,
+Que le preneur supportera la perte totale du cheptel, quoique arrivée par cas fortuit et sans sa faute,
+Ou qu'il supportera, dans la perte, une part plus grande que dans le profit,
+Ou que le bailleur prélèvera, à la fin du bail, quelque chose de plus que le cheptel qu'il a fourni,
+Toute convention semblable est nulle.- C. civ., 18, 1588, 1597, 1624.
 Art. 1581 Le preneur profite seul des laitages, du fumier et du travail des animaux donnés à cheptel.
 La laine et le croît se partagent.- C. civ., 452, 481, 1572, 1573.
 Art. 1582 Le preneur ne peut disposer d'aucune bête du troupeau, sot du fonds, soit du croît, sans le consentement du bailleur, qui ne peut lui-même en disposer sans le consentement du preneur.
@@ -2421,8 +2426,7 @@ Art. 1588 Le preneur profite seul, comme dans le cheptel simple, des laitages, d
 Le bailleur n’a droit qu'à la moitié des laines et du croît. C. civ., 452, 481, 1580, 1581.
 Toute convention contraire est nulle, à moins que le bailleur ne soit propriétaire du fonds de terre, dont le preneur est fermier ou colon partiaire.- C. civ., 10, 1573, 1580, 1581, 1592, 1597, 1624.
 Art. 1589 Toutes les autres règles du cheptel simple s'appliquent au cheptel à moitié.- C. civ., 1575 et s.
-SECTION IV — Du cheptel donné par le propriétaire à son fermier
-Du cheptel donné par le propriétaire à son fermier ou à son colon partiaire
+SECTION IV — Du cheptel donné par le propriétaire à son fermier ou à son colon partiaire
 § 1er — Du cheptel donné au fermier
 Art. 1590 Ce cheptel, aussi appelé cheptel de fer, est celui par lequel le propriétaire d'un fonds de terre le donne à ferme, à la charge qu’à l'expiration du bail, le fermier laissera des bestiaux d'une valeur égale au prix de l'estimation de ceux qu'il aura reçus.- C. civ., 1569, 1570, 1572, 1591 et s.
 Art. 1591 L'estimation du cheptel donné au fermier, ne lui en transfère pas la propriété, mais néanmoins le met à ses risques. C. dv, 1574, 1594, 1595, 1651, 18691.
@@ -2432,7 +2436,7 @@ Art. 1594 La perte, même totale et par cas fortuit, est en entier pour le fermi
 Art. 1595 À la fin du bail, le fermier ne peut retenir le cheptel en payant l'estimation originaire; il doit en laisser un de valeur pareille à celui qu’il a reçu.- C. civ., 1587 et s., 1728.
 S'il y a déficit, il doit le payer; et c'est seulement l'excédent qui lui appartient.
 § II — Du cheptel donné au colon partiaire
-Art. 1596 Si le cheptel périt en entier sans la faute du colon partiaire, la perte est pour le baïlleur.- C. civ., 504, 505, 930, 1021, 1087, 1088, 1168, 1576, 1594.
+Art. 1596 Si le cheptel périt en entier sans la faute du colon partiaire, la perte est pour le bailleur.- C. civ., 504, 505, 930, 1021, 1087, 1088, 1168, 1576, 1594.
 Art. 1597 On peut stipuler que le colon partiaire délaissera au bailleur sa part de la toison, à un prix inférieur à la valeur ordinaire;
 Que le bailleur aura une plus grande part du profit;
 Qu'il aura la moitié des laitages;
