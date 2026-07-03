@@ -13,6 +13,12 @@ const TABLE_LABEL: Record<Locale, string> = { fr: 'Tableau', en: 'Table', ht: 'T
 const ORPHAN_LABEL: Record<Locale, string> = { fr: 'emplacement approximatif', en: 'approximate position', ht: 'kote apwoksimatif' }
 const SCROLL_HINT: Record<Locale, string> = { fr: 'Faites glisser pour voir tout le tableau', en: 'Swipe to see the full table', ht: 'Glise pou wè tout tablo a' }
 
+// Renvois internes du Code civil annoté (« C. civ., 969, 1102 et s. », « 1839-1843 ») :
+// la liste de numéros qui suit « C. civ. » devient des liens #art-N — AFFICHAGE seulement,
+// le texte officiel reste inchangé (§02). « C. pr. civ. » / « C.p.c » ne matchent pas.
+const CIV_RE =
+  /C\.\s?civ\.[\s,]*((?:\d{1,4}(?:\s*(?:[-–]|à)\s*\d{1,4})?)(?:\s*(?:,|et)\s*\d{1,4}(?:\s*(?:[-–]|à)\s*\d{1,4})?)*(?:\s*et\s+s(?:uiv)?\.?)?)/g
+
 // Cellule essentiellement numérique (montant, taux, %) → alignée à droite + chiffres
 // tabulaires quand aucun alignement n'est donné. Conservateur : doit commencer par un
 // chiffre et ne contenir que chiffres/séparateurs/devise (jamais « article 12 »).
@@ -42,6 +48,7 @@ export function OfficialText({
   terms,
   amendedAnchors,
   noAnchors = false,
+  civRefs = false,
 }: {
   text: string
   hrefFor?: (ref: CircRef) => string | null
@@ -54,6 +61,8 @@ export function OfficialText({
   /** supprime l'émission d'ancres #art-N (ex. articles d'annexe à numérotation propre,
    *  pour ne pas dupliquer les id des articles du Code). */
   noAnchors?: boolean
+  /** Code civil annoté : rend cliquables les renvois « C. civ., N » (liens #art-N). */
+  civRefs?: boolean
 }) {
   const segments = buildBodySegments(text, rich)
   const usedAnchors = new Set<string>()
@@ -95,9 +104,40 @@ export function OfficialText({
     )
   }
 
+  // Renvois « C. civ., 969, 1102 » → chaque numéro devient un lien #art-N ; le reste du
+  // texte passe par hl() (surlignage). Retourne la valeur telle quelle si aucun renvoi.
+  function civ(value: string): ReactNode {
+    const out: ReactNode[] = []
+    let pos = 0
+    let k = 0
+    CIV_RE.lastIndex = 0
+    let m: RegExpExecArray | null
+    while ((m = CIV_RE.exec(value))) {
+      const numsStart = m.index + m[0].length - m[1].length
+      out.push(<span key={`t${k++}`}>{hl(value.slice(pos, numsStart))}</span>)
+      out.push(
+        <span key={`c${k++}`}>
+          {m[1].split(/(\d{1,4})/).map((p, j) =>
+            /^\d{1,4}$/.test(p) ? (
+              <a key={j} href={`#art-${Number(p)}`} className="font-medium text-soley-700 hover:underline">
+                {p}
+              </a>
+            ) : (
+              p
+            ),
+          )}
+        </span>,
+      )
+      pos = m.index + m[0].length
+    }
+    if (!out.length) return hl(value)
+    out.push(<span key={`t${k++}`}>{hl(value.slice(pos))}</span>)
+    return out
+  }
+
   // Renvois croisés → liens, sinon texte brut ; termes recherchés surlignés (hl).
   function render(textValue: string) {
-    if (!hrefFor) return hl(textValue)
+    if (!hrefFor) return civRefs ? civ(textValue) : hl(textValue)
     const segs = segmentText(textValue, hrefFor)
     if (segs.length === 1 && !segs[0].href) return hl(textValue)
     return segs.map((s, i) =>

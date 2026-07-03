@@ -391,7 +391,15 @@ export default async function DocPage({
               </span>
             </div>
             <p className="mb-3 rounded-lg bg-lank-50 px-3 py-2 text-[11px] leading-relaxed text-lank/60">{t.doc.unofficialNote}</p>
-            <AnnotatedText text={effectiveBody} annotations={annotations} locale={locale} terms={hlTerms} hideInlineIndex={doc.source === 'CONSTITUTION_1987'} />
+            <AnnotatedText
+              text={effectiveBody}
+              annotations={annotations}
+              locale={locale}
+              terms={hlTerms}
+              hideInlineIndex={doc.source === 'CONSTITUTION_1987' || doc.source === 'CODE_CIVIL_ANNOTE'}
+              linkCivRefs={doc.source === 'CODE_CIVIL_ANNOTE'}
+              annotationsVariant={doc.source === 'CODE_CIVIL_ANNOTE' ? 'annotations' : 'juris'}
+            />
           </section>
         </div>
       ) : isScannedEdition ? (
