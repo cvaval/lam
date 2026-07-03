@@ -5,6 +5,8 @@ import { getCurrentUser } from '@/lib/auth/session'
 import { can } from '@/lib/rbac'
 import { canReadService } from '@/lib/access'
 import { buildSealedPdf } from '@/lib/pdf/seal'
+import { getAmendments } from '@/lib/legislation/amendments'
+import { applyAmendments } from '@/lib/legislation/segment'
 import { audit } from '@/lib/auth/audit'
 import { randomToken } from '@/lib/auth/crypto'
 import { getClientCtx } from '@/lib/auth/request'
@@ -36,13 +38,17 @@ export async function GET(req: NextRequest) {
 
   const watermarkId = `${user.id.slice(-6)}-${randomToken(4)}`.toUpperCase()
   const meta = DOC_TYPE_META[doc.type as DocType]
+  // Fidélité (constat audit) : on exporte le texte AFFICHÉ (bodyClean si présent, articles
+  // amendés dans leur version en vigueur) — pas le bodyOriginal brut — pour que le PDF scellé
+  // corresponde à ce que l'utilisateur a lu à l'écran.
+  const displayedBody = applyAmendments(doc.bodyClean ?? doc.bodyOriginal, await getAmendments(doc.id))
   const bytes = await buildSealedPdf({
     title: doc.titleFr,
     badge: meta?.badge ?? 'LAM',
     status: doc.status,
     number: doc.number,
     moniteurRef: doc.moniteurRef,
-    bodyOriginal: doc.bodyOriginal,
+    bodyOriginal: displayedBody,
     exporterEmail: user.email,
     watermarkId,
   })

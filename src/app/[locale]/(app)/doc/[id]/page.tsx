@@ -30,6 +30,7 @@ import { listArticles } from '@/lib/legislation/articles'
 import { LegislationAdminPanel } from '@/components/LegislationAdminPanel'
 import { getAmendments } from '@/lib/legislation/amendments'
 import { applyAmendments } from '@/lib/legislation/segment'
+import { CiteButton } from '@/components/CiteButton'
 import { labelFromAnchor } from '@/lib/legislation/articles'
 import { AmendmentHistory, type AmendItem } from '@/components/AmendmentHistory'
 import { parseAnnotations } from '@/lib/legislation/annotated'
@@ -126,6 +127,15 @@ export default async function DocPage({
   // Annexes téléchargeables (Word/Excel) : circulaires dont les annexes sont des
   // tableaux/formulaires reconstruits. Réservé aux paliers exportateurs (§09).
   const annexCount = richBlocks.filter((b) => b.type === 'table').length
+
+  // Édition scannée du Moniteur : le contenu EST le PDF (le « corps » n'est qu'un libellé de
+  // fascicule) → on propose une consultation directe du PDF au lieu d'un texte officiel vide.
+  const isScannedEdition = (doc.source ?? '').startsWith('MONITEUR_PDF_') && isBlobUrl(doc.sourcePdfUrl)
+  const canViewPdf = type === 'CIRCULAIRE_BRH' || canSeeSourcePdf(user)
+  // Citation juridique copiable : désignation + référence Moniteur / numéro + date.
+  const citation =
+    `${title}${doc.moniteurRef ? ` — ${doc.moniteurRef}` : doc.number ? ` (${doc.number})` : ''}` +
+    `${doc.publicationDate ? `, ${formatDate(locale, doc.publicationDate)}` : ''}`
 
   // Sommaire des tableaux : numérotation par ordre d'AFFICHAGE (même source que
   // OfficialText → buildBodySegments), pour des ancres #tableau-N cohérentes.
@@ -258,6 +268,7 @@ export default async function DocPage({
       {/* Barre d'actions */}
       <div className="flex flex-wrap gap-2">
         <FavoriteButton documentId={doc.id} initial={!!fav} t={t} />
+        <CiteButton citation={citation} label={t.doc.cite} copiedLabel={t.doc.copied} />
         {can(user.role, 'export.sealed') ? (
           <a
             href={`/api/export?id=${doc.id}`}
@@ -383,6 +394,22 @@ export default async function DocPage({
             <AnnotatedText text={effectiveBody} annotations={annotations} locale={locale} terms={hlTerms} hideInlineIndex={doc.source === 'CONSTITUTION_1987'} />
           </section>
         </div>
+      ) : isScannedEdition ? (
+        <section className="rounded-2xl border border-lank/10 bg-white p-6 text-center shadow-card">
+          <p className="mx-auto mb-4 max-w-md text-sm leading-relaxed text-lank/70">{t.doc.scannedEdition}</p>
+          {canViewPdf ? (
+            <a
+              href={`/api/doc/${doc.id}/pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-lank px-4 py-2.5 text-sm font-semibold text-white hover:bg-lank-600"
+            >
+              ↗ {t.doc.openPdf}
+            </a>
+          ) : (
+            <p className="text-xs text-lank/45">{t.doc.pdfNotIncluded}</p>
+          )}
+        </section>
       ) : (
         <section className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
           <div className="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-lank/10 pb-3">
@@ -472,7 +499,7 @@ export default async function DocPage({
               const inner = (
                 <>
                   <Pastille type={b.fromType} />
-                  <span className="text-lank/45">← {b.kind}</span> {b.fromTitleFr}
+                  <span className="text-lank/45">← {b.kind}</span> {b.fromTitleFr || t.doc.otherService}
                 </>
               )
               return (

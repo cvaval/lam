@@ -1,16 +1,11 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { tariffLabel } from '@/lib/tarif-format'
+import { tariffLabel, parseAmount, parsePct } from '@/lib/tarif-format'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { TariffRow } from './TariffTable'
 
-// Analyse un taux « 10 % » / « 3,5 % » / « Exonéré » → fraction (0.10) ; 0 sinon.
-function pct(s: string | null): number {
-  if (!s) return 0
-  const m = s.replace(',', '.').match(/(\d+(?:\.\d+)?)\s*%/)
-  return m ? Number(m[1]) / 100 : 0
-}
+const pct = parsePct
 // Accise : soit un pourcentage AD VALOREM (« 10 % »), soit un montant SPÉCIFIQUE par unité
 // (« 25,00 G/gallon », « 0,025 G/livre »). L'ad valorem se calcule sur la valeur en douane ;
 // le spécifique reste quantité × montant (hors valeur en douane).
@@ -21,22 +16,8 @@ function parseAccise(s: string | null): { kind: 'pct'; v: number } | { kind: 'fi
   if (s.includes('%')) return { kind: 'pct', v: pct(s) }
   return { kind: 'none' }
 }
-// Saisie tolérante FR **et** EN : la virgule est toujours décimale ; le point est décimal
-// s'il n'y a qu'un seul point suivi de 1–2 chiffres (« 1500.50 » → 1500,5), sinon séparateur
-// de milliers (« 1.500 », « 12.345.678 »). Évite le ×100 silencieux sur une décimale anglaise.
-const num = (s: string): number => {
-  let t = (s ?? '').trim().replace(/\s/g, '')
-  if (!t) return 0
-  if (t.includes(',')) t = t.replace(/\./g, '').replace(',', '.') // FR : virgule décimale
-  else {
-    const dots = (t.match(/\./g) || []).length
-    if (dots > 1) t = t.replace(/\./g, '') // plusieurs points = milliers
-    else if (dots === 1 && (t.split('.')[1] ?? '').length === 3) t = t.replace('.', '') // « 1.500 » = milliers
-    // sinon (0 ou 1 point avec 1–2 décimales) : le point reste décimal
-  }
-  const n = Number(t)
-  return Number.isFinite(n) ? Math.max(0, n) : 0
-}
+// Parsing des montants/taux extrait dans src/lib/tarif-format.ts (pur → testé par Vitest).
+const num = parseAmount
 const fmt = (n: number) => new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 2 }).format(Math.round(n * 100) / 100)
 
 /**
@@ -63,9 +44,23 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
   const acciseMissing = acc.kind === 'fixed' && Q <= 0
   const daaAmt = acc.kind === 'pct' ? V * acc.v : acc.kind === 'fixed' ? Q * acc.v : 0
 
+  // Droit de douane : une position peut porter un taux À FOURCHETTE (« 0 % à 15 % », « 5 % ou
+  // 10 % »). On ne retient plus silencieusement la borne basse : on affiche la fourchette et on
+  // EXCLUT le DD du total (sinon sous-estimation trompeuse — constat audit).
+  const ddRates = row.dd ? [...new Set([...row.dd.replace(/,/g, '.').matchAll(/(\d+(?:\.\d+)?)\s*%/g)].map((m) => Number(m[1]) / 100))] : []
+  const ddVariable = ddRates.length > 1
+  const ddMin = ddRates.length ? Math.min(...ddRates) : pct(row.dd)
+  const ddMax = ddRates.length ? Math.max(...ddRates) : pct(row.dd)
+
   // Chaque charge = taux × valeur en douane (sauf accise spécifique = quantité × montant).
-  const charges: { label: string; amt: number; show: boolean; missing?: boolean }[] = [
-    { label: `${t.tarifs.calcDd}${row.dd ? ` (${row.dd})` : ''}`, amt: V * pct(row.dd), show: true },
+  const charges: { label: string; amt: number; show: boolean; missing?: boolean; variable?: boolean; valueText?: string }[] = [
+    {
+      label: `${t.tarifs.calcDd}${row.dd ? ` (${row.dd})` : ''}${ddVariable ? ` · ${t.tarifs.calcVariable}` : ''}`,
+      amt: V * ddMin,
+      valueText: ddVariable ? `${fmt(V * ddMin)} – ${fmt(V * ddMax)} HTG` : undefined,
+      variable: ddVariable,
+      show: true,
+    },
     { label: `${t.tarifs.calcDaa}${row.accises ? ` (${row.accises})` : ''}`, amt: daaAmt, show: acc.kind !== 'none', missing: acciseMissing },
     { label: t.tarifs.calcFv, amt: V * 0.06, show: true },
     { label: t.tarifs.calcTca, amt: V * 0.1, show: true },
@@ -76,8 +71,9 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
     { label: t.tarifs.calcTpe, amt: V * 0.25, show: vehicle && vehicleOld },
   ]
   const shown = charges.filter((c) => c.show)
-  const total = shown.reduce((s, c) => s + (c.missing ? 0 : c.amt), 0)
+  const total = shown.reduce((s, c) => s + (c.missing || c.variable ? 0 : c.amt), 0)
   const grand = V + total
+  const hasVariable = shown.some((c) => c.variable)
 
   const Line = ({ label, value, strong = false }: { label: string; value: string; strong?: boolean }) => (
     <div className={`flex items-center justify-between gap-4 py-1.5 ${strong ? 'border-t border-lank/15 pt-2 font-semibold text-lank' : 'text-lank/80'}`}>
@@ -137,10 +133,11 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
 
         <div className="mt-4 rounded-xl border border-lank/10 bg-paper px-4 py-2">
           {shown.map((c) => (
-            <Line key={c.label} label={c.label} value={c.missing ? `— (${t.tarifs.quantity} ?)` : `${fmt(c.amt)} HTG`} />
+            <Line key={c.label} label={c.label} value={c.valueText ?? (c.missing ? `— (${t.tarifs.quantity} ?)` : `${fmt(c.amt)} HTG`)} />
           ))}
           <Line label={t.tarifs.calcTotal} value={`${fmt(total)} HTG`} strong />
           <Line label={t.tarifs.calcGrand} value={`${fmt(grand)} HTG`} strong />
+          {hasVariable && <p className="pt-2 text-[11px] leading-relaxed text-lank/50">{t.tarifs.calcVariableNote}</p>}
         </div>
 
         <p className="mt-3 text-[11px] leading-relaxed text-lank/50">{t.tarifs.calcDisclaimer}</p>

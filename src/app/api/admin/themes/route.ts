@@ -5,6 +5,8 @@ import { requireAdminApi } from '@/lib/auth/guard'
 import { audit, type AuditAction } from '@/lib/auth/audit'
 import { getClientCtx } from '@/lib/auth/request'
 import { createTheme, updateTheme, removeTheme, reorderThemes, getThemeTree, ThemeError } from '@/lib/legislation/themes'
+import { reindexDocument } from '@/lib/search/reindex'
+import { prisma } from '@/lib/db'
 
 export const runtime = 'nodejs'
 
@@ -67,6 +69,14 @@ export async function POST(req: NextRequest) {
     let action: AuditAction = 'THEME_UPDATED'
     let meta: Record<string, unknown> = {}
 
+    // Renommer/supprimer un thème change les libellés dénormalisés (themeLabels) et donc le
+    // searchText des documents rattachés : on capture les ids AVANT l'opération pour les
+    // ré-indexer ensuite, sinon la recherche reste sur l'ancien libellé (constat audit).
+    const toReindex =
+      d.action === 'update' || d.action === 'remove'
+        ? (await prisma.documentTheme.findMany({ where: { themeId: d.id }, select: { documentId: true } })).map((x) => x.documentId)
+        : []
+
     switch (d.action) {
       case 'create': {
         const theme = await createTheme({
@@ -108,6 +118,13 @@ export async function POST(req: NextRequest) {
     }
 
     await audit({ action, actorId: admin.id, targetType: 'THEME', ip: ctx.ip, userAgent: ctx.userAgent, meta })
+
+    // Ré-indexation des documents impactés (themeLabels + searchText) — best-effort, ne bloque
+    // pas la réponse en cas d'échec ponctuel. reorder n'affecte pas les libellés (aucun reindex).
+    if (toReindex.length) {
+      for (const docId of toReindex) await reindexDocument(docId).catch((e) => console.warn('reindex thème :', docId, e))
+    }
+
     return NextResponse.json({ ok: true })
   } catch (e) {
     if (e instanceof ThemeError) {
