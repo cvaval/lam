@@ -87,23 +87,37 @@ export function matchArticles(
   numQuery: number | null,
   anchorQuery: string | null = null,
   limit = 40,
+  phraseQuery: string | null = null,
 ): CodeArticle[] {
   const words = [
     ...new Set(rawTerms.flatMap((t) => fold(t).split(/[^a-z0-9]+/)).filter((w) => w.length >= 3 && !STOP.has(w))),
   ]
+  // Recherche d'EXPRESSION : la requête entière (foldée, espaces normalisés) est cherchée
+  // telle quelle — un article qui contient l'expression contiguë passe LOIN devant les
+  // correspondances de mots épars (« possession vaut titre » → art. 2044 d'abord).
+  const phrase = phraseQuery && phraseQuery.trim().split(/\s+/).length >= 2 ? fold(phraseQuery).replace(/\s+/g, ' ').trim() : null
   if (!words.length && numQuery == null && !anchorQuery) return []
   const scored = articles
     .map((a) => {
       let score = 0
-      for (const w of words) if (a.fold.includes(w)) score++
+      let found = 0
+      for (const w of words) if (a.fold.includes(w)) { score++; found++ }
+      const hasPhrase = phrase != null && a.fold.replace(/\s+/g, ' ').includes(phrase)
+      if (hasPhrase) score += 12
       if (numQuery != null && a.n === numQuery) score += 5 // « 112 » → article 112 en tête
       // Désignation décimale/bis (« 12.1 », « 95 bis ») → saut direct par ancre (audit §2).
       if (anchorQuery && a.anchor === anchorQuery) score += 6
-      return { a, score }
+      return { a, score, found, hasPhrase }
     })
     .filter((x) => x.score > 0)
+  // Requête multi-mots : si des articles contiennent l'expression OU tous les mots, on ne
+  // montre qu'eux (les correspondances partielles noient le résultat) ; sinon repli permissif.
+  const strict = words.length >= 2 ? scored.filter((x) => x.hasPhrase || x.found === words.length) : []
+  const pool = strict.length ? strict : scored
+  return pool
     .sort((x, y) => y.score - x.score || x.a.n - y.a.n)
-  return scored.slice(0, limit).map((x) => x.a)
+    .slice(0, limit)
+    .map((x) => x.a)
 }
 
 // Cache des expansions IA par requête folée : les « thèmes proches » d'une requête sont

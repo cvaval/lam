@@ -100,3 +100,10 @@ mark.hl {
     word-break: break-word;
   }
 }
+
+/* Passage trouvé par la recherche du Code (CSS Custom Highlight API — voir CodeSidebar.goToHit) :
+   surligné sans toucher au DOM du texte officiel. */
+::highlight(lv-passage) {
+  background-color: #ffe9a8;
+  color: inherit;
+}

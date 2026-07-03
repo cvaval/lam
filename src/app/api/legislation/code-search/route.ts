@@ -40,7 +40,7 @@ export async function GET(req: NextRequest) {
   const anchorQuery = /^\d{1,4}(?:[.\-]\s*\d+|\s*(?:bis|ter|quater))+$/i.test(q) ? anchorFromDesignation(q) : null
   const baseTerms = q.split(/\s+/).filter((w) => w.length >= 2)
   const themes = useAi ? await expandThemes(q, doc.titleFr) : []
-  const results = matchArticles(articles, [...baseTerms, ...themes], numQuery, anchorQuery)
+  const results = matchArticles(articles, [...baseTerms, ...themes], numQuery, anchorQuery, 40, q)
 
   return NextResponse.json({
     ok: true,
