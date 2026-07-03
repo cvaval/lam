@@ -20,7 +20,7 @@ const SCROLL_HINT: Record<Locale, string> = { fr: 'Faites glisser pour voir tout
 // pour couvrir les rares réfs OCR non désambiguïsables — le lien n'est émis que pour 1..2047.
 const CIV_MAX_ART = 2047
 const CIV_RE =
-  /C\.\s?civ\.[\s,]*((?:\d{1,6}(?:\s*(?:[-–]|à)\s*\d{1,6})?)(?:\s*(?:,|;|et)\s*\d{1,6}(?:\s*(?:[-–]|à)\s*\d{1,6})?)*(?:\s*et\s+s(?:uiv)?\.?)?)/gi
+  /C\.\s?civ\.[\s,]*((?:\d{1,6}(?:\s*(?:[-–]|à)\s*\d{1,6})?(?:\s+(?:et\s+)?s\b\.?)?)(?:\s*(?:,|;|et)\s*\d{1,6}(?:\s*(?:[-–]|à)\s*\d{1,6})?(?:\s+(?:et\s+)?s\b\.?)?)*)/gi
 
 // Cellule essentiellement numérique (montant, taux, %) → alignée à droite + chiffres
 // tabulaires quand aucun alignement n'est donné. Conservateur : doit commencer par un
