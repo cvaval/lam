@@ -291,7 +291,7 @@ Art. 197 Le mari doit protection à sa femme, la femme obéissance à son mari. 
 Art. 198 La femme est obligée d'habiter avec son mari et de le suivre partout où il juge à propos de résider; le mari est obligé de la recevoir, et de lui fournir tout ce qui est nécessaire pour les besoins de la vie, selon ses facultés et son état. V. l'art. 5 du D. du 8 octobre 1982.
 Art. 199 La femme ne peut ester en jugement sans l'autorisation de son mari, quand même elle serait marchande publique, ou non commune, ou séparée de bien.
 V. l'art. 2 du D. du 8 octobre 1982.
-Art. 200 L'autorisation du mari n'est pas nécessaire lorsque la femme est poursuivie en matière criminelle ou de police.- C. civ., 211, 209. V. l'art. 2 du D. du 8 octobre 1982.
+Art. 200 L'autorisation du mari n'est pas nécessaire lorsque la femme est poursuivie en matière criminelle ou de police.- C. civ., 211, 2095. V. l'art. 2 du D. du 8 octobre 1982.
 Art. 201 La femme, même non commune, ou séparée de biens, ne peut donner, aliéner, hypothéquer, acquérir à titre gratuit ou onéreux, sans le concours du mari dans l'acte ou son consentement par écrit. V. l'art. 8 du D. du 8 octobre 1982.
 Art. 202 Si le mari refuse d'autoriser sa femme à ester en jugement, le doyen du tribunal peut donner l'autorisation. V. le D. du 8 octobre 1892.
 Art. 203 Si le mari refuse d'autoriser sa femme à passer un acte, la femme peut faire citer son mari directement devant le tribunal civil du ressort du domicile commun. Le tribunal pourra donner ou refuser autorisation après que le mari aura été entendu ou dûment appelé en la chambre du conseil. V. les arts. 2 et 6 du D. du 8 octobre 1982.
@@ -895,7 +895,7 @@ Lorsque dans son dispositif, une décision a tiré de ce que la possession ne se
 Art. 574 Les biens qui n'ont pas de maître, appartiennent à l’État. c. civ, 442 à 446, 575 à 577, 583, 584, 628, 1865, 1888.
 Art. 575 Il est des choses qui n'appartiennent à personne, et dont l'usage est commun à tous. Des lois de police règlent la manière d'en jouir.- C. civ., 442, 445, 446.
 Art. 576 La propriété d'un trésor appartient celui qui le trouve dans son propre fonds: si le trésor est trouvé dans le fonds d'autrui, il appartient pour moitié à celui qui l’a découvert, et pour l’autre moitié au propriétaire du fonds. On appelle trésor toute chose cachée ou enfouie, sur laquelle personne ne peut justifier sa propriété, et qui est découverte par le pur effet du hasard.- C. civ., 457.
-Art. 577 Les droits sur les effets jetés à la mer, sur les objets que la mer rejette, de quelque nature qu'ils puissent être, sur les plantes et herbages qui croissent sur le rivage de la mer, sont aussi réglés par des lois particulières.- C. civ., 442. Il en est de même des choses perdues dont le maître ne se représente pas.- C. civ., 2044, 208.
+Art. 577 Les droits sur les effets jetés à la mer, sur les objets que la mer rejette, de quelque nature qu'ils puissent être, sur les plantes et herbages qui croissent sur le rivage de la mer, sont aussi réglés par des lois particulières.- C. civ., 442. Il en est de même des choses perdues dont le maître ne se représente pas.- C. civ., 2044, 2085.
 LOI Nº 16 — Des successions
 CHAPITRE PREMIER — DE L’OUVERTURE DES SUCCESSIONS ET DE LA SAISINE DES HÉRITIERS
 Art. 578 Les successions s'ouvrent par la mort et par la perte des droits civils. C. civ., 19 à 33, 119, 572, 579 et s. 585. V. l'art. 1° de la Loi du 30 août 1988.
@@ -911,7 +911,7 @@ Art. 584 Les héritiers, soit légitimes, soit naturels, sont saisis de plein dr
 CHAPITRE II — DES QUALITÉS REQUISES POUR SUCCÉDER
 Art. 585 Pour succéder, il faut nécessairement exister à l'instant de l'ouverture de la succession.- C. civ., 124, 125, 845.
 Art. 586 Sont incapables de succéder:
-1. Celui qui n'est pas encore conçu; C: civ, 293, 736.
+1. Celui qui n'est pas encore conçu; C. civ., 293, 736.
 2. L'enfant qui n'est pas né viable; C. civ., 295, 736.
 3. L'individu qui a encouru la perte des droits civils. V. l'art. 1° de la loi du 30 août 1988.
 Art. 587 (Art. 3 de la Loi du 13 février 1925).
@@ -1605,7 +1605,7 @@ Art. 1055 La cession judiciaire ne confère point la propriété aux créanciers
 Les créanciers ne peuvent refuser la cession judiciaire, si ce n'est dans les cas exceptés par la loi.- C. civ., 1712;-C. p. c., 855.
 Elle opère la décharge de la contrainte par corps.- C. civ., 1825; C. p. c., 749-3. Au surplus, elle ne libère le débiteur que jusqu’à concurrence de la valeur des biens abandonnés; et dans le cas où ils auraient été insuffisants, il est obligé, s’il lui en survient d’autres, de les abandonner jusqu'au parfait paiement.- c. civ, 1051, 1712.
 SECTION II — De la novation
-Art. 1056 La novation s'opère de trois manières :- C. civ., 897925, 1021.
+Art. 1056 La novation s'opère de trois manières :- C. civ., 897, 925, 1021.
 Art. 1057 La novation ne peut s'opérer qu'entre personnes capables de contracter.- C. civ., 915-917.
 Art. 1058 La novation ne se présume point: il faut que la volonté de l'opérer résulte clairement de l'acte. C. civ., 925, 1060, 1061.
 Art. 1059 La novation, par substitution d'un nouveau débiteur, peut s'opérer sans le concours du premier.- C. civ., 1056-2°, 1063-1065.
@@ -1666,7 +1666,7 @@ DE LA PREUVE DES OBLIGATIONS ET DE CELLE DU PAIEMENT
 Art. 1098 Les majeurs ne sont restitués, pour cause de lésion que dans les cas et sous les conditions spécialement exprimées dans le présent Code.- C. civ., 642, 717, ets, 904, 911, 1818-1820, 1823, 1892.
 Art. 1099 Lorsquelesformalitésrequisesàl’égarddesmineursoudesinterdits, soit pouraliénation d'immeubles, soit dans un partage de succession, ont été remplies, ils sont, relativement à ces actes, considérés comme s’ilsles avaient faits en majorité ou avant l'interdiction. C. civ., 329, 368-371, 376, 393 et s, 399, 409, 418, 422, 676, 682 et s, 698.- C.p. c. 905 et s, 921 et s.
 CHAPITRE VI — DE LA PREUVE DES OBLIGATIONS ET DE CELLE DU PAIEMENT
-Art. 1100 Celui qui réclame l'exécution d'une obligation, doit la prouver.- C: civ, 897, 925.
+Art. 1100 Celui qui réclame l'exécution d'une obligation, doit la prouver.- C. civ., 897, 925.
 Réciproquement, celui qui se prétend libéré doit justifier le paiement ou le fait qui a produit l'extinction de son obligation.
 Art. 1101 Les règles qui concernent la preuve littérale, la preuve testimoniale, les présomptions, l'aveu de la partie et le serment, sont expliquées dans les sections suivantes.
 De la preuve littérale $ ler Du titre authentique
@@ -1714,7 +1714,7 @@ Lorsqu'au moyen du concours de ces deux circonstances la preuve par témoin sera
 § V — Des actes récognitifs et confirmatifs
 Art. 1122 Les actes récognitifs ne dispensent point de la représentation du titre primordial, à moins que sa teneur n’y soit spécialement relatée.- C. civ., 897, 925, 1123 et s.
 Ce qu’ils contiennent de plus que le titre primordial, ou ce qui s’y trouve de différent, n’a aucun effet.
-Néanmoins, s’il y avait plusieurs reconnaissances conformes, soutenues de la possession et dont l’une eût vingt and de date le créancier pourrait être dispensé de représenter le titre primordial.- C. civ., 1996, 216, 2031.
+Néanmoins, s’il y avait plusieurs reconnaissances conformes, soutenues de la possession et dont l’une eût vingt and de date le créancier pourrait être dispensé de représenter le titre primordial.- C. civ., 1996, 2165, 2031.
 Art. 1123 L'acte de confirmation ou ratification d’une obligation contre laquelle la loi admet l'action en nullité ou en rescision, n'est valable que lorsqu'on y trouve la substance de cette obligation, la mention du motif de l'action en rescision et l'intention de réparer le vice sur lequel cette action est fondée. À défaut d'acte de confirmation ou ratification, il suffit que l'obligation soit exécutée volontairement après l'époque à laquelle l'obligation pourrait être valablement confirmée ou ratifiée.
 La confirmation, ratification ou exécution volontaire dans les formes, et à l'époque déterminée par la loi, emporte la renonciation aux moyens et exceptions que l’on pouvait opposer contre cet acte, sans préjudice néanmoins du droit des tiers.- C. civ., 908, 912, 1025, 1096, 1762.
 Art. 1124 Le donateur ne peut réparer, par aucun acte confirmatif, les vices d'une donation entre vifs, nulle en la forme, il faut qu'elle soit refaite en la forme légale.- C. civ., 724, 750, 761-764, 888, 1125.
@@ -2057,7 +2057,7 @@ Dans ce cas, l'immeuble reçu en échange sera dotal: l'excédant du prix, s’i
 Art. 1345 Si, hors les cas d'exception qui viennent d’être expliqués la femme ou le mari, ou tous les deux conjointement, aliènent le fonds dotal, la femme ou ses héritiers pourront faire révoquer l'aliénation après la dissolution du mariage, sans qu'on puisse leur opposer aucune prescription pendant sa durée. La femme aura le même droit après la séparation des biens.
 Le mari lui-même pourra faire révoquer l'aliénation pendant le mariage, en demeurant néanmoins sujet aux dommages et intérêts de l'acheteur, s’il n’a pas déclaré dans le contrat que le bien vendu était dotal.
 Art. 1346 Les immeubles dotaux non déclarés aliénables par le contrat de mariage, sont imprescriptibles pendant le mariage, à moins que la prescription n'ait commencé auparavant.
-Ils deviennent néanmoins prescriptibles après la séparation de biens, quelle que soit l'époque à laquelle la prescription a commencé.- C. civ., 311, 1441, 1443 et 5, 1554, 1560, 1562 et s, 225 s et s.
+Ils deviennent néanmoins prescriptibles après la séparation de biens, quelle que soit l'époque à laquelle la prescription a commencé.- C. civ., 311, 1441, 1443 et 5, 1554, 1560, 1562 et s, 2255 et s.
 Art. 1347 Le mari est tenu, à l'égard des biens dotaux de toutes les obligations de l'usufruitier.
 Il est responsable de toutes prescriptions acquises et détériorations survenues par sa négligence. C. civ., 503, 600 et s, 614, 1168, 1169, 1352, 1382, 1503, 1533, 1538, 1550, 1580, 1732.
 Art. 1348 Si la dot est mise en péril, la femme peut poursuivre la séparation des biens, ainsi qu'il est dit aux articles 1228 et suivants.- C. civ., 1443 et s.
@@ -2074,7 +2074,7 @@ Art. 1355 Si le mariage est dissous par la mort de la femme, l'intérêt et les 
 Si c'est par la mort du mari, la femme 2 le choix d'exiger les intérêts de sa dot pendant l'an du deuil, ou de se faire fournir des aliments pendant ledit temps aux dépens de la succession du mari; mais, dans les deux cas, l'habitation durant cette année, et les habits de deuil, doivent lui être fournis sur la succession, et sans imputation sur les intérêts à elle dus.- C. civ., 1153 et s, 1440, 1465 et s, 1481, 1495, 1548, 1566, 1907.
 Art. 1356 À la dissolution du mariage, les fruits des immeubles dotaux se partagent entre le mari et la femme ou leurs héritiers, à proportion du temps qu'il a duré, pendant la dernière année.
 L'année commence à partir du jour où le mariage a été célébré.- C. civ., 227, 585 et s, 1401-2°, 1474.
-Art. 1357 La femme et ses héritiers n'ont point de privilège, pour la répétition de la dot, sur les créanciers antérieurs à elle en hypothéque.- C. civ., 954, 958, 963, 1054, 209, 2114, 2121, 21345.
+Art. 1357 La femme et ses héritiers n'ont point de privilège, pour la répétition de la dot, sur les créanciers antérieurs à elle en hypothéque.- C. civ., 954, 958, 963, 1054, 2095, 2114, 2121, 2134 s.
 Art. 1358 Si le mari était déjà insolvable, et n'avait ni art ni profession, lorsque le père a constitué une dot à sa fille, celle-ci ne sera tenue de rapporter à la succession du père que l’action qu'elle a contre son mari pour s'en faire rembourser.
 Si le mari n'est devenu insolvable que depuis le mariage, Ou s'il avait un métier ou une profession qui lui tenait de bien, La perte de la dot tombe uniquement sur la femme.- C. civ., 843 5, 855, 1302, 1563, 1567.
 Des biens paraphernaux
@@ -2132,8 +2132,8 @@ Art. 1390 L'obligation de délivrer les immeubles est remplie de la part du vend
 Art. 1391 La délivrance des effets mobiliers s'opère: Ou par la tradition réelle;
 Ou par la remise des clefs des bâtiments qui les contiennent;
 Ou même par le seul consentement des parties, si le transport ne peut pas s'en faire au moment de la vente, ou si l'acheteur les avait déjà en son pouvoir à un autre titre.- C. civ., 727, 1138.
-Art. 1392 La tradition des droits incorporels se fait, ou par la remise des titres, ou par l'usage que l'acquéreur en fait du consentement du vendeur.- C. civ., 1689 S, 207 s.
-Art. 1393 Les frais de la délivrance sont à la charge du vendeur, et ceux de l'enlèvement à la charge de l'acheteur, s’il n'y a eu stipulation contraire. C. civ., 1248.
+Art. 1392 La tradition des droits incorporels se fait, ou par la remise des titres, ou par l'usage que l'acquéreur en fait du consentement du vendeur.- C. civ., 1689 s, 2075.
+Art. 1393 Les frais de la délivrance sont à la charge du vendeur, et ceux de l'enlèvement à la charge de l'acheteur, s’il n'y a eu stipulation contraire.- C. civ., 1248.
 Art. 1394 La délivrance doit se faire au lieu où était au temps de la vente, la chose qui en fait l'objet, s'il n'en a été autrement convenu.- C. civ., 1247, 1264, 1651.
 Art. 1395 Si le vendeur manque à faire la délivrance dans le temps convenu entre les parties. l'acquéreur pourra, à son choix, demander la résolution de la vente ou la mise en possession, si le retard ne vient que du fait du vendeur. C. civ., 1142, 1184, 1621, 1654. Il est de principe que la vente est parfaite L'article 1395 dispose que si le venduer manque entre les parties et la propriété acquise de droit à faire la délivrance l'acquéreur pourra à son à l'acheteur à l'egard du vendeur dès qu'on est choix demander la résolution de la vente ou sa convenu de la chose et du prix, quoique la mise en possession. Cuss., 11 mai 1987. chose n'ait pas encore été livrée ni le prix payé.
 Art. 1396 Dans tous les cas, le vendeur doit être condamné aux dommagesintérêts, s’il résulte un préjudice pour l'acquéreur, du défaut de délivrance au terme convenu.- C. civ., 1142, 1146, 1184, 1621, 1654.
@@ -2165,10 +2165,10 @@ Art. 1415 Lorsque la garantie a été promise, ou qu'il n'a rien été stipulé 
 2. Celle des fruits, lorsqu'il est obligé de les rendre au propriétaire qui l'évince;
 3. Les frais faits sur la demande en garantie de l'acheteur, et ceux faits par le demandeur originaire ;
 4. Enfin, les dommages et intérêts, ainsi que les frais et loyaux coûts du contrat.- C. civ., 549 s, 1149 s, 1582 s, 1592, 1614, 1621, 1646, 1652, 1673, 1682, 1699, 2188.- C. p. c. 130, 185.
-Art. 1416 Lorsqu’à l'époque de l'éviction, la chose vendue se trouve diminuée de valeur ou considérablement détériorée, soit par la négligence de l'acheteur, soit par les accidents de force majeure, le vendeur n'en est pas moins tenu de restituer la totalité du prix.- C: ci, 13825, 1632, 2175.
-Art. 1417 Mais si l'acquéreur a tiré profit des dégradations par lui faites, le vendeur a le droit de retenir sur le prix une somme égale à ce profit.- C. civ., 217 s.
-Art. 1418 Si la chose vendue se trouve avoir augmenté de prix à l'époque de l'éviction, indépendamment même du fait de l'acquéreur, le vendeur est tenu de lui payer ce qu'elle vaut au-dessus de prix de la vente.- C: civ, 1150, 1637, 2175.
-Art. 1419 Le vendeur est tenu de rembourser, ou de faire rembourser à l'acquéreur, par celui qui l'évince, toutes les réparations et améliorations utiles qu'il aura faites au fonds.- C. civ., 599, 867, 1437, 217.
+Art. 1416 Lorsqu’à l'époque de l'éviction, la chose vendue se trouve diminuée de valeur ou considérablement détériorée, soit par la négligence de l'acheteur, soit par les accidents de force majeure, le vendeur n'en est pas moins tenu de restituer la totalité du prix.- C. civ., 1382 s, 1632, 2175.
+Art. 1417 Mais si l'acquéreur a tiré profit des dégradations par lui faites, le vendeur a le droit de retenir sur le prix une somme égale à ce profit.- C. civ., 2175.
+Art. 1418 Si la chose vendue se trouve avoir augmenté de prix à l'époque de l'éviction, indépendamment même du fait de l'acquéreur, le vendeur est tenu de lui payer ce qu'elle vaut au-dessus de prix de la vente.- C. civ., 1150, 1637, 2175.
+Art. 1419 Le vendeur est tenu de rembourser, ou de faire rembourser à l'acquéreur, par celui qui l'évince, toutes les réparations et améliorations utiles qu'il aura faites au fonds.- C. civ., 599, 867, 1437, 2175.
 Art. 1420 Si le vendeur avait vendu de mauvaise foi le fonds d'autrui, il sera obligé de rembourser à l'acquéreur toutes les dépenses, même voluptuaires où d'agrément, que celui-ci aura faites au fonds. C. civ., 549 s, 1119 s, 1599 s, 1645 s, 1935, 22365, 2268.
 Art. 1421 Si l'acquéreur n'est évincé que d'une partie de la chose, et qu’elle soit de telle conséquence, relativement au tout, que l'acquéreur n'eût point acheté sans la partie dont il a été évincé, il peut faire résilier la vente.- C. , 1152, 16375.
 Art. 1422 Si, dans le cas de l'éviction d’une partie du fonds vendu, la vente n'était pas résiliée, la valeur de la partie dont l'acquéreur se trouve évincé, lui est remboursée suivant l'estimation à l’éviction, et non proportionnellement au prix total de la vente, soit que la chose vendue ait augmenté ou diminué de valeur.- C. civ., 1617, 1633, 1638.
@@ -2216,7 +2216,7 @@ Art. 1452 Si l'acquéreur à pacte de réméré d'une partie indivise d'un héri
 Art. 1453 Si plusieurs ont vendu conjointement et par un seul contrat un héritage commun entre eux, chacun ne peut exercer l’action en réméré que pour la part qu'il y avait.- C. civ., 674, 1004 et s, 1453 et s, 1459 et s.
 Art. 1454 Il en est de même, si celui qui a vendu seul un héritage, a laissé plusieurs héritiers.
 Chacun de ces cohéritiers ne peut user de la faculté de rachat que pour la part qu'il prend dans la succession.- C. civ., 584, 701, 713, 1007 et s, 1455 et s.
-Art. 1455 Mais, dans le cas des deux articles précédents, l'acquéreur peut exiger que tous les covendeurs ou tous les cohéritiers, soient mis en cause, afin de se concilier entre eux pour la reprise de l'héritage entier; ct, s'ils ne concilient pas, il sera renvoyé de la demande.- C: cir. 1012, 1456.
+Art. 1455 Mais, dans le cas des deux articles précédents, l'acquéreur peut exiger que tous les covendeurs ou tous les cohéritiers, soient mis en cause, afin de se concilier entre eux pour la reprise de l'héritage entier; ct, s'ils ne concilient pas, il sera renvoyé de la demande.- C. civ., 1012, 1456.
 Art. 1456 Si la vente d'un héritage appartenant à plusieurs n'a pas été faite conjointement et de tout l'héritage ensemble, et que chacun n'ait vendu que la part qu'il y avait, ils peuvent exercer séparément l'action en réméré sur la portion qui leur appartenait.
 Et l'acquéreur ne peut forcer celui qui l'exercera de cette manière, à retirer le tout.- C. civ., 1452, 1454, 1455.
 Art. 1457 Si l'acquéreur a laissé plusieurs héritiers, l'action en réméré ne peut être exercée contre chacun d'eux que pour sa part, dans le cas où la chose vendue a été partagée entre CUX.-C. civ., 713.
@@ -2658,7 +2658,7 @@ Art. 1746 La rente viagère ne s'éteint pas par la perte des droits civils du p
 Art. 1747 Le propriétaire d'une rente viagère n'en peut demander les arréra- ges qu'en justifiant de son existence, ou de celle de la personne sur la tête de laquelle elle a été constituée.- C. civ., 19, 506, 1100, 1742, 1743, 2042, 2043.
 LOI Nº 28 — Du mandat
 CHAPITRE PREMIER — DE LA NATURE ET DE LA FORME DU MANDAT
-Art. 1748 Le mandat ou procuration est un acte par lequel une personne donne à une autre le pouvoir de faire quelque chose pour le mandant et en son nom.- C: civ, 1552 et s.
+Art. 1748 Le mandat ou procuration est un acte par lequel une personne donne à une autre le pouvoir de faire quelque chose pour le mandant et en son nom.- C. civ., 1552 et s.
 Le contrat ne se forme que par l'acceptation du mandataire.- C. civ., 898, 900, 903, 974, 1749 et s.
 Art. 1749 Le mandat peut être donné ou par acte public ou par écrit sous seing privé, même par lettre. Il peut aussi être donné verbalement mais la preuve testimoniale n'en est reçue que pour une valeur n'excédant pas seize gourdes.- C. civ., 1126 et s, 1132.
 L'acceptation du mandat peut n'être que tacite, et résulter de l'exécution qui lui a été donnée par le mandataire.- C. civ., 1123, 1748 et s.
@@ -2834,7 +2834,7 @@ LOI Nº 33 — Des privilèges et hypothèques
 CHAPITRE PREMIER — DISPOSITIONS GÉNÉRALES
 Art. 1859 Quiconque s’est obligé personnellement est tenu de remplir son engagement sur tous ses biens mobiliers et immobiliers présents et à venir- C. civ., 1860, 1971, 1972.- C. p. c. 473, 478, 504, 538 et s, 548, 585, 717.
 Art. 1860 Les biens du débiteur sont le gage commun de ses créanciers; et le prix s’en distribue entre eux par contribution: à moins qu'il n'y ait entre les créanciers des causes légitimes de préférence.- C. civ., 1859, 1851, 1971, 1972, 1977- Cp. c. 568 et s. © Les créanciers ne peuvent pas, quand par Lors même que le débiteur aurait diminué la une convention, créancier et débiteur se sont garantie donnée à son créancier et que celui-ci entendus pour le mode d'exécution par la croit devoir agir par la saisie de ses meubles, il vente forcée de l'immeuble donné en garantie lui faut s'adresser au juge qui prescrit le nouveau de la dette, cumuler deux voies d'exécution. mode d'exécution. Cass., 23 mars 1914.
-Art. 1861 Les causes légitimes de préférence sont les privilèges et hypothèques.- C: civ, 1852 et s, 1881 et s.
+Art. 1861 Les causes légitimes de préférence sont les privilèges et hypothèques.- C. civ., 1852 et s, 1881 et s.
 CHAPITRE II — DES PRIVILÈGES
 Art. 1862 Le privilège est un droit que la qualité de la créance donne à un créancier d'être préféré aux autres créanciers même hypothécaires.- C. civ., 1860, 1861, 1863 et s, 1867 et s, 1870, 1871 et s, 1873 et s, 1881. Les privilèges ne prennent pas naissance disposition légale et jamais de l'intérêt indivi- dans la volonté des parties; ils ne peuvent duel. Cass., 11 avril 1893, Aff. Débrosse. résulter que de la nature des créances ou d'une
 Art. 1863 Entre les créanciers privilégiés la préférence se règle par les différentes qualités des privilèges.- C. civ., 1864, 1868 et s.
