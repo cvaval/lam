@@ -2,6 +2,11 @@ import { createHash, createHmac, randomBytes, timingSafeEqual } from 'node:crypt
 
 // Le cookie de session stocke un token aléatoire vérifié en base (jamais signé) ;
 // seul le cookie d'appareil de confiance est signé — un seul secret suffit.
+// Fail-fast (audit) : en production, un secret absent laisserait signer avec la valeur de dev
+// (appareils de confiance forgeables). On refuse de démarrer plutôt que de dégrader en silence.
+if (process.env.NODE_ENV === 'production' && !process.env.TRUSTED_DEVICE_SECRET) {
+  throw new Error('TRUSTED_DEVICE_SECRET manquant en production (signature des appareils de confiance).')
+}
 const DEVICE_SECRET = process.env.TRUSTED_DEVICE_SECRET ?? 'dev-device-secret'
 
 export function randomToken(bytes = 32): string {

@@ -32,9 +32,15 @@ export function splitArticles(body: string): Seg[] {
 /** Renvoie le corps où les articles amendés portent leur texte EN_VIGUEUR. */
 export function applyAmendments(body: string, amendments: Map<string, ArticleOverlay>): string {
   if (amendments.size === 0) return body
+  // Une ancre peut apparaître PLUSIEURS fois (lois/annexes renumérotant depuis l'art. 1) :
+  // on n'applique l'overlay qu'à la 1ʳᵉ occurrence — comme l'ancre #art-N du lecteur — sinon
+  // amender « Article 2 » du Code écraserait tous les « Article 2 » des textes annexés (audit).
+  const seen = new Set<string>()
   return splitArticles(body)
     .map((s) => {
-      const ov = s.anchor ? amendments.get(s.anchor) : undefined
+      const first = s.anchor != null && !seen.has(s.anchor)
+      if (s.anchor != null) seen.add(s.anchor)
+      const ov = first ? amendments.get(s.anchor!) : undefined
       if (!s.anchor || !ov) return s.lines.join('\n')
       const label = ov.label ?? labelFromAnchor(s.anchor)
       if (ov.abrogated) {

@@ -21,8 +21,22 @@ function parseAccise(s: string | null): { kind: 'pct'; v: number } | { kind: 'fi
   if (s.includes('%')) return { kind: 'pct', v: pct(s) }
   return { kind: 'none' }
 }
-// Saisie FR : point = séparateur de milliers (retiré), virgule = décimale ; borné à 0.
-const num = (s: string) => Math.max(0, Number((s ?? '').replace(/[\s.]/g, '').replace(/,/g, '.')) || 0)
+// Saisie tolérante FR **et** EN : la virgule est toujours décimale ; le point est décimal
+// s'il n'y a qu'un seul point suivi de 1–2 chiffres (« 1500.50 » → 1500,5), sinon séparateur
+// de milliers (« 1.500 », « 12.345.678 »). Évite le ×100 silencieux sur une décimale anglaise.
+const num = (s: string): number => {
+  let t = (s ?? '').trim().replace(/\s/g, '')
+  if (!t) return 0
+  if (t.includes(',')) t = t.replace(/\./g, '').replace(',', '.') // FR : virgule décimale
+  else {
+    const dots = (t.match(/\./g) || []).length
+    if (dots > 1) t = t.replace(/\./g, '') // plusieurs points = milliers
+    else if (dots === 1 && (t.split('.')[1] ?? '').length === 3) t = t.replace('.', '') // « 1.500 » = milliers
+    // sinon (0 ou 1 point avec 1–2 décimales) : le point reste décimal
+  }
+  const n = Number(t)
+  return Number.isFinite(n) ? Math.max(0, n) : 0
+}
 const fmt = (n: number) => new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 2 }).format(Math.round(n * 100) / 100)
 
 /**
@@ -98,6 +112,8 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
               type="text" inputMode="decimal" value={valeur} onChange={(e) => setValeur(e.target.value)} autoFocus
               placeholder="0" className="mt-1 w-full rounded-lg border border-lank/15 px-3 py-2 text-sm tabular-nums outline-none focus:border-kannel"
             />
+            {/* Valeur interprétée en clair : lève toute ambiguïté sur le point/virgule saisi. */}
+            {valeur.trim() !== '' && <span className="mt-1 block text-xs text-lank/45 tabular-nums">= {fmt(V)} HTG</span>}
           </label>
           {acc.kind === 'fixed' && (
             <label className="block">

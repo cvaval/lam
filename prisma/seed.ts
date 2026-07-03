@@ -245,7 +245,21 @@ function loadGenerated(): { documents: DocRecord[]; companies: CompanyRecord[] }
   }
 }
 
+// Garde-fou (audit 2 juil. 2026) : le seed EFFACE puis recrée des comptes/données de démo.
+// Il ne doit JAMAIS tourner contre une base distante (prod) — sinon réintroduction des comptes
+// à identifiants publiés + écrasement des données réelles. Contournement explicite : --allow-remote.
+function assertLocalDb() {
+  const url = process.env.DATABASE_URL ?? process.env.DIRECT_URL ?? ''
+  const local = /@(localhost|127\.0\.0\.1|::1)[:/]/.test(url) || url.includes('localhost')
+  if (!local && !process.argv.includes('--allow-remote')) {
+    console.error('⛔ Seed refusé : la base ne semble pas locale (' + (url.split('@')[1] ?? url).slice(0, 40) + '…).')
+    console.error('   Le seed supprime et recrée des données de démonstration. Pour forcer : --allow-remote.')
+    process.exit(1)
+  }
+}
+
 async function main() {
+  assertLocalDb()
   console.log('🌱  Seed Lam…')
   // Idempotence : on repart propre.
   await prisma.$transaction([

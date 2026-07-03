@@ -1,0 +1,1530 @@
+[
+ {
+  "num": "preambule",
+  "anchor": "preambule",
+  "label": "Préambule",
+  "status": "modifié",
+  "new": [
+   "Le Peuple Haïtien proclame la présente Constitution :",
+   "Pour garantir ses droits inaliénables et imprescriptibles à la vie, à la liberté et à la poursuite du bonheur ; conformément à son Acte d’Indépendance de 1804 et à la Déclaration Universelle des Droits de l’Homme de 1948.",
+   "Pour constituer une nation haïtienne socialement juste, économiquement libre et politiquement indépendante.",
+   "Pour rétablir un État stable et fort, capable de protéger les valeurs, les traditions, la souveraineté, l’indépendance et la vision nationale.",
+   "Pour implanter la démocratie qui implique le pluralisme idéologique et l’alternance politique et affirmer les droits inviolables du Peuple Haïtien.",
+   "Pour fortifier l’unité nationale, en éliminant toutes discriminations entre les populations des villes et des campagnes, par l’acceptation de la communauté de langues et de culture et par la reconnaissance du droit au progrès, à l’information, à l’éducation, à la santé, au travail et au loisir pour tous les citoyens et citoyennes.",
+   "Pour assurer la séparation, et la répartition harmonieuse des pouvoirs de l’État au service des intérêts fondamentaux et prioritaires de la Nation.",
+   "Pour instaurer un régime gouvernemental basé sur les libertés fondamentales et le respect des droits humains, la paix sociale, l’équité économique, l’équité de genre, la concertation et la participation de toute la population aux grandes décisions engageant la vie nationale, par une décentralisation effective.",
+   "Pour assurer aux femmes une représentation dans les instances de pouvoir et de décision qui soit conforme à l’égalité des sexes et à l’équité de genre."
+  ],
+  "old": [
+   "Le Peuple Haïtien proclame la présente Constitution :",
+   "Pour garantir ses droits inaliénables et imprescriptibles à la vie, à la liberté et la poursuite du bonheur ; conformément à son Acte d&apos;indépendance de 1804 et à la Déclaration Universelle des Droits de l&apos;Homme de 1948.",
+   "Pour constituer une nation haïtienne socialement juste économiquement libre et politiquement indépendante.",
+   "Pour rétablir un État stable et fort, capable de protéger les valeurs, les traditions, la souveraineté, l&apos;indépendance et la vision nationale.",
+   "Pour implanter la démocratie qui implique le pluralisme idéologique et l&apos;alternance politique et affirmer les droits inviolables du Peuple Haïtien.",
+   "Pour fortifier l&apos;unité nationale, en éliminant toutes discrimations entre les populations des villes et des campagnes, par l&apos;acceptation de la communauté de langues et de culture et par la reconnaissance du droit au progrès, à l&apos;information, à l&apos;éducation, à la santé, au travail et au loisir pour tous les citoyens.",
+   "Pour assurer la séparation, et la répartition harmonieuse des Pouvoirs de l&apos;Etat au service des intérêts fondamentaux et prioritaires de la Nation.",
+   "Pour instaurer un régime gouvernemental basé sur les libertés fondamentales et le respect des droits humains, la paix sociale, l&apos;équité économique, la concertation et la participation de toute la population aux grandes décisions engageant la vie nationale, par une décentralisation effective."
+  ],
+  "refs": []
+ },
+ {
+  "num": "1",
+  "anchor": "art-1",
+  "label": "Article 1",
+  "status": "modifié",
+  "new": [
+   "Haïti est une République, indivisible, souveraine, indépendante, libre, démocratique et solidaire."
+  ],
+  "old": [
+   "Haïti est une République, indivisible, souveraine, indépendante, coopératiste, libre, démocratique et sociale."
+  ],
+  "refs": []
+ },
+ {
+  "num": "11.1",
+  "anchor": "art-11-1",
+  "label": "Article 11.1",
+  "status": "nouveau",
+  "new": [
+   "La loi établit les conditions dans lesquelles un individu peut acquérir la nationalité haïtienne.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987."
+  ],
+  "old": [],
+  "refs": []
+ },
+ {
+  "num": "12",
+  "anchor": "art-12",
+  "label": "Article 12",
+  "status": "modifié",
+  "new": [
+   "Tout Haïtien, hormis les privilèges réservés aux haïtiens d’origine est soumis à l’ensemble des droits, devoirs et obligations attachés à sa nationalité haïtienne.",
+   "Aucun Haïtien ne peut faire prévaloir sa nationalité étrangère sur le territoire de la République d’Haïti."
+  ],
+  "old": [
+   "La Nationalité Haïtienne peut être acquise par la naturalisation."
+  ],
+  "refs": []
+ },
+ {
+  "num": "12.1",
+  "anchor": "art-12-1",
+  "label": "Article 12.1",
+  "status": "abrogé",
+  "new": [
+   "Les articles 12.1, 12.2, 13, 14 et 15 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "Tout étranger après cinq (5) ans de résidence continue sur le Territoire de la République peut obtenir la nationalité haïtienne par naturalisation, en se conformant aux règles établies par la Loi."
+  ],
+  "refs": [
+   "12.2",
+   "13",
+   "14",
+   "15"
+  ]
+ },
+ {
+  "num": "12.2",
+  "anchor": "art-12-2",
+  "label": "Article 12.2",
+  "status": "abrogé",
+  "new": [
+   "Les articles 12.1, 12.2, 13, 14 et 15 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "Les Haïtiens par naturalisation sont admis à exercer leur de vote, mais ils doivent attendre cinq (5) ans après la date de leur naturalisation pour être éligible ou occuper des fonctions publiques autres que celles réservées par la Constitution et par la Loi des haïtiens d&apos;origine."
+  ],
+  "refs": [
+   "12.1",
+   "13",
+   "14",
+   "15"
+  ]
+ },
+ {
+  "num": "13",
+  "anchor": "art-13",
+  "label": "Article 13",
+  "status": "abrogé",
+  "new": [
+   "Les articles 12.1, 12.2, 13, 14 et 15 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "La Nationalité haïtienne se perd par :",
+   "a) La Naturalisation acquise en Pays étranger;",
+   "b) L&apos;occupation d&apos;un poste politique au service d&apos;un Gouvernement Etranger;",
+   "c) La résidence continue à l&apos;étranger pendant trois (3) ans d&apos;un individu étranger naturalisé haïtien sans une autorisation régulièrement accordée par l&apos;Autorité compétente. Quiconque perd ainsi la nationalité haïtienne, ne peut pas la recouvrer."
+  ],
+  "refs": [
+   "12.1",
+   "12.2",
+   "14",
+   "15"
+  ]
+ },
+ {
+  "num": "14",
+  "anchor": "art-14",
+  "label": "Article 14",
+  "status": "abrogé",
+  "new": [
+   "Les articles 12.1, 12.2, 13, 14 et 15 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "L&apos;Haïtien naturalisé en pays étranger peut recouvrer sa Nationalité haïtienne, en remplissant toutes les conditions et formalités imposées à l&apos;étranger par la loi."
+  ],
+  "refs": [
+   "12.1",
+   "12.2",
+   "13",
+   "15"
+  ]
+ },
+ {
+  "num": "15",
+  "anchor": "art-15",
+  "label": "Article 15",
+  "status": "abrogé",
+  "new": [
+   "Les articles 12.1, 12.2, 13, 14 et 15 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "La double nationalité haïtienne et étrangère n&apos;est admise dans aucun cas."
+  ],
+  "refs": [
+   "12.1",
+   "12.2",
+   "13",
+   "14"
+  ]
+ },
+ {
+  "num": "16",
+  "anchor": "art-16",
+  "label": "Article 16",
+  "status": "modifié",
+  "new": [
+   "La jouissance, l’exercice des droits civils et politiques constituent la qualité du citoyen. La suspension et la perte de ces droits sont réglées par la loi."
+  ],
+  "old": [
+   "La réunion des droits civils et politiques constitue la qualité du citoyen."
+  ],
+  "refs": []
+ },
+ {
+  "num": "16.1",
+  "anchor": "art-16-1",
+  "label": "Article 16.1",
+  "status": "abrogé",
+  "new": [
+   "L’article 16.1 de la Constitution de 1987 est abrogé."
+  ],
+  "old": [
+   "La jouissance, l&apos;exercice, la suspension et la perte de ses droits sont réglés par la loi."
+  ],
+  "refs": []
+ },
+ {
+  "num": "17.1",
+  "anchor": "art-17-1",
+  "label": "Article 17.1",
+  "status": "nouveau",
+  "new": [
+   "Le principe du quota d’au moins trente pour cent (30%) de femmes est reconnu à tous les niveaux de la vie nationale, notamment dans les services publics.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987."
+  ],
+  "old": [],
+  "refs": []
+ },
+ {
+  "num": "18",
+  "anchor": "art-18",
+  "label": "Article 18",
+  "status": "modifié",
+  "new": [
+   "Les Haïtiens sont égaux devant la loi sous réserve des avantages conférés aux Haïtiens d’origine qui n’ont jamais renoncé à leur nationalité."
+  ],
+  "old": [
+   "Les haïtiens sont égaux devant loi sous la réserve des avantages conférés aux haïtiens d&apos;origine qui n&apos;ont jamais renoncé à leur nationalité."
+  ],
+  "refs": []
+ },
+ {
+  "num": "29.1",
+  "anchor": "art-29-1",
+  "label": "Article 29.1",
+  "status": "abrogé",
+  "new": [
+   "L’article 29.1 de la Constitution de 1987 est abrogé (voir article 127)."
+  ],
+  "old": [
+   "Toute pétition adressée au Pouvoir Législatif doit donner lieu à procédure réglementaire permettant de statuer sur son objet.",
+   "Article 31.1.1 article ajouté",
+   "Toute loi relative aux Partis politiques doit réserver dans ses structures et dans ses mécanismes de fonctionnement un traitement en conformité avec le principe du quota d’au moins trente pour cent (30%) de femmes exprimé à l’article 17.1.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987."
+  ],
+  "refs": [
+   "127"
+  ]
+ },
+ {
+  "num": "32",
+  "anchor": "art-32",
+  "label": "Article 32",
+  "status": "modifié",
+  "new": [
+   "L’État garantit le droit à l’éducation. L’enseignement est libre à tous les degrés. Cette liberté s’exerce sous le contrôle de l’État."
+  ],
+  "old": [
+   "L&apos;Etat garantit le droit à l&apos;éducation. Il veille à la formation physique, intellectuelle, morale, professionnelle, sociale et civique de la population."
+  ],
+  "refs": []
+ },
+ {
+  "num": "32.1",
+  "anchor": "art-32-1",
+  "label": "Article 32.1",
+  "status": "modifié",
+  "new": [
+   "L’éducation est une charge de l’État et des collectivités territoriales. Ils doivent mettre l’école gratuitement à la portée de tous, veiller au niveau de formation des enseignants des secteurs public et non public."
+  ],
+  "old": [
+   "L&apos;éducation est une charge de l&apos;Etat et des collectivités territoriales. Ils doivent mettre l&apos;école gratuitement à la portée de tous, veiller au niveau de formation des Enseignements des secteurs public et privé."
+  ],
+  "refs": []
+ },
+ {
+  "num": "32.3",
+  "anchor": "art-32-3",
+  "label": "Article 32.3",
+  "status": "modifié",
+  "new": [
+   "L’enseignement fondamental est obligatoire. Les fournitures classiques et le matériel didactique seront mis gratuitement par l’État à la disposition des élèves au niveau de l’enseignement fondamental."
+  ],
+  "old": [
+   "L&apos;enseignement primaire est obligatoire sous peine de sanctions à déterminer par la loi. Les fournitures classiques et le matériel didactique seront mis gratuitement par l&apos;Etat à la disposition des élèves au niveau de l&apos;enseignement primaire."
+  ],
+  "refs": []
+ },
+ {
+  "num": "32.4",
+  "anchor": "art-32-4",
+  "label": "Article 32.4",
+  "status": "modifié",
+  "new": [
+   "L’enseignement agricole, professionnel et technique est pris en charge par l’État et les collectivités territoriales."
+  ],
+  "old": [
+   "L&apos;enseignement agricole, professionnel, coopératif et technique est une responsabilité primordiale de l&apos;Etat et des communes."
+  ],
+  "refs": []
+ },
+ {
+  "num": "32.5",
+  "anchor": "art-32-5",
+  "label": "Article 32.5",
+  "status": "modifié",
+  "new": [
+   "La formation préscolaire et maternelle sera prise en charge par l’État et les collectivités territoriales."
+  ],
+  "old": [
+   "La formation préscolaire et maternelle ainsi que l&apos;enseignement non formel sont encouragés."
+  ],
+  "refs": []
+ },
+ {
+  "num": "32.6",
+  "anchor": "art-32-6",
+  "label": "Article 32.6",
+  "status": "modifié",
+  "new": [
+   "L’accès aux études supérieures est ouvert, en pleine égalité, à tous."
+  ],
+  "old": [
+   "L&apos;accès aux Etudes Supérieures est ouvert en pleine égalité à tous, uniquement en fonction du mérite."
+  ],
+  "refs": []
+ },
+ {
+  "num": "32.7",
+  "anchor": "art-32-7",
+  "label": "Article 32.7",
+  "status": "modifié",
+  "new": [
+   "L’État doit veiller à ce que chaque collectivité territoriale soit dotée d’établissements adaptés aux besoins de son développement."
+  ],
+  "old": [
+   "L&apos;Etat doit veiller à ce que chaque collectivité territoriale, section communale, commune, département soit doté d&apos;établissements d&apos;enseignement indispensables, adaptés aux besoins de son développement, sans toutefois porter préjudice à la priorité de l&apos;enseignement agricole, professionnel, coopératif et technique qui doit être largement diffusé."
+  ],
+  "refs": []
+ },
+ {
+  "num": "32.8",
+  "anchor": "art-32-8",
+  "label": "Article 32.8",
+  "status": "modifié",
+  "new": [
+   "L’État garantit aux personnes à besoins spéciaux la protection, l’éducation et tout autre moyen nécessaire à leur plein épanouissement et à leur intégration ou réintégration dans la société."
+  ],
+  "old": [
+   "L&apos;Etat garantit aux handicapés et aux surdoués des moyens pour assurer leur autonomie, leur éducation, leur indépendance."
+  ],
+  "refs": []
+ },
+ {
+  "num": "32.9",
+  "anchor": "art-32-9",
+  "label": "Article 32.9",
+  "status": "modifié",
+  "new": [
+   "L’État et les collectivités territoriales ont pour devoir de prendre toutes les dispositions nécessaires en vue d’intensifier la campagne d’alphabétisation des masses. Ils encouragent toutes les initiatives privées tendant à cette fin."
+  ],
+  "old": [
+   "L&apos;Etat et les collectivités territoriales ont pour devoir de prendre toutes les dispositions nécessaires en vue d&apos;intensifier la campagne d&apos;alphabétisation des masses. Ils encouragent toutes les initiatives privées tendant à cette fin."
+  ],
+  "refs": []
+ },
+ {
+  "num": "63",
+  "anchor": "art-63",
+  "label": "Article 63",
+  "status": "modifié",
+  "new": [
+   "L’administration de chaque section communale est assurée par un conseil de trois (3) membres élu au suffrage universel pour une durée de quatre ans (4) ans. Ils sont indéfiniment rééligibles. Son mode d’organisation et de fonctionnement est réglé par la loi."
+  ],
+  "old": [
+   "L&apos;administration de chaque section communale est assurée par un conseil de trois (3) membres élu au suffrage universel pour une durée de quatre (4) ans. Ils sont indéfiniment rééligibles. Son mode d&apos;organisation et de fonctionnement est réglé par la loi."
+  ],
+  "refs": []
+ },
+ {
+  "num": "68",
+  "anchor": "art-68",
+  "label": "Article 68",
+  "status": "modifié",
+  "new": [
+   "Le mandat du Conseil Municipal est de quatre (4) ans et ses membres sont indéfiniment rééligibles."
+  ],
+  "old": [
+   "Le mandat du Conseil municipal est de quatre (4) ans et ses membres sont indéfiniment rééligibles."
+  ],
+  "refs": []
+ },
+ {
+  "num": "74",
+  "anchor": "art-74",
+  "label": "Article 74",
+  "status": "modifié",
+  "new": [
+   "Le Conseil Municipal a le privilège de veiller à la gestion des biens fonciers du domaine privé de l’État situés dans les limites de sa Commune par les services compétents conformément à la loi."
+  ],
+  "old": [
+   "Le Conseil municipal est gestionnaire privilégié des biens fonciers du domaine privé de l&apos;Etat situés dans les limites de sa Commune. Ils ne peuvent être l&apos;objet d&apos;aucune transaction sans l&apos;avis préalable de l&apos;Assemblée municipale."
+  ],
+  "refs": []
+ },
+ {
+  "num": "78",
+  "anchor": "art-78",
+  "label": "Article 78",
+  "status": "modifié",
+  "new": [
+   "Chaque département est administré par un conseil de trois (3) membres élus pour quatre (4) ans par l’Assemblée Départementale."
+  ],
+  "old": [
+   "Chaque département est administré par un Conseil de trois (3) membres élus pour quatre (4) ans par l&apos;Assemblée départementale."
+  ],
+  "refs": []
+ },
+ {
+  "num": "87.5",
+  "anchor": "art-87-5",
+  "label": "Article 87.5",
+  "status": "modifié",
+  "new": [
+   "La loi détermine l’organisation et le fonctionnement du Conseil Interdépartemental."
+  ],
+  "old": [
+   "La loi détermine l&apos;organisation et le fonctionnement du conseil interdépartemental ainsi que la fréquence des séances du Conseil des ministres auxquelles il participe."
+  ],
+  "refs": []
+ },
+ {
+  "num": "90.1",
+  "anchor": "art-90-1",
+  "label": "Article 90.1",
+  "status": "modifié",
+  "new": [
+   "L’élection du Député a lieu le dernier dimanche d’octobre de la quatrième année de son mandat. Il est élu à la majorité absolue des suffrages exprimés dans les assemblées électorales à travers des votes valides, conformément à la loi électorale."
+  ],
+  "old": [
+   "Le député est élu à la majorité absolue des suffrages exprimés dans les assemblées primaires, selon les conditions et le mode prescrits par la loi électorale."
+  ],
+  "refs": []
+ },
+ {
+  "num": "90.2",
+  "anchor": "art-90-2",
+  "label": "Article 90.2",
+  "status": "nouveau",
+  "new": [
+   "À l’occasion des élections, le candidat à la députation le plus favorisé au premier tour n’ayant pas obtenu la majorité absolue est déclaré vainqueur dans le cas où son avance par rapport à son poursuivant immédiat est égale ou supérieure à vingt-cinq pour cent (25%).",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987."
+  ],
+  "old": [],
+  "refs": []
+ },
+ {
+  "num": "91",
+  "anchor": "art-91",
+  "label": "Article 91",
+  "status": "modifié",
+  "new": [
+   "Pour être membre de la Chambre des Députés, il faut :",
+   "1- être haïtien d’origine, n’avoir jamais renoncé à sa nationalité et ne détenir aucune autre nationalité au moment de son inscription ;",
+   "2- être âgé de vingt-cinq (25) ans accomplis ;",
+   "3- jouir de ses droits civils et politiques et n’avoir jamais été condamné à une peine afflictive et infamante pour un crime de droit commun ;",
+   "4- avoir résidé au moins deux (2) années consécutives précédant la date des élections dans la circonscription électorale à représenter ;",
+   "5- être propriétaire d’un immeuble dans la circonscription ou y exercer une profession ou une industrie ;",
+   "6- avoir reçu décharge, le cas échéant, comme gestionnaire de fonds publics."
+  ],
+  "old": [
+   "Pour être membre de la Chambre des députés, il faut: 1) être haïtien ou haïtienne d&apos;origine et n&apos;avoir jamais renoncé à sa nationalité; 2) être âgé de vingt-cinq (25) ans accomplis; 3) jouir de ses droits civils et politiques et n&apos;avoir jamais été condamné à une peine afflictive ou infamante pour un crime de droit commun; 4) avoir résidé au moins deux (2) années consécutives précédant la date des élections dans la circonscription électorale à représenter; 5) Etre propriétaire d&apos;un immeuble au moins dans la circonscription ou y exercer une profession ou une industrie; 6) avoir reçu décharge, le cas échéant, comme gestionnaire de fonds publics."
+  ],
+  "refs": []
+ },
+ {
+  "num": "92",
+  "anchor": "art-92",
+  "label": "Article 92",
+  "status": "modifié",
+  "new": [
+   "Les Députés sont élus pour quatre (4) ans et sont indéfiniment rééligibles."
+  ],
+  "old": [
+   "Les députés sont élus pour quatre (4) ans et sont indéfiniment rééligibles."
+  ],
+  "refs": []
+ },
+ {
+  "num": "92.1",
+  "anchor": "art-92-1",
+  "label": "Article 92.1",
+  "status": "modifié",
+  "new": [
+   "Ils entrent en fonction le deuxième lundi de janvier qui suit leurs élections et siègent en deux (2) sessions annuelles. La durée de leur mandat forme une législature.",
+   "Au cas où les élections ne peuvent aboutir avant le deuxième lundi de janvier, les députés élus entrent en fonction immédiatement après la validation du scrutin et leur mandat de quatre (4) ans est censé avoir commencé le deuxième lundi de janvier de l’année de l’entrée en fonction."
+  ],
+  "old": [
+   "Ils entrent en fonction le deuxième lundi de janvier et siègent en deux (2) sessions annuelles. La durée de leur mandat forme une législature."
+  ],
+  "refs": []
+ },
+ {
+  "num": "92.3",
+  "anchor": "art-92-3",
+  "label": "Article 92.3",
+  "status": "modifié",
+  "new": [
+   "Le renouvellement de la Chambre des Députés se fait intégralement tous les quatre (4) ans."
+  ],
+  "old": [
+   "Le renouvellement de la Chambre des députés se fait intégralement tous les quatre (4) ans."
+  ],
+  "refs": []
+ },
+ {
+  "num": "94.3",
+  "anchor": "art-94-3",
+  "label": "Article 94.3",
+  "status": "nouveau",
+  "new": [
+   "À l’occasion des élections, le candidat au Sénat le plus favorisé au premier tour n’ayant pas obtenu la majorité absolue est déclaré vainqueur dans le cas où son avance par rapport à son poursuivant immédiat est égale ou supérieure à vingt-cinq pour cent (25%).",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987."
+  ],
+  "old": [],
+  "refs": []
+ },
+ {
+  "num": "95",
+  "anchor": "art-95",
+  "label": "Article 95",
+  "status": "modifié",
+  "new": [
+   "Les Sénateurs sont élus pour six (6) ans et sont indéfiniment rééligibles. Ils entrent en fonction le deuxième lundi de janvier qui suit leurs élections.",
+   "Au cas où les élections ne peuvent aboutir avant le deuxième lundi de janvier, les sénateurs élus entrent en fonction immédiatement après la validation du scrutin et leur mandat de six (6) ans est censé avoir commencé le deuxième lundi de janvier de l’année de l’entrée en fonction."
+  ],
+  "old": [
+   "Les sénateurs sont élus pour six (6) ans et sont indéfiniment rééligibles."
+  ],
+  "refs": []
+ },
+ {
+  "num": "96",
+  "anchor": "art-96",
+  "label": "Article 96",
+  "status": "modifié",
+  "new": [
+   "Pour être élu Sénateur, il faut :",
+   "1- être haïtien d’origine, n’avoir jamais renoncé à sa nationalité et ne détenir aucune autre nationalité au moment de l’inscription ;",
+   "2- être âgé de trente (30) ans accomplis ;",
+   "3- jouir de ses droits civils et politiques et n’avoir jamais été condamné à une peine afflictive et infamante pour un crime de droit commun ;",
+   "4- avoir résidé dans le Département à représenter au moins trois (3) années consécutives précédant la date des élections ;",
+   "5- être propriétaire d’un immeuble dans le département ou y exercer une profession ou une industrie ;",
+   "6- avoir obtenu décharge, le cas échéant, comme gestionnaire de fonds publics."
+  ],
+  "old": [
+   "Pour être élu sénateur, il faut: 1) être haïtien d&apos;origine et n&apos;avoir jamais renoncé à sa nationalité; 2) être âgé de trente (30) ans accomplis; 3) jouir de ses droits civils et politiques et n&apos;avoir jamais été condamné à une peine afflictive et infamante pour un crime de droit commun; 4) avoir résidé dans le département à représenter au moins quatre (4) années consécutives précédant la date des élections; 5) être propriétaire d&apos;un immeuble au moins dans le département ou y exercer une profession ou une industrie; 6) avoir obtenu décharge, le cas échéant, comme gestionnaire de fonds publics."
+  ],
+  "refs": []
+ },
+ {
+  "num": "98.3",
+  "anchor": "art-98-3",
+  "label": "Article 98.3",
+  "status": "modifié",
+  "new": [
+   "Les attributions de l’Assemblée Nationale sont :",
+   "1- de recevoir le serment constitutionnel du Président de la République ;",
+   "2- de ratifier toute décision de déclarer la guerre quand toutes les tentatives de conciliation ont échoué ;",
+   "3- d’approuver ou de rejeter les traités et conventions internationales ;",
+   "4- d’amender la Constitution selon la procédure qui y est indiquée ;",
+   "5- de ratifier la décision de l’Exécutif de déplacer le siège du gouvernement dans les cas déterminés par l’article 1.1 de la présente Constitution ;",
+   "6- de statuer sur l’opportunité de l’état d’urgence et de l’état de siège, d’arrêter avec l’Exécutif les garanties constitutionnelles à suspendre et de se prononcer sur toute demande de renouvellement de cette mesure ;",
+   "7- de concourir à la formation du Conseil Électoral Permanent, conformément à l’article 192 de la Constitution ;",
+   "8- de concourir à la nomination d’un Président Provisoire, conformément à l’article 149 de la Constitution ;",
+   "9- de concourir à la formation du Conseil Constitutionnel, conformément à l’article 190bis.1 de la Constitution ;",
+   "10- de recevoir, à l’ouverture de chaque session, le bilan des activités du Gouvernement."
+  ],
+  "old": [
+   "Les attributions sont: 1) de recevoir le serment constitutionnel du Président de la République; 2) de ratifier toute décision, de déclarer la guerre quand toutes les tentatives de conciliation ont échoué; 3) d&apos;approuver ou de rejeter les traités et conventions internationales; 4) d&apos;amender la Constitution selon la procédure qui y est indiquée; 5) de ratifier la décision de l&apos;Exécutif de déplacer le siège du Gouvernement dans les cas déterminés par l&apos;ARTICLE Premier de la présente Constitution; 6) de statuer sur l&apos;opportunité de l&apos;Etat de siège, d&apos;arrêter avec l&apos;Exécutif les garanties constitutionnelles à suspendre et de se prononcer sur toute demande de renouvellement de cette mesure; 7) de concourir à la formation du Conseil Electoral Permanent conformément à l&apos;ARTICLE 192 de la Constitution; 8) de recevoir à l&apos;ouverture de chaque session, le bilan des activités du Gouvernement."
+  ],
+  "refs": [
+   "1.1",
+   "149",
+   "190",
+   "192"
+  ]
+ },
+ {
+  "num": "111.5",
+  "anchor": "art-111-5",
+  "label": "Article 111.5",
+  "status": "abrogé",
+  "new": [
+   "Les articles 111.5, 111.6 et 111.7 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "En cas de désaccord, entre le pouvoir législatif et le pouvoir exécutif, la commission de conciliation prévue à l&apos;Article 206 ci-après, est saisie du différend sur demande de l&apos;une des parties."
+  ],
+  "refs": [
+   "111.6",
+   "111.7"
+  ]
+ },
+ {
+  "num": "111.6",
+  "anchor": "art-111-6",
+  "label": "Article 111.6",
+  "status": "abrogé",
+  "new": [
+   "Les articles 111.5, 111.6 et 111.7 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "Si la commission échoue dans sa mission, elle dresse un procès-verbal de non conciliation qu&apos;elle transmet aux deux (2) hautes parties et en donne avis à la Cour de Cassation."
+  ],
+  "refs": [
+   "111.5",
+   "111.7"
+  ]
+ },
+ {
+  "num": "111.7",
+  "anchor": "art-111-7",
+  "label": "Article 111.7",
+  "status": "abrogé",
+  "new": [
+   "Les articles 111.5, 111.6 et 111.7 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "Dans la huitaine de la réception de ce procès-verbal, la Cour de cassation se saisit d&apos;office du différend. La Cour statue en sections réunies, toutes affaires cessantes. La décision sera finale et s&apos;impose aux hautes parties. Si entre temps, une entente survient entre les hautes parties, les termes de l&apos;entente arrêteront d&apos;office la procédure en cours."
+  ],
+  "refs": [
+   "111.5",
+   "111.6"
+  ]
+ },
+ {
+  "num": "119.1",
+  "anchor": "art-119-1",
+  "label": "Article 119.1",
+  "status": "nouveau",
+  "new": [
+   "Le Pouvoir Exécutif peut solliciter le bénéfice de l’urgence dans le vote d’un projet de loi.",
+   "Dans le cas où le bénéfice de l’urgence sollicité est obtenu, le projet de loi est voté article par article toutes affaires cessantes.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987."
+  ],
+  "old": [],
+  "refs": []
+ },
+ {
+  "num": "127",
+  "anchor": "art-127",
+  "label": "Article 127",
+  "status": "modifié",
+  "new": [
+   "Nul ne peut en personne présenter des pétitions à la tribune du Pouvoir législatif. Toute pétition adressée au Pouvoir Législatif doit donner lieu à une procédure réglementaire permettant de statuer sur son objet."
+  ],
+  "old": [
+   "Nul ne peut en personne présenter des pétitions à la tribune du Corps législatif."
+  ],
+  "refs": []
+ },
+ {
+  "num": "129.6",
+  "anchor": "art-129-6",
+  "label": "Article 129.6",
+  "status": "modifié",
+  "new": [
+   "Le Pouvoir Législatif ne peut prendre, à l’endroit du Premier Ministre plus d’un vote de censure par an.",
+   "Tout Premier Ministre ayant obtenu un vote de confiance ne peut être interpellé que dans un délai de six (6) mois après ce vote de confiance.",
+   "L’échec d’une motion de censure, soumise au vote dans une des deux Chambres, à l’endroit du Premier ministre équivaut à un vote de confiance."
+  ],
+  "old": [
+   "Le Corps législatif ne peut prendre plus d&apos;un vote de censure par an sur une question se rapportant au programme ou à une déclaration de politique générale de Gouvernement."
+  ],
+  "refs": []
+ },
+ {
+  "num": "134",
+  "anchor": "art-134",
+  "label": "Article 134",
+  "status": "modifié",
+  "new": [
+   "Le Président de la République est élu au suffrage universel direct à la majorité absolue des votants, établie à partir des votes valides conformément à la loi électorale. Si cette majorité n’est pas obtenue au premier tour, il est procédé à un second tour. Seuls peuvent s’y présenter les deux (2) candidats qui, le cas échéant, après retrait de candidats plus favorisés, se trouvent avoir recueilli le plus grand nombre de voix au premier tour."
+  ],
+  "old": [
+   "Le Président de la République est élu au suffrage universel direct à la majorité absolue des votants. si celle-ci n&apos;est pas obtenue au premier tour, il est procédé à un second tour. Seuls peuvent s&apos;y présenter les deux (2) candidats qui, le cas échéant, après retrait de candidats plus favorisés, se trouvent avoir recueilli le plus grand nombre de voix au premier tour.",
+   "Article 134bis article ajouté",
+   "À l’occasion des élections, le candidat à la Présidence le plus favorisé au premier tour n’ayant pas obtenu la majorité absolue est déclaré vainqueur dans le cas où son avance par rapport à son poursuivant immédiat est égale ou supérieure à vingt-cinq pour cent (25%).",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987."
+  ],
+  "refs": []
+ },
+ {
+  "num": "134.2",
+  "anchor": "art-134-2",
+  "label": "Article 134.2",
+  "status": "modifié",
+  "new": [
+   "L’élection présidentielle a lieu le dernier dimanche d’octobre de la cinquième année du mandat présidentiel.",
+   "Le président élu entre en fonction le 7 février suivant la date de son élection. Au cas où le scrutin ne peut avoir lieu avant le 7 février, le président élu entre en fonction immédiatement après la validation du scrutin et son mandat est censé avoir commencé le 7 février de l’année de l’élection."
+  ],
+  "old": [
+   "Les élections présidentielles ont lieu le dernier dimanche de novembre de la cinquième année du mandat présidentiel."
+  ],
+  "refs": []
+ },
+ {
+  "num": "135",
+  "anchor": "art-135",
+  "label": "Article 135",
+  "status": "modifié",
+  "new": [
+   "Pour être élu Président de la République d’Haïti, il faut :",
+   "1- être haïtien d’origine et n’avoir jamais renoncé à sa nationalité haïtienne et ne détenir aucune autre nationalité au moment de l’inscription ;",
+   "2- être âgé de trente-cinq (35) ans accomplis au jour des élections ;",
+   "3- jouir de ses droits civils et politiques et n’avoir jamais été condamné à une peine afflictive et infamante pour crime de droit commun ;",
+   "4- être propriétaire en Haïti d’un immeuble au moins et avoir dans le pays une résidence habituelle ;",
+   "5- résider dans le pays depuis cinq (5) années consécutives avant la date des élections ;",
+   "6- avoir reçu décharge de sa gestion si on a été comptable des deniers publics."
+  ],
+  "old": [
+   "Pour être élu Président de la République d&apos;Haïti, il faut: a) être haïtien d&apos;origine et n&apos;avoir jamais renoncé à sa nationalité; b) être âgé de trente-cinq (35) ans accomplis au jour des élections; c) jouir de ses droits civils et politiques et n&apos;avoir jamais été condamné à une peine afflictive et infamante pour crime de droit commun; d) être propriétaire en Haïti d&apos;un immeuble au moins et avoir dans le pays une résidence habituelle; e) résider dans le pays depuis cinq (5) années consécutives avant la date des élections; f) avoir reçu décharge de sa gestion si on a été comptable des deniers publics."
+  ],
+  "refs": []
+ },
+ {
+  "num": "137",
+  "anchor": "art-137",
+  "label": "Article 137",
+  "status": "modifié",
+  "new": [
+   "Le Président de la République choisit un Premier Ministre parmi les membres du Parti ayant la majorité absolue au Parlement. La majorité est établie sur la base des résultats électoraux des élus dans chacune des deux Chambres. À défaut de cette majorité, le Président de la République choisit le Premier Ministre en consultation avec le Président du Sénat et celui de la Chambre des Députés."
+  ],
+  "old": [
+   "Le Président de la République choisit un Premier Ministre parmi les membres du parti ayant la majorité au Parlement. A défaut de cette majorité, le Président de la République choisit son Premier Ministre en consultation avec le Président du Sénat et celui de la Chambre des députés. Dans les deux (2) cas le choix doit être ratifié par le Parlement."
+  ],
+  "refs": []
+ },
+ {
+  "num": "141",
+  "anchor": "art-141",
+  "label": "Article 141",
+  "status": "modifié",
+  "new": [
+   "Le Président de la République, nomme, après délibération en Conseil des Ministres, puis approbation du Sénat, le commandant en chef des Forces Armées d’Haïti, le commandant en chef de la Police Nationale, les Ambassadeurs et Consuls généraux et les conseils d’administration des organismes autonomes."
+  ],
+  "old": [
+   "Le Président de la République, après approbation du Sénat nomme par arrêté pris en Conseil des Ministres, le Commandant en Chef des Forces Armées, le Commandant en Chef de la Police, les Ambassadeurs et les Consuls généraux."
+  ],
+  "refs": []
+ },
+ {
+  "num": "149",
+  "anchor": "art-149",
+  "label": "Article 149",
+  "status": "modifié",
+  "new": [
+   "En cas de vacance de la Présidence de la République soit par démission, destitution, décès ou en cas d’incapacité physique ou mentale permanente dûment constatée, le Conseil des Ministres, sous la présidence du Premier Ministre, exerce le Pouvoir Exécutif jusqu’à l’élection d’un autre Président.",
+   "Dans ce cas, le scrutin pour l’élection du nouveau Président de la République pour le temps qui reste à courir a lieu soixante (60) jours au moins et cent vingt (120) jours au plus après l’ouverture de la vacance, conformément à la Constitution et à la loi électorale.",
+   "Dans le cas où la vacance se produit à partir de la quatrième année du mandat présidentiel, l’Assemblée Nationale se réunit d’office dans les soixante (60) jours qui suivent la vacance pour élire un nouveau Président Provisoire de la République pour le temps qui reste à courir."
+  ],
+  "old": [
+   "En cas de vacance de la Présidence de la République pour quelque cause que ce soit, le Président de la Cour de Cassation de la République ou, à son défaut, le Vice-Président de cette Cour ou à défaut de celui-ci, le juge le plus ancien et ainsi de suite par ordre d&apos;ancienneté, est investi provisoirement de la fonction de Président de la République par l&apos;Assemblée Nationale dûment convoquée par le Premier Ministre. Le scrutin pour l&apos;élection du nouveau Président pour un nouveau mandat de cinq (5) ans a lieu quarante-cinq (45) jours au moins et quatre-vingt-dix (90) jours au plus après l&apos;ouverture de la vacance, conformément à la Constitution et à la Loi Electorale."
+  ],
+  "refs": []
+ },
+ {
+  "num": "149.1",
+  "anchor": "art-149-1",
+  "label": "Article 149.1",
+  "status": "modifié",
+  "new": [
+   "Ce Président est réputé avoir complété un mandat présidentiel."
+  ],
+  "old": [
+   "Ce Président provisoire ne peut en aucun cas se porter candidat à la plus prochaine élection présidentielle."
+  ],
+  "refs": []
+ },
+ {
+  "num": "149.2",
+  "anchor": "art-149-2",
+  "label": "Article 149.2",
+  "status": "nouveau",
+  "new": [
+   "Aucune procédure d’interpellation du Gouvernement ne peut être entamée durant les périodes d’empêchement temporaire du Président de la République ou de vacance présidentielle. Dans le cas où une telle procédure aurait été entamée avant la période, elle est suspendue.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987."
+  ],
+  "old": [],
+  "refs": []
+ },
+ {
+  "num": "159",
+  "anchor": "art-159",
+  "label": "Article 159",
+  "status": "modifié",
+  "new": [
+   "Le Premier Ministre fait exécuter les lois. En cas d’absence, d’empêchement temporaire du Président de la République ou sur sa demande, le Premier Ministre préside le Conseil des Ministres. Il a le Pouvoir réglementaire, mais il ne peut jamais suspendre, ni interpréter les lois, actes et décrets, ni se dispenser de les exécuter.",
+   "Son pouvoir réglementaire s’exerce par Arrêté du Premier Ministre."
+  ],
+  "old": [
+   "Le Premier Ministre fait exécuter les lois. En cas d&apos;absence, d&apos;empêchement temporaire du Président de la République ou sur sa demande, le Premier Ministre préside le Conseil des Ministres. Il a le pouvoir règlementaire, mais il ne peut jamais suspendre, ni interpréter les lois, actes et décrets, ni se dispenser de les exécuter."
+  ],
+  "refs": []
+ },
+ {
+  "num": "165",
+  "anchor": "art-165",
+  "label": "Article 165",
+  "status": "modifié",
+  "new": [
+   "En cas de démission du Premier Ministre, le Gouvernement reste en place pour expédier les affaires courantes jusqu’à la prise de fonction de son successeur.",
+   "En cas d’incapacité permanente dûment constatée du Premier Ministre ou de son retrait du poste pour raisons personnelles, le Président choisit un Premier Ministre intérimaire parmi les membres du cabinet ministériel en attendant la formation d’un nouveau Gouvernement dans un délai ne dépassant pas trente (30) jours."
+  ],
+  "old": [
+   "En cas de démission du Premier Ministre, le Gouvernement reste en place jusqu&apos;à la nomination de son successeur pour expédier les affaires courantes."
+  ],
+  "refs": []
+ },
+ {
+  "num": "172.1",
+  "anchor": "art-172-1",
+  "label": "Article 172.1",
+  "status": "nouveau",
+  "new": [
+   "Pour être nommé Ministre, il faut :",
+   "1- Être haïtien et administrer la preuve d’avoir répondu à l’ensemble de ses obligations en tant que citoyen fiscalement domicilié en Haïti, y posséder des biens immobiliers pouvant garantir et protéger l’État et ne détenir aucune autre nationalité au moment de la nomination ;",
+   "2- être âgé de trente (30) ans accomplis ;",
+   "3- jouir de ses droits civils et politiques et n’avoir jamais été condamné à une peine afflictive et infamante ;",
+   "4- avoir reçu décharge de sa gestion si on a été comptable des deniers publics.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987."
+  ],
+  "old": [],
+  "refs": []
+ },
+ {
+  "num": "183",
+  "anchor": "art-183",
+  "label": "Article 183",
+  "status": "abrogé",
+  "new": [
+   "Les articles 183 et 183.1 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "La Cour de Cassation à l&apos;occasion d&apos;un litige et sur le renvoi qui lui en est fait, se prononce en Sections réunies sur l&apos;inconstitutionnalité des lois."
+  ],
+  "refs": [
+   "183.1"
+  ]
+ },
+ {
+  "num": "183.1",
+  "anchor": "art-183-1",
+  "label": "Article 183.1",
+  "status": "abrogé",
+  "new": [
+   "Les articles 183 et 183.1 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "L&apos;interprétation d&apos;une loi donnée par les Chambres législatives s&apos;impose pour l&apos;objet de cette loi, sans qu&apos;elle puisse rétroagir en ravissant des droits acquis."
+  ],
+  "refs": [
+   "183"
+  ]
+ },
+ {
+  "num": "184.2",
+  "anchor": "art-184-2",
+  "label": "Article 184.2",
+  "status": "nouveau",
+  "new": [
+   "L’administration et le contrôle du Pouvoir Judiciaire sont confiés à un Conseil Supérieur du Pouvoir Judiciaire qui exerce sur les magistrats un droit de surveillance et de discipline, et qui dispose d’un pouvoir général d’information et de recommandation sur l’état de la magistrature.",
+   "Les conditions d’organisation et de fonctionnement du Conseil Supérieur du Pouvoir Judiciaire sont fixées par la loi.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987.",
+   "<w:bottom w:val=\"single\" w:color=\"1C1B3A\" w:sz=\"6\" w:space=\"4\"/></w:pBdr><w:spacing w:after=\"120\" w:before=\"320\"/><w:jc w:val=\"center\"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii=\"Calibri\" w:cs=\"Calibri\" w:eastAsia=\"Calibri\" w:hAnsi=\"Calibri\"/><w:b/><w:bCs/><w:i/><w:iCs/><w:color w:val=\"1C1B3A\"/><w:sz w:val=\"22\"/><w:szCs w:val=\"22\"/></w:rPr><w:t xml:space=\"preserve\">Il est créé, au Titre VI sur les institutions indépendantes, un chapitre traitant du Conseil Constitutionnel.",
+   "Chapitre nouveau (Titre VI — Des institutions indépendantes) : les articles ci-après sont introduits par la Loi constitutionnelle du 9 mai 2011.",
+   "Article 190bis article ajouté",
+   "Le Conseil Constitutionnel est un organe chargé d’assurer la constitutionnalité des lois. Il est juge de la constitutionnalité de la loi, des règlements et des actes administratifs du Pouvoir Exécutif. Ses décisions ne sont susceptibles d’aucun recours.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987.",
+   "Article 190bis.1 article ajouté",
+   "Le Conseil Constitutionnel est composé de neuf (9) membres, dont trois (3) sont désignés par le Pouvoir Exécutif, trois (3) par l’Assemblée Nationale à la majorité des deux tiers (2/3) des membres de chacune des deux chambres, trois (3) par le Conseil Supérieur du Pouvoir Judiciaire.",
+   "Le Conseil Constitutionnel comprend :",
+   "a. trois magistrats ayant une expérience de dix (10) ans au moins, dont un (1) est désigné par le Pouvoir Exécutif, un (1) par l’Assemblée Nationale à la majorité des deux tiers (2/3) des membres de chacune des deux chambres, un (1) par le Conseil Supérieur du Pouvoir Judiciaire ;",
+   "b. trois juristes de haut niveau, professeurs ou avocats ayant une expérience de dix (10) ans au moins, dont un (1) est désigné par le Pouvoir Exécutif, un (1) par l’Assemblée Nationale à la majorité des deux tiers (2/3) des membres de chacune des deux chambres, un (1) par le Conseil Supérieur du Pouvoir Judiciaire ;",
+   "c. trois personnalités de grande réputation professionnelle ayant une expérience de dix (10) ans au moins, dont un (1) est désigné par le Pouvoir Exécutif, un (1) par l’Assemblée Nationale à la majorité des deux tiers (2/3) des membres de chacune des deux chambres, un (1) par le Conseil Supérieur du Pouvoir Judiciaire.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987.",
+   "Article 190ter article ajouté",
+   "Le Président de la République procède à la nomination des membres du Conseil Constitutionnel par Arrêté pris en Conseil des Ministres, conformément à l’article précédent.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987.",
+   "Article 190ter.1 article ajouté",
+   "Pour être membre du Conseil Constitutionnel il faut :",
+   "- être haïtien d’origine et ne détenir aucune autre nationalité au moment de la nomination ;",
+   "- être âgé de quarante (40) ans accomplis au jour de la nomination ;",
+   "- Jouir de ses droits civils et politiques et n’avoir jamais été condamné à une peine afflictive et infamante pour crime de droit commun ;",
+   "- être propriétaire d’un immeuble en Haïti ou y exercer une industrie ou une profession ;",
+   "- Résider en Haïti depuis cinq (5) années consécutives avant la date de la nomination ;",
+   "- avoir reçu décharge de sa gestion si on a été comptable des deniers publics ;",
+   "- être de bonne moralité et de grande probité.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987.",
+   "Article 190ter.2 article ajouté",
+   "La durée du mandat des membres du Conseil Constitutionnel est de neuf (9) ans et n’est pas renouvelable. Le Conseil Constitutionnel se renouvelle par tiers tous les trois (3) ans ;",
+   "Le Président du Conseil Constitutionnel est élu par ses pairs pour une durée de trois (3) ans. Il a voix prépondérante en cas de partage.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987.",
+   "Article 190ter.3 article ajouté",
+   "En cas de vacance au Conseil Constitutionnel, l’autorité de désignation pourvoit au remplacement pour le temps qui reste à courir dans un délai de trois (3) mois.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987.",
+   "Article 190ter.4 article ajouté",
+   "Les membres du Conseil Constitutionnel sont inamovibles pendant la durée de leur mandat. Ils ne peuvent être poursuivis ou arrêtés sans l’autorisation du Conseil Constitutionnel sauf en cas de flagrant délit.",
+   "Dans ce cas, le Président du Conseil Constitutionnel et le Président de la Cour de Cassation doivent être saisis immédiatement au plus tard dans les quarante-huit (48) heures.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987.",
+   "Article 190ter.5 article ajouté",
+   "Le Conseil Constitutionnel veille et statue lorsqu’il est saisi :",
+   "- sur la constitutionnalité des lois avant leur promulgation ;",
+   "- sur la constitutionnalité des règlements intérieurs du Sénat et de la Chambre des Députés avant leur mise en application ;",
+   "- Sur les arrêtés.",
+   "Aux mêmes fins, les lois en général peuvent être déférées au Conseil constitutionnel, avant leur promulgation, par le Président de la République, le Président du Sénat, le Président de la Chambre des Députés, un groupe de quinze (15) députés ou de dix (10) sénateurs.",
+   "La loi détermine les modalités d’organisation et de fonctionnement du Conseil Constitutionnel ainsi que les autres entités habilitées à le saisir.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987.",
+   "Article 190ter.6 article ajouté",
+   "Le Conseil Constitutionnel doit statuer dans le délai d’un mois après avoir été saisi d’un texte de loi ordinaire. Ce délai est de quinze jours pour toute loi ou tout texte portant sur les droits fondamentaux et les libertés publiques. Toutefois, s’il y a urgence, à la demande du Gouvernement, du tiers du Sénat ou du tiers de la Chambre des Députés, ce délai est ramené à huit jours.",
+   "Dans ces mêmes cas, la saisine du Conseil Constitutionnel suspend le délai de promulgation.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987.",
+   "Article 190ter.7 article ajouté",
+   "Le Conseil Constitutionnel est appelé à se prononcer sur les conflits qui opposent le Pouvoir Exécutif et le Pouvoir Législatif ou les deux branches du Pouvoir Législatif.",
+   "De même, il se prononce sur les conflits d’attribution entre les tribunaux administratifs, les tribunaux électoraux et les tribunaux judiciaires.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987.",
+   "Article 190ter.8 article ajouté",
+   "Lorsqu’à l’occasion d’une instance en cours devant une juridiction, il est soulevé une exception d’inconstitutionnalité, le Conseil Constitutionnel peut en être saisi sur renvoi de la Cour de Cassation.",
+   "Si la disposition est déclarée inconstitutionnelle, le Conseil Constitutionnel la renvoie au Parlement qui statue souverainement sur le cas. La nouvelle disposition est promulguée.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987.",
+   "Article 190ter.9 article ajouté",
+   "Une disposition déclarée inconstitutionnelle ne peut être promulguée ni mise en application.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987.",
+   "Article 190ter.10 article ajouté",
+   "Une loi organique détermine l’organisation et le fonctionnement du Conseil Constitutionnel, la procédure suivie devant elle, notamment les délais pour la saisine des contestations de même que les immunités et le régime disciplinaire de ses membres.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987."
+  ],
+  "old": [],
+  "refs": [
+   "190"
+  ]
+ },
+ {
+  "num": "192",
+  "anchor": "art-192",
+  "label": "Article 192",
+  "status": "modifié",
+  "new": [
+   "Le Conseil Électoral Permanent comprend neuf (9) Membres choisis comme suit :",
+   "1. trois (3) par le Pouvoir Exécutif ;",
+   "2. trois (3) par la Conseil supérieur du Pouvoir Judiciaire ;",
+   "3. trois (3) par l’Assemblée Nationale avec une majorité de 2/3 de chacune des deux chambres."
+  ],
+  "old": [
+   "Le Conseil Electoral comprend (9) neuf membres choisis sur une liste de (3) trois noms proposés par chacune des Assemblées départementales: 3 sont choisis par le Pouvoir exécutif; 3 sont choisis par la Cour de Cassation; 3 sont choisis par l&apos;Assemblée Nationale. Les organes suscités veillent, autant que possible, à ce que chacun des départements soit représenté."
+  ],
+  "refs": []
+ },
+ {
+  "num": "206",
+  "anchor": "art-206",
+  "label": "Article 206",
+  "status": "abrogé",
+  "new": [
+   "Les articles 206 et 206.1 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "La Commission de Conciliation est appelée à trancher les différends qui opposent le pouvoir exécutif et le pouvoir législatif ou les deux (2) branches du pouvoir législatif. Elle est formée ainsi qu&apos;il suit: a) le président de la Cour de Cassation: Président; b) le président du Sénat: Vice-Président; c) le Président de la Chambre des députés: Membre: d) le président du Conseil Electoral Permanent: Membre; e) le vice-président du Conseil Electoral Permanent: Membre; f) deux (2) ministres désignés par le Président de la République: Membres."
+  ],
+  "refs": [
+   "206.1"
+  ]
+ },
+ {
+  "num": "206.1",
+  "anchor": "art-206-1",
+  "label": "Article 206.1",
+  "status": "abrogé",
+  "new": [
+   "Les articles 206 et 206.1 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "Le mode de fonctionnement de la Commission de Conciliation est déterminé par la Loi.",
+   "Article 207.2bis article ajouté",
+   "Dans l’exercice de ses fonctions, il accordera une attention spéciale aux plaintes déposées par les femmes, particulièrement en ce qui a trait aux discriminations et aux agressions dont elles peuvent être victimes notamment dans leur travail.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987."
+  ],
+  "refs": [
+   "206"
+  ]
+ },
+ {
+  "num": "211",
+  "anchor": "art-211",
+  "label": "Article 211",
+  "status": "modifié",
+  "new": [
+   "Il est créé un organisme public chargé de la régulation et du contrôle de qualité de l’enseignement supérieur et de la recherche scientifique sur tout le territoire. Cet organisme exerce son contrôle sur toutes les institutions publiques et non publiques travaillant dans ces deux domaines. Chaque année, il publie un rapport sur la qualité de la formation et établit une liste des institutions performantes. La loi détermine la dénomination, fixe le mode d’organisation et de fonctionnement de cet Organisme."
+  ],
+  "old": [
+   "L&apos;autorisation de fonctionner des Universités et des Ecoles Supérieures Privées est subordonnée à l&apos;approbation technique du Conseil de l&apos;Université d&apos;Etat, à une participation majoritaire haïtienne au niveau du Capital et du Corps Professoral ainsi qu&apos;à l&apos;obligation d&apos;enseigner notamment en langue officielle du pays."
+  ],
+  "refs": []
+ },
+ {
+  "num": "217",
+  "anchor": "art-217",
+  "label": "Article 217",
+  "status": "modifié",
+  "new": [
+   "Les finances de la République comportent deux composantes : les finances nationales et les finances locales. Leur gestion respective est assurée par des organismes et mécanismes prévus à cet effet.",
+   "L’Exécutif est tenu de prévoir un mode de consultation des collectivités territoriales pour toute démarche intéressant les finances locales."
+  ],
+  "old": [
+   "Les Finances de la République sont décentralisées. La gestion est assurée par le Ministère y afférent. L&apos;Exécutif, assisté d&apos;un Conseil interdépartemental élabore la loi qui fixe la portion et la nature des revenus publics attribués aux Collectivités territoriales."
+  ],
+  "refs": []
+ },
+ {
+  "num": "218",
+  "anchor": "art-218",
+  "label": "Article 218",
+  "status": "modifié",
+  "new": [
+   "Aucun impôt au profit de l’État ne peut être établi que par une loi. Aucune charge, aucune imposition, soit départementale, soit municipale, soit de section communale, ne peut être établie qu’avec le consentement de ces collectivités territoriales."
+  ],
+  "old": [
+   "Aucun impôt au profit de l&apos;Etat ne peut être établi que par une loi. Aucune charge, aucune imposition soit départementale, soit municipale, soit de section communale, ne peut être établie qu&apos;avec le consentement de ces collectivités territoriales."
+  ],
+  "refs": []
+ },
+ {
+  "num": "220",
+  "anchor": "art-220",
+  "label": "Article 220",
+  "status": "modifié",
+  "new": [
+   "Aucune pension, aucune gratification, aucune allocation, aucune subvention, à la charge du Trésor Public, ne peut être accordée qu’en vertu d’une loi. L’indexation des pensions versées par l’État sera établie suivant le rythme de l’augmentation des émoluments des fonctionnaires de l’État."
+  ],
+  "old": [
+   "Aucune pension, aucune gratification, aucune allocation, aucune subvention à la charge du Trésor Public, ne peut être accordée qu&apos;en vertu d&apos;une Loi. Les pensions versées par l&apos;Etat sont indexées sur le coût de la vie."
+  ],
+  "refs": []
+ },
+ {
+  "num": "223",
+  "anchor": "art-223",
+  "label": "Article 223",
+  "status": "modifié",
+  "new": [
+   "L’exécution de la Loi de finances est régie par les lois sur le budget et la comptabilité publique et est assurée par les services prévus par la loi.",
+   "Le contrôle de l’exécution de la Loi des finances est assuré par le Parlement, la Cour Supérieure des Comptes et toutes autres institutions prévues par la loi."
+  ],
+  "old": [
+   "Le contrôle de l&apos;exécution de la Loi sur le budget et sur la comptabilité Publique est assuré par la Cour Supérieure des Comptes et du Contentieux Administratif et par l&apos;Office du Budget."
+  ],
+  "refs": []
+ },
+ {
+  "num": "227",
+  "anchor": "art-227",
+  "label": "Article 227",
+  "status": "modifié",
+  "new": [
+   "Le budget est voté par entité administrative suivant la classification établie par la loi."
+  ],
+  "old": [
+   "Le budget de chaque Ministère est divisé en Chapitres et Sections, et doit être voté Article par Article."
+  ],
+  "refs": []
+ },
+ {
+  "num": "227.1",
+  "anchor": "art-227-1",
+  "label": "Article 227.1",
+  "status": "abrogé",
+  "new": [
+   "L’article 227.1 de la Constitution de 1987 est abrogé."
+  ],
+  "old": [
+   "Les valeurs à tirer sur les allocations budgétaires ne pourront en aucun cas dépasser le douzième de la dotation pour un mois déterminé, sauf en Décembre à cause du bonus à verser à tous les Fonctionnaires et Employés Publics."
+  ],
+  "refs": []
+ },
+ {
+  "num": "227.3",
+  "anchor": "art-227-3",
+  "label": "Article 227.3",
+  "status": "modifié",
+  "new": [
+   "Les comptes généraux et les budgets prescrits par l’article précédent, accompagnés du rapport de la Cour Supérieure des Comptes et du Contentieux Administratif doivent être soumis aux Chambres Législatives par le Ministre chargé des finances dans les délais établis par la loi.",
+   "Il en est de même du bilan annuel et des opérations de la Banque Centrale, ainsi que de tous autres comptes de l’État."
+  ],
+  "old": [
+   "Les Comptes Généraux et les Budgets prescrits par l&apos;Article précédent, accompagnés du rapport de la Cour Supérieure des Comptes et du Contentieux Administratif doivent être soumis aux Chambres Législatives par le Ministre des Finances au plus tard dans les quinze (15) jours de l&apos;ouverture de la Session Législative. Il en est de même du Bilan Annuel et des opérations de la Banque Centrale, ainsi que de tous autres comptes de l&apos;Etat Haïtien."
+  ],
+  "refs": []
+ },
+ {
+  "num": "228",
+  "anchor": "art-228",
+  "label": "Article 228",
+  "status": "modifié",
+  "new": [
+   "Chaque année, le Pouvoir Législatif arrête :",
+   "1- Le compte des recettes et des dépenses de l’État pour l’année écoulée ou les années précédentes ;",
+   "2- Le budget général de l’État."
+  ],
+  "old": [
+   "Chaque année, le Corps Législatif arrête: a) le compte des recettes et des dépenses de l&apos;Etat pour l&apos;année écoulée ou les années précédentes; b) le Budget Général de l&apos;Etat contenant l&apos;aperçu et la portion des fonds alloués pour l&apos;année à chaque Ministère."
+  ],
+  "refs": []
+ },
+ {
+  "num": "228.2",
+  "anchor": "art-228-2",
+  "label": "Article 228.2",
+  "status": "abrogé",
+  "new": [
+   "Les articles 228.2 et 229 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "Aucune augmentation, aucune réduction ne peut être apportée aux appointements des fonctionnaires publics que par une modification des Lois y afférentes."
+  ],
+  "refs": [
+   "229"
+  ]
+ },
+ {
+  "num": "229",
+  "anchor": "art-229",
+  "label": "Article 229",
+  "status": "abrogé",
+  "new": [
+   "Les articles 228.2 et 229 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "Les Chambres législatives peuvent s&apos;abstenir de tous Travaux Législatifs tant que les documents susvisés ne leur sont pas présentés. Elles refusent la décharge aux Ministres lorsque les comptes présentés ne fournissent pas par eux-mêmes ou les pièces à l&apos;appui, les éléments de vérification et d&apos;appréciation nécessaires."
+  ],
+  "refs": [
+   "228.2"
+  ]
+ },
+ {
+  "num": "234.1",
+  "anchor": "art-234-1",
+  "label": "Article 234.1",
+  "status": "nouveau",
+  "new": [
+   "L’Administration Publique Nationale est constituée de l’Administration d’État et de l’Administration des collectivités territoriales.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987."
+  ],
+  "old": [],
+  "refs": []
+ },
+ {
+  "num": "253.1",
+  "anchor": "art-253-1",
+  "label": "Article 253.1",
+  "status": "nouveau",
+  "new": [
+   "Tant que la couverture forestière reste en deçà de 10% du territoire national des mesures d’exception doivent être prises en vue de travailler au rétablissement de l’équilibre écologique.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987."
+  ],
+  "old": [],
+  "refs": []
+ },
+ {
+  "num": "256.1",
+  "anchor": "art-256-1",
+  "label": "Article 256.1",
+  "status": "nouveau",
+  "new": [
+   "L’État peut, si la nécessité en est démontrée, déclarer une zone d’utilité écologique.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987."
+  ],
+  "old": [],
+  "refs": []
+ },
+ {
+  "num": "263",
+  "anchor": "art-263",
+  "label": "Article 263",
+  "status": "modifié",
+  "new": [
+   "La Force Publique se compose de deux (2) corps distincts :",
+   "1. Les Forces Armées d’Haïti",
+   "2. La Police Nationale d’Haïti."
+  ],
+  "old": [
+   "La Force Publique se compose de deux (2) Corps distincts: a) les Forces Armées d&apos;Haïti; b) les Forces de Police."
+  ],
+  "refs": []
+ },
+ {
+  "num": "264",
+  "anchor": "art-264",
+  "label": "Article 264",
+  "status": "modifié",
+  "new": [
+   "Les Forces Armées d’Haïti comprennent les Forces de Terre, de Mer, de l’Air et les services techniques.",
+   "Les Forces Armées d’Haïti sont constituées pour garantir la défense et l’intégrité du territoire de la République"
+  ],
+  "old": [
+   "Les Forces Armées comprennent les Forces de Terre, de Mer, de l&apos;Air et des Services Techniques. Les Forces Armées d&apos;Haïti sont instituées pour garantir la sécurité et l&apos;intégrité du Territoire de la République."
+  ],
+  "refs": []
+ },
+ {
+  "num": "264.1",
+  "anchor": "art-264-1",
+  "label": "Article 264.1",
+  "status": "modifié",
+  "new": [
+   "Les Forces Armées d’Haïti sont commandées effectivement par un Officier Général ayant pour titre Commandant en Chef."
+  ],
+  "old": [
+   "Les Forces Armées sont commandées effectivement par un Officier Général ayant pour titre Commandant En Chef Des Forces Armées d&apos;Haïti."
+  ],
+  "refs": []
+ },
+ {
+  "num": "264.2",
+  "anchor": "art-264-2",
+  "label": "Article 264.2",
+  "status": "modifié",
+  "new": [
+   "Le Commandant en Chef des Forces Armées d’Haïti, conformément à la Constitution, est choisi parmi les officiers généraux en activité de service."
+  ],
+  "old": [
+   "Le Commandant en Chef des Forces Armées, conformément à la Constitution, est choisi parmi les Officiers Généraux en activité de Service."
+  ],
+  "refs": []
+ },
+ {
+  "num": "265",
+  "anchor": "art-265",
+  "label": "Article 265",
+  "status": "modifié",
+  "new": [
+   "Les Forces Armées d’Haïti sont apolitiques. Leurs membres ne peuvent faire partie d’un groupement ou d’un parti politique et doivent observer la plus stricte neutralité."
+  ],
+  "old": [
+   "Les Forces Armées sont apolitiques. Leurs membres ne peuvent faire partie d&apos;un groupement ou d&apos;un parti politique et doivent observer la plus stricte neutralité ."
+  ],
+  "refs": []
+ },
+ {
+  "num": "266",
+  "anchor": "art-266",
+  "label": "Article 266",
+  "status": "modifié",
+  "new": [
+   "Les Forces Armées d’Haïti ont pour attributions :",
+   "1. Défendre le pays en cas de guerre ;",
+   "2. Protéger le Pays contre les menaces venant de l’extérieur ;",
+   "3. Assurer la surveillance des frontières terrestres, maritimes et aériennes ;",
+   "4. Prêter main forte sur requête motivée de l’Exécutif, à la Police au cas où cette dernière ne peut répondre à sa tâche ;",
+   "5. Aider la nation en cas de désastre naturel ;",
+   "6. Outre les attributions qui lui sont propres, les Forces Armées d’Haïti peuvent être affectées à des tâches de développement."
+  ],
+  "old": [
+   "Les Forces Armées ont pour attributions: a) Défendre le Pays en cas de guerre; b) Protéger le Pays contre les menaces venant de l&apos;extérieur; c) Assurer la surveillance des Frontières terrestres, maritimes et aériennes; d) Prêter main forte sur requête motivée de l&apos;Exécutif, à la Police au cas où cette dernière ne peut répondre à sa tâche; e) Aider la nation en cas de désastre naturel; f) Outre les attributions qui lui sont propres, les Forces Armées peuvent être affectées à des tâches de développement."
+  ],
+  "refs": []
+ },
+ {
+  "num": "267.1",
+  "anchor": "art-267-1",
+  "label": "Article 267.1",
+  "status": "modifié",
+  "new": [
+   "Tout militaire en activité de service, pour se porter candidat à une fonction élective, doit obtenir sa mise à la retraite ou sa démission deux (2) ans avant les élections."
+  ],
+  "old": [
+   "Tout militaire en activité de Service, pour se porter candidat à une fonction élective, doit obtenir sa mise en disponibilité ou sa mise à la retraite un (1) an avant la parution du Décret Electoral."
+  ],
+  "refs": []
+ },
+ {
+  "num": "267.2",
+  "anchor": "art-267-2",
+  "label": "Article 267.2",
+  "status": "modifié",
+  "new": [
+   "La carrière militaire est une profession. Elle est hiérarchisée. Les conditions d’engagement, les grades, promotions, révocations, mises à la retraite, sont déterminés par les règlements des Forces Armées d’Haïti."
+  ],
+  "old": [
+   "La carrière militaire est une profession. Elle est hiérarchisée. Les conditions d&apos;engament, les grades, promotions, révocations, mises à la retraite, sont déterminées par les règlements des Forces Armées d&apos;Haïti."
+  ],
+  "refs": []
+ },
+ {
+  "num": "267.3",
+  "anchor": "art-267-3",
+  "label": "Article 267.3",
+  "status": "modifié",
+  "new": [
+   "Le militaire n’est justiciable d’une cour militaire que pour les délits et crimes commis en temps de guerre ou pour les infractions relevant de la discipline militaire."
+  ],
+  "old": [
+   "Le Militaire n&apos;est justiciable d&apos;une Cour Militaire que pour les délits et crimes commis au temps de guerre ou pour les infractions relevant de la discipline militaire. Il ne peut être l&apos;objet d&apos;aucune révocation, mise en disponibilité, à la réforme, mise à la retraite anticipée qu&apos;avec son consentement. Au cas où le consentement n&apos;est pas accordé, l&apos;intéressé peut se pourvoir par devant le Tribunal Compétent."
+  ],
+  "refs": []
+ },
+ {
+  "num": "285",
+  "anchor": "art-285",
+  "label": "Article 285",
+  "status": "abrogé",
+  "new": [
+   "Les articles 285, 285.1, 286, 287 et 288 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "Le Conseil National de Gouvernement reste et demeure en fonction jusqu&apos;au 7 février 1988, date d&apos;investiture du Président de la République élu sous l&apos;empire de la Présente Constitution conformément au Calendrier Electoral."
+  ],
+  "refs": [
+   "285.1",
+   "286",
+   "287",
+   "288"
+  ]
+ },
+ {
+  "num": "285.1",
+  "anchor": "art-285-1",
+  "label": "Article 285.1",
+  "status": "abrogé",
+  "new": [
+   "Les articles 285, 285.1, 286, 287 et 288 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "Le Conseil National de Gouvernement est autorisé à prendre en Conseil des Ministres, conformément à la Constitution, des décrets ayant force de Loi jusqu&apos;à l&apos;entrée en fonction des députés et Sénateurs élus sous l&apos;empire de la Présente Constitution."
+  ],
+  "refs": [
+   "285",
+   "286",
+   "287",
+   "288"
+  ]
+ },
+ {
+  "num": "286",
+  "anchor": "art-286",
+  "label": "Article 286",
+  "status": "abrogé",
+  "new": [
+   "Les articles 285, 285.1, 286, 287 et 288 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "Tout Haïtien ayant adopté une nationalité étrangère durant les vingt-neuf (29) années précédant le 7 février 1986 peut, par une déclaration faite au Ministère de la Justice dans un délai de deux (2) ans à partir de la publication de la Constitution, recouvrer sa nationalité haïtienne avec les avantages qui en découlent, conformément à la Loi."
+  ],
+  "refs": [
+   "285",
+   "285.1",
+   "287",
+   "288"
+  ]
+ },
+ {
+  "num": "287",
+  "anchor": "art-287",
+  "label": "Article 287",
+  "status": "abrogé",
+  "new": [
+   "Les articles 285, 285.1, 286, 287 et 288 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "Compte tenu de la situation des haïtiens expatriés volontairement ou involontairement, les délais de résidence prévus dans la Présente Constitution, sont ramenés à une année révolue pour les plus prochaines élections."
+  ],
+  "refs": [
+   "285",
+   "285.1",
+   "286",
+   "288"
+  ]
+ },
+ {
+  "num": "288",
+  "anchor": "art-288",
+  "label": "Article 288",
+  "status": "abrogé",
+  "new": [
+   "Les articles 285, 285.1, 286, 287 et 288 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "A l&apos;occasion de la prochaine Consultation Electorale, les mandats des trois (3) Sénateurs élus pour chaque Département seront établis comme suit:",
+   "a) Le Sénateur qui a obtenu le plus grand nombre de voix, bénéficiera d&apos;un (1) mandat de six (6) ans;",
+   "b) Le Sénateur qui vient en seconde place en ce qui a trait au nombre de voix, sera investi d&apos;un (1) mandat de quatre (4) ans;",
+   "c) Le troisième Sénateur sera élu pour deux (2) ans.",
+   "Dans la suite, chaque Sénateur élu, sera investi d&apos;un (1) mandat de six (6) ans."
+  ],
+  "refs": [
+   "285",
+   "285.1",
+   "286",
+   "287"
+  ]
+ },
+ {
+  "num": "291",
+  "anchor": "art-291",
+  "label": "Article 291",
+  "status": "abrogé",
+  "new": [
+   "Les articles 291, 292, 293, 293.1, 294 et 295 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "Ne pourra briguer aucune fonction publique durant les dix (10) années qui suivront la publication de la Présente Constitution et cela sans préjudice des actions pénales ou en réparation civile:",
+   "a) Toute personne notoirement connue pour avoir été par ses excès de zèle un des artisans de la dictature et de son maintien durant les vingt-neuf (29) dernières années;",
+   "b) Tout comptable des deniers publics durant les années de la dictature sur qui plane une présomption d&apos;enrichissement illicite;",
+   "c) Toute personne dénoncée par la clameur publique pour avoir pratiqué la torture sur les prisonniers politiques, à l&apos;occasion des arrestations et des enquêtes ou d&apos;avoir commis des assassinats politiques."
+  ],
+  "refs": [
+   "292",
+   "293",
+   "293.1",
+   "294",
+   "295"
+  ]
+ },
+ {
+  "num": "292",
+  "anchor": "art-292",
+  "label": "Article 292",
+  "status": "abrogé",
+  "new": [
+   "Les articles 291, 292, 293, 293.1, 294 et 295 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "Le Conseil Electoral Provisoire chargé de recevoir les dépôts de candidature, veille à la stricte application de cette disposition."
+  ],
+  "refs": [
+   "291",
+   "293",
+   "293.1",
+   "294",
+   "295"
+  ]
+ },
+ {
+  "num": "293",
+  "anchor": "art-293",
+  "label": "Article 293",
+  "status": "abrogé",
+  "new": [
+   "Les articles 291, 292, 293, 293.1, 294 et 295 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "Tous les décrets d&apos;expropriation de biens immobiliers dans les zones urbaines et rurales de la République des deux (2) derniers Gouvernements haïtiens au profit de l&apos;Etat ou de sociétés en formation sont annulés si le but pour lequel ils ont étés pris, n&apos;a pas été exécuté au cours des dix (10) dernières années."
+  ],
+  "refs": [
+   "291",
+   "292",
+   "293.1",
+   "294",
+   "295"
+  ]
+ },
+ {
+  "num": "293.1",
+  "anchor": "art-293-1",
+  "label": "Article 293.1",
+  "status": "abrogé",
+  "new": [
+   "Les articles 291, 292, 293, 293.1, 294 et 295 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "Tout individu victime de confiscation de biens ou de dépossession arbitraire pour raison politique, durant la période s&apos;étendant du 22 Octobre 1957 au 7 Février 1986 peut récupérer ses biens devant le Tribunal compétent.",
+   "Dans ce cas, la procédure est célère comme pour les affaires urgentes et la décision n&apos;est susceptible que du pourvoi en Cassation."
+  ],
+  "refs": [
+   "291",
+   "292",
+   "293",
+   "294",
+   "295"
+  ]
+ },
+ {
+  "num": "294",
+  "anchor": "art-294",
+  "label": "Article 294",
+  "status": "abrogé",
+  "new": [
+   "Les articles 291, 292, 293, 293.1, 294 et 295 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "Les condamnations à des peines afflictives et infamantes pour des raisons politiques de 1957 à 1986, n&apos;engendrent aucun empêchement à l&apos;exercice des Droits Civils et Politiques."
+  ],
+  "refs": [
+   "291",
+   "292",
+   "293",
+   "293.1",
+   "295"
+  ]
+ },
+ {
+  "num": "295",
+  "anchor": "art-295",
+  "label": "Article 295",
+  "status": "abrogé",
+  "new": [
+   "Les articles 291, 292, 293, 293.1, 294 et 295 de la Constitution de 1987 sont abrogés."
+  ],
+  "old": [
+   "Dans les six (6) mois à partir de l&apos;entrée en fonction du Premier Président élu sous l&apos;empire de la Constitution de 1987, le Pouvoir Exécutif est autorisé à procéder à toutes réformes jugées nécessaires dans l&apos;Administration Publique en général et dans la Magistrature."
+  ],
+  "refs": [
+   "291",
+   "292",
+   "293",
+   "293.1",
+   "294"
+  ]
+ },
+ {
+  "num": "295.1",
+  "anchor": "art-295-1",
+  "label": "Article 295.1",
+  "status": "nouveau",
+  "new": [
+   "Lors de la première composition du Conseil Constitutionnel, les trois premiers membres nommés sur la liste du Pouvoir Exécutif, de l’Assemblée Nationale, du Conseil Supérieur du Pouvoir Judiciaire le seront pour neuf (9) ans, les deuxièmes pour six (6) ans et les trois autres pour trois (3) ans.",
+   "Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987."
+  ],
+  "old": [],
+  "refs": []
+ },
+ {
+  "num": "297",
+  "anchor": "art-297",
+  "label": "Article 297",
+  "status": "abrogé",
+  "new": [
+   "L’article 297 de la Constitution de 1987 est abrogé."
+  ],
+  "old": [
+   "Toutes les Lois, tous les Décrets-Lois, tous les Décrets restreignant arbitrairement les droits et libertés fondamentaux des citoyens notamment:",
+   "a) Le Décret-loi du 5 septembre 1935 sur les croyances superstitieuses;",
+   "b) La Loi du 2 Août 1977 instituant le Tribunal de la Sureté de l&apos;Etat;",
+   "c) La Loi du 28 juillet 1975 soumettant les terres de la vallée de l&apos;Artibonite à un statut d&apos;exception;",
+   "d) La Loi du 29 Avril 1969 condamnant toute doctrine d&apos;importation;",
+   "Sont et demeurent abrogés."
+  ],
+  "refs": []
+ }
+]

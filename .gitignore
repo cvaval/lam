@@ -50,3 +50,6 @@ logs/
 # Dump de migration des données (SQLite → Postgres) — local, ne pas committer
 prisma/migration-dump/
 .env*
+
+# Sauvegardes base (audit 2 juil. 2026) — ne jamais commiter
+backups/

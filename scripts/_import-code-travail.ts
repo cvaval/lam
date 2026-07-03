@@ -8,7 +8,7 @@ import { prisma } from '../src/lib/db'
 import { buildSearchText } from '../src/lib/search/normalize'
 import { reindexDocument } from '../src/lib/search/reindex'
 
-const DATA = '/private/tmp/claude-501/-Users-cvaval-Library-CloudStorage-Dropbox-Lam-Veritab/63a31a5d-bee2-432a-a04c-f893fecce25d/scratchpad/parsed'
+const DATA = 'scripts/data/code-travail/parsed' // données versionnées (rescapées de /tmp — audit 2 juil. 2026)
 const SOURCE = 'CODE_TRAVAIL_ANNOTE'
 
 interface Connexe { title: string; anchor: string }

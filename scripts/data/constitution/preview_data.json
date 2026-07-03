@@ -1,0 +1,37 @@
+{
+ "somm": [
+  {
+   "ch": "Préambule",
+   "sec": []
+  },
+  {
+   "ch": "CHAPITRE I — La République d’Haïti",
+   "sec": []
+  },
+  {
+   "ch": "CHAPITRE II — Du Territoire de la République d’Haïti",
+   "sec": []
+  },
+  {
+   "ch": "CHAPITRE I — De la Qualité du Citoyen",
+   "sec": []
+  }
+ ],
+ "art1": {
+  "label": "Article 1er",
+  "st": "modifié",
+  "new": "Haïti est une République, indivisible, souveraine, indépendante, libre, démocratique et solidaire.",
+  "old": "Haïti est une République, indivisible, souveraine, indépendante, coopératiste, libre, démocratique et sociale."
+ },
+ "art111": {
+  "label": "Article 11.1",
+  "st": "nouveau",
+  "new": "La loi établit les conditions dans lesquelles un individu peut acquérir la nationalité haïtienne. Article nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987."
+ },
+ "art121": {
+  "label": "Article 12.1",
+  "st": "abrogé",
+  "new": "Les articles 12.1, 12.2, 13, 14 et 15 de la Constitution de 1987 sont abrogés.",
+  "old": "Tout étranger après cinq (5) ans de résidence continue sur le Territoire de la République peut obtenir la nationalité haïtienne par naturalisation, en se conformant aux règles établies par la Loi."
+ }
+}

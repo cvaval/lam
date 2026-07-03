@@ -14,7 +14,7 @@ import Anthropic from '@anthropic-ai/sdk'
 import { withAiFallback, modelFor, parseGeminiJson } from '@/lib/ai/provider'
 import { articleAnchorFromHeading } from '@/lib/doc/anchors'
 
-const D = '/private/tmp/claude-501/-Users-cvaval-Library-CloudStorage-Dropbox-Lam-Veritab/63a31a5d-bee2-432a-a04c-f893fecce25d/scratchpad/const/parsed'
+const D = 'scripts/data/constitution/parsed' // données versionnées (rescapées de /tmp — audit 2 juil. 2026)
 const body = readFileSync(`${D}/bodyOriginal.txt`, 'utf8')
 const struct = JSON.parse(readFileSync(`${D}/structure.json`, 'utf8'))
 const heads = new Set<string>(struct.toc.map((e: any) => e.label))
