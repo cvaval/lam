@@ -15,9 +15,12 @@ const SCROLL_HINT: Record<Locale, string> = { fr: 'Faites glisser pour voir tout
 
 // Renvois internes du Code civil annoté (« C. civ., 969, 1102 et s. », « 1839-1843 ») :
 // la liste de numéros qui suit « C. civ. » devient des liens #art-N — AFFICHAGE seulement,
-// le texte officiel reste inchangé (§02). « C. pr. civ. » / « C.p.c » ne matchent pas.
+// le texte officiel reste inchangé (§02). « C. pr. civ. » / « C.p.c » ne matchent pas ;
+// « c. civ. » minuscule (variantes du texte) matche (/i). Numéros jusqu'à 6 chiffres capturés
+// pour couvrir les rares réfs OCR non désambiguïsables — le lien n'est émis que pour 1..2047.
+const CIV_MAX_ART = 2047
 const CIV_RE =
-  /C\.\s?civ\.[\s,]*((?:\d{1,4}(?:\s*(?:[-–]|à)\s*\d{1,4})?)(?:\s*(?:,|et)\s*\d{1,4}(?:\s*(?:[-–]|à)\s*\d{1,4})?)*(?:\s*et\s+s(?:uiv)?\.?)?)/g
+  /C\.\s?civ\.[\s,]*((?:\d{1,6}(?:\s*(?:[-–]|à)\s*\d{1,6})?)(?:\s*(?:,|;|et)\s*\d{1,6}(?:\s*(?:[-–]|à)\s*\d{1,6})?)*(?:\s*et\s+s(?:uiv)?\.?)?)/gi
 
 // Cellule essentiellement numérique (montant, taux, %) → alignée à droite + chiffres
 // tabulaires quand aucun alignement n'est donné. Conservateur : doit commencer par un
@@ -106,6 +109,9 @@ export function OfficialText({
 
   // Renvois « C. civ., 969, 1102 » → chaque numéro devient un lien #art-N ; le reste du
   // texte passe par hl() (surlignage). Retourne la valeur telle quelle si aucun renvoi.
+  // Le lien n'est émis que pour un numéro d'article PLAUSIBLE (1..2047) — un numéro OCR
+  // résiduel reste en texte simple plutôt qu'en lien mort. Dans une paire « A-B », un B
+  // plus court que A est un ordinal/alinéa (« 2102-4 »), pas un article → pas de lien.
   function civ(value: string): ReactNode {
     const out: ReactNode[] = []
     let pos = 0
@@ -115,17 +121,22 @@ export function OfficialText({
     while ((m = CIV_RE.exec(value))) {
       const numsStart = m.index + m[0].length - m[1].length
       out.push(<span key={`t${k++}`}>{hl(value.slice(pos, numsStart))}</span>)
+      const parts = m[1].split(/(\d+)/)
       out.push(
         <span key={`c${k++}`}>
-          {m[1].split(/(\d{1,4})/).map((p, j) =>
-            /^\d{1,4}$/.test(p) ? (
-              <a key={j} href={`#art-${Number(p)}`} className="font-medium text-soley-700 hover:underline">
+          {parts.map((p, j) => {
+            if (!/^\d+$/.test(p)) return p
+            const n = Number(p)
+            const prevNum = parts[j - 2] // numéro précédant un éventuel tiret (paire « A-B »)
+            const afterDash = j >= 2 && /^\s*[-–]\s*$/.test(parts[j - 1] ?? '')
+            const ordinal = afterDash && typeof prevNum === 'string' && p.length < prevNum.length
+            if (n < 1 || n > CIV_MAX_ART || ordinal) return p
+            return (
+              <a key={j} href={`#art-${n}`} className="font-medium text-soley-700 hover:underline">
                 {p}
               </a>
-            ) : (
-              p
-            ),
-          )}
+            )
+          })}
         </span>,
       )
       pos = m.index + m[0].length
