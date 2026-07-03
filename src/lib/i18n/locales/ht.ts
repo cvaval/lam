@@ -258,6 +258,8 @@ export const ht: Dictionary = {
     calcVehicleOldHint: '(pa defo — dekoche si li resan)',
     calcVariable: 'to varyab',
     calcVariableNote: 'Total san dwa ladwàn ki varyab la — gade entèval anwo a (pozisyon ak plizyè to).',
+    calcDaaSpecific: 'DAA — Dwa aksiz espesifik',
+    calcTotalExAccise: 'Total san aksiz — antre kantite a pou enkli l.',
     calcTotal: 'Total estime (dwa ak taks)',
     calcGrand: 'Pri revyen estime (valè nan ladwàn + dwa ak taks)',
     calcDisclaimer: 'Estimasyon endikatif — chak chaj kalkile sou valè nan ladwàn. Dwa aksiz espesifik (pa inite) pa baze sou valè nan ladwàn. San dwa kontenè ak frè pò ; konfime ak AGD / DGI.',

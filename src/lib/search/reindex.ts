@@ -1,7 +1,7 @@
 import { prisma } from '../db'
 import type { DocType } from '../types'
 import { buildSearchText } from './normalize'
-import { invalidateSearchIndexes } from '@/lib/search'
+import { clearSearchCache } from './cache'
 import { createOpenSearchClient } from './client'
 import { indexNameForType } from './mappings'
 import { serializeDoc } from './serialize'
@@ -27,7 +27,9 @@ export async function reindexDocument(documentId: string): Promise<void> {
   const searchText = buildSearchText({ ...doc, themeLabels })
   const updated = await prisma.document.update({ where: { id: documentId }, data: { themeLabels, searchText } })
 
-  invalidateSearchIndexes()
+  // Réindexation UNITAIRE : on vide le cache de résultats (le nouveau searchText doit ressortir)
+  // mais on NE réinitialise PAS le vocabulaire fuzzy global (rebuild ~17 Mo évitable — audit §10).
+  clearSearchCache()
   if (process.env.SEARCH_PROVIDER === 'opensearch') {
     try {
       const client = await createOpenSearchClient()

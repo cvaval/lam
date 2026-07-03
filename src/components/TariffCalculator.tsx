@@ -61,7 +61,7 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
       variable: ddVariable,
       show: true,
     },
-    { label: `${t.tarifs.calcDaa}${row.accises ? ` (${row.accises})` : ''}`, amt: daaAmt, show: acc.kind !== 'none', missing: acciseMissing },
+    { label: `${acc.kind === 'fixed' ? t.tarifs.calcDaaSpecific : t.tarifs.calcDaa}${row.accises ? ` (${row.accises})` : ''}`, amt: daaAmt, show: acc.kind !== 'none', missing: acciseMissing },
     { label: t.tarifs.calcFv, amt: V * 0.06, show: true },
     { label: t.tarifs.calcTca, amt: V * 0.1, show: true },
     { label: t.tarifs.calcTt, amt: V * 0.1, show: true },
@@ -138,6 +138,7 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
           <Line label={t.tarifs.calcTotal} value={`${fmt(total)} HTG`} strong />
           <Line label={t.tarifs.calcGrand} value={`${fmt(grand)} HTG`} strong />
           {hasVariable && <p className="pt-2 text-[11px] leading-relaxed text-lank/50">{t.tarifs.calcVariableNote}</p>}
+          {acciseMissing && <p className="pt-1 text-[11px] leading-relaxed text-lank/50">{t.tarifs.calcTotalExAccise}</p>}
         </div>
 
         <p className="mt-3 text-[11px] leading-relaxed text-lank/50">{t.tarifs.calcDisclaimer}</p>

@@ -31,12 +31,13 @@ export function articleAnchorFromNum(num: string): string {
 }
 
 /**
- * Titre d'article (« Article 1er.- … », « Article 95 bis », « Article 190ter.5 », « Section 12 »)
+ * Titre d'article (« Article 1er.- … », « Article 95 bis », « Article 190ter.5 », « Section 12 »,
+ * « Art. 2047 » — forme abrégée du Code civil, numéros jusqu'à 4 chiffres)
  * → id d'ancre, ou undefined si la ligne ne commence pas par un en-tête d'article/section reconnu.
  */
 export function articleAnchorFromHeading(textLine: string): string | undefined {
   const m = textLine.match(
-    /^(?:article|section)\s+(premier|\d{1,3}(?:\s*(?:er|ère))?(?:\s*(?:bis|ter|quater))?(?:[.\-]\d+)*)/i,
+    /^(?:art(?:icle)?\.?|section)\s+(premier|\d{1,4}(?:\s*(?:er|ère))?(?:\s*(?:bis|ter|quater))?(?:[.\-]\d+)*)/i,
   )
   if (!m) return undefined
   return anchorFromDesignation(m[1])

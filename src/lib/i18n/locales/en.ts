@@ -258,6 +258,8 @@ export const en: Dictionary = {
     calcVehicleOldHint: '(default — uncheck if recent)',
     calcVariable: 'variable rate',
     calcVariableNote: 'Total excludes the variable customs duty — see the range above (multi-rate position).',
+    calcDaaSpecific: 'Specific excise duty',
+    calcTotalExAccise: 'Total excludes excise — enter the quantity to include it.',
     calcTotal: 'Estimated total (duties & taxes)',
     calcGrand: 'Estimated landed cost (customs value + duties & taxes)',
     calcDisclaimer: 'Indicative estimate — each charge is computed on the customs value. Specific (per-unit) excise is not based on the customs value. Excludes container levy and port fees; confirm with AGD / DGI.',

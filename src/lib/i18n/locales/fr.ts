@@ -263,6 +263,8 @@ export const fr = {
     calcVehicleOldHint: '(par défaut — décocher si récent)',
     calcVariable: 'taux variable',
     calcVariableNote: 'Total hors droit de douane à taux variable — voir la fourchette ci-dessus (position à taux multiple).',
+    calcDaaSpecific: 'DAA — Droit d’accise spécifique',
+    calcTotalExAccise: 'Total hors accise — saisir la quantité pour l’inclure.',
     calcTotal: 'Total estimé (droits et taxes)',
     calcGrand: 'Coût de revient estimé (valeur en douane + droits et taxes)',
     calcDisclaimer: 'Estimation indicative — chaque charge est calculée sur la valeur en douane. Les droits d’accise spécifiques (par unité) ne sont pas basés sur la valeur en douane. Hors droit de conteneur et frais portuaires ; à confirmer auprès de l’AGD / DGI.',

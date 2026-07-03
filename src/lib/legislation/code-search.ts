@@ -36,24 +36,33 @@ function withTimeout<T>(p: Promise<T>, ms = 7000): Promise<T> {
 }
 
 export async function getCodeArticles(docId: string): Promise<CodeArticle[]> {
-  const hit = cache.get(docId)
+  // Clé de cache composite (id + updatedAt) : une requête LÉGÈRE d'abord → sur cache chaud on
+  // ne rapatrie PAS le corps ; sur modification en place (amendement/ré-enrichissement) la clé
+  // change et le cache est invalidé (constat audit §3).
+  const head = await prisma.document.findUnique({ where: { id: docId }, select: { updatedAt: true } })
+  if (!head) return []
+  const key = `${docId}:${head.updatedAt.getTime()}`
+  const hit = cache.get(key)
   if (hit) return hit
-  const doc = await prisma.document.findUnique({ where: { id: docId }, select: { bodyOriginal: true, annotationsJson: true } })
+
+  const doc = await prisma.document.findUnique({ where: { id: docId }, select: { bodyClean: true, bodyOriginal: true, annotationsJson: true } })
   const ann = doc && parseAnnotations(doc.annotationsJson)
-  if (!doc || !ann) return []
-  const seen = new Set<string>()
   const arts: CodeArticle[] = []
-  for (const b of segmentAnnotated(doc.bodyOriginal, ann.toc)) {
-    // Articles du Code uniquement (1ʳᵉ occurrence — noAnchors écarte les homonymes d'annexes).
-    if (b.kind !== 'body' || !b.anchor || b.noAnchors || seen.has(b.anchor)) continue
-    const m = b.anchor.match(/^art-(\d+)/)
-    if (!m) continue
-    seen.add(b.anchor)
-    const body = b.text.replace(/^Article\s+[^\n.]*[.\-–]\s*/i, '').replace(/\s+/g, ' ').trim()
-    arts.push({ n: Number(m[1]), anchor: b.anchor, label: labelFromAnchor(b.anchor), fold: fold(b.text), snippet: body.slice(0, 180) })
+  if (doc && ann) {
+    const seen = new Set<string>()
+    // Même texte que l'affichage (bodyClean si présent) pour éviter la divergence (constat audit §3).
+    for (const b of segmentAnnotated(doc.bodyClean ?? doc.bodyOriginal, ann.toc)) {
+      // Articles du Code uniquement (1ʳᵉ occurrence — noAnchors écarte les homonymes d'annexes).
+      if (b.kind !== 'body' || !b.anchor || b.noAnchors || seen.has(b.anchor)) continue
+      const m = b.anchor.match(/^art-(\d+)/)
+      if (!m) continue
+      seen.add(b.anchor)
+      const body = b.text.replace(/^Article\s+[^\n.]*[.\-–]\s*/i, '').replace(/\s+/g, ' ').trim()
+      arts.push({ n: Number(m[1]), anchor: b.anchor, label: labelFromAnchor(b.anchor), fold: fold(b.text), snippet: body.slice(0, 180) })
+    }
   }
   if (cache.size >= CACHE_MAX) cache.delete(cache.keys().next().value as string) // évince la plus ancienne
-  cache.set(docId, arts)
+  cache.set(key, arts) // met en cache MÊME un résultat vide (doc sans annotations) — audit §1
   return arts
 }
 
@@ -66,16 +75,24 @@ const STOP = new Set(
  * Articles applicables : on tokenise la requête (et les thèmes IA, souvent des locutions) en
  * MOTS significatifs ; le score = nombre de mots distincts trouvés (+ bonus numéro d'article).
  */
-export function matchArticles(articles: CodeArticle[], rawTerms: string[], numQuery: number | null, limit = 40): CodeArticle[] {
+export function matchArticles(
+  articles: CodeArticle[],
+  rawTerms: string[],
+  numQuery: number | null,
+  anchorQuery: string | null = null,
+  limit = 40,
+): CodeArticle[] {
   const words = [
     ...new Set(rawTerms.flatMap((t) => fold(t).split(/[^a-z0-9]+/)).filter((w) => w.length >= 3 && !STOP.has(w))),
   ]
-  if (!words.length && numQuery == null) return []
+  if (!words.length && numQuery == null && !anchorQuery) return []
   const scored = articles
     .map((a) => {
       let score = 0
       for (const w of words) if (a.fold.includes(w)) score++
       if (numQuery != null && a.n === numQuery) score += 5 // « 112 » → article 112 en tête
+      // Désignation décimale/bis (« 12.1 », « 95 bis ») → saut direct par ancre (audit §2).
+      if (anchorQuery && a.anchor === anchorQuery) score += 6
       return { a, score }
     })
     .filter((x) => x.score > 0)
@@ -83,9 +100,19 @@ export function matchArticles(articles: CodeArticle[], rawTerms: string[], numQu
   return scored.slice(0, limit).map((x) => x.a)
 }
 
+// Cache des expansions IA par requête folée : les « thèmes proches » d'une requête sont
+// stables → on évite de re-facturer Gemini à chaque re-frappe identique (constat audit §11).
+const themeCache = new Map<string, string[]>()
+const THEME_CACHE_MAX = 200
+
 /** Thèmes/termes juridiques proches de la requête (IA Gemini, repli Claude). [] si non configuré. */
 export async function expandThemes(query: string): Promise<string[]> {
   if (!isAiConfigured()) return []
+  const cacheKey = fold(query.trim()).slice(0, 100)
+  if (cacheKey) {
+    const cached = themeCache.get(cacheKey)
+    if (cached) return cached
+  }
   const prompt =
     `Tu aides à rechercher dans le Code du travail haïtien. Pour la requête « ${query.slice(0, 100)} », ` +
     `donne 6 à 10 termes ou concepts juridiques PROCHES en français (synonymes, notions liées, vocabulaire ` +
@@ -97,7 +124,7 @@ export async function expandThemes(query: string): Promise<string[]> {
     return Array.isArray(t) ? t.filter((x): x is string => typeof x === 'string').slice(0, 12) : []
   }
   try {
-    return await withAiFallback({
+    const result = await withAiFallback({
       gemini: async () => {
         const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! })
         const r = await withTimeout(ai.models.generateContent({ model: modelFor('gemini', defaults), contents: prompt, config: { responseMimeType: 'application/json' } }))
@@ -110,6 +137,12 @@ export async function expandThemes(query: string): Promise<string[]> {
         return take(JSON.parse(txt.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim()))
       },
     })
+    // On ne met en cache qu'un résultat NON vide (un échec transitoire pourra réessayer).
+    if (cacheKey && result.length) {
+      if (themeCache.size >= THEME_CACHE_MAX) themeCache.delete(themeCache.keys().next().value as string)
+      themeCache.set(cacheKey, result)
+    }
+    return result
   } catch {
     return []
   }

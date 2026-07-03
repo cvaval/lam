@@ -6,6 +6,7 @@ import { canReadService } from '@/lib/access'
 import { guard, LIMITS } from '@/lib/security/ratelimit'
 import type { DocType } from '@/lib/types'
 import { getCodeArticles, matchArticles, expandThemes } from '@/lib/legislation/code-search'
+import { anchorFromDesignation } from '@/lib/doc/anchors'
 
 export const runtime = 'nodejs'
 
@@ -34,9 +35,11 @@ export async function GET(req: NextRequest) {
 
   const articles = await getCodeArticles(docId)
   const numQuery = /^\d{1,3}$/.test(q) ? Number(q) : null
+  // Désignation décimale/bis (« 12.1 », « 31.1.1 », « 95 bis ») → saut direct par ancre (audit §2).
+  const anchorQuery = /^\d{1,3}(?:[.\-]\s*\d+|\s*(?:bis|ter|quater))+$/i.test(q) ? anchorFromDesignation(q) : null
   const baseTerms = q.split(/\s+/).filter((w) => w.length >= 2)
   const themes = useAi ? await expandThemes(q) : []
-  const results = matchArticles(articles, [...baseTerms, ...themes], numQuery)
+  const results = matchArticles(articles, [...baseTerms, ...themes], numQuery, anchorQuery)
 
   return NextResponse.json({
     ok: true,

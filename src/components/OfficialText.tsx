@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import type { ReactNode } from 'react'
 import { parseOfficialText } from '@/lib/doc/officiel'
 import { articleAnchorFromHeading } from '@/lib/doc/anchors'
 import { segmentText, type CircRef } from '@/lib/doc/crossref'

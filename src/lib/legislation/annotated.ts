@@ -57,6 +57,11 @@ export interface CrossRefEntry {
   articles: number[] // articles du Code visés (liens #art-N)
   note?: string
 }
+/** Bloc de législation connexe (décret intégré, loi liée, citation) replié sous un article. */
+export interface ConnexeBlock {
+  label: string // intitulé (« Décret du 14 novembre 1988 modifiant… ») — '' pour une citation nue
+  text: string // contenu (articles internes du décret, extraits)
+}
 export interface Annotations {
   title: string
   annotationAuthor: string
@@ -70,6 +75,9 @@ export interface Annotations {
   oldVersions?: Record<string, string> // ancre → texte de l'ancienne version (repliable)
   status?: Record<string, string | null> // ancre → « modifié » | « nouveau » | « abrogé »
   labels?: Record<string, string> // ancre → « Article 12.1 » (numérotation complexe)
+  // Code civil : législation connexe (ancre art-N) + commentaires doctrinaux (clé sec-K|art-N).
+  connexe?: Record<string, ConnexeBlock[]>
+  commentaires?: Record<string, string[]>
 }
 
 export interface Backlink {
@@ -116,6 +124,8 @@ export function parseAnnotations(json: string | null | undefined): Annotations |
       oldVersions: a.oldVersions && typeof a.oldVersions === 'object' ? a.oldVersions : {},
       status: a.status && typeof a.status === 'object' ? a.status : {},
       labels: a.labels && typeof a.labels === 'object' ? a.labels : {},
+      connexe: a.connexe && typeof a.connexe === 'object' ? a.connexe : {},
+      commentaires: a.commentaires && typeof a.commentaires === 'object' ? a.commentaires : {},
     }
   } catch {
     return null

@@ -1,15 +1,16 @@
 import { OfficialText } from './OfficialText'
 import { Jurisprudence } from './Jurisprudence'
 import { OldVersion } from './OldVersion'
+import { RelatedLaw } from './RelatedLaw'
 import { segmentAnnotated, indexBacklinks, cleanIndexSubject, prettyRef, type Annotations, type Backlink, type ArtRef } from '@/lib/legislation/annotated'
 import { labelFromAnchor } from '@/lib/legislation/articles'
 import type { Locale } from '@/lib/types'
 
 const INDEX_LBL: Record<Locale, string> = { fr: 'Index', en: 'Index', ht: 'Endèks' }
-// En-tête d'article en tête d'un bloc (« Article 12.- … » du Code ou « Article 12.1 » seul de la
-// Constitution) : retiré du corps (affiché en badge). Gère la numérotation décimale/bis/ter.
+// En-tête d'article en tête d'un bloc (« Article 12.- … » du Code du travail, « Article 12.1 »
+// de la Constitution, « Art. 2047 » du Code civil) : retiré du corps (affiché en badge).
 const LEAD_ART =
-  /^(?:article|section)\s+(?:premier|\d{1,3}(?:\s*(?:er|ère))?(?:\s*(?:bis|ter|quater))?(?:[.\-]\d+)*)\s*[.)\-–]*\s*/i
+  /^(?:art(?:icle)?\.?|section)\s+(?:premier|\d{1,4}(?:\s*(?:er|ère))?(?:\s*(?:bis|ter|quater))?(?:[.\-]\d+)*)\s*[.)\-–]*\s*/i
 // Statut d'amendement (Constitution) → pastille colorée.
 const STATUS_BADGE: Record<string, { fr: string; cls: string }> = {
   modifié: { fr: 'modifié', cls: 'bg-brim-50 text-brim-700' },
@@ -28,6 +29,8 @@ export function AnnotatedText({
   locale = 'fr',
   terms,
   hideInlineIndex = false,
+  linkCivRefs = false,
+  annotationsVariant = 'juris',
 }: {
   text: string
   annotations: Annotations
@@ -36,6 +39,11 @@ export function AnnotatedText({
   /** Masque les renvois d'index sous chaque article (l'index reste dans le menu latéral).
    *  Constitution : la ligne « sujet → n°s » sous les articles est retirée à la demande. */
   hideInlineIndex?: boolean
+  /** Code civil : rend cliquables les renvois « C. civ., 969, 1102 » du texte (liens #art-N). */
+  linkCivRefs?: boolean
+  /** Libellé du pliable d'annotations : « Jurisprudence » (Code du travail) ou
+   *  « Annotations » (Code civil : commentaires de l'auteur + jurisprudence). */
+  annotationsVariant?: 'juris' | 'annotations'
 }) {
   const blocks = segmentAnnotated(text, annotations.toc ?? [])
   const juris = annotations.jurisprudence ?? {}
@@ -44,6 +52,8 @@ export function AnnotatedText({
   const oldVersions = annotations.oldVersions ?? {}
   const statusMap = annotations.status ?? {}
   const labelsMap = annotations.labels ?? {}
+  const connexeMap = annotations.connexe ?? {}
+  const commentMap = annotations.commentaires ?? {}
   const shownIndex = new Set<string>()
   // Le Préambule est un chapitre du sommaire (pas un article) : son ancienne version (1987)
   // ne s'accroche à aucune ancre #art-N. On la rattache au bloc de corps qui suit son en-tête.
@@ -120,6 +130,7 @@ export function AnnotatedText({
         const showOldPreamble = preambleBodyNext // consommé par le bloc de corps suivant l'en-tête
         preambleBodyNext = false
         const cases = b.jurisKey ? juris[b.jurisKey] : undefined
+        const comm = b.jurisKey ? commentMap[b.jurisKey] : undefined
         let subjects: Backlink[] | undefined
         if (b.anchor && !shownIndex.has(b.anchor)) {
           subjects = backlinks.get(b.anchor)
@@ -162,7 +173,9 @@ export function AnnotatedText({
                 ))}
               </div>
             )}
-            {cases && cases.length > 0 && <Jurisprudence cases={cases} locale={locale} />}
+            {((cases && cases.length > 0) || (comm && comm.length > 0)) && (
+              <Jurisprudence cases={cases ?? []} comments={comm} variant={annotationsVariant} locale={locale} />
+            )}
           </>
         )
 
@@ -174,6 +187,7 @@ export function AnnotatedText({
           const st = statusMap[b.anchor]
           const badge = st ? STATUS_BADGE[st] : undefined
           const old = oldVersions[b.anchor]
+          const cx = connexeMap[b.anchor]
           return (
             <article key={i} className="scroll-mt-24 rounded-r-lg border-l-2 border-soley/20 pl-4 transition-colors hover:border-soley/60">
               <h4 id={b.noAnchors ? undefined : b.anchor} className="mb-1 flex scroll-mt-24 flex-wrap items-center gap-2">
@@ -182,15 +196,20 @@ export function AnnotatedText({
                   <span className={`rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${badge.cls}`}>{badge.fr}</span>
                 )}
               </h4>
-              <OfficialText text={body} locale={locale} terms={terms} noAnchors />
-              {old && <OldVersion text={old} locale={locale} />}
+              <OfficialText text={body} locale={locale} terms={terms} noAnchors civRefs={linkCivRefs} />
+              {cx && cx.length > 0 ? (
+                // Code civil : ancienne version + législation connexe dans un même pliable.
+                <RelatedLaw old={old} blocks={cx} locale={locale} />
+              ) : (
+                old && <OldVersion text={old} locale={locale} />
+              )}
               {extra}
             </article>
           )
         }
         return (
           <div key={i} className="scroll-mt-24">
-            <OfficialText text={b.text} locale={locale} terms={terms} noAnchors={b.noAnchors} />
+            <OfficialText text={b.text} locale={locale} terms={terms} noAnchors={b.noAnchors} civRefs={linkCivRefs} />
             {showOldPreamble && oldPreamble && <OldVersion text={oldPreamble} locale={locale} />}
             {extra}
           </div>
