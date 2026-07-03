@@ -55,6 +55,16 @@ export function AnnotatedText({
   const labelsMap = annotations.labels ?? {}
   const connexeMap = annotations.connexe ?? {}
   const commentMap = annotations.commentaires ?? {}
+  // Carte « numéro de LOI interne → ancre » (Code civil : LOI Nº 1..36) pour rendre
+  // cliquables les mentions « la loi No 20 » du corps (activée avec linkCivRefs).
+  const loiAnchors = linkCivRefs
+    ? Object.fromEntries(
+        (annotations.toc ?? []).flatMap((e) => {
+          const m = e.label.match(/^LOI\s+N[ºo°]\s*(\d{1,2})\b/i)
+          return m ? [[m[1], e.anchor] as const] : []
+        }),
+      )
+    : undefined
   const shownIndex = new Set<string>()
   // Le Préambule est un chapitre du sommaire (pas un article) : son ancienne version (1987)
   // ne s'accroche à aucune ancre #art-N. On la rattache au bloc de corps qui suit son en-tête.
@@ -205,7 +215,7 @@ export function AnnotatedText({
                   <span className={`rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${badge.cls}`}>{badge.fr}</span>
                 )}
               </h4>
-              <OfficialText text={body} locale={locale} terms={terms} noAnchors civRefs={linkCivRefs} />
+              <OfficialText text={body} locale={locale} terms={terms} noAnchors civRefs={linkCivRefs} loiAnchors={loiAnchors} />
               {(cx && cx.length > 0) || (old && annotationsVariant === 'annotations') ? (
                 // Code civil : ancienne version + législation connexe dans un même pliable
                 // (même sans bloc connexe — le libellé d'OldVersion est propre à la Constitution).
@@ -219,7 +229,7 @@ export function AnnotatedText({
         }
         return (
           <div key={i} className="scroll-mt-24">
-            <OfficialText text={b.text} locale={locale} terms={terms} noAnchors={b.noAnchors} civRefs={linkCivRefs} />
+            <OfficialText text={b.text} locale={locale} terms={terms} noAnchors={b.noAnchors} civRefs={linkCivRefs} loiAnchors={loiAnchors} />
             {showOldPreamble && oldPreamble && <OldVersion text={oldPreamble} locale={locale} />}
             {extra}
           </div>

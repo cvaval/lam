@@ -22,6 +22,10 @@ const CIV_MAX_ART = 2047
 const CIV_RE =
   /C\.\s?civ\.[\s,]*((?:\d{1,6}(?:\s*(?:[-–]|à)\s*\d{1,6})?(?:\s+(?:et\s+)?s\b\.?)?)(?:\s*(?:,|;|et)\s*\d{1,6}(?:\s*(?:[-–]|à)\s*\d{1,6})?(?:\s+(?:et\s+)?s\b\.?)?)*)/gi
 
+// Mentions internes « la loi No 20 » / « loi Nº 16 » (Code civil : le Code est organisé en
+// LOIS) → lien vers l'en-tête de la LOI correspondante (#sec-N), via la carte `loiAnchors`.
+const LOI_RE = /\bloi\s+N[oº°]\.?\s*:?\s*(\d{1,2})\b/gi
+
 // Cellule essentiellement numérique (montant, taux, %) → alignée à droite + chiffres
 // tabulaires quand aucun alignement n'est donné. Conservateur : doit commencer par un
 // chiffre et ne contenir que chiffres/séparateurs/devise (jamais « article 12 »).
@@ -52,6 +56,7 @@ export function OfficialText({
   amendedAnchors,
   noAnchors = false,
   civRefs = false,
+  loiAnchors,
 }: {
   text: string
   hrefFor?: (ref: CircRef) => string | null
@@ -66,6 +71,9 @@ export function OfficialText({
   noAnchors?: boolean
   /** Code civil annoté : rend cliquables les renvois « C. civ., N » (liens #art-N). */
   civRefs?: boolean
+  /** Numéro de LOI interne → ancre de section (« 20 » → « sec-193 ») : rend cliquables
+   *  les mentions « la loi No 20 » du corps (liens #sec-N). */
+  loiAnchors?: Record<string, string>
 }) {
   const segments = buildBodySegments(text, rich)
   const usedAnchors = new Set<string>()
@@ -107,8 +115,33 @@ export function OfficialText({
     )
   }
 
+  // Mentions « la loi No 20 » → lien vers l'en-tête de la LOI (#sec-N) ; le reste passe
+  // par hl(). Ne s'active que si `loiAnchors` connaît le numéro (sinon texte inchangé).
+  function loiLinks(value: string): ReactNode {
+    if (!loiAnchors) return hl(value)
+    const out: ReactNode[] = []
+    let pos = 0
+    let k = 0
+    LOI_RE.lastIndex = 0
+    let m: RegExpExecArray | null
+    while ((m = LOI_RE.exec(value))) {
+      const anchor = loiAnchors[m[1]]
+      if (!anchor) continue
+      out.push(<span key={`p${k++}`}>{hl(value.slice(pos, m.index))}</span>)
+      out.push(
+        <a key={`l${k++}`} href={`#${anchor}`} className="font-medium text-soley-700 hover:underline">
+          {m[0]}
+        </a>,
+      )
+      pos = m.index + m[0].length
+    }
+    if (!out.length) return hl(value)
+    out.push(<span key={`p${k++}`}>{hl(value.slice(pos))}</span>)
+    return out
+  }
+
   // Renvois « C. civ., 969, 1102 » → chaque numéro devient un lien #art-N ; le reste du
-  // texte passe par hl() (surlignage). Retourne la valeur telle quelle si aucun renvoi.
+  // texte passe par loiLinks() puis hl(). Retourne la valeur telle quelle si aucun renvoi.
   // Le lien n'est émis que pour un numéro d'article PLAUSIBLE (1..2047) — un numéro OCR
   // résiduel reste en texte simple plutôt qu'en lien mort. Dans une paire « A-B », un B
   // plus court que A est un ordinal/alinéa (« 2102-4 »), pas un article → pas de lien.
@@ -120,7 +153,7 @@ export function OfficialText({
     let m: RegExpExecArray | null
     while ((m = CIV_RE.exec(value))) {
       const numsStart = m.index + m[0].length - m[1].length
-      out.push(<span key={`t${k++}`}>{hl(value.slice(pos, numsStart))}</span>)
+      out.push(<span key={`t${k++}`}>{loiLinks(value.slice(pos, numsStart))}</span>)
       const parts = m[1].split(/(\d+)/)
       out.push(
         <span key={`c${k++}`}>
@@ -141,8 +174,8 @@ export function OfficialText({
       )
       pos = m.index + m[0].length
     }
-    if (!out.length) return hl(value)
-    out.push(<span key={`t${k++}`}>{hl(value.slice(pos))}</span>)
+    if (!out.length) return loiLinks(value)
+    out.push(<span key={`t${k++}`}>{loiLinks(value.slice(pos))}</span>)
     return out
   }
 
