@@ -57,7 +57,13 @@ export async function getCodeArticles(docId: string): Promise<CodeArticle[]> {
       const m = b.anchor.match(/^art-(\d+)/)
       if (!m) continue
       seen.add(b.anchor)
-      const body = b.text.replace(/^Article\s+[^\n.]*[.\-–]\s*/i, '').replace(/\s+/g, ' ').trim()
+      // Extrait sans la tête d'article : « Article 12.- … » (Code du travail) puis, à défaut,
+      // « Art. 1415 … » (Code civil — tête abrégée, sans ponctuation avant le texte).
+      const body = b.text
+        .replace(/^Article\s+[^\n.]*[.\-–]\s*/i, '')
+        .replace(/^Art\.?\s+\d+(?:er)?\s*[.\-–]*\s*/i, '')
+        .replace(/\s+/g, ' ')
+        .trim()
       arts.push({ n: Number(m[1]), anchor: b.anchor, label: labelFromAnchor(b.anchor), fold: fold(b.text), snippet: body.slice(0, 180) })
     }
   }
@@ -105,18 +111,19 @@ export function matchArticles(
 const themeCache = new Map<string, string[]>()
 const THEME_CACHE_MAX = 200
 
-/** Thèmes/termes juridiques proches de la requête (IA Gemini, repli Claude). [] si non configuré. */
-export async function expandThemes(query: string): Promise<string[]> {
+/** Thèmes/termes juridiques proches de la requête (IA Gemini, repli Claude). [] si non configuré.
+ *  `docTitle` ancre le vocabulaire sur le texte interrogé (Code du travail, Code civil…). */
+export async function expandThemes(query: string, docTitle = 'Code du travail haïtien'): Promise<string[]> {
   if (!isAiConfigured()) return []
-  const cacheKey = fold(query.trim()).slice(0, 100)
+  const cacheKey = `${fold(docTitle).slice(0, 40)}|${fold(query.trim()).slice(0, 100)}`
   if (cacheKey) {
     const cached = themeCache.get(cacheKey)
     if (cached) return cached
   }
   const prompt =
-    `Tu aides à rechercher dans le Code du travail haïtien. Pour la requête « ${query.slice(0, 100)} », ` +
+    `Tu aides à rechercher dans « ${docTitle.slice(0, 80)} » (droit haïtien). Pour la requête « ${query.slice(0, 100)} », ` +
     `donne 6 à 10 termes ou concepts juridiques PROCHES en français (synonymes, notions liées, vocabulaire ` +
-    `du droit du travail) utiles pour retrouver les articles applicables. ` +
+    `de la matière) utiles pour retrouver les articles applicables. ` +
     `Réponds UNIQUEMENT en JSON : {"terms": ["terme 1", "terme 2", ...]}`
   const defaults = { anthropic: 'claude-haiku-4-5-20251001', gemini: 'gemini-2.0-flash' }
   const take = (v: unknown): string[] => {

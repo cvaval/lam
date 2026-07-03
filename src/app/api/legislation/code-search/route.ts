@@ -30,15 +30,16 @@ export async function GET(req: NextRequest) {
   if (useAi && !(await guard({ action: 'code-search-ai', subject: user.id, ...LIMITS.codeSearchAi }, { actorId: user.id })))
     useAi = false
 
-  const doc = await prisma.document.findUnique({ where: { id: docId }, select: { type: true } })
+  const doc = await prisma.document.findUnique({ where: { id: docId }, select: { type: true, titleFr: true } })
   if (!doc || !canReadService(user, doc.type as DocType)) return apiError('unauthorized', 403)
 
   const articles = await getCodeArticles(docId)
-  const numQuery = /^\d{1,3}$/.test(q) ? Number(q) : null
+  // Jusqu'à 4 chiffres : le Code civil va à l'article 2047 (« 1415 » → saut direct).
+  const numQuery = /^\d{1,4}$/.test(q) ? Number(q) : null
   // Désignation décimale/bis (« 12.1 », « 31.1.1 », « 95 bis ») → saut direct par ancre (audit §2).
-  const anchorQuery = /^\d{1,3}(?:[.\-]\s*\d+|\s*(?:bis|ter|quater))+$/i.test(q) ? anchorFromDesignation(q) : null
+  const anchorQuery = /^\d{1,4}(?:[.\-]\s*\d+|\s*(?:bis|ter|quater))+$/i.test(q) ? anchorFromDesignation(q) : null
   const baseTerms = q.split(/\s+/).filter((w) => w.length >= 2)
-  const themes = useAi ? await expandThemes(q) : []
+  const themes = useAi ? await expandThemes(q, doc.titleFr) : []
   const results = matchArticles(articles, [...baseTerms, ...themes], numQuery, anchorQuery)
 
   return NextResponse.json({

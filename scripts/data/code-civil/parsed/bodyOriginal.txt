@@ -2162,6 +2162,10 @@ Art. 1412 Les parties peuvent, par des conventions particulières ajouter à cet
 Art. 1413 Quoiqu'il soit dit que le vendeur ne sera soumis à aucune garantie, il demeure cependant tenu de celle qui résulte d’un fait qui lui est personnel: toute convention contraire est nulle.- C. civ., 6, 13825, 1622, 1693.
 Art. 1414 Dans le même cas de stipulation de non garantie, le vendeur en cas d’éviction, est tenu à la restitution du prix, à moins que l'acquéreur n'ait connu, lors de la vente, le danger de l'éviction, ou qu'il n'ait acheté à ses périls et risques.- C. civ., 1138, 1599, 1642, 1693.
 Art. 1415 Lorsque la garantie a été promise, ou qu'il n'a rien été stipulé à ce sujet, si l'acquéreur est évincé, il a le droit de demander contre le vendeur
+1. La restitution du prix.
+2. Celle des fruits, lorsqu'il est obligé de les rendre au propriétaire qui l'évince;
+3. Les frais faits sur la demande en garantie de l'acheteur, et ceux faits par le demandeur originaire ;
+4. Enfin, les dommages et intérêts, ainsi que les frais et loyaux coûts du contrat.- C. civ., 5495, 11495, 15825, 1592, 1614, 1621, 1646, 1652, 1673, 1682, 1699, 2188.- C.p. c. 130, 185.
 Art. 1416 Lorsqu’à l'époque de l'éviction, la chose vendue se trouve diminuée de valeur ou considérablement détériorée, soit par la négligence de l'acheteur, soit par les accidents de force majeure, le vendeur n'en est pas moins tenu de restituer la totalité du prix.- C: ci, 13825, 1632, 2175.
 Art. 1417 Mais si l'acquéreur a tiré profit des dégradations par lui faites, le vendeur 2 le droit de retenir sur le prix une somme égale à ce profit.- c. æ, 2175.
 Art. 1418 Si la chose vendue se trouve avoir augmenté de prix à l'époque de l'éviction, indépendamment même du fait de l'acquéreur, le vendeur est tenu de lui payer ce qu'elle vaut au-dessus de prix de la vente.- C: civ, 1150, 1637, 2175.
@@ -2197,7 +2201,7 @@ Art. 1440 La résolution de la vente d'immeubles est prononcée de suite, si le 
 Si ce danger n'existe pas, le juge peut accorder à l'acquéreur un délai plus ou moins long, suivant les circonstances.
 Ce délai passé sans que l'acquéreur ait payé, la résolution de la vente sera prononcée.- C. civ., 1244, 1656.
 Art. 1441 S'il a été stipulé, lors de la vente d'immeubles, que faute du paiement du prix dans le terme convenu, la vente serait résolue de plein droit, l'acquéreur peut néanmoins payer après l'expiration du délai, tant qu’il n'a pas été mis en demeure par une sommation, mais, après cette sommation, le juge ne peut pas lui accorder le délai.- C. civ., 1139, 1184, 1655.
-Art. 1442 En matière de vente de denrées et effets mobiliers, la résolution de la vente aura lieu de plein droit et sans sommation, au profit du vendeur, après l'expiration du terme convenu pour le retirement.- C. civ., 1184, 15855, 1905, 2102-4; 5765. Les vendeurs, faute par eux d'une détermination précise du jour de la délivrance, sont tenus de sommer l'acheteur aux fins de comme résolue et de disposer des effets qui en faisaient l'objet. Cass., 27 février 1925, Aff. Neuss vs. Heusslein et Cie. prendre livraison, avant de considérer la vente
+Art. 1442 En matière de vente de denrées et effets mobiliers, la résolution de la vente aura lieu de plein droit et sans sommation, au profit du vendeur, après l'expiration du terme convenu pour le retirement.- C. civ., 1184, 15855, 1905, 2102-4; 5765.
 CHAPITRE VI — DE LA NULLITÉ ET DE LA RÉSOLUTION DE LA VENTE
 Art. 1443 Indépendamment des causes de nullité ou de résolution déjà expliquées à toutes les conventions, le contrat de vente peut être résolu par l'exer- cice de la faculté de rachat. C. civ., 11835, 1234, 13045, 15545, 1610, 16185, 1626, 1644 5, 16745.
 CHAPITRE VII — DE LA FACULTÉ DE RACHAT
