@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { OfficialText } from './OfficialText'
 import { Jurisprudence } from './Jurisprudence'
 import { OldVersion } from './OldVersion'
@@ -106,12 +107,20 @@ export function AnnotatedText({
               </p>
             )
           if (!xref) return header
-          // Renvoi croisé éditorial vers des articles du Code (ex. Liberté syndicale → art. 225).
+          // Renvoi croisé éditorial : vers des articles du Code (ex. Liberté syndicale → art. 225)
+          // et/ou vers un AUTRE document de la plateforme (ex. loi modificatrice → /doc/{id}).
+          const hasDocs = !!xref.docs?.length
           return (
             <div key={i}>
               {header}
               <p className="mt-2 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5 rounded-md border border-sitwon/30 bg-sitwon-50 px-3 py-1.5 text-[11.5px] text-lank/75">
-                <span className="font-bold uppercase tracking-wide text-sitwon-700">↪ Renvoi au Code&nbsp;:</span>
+                <span className="font-bold uppercase tracking-wide text-sitwon-700">↪ Renvoi{xref.articles.length > 0 ? ' au Code' : ''}&nbsp;:</span>
+                {hasDocs && xref.note && <span className="text-lank/55">{xref.note}</span>}
+                {xref.docs!== undefined && xref.docs.map((d, k) => (
+                  <Link key={d.id + k} href={`/${locale}/doc/${d.id}`} className="font-semibold text-sitwon-700 underline decoration-sitwon/40 underline-offset-2 hover:decoration-sitwon">
+                    {d.label}
+                  </Link>
+                ))}
                 {xref.articles.map((n, k, arr) => (
                   <span key={n}>
                     <a href={`#art-${n}`} className="font-semibold text-sitwon-700 hover:underline">
@@ -120,7 +129,7 @@ export function AnnotatedText({
                     {k < arr.length - 1 && <span className="text-lank/30">, </span>}
                   </span>
                 ))}
-                {xref.note && <span className="text-lank/55">— {xref.note}</span>}
+                {!hasDocs && xref.note && <span className="text-lank/55">— {xref.note}</span>}
               </p>
             </div>
           )
@@ -197,8 +206,9 @@ export function AnnotatedText({
                 )}
               </h4>
               <OfficialText text={body} locale={locale} terms={terms} noAnchors civRefs={linkCivRefs} />
-              {cx && cx.length > 0 ? (
-                // Code civil : ancienne version + législation connexe dans un même pliable.
+              {(cx && cx.length > 0) || (old && annotationsVariant === 'annotations') ? (
+                // Code civil : ancienne version + législation connexe dans un même pliable
+                // (même sans bloc connexe — le libellé d'OldVersion est propre à la Constitution).
                 <RelatedLaw old={old} blocks={cx} locale={locale} />
               ) : (
                 old && <OldVersion text={old} locale={locale} />

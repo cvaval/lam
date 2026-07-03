@@ -56,6 +56,8 @@ export interface CrossRefEntry {
   anchor: string // ancre de section (sec-N) où afficher le renvoi
   articles: number[] // articles du Code visés (liens #art-N)
   note?: string
+  /** Renvois vers d'AUTRES documents de la plateforme (ex. loi modificatrice) — liens /doc/{id}. */
+  docs?: { label: string; id: string }[]
 }
 /** Bloc de législation connexe (décret intégré, loi liée, citation) replié sous un article. */
 export interface ConnexeBlock {

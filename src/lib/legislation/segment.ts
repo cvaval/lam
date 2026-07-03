@@ -14,12 +14,25 @@ interface Seg {
   lines: string[]
 }
 
-/** Découpe le corps en segments : préambule + un segment par article (à sa tête). */
-export function splitArticles(body: string): Seg[] {
+/**
+ * Découpe le corps en segments : préambule + un segment par article (à sa tête).
+ *
+ * `isBoundary` (optionnel) marque les lignes d'EN-TÊTE DE SECTION (libellés du sommaire des
+ * textes annotés) : elles CLÔTURENT l'article courant et restent hors-article. Sans cette
+ * borne, le segment du dernier article d'un chapitre engloutirait l'en-tête suivant — et un
+ * overlay d'amendement le FERAIT DISPARAÎTRE du corps affiché (sommaire désappareillé).
+ */
+export function splitArticles(body: string, isBoundary?: (line: string) => boolean): Seg[] {
   const segs: Seg[] = []
   let cur: Seg = { anchor: null, lines: [] }
   for (const raw of body.split(/\r?\n/)) {
-    const anchor = articleAnchorFromHeading(raw.trim())
+    const line = raw.trim()
+    if (isBoundary?.(line)) {
+      segs.push(cur)
+      cur = { anchor: null, lines: [raw] }
+      continue
+    }
+    const anchor = articleAnchorFromHeading(line)
     if (anchor) {
       segs.push(cur)
       cur = { anchor, lines: [raw] }
@@ -30,13 +43,13 @@ export function splitArticles(body: string): Seg[] {
 }
 
 /** Renvoie le corps où les articles amendés portent leur texte EN_VIGUEUR. */
-export function applyAmendments(body: string, amendments: Map<string, ArticleOverlay>): string {
+export function applyAmendments(body: string, amendments: Map<string, ArticleOverlay>, isBoundary?: (line: string) => boolean): string {
   if (amendments.size === 0) return body
   // Une ancre peut apparaître PLUSIEURS fois (lois/annexes renumérotant depuis l'art. 1) :
   // on n'applique l'overlay qu'à la 1ʳᵉ occurrence — comme l'ancre #art-N du lecteur — sinon
   // amender « Article 2 » du Code écraserait tous les « Article 2 » des textes annexés (audit).
   const seen = new Set<string>()
-  return splitArticles(body)
+  return splitArticles(body, isBoundary)
     .map((s) => {
       const first = s.anchor != null && !seen.has(s.anchor)
       if (s.anchor != null) seen.add(s.anchor)

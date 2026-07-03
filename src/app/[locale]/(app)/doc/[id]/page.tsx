@@ -92,11 +92,19 @@ export default async function DocPage({
   // service (sinon redirection ci-dessus), le texte est toujours affiché en intégralité.
   const body = doc.bodyClean ?? doc.bodyOriginal
 
+  // Texte annoté (Code du travail, Constitution, Code civil…) : table des matières,
+  // jurisprudence et index, stockés hors du texte officiel (annotationsJson).
+  const annotations = parseAnnotations(doc.annotationsJson)
+
   // Amendements au niveau article (overlay §02) : le texte affiché montre par défaut la
   // version EN VIGUEUR de chaque article amendé ; l'historique (anciennes versions) reste
   // lisible plus bas (AmendmentHistory). Aucune ligne d'overlay = texte original inchangé.
+  // Textes annotés : les libellés du sommaire BORNENT les segments d'article, sinon le
+  // remplacement du dernier article d'un chapitre engloutirait l'en-tête suivant.
   const amendments = await getAmendments(doc.id)
-  const effectiveBody = applyAmendments(body, amendments)
+  const normHead = (s: string) => s.replace(/\s+/g, ' ').trim()
+  const tocLabels = annotations ? new Set(annotations.toc.map((e) => normHead(e.label))) : null
+  const effectiveBody = applyAmendments(body, amendments, tocLabels ? (line) => tocLabels.has(normHead(line)) : undefined)
   const amendedAnchors = amendments.size ? new Set(amendments.keys()) : undefined
   const amendItems: AmendItem[] = [...amendments.values()].map((ov) => {
     const ab = ov.history.find((v) => v.status === 'ABROGE')
@@ -114,10 +122,6 @@ export default async function DocPage({
       })),
     }
   })
-
-  // Texte annoté (Code du travail, annoté par J.-F. Salès) : table des matières + jurisprudence
-  // + index, stockés hors du texte officiel (annotationsJson). Active le lecteur annoté.
-  const annotations = parseAnnotations(doc.annotationsJson)
 
   // Tableaux & encadrés colorés (reproduction du rendu visuel du PDF).
   const richBlocks = parseRichBlocks(doc.richBlocksJson)
