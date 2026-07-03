@@ -21,7 +21,10 @@ export default async function LoginPage({ params }: { params: { locale: string }
       {/* Gauche : promesse + 6 piliers */}
       <section className="flex flex-col justify-between bg-paper px-6 py-6 lg:px-14 lg:py-8">
         <header className="flex items-center justify-between">
-          <Logo size={30} />
+          {/* Logo cliquable → page d'accueil (demande client). */}
+          <Link href={`/${locale}`} aria-label="Accueil Lam">
+            <Logo size={30} />
+          </Link>
           <nav className="hidden items-center gap-5 text-sm text-lank/70 md:flex">
             <span className="cursor-default hover:text-lank">{t.nav.features}</span>
             <span className="cursor-default hover:text-lank">{t.nav.pricing}</span>

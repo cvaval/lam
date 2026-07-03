@@ -53,6 +53,25 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
         </div>
       </section>
 
+      {/* Publications */}
+      <section className="mx-auto max-w-6xl px-4 py-20">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-soley">{tr('Actualités & analyses', 'News & analysis', 'Aktyalite & analiz')}</p>
+            <h2 className="mt-3 font-serif text-3xl font-semibold text-lank">{tr('Les dernières publications de Lam', 'Latest publications from Lam', 'Dènye piblikasyon Lam yo')}</h2>
+          </div>
+          <Link href={`/${locale}/publications`} className="rounded-full bg-lank px-5 py-2.5 text-sm font-semibold text-cream hover:bg-lank/90">{tr('Voir toutes les publications', 'See all publications', 'Gade tout piblikasyon yo')}</Link>
+        </div>
+        {featured && (
+          <Link href={`/${locale}/publications/${featured.slug}`} className="mt-9 block rounded-2xl border border-lank/10 bg-white p-8 shadow-card transition hover:-translate-y-1 hover:shadow-lg">
+            <p className="font-mono text-xs uppercase tracking-wide text-lank/45">{featured.date} · {featured.author}</p>
+            <h3 className="mt-2 font-serif text-2xl font-semibold leading-snug text-lank">{featured.titleFr}</h3>
+            <p className="mt-3 max-w-3xl leading-relaxed text-lank/65">{featured.summaryFr}</p>
+            <span className="mt-4 inline-block text-sm font-semibold text-fey">{tr('En savoir plus', 'Read more', 'Aprann plis')} →</span>
+          </Link>
+        )}
+      </section>
+
       {/* Offre */}
       <section className="mx-auto max-w-6xl px-4 py-20">
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-soley">{tr('Ce que vous pouvez consulter', 'What you can consult', 'Sa ou ka konsilte')}</p>
@@ -122,24 +141,6 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
         </div>
       </section>
 
-      {/* Publications */}
-      <section className="mx-auto max-w-6xl px-4 py-20">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-soley">{tr('Actualités & analyses', 'News & analysis', 'Aktyalite & analiz')}</p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold text-lank">{tr('Les dernières publications de Lam', 'Latest publications from Lam', 'Dènye piblikasyon Lam yo')}</h2>
-          </div>
-          <Link href={`/${locale}/publications`} className="rounded-full bg-lank px-5 py-2.5 text-sm font-semibold text-cream hover:bg-lank/90">{tr('Voir toutes les publications', 'See all publications', 'Gade tout piblikasyon yo')}</Link>
-        </div>
-        {featured && (
-          <Link href={`/${locale}/publications/${featured.slug}`} className="mt-9 block rounded-2xl border border-lank/10 bg-white p-8 shadow-card transition hover:-translate-y-1 hover:shadow-lg">
-            <p className="font-mono text-xs uppercase tracking-wide text-lank/45">{featured.date} · {featured.author}</p>
-            <h3 className="mt-2 font-serif text-2xl font-semibold leading-snug text-lank">{featured.titleFr}</h3>
-            <p className="mt-3 max-w-3xl leading-relaxed text-lank/65">{featured.summaryFr}</p>
-            <span className="mt-4 inline-block text-sm font-semibold text-fey">{tr('En savoir plus', 'Read more', 'Aprann plis')} →</span>
-          </Link>
-        )}
-      </section>
 
       {/* Footer */}
       <footer className="bg-lank text-cream/75">
