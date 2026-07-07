@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Pastille } from './TypeBadge'
 import { COLOR_CLASSES } from '@/lib/brand'
 import { postJson } from '@/lib/http'
+import { sectionHref } from '@/lib/nav'
 import type { DocType, Locale } from '@/lib/types'
 
 export interface SectionTile {
@@ -193,7 +194,7 @@ export function SectionTiles({
           >
             <span aria-hidden className="text-base leading-none">⠿</span>
           </button>
-          <Link href={`/${locale}/type/${m.slug}`} className="block">
+          <Link href={sectionHref(locale, m.slug)} className="block">
             <div className="flex items-center justify-between pr-7">
               <span className="font-mono text-xs text-lank/40">0{m.num}</span>
               <span className="flex items-center gap-2">
