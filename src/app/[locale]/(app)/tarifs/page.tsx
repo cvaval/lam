@@ -38,9 +38,9 @@ export default async function TarifsPage({ params }: { params: { locale: string 
   const levies: { levy: string; scope: string }[] = [
     { levy: t.tarifs.calcFv, scope: t.tarifs.leviesScopeAll },
     { levy: t.tarifs.calcTca, scope: t.tarifs.leviesScopeAll },
-    { levy: t.tarifs.calcTt, scope: t.tarifs.leviesScopeAll },
     { levy: t.tarifs.calcCfgdct, scope: t.tarifs.leviesScopeAll },
     { levy: t.tarifs.calcDs, scope: t.tarifs.leviesScopeAll },
+    { levy: t.tarifs.calcRinfo, scope: t.tarifs.leviesScopeAll },
     { levy: t.tarifs.calcTpi, scope: t.tarifs.calcVehicle },
     { levy: t.tarifs.calcTpe, scope: t.tarifs.calcVehicleOld },
   ]

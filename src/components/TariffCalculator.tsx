@@ -42,38 +42,54 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
   const V = num(valeur)
   const Q = num(qty)
   const acciseMissing = acc.kind === 'fixed' && Q <= 0
-  const daaAmt = acc.kind === 'pct' ? V * acc.v : acc.kind === 'fixed' ? Q * acc.v : 0
 
-  // Droit de douane : une position peut porter un taux À FOURCHETTE (« 0 % à 15 % », « 5 % ou
-  // 10 % »). On ne retient plus silencieusement la borne basse : on affiche la fourchette et on
-  // EXCLUT le DD du total (sinon sous-estimation trompeuse — constat audit).
+  // Droit de douane à taux éventuellement VARIABLE (« 0 % à 15 % », « 5 % ou 10 % ») : on
+  // liquide à la borne basse ET haute → tous les montants sont présentés en fourchette.
   const ddRates = row.dd ? [...new Set([...row.dd.replace(/,/g, '.').matchAll(/(\d+(?:\.\d+)?)\s*%/g)].map((m) => Number(m[1]) / 100))] : []
   const ddVariable = ddRates.length > 1
   const ddMin = ddRates.length ? Math.min(...ddRates) : pct(row.dd)
   const ddMax = ddRates.length ? Math.max(...ddRates) : pct(row.dd)
 
-  // Chaque charge = taux × valeur en douane (sauf accise spécifique = quantité × montant).
-  const charges: { label: string; amt: number; show: boolean; missing?: boolean; variable?: boolean; valueText?: string }[] = [
+  // Liquidation EN CASCADE — reproduit le bordereau de douane officiel :
+  //  DD, FV = base valeur en douane ; DAA (accise) = base CIF+DD (ou CIF si « % CIF » ; ou
+  //  quantité × montant si spécifique) ; TCA = 10 %×(CIF+DD+FV+DAA) ; CFGDCT = 2 %×(DD+FV+DAA+TCA) ;
+  //  DS = 2 %×(DD+FV+DAA+TCA+CFG) ; véhicule (TPI/TPE) ajoutés sur la valeur en douane ; Redevance
+  //  informatique = 1 % du total des droits et taxes ; Total bordereau = droits + taxes + redevance.
+  // Accise ad valorem : base « valeur en douane + DD » sauf notation explicite « % CIF ».
+  const acciseCifOnly = /cif/i.test(row.accises ?? '')
+  function liquidate(ddPct: number) {
+    const DD = V * ddPct
+    const FV = V * 0.06
+    const DAA = acc.kind === 'pct' ? (acciseCifOnly ? V : V + DD) * acc.v : acc.kind === 'fixed' ? Q * acc.v : 0
+    const TCA = 0.1 * (V + DD + FV + DAA)
+    const CFG = 0.02 * (DD + FV + DAA + TCA)
+    const DS = 0.02 * (DD + FV + DAA + TCA + CFG)
+    const TPI = vehicle ? 0.2 * V : 0
+    const TPE = vehicle && vehicleOld ? 0.25 * V : 0
+    const droits = DD + FV + DAA + TCA + CFG + DS + TPI + TPE
+    const rinfo = 0.01 * droits
+    return { DD, FV, DAA, TCA, CFG, DS, TPI, TPE, droits, rinfo, bordereau: droits + rinfo }
+  }
+  const L = liquidate(ddMin)
+  const Lx = ddVariable ? liquidate(ddMax) : L
+  const rng = (a: number, b: number) => `${fmt(a)} – ${fmt(b)} HTG`
+
+  // Lignes affichées dans l'ordre du bordereau (TCA/CFG/DS en fourchette si DD variable).
+  const charges: { label: string; amt: number; show: boolean; missing?: boolean; valueText?: string }[] = [
     {
       label: `${t.tarifs.calcDd}${row.dd ? ` (${row.dd})` : ''}${ddVariable ? ` · ${t.tarifs.calcVariable}` : ''}`,
-      amt: V * ddMin,
-      valueText: ddVariable ? `${fmt(V * ddMin)} – ${fmt(V * ddMax)} HTG` : undefined,
-      variable: ddVariable,
-      show: true,
+      amt: L.DD, valueText: ddVariable ? rng(L.DD, Lx.DD) : undefined, show: true,
     },
-    { label: `${acc.kind === 'fixed' ? t.tarifs.calcDaaSpecific : t.tarifs.calcDaa}${row.accises ? ` (${row.accises})` : ''}`, amt: daaAmt, show: acc.kind !== 'none', missing: acciseMissing },
-    { label: t.tarifs.calcFv, amt: V * 0.06, show: true },
-    { label: t.tarifs.calcTca, amt: V * 0.1, show: true },
-    { label: t.tarifs.calcTt, amt: V * 0.1, show: true },
-    { label: t.tarifs.calcCfgdct, amt: V * 0.02, show: true },
-    { label: t.tarifs.calcDs, amt: V * 0.02, show: true },
-    { label: t.tarifs.calcTpi, amt: V * 0.2, show: vehicle },
-    { label: t.tarifs.calcTpe, amt: V * 0.25, show: vehicle && vehicleOld },
+    { label: `${acc.kind === 'fixed' ? t.tarifs.calcDaaSpecific : t.tarifs.calcDaa}${row.accises ? ` (${row.accises})` : ''}`, amt: L.DAA, show: acc.kind !== 'none', missing: acciseMissing },
+    { label: t.tarifs.calcFv, amt: L.FV, show: true },
+    { label: t.tarifs.calcTca, amt: L.TCA, valueText: ddVariable ? rng(L.TCA, Lx.TCA) : undefined, show: true },
+    { label: t.tarifs.calcCfgdct, amt: L.CFG, valueText: ddVariable ? rng(L.CFG, Lx.CFG) : undefined, show: true },
+    { label: t.tarifs.calcDs, amt: L.DS, valueText: ddVariable ? rng(L.DS, Lx.DS) : undefined, show: true },
+    { label: t.tarifs.calcTpi, amt: L.TPI, show: vehicle },
+    { label: t.tarifs.calcTpe, amt: L.TPE, show: vehicle && vehicleOld },
   ]
   const shown = charges.filter((c) => c.show)
-  const total = shown.reduce((s, c) => s + (c.missing || c.variable ? 0 : c.amt), 0)
-  const grand = V + total
-  const hasVariable = shown.some((c) => c.variable)
+  const hasVariable = ddVariable
 
   const Line = ({ label, value, strong = false }: { label: string; value: string; strong?: boolean }) => (
     <div className={`flex items-center justify-between gap-4 py-1.5 ${strong ? 'border-t border-lank/15 pt-2 font-semibold text-lank' : 'text-lank/80'}`}>
@@ -135,8 +151,10 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
           {shown.map((c) => (
             <Line key={c.label} label={c.label} value={c.valueText ?? (c.missing ? `— (${t.tarifs.quantity} ?)` : `${fmt(c.amt)} HTG`)} />
           ))}
-          <Line label={t.tarifs.calcTotal} value={`${fmt(total)} HTG`} strong />
-          <Line label={t.tarifs.calcGrand} value={`${fmt(grand)} HTG`} strong />
+          <Line label={t.tarifs.calcTotal} value={ddVariable ? rng(L.droits, Lx.droits) : `${fmt(L.droits)} HTG`} strong />
+          <Line label={t.tarifs.calcRinfo} value={ddVariable ? rng(L.rinfo, Lx.rinfo) : `${fmt(L.rinfo)} HTG`} />
+          <Line label={t.tarifs.calcBordereau} value={ddVariable ? rng(L.bordereau, Lx.bordereau) : `${fmt(L.bordereau)} HTG`} strong />
+          <Line label={t.tarifs.calcGrand} value={ddVariable ? rng(V + L.bordereau, V + Lx.bordereau) : `${fmt(V + L.bordereau)} HTG`} strong />
           {hasVariable && <p className="pt-2 text-[11px] leading-relaxed text-lank/50">{t.tarifs.calcVariableNote}</p>}
           {acciseMissing && <p className="pt-1 text-[11px] leading-relaxed text-lank/50">{t.tarifs.calcTotalExAccise}</p>}
         </div>
