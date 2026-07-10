@@ -42,7 +42,7 @@ export default async function TarifsPage({ params }: { params: { locale: string 
     { levy: t.tarifs.calcDs, scope: t.tarifs.leviesScopeAll },
     { levy: t.tarifs.calcRinfo, scope: t.tarifs.leviesScopeAll },
     { levy: t.tarifs.calcTpi, scope: t.tarifs.calcVehicle },
-    { levy: t.tarifs.calcTt, scope: t.tarifs.calcVehicle },
+    { levy: t.tarifs.calcTt, scope: t.tarifs.calcVehicleOld },
     { levy: t.tarifs.calcTpe, scope: t.tarifs.calcVehicleOld },
   ]
 

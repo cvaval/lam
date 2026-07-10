@@ -59,17 +59,20 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
   const acciseCifOnly = /cif/i.test(row.accises ?? '')
   function liquidate(ddPct: number) {
     const DD = V * ddPct
-    const FV = V * 0.06
     const DAA = acc.kind === 'pct' ? (acciseCifOnly ? V : V + DD) * acc.v : acc.kind === 'fixed' ? Q * acc.v : 0
-    const TCA = 0.1 * (V + DD + FV + DAA)
-    const CFG = 0.02 * (DD + FV + DAA + TCA)
-    const DS = 0.02 * (DD + FV + DAA + TCA + CFG)
-    // Charges propres aux véhicules à moteur (chap. 87) : première immatriculation, taxe
-    // touristique, et taxe environnementale (véhicules de plus de 7 ans).
+    const FV = V * 0.06
+    const TCA = 0.1 * (V + DD + DAA + FV)
+    // Charges propres aux VÉHICULES à moteur (chap. 87), sur la valeur en douane, et placées
+    // AVANT le CFGDCT/DS (elles entrent dans leur base — vérifié sur le bordereau AGD) :
+    //  TPI = tout véhicule ; TT et TPE = véhicules de PLUS DE 7 ANS uniquement.
     const TPI = vehicle ? 0.2 * V : 0
-    const TT = vehicle ? 0.1 * V : 0
+    const TT = vehicle && vehicleOld ? 0.1 * V : 0
     const TPE = vehicle && vehicleOld ? 0.25 * V : 0
-    const droits = DD + FV + DAA + TCA + CFG + DS + TPI + TT + TPE
+    // CFGDCT = 2 % de la SOMME de toutes les charges amont ; DS = 2 % de (cette somme + CFGDCT).
+    const baseCfg = DD + DAA + FV + TCA + TPI + TT + TPE
+    const CFG = 0.02 * baseCfg
+    const DS = 0.02 * (baseCfg + CFG)
+    const droits = baseCfg + CFG + DS
     const rinfo = 0.01 * droits
     return { DD, FV, DAA, TCA, CFG, DS, TPI, TT, TPE, droits, rinfo, bordereau: droits + rinfo }
   }
@@ -86,11 +89,11 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
     { label: `${acc.kind === 'fixed' ? t.tarifs.calcDaaSpecific : t.tarifs.calcDaa}${row.accises ? ` (${row.accises})` : ''}`, amt: L.DAA, show: acc.kind !== 'none', missing: acciseMissing },
     { label: t.tarifs.calcFv, amt: L.FV, show: true },
     { label: t.tarifs.calcTca, amt: L.TCA, valueText: ddVariable ? rng(L.TCA, Lx.TCA) : undefined, show: true },
+    { label: t.tarifs.calcTpi, amt: L.TPI, show: vehicle },
+    { label: t.tarifs.calcTt, amt: L.TT, show: vehicle && vehicleOld },
+    { label: t.tarifs.calcTpe, amt: L.TPE, show: vehicle && vehicleOld },
     { label: t.tarifs.calcCfgdct, amt: L.CFG, valueText: ddVariable ? rng(L.CFG, Lx.CFG) : undefined, show: true },
     { label: t.tarifs.calcDs, amt: L.DS, valueText: ddVariable ? rng(L.DS, Lx.DS) : undefined, show: true },
-    { label: t.tarifs.calcTpi, amt: L.TPI, show: vehicle },
-    { label: t.tarifs.calcTt, amt: L.TT, show: vehicle },
-    { label: t.tarifs.calcTpe, amt: L.TPE, show: vehicle && vehicleOld },
   ]
   const shown = charges.filter((c) => c.show)
   const hasVariable = ddVariable
