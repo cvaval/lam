@@ -64,11 +64,14 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
     const TCA = 0.1 * (V + DD + FV + DAA)
     const CFG = 0.02 * (DD + FV + DAA + TCA)
     const DS = 0.02 * (DD + FV + DAA + TCA + CFG)
+    // Charges propres aux véhicules à moteur (chap. 87) : première immatriculation, taxe
+    // touristique, et taxe environnementale (véhicules de plus de 7 ans).
     const TPI = vehicle ? 0.2 * V : 0
+    const TT = vehicle ? 0.1 * V : 0
     const TPE = vehicle && vehicleOld ? 0.25 * V : 0
-    const droits = DD + FV + DAA + TCA + CFG + DS + TPI + TPE
+    const droits = DD + FV + DAA + TCA + CFG + DS + TPI + TT + TPE
     const rinfo = 0.01 * droits
-    return { DD, FV, DAA, TCA, CFG, DS, TPI, TPE, droits, rinfo, bordereau: droits + rinfo }
+    return { DD, FV, DAA, TCA, CFG, DS, TPI, TT, TPE, droits, rinfo, bordereau: droits + rinfo }
   }
   const L = liquidate(ddMin)
   const Lx = ddVariable ? liquidate(ddMax) : L
@@ -86,6 +89,7 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
     { label: t.tarifs.calcCfgdct, amt: L.CFG, valueText: ddVariable ? rng(L.CFG, Lx.CFG) : undefined, show: true },
     { label: t.tarifs.calcDs, amt: L.DS, valueText: ddVariable ? rng(L.DS, Lx.DS) : undefined, show: true },
     { label: t.tarifs.calcTpi, amt: L.TPI, show: vehicle },
+    { label: t.tarifs.calcTt, amt: L.TT, show: vehicle },
     { label: t.tarifs.calcTpe, amt: L.TPE, show: vehicle && vehicleOld },
   ]
   const shown = charges.filter((c) => c.show)
