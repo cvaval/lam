@@ -147,6 +147,16 @@ export function AnnotatedText({
                 ))}
                 {!hasDocs && xref.note && <span className="text-lank/55">— {xref.note}</span>}
               </p>
+              {/* Dispositions générales insérées par une loi modificatrice sous cet en-tête
+                  (ex. principes d'égalité des filiations posés sous la LOI Nº 8 du Code civil). */}
+              {xref.insertedArticles?.map((a, k) => (
+                <article key={`ins-${k}`} className="mt-2 rounded-r-lg border-l-2 border-sitwon/30 pl-4">
+                  <h4 className="mb-1 font-serif text-[15px] font-bold text-sitwon-700">{a.label}</h4>
+                  {a.body.split('\n').map((p, j) => (
+                    <p key={j} className="text-[15px] leading-relaxed text-lank/90">{p}</p>
+                  ))}
+                </article>
+              ))}
             </div>
           )
         }

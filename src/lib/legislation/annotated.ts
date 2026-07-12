@@ -58,6 +58,9 @@ export interface CrossRefEntry {
   note?: string
   /** Renvois vers d'AUTRES documents de la plateforme (ex. loi modificatrice) — liens /doc/{id}. */
   docs?: { label: string; id: string }[]
+  /** Dispositions générales d'une loi modificatrice à AFFICHER sous l'en-tête de section
+   *  (ex. principes posés par la loi de filiation sous la LOI Nº 8 du Code civil). */
+  insertedArticles?: { label: string; body: string }[]
 }
 /** Bloc de législation connexe (décret intégré, loi liée, citation) replié sous un article. */
 export interface ConnexeBlock {
