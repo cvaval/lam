@@ -22,7 +22,7 @@ import { readFileSync } from 'node:fs'
 import { prisma } from '../src/lib/db'
 import { buildSearchText } from '../src/lib/search/normalize'
 import { reindexDocument } from '../src/lib/search/reindex'
-import { amendArticle } from '../src/lib/legislation/amendments'
+import { amendArticle, abrogateArticle } from '../src/lib/legislation/amendments'
 import { splitArticles } from '../src/lib/legislation/segment'
 import { createTheme } from '../src/lib/legislation/themes'
 
@@ -153,6 +153,18 @@ async function main() {
     console.log(`  overlay (texte du décret affiché) : art. ${n}${withOld ? ' + ancienne version' : ''}`)
   }
 
+  // Abrogés 284–287 : marqueur « [Abrogé — Décret du 6 juillet 2005] » dans le corps affiché
+  // (comme le Code civil / loi de filiation) ; le texte d'origine reste dans le pliable « Ancienne
+  // version ». Harmonise le rendu des articles abrogés entre les deux codes.
+  for (const n of ABROGATED) {
+    await abrogateArticle({
+      documentId: cp.id, anchor: `art-${n}`, label: `Article ${n}`,
+      originalBody: orig.get(`art-${n}`) ?? null,
+      amendedByDocId: decree.id, amendedByNumber: 'Décret du 6 juillet 2005', effectiveDate: EFFECTIVE,
+    })
+    console.log(`  abrogé (marqueur [Abrogé]) : art. ${n}`)
+  }
+
   // annotations : pastilles + pliables (connexe/oldVersions) + renvois de section (crossRefs.docs).
   ann.status = ann.status ?? {}
   ann.oldVersions = ann.oldVersions ?? {}
@@ -171,9 +183,12 @@ async function main() {
     const t = orig.get(`art-${n}`)
     if (t) ann.oldVersions[`art-${n}`] = t.replace(/^Art\.?\s+\d+\s*[.\-–]*\s*/i, '')
   }
-  // 284–287 : abrogés → pastille « abrogé » + note d'abrogation pliable (texte conservé, visible).
+  // 284–287 : abrogés → pastille « abrogé » + ancienne version pliable (texte d'origine) + note
+  // d'abrogation renvoyant (cliquable) au décret.
   for (const n of ABROGATED) {
     ann.status[`art-${n}`] = 'abrogé'
+    const t = orig.get(`art-${n}`)
+    if (t) ann.oldVersions[`art-${n}`] = t.replace(/^Art\.?\s+\d+\s*[.\-–]*\s*/i, '')
     ann.connexe[`art-${n}`] = [{
       label: REF,
       text: `Abrogé en vertu de l’article 9 du ${REF}.`,
