@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { parseOfficialText } from '@/lib/doc/officiel'
-import { articleAnchorFromHeading } from '@/lib/doc/anchors'
+import { articleAnchorFromHeading, articleAnchorFromNum } from '@/lib/doc/anchors'
 import { segmentText, type CircRef } from '@/lib/doc/crossref'
 import { buildBodySegments, tableShortCaption, type RichBlock, type RichTable, type RichNote, type RichCell } from '@/lib/doc/richblocks'
 import { TableActions } from './TableActions'
@@ -25,6 +25,16 @@ const CIV_RE =
 // Mentions internes « la loi No 20 » / « loi Nº 16 » (Code civil : le Code est organisé en
 // LOIS) → lien vers l'en-tête de la LOI correspondante (#sec-N), via la carte `loiAnchors`.
 const LOI_RE = /\bloi\s+N[oº°]\.?\s*:?\s*(\d{1,2})\b/gi
+
+// Renvois internes du Code pénal : « l'article 240 », « les articles 63, 64 et 68 » → liens
+// #art-N. Le Code pénal se cite par le NUMÉRO NU (pas de préfixe « C. pén. ») ; on ne lie donc
+// que si (1) le numéro EST réellement un article du Code (`artRefs`, anti-lien-mort) et (2) le
+// renvoi n'est PAS externe (« art. 2 DU DÉCRET… », « article 5 DE LA LOI… », « du code
+// d'instruction criminelle ») — « du présent code » reste un renvoi interne (donc lié).
+const ART_REF_RE =
+  /\b(?:articles?|art\.)\s+\d{1,3}(?!\d)(?:\s*(?:bis|ter))?(?:\s*(?:,|;|et|à)\s*\d{1,3}(?!\d)(?:\s*(?:bis|ter))?)*/gi
+const ART_NUM_RE = /(\d{1,3}(?!\d)(?:\s*(?:bis|ter))?)/i
+const ART_EXT_AFTER = /^\s*(?:du|de\s+la|de\s+l['’]|des)\s+(?:d[ée]cret|loi|ordonnance|arr[êe]t[ée]|constitution|code\s+d)/i
 
 // Cellule essentiellement numérique (montant, taux, %) → alignée à droite + chiffres
 // tabulaires quand aucun alignement n'est donné. Conservateur : doit commencer par un
@@ -56,6 +66,7 @@ export function OfficialText({
   amendedAnchors,
   noAnchors = false,
   civRefs = false,
+  artRefs,
   loiAnchors,
 }: {
   text: string
@@ -71,6 +82,10 @@ export function OfficialText({
   noAnchors?: boolean
   /** Code civil annoté : rend cliquables les renvois « C. civ., N » (liens #art-N). */
   civRefs?: boolean
+  /** Code pénal annoté : ensemble des ancres d'articles existantes (« art-240 », « art-19-bis »).
+   *  Rend cliquables les renvois internes « l'article N » / « les articles N, M » (liens #art-N),
+   *  uniquement vers un article RÉEL et hors renvoi à un autre texte (décret/loi/…). */
+  artRefs?: Set<string>
   /** Numéro de LOI interne → ancre de section (« 20 » → « sec-193 ») : rend cliquables
    *  les mentions « la loi No 20 » du corps (liens #sec-N). */
   loiAnchors?: Record<string, string>
@@ -179,9 +194,44 @@ export function OfficialText({
     return out
   }
 
+  // Renvois internes du Code pénal « l'article 240 » / « les articles 63, 64 et 68 » → chaque
+  // numéro qui EST un article du Code (artRefs) devient un lien #art-N ; les renvois EXTERNES
+  // (« art. 2 du décret… ») sont laissés en texte. Le reste passe par hl().
+  function artLinks(value: string): ReactNode {
+    if (!artRefs) return hl(value)
+    const out: ReactNode[] = []
+    let pos = 0
+    let k = 0
+    ART_REF_RE.lastIndex = 0
+    let m: RegExpExecArray | null
+    while ((m = ART_REF_RE.exec(value))) {
+      if (ART_EXT_AFTER.test(value.slice(m.index + m[0].length))) continue // renvoi à un autre texte
+      out.push(<span key={`t${k++}`}>{hl(value.slice(pos, m.index))}</span>)
+      const parts = m[0].split(ART_NUM_RE)
+      out.push(
+        <span key={`a${k++}`}>
+          {parts.map((p, j) => {
+            if (!/^\d/.test(p)) return p
+            const anchor = articleAnchorFromNum(p.trim())
+            if (!artRefs.has(anchor)) return p
+            return (
+              <a key={j} href={`#${anchor}`} className="font-medium text-soley-700 hover:underline">
+                {p}
+              </a>
+            )
+          })}
+        </span>,
+      )
+      pos = m.index + m[0].length
+    }
+    if (!out.length) return hl(value)
+    out.push(<span key={`t${k++}`}>{hl(value.slice(pos))}</span>)
+    return out
+  }
+
   // Renvois croisés → liens, sinon texte brut ; termes recherchés surlignés (hl).
   function render(textValue: string) {
-    if (!hrefFor) return civRefs ? civ(textValue) : hl(textValue)
+    if (!hrefFor) return civRefs ? civ(textValue) : artRefs ? artLinks(textValue) : hl(textValue)
     const segs = segmentText(textValue, hrefFor)
     if (segs.length === 1 && !segs[0].href) return hl(textValue)
     return segs.map((s, i) =>

@@ -402,6 +402,7 @@ export default async function DocPage({
               terms={hlTerms}
               hideInlineIndex={doc.source === 'CONSTITUTION_1987' || doc.source === 'CODE_CIVIL_ANNOTE'}
               linkCivRefs={doc.source === 'CODE_CIVIL_ANNOTE'}
+              linkArtRefs={doc.source === 'CODE_PENAL_ANNOTE'}
               annotationsVariant={doc.source === 'CODE_CIVIL_ANNOTE' ? 'annotations' : 'juris'}
             />
           </section>

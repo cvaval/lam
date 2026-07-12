@@ -31,6 +31,7 @@ export function AnnotatedText({
   terms,
   hideInlineIndex = false,
   linkCivRefs = false,
+  linkArtRefs = false,
   annotationsVariant = 'juris',
 }: {
   text: string
@@ -42,6 +43,9 @@ export function AnnotatedText({
   hideInlineIndex?: boolean
   /** Code civil : rend cliquables les renvois « C. civ., 969, 1102 » du texte (liens #art-N). */
   linkCivRefs?: boolean
+  /** Code pénal : rend cliquables les renvois internes « l'article N » (liens #art-N vers un
+   *  article existant, hors renvoi à un autre texte). */
+  linkArtRefs?: boolean
   /** Libellé du pliable d'annotations : « Jurisprudence » (Code du travail) ou
    *  « Annotations » (Code civil : commentaires de l'auteur + jurisprudence). */
   annotationsVariant?: 'juris' | 'annotations'
@@ -53,6 +57,8 @@ export function AnnotatedText({
   const oldVersions = annotations.oldVersions ?? {}
   const statusMap = annotations.status ?? {}
   const labelsMap = annotations.labels ?? {}
+  // Code pénal : ancres d'articles réelles → renvois internes « l'article N » cliquables.
+  const artRefSet = linkArtRefs ? new Set(Object.keys(labelsMap)) : undefined
   const connexeMap = annotations.connexe ?? {}
   const commentMap = annotations.commentaires ?? {}
   // Carte « numéro de LOI interne → ancre » (Code civil : LOI Nº 1..36) pour rendre
@@ -215,7 +221,7 @@ export function AnnotatedText({
                   <span className={`rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${badge.cls}`}>{badge.fr}</span>
                 )}
               </h4>
-              <OfficialText text={body} locale={locale} terms={terms} noAnchors civRefs={linkCivRefs} loiAnchors={loiAnchors} />
+              <OfficialText text={body} locale={locale} terms={terms} noAnchors civRefs={linkCivRefs} artRefs={artRefSet} loiAnchors={loiAnchors} />
               {(cx && cx.length > 0) || (old && annotationsVariant === 'annotations') ? (
                 // Code civil : ancienne version + législation connexe dans un même pliable
                 // (même sans bloc connexe — le libellé d'OldVersion est propre à la Constitution).
@@ -229,7 +235,7 @@ export function AnnotatedText({
         }
         return (
           <div key={i} className="scroll-mt-24">
-            <OfficialText text={b.text} locale={locale} terms={terms} noAnchors={b.noAnchors} civRefs={linkCivRefs} loiAnchors={loiAnchors} />
+            <OfficialText text={b.text} locale={locale} terms={terms} noAnchors={b.noAnchors} civRefs={linkCivRefs} artRefs={artRefSet} loiAnchors={loiAnchors} />
             {showOldPreamble && oldPreamble && <OldVersion text={oldPreamble} locale={locale} />}
             {extra}
           </div>
