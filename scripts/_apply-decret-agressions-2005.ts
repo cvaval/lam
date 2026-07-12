@@ -30,16 +30,30 @@ const DATA = 'scripts/data/decret-agressions-2005'
 const SOURCE = 'DECRET_AGRESSIONS_2005'
 const TITLE = 'Décret modifiant le régime des Agressions Sexuelles et éliminant en la matière les Discriminations contre la femme'
 const REF = 'Décret du 6 juillet 2005 modifiant le régime des Agressions Sexuelles et éliminant en la matière les Discriminations contre la femme'
-const REF_SHORT = 'Décret du 6 juillet 2005 (Agressions sexuelles)'
+const REF_SHORT = 'Décret du 6 juillet 2005 (Agressions sexuelles) — publié au Moniteur le 11 août 2005'
+const MONITEUR = 'Le Moniteur, 160ᵉ année, no 60 — 11 août 2005'
 const EFFECTIVE = new Date('2005-07-06')
 
-// Code pénal (art. → article du décret qui l'affecte). Textes de remplacement : décret art. 10/11.
+// Textes de remplacement AUTORITAIRES (transcrits du décret, art. 2–8 et 10–11). On affiche
+// systématiquement ce texte via overlay : la version consolidée du Code portait des artefacts
+// (art. 278 avec un alinéa périmé « outrage public… gourdes » collé à tort ; art. 282 amputé de
+// son 2ᵉ alinéa) — l'overlay garantit le texte exact du décret (§02 : bodyOriginal reste intact).
 const NEW_TEXT: Record<string, string> = {
   '269': 'Le meurtre par le conjoint de l’un ou de l’autre sexe sur son conjoint n’est pas excusable, si la vie du conjoint qui a commis le meurtre n’a pas été mise en péril dans le moment même où le meurtre a eu lieu.',
   '270': 'Le meurtre ou les blessures, s’ils ont été immédiatement provoqués en réaction à une agression sexuelle, seront considérés comme meurtre ou blessures excusables.',
+  '278': 'Quiconque aura commis un crime de viol, ou sera coupable de toute autre agression sexuelle, consommée ou tentée avec violence, menaces, surprise ou pression psychologique contre la personne de l’un ou l’autre sexe, sera puni de dix ans de travaux forcés.',
+  '279': 'Si le crime a été commis sur la personne d’un enfant au-dessous de l’âge de quinze ans accomplis, la personne coupable sera punie de quinze ans de travaux forcés.',
+  '280': 'La peine sera celle de travaux forcés à perpétuité, si les coupables sont de la classe de ceux qui ont autorité sur la personne envers laquelle ils ont commis l’attentat ou qui abusent de l’autorité que leur confèrent leurs fonctions, ou si la personne coupable, quelle qu’elle soit, a été aidée dans son crime, par une ou plusieurs personnes, ou si la mort s’en est suivie.',
+  '281': 'Quiconque aura attenté aux mœurs, en excitant, favorisant, ou facilitant habituellement la débauche ou la corruption de la jeunesse, de l’un ou de l’autre sexe au-dessous de l’âge de dix-huit ans, sera puni d’un emprisonnement de six mois à deux ans.\nSi la prostitution ou la corruption a été excitée, favorisée ou facilitée par leurs père, mère, tuteur ou autres personnes chargées de leur surveillance, la peine sera d’un an à trois ans d’emprisonnement.',
+  '282': 'Les coupables du délit mentionné au précédent article seront interdits de toute tutelle ou curatelle et de toute participation au conseils de famille, savoir : les individus auxquels s’applique le premier paragraphe de cet article, pendant deux ans au moins et cinq ans au plus ; et ceux dont il est parlé au second paragraphe, pendant dix ans au moins et vingt au plus.\nSi le délit a été commis par le père ou la mère, la personne coupable sera de plus privée des droits et avantages à elle accordés, sur la personne et les biens de l’enfant, par le Code Civil et par le Décret du 8 octobre 1982 donnant un nouveau statut à la femme mariée.',
+  '283': 'Toute personne qui aura commis un outrage public à la pudeur en commettant tous actes, attouchements ou autres actes semblables susceptibles de blesser la pudeur d’une personne de l’un ou de l’autre sexe, sera punie d’un emprisonnement de trois mois à un an.',
 }
-const OVERLAY = ['269', '270'] // le Code portait encore l'ANCIENNE version → on affiche la nouvelle
-const MODIFIED_ALREADY = ['278', '279', '280', '281', '282', '283'] // déjà consolidés (nouvelle rédaction en place)
+// 269/270 : le Code portait encore l'ANCIENNE version → overlay + ancienne version pliable authentique.
+const OVERLAY_OLD = ['269', '270']
+// 278–283 : la version consolidée portait déjà la nouvelle rédaction (avec artefacts) → overlay du
+// texte AUTORITAIRE du décret, SANS ancienne version (le texte antérieur au décret n'est pas dans la source).
+const OVERLAY_NOOLD = ['278', '279', '280', '281', '282', '283']
+const MODIFIED = [...OVERLAY_OLD, ...OVERLAY_NOOLD]
 const ABROGATED = ['284', '285', '286', '287']
 const DECREE_ART: Record<string, string> = { '269': '10', '270': '11', '278': '2', '279': '3', '280': '4', '281': '6', '282': '7', '283': '8' }
 
@@ -87,6 +101,7 @@ async function main() {
       number: 'Décret du 6 juillet 2005',
       originalLang: 'fr',
       matiere: 'penal',
+      moniteurRef: MONITEUR,
       publicationDate: EFFECTIVE,
       bodyOriginal: decreeBody,
       searchText: buildSearchText({ titleFr: TITLE, matiere: 'penal', bodyOriginal: decreeBody }),
@@ -124,15 +139,18 @@ async function main() {
     if (seg.anchor && !orig.has(seg.anchor)) orig.set(seg.anchor, seg.lines.join('\n'))
   }
 
-  for (const n of OVERLAY) {
+  // Overlay du texte AUTORITAIRE (les 8 articles modifiés). 269/270 gardent leur ancienne version
+  // (snapshot) ; 278–283 : pas de snapshot (l'ancienne version n'est pas dans la source).
+  for (const n of MODIFIED) {
     const anchor = `art-${n}`
     const newBody = `Art. ${n} (D. 6 juillet 2005, art. ${DECREE_ART[n]}) ${NEW_TEXT[n]}`
+    const withOld = OVERLAY_OLD.includes(n)
     await amendArticle({
       documentId: cp.id, anchor, label: `Article ${n}`,
-      originalBody: orig.get(anchor) ?? null, newBody,
+      originalBody: withOld ? (orig.get(anchor) ?? null) : null, newBody,
       amendedByDocId: decree.id, amendedByNumber: REF, effectiveDate: EFFECTIVE, origin: 'MANUAL',
     })
-    console.log(`  overlay (nouvelle rédaction affichée) : art. ${n}`)
+    console.log(`  overlay (texte du décret affiché) : art. ${n}${withOld ? ' + ancienne version' : ''}`)
   }
 
   // annotations : pastilles + pliables (connexe/oldVersions) + renvois de section (crossRefs.docs).
@@ -141,20 +159,17 @@ async function main() {
   ann.connexe = ann.connexe ?? {}
   const connexeMod = (n: string) => [{
     label: REF,
-    text: `Nouvelle rédaction de l’article issue de l’article ${DECREE_ART[n]} du ${REF}.`,
+    text: `Nouvelle rédaction de l’article issue de l’article ${DECREE_ART[n]} du Décret du 6 juillet 2005 (publié au Moniteur le 11 août 2005).`,
     docId: decree.id,
   }]
-  // 269/270 : nouvelle rédaction affichée + ancienne version pliable.
-  for (const n of OVERLAY) {
+  for (const n of MODIFIED) {
     ann.status[`art-${n}`] = 'modifié'
-    const t = orig.get(`art-${n}`)
-    if (t) ann.oldVersions[`art-${n}`] = t.replace(/^Art\.?\s+\d+\s*[.\-–]*\s*/i, '') // ancienne version (avant le décret)
     ann.connexe[`art-${n}`] = connexeMod(n)
   }
-  // 278–283 : nouvelle rédaction DÉJÀ en place (texte consolidé) → pastille + renvoi au décret.
-  for (const n of MODIFIED_ALREADY) {
-    ann.status[`art-${n}`] = 'modifié'
-    ann.connexe[`art-${n}`] = connexeMod(n)
+  // Ancienne version pliable authentique : uniquement 269/270 (le Code l'avait conservée).
+  for (const n of OVERLAY_OLD) {
+    const t = orig.get(`art-${n}`)
+    if (t) ann.oldVersions[`art-${n}`] = t.replace(/^Art\.?\s+\d+\s*[.\-–]*\s*/i, '')
   }
   // 284–287 : abrogés → pastille « abrogé » + note d'abrogation pliable (texte conservé, visible).
   for (const n of ABROGATED) {
@@ -178,7 +193,7 @@ async function main() {
   await reindexDocument(cp.id)
   console.log('Code pénal : status + anciennes versions + connexe + renvois de section à jour (EN PLACE).')
 
-  console.log(`\n✅ Terminé — décret ${decree.id} · Code pénal ${cp.id} : ${OVERLAY.length + MODIFIED_ALREADY.length} modifiés, ${ABROGATED.length} abrogés.`)
+  console.log(`\n✅ Terminé — décret ${decree.id} · Code pénal ${cp.id} : ${MODIFIED.length} modifiés (dont ${OVERLAY_OLD.length} avec ancienne version), ${ABROGATED.length} abrogés.`)
   await prisma.$disconnect()
 }
 main().catch(async (e) => { console.error(e); await prisma.$disconnect(); process.exit(1) })
