@@ -63,6 +63,9 @@ export interface CrossRefEntry {
 export interface ConnexeBlock {
   label: string // intitulé (« Décret du 14 novembre 1988 modifiant… ») — '' pour une citation nue
   text: string // contenu (articles internes du décret, extraits)
+  /** Si présent, l'intitulé devient un lien cliquable vers ce document (/doc/{docId}) —
+   *  ex. décret modificateur téléversé séparément. */
+  docId?: string
 }
 export interface Annotations {
   title: string

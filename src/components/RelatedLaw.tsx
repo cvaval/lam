@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import type { Locale } from '@/lib/types'
 import type { ConnexeBlock } from '@/lib/legislation/annotated'
 
@@ -49,7 +50,15 @@ export function RelatedLaw({ old, blocks = [], locale }: { old?: string; blocks?
           )}
           {blocks.map((b, i) => (
             <div key={i}>
-              {b.label && <p className="text-[11.5px] font-semibold leading-snug text-lank/80">{b.label}</p>}
+              {b.label &&
+                (b.docId ? (
+                  // Décret/loi modificateur téléversé → intitulé cliquable vers sa fiche.
+                  <Link href={`/${locale}/doc/${b.docId}`} className="text-[11.5px] font-semibold leading-snug text-lagon-700 underline decoration-lagon-600/40 underline-offset-2 hover:decoration-lagon-600">
+                    {b.label}
+                  </Link>
+                ) : (
+                  <p className="text-[11.5px] font-semibold leading-snug text-lank/80">{b.label}</p>
+                ))}
               <p className="mt-1 whitespace-pre-wrap text-[11.5px] leading-relaxed text-lank/60">{b.text}</p>
             </div>
           ))}
