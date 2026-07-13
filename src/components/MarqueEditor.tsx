@@ -106,7 +106,7 @@ export function MarqueEditor({ locale }: { locale: Locale }) {
         </div>
         <div className="sm:col-span-2">
           <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-lank/55">{lt(L.file)}</label>
-          <input ref={fileRef} type="file" accept="image/*,application/pdf" className="block w-full text-sm text-lank/70 file:mr-3 file:rounded-lg file:border-0 file:bg-lank file:px-3 file:py-2 file:text-xs file:font-semibold file:text-white hover:file:bg-lank-600" />
+          <input ref={fileRef} type="file" accept="image/png,image/jpeg,image/gif,image/webp,application/pdf" className="block w-full text-sm text-lank/70 file:mr-3 file:rounded-lg file:border-0 file:bg-lank file:px-3 file:py-2 file:text-xs file:font-semibold file:text-white hover:file:bg-lank-600" />
         </div>
         <div className="flex items-center gap-3 sm:col-span-2">
           <button type="button" onClick={save} disabled={busy || nom.trim().length < 2} className="rounded-lg bg-lank px-5 py-2.5 text-sm font-semibold text-white hover:bg-lank-600 disabled:opacity-40">

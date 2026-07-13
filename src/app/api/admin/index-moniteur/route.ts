@@ -98,6 +98,11 @@ export async function POST(req: NextRequest) {
     const text = t.text.replace(/\s+$/g, '').replace(/^\s+/g, '')
     if (!text) continue
     if (t.id) {
+      // GARDE-FOU (intégrité §02) : ne JAMAIS écrire via cette route sur autre chose qu'une
+      // entrée d'index — un id périmé/erroné pointant vers un article de code écraserait son
+      // texte officiel. Symétrique du garde de la boucle de suppression ci-dessus.
+      const existing = await prisma.document.findUnique({ where: { id: t.id }, select: { type: true } })
+      if (!existing || existing.type !== 'INDEX') continue
       await prisma.document.update({
         where: { id: t.id },
         data: { titleFr: text, bodyOriginal: text, editionType, number, moniteurRef: ref, publicationDate: date, category: t.category ?? undefined },
@@ -105,6 +110,15 @@ export async function POST(req: NextRequest) {
       await reindexDocument(t.id)
       updated++
     } else {
+      // Dédup (number, titre) : réenregistrer une édition (rows sans id) ou un rejeu réseau ne
+      // doit pas créer de doublon — si l'entrée existe déjà, on la met à jour.
+      const dup = await prisma.document.findFirst({ where: { type: 'INDEX', number, titleFr: text }, select: { id: true } })
+      if (dup) {
+        await prisma.document.update({ where: { id: dup.id }, data: { bodyOriginal: text, editionType, moniteurRef: ref, publicationDate: date, category: t.category ?? undefined } })
+        await reindexDocument(dup.id)
+        updated++
+        continue
+      }
       const doc = await prisma.document.create({
         data: {
           type: 'INDEX',

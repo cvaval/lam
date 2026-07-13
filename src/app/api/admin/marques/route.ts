@@ -68,7 +68,10 @@ export async function POST(req: NextRequest) {
       return apiError('fileTooLarge', 413)
     }
     const isPdf = f.type === 'application/pdf' || /\.pdf$/i.test(f.name)
-    const isImage = f.type.startsWith('image/') || /\.(png|jpe?g|gif|webp|svg)$/i.test(f.name)
+    // SVG REFUSÉ : un SVG peut embarquer du <script> → XSS stocké s'il est servi inline. On
+    // n'accepte que des images rasterisées (+ PDF). La route de service durcit aussi les en-têtes.
+    const isSvg = f.type === 'image/svg+xml' || /\.svg$/i.test(f.name)
+    const isImage = !isSvg && (f.type.startsWith('image/') || /\.(png|jpe?g|gif|webp)$/i.test(f.name))
     if (!isPdf && !isImage) {
       await prisma.document.delete({ where: { id: doc.id } }).catch(() => {})
       return apiError('unsupportedFileType', 415)

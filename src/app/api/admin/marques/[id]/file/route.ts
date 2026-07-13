@@ -22,7 +22,15 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
   const blob = await getPrivateBlob(url).catch(() => null)
   if (!blob || !blob.stream) return apiError('notFound', 404)
   const ext = (url.split('?')[0].match(/\.([a-z0-9]+)$/i)?.[1] ?? '').toLowerCase()
+  // Durcissement (défense en profondeur, même si le SVG est refusé à l'upload) : un éventuel
+  // contenu actif servi ici ne doit RIEN pouvoir exécuter ni charger. nosniff empêche le
+  // reniflage de type ; la CSP « sandbox » neutralise tout script d'un document servi.
   return new Response(blob.stream, {
-    headers: { 'content-type': CT[ext] ?? 'application/octet-stream', 'cache-control': 'private, max-age=3600' },
+    headers: {
+      'content-type': CT[ext] ?? 'application/octet-stream',
+      'cache-control': 'private, max-age=3600',
+      'x-content-type-options': 'nosniff',
+      'content-security-policy': "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    },
   })
 }
