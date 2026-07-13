@@ -23,12 +23,13 @@ async function main() {
   // (déplacées vers le menu latéral). L'original LÉGISLATION garde son corps intégral (§02).
   const bodyTrimmed = readFileSync('scripts/data/code-douanes/body_trimmed.txt', 'utf8')
 
-  // Copie « Législation annotée » du Code des Douanes (Doctrine, décret Spécial n° 11).
-  const doc = await prisma.document.findFirst({
-    where: { type: 'DOCTRINE', number: 'LM2023-SP11', matiere: 'Droit douanier' },
-    select: { id: true, bodyOriginal: true, source: true },
+  // Les DEUX exemplaires du Code des Douanes : « Législation annotée » (DOCTRINE) ET
+  // « Éditions Le Moniteur » (LEGISLATION) — l'utilisatrice veut le même lecteur annoté sur les deux.
+  const docs = await prisma.document.findMany({
+    where: { type: { in: ['DOCTRINE', 'LEGISLATION'] }, number: 'LM2023-SP11', matiere: 'Droit douanier' },
+    select: { id: true, type: true, bodyOriginal: true, source: true },
   })
-  if (!doc) throw new Error('copie Doctrine du Code des Douanes introuvable (type DOCTRINE, LM2023-SP11)')
+  if (!docs.length) throw new Error('Code des Douanes introuvable (LM2023-SP11)')
 
   // Vérif de cohérence AVANT écriture : sur le corps AFFICHÉ (rogné), chaque libellé du toc
   // doit s'apparier et AUCUNE fausse tête d'article ne doit subsister (tables retirées).
@@ -37,13 +38,14 @@ async function main() {
   if (secMatched !== struct.toc.length) {
     throw new Error(`segmentation incohérente : ${secMatched}/${struct.toc.length} en-têtes appariés — annulé`)
   }
-  const arts = blocks.filter((b) => b.kind === 'body' && b.anchor)
-  const anchored = new Set(arts.map((b) => b.anchor))
-  console.log(`Vérif segmentation : ${secMatched}/${struct.toc.length} en-têtes · ${arts.length} blocs article · ${anchored.size} ancres distinctes · index ${struct.indexEntries.length} sujets.`)
+  const anchored = new Set(blocks.filter((b) => b.kind === 'body' && b.anchor).map((b) => b.anchor))
+  console.log(`Vérif segmentation : ${secMatched}/${struct.toc.length} en-têtes · ${anchored.size} ancres distinctes · index ${struct.indexEntries.length} sujets.`)
 
-  await prisma.document.update({ where: { id: doc.id }, data: { bodyOriginal: bodyTrimmed, annotationsJson: JSON.stringify(struct), source: SOURCE } })
-  await reindexDocument(doc.id)
-  console.log(`\n✅ Code des Douanes annoté : doc ${doc.id} (source ${doc.source ?? '—'} → ${SOURCE}). Lecteur = menu latéral Sommaire + Index + renvois inline.`)
+  for (const doc of docs) {
+    await prisma.document.update({ where: { id: doc.id }, data: { bodyOriginal: bodyTrimmed, annotationsJson: JSON.stringify(struct), source: SOURCE } })
+    await reindexDocument(doc.id)
+    console.log(`  ✅ ${doc.type} ${doc.id} (source ${doc.source ?? '—'} → ${SOURCE}) : lecteur annoté (Sommaire + Index + renvois inline).`)
+  }
   await prisma.$disconnect()
 }
 main().catch(async (e) => { console.error(e); await prisma.$disconnect(); process.exit(1) })
