@@ -52,8 +52,9 @@ export function RelatedLaw({ old, blocks = [], locale }: { old?: string; blocks?
             <div key={i}>
               {b.label &&
                 (b.docId ? (
-                  // Décret/loi modificateur téléversé → intitulé cliquable vers sa fiche.
-                  <Link href={`/${locale}/doc/${b.docId}`} className="text-[11.5px] font-semibold leading-snug text-lagon-700 underline decoration-lagon-600/40 underline-offset-2 hover:decoration-lagon-600">
+                  // Décret/loi modificateur téléversé → intitulé cliquable vers sa fiche
+                  // (ancre optionnelle : ex. « Constitution de 1987 » → article 35).
+                  <Link href={`/${locale}/doc/${b.docId}${b.anchor ? `#${b.anchor}` : ''}`} className="text-[11.5px] font-semibold leading-snug text-lagon-700 underline decoration-lagon-600/40 underline-offset-2 hover:decoration-lagon-600">
                     {b.label}
                   </Link>
                 ) : (

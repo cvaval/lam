@@ -69,6 +69,9 @@ export interface ConnexeBlock {
   /** Si présent, l'intitulé devient un lien cliquable vers ce document (/doc/{docId}) —
    *  ex. décret modificateur téléversé séparément. */
   docId?: string
+  /** Ancre optionnelle dans le document cible (#art-N) — ex. renvoyer l'intitulé
+   *  « Constitution de 1987 » directement à l'article 35 de la Constitution téléversée. */
+  anchor?: string
 }
 export interface Annotations {
   title: string
