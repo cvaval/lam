@@ -22,7 +22,9 @@
  */
 import { prisma } from '../src/lib/db'
 import { reindexDocument } from '../src/lib/search/reindex'
-import { segmentAnnotated, type Annotations, type ConnexeBlock } from '../src/lib/legislation/annotated'
+import { segmentAnnotated, type Annotations, type ConnexeBlock, type AnnBlock } from '../src/lib/legislation/annotated'
+
+type BodyBlock = Extract<AnnBlock, { kind: 'body' }>
 
 const CONSTITUTION_ANCHOR = 'art-35'
 
@@ -80,12 +82,37 @@ async function main() {
   }
   ann.connexe = { ...(ann.connexe ?? {}), 'art-6': [block] }
 
-  // ── 3) Contrôle de segmentation (aucun en-tête toc perdu) puis écriture + réindexation ──
-  const secAfter = segmentAnnotated(body, ann.toc).filter((b) => b.kind === 'section').length
+  // ── 3) Ré-attribution de la JURISPRUDENCE de l'article 6 (défaut hérité du parseur) ──
+  // La jurisprudence de l'art. 6 (arrêts LAVACHE/HASCO, Spalding…) avait été rattachée par le
+  // parseur à un art-35 FANTÔME : la ligne « Article 35. » de la note Constitution INLINE, qui
+  // suivait l'art. 6, faisait basculer le contexte d'article avant le bloc « Jurisprudence ».
+  // En retirant cette note inline (étape 1), le bloc qui portait cette clé disparaît → la
+  // jurisprudence ne s'affichait plus. On la ré-attribue à l'article 6 (clé de sa section).
+  const blocks = segmentAnnotated(body, ann.toc)
+  const secAfter = blocks.filter((b) => b.kind === 'section').length
   if (secAfter !== secBefore) throw new Error(`segmentation modifiée : ${secBefore} → ${secAfter} en-têtes — annulé`)
-  const anchors = segmentAnnotated(body, ann.toc).filter((b) => b.kind === 'body' && b.anchor).map((b) => b.anchor)
+  const bodyBlocks = blocks.filter((b): b is BodyBlock => b.kind === 'body')
+  const art6Key = bodyBlocks.find((b) => b.anchor === 'art-6')?.jurisKey
+  if (!art6Key) throw new Error('bloc art-6 introuvable après édition — annulé')
+  const usedKeys = new Set(bodyBlocks.map((b) => b.jurisKey).filter((k): k is string => !!k))
+  const orphanKey = `${art6Key.split('|')[0]}|art-35` // ex. « sec-7|art-35 » (art-35 fantôme, même section que l'art. 6)
+  // Sécurité : ne déplacer QUE si la clé orpheline n'est réclamée par AUCUN bloc du corps
+  // (le vrai art. 35 du Code vit dans une autre section → sa jurisprudence n'est pas touchée).
+  const rehome = (map: Record<string, any[]> | undefined, label: string) => {
+    if (!map || usedKeys.has(orphanKey) || !map[orphanKey]?.length) return
+    const dest = map[art6Key] ?? []
+    const seen = new Set(dest.map((c) => JSON.stringify(c)))
+    for (const c of map[orphanKey]) if (!seen.has(JSON.stringify(c))) dest.push(c)
+    map[art6Key] = dest
+    delete map[orphanKey]
+    console.log(`  ${label} : ${map[art6Key].length} entrée(s) ré-attribuée(s) ${orphanKey} → ${art6Key}.`)
+  }
+  rehome(ann.jurisprudence as Record<string, any[]>, 'Jurisprudence')
+  rehome(ann.commentaires as Record<string, any[]> | undefined, 'Commentaires')
+
+  const anchors = blocks.filter((b) => b.kind === 'body' && b.anchor).map((b) => b.anchor)
   const art35count = anchors.filter((a) => a === 'art-35').length
-  console.log(`Segmentation : ${secAfter} en-têtes (inchangé) · occurrences #art-35 dans le corps : ${art35count} (attendu 1 après retrait de la collision).`)
+  console.log(`Segmentation : ${secAfter} en-têtes (inchangé) · #art-35 dans le corps : ${art35count} · jurisprudence art-6 : ${(ann.jurisprudence as Record<string, any[]>)?.[art6Key]?.length ?? 0} arrêt(s).`)
 
   await prisma.document.update({ where: { id: ct.id }, data: { bodyOriginal: body, annotationsJson: JSON.stringify(ann) } })
   await reindexDocument(ct.id)
