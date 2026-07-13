@@ -13,6 +13,8 @@ export function AdminNav({ locale, t, role }: { locale: Locale; t: Dictionary; r
     ...(isAdmin ? [{ href: `/${locale}/admin/users`, label: t.admin.users }] : []),
     ...(isAdmin ? [{ href: `/${locale}/admin/promo`, label: t.admin.promoNav }] : []),
     ...(isAdmin ? [{ href: `/${locale}/admin/moniteur`, label: t.admin.moniteurNav }] : []),
+    ...(isAdmin ? [{ href: `/${locale}/admin/index-moniteur`, label: t.admin.indexMoniteurNav }] : []),
+    ...(isAdmin ? [{ href: `/${locale}/admin/marques`, label: t.admin.marquesNav }] : []),
     ...(isAdmin ? [{ href: `/${locale}/admin/brh`, label: t.admin.brhNav }] : []),
     ...(isAdmin ? [{ href: `/${locale}/admin/tarifs`, label: t.admin.tarifsNav }] : []),
     ...(isAdmin ? [{ href: `/${locale}/admin/themes`, label: t.admin.themesNav }] : []),

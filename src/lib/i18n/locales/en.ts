@@ -195,6 +195,8 @@ export const en: Dictionary = {
     copied: 'Copied',
     promoNav: 'Promo codes',
     moniteurNav: 'Le Moniteur',
+    indexMoniteurNav: 'Moniteur Index',
+    marquesNav: 'Trademarks',
     brhNav: 'BRH Circulars',
     tarifsNav: 'Customs tariffs',
     themesNav: 'Annotated legislation: themes',

@@ -195,6 +195,8 @@ export const ht: Dictionary = {
     copied: 'Kopye',
     promoNav: 'Kòd promo',
     moniteurNav: 'Le Moniteur',
+    indexMoniteurNav: 'Endèks Monitè',
+    marquesNav: 'Mak komès',
     brhNav: 'Sikilè BRH',
     tarifsNav: 'Tarif ladwàn',
     themesNav: 'Lejislasyon anote : tèm',

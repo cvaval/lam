@@ -200,6 +200,8 @@ export const fr = {
     copied: 'Copié',
     promoNav: 'Codes promo',
     moniteurNav: 'Le Moniteur',
+    indexMoniteurNav: 'Index du Moniteur',
+    marquesNav: 'Marques',
     brhNav: 'Circulaires BRH',
     tarifsNav: 'Tarifs douaniers',
     themesNav: 'Législation annotée : thèmes',
