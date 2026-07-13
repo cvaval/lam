@@ -1,5 +1,6 @@
 import { DOC_TYPE_META } from '../brand'
 import { DOC_TYPES, type DocType, type DocStatus } from '../types'
+import { FULLTEXT_TYPES } from '../access'
 import { escapeHtml } from './highlight'
 import { multiMatchFields } from './fields'
 import { createOpenSearchClient } from './client'
@@ -66,13 +67,43 @@ export class OpenSearchProvider implements SearchProvider {
         ]
       : [{ match_all: {} }]
 
+    // Boost de PROXIMITÉ : la correspondance de l'EXPRESSION exacte (titre puis corps) prime sur
+    // celle de mots isolés — « réserves obligatoires » remonte la circulaire, pas « obligatoire ».
+    const should = query.q
+      ? [
+          // Correspondance de l'EXPRESSION exacte dans le titre : signal fort.
+          { match_phrase: { titleFr: { query: query.q, boost: 5 } } },
+          // PLANCHER de score INDÉPENDANT de la longueur : tout document contenant TOUS les mots
+          // de la requête dans son corps est remonté. Sans cela, les gros textes annotés (Code
+          // civil/pénal/douanes — corps de 200-260 k caractères) sont écrasés par la normalisation
+          // de longueur BM25 et deviennent introuvables par un mot de leur corps (constat cliente).
+          { constant_score: { filter: { match: { bodyOriginal: { query: query.q, operator: 'and' } } }, boost: 8 } },
+        ]
+      : []
+
+    const baseQuery = { bool: { must, should, filter, must_not: mustNot } }
+    // Boost de TYPE : les textes à CONTENU INTÉGRAL (circulaires, législation annotée, lois de
+    // finances, jurisprudence, tarifs, marques) priment sur l'Index du Moniteur — ~28k références
+    // de TITRE seul qui, sans cela, noyaient les vrais documents (recherche par mot du corps).
+    const scoredQuery =
+      query.q
+        ? {
+            function_score: {
+              query: baseQuery,
+              functions: [{ filter: { terms: { type: FULLTEXT_TYPES } }, weight: 4 }],
+              score_mode: 'sum',
+              boost_mode: 'multiply',
+            },
+          }
+        : baseQuery
+
     const res = await client.search({
       index: indices,
       ignore_unavailable: true,
       body: {
         from,
         size,
-        query: { bool: { must, filter, must_not: mustNot } },
+        query: scoredQuery,
         highlight: {
           pre_tags: ['<mark class="hl">'],
           post_tags: ['</mark>'],

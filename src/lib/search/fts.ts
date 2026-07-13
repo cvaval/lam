@@ -10,6 +10,7 @@ import { DOC_TYPE_META } from '../brand'
 import { PAGE_SIZE, MAX_PAGE_SIZE } from './types'
 import type { SearchProvider, SearchQuery, SearchResult, SearchHit } from './types'
 import type { DocType, DocStatus, Locale } from '../types'
+import { FULLTEXT_TYPES } from '../access'
 import { parseCirculaireRef } from '../brh/gaps'
 
 // Mots vides ignorés pour le calcul de couverture (un mot « de » ne compte pas).
@@ -234,7 +235,10 @@ export class FtsProvider implements SearchProvider {
       if (fieldScore <= 0) continue
       // Couverture des mots de la requête dans le titre + n° (fait primer la meilleure correspondance).
       const rel = nameRelevance(fold([d.titleFr, d.titleHt, d.titleEn, d.number].filter(Boolean).join(' ')), ctx.groups, ctx.queryFold)
-      const score = rel + fieldScore * 0.3
+      // Boost de TYPE : les textes à contenu intégral priment sur l'Index du Moniteur (titre seul),
+      // qui sinon noyait les circulaires/codes lors d'une recherche par mot du corps (constat cliente).
+      const typeBoost = FULLTEXT_TYPES.includes(d.type as DocType) ? 4 : 1
+      const score = (rel + fieldScore * 0.3) * typeBoost
       hits.push(toDocHit(d, terms, locale, fuzzy ? score * 0.4 : score, fuzzy))
     }
     return hits
