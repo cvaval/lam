@@ -78,6 +78,10 @@ export class OpenSearchProvider implements SearchProvider {
           // civil/pénal/douanes — corps de 200-260 k caractères) sont écrasés par la normalisation
           // de longueur BM25 et deviennent introuvables par un mot de leur corps (constat cliente).
           { constant_score: { filter: { match: { bodyOriginal: { query: query.q, operator: 'and' } } }, boost: 8 } },
+          // Même plancher pour les ANNOTATIONS (jurisprudence, commentaires, connexe) : un mot
+          // d'un ARRÊT annexé au Code du travail/civil remonte le code, alors qu'il est absent
+          // du corps officiel (constat cliente : recherche « ne trouve pas dans les jurisprudences »).
+          { constant_score: { filter: { match: { annotationsText: { query: query.q, operator: 'and' } } }, boost: 8 } },
         ]
       : []
 
@@ -110,7 +114,7 @@ export class OpenSearchProvider implements SearchProvider {
           // ResultCard rend le snippet en HTML : tout contenu de document doit être
           // encodé, seules nos balises <mark> passent (anti-XSS).
           encoder: 'html',
-          fields: { summaryFr: {}, summaryEn: {}, summaryHt: {}, bodyOriginal: {}, titleFr: {}, name: {} },
+          fields: { summaryFr: {}, summaryEn: {}, summaryHt: {}, bodyOriginal: {}, annotationsText: {}, titleFr: {}, name: {} },
           fragment_size: 240,
           number_of_fragments: 1,
         },

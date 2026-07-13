@@ -1,5 +1,6 @@
 import type { Document } from '@prisma/client'
 import { SEARCH_FIELD_NAMES } from './fields'
+import { extractAnnotationsText } from './normalize'
 
 /**
  * Sérialisation d'une ligne Document (Prisma) vers le corps indexé OpenSearch.
@@ -10,9 +11,15 @@ import { SEARCH_FIELD_NAMES } from './fields'
 export function serializeDoc(d: Document) {
   // Champs cherchables : dérivés de la source unique (search/fields.ts).
   const searchable = Object.fromEntries(SEARCH_FIELD_NAMES.map((f) => [f, d[f]]))
+  // Texte des ANNOTATIONS (jurisprudence, commentaires, législation connexe, anciennes
+  // versions, sujets d'index) — vit hors de bodyOriginal, donc sinon INTROUVABLE par un mot
+  // d'un arrêt ou d'une annotation (Code du travail/civil…). Indexé comme champ à part pour
+  // que le multi_match d'OpenSearch le cherche (poids dédié : voir multiMatchFields).
+  const annotationsText = extractAnnotationsText(d.annotationsJson) || undefined
   // Champs d'affichage / de filtrage (non cherchables) ajoutés explicitement.
   return {
     ...searchable,
+    annotationsText,
     type: d.type,
     status: d.status,
     category: d.category,

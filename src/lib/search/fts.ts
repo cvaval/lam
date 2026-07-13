@@ -3,8 +3,8 @@ import type { Prisma } from '@prisma/client'
 import { expandQuery, SYNONYMS } from './synonyms'
 import { fuzzyExpand } from './fuzzy'
 import { makeSnippet } from './highlight'
-import { fold } from './normalize'
-import { SEARCH_FIELD_WEIGHTS } from './fields'
+import { fold, extractAnnotationsText } from './normalize'
+import { SEARCH_FIELD_WEIGHTS, ANNOTATIONS_SEARCH_WEIGHT } from './fields'
 import { pickLocale } from '../i18n/pick'
 import { DOC_TYPE_META } from '../brand'
 import { PAGE_SIZE, MAX_PAGE_SIZE } from './types'
@@ -67,6 +67,10 @@ const DOC_SELECT = {
   number: true, bhdaNumber: true, holder: true, author: true,
   keywords: true, revue: true, matiere: true, juridiction: true,
   moniteurRef: true, publicationDate: true, niceClasses: true, imageUrl: true,
+  // Texte des annotations (jurisprudence/commentaires/connexe/index) : nécessaire au SCORING
+  // des mots d'arrêts (hors bodyOriginal). Léger — non nul seulement pour les ~10 textes
+  // annotés ; nul (donc quasi gratuit) pour les ~28k entrées de l'Index du Moniteur.
+  annotationsJson: true,
 } satisfies Prisma.DocumentSelect
 
 interface Weighted {
@@ -316,10 +320,14 @@ type DocRow = Prisma.DocumentGetPayload<{ select: typeof DOC_SELECT }>
 
 function weightedFields(d: DocRow): Weighted[] {
   // Poids issus de SEARCH_FIELD_WEIGHTS — source unique (search/fields.ts).
-  return SEARCH_FIELD_WEIGHTS.map(({ field, weight }) => ({
+  const fields: Weighted[] = SEARCH_FIELD_WEIGHTS.map(({ field, weight }) => ({
     value: (d as Record<string, unknown>)[field] as string | null,
     weight,
   }))
+  // Texte des annotations (jurisprudence/commentaires/connexe/index), hors colonnes cherchables :
+  // scoré pour que les mots des ARRÊTS des codes annotés ressortent (parité avec OpenSearch).
+  fields.push({ value: extractAnnotationsText(d.annotationsJson), weight: ANNOTATIONS_SEARCH_WEIGHT })
+  return fields
 }
 
 function toDocHit(d: DocRow, terms: string[], locale: Locale, score: number, fuzzy: boolean): SearchHit {

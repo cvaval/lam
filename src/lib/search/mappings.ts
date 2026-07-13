@@ -61,6 +61,9 @@ export function documentMapping() {
       titleEn: txt,
       titleHt: txt,
       bodyOriginal: txt,
+      // Texte des annotations (jurisprudence/commentaires/connexe/index) des textes annotés —
+      // cherchable (analyseur FR) pour que les mots des ARRÊTS ressortent, hors bodyOriginal.
+      annotationsText: txt,
       summaryFr: txt,
       summaryEn: txt,
       summaryHt: txt,

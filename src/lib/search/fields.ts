@@ -44,7 +44,19 @@ export const COMPANY_FIELD_WEIGHTS: { field: string; weight: number }[] = [
   { field: 'address', weight: 1 },
 ]
 
-/** Format `field^weight` attendu par multi_match d'OpenSearch (docs + sociétés). */
+/**
+ * Champ de recherche des ANNOTATIONS (jurisprudence, commentaires, connexe, index) des
+ * textes annotés. Hors SEARCH_FIELD_WEIGHTS (qui mappe des COLONNES Document) : dérivé de
+ * annotationsJson par serializeDoc/buildSearchText. Poids 2 — au-dessus du corps brut (1),
+ * sous les résumés (3). Consommé par le multi_match (OpenSearch) et le scoring FTS.
+ */
+export const ANNOTATIONS_SEARCH_WEIGHT = 2
+
+/** Format `field^weight` attendu par multi_match d'OpenSearch (docs + annotations + sociétés). */
 export function multiMatchFields(): string[] {
-  return [...SEARCH_FIELD_WEIGHTS, ...COMPANY_FIELD_WEIGHTS].map(({ field, weight }) => `${field}^${weight}`)
+  return [
+    ...SEARCH_FIELD_WEIGHTS.map(({ field, weight }) => `${field}^${weight}`),
+    `annotationsText^${ANNOTATIONS_SEARCH_WEIGHT}`,
+    ...COMPANY_FIELD_WEIGHTS.map(({ field, weight }) => `${field}^${weight}`),
+  ]
 }
