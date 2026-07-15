@@ -89,16 +89,23 @@ des écarts entre la table de concordance et le décret réel** :
 - **Art. 1212** : le décret **saute** effectivement 1211 → 1213 ; la consigne cliente (1212 inchangé)
   est confirmée par le texte officiel.
 
-**Écarts découverts (décisions cliente attendues — rien appliqué au Code civil)**
-1. Le décret **crée les articles 1181-1, 1184-1 et 1184-2** (mutabilité — exceptions ; **usufruit du
-   logement familial au conjoint survivant, d'ordre public** ; maintien dans les lieux du preneur
-   survivant). **Absents de la table**, donc absents du Code civil en ligne. Leur insertion est
-   possible (pastille « nouveau ») sur instruction.
-2. L'article 7 du décret **abroge intégralement 1907 et 1911** — absents de la table, non traités.
-3. Pour 1902, 1903, 1905, 1906, 1909, 1912, 1920, 1960–1962, le décret abroge « les dispositions
-   se rapportant à l'hypothèque légale de la femme mariée **se trouvant dans** » ces articles —
-   abrogation **partielle**, là où la table (appliquée) les marque abrogés en entier.
+**Écarts découverts — TRAITÉS le 14 juillet 2026 sur instruction cliente** (« 1. oui insérer ;
+2. oui traiter ; 3. appliquer ce que dit le décret, replier uniquement la partie abrogée ») —
+script `_apply-decret-rm-complements.ts`, commit `90396d4` :
+1. ✅ **Articles 1181-1, 1184-1, 1184-2 INSÉRÉS** au Code civil (pastille « nouveau », texte
+   verbatim du décret, note connexe cliquable → décret). Le Code passe de 2047 à **2050 articles**.
+2. ✅ **1907 et 1911 abrogés en entier** (art. 7 al. 2), pastille « abrogé », ancien texte replié.
+3. ✅ **Abrogation partielle appliquée** pour 1902, 1903, 1905, 1906, 1909, 1912, 1920, 1960,
+   1961, 1962 : le texte affiché est le texte demeuré en vigueur (27 retranchements codés
+   explicitement — lignes « Au profit des femmes… » de 1902, membres de phrase « les maris et »,
+   « du chef des femmes », etc.) ; **seule la partie abrogée est repliée**, sous une nouvelle
+   pastille **« partiellement abrogé »**. Un seul ajustement grammatical journalisé
+   (« desdites » → « desdits » après retrait de « femmes », art. 1962). La jurisprudence d'époque
+   de 1920 est préservée dans le repli. Réversibilité : texte intégral dans ArticleVersion (MODIFIE).
 4. Les mentions verbatim de la table attribuent 1888 et 1310–1324 à l'« article 5 » et les
    hypothèques à l'« article 7 » : partiellement inexactes au vu du texte réel (6 ≠ 5 ; 7 et 8
-   distincts). Conservées verbatim (doctrine) ; les liens cliquables, eux, ciblent le bon endroit
-   du décret.
+   distincts). Conservées verbatim (doctrine) ; les liens cliquables et les nouvelles notes des
+   articles 1902–1962, 1907 et 1911 citent, eux, l'énoncé réel du décret.
+
+Contrôles après compléments : segmentation **342/342**, **2050 ancres**, 0 orphelin, 0 renvoi
+d'index mort ; pastilles : modifié 113 · abrogé 68 · **partiellement abrogé 10** · **nouveau 3**.
