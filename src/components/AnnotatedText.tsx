@@ -17,6 +17,9 @@ const STATUS_BADGE: Record<string, { fr: string; cls: string }> = {
   modifié: { fr: 'modifié', cls: 'bg-brim-50 text-brim-700' },
   nouveau: { fr: 'nouveau', cls: 'bg-sitwon-50 text-sitwon-700' },
   abrogé: { fr: 'abrogé', cls: 'bg-red-50 text-red-700' },
+  // Abrogation PARTIELLE (ex. art. 7 du Décret régimes matrimoniaux : seules les dispositions
+  // relatives à l'hypothèque légale de la femme mariée tombent — le reste demeure en vigueur).
+  'partiellement abrogé': { fr: 'partiellement abrogé', cls: 'bg-red-50 text-red-700' },
 }
 
 /**
