@@ -69,3 +69,36 @@ Audit structurel complet rejouable : `npx tsx scripts/_audit-code-civil.ts`.
 - `scripts/_apply-decret-regimes-matrimoniaux.ts` — application idempotente.
 
 *Rappel du disclaimer Lam : reproduction fidèle, non officielle ; en cas de divergence, la version publiée au Moniteur prévaut.*
+
+---
+
+## Addendum du 14 juillet 2026 — texte officiel du Décret reçu et téléversé
+
+Le texte intégral du Décret (docx du Moniteur, Spécial n° 6 du 13 mai 2020) a été téléversé en
+« Législation annotée » → Personne et Famille (source `DECRET_REGIMES_MATRIMONIAUX`, lecteur annoté,
+sommaire 18 en-têtes, index 29 sujets, renvois inline). Sa lecture **tranche des réserves** et **révèle
+des écarts entre la table de concordance et le décret réel** :
+
+**Réserves résolues**
+- **Article 6 du Décret** (réserve d.1) : il modifie l'**article 1888** (hypothèque légale) — la table
+  attribuait cette modification à l'article 5. Le décret réel compte **11 articles** : 5 = abrogation
+  1310–1324 seule ; 7 = hypothèque légale (Code civil) ; 8 = Loi du 27 août 1913 ; 9 = abrogation du
+  Décret-loi du 11 janvier 1944 (biens réservés) ; 10 = transitoire ; 11 = clause abrogatoire.
+- **« SECTION IV — parts inégales »** (réserve d.2) : le décret la contient **verbatim** — le libellé
+  dérivé du prompt est confirmé, la réserve est levée.
+- **Art. 1212** : le décret **saute** effectivement 1211 → 1213 ; la consigne cliente (1212 inchangé)
+  est confirmée par le texte officiel.
+
+**Écarts découverts (décisions cliente attendues — rien appliqué au Code civil)**
+1. Le décret **crée les articles 1181-1, 1184-1 et 1184-2** (mutabilité — exceptions ; **usufruit du
+   logement familial au conjoint survivant, d'ordre public** ; maintien dans les lieux du preneur
+   survivant). **Absents de la table**, donc absents du Code civil en ligne. Leur insertion est
+   possible (pastille « nouveau ») sur instruction.
+2. L'article 7 du décret **abroge intégralement 1907 et 1911** — absents de la table, non traités.
+3. Pour 1902, 1903, 1905, 1906, 1909, 1912, 1920, 1960–1962, le décret abroge « les dispositions
+   se rapportant à l'hypothèque légale de la femme mariée **se trouvant dans** » ces articles —
+   abrogation **partielle**, là où la table (appliquée) les marque abrogés en entier.
+4. Les mentions verbatim de la table attribuent 1888 et 1310–1324 à l'« article 5 » et les
+   hypothèques à l'« article 7 » : partiellement inexactes au vu du texte réel (6 ≠ 5 ; 7 et 8
+   distincts). Conservées verbatim (doctrine) ; les liens cliquables, eux, ciblent le bon endroit
+   du décret.
