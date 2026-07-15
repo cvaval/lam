@@ -400,9 +400,9 @@ export default async function DocPage({
               annotations={annotations}
               locale={locale}
               terms={hlTerms}
-              hideInlineIndex={doc.source === 'CONSTITUTION_1987' || doc.source === 'CODE_CIVIL_ANNOTE' || doc.source === 'CODE_DOUANES_ANNOTE'}
+              hideInlineIndex={doc.source === 'CONSTITUTION_1987' || doc.source === 'CODE_CIVIL_ANNOTE' || doc.source === 'CODE_DOUANES_ANNOTE' || doc.source === 'DECRET_REGIMES_MATRIMONIAUX'}
               linkCivRefs={doc.source === 'CODE_CIVIL_ANNOTE'}
-              linkArtRefs={doc.source === 'CODE_PENAL_ANNOTE' || doc.source === 'CODE_DOUANES_ANNOTE'}
+              linkArtRefs={doc.source === 'CODE_PENAL_ANNOTE' || doc.source === 'CODE_DOUANES_ANNOTE' || doc.source === 'DECRET_REGIMES_MATRIMONIAUX'}
               annotationsVariant={doc.source === 'CODE_CIVIL_ANNOTE' ? 'annotations' : 'juris'}
             />
           </section>

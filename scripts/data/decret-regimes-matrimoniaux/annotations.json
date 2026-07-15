@@ -1,0 +1,614 @@
+{
+ "title": "Décret portant réforme des régimes matrimoniaux",
+ "annotationAuthor": "",
+ "navToc": [
+  {
+   "label": "Décret portant réforme des régimes matrimoniaux",
+   "anchor": "sec-1",
+   "children": [
+    {
+     "label": "Article 1er — Contrat de mariage : arts. 1174, 1181, 1181-1, 1184-1, 1184-2",
+     "anchor": "art-1"
+    },
+    {
+     "label": "Article 2 — Communauté légale (arts. 1186 à 1248)",
+     "anchor": "art-2",
+     "children": [
+      {
+       "label": "PREMIÈRE PARTIE — DE LA COMMUNAUTÉ LÉGALE",
+       "anchor": "sec-2"
+      },
+      {
+       "label": "SECTION PREMIÈRE — DE CE QUI COMPOSE LA COMMUNAUTÉ ACTIVEMENT ET PASSIVEMENT",
+       "anchor": "sec-3"
+      },
+      {
+       "label": "Paragraphe 1.- De l'actif de la communauté",
+       "anchor": "sec-4"
+      },
+      {
+       "label": "Paragraphe 2.- Du passif de la communauté, et des actions qui en résultent contre la communauté",
+       "anchor": "sec-5"
+      },
+      {
+       "label": "SECTION II — DE L’ADMINISTRATION DE LA COMMUNAUTÉ ET DES BIENS PROPRES",
+       "anchor": "sec-6"
+      },
+      {
+       "label": "SECTION III — DE LA DISSOLUTION DE LA COMMUNAUTÉ ET DE QUELQUES-UNES DE SES SUITES",
+       "anchor": "sec-7"
+      },
+      {
+       "label": "Paragraphe 1.- Des causes de dissolution et de la séparation de biens",
+       "anchor": "sec-8"
+      },
+      {
+       "label": "Paragraphe 2.- De la liquidation et du partage de la communauté",
+       "anchor": "sec-9"
+      },
+      {
+       "label": "Paragraphe 3.- De l'obligation et de la contribution au passif après la dissolution",
+       "anchor": "sec-10"
+      }
+     ]
+    },
+    {
+     "label": "Article 3 — Abrogation des articles 1249 à 1281",
+     "anchor": "art-3"
+    },
+    {
+     "label": "Article 4 — Communauté conventionnelle (arts. 1282 à 1309)",
+     "anchor": "art-4",
+     "children": [
+      {
+       "label": "DEUXIÈME PARTIE — DE LA COMMUNAUTÉ CONVENTIONNELLE ET DES CONVENTIONS QUI PEUVENT MODIFIER OU MÊME EXCLURE LA COMMUNAUTÉ LÉGALE",
+       "anchor": "sec-11"
+      },
+      {
+       "label": "SECTION PREMIÈRE — DE LA COMMUNAUTÉ DES MEUBLES ET ACQUÊTS",
+       "anchor": "sec-12"
+      },
+      {
+       "label": "SECTION II — DE LA CLAUSE DE PRÉLÈVEMENT MOYENNANT INDEMNITÉ",
+       "anchor": "sec-13"
+      },
+      {
+       "label": "SECTION III — DU PRÉCIPUT CONVENTIONNEL",
+       "anchor": "sec-14"
+      },
+      {
+       "label": "SECTION IV — DES CLAUSES PAR LESQUELLES ON ASSIGNE À CHACUN DES ÉPOUX DES PARTS INÉGALES DANS LA COMMUNAUTÉ",
+       "anchor": "sec-15"
+      },
+      {
+       "label": "SECTION V — DE LA COMMUNAUTÉ À TITRE UNIVERSEL",
+       "anchor": "sec-16"
+      },
+      {
+       "label": "DISPOSITIONS COMMUNES AUX CINQ SECTIONS CI-DESSUS",
+       "anchor": "sec-17"
+      },
+      {
+       "label": "SECTION VI — DE LA CLAUSE DE SÉPARATION DE BIENS",
+       "anchor": "sec-18"
+      }
+     ]
+    },
+    {
+     "label": "Article 5 — Abrogation des articles 1310 à 1324",
+     "anchor": "art-5"
+    },
+    {
+     "label": "Article 6 — Article 1888 modifié (hypothèque légale)",
+     "anchor": "art-6"
+    },
+    {
+     "label": "Article 7 — Hypothèque légale de la femme mariée : Code civil",
+     "anchor": "art-7"
+    },
+    {
+     "label": "Article 8 — Hypothèque légale : Loi du 27 août 1913",
+     "anchor": "art-8"
+    },
+    {
+     "label": "Article 9 — Abrogation du Décret-loi du 11 janvier 1944",
+     "anchor": "art-9"
+    },
+    {
+     "label": "Article 10 — Disposition transitoire",
+     "anchor": "art-10"
+    },
+    {
+     "label": "Article 11 — Clause abrogatoire",
+     "anchor": "art-11"
+    }
+   ]
+  }
+ ],
+ "toc": [
+  {
+   "label": "DÉCRÈTE",
+   "level": 1,
+   "anchor": "sec-1",
+   "kind": "code"
+  },
+  {
+   "label": "PREMIÈRE PARTIE — DE LA COMMUNAUTÉ LÉGALE",
+   "level": 2,
+   "anchor": "sec-2",
+   "kind": "code"
+  },
+  {
+   "label": "SECTION PREMIÈRE — DE CE QUI COMPOSE LA COMMUNAUTÉ ACTIVEMENT ET PASSIVEMENT",
+   "level": 3,
+   "anchor": "sec-3",
+   "kind": "code"
+  },
+  {
+   "label": "Paragraphe 1.- De l'actif de la communauté",
+   "level": 4,
+   "anchor": "sec-4",
+   "kind": "code"
+  },
+  {
+   "label": "Paragraphe 2.- Du passif de la communauté, et des actions qui en résultent contre la communauté",
+   "level": 4,
+   "anchor": "sec-5",
+   "kind": "code"
+  },
+  {
+   "label": "SECTION II — DE L’ADMINISTRATION DE LA COMMUNAUTÉ ET DES BIENS PROPRES",
+   "level": 3,
+   "anchor": "sec-6",
+   "kind": "code"
+  },
+  {
+   "label": "SECTION III — DE LA DISSOLUTION DE LA COMMUNAUTÉ ET DE QUELQUES-UNES DE SES SUITES",
+   "level": 3,
+   "anchor": "sec-7",
+   "kind": "code"
+  },
+  {
+   "label": "Paragraphe 1.- Des causes de dissolution et de la séparation de biens",
+   "level": 4,
+   "anchor": "sec-8",
+   "kind": "code"
+  },
+  {
+   "label": "Paragraphe 2.- De la liquidation et du partage de la communauté",
+   "level": 4,
+   "anchor": "sec-9",
+   "kind": "code"
+  },
+  {
+   "label": "Paragraphe 3.- De l'obligation et de la contribution au passif après la dissolution",
+   "level": 4,
+   "anchor": "sec-10",
+   "kind": "code"
+  },
+  {
+   "label": "DEUXIÈME PARTIE — DE LA COMMUNAUTÉ CONVENTIONNELLE ET DES CONVENTIONS QUI PEUVENT MODIFIER OU MÊME EXCLURE LA COMMUNAUTÉ LÉGALE",
+   "level": 2,
+   "anchor": "sec-11",
+   "kind": "code"
+  },
+  {
+   "label": "SECTION PREMIÈRE — DE LA COMMUNAUTÉ DES MEUBLES ET ACQUÊTS",
+   "level": 3,
+   "anchor": "sec-12",
+   "kind": "code"
+  },
+  {
+   "label": "SECTION II — DE LA CLAUSE DE PRÉLÈVEMENT MOYENNANT INDEMNITÉ",
+   "level": 3,
+   "anchor": "sec-13",
+   "kind": "code"
+  },
+  {
+   "label": "SECTION III — DU PRÉCIPUT CONVENTIONNEL",
+   "level": 3,
+   "anchor": "sec-14",
+   "kind": "code"
+  },
+  {
+   "label": "SECTION IV — DES CLAUSES PAR LESQUELLES ON ASSIGNE À CHACUN DES ÉPOUX DES PARTS INÉGALES DANS LA COMMUNAUTÉ",
+   "level": 3,
+   "anchor": "sec-15",
+   "kind": "code"
+  },
+  {
+   "label": "SECTION V — DE LA COMMUNAUTÉ À TITRE UNIVERSEL",
+   "level": 3,
+   "anchor": "sec-16",
+   "kind": "code"
+  },
+  {
+   "label": "DISPOSITIONS COMMUNES AUX CINQ SECTIONS CI-DESSUS",
+   "level": 3,
+   "anchor": "sec-17",
+   "kind": "code"
+  },
+  {
+   "label": "SECTION VI — DE LA CLAUSE DE SÉPARATION DE BIENS",
+   "level": 3,
+   "anchor": "sec-18",
+   "kind": "code"
+  }
+ ],
+ "connexes": [],
+ "jurisprudence": {},
+ "indexEntries": [
+  {
+   "subject": "Abrogations (articles 1249 à 1281, 1310 à 1324)",
+   "ctRefs": [
+    3,
+    5
+   ]
+  },
+  {
+   "subject": "Acquêts",
+   "ctRefs": [
+    1187,
+    1188
+   ]
+  },
+  {
+   "subject": "Administration conjointe de la communauté",
+   "ctRefs": [
+    1201,
+    1203,
+    1204
+   ]
+  },
+  {
+   "subject": "Bail à usage d’habitation (décès d’un époux)",
+   "ctRefs": [
+    "1184-2"
+   ]
+  },
+  {
+   "subject": "Biens propres",
+   "ctRefs": [
+    1189,
+    1190,
+    1191,
+    1192,
+    1193,
+    1205,
+    1206
+   ]
+  },
+  {
+   "subject": "Biens réservés de la femme mariée (abrogation)",
+   "ctRefs": [
+    9
+   ]
+  },
+  {
+   "subject": "Changement de régime matrimonial",
+   "ctRefs": [
+    1181,
+    "1181-1",
+    10
+   ]
+  },
+  {
+   "subject": "Clause de séparation de biens",
+   "ctRefs": [
+    1302,
+    1303,
+    1304,
+    1305,
+    1306,
+    1307,
+    1308,
+    1309
+   ]
+  },
+  {
+   "subject": "Communauté des meubles et acquêts",
+   "ctRefs": [
+    1283,
+    1284,
+    1285,
+    1286
+   ]
+  },
+  {
+   "subject": "Communauté à titre universel",
+   "ctRefs": [
+    1299
+   ]
+  },
+  {
+   "subject": "Contrat de mariage (immutabilité tempérée)",
+   "ctRefs": [
+    1174,
+    1181,
+    "1181-1"
+   ]
+  },
+  {
+   "subject": "Dettes des époux",
+   "ctRefs": [
+    1194,
+    1195,
+    1196,
+    1200,
+    1239,
+    1240,
+    1242
+   ]
+  },
+  {
+   "subject": "Disposition transitoire (professions séparées)",
+   "ctRefs": [
+    10
+   ]
+  },
+  {
+   "subject": "Dissolution de la communauté",
+   "ctRefs": [
+    1216,
+    1217,
+    1224,
+    "1184-1",
+    "1184-2"
+   ]
+  },
+  {
+   "subject": "Dot (enfant commun)",
+   "ctRefs": [
+    1213,
+    1214,
+    1215
+   ]
+  },
+  {
+   "subject": "Emploi et remploi",
+   "ctRefs": [
+    1208,
+    1209,
+    1210
+   ]
+  },
+  {
+   "subject": "Homologation (Doyen du Tribunal de Première Instance)",
+   "ctRefs": [
+    1181
+   ]
+  },
+  {
+   "subject": "Hypothèque légale",
+   "ctRefs": [
+    1888,
+    7,
+    8
+   ]
+  },
+  {
+   "subject": "Liquidation et partage de la communauté",
+   "ctRefs": [
+    1225,
+    1233,
+    1234,
+    1236,
+    1237,
+    1238
+   ]
+  },
+  {
+   "subject": "Logement familial — usufruit du conjoint survivant",
+   "ctRefs": [
+    "1184-1"
+   ]
+  },
+  {
+   "subject": "Mandat entre époux",
+   "ctRefs": [
+    1305,
+    1306,
+    1307
+   ]
+  },
+  {
+   "subject": "Parts inégales (communauté)",
+   "ctRefs": [
+    1295,
+    1296,
+    1297,
+    1298
+   ]
+  },
+  {
+   "subject": "Passif de la communauté",
+   "ctRefs": [
+    1194,
+    1195,
+    1196,
+    1197,
+    1198,
+    1199,
+    1200,
+    1239,
+    1240,
+    1241,
+    1242,
+    1243,
+    1244,
+    1245,
+    1246,
+    1247,
+    1248
+   ]
+  },
+  {
+   "subject": "Préciput conventionnel",
+   "ctRefs": [
+    1291,
+    1292,
+    1293,
+    1294
+   ]
+  },
+  {
+   "subject": "Prélèvement moyennant indemnité",
+   "ctRefs": [
+    1287,
+    1288,
+    1289,
+    1290
+   ]
+  },
+  {
+   "subject": "Recel et détournement d’effets de la communauté",
+   "ctRefs": [
+    1235
+   ]
+  },
+  {
+   "subject": "Récompenses (communauté)",
+   "ctRefs": [
+    1197,
+    1198,
+    1199,
+    1207,
+    1211,
+    1226,
+    1227,
+    1228,
+    1229,
+    1230,
+    1231,
+    1232
+   ]
+  },
+  {
+   "subject": "Séparation de biens judiciaire",
+   "ctRefs": [
+    1218,
+    1219,
+    1220,
+    1221,
+    1222,
+    1223,
+    1224
+   ]
+  },
+  {
+   "subject": "Usufruit légal du conjoint survivant",
+   "ctRefs": [
+    "1184-1"
+   ]
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-1174": "Article 1174",
+  "art-1181": "Article 1181",
+  "art-1181-1": "Article 1181-1",
+  "art-1184-1": "Article 1184-1",
+  "art-1184-2": "Article 1184-2",
+  "art-2": "Article 2",
+  "art-1186": "Article 1186",
+  "art-1187": "Article 1187",
+  "art-1188": "Article 1188",
+  "art-1189": "Article 1189",
+  "art-1190": "Article 1190",
+  "art-1191": "Article 1191",
+  "art-1192": "Article 1192",
+  "art-1193": "Article 1193",
+  "art-1194": "Article 1194",
+  "art-1195": "Article 1195",
+  "art-1196": "Article 1196",
+  "art-1197": "Article 1197",
+  "art-1198": "Article 1198",
+  "art-1199": "Article 1199",
+  "art-1200": "Article 1200",
+  "art-1201": "Article 1201",
+  "art-1202": "Article 1202",
+  "art-1203": "Article 1203",
+  "art-1204": "Article 1204",
+  "art-1205": "Article 1205",
+  "art-1206": "Article 1206",
+  "art-1207": "Article 1207",
+  "art-1208": "Article 1208",
+  "art-1209": "Article 1209",
+  "art-1210": "Article 1210",
+  "art-1211": "Article 1211",
+  "art-1213": "Article 1213",
+  "art-1214": "Article 1214",
+  "art-1215": "Article 1215",
+  "art-1216": "Article 1216",
+  "art-1217": "Article 1217",
+  "art-1218": "Article 1218",
+  "art-1219": "Article 1219",
+  "art-1220": "Article 1220",
+  "art-1221": "Article 1221",
+  "art-1222": "Article 1222",
+  "art-1223": "Article 1223",
+  "art-1224": "Article 1224",
+  "art-1225": "Article 1225",
+  "art-1226": "Article 1226",
+  "art-1227": "Article 1227",
+  "art-1228": "Article 1228",
+  "art-1229": "Article 1229",
+  "art-1230": "Article 1230",
+  "art-1231": "Article 1231",
+  "art-1232": "Article 1232",
+  "art-1233": "Article 1233",
+  "art-1234": "Article 1234",
+  "art-1235": "Article 1235",
+  "art-1236": "Article 1236",
+  "art-1237": "Article 1237",
+  "art-1238": "Article 1238",
+  "art-1239": "Article 1239",
+  "art-1240": "Article 1240",
+  "art-1241": "Article 1241",
+  "art-1242": "Article 1242",
+  "art-1243": "Article 1243",
+  "art-1244": "Article 1244",
+  "art-1245": "Article 1245",
+  "art-1246": "Article 1246",
+  "art-1247": "Article 1247",
+  "art-1248": "Article 1248",
+  "art-3": "Article 3",
+  "art-4": "Article 4",
+  "art-1282": "Article 1282",
+  "art-1283": "Article 1283",
+  "art-1284": "Article 1284",
+  "art-1285": "Article 1285",
+  "art-1286": "Article 1286",
+  "art-1287": "Article 1287",
+  "art-1288": "Article 1288",
+  "art-1289": "Article 1289",
+  "art-1290": "Article 1290",
+  "art-1291": "Article 1291",
+  "art-1292": "Article 1292",
+  "art-1293": "Article 1293",
+  "art-1294": "Article 1294",
+  "art-1295": "Article 1295",
+  "art-1296": "Article 1296",
+  "art-1297": "Article 1297",
+  "art-1298": "Article 1298",
+  "art-1299": "Article 1299",
+  "art-1300": "Article 1300",
+  "art-1301": "Article 1301",
+  "art-1302": "Article 1302",
+  "art-1303": "Article 1303",
+  "art-1304": "Article 1304",
+  "art-1305": "Article 1305",
+  "art-1306": "Article 1306",
+  "art-1307": "Article 1307",
+  "art-1308": "Article 1308",
+  "art-1309": "Article 1309",
+  "art-5": "Article 5",
+  "art-6": "Article 6",
+  "art-1888": "Article 1888",
+  "art-7": "Article 7",
+  "art-8": "Article 8",
+  "art-9": "Article 9",
+  "art-10": "Article 10",
+  "art-11": "Article 11"
+ }
+}
