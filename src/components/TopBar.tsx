@@ -42,7 +42,7 @@ export function TopBar({
   }
 
   return (
-    <header className="sticky top-0 z-30 border-b border-lank/10 bg-paper/90 backdrop-blur">
+    <header className="no-print sticky top-0 z-30 border-b border-lank/10 bg-paper/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2.5">
         <Link href={`/${locale}/dashboard`} className="shrink-0">
           <Logo size={26} />

@@ -36,7 +36,7 @@ export function Jurisprudence({
   const count = cases.length + (comments?.length ?? 0)
   if (!count) return null
   return (
-    <div className="mt-3 overflow-hidden rounded-xl border border-lagon-600/30 bg-gradient-to-br from-lagon-50/70 to-lagon-50/20 shadow-sm">
+    <div data-nocopy className="mt-3 overflow-hidden rounded-xl border border-lagon-600/30 bg-gradient-to-br from-lagon-50/70 to-lagon-50/20 shadow-sm">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}

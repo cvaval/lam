@@ -3,12 +3,14 @@ import Link from 'next/link'
 import { ResultCard } from '@/components/ResultCard'
 import { Pastille } from '@/components/TypeBadge'
 import { ContextualFilters, qs, type SP } from '@/components/ContextualFilters'
+import { AlertButton } from '@/components/AlertButton'
+import { QuotaChip } from '@/components/QuotaChip'
 import { prisma } from '@/lib/db'
 import { dictFor } from '@/lib/i18n/server'
 import { requireUser } from '@/lib/auth/guard'
 import { runSearch } from '@/lib/search'
 import { PAGE_SIZE } from '@/lib/search/types'
-import { consumeSearchQuota } from '@/lib/quota'
+import { consumeSearchQuota, remainingQuota } from '@/lib/quota'
 import { guard, LIMITS } from '@/lib/security/ratelimit'
 import { RateLimitNotice } from '@/components/RateLimitNotice'
 import { can } from '@/lib/rbac'
@@ -48,11 +50,15 @@ export default async function SearchPage({
   // Tri (navigation) : date de signature (défaut) / entrée en vigueur / numéro ↑↓.
   const sortParam = (['sig', 'eff', 'num-asc', 'num-desc'] as const).find((s) => s === searchParams.sort)
 
-  // Quota mensuel (Sitwayen).
+  // Quota mensuel (Sitwayen). `quotaRemaining` reflète la consommation de CETTE
+  // requête (le user chargé par requireUser est un instantané pré-recherche —
+  // sans cela, la puce afficherait « 1 restante » quand il en reste 0).
   let quotaBlocked = false
+  let quotaRemaining = remainingQuota(user.monthlyQuota, user.quotaUsed)
   if (q.trim()) {
     const quota = await consumeSearchQuota(user.id, user.role)
     quotaBlocked = !quota.allowed
+    quotaRemaining = quota.remaining
   }
 
   const result = quotaBlocked
@@ -125,11 +131,20 @@ export default async function SearchPage({
           ← {DOC_TYPE_META[selectedType].label[locale]}
         </Link>
       )}
-      <div>
-        <p className="text-sm text-lank/55">
-          {result.total} {t.search.results} {q && <>· {t.search.resultsFor} « {q} »</>}
-        </p>
-        <p className="mt-0.5 text-xs text-lank/35">{t.search.translingualNote}</p>
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <p className="text-sm text-lank/55">
+            {result.total} {t.search.results} {q && <>· {t.search.resultsFor} « {q} »</>}
+          </p>
+          <p className="mt-0.5 text-xs text-lank/35">{t.search.translingualNote}</p>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          {/* Quota Sitwayen proactif + alerte de veille sur la recherche courante */}
+          <QuotaChip locale={locale} monthlyQuota={user.monthlyQuota} remaining={quotaRemaining} t={t} />
+          {q.trim() && !quotaBlocked && can(user.role, 'alerts') && (
+            <AlertButton q={q} type={selectedType} locale={locale} t={t} />
+          )}
+        </div>
       </div>
 
       {/* Filtres par type (navigation par couleur §01) */}

@@ -31,6 +31,7 @@ import { LegislationAdminPanel } from '@/components/LegislationAdminPanel'
 import { getAmendments } from '@/lib/legislation/amendments'
 import { applyAmendments } from '@/lib/legislation/segment'
 import { CiteButton } from '@/components/CiteButton'
+import { PrintButton } from '@/components/PrintButton'
 import { labelFromAnchor } from '@/lib/legislation/articles'
 import { AmendmentHistory, type AmendItem } from '@/components/AmendmentHistory'
 import { parseAnnotations } from '@/lib/legislation/annotated'
@@ -270,9 +271,16 @@ export default async function DocPage({
       </header>
 
       {/* Barre d'actions */}
-      <div className="flex flex-wrap gap-2">
+      <div className="no-print flex flex-wrap gap-2">
         <FavoriteButton documentId={doc.id} initial={!!fav} t={t} />
-        <CiteButton citation={citation} label={t.doc.cite} copiedLabel={t.doc.copied} />
+        <CiteButton
+          citation={citation}
+          label={t.doc.cite}
+          copiedLabel={t.doc.copied}
+          citeArticleLabel={t.doc.citeArticle}
+          copyArticleLabel={t.doc.copyArticle}
+        />
+        <PrintButton label={t.doc.print} />
         {can(user.role, 'export.sealed') ? (
           <a
             href={`/api/export?id=${doc.id}`}
@@ -299,7 +307,7 @@ export default async function DocPage({
       {/* Annexes à compléter : téléchargement Word (formulaires) / Excel (tableaux),
           filigrane Lam + mention légale (src/lib/annexes/generate.ts). */}
       {type === 'CIRCULAIRE_BRH' && can(user.role, 'export.sealed') && annexCount > 0 && (
-        <div className="rounded-xl border border-lank/10 bg-paper/60 px-4 py-3">
+        <div className="no-print rounded-xl border border-lank/10 bg-paper/60 px-4 py-3">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <p className="text-sm font-semibold text-lank">{t.doc.annexes}</p>
@@ -383,9 +391,11 @@ export default async function DocPage({
       )}
 
       {/* Texte officiel — jamais traduit (§02). Texte annoté : menu latéral (recherche +
-          sommaire + index) à GAUCHE ; sinon rendu standard pleine largeur. */}
+          sommaire + index) à GAUCHE ; sinon rendu standard pleine largeur.
+          Impression : le menu latéral porte no-print (dans CodeSidebar) et la
+          grille redevient un bloc simple — le texte occupe toute la largeur. */}
       {annotations ? (
-        <div className="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:items-start">
+        <div className="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:items-start print:block">
           <CodeSidebar docId={doc.id} groups={annotations.navToc} indexEntries={annotations.indexEntries} locale={locale} />
           <section className="min-w-0 rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
             <div className="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-lank/10 pb-3">
@@ -540,14 +550,16 @@ export default async function DocPage({
       )}
 
       {adminPanel && (
-        <LegislationAdminPanel
-          documentId={doc.id}
-          themeTree={adminPanel.tree}
-          currentThemeIds={adminPanel.currentThemeIds}
-          primaryThemeId={adminPanel.primaryThemeId}
-          articles={adminPanel.articles}
-          refs={adminPanel.refs}
-        />
+        <div className="no-print">
+          <LegislationAdminPanel
+            documentId={doc.id}
+            themeTree={adminPanel.tree}
+            currentThemeIds={adminPanel.currentThemeIds}
+            primaryThemeId={adminPanel.primaryThemeId}
+            articles={adminPanel.articles}
+            refs={adminPanel.refs}
+          />
+        </div>
       )}
     </article>
   )

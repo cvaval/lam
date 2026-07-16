@@ -18,6 +18,7 @@ export function RegisterForm({ t }: { t: Dictionary }) {
       email: fd.get('email'),
       password: fd.get('password'),
       name: fd.get('name') || undefined,
+      org: fd.get('org') || undefined,
     })
     setLoading(false)
     if (res.ok) setDone(true)
@@ -33,6 +34,11 @@ export function RegisterForm({ t }: { t: Dictionary }) {
       <input
         name="name"
         placeholder={t.register.name}
+        className="w-full rounded-lg border border-lank/15 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-sitwon"
+      />
+      <input
+        name="org"
+        placeholder={t.register.org}
         className="w-full rounded-lg border border-lank/15 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-sitwon"
       />
       <input

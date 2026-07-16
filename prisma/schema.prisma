@@ -38,6 +38,9 @@ model User {
   email          String   @unique
   passwordHash   String
   name           String?
+  // Organisation déclarée à la demande d'accès (texte libre) — affichée au master
+  // admin dans la file d'activation. Distincte de la relation Organization (§03).
+  org            String?
   role           String   @default("SITWAYEN")
   status         String   @default("PENDING")
   locale         String   @default("fr") // fr | en | ht — mémorisé par compte (§02)

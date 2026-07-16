@@ -28,7 +28,7 @@ export function RelatedLaw({ old, blocks = [], locale }: { old?: string; blocks?
   const count = blocks.length + (old ? 1 : 0)
   if (!count) return null
   return (
-    <div className="mt-2.5 overflow-hidden rounded-lg border border-lagon-600/30 bg-lagon-50/40">
+    <div data-nocopy className="mt-2.5 overflow-hidden rounded-lg border border-lagon-600/30 bg-lagon-50/40">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}

@@ -49,36 +49,72 @@ export function ContextualFilters({
     </Link>
   )
 
+  // Tri commun (mode navigation, §07) : date de publication/signature (défaut) ou
+  // entrée en vigueur. Rendu pour TOUS les types — les circulaires BRH y ajoutent
+  // le tri par numéro dans leur bloc dédié ci-dessous.
+  const sortIcon = (
+    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+      <path d="M3 6h11M3 12h8M3 18h5" strokeLinecap="round" />
+      <path d="M18 9l3-3 3 3M21 6v12" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+  const sortRow = (
+    <div className="flex flex-wrap items-center gap-2">
+      <span className="inline-flex items-center gap-1 text-xs text-lank/40">
+        {sortIcon}
+        {t.search.sortLabel}:
+      </span>
+      {chip(t.search.sortPub, { sort: 'sig' }, (active.sort ?? 'sig') === 'sig')}
+      {chip(t.search.sortEff, { sort: 'eff' }, active.sort === 'eff')}
+    </div>
+  )
+
   if (type === 'LEGISLATION') {
     return (
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="text-xs text-lank/40">{t.search.status}:</span>
-        {chip(t.statuses.EN_VIGUEUR, { status: 'EN_VIGUEUR' }, active.status === 'EN_VIGUEUR')}
-        {chip(t.statuses.ABROGE, { status: 'ABROGE' }, active.status === 'ABROGE')}
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-xs text-lank/40">{t.search.status}:</span>
+          {chip(t.statuses.EN_VIGUEUR, { status: 'EN_VIGUEUR' }, active.status === 'EN_VIGUEUR')}
+          {chip(t.statuses.ABROGE, { status: 'ABROGE' }, active.status === 'ABROGE')}
+        </div>
+        {sortRow}
       </div>
     )
   }
   if (type === 'JURISPRUDENCE') {
     return (
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="text-xs text-lank/40">{t.search.juridiction}:</span>
-        {JURIDICTIONS.map((j) => chip(t.juridictions[j], { juridiction: j }, active.juridiction === j))}
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-xs text-lank/40">{t.search.juridiction}:</span>
+          {JURIDICTIONS.map((j) => chip(t.juridictions[j], { juridiction: j }, active.juridiction === j))}
+        </div>
+        {sortRow}
       </div>
     )
   }
-  if (type === 'LOI_FINANCES' && fiscalYears.length) {
+  if (type === 'LOI_FINANCES') {
     return (
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="text-xs text-lank/40">{t.search.fiscalYear}:</span>
-        {fiscalYears.map((y) => chip(y, { fiscalYear: active.fiscalYear === y ? undefined : y }, active.fiscalYear === y))}
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+        {fiscalYears.length > 0 && (
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs text-lank/40">{t.search.fiscalYear}:</span>
+            {fiscalYears.map((y) => chip(y, { fiscalYear: active.fiscalYear === y ? undefined : y }, active.fiscalYear === y))}
+          </div>
+        )}
+        {sortRow}
       </div>
     )
   }
-  if (type === 'MARQUE' && niceClasses.length) {
+  if (type === 'MARQUE') {
     return (
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="text-xs text-lank/40">{t.search.niceClass}:</span>
-        {niceClasses.map((c) => chip(c, { niceClass: active.niceClass === c ? undefined : c }, active.niceClass === c))}
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+        {niceClasses.length > 0 && (
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs text-lank/40">{t.search.niceClass}:</span>
+            {niceClasses.map((c) => chip(c, { niceClass: active.niceClass === c ? undefined : c }, active.niceClass === c))}
+          </div>
+        )}
+        {sortRow}
       </div>
     )
   }
@@ -116,16 +152,13 @@ export function ContextualFilters({
         {/* Tri : signature (défaut) / entrée en vigueur / numéro ↑↓ */}
         <div className="flex flex-wrap items-center gap-2">
           <span className="inline-flex items-center gap-1 text-xs text-lank/40">
-            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-              <path d="M3 6h11M3 12h8M3 18h5" strokeLinecap="round" />
-              <path d="M18 9l3-3 3 3M21 6v12" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            Trier:
+            {sortIcon}
+            {t.search.sortLabel}:
           </span>
-          {chip('Date de signature', { sort: 'sig' }, (active.sort ?? 'sig') === 'sig')}
-          {chip('Entrée en vigueur', { sort: 'eff' }, active.sort === 'eff')}
-          {chip('N° croissant', { sort: 'num-asc' }, active.sort === 'num-asc')}
-          {chip('N° décroissant', { sort: 'num-desc' }, active.sort === 'num-desc')}
+          {chip(t.search.sortSig, { sort: 'sig' }, (active.sort ?? 'sig') === 'sig')}
+          {chip(t.search.sortEff, { sort: 'eff' }, active.sort === 'eff')}
+          {chip(t.search.sortNumAsc, { sort: 'num-asc' }, active.sort === 'num-asc')}
+          {chip(t.search.sortNumDesc, { sort: 'num-desc' }, active.sort === 'num-desc')}
         </div>
       </div>
     )

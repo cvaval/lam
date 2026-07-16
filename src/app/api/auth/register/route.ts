@@ -13,6 +13,7 @@ const schema = z.object({
   email: z.string().email(),
   password: z.string().min(8),
   name: z.string().min(1).max(120).optional(),
+  org: z.string().min(1).max(160).optional(),
 })
 
 // Demande d'accès → compte PENDING (en attente d'activation par le master admin, §03/§05).
@@ -30,6 +31,7 @@ export async function POST(req: NextRequest) {
         email,
         passwordHash: await hashPassword(parsed.data.password),
         name: parsed.data.name ?? null,
+        org: parsed.data.org ?? null,
         role: 'SITWAYEN',
         status: 'PENDING',
       },

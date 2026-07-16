@@ -1,8 +1,12 @@
 import { dictFor } from '@/lib/i18n/server'
 import { requireUser } from '@/lib/auth/guard'
 import { formatDate } from '@/lib/i18n/format'
-import { ACCESS_MATRIX, type Capability, type Grant } from '@/lib/rbac'
+import { prisma } from '@/lib/db'
+import { ACCESS_MATRIX, can, type Capability, type Grant } from '@/lib/rbac'
+import { toAlertDto } from '@/lib/alerts'
+import { remainingQuota } from '@/lib/quota'
 import { RedeemPromo } from '@/components/RedeemPromo'
+import { AlertsManager } from '@/components/AlertsManager'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 
 // Libellé traduit d'un grant de la matrice d'accès (§03).
@@ -21,7 +25,12 @@ export default async function AccountPage({ params }: { params: { locale: string
   const user = await requireUser(locale)
 
   const matrix = ACCESS_MATRIX[user.role]
-  const remaining = user.monthlyQuota == null ? null : Math.max(0, user.monthlyQuota - user.quotaUsed)
+  const remaining = remainingQuota(user.monthlyQuota, user.quotaUsed)
+  // Alertes de veille (capacité Pwofesyonèl/Enstitisyon) — gérées ici, créées
+  // depuis la page de recherche (« M'alerter sur cette recherche »).
+  const alerts = can(user.role, 'alerts')
+    ? (await prisma.alert.findMany({ where: { userId: user.id }, orderBy: { createdAt: 'desc' } })).map(toAlertDto)
+    : null
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
@@ -44,6 +53,14 @@ export default async function AccountPage({ params }: { params: { locale: string
       </header>
 
       <RedeemPromo t={t} />
+
+      {alerts && (
+        <section className="rounded-2xl border border-lank/10 bg-white p-6 shadow-card">
+          <h2 className="text-sm font-semibold text-lank">{t.alerts.title}</h2>
+          <p className="mb-4 mt-1 text-xs text-lank/50">{t.alerts.hint}</p>
+          <AlertsManager initial={alerts} locale={locale} t={t} />
+        </section>
+      )}
 
       <section className="rounded-2xl border border-lank/10 bg-white p-6 shadow-card">
         <h2 className="mb-4 text-sm font-semibold text-lank">{t.account.capabilitiesTitle}</h2>

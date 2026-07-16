@@ -6,6 +6,8 @@ export interface AdminUser {
   id: string
   email: string
   name: string | null
+  /** Organisation déclarée à la demande d'accès (texte libre du formulaire). */
+  org: string | null
   role: Role
   status: UserStatus
   requestedAt: string
@@ -28,6 +30,7 @@ export function toAdminUser(u: {
   id: string
   email: string
   name: string | null
+  org: string | null
   role: string
   status: string
   requestedAt: Date
@@ -39,6 +42,7 @@ export function toAdminUser(u: {
     id: u.id,
     email: u.email,
     name: u.name,
+    org: u.org,
     role: u.role as Role,
     status: u.status as UserStatus,
     requestedAt: u.requestedAt.toISOString(),

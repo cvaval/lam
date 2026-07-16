@@ -75,7 +75,13 @@ export function UsersManager({
               <tr className="hover:bg-paper/50">
                 <td className="px-4 py-3">
                   <p className="font-medium text-lank">{u.email}</p>
-                  {u.name && <p className="text-xs text-lank/45">{u.name}</p>}
+                  {(u.name || u.org) && (
+                    <p className="text-xs text-lank/45">
+                      {u.name}
+                      {u.name && u.org ? ' · ' : ''}
+                      {u.org}
+                    </p>
+                  )}
                 </td>
                 <td className="px-4 py-3 text-lank/60">
                   {mode === 'pending' ? (

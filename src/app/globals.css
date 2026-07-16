@@ -76,8 +76,12 @@ mark.hl {
 }
 
 /* Impression / PDF : ne pas couper les colonnes, répéter l'en-tête, éviter les
-   coupures de ligne au saut de page. */
+   coupures de ligne au saut de page. `.no-print` masque le chrome applicatif
+   (barre du haut, boutons d'action, pied de page…) pour un tirage propre. */
 @media print {
+  .no-print {
+    display: none !important;
+  }
   .official-text figure {
     overflow: visible !important;
   }

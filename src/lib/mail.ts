@@ -1,4 +1,5 @@
 import { BRAND } from './brand'
+import { resolveLocale } from './i18n/config'
 /**
  * E-mail transactionnel via Resend (API HTTP — aucune dépendance SMTP).
  *  - RESEND_API_KEY défini  → envoi réel (expéditeur = MAIL_FROM).
@@ -57,6 +58,61 @@ export function lockoutEmail(email: string, minutes: number) {
       `Plusieurs tentatives de connexion ont échoué sur votre compte. Il est verrouillé ${minutes} minutes.\n` +
       `Several sign-in attempts failed on your account. It is locked for ${minutes} minutes.`,
   }
+}
+
+/** Une alerte et ses nouveaux documents, pour l'e-mail de veille quotidien. */
+export interface AlertDigestItem {
+  label: string
+  docs: { id: string; title: string; ref: string | null }[]
+  /** correspondances au-delà des docs listés (bornées par l'e-mail, pas perdues) */
+  more: number
+}
+
+/**
+ * E-mail de veille (§ alertes) : un envoi par utilisateur, toutes ses alertes
+ * regroupées, dans la langue de son compte. Liens profonds vers les fiches.
+ */
+export function alertDigestEmail(to: string, locale: string, items: AlertDigestItem[]) {
+  const lang = resolveLocale(locale)
+  const L = (
+    {
+      fr: {
+        subject: 'Veille Lam — nouveaux documents',
+        intro: 'De nouveaux documents correspondent à vos alertes de veille :',
+        alert: 'Alerte',
+        more: (n: number) => `  … et ${n} autre${n > 1 ? 's' : ''} — voyez la recherche`,
+        manage: 'Gérer vos alertes : ',
+      },
+      en: {
+        subject: 'Lam watch — new documents',
+        intro: 'New documents match your watch alerts:',
+        alert: 'Alert',
+        more: (n: number) => `  … and ${n} more — see search`,
+        manage: 'Manage your alerts: ',
+      },
+      ht: {
+        subject: 'Veyè Lam — nouvo dokiman',
+        intro: 'Nouvo dokiman koresponn ak alèt veyè ou yo:',
+        alert: 'Alèt',
+        more: (n: number) => `  … ak ${n} lòt ankò — gade rechèch la`,
+        manage: 'Jere alèt ou yo: ',
+      },
+    } as const
+  )[lang]
+
+  const base = (process.env.NEXT_PUBLIC_APP_URL ?? `https://${BRAND.domain}`).replace(/\/$/, '')
+  const lines: string[] = [`Bonjou,`, ``, L.intro, ``]
+  for (const item of items) {
+    lines.push(`${L.alert} « ${item.label} » :`)
+    for (const d of item.docs) {
+      lines.push(`  · ${d.title}${d.ref ? ` — ${d.ref}` : ''}`)
+      lines.push(`    ${base}/${lang}/doc/${d.id}`)
+    }
+    if (item.more > 0) lines.push(L.more(item.more))
+    lines.push(``)
+  }
+  lines.push(`${L.manage}${base}/${lang}/account`, ``, `— ${BRAND.name} · ${BRAND.domain}`)
+  return { to, subject: L.subject, text: lines.join('\n') }
 }
 
 export function resetPasswordEmail(email: string, link: string, minutes: number) {

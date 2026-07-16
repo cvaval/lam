@@ -34,13 +34,13 @@ export default async function AppLayout({
       />
       {/* Rappel J-3 (§04) : appareil de confiance bientôt expiré. */}
       {daysLeft !== null && daysLeft <= 3 && (
-        <div className="border-b border-soley/40 bg-soley-50 px-4 py-2 text-center text-xs text-lank">
+        <div className="no-print border-b border-soley/40 bg-soley-50 px-4 py-2 text-center text-xs text-lank">
           {t.verify.j3} ({daysLeft} {daysLeft > 1 ? 'jours' : 'jour'})
         </div>
       )}
       <main className="mx-auto max-w-6xl px-4 py-6">{children}</main>
       {/* Avertissement juridique permanent : seules les versions françaises font foi. */}
-      <footer className="mx-auto max-w-6xl px-4 pb-6">
+      <footer className="no-print mx-auto max-w-6xl px-4 pb-6">
         <div className="border-t border-lank/10 pt-4">
           <nav className="mb-3 flex flex-wrap justify-center gap-x-5 gap-y-2 text-[11px] text-lank/55">
             <Link className="hover:text-lank" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>

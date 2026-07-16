@@ -101,12 +101,23 @@ export class OpenSearchProvider implements SearchProvider {
           }
         : baseQuery
 
+    // Tri en MODE NAVIGATION (parité moteur intégré §07) : sans requête texte, les
+    // résultats sont ordonnés par date (signature par défaut, entrée en vigueur) ou
+    // par n° de circulaire (clé numérique `numberSort`, serialize.ts). Avec requête
+    // texte : pertinence. `unmapped_type` protège les index pas encore réindexés.
+    const sort = !query.q.trim()
+      ? query.sort === 'num-asc' || query.sort === 'num-desc'
+        ? [{ numberSort: { order: query.sort === 'num-asc' ? 'asc' : 'desc', missing: '_last', unmapped_type: 'integer' } }]
+        : [{ [query.sort === 'eff' ? 'effectiveDate' : 'publicationDate']: { order: 'desc', missing: '_last', unmapped_type: 'date' } }]
+      : undefined
+
     const res = await client.search({
       index: indices,
       ignore_unavailable: true,
       body: {
         from,
         size,
+        ...(sort ? { sort } : {}),
         query: scoredQuery,
         highlight: {
           pre_tags: ['<mark class="hl">'],

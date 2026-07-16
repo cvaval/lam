@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { SearchBox } from '@/components/SearchBox'
 import { Pastille, TypeBadge } from '@/components/TypeBadge'
 import { SectionTiles, type SectionTile } from '@/components/SectionTiles'
+import { QuotaChip } from '@/components/QuotaChip'
+import { remainingQuota } from '@/lib/quota'
 import { dictFor } from '@/lib/i18n/server'
 import { requireUser } from '@/lib/auth/guard'
 import { prisma } from '@/lib/db'
@@ -69,6 +71,11 @@ export default async function DashboardPage({ params }: { params: { locale: stri
         </p>
         <div className="mt-3">
           <SearchBox locale={locale} placeholder={t.dashboard.omnibox} size="lg" />
+        </div>
+        {/* Quota Sitwayen : visible AVANT d'atteindre le mur (audit UX 15 juil.).
+            La puce ne rend rien pour les paliers illimités. */}
+        <div className="mt-3">
+          <QuotaChip locale={locale} monthlyQuota={user.monthlyQuota} remaining={remainingQuota(user.monthlyQuota, user.quotaUsed)} t={t} />
         </div>
       </div>
 

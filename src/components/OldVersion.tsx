@@ -17,7 +17,7 @@ export function OldVersion({ text, locale }: { text: string; locale: Locale }) {
   const [open, setOpen] = useState(false)
   const lt = (o: Record<Locale, string>) => o[locale] ?? o.fr
   return (
-    <div className="mt-2.5 overflow-hidden rounded-lg border border-lagon-600/30 bg-lagon-50/40">
+    <div data-nocopy className="mt-2.5 overflow-hidden rounded-lg border border-lagon-600/30 bg-lagon-50/40">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}

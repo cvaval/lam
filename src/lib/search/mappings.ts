@@ -82,6 +82,10 @@ export function documentMapping() {
       fiscalYear: { type: 'integer' },
       moniteurRef: { type: 'text', analyzer: 'lv_fr' },
       publicationDate: { type: 'date' },
+      // Tri en mode navigation (parité moteur intégré §07) : entrée en vigueur
+      // + clé numérique du n° de circulaire (serialize.ts, numberSortKey).
+      effectiveDate: { type: 'date' },
+      numberSort: { type: 'integer' },
     },
   }
 }

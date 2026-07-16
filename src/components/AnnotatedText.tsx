@@ -193,7 +193,9 @@ export function AnnotatedText({
         const extra = (
           <>
             {!hideInlineIndex && linked.length > 0 && (
-              <div className="mt-2 flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
+              // data-nocopy : exclu de « Copier l'article » (CiteButton) — sujets
+              // d'index éditoriaux, pas le texte de l'article.
+              <div data-nocopy className="mt-2 flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
                 <span className="rounded bg-soley-50 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-soley-700">{lt(INDEX_LBL)}</span>
                 {linked.slice(0, 8).map((s) => (
                   <span key={s.subject} className="text-[11px] text-lank/55">

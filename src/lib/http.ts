@@ -13,13 +13,9 @@ export type PostResult<T = any> = {
   error: string | null
 }
 
-export async function postJson<T = any>(url: string, body?: unknown): Promise<PostResult<T>> {
+async function requestJson<T>(url: string, init: RequestInit): Promise<PostResult<T>> {
   try {
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: body === undefined ? undefined : JSON.stringify(body),
-    })
+    const res = await fetch(url, init)
     const data = await res.json().catch(() => null)
     const ok = res.ok && (data?.ok ?? true)
     return { ok, status: res.status, data: data as T, error: ok ? null : data?.error ?? `http_${res.status}` }
@@ -29,14 +25,24 @@ export async function postJson<T = any>(url: string, body?: unknown): Promise<Po
   }
 }
 
+export async function postJson<T = any>(url: string, body?: unknown): Promise<PostResult<T>> {
+  return requestJson<T>(url, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: body === undefined ? undefined : JSON.stringify(body),
+  })
+}
+
+/** PATCH/PUT/DELETE JSON — même contrat que postJson (statut HTTP + `ok` du corps). */
+export async function sendJson<T = any>(url: string, method: 'PATCH' | 'PUT' | 'DELETE', body?: unknown): Promise<PostResult<T>> {
+  return requestJson<T>(url, {
+    method,
+    headers: body === undefined ? undefined : { 'content-type': 'application/json' },
+    body: body === undefined ? undefined : JSON.stringify(body),
+  })
+}
+
 /** Variante multipart (téléversement de fichier) : ne fixe pas content-type. */
 export async function postForm<T = any>(url: string, form: FormData): Promise<PostResult<T>> {
-  try {
-    const res = await fetch(url, { method: 'POST', body: form })
-    const data = await res.json().catch(() => null)
-    const ok = res.ok && (data?.ok ?? true)
-    return { ok, status: res.status, data: data as T, error: ok ? null : data?.error ?? `http_${res.status}` }
-  } catch {
-    return { ok: false, status: 0, data: null, error: 'network' }
-  }
+  return requestJson<T>(url, { method: 'POST', body: form })
 }

@@ -15,6 +15,12 @@ export function quotaForRole(role: Role): number | null {
   return role === 'SITWAYEN' ? SITWAYEN_MONTHLY_QUOTA : null
 }
 
+/** Recherches restantes ce mois-ci (null = illimité). Source unique du calcul
+ *  affiché (page compte, QuotaChip) — ne pas recopier le clamp ailleurs. */
+export function remainingQuota(monthlyQuota: number | null, quotaUsed: number): number | null {
+  return monthlyQuota == null ? null : Math.max(0, monthlyQuota - quotaUsed)
+}
+
 export async function consumeSearchQuota(
   userId: string,
   role: Role,
