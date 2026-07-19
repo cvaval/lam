@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Logo } from './Logo'
 import { LocaleSwitcher } from './LocaleSwitcher'
-import { SearchBox } from './SearchBox'
+import { TopBarSearch } from './TopBarSearch'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import { postJson } from '@/lib/http'
 import { LOGGED_OUT_KEY } from './IdleTimer'
@@ -48,7 +48,7 @@ export function TopBar({
           <Logo size={26} />
         </Link>
         <div className="mx-2 hidden max-w-xl flex-1 sm:block">
-          <SearchBox locale={locale} placeholder={t.dashboard.omnibox} />
+          <TopBarSearch locale={locale} placeholder={t.dashboard.omnibox} advancedLabel={t.search.advanced} />
         </div>
         <div className="ml-auto flex items-center gap-2">
           {isAdmin && (
@@ -104,7 +104,7 @@ export function TopBar({
         </div>
       </div>
       <div className="px-4 pb-2.5 sm:hidden">
-        <SearchBox locale={locale} placeholder={t.dashboard.omnibox} />
+        <TopBarSearch locale={locale} placeholder={t.dashboard.omnibox} advancedLabel={t.search.advanced} />
       </div>
     </header>
   )

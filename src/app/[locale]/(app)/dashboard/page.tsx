@@ -70,7 +70,7 @@ export default async function DashboardPage({ params }: { params: { locale: stri
           {user.name ? `, ${user.name.split(' ')[0]}` : ''}.
         </p>
         <div className="mt-3">
-          <SearchBox locale={locale} placeholder={t.dashboard.omnibox} size="lg" />
+          <SearchBox locale={locale} placeholder={t.dashboard.omnibox} advancedLabel={t.search.advanced} size="lg" />
         </div>
         {/* Quota Sitwayen : visible AVANT d'atteindre le mur (audit UX 15 juil.).
             La puce ne rend rien pour les paliers illimités. */}

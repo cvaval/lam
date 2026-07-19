@@ -101,6 +101,13 @@ export const fr = {
     sortNumAsc: 'N° croissant',
     sortNumDesc: 'N° décroissant',
     quotaLow: 'Quota de recherches bientôt épuisé',
+    advanced: 'Recherche avancée',
+    section: 'Section',
+    period: 'Période',
+    yearFrom: 'De l’année',
+    yearTo: 'à l’année',
+    apply: 'Rechercher',
+    reset: 'Réinitialiser',
     indexCategories: {
       LOI: 'Lois',
       DECRET: 'Décrets',

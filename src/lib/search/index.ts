@@ -32,6 +32,11 @@ export function getSearchProvider(): SearchProvider {
  * §08). Le quota Sitwayen est appliqué en amont, dans la route API.
  */
 export async function runSearch(query: SearchQuery, userId?: string | null): Promise<SearchResult> {
+  // Fusion année/période UNE seule fois : l'année exacte (puce BRH) devient la
+  // période [year, year] et les providers ne lisent QUE yearFrom/yearTo — les
+  // deux moteurs ne peuvent pas diverger sur la précédence.
+  query = { ...query, yearFrom: query.yearFrom ?? query.year, yearTo: query.yearTo ?? query.year }
+
   const key = cacheKey({
     q: query.q.trim().toLowerCase(),
     types: query.types ?? null,
@@ -41,7 +46,8 @@ export async function runSearch(query: SearchQuery, userId?: string | null): Pro
     fiscalYear: query.fiscalYear ?? null,
     niceClass: query.niceClass ?? null,
     category: query.category ?? null,
-    year: query.year ?? null,
+    yearFrom: query.yearFrom ?? null,
+    yearTo: query.yearTo ?? null,
     num: query.num ?? null,
     sort: query.sort ?? null,
     includeCompanies: query.includeCompanies !== false,

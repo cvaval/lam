@@ -39,10 +39,17 @@ export class OpenSearchProvider implements SearchProvider {
     if (typeof query.fiscalYear === 'number') filter.push({ term: { fiscalYear: query.fiscalYear } })
     if (query.niceClass) filter.push({ term: { niceClasses: query.niceClass } })
     if (query.category) filter.push({ term: { category: query.category } })
-    // Circulaires BRH : filtre par année (range sur la date) et par numéro (wildcard
-    // sur le keyword ; on retire les jokers de l'entrée utilisateur).
-    if (typeof query.year === 'number') {
-      filter.push({ range: { publicationDate: { gte: `${query.year}-01-01`, lt: `${query.year + 1}-01-01` } } })
+    // Période de publication « entre l'année X et Y » (bornes inclusives) —
+    // l'année exacte de la puce BRH est déjà fusionnée en amont (runSearch).
+    if (query.yearFrom != null || query.yearTo != null) {
+      filter.push({
+        range: {
+          publicationDate: {
+            ...(query.yearFrom != null ? { gte: `${query.yearFrom}-01-01` } : {}),
+            ...(query.yearTo != null ? { lt: `${query.yearTo + 1}-01-01` } : {}),
+          },
+        },
+      })
     }
     if (query.num) {
       const n = query.num.replace(/[*?\s]/g, '').slice(0, 20)
@@ -103,10 +110,12 @@ export class OpenSearchProvider implements SearchProvider {
 
     // Tri en MODE NAVIGATION (parité moteur intégré §07) : sans requête texte, les
     // résultats sont ordonnés par date (signature par défaut, entrée en vigueur) ou
-    // par n° de circulaire (clé numérique `numberSort`, serialize.ts). Avec requête
-    // texte : pertinence. `unmapped_type` protège les index pas encore réindexés.
+    // par n° de circulaire (clé numérique `numberSort`, serialize.ts — RÉSERVÉ aux
+    // circulaires BRH, comme dans fts.ts). Avec requête texte : pertinence.
+    // `unmapped_type` protège les index pas encore réindexés.
+    const numSortable = query.types?.length === 1 && query.types[0] === 'CIRCULAIRE_BRH'
     const sort = !query.q.trim()
-      ? query.sort === 'num-asc' || query.sort === 'num-desc'
+      ? numSortable && (query.sort === 'num-asc' || query.sort === 'num-desc')
         ? [{ numberSort: { order: query.sort === 'num-asc' ? 'asc' : 'desc', missing: '_last', unmapped_type: 'integer' } }]
         : [{ [query.sort === 'eff' ? 'effectiveDate' : 'publicationDate']: { order: 'desc', missing: '_last', unmapped_type: 'date' } }]
       : undefined

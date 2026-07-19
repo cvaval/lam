@@ -97,6 +97,13 @@ export const ht: Dictionary = {
     sortNumAsc: 'No k ap monte',
     sortNumDesc: 'No k ap desann',
     quotaLow: 'Kota rechèch ou prèske fini',
+    advanced: 'Rechèch avanse',
+    section: 'Seksyon',
+    period: 'Peryòd',
+    yearFrom: 'Soti ane',
+    yearTo: 'rive ane',
+    apply: 'Chèche',
+    reset: 'Reyinisyalize',
     indexCategories: {
       LOI: 'Lwa',
       DECRET: 'Dekrè',

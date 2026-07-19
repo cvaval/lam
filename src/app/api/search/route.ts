@@ -3,7 +3,7 @@ import { apiError } from '@/lib/api'
 import { getCurrentUser } from '@/lib/auth/session'
 import { getClientCtx } from '@/lib/auth/request'
 import { runSearch } from '@/lib/search'
-import { PAGE_SIZE } from '@/lib/search/types'
+import { PAGE_SIZE, parseYearRange } from '@/lib/search/types'
 import { consumeSearchQuota } from '@/lib/quota'
 import { guard, LIMITS } from '@/lib/security/ratelimit'
 import { can } from '@/lib/rbac'
@@ -38,13 +38,18 @@ export async function GET(req: NextRequest) {
   let types: DocType[]
   if (typeParam) {
     const resolved = TYPE_SLUGS[typeParam] ?? (isDocType(typeParam) ? (typeParam as DocType) : undefined)
-    // Type demandé mais non accordé → repli sur l'Index (pas de fuite).
-    types = resolved && allowed.includes(resolved) ? [resolved] : ['INDEX']
+    // Type inconnu ou non accordé → repli sur TOUS les types accordés — même
+    // comportement que la page de recherche (parité page/API), jamais au-delà
+    // de `allowed` (pas de fuite §03).
+    types = resolved && allowed.includes(resolved) ? [resolved] : allowed
   } else {
     types = allowed
   }
 
   const fiscalYearRaw = sp.get('fiscalYear')
+  // Période « entre l'année X et Y » (recherche avancée) — validation + remise en
+  // ordre partagées avec la page (parseYearRange, source unique).
+  const { yearFrom, yearTo } = parseYearRange(sp.get('yearFrom'), sp.get('yearTo'))
   const result = await runSearch(
     {
       q,
@@ -54,6 +59,8 @@ export async function GET(req: NextRequest) {
       juridiction: sp.get('juridiction') || undefined,
       matiere: sp.get('matiere') || undefined,
       fiscalYear: fiscalYearRaw ? Number(fiscalYearRaw) : undefined,
+      yearFrom,
+      yearTo,
       niceClass: sp.get('niceClass') || undefined,
       category: isIndexCategory(sp.get('category') ?? '') ? sp.get('category')! : undefined,
       includeCompanies: can(user.role, 'index.companies'),

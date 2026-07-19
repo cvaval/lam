@@ -106,9 +106,13 @@ export class FtsProvider implements SearchProvider {
     if (query.niceClass) base.niceClasses = { contains: query.niceClass }
     // Sous-catégorie de l'Index (LOI, DECRET, ARRETE, AVIS, SOCIETE…).
     if (query.category) base.category = query.category
-    // Circulaires BRH : filtre par année de publication et par numéro.
-    if (typeof query.year === 'number') {
-      base.publicationDate = { gte: new Date(Date.UTC(query.year, 0, 1)), lt: new Date(Date.UTC(query.year + 1, 0, 1)) }
+    // Période de publication « entre l'année X et Y » (bornes inclusives) —
+    // l'année exacte de la puce BRH est déjà fusionnée en amont (runSearch).
+    if (query.yearFrom != null || query.yearTo != null) {
+      base.publicationDate = {
+        ...(query.yearFrom != null ? { gte: new Date(Date.UTC(query.yearFrom, 0, 1)) } : {}),
+        ...(query.yearTo != null ? { lt: new Date(Date.UTC(query.yearTo + 1, 0, 1)) } : {}),
+      }
     }
     if (query.num) base.number = { contains: query.num }
 
@@ -116,7 +120,12 @@ export class FtsProvider implements SearchProvider {
     if (!terms.length) {
       // Tri par NUMÉRO : `number` est une chaîne (« Circulaire n° 131 ») → tri numérique
       // impossible en SQL. On charge l'ensemble filtré (borné) et on trie en JS.
-      if (query.sort === 'num-asc' || query.sort === 'num-desc') {
+      // RÉSERVÉ aux circulaires BRH (seul type au numéro sériel) : ailleurs, un
+      // ?sort=num-* résiduel (persisté en changeant d'onglet) retombe sur le tri
+      // par date — sinon l'Index (27k lignes) chargerait 5 000 lignes lourdes
+      // et afficherait un total plafonné.
+      const numSortable = query.types?.length === 1 && query.types[0] === 'CIRCULAIRE_BRH'
+      if (numSortable && (query.sort === 'num-asc' || query.sort === 'num-desc')) {
         const allDocs = await prisma.document.findMany({ where: base, take: 5000, select: DOC_SELECT })
         sortByCirculaireNumber(allDocs, query.sort === 'num-desc' ? -1 : 1)
         const pageDocs = allDocs.slice((page - 1) * size, (page - 1) * size + size)

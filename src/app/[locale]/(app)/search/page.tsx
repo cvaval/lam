@@ -5,11 +5,12 @@ import { Pastille } from '@/components/TypeBadge'
 import { ContextualFilters, qs, type SP } from '@/components/ContextualFilters'
 import { AlertButton } from '@/components/AlertButton'
 import { QuotaChip } from '@/components/QuotaChip'
+import { AdvancedSearch } from '@/components/AdvancedSearch'
 import { prisma } from '@/lib/db'
 import { dictFor } from '@/lib/i18n/server'
 import { requireUser } from '@/lib/auth/guard'
 import { runSearch } from '@/lib/search'
-import { PAGE_SIZE } from '@/lib/search/types'
+import { PAGE_SIZE, parseYearParam, parseYearRange } from '@/lib/search/types'
 import { consumeSearchQuota, remainingQuota } from '@/lib/quota'
 import { guard, LIMITS } from '@/lib/security/ratelimit'
 import { RateLimitNotice } from '@/components/RateLimitNotice'
@@ -49,6 +50,24 @@ export default async function SearchPage({
   const page = Math.max(1, Number(searchParams.page ?? '1') || 1)
   // Tri (navigation) : date de signature (défaut) / entrée en vigueur / numéro ↑↓.
   const sortParam = (['sig', 'eff', 'num-asc', 'num-desc'] as const).find((s) => s === searchParams.sort)
+  // Slug CANONIQUE du type courant : un alias (« brh », « moniteur », « 3 »…)
+  // dans l'URL doit redonner l'option correspondante du panneau avancé — sinon
+  // le <select> retomberait sur « Tous les types » et perdrait le filtre.
+  const canonicalSlug = selectedType ? DOC_TYPE_META[selectedType].slug : undefined
+
+  // Recherche avancée : période « entre l'année X et Y » (validation + remise en
+  // ordre partagées avec la route API — parseYearRange, source unique).
+  const { yearFrom, yearTo } = parseYearRange(searchParams.yearFrom, searchParams.yearTo)
+  // Le panneau s'ouvre via ?adv=1, dès qu'une borne est active, ou quand un
+  // critère SANS interface visible pour le type courant est actif (statut hors
+  // Législation, numéro hors BRH) — aucun filtre ne doit agir invisiblement.
+  const advOpen =
+    searchParams.adv === '1' ||
+    yearFrom != null ||
+    yearTo != null ||
+    (!!searchParams.status && selectedType !== 'LEGISLATION') ||
+    (!!searchParams.num && selectedType !== 'CIRCULAIRE_BRH')
+  const hasAdvancedCriteria = yearFrom != null || yearTo != null || !!searchParams.status || !!searchParams.num
 
   // Quota mensuel (Sitwayen). `quotaRemaining` reflète la consommation de CETTE
   // requête (le user chargé par requireUser est un instantané pré-recherche —
@@ -75,7 +94,9 @@ export default async function SearchPage({
           fiscalYear: searchParams.fiscalYear ? Number(searchParams.fiscalYear) : undefined,
           niceClass: searchParams.niceClass,
           category: searchParams.category && isIndexCategory(searchParams.category) ? searchParams.category : undefined,
-          year: searchParams.year && /^\d{4}$/.test(searchParams.year) ? Number(searchParams.year) : undefined,
+          year: parseYearParam(searchParams.year),
+          yearFrom,
+          yearTo,
           num: searchParams.num?.trim().slice(0, 20) || undefined,
           includeCompanies: can(user.role, 'index.companies'),
           sort: sortParam,
@@ -115,7 +136,19 @@ export default async function SearchPage({
       .sort((a, b) => Number(a) - Number(b))
   }
 
-  const baseParams: SP = { q, type: typeSlug, num: searchParams.num, year: searchParams.year, sort: searchParams.sort }
+  // Critères conservés quand on navigue entre types/filtres/pages. Valeurs
+  // NORMALISÉES (slug canonique, bornes d'années validées et remises dans
+  // l'ordre) : les liens régénérés et le panneau avancé restent cohérents.
+  const baseParams: SP = {
+    q,
+    type: canonicalSlug,
+    num: searchParams.num,
+    year: searchParams.year,
+    sort: searchParams.sort,
+    yearFrom: yearFrom?.toString(),
+    yearTo: yearTo?.toString(),
+    status: searchParams.status,
+  }
   const totalPages = Math.ceil(result.total / PAGE_SIZE)
 
   // Retour vers l'accueil de la section quand la recherche est filtrée sur un type qui
@@ -141,11 +174,29 @@ export default async function SearchPage({
         <div className="flex flex-wrap items-center gap-2">
           {/* Quota Sitwayen proactif + alerte de veille sur la recherche courante */}
           <QuotaChip locale={locale} monthlyQuota={user.monthlyQuota} remaining={quotaRemaining} t={t} />
-          {q.trim() && !quotaBlocked && can(user.role, 'alerts') && (
+          {/* Une alerte ne mémorise que requête + section (v1) : masquée quand des
+              critères avancés (période/statut/n°) sont actifs — pas de perte silencieuse. */}
+          {q.trim() && !quotaBlocked && !hasAdvancedCriteria && can(user.role, 'alerts') && (
             <AlertButton q={q} type={selectedType} locale={locale} t={t} />
           )}
         </div>
       </div>
+
+      {/* Recherche avancée : section + période + numéro + statut (§07) */}
+      <AdvancedSearch
+        locale={locale}
+        t={t}
+        allowed={allowed}
+        values={{
+          q,
+          type: canonicalSlug,
+          yearFrom: yearFrom?.toString(),
+          yearTo: yearTo?.toString(),
+          num: searchParams.num,
+          status: searchParams.status,
+        }}
+        open={advOpen}
+      />
 
       {/* Filtres par type (navigation par couleur §01) */}
       {indexOnly ? (
@@ -155,17 +206,19 @@ export default async function SearchPage({
       ) : (
         <div className="flex flex-wrap gap-2">
           <Link
-            href={`/${locale}/search?${qs(baseParams, { type: undefined, status: undefined, juridiction: undefined, matiere: undefined, fiscalYear: undefined, niceClass: undefined, category: undefined, num: undefined, year: undefined })}`}
+            href={`/${locale}/search?${qs(baseParams, { type: undefined, status: undefined, juridiction: undefined, matiere: undefined, fiscalYear: undefined, niceClass: undefined, category: undefined, num: undefined, year: undefined, yearFrom: undefined, yearTo: undefined })}`}
             className={`rounded-full border px-3 py-1 text-xs font-medium ${
               !selectedType ? 'border-lank bg-lank text-white' : 'border-lank/15 bg-white text-lank/70 hover:border-lank/40'
             }`}
           >
             {t.search.allTypes}
           </Link>
+          {/* Changer de section conserve les critères transverses (période,
+              statut, n°) — c'est la promesse du panneau avancé. */}
           {DOC_TYPE_LIST.filter((m) => allowed.includes(m.type)).map((m) => (
             <Link
               key={m.type}
-              href={`/${locale}/search?${qs({ q }, { type: m.slug })}`}
+              href={`/${locale}/search?${qs(baseParams, { type: m.slug })}`}
               className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium ${
                 selectedType === m.type ? 'border-lank bg-lank text-white' : 'border-lank/15 bg-white text-lank/70 hover:border-lank/40'
               }`}

@@ -97,6 +97,13 @@ export const en: Dictionary = {
     sortNumAsc: 'No. ascending',
     sortNumDesc: 'No. descending',
     quotaLow: 'Search quota almost used up',
+    advanced: 'Advanced search',
+    section: 'Section',
+    period: 'Period',
+    yearFrom: 'From year',
+    yearTo: 'to year',
+    apply: 'Search',
+    reset: 'Reset',
     indexCategories: {
       LOI: 'Laws',
       DECRET: 'Decrees',

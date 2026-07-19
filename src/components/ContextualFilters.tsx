@@ -74,8 +74,8 @@ export function ContextualFilters({
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-xs text-lank/40">{t.search.status}:</span>
-          {chip(t.statuses.EN_VIGUEUR, { status: 'EN_VIGUEUR' }, active.status === 'EN_VIGUEUR')}
-          {chip(t.statuses.ABROGE, { status: 'ABROGE' }, active.status === 'ABROGE')}
+          {chip(t.statuses.EN_VIGUEUR, { status: active.status === 'EN_VIGUEUR' ? undefined : 'EN_VIGUEUR' }, active.status === 'EN_VIGUEUR')}
+          {chip(t.statuses.ABROGE, { status: active.status === 'ABROGE' ? undefined : 'ABROGE' }, active.status === 'ABROGE')}
         </div>
         {sortRow}
       </div>
@@ -124,9 +124,13 @@ export function ContextualFilters({
     return (
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         <form method="get" action={`/${locale}/search`} className="flex items-center gap-1.5">
-          {base.q ? <input type="hidden" name="q" value={base.q} /> : null}
-          {base.type ? <input type="hidden" name="type" value={base.type} /> : null}
-          {active.year ? <input type="hidden" name="year" value={active.year} /> : null}
+          {/* Tous les critères persistants (baseParams) voyagent avec la soumission —
+              sans quoi chercher un n° effacerait silencieusement période/statut/tri. */}
+          {Object.entries(base)
+            .filter(([k, v]) => v && k !== 'num')
+            .map(([k, v]) => (
+              <input key={k} type="hidden" name={k} value={v} />
+            ))}
           <span className="text-xs text-lank/40">{t.search.numberLabel}:</span>
           <input
             name="num"
@@ -146,7 +150,11 @@ export function ContextualFilters({
         {brhYears.length > 0 && (
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-xs text-lank/40">{t.search.yearLabel}:</span>
-            {brhYears.map((y) => chip(y, { year: active.year === y ? undefined : y }, active.year === y))}
+            {/* Choisir une année exacte remplace la période avancée (sinon la puce
+                serait active mais inerte, la période ayant précédence). */}
+            {brhYears.map((y) =>
+              chip(y, { year: active.year === y ? undefined : y, yearFrom: undefined, yearTo: undefined }, active.year === y),
+            )}
           </div>
         )}
         {/* Tri : signature (défaut) / entrée en vigueur / numéro ↑↓ */}

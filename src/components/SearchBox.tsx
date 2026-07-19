@@ -1,8 +1,12 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import type { DocType, Locale } from '@/lib/types'
+
+/** Critères conservés quand on relance une requête depuis la page de résultats
+ *  (section, période, statut, n°, tri, panneau ouvert) — promesse du panneau avancé. */
+const KEPT_PARAMS = ['type', 'year', 'yearFrom', 'yearTo', 'status', 'num', 'sort', 'adv'] as const
 
 // Historique des recherches : stocké côté CLIENT uniquement (localStorage), JAMAIS
 // envoyé au serveur — les termes de recherche juridiques sont sensibles. Liste « plus
@@ -62,17 +66,27 @@ type Item =
 export function SearchBox({
   locale,
   placeholder,
+  advancedLabel,
   size = 'md',
   initial = '',
 }: {
   locale: Locale
   placeholder: string
+  /** libellé « Recherche avancée » — vient du dictionnaire (t.search.advanced),
+   *  même source que le panneau : les deux entrées ne peuvent pas diverger. */
+  advancedLabel: string
   size?: 'md' | 'lg'
   /** valeur pré-remplie (ex. la requête courante sur la page de résultats) */
   initial?: string
 }) {
   const router = useRouter()
-  const [q, setQ] = useState(initial)
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  // Sur la page de résultats, cette barre EST la barre de recherche (une seule
+  // par page — audit 17 juil.) : elle reflète la requête courante de l'URL.
+  const onSearchPage = pathname === `/${locale}/search`
+  const urlQ = onSearchPage ? searchParams?.get('q') ?? '' : null
+  const [q, setQ] = useState(initial || (urlQ ?? ''))
   const [history, setHistory] = useState<string[]>([])
   const [corpus, setCorpus] = useState<Suggestion[]>([])
   const [open, setOpen] = useState(false)
@@ -83,6 +97,29 @@ export function SearchBox({
   useEffect(() => {
     setHistory(loadHistory())
   }, [])
+
+  // Navigation client vers/sur /search : resynchroniser le champ avec l'URL
+  // (la barre vit dans le layout et ne se remonte pas à chaque page).
+  useEffect(() => {
+    if (urlQ != null) setQ(urlQ)
+  }, [urlQ])
+
+  /** URL de recherche : conserve les critères actifs quand on est déjà sur la
+   *  page de résultats (sinon recherche neuve). */
+  function searchUrl(extra: Record<string, string | undefined>): string {
+    const params = new URLSearchParams()
+    if (onSearchPage && searchParams) {
+      for (const k of KEPT_PARAMS) {
+        const v = searchParams.get(k)
+        if (v) params.set(k, v)
+      }
+    }
+    for (const [k, v] of Object.entries(extra)) {
+      if (v) params.set(k, v)
+      else params.delete(k)
+    }
+    return `/${locale}/search?${params.toString()}`
+  }
 
   // Fermer au clic extérieur.
   useEffect(() => {
@@ -147,7 +184,11 @@ export function SearchBox({
   }
 
   const flat: Item[] = groups.flatMap((g) => g.items)
-  const showMenu = open && flat.length > 0
+  // Le menu s'affiche dès le focus : même sans suggestion ni historique, le pied
+  // « Recherche avancée » reste accessible depuis la barre. Le rôle listbox (et
+  // aria-expanded) ne couvrent que les OPTIONS — pas le pied, qui est un bouton.
+  const showMenu = open
+  const hasOptions = flat.length > 0
 
   function run(raw: string) {
     const value = raw.trim().slice(0, MAX_TERM)
@@ -157,7 +198,7 @@ export function SearchBox({
     saveHistory(next)
     setOpen(false)
     setActive(-1)
-    router.push(`/${locale}/search?q=${encodeURIComponent(value.slice(0, 300))}`)
+    router.push(searchUrl({ q: value }))
   }
 
   function select(item: Item) {
@@ -223,7 +264,7 @@ export function SearchBox({
           onKeyDown={onKeyDown}
           placeholder={placeholder}
           role="combobox"
-          aria-expanded={showMenu}
+          aria-expanded={showMenu && hasOptions}
           aria-autocomplete="list"
           aria-controls="lv-search-menu"
           autoComplete="off"
@@ -236,7 +277,8 @@ export function SearchBox({
         )}
 
         {showMenu && (
-          <div id="lv-search-menu" role="listbox" className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-2xl border border-lank/10 bg-white py-1 shadow-xl">
+          <div className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-2xl border border-lank/10 bg-white py-1 shadow-xl">
+            <div id="lv-search-menu" role="listbox">
             {groups.map((g, gi) => (
               <div key={g.header} className={gi > 0 ? 'border-t border-lank/5' : ''}>
                 <div className="flex items-center justify-between px-3 pt-2 pb-1">
@@ -277,6 +319,28 @@ export function SearchBox({
                 })}
               </div>
             ))}
+            </div>
+            {/* Recherche avancée : section, période « entre l'année X et Y », numéro,
+                statut — ouvre le panneau de la page de résultats (?adv=1). Hors du
+                listbox (c'est un bouton, pas une option) ; onClick pour rester
+                actionnable au CLAVIER (Entrée/Espace), onMouseDown ne gardant que
+                l'anti-blur. */}
+            <div className={hasOptions ? 'border-t border-lank/5' : ''}>
+              <button
+                type="button"
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={() => {
+                  setOpen(false)
+                  router.push(searchUrl({ adv: '1', q: term || undefined }))
+                }}
+                className="flex w-full items-center gap-2.5 px-3 py-2.5 text-sm font-medium text-endeks-700 hover:bg-paper"
+              >
+                <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                  <path d="M4 6h16M7 12h10M10 18h4" strokeLinecap="round" />
+                </svg>
+                {advancedLabel} ›
+              </button>
+            </div>
           </div>
         )}
       </div>
