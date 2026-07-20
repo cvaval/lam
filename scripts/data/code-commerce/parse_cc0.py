@@ -92,24 +92,52 @@ def header_kind(t):
     return None
 
 
+_ORD_FMT = {
+    'premier': 'Premier', 'premiere': 'Première', 'première': 'Première', 'second': 'Second',
+    'deuxieme': 'Deuxième', 'deuxième': 'Deuxième', 'troisieme': 'Troisième', 'troisième': 'Troisième',
+    'quatrieme': 'Quatrième', 'quatrième': 'Quatrième', 'cinquieme': 'Cinquième', 'cinquième': 'Cinquième',
+    'sixieme': 'Sixième', 'sixième': 'Sixième', 'septieme': 'Septième', 'septième': 'Septième',
+    'huitieme': 'Huitième', 'huitième': 'Huitième', 'neuvieme': 'Neuvième', 'neuvième': 'Neuvième',
+    'dixieme': 'Dixième', 'dixième': 'Dixième',
+}
+
+
+def fmt_enum(raw):
+    """Formate un numéro d'en-tête : mots ordinaux en casse propre, CHIFFRES ROMAINS
+    conservés en CAPITALES (« III », pas « Iii » — le .title() les cassait), « bis »
+    en minuscules."""
+    raw = raw.strip()
+    m = re.match(r'^([A-Za-zÀ-ÿ]+|\d+|[IVXLC]+)(\s*bis)?$', raw, re.I)
+    if not m:
+        return raw
+    head, bis = m.group(1), (' bis' if m.group(2) else '')
+    low = head.lower()
+    if low in _ORD_FMT:
+        return _ORD_FMT[low] + bis
+    if re.fullmatch(r'[ivxlc]+', low):   # chiffre romain → capitales
+        return head.upper() + bis
+    if head.isdigit():
+        return head + bis
+    return head.capitalize() + bis
+
+
 def split_enum_desc(t, kind):
     if kind == 'livre':
         m = re.match(rf'^LIVRE\s+({ORD}|[IVXLC]+|\d+)\s*[—–-]?\s*(.*)$', t, re.I)
         if m:
-            return f'Livre {m.group(1).title() if len(m.group(1)) > 3 else m.group(1)}', m.group(2).strip(' .-–')
+            return f'Livre {fmt_enum(m.group(1))}', m.group(2).strip(' .-–—')
     if kind == 'titre':
         m = re.match(rf'^TITRE\s+({ORD}|[IVXLC]+|\d+)\.?\-?\s*(.*)$', t, re.I)
         if m:
-            return f'Titre {m.group(1).title() if len(m.group(1)) > 3 else m.group(1)}', m.group(2).strip(' .-–')
+            return f'Titre {fmt_enum(m.group(1))}', m.group(2).strip(' .-–—')
     if kind == 'chapitre':
         m = re.match(r'^CHAPITRE\s+(PREMIER|[IVXLC]+(?:er)?|\d+)\.?\-?\s*(.*)$', t, re.I)
         if m:
-            return f'Chapitre {m.group(1)}', m.group(2).strip(' .-–')
+            return f'Chapitre {fmt_enum(m.group(1))}', m.group(2).strip(' .-–—')
     if kind == 'section':
         m = re.match(r'^SECTION\s+(PREMI[ÈE]RE|[IVXLC]+(?:\s*BIS)?|\d+(?:\s*BIS)?)\.?\-?\s*(.*)$', t, re.I)
         if m:
-            enum = m.group(1).title().replace(' Bis', ' bis')
-            return f'Section {enum}', m.group(2).strip(' .-–:')
+            return f'Section {fmt_enum(m.group(1))}', m.group(2).strip(' .-–—:')
     return t, ''
 
 
@@ -129,7 +157,8 @@ toc = []
 body = []
 labels = {}
 status = {}
-juris = {}      # ancre → [JurisCase]
+juris = {}      # clé « sec-K|art-N » → [JurisCase]
+comments = {}   # clé « sec-K|art-N » → [str] : notes éditoriales « Notes • … »
 seen_art = set()
 review = []
 sec_n = 0
@@ -139,6 +168,15 @@ dupes = []
 cur_art = None      # ancre de l'article courant (rattachement de la jurisprudence)
 cur_section = None  # ancre de section courante — la CLÉ juris est « sec-K|art-N »
 anc_art = 0         # marqueurs « Anc art N » retirés du corps (ancien n° d'article)
+n_bare = 0          # arrêts au format NU « Arrêt du … » (sans préfixe « N.- »)
+n_notes = 0         # notes éditoriales « Notes • … » extraites du corps
+
+# Arrêt NU (sans « N.- ») : « Arrêt du 7 février 1905, Bull des Arrêts… ». Le parseur
+# initial ne captait que la forme numérotée → 11 arrêts fuyaient dans le corps.
+BARE_JURIS = re.compile(r'^Arr[êe]ts?\s+du\s+\d', re.I)
+# En-tête thématique nu (« Des prescriptions ») : titre de section sans mot-clé
+# TITRE/SECTION, à émettre comme en-tête (sinon il tombe dans le corps).
+BARE_HDR = re.compile(r'^(Des\s+prescriptions)\s*$', re.I)
 
 
 def emit_header(kind, enum, desc):
@@ -152,11 +190,20 @@ def emit_header(kind, enum, desc):
     return a
 
 
-# Frontière d'un bloc de considérant : autre arrêt, tête/marqueur d'article,
-# en-tête de structure, marqueur « Anc art N », ou ligne vide.
+# Frontière d'un bloc de considérant / de note : autre arrêt (numéroté ou nu),
+# tête/marqueur d'article, en-tête de structure, marqueur « Anc art N », bloc « Notes ».
 def is_juris_boundary(t):
-    return bool(JURIS.match(t) or ART_HEAD.match(t) or ART_MARK.match(t)
-                or header_kind(t) or re.match(r'^Anc\.?\s+art', t, re.I))
+    return bool(JURIS.match(t) or BARE_JURIS.match(t) or ART_HEAD.match(t) or ART_MARK.match(t)
+                or header_kind(t) or BARE_HDR.match(t) or t.strip() == 'Notes'
+                or re.match(r'^Anc\.?\s+art', t, re.I))
+
+
+def add_juris(ref, excerpt_lines):
+    if cur_art is None:
+        review.append(('juris-sans-article', ref[:80]))
+        return
+    key = f'{cur_section or "sec-0"}|{cur_art}'
+    juris.setdefault(key, []).append({'ref': ref, 'excerpt': clean(' '.join(excerpt_lines))})
 
 
 i = 0
@@ -215,9 +262,24 @@ while i < N:
         i += 1
         continue
 
-    # 4) Jurisprudence « N.- Arrêt … » : référence + considérant (lignes suivantes
-    #    jusqu'à la prochaine frontière), rattachée à l'article — HORS texte officiel.
-    #    CLÉ « sec-K|art-N » (comme Code du travail/civil), sinon le lecteur l'ignore.
+    # 4) Bloc « Notes » éditorial : « Notes » + puces « • / * … » → commentaires
+    #    repliables rattachés à l'article courant, HORS texte officiel.
+    if t.strip() == 'Notes':
+        i += 1
+        notes = []
+        while i < N and not is_juris_boundary(P[i]['t']):
+            notes.append(re.sub(r'^\s*[•*·]\s*', '', P[i]['t']).strip())
+            i += 1
+        notes = [n for n in notes if n]
+        if cur_art and notes:
+            key = f'{cur_section or "sec-0"}|{cur_art}'
+            comments.setdefault(key, []).extend(notes)
+            n_notes += len(notes)
+        continue
+
+    # 5) Jurisprudence : NUMÉROTÉE « N.- Arrêt … » OU NUE « Arrêt du … » — référence +
+    #    considérant (lignes suivantes jusqu'à la prochaine frontière), rattachée à
+    #    l'article, HORS texte officiel. CLÉ « sec-K|art-N » (comme Code du travail/civil).
     j = JURIS.match(t)
     if j and JURIS_KEY.search(t):
         ref = clean(j.group(2))
@@ -226,16 +288,28 @@ while i < N:
         while i < N and not is_juris_boundary(P[i]['t']):
             excerpt_lines.append(P[i]['t'])
             i += 1
-        if cur_art is None:
-            review.append(('juris-sans-article', ref[:80]))
-        else:
-            key = f'{cur_section or "sec-0"}|{cur_art}'
-            juris.setdefault(key, []).append({'ref': ref, 'excerpt': clean(' '.join(excerpt_lines))})
+        add_juris(ref, excerpt_lines)
+        continue
+    if BARE_JURIS.match(t):
+        ref = clean(t)
+        excerpt_lines = []
+        i += 1
+        while i < N and not is_juris_boundary(P[i]['t']):
+            excerpt_lines.append(P[i]['t'])
+            i += 1
+        add_juris(ref, excerpt_lines)
+        n_bare += 1
         continue
     if j and not JURIS_KEY.search(t):
         review.append(('numerote-conserve-corps', t[:80]))
 
-    # 4) En-tête de structure (description sur la ligne suivante)
+    # 6) En-tête thématique nu « Des prescriptions » (avant l'article 68) → section.
+    if BARE_HDR.match(t):
+        emit_header('section', clean(t), '')
+        i += 1
+        continue
+
+    # 7) En-tête de structure (description sur la ligne suivante)
     kind = header_kind(t)
     if kind:
         enum, desc = split_enum_desc(t, kind)
@@ -244,6 +318,14 @@ while i < N:
             i += 1
             # description sur DEUX lignes (« Des commerçants » + « et des actes de commerce »)
             while i + 1 < N and looks_like_desc(P[i + 1]) and len(desc) < 80:
+                desc = f'{desc} {P[i + 1]["t"]}'
+                i += 1
+            # Continuation d'un titre coupé sur une virgule (« … par terre, » +
+            # « par eau ou par la voie de l'air. ») : la suite finit par « . » donc
+            # looks_like_desc la rejette — on l'accepte tant que le titre reste ouvert.
+            while (i + 1 < N and desc.rstrip().endswith(',') and len(desc) < 120
+                   and not ART_HEAD.match(P[i + 1]['t']) and not ART_MARK.match(P[i + 1]['t'])
+                   and not header_kind(P[i + 1]['t']) and len(P[i + 1]['t']) < 80):
                 desc = f'{desc} {P[i + 1]["t"]}'
                 i += 1
         emit_header(kind, enum, clean(desc))
@@ -279,7 +361,7 @@ navToc = [root]
 structure = {
     'title': 'Code de commerce', 'annotationAuthor': 'Édition Vandal',
     'navToc': navToc, 'toc': toc, 'connexes': [], 'jurisprudence': juris,
-    'commentaires': {}, 'connexe': {}, 'indexEntries': [],
+    'commentaires': comments, 'connexe': {}, 'indexEntries': [],
     'oldVersions': {}, 'status': {k: v for k, v in status.items() if v}, 'labels': labels, 'crossRefs': [],
 }
 
@@ -295,6 +377,8 @@ print('articles     :', len(labels), '(ancres uniques)')
 nums = sorted(int(re.match(r'^art-(\d+)', a).group(1)) for a in labels if re.match(r'^art-\d+$', a))
 print('plage        :', nums[0], '→', nums[-1], '· sauts:', gaps[:12], ('…' if len(gaps) > 12 else ''))
 print('doublons     :', dupes[:6])
-print('statuts mod  :', len(status), '· juris:', sum(len(v) for v in juris.values()), 'arrêts sur', len(juris), 'articles (clé sec-K|art-N)')
+print('statuts mod  :', len(status), '· juris:', sum(len(v) for v in juris.values()),
+      f'arrêts (dont {n_bare} nus) sur', len(juris), 'articles (clé sec-K|art-N)')
+print('commentaires :', n_notes, 'notes sur', len(comments), 'articles ·', list(comments.keys()))
 print('« Anc art » retirés du corps :', anc_art)
 print('review       :', len(review), '—', review[:6])

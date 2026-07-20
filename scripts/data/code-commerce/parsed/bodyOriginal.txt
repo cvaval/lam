@@ -38,8 +38,6 @@ Ils seront cotés et paraphés par le doyen du tribunal civil et, dans les ville
 Ils seront tenus par ordre de dates, sans blanc, lacunes, ni transports en marge.
 Article 12.- Les commerçants sont tenus de conserver ces livres pendant dix ans.
 Article 13.- Les livres régulièrement tenus peuvent être admis par le juge pour faire preuve entre commerçants pour faits de commerce.
-Arrêt du 7 février 1905, Bull des Arrêts 1905, pp 28 et suiv.
-Les livres d'un commerçant dont l'apport est ordonné sont consultés simplement pour en extraire ce qui concerne le différend.
 Article 14.- Les livres que les commerçants sont obligés de tenir et pour lesquels ils n'auront pas observé les formalités prescrites par le Code de commerce, ne pourront être représentés ni faire foi en Justice, au profit de ceux qui les auront ainsi tenus, sans préjudice de ce qui sera réglé par le Livre Troisième sur les Faillites et Banqueroutes.
 Article 15.- La communication des livres et inventaires ne peut être ordonnée en Justice que dans les affaires de succession, communauté, partage de société, et en cas de faillite.
 Article 16.- Dans le cours d'une contestation, la représentation des livres peut être ordonnée par le juge, même d'office, à l'effet d'en extraire ce qui concerne le différend.
@@ -50,17 +48,13 @@ Article 18.- Le commerçant qui aura contrevenu aux dispositions des articles 9 
 En cas de condamnation pour récidive, la patente du commerçant lui sera retirée et aucune patente ne sera émise en sa faveur, tant qu'il ne se sera pas conformé aux prescriptions du Code de commerce sur la tenue des livres de commerce obligatoires.
 Les marchands en détail, qui sont uniquement patentés, comme tels, ne sont pas astreints aux formalités prévues aux articles 9 et 11 du Code de commerce.
 Titre III — Des sociétés
-Section Premiere — Des diverses sociétés et de leurs règles
+Section Première — Des diverses sociétés et de leurs règles
 Article 19.- Le contrat de société se règle par le droit civil, par les lois particulières au commerce et par les conventions des parties.
-Arrêt du 20 sept 1900, Bull des Arrêts 1900, pp 55 et suiv.
-La preuve de l'existence d'un contrat de société sera faite par tous les moyens établis par la loi et à l'aide de simples présomptions.
 Article 20.- La loi reconnaît trois espèces de sociétés:
 1°) la société en nom collectif,
 2°) la société en commandite,
 3°) la société anonyme.
 Article 21.- La société en nom collectif est celle que contractent deux ou plusieurs personnes, et qui a pour objet de faire commerce sous une raison sociale.
-Arrêt du 21 déc 1939, Gaz du Pal, No du 1er mars 1940
-N'est pas opposable aux tiers qui n'ont point été avertis de la manière prescrite aux art 42, 43, 44 et 46 du Code de commerce, la dissolution d'une société en nom collectif; en conséquence, ils peuvent invoquer à bon droit, les effets légaux dérivant du fait de l'un des associés. En outre, l'engagement contracté envers eux, aux termes des articles 1626, 1628 du Code civil et 22 du Code de commerce par l'un des associés lie la société, encore que cet associé n'ait pas signé de la raison sociale, s'il résulte de l'engagement même, qu'il a été contracté non dans l'intérêt propre et pour le compte personnel du signataire, mais dans l'intérêt et pour compte de la société.
 Article 22.- Les noms des associés peuvent seuls faire partie de la raison sociale.
 Article 23.- Les associés en nom collectif, indiqués dans l'acte de société, sont solidaires pour tous les engagements de la société, encore qu'un seul ait signé, pourvu que ce soit sous la raison sociale.
 Article 24.- La société en commandite se contracte entre un ou plusieurs associés responsables et solidaires, et un ou plusieurs associés simples bailleurs de fonds, que l'on nomme commanditaires ou associés en commandite.
@@ -94,16 +88,10 @@ Article 38 (L. 3 août 1955) .- Les sociétés par actions ne peuvent exister ou
 Cette autorisation et cette approbation qui sont données par arrêté, sont sujettes à révocation, lorsque la société qui les a obtenues ne se sera pas conformée aux buts pour lesquels elle a été constituée ou aura violé ses statuts.
 L'arrêté du Président de la République, autorisant les sociétés par actions et approuvant leur acte constitutif et leurs statuts, seront publiés au Moniteur et affichés pendant trois mois au greffe du tribunal civil du lieu où sera établi le siège social de ces sociétés et au local de la Chambre de Commerce d'Haïti.
 (L. 27 juin 1952) Les dispositions ci-dessus relatives à l'autorisation et à l'approbation des sociétés par actions ne peuvent préjudicier au droit des sociétés par actions, établies à l'étranger, d'ester en justice en Haïti, tant en demandant qu'en défendant, à l'occasion de l'exécution des obligations contractées envers elles par des haïtiens ou des étrangers en Haïti, et réciproquement.
-Arrêt du 21 décembre 1983, Cass 1ère Section
-Pourvoi de Port-Dauphin SAM contre Maison Charles Féquière. JEAN-BAPTISTE, Jacob, Bulletin des Arrêts, Tome III, Année 1983
-Une société peut être régulièrement assignée en la personne et au domicile de son directeur, même quand la société aurait son siège ailleurs, surtout lorsque les termes, motif et dispositif de cette assignation n'ont rien d'équivoque et que la société, sur cet exploit, a comparu et s'en est défendue.
 Article 39.- Le capital des sociétés en commandite pourra être aussi divisé en actions, sans aucune dérogation aux règles établies pour ce genre de sociétés.
 Article 40.- Les sociétés en nom collectif ou en commandite simple doivent être constatées par des actes publics ou sous signature privée, en se conformant dans ce cas, à l'article 1110 du Code civil.
 Article 41.- Les sociétés anonymes et les autres sociétés par actions ne peuvent être formées que par actes publics.
 Article 42.- Aucune preuve par témoins ne peut être admise contre et outre le contenu dans les actes de société, ni sur ce qui serait allégué avoir été dit avant l'acte, lors de l'acte ou depuis, encore qu'il s'agisse d'une somme au-dessous de seize gourdes.
-Arrêt du 21 décembre 1983, Cass 1ère Section
-Pourvoi de Port-Dauphin SAM contre Maison Charles Féquière. JEAN-BAPTISTE, Jacob, Bulletin des Arrêts, Tome III, Année 1983
-Une société peut être régulièrement assignée en la personne et au domicile de son directeur, même quand la société aurait son siège ailleurs, surtout lorsque les termes, motif et dispositif de cette assignation n'ont rien d'équivoque et que la société, sur cet exploit, a comparu et s'en est défendue.
 Article 43.- Dans la quinzaine de la constitution de toute société commerciale, en nom collectif ou en commandite simple, si l'acte est passé en Haïti, dans les trois mois, s'il a été passé à l'étranger, deux originaux de l'acte constitutif, s'il est sous seing privé, ou deux expéditions, s'il est notarié, seront déposés au Département du Commerce, à Port-au-Prince.
 A l'acte constitutif des sociétés par actions seront annexées: 1°) deux expéditions de l'acte notarié constatant la souscription du capital social, dans la proportion établie par l'article 35 bis; et 2°) la liste nominative des souscripteurs, dûment certifiée contenant les noms, prénoms, qualités, demeure des souscripteurs et le nombre d'actions de chacun d'eux.
 Article 44.- Dans les mêmes délais ci-dessus prévus, un extrait de l'acte constitutif des sociétés en nom collectif ou en commandite simple sera publié dans l'un des quotidiens de la capitale.
@@ -138,12 +126,10 @@ Chaque associé contracte avec les tiers en son nom personnel.
 L'association en participation ne constitue pas une personne morale.
 Il ne peut être émis de titres cessibles ou négociables au profit des associés.
 Article 53.- Les associations en participation peuvent être constatées par la représentation des livres, par la correspondance ou par la preuve testimoniale, si le tribunal juge qu'elle peut être admise.
-Section Ii — Des contestations entre associés, et de la manière de les régler Nouveau
+Section II — Des contestations entre associés, et de la manière de les régler Nouveau
 Article 54.- Toutes contestations entre associés et pour raison de la société sont de la compétence du tribunal civil, jugeant en ses attributions commerciales, dans la forme et de la manière prévue pour la procédure à suivre devant la juridiction commerciale par le Titre III du Livre IV du Code de commerce.
 Toutefois, il est loisible aux associés en contestation de recourir à l'arbitrage volontaire, tel qu'il est prévu en la loi No. 7 du Code de procédure civile ou à ce qui est prévu par la loi du 11 juin 1935 créant à la Chambre de Commerce d'Haïti une Chambre d'Arbitrage et de Conciliation.
 De même, les tribunaux civils, jugeant en leurs attributions commerciales, devant lesquels pareilles contestations seront portées, auront la faculté de s'éclairer des lumières d'arbitres-rapporteurs, qui pourront être appelés à donner leur opinion sur le différend.
-Arrêt du 7 mai 1940, Gaz du Pal, No du 1er oct 1940
-Le prescrit de l'article 55 du Code de commerce relatif à l'arbitrage forcé, s'applique également à l'arbitrage volontaire régi par les art 891 et suivants du Code de procédure civile avec cette seule différence que, s'agissant d'arbitrage volontaire, en cas de refus d'une partie de désigner son arbitre, ce ne sera pas au tribunal d'exception mais au tribunal civil ayant plénitude de juridiction que l'autre partie devra recourir pour la nomination d'office d'un arbitre au refusant.
 Des prescriptions
 Article 68.- Toutes actions contre les associés non liquidateurs et leurs veuves, héritiers ou ayant cause, sont prescrites cinq ans après la fin ou la dissolution de la société, si l'acte de société qui en énonce la durée, ou l'acte de dissolution, a été affiché conformément aux prescriptions des articles 43, 44, 45, 46 et 47 du présent Code, et si depuis ces formalités remplies, la prescription n'a été interrompue à leur égard, par aucune poursuite judiciaire.
 Titre IV — Des séparations de biens
@@ -155,7 +141,7 @@ Article 72.- Le notaire qui aura reçu le contrat de mariage, sera tenu de faire
 Article 73.- Tout époux séparé de biens ou marié sous le régime exclusif de communauté ou sous le régime dotal qui embrassera la profession de commerçant postérieurement à son mariage, sera tenu de faire pareille remise de l'extrait de son contrat de mariage, dans le mois du jour où il aura ouvert son commerce, sous peine, en cas de faillite, d'être poursuivi comme banqueroutier frauduleux.
 Article 74.- Abrogé. La même remise sera faite, sous les mêmes peines, dans l'année de la publication du présent code, par tout époux séparé de biens, ou marié sous le régime dotal, qui, au moment de ladite publication, exercerait la profession de commerçant.
 Titre V — Des agents de change et courtiers
-Section Premiere — Des agents de change et courtiers
+Section Première — Des agents de change et courtiers
 Article 75.- La loi reconnaît pour les actes de commerce des agents intermédiaires, savoir: les agents de change et les courtiers.
 Ils sont nommés par le Président de la République.
 Article 76 (D. 31 janv 1989).- Les agents de change constitués de la manière prescrite par la loi, ont seuls le droit d'en exercer la profession et de recueillir, acheter ou vendre, négocier, escompter ou payer des valeurs monétaires, coupons, titres d'actions ou d'opérations, lettres de change ou billet à ordre et autres effets susceptibles d'être cotés, quels que soient leur dénomination et le lieu de leur création, dont le montant ou le prix est payable à l'étranger en monnaies étrangères ou payable en Haïti en monnaie haïtienne sur une disposition de l'étranger ou après négociation à l'étranger, faire les négociations des effets publics et autres susceptibles d'être cotés; de faire pour le compte d'autrui les négociations des effets publics et autres négociations des lettres de change ou billets à ordre, et de tous papiers commerçables et d'en constater le cours.
@@ -186,7 +172,7 @@ Nouveau
 Article 89.- Le taux du cautionnement des agents de change et courtiers, en argent ou valeurs mobilières, est établi par l'article 2 de la loi du 25 septembre 1890 sur les agents de change et courtiers.
 Article 90.- Il sera pourvu par des règlements d'administration publique à tout ce qui est relatif à la négociation des effets publics et généralement à l'exécution des dispositions contenues au présent Titre.
 Titre VI — Du gage et des commissionnaires
-Section Premiere — Du gage
+Section Première — Du gage
 Article 91.- Le gage ou nantissement commercial est un contrat par lequel le débiteur remet une chose à son créancier pour sûreté de sa dette.
 Le gage ou nantissement est aussi commercial quand il est constitué par un non-commerçant pour un acte réputé commercial par la loi.
 Le créancier gagiste possède sur le gage les avantages suivants:
@@ -200,9 +186,6 @@ Quant aux titres de créances à personne dénommée, leur remise à titre de ga
 En ce qui concerne les droits incorporels, suivant qu'ils seront à ordre ou à personne dénommée, leur constitution à titre de gage pourra être établie par un simple endossement, à titre de garantie, inscrit sur les titres ou sur les registres de la société ou par la signification faite au débiteur.
 Pour les titres au porteur, leur constitution en gage pourra être constatée, comme pour les objets mobiliers, par simple tradition.
 Les effets de commerce donnés en gage sont recouvrables par le créancier gagiste.
-Arrêt du 1er juil 1943, Gaz du Pal, No du 1er oct 1943
-Aux termes de l'article 1851 du Code civil, les dispositions de ce Code ne sont pas applicables en matière de commerce, notamment de nantissement commercial, à l'égard desquelles on suit les lois et règlements qui les concernent.
-Nouveau
 Article 92.- Dans les cas ci-dessus énumérés, le privilège que confère le contrat de gage ne subsistera au profit du créancier sur le gage qu'autant que ce gage ait été mis et soit resté en la possession du créancier ou d'un tiers convenu entre les parties.
 Le créancier est réputé avoir les marchandises ou denrées en sa possession, lorsqu'elles sont à sa disposition dans les magasins ou navires, à la douane ou dans un dépôt public, ou si, avant qu'elles soient arrivées, il en est saisi par un connaissement ou par une lettre de voiture.
 Le gage est aussi réputé en la possession du créancier, lorsque les marchandises ou denrées données en gage se trouvent au moment du contrat dans les dépôts du débiteur, si les clefs de ces dépôts sont remises au créancier ou que celui-ci les ferme au moyen de ses propres cadenas ou serrures.
@@ -227,22 +210,17 @@ Nouveau
 Article 94.- Lorsque la vente ordonnée du gage n'a pas pu avoir lieu dans le délai ci-dessus, faute d'adjudicataire, le créancier pour obtenir la permission de s'approprier le gage, suivra la procédure indiquée par les paragraphes 4 et 5 du précédent article.
 Nouveau
 Article 95.- Toute clause du contrat de gage qui autoriserait le créancier à s'approprier le gage, ou à en disposer, sans les formalités prévues à l'article 93 du Code de commerce (Titre VI, Section première) est nulle et de nul effet.
-Section Ii — Des commissionnaires en général
+Section II — Des commissionnaires en général
 Article 96.- Le commissionnaire est celui qui agit en son propre nom ou sous un nom social pour le compte d'un commettant.
 Les devoirs et les droits du commissionnaire qui agit pour le compte d'un commettant sont déterminés par le Code civil.
-Arrêt du 19 mars 1984, Cass, 1ère Section
-Pourvoi de Me Alix Mathon contre Ciment d'Haïti S.A., in JEAN-BAPTISTE, Jacob, Bull des Arrêts, Tome IV, Année 1984
-Le démarchage consiste en des opérations multiples qui se rapprochent de celles du courtier.
-Le démarcheur ne fait que rapprocher les parties pour la conclusion des affaires. L'exercice de cette profession n'est pas incompatible avec la qualité d'avocat ni contraire à l'ordre public.
 Article 97.- Tout commissionnaire a privilège sur la valeur des marchandises ou denrées à lui expédiées, déposées ou consignées, par le seul fait de l'expédition, du dépôt ou de la consignation, pour tous les prêts, avances ou paiements faits par lui, soit avant la réception desdites marchandises ou denrées, soit pendant le temps qu'elles sont en sa possession.
 Ce privilège ne subsiste que sous la condition prescrite par l'article 92 de la Section 1ère du Titre VI du Code de commerce.
 Dans la créance privilégiée du commissionnaire sont compris avec le principal, les intérêts, commissions ou frais.
 Article 98.- Si les marchandises ou denrées ont été vendues ou livrées pour le compte du commettant, le commissionnaire se rembourse, sur le produit de la vente, du montant de sa créance, intérêts et frais, par préférence aux créanciers du commettant.
-Section Ii bis — Des agents de manufacture Nouveau
+Section II bis — Des agents de manufacture Nouveau
 Article 98 bis.- Les agents de commerce, communément désignés sous le nom d'agents de manufactures, ne pourront vendre qu'en gros et à des commerçants, les marchandises qu'ils commandent pour leur propre compte.
 Les contrevenants seront condamnés à une amende de Gdes 500 à Gdes 1.000, et au retrait de leur patente, en cas de récidive.
-Section Iii — Des commissionnaires pour le transport par terre,
-par eau ou par la voie de l'air.
+Section III — Des commissionnaires pour le transport par terre, par eau ou par la voie de l'air.
 Article 99.- Le commissionnaire qui se charge d'un transport par terre, par eau ou par la voie de l'air, est tenu d'inscrire sur son livre-journal, la déclaration de la nature et de la quantité des marchandises, et, s'il en est requis, de leur valeur.
 La preuve du contrat de transport par terre, par eau ou par la voie de l'air, peut se faire par tous les moyens, pourvu que le transport ait un caractère commercial.
 Article 100.- Il est garant de l'arrivée des marchandises, effets ou denrées, dans le délai déterminé par la lettre de voiture, hors les cas de force majeure légalement constatés.
@@ -264,7 +242,7 @@ L'indemnité due pour cause de retard;
 Elle est signée par le voiturier, l'expéditeur ou le commissionnaire. Et quand le voiturier déclarera ne savoir ou pouvoir signer, la lettre de voiture contiendra l'attestation de deux témoins, majeurs, quant aux marchandises, effets destinés à être transportés.
 La lettre de voiture présente en marge, les marques et numéros des objets à transporter, ou un signe distinctif, s'il s'agit de transport terrestre, d'une ville à une autre, pouvant permettre d'identifier l'objet à transporter.
 La lettre de voiture est copiée par le commissionnaire sur un registre coté et paraphé, sans intervalle et de suite.
-Section Iv — Du voiturier
+Section IV — Du voiturier
 Article 106.- Le voiturier est garant de la perte des marchandises ou objets à transporter, hors les cas de force majeure.
 Il est garant des avaries autres que celles qui proviennent du vice propre de la chose, de la force majeure ou de la faute de l'expéditeur.
 Toute clause contraire insérée dans la lettre de voiture ou autre pièce quelconque, est nulle.
@@ -293,9 +271,9 @@ Par une facture acceptée,
 Par la correspondance,
 Par les livres des parties,
 Par la preuve testimoniale, dans le cas où le tribunal croira devoir l'admettre.
-Titre Viii — Lettre de change - Billet à ordre et chèque - Prescription
-Chapitre PREMIER — De la lettre de change
-Section Premiere
+Titre VIII — Lettre de change - Billet à ordre et chèque - Prescription
+Chapitre Premier — De la lettre de change
+Section Première
 Article 112.- La lettre de change contient:
 1°) la dénomination de lettre de change insérée dans le texte même du titre et exprimée dans la langue employée pour la rédaction de ce titre;
 2°) le mandat pur et simple de payer une somme déterminée;
@@ -327,13 +305,13 @@ Nouveau
 Article 118.- Quiconque appose sa signature sur une lettre de change, comme représentant d'une personne pour laquelle il avait le pouvoir d'agir, est obligé lui-même en vertu de la lettre et, s'il a payé, a les mêmes droit qu'aurait eu le prétendu représenté. Il en est de même du représentant qui a dépassé ses pouvoirs.
 Article 119.- Le tireur est garant de l'acceptation et du paiement.
 Il peut s'exonérer de l'acceptation; toute clause pour laquelle il s'exonère du paiement est réputée non écrite.
-Section Ii — De la provision
+Section II — De la provision
 Article 120.- La provision doit être faite par le tireur ou par celui pour le compte de qui la lettre est tirée, sans que le tireur pour compte d'autrui cesse d'être personnellement obligé envers les endosseurs et le porteur seulement.
 Article 121.- Il y a provision si, à l'échéance de la lettre de change, celui sur qui elle est fournie est redevable au tireur, ou à celui pour compte de qui elle est tirée, d'une somme au moins égale au montant de la lettre de change.
 La propriété de la provision est transmise de droit aux porteurs successifs de la lettre de change.
 Article 122.- L'acceptation suppose la provision. Elle en établit la preuve à l'égard des endosseurs.
 Soit qu'il y ait ou non acceptation, le tireur est tenu de prouver, en cas de dénégation, que ceux sur qui la lettre de change était tirée avaient provision à l'échéance, sinon il est tenu de la garantir, quoique le protêt ait été fait après les délais fixés.
-Section Iii — De l'endossement
+Section III — De l'endossement
 Article 123.- Toute lettre de change, même non expressément tirée à ordre, est transmissible par la voie de l'endossement.
 Lorsque le tireur a inséré dans la lettre de change les mots «non à ordre» ou une expression équivalente, le titre n'est transmissible que dans la forme et avec les effets d'une cession ordinaire.
 L'endossement peut être fait même au profit du tiré, accepteur ou non, du tireur ou de tout autre obligé. Ces personnes peuvent endosser la lettre à nouveau.
@@ -370,7 +348,7 @@ Nouveau
 Article 131.- L'endossement postérieur à l'échéance produit les mêmes effets que l'endossement antérieur. Toutefois, l'endossement postérieur au protêt faute de paiement, ou fait après l'expiration d'un délai fixé pour dresser le protêt, ne produit que les effets d'une cession ordinaire.
 Sauf preuve contraire, l'endossement sans date est censé avoir été fait avant l'expiration du délai fixé pour dresser le protêt.
 Il est défendu d'antidater les ordres à peine de faux.
-Section Iv — De l'acceptation
+Section IV — De l'acceptation
 Article 132.- L'acceptation d'une lettre de change est écrite sur la lettre de change.
 Elle est exprimée par le mot «accepté» ou tout autre mot équivalent.
 Elle est signée du tiré. La simple signature du tiré apposée au recto de la lettre vaut acceptation.
@@ -408,7 +386,7 @@ Toutefois, s'il l'admet, il perd les recours qui lui appartiennent avant l'éch�
 L'acceptation par intervention est mentionnée sur la lettre de change; elle est signée par l'intervenant. Elle indique pour le compte de qui elle a lieu; à défaut de cette indication, l'acceptation est réputée donnée pour le tireur.
 L'accepteur par intervention est obligé envers le porteur et envers les endosseurs postérieurs à celui pour compte duquel il est intervenu, de la même manière que celui-ci.
 Malgré l'acceptation par intervention, celui pour lequel elle a été faite et ses garants peuvent exiger du porteur, contre remboursement de la somme représentant le montant de la lettre de change non acceptée avec les intérêts s'il a été stipulé ou les intérêts au taux légal, les frais de protêt, ceux des avis donnés ainsi que les autres frais, la remise de la lettre de change, du protêt et d'un compte acquitté, s'il y a lieu.
-Section Vi — De l'aval
+Section VI — De l'aval
 Article 140.- Le paiement d'une lettre de change peut être garanti pour le tout ou partie de son montant par un aval.
 Cette garantie est fournie par un tiers ou même par un signataire de la lettre.
 Article 141.- L'aval est donné sur la lettre de change ou sur une «allonge», soit par un acte séparé indiquant le lieu où il est intervenu.
@@ -418,12 +396,12 @@ Nouveau
 Article 142.- L'aval doit indiquer pour le compte de qui il est donné. A défaut de cette indication, il est réputé donné pour le tireur.
 Article 143.- Le donneur d'aval est tenu solidairement et par les mêmes voies que les tireurs et endosseurs, sauf conventions contraires des parties. Son engagement est valable, alors même que l'obligation qu'il a garantie serait nulle pour toute autre cause qu'un vice de forme.
 Quand il paie la lettre de change, le donneur d'aval acquiert les droits résultant de la lettre de change contre le garanti et contre ceux qui sont tenus envers ce dernier, en vertu de la lettre de change.
-Section Vii — De la solidarité
+Section VII — De la solidarité
 Article 144.- Tous ceux qui ont signé, accepté ou endossé une lettre de change, sont tenus solidairement envers le porteur.
 Le porteur a le droit d'agir contre toutes ces personnes, individuellement ou collectivement, sans être astreint à observer l'ordre dans lequel elles se sont obligées.
 Le même droit appartient à tout signataire d'une lettre de change qui a remboursé celle-ci.
 L'action intentée contre l'un des obligés n'empêche pas d'agir contre les autres, même postérieurs à celui qui a été d'abord poursuivi.
-Section Viii — De l'échéance
+Section VIII — De l'échéance
 Article 145.- Une lettre de change peut être tirée:
 A vue,
 A un certain délai de vue,
@@ -446,7 +424,7 @@ Quand une lettre de change tirée entre deux places ayant des calendriers diffé
 Les délais de présentation des lettres de change sont calculés conformément aux règles de l'alinéa précédent.
 Ces règles ne sont pas applicables si une clause de la lettre de change, ou même de simples énonciations du titre, indiquent que l'intention a été d'adopter des règles différents.
 Article 150.- Tous délais de grâce, de faveur, d'usage ou d'habitude locale, pour le paiement des lettre de change, sont interdits, sous peine de prise à partie contre le juge.
-Section Ix — Du paiement Nouveau
+Section IX — Du paiement Nouveau
 Article 151.- Le porteur d'une lettre de change payable à jour fixe ou à un certain délai de date ou de vue doit présenter la lettre de change au paiement le jour où elle est payable, soit l'un des deux jours ouvrables qui suivent.
 La présentation au paiement doit être faite:
 1°) par le détenteur ou par une personne autorisée à recevoir le paiement en son nom;
@@ -495,7 +473,7 @@ Article 172.- Le payeur par intervention acquiert les droits résultant de la le
 Les endosseurs postérieurs au signataire pour qui le paiement a eu lieu sont libérés.
 En cas de concurrence pour le paiement par intervention, celui qui opère le plus de libération est préféré. Celui qui intervient en connaissance de cause, contrairement à cette règle, perd ses recours contre ceux qui auraient été libérés.
 Si celui sur qui la lettre de change était originairement tiré, et sur qui a été fait le protêt faute d'acceptation, se présente pour la payer, il sera préféré à tous autres.
-Section Xi — Des droits et devoirs des porteurs
+Section XI — Des droits et devoirs des porteurs
 Article 173.- Le porteur d'une lettre de change tirée des Iles de l'archipel des Caraïbes ou autres environnantes et payable en Haïti, soit à vue, soit à un certain délai de vue ou à un certain délai de date ou à jour fixe, doit en exiger l'acceptation ou le paiement dans le mois de sa date, sous peine de perdre son recours sur les endosseurs, et même sur le tireur, si celui-ci a fait provision.
 Le délai sera de deux mois de sa date pour la lettre de change tirée du continent d'Amérique du Nord ou du Sud.
 Le délai sera de trois mois pour les lettres de change tirées de toute autre partie du monde (Europe, Afrique, Asie, Océanie).
@@ -550,7 +528,7 @@ Article 186.- Abr.
 Article 187.- Abr.
 Article 188.- Abr.
 Article 189.- Indépendamment des formalités prescrites pour l'exercice de l'action en garantie, le porteur d'une lettre de change protestée faute de paiement peut, en obtenant la permission du doyen du tribunal civil ou du juge de paix, saisir conservatoirement les effets mobiliers des tireurs, accepteurs et endosseurs.
-Section Xii — Des protêts
+Section XII — Des protêts
 Article 190.- Les protêts faute d'acceptation ou faute de paiement sont faits par un notaire et deux témoins ou par un huissier et deux témoins.
 Le protêt doit être fait:
 Au domicile de celui sur qui la lettre de change était payable ou à son dernier domicile connu;
@@ -567,7 +545,7 @@ La présence ou l'absence de celui qui doit payer;
 Les motifs du refus de payer, et l'impuissance ou le refus de signer.
 Article 192.- Nul acte de la part du porteur de la lettre de change ne peut suppléer l'acte de protêt, hors le cas prévu à la Section IX du Livre Premier (art. 161 et suiv.) du présent Code de commerce, touchant la perte de la lettre de change.
 Article 193.- Les notaires et les huissiers sont tenus, à peine de destitution, dépens, dommages-intérêts envers les parties, de laisser copie exacte des protêts et de les inscrire en entier, jour par jour, et par ordre de date, dans un registre particulier coté, paraphé et tenu dans les formes prescrites pour les répertoires.
-Section Xiii — Du rechange
+Section XIII — Du rechange
 Article 194.- Toute personne ayant le droit d'exercer un recours peut, sauf stipulation contraire, se rembourser au moyen d'une nouvelle lettre (retraite) tirée à vue sur l'un des garants et payable au domicile de celui-ci.
 La retraite est accompagnée d'un compte de retour.
 Article 195.- Si la retraite est tirée par le porteur, le montant en est fixé d'après le cours d'une lettre de change à vue, tirée du lieu où la lettre primitive était payable sur le lieu du domicile du garant. Si la retraite est tirée par un endosseur, le montant en est fixé d'après le cours d'une lettre à vue tirée du lieu où le tireur de la retraite a son domicile sur le lieu du domicile du garant.
@@ -582,7 +560,7 @@ Ce compte de retour est remboursé d'endosseur en endosseur respectivement et d�
 Article 198.- Les rechanges ne peuvent être cumulés. Chaque endosseur n'en supporte qu'un seul, ainsi que le tireur.
 Article 199.- L'intérêt du principal de la lettre de change protestée faute de paiement est dû à compter du jour du protêt.
 Article 200.- L'intérêt des frais de protêt, rechange et autres frais légitimes, n'est dû qu'à compter du jour de la demande en justice.
-Section Xiv — I.- Pluralité d'exemplaires Nouveau
+Section XIV — I.- Pluralité d'exemplaires Nouveau
 Article 201.- La lettre de change peut être tirée en plusieurs exemplaires identiques.
 Ces exemplaires doivent être numérotés dans le texte même du titre; faute de quoi chacun d'eux est considéré comme une lettre de change distincte.
 Tout porteur d'une lettre de change n'indiquant pas qu'elle a été tirée en un exemplaire unique peut exiger, à ses frais, la délivrance de plusieurs exemplaires. A cet effet, il doit s'adresser à son endosseur immédiat qui est tenu de lui prêter ses soins pour agir contre son propre endosseur immédiat et ainsi de suite en remontant jusqu'au tireur.
@@ -604,16 +582,16 @@ Nouveau
 Article 205.- La copie doit désigner le détenteur du titre original, celui-ci est tenu de remettre ledit titre au porteur légitime de la copie.
 S'il s'y refuse, le porteur ne peut exercer le recours contre les personnes qui ont endossé ou avalisé la copie qu'après avoir fait constater par un protêt que l'original ne lui a pas été remis sur sa demande.
 Si le titre original, après le dernier endossement survenu avant que la copie ne soit faite, porte la clause «à partir d'ici, l'endossement ne vaut que sur la copie», ou toute autre formule équivalente, un endossement signé ultérieurement sur l'original est nul.
-Section Xv — Des altérations Nouveau
+Section XV — Des altérations Nouveau
 Article 206.- En cas d'altération du texte d'une lettre de change, les signataires postérieurs à cette altération sont tenus dans les termes du texte altéré; les signataires antérieurs le sont dans les termes du texte originaire.
-Section Xvi — De la prescription
+Section XVI — De la prescription
 Article 207.- Toutes actions résultant de la lettre de change se prescrivent par cinq ans, à compter de la date de l'échéance.
 Les actions du porteur contre les endosseurs et contre le tireur se prescrivent par deux ans, à partir de la date du protêt en temps utile ou de celle de l'échéance en cas de clause de retour sans frais.
 Les actions des endosseurs les uns contre les autres et contre le tireur se prescrivent par un an, à partir du jour où l'endosseur a remboursé la lettre ou du jour où il a été lui-même actionné.
 Les prescriptions, en cas d'action exercée en justice, ne courent que du jour de la dernière poursuite judiciaire. Elles ne s'appliquent pas s'il y a eu condamnation, ou si la dette a été reconnue par acte séparé.
 L'interruption de la prescription n'a d'effet que contre celui à l'égard duquel l'acte interruptif a été fait.
 Néanmoins, les prétendus débiteurs seront tenus, s'ils en sont requis, d'affirmer, sous serment, qu'ils ne sont plus redevables; et leurs veuves, héritiers ou ayants cause qu'ils estiment de bonne foi qu'il n'est plus rien dû.
-Section Xvii
+Section XVII
 Dispositions générales
 Article 208.- Le paiement d'une lettre de change dont l'échéance est à un jour férié légal, ne peut être exigé que le premier jour ouvrable qui suit.
 De même, tous autres actes relatifs à la lettre de change, notamment la présentation à l'acceptation et le protêt, ne peuvent être faits qu'un jour ouvrable.
@@ -647,16 +625,13 @@ La solidarité (art 144)
 La prescription (art 207 et suiv.)
 Les jours fériés, les jours ouvrables, chômés, la computation des délais et l'interdiction des délais de grâce (art 208).
 Article 212.- Sont aussi applicables au billet à ordre les dispositions concernant la lettre de change payable chez un tiers ou dans une localité autre que celle du domicile du tiré (art 135), la stipulation d'intérêt, les différences d'énonciations relatives à la somme à payer, les conséquences de l'apposition de la signature d'une personne qui agit sans pouvoir ou en dépassant ses pouvoirs.
-Arrêt du 19 nov 1889, Bull des Arrêts 1889, pp 31 et suiv.
-Quand il y a conventions, les intérêts ne peuvent se prélever que d'après le taux et le mode convenus dans la loi des parties.
-Nouveau
 Article 213.- Le souscripteur d'un billet à ordre est obligé de la même manière que l'accepteur d'une lettre de change.
 Nouveau
 Article 214.- Les billets à ordre payables à un certain délai de vue doivent être présentés au visa du souscripteur dans les délais fixés en la Section IV: De l'acceptation du présent code de commerce.
 Le délai de vue court de la date du visa signé du souscripteur sur le billet.
 Le refus du souscripteur de donner son visa est constaté par un protêt dont la date sert de point de départ au délai de vue.
 Chapitre III — Du chèque
-Section Premiere
+Section Première
 Dispositions générales — Nouveau
 Article 215.- Le chèque est un ordre inconditionnel de paiement d'une somme certaine, liquide et exigible en espèces, négociable et payable à présentation, tiré par une personne physique ou morale (firme, association, société ou collectivité civile ou commerciale), à son profit ou au profit d'un tiers, sur une autre personne (firme, association, société ou collectivité civile ou commerciale), détentrice de fonds lui appartenant et disponibles.
 Le chèque doit contenir:
@@ -668,11 +643,6 @@ Le chèque doit contenir:
 6°) Le nom de celui à qui ou à l'ordre de qui il est payable;
 7°) La signature du tireur ou de son mandataire dûment autorisé;
 La signature du chèque ne pourra jamais être donnée au moyen d'un sceau, mais quand elle sera illisible, elle pourra être précédée du nom de la maison de commerce, de la société ou du nom du signataire.
-Arrêt du 7 juillet 1983, Cass, 2ème Section
-Pourvoi de René Gédéon contre TRANSCONEX S.A.
-Le chèque est un ordre de paiement. Le paiement étant la solution d'une obligation, ne saurait être l'obligation elle-même.
-Le chèque ne peut s'analyser en une promesse de faire ou de ne pas faire, et ne peut constituer une reconnaissance de dette.
-Nouveau
 Article 216.- Le chèque est émis et payable sur place ou sur une autre place, en Haïti ou à l'étranger.
 Le chèque peut être à personne dénommée, à ordre ou au porteur; sa cession opère de plein droit en faveur du porteur le transport et la translation de la propriété de la provision.
 Le chèque à ordre est cessible par voie d'endossement régulier ou en «blanc».
@@ -682,7 +652,7 @@ Nouveau
 Article 217.- Le chèque est civil ou commercial, selon qu'il est signé par un non-commerçant ou par un commerçant.
 Il est commercial, quand il est signé par un particulier pour un fait commercial.
 La présomption de commercialité résultant de la signature du chèque par un commerçant peut tomber devant la preuve que le chèque n'a pas été émis pour un fait de commerce.
-Section Ii — De la présentation du paiement Nouveau
+Section II — De la présentation du paiement Nouveau
 Article 218.- Le chèque doit être payé par le tiré à vue et à première réquisition du porteur; toute stipulation entre le tireur, le bénéficiaire ou le tiré ayant pour objet de rendre le chèque payable autrement est nulle de plein droit.
 Le chèque, civil ou commercial, doit être présenté au paiement dans les trente jours de sa date, s'il est émis et payable sur place; dans les quarante-cinq jours de sa date, quand il est payable sur une place d'Haïti; et dans les quatre-vingt-dix jours, s'il est émis d'Haïti sur l'étranger et vice versa.
 Ces délais seront doublés en cas de guerre.
@@ -711,7 +681,7 @@ L'émetteur avisera le tiré de l'émission de ce duplicata, en arrêtant le pai
 Celui qui réclame le duplicata demeurera garant responsable de tout dommage qui sera causé au porteur de l'original; il supportera tous les frais que le tireur aura faits pour obtenir des renseignements auprès du tiré.
 L'émetteur pourra, en outre, exiger de celui qui réclame le duplicata toutes les garanties qu'il jugera nécessaires et suffisantes.
 Dans tous les cas, le tireur n'émettra les duplicata qu'après les délais fixés pour la présentation des chèques au paiement.
-Section Iii — De la provision Nouveau
+Section III — De la provision Nouveau
 Article 223.- La provision doit être faite préalablement à l'émission du chèque et ne peut plus être retirée par le tireur tant que le chèque sera en circulation.
 Tous ceux qui émettent un chèque sans provision préalable commettent une escroquerie et tombent sous le coup de l'article 337 du Code pénal.
 Le tireur et ses complices seront poursuivis sur ce chef par le porteur ou le plus diligent des endosseurs.
@@ -723,7 +693,7 @@ La faillite du tiré survenue avant l'expiration des délais fixés pour la pré
 Si le tireur justifie qu'il avait fait provision au moment de l'émission du chèque, le porteur, dans ce cas, n'aura de recours que contre le tiré.
 Nouveau
 Article 225.- Lorsque l'action sera exercée par le porteur pour le motif que le tireur ayant fait provision l'a retirée ou engagée, rendant ainsi le paiement impossible par le tiré, le porteur pourra exiger une caution pour le montant du chèque, plus 25% destinés à la garantie des frais éventuels de poursuite. Faute d'avoir fourni cette caution dans les 24 heures, le tireur sera poursuivi pour escroquerie et sera soumis aux sanctions de l'article 223.
-Section Iv — Des contraventions Nouveau
+Section IV — Des contraventions Nouveau
 Article 226.- Sont considérés comme des contraventions punissables:
 1°) Le fait d'émettre un chèque sans date et de faire circuler un pareil chèque et de le payer;
 2°) Le fait de porter sur le chèque une date fausse ou inexacte;
@@ -740,13 +710,13 @@ Les prescriptions, en cas d'action exercée en justice, ne courent que du jour d
 Elles ne s'appliquent pas, s'il y a eu condamnation précédente ou si la dette a été reconnue séparément.
 L'interruption de la prescription n'a d'effet que contre celui à l'égard duquel l'acte interruptif a été fait.
 Néanmoins, les prétendus débiteurs seront tenus, s'ils en sont requis, d'affirmer, sous serment, qu'ils ne sont plus redevables, et leurs veuves ou ayants cause, qu'ils estiment, de bonne foi, qu'il n'est plus rien dû.
-Section Vi — Du chèque barré Nouveau
+Section VI — Du chèque barré Nouveau
 Article 228.- Il est facultatif d'émettre des chèques payables seulement par une banque et seulement à un banquier; et à tout endosseur d'un chèque tiré sur une banque de stipuler que le chèque ne sera payable qu'à un banquier. Sur le chèque émis et payable dans ces conditions, le tireur ou l'endosseur tirera deux lignes parallèles entre lesquelles il n'écrira rien ou écrira le nom d'un banquier. Le tiré ne sera libéré que si pareil chèque est payé à un banquier.
-Section Vii — Des chèques publics
+Section VII — Des chèques publics
 Article 229.- Les chèques émis par l'Etat, les Communes, les agents fiscaux de l'Etat continueront à être régis par les dispositions du Code de procédure civile sur la saisie-arrêt et par toutes dispositions législatives spéciales les concernant.
-Section Viii — Dispositions spéciales
+Section VIII — Dispositions spéciales
 Article 229bis.- Toutes les dispositions du Code de commerce concernant la lettre de change et relatives à la garantie, au recours contre les endosseurs, et le tireur, à la déchéance des endosseurs et du porteur, aux causes qui font cesser les effets de la déchéance, et à la faculté de saisir conservatoirement les effets mobiliers des tireurs, et endosseurs, avec permission du doyen du tribunal civil ou du juge de paix, sont applicables au chèque commercial.
-Livre Deuxieme — Du commerce maritime
+Livre Deuxième — Du commerce maritime
 Titre Premier — Des navires et autres bâtiments
 Article 230.- Les navires et autres bâtiments de mer sont meubles. Néanmoins, ils sont affectés, même hypothécairement, aux dettes du vendeur, et spécialement à celles que la loi déclare privilégiées.
 Article 231.- Sont privilégiées, et dans l'ordre où elles sont rangées, les dettes ci-après désignées:
@@ -774,15 +744,13 @@ Article 232 bis.- Le privilège accordé aux dettes énoncées dans l'article 23
 4°) Les gages du gardien et frais de garde du bâtiment par les états arrêtés par le doyen du tribunal civil ou le juge par lui désigné à cet effet ou par le juge de paix, dans les lieux où il n'y pas de tribunal civil;
 5°) Les gages et loyers de l'équipage, par les rôles d'armement et de désarmement arrêtés par les services compétents du Service des Ports du lieu………;
 6°) Les sommes prêtées et la valeur des marchandises vendues pour les besoins du navire pendant le dernier voyage, par les états arrêtés par le capitaine, appuyés TI s'agit aujourd'hui de la Banque Nationale de Crôdit
-Notes
-• Cette institution porte actuellement le nom de «Marine Haïtienne».
 Article 234.- Les privilèges des créanciers seront éteints, indépendamment des moyens généraux d'extinction des obligations, par la vente, sur saisie, faite dans les formes établies par le Titre II du Livre II du présent Code de commerce, ou lorsqu'après une vente volontaire, le navire aura fait un voyage de mer sous le nom et aux risques de l'acquéreur et sans opposition de la part des créanciers du vendeur.
 Article 235.- Un navire est censé avoir fait un voyage en mer: lorsque son départ et son arrivée auront été constatés dans deux ports différents et vingt jours après le départ; lorsque, sans être arrivé dans un autre port, il s'est écoulé plus de quarante jours entre le départ et le retour dans le même port, ou lorsque le navire parti pour un voyage de long cours, a été plus de soixante jours en voyage, sans réclamation de la part des créanciers du vendeur.
 Article 236.- La vente volontaire d'un navire doit être faite par écrit, acte public ou sous signature privée; l'acte constatant cette vente sera enregistré comme le prescrit la loi sur l'enregistrement et la transcription obligatoire, et sera également enregistré, à tins d'information, au bureau du Service des Ports au lieu où ladite vente a été effectuée.
 La vente peut être faite pour le navire entier ou seulement pour une portion du navire, le navire étant dans le port ou même en voyage.
 Article 237.- La vente volontaire d'un navire en voyage ne préjudicie pas aux créanciers du vendeur.
 En conséquence, nonobstant la vente, le navire ou son prix continue d'être le gage <lesdits créanciers, qui peuvent
-Titre II — — De la saisie et vente des navires
+Titre II — De la saisie et vente des navires
 Article 238.- Tous bâtiments de mer peuvent être saisis et vendus par autorité de justice, et le privilège des créanciers sera purgé par les formalités suivantes.
 Article 239.- Il ne pourra être procédé à la saisie que vingt- quatre heures après le commandement de payer.
 Article 240.- Le commandement devra être fait à la personne du propriétaire ou à son domicile, s'il s'agit d'une action générale à exercer contre lui.
@@ -798,8 +766,6 @@ Il fait l'énonciation et la description des chaloupes, canots, agrès, ustensil
 Il établit un gardien.
 Article 242.- Si le propriétaire du navire saisi demeure dans le ressort du tribunal, le saisissant doit lui notifier, dans le délai de trois jours, copie du procès-verbal de saisie, et le faire citer devant le tribunal pour voir procéder à la vente des choses saisies.
 Si le propriétaire n'est point domicilié dans le ressort du tribunal, les significations et citations lui seront données à la personne du capitaine du bâtiment saisi, ou en son domicile, à celui qui représente le propriétaire ou le capitaine; et le délai de trois jours est augmenté d'un jour à raison de cinq lieues de la distance de son domicile.
-Notes
-• L'art 188 est devenu 231.
 Article 243.- Si la saisie a pour objet un bâtiment dont le tonnage soit au-dessus de dix tonneaux, il sera fait trois criées et publications des objets mis en vente.
 Les criees et publications seront faites consécutivement, de huitaine en huitaine, devant le local de la Chambre de Commerce, si la saisie est faite à Port-au-Prince et dans la principale place publique du lieu où le bâtiment est amarré.
 Un avis sera inséré dans l'un des journaux qui se publient dans le lieu où siège le tribunal civil devant lequel la saisie se poursuit, et s'il n'y en a pas, dans deux au moins des journaux que se publient à Port-au-Prince.
@@ -823,8 +789,6 @@ La première mise à prix;
 Les jours des audiences auxquelles les enchères
 seront reçues.
 Article 246.- Après la première criée, les enchères seront reçues le jour indiqué par l'affiche.
-Notes
-• Cet article 79 correspondant à l'article 70 CPC. La Section 1 du Titre V traitant des Bourses de commerce a été abrogée par le décret- loi du 22 déc 1944 portant révision du Code de commerce.
 Article 247.· Après la troisième criée l'adjudication est faite au plus offrant et dernier enchérisseur, à l'extinction des feux sans autres fonnalités.
 Le juge commis d'office peut accorder une ou deux remises, de huitaine chacune.
 Elles sont publiées et affichées.
@@ -836,16 +800,13 @@ A défaut de paiement ou de consignation, le bâtiment sera remis en vente et ad
 Article 251.- Les demandes en distraction seront formées et notifiées au greffe du tribunal avant l'adjudication.
 Si les demandes en distraction ne sont formées qu'après l'adjudication, elles seront converties, de plein droit, en opposition à la délivrance des sommes provenant de la vente.
 Article 252.:· Le demandeur ou l'opposant aura trois jours pour fournir ses moyens.
-Notes
-' Et non à la Banque Nationale de la République d'Haïti, expression non retrouvée dans le décret-loi du 22 décembre 1944 ponant révision du Code de commerce, ni dans aucun texte postérieur. Cet ênoncé est tiré du Code de commerce publié en 1910 per Alexandre Poujol Bien sûr, la loi du ......... 1953 prescrit que les consignations qui devaient avoir lieu au greffe des tribunaux se font à la Caisse des Dépôts et Consignations, tenue à la DOL
-• Cet article non modifié par le décret-loi du 22 décembre 1944 ni par aucune loi postérieure est ainsi libellé dans le Code de commerce publié par Alexandre Poujol.
 Article 253.- Pendant trois jours après celui de l'adjudication, les oppositions à la délivrance du prix seront reçues; passé ce délai, elles ne seront plus admises.
 Article 254.- Les créanciers opposants sont tenus de produire au greffe leurs titres de créances dans les trois jours qui suivent la sommation qui leur est faite par le créancier poursuivant, ou par le tiers saisi; faute de quoi, il sera procédé à la distribution du prix de la vente, sans qu'ils y soient compris.
 Article 255.- La collocation des créanciers et la distribution des deniers sont faites entre les créanciers privilégiés dans l'ordre prescrit par l'article 231, et entre les autres créanciers, au marc la gourde de leurs créances.
 Tout créancier colloqué l'est tant pour son principal que pour les intérêts et frais.
 Article 256.- Le bâtiment prêt à partir n'est pas saisissable, si ce n'est à raison des dettes contractées pour le voyage qu'il va faire; et même dans ce dernier cas, le cautionnement de ces dettes empêche la saisie.
 Le bâtiment est censé prêt à partir lorsque le capitaine est muni de ses expéditions pour son voyage.
-Titre III — — Des propriétaires de navires
+Titre III — Des propriétaires de navires
 Article 257.- Tout propriétaire de navire est civilement responsable des faits du capitaine et tenu des engagements contractés par ce dernier, pour tout ce qui est relatif au navire et à l'expédition.
 Il peut, dans tous les cas, s'affranchir des obligations ci-dessus par l'abandon du navire et du fret.
 Toutefois, la faculté de faire abandon n'est point accordée à celui qui est en même temps capitaine et propriétaire ou co-propriétaire du navire. Lorsque le capitaine ne sera que co-propriétaire du navire, il ne sera responsable des engagements contractés par lui, pour ce qui est relatif au navire et à l'expédition, que dans la proportion de son intérêt.
@@ -857,11 +818,9 @@ Le montant de ce capital est déterminé par experts convenus ou nommés d'offic
 Article 262.- En tout ce qui concerne l'intérêt commun des propriétaires d'un navire, l'avis de la majorité est suivi.
 La majorité se détermine par une portion d'intérêt dans le navire, excédant la moitié de sa valeur.
 La licitation d'un navire ne peut être accordée que sur la demande des propriétaires, formant ensemble la moitié de l'intérêt total dans le navire, s'il n'y a, par écrit, convention contraire.
-Titre IV — — Du capitaine
+Titre IV — Du capitaine
 Article 263.- Tout capitaine, maître ou patron chargé de la conduite d'un navire ou bâtiment de mer, est garant de ses fautes, mêmes légères, commises dans l'exercice de ses fonctions.
 Article 264.- Il est responsable des marchandises ou denrées dont il se charge. Il en fournit une reconnaissance. Cette reconnaissance se nomme connaissement.
-Arrêt du 15 mars 1906, Bull des Arrêts 1905-1906, pp 53 et
-suiv. Le capitaine n'est responsable que des marchandises ou denrées indiquées dans le connaissement; les valeurs non déclarées sont aux risques du propriétaire et l'armateur ne doit être condamné à aucune restitution dans ce cas. 'Cet article non modifié ne porte pas le membre de phrase «d'office par le tribunal». Cc libellé est celui figurant dans le Code de commerce publié par Alexandre Poujol.
 Article 265.- Tout capitaine d'un bateau à vapeur ou à voiles, rentrant dans un port haïtien, est tenu de se conformer aux dispositions de la loi douanière concernant l'entrée des navires, sous peine de se voir appliquer par les autorités du Service des Douanes et du Service des Ports exerçant la police maritime dans les eaux territoriales haïtiennes, les sanctions prévues en cas d'infractions auxdites dispositions.•
 Article 266.- Tout capitaine d'un navire à vapeur, à moteur ou à voiles ne pourra opérer son déchargement dans un port haïtien qu'en se conformant aux prescriptions de la loi douanière y relative.
 Article 267.- Tout capitaine d'un navire à vapeur, à moteur, ou à voile sera tenu, avant de laisser un port haïtien pour reprendre la mer, d'observer les prescriptions de la loi douanière hailienne concernant l'expédition des navires ayant pris leur chargement à destination d'un autre port haïtien ou d'un port étranger.
@@ -870,8 +829,6 @@ Ce choix se fera néanmoins, et autant que possible, de concert avec les propri�
 Article 269.- Le capitaine est tenu d'avoir à son bord un registre spécial, dénommé «registre de bord», qui sera coté et paraphé par le doyen du tribunal civil, dans les ports où il existe un tribunal civil, ou par le juge de paix, dans les lieux où il n'y a pas de tribunal civil.
 Article 270.- Le capitaine est tenu, avant de prendre charge, de faire visiter son navire, aux termes et dans les formes prescrits par les règlements y relatifs. Copie du procès-verbal de visite sera déposée tant au greffe du tribunal civil ou au greffe du tribunal de paix qu'au bureau du Service du Port de sortie qui en assurera la conservation.
 En ce qui concerne les voiliers faisant le service du cabotage entre les ports haïtiens, ils devront, pour les mesures de sécurité nécessaires, se conformer aux dispositions du décret du 17 septembre 1942 sur le Service des Ports et à celles du décret du 6 novembre 1942………réglementant le cabotage, en vue d'assurer la complète sécurité des passagers et des marchandises. •Code douanier du 5 man 1987. arts 418 el suivants .
-Notes
-• Voir les arts. 379 et suivants du Code douanier du 5 mars 1987 sur le cabotage.
 Article 271.- Le capitaine est tenu d'avoir à bord:
 1°) L'acte de propriété du navire;
 2°) L'acte d'haïtianisation ou de naturalisation du navire;
@@ -907,13 +864,11 @@ Article 287.- Le capitaine qui a fait naufrage et qui s'est sauvé seul ou avec 
 S'il s'agit d'un port étranger où il aborde, il fera son rapport aux autorités ou au magistrat du lieu et le fera également certifier par ceux de son équipage sauvés avec lui, en en prenant expédition.
 Article 288.- Les autorités du Service des Ports haïtiens ou, en pays étranger, le consul haïtien du lieu, pour vérifier le rapport du capitaine, procèderont à l'interrogatoire des gens de l'équipage, s'il y en a de sauvés avec le capitaine, et même, s'il est possible, des passagers, sans préjudice des autres preuves.
 Les rapports non vérifiés ne sont point admis à la décharge du capitaine et ne font point foi en justice, excepté dans le cas où le capitaine naufragé s'est sauvé seul dans le lieu où il a fait son rapport. "Voir arts. 359, 360, 361 du Code douanier du S mars 1987.
-Notes
-• Voir Code douanier, arts. 379 et suivants sur le cabotage.
 Article 289.- Hors les cas de péril imminent, le capitaine ne peut décharger aucune marchandise ou denrée avant d'avoir fait son rapport, à peine de poursuites extraordinaires contre lui.
 Article 290.- Si les victuailles du bâtiment manquent pendant le voyage, le capitaine, en prenant l'avis des principaux de l'équipage, pourra contraindre ceux qui auront des vivres en particulier de les mettre en commun, à la charge de leur en payer la valeur.
-Titre V — — De l'engagement des matelots et gens de l'équipage
+Titre V — De l'engagement des matelots et gens de l'équipage
 Article 291.- Les conditions d'engagement du capitaine et des hommes de l'équipage d'un navire sont constatées par le rôle d'équipage ou par les conventions des parties.
-Titre VI — — Des chartes-parties, affrètements ou nolissements
+Titre VI — Des chartes-parties, affrètements ou nolissements
 Article 313.- Toute convention pour louage d'un vaisseau, appelée charte-partie, affi"ètement ou nolissement, doit être rédigée par écrit.
 Elle énonce:
 Le nom et le tonnage du navire;
@@ -926,14 +881,12 @@ L'indemnité convenue pour les cas de retard.
 Article 314.- Si le temps de la charge et de la décharge du navire n'est point fixé par la convention des parties, il est réglé suivant l'usage des lieux.
 Article 315.- Si le navire est frété au mois et s'il n'y a convention contraire, le fret court du jour où le navire a fait voile.
 Article 316.- Si, avant le départ du navire, il y a interdiction de commerce avec le pays pour lequel il est destiné, les
-Notes
-• Les articles 248 à 269 inclusivement du Titre V. correspondant aux articles 292 à 312 inclusivement ont été abrogés par le décret-loi du 22 décembre 1944. Le titre V ne C-Omporte qu'un seul article.
 Article 317.- S'il existe une force majeure qui n'empêche que pour un temps la sortie du navire, les conventions subsistent, et il n'y a pas lieu à dommages-intérêts en raison du retard.
 Elles subsistent également, et il n'y a lieu à aucune augmentation de fret, si la force majeure arrive pendant le voyage.
 Article 318.- Le chargeur peut, pendant l'arrêt du navire, faire décharger ses marchandises ou denrées à ses frais, à la condition de les recharger ou d'indemniser le capitaine.
 Article 319.- Dans le cas de blocus du port sur lequel le navire est destiné, le capitaine est tenu, s'il n'y a des ordres contraires, de se rendre dans un des ports voisins de la même Puissance où il lui sera permis d'aborder.
 Article 320.- Le navire, les agrès et apparaux, le fret et les marchandises ou denrées chargées sont respectivement affectés à l'exécution des conventions des parties.
-Titre VII — — Du connaissement
+Titre VII — Du connaissement
 Article 321.- Toute marchandise, exception faite des effets des passagers, arrivant de l'étranger autrement que par poste, doit être accompagnée d'un connaissement.
 Article 322.- Le connaissement indiquera:
 Le nom du chargeur et celui du navire;
@@ -943,8 +896,6 @@ Les marques, contre-marques et numéros de chaque colis;
 La nature de la marchandise;
 Le poids brut de chaque série de colis et son volume, si le volume a servi de base au calcul du fret; le prix du fret de chaque lot.
 Les dispositions ci-dessus relatives aux marques, contre-marques et numéros des colis, au poids et au volume de chaque série de colis ne seront pas applicables aux importations en «vrac», auxquels cas il suffira d'indiquer sur le connaissement le poids net et le volume du chargement, si le volume a servi de base au calcul du fret. •
-Notes
-• Rf Loi du 19 mai 1936 modifiant l'art 32 de la loi du 4 septembre 1905 sur les douanes, modifié par l'art 4 de celle du 29 mars 1935.
 Article 323.- Le connaissement aura un numéro d'ordre qui sera répété sur le manifeste consulaire et le consul ouvrira un registre où il inscrira ce numéro, en regard des noms du chargeur et du destinataire.
 Le consul refusera de viser tout connaissement qui indiquera un même numéro pour plus d'un colis.
 Article 324.- Le connaissement peut être à ordre, au porteur, demieralinéa ou à personne dénommée.
@@ -954,7 +905,7 @@ Le chargeur est tenu de fournir au capitaine, dans le même délai. les acquits 
 Article 326.- Le connaissement rédigé dans la forme ci-dessus prescrite fait foi entre toutes les parties intéressées au chargement, et entre elles et les assureurs.
 Article 327.- En cas de diversité entre les connaissements d'un même chargement. celui qui sera entre les mains du capitaine fera foi, s'il est rempli de la main du chargeur, ou de celle de son commissionnaire; et celui qui est présenté par le chargeur ou le commissionnaire sera suivi, s'il est rempli de la main du capitaine.
 Article 328.- Tout commissionnaire ou consignataire qui aura reçu des marchandises mentionnées dans les connaissements ou chartes-parties, sera tenu d'en donner reçu au capitaine qui le demandera, à peine de tous dépens et dommages-intérêts, même de ceux de retardement.
-Titre Viii — — Du fret ou nolis
+Titre VIII — Du fret ou nolis
 Article 329.- Le prix du loyer d'un navire ou autre bâtiment de mer est appelé fret ou nolis.
 Il est réglé par les convention des parties.
 Article 330.- Si le navire est loué en totalité, et que l'affréteur ne lui donne pas toute sa charge, le capitaine ne peut prendre d'autres marchandises ou denrées sans le consentement de l'affréteur.
@@ -1001,7 +952,7 @@ Article 351.- En cas de faillite des chargeurs ou réclamateurs avant l'expirati
 Article 352.- En aucun cas, le chargeur ne peut demander de diminution sur le prix du fret.
 Article 353.- Le chargeur ne peut abandonner pour le fret les marchandises ou denrées diminuées de prix ou détériorées par leur vice propre ou par cas fortuit.
 Si toutefois des futailles contenant vin, huile, miel et autres liquides, ont tellement coulé qu'elles soient vides ou presque vides, lesdites futailles pourront être abandonnées pour le fret.
-Titre IX — — Du contrat à la grosse
+Titre IX — Du contrat à la grosse
 Article 354.- Le contrat à la grosse est fait devant notaire ou sous signature privée. Il énonce:
 Le capital prêté et la somme convenue pour le profit maritime;
 Les objets sur lesquels le prêt est affecté;
@@ -1039,8 +990,8 @@ Article 372.- Celui qui emprunte à la grosse sur des marchandises ou denrées, 
 Article 373.- Les prêteurs à la grosse contribuent à la décharge des emprunteurs, aux avaries communes.
 Les avaries simples sont aussi à la charge des prêteurs, s'il n'y a convention contraire.
 Article 374.- S'il y a contrat à la grosse et assurances sur le L 19 /év 1949 même navire ou sur le même chargement, le produit des effets sauvés du naufrage est partagé entre le prêteur à la grosse pour son capital seulement et l'assureur pour les sommes assurées au marc la gourde de leur intérêt respectif, sans préjudice des privilèges établis en l'article 231 du Code de commerce.
-Titre X — — Des assurances
-Section Première — — Du contrat d'assurance, de sa forme et de son objet
+Titre X — Des assurances
+Section Première — Du contrat d'assurance, de sa forme et de son objet
 Article 375.- Le contrat d'assurance est rédigé par écrit, il est daté du jour où il est souscrit.
 Il y est énoncé si c'est avant ou après-midi.
 Il peut être fait sous signature privée.
@@ -1084,7 +1035,7 @@ L'assureur a le même droit en cas de faillite de l'assuré.
 Article 390.- Le contrat d'assurance est nul s'il a pour objet les sommes empruntées à la grosse.
 Article 391.- Toute réticence, toute fausse déclaration de la part de l'assuré, toute différence entre le contrat d'assurance et le connaissement qui diminueraient l'opinion du risque ou en changeraient le sujet, annulent l'assurance.
 L'assurance est nulle, même dans le cas où la réticence, la fausse déclaration ou la différence n'auraient pas influé sur le dommage ou la perte de l'objet assuré.
-Section Ii — — Des obligations de l'assureur et de l'assuré
+Section II — Des obligations de l'assureur et de l'assuré
 Article 392.- Si le voyage est rompu avant le départ du vaisseau, même par le fait de l'assuré, l'assurance est annulée; l'assureur reçoit à titre d'indemnité, demi pour cent de la somme assurée.
 Article 393.- Sont aux risques des assureurs, toutes pertes et dommages qui arrivent aux objets assurés, par tempête, naufrage, échouement, abordage fortuit, changements forcés de route, de voyage ou de vaisseau, par jet, feu, prise, pillage, arrêt par ordre de Puissance, déclaration de guerre, représailles et généralement par toutes autres fortunes de mer.
 Article 394.- Tout changement de route, de voyage ou de vaisseau et toutes pertes et dommages provenant du fait de l'assuré, ne sont point à la charge de l'assureur, et même la prime lui est acquise, s'il a commencé à courir les risques.
@@ -1111,7 +1062,7 @@ Le contrat n'est annulé que sur la preuve que l'assuré savait la perte, ou l'a
 Article 410.- En cas de preuve contre l'assuré, celui-ci paie à l'assureur une double prime.
 En cas de preuve contre l'assureur, celui-ci paie à l'assuré une somme double de la prime convenue.
 Celui d'entre eux contre qui la preuve est faite est poursuivi correctionnellement.
-Section Iii — — Du délaissement
+Section III — Du délaissement
 Article 411.- Le délaissement des objets assurés peut être fait:
 En cas de prise;
 De naufrage;
@@ -1160,7 +1111,7 @@ Article 436.- si, dans les délais prescrits par l'article 429, le capitaine n'a
 Article 437.- En cas de prise, si l'assuré n'a pu en donner avis à l'assureur, il peut racheter les effets sans attendre son ordre.
 L'assuré est tenu de signifier à l'assureur la composition qu'il aura faite, aussitôt qu'il en aura les moyens.
 Article 438.- L'assureur a le choix de prendre la composition à son compte ou d'y renoncer; il est tenu de notifier son choix à l'assuré dans les vingt-quatre heures qui suivent la signification de la composition.
-Titre XI — — Des avaries
+Titre XI — Des avaries
 Article 439.- Toutes dépenses extraordinaires faites pour le navire et les marchandises, conjointement ou séparément, tout dommage qui arrive au navire et aux marchandises depuis leur chargement, sont réputés avaries.
 Article 440.- A défaut de conventions spéciales entre toutes les parties, les avaries sont réglées conformément aux dispositions ci-après:
 Article 441.- Les avaries sont de deux classes: avaries grosses ou communes et avaries simples ou particulières.
@@ -1189,7 +1140,7 @@ Article 448.- Les divers droits de navigation ne sont point avaries, mais sont d
 Article 449.- En cas d'abordage survenu entre navires de mer
 Article 450.- Une demande pour avaries n'est point recevable, si l'avarie commune n'excède pas un pour cent de la valeur
 Article 451.- La clause «franc d'avaries» affranchit les assureurs de toutes avaries soit communes, soit particulières, excepté dans les cas qui donnent ouverture au délaissement; et dans ces cas, les assurés ont l'option entre le délaissement et l'exercice d'action d'avarie.
-Titre XII — — Du jet et de la contribution
+Titre XII — Du jet et de la contribution
 Article 452.- Si par tempête ou par la chasse de l'ennemi, le capitaine se croit obligé pour le salut du navire, de jeter en mer une partie de son chargement, de couper ses mâts, ou d'abandonner ses ancres, il prend l'avis des intéressés au chargement qui se trouvent dans le vaisseau et des principaux de l'équipage.
 S'il y a diversité d'avis, celui du capitaine et des principaux de l'équipage est suivi.
 Article 453.- Les choses les moins nécessaires, les plus pesantes et de moindre prix sont jetées les premières, et ensuite les marchandises du premier pont, au choix du capitaine, et par l'avis des principaux de l'équipage.
@@ -1225,23 +1176,23 @@ Article 469.- En cas de perte des marchandises mises dans des barques pour allé
 Si le navire périt avec le reste de son chargement, il n'est fait aucune répartition sur les marchandises mises dans les allèges, quoiqu'elles arrivent à bon port.
 Article 470.- Dans tous les cas ci-dessus exprimés, le capitaine et l'équipage sont privilégiés sur les marchandises ou le prix en provenant, pour le montant de la contribution.
 Article 471.- Si, depuis la répartition, les effets jetés sont recouvrés par les propriétaires, ils sont tenus de rapporter au capitaine et aux intéressés ce qu'ils ont reçu dans la contribution, déduction faite des dommages causés par le jet et des frais de recouvrement.
-Titre Xiii — — Des prescriptions
+Titre XIII — Des prescriptions
 Article 472.- Le capitaine ne peut acquérir la propriété du navire par voie de prescription.
 Article 473.- L'action en délaissement est prescrite dans les délais établis par l'article 415.
 Toute action dérivant d'un contrat à la grosse ou d'une police d'assurance, est prescrite après cinq ans, à compter de la date du contrat.
 Article 474.- Sont prescrites:
-Titre XIV — — Des fins de non-recevoir
+Titre XIV — Des fins de non-recevoir
 Article 475.- Sont non recevables:
 Article 476.- Toutes actions, en cas d'abordage, pour L 15Jull 1915 dommages aux personnes ou aux biens qui leur auraient été occasionnés, tels que ces différents faits d'abordage sont prévus par l'article 449 du Titre XI des Avaries, du Code de Commerce, sont prescrites après deux ans, à compter du jour de l'accident.
 Toutefois, le recours prévu au paragraphe 3, alinéa 3 du susdit article, est prescrit après un an, à compter du jour où le paiement a été effectué.
 Les délais prévus aux deux paragraphes précédents ne courent pas lorsque le navire défendeur n'a pu être saisi dans les eaux territoriales haïtiennes.
-Livre Troisieme — Des faillites et banqueroutes
-Titre Premier — — De la faillite Dispositions générales
+Livre Troisième — Des faillites et banqueroutes
+Titre Premier — De la faillite Dispositions générales
 Article 477.- Tout commerçant qui cesse ses paiements est en état de faillite.
 La faillite d'un commerçant peut être déclarée après son décès, lorsqu'il est mort en état de cessation de paiements.
 La déclaration de faillite ne pourra être, soit prononcée d'office, soit demandée par les créanciers, que dans l'année qui suivra le décès.
 En cas de faillite d'une société, la faillite pourra être déclarée commune à toute personne qui, sous le couvert de cette société masquant ses agissements, a fait dans son intérêt personnel des actes de commerce et disposé en fait des capitaux sociaux comme des siens propres.
-Chapitre PREMIER — — De la déclaration de faillite et de ses effets
+Chapitre Premier — De la déclaration de faillite et de ses effets
 Article 478.- Tout failli sera tenu dans les huit jours de la cessation de ses paiements, d'en faire la déclaration au greffe du tribunal civil de son domicile; le jour de la cessation de paiement sera compris dans les huit jours.
 En cas de faillite d'une société en nom collectif, la déclaration contiendra le nom et l'indication du domicile de chacun des associés solidaires. Elle sera faite au greffe du tribunal civil dans le ressort duquel se trouve le siège du principal établissement de la société.
 Article 479.- La déclaration du failli devra être accompagnée du dépôt du bilan, ou contenir l'indication des motifs qui empêchent le failli de le déposer. Le bilan contiendra l'énumération et l'évaluation de tous les biens mobiliers et immobiliers du débiteur, l'état des dettes actives et passives, le tableau des profits et pertes, le tableau des dépenses; il devra être certifié véritable, daté et signé par le débiteur.
@@ -1268,7 +1219,7 @@ Article 489.- Dans le cas où les lettres de change auraient été payées aprè
 S'il s'agit d'un billet à ordre, l'action ne pourra être exercée que contre le premier endosseur.
 Dans l'un et l'autre cas, la preuve que celui à qui on demande le rapport avait connaissance de la cessation de paiement, à l'époque de l'émission du titre devra être fournie.
 Article 490.- Le syndic aura pour les baux d'immeubles affectés
-Chapitre II — — De l'apposition des scellés et des premières dispositions à l'égard de la personne du failli
+Chapitre II — De l'apposition des scellés et des premières dispositions à l'égard de la personne du failli
 Article 491.- Par le jugement qui déclarera l'ouverture de la faillite, le tribunal civil (jugeant en ses attributions commerciales), ordonnera l'apposition des scellés et le dépôt de la personne du failli dans la maison d'arrêt pour dettes.
 Article 492.- Lorsque le failli, dans les huit jours de la cessation de ses paiements, aura fait au greffe du tribunal civil la déclaration prescrite par l'article 478 du présent Code et ne sera point, au moment de ladite déclaration, incarcéré pour dettes ou pour toute autre cause, le tribunal pourra l'affranchir du dépôt à la charge par lui d'être présent en personne à toutes les opérations de la faillite pour en faciliter la liquidation.
 Néanmoins, la disposition qui affranchirait le failli du dépôt n'aura qu'un caractère provisoire et pourra, suivant les circonstances, être rapportée par le tribunal, même d'office.
@@ -1279,11 +1230,11 @@ En cas de faillite d'une société en nom collectif, les scellés seront apposé
 Dans tous les cas, le juge de paix donnera, sans délai, au juge tenant les audiences des affaires commerciales du tribunal civil, avis de l'apposition des scellés
 De même, le greffier du tribunal civil adressera, dans les vingt-quatre heures, au commissaire du Gouvernement près le tribunal civil, un extrait du dispositif de tout jugement déclaratif de faillite, mentionnant les principales indications et dispositions y contenues, pour son information.
 Article 495.- Les dispositions qui ordonneront le dépôt de la personne du failli dans une maison d'arrêt pour dettes, seront exécutées à la diligence soit du Ministère public, soit du syndic de la faillite.
-Chapitre III — — Du juge-commissaire de la faillite et de ses fonctions
+Chapitre III — Du juge-commissaire de la faillite et de ses fonctions
 Article 496.- Le juge du tribunal civil, délégué par le doyen pour tenir les audiences de la Chambre des affaires commerciales remplira, en même temps et sans désignation spéciale à cet égard dans le jugement déclaratif de la faillite, les fonctions de juge- commissaire de toute faillite déclarée, pendant toute la durée des opérations auxquelles elle donnera lieu.
 A cet titre, il sera chargé d'accélérer et de surveiller lesdites opérations et de contrôler la gestion de la faillite.
 Toutes les difficultés qui pourront s'élever à cette occasion seront portées devant le tribunal qui les tranchera par
-Chapitre IV — — Section première Du syndic de la faillite et de ses fonctions
+Chapitre IV — Section première Du syndic de la faillite et de ses fonctions
 Article 497.- Le directeur de l'Administration Générale des Contributions remplira, dans toute faillite déclarée, les fonctions de syndic, jusqu'à la clôture de la faillite. (L. 21 avril 1940 modifiée par D-L. 5 septembre 1941)
 En conséquence, le greffier du tribunal civil qui aura prononcé le jugement déclaratif de la faillite sera tenu, dans les vingt-quatre heures du prononcé, de notifier au bureau des Contributions du lieu une copie certifiée du dispositif de cette décision.
 Article 498.- Si l'apposition des scellés n'avait point eu lieu, le syndic requerra le juge de paix d'y procéder sans retard.
@@ -1306,7 +1257,7 @@ Le failli, pour répondre à l'objet de cette sommation, devra comparaître en p
 Article 507.- Dans le cas où le bilan n'aurait pas été déposé par le failli, le syndic le dressera immédiatement à l'aide des livres et papiers du failli et des renseignements qu'il pourra se procurer. Il pourra se faire assister dans la confection du bilan par des comptables ou experts qu'il choisira en nombre suffisant et dont il fixera les émoluments, d'abord avec le juge-commissaire.
 Article 508.- Le juge-commissaire est autorisé à entendre le failli, ses commis et employés et toute autre personne, tant sur ce qui concerne le bilan que sur les causes et circonstances de la faillite.
 Article 509.- Lorsqu'un commerçant aura été déclaré en état de faillite après son décès, lorsque le failli viendra à décéder après la déclaration de la faillite, sa veuve, ses enfants, ses héritiers pourront se présenter ou se faire représenter, pour le suppléer dans la formation du bilan, ainsi que dans toutes les autres opérations de la faillite.
-Section Ii — — De la levée des scellés et de l'inventaire
+Section II — De la levée des scellés et de l'inventaire
 Article 510.- Dans les trois jours, le syndic requerra la levée des scellés et procédera à l'inventaire des biens du failli, lequel sera présent ou dûment appelé.
 Article 511.- L'inventaire sera dressé en double minute par le syndic, à mesure que les scellés seront levés, et en présence du juge de paix, qui le signera à chaque vacation.
 L'une de ces minutes sera déposée au greffe du tribunal civil dans les 24 heures et l'autre restera entre les mains du syndic.
@@ -1315,7 +1266,7 @@ Il sera fait récolement des objets qui n'auraient pas été mis sous scellés e
 Article 512.- En cas de déclaration de faillite après décès, lorsqu'il n'aura point été fait d'inventaire antérieurement à cette déclaration, ou en cas de décès du failli avant l'ouverture de l'inventaire, il y sera procédé immédiatement dans les formes du précédent article et en présence des héritiers ou eux dûment appelés.
 Article 513.- En toute faillite, le syndic, dans la quinzaine de son
 Article 514.- Les officiers du Ministère public, pourront se transporter au domicile du failli ou de la société en état de faillite, pour assister, si bon leur semble, à l'inventaire et à la rédaction du bilan. Ils auront, à toute époque, le droit de requérir communication de tous les actes, livres ou papiers relatifs à la faillite, se faire donner tous les actes, livres ou papiers relatifs à la faillite, se faire donner tous les renseignements qui en résulteront, et faire en conséquence les actes et poursuites, le tout, d'office et sans frais.
-Section Iii — — De la vente des marchandises et meubles, et des recouvrements
+Section III — De la vente des marchandises et meubles, et des recouvrements
 Article 515.- L'inventaire terminé, les marchandises, l'argent, les titres actifs, les livres et papiers, meubles et effets du débiteur seront remis au syndic, qui s'en chargera au bas dudit inventaire.
 Article 516.- Le syndic continuera de procéder, sous la surveillance du juge-commissaire, au recouvrement des dettes actives.
 Article 517.- Le juge-commissaire pourra. le failli entendu ou dûment appelé, autoriser le syndic à procéder à la vente des effets mobiliers ou marchandises.
@@ -1325,7 +1276,7 @@ Article 519.- Les deniers provenant des ventes et des recouvrements seront, sous
 Les deniers versés par le syndic, et tous autres consignés par des tiers pour compte de la faillite, ne pourront être retirés qu'en vertu d'une ordonnance du juge-commissaire. ·Il s'agit plutôt aujowù'hui de la Banque Nationale de Crédit.
 S'il existe des oppositions, le syndic devra préalablement en obtenir la main-levée.
 Le juge-commissaire pourra ordonner que le versement sera fait par la Banque Nationale de la République d'Haïti entre les mains des créanciers de la faillite, sur un état de répartition dressée par le syndic et ordonnancé par lui.
-Section Iv — Des actes conservatoires
+Section IV — Des actes conservatoires
 Article 520.- À compter de son entrée en fonction, le syndic sera tenu de faire tous les actes pour la conservation des droits du failli contre ses débiteurs.
 Il sera aussi tenu de requérir l'inscription des hypothèques sur les immeubles des débiteurs du failli, si elle n'a pas été requise par lui; l'inscription sera prise au nom de la masse par le syndic, qui joindra à ses bordereaux un certificat constatant l'ouverture de la faillite et la qualité en laquelle il procède.
 Il sera tenu aussi de prendre inscription, au nom de la masse des créanciers, sur les immeubles du failli dont il connaîtra l'existence.
@@ -1365,7 +1316,7 @@ Article 534.- Aux lieu, jour et heure qui seront fixés par le juge-commissaire,
 Le failli sera appelé à cette assemblée; il devra s'y présenter en personne, s'il a été dispensé de la mise en dépôt, ou s'il a obtenu un sauf-conduit; et il ne pourra s'y faire représenter que pour des motifs valables et approuvés par le juge-commissaire.
 Article 535.- Le syndic fera à cette assemblée un rapport sur l'état de la faillite, sur les formalités qui auront été remplies et les opérations qui auront eu lieu. Le failli sera entendu.
 Le rapport du syndic sera remis, signé de lui, au juge-commissaire, qui dressera procès-verbal de ce qui aura été décidé par l'assemblée.
-Section Ii — Du concordat
+Section II — Du concordat
 § 1er — De la formation du concordat Anc. art. 507 fr. mod. D-L 8 août 1935
 Article 536.- Il ne pourra être consenti de traité entre les créanciers délibérants et le débiteur failli qu'après l'accomplissement des formalités ci-dessus prescrites.
 Ce traité ne s'établira que par un vote à la double majorité des voix et des deux tiers des sommes dont les créances ont été admises définitivement ou par provision, conformément à la Section V du Chapitre IV du présent Code de commerce, le tout à peine de nullité.
@@ -1415,12 +1366,12 @@ Article 553.- Les actes faits au failli postérieurement au jugement d'homologat
 Article 554.- Les créanciers antérieurs au concordat rentreront dans l'intégralité de leurs droits à l'égard du failli seulement; mais ils ne pourront figurer dans la masse que pour les proportions suivantes :
 1°) S'ils n'ont touché aucune part du dividende, pour l'intégralité de leurs créances;
 2°) S'ils ont reçu une partie du dividende, pour la portion de leurs créances primitives correspondant à la portion de dividende promis qu'ils n'auront pas touchée.
-Section Iii — De la clôture en cas d'insuffisance de l'actif Anc. art. 527 fr. mod. D-L 8 août 1935
+Section III — De la clôture en cas d'insuffisance de l'actif Anc. art. 527 fr. mod. D-L 8 août 1935
 Article 555.- Si, à quelque époque que ce soit, avant l'homologation du concordat ou la formation de l'union, le cours des opérations de la faillite se trouve arrêté par insuffisance de l'actif, le tribunal, suivant les circonstances, pourra prononcer la clôture des opérations de la faillite.
 Ce jugement fera rentrer chaque créancier dans l'exercice de ses actions individuelles, tant contre les biens que contre la personne du failli.
 Article 556.- Le failli, ou tout autre intéressé, pourra, à toute époque, faire rapporter ce jugement de clôture par le tribunal, en justifiant qu'il existe des fonds pour faire face aux frais des opérations de la faillite, ou en faisant consigner entre les mains du syndic somme suffisante pour y parvenir.
 Dans tous les cas, les frais des poursuites exercées en vertu de l'article précédent devront être préalablement acquittés.
-Section Iv — De l'union des créanciers
+Section IV — De l'union des créanciers
 Article 557.- S'il n'intervient point de concordat, les créanciers seront de plein droit en état d'union.
 Le juge-commissaire les consultera immédiatement sur les faits de gestion du syndic.
 Les créanciers privilégiés, hypothécaires ou nantis d'un gage, seront admis à cette délibération.
@@ -1457,7 +1408,7 @@ Article 570.- Aucun recours pour raison des dividendes payés n'est ouvert aux f
 Article 571.- Si le créancier porteur d'engagements solidaires entre le failli et d'autres co-obligés a reçu, avant la faillite, un acompte sur sa créance, il ne sera compris dans la masse que sous déduction de cet acompte, et conservera, pour ce qui lui restera dû, ses droits entre le co-obligé et la caution.
 Le co-obligé ou la caution qui aura fait le paiement partiel sera compris dans la masse pour tout ce qu'il a payé à la décharge du failli.
 Article 572.- Nonobstant le concordat, les créanciers conservent leur action pour la totalité de leurs créances contre les co-obligés du failli.
-Section Ii — Des créanciers nantis d'un gage et des créances privilégiées sur les biens meubles
+Section II — Des créanciers nantis d'un gage et des créances privilégiées sur les biens meubles
 Article 573.- Les créanciers du failli qui seront valablement nantis de gages ne seront inscrits dans la masse que pour mémoire.
 Article 574.- Le syndic, à toute époque, pourra, avec l'autorisation du juge-commissaire, retirer les gages au profit de la faillite, en remboursant la dette.
 Article 575.- Dans le cas où le gage ne sera pas retiré par le syndic, s'il est vendu par le créancier moyennant un prix qui excède la créance, le surplus sera recouvré par le syndic; si le prix est moindre que la créance, le créancier nanti viendra à contribution pour le surplus, dans la masse, comme créancier ordinaire.
@@ -1470,7 +1421,7 @@ Lorsqu'il y aura vente et enlèvement des meubles garnissant les lieux loués, l
 Le syndic pourra continuer le bail pour tout le temps à courir, à la charge par lui de maintenir dans l'immeuble gage suffisant, et d'exécuter, au fur et à mesure des échéances, toutes les obligations résultant du contrat, mais sans que la destination des lieux loués puisse être changée.
 Dans le cas où le bail contiendrait interdiction de céder ou de sous-louer, les créanciers ne pourront faire leur profit de la location que pour le temps à raison duquel le bailleur aurait touché ses loyers par anticipation, et toujours sans que la destination des lieux puisse être changée.
 Le privilège et le droit de revendication établis par le N° 4 de l'article 1869 du Code civil, au profit du vendeur d'effets mobiliers, ne peuvent être exercés contre la faillite.
-Section Iii — Des droits des créanciers hypothécaires et privilégiés sur les immeubles
+Section III — Des droits des créanciers hypothécaires et privilégiés sur les immeubles
 Article 579.- Lorsque la distribution du prix des immeubles sera faite antérieurement à celle du prix des meubles, ou simultanément, les créanciers privilégiés ou hypothécaires, non remplis sur le prix des immeubles, concourront, à proportion de ce qui leur restera dû, avec les créanciers chirographaires, sur les deniers appartenant à la masse chirographaire, pourvu toutefois que leurs créances aient été vérifiées et affirmées suivant les formes établies.
 Article 580.- Si une ou plusieurs distributions des deniers mobiliers précèdent la distribution du prix des immeubles, les créanciers privilégiés et hypothécaires vérifiés et affirmés concourront aux répartitions dans la proportion de leurs créances totales, et sauf, le cas échéant, les distractions dont il sera parlé ci-après.
 Article 581.- Après la vente des immeubles et le règlement définitif de l'ordre entre les créanciers hypothécaires et privilégiés, ceux d'entre eux qui viendront en ordre utile sur le prix des immeubles pour la totalité de leur créance ne toucheront le montant de leur collocation hypothécaire que sous la déduction des sommes par eux perçues dans la masse chirographaire.
@@ -1478,7 +1429,7 @@ Les sommes ainsi déduites ne resteront point dans la masse hypothécaire, mais 
 Article 582.- À l'égard des créanciers hypothécaires qui ne seront colloqués que partiellement dans la distribution du prix des immeubles, il sera procédé comme il suit :
 Leurs droits sur la masse chirographaire seront définitivement réglés d'après les sommes dont ils resteront créanciers après leur collocation immobilière; et les deniers qu'ils auront touchés au-delà de cette proportion, dans la distribution antérieure, leur seront retenus sur le montant de leur collocation hypothécaire, et reversés dans la masse chirographaire.
 Article 583.- Les créanciers hypothécaires qui ne viennent pas en ordre utile seront considérés comme chirographaires, et soumis comme tels aux effets de la masse chirographaire.
-Section Iv — Des droits de la femme
+Section IV — Des droits de la femme
 Article 584.- En cas de faillite du mari, la femme dont les apports en immeubles ne se trouveraient pas mis en communauté, reprendra en nature lesdits immeubles et ceux qui lui seront survenus par succession entre-vifs ou testamentaire.
 Article 585.- La femme reprendra pareillement en nature les immeubles acquis par elle et en son nom des deniers provenant desdites successions et donations, ainsi que ceux qu'elle aurait acquis pendant le mariage au moyen des économies réalisées dans son travail personnel ou dans l'exercice d'une profession distincte de celle de son mari, au contrat d'acquisition et que l'origine des deniers soit constatée par un inventaire ou par tout autre acte authentique ou suivant le mode de preuve établi par l'article 4 du décret-loi du 11 janvier 1944, créant un statut nouveau à la femme mariée qui travaille.
 Sous quelque régime qu'ait été formé le contrat de mariage, hors les cas prévus au 1er alinéa du présent article, la présomption légale est que les immeubles acquis par la femme du failli appartiennent à son mari, ont été payés de ses deniers, et doivent être réunis à la masse de son actif, sauf à la femme à fournir la preuve contraire.
@@ -1538,7 +1489,7 @@ Article 607.- Ne seront susceptibles ni d'opposition ni de recours en cassation 
 3°) Les jugements autorisant la continuation de l'exploitation du fonds de commerce du failli ou de la société en état de faillite;
 4°) Les jugements par lesquels le tribunal statue sur les recours formés contre les ordonnances rendues par le juge-commissaire dans les limites de ses attributions.
 Titre II — Des banqueroutes
-Chapitre PREMIER — De la banqueroute simple Anc. art. 585 fr. mod. D-L 17 juin 1938
+Chapitre Premier — De la banqueroute simple Anc. art. 585 fr. mod. D-L 17 juin 1938
 Article 608.- Sera déclaré banqueroutier simple, tout commerçant failli qui se trouvera dans un des cas suivants :
 1°) Si ses dépenses personnelles ou les dépenses de sa maison sont jugées excessives;
 2°) S'il est reconnu qu'il a consommé de fortes sommes, soit à des opérations de pur hasard, soit à des opérations fictives de bourse ou sur marchandises;
@@ -1574,7 +1525,7 @@ Article 615.- Le même jugement qui aura prononcé les peines prévues par le Co
 Article 616.- Les cas de banqueroute frauduleuse seront poursuivis d'office devant les tribunaux criminels, par les commissaires du Gouvernement, sur la notoriété publique ou sur la dénonciation, soit du syndic, soit d'un ou de plusieurs créanciers.
 Si un ou plusieurs créanciers se sont portés partie civile au procès criminel en leur nom personnel, les frais, en cas d'acquittement, demeureront à leur charge.
 Article 617.- Les jugements des tribunaux criminels contre les banqueroutiers frauduleux et leurs complices seront, à la diligence du Ministère public, affichés et insérés dans un journal, si dans le lieu où siège le tribunal criminel qui a statué sur le fait, il en existe un.
-Section Ii — Des dispositions spéciales — Des délits commis dans les faillites par d'autres que par les faillis
+Section II — Des dispositions spéciales — Des délits commis dans les faillites par d'autres que par les faillis
 Article 618.- Le conjoint, les descendants ou les ascendants du failli ou ses alliés au même degré, qui auraient détourné, diverti ou recelé des effets appartenant à la faillite, sans avoir agi de complicité avec le failli, seront poursuivis et punis comme coupables de vol.
 Article 619.- Le créancier qui aura stipulé, soit avec le failli, soit avec toutes autres personnes, des avantages particuliers à raison de son vote dans les délibérations de la faillite, ou qui aura fait un trafic particulier duquel résulterait en sa faveur un avantage à la charge de l'actif de la faillite, sera puni par le tribunal correctionnel d'un emprisonnement qui ne pourra excéder une année et d'une amende qui ne pourra être moindre de mille gourdes.
 Lesdites conventions pourront être, en outre, déclarées nulles à l'égard de toutes personnes, même à l'égard du failli, par le tribunal civil.
@@ -1621,7 +1572,7 @@ En cas d'empêchement dûment justifié des juges de la compétence, le doyen po
 Il y aura par semaine, dans chaque tribunal civil, une audience commerciale, sauf au siège de Port-au-Prince où il en sera tenu au moins trois.
 La durée de l'audience commerciale sera celle de l'audience civile ordinaire.
 Article 637.- En cas de déclaration de faillite, d'un commerçant ou d'une société commerciale, le juge chargé des audiences commerciales du tribunal civil, remplira, pendant toute la durée des opérations de la faillite, les fonctions de juge-commissaire, conformément aux prescriptions du Chapitre III, Titre Premier du Livre III du présent Code de commerce, qui en déterminera les fonctions et attributions.
-Chapitre PREMIER
+Chapitre Premier
 Section Première — De la compétence de la Chambre des affaires commerciales des tribunaux civils
 Article 638.- La Chambre des affaires commerciales de chaque tribunal civil connaîtra :
 1°) Des contestations relatives aux engagements et transactions entre négociants, marchands et banquiers;
@@ -1634,7 +1585,7 @@ Article 640.- Lorsque le litige aura pour objet des faits qui ne sont pas nés �
 Article 641.- Lorsque les billets à ordre porteront en même temps des signatures d'individus négociants et d'individus non négociants, la Chambre des affaires commerciales du tribunal civil connaîtra, mais elle ne pourra prononcer la contrainte par corps contre les individus non négociants à moins qu'ils ne soient engagés à l'occasion d'opérations de commerce, trafic, change, banque, courtage.
 Article 642.- Ne sont point de la compétence de la Chambre des affaires commerciales du tribunal civil les actions intentées contre un propriétaire, ou cultivateur, pour vente de denrées et marchandises achetées pour son usage particulier.
 Néanmoins, les engagements, authentiques ou privés, consentis par le commerçant même envers un non-commerçant seront censés faits pour les besoins de son commerce lorsqu'une autre cause n'y sera point énoncée.
-Section Ii — Compétence des tribunaux de paix en matière commerciale
+Section II — Compétence des tribunaux de paix en matière commerciale
 Article 643.- Les affaires commerciales définies par le Code de commerce dont le taux n'excédera pas six cents gourdes ou cent vingt dollars sont de la compétence des tribunaux de paix, jugeant en leurs attributions commerciales.
 L'affaire sera de la compétence en premier ressort des tribunaux de paix, lorsque le taux de la demande excédera trois cents gourdes ou soixante dollars.
 Elle sera jugée en dernier ressort lorsque le taux de la demande ne dépassera pas trois cents gourdes ou soixante dollars.

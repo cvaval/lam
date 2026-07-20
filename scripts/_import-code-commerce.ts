@@ -56,47 +56,42 @@ async function main() {
 
   const theme = await ensureThemeCommercial()
 
-  // ── Purge de l'ancien import (base + OpenSearch lam_legislation) ──
-  const old = await prisma.document.findFirst({ where: { source: SOURCE }, select: { id: true } })
-  if (old) {
-    await prisma.documentTheme.deleteMany({ where: { documentId: old.id } })
-    await prisma.crossRef.deleteMany({ where: { fromId: old.id } }).catch(() => {})
-    await prisma.document.delete({ where: { id: old.id } })
-    const os = process.env.OPENSEARCH_NODE
-    if (os) {
-      const auth = 'Basic ' + Buffer.from(`${process.env.OPENSEARCH_USERNAME ?? ''}:${process.env.OPENSEARCH_PASSWORD ?? ''}`).toString('base64')
-      await fetch(`${os.replace(/\/$/, '')}/lam_legislation/_doc/${old.id}`, { method: 'DELETE', headers: { Authorization: auth } }).catch(() => {})
-    }
-    console.log('Ancien import purgé (base + OpenSearch).')
-  }
-
   const searchText = buildSearchText({ titleFr: TITLE, matiere: 'commercial', bodyOriginal: body })
-  const doc = await prisma.document.create({
-    data: {
-      type: 'LEGISLATION',
-      status: 'EN_VIGUEUR',
-      titleFr: TITLE,
-      number: 'Code de commerce',
-      originalLang: 'fr',
-      matiere: 'commercial',
-      publicationDate: new Date('1826-03-28'),
-      bodyOriginal: body,
-      annotationsJson: JSON.stringify(struct),
-      searchText,
-      source: SOURCE,
-      summaryFr:
-        'Code de commerce d’Haïti (promulgué en 1826) — édition Vandal consolidée : Livres I à IV ' +
-        '(commerce en général ; commerce maritime ; faillites et banqueroutes ; juridiction commerciale), ' +
-        '644 articles avec mentions de modification et d’abrogation (têtes « (L. / D. …) », marqueurs « mod »), ' +
-        'jurisprudence annotée sous les articles, table des matières hiérarchique (Livres, Titres, Chapitres, ' +
-        'Sections) et index alphabétique de l’édition dans le menu latéral. Les lois et décrets d’application ' +
-        '(sociétés, institutions financières, propriété industrielle, commerce maritime et aérien, fiscalité) ' +
-        'sont publiés en textes séparés dans le même thème « Droit commercial ».',
-    },
-  })
-  console.log(`Document créé : ${doc.id} (${(body.length / 1024) | 0} Ko, annotationsJson ${(JSON.stringify(struct).length / 1024) | 0} Ko)`)
+  const data = {
+    type: 'LEGISLATION',
+    status: 'EN_VIGUEUR',
+    titleFr: TITLE,
+    number: 'Code de commerce',
+    originalLang: 'fr',
+    matiere: 'commercial',
+    publicationDate: new Date('1826-03-28'),
+    bodyOriginal: body,
+    annotationsJson: JSON.stringify(struct),
+    searchText,
+    source: SOURCE,
+    summaryFr:
+      'Code de commerce d’Haïti (promulgué en 1826) — édition Vandal consolidée : Livres I à IV ' +
+      '(commerce en général ; commerce maritime ; faillites et banqueroutes ; juridiction commerciale), ' +
+      '644 articles avec mentions de modification et d’abrogation (têtes « (L. / D. …) », marqueurs « mod »), ' +
+      'jurisprudence annotée sous les articles, table des matières hiérarchique (Livres, Titres, Chapitres, ' +
+      'Sections) et index alphabétique de l’édition dans le menu latéral. Les lois et décrets d’application ' +
+      '(sociétés, institutions financières, propriété industrielle, commerce maritime et aérien, fiscalité) ' +
+      'sont publiés en textes séparés dans le même thème « Droit commercial ».',
+  } as const
 
-  await prisma.documentTheme.create({ data: { documentId: doc.id, themeId: theme.id, isPrimary: true, assignedBy: 'IMPORT' } })
+  // ── Mise à jour EN PLACE si déjà importé (id stable → renvois CrossRef vers le
+  //    Code préservés, ex. « C. com. » du décret Sûretés). Sinon création. ──
+  const old = await prisma.document.findFirst({ where: { source: SOURCE }, select: { id: true } })
+  const doc = old
+    ? await prisma.document.update({ where: { id: old.id }, data })
+    : await prisma.document.create({ data })
+  console.log(`Document ${old ? 'mis à jour' : 'créé'} : ${doc.id} (${(body.length / 1024) | 0} Ko, annotationsJson ${(JSON.stringify(struct).length / 1024) | 0} Ko)`)
+
+  await prisma.documentTheme.upsert({
+    where: { documentId_themeId: { documentId: doc.id, themeId: theme.id } },
+    create: { documentId: doc.id, themeId: theme.id, isPrimary: true, assignedBy: 'IMPORT' },
+    update: {},
+  })
   console.log(`Rattaché au thème « ${theme.labelFr} » (principal).`)
 
   await reindexDocument(doc.id)

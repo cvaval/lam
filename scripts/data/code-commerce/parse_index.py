@@ -165,6 +165,16 @@ for e in entries:
         uniq = sorted(set(arts), key=lambda x: (int(re.match(r'\d+', x).group()), x))
         code_entries[e['subject']] = [int(a) if a.isdigit() else a for a in uniq]
 
+# Renvois d'index MANUELS (corrections cliente 20 juil.) : ctRefs bidirectionnels →
+# le renvoi s'affiche au bas des DEUX articles (indexBacklinks exclut l'article courant).
+MANUAL = {
+    "Ancien article 188 (devenu 231)": [231, 242],  # note art 242 : « L'art 188 est devenu 231 »
+}
+for subj, refs in MANUAL.items():
+    valid = [a for a in refs if f'art-{a}' in known]
+    if valid:
+        code_entries[subj] = valid
+
 structure['indexEntries'] = [{'subject': s, 'ctRefs': refs} for s, refs in sorted(code_entries.items(), key=lambda kv: fold(kv[0]))]
 json.dump(structure, open(struct_path, 'w'), ensure_ascii=False, indent=1)
 json.dump(entries, open(os.path.join(PARSED, 'index-master.json'), 'w'), ensure_ascii=False, indent=1)

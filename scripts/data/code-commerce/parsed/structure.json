@@ -23,138 +23,142 @@
        "anchor": "sec-4",
        "children": [
         {
-         "label": "Section Premiere — Des diverses sociétés et de leurs règles",
+         "label": "Section Première — Des diverses sociétés et de leurs règles",
          "anchor": "sec-5"
         },
         {
-         "label": "Section Ii — Des contestations entre associés, et de la manière de les régler Nouveau",
+         "label": "Section II — Des contestations entre associés, et de la manière de les régler Nouveau",
          "anchor": "sec-6"
+        },
+        {
+         "label": "Des prescriptions",
+         "anchor": "sec-7"
         }
        ]
       },
       {
        "label": "Titre IV — Des séparations de biens",
-       "anchor": "sec-7"
+       "anchor": "sec-8"
       },
       {
        "label": "Titre V — Des agents de change et courtiers",
-       "anchor": "sec-8",
+       "anchor": "sec-9",
        "children": [
         {
-         "label": "Section Premiere — Des agents de change et courtiers",
-         "anchor": "sec-9"
+         "label": "Section Première — Des agents de change et courtiers",
+         "anchor": "sec-10"
         }
        ]
       },
       {
        "label": "Titre VI — Du gage et des commissionnaires",
-       "anchor": "sec-10",
+       "anchor": "sec-11",
        "children": [
         {
-         "label": "Section Premiere — Du gage",
-         "anchor": "sec-11"
-        },
-        {
-         "label": "Section Ii — Des commissionnaires en général",
+         "label": "Section Première — Du gage",
          "anchor": "sec-12"
         },
         {
-         "label": "Section Ii bis — Des agents de manufacture Nouveau",
+         "label": "Section II — Des commissionnaires en général",
          "anchor": "sec-13"
         },
         {
-         "label": "Section Iii — Des commissionnaires pour le transport par terre,",
+         "label": "Section II bis — Des agents de manufacture Nouveau",
          "anchor": "sec-14"
         },
         {
-         "label": "Section Iv — Du voiturier",
+         "label": "Section III — Des commissionnaires pour le transport par terre, par eau ou par la voie de l'air.",
          "anchor": "sec-15"
+        },
+        {
+         "label": "Section IV — Du voiturier",
+         "anchor": "sec-16"
         }
        ]
       },
       {
        "label": "Titre VII — Des achats et ventes",
-       "anchor": "sec-16"
+       "anchor": "sec-17"
       },
       {
-       "label": "Titre Viii — Lettre de change - Billet à ordre et chèque - Prescription",
-       "anchor": "sec-17",
+       "label": "Titre VIII — Lettre de change - Billet à ordre et chèque - Prescription",
+       "anchor": "sec-18",
        "children": [
         {
-         "label": "Chapitre PREMIER — De la lettre de change",
-         "anchor": "sec-18",
+         "label": "Chapitre Premier — De la lettre de change",
+         "anchor": "sec-19",
          "children": [
           {
-           "label": "Section Premiere",
-           "anchor": "sec-19"
-          },
-          {
-           "label": "Section Ii — De la provision",
+           "label": "Section Première",
            "anchor": "sec-20"
           },
           {
-           "label": "Section Iii — De l'endossement",
+           "label": "Section II — De la provision",
            "anchor": "sec-21"
           },
           {
-           "label": "Section Iv — De l'acceptation",
+           "label": "Section III — De l'endossement",
            "anchor": "sec-22"
           },
           {
-           "label": "Section V — De l'acceptation par intervention",
+           "label": "Section IV — De l'acceptation",
            "anchor": "sec-23"
           },
           {
-           "label": "Section Vi — De l'aval",
+           "label": "Section V — De l'acceptation par intervention",
            "anchor": "sec-24"
           },
           {
-           "label": "Section Vii — De la solidarité",
+           "label": "Section VI — De l'aval",
            "anchor": "sec-25"
           },
           {
-           "label": "Section Viii — De l'échéance",
+           "label": "Section VII — De la solidarité",
            "anchor": "sec-26"
           },
           {
-           "label": "Section Ix — Du paiement Nouveau",
+           "label": "Section VIII — De l'échéance",
            "anchor": "sec-27"
           },
           {
-           "label": "Section X — Du paiement par intervention Nouveau",
+           "label": "Section IX — Du paiement Nouveau",
            "anchor": "sec-28"
           },
           {
-           "label": "Section Xi — Des droits et devoirs des porteurs",
+           "label": "Section X — Du paiement par intervention Nouveau",
            "anchor": "sec-29"
           },
           {
-           "label": "Section Xii — Des protêts",
+           "label": "Section XI — Des droits et devoirs des porteurs",
            "anchor": "sec-30"
           },
           {
-           "label": "Section Xiii — Du rechange",
+           "label": "Section XII — Des protêts",
            "anchor": "sec-31"
           },
           {
-           "label": "Section Xiv — I.- Pluralité d'exemplaires Nouveau",
+           "label": "Section XIII — Du rechange",
            "anchor": "sec-32"
           },
           {
-           "label": "Section Xv — Des altérations Nouveau",
+           "label": "Section XIV — I.- Pluralité d'exemplaires Nouveau",
            "anchor": "sec-33"
           },
           {
-           "label": "Section Xvi — De la prescription",
+           "label": "Section XV — Des altérations Nouveau",
            "anchor": "sec-34"
           },
           {
-           "label": "Section Xvii",
-           "anchor": "sec-35",
+           "label": "Section XVI — De la prescription",
+           "anchor": "sec-35"
+          },
+          {
+           "label": "Section XVII",
+           "anchor": "sec-36",
            "children": [
             {
              "label": "Dispositions générales",
-             "anchor": "sec-36"
+             "anchor": "sec-37"
             }
            ]
           }
@@ -162,49 +166,49 @@
         },
         {
          "label": "Chapitre II — Du billet à ordre",
-         "anchor": "sec-37"
+         "anchor": "sec-38"
         },
         {
          "label": "Chapitre III — Du chèque",
-         "anchor": "sec-38",
+         "anchor": "sec-39",
          "children": [
           {
-           "label": "Section Premiere",
-           "anchor": "sec-39",
+           "label": "Section Première",
+           "anchor": "sec-40",
            "children": [
             {
              "label": "Dispositions générales — Nouveau",
-             "anchor": "sec-40"
+             "anchor": "sec-41"
             }
            ]
           },
           {
-           "label": "Section Ii — De la présentation du paiement Nouveau",
-           "anchor": "sec-41"
-          },
-          {
-           "label": "Section Iii — De la provision Nouveau",
+           "label": "Section II — De la présentation du paiement Nouveau",
            "anchor": "sec-42"
           },
           {
-           "label": "Section Iv — Des contraventions Nouveau",
+           "label": "Section III — De la provision Nouveau",
            "anchor": "sec-43"
           },
           {
-           "label": "Section V — Des prescriptions Nouveau",
+           "label": "Section IV — Des contraventions Nouveau",
            "anchor": "sec-44"
           },
           {
-           "label": "Section Vi — Du chèque barré Nouveau",
+           "label": "Section V — Des prescriptions Nouveau",
            "anchor": "sec-45"
           },
           {
-           "label": "Section Vii — Des chèques publics",
+           "label": "Section VI — Du chèque barré Nouveau",
            "anchor": "sec-46"
           },
           {
-           "label": "Section Viii — Dispositions spéciales",
+           "label": "Section VII — Des chèques publics",
            "anchor": "sec-47"
+          },
+          {
+           "label": "Section VIII — Dispositions spéciales",
+           "anchor": "sec-48"
           }
          ]
         }
@@ -213,258 +217,258 @@
      ]
     },
     {
-     "label": "Livre Deuxieme — Du commerce maritime",
-     "anchor": "sec-48",
+     "label": "Livre Deuxième — Du commerce maritime",
+     "anchor": "sec-49",
      "children": [
       {
        "label": "Titre Premier — Des navires et autres bâtiments",
-       "anchor": "sec-49"
-      },
-      {
-       "label": "Titre II — — De la saisie et vente des navires",
        "anchor": "sec-50"
       },
       {
-       "label": "Titre III — — Des propriétaires de navires",
+       "label": "Titre II — De la saisie et vente des navires",
        "anchor": "sec-51"
       },
       {
-       "label": "Titre IV — — Du capitaine",
+       "label": "Titre III — Des propriétaires de navires",
        "anchor": "sec-52"
       },
       {
-       "label": "Titre V — — De l'engagement des matelots et gens de l'équipage",
+       "label": "Titre IV — Du capitaine",
        "anchor": "sec-53"
       },
       {
-       "label": "Titre VI — — Des chartes-parties, affrètements ou nolissements",
+       "label": "Titre V — De l'engagement des matelots et gens de l'équipage",
        "anchor": "sec-54"
       },
       {
-       "label": "Titre VII — — Du connaissement",
+       "label": "Titre VI — Des chartes-parties, affrètements ou nolissements",
        "anchor": "sec-55"
       },
       {
-       "label": "Titre Viii — — Du fret ou nolis",
+       "label": "Titre VII — Du connaissement",
        "anchor": "sec-56"
       },
       {
-       "label": "Titre IX — — Du contrat à la grosse",
+       "label": "Titre VIII — Du fret ou nolis",
        "anchor": "sec-57"
       },
       {
-       "label": "Titre X — — Des assurances",
-       "anchor": "sec-58",
+       "label": "Titre IX — Du contrat à la grosse",
+       "anchor": "sec-58"
+      },
+      {
+       "label": "Titre X — Des assurances",
+       "anchor": "sec-59",
        "children": [
         {
-         "label": "Section Première — — Du contrat d'assurance, de sa forme et de son objet",
-         "anchor": "sec-59"
-        },
-        {
-         "label": "Section Ii — — Des obligations de l'assureur et de l'assuré",
+         "label": "Section Première — Du contrat d'assurance, de sa forme et de son objet",
          "anchor": "sec-60"
         },
         {
-         "label": "Section Iii — — Du délaissement",
+         "label": "Section II — Des obligations de l'assureur et de l'assuré",
          "anchor": "sec-61"
+        },
+        {
+         "label": "Section III — Du délaissement",
+         "anchor": "sec-62"
         }
        ]
       },
       {
-       "label": "Titre XI — — Des avaries",
-       "anchor": "sec-62"
-      },
-      {
-       "label": "Titre XII — — Du jet et de la contribution",
+       "label": "Titre XI — Des avaries",
        "anchor": "sec-63"
       },
       {
-       "label": "Titre Xiii — — Des prescriptions",
+       "label": "Titre XII — Du jet et de la contribution",
        "anchor": "sec-64"
       },
       {
-       "label": "Titre XIV — — Des fins de non-recevoir",
+       "label": "Titre XIII — Des prescriptions",
        "anchor": "sec-65"
+      },
+      {
+       "label": "Titre XIV — Des fins de non-recevoir",
+       "anchor": "sec-66"
       }
      ]
     },
     {
-     "label": "Livre Troisieme — Des faillites et banqueroutes",
-     "anchor": "sec-66",
+     "label": "Livre Troisième — Des faillites et banqueroutes",
+     "anchor": "sec-67",
      "children": [
       {
-       "label": "Titre Premier — — De la faillite Dispositions générales",
-       "anchor": "sec-67",
+       "label": "Titre Premier — De la faillite Dispositions générales",
+       "anchor": "sec-68",
        "children": [
         {
-         "label": "Chapitre PREMIER — — De la déclaration de faillite et de ses effets",
-         "anchor": "sec-68"
-        },
-        {
-         "label": "Chapitre II — — De l'apposition des scellés et des premières dispositions à l'égard de la personne du failli",
+         "label": "Chapitre Premier — De la déclaration de faillite et de ses effets",
          "anchor": "sec-69"
         },
         {
-         "label": "Chapitre III — — Du juge-commissaire de la faillite et de ses fonctions",
+         "label": "Chapitre II — De l'apposition des scellés et des premières dispositions à l'égard de la personne du failli",
          "anchor": "sec-70"
         },
         {
-         "label": "Chapitre IV — — Section première Du syndic de la faillite et de ses fonctions",
-         "anchor": "sec-71",
+         "label": "Chapitre III — Du juge-commissaire de la faillite et de ses fonctions",
+         "anchor": "sec-71"
+        },
+        {
+         "label": "Chapitre IV — Section première Du syndic de la faillite et de ses fonctions",
+         "anchor": "sec-72",
          "children": [
           {
-           "label": "Section Ii — — De la levée des scellés et de l'inventaire",
-           "anchor": "sec-72"
-          },
-          {
-           "label": "Section Iii — — De la vente des marchandises et meubles, et des recouvrements",
+           "label": "Section II — De la levée des scellés et de l'inventaire",
            "anchor": "sec-73"
           },
           {
-           "label": "Section Iv — Des actes conservatoires",
+           "label": "Section III — De la vente des marchandises et meubles, et des recouvrements",
            "anchor": "sec-74"
           },
           {
-           "label": "Section V — De la vérification des créances Anc. art. 491 fr. mod. D-L 8 août 1935",
+           "label": "Section IV — Des actes conservatoires",
            "anchor": "sec-75"
+          },
+          {
+           "label": "Section V — De la vérification des créances Anc. art. 491 fr. mod. D-L 8 août 1935",
+           "anchor": "sec-76"
           }
          ]
         },
         {
          "label": "Chapitre V — Du concordat et de l'union",
-         "anchor": "sec-76",
+         "anchor": "sec-77",
          "children": [
           {
            "label": "Section Première — De la convocation et de l'assemblée des créanciers Anc. art. 504 fr. mod. D-L 8 août 1935",
-           "anchor": "sec-77"
+           "anchor": "sec-78"
           },
           {
-           "label": "Section Ii — Du concordat",
-           "anchor": "sec-78",
+           "label": "Section II — Du concordat",
+           "anchor": "sec-79",
            "children": [
             {
              "label": "§ 1er — De la formation du concordat Anc. art. 507 fr. mod. D-L 8 août 1935",
-             "anchor": "sec-79"
+             "anchor": "sec-80"
             }
            ]
           },
           {
-           "label": "Section Iii — De la clôture en cas d'insuffisance de l'actif Anc. art. 527 fr. mod. D-L 8 août 1935",
-           "anchor": "sec-80"
+           "label": "Section III — De la clôture en cas d'insuffisance de l'actif Anc. art. 527 fr. mod. D-L 8 août 1935",
+           "anchor": "sec-81"
           },
           {
-           "label": "Section Iv — De l'union des créanciers",
-           "anchor": "sec-81"
+           "label": "Section IV — De l'union des créanciers",
+           "anchor": "sec-82"
           }
          ]
         },
         {
          "label": "Chapitre VI — Des différentes espèces de créanciers et de leurs droits en cas de faillite",
-         "anchor": "sec-82",
+         "anchor": "sec-83",
          "children": [
           {
            "label": "Section Première — Des co-obligés et des cautions",
-           "anchor": "sec-83"
-          },
-          {
-           "label": "Section Ii — Des créanciers nantis d'un gage et des créances privilégiées sur les biens meubles",
            "anchor": "sec-84"
           },
           {
-           "label": "Section Iii — Des droits des créanciers hypothécaires et privilégiés sur les immeubles",
+           "label": "Section II — Des créanciers nantis d'un gage et des créances privilégiées sur les biens meubles",
            "anchor": "sec-85"
           },
           {
-           "label": "Section Iv — Des droits de la femme",
+           "label": "Section III — Des droits des créanciers hypothécaires et privilégiés sur les immeubles",
            "anchor": "sec-86"
+          },
+          {
+           "label": "Section IV — Des droits de la femme",
+           "anchor": "sec-87"
           }
          ]
         },
         {
          "label": "Chapitre VII — De la répartition entre les créanciers de l'actif et de la liquidation du mobilier",
-         "anchor": "sec-87"
-        },
-        {
-         "label": "Chapitre VIII — De la vente des immeubles du failli",
          "anchor": "sec-88"
         },
         {
-         "label": "Chapitre IX — De la revendication",
+         "label": "Chapitre VIII — De la vente des immeubles du failli",
          "anchor": "sec-89"
         },
         {
-         "label": "Chapitre X — Des voies de recours contre les jugements rendus en matière de faillite",
+         "label": "Chapitre IX — De la revendication",
          "anchor": "sec-90"
+        },
+        {
+         "label": "Chapitre X — Des voies de recours contre les jugements rendus en matière de faillite",
+         "anchor": "sec-91"
         }
        ]
       },
       {
        "label": "Titre II — Des banqueroutes",
-       "anchor": "sec-91",
+       "anchor": "sec-92",
        "children": [
         {
-         "label": "Chapitre PREMIER — De la banqueroute simple Anc. art. 585 fr. mod. D-L 17 juin 1938",
-         "anchor": "sec-92"
+         "label": "Chapitre Premier — De la banqueroute simple Anc. art. 585 fr. mod. D-L 17 juin 1938",
+         "anchor": "sec-93"
         },
         {
          "label": "Chapitre II",
-         "anchor": "sec-93",
+         "anchor": "sec-94",
          "children": [
           {
            "label": "Section Première — De la banqueroute frauduleuse",
-           "anchor": "sec-94"
+           "anchor": "sec-95"
           },
           {
-           "label": "Section Ii — Des dispositions spéciales — Des délits commis dans les faillites par d'autres que par les faillis",
-           "anchor": "sec-95"
+           "label": "Section II — Des dispositions spéciales — Des délits commis dans les faillites par d'autres que par les faillis",
+           "anchor": "sec-96"
           }
          ]
         },
         {
          "label": "Chapitre VII — [sic]",
-         "anchor": "sec-96"
+         "anchor": "sec-97"
         }
        ]
       },
       {
        "label": "Titre III — De la réhabilitation",
-       "anchor": "sec-97"
+       "anchor": "sec-98"
       }
      ]
     },
     {
      "label": "Livre Quatrième — De la juridiction commerciale",
-     "anchor": "sec-98",
+     "anchor": "sec-99",
      "children": [
       {
        "label": "Titre Premier",
-       "anchor": "sec-99",
+       "anchor": "sec-100",
        "children": [
         {
          "label": "Dispositions générales",
-         "anchor": "sec-100"
+         "anchor": "sec-101"
         },
         {
-         "label": "Chapitre PREMIER",
-         "anchor": "sec-101",
+         "label": "Chapitre Premier",
+         "anchor": "sec-102",
          "children": [
           {
            "label": "Section Première — De la compétence de la Chambre des affaires commerciales des tribunaux civils",
-           "anchor": "sec-102"
+           "anchor": "sec-103"
           },
           {
-           "label": "Section Ii — Compétence des tribunaux de paix en matière commerciale",
-           "anchor": "sec-103"
+           "label": "Section II — Compétence des tribunaux de paix en matière commerciale",
+           "anchor": "sec-104"
           }
          ]
         },
         {
          "label": "Chapitre II",
-         "anchor": "sec-104"
+         "anchor": "sec-105"
         },
         {
          "label": "Chapitre III — Des voies de recours contre les jugements rendus en matière commerciale",
-         "anchor": "sec-105"
+         "anchor": "sec-106"
         }
        ]
       }
@@ -500,608 +504,614 @@
   },
   {
    "level": 4,
-   "label": "Section Premiere — Des diverses sociétés et de leurs règles",
+   "label": "Section Première — Des diverses sociétés et de leurs règles",
    "anchor": "sec-5",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Ii — Des contestations entre associés, et de la manière de les régler Nouveau",
+   "label": "Section II — Des contestations entre associés, et de la manière de les régler Nouveau",
    "anchor": "sec-6",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Des prescriptions",
+   "anchor": "sec-7",
    "kind": "section"
   },
   {
    "level": 3,
    "label": "Titre IV — Des séparations de biens",
-   "anchor": "sec-7",
+   "anchor": "sec-8",
    "kind": "titre"
   },
   {
    "level": 3,
    "label": "Titre V — Des agents de change et courtiers",
-   "anchor": "sec-8",
+   "anchor": "sec-9",
    "kind": "titre"
   },
   {
    "level": 4,
-   "label": "Section Premiere — Des agents de change et courtiers",
-   "anchor": "sec-9",
+   "label": "Section Première — Des agents de change et courtiers",
+   "anchor": "sec-10",
    "kind": "section"
   },
   {
    "level": 3,
    "label": "Titre VI — Du gage et des commissionnaires",
-   "anchor": "sec-10",
+   "anchor": "sec-11",
    "kind": "titre"
   },
   {
    "level": 4,
-   "label": "Section Premiere — Du gage",
-   "anchor": "sec-11",
-   "kind": "section"
-  },
-  {
-   "level": 4,
-   "label": "Section Ii — Des commissionnaires en général",
+   "label": "Section Première — Du gage",
    "anchor": "sec-12",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Ii bis — Des agents de manufacture Nouveau",
+   "label": "Section II — Des commissionnaires en général",
    "anchor": "sec-13",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Iii — Des commissionnaires pour le transport par terre,",
+   "label": "Section II bis — Des agents de manufacture Nouveau",
    "anchor": "sec-14",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Iv — Du voiturier",
+   "label": "Section III — Des commissionnaires pour le transport par terre, par eau ou par la voie de l'air.",
    "anchor": "sec-15",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section IV — Du voiturier",
+   "anchor": "sec-16",
    "kind": "section"
   },
   {
    "level": 3,
    "label": "Titre VII — Des achats et ventes",
-   "anchor": "sec-16",
-   "kind": "titre"
-  },
-  {
-   "level": 3,
-   "label": "Titre Viii — Lettre de change - Billet à ordre et chèque - Prescription",
    "anchor": "sec-17",
    "kind": "titre"
   },
   {
    "level": 3,
-   "label": "Chapitre PREMIER — De la lettre de change",
+   "label": "Titre VIII — Lettre de change - Billet à ordre et chèque - Prescription",
    "anchor": "sec-18",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre Premier — De la lettre de change",
+   "anchor": "sec-19",
    "kind": "chapitre"
   },
   {
    "level": 4,
-   "label": "Section Premiere",
-   "anchor": "sec-19",
-   "kind": "section"
-  },
-  {
-   "level": 4,
-   "label": "Section Ii — De la provision",
+   "label": "Section Première",
    "anchor": "sec-20",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Iii — De l'endossement",
+   "label": "Section II — De la provision",
    "anchor": "sec-21",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Iv — De l'acceptation",
+   "label": "Section III — De l'endossement",
    "anchor": "sec-22",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section V — De l'acceptation par intervention",
+   "label": "Section IV — De l'acceptation",
    "anchor": "sec-23",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Vi — De l'aval",
+   "label": "Section V — De l'acceptation par intervention",
    "anchor": "sec-24",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Vii — De la solidarité",
+   "label": "Section VI — De l'aval",
    "anchor": "sec-25",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Viii — De l'échéance",
+   "label": "Section VII — De la solidarité",
    "anchor": "sec-26",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Ix — Du paiement Nouveau",
+   "label": "Section VIII — De l'échéance",
    "anchor": "sec-27",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section X — Du paiement par intervention Nouveau",
+   "label": "Section IX — Du paiement Nouveau",
    "anchor": "sec-28",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Xi — Des droits et devoirs des porteurs",
+   "label": "Section X — Du paiement par intervention Nouveau",
    "anchor": "sec-29",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Xii — Des protêts",
+   "label": "Section XI — Des droits et devoirs des porteurs",
    "anchor": "sec-30",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Xiii — Du rechange",
+   "label": "Section XII — Des protêts",
    "anchor": "sec-31",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Xiv — I.- Pluralité d'exemplaires Nouveau",
+   "label": "Section XIII — Du rechange",
    "anchor": "sec-32",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Xv — Des altérations Nouveau",
+   "label": "Section XIV — I.- Pluralité d'exemplaires Nouveau",
    "anchor": "sec-33",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Xvi — De la prescription",
+   "label": "Section XV — Des altérations Nouveau",
    "anchor": "sec-34",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Xvii",
+   "label": "Section XVI — De la prescription",
    "anchor": "sec-35",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section XVII",
+   "anchor": "sec-36",
    "kind": "section"
   },
   {
    "level": 5,
    "label": "Dispositions générales",
-   "anchor": "sec-36",
+   "anchor": "sec-37",
    "kind": "para"
   },
   {
    "level": 3,
    "label": "Chapitre II — Du billet à ordre",
-   "anchor": "sec-37",
+   "anchor": "sec-38",
    "kind": "chapitre"
   },
   {
    "level": 3,
    "label": "Chapitre III — Du chèque",
-   "anchor": "sec-38",
+   "anchor": "sec-39",
    "kind": "chapitre"
   },
   {
    "level": 4,
-   "label": "Section Premiere",
-   "anchor": "sec-39",
+   "label": "Section Première",
+   "anchor": "sec-40",
    "kind": "section"
   },
   {
    "level": 5,
    "label": "Dispositions générales — Nouveau",
-   "anchor": "sec-40",
+   "anchor": "sec-41",
    "kind": "para"
   },
   {
    "level": 4,
-   "label": "Section Ii — De la présentation du paiement Nouveau",
-   "anchor": "sec-41",
-   "kind": "section"
-  },
-  {
-   "level": 4,
-   "label": "Section Iii — De la provision Nouveau",
+   "label": "Section II — De la présentation du paiement Nouveau",
    "anchor": "sec-42",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Iv — Des contraventions Nouveau",
+   "label": "Section III — De la provision Nouveau",
    "anchor": "sec-43",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section V — Des prescriptions Nouveau",
+   "label": "Section IV — Des contraventions Nouveau",
    "anchor": "sec-44",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Vi — Du chèque barré Nouveau",
+   "label": "Section V — Des prescriptions Nouveau",
    "anchor": "sec-45",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Vii — Des chèques publics",
+   "label": "Section VI — Du chèque barré Nouveau",
    "anchor": "sec-46",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Viii — Dispositions spéciales",
+   "label": "Section VII — Des chèques publics",
    "anchor": "sec-47",
    "kind": "section"
   },
   {
-   "level": 1,
-   "label": "Livre Deuxieme — Du commerce maritime",
+   "level": 4,
+   "label": "Section VIII — Dispositions spéciales",
    "anchor": "sec-48",
+   "kind": "section"
+  },
+  {
+   "level": 1,
+   "label": "Livre Deuxième — Du commerce maritime",
+   "anchor": "sec-49",
    "kind": "livre"
   },
   {
    "level": 3,
    "label": "Titre Premier — Des navires et autres bâtiments",
-   "anchor": "sec-49",
-   "kind": "titre"
-  },
-  {
-   "level": 3,
-   "label": "Titre II — — De la saisie et vente des navires",
    "anchor": "sec-50",
    "kind": "titre"
   },
   {
    "level": 3,
-   "label": "Titre III — — Des propriétaires de navires",
+   "label": "Titre II — De la saisie et vente des navires",
    "anchor": "sec-51",
    "kind": "titre"
   },
   {
    "level": 3,
-   "label": "Titre IV — — Du capitaine",
+   "label": "Titre III — Des propriétaires de navires",
    "anchor": "sec-52",
    "kind": "titre"
   },
   {
    "level": 3,
-   "label": "Titre V — — De l'engagement des matelots et gens de l'équipage",
+   "label": "Titre IV — Du capitaine",
    "anchor": "sec-53",
    "kind": "titre"
   },
   {
    "level": 3,
-   "label": "Titre VI — — Des chartes-parties, affrètements ou nolissements",
+   "label": "Titre V — De l'engagement des matelots et gens de l'équipage",
    "anchor": "sec-54",
    "kind": "titre"
   },
   {
    "level": 3,
-   "label": "Titre VII — — Du connaissement",
+   "label": "Titre VI — Des chartes-parties, affrètements ou nolissements",
    "anchor": "sec-55",
    "kind": "titre"
   },
   {
    "level": 3,
-   "label": "Titre Viii — — Du fret ou nolis",
+   "label": "Titre VII — Du connaissement",
    "anchor": "sec-56",
    "kind": "titre"
   },
   {
    "level": 3,
-   "label": "Titre IX — — Du contrat à la grosse",
+   "label": "Titre VIII — Du fret ou nolis",
    "anchor": "sec-57",
    "kind": "titre"
   },
   {
    "level": 3,
-   "label": "Titre X — — Des assurances",
+   "label": "Titre IX — Du contrat à la grosse",
    "anchor": "sec-58",
    "kind": "titre"
   },
   {
-   "level": 4,
-   "label": "Section Première — — Du contrat d'assurance, de sa forme et de son objet",
+   "level": 3,
+   "label": "Titre X — Des assurances",
    "anchor": "sec-59",
-   "kind": "section"
+   "kind": "titre"
   },
   {
    "level": 4,
-   "label": "Section Ii — — Des obligations de l'assureur et de l'assuré",
+   "label": "Section Première — Du contrat d'assurance, de sa forme et de son objet",
    "anchor": "sec-60",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Iii — — Du délaissement",
+   "label": "Section II — Des obligations de l'assureur et de l'assuré",
    "anchor": "sec-61",
    "kind": "section"
   },
   {
-   "level": 3,
-   "label": "Titre XI — — Des avaries",
+   "level": 4,
+   "label": "Section III — Du délaissement",
    "anchor": "sec-62",
-   "kind": "titre"
+   "kind": "section"
   },
   {
    "level": 3,
-   "label": "Titre XII — — Du jet et de la contribution",
+   "label": "Titre XI — Des avaries",
    "anchor": "sec-63",
    "kind": "titre"
   },
   {
    "level": 3,
-   "label": "Titre Xiii — — Des prescriptions",
+   "label": "Titre XII — Du jet et de la contribution",
    "anchor": "sec-64",
    "kind": "titre"
   },
   {
    "level": 3,
-   "label": "Titre XIV — — Des fins de non-recevoir",
+   "label": "Titre XIII — Des prescriptions",
    "anchor": "sec-65",
    "kind": "titre"
   },
   {
-   "level": 1,
-   "label": "Livre Troisieme — Des faillites et banqueroutes",
+   "level": 3,
+   "label": "Titre XIV — Des fins de non-recevoir",
    "anchor": "sec-66",
+   "kind": "titre"
+  },
+  {
+   "level": 1,
+   "label": "Livre Troisième — Des faillites et banqueroutes",
+   "anchor": "sec-67",
    "kind": "livre"
   },
   {
    "level": 3,
-   "label": "Titre Premier — — De la faillite Dispositions générales",
-   "anchor": "sec-67",
+   "label": "Titre Premier — De la faillite Dispositions générales",
+   "anchor": "sec-68",
    "kind": "titre"
   },
   {
    "level": 3,
-   "label": "Chapitre PREMIER — — De la déclaration de faillite et de ses effets",
-   "anchor": "sec-68",
-   "kind": "chapitre"
-  },
-  {
-   "level": 3,
-   "label": "Chapitre II — — De l'apposition des scellés et des premières dispositions à l'égard de la personne du failli",
+   "label": "Chapitre Premier — De la déclaration de faillite et de ses effets",
    "anchor": "sec-69",
    "kind": "chapitre"
   },
   {
    "level": 3,
-   "label": "Chapitre III — — Du juge-commissaire de la faillite et de ses fonctions",
+   "label": "Chapitre II — De l'apposition des scellés et des premières dispositions à l'égard de la personne du failli",
    "anchor": "sec-70",
    "kind": "chapitre"
   },
   {
    "level": 3,
-   "label": "Chapitre IV — — Section première Du syndic de la faillite et de ses fonctions",
+   "label": "Chapitre III — Du juge-commissaire de la faillite et de ses fonctions",
    "anchor": "sec-71",
    "kind": "chapitre"
   },
   {
-   "level": 4,
-   "label": "Section Ii — — De la levée des scellés et de l'inventaire",
+   "level": 3,
+   "label": "Chapitre IV — Section première Du syndic de la faillite et de ses fonctions",
    "anchor": "sec-72",
-   "kind": "section"
+   "kind": "chapitre"
   },
   {
    "level": 4,
-   "label": "Section Iii — — De la vente des marchandises et meubles, et des recouvrements",
+   "label": "Section II — De la levée des scellés et de l'inventaire",
    "anchor": "sec-73",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Iv — Des actes conservatoires",
+   "label": "Section III — De la vente des marchandises et meubles, et des recouvrements",
    "anchor": "sec-74",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section V — De la vérification des créances Anc. art. 491 fr. mod. D-L 8 août 1935",
+   "label": "Section IV — Des actes conservatoires",
    "anchor": "sec-75",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section V — De la vérification des créances Anc. art. 491 fr. mod. D-L 8 août 1935",
+   "anchor": "sec-76",
    "kind": "section"
   },
   {
    "level": 3,
    "label": "Chapitre V — Du concordat et de l'union",
-   "anchor": "sec-76",
+   "anchor": "sec-77",
    "kind": "chapitre"
   },
   {
    "level": 4,
    "label": "Section Première — De la convocation et de l'assemblée des créanciers Anc. art. 504 fr. mod. D-L 8 août 1935",
-   "anchor": "sec-77",
+   "anchor": "sec-78",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Ii — Du concordat",
-   "anchor": "sec-78",
+   "label": "Section II — Du concordat",
+   "anchor": "sec-79",
    "kind": "section"
   },
   {
    "level": 5,
    "label": "§ 1er — De la formation du concordat Anc. art. 507 fr. mod. D-L 8 août 1935",
-   "anchor": "sec-79",
+   "anchor": "sec-80",
    "kind": "para"
   },
   {
    "level": 4,
-   "label": "Section Iii — De la clôture en cas d'insuffisance de l'actif Anc. art. 527 fr. mod. D-L 8 août 1935",
-   "anchor": "sec-80",
+   "label": "Section III — De la clôture en cas d'insuffisance de l'actif Anc. art. 527 fr. mod. D-L 8 août 1935",
+   "anchor": "sec-81",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Iv — De l'union des créanciers",
-   "anchor": "sec-81",
+   "label": "Section IV — De l'union des créanciers",
+   "anchor": "sec-82",
    "kind": "section"
   },
   {
    "level": 3,
    "label": "Chapitre VI — Des différentes espèces de créanciers et de leurs droits en cas de faillite",
-   "anchor": "sec-82",
+   "anchor": "sec-83",
    "kind": "chapitre"
   },
   {
    "level": 4,
    "label": "Section Première — Des co-obligés et des cautions",
-   "anchor": "sec-83",
-   "kind": "section"
-  },
-  {
-   "level": 4,
-   "label": "Section Ii — Des créanciers nantis d'un gage et des créances privilégiées sur les biens meubles",
    "anchor": "sec-84",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Iii — Des droits des créanciers hypothécaires et privilégiés sur les immeubles",
+   "label": "Section II — Des créanciers nantis d'un gage et des créances privilégiées sur les biens meubles",
    "anchor": "sec-85",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Iv — Des droits de la femme",
+   "label": "Section III — Des droits des créanciers hypothécaires et privilégiés sur les immeubles",
    "anchor": "sec-86",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section IV — Des droits de la femme",
+   "anchor": "sec-87",
    "kind": "section"
   },
   {
    "level": 3,
    "label": "Chapitre VII — De la répartition entre les créanciers de l'actif et de la liquidation du mobilier",
-   "anchor": "sec-87",
-   "kind": "chapitre"
-  },
-  {
-   "level": 3,
-   "label": "Chapitre VIII — De la vente des immeubles du failli",
    "anchor": "sec-88",
    "kind": "chapitre"
   },
   {
    "level": 3,
-   "label": "Chapitre IX — De la revendication",
+   "label": "Chapitre VIII — De la vente des immeubles du failli",
    "anchor": "sec-89",
    "kind": "chapitre"
   },
   {
    "level": 3,
-   "label": "Chapitre X — Des voies de recours contre les jugements rendus en matière de faillite",
+   "label": "Chapitre IX — De la revendication",
    "anchor": "sec-90",
    "kind": "chapitre"
   },
   {
    "level": 3,
-   "label": "Titre II — Des banqueroutes",
+   "label": "Chapitre X — Des voies de recours contre les jugements rendus en matière de faillite",
    "anchor": "sec-91",
+   "kind": "chapitre"
+  },
+  {
+   "level": 3,
+   "label": "Titre II — Des banqueroutes",
+   "anchor": "sec-92",
    "kind": "titre"
   },
   {
    "level": 3,
-   "label": "Chapitre PREMIER — De la banqueroute simple Anc. art. 585 fr. mod. D-L 17 juin 1938",
-   "anchor": "sec-92",
+   "label": "Chapitre Premier — De la banqueroute simple Anc. art. 585 fr. mod. D-L 17 juin 1938",
+   "anchor": "sec-93",
    "kind": "chapitre"
   },
   {
    "level": 3,
    "label": "Chapitre II",
-   "anchor": "sec-93",
+   "anchor": "sec-94",
    "kind": "chapitre"
   },
   {
    "level": 4,
    "label": "Section Première — De la banqueroute frauduleuse",
-   "anchor": "sec-94",
+   "anchor": "sec-95",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Ii — Des dispositions spéciales — Des délits commis dans les faillites par d'autres que par les faillis",
-   "anchor": "sec-95",
+   "label": "Section II — Des dispositions spéciales — Des délits commis dans les faillites par d'autres que par les faillis",
+   "anchor": "sec-96",
    "kind": "section"
   },
   {
    "level": 3,
    "label": "Chapitre VII — [sic]",
-   "anchor": "sec-96",
+   "anchor": "sec-97",
    "kind": "chapitre"
   },
   {
    "level": 3,
    "label": "Titre III — De la réhabilitation",
-   "anchor": "sec-97",
+   "anchor": "sec-98",
    "kind": "titre"
   },
   {
    "level": 1,
    "label": "Livre Quatrième — De la juridiction commerciale",
-   "anchor": "sec-98",
+   "anchor": "sec-99",
    "kind": "livre"
   },
   {
    "level": 3,
    "label": "Titre Premier",
-   "anchor": "sec-99",
+   "anchor": "sec-100",
    "kind": "titre"
   },
   {
    "level": 5,
    "label": "Dispositions générales",
-   "anchor": "sec-100",
+   "anchor": "sec-101",
    "kind": "para"
   },
   {
    "level": 3,
-   "label": "Chapitre PREMIER",
-   "anchor": "sec-101",
+   "label": "Chapitre Premier",
+   "anchor": "sec-102",
    "kind": "chapitre"
   },
   {
    "level": 4,
    "label": "Section Première — De la compétence de la Chambre des affaires commerciales des tribunaux civils",
-   "anchor": "sec-102",
+   "anchor": "sec-103",
    "kind": "section"
   },
   {
    "level": 4,
-   "label": "Section Ii — Compétence des tribunaux de paix en matière commerciale",
-   "anchor": "sec-103",
+   "label": "Section II — Compétence des tribunaux de paix en matière commerciale",
+   "anchor": "sec-104",
    "kind": "section"
   },
   {
    "level": 3,
    "label": "Chapitre II",
-   "anchor": "sec-104",
+   "anchor": "sec-105",
    "kind": "chapitre"
   },
   {
    "level": 3,
    "label": "Chapitre III — Des voies de recours contre les jugements rendus en matière commerciale",
-   "anchor": "sec-105",
+   "anchor": "sec-106",
    "kind": "chapitre"
   }
  ],
@@ -1171,13 +1181,61 @@
     "excerpt": "Pourvoi de Tawfic Jaar contre Association des Exportateurs de Mangues (ASDEM), in JEAN-BAPTISTE, Jacob, Bull des Arrêts, Tome V, Année 1985, pp 131 et suiv. L'obligation d'un consignataire ne peut être éteinte que s'il a apporté la preuve que la détérioration des marchandises consignées, périssables par nature, est survenue sans sa faute."
    }
   ],
+  "sec-3|art-13": [
+   {
+    "ref": "Arrêt du 7 février 1905, Bull des Arrêts 1905, pp 28 et suiv.",
+    "excerpt": "Les livres d'un commerçant dont l'apport est ordonné sont consultés simplement pour en extraire ce qui concerne le différend."
+   }
+  ],
+  "sec-5|art-19": [
+   {
+    "ref": "Arrêt du 20 sept 1900, Bull des Arrêts 1900, pp 55 et suiv.",
+    "excerpt": "La preuve de l'existence d'un contrat de société sera faite par tous les moyens établis par la loi et à l'aide de simples présomptions."
+   }
+  ],
+  "sec-5|art-21": [
+   {
+    "ref": "Arrêt du 21 déc 1939, Gaz du Pal, No du 1er mars 1940",
+    "excerpt": "N'est pas opposable aux tiers qui n'ont point été avertis de la manière prescrite aux art 42, 43, 44 et 46 du Code de commerce, la dissolution d'une société en nom collectif; en conséquence, ils peuvent invoquer à bon droit, les effets légaux dérivant du fait de l'un des associés. En outre, l'engagement contracté envers eux, aux termes des articles 1626, 1628 du Code civil et 22 du Code de commerce par l'un des associés lie la société, encore que cet associé n'ait pas signé de la raison sociale, s'il résulte de l'engagement même, qu'il a été contracté non dans l'intérêt propre et pour le compte personnel du signataire, mais dans l'intérêt et pour compte de la société."
+   }
+  ],
   "sec-5|art-23": [
    {
     "ref": "Arrêt du 26 juillet 1951, Gaz du Pal, No des 1er et 8 fév 1953",
     "excerpt": "L'associé d'une société en nom collectif n'est que mandataire soit dans ses rapports avec les autres associés, soit dans ses rapports avec les tiers à l'égard desquels il s'engage au nom et comme représentant de la société."
    }
   ],
-  "sec-16|art-111": [
+  "sec-5|art-38": [
+   {
+    "ref": "Arrêt du 21 décembre 1983, Cass 1ère Section",
+    "excerpt": "Pourvoi de Port-Dauphin SAM contre Maison Charles Féquière. JEAN-BAPTISTE, Jacob, Bulletin des Arrêts, Tome III, Année 1983 Une société peut être régulièrement assignée en la personne et au domicile de son directeur, même quand la société aurait son siège ailleurs, surtout lorsque les termes, motif et dispositif de cette assignation n'ont rien d'équivoque et que la société, sur cet exploit, a comparu et s'en est défendue."
+   }
+  ],
+  "sec-5|art-42": [
+   {
+    "ref": "Arrêt du 21 décembre 1983, Cass 1ère Section",
+    "excerpt": "Pourvoi de Port-Dauphin SAM contre Maison Charles Féquière. JEAN-BAPTISTE, Jacob, Bulletin des Arrêts, Tome III, Année 1983 Une société peut être régulièrement assignée en la personne et au domicile de son directeur, même quand la société aurait son siège ailleurs, surtout lorsque les termes, motif et dispositif de cette assignation n'ont rien d'équivoque et que la société, sur cet exploit, a comparu et s'en est défendue."
+   }
+  ],
+  "sec-6|art-54": [
+   {
+    "ref": "Arrêt du 7 mai 1940, Gaz du Pal, No du 1er oct 1940",
+    "excerpt": "Le prescrit de l'article 55 du Code de commerce relatif à l'arbitrage forcé, s'applique également à l'arbitrage volontaire régi par les art 891 et suivants du Code de procédure civile avec cette seule différence que, s'agissant d'arbitrage volontaire, en cas de refus d'une partie de désigner son arbitre, ce ne sera pas au tribunal d'exception mais au tribunal civil ayant plénitude de juridiction que l'autre partie devra recourir pour la nomination d'office d'un arbitre au refusant."
+   }
+  ],
+  "sec-12|art-91": [
+   {
+    "ref": "Arrêt du 1er juil 1943, Gaz du Pal, No du 1er oct 1943",
+    "excerpt": "Aux termes de l'article 1851 du Code civil, les dispositions de ce Code ne sont pas applicables en matière de commerce, notamment de nantissement commercial, à l'égard desquelles on suit les lois et règlements qui les concernent. Nouveau"
+   }
+  ],
+  "sec-13|art-96": [
+   {
+    "ref": "Arrêt du 19 mars 1984, Cass, 1ère Section",
+    "excerpt": "Pourvoi de Me Alix Mathon contre Ciment d'Haïti S.A., in JEAN-BAPTISTE, Jacob, Bull des Arrêts, Tome IV, Année 1984 Le démarchage consiste en des opérations multiples qui se rapprochent de celles du courtier. Le démarcheur ne fait que rapprocher les parties pour la conclusion des affaires. L'exercice de cette profession n'est pas incompatible avec la qualité d'avocat ni contraire à l'ordre public."
+   }
+  ],
+  "sec-17|art-111": [
    {
     "ref": "Arrêt du 14 janv 1902, Bull des Arrêts 1902, pp 1 et suiv.",
     "excerpt": "La preuve testimoniale est admissible toutes les fois que le défaut d'actes n'est pas imputable à la personne qui l'invoque."
@@ -1203,7 +1261,7 @@
     "excerpt": "Lorsque, dans un contrat de vente conditionnelle, les parties ont stipulé que le défaut de paiement à une date fixée entraînera de plein droit l'annulation de la vente, le créancier du prix n'a pas besoin d'une décision de justice pour reprendre l'objet vendu; il n'a qu'à exécuter les conditions du contrat pour saisir l'objet."
    }
   ],
-  "sec-37|art-209": [
+  "sec-38|art-209": [
    {
     "ref": "Arrêt du 19 nov 1889, Bull des Arrêts 1889, pp 31 et suiv.",
     "excerpt": "Il y a prorogation d'échéance quand un effet reste impayé après les termes convenus, sans exécution immédiate de la part du créancier."
@@ -1216,9 +1274,53 @@
     "ref": "Arrêt du 19 déc 1939, Gaz du Pal, No du 15 août 1940",
     "excerpt": "Un billet à ordre étant payable à présentation, c'est-à-dire à vue, le jour de l'échéance dépend de la volonté du porteur, et ce jour est celui où il présente l'effet au souscripteur pour en être payé; à cet égard, la loi déroge à la règle générale suivant laquelle l'échéance doit être déterminée par avance dans le titre même. Nouveau"
    }
+  ],
+  "sec-38|art-212": [
+   {
+    "ref": "Arrêt du 19 nov 1889, Bull des Arrêts 1889, pp 31 et suiv.",
+    "excerpt": "Quand il y a conventions, les intérêts ne peuvent se prélever que d'après le taux et le mode convenus dans la loi des parties. Nouveau"
+   }
+  ],
+  "sec-41|art-215": [
+   {
+    "ref": "Arrêt du 7 juillet 1983, Cass, 2ème Section",
+    "excerpt": "Pourvoi de René Gédéon contre TRANSCONEX S.A. Le chèque est un ordre de paiement. Le paiement étant la solution d'une obligation, ne saurait être l'obligation elle-même. Le chèque ne peut s'analyser en une promesse de faire ou de ne pas faire, et ne peut constituer une reconnaissance de dette. Nouveau"
+   }
+  ],
+  "sec-53|art-264": [
+   {
+    "ref": "Arrêt du 15 mars 1906, Bull des Arrêts 1905-1906, pp 53 et",
+    "excerpt": "suiv. Le capitaine n'est responsable que des marchandises ou denrées indiquées dans le connaissement; les valeurs non déclarées sont aux risques du propriétaire et l'armateur ne doit être condamné à aucune restitution dans ce cas. 'Cet article non modifié ne porte pas le membre de phrase «d'office par le tribunal». Cc libellé est celui figurant dans le Code de commerce publié par Alexandre Poujol."
+   }
   ]
  },
- "commentaires": {},
+ "commentaires": {
+  "sec-50|art-232-bis": [
+   "Cette institution porte actuellement le nom de «Marine Haïtienne»."
+  ],
+  "sec-51|art-242": [
+   "L'art 188 est devenu 231."
+  ],
+  "sec-51|art-246": [
+   "Cet article 79 correspondant à l'article 70 CPC. La Section 1 du Titre V traitant des Bourses de commerce a été abrogée par le décret- loi du 22 déc 1944 portant révision du Code de commerce."
+  ],
+  "sec-51|art-252": [
+   "' Et non à la Banque Nationale de la République d'Haïti, expression non retrouvée dans le décret-loi du 22 décembre 1944 ponant révision du Code de commerce, ni dans aucun texte postérieur. Cet ênoncé est tiré du Code de commerce publié en 1910 per Alexandre Poujol Bien sûr, la loi du ......... 1953 prescrit que les consignations qui devaient avoir lieu au greffe des tribunaux se font à la Caisse des Dépôts et Consignations, tenue à la DOL",
+   "Cet article non modifié par le décret-loi du 22 décembre 1944 ni par aucune loi postérieure est ainsi libellé dans le Code de commerce publié par Alexandre Poujol."
+  ],
+  "sec-53|art-270": [
+   "Voir les arts. 379 et suivants du Code douanier du 5 mars 1987 sur le cabotage."
+  ],
+  "sec-53|art-288": [
+   "Voir Code douanier, arts. 379 et suivants sur le cabotage."
+  ],
+  "sec-55|art-316": [
+   "Les articles 248 à 269 inclusivement du Titre V. correspondant aux articles 292 à 312 inclusivement ont été abrogés par le décret-loi du 22 décembre 1944. Le titre V ne C-Omporte qu'un seul article."
+  ],
+  "sec-56|art-322": [
+   "Rf Loi du 19 mai 1936 modifiant l'art 32 de la loi du 4 septembre 1905 sur les douanes, modifié par l'art 4 de celle du 29 mars 1935."
+  ]
+ },
  "connexe": {},
  "indexEntries": [
   {
@@ -1394,6 +1496,13 @@
     320,
     363,
     371
+   ]
+  },
+  {
+   "subject": "Ancien article 188 (devenu 231)",
+   "ctRefs": [
+    231,
+    242
    ]
   },
   {

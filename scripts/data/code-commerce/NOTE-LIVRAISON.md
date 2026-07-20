@@ -5,10 +5,14 @@
 - **Le Code de commerce** (source `CODE_COMMERCE_ANNOTE`) : 644 articles (1→673),
   4 Livres / 26 Titres / 19 Chapitres / 52 Sections / 4 §, 79 statuts
   modifié/abrogé (marqueurs « mod »/« abr » et têtes « (L./D. …) » de l'édition),
-  25 arrêts de jurisprudence (référence + considérant) en blocs REPLIABLES sous
-  5 articles — clé `sec-K|art-N` identique au Code du travail / Code civil,
-  reconnue 5/5 par le lecteur ; considérants et 108 marqueurs « Anc art N »
-  retirés du texte officiel (corps 259 Ko), renvois inline
+  36 arrêts de jurisprudence (référence + considérant) en blocs REPLIABLES sous
+  16 articles — clé `sec-K|art-N` identique au Code du travail / Code civil,
+  reconnue 16/16 par le lecteur ; capture des DEUX formats Vandal (numéroté
+  « N.- Arrêt… » ET nu « Arrêt du… », ce dernier manqué à la 1ʳᵉ livraison) ;
+  9 notes éditoriales « Notes • … » en commentaires repliables (8 articles) ;
+  considérants, notes et 108 marqueurs « Anc art N » retirés du texte officiel
+  (corps 253 Ko) ; variante de lecteur « annotations » (comme le Code civil :
+  collapsible « Annotations » = Commentaires + Jurisprudence) ; renvois inline
   « l'article N » actifs, lecteur annoté identique au Code civil.
 - **93 textes satellites** (sources `CC_VANDAL_<id>`) : 1 909 articles au total,
   titres exacts du CSV, référence Moniteur (`moniteurRef`) et date de publication
@@ -30,6 +34,20 @@
 8 extraits du Code douanier NON importés (version plus récente déjà en ligne) :
 I-C-2, I-I, I-M, I-N, V-A-3, V-B-2, V-D-2, V-G. V-F (loi de 1995, texte
 autonome) importée.
+
+## Corrections cliente du 20 juil. (2ᵉ passe)
+
+- 11 arrêts au format nu récupérés (art. 13, 19, 21, 38, 42, 54, 91, 96, 212, 215, 264).
+- Notes éditoriales repliables : « Marine Haïtienne » sur l'art. 232 bis
+  (⚠ l'art. 233 est ABSENT de l'édition Vandal, qui passe de 232 bis à 234 ;
+  la note suit l'art. 232 bis dans la source — l'« article 233 » de fait) ;
+  « L'art 188 est devenu 231 » sur l'art. 242 + renvoi d'index cliquable
+  vers l'art. 231 au bas de l'article.
+- Titre « Des prescriptions » (Livre I) inséré comme en-tête avant l'art. 68.
+- Titre de la Section III (commissionnaires) complété : « … par terre, par eau
+  ou par la voie de l'air. ».
+- Casse des en-têtes corrigée : chiffres romains en capitales (« Section III »,
+  plus « Section Iii ») ; tiret cadratin en double (« — — ») supprimé (23 titres).
 
 ## Anomalies assumées
 

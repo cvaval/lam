@@ -11,6 +11,7 @@
  */
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs'
 import { prisma } from '../src/lib/db'
+import { parseAnnotations, segmentAnnotated } from '../src/lib/legislation/annotated'
 
 const DATA = 'scripts/data/code-commerce'
 const EXCLUDED = new Set(['I-C-2', 'I-I', 'I-M', 'I-N', 'V-A-3', 'V-B-2', 'V-D-2', 'V-G'])
@@ -23,6 +24,21 @@ async function main() {
 
   // ── A. Échantillon articles vs source parsée ──
   const code = await prisma.document.findFirstOrThrow({ where: { source: 'CODE_COMMERCE_ANNOTE' }, select: { id: true, bodyOriginal: true, annotationsJson: true } })
+
+  // ── A′. Jurisprudence + notes : clés reconnues par le lecteur + arrêts attendus ──
+  const cann = parseAnnotations(code.annotationsJson)!
+  const cblocks = segmentAnnotated(code.bodyOriginal, cann.toc) as { jurisKey?: string }[]
+  const cwanted = new Set(cblocks.map((b) => b.jurisKey).filter(Boolean))
+  const jkeys = Object.keys(cann.jurisprudence ?? {})
+  const comkeys = Object.keys((cann as unknown as { commentaires: Record<string, string[]> }).commentaires ?? {})
+  ;(jkeys.every((k) => cwanted.has(k)) ? ok : issues).push(`A′ jurisprudence: ${jkeys.filter((k) => cwanted.has(k)).length}/${jkeys.length} clés reconnues`)
+  ;(comkeys.every((k) => cwanted.has(k)) ? ok : issues).push(`A′ notes: ${comkeys.filter((k) => cwanted.has(k)).length}/${comkeys.length} clés reconnues`)
+  for (const a of [13, 21, 38, 42, 54, 91, 96, 215]) {
+    const has = jkeys.some((k) => k.endsWith(`|art-${a}`))
+    ;(has ? ok : issues).push(`A′ arrêt art ${a}: ${has ? 'présent' : 'MANQUANT'}`)
+  }
+  const bodyClean = !/^Arr[êe]t\s+du/m.test(code.bodyOriginal) && !/^Notes$/m.test(code.bodyOriginal)
+  ;(bodyClean ? ok : issues).push(`A′ corps sans arrêt/note résiduel : ${bodyClean}`)
   const srcBody = readFileSync(`${DATA}/parsed/bodyOriginal.txt`, 'utf8')
   const codeArts = ['Article premier', 'Article 23.-', 'Article 111', 'Article 313', 'Article 447', 'Article 636', 'Article 673']
   for (const a of codeArts) {
