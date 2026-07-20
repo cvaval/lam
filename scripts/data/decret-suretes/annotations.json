@@ -1,0 +1,543 @@
+{
+ "title": "Décret réformant le Droit des Sûretés",
+ "annotationAuthor": "",
+ "navToc": [
+  {
+   "label": "Décret réformant le Droit des Sûretés",
+   "anchor": "sec-1",
+   "children": [
+    {
+     "label": "TITRE PREMIER — Dispositions modifiant le Code civil (arts. 1er à 16)",
+     "anchor": "sec-2",
+     "children": [
+      {
+       "label": "CHAPITRE PREMIER — LES SÛRETÉS EN GÉNÉRAL",
+       "anchor": "sec-3"
+      },
+      {
+       "label": "Section I.- Dispositions relatives aux sûretés",
+       "anchor": "sec-4"
+      },
+      {
+       "label": "Section II.- Dispositions relatives à l’agent des sûretés",
+       "anchor": "sec-5"
+      },
+      {
+       "label": "CHAPITRE II — LES SÛRETÉS PERSONNELLES",
+       "anchor": "sec-6"
+      },
+      {
+       "label": "Section I.- Dispositions relatives au cautionnement",
+       "anchor": "sec-7"
+      },
+      {
+       "label": "Section II.- Dispositions relatives à la garantie autonome",
+       "anchor": "sec-8"
+      },
+      {
+       "label": "Section III.- Dispositions relatives à la lettre de confort",
+       "anchor": "sec-9"
+      },
+      {
+       "label": "CHAPITRE III — LES SÛRETÉS MOBILIÈRES",
+       "anchor": "sec-10"
+      },
+      {
+       "label": "Section I.- Dispositions relatives au gage des meubles corporels",
+       "anchor": "sec-11"
+      },
+      {
+       "label": "Section II.- Dispositions relatives au nantissement des meubles incorporels",
+       "anchor": "sec-12"
+      },
+      {
+       "label": "Section III.- Dispositions relatives à la propriété retenue à titre de garantie",
+       "anchor": "sec-13"
+      },
+      {
+       "label": "CHAPITRE IV — LES PRIVILÈGES, LES SÛRETÉS IMMOBILIÈRES",
+       "anchor": "sec-14"
+      },
+      {
+       "label": "Section I.- Dispositions générales",
+       "anchor": "sec-15"
+      },
+      {
+       "label": "Section II.- Dispositions relatives aux privilèges",
+       "anchor": "sec-16"
+      },
+      {
+       "label": "Section III.- Dispositions relatives aux hypothèques",
+       "anchor": "sec-17"
+      },
+      {
+       "label": "Section IV.- Dispositions relatives à l’antichrèse",
+       "anchor": "sec-18"
+      }
+     ]
+    },
+    {
+     "label": "TITRE II — Dispositions modifiant le Code de commerce (arts. 17 et 18)",
+     "anchor": "sec-19",
+     "children": [
+      {
+       "label": "CHAPITRE PREMIER — DISPOSITIONS RELATIVES AU GAGE ET AU NANTISSEMENT",
+       "anchor": "sec-20"
+      },
+      {
+       "label": "CHAPITRE II — DISPOSITIONS RELATIVES À LA REVENDICATION EN MATIÈRE DE FAILLITE",
+       "anchor": "sec-21"
+      }
+     ]
+    },
+    {
+     "label": "TITRE III — Dispositions diverses et finales (arts. 19 à 21)",
+     "anchor": "sec-22"
+    }
+   ]
+  }
+ ],
+ "toc": [
+  {
+   "label": "DÉCRÈTE",
+   "level": 1,
+   "anchor": "sec-1",
+   "kind": "code"
+  },
+  {
+   "label": "TITRE PREMIER — DISPOSITIONS MODIFIANT LE CODE CIVIL",
+   "level": 1,
+   "anchor": "sec-2",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE PREMIER — LES SÛRETÉS EN GÉNÉRAL",
+   "level": 2,
+   "anchor": "sec-3",
+   "kind": "code"
+  },
+  {
+   "label": "Section I.- Dispositions relatives aux sûretés",
+   "level": 3,
+   "anchor": "sec-4",
+   "kind": "code"
+  },
+  {
+   "label": "Section II.- Dispositions relatives à l’agent des sûretés",
+   "level": 3,
+   "anchor": "sec-5",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE II — LES SÛRETÉS PERSONNELLES",
+   "level": 2,
+   "anchor": "sec-6",
+   "kind": "code"
+  },
+  {
+   "label": "Section I.- Dispositions relatives au cautionnement",
+   "level": 3,
+   "anchor": "sec-7",
+   "kind": "code"
+  },
+  {
+   "label": "Section II.- Dispositions relatives à la garantie autonome",
+   "level": 3,
+   "anchor": "sec-8",
+   "kind": "code"
+  },
+  {
+   "label": "Section III.- Dispositions relatives à la lettre de confort",
+   "level": 3,
+   "anchor": "sec-9",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE III — LES SÛRETÉS MOBILIÈRES",
+   "level": 2,
+   "anchor": "sec-10",
+   "kind": "code"
+  },
+  {
+   "label": "Section I.- Dispositions relatives au gage des meubles corporels",
+   "level": 3,
+   "anchor": "sec-11",
+   "kind": "code"
+  },
+  {
+   "label": "Section II.- Dispositions relatives au nantissement des meubles incorporels",
+   "level": 3,
+   "anchor": "sec-12",
+   "kind": "code"
+  },
+  {
+   "label": "Section III.- Dispositions relatives à la propriété retenue à titre de garantie",
+   "level": 3,
+   "anchor": "sec-13",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE IV — LES PRIVILÈGES, LES SÛRETÉS IMMOBILIÈRES",
+   "level": 2,
+   "anchor": "sec-14",
+   "kind": "code"
+  },
+  {
+   "label": "Section I.- Dispositions générales",
+   "level": 3,
+   "anchor": "sec-15",
+   "kind": "code"
+  },
+  {
+   "label": "Section II.- Dispositions relatives aux privilèges",
+   "level": 3,
+   "anchor": "sec-16",
+   "kind": "code"
+  },
+  {
+   "label": "Section III.- Dispositions relatives aux hypothèques",
+   "level": 3,
+   "anchor": "sec-17",
+   "kind": "code"
+  },
+  {
+   "label": "Section IV.- Dispositions relatives à l’antichrèse",
+   "level": 3,
+   "anchor": "sec-18",
+   "kind": "code"
+  },
+  {
+   "label": "TITRE II — DISPOSITIONS MODIFIANT LE CODE DE COMMERCE",
+   "level": 1,
+   "anchor": "sec-19",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE PREMIER — DISPOSITIONS RELATIVES AU GAGE ET AU NANTISSEMENT",
+   "level": 2,
+   "anchor": "sec-20",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE II — DISPOSITIONS RELATIVES À LA REVENDICATION EN MATIÈRE DE FAILLITE",
+   "level": 2,
+   "anchor": "sec-21",
+   "kind": "code"
+  },
+  {
+   "label": "TITRE III — DISPOSITIONS DIVERSES ET FINALES",
+   "level": 1,
+   "anchor": "sec-22",
+   "kind": "code"
+  }
+ ],
+ "connexes": [],
+ "jurisprudence": {},
+ "indexEntries": [
+  {
+   "subject": "Agent des sûretés",
+   "ctRefs": [
+    "1774-4",
+    "1774-5",
+    "1774-6",
+    "1774-7",
+    "1774-8",
+    "1774-9",
+    "1774-10"
+   ]
+  },
+  {
+   "subject": "Antichrèse",
+   "ctRefs": [
+    "1970-1",
+    "1970-2",
+    "1970-3",
+    "1970-4",
+    "1970-5",
+    "1970-6",
+    "1970-7",
+    "1970-8",
+    "1970-9",
+    16
+   ]
+  },
+  {
+   "subject": "Cautionnement (acte, somme maximale)",
+   "ctRefs": [
+    1780,
+    1782,
+    5
+   ]
+  },
+  {
+   "subject": "Classement des privilèges",
+   "ctRefs": [
+    "1869-1",
+    "1869-2",
+    "1869-3"
+   ]
+  },
+  {
+   "subject": "Clause de réserve de propriété",
+   "ctRefs": [
+    "1858-13",
+    "1858-14",
+    "1858-17",
+    18
+   ]
+  },
+  {
+   "subject": "Droit de rétention",
+   "ctRefs": [
+    "1859-1"
+   ]
+  },
+  {
+   "subject": "Gage avec ou sans dépossession",
+   "ctRefs": [
+    1848,
+    1849,
+    1851,
+    "1851-1",
+    1853
+   ]
+  },
+  {
+   "subject": "Gage commercial (Code de commerce)",
+   "ctRefs": [
+    "1611-1",
+    "1611-2",
+    17
+   ]
+  },
+  {
+   "subject": "Gage de meubles corporels",
+   "ctRefs": [
+    1840,
+    1841,
+    1842,
+    1843,
+    1844,
+    1845,
+    1846,
+    1847,
+    1848,
+    1849,
+    9
+   ]
+  },
+  {
+   "subject": "Garantie autonome",
+   "ctRefs": [
+    "1809-1",
+    "1809-2",
+    "1809-3",
+    "1809-4",
+    "1809-5",
+    "1809-6",
+    "1809-7",
+    "1809-8",
+    "1809-9",
+    6
+   ]
+  },
+  {
+   "subject": "Lettre de confort",
+   "ctRefs": [
+    "1809-10",
+    7
+   ]
+  },
+  {
+   "subject": "Loi du 27 novembre 2008 (gage sans dépossession) — abrogation",
+   "ctRefs": [
+    20
+   ]
+  },
+  {
+   "subject": "Nantissement de compte",
+   "ctRefs": [
+    "1858-6"
+   ]
+  },
+  {
+   "subject": "Nantissement de créance",
+   "ctRefs": [
+    "1858-1",
+    "1858-2",
+    "1858-3",
+    "1858-7",
+    "1858-8",
+    "1858-9"
+   ]
+  },
+  {
+   "subject": "Pacte commissoire (attribution du bien gagé)",
+   "ctRefs": [
+    1854,
+    1855
+   ]
+  },
+  {
+   "subject": "Propriété retenue à titre de garantie",
+   "ctRefs": [
+    "1858-13",
+    "1858-15",
+    "1858-16",
+    "1858-19",
+    11
+   ]
+  },
+  {
+   "subject": "Registre des Sûretés Mobilières",
+   "ctRefs": [
+    1839,
+    1845
+   ]
+  },
+  {
+   "subject": "Revendication en matière de faillite",
+   "ctRefs": [
+    600,
+    18
+   ]
+  },
+  {
+   "subject": "Réalisation du gage (défaut de paiement)",
+   "ctRefs": [
+    1853,
+    1854,
+    1855
+   ]
+  },
+  {
+   "subject": "Sûretés en général (définition, accessoire)",
+   "ctRefs": [
+    "1774-1",
+    "1774-2",
+    "1774-3",
+    1
+   ]
+  },
+  {
+   "subject": "Sûretés mobilières (énumération)",
+   "ctRefs": [
+    1838,
+    8
+   ]
+  },
+  {
+   "subject": "Sûretés personnelles",
+   "ctRefs": [
+    "1774-3",
+    4
+   ]
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2",
+  "art-1774-1": "Article 1774-1",
+  "art-1774-2": "Article 1774-2",
+  "art-1774-3": "Article 1774-3",
+  "art-3": "Article 3",
+  "art-1774-4": "Article 1774-4",
+  "art-1774-5": "Article 1774-5",
+  "art-1774-6": "Article 1774-6",
+  "art-1774-7": "Article 1774-7",
+  "art-1774-8": "Article 1774-8",
+  "art-1774-9": "Article 1774-9",
+  "art-1774-10": "Article 1774-10",
+  "art-4": "Article 4",
+  "art-5": "Article 5",
+  "art-1780": "Article 1780 — C. civ. (nouvelle rédaction)",
+  "art-1782": "Article 1782 — C. civ. (nouvelle rédaction)",
+  "art-6": "Article 6",
+  "art-1809-1": "Article 1809-1",
+  "art-1809-2": "Article 1809-2",
+  "art-1809-3": "Article 1809-3",
+  "art-1809-4": "Article 1809-4",
+  "art-1809-5": "Article 1809-5",
+  "art-1809-6": "Article 1809-6",
+  "art-1809-7": "Article 1809-7",
+  "art-1809-8": "Article 1809-8",
+  "art-1809-9": "Article 1809-9",
+  "art-7": "Article 7",
+  "art-1809-10": "Article 1809-10",
+  "art-8": "Article 8",
+  "art-1838": "Article 1838 — C. civ. (nouvelle rédaction)",
+  "art-1839": "Article 1839 — C. civ. (nouvelle rédaction)",
+  "art-9": "Article 9",
+  "art-1840": "Article 1840",
+  "art-1841": "Article 1841",
+  "art-1842": "Article 1842",
+  "art-1843": "Article 1843",
+  "art-1844": "Article 1844",
+  "art-1845": "Article 1845",
+  "art-1846": "Article 1846",
+  "art-1847": "Article 1847",
+  "art-1848": "Article 1848",
+  "art-1849": "Article 1849",
+  "art-1849-1": "Article 1849-1",
+  "art-1849-2": "Article 1849-2",
+  "art-1850": "Article 1850",
+  "art-1851": "Article 1851",
+  "art-1851-1": "Article 1851-1",
+  "art-1852": "Article 1852",
+  "art-1853": "Article 1853",
+  "art-1854": "Article 1854",
+  "art-1855": "Article 1855",
+  "art-1856": "Article 1856",
+  "art-1857": "Article 1857",
+  "art-1858": "Article 1858",
+  "art-10": "Article 10",
+  "art-1858-1": "Article 1858-1",
+  "art-1858-2": "Article 1858-2",
+  "art-1858-3": "Article 1858-3",
+  "art-1858-4": "Article 1858-4",
+  "art-1858-5": "Article 1858-5",
+  "art-1858-6": "Article 1858-6",
+  "art-1858-7": "Article 1858-7",
+  "art-1858-8": "Article 1858-8",
+  "art-1858-9": "Article 1858-9",
+  "art-1858-10": "Article 1858-10",
+  "art-1858-11": "Article 1858-11",
+  "art-1858-12": "Article 1858-12",
+  "art-11": "Article 11",
+  "art-1858-13": "Article 1858-13",
+  "art-1858-14": "Article 1858-14",
+  "art-1858-15": "Article 1858-15",
+  "art-1858-16": "Article 1858-16",
+  "art-1858-17": "Article 1858-17",
+  "art-1858-18": "Article 1858-18",
+  "art-1858-19": "Article 1858-19",
+  "art-1858-20": "Article 1858-20",
+  "art-1858-21": "Article 1858-21",
+  "art-12": "Article 12",
+  "art-13": "Article 13",
+  "art-1859-1": "Article 1859-1",
+  "art-14": "Article 14",
+  "art-1869-1": "Article 1869-1",
+  "art-1869-2": "Article 1869-2",
+  "art-1869-3": "Article 1869-3",
+  "art-15": "Article 15",
+  "art-16": "Article 16",
+  "art-1970-1": "Article 1970-1",
+  "art-1970-2": "Article 1970-2",
+  "art-1970-3": "Article 1970-3",
+  "art-1970-4": "Article 1970-4",
+  "art-1970-5": "Article 1970-5",
+  "art-1970-6": "Article 1970-6",
+  "art-1970-7": "Article 1970-7",
+  "art-1970-8": "Article 1970-8",
+  "art-1970-9": "Article 1970-9",
+  "art-17": "Article 17",
+  "art-1611-1": "Article 1611-1 — C. com.",
+  "art-1611-2": "Article 1611-2 — C. com.",
+  "art-18": "Article 18",
+  "art-600": "Article 600 — C. com. (al. 3 à 5)",
+  "art-19": "Article 19",
+  "art-20": "Article 20",
+  "art-21": "Article 21"
+ }
+}

@@ -410,9 +410,9 @@ export default async function DocPage({
               annotations={annotations}
               locale={locale}
               terms={hlTerms}
-              hideInlineIndex={doc.source === 'CONSTITUTION_1987' || doc.source === 'CODE_CIVIL_ANNOTE' || doc.source === 'CODE_DOUANES_ANNOTE' || doc.source === 'DECRET_REGIMES_MATRIMONIAUX' || doc.source === 'LOI_FILIATION_2014'}
+              hideInlineIndex={doc.source === 'CONSTITUTION_1987' || doc.source === 'CODE_CIVIL_ANNOTE' || doc.source === 'CODE_DOUANES_ANNOTE' || doc.source === 'DECRET_REGIMES_MATRIMONIAUX' || doc.source === 'LOI_FILIATION_2014' || doc.source === 'DECRET_SURETES'}
               linkCivRefs={doc.source === 'CODE_CIVIL_ANNOTE'}
-              linkArtRefs={doc.source === 'CODE_PENAL_ANNOTE' || doc.source === 'CODE_DOUANES_ANNOTE' || doc.source === 'DECRET_REGIMES_MATRIMONIAUX' || doc.source === 'LOI_FILIATION_2014'}
+              linkArtRefs={doc.source === 'CODE_PENAL_ANNOTE' || doc.source === 'CODE_DOUANES_ANNOTE' || doc.source === 'DECRET_REGIMES_MATRIMONIAUX' || doc.source === 'LOI_FILIATION_2014' || doc.source === 'DECRET_SURETES'}
               annotationsVariant={doc.source === 'CODE_CIVIL_ANNOTE' ? 'annotations' : 'juris'}
             />
           </section>
