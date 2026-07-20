@@ -1,12 +1,6 @@
 Livre Premier — Sur le commerce en général
 Titre Premier — Des commerçants et des actes de commerce
 Article premier.- Sont commerçants ceux qui exercent des actes de commerce et en font leur profession habituelle.
-Le juge n'est pas obligé d'ordonner une enquête pour établir la qualité de non commerçant du souscripteur d'une obligation commerciale, car il est généralement admis qu'une personne qui n'est pas commerçant de profession peut bien occasionnellement faire un ou des actes de commerce ou être mêlée accidentellement à des opérations commerciales.
-Les achats en vue de la revente constituent des actes de commerce.
-Celui qui se livre à des activités commerciales pour en faire sa profession habituelle a la qualité de commerçant.
-Un non commerçant peut occasionnellement accomplir un ou des actes de commerce.
-Un certificat de l'Administration communale ne saurait détruire le caractère commercial d'un acte de commerce isolé accompli par un commerçant occasionnel : il prouve seulement que le contribuable a cessé d'exercer la profession de commerçant ou ne s'est pas muni de sa patente de commerçant.
-Anc art 621
 Article 2.- Sont réputés actes de commerce:
 1°) Tout achat de marchandises ou denrées pour les revendre, soit en nature, soit après les avoir travaillées et mises en œuvre et tout achat de choses mobilières pour en louer simplement l'usage;
 2°) Toute entreprise de manufacture, de commission, de transport par terre, par eau et par la voie de l'air;
@@ -22,25 +16,6 @@ Article 2.- Sont réputés actes de commerce:
 12°) Toutes assurances et autres contrats concernant le commerce maritime ou aérien et toutes entreprises d'assurances terrestres;
 13°) Tous accords et conventions pour salaires et loyers d'équipage;
 14°) Tous engagements pour le service des bâtiments de commerce ou aéronefs.
-La maison de commerce qui se livre avec les fonds provenant de la vente de ses marchandises, à des opérations d'emprunts publics, agit dans l'intérêt de son commerce, et fait, partant, acte de commerce.
-La convention intervenue entre le chef d'une maison de commerce et son gérant à propos de ces opérations, est commerciale.
-Par obligations commerciales, il ne faut pas entendre simplement celles qui naissent des contrats, mais aussi celles qui dérivent de toutes autres sources comme, par exemples, de délit et de quasi-délit, pourvu qu'ils aient été perpétrés à l'occasion de l'exercice du commerce.
-Par obligations commerciales, il ne faut pas entendre uniquement celles qui naissent des contrats, mais aussi celles qui dérivent de toutes autres sources comme par exemple le délit et le quasi-délit, pourvu qu'ils aient été perpétrés à l'occasion de l'exercice du commerce.
-La résiliation d'un contrat de louage passé par un commerçant pour un objet important de son commerce est commerciale; viole les règles de la compétence et commet un excès de pouvoir, le juge qui décide le contraire.
-Les actes de commerce mixtes tels les quasi-délits, même s'ils sont accomplis par un commerçant, ne relèvent pas nécessairement de la compétence de la juridiction commerciale. Il est de règle pratique que, si l'acte est civil pour le demandeur et commercial pour le défendeur, celui-là peut assigner à son choix soit devant le tribunal civil, soit devant le tribunal de commerce.
-En droit, la chose louée (une station de gazoline, y compris le matériel, la citerne sous terre) cesse d'être sous le contrôle et la garde du propriétaire dès sa délivrance, garde et contrôle passant alors au locataire. C'est à celui-ci qu'il revient d'entretenir la chose louée comme elle doit l'être et de prendre pour sa conservation les mêmes précautions qu'un bon propriétaire prendrait pour la sienne. Ce devoir n'incombe plus au bailleur qui ne pourrait d'ailleurs s'en acquitter sans troubler par des inspections fréquentes, la paisible jouissance du preneur.
-Par contre, l'obligation d'entretenir la chose donnée à bail en état de servir à l'usage pour lequel elle a été louée que le troisième alinéa de l'article 1490 du Code civil met à la charge du bailleur doit s'entendre en ce sens que le bailleur est tenu de faire à la chose louée pendant la durée du bail toutes les réparations qui peuvent devenir nécessaires autres que les locatives. Ainsi donc, l'entretien, la conservation de la chose, les réparations locatives sont à la charge du preneur et les grosses réparations sont à celle du bailleur.
-Il n'y a aucun principe d'obligation personnelle et de dommages-intérêts à la charge du bailleur dans le seul fait qu'un défaut est survenu dans la chose louée depuis le bail et surtout si ce défaut est causé par un cas fortuit et que le bailleur l'ignore, il est exempt de toute faute et n'est pas passible de dommages-intérêts.
-Le dépôt commercial n'est pas gratuit de sa nature. Contrat intéressé, louage de soins, il est un acte de commerce entraînant une rétribution en faveur du dépositaire. L'art 1714 du Code civil ne lui est pas applicable.
-La faute est un manquement à une obligation pré-existante qui cause un dommage à autrui. Ne commet aucune faute, mais exerce un droit et ne viole pas celui d'autrui, le commerçant dépositaire qui, en l'absence de tout tarif légal ou conventionnel, réclame une rétribution basée sur un tarif personnel, même si, par équité, la Justice croit bon de la réduire.
-Le dépositaire créancier en vertu du dépôt est habile à invoquer son droit de rétention. N'est pas éventuelle et hypothétique l'obligation du déposant de rémunérer le dépositaire quand elle découle de l'acte même de dépôt. L'obligation est réelle et prend naissance du jour du dépôt.
-La location d'une maison est, par sa nature, un acte purement civil, mais elle participe d'une obligation commerciale quand le preneur et le bailleur sont tous deux commerçants et que le contrat de bail n'en démontre le caractère civil.
-Les obligations souscrites par un commerçant sont censées l'avoir été pour ses affaires commerciales. Celles-là le sont en raison de la cause qui y est exprimée. Il n'y a réellement fausse cause que lorsque les deux parties ou l'une d'elles ont contracté par erreur en vertu d'une cause qui n'existait pas. Ceci n'étant pas, c'est à bon droit qu'un tribunal rejette une mesure d'instruction sollicitée pour établir qu'une obligation a été souscrite sur fausse cause.
-Les engagements entre commerçants constituent des actes de commerce lorsqu'une autre cause n'y est point énoncée; en conséquence, lorsqu'une obligation contractée par un commerçant envers un autre est garantie par une hypothèque, l'obligation hypothécaire n'étant qu'un accessoire ne saurait changer la nature de l'obligation principale qui est commerciale au vœu même de la loi.
-Pourvoi de First National Bank Of Boston contre Antonio Di Rocco, in JEAN-BAPTISTE, Jacob, Bull des Arrêts, Tome V, Année 1985, pp 128 et suiv.
-Un contrat hypothécaire, même s'il garantit une dette commerciale, a plutôt un caractère strictement civil puisque portant sur un immeuble. Les immeubles, dans la législation haïtienne, ne peuvent faire l'objet d'aucune opération commerciale et n'engagent que civilement les parties, attendu que la juridiction consulaire, en principe, ne connaît d'aucune exécution, encore moins de la validité ou de l'invalidité d'une hypothèque, un contrat solennel qui ne compte qu'à la juridiction civile.
-Pourvoi de Tawfic Jaar contre Association des Exportateurs de Mangues (ASDEM), in JEAN-BAPTISTE, Jacob, Bull des Arrêts, Tome V, Année 1985, pp 131 et suiv.
-L'obligation d'un consignataire ne peut être éteinte que s'il a apporté la preuve que la détérioration des marchandises consignées, périssables par nature, est survenue sans sa faute.
 Article 3.- Tout mineur émancipé, de l'un ou l'autre sexe âgé de dix-huit ans accomplis, qui voudra profiter de la faculté que lui accorde l'article 397 du Code civil de faire le commerce, ne pourra en commencer les opérations ni être réputé majeur, quant aux engagements par lui contractés pour fait de commerce, que:
 1°) s'il a été, au préalable, autorisé expressément par son père ou par sa mère, en cas de décès, interdiction ou absence du père, ou à défaut du père ou de la mère, par une délibération du Conseil de famille convoqué à cet effet, et dûment homologuée par le tribunal civil;
 2°) si, en outre, l'acte d'autorisation a été enregistré et affiché en greffe du tribunal civil du lieu où le mineur veut établir son commerce.
@@ -57,9 +32,7 @@ Toutefois, leurs biens stipulés dotaux, quand elles sont mariées sous le régi
 Titre II — Des livres de commerce Anc art 8
 Article 9.- Tout commerçant est tenu d'avoir un livre-journal qui présente, jour par jour, ses dettes actives et passives, les opérations ou endossements d'effets et généralement tout ce qu'il reçoit et paie, à quelque titre que ce soit; et qui énonce, par mois, les sommes employées à la dépense de sa maison: le tout indépendamment des autres livres usités dans le commerce, mais qui ne sont pas indispensables.
 Il est tenu de mettre en liasse les lettres missives qu'il reçoit, et de copier sur un registre celles qu'il envoie.
-Anc art 9
 Article 10.- Il est tenu de faire, tous les ans, sous seing privé, un inventaire de ses effets mobiliers et immobiliers, et de ses dettes actives et passives, et de le copier, année par année, sur un registre spécial destiné à cet effet.
-Anc art 10
 Article 11.- Le livre-journal et le livre des inventaires seront timbrés, conformément à la loi en vigueur sur le timbre.
 Ils seront cotés et paraphés par le doyen du tribunal civil et, dans les villes où il n'y pas de tribunal civil, par le juge de paix.
 Ils seront tenus par ordre de dates, sans blanc, lacunes, ni transports en marge.
@@ -90,7 +63,6 @@ Arrêt du 21 déc 1939, Gaz du Pal, No du 1er mars 1940
 N'est pas opposable aux tiers qui n'ont point été avertis de la manière prescrite aux art 42, 43, 44 et 46 du Code de commerce, la dissolution d'une société en nom collectif; en conséquence, ils peuvent invoquer à bon droit, les effets légaux dérivant du fait de l'un des associés. En outre, l'engagement contracté envers eux, aux termes des articles 1626, 1628 du Code civil et 22 du Code de commerce par l'un des associés lie la société, encore que cet associé n'ait pas signé de la raison sociale, s'il résulte de l'engagement même, qu'il a été contracté non dans l'intérêt propre et pour le compte personnel du signataire, mais dans l'intérêt et pour compte de la société.
 Article 22.- Les noms des associés peuvent seuls faire partie de la raison sociale.
 Article 23.- Les associés en nom collectif, indiqués dans l'acte de société, sont solidaires pour tous les engagements de la société, encore qu'un seul ait signé, pourvu que ce soit sous la raison sociale.
-L'associé d'une société en nom collectif n'est que mandataire soit dans ses rapports avec les autres associés, soit dans ses rapports avec les tiers à l'égard desquels il s'engage au nom et comme représentant de la société.
 Article 24.- La société en commandite se contracte entre un ou plusieurs associés responsables et solidaires, et un ou plusieurs associés simples bailleurs de fonds, que l'on nomme commanditaires ou associés en commandite.
 Elle est régie sous un nom social qui doit nécessairement être celui d'un ou de plusieurs des associés responsables et solidaires.
 Article 25.- Lorsqu'il y a plusieurs associés solidaires et en nom, et que tous gèrent ensemble, soit qu'un ou plusieurs gèrent pour tous, la société est, à la fois, société en nom collectif à leur égard, et société en commandite à l'égard des simples bailleurs de fonds.
@@ -321,14 +293,6 @@ Par une facture acceptée,
 Par la correspondance,
 Par les livres des parties,
 Par la preuve testimoniale, dans le cas où le tribunal croira devoir l'admettre.
-La preuve testimoniale est admissible toutes les fois que le défaut d'actes n'est pas imputable à la personne qui l'invoque.
-Il n'y a ni excès de pouvoir, ni fausse interprétation des articles 1100, 1117 et 1139 du Code civil lorsque le juge, appréciant la correspondance adressée au mari et des factures de marchandises opposées à la femme, en fait résulter la preuve que c'est le mari et non celle-ci qui était en rapport de commerce avec un tiers.
-Les lettres du mari ne peuvent pas servir de commencement de preuve par écrit contre la femme, à moins que l'écrit ne soit l'œuvre de celle-ci, ou qu'elle en ait accepté les dispositions d'une manière expresse ou tacite.
-En matière de consignation, les marchandises doivent être restituées en nature quand l'écrit qui constate ce dépôt mentionne la quantité et le prix de chaque espèce de marchandises consignées.
-En matière commerciale, quand un contrat est purement verbal, son existence et sa date peuvent, à l'égard des tiers comme des parties, être établies par tous les moyens de preuve et si les intéressés ont eu le soin de dresser un acte et de le dater, les juges sont autorisés à tenir la date pour sincère, tant que la preuve contraire n'est pas fournie.
-Pourvoi de Madame Clovis Dessources contre Elias Cassis.
-La fiche de vente qui fait preuve du paiement lorsqu'elle est acquittée et de la délivrance, si elle contient cette mention ou si elle est cochée, est un acte sous seing privé qui constate et prouve la vente d'une chose aux termes de l'article 107 du Code de commerce, jouissant de la même foi que l'acte authentique, selon l'article 1107 du Code civil entre ceux qui l'ont souscrit et entre leurs héritiers et ayants cause.
-Lorsque, dans un contrat de vente conditionnelle, les parties ont stipulé que le défaut de paiement à une date fixée entraînera de plein droit l'annulation de la vente, le créancier du prix n'a pas besoin d'une décision de justice pour reprendre l'objet vendu; il n'a qu'à exécuter les conditions du contrat pour saisir l'objet.
 Titre Viii — Lettre de change - Billet à ordre et chèque - Prescription
 Chapitre PREMIER — De la lettre de change
 Section Premiere
@@ -665,10 +629,6 @@ Article 209.- Le billet à ordre contient:
 5°) Le nom de celui auquel ou à l'ordre duquel le paiement doit être fait;
 6°) L'indication de la date et du lieu où le billet est souscrit;
 7°) La signature de celui qui émet le titre (souscripteur).
-Il y a prorogation d'échéance quand un effet reste impayé après les termes convenus, sans exécution immédiate de la part du créancier.
-Le paiement d'une obligation doit avoir lieu à l'endroit désigné par la convention.
-Un billet à ordre étant payable à présentation, c'est-à-dire à vue, le jour de l'échéance dépend de la volonté du porteur, et ce jour est celui où il présente l'effet au souscripteur pour en être payé; à cet égard, la loi déroge à la règle générale suivant laquelle l'échéance doit être déterminée par avance dans le titre même.
-Nouveau
 Article 210.- Le titre dans lequel une des énonciations indiquées à l'article précédent fait défaut ne vaut pas comme billet à ordre, sauf dans les cas déterminés par les alinéas suivants:
 Le billet à ordre dont l'échéance n'est pas indiquée est considéré comme payable à vue;
 A défaut d'indication spéciale, le lieu de création du titre est réputé être le lieu de paiement et, en même temps, le lieu du domicile du souscripteur;
@@ -1366,7 +1326,6 @@ Les deniers versés par le syndic, et tous autres consignés par des tiers pour 
 S'il existe des oppositions, le syndic devra préalablement en obtenir la main-levée.
 Le juge-commissaire pourra ordonner que le versement sera fait par la Banque Nationale de la République d'Haïti entre les mains des créanciers de la faillite, sur un état de répartition dressée par le syndic et ordonnancé par lui.
 Section Iv — Des actes conservatoires
-Anc. art. 490 fr.
 Article 520.- À compter de son entrée en fonction, le syndic sera tenu de faire tous les actes pour la conservation des droits du failli contre ses débiteurs.
 Il sera aussi tenu de requérir l'inscription des hypothèques sur les immeubles des débiteurs du failli, si elle n'a pas été requise par lui; l'inscription sera prise au nom de la masse par le syndic, qui joindra à ses bordereaux un certificat constatant l'ouverture de la faillite et la qualité en laquelle il procède.
 Il sera tenu aussi de prendre inscription, au nom de la masse des créanciers, sur les immeubles du failli dont il connaîtra l'existence.
@@ -1375,36 +1334,26 @@ Section V — De la vérification des créances Anc. art. 491 fr. mod. D-L 8 ao�
 Article 521.- À partir du jugement déclaratif de faillite, les créanciers pourront remettre au greffier du tribunal civil leurs titres avec un bordereau indicatif des pièces remises et des sommes réclamées.
 Ce bordereau est signé par le créancier ou par son mandataire dont le pouvoir doit y être annexé.
 Le syndic donnera un récépissé du dossier de production que lui fera parvenir le greffier dans le plus bref délai.
-Anc. art. 492 fr. mod. D-L 8 août 1935
 Article 522.- Les créanciers inscrits au bilan qui n'ont pas produit leurs créances dans la huitaine de la confection du bilan, si le failli n'en avait pas fait le dépôt avec la déclaration de cessation de ses paiements, seront, à l'expiration de ce délai, avertis par des insertions dans les journaux ou par lettre recommandée avec avis de réception du syndic, qu'ils auront à remettre leurs titres et le bordereau indicatif entre les mains du syndic dans la quinzaine de ces insertions ou de la date de l'avis de réception; ce délai est augmenté de trois mois pour les créanciers demeurant hors du territoire de la République d'Haïti.
-Anc. art. 493 fr. mod. D-L 8 août 1935
 Article 523.- La vérification des créances est faite par le syndic de la faillite, assisté d'un ou plusieurs des contrôleurs de la faillite pris parmi les créanciers et désignés par le juge-commissaire, comme il est prévu au Chapitre IV du Titre Premier de la faillite, s'il en a été nommé, sous réserve de l'approbation du juge-commissaire, et en présence du failli dûment appelé ou dûment représenté.
 Si la créance soumise à la vérification est discutée en tout ou en partie par le syndic, celui-ci en avisera le créancier par lettre recommandée avec avis de réception.
 Le créancier ainsi averti aura un délai de quinze jours pour fournir des explications verbales ou écrites sur le fondement de son titre de créance.
-Anc. art. 495 fr. mod. D-L 8 août 1935
 Article 524.- Tout créancier, dont la créance aura été vérifiée et affirmée, pourra assister à la vérification des autres créanciers et fournir tout contredit aux vérifications à faire.
-Anc. art. 496 fr.
 Article 525.- Le procès-verbal de vérification énoncera la représentation des titres de créance, le nom et le domicile des créanciers ou de leurs mandataires. Il contiendra la description sommaire des titres, lesquels seront rapprochés des livres du failli.
 Il exprimera que le porteur est légitime créancier de la somme par lui réclamée.
 Si la créance n'est pas contestée, le syndic signera sur chacun de ces titres la déclaration suivante :
 « Admis au passif de la faillite de …………………………
 Pour la somme de ………………………………… »
 Le visa du juge-commissaire sera porté au bas de la déclaration.
-Anc. art. 494 fr. mod. D-L 8 août 1935
 Article 526.- Aussitôt la vérification terminée et au plus tard dans le délai de trois mois à partir de la date du jugement déclaratif de faillite, le syndic déposera au greffe le procès-verbal de ladite vérification comme il est prévu en l'article précédent.
 Le greffier du tribunal civil avertira immédiatement les créanciers du dépôt dudit procès-verbal de vérification par des insertions dans les journaux; il leur adressera, en outre, une lettre indiquant pour chacun d'eux la somme pour laquelle sa créance y figure.
 Article 527.- Tout créancier, dans le délai de huitaine du dépôt du procès-verbal de vérification au greffe du tribunal civil, sera tenu d'affirmer entre les mains du juge-commissaire, que ladite créance est sincère et véritable.
-Anc. art. 495 fr. mod. D-L 8 août 1935
 Article 528.- Tout créancier vérifié ou porté au bilan est admis, pendant huit jours à dater des insertions prévues en l'article 522, à formuler des contredits ou des réclamations au greffe, soit par lui-même, soit par mandataire, par voie de mention sur le procès-verbal de vérification déposé. Le failli aura le même droit.
 Ce délai expiré, le juge-commissaire, d'après le procès-verbal de vérification dressé par le syndic et après les contredits et réclamations, arrêtera définitivement l'état des créances.
-Anc. art. 498 fr. mod. D-L 8 août 1935 · al. 2 : Anc. art. 500 fr.
 Article 529.- À l'égard des créances contestées, l'incident sera porté par simple acte à l'audience commerciale du tribunal civil par la partie intéressée. Après les contredits, dires et observations des intéressés, le Ministère public entendu, il sera rendu jugement qui, après examen, statuera sur l'admission ou le rejet de ladite créance au passif de la faillite. Ce jugement sera exécutoire par provision, nonobstant tout recours.
 Le tribunal pourra décider par provision que le créancier sera admis dans les délibérations pour une somme que le jugement déterminera.
-Anc. art. 500 fr.
 Article 530.- Dans le cas où une créance serait l'objet d'une instruction criminelle ou correctionnelle, le tribunal civil, saisi d'abord de la créance contestée, pourra prononcer le sursis et le créancier porteur de ladite créance suspectée ne prendra aucune part aux opérations de la faillite, tant que les tribunaux compétents n'auront pas statué.
-Anc. art. 501 fr.
 Article 531.- Le créancier dont le privilège ou l'hypothèque seulement serait contesté sera admis dans les délibérations de la faillite comme créancier ordinaire.
-Anc. art. 503 fr.
 Article 532.- À défaut de comparution et d'affirmation dans les délais qui leur sont impartis, les défaillants connus ou inconnus ne seront pas compris dans les répartitions à faire; toutefois la voie de l'opposition leur sera ouverte jusqu'à la distribution des deniers inclusivement. Les frais de l'opposition demeureront toujours à leur charge.
 Leur opposition ne pourra suspendre l'exécution des répartitions ordonnées par le juge-commissaire, mais, s'il est procédé à des répartitions nouvelles, avant qu'il ait été statué sur leur opposition, ils seront compris pour la somme qui sera provisoirement déterminée par le tribunal et qui sera tenue en réserve jusqu'au jugement de leur opposition.
 S'ils se sont ultérieurement fait connaître créanciers, ils ne pourront rien réclamer sur les répartitions ordonnées par le juge-commissaire, mais ils auront droit de prélever sur l'actif non encore réparti, les dividendes afférents à leurs créances dans les premières répartitions.
@@ -1412,10 +1361,8 @@ Chapitre V — Du concordat et de l'union
 Section Première — De la convocation et de l'assemblée des créanciers Anc. art. 504 fr. mod. D-L 8 août 1935
 Article 533.- Dans les trois jours qui suivront la clôture de l'état des créances, ou s'il y a eu contestation, dans les trois jours de la décision prise par le tribunal, le juge-commissaire fera convoquer par le greffier, à l'effet de délibérer sur la formation du concordat, les créanciers dont les créances ont été admises. Les insertions dans les journaux et les lettres de convocation indiqueront l'objet de l'assemblée.
 Les créanciers admis par provision seront avisés individuellement par lettre recommandée, dans les trois jours de la décision prise par le tribunal à leur égard.
-Anc. art. 505 fr. mod. D-L 8 août 1935
 Article 534.- Aux lieu, jour et heure qui seront fixés par le juge-commissaire, l'assemblée se formera sous sa présidence; les créanciers admis définitivement ou par provision s'y présenteront en personne ou par mandataires.
 Le failli sera appelé à cette assemblée; il devra s'y présenter en personne, s'il a été dispensé de la mise en dépôt, ou s'il a obtenu un sauf-conduit; et il ne pourra s'y faire représenter que pour des motifs valables et approuvés par le juge-commissaire.
-Anc. art. 506 fr.
 Article 535.- Le syndic fera à cette assemblée un rapport sur l'état de la faillite, sur les formalités qui auront été remplies et les opérations qui auront eu lieu. Le failli sera entendu.
 Le rapport du syndic sera remis, signé de lui, au juge-commissaire, qui dressera procès-verbal de ce qui aura été décidé par l'assemblée.
 Section Ii — Du concordat
@@ -1423,39 +1370,28 @@ Section Ii — Du concordat
 Article 536.- Il ne pourra être consenti de traité entre les créanciers délibérants et le débiteur failli qu'après l'accomplissement des formalités ci-dessus prescrites.
 Ce traité ne s'établira que par un vote à la double majorité des voix et des deux tiers des sommes dont les créances ont été admises définitivement ou par provision, conformément à la Section V du Chapitre IV du présent Code de commerce, le tout à peine de nullité.
 Cependant les créances de ceux qui n'ont pas pris part au vote seront déduites pour le calcul des majorités tant en nombre qu'en sommes.
-Anc. art. 508 fr.
 Article 537.- Les créanciers hypothécaires inscrits ou dispensés d'inscription, et les créanciers privilégiés ou nantis d'un gage, n'auront pas voix dans les opérations relatives au concordat pour lesdites créances et elles n'y seront comptées que s'ils renoncent à leurs hypothèques, gages ou privilèges.
 Le vote du concordat emportera de plein droit cette renonciation.
-Anc. art. 509 fr. mod. D-L 8 août 1935
 Article 538.- Le concordat, à peine de nullité, sera signé séance tenante. Si l'une seulement des deux conditions de majorité fixées par l'article 536 est réalisée, la délibération sera continuée à huitaine pour tout délai.
 Dans ce cas, les créanciers présents ou légalement représentés, ayant signé le procès-verbal de la première assemblée, ne sont pas tenus d'assister à la deuxième assemblée. Les résolutions par eux prises et les adhésions données restent définitivement acquises, s'ils ne sont pas venus les modifier dans cette dernière réunion.
 La signature des créanciers dans les assemblées peut être remplacée par une signature sur un bulletin de vote qui est annexé au procès-verbal.
-Anc. art. 510 fr.
 Article 539.- Si l'examen des actes, livres et papiers du failli donne quelque présomption de banqueroute, il ne pourra être fait aucun traité entre le failli et les créanciers, à peine de nullité.
 Le juge-commissaire veillera à l'exécution de la présente disposition.
-Anc. art. 510 fr.
 Article 540.- Lorsqu'une instruction en banqueroute aura été commencée, les créanciers seront convoqués à l'effet de décider s'ils se réservent de délibérer sur un concordat en cas d'acquittement, et, si, en conséquence, ils sursoient à statuer jusqu'après l'issue des poursuites.
 Ce sursis ne pourra être prononcé qu'à la double majorité en nombre et en sommes déterminée en la présente Section.
-Anc. art. 512 fr.
 Article 541.- Tous les créanciers ayant eu droit de concourir au concordat ou dont les droits auront été reconnus depuis, pourront y former opposition.
 L'opposition sera motivée et devra être signifiée au syndic et au failli, à peine de nullité, dans les huit jours qui suivront le concordat; elle contiendra assignation à la première audience du tribunal civil (Chambre des affaires commerciales).
-Anc. art. 513 fr.
 Article 542.- L'homologation du concordat sera poursuivie, devant le tribunal civil, à la requête de la partie la plus diligente; le tribunal ne pourra statuer avant l'expiration du délai de huitaine fixé par l'article précédent.
 Si, pendant ce délai, il a été formé des oppositions, le tribunal statuera sur lesdites oppositions et sur l'homologation par un seul et même jugement.
 Si l'opposition est admise, l'annulation du concordat sera prononcée à l'égard de tous les intéressés.
-Anc. art. 515 fr. mod. D-L 17 juin 1938
 Article 543.- Le tribunal ne pourra homologuer le concordat que par jugement motivé et dans l'intérêt des créanciers, dans le cas où le failli a été l'objet d'une condamnation définitive pour crime de droit commun, pour vol, abus de confiance, escroquerie, ou de la banqueroute, pour soustraction commise par dépositaire public, pour extorsion de fonds ou valeurs, pour émission de mauvaise foi de chèques sans provision, pour atteinte au crédit de l'État, pour recel des choses obtenues à l'aide de ces infractions ou pour tentative ou complicité des infractions ci-dessus visées.
 Il en sera de même, dans le cas où le failli aurait été précédemment déclaré en faillite et ne serait pas réhabilité.
 § II
 Des effets du concordat
-Anc. art. 516 fr. mod. D-L 8 août 1935
 Article 544.- L'homologation du concordat le rendra obligatoire pour tous les créanciers sans exception ni réserve.
-Anc. art. 517 fr.
 Article 545.- L'homologation conservera, à chacun des créanciers sur les immeubles du failli, l'hypothèque inscrite en vertu du 3e paragraphe de l'article 534. (De la Section IV des Actes conservatoires)
 À cet effet, le syndic fera inscrire lesdites hypothèques en exécution du jugement d'homologation, si déjà elle n'avait été faite.
-Anc. art. 518 fr.
 Article 546.- Aucune action en nullité du concordat ne sera recevable après l'homologation, et résultant, soit de la dissimulation de l'actif, soit de l'exagération du passif, soit du dol découvert depuis ladite homologation.
-Anc. art. 519 fr.
 Article 547.- Aussitôt que le jugement d'homologation sera passé en force de chose jugée, les fonctions du syndic cesseront.
 Le syndic rendra au failli son compte définitif, en présence du juge-commissaire; ce compte sera débattu et arrêté.
 Il remettra au failli l'universalité de ses biens, livres, papiers et effets. Le failli lui en donnera décharge.
@@ -1463,101 +1399,71 @@ Il sera dressé du tout procès-verbal par le juge-commissaire dont les fonction
 En cas de contestation sur ce compte, le tribunal prononcera, sans qu'en aucun cas, la responsabilité personnelle du syndic soit engagée à cette occasion.
 § III
 De l'annulation ou de la résolution du concordat
-Anc. art. 520 fr.
 Article 548.- L'annulation du concordat, soit pour dol, soit par suite d'une condamnation pour banqueroute intervenue après son homologation, libère de plein droit les cautions.
 En cas d'inexécution par le failli, des conditions de son concordat, la résolution de ce traité pourra être poursuivie contre lui devant la juridiction compétente, en présence des cautions, s'il en existe, ou elles dûment appelées.
 La résolution du concordat ne libérera pas les cautions qui y seront intervenues pour en garantir l'exécution totale ou partielle.
-Anc. art. 521 fr.
 Article 549.- Lorsque, après l'homologation du concordat, le failli sera poursuivi pour banqueroute frauduleuse et placé sous mandat de dépôt ou d'arrêt, le tribunal civil pourra prescrire telles mesures conservatoires qu'il appartiendra. Ces mesures cesseront de plein droit du jour de déclaration qu'il n'y a lieu à suivre contre l'inculpé, de l'ordonnance d'acquittement ou du jugement d'absolution.
-Anc. art. 522 fr. mod. D-L 8 août 1935
 Article 550.- En cas de jugement de condamnation pour banqueroute frauduleuse ou de jugement prononçant soit l'annulation, soit la résolution du concordat, le juge tenant les audiences commerciales du tribunal civil exercera à nouveau les fonctions de juge-commissaire et avis de l'annulation ou de la résolution du concordat sera immédiatement donné par le greffier au Directeur de l'Administration Générale des Contributions.
 Sans désemparer, le syndic pourra faire déposer les scellés par le juge de paix compétent.
 Le syndic procédera, sans retard, avec l'assistance du juge de paix, sur l'ancien inventaire, au récolement des valeurs, actions et des papiers, et procédera, s'il y a lieu, à un supplément d'inventaire.
 Il dressera un bilan supplémentaire.
 Il fera immédiatement envoyer et insérer dans les journaux un extrait du dispositif du jugement d'annulation ou de résolution, avec invitation aux créanciers nouveaux, s'il en existe, de produire leurs titres de créances à la vérification. Il est procédé à cette vérification de la manière prévue à la Section V du Chapitre IV du présent Code.
-Anc. art. 523 fr.
 Article 551.- Il sera procédé, sans retard, à la vérification des titres de créances produits en vertu de l'article précédent.
 Il n'y aura pas lieu à nouvelle vérification des créances antérieurement admises et affirmées, sans préjudice néanmoins du rejet de celles qui, depuis, auraient été payées en tout ou en partie.
-Anc. art. 524 fr. mod. D-L 8 août 1935
 Article 552.- Ces opérations mises à fin, s'il n'intervient pas de nouveau concordat, les créanciers seront convoqués à l'effet de se constituer en contrat d'union et prendre toutes les mesures pour la conservation de leurs droits.
-Anc. art. 525 fr.
 Article 553.- Les actes faits au failli postérieurement au jugement d'homologation et antérieurement à l'annulation ou à la résolution du concordat, ne seront annulés qu'en cas de fraude aux droits des créanciers.
-Anc. art. 526 fr.
 Article 554.- Les créanciers antérieurs au concordat rentreront dans l'intégralité de leurs droits à l'égard du failli seulement; mais ils ne pourront figurer dans la masse que pour les proportions suivantes :
 1°) S'ils n'ont touché aucune part du dividende, pour l'intégralité de leurs créances;
 2°) S'ils ont reçu une partie du dividende, pour la portion de leurs créances primitives correspondant à la portion de dividende promis qu'ils n'auront pas touchée.
 Section Iii — De la clôture en cas d'insuffisance de l'actif Anc. art. 527 fr. mod. D-L 8 août 1935
 Article 555.- Si, à quelque époque que ce soit, avant l'homologation du concordat ou la formation de l'union, le cours des opérations de la faillite se trouve arrêté par insuffisance de l'actif, le tribunal, suivant les circonstances, pourra prononcer la clôture des opérations de la faillite.
 Ce jugement fera rentrer chaque créancier dans l'exercice de ses actions individuelles, tant contre les biens que contre la personne du failli.
-Anc. art. 528 fr. mod. D-L 8 août 1935
 Article 556.- Le failli, ou tout autre intéressé, pourra, à toute époque, faire rapporter ce jugement de clôture par le tribunal, en justifiant qu'il existe des fonds pour faire face aux frais des opérations de la faillite, ou en faisant consigner entre les mains du syndic somme suffisante pour y parvenir.
 Dans tous les cas, les frais des poursuites exercées en vertu de l'article précédent devront être préalablement acquittés.
 Section Iv — De l'union des créanciers
-Anc. art. 529 fr.
 Article 557.- S'il n'intervient point de concordat, les créanciers seront de plein droit en état d'union.
 Le juge-commissaire les consultera immédiatement sur les faits de gestion du syndic.
 Les créanciers privilégiés, hypothécaires ou nantis d'un gage, seront admis à cette délibération.
 Il sera dressé procès-verbal des dires et observations des créanciers.
-Anc. art. 530 fr.
 Article 558.- Les créanciers seront consultés sur la question de savoir si un recours pourra être accordé au failli, sur l'actif de la faillite, s'il n'existe contre lui aucune présomption de banqueroute.
 Lorsque la majorité y aura consenti, une somme pourra être accordée au failli, à titre de secours sur l'actif de la faillite. Le syndic en proposera la quotité qui sera fixée par le juge-commissaire, en proportion des besoins et de l'étendue de la famille du failli, de sa bonne foi et du plus ou moins de perte qu'il fera supporter à ses créanciers.
-Anc. art. 531 fr.
 Article 559.- Lorsqu'une société de commerce sera en état de faillite déclarée, les créanciers pourront ne consentir de concordat qu'en faveur d'un ou de plusieurs des associés.
 En ce cas, tout l'actif social demeurera sous le régime de l'union. Les biens personnels de ceux avec lesquels le concordat aura été consenti en seront exclus, et le traité particulier passé avec eux ne pourra consentir l'engagement de payer un dividende que sur des valeurs étrangères à l'actif social.
 L'associé qui aura obtenu un concordat particulier sera déchargé de toute solidarité.
-Anc. art. 532 fr.
 Article 560.- Le syndic représente la masse des créanciers et est spécialement chargé de procéder à la liquidation.
 Lorsqu'il s'agira d'une société en état de faillite, les créanciers pourront, avec l'assentiment du syndic, nommer un gérant pour continuer, sous son contrôle, l'exploitation de l'actif. Ladite décision ne pourra être prise qu'en présence du juge-commissaire et à la majorité des trois quarts des créanciers en nombre et en sommes.
 La voie de l'opposition sera ouverte contre cette délibération au failli et aux créanciers dissidents.
 Cette opposition ne sera pas suspensive de l'exécution.
-Anc. art. 533 fr.
 Article 561.- Lorsque la continuation de l'exploitation entraînera des engagements qui excéderaient l'actif de l'union, les créanciers qui auront autorisé ces opérations seront seuls tenus personnellement au-delà de leur part dans l'actif, mais seulement dans les limites du mandat qu'ils auront donné; ils contribueront au prorata de leurs créances.
-Anc. art. 534 fr. mod. D-L 8 août 1935
 Article 562.- Le syndic est chargé de poursuivre la vente des immeubles, marchandises et effets mobiliers du failli, et la liquidation de ses dettes actives et passives; le tout sous le contrôle du juge-commissaire, et sans qu'il soit besoin d'appeler le failli.
-Anc. art. 536 fr. mod. D-L 8 août 1935
 Article 563.- Les créanciers en état d'union seront convoqués par le syndic tous les trois mois pour leur soumettre son état de gestion et le résultat de la liquidation des dettes actives et passives du failli.
-Anc. art. 537 fr. mod. D-L 22 fév. 1941
 Article 564.- Lorsque la liquidation sera terminée, les créanciers seront convoqués par le juge-commissaire.
 Dans cette dernière assemblée, le syndic rendra son compte. Le failli sera présent ou dûment appelé.
 Les créanciers donneront leur avis sur l'excusabilité du failli. Il sera dressé, à cet effet, un procès-verbal dans lequel chacun des créanciers pourra consigner ses dires et observations.
 Après la clôture de cette assemblée, l'union sera dissoute de plein droit.
-Anc. art. 538 fr.
 Article 565.- Le syndic soumettra au tribunal la délibération des créanciers relatives à l'excusabilité du failli.
 Le tribunal, le Ministère public entendu, prononcera si le failli est ou non excusable.
-Anc. art. 539 fr.
 Article 566.- Si le failli n'est pas déclaré excusable, les créanciers rentreront dans l'exercice de leurs actions individuelles, tant contre sa personne que contre ses biens.
 S'il est déclaré excusable, il demeurera affranchi de la contrainte par corps à l'égard des créanciers de la faillite et ne pourra plus être poursuivi par eux que sur ses biens.
-Anc. art. 540 fr.
 Article 567.- Ne pourront être déclarés excusables : les banqueroutiers frauduleux, les stellionataires, les personnes condamnées pour vols, escroquerie ou abus de confiance.
-Anc. art. 541 fr. mod. L 17 juil. 1856 ; D-L 25 août 1937
 Article 568.- Aucun débiteur commerçant n'est recevable à demander son admission au bénéfice de cession de biens. Néanmoins un concordat par abandon total ou partiel de l'actif du failli peut être formé suivant les règles prescrites en la Section II du présent Chapitre V.
 Ce concordat produit les mêmes effets que les autres concordats, il peut être annulé ou résolu de la même manière.
 La liquidation de l'actif abandonné est faite comme il est prescrit en la Section IV traitant de l'Union des créanciers et à l'article 595 du Chapitre VII du Code de commerce.
 Le concordat par abandon d'actif est assimilé à l'union pour la perception des droits d'enregistrement.
 Chapitre VI — Des différentes espèces de créanciers et de leurs droits en cas de faillite
 Section Première — Des co-obligés et des cautions
-Anc. art. 542 fr.
 Article 569.- Le créancier porteur d'engagements souscrits, endossés ou garantis solidairement par le failli et d'autres co-obligés qui sont en faillite, participera aux distributions dans toutes les masses, et y figurera pour la valeur de son titre, jusqu'à parfait paiement.
-Anc. art. 543 fr.
 Article 570.- Aucun recours pour raison des dividendes payés n'est ouvert aux faillites des co-obligés les unes contre les autres, si ce n'est la réunion des dividendes que donneraient ces faillites excéderait le montant total de la créance, en principal et accessoires, auquel cas cet excédent sera dévolu, suivant l'ordre des engagements, à ceux des co-obligés qui auraient les autres pour garants.
-Anc. art. 544 fr.
 Article 571.- Si le créancier porteur d'engagements solidaires entre le failli et d'autres co-obligés a reçu, avant la faillite, un acompte sur sa créance, il ne sera compris dans la masse que sous déduction de cet acompte, et conservera, pour ce qui lui restera dû, ses droits entre le co-obligé et la caution.
 Le co-obligé ou la caution qui aura fait le paiement partiel sera compris dans la masse pour tout ce qu'il a payé à la décharge du failli.
-Anc. art. 545 fr.
 Article 572.- Nonobstant le concordat, les créanciers conservent leur action pour la totalité de leurs créances contre les co-obligés du failli.
 Section Ii — Des créanciers nantis d'un gage et des créances privilégiées sur les biens meubles
-Anc. art. 546 fr.
 Article 573.- Les créanciers du failli qui seront valablement nantis de gages ne seront inscrits dans la masse que pour mémoire.
-Anc. art. 547 fr.
 Article 574.- Le syndic, à toute époque, pourra, avec l'autorisation du juge-commissaire, retirer les gages au profit de la faillite, en remboursant la dette.
-Anc. art. 548 fr.
 Article 575.- Dans le cas où le gage ne sera pas retiré par le syndic, s'il est vendu par le créancier moyennant un prix qui excède la créance, le surplus sera recouvré par le syndic; si le prix est moindre que la créance, le créancier nanti viendra à contribution pour le surplus, dans la masse, comme créancier ordinaire.
-Anc. art. 551 fr.
 Article 576.- Le syndic présentera au juge-commissaire l'état des créanciers se prétendant privilégiés sur les meubles, et le juge-commissaire autorisera le paiement desdits créanciers sur les premiers deniers rentrés.
 S'il y a des créanciers contestant le privilège invoqué, le tribunal prononcera sur la difficulté; les frais seront supportés par ceux dont la demande aura été rejetée, et ne seront pas mis au compte de la masse.
-Anc. art. 549 fr. mod. L 17 juin 1919
 Article 577.- Le salaire acquis aux membres du personnel et aux ouvriers directement employés par le débiteur et les sommes dues à tous ceux qui louent leurs services pendant les six mois qui ont précédé l'ouverture de la faillite, sont admis au même rang que le privilège établi par l'article 1868 du Code civil pour les gens de service.
-Anc. art. 550 fr. mod. L 12 fév. 1872
 Article 578.- Si le bail est résilié, suivant la faculté laissée au syndic par l'article 504 du chapitre premier du Titre premier du livre III sur la faillite, le propriétaire d'immeubles affectés au commerce ou à l'industrie du failli ou de la société en état de faillite, aura privilège pour les deux dernières années de location échues avant le jugement déclaratif de faillite, pour l'année courante, pour tout ce qui concerne l'exécution du bail et pour les dommages-intérêts qui pourront lui être alloués par les tribunaux.
 Au cas de non résiliation, le bailleur, une fois payé de tous les loyers échus, ne pourra pas exiger le paiement des loyers en cours ou à échoir, si les sûretés qui lui ont été données lors du contrat sont maintenues, ou si celles qui lui ont été fournies depuis la faillite sont jugées suffisantes.
 Lorsqu'il y aura vente et enlèvement des meubles garnissant les lieux loués, le bailleur pourra exercer son privilège comme au cas de résiliation ci-dessus, et, en outre, pour une année à échoir à partir de l'année courante, que le bail ait ou non date certaine.
@@ -1565,65 +1471,46 @@ Le syndic pourra continuer le bail pour tout le temps à courir, à la charge pa
 Dans le cas où le bail contiendrait interdiction de céder ou de sous-louer, les créanciers ne pourront faire leur profit de la location que pour le temps à raison duquel le bailleur aurait touché ses loyers par anticipation, et toujours sans que la destination des lieux puisse être changée.
 Le privilège et le droit de revendication établis par le N° 4 de l'article 1869 du Code civil, au profit du vendeur d'effets mobiliers, ne peuvent être exercés contre la faillite.
 Section Iii — Des droits des créanciers hypothécaires et privilégiés sur les immeubles
-Anc. art. 552 fr. mod.
 Article 579.- Lorsque la distribution du prix des immeubles sera faite antérieurement à celle du prix des meubles, ou simultanément, les créanciers privilégiés ou hypothécaires, non remplis sur le prix des immeubles, concourront, à proportion de ce qui leur restera dû, avec les créanciers chirographaires, sur les deniers appartenant à la masse chirographaire, pourvu toutefois que leurs créances aient été vérifiées et affirmées suivant les formes établies.
-Anc. art. 553 fr.
 Article 580.- Si une ou plusieurs distributions des deniers mobiliers précèdent la distribution du prix des immeubles, les créanciers privilégiés et hypothécaires vérifiés et affirmés concourront aux répartitions dans la proportion de leurs créances totales, et sauf, le cas échéant, les distractions dont il sera parlé ci-après.
-Anc. art. 554 fr.
 Article 581.- Après la vente des immeubles et le règlement définitif de l'ordre entre les créanciers hypothécaires et privilégiés, ceux d'entre eux qui viendront en ordre utile sur le prix des immeubles pour la totalité de leur créance ne toucheront le montant de leur collocation hypothécaire que sous la déduction des sommes par eux perçues dans la masse chirographaire.
 Les sommes ainsi déduites ne resteront point dans la masse hypothécaire, mais retourneront à la masse chirographaire au profit de laquelle il en sera fait distraction.
-Anc. art. 555 fr.
 Article 582.- À l'égard des créanciers hypothécaires qui ne seront colloqués que partiellement dans la distribution du prix des immeubles, il sera procédé comme il suit :
 Leurs droits sur la masse chirographaire seront définitivement réglés d'après les sommes dont ils resteront créanciers après leur collocation immobilière; et les deniers qu'ils auront touchés au-delà de cette proportion, dans la distribution antérieure, leur seront retenus sur le montant de leur collocation hypothécaire, et reversés dans la masse chirographaire.
-Anc. art. 556 fr.
 Article 583.- Les créanciers hypothécaires qui ne viennent pas en ordre utile seront considérés comme chirographaires, et soumis comme tels aux effets de la masse chirographaire.
 Section Iv — Des droits de la femme
-Anc. art. 557 fr.
 Article 584.- En cas de faillite du mari, la femme dont les apports en immeubles ne se trouveraient pas mis en communauté, reprendra en nature lesdits immeubles et ceux qui lui seront survenus par succession entre-vifs ou testamentaire.
-Anc. art. 558, 559 fr.
 Article 585.- La femme reprendra pareillement en nature les immeubles acquis par elle et en son nom des deniers provenant desdites successions et donations, ainsi que ceux qu'elle aurait acquis pendant le mariage au moyen des économies réalisées dans son travail personnel ou dans l'exercice d'une profession distincte de celle de son mari, au contrat d'acquisition et que l'origine des deniers soit constatée par un inventaire ou par tout autre acte authentique ou suivant le mode de preuve établi par l'article 4 du décret-loi du 11 janvier 1944, créant un statut nouveau à la femme mariée qui travaille.
 Sous quelque régime qu'ait été formé le contrat de mariage, hors les cas prévus au 1er alinéa du présent article, la présomption légale est que les immeubles acquis par la femme du failli appartiennent à son mari, ont été payés de ses deniers, et doivent être réunis à la masse de son actif, sauf à la femme à fournir la preuve contraire.
 Si la femme a payé des dettes pour son mari, la présomption légale est qu'elle l'a fait des deniers de celui-ci, et elle ne pourra, en conséquence, exercer aucune action dans la faillite, sauf la preuve contraire qu'elle est tenue d'administrer, conformément au droit commun.
-Anc. art. 560 fr. mod. L 29 avr. 1924
 Article 586.- La femme reprendra en nature les effets mobiliers qu'elle s'est constitués par contrat de mariage ou qui lui sont advenus par succession, donation entre vifs ou testamentaire, qui ne sont pas entrés en communauté, ainsi que les effets mobiliers ou les valeurs mobilières qu'elle a acquis suivant les prévisions du Décret-loi du 11 janvier 1944 (art. 1er) toutes les fois que l'identité et la consistance en seront prouvées, conformément à l'article 1284 du Code civil et à l'article 4 du susdit décret-loi du 11 janvier 1944.
 À défaut par la femme de faire cette preuve, tous les effets mobiliers, tant à l'usage du mari qu'à celui de la femme, sous quelque régime qu'ait été contracté le mariage, seront acquis aux créanciers, sauf au syndic à remettre à la femme avec l'autorisation du juge-commissaire, les habits et linges à son usage personnel et à celui de ses enfants mineurs, et sauf l'action en reprise qu'elle pourra exercer comme créancière du mari, conformément aux dispositions du Code civil.
-Anc. art. 561 fr.
 Article 587.- L'action en reprise résultant des dispositions prévues en la présente Section ne sera exercée par la femme qu'à la charge des dettes et hypothèques dont les biens qui en font l'objet sont légalement grevés, soit que la femme s'y soit volontairement obligée, soit qu'elle y ait été condamnée judiciairement ou qu'elles aient été contractées dans l'intérêt du ménage.
 Article 588.- La disposition de l'article précédent est applicable non seulement à la femme du failli qui était déjà commerçant lors de son mariage ou qui l'est devenu dans l'année du mariage, mais, d'une manière générale, à la femme de tout failli.
-Anc. art. 564 fr. ; 563 fr. mod. L 29 avr. 1924
 Article 589.- Lorsque le mari était commerçant au moment de la célébration du mariage, ou lorsque, n'ayant pas alors de profession déterminée, il sera devenu commerçant dans l'année, les immeubles qui lui appartenaient à l'époque de la célébration du mariage, ou qui lui seraient advenus depuis, par succession ou par donation entre vifs ou testamentaire, seront seuls soumis à l'hypothèque légale de la femme pour les créances ci-après désignées :
 1°) Pour les deniers et effets mobiliers qu'elle aura apportés en dot, ou qui lui seront advenus depuis le mariage, par succession ou donation entre vifs ou testamentaire, et dont elle prouvera la délivrance ou le paiement;
 2°) Pour le remploi de ses biens aliénés pendant le mariage;
 3°) Pour l'indemnité des dettes par elle contractées avec son mari.
-Anc. art. 564 fr.
 Article 590.- La femme dont le mari était commerçant à l'époque de la célébration du mariage, ou dont le mari, n'ayant pas alors de profession déterminée, sera devenu commerçant dans l'année qui suivra cette célébration, ne pourra exercer dans la faillite aucune action à raison des avantages portés au contrat de mariage, et, dans ce cas, les créanciers ne pourront, de leur côté, se prévaloir des avantages faits par la femme au mari dans ce même contrat.
 Chapitre VII — De la répartition entre les créanciers de l'actif et de la liquidation du mobilier
-Anc. art. 565 fr.
 Article 591.- Le montant de l'actif mobilier, distraction faite des frais et dépenses de l'administration de la faillite, des secours qui auraient été accordés au failli ou à sa famille, et des sommes payées aux créanciers privilégiés, ainsi que du montant du salaire alloué au Directeur Général des Contributions par préférence à toutes autres dépenses de la faillite, sera réparti entre tous les créanciers, au marc la gourde de leurs créances vérifiées et affirmées.
-Anc. art. 566 fr.
 Article 592.- À cet effet, le syndic remettra tous les mois au juge-commissaire, un état de la situation de la faillite à la Banque Nationale de la République d'Haïti.
 Le juge-commissaire ordonnera, s'il y a lieu, une répartition entre les créanciers, en fixera la quotité, et veillera à ce que tous les créanciers en soient avertis.
-Anc. art. 567 fr. mod. D-L 8 août 1935
 Article 593.- Il ne sera procédé à aucune répartition entre les créanciers domiciliés en Haïti, qu'après la mise en réserve de la part correspondante aux créances pour lesquelles les créanciers domiciliés hors du territoire de la République d'Haïti seront portés au bilan; lorsque lesdites créances ne sont pas portées audit bilan d'une manière exacte, le juge-commissaire pourra décider que la réserve sera augmentée, d'accord avec le syndic.
 Cette part demeurera en dépôt à la Banque Nationale de la République d'Haïti au compte spécial qui sera ouvert au syndic de la faillite jusqu'à l'expiration du délai déterminé en la Section V (De la vérification des créances du chapitre IV du Code de commerce).
 Elle sera répartie entre les créanciers reconnus, si les créanciers domiciliés hors d'Haïti n'ont pas fait vérifier leurs créances, conformément aux susdites dispositions du Code de commerce concernant la vérification des créances.
 Une pareille réserve sera faite pour raison de créances sur l'admission desquelles il n'aurait pas été statué définitivement.
-Anc. art. 569 fr.
 Article 594.- Nul paiement ne sera fait par le syndic que sur la présentation du titre constitutif de la créance.
 Néanmoins, en cas d'impossibilité de représenter le titre, le juge-commissaire pourra autoriser le paiement sur le vu du procès-verbal de vérification.
 Dans tous les cas, le créancier donnera la quittance en marge de l'état de répartition.
-Anc. art. 570 fr. mod. D-L 25 août 1937
 Article 595.- L'Union pourra se faire autoriser par le tribunal, le failli dûment appelé, à traiter à forfait de tout ou partie de l'actif mobilier ou immobilier dont le recouvrement n'aurait pas été opéré et à l'aliéner; en ce cas, le syndic fera tous les actes nécessaires pour y parvenir.
 Tout créancier pourra adresser requête au juge-commissaire pour provoquer une délibération de l'union à cet égard.
 Le failli pourra également adresser requête au tribunal à l'effet de faire autoriser le syndic, sur l'avis conforme de l'union, à céder tout ou partie de l'actif mobilier ou immobilier non encore réalisé.
 Par jugement, le tribunal réglera les modes de cession et de paiement du prix.
 En outre, au cas où le vote de l'union aurait été obtenu à la double majorité en voix et des trois quarts en sommes des créanciers délibérants, ce traité forfaitaire pourrait valoir au débiteur de quitus opposable à tous.
 Chapitre VIII — De la vente des immeubles du failli
-Anc. art. 571 fr.
 Article 596.- À partir du jugement qui déclarera la faillite, les créanciers ne pourront poursuivre l'expropriation des immeubles sur lesquels ils n'auront pas d'hypothèque.
-Anc. art. 572 fr.
 Article 597.- S'il n'y a pas de poursuite en expropriation des immeubles commencée avant l'époque de l'union, le syndic sera seul admis à poursuivre la vente; il sera tenu d'y procéder dans la huitaine, sous l'autorisation du juge-commissaire, suivant la forme prescrite par le Code civil pour la vente des biens des mineurs.
-Anc. art. 573 fr.
 Article 598.- La surenchère, après l'adjudication des immeubles du failli sur la poursuite du syndic, n'aura lieu qu'aux conditions et dans les formes suivantes :
 1°) la surenchère devra être faite dans la huitaine;
 2°) elle ne pourra être au-dessous du dixième du prix principal de l'adjudication;
@@ -1631,29 +1518,20 @@ Article 598.- La surenchère, après l'adjudication des immeubles du failli sur 
 Toute personne sera admise à surenchérir.
 Semblable procédure sera appliquée aux ventes d'immeubles poursuivies par le syndic avant l'union.
 Chapitre IX — De la revendication
-Anc. art. 574 fr.
 Article 599.- Pourront être revendiqués, en cas de faillite, les remises en effets de commerce ou autres titres non encore payés, et qui se trouveront en nature dans le portefeuille du failli à l'époque de sa faillite, lorsque ces remises auront été faites par le propriétaire avec le simple mandat d'en faire le recouvrement et d'en garder la valeur à sa disposition, ou lorsqu'elles auront été, de sa part, spécialement affectées à des paiements déterminés.
-Anc. art. 575 fr.
 Article 600.- Pourront être également revendiquées, aussi longtemps qu'elles existeront en nature, en tout ou en partie, les marchandises consignées au failli à titre de dépôt ou pour être vendues pour le compte du propriétaire.
 Pourra de même être revendiqué le prix ou la partie des dites marchandises qui n'aura pas été payé ni réglé en valeur, ni compensé en compte courant entre le failli et l'acheteur.
-Anc. art. 576 fr. mod. L 20 mars 1928
 Article 601.- Pourront être revendiquées les marchandises expédiées au failli, tant que la tradition n'en aura pas été effectuée dans ses magasins, ou dans ceux du commissionnaire chargé de les vendre pour le compte du failli.
 Néanmoins, la revendication ne sera pas recevable si, avant leur arrivée, les marchandises ont été vendues sans fraude, sur factures et connaissements ou lettre de voiture signées par l'expéditeur.
-Anc. art. 577 fr.
 Article 602.- Pourront être retenues par le vendeur les marchandises par lui vendues, qui ne sont pas livrées au failli ou qui n'auront pas été expédiées, soit à lui, soit à un tiers pour son compte.
-Anc. art. 578 fr. mod. L 20 mars 1928
 Article 603.- Dans les cas prévus par les deux articles précédents, et sous l'autorisation du juge-commissaire, le syndic aura la faculté d'exiger la livraison des marchandises, en payant au vendeur le prix convenu entre lui et le failli.
 Si le syndic n'en use pas, l'inexécution du marché oblige le vendeur à renverser à la masse les acomptes par lui reçus, ainsi que toutes les avances faites pour fret et voiture, commission, assurances et autres frais et à payer les sommes qui seraient dues pour les mêmes causes. Toutefois, cette inexécution peut donner lieu, au profit du vendeur, à des dommages-intérêts, qui seront supportés par la masse.
-Anc. art. 579 fr.
 Article 604.- Le syndic pourra, avec l'approbation du juge-commissaire, admettre les demandes en revendication produites, comme il est prévu dans les articles précédents du présent chapitre IX.
 S'il y a contestation, il y sera statué par jugement du tribunal.
 Chapitre X — Des voies de recours contre les jugements rendus en matière de faillite
-Anc. art. 581 fr.
 Article 605.- Aucune demande des créanciers tendant à faire fixer la date de la cessation des paiements à une époque autre que celle qui résulte du jugement déclaratif de faillite ou d'un jugement postérieur, ne sera recevable après le délai de trois mois fixé par l'article 526 du chapitre IV, Section V, des faillites et du Code de commerce, à l'expiration duquel l'état des créances est définitivement clos. Ce délai expiré, l'époque de la cessation des paiements demeurera irrévocablement déterminée à l'égard des créanciers.
-Anc. art. 580 fr. mod. D-L 14 juin 1938
 Article 606.- Le délai d'opposition contre tous les jugements rendus en matière de faillite sera de huit jours à compter de la date de la signification de ces jugements. Toutefois, pour les jugements soumis aux formalités de l'affiche et de l'insertion par extrait dans les journaux, ce délai ne courra que du jour où ces formalités auront été effectuées. L'opposition formée par le failli n'aura, en aucun cas, d'effet suspensif.
 Le délai du pourvoi en cassation sera de quinze jours à compter de la signification à personne ou à domicile. Ce pourvoi sera entendu toutes affaires cessantes, sans remise ni tour de rôle. Il ne sera pas suspensif et l'arrêt sera exécutoire sur minute.
-Anc. art. 583 fr.
 Article 607.- Ne seront susceptibles ni d'opposition ni de recours en cassation :
 1°) Les jugements qui statuent sur les demandes de sauf-conduit;
 2°) Les jugements qui autorisent à vendre les effets ou marchandises appartenant au failli;
@@ -1667,7 +1545,6 @@ Article 608.- Sera déclaré banqueroutier simple, tout commerçant failli qui s
 3°) Si, dans l'intention de retarder la faillite, il a fait des achats pour revendre au-dessous du cours; si, dans la même intention, il s'est livré à des emprunts, circulation d'effets ou autres moyens ruineux de se procurer des fonds;
 4°) Si, après une cessation de paiements, il a payé un créancier au préjudice de la masse;
 5°) S'il a été déjà en faillite et si les deux faillites ont été clôturées pour insuffisance d'actif.
-Anc. art. 586 fr. mod. L 4 mars 1889 ; L 28 mars 1931
 Article 609.- Pourra être déclaré banqueroutier simple, tout commerçant failli qui se trouvera dans un des cas suivants :
 1°) S'il a contracté, pour le compte d'autrui, sans recevoir de valeurs en échange, des engagements jugés trop considérables, eu égard à sa situation lorsqu'il les a contractés;
 2°) S'il est de nouveau déclaré en faillite sans avoir satisfait aux obligations d'un précédent concordat;
@@ -1675,17 +1552,13 @@ Article 609.- Pourra être déclaré banqueroutier simple, tout commerçant fail
 4°) Si, sans empêchement légitime, il ne s'est pas présenté en personne au syndic, dans les cas et délais fixés, ou si, après avoir obtenu un sauf-conduit, il ne s'est pas présenté en justice;
 5°) S'il n'a pas tenu de livres et fait exactement inventaire; si ses livres ou inventaires sont irrégulièrement tenus, ou incomplets ou s'ils n'offrent pas sa véritable situation active ou passive, sans néanmoins qu'il y ait fraude;
 6°) S'il a supposé des dépenses ou des pertes ou ne justifie pas de l'emploi de toutes ses recettes.
-Anc. art. 587 fr.
 Article 610.- Les cas de banqueroute simple seront jugés par les tribunaux correctionnels, sur la demande du syndic, de tout créancier ou sur la poursuite du Ministère public, et punis des peines portées au Code pénal.
 Les jugements rendus en cette matière seront de plus affichés et insérés dans un journal du lieu où siège le tribunal correctionnel, s'il y en a un.
-Anc. art. 587, 588 fr.
 Article 611.- Les frais de poursuite en banqueroute simple intentée par le Ministère public ne pourront, en aucun cas, être mis à la charge de la masse.
 Dans le cas où la poursuite aura été intentée à la requête d'un créancier, il supportera les frais, si le prévenu est acquitté; lesdits frais seront supportés par la masse, s'il est condamné.
-Anc. art. 589 fr.
 Article 612.- Le syndic ne pourra intenter de poursuites en banqueroute simple, ni se porter partie civile au nom de la masse, qu'après y avoir été autorisé par une délibération prise à la majorité individuelle des créanciers présents.
 Chapitre II
 Section Première — De la banqueroute frauduleuse
-Anc. art. 591 fr.
 Article 613.- Sera déclaré et puni des peines prévues au Code pénal, tout commerçant qui se trouvera dans un des cas suivants :
 1°) S'il a soustrait ses livres de commerce;
 2°) S'il a détourné ou dissimulé une partie de son actif;
@@ -1694,67 +1567,49 @@ Article 613.- Sera déclaré et puni des peines prévues au Code pénal, tout co
 5°) S'il a acheté des immeubles ou des effets mobiliers, à la faveur d'un prête-nom;
 6°) S'il a supposé des dépenses ou des pertes ou ne justifie pas de l'emploi de toutes ses recettes;
 7°) Si, quoique commerçant à l'époque de son mariage, ou bien l'étant devenu postérieurement, il a sciemment violé les dispositions des articles 71 et 73 du Code de commerce, concernant l'affichage de son contrat de mariage.
-Anc. art. 593 fr.
 Article 614.- Seront considérés comme complices des banqueroutiers frauduleux et condamnés aux mêmes peines que l'auteur principal, tous individus qui seront convaincus de s'être entendus avec le banqueroutier pour receler ou soustraire tout ou partie de ses biens meubles et immeubles, d'avoir acquis sur lui des créances supposées, et qui, à la vérification des créances, les auront fait valoir et affirmé leur sincérité.
 Article 615.- Le même jugement qui aura prononcé les peines prévues par le Code pénal contre les complices de banqueroute frauduleuse, les condamnera :
 1°) À réintégrer à la masse des créanciers les biens, droits et actions frauduleusement soustraits;
 2°) À payer envers ladite masse des dommages-intérêts égaux à la somme dont ils ont tenté de la frauder.
 Article 616.- Les cas de banqueroute frauduleuse seront poursuivis d'office devant les tribunaux criminels, par les commissaires du Gouvernement, sur la notoriété publique ou sur la dénonciation, soit du syndic, soit d'un ou de plusieurs créanciers.
 Si un ou plusieurs créanciers se sont portés partie civile au procès criminel en leur nom personnel, les frais, en cas d'acquittement, demeureront à leur charge.
-Anc. art. 600 fr.
 Article 617.- Les jugements des tribunaux criminels contre les banqueroutiers frauduleux et leurs complices seront, à la diligence du Ministère public, affichés et insérés dans un journal, si dans le lieu où siège le tribunal criminel qui a statué sur le fait, il en existe un.
 Section Ii — Des dispositions spéciales — Des délits commis dans les faillites par d'autres que par les faillis
-Anc. art. 594 fr.
 Article 618.- Le conjoint, les descendants ou les ascendants du failli ou ses alliés au même degré, qui auraient détourné, diverti ou recelé des effets appartenant à la faillite, sans avoir agi de complicité avec le failli, seront poursuivis et punis comme coupables de vol.
-Anc. art. 597 fr. ; 598 fr.
 Article 619.- Le créancier qui aura stipulé, soit avec le failli, soit avec toutes autres personnes, des avantages particuliers à raison de son vote dans les délibérations de la faillite, ou qui aura fait un trafic particulier duquel résulterait en sa faveur un avantage à la charge de l'actif de la faillite, sera puni par le tribunal correctionnel d'un emprisonnement qui ne pourra excéder une année et d'une amende qui ne pourra être moindre de mille gourdes.
 Lesdites conventions pourront être, en outre, déclarées nulles à l'égard de toutes personnes, même à l'égard du failli, par le tribunal civil.
 Le créancier sera tenu de rapporter à qui de droit les sommes ou valeurs qu'il aura reçues en vertu de ces conventions annulées.
 Chapitre VII — [sic]
 De l'administration des biens en cas de banqueroute
-Anc. art. 601 fr.
 Article 620.- Dans tous les cas de poursuite et de condamnation pour banqueroute simple ou frauduleuse, les actions civiles, autres que celles dont il est parlé dans l'article 619 du présent Code de commerce, resteront séparées, et toutes les dispositions relatives aux biens prescrites pour la faillite, seront exécutées sans qu'elles puissent être attribuées ni évoquées aux tribunaux correctionnels ni aux tribunaux criminels.
-Anc. art. 602 fr.
 Article 621.- Sera cependant le syndic de la faillite tenu de remettre au Ministère public les pièces, titres, papiers et renseignements qui lui seront demandés.
-Anc. art. 603 fr.
 Article 622.- Les pièces, titres, papiers délivrés par le syndic seront, pendant le cours de l'instruction, tenus en état de communication par la voie du greffe; cette communication aura lieu sur la réquisition du syndic, qui pourra y prendre des extraits privés, ou en requérir d'authentiques, qui lui seront expédiés par le greffier.
 Article 623.- Les pièces, titres, papiers dont le dépôt judiciaire n'aurait pas été ordonné, seront, après le jugement, remis au syndic, qui en donnera décharge.
 Titre III — De la réhabilitation
-Anc. art. 604 fr.
 Article 624.- Est réhabilité de droit le failli qui aura intégralement acquitté les sommes par lui dues en capital, intérêts et frais, sans que les intérêts puissent être réclamés au-delà de cinq ans.
 Pour être réhabilité de droit, l'associé d'une maison de commerce tombée en faillite doit justifier qu'il a acquitté dans les mêmes conditions toutes les dettes de la société, lors même qu'un concordat particulier lui aurait été consenti.
 En cas de disparition, d'absence ou de refus de recevoir d'un ou de plusieurs créanciers, la somme due sera consignée à la Banque Nationale de la République d'Haïti, et la justification du dépôt vaudra quittance en faveur de l'intéressé.
 De plus, l'acte de dépôt sera remis par extrait à la Chambre de commerce d'Haïti pour être affiché et un autre extrait, aux frais de l'intéressé, sera adressé au Secrétaire d'État du commerce pour être publié au Moniteur officiel.
-Anc. art. 605 fr. mod. L 23 mars 1908
 Article 625.- Peut obtenir sa réhabilitation, en cas de probité reconnue :
 1°) Le failli qui, ayant obtenu un concordat, aura intégralement payé les dividendes promis. Cette disposition est applicable à l'associé d'une société de commerce tombée en faillite qui a obtenu de ses créanciers un concordat particulier;
 2°) Celui qui justifie de la remise entière de ses dettes par ses créanciers ou de leur consentement unanime à sa réhabilitation.
-Anc. art. 606 fr. mod. L 31 mars 1906
 Article 626.- Toute demande en réhabilitation sera adressée au commissaire du Gouvernement près le tribunal civil dans le ressort duquel la faillite a été déclarée avec les quittances et autres pièces qui la justifient.
 Le commissaire du Gouvernement, ainsi saisi de cette demande, la communiquera par la voie du greffe au juge du tribunal civil qui a déclaré la faillite et, si le failli a changé depuis de domicile, pareille communication sera adressée au doyen du tribunal civil du lieu du nouveau domicile du failli, en les chargeant de recueillir tous les renseignements qu'ils pourront se procurer sur la vérité des faits exposés.
-Anc. art. 607 fr. mod. L 23 mars 1908
 Article 627.- Avis de la demande sera donné par lettres recommandées, par les soins du greffier du tribunal civil où la demande sera portée, à chacun des créanciers vérifiés à la faillite, ou reconnus par décision judiciaire postérieure, qui n'auront pas été intégralement désintéressés du montant de leurs créances, en principal, intérêts et frais.
 La demande en réhabilitation judiciaire sera également affichée par extrait, par les soins du greffier du tribunal civil au tableau placé dans la salle d'audience dudit tribunal, pendant trois mois, ainsi que dans la salle de la maison communale du lieu et dans les études des notaires de la juridiction, et insérée dans au moins trois journaux s'éditant à Port-au-Prince. Tous les frais que nécessitera l'accomplissement de ces formalités de publicité et d'insertion seront à la charge de l'intéressé. L'accomplissement desdites formalités sera constaté par un procès-verbal du greffier, sous sa responsabilité personnelle.
-Anc. art. 608 fr. mod. L 23 mars 1908
 Article 628.- Tout créancier non intégralement payé pourra, dans le délai de un mois à partir de la publication dudit avis, former opposition à la réhabilitation, par simple acte au greffe, appuyée de pièces justificatives.
 Le créancier opposant pourra par requête présentée au tribunal et notifiée au demandeur, intervenir dans la procédure en réhabilitation.
-Anc. art. 609 fr. mod. L 30 déc. 1903
 Article 629.- Après l'expiration des trois mois ci-dessus prévus, le résultat des enquêtes prescrites par l'article 626 et les oppositions formées par les créanciers seront communiquées au commissaire du Gouvernement saisi de la demande et seront transmis par lui, avec son avis motivé, au doyen du tribunal civil appelé à connaître de ladite demande.
-Anc. art. 610 fr. mod. L 30 déc. 1903
 Article 630.- Le tribunal, s'il y a lieu, autorisera le demandeur à appeler les opposants pour être entendus contradictoirement en Chambre du Conseil. Le demandeur se fera assister d'un avocat.
 Dans le cas prévu en l'article 625, le tribunal se bornera à constater la sincérité des justifications produites, et, si elles sont conformes à la loi, il prononcera la réhabilitation.
 Dans le cas de l'article 626, le tribunal appréciera les circonstances de la cause. Le jugement sera rendu en audience publique.
-Anc. art. 611 fr. mod. L 30 déc. 1903
 Article 631.- Si la demande en réhabilitation est admise, le jugement sera, par les soins du commissaire du Gouvernement, transmis, s'il y a lieu, au doyen du tribunal du lieu où la faillite avait été déclarée ainsi qu'au commissaire du Gouvernement près ledit tribunal. Ce jugement sera transcrit sur le registre tenu à cet effet.
 Si la demande en réhabilitation est rejetée, elle ne pourra plus être reproduite.
-Anc. art. 612 fr. mod. L 28 mars 1908
 Article 632.- Ne seront point admis à la réhabilitation commerciale :
 Les banqueroutiers frauduleux;
 Les stellionataires;
 Les personnes condamnées pour vol, escroquerie, ou abus de confiance, à moins que ces personnes n'aient été réhabilitées conformément aux dispositions du Chapitre IV de la loi N° 8 du Code d'instruction criminelle.
-Anc. art. 613 fr.
 Article 633.- Nul commerçant failli ne sera admis à exercer dans l'avenir la profession de commerçant ou être membre d'une société commerciale, s'il n'a pas obtenu sa réhabilitation.
-Anc. art. 614 fr.
 Article 634.- Le failli pourra être réhabilité même après sa mort.
 Livre Quatrième — De la juridiction commerciale
 Titre Premier

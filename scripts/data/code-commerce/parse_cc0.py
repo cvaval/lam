@@ -136,17 +136,27 @@ sec_n = 0
 expected = 1
 gaps = []
 dupes = []
-cur_art = None  # ancre de l'article courant (rattachement de la jurisprudence)
+cur_art = None      # ancre de l'article courant (rattachement de la jurisprudence)
+cur_section = None  # ancre de section courante — la CLÉ juris est « sec-K|art-N »
+anc_art = 0         # marqueurs « Anc art N » retirés du corps (ancien n° d'article)
 
 
 def emit_header(kind, enum, desc):
-    global sec_n
+    global sec_n, cur_section
     label = clean(f'{enum} — {desc}') if desc else clean(enum)
     sec_n += 1
     a = f'sec-{sec_n}'
+    cur_section = a
     toc.append({'level': KIND_LEVEL[kind], 'label': label, 'anchor': a, 'kind': kind})
     body.append(label)
     return a
+
+
+# Frontière d'un bloc de considérant : autre arrêt, tête/marqueur d'article,
+# en-tête de structure, marqueur « Anc art N », ou ligne vide.
+def is_juris_boundary(t):
+    return bool(JURIS.match(t) or ART_HEAD.match(t) or ART_MARK.match(t)
+                or header_kind(t) or re.match(r'^Anc\.?\s+art', t, re.I))
 
 
 i = 0
@@ -199,14 +209,28 @@ while i < N:
         i += 1
         continue
 
-    # 3) Jurisprudence « N.- Arrêt … » : annotation Vandal, hors texte officiel.
+    # 3) Marqueur « Anc art N » (ancien numéro d'article) : éditorial, retiré du corps.
+    if re.match(r'^Anc\.?\s+art', t, re.I):
+        anc_art += 1
+        i += 1
+        continue
+
+    # 4) Jurisprudence « N.- Arrêt … » : référence + considérant (lignes suivantes
+    #    jusqu'à la prochaine frontière), rattachée à l'article — HORS texte officiel.
+    #    CLÉ « sec-K|art-N » (comme Code du travail/civil), sinon le lecteur l'ignore.
     j = JURIS.match(t)
     if j and JURIS_KEY.search(t):
-        if cur_art is None:
-            review.append(('juris-sans-article', t[:80]))
-        else:
-            juris.setdefault(cur_art, []).append({'ref': clean(j.group(2)), 'excerpt': ''})
+        ref = clean(j.group(2))
+        excerpt_lines = []
         i += 1
+        while i < N and not is_juris_boundary(P[i]['t']):
+            excerpt_lines.append(P[i]['t'])
+            i += 1
+        if cur_art is None:
+            review.append(('juris-sans-article', ref[:80]))
+        else:
+            key = f'{cur_section or "sec-0"}|{cur_art}'
+            juris.setdefault(key, []).append({'ref': ref, 'excerpt': clean(' '.join(excerpt_lines))})
         continue
     if j and not JURIS_KEY.search(t):
         review.append(('numerote-conserve-corps', t[:80]))
@@ -271,5 +295,6 @@ print('articles     :', len(labels), '(ancres uniques)')
 nums = sorted(int(re.match(r'^art-(\d+)', a).group(1)) for a in labels if re.match(r'^art-\d+$', a))
 print('plage        :', nums[0], '→', nums[-1], '· sauts:', gaps[:12], ('…' if len(gaps) > 12 else ''))
 print('doublons     :', dupes[:6])
-print('statuts mod  :', len(status), '· juris:', sum(len(v) for v in juris.values()), 'arrêts sur', len(juris), 'articles')
+print('statuts mod  :', len(status), '· juris:', sum(len(v) for v in juris.values()), 'arrêts sur', len(juris), 'articles (clé sec-K|art-N)')
+print('« Anc art » retirés du corps :', anc_art)
 print('review       :', len(review), '—', review[:6])

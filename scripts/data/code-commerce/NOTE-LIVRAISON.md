@@ -5,7 +5,10 @@
 - **Le Code de commerce** (source `CODE_COMMERCE_ANNOTE`) : 644 articles (1→673),
   4 Livres / 26 Titres / 19 Chapitres / 52 Sections / 4 §, 79 statuts
   modifié/abrogé (marqueurs « mod »/« abr » et têtes « (L./D. …) » de l'édition),
-  25 arrêts de jurisprudence repliables sous 5 articles, renvois inline
+  25 arrêts de jurisprudence (référence + considérant) en blocs REPLIABLES sous
+  5 articles — clé `sec-K|art-N` identique au Code du travail / Code civil,
+  reconnue 5/5 par le lecteur ; considérants et 108 marqueurs « Anc art N »
+  retirés du texte officiel (corps 259 Ko), renvois inline
   « l'article N » actifs, lecteur annoté identique au Code civil.
 - **93 textes satellites** (sources `CC_VANDAL_<id>`) : 1 909 articles au total,
   titres exacts du CSV, référence Moniteur (`moniteurRef`) et date de publication
