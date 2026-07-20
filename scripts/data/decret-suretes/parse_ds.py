@@ -52,8 +52,28 @@ while i < len(rows):
     else:
         out.append(t)
         i += 1
-# Têtes d'article citées : guillemet ouvrant retiré
-body_lines = [re.sub(r"^«\s*(?=Article\s)", "", l) for l in out]
+# Guillemets de CITATION du Moniteur retirés (comme dans le Code civil) : chaque alinéa
+# d'un texte cité ouvre par « et le bloc se ferme par » — à l'écran, le 1er alinéa (tête
+# dont le « est retiré) dépareillait des suivants, et le lecteur voyait des « orphelins
+# (constat cliente). Les guillemets INTERNES (« Sur les sûretés en général », « Caisses
+# populaires ») sont préservés : seuls le « en tête de ligne et le » en fin de ligne
+# (des mêmes lignes citées) tombent.
+def strip_quotes(l):
+    had = l.startswith("«")
+    l2 = re.sub(r"^«\s*", "", l)
+    if had or re.match(r"^(?:Article\s|\d+\)\s|[a-z]\)\s)", l2):
+        # Un » final n'est retiré que s'il est ORPHELIN (aucun « restant dans la ligne) :
+        # « Il est créé une Loi… intitulée : « Sur les sûretés en général ». » garde ses
+        # guillemets internes ; « …souscrite par le débiteur ». » perd sa fermeture de bloc.
+        if "«" not in l2:
+            l2 = re.sub(r"\s*»\s*(\.)\s*$", r"\1", l2)   # « … ».  → ….
+            l2 = re.sub(r"\s*»\s*;?\s*$", "", l2)         # « … » / « … » ;  → …
+    return l2
+body_lines = [strip_quotes(l) for l in out]
+# Tête hybride de l'art. 600 C. com. : « Article 600 alinéas 3, 4 et 5.- » → « Article 600.- »
+# (l'information « al. 3 à 5 » est portée par le libellé d'affichage ; sans cela, le corps
+# affiché commençait par le fragment orphelin « alinéas 3, 4 et 5.- » — constat cliente).
+body_lines = [re.sub(r"^Article 600 alinéas 3, 4 et 5\.\-", "Article 600.-", l) for l in body_lines]
 
 # ── 3) TOC (lignes réelles, verbatim) ──
 def lvl(l):
