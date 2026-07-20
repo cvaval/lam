@@ -1,0 +1,62 @@
+{
+ "id": "VII-B-1",
+ "partie": "VII",
+ "rubrique": "B",
+ "title": "L. 11 août 1903, L. 1er août 1921^38, L. 4 décembre 1959^39, D. 14 janvier 1974^40 sur le droit de timbre.",
+ "number": null,
+ "moniteurRef": "Le Moniteur n° 67 du 22 août 1903",
+ "publicationDate": "1903-08-22",
+ "body": "…………………………………………………………………………………………\nCHAPITRE III\nDes actions dans les sociétés.\nArticle 24 (D. 14 janvier 1974).- Chaque titre ou certificat d'action dans une société, compagnie ou entreprise quelconque financière, industrielle, commerciale ou civile, que l'action soit d'une somme fixe ou d'une quotité, qu'elle soit libérée ou non libérée, et quelle que soit la date de la création de la société, compagnie et entreprise, sera, à partir de la promulgation de la présente loi, assujetti au timbre proportionnel de 2% du capital nominal de chaque action, sans que ce droit puisse dépasser cinq mille gourdes. L'avance en sera faite par la société, compagnie ou entreprise, quels que soient ses statuts.\nArticle 25.- L'acquittement du droit de timbre sera constaté par l'approbation sur les titres d'un ou de plusieurs timbres mobiles ou au moyen du visa pour timbre et la perception en sera faite conformément à l'article 9 de la présente loi.\nArticle 26.- Le titre ou certificat d'action délivré par titre de transfert ou de renouvellement sera visé pour timbre gratis, si le titre ou certificat primitif a été timbré.\nCette disposition, toutefois, ne préjudice en rien à ce qui est prescrit par l'article 36, relativement à la transmission des mêmes titres et à ce que dispose l'article 35 concernant le renouvellement des sociétés, compagnies et entreprises.\nArticle 27.- Toute société, compagnie ou entreprise qui sera convaincue d'avoir émis une action en contravention à l'article 24 sera passible d'une amende de 20% du montant de cette action.\nArticle 28.- L'agent de change ou courtier qui aura concouru à la cession ou au transfert d'un titre ou certificat d'action non timbré ou non visé pour timbre, sera également passible d'une amende de 20% du montant de l'action.\n…………………………………………………………………………………………\nArticle 30.- Les actions et obligations émises par les sociétés, compagnies ou entreprises étrangères sont soumises en Haïti à des droits équivalents à ceux qui sont établis par l'article 24 de la présente loi sur les valeurs haïtiennes. Elles ne pourront être négociées en Haïti qu'en se soumettant à l'acquittement de ce droit.\n…………………………………………………………………………………………\nArticle 35.- Dans le cas de renouvellement d'une société ou compagnie à l'expiration de son contrat, les titres ou certificats d'actions seront de nouveau soumis à la formalité du timbre.\n…………………………………………………………………………………………",
+ "structure": {
+  "title": "L. 11 août 1903, L. 1er août 1921^38, L. 4 décembre 1959^39, D. 14 janvier 1974^40 sur le droit de timbre.",
+  "annotationAuthor": "Édition Vandal",
+  "navToc": [
+   {
+    "label": "L. 11 août 1903, L. 1er août 1921^38, L. 4 décembre 1959^39, D. 14 janvier 1974^",
+    "anchor": "sec-1",
+    "children": [
+     {
+      "label": "CHAPITRE III",
+      "anchor": "sec-1"
+     }
+    ]
+   }
+  ],
+  "toc": [
+   {
+    "level": 4,
+    "label": "CHAPITRE III",
+    "anchor": "sec-1",
+    "kind": "chapitre"
+   }
+  ],
+  "connexes": [],
+  "jurisprudence": {},
+  "commentaires": {},
+  "connexe": {},
+  "indexEntries": [],
+  "oldVersions": {},
+  "status": {
+   "art-24": "modifié"
+  },
+  "labels": {
+   "art-24": "Article 24",
+   "art-25": "Article 25",
+   "art-26": "Article 26",
+   "art-27": "Article 27",
+   "art-28": "Article 28",
+   "art-30": "Article 30",
+   "art-35": "Article 35"
+  },
+  "crossRefs": []
+ },
+ "stats": {
+  "paras": 16,
+  "articles": 7,
+  "toc": 1,
+  "statuts": 1
+ },
+ "anomalies": [
+  "titre docx ≠ CSV : « L. 11 août 1903, L. 1er août 1921, L. 4 décembre 1959, D. 14 janvier 1 »"
+ ]
+}

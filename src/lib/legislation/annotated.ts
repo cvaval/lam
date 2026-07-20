@@ -32,6 +32,9 @@ export type ArtRef = number | string
 export interface IndexEntry {
   subject: string
   ctRefs: ArtRef[]
+  /** Renvois du même sujet vers d'AUTRES documents (index multi-textes de
+   *  l'édition Vandal) : « D. 28 août 1960, art 6 » → /doc/{id}#art-6. */
+  docRefs?: { label: string; id: string; anchor?: string }[]
 }
 
 /** Affichage joli d'une référence d'article : « 12-1 » → « 12.1 », « 190-ter-5 » → « 190ter.5 ». */

@@ -1,0 +1,4123 @@
+{
+ "title": "Code de commerce",
+ "annotationAuthor": "Édition Vandal",
+ "navToc": [
+  {
+   "label": "Code de commerce",
+   "anchor": "sec-1",
+   "children": [
+    {
+     "label": "Livre Premier — Sur le commerce en général",
+     "anchor": "sec-1",
+     "children": [
+      {
+       "label": "Titre Premier — Des commerçants et des actes de commerce",
+       "anchor": "sec-2"
+      },
+      {
+       "label": "Titre II — Des livres de commerce Anc art 8",
+       "anchor": "sec-3"
+      },
+      {
+       "label": "Titre III — Des sociétés",
+       "anchor": "sec-4",
+       "children": [
+        {
+         "label": "Section Premiere — Des diverses sociétés et de leurs règles",
+         "anchor": "sec-5"
+        },
+        {
+         "label": "Section Ii — Des contestations entre associés, et de la manière de les régler Nouveau",
+         "anchor": "sec-6"
+        }
+       ]
+      },
+      {
+       "label": "Titre IV — Des séparations de biens",
+       "anchor": "sec-7"
+      },
+      {
+       "label": "Titre V — Des agents de change et courtiers",
+       "anchor": "sec-8",
+       "children": [
+        {
+         "label": "Section Premiere — Des agents de change et courtiers",
+         "anchor": "sec-9"
+        }
+       ]
+      },
+      {
+       "label": "Titre VI — Du gage et des commissionnaires",
+       "anchor": "sec-10",
+       "children": [
+        {
+         "label": "Section Premiere — Du gage",
+         "anchor": "sec-11"
+        },
+        {
+         "label": "Section Ii — Des commissionnaires en général",
+         "anchor": "sec-12"
+        },
+        {
+         "label": "Section Ii bis — Des agents de manufacture Nouveau",
+         "anchor": "sec-13"
+        },
+        {
+         "label": "Section Iii — Des commissionnaires pour le transport par terre,",
+         "anchor": "sec-14"
+        },
+        {
+         "label": "Section Iv — Du voiturier",
+         "anchor": "sec-15"
+        }
+       ]
+      },
+      {
+       "label": "Titre VII — Des achats et ventes",
+       "anchor": "sec-16"
+      },
+      {
+       "label": "Titre Viii — Lettre de change - Billet à ordre et chèque - Prescription",
+       "anchor": "sec-17",
+       "children": [
+        {
+         "label": "Chapitre PREMIER — De la lettre de change",
+         "anchor": "sec-18",
+         "children": [
+          {
+           "label": "Section Premiere",
+           "anchor": "sec-19"
+          },
+          {
+           "label": "Section Ii — De la provision",
+           "anchor": "sec-20"
+          },
+          {
+           "label": "Section Iii — De l'endossement",
+           "anchor": "sec-21"
+          },
+          {
+           "label": "Section Iv — De l'acceptation",
+           "anchor": "sec-22"
+          },
+          {
+           "label": "Section V — De l'acceptation par intervention",
+           "anchor": "sec-23"
+          },
+          {
+           "label": "Section Vi — De l'aval",
+           "anchor": "sec-24"
+          },
+          {
+           "label": "Section Vii — De la solidarité",
+           "anchor": "sec-25"
+          },
+          {
+           "label": "Section Viii — De l'échéance",
+           "anchor": "sec-26"
+          },
+          {
+           "label": "Section Ix — Du paiement Nouveau",
+           "anchor": "sec-27"
+          },
+          {
+           "label": "Section X — Du paiement par intervention Nouveau",
+           "anchor": "sec-28"
+          },
+          {
+           "label": "Section Xi — Des droits et devoirs des porteurs",
+           "anchor": "sec-29"
+          },
+          {
+           "label": "Section Xii — Des protêts",
+           "anchor": "sec-30"
+          },
+          {
+           "label": "Section Xiii — Du rechange",
+           "anchor": "sec-31"
+          },
+          {
+           "label": "Section Xiv — I.- Pluralité d'exemplaires Nouveau",
+           "anchor": "sec-32"
+          },
+          {
+           "label": "Section Xv — Des altérations Nouveau",
+           "anchor": "sec-33"
+          },
+          {
+           "label": "Section Xvi — De la prescription",
+           "anchor": "sec-34"
+          },
+          {
+           "label": "Section Xvii",
+           "anchor": "sec-35",
+           "children": [
+            {
+             "label": "Dispositions générales",
+             "anchor": "sec-36"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "label": "Chapitre II — Du billet à ordre",
+         "anchor": "sec-37"
+        },
+        {
+         "label": "Chapitre III — Du chèque",
+         "anchor": "sec-38",
+         "children": [
+          {
+           "label": "Section Premiere",
+           "anchor": "sec-39",
+           "children": [
+            {
+             "label": "Dispositions générales — Nouveau",
+             "anchor": "sec-40"
+            }
+           ]
+          },
+          {
+           "label": "Section Ii — De la présentation du paiement Nouveau",
+           "anchor": "sec-41"
+          },
+          {
+           "label": "Section Iii — De la provision Nouveau",
+           "anchor": "sec-42"
+          },
+          {
+           "label": "Section Iv — Des contraventions Nouveau",
+           "anchor": "sec-43"
+          },
+          {
+           "label": "Section V — Des prescriptions Nouveau",
+           "anchor": "sec-44"
+          },
+          {
+           "label": "Section Vi — Du chèque barré Nouveau",
+           "anchor": "sec-45"
+          },
+          {
+           "label": "Section Vii — Des chèques publics",
+           "anchor": "sec-46"
+          },
+          {
+           "label": "Section Viii — Dispositions spéciales",
+           "anchor": "sec-47"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Livre Deuxieme — Du commerce maritime",
+     "anchor": "sec-48",
+     "children": [
+      {
+       "label": "Titre Premier — Des navires et autres bâtiments",
+       "anchor": "sec-49"
+      },
+      {
+       "label": "Titre II — — De la saisie et vente des navires",
+       "anchor": "sec-50"
+      },
+      {
+       "label": "Titre III — — Des propriétaires de navires",
+       "anchor": "sec-51"
+      },
+      {
+       "label": "Titre IV — — Du capitaine",
+       "anchor": "sec-52"
+      },
+      {
+       "label": "Titre V — — De l'engagement des matelots et gens de l'équipage",
+       "anchor": "sec-53"
+      },
+      {
+       "label": "Titre VI — — Des chartes-parties, affrètements ou nolissements",
+       "anchor": "sec-54"
+      },
+      {
+       "label": "Titre VII — — Du connaissement",
+       "anchor": "sec-55"
+      },
+      {
+       "label": "Titre Viii — — Du fret ou nolis",
+       "anchor": "sec-56"
+      },
+      {
+       "label": "Titre IX — — Du contrat à la grosse",
+       "anchor": "sec-57"
+      },
+      {
+       "label": "Titre X — — Des assurances",
+       "anchor": "sec-58",
+       "children": [
+        {
+         "label": "Section Première — — Du contrat d'assurance, de sa forme et de son objet",
+         "anchor": "sec-59"
+        },
+        {
+         "label": "Section Ii — — Des obligations de l'assureur et de l'assuré",
+         "anchor": "sec-60"
+        },
+        {
+         "label": "Section Iii — — Du délaissement",
+         "anchor": "sec-61"
+        }
+       ]
+      },
+      {
+       "label": "Titre XI — — Des avaries",
+       "anchor": "sec-62"
+      },
+      {
+       "label": "Titre XII — — Du jet et de la contribution",
+       "anchor": "sec-63"
+      },
+      {
+       "label": "Titre Xiii — — Des prescriptions",
+       "anchor": "sec-64"
+      },
+      {
+       "label": "Titre XIV — — Des fins de non-recevoir",
+       "anchor": "sec-65"
+      }
+     ]
+    },
+    {
+     "label": "Livre Troisieme — Des faillites et banqueroutes",
+     "anchor": "sec-66",
+     "children": [
+      {
+       "label": "Titre Premier — — De la faillite Dispositions générales",
+       "anchor": "sec-67",
+       "children": [
+        {
+         "label": "Chapitre PREMIER — — De la déclaration de faillite et de ses effets",
+         "anchor": "sec-68"
+        },
+        {
+         "label": "Chapitre II — — De l'apposition des scellés et des premières dispositions à l'égard de la personne du failli",
+         "anchor": "sec-69"
+        },
+        {
+         "label": "Chapitre III — — Du juge-commissaire de la faillite et de ses fonctions",
+         "anchor": "sec-70"
+        },
+        {
+         "label": "Chapitre IV — — Section première Du syndic de la faillite et de ses fonctions",
+         "anchor": "sec-71",
+         "children": [
+          {
+           "label": "Section Ii — — De la levée des scellés et de l'inventaire",
+           "anchor": "sec-72"
+          },
+          {
+           "label": "Section Iii — — De la vente des marchandises et meubles, et des recouvrements",
+           "anchor": "sec-73"
+          },
+          {
+           "label": "Section Iv — Des actes conservatoires",
+           "anchor": "sec-74"
+          },
+          {
+           "label": "Section V — De la vérification des créances Anc. art. 491 fr. mod. D-L 8 août 1935",
+           "anchor": "sec-75"
+          }
+         ]
+        },
+        {
+         "label": "Chapitre V — Du concordat et de l'union",
+         "anchor": "sec-76",
+         "children": [
+          {
+           "label": "Section Première — De la convocation et de l'assemblée des créanciers Anc. art. 504 fr. mod. D-L 8 août 1935",
+           "anchor": "sec-77"
+          },
+          {
+           "label": "Section Ii — Du concordat",
+           "anchor": "sec-78",
+           "children": [
+            {
+             "label": "§ 1er — De la formation du concordat Anc. art. 507 fr. mod. D-L 8 août 1935",
+             "anchor": "sec-79"
+            }
+           ]
+          },
+          {
+           "label": "Section Iii — De la clôture en cas d'insuffisance de l'actif Anc. art. 527 fr. mod. D-L 8 août 1935",
+           "anchor": "sec-80"
+          },
+          {
+           "label": "Section Iv — De l'union des créanciers",
+           "anchor": "sec-81"
+          }
+         ]
+        },
+        {
+         "label": "Chapitre VI — Des différentes espèces de créanciers et de leurs droits en cas de faillite",
+         "anchor": "sec-82",
+         "children": [
+          {
+           "label": "Section Première — Des co-obligés et des cautions",
+           "anchor": "sec-83"
+          },
+          {
+           "label": "Section Ii — Des créanciers nantis d'un gage et des créances privilégiées sur les biens meubles",
+           "anchor": "sec-84"
+          },
+          {
+           "label": "Section Iii — Des droits des créanciers hypothécaires et privilégiés sur les immeubles",
+           "anchor": "sec-85"
+          },
+          {
+           "label": "Section Iv — Des droits de la femme",
+           "anchor": "sec-86"
+          }
+         ]
+        },
+        {
+         "label": "Chapitre VII — De la répartition entre les créanciers de l'actif et de la liquidation du mobilier",
+         "anchor": "sec-87"
+        },
+        {
+         "label": "Chapitre VIII — De la vente des immeubles du failli",
+         "anchor": "sec-88"
+        },
+        {
+         "label": "Chapitre IX — De la revendication",
+         "anchor": "sec-89"
+        },
+        {
+         "label": "Chapitre X — Des voies de recours contre les jugements rendus en matière de faillite",
+         "anchor": "sec-90"
+        }
+       ]
+      },
+      {
+       "label": "Titre II — Des banqueroutes",
+       "anchor": "sec-91",
+       "children": [
+        {
+         "label": "Chapitre PREMIER — De la banqueroute simple Anc. art. 585 fr. mod. D-L 17 juin 1938",
+         "anchor": "sec-92"
+        },
+        {
+         "label": "Chapitre II",
+         "anchor": "sec-93",
+         "children": [
+          {
+           "label": "Section Première — De la banqueroute frauduleuse",
+           "anchor": "sec-94"
+          },
+          {
+           "label": "Section Ii — Des dispositions spéciales — Des délits commis dans les faillites par d'autres que par les faillis",
+           "anchor": "sec-95"
+          }
+         ]
+        },
+        {
+         "label": "Chapitre VII — [sic]",
+         "anchor": "sec-96"
+        }
+       ]
+      },
+      {
+       "label": "Titre III — De la réhabilitation",
+       "anchor": "sec-97"
+      }
+     ]
+    },
+    {
+     "label": "Livre Quatrième — De la juridiction commerciale",
+     "anchor": "sec-98",
+     "children": [
+      {
+       "label": "Titre Premier",
+       "anchor": "sec-99",
+       "children": [
+        {
+         "label": "Dispositions générales",
+         "anchor": "sec-100"
+        },
+        {
+         "label": "Chapitre PREMIER",
+         "anchor": "sec-101",
+         "children": [
+          {
+           "label": "Section Première — De la compétence de la Chambre des affaires commerciales des tribunaux civils",
+           "anchor": "sec-102"
+          },
+          {
+           "label": "Section Ii — Compétence des tribunaux de paix en matière commerciale",
+           "anchor": "sec-103"
+          }
+         ]
+        },
+        {
+         "label": "Chapitre II",
+         "anchor": "sec-104"
+        },
+        {
+         "label": "Chapitre III — Des voies de recours contre les jugements rendus en matière commerciale",
+         "anchor": "sec-105"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "Livre Premier — Sur le commerce en général",
+   "anchor": "sec-1",
+   "kind": "livre"
+  },
+  {
+   "level": 3,
+   "label": "Titre Premier — Des commerçants et des actes de commerce",
+   "anchor": "sec-2",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Titre II — Des livres de commerce Anc art 8",
+   "anchor": "sec-3",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Titre III — Des sociétés",
+   "anchor": "sec-4",
+   "kind": "titre"
+  },
+  {
+   "level": 4,
+   "label": "Section Premiere — Des diverses sociétés et de leurs règles",
+   "anchor": "sec-5",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Ii — Des contestations entre associés, et de la manière de les régler Nouveau",
+   "anchor": "sec-6",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "Titre IV — Des séparations de biens",
+   "anchor": "sec-7",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Titre V — Des agents de change et courtiers",
+   "anchor": "sec-8",
+   "kind": "titre"
+  },
+  {
+   "level": 4,
+   "label": "Section Premiere — Des agents de change et courtiers",
+   "anchor": "sec-9",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "Titre VI — Du gage et des commissionnaires",
+   "anchor": "sec-10",
+   "kind": "titre"
+  },
+  {
+   "level": 4,
+   "label": "Section Premiere — Du gage",
+   "anchor": "sec-11",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Ii — Des commissionnaires en général",
+   "anchor": "sec-12",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Ii bis — Des agents de manufacture Nouveau",
+   "anchor": "sec-13",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Iii — Des commissionnaires pour le transport par terre,",
+   "anchor": "sec-14",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Iv — Du voiturier",
+   "anchor": "sec-15",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "Titre VII — Des achats et ventes",
+   "anchor": "sec-16",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Titre Viii — Lettre de change - Billet à ordre et chèque - Prescription",
+   "anchor": "sec-17",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre PREMIER — De la lettre de change",
+   "anchor": "sec-18",
+   "kind": "chapitre"
+  },
+  {
+   "level": 4,
+   "label": "Section Premiere",
+   "anchor": "sec-19",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Ii — De la provision",
+   "anchor": "sec-20",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Iii — De l'endossement",
+   "anchor": "sec-21",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Iv — De l'acceptation",
+   "anchor": "sec-22",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section V — De l'acceptation par intervention",
+   "anchor": "sec-23",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Vi — De l'aval",
+   "anchor": "sec-24",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Vii — De la solidarité",
+   "anchor": "sec-25",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Viii — De l'échéance",
+   "anchor": "sec-26",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Ix — Du paiement Nouveau",
+   "anchor": "sec-27",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section X — Du paiement par intervention Nouveau",
+   "anchor": "sec-28",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Xi — Des droits et devoirs des porteurs",
+   "anchor": "sec-29",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Xii — Des protêts",
+   "anchor": "sec-30",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Xiii — Du rechange",
+   "anchor": "sec-31",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Xiv — I.- Pluralité d'exemplaires Nouveau",
+   "anchor": "sec-32",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Xv — Des altérations Nouveau",
+   "anchor": "sec-33",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Xvi — De la prescription",
+   "anchor": "sec-34",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Xvii",
+   "anchor": "sec-35",
+   "kind": "section"
+  },
+  {
+   "level": 5,
+   "label": "Dispositions générales",
+   "anchor": "sec-36",
+   "kind": "para"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre II — Du billet à ordre",
+   "anchor": "sec-37",
+   "kind": "chapitre"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre III — Du chèque",
+   "anchor": "sec-38",
+   "kind": "chapitre"
+  },
+  {
+   "level": 4,
+   "label": "Section Premiere",
+   "anchor": "sec-39",
+   "kind": "section"
+  },
+  {
+   "level": 5,
+   "label": "Dispositions générales — Nouveau",
+   "anchor": "sec-40",
+   "kind": "para"
+  },
+  {
+   "level": 4,
+   "label": "Section Ii — De la présentation du paiement Nouveau",
+   "anchor": "sec-41",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Iii — De la provision Nouveau",
+   "anchor": "sec-42",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Iv — Des contraventions Nouveau",
+   "anchor": "sec-43",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section V — Des prescriptions Nouveau",
+   "anchor": "sec-44",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Vi — Du chèque barré Nouveau",
+   "anchor": "sec-45",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Vii — Des chèques publics",
+   "anchor": "sec-46",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Viii — Dispositions spéciales",
+   "anchor": "sec-47",
+   "kind": "section"
+  },
+  {
+   "level": 1,
+   "label": "Livre Deuxieme — Du commerce maritime",
+   "anchor": "sec-48",
+   "kind": "livre"
+  },
+  {
+   "level": 3,
+   "label": "Titre Premier — Des navires et autres bâtiments",
+   "anchor": "sec-49",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Titre II — — De la saisie et vente des navires",
+   "anchor": "sec-50",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Titre III — — Des propriétaires de navires",
+   "anchor": "sec-51",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Titre IV — — Du capitaine",
+   "anchor": "sec-52",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Titre V — — De l'engagement des matelots et gens de l'équipage",
+   "anchor": "sec-53",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Titre VI — — Des chartes-parties, affrètements ou nolissements",
+   "anchor": "sec-54",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Titre VII — — Du connaissement",
+   "anchor": "sec-55",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Titre Viii — — Du fret ou nolis",
+   "anchor": "sec-56",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Titre IX — — Du contrat à la grosse",
+   "anchor": "sec-57",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Titre X — — Des assurances",
+   "anchor": "sec-58",
+   "kind": "titre"
+  },
+  {
+   "level": 4,
+   "label": "Section Première — — Du contrat d'assurance, de sa forme et de son objet",
+   "anchor": "sec-59",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Ii — — Des obligations de l'assureur et de l'assuré",
+   "anchor": "sec-60",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Iii — — Du délaissement",
+   "anchor": "sec-61",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "Titre XI — — Des avaries",
+   "anchor": "sec-62",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Titre XII — — Du jet et de la contribution",
+   "anchor": "sec-63",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Titre Xiii — — Des prescriptions",
+   "anchor": "sec-64",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Titre XIV — — Des fins de non-recevoir",
+   "anchor": "sec-65",
+   "kind": "titre"
+  },
+  {
+   "level": 1,
+   "label": "Livre Troisieme — Des faillites et banqueroutes",
+   "anchor": "sec-66",
+   "kind": "livre"
+  },
+  {
+   "level": 3,
+   "label": "Titre Premier — — De la faillite Dispositions générales",
+   "anchor": "sec-67",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre PREMIER — — De la déclaration de faillite et de ses effets",
+   "anchor": "sec-68",
+   "kind": "chapitre"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre II — — De l'apposition des scellés et des premières dispositions à l'égard de la personne du failli",
+   "anchor": "sec-69",
+   "kind": "chapitre"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre III — — Du juge-commissaire de la faillite et de ses fonctions",
+   "anchor": "sec-70",
+   "kind": "chapitre"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre IV — — Section première Du syndic de la faillite et de ses fonctions",
+   "anchor": "sec-71",
+   "kind": "chapitre"
+  },
+  {
+   "level": 4,
+   "label": "Section Ii — — De la levée des scellés et de l'inventaire",
+   "anchor": "sec-72",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Iii — — De la vente des marchandises et meubles, et des recouvrements",
+   "anchor": "sec-73",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Iv — Des actes conservatoires",
+   "anchor": "sec-74",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section V — De la vérification des créances Anc. art. 491 fr. mod. D-L 8 août 1935",
+   "anchor": "sec-75",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre V — Du concordat et de l'union",
+   "anchor": "sec-76",
+   "kind": "chapitre"
+  },
+  {
+   "level": 4,
+   "label": "Section Première — De la convocation et de l'assemblée des créanciers Anc. art. 504 fr. mod. D-L 8 août 1935",
+   "anchor": "sec-77",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Ii — Du concordat",
+   "anchor": "sec-78",
+   "kind": "section"
+  },
+  {
+   "level": 5,
+   "label": "§ 1er — De la formation du concordat Anc. art. 507 fr. mod. D-L 8 août 1935",
+   "anchor": "sec-79",
+   "kind": "para"
+  },
+  {
+   "level": 4,
+   "label": "Section Iii — De la clôture en cas d'insuffisance de l'actif Anc. art. 527 fr. mod. D-L 8 août 1935",
+   "anchor": "sec-80",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Iv — De l'union des créanciers",
+   "anchor": "sec-81",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre VI — Des différentes espèces de créanciers et de leurs droits en cas de faillite",
+   "anchor": "sec-82",
+   "kind": "chapitre"
+  },
+  {
+   "level": 4,
+   "label": "Section Première — Des co-obligés et des cautions",
+   "anchor": "sec-83",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Ii — Des créanciers nantis d'un gage et des créances privilégiées sur les biens meubles",
+   "anchor": "sec-84",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Iii — Des droits des créanciers hypothécaires et privilégiés sur les immeubles",
+   "anchor": "sec-85",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Iv — Des droits de la femme",
+   "anchor": "sec-86",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre VII — De la répartition entre les créanciers de l'actif et de la liquidation du mobilier",
+   "anchor": "sec-87",
+   "kind": "chapitre"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre VIII — De la vente des immeubles du failli",
+   "anchor": "sec-88",
+   "kind": "chapitre"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre IX — De la revendication",
+   "anchor": "sec-89",
+   "kind": "chapitre"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre X — Des voies de recours contre les jugements rendus en matière de faillite",
+   "anchor": "sec-90",
+   "kind": "chapitre"
+  },
+  {
+   "level": 3,
+   "label": "Titre II — Des banqueroutes",
+   "anchor": "sec-91",
+   "kind": "titre"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre PREMIER — De la banqueroute simple Anc. art. 585 fr. mod. D-L 17 juin 1938",
+   "anchor": "sec-92",
+   "kind": "chapitre"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre II",
+   "anchor": "sec-93",
+   "kind": "chapitre"
+  },
+  {
+   "level": 4,
+   "label": "Section Première — De la banqueroute frauduleuse",
+   "anchor": "sec-94",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Ii — Des dispositions spéciales — Des délits commis dans les faillites par d'autres que par les faillis",
+   "anchor": "sec-95",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre VII — [sic]",
+   "anchor": "sec-96",
+   "kind": "chapitre"
+  },
+  {
+   "level": 3,
+   "label": "Titre III — De la réhabilitation",
+   "anchor": "sec-97",
+   "kind": "titre"
+  },
+  {
+   "level": 1,
+   "label": "Livre Quatrième — De la juridiction commerciale",
+   "anchor": "sec-98",
+   "kind": "livre"
+  },
+  {
+   "level": 3,
+   "label": "Titre Premier",
+   "anchor": "sec-99",
+   "kind": "titre"
+  },
+  {
+   "level": 5,
+   "label": "Dispositions générales",
+   "anchor": "sec-100",
+   "kind": "para"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre PREMIER",
+   "anchor": "sec-101",
+   "kind": "chapitre"
+  },
+  {
+   "level": 4,
+   "label": "Section Première — De la compétence de la Chambre des affaires commerciales des tribunaux civils",
+   "anchor": "sec-102",
+   "kind": "section"
+  },
+  {
+   "level": 4,
+   "label": "Section Ii — Compétence des tribunaux de paix en matière commerciale",
+   "anchor": "sec-103",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre II",
+   "anchor": "sec-104",
+   "kind": "chapitre"
+  },
+  {
+   "level": 3,
+   "label": "Chapitre III — Des voies de recours contre les jugements rendus en matière commerciale",
+   "anchor": "sec-105",
+   "kind": "chapitre"
+  }
+ ],
+ "connexes": [],
+ "jurisprudence": {
+  "art-1": [
+   {
+    "ref": "Arrêt du 25 juil 1946, Gaz du Pal, No des 8 et 15 sept 1946",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du 12 avril 1949, Bull 1948-1949, pp 207 et suiv.",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du ........., Gaz du Pal, No des 15 et 22 octobre 1951",
+    "excerpt": ""
+   }
+  ],
+  "art-2": [
+   {
+    "ref": "Arrêt du 10 mai 1906, Bull des Arrêts 1906, pp 93 et suiv.",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du 4 mai 1943, Gaz du Pal, No du 1er août 1946",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du 2 mai 1944, Gaz du Pal, No du 1er juin 1944",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du 24 mai 1946, Gaz du Pal, No du 1er juil 1946",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du 24 mai 1946, Gaz du Pal, No du 1er juil 1946",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du 17 fév 1948, Bull 1948-1949, pp 128 et suiv.",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du 4 nov 1948, Bull 1948-1949, pp 14 et suiv.",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du 7 avril 1949, Bull 1948-1949, pp 195 et suiv.",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du 12 avril 1949, Bull 1948-1949, pp 207 et suiv.",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du 7 décembre 1953, Les Débats, No 109 du 23 déc 1953",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du 17 avril 1985, Cass, 1ère Section",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du 9 décembre 1985, Cass, 1ère Section",
+    "excerpt": ""
+   }
+  ],
+  "art-23": [
+   {
+    "ref": "Arrêt du 26 juillet 1951, Gaz du Pal, No des 1er et 8 fév 1953",
+    "excerpt": ""
+   }
+  ],
+  "art-111": [
+   {
+    "ref": "Arrêt du 14 janv 1902, Bull des Arrêts 1902, pp 1 et suiv.",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du 14 janvier 1902, Bull des Arrêts 1902, pp 4 et suiv.",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du 25 fév 1938, Gaz du Pal, No du 1er mars 1939",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du 26 juillet 1944, Gaz du Pal, No du 15 sept 1944",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du 31 juillet 1982",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du 2 fév 1956, Les Débats, No des 26 et 27 fév 1956",
+    "excerpt": ""
+   }
+  ],
+  "art-209": [
+   {
+    "ref": "Arrêt du 19 nov 1889, Bull des Arrêts 1889, pp 31 et suiv.",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du 30 janv 1900, Bull des Arrêts 1900, pp 14 et suiv.",
+    "excerpt": ""
+   },
+   {
+    "ref": "Arrêt du 19 déc 1939, Gaz du Pal, No du 15 août 1940",
+    "excerpt": ""
+   }
+  ]
+ },
+ "commentaires": {},
+ "connexe": {},
+ "indexEntries": [
+  {
+   "subject": "Abandon",
+   "ctRefs": [
+    257,
+    258,
+    283,
+    341,
+    353
+   ]
+  },
+  {
+   "subject": "Abordage",
+   "ctRefs": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    399,
+    449,
+    476
+   ]
+  },
+  {
+   "subject": "Achat",
+   "ctRefs": [
+    109
+   ]
+  },
+  {
+   "subject": "Acte de commerce",
+   "ctRefs": [
+    2,
+    109,
+    642
+   ]
+  },
+  {
+   "subject": "Action de société",
+   "ctRefs": [
+    35,
+    36,
+    37
+   ]
+  },
+  {
+   "subject": "Aéronefs haïtiens",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    18
+   ]
+  },
+  {
+   "subject": "Affrètement",
+   "ctRefs": [
+    264,
+    276,
+    286,
+    313,
+    314,
+    315,
+    316,
+    317,
+    318,
+    319,
+    320,
+    321,
+    322,
+    325,
+    326,
+    328,
+    329,
+    332,
+    333,
+    334,
+    337,
+    338,
+    339,
+    340,
+    341,
+    342,
+    343,
+    344,
+    345,
+    346,
+    347,
+    348,
+    349,
+    350,
+    351,
+    352,
+    353,
+    474
+   ]
+  },
+  {
+   "subject": "Agent d'affaires",
+   "ctRefs": [
+    2
+   ]
+  },
+  {
+   "subject": "Agent de change",
+   "ctRefs": [
+    75,
+    76,
+    78,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90
+   ]
+  },
+  {
+   "subject": "Agent de commerce",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ]
+  },
+  {
+   "subject": "Agent maritime",
+   "ctRefs": [
+    1,
+    3,
+    4,
+    5,
+    354,
+    355,
+    378
+   ]
+  },
+  {
+   "subject": "Agents de manufactures",
+   "ctRefs": [
+    "98-bis"
+   ]
+  },
+  {
+   "subject": "Agrès",
+   "ctRefs": [
+    320,
+    363,
+    371
+   ]
+  },
+  {
+   "subject": "Apparaux",
+   "ctRefs": [
+    320,
+    363,
+    371
+   ]
+  },
+  {
+   "subject": "Arbitrage",
+   "ctRefs": [
+    54
+   ]
+  },
+  {
+   "subject": "Association en participation",
+   "ctRefs": [
+    50,
+    51,
+    52,
+    53
+   ]
+  },
+  {
+   "subject": "Assurances maritimes",
+   "ctRefs": [
+    231,
+    375,
+    376,
+    377,
+    378,
+    379,
+    380,
+    381,
+    382,
+    383,
+    384,
+    385,
+    386,
+    389,
+    390,
+    391,
+    392,
+    393,
+    395,
+    396,
+    397,
+    398,
+    400,
+    401,
+    402,
+    403,
+    404,
+    405,
+    406,
+    407,
+    409,
+    411,
+    412,
+    414,
+    415,
+    416,
+    419,
+    420,
+    421,
+    422,
+    423,
+    424,
+    426,
+    427,
+    431,
+    432,
+    436,
+    437,
+    438,
+    473
+   ]
+  },
+  {
+   "subject": "Aval",
+   "ctRefs": [
+    140,
+    211
+   ]
+  },
+  {
+   "subject": "Avaries",
+   "ctRefs": [
+    343,
+    351,
+    373,
+    410,
+    413,
+    439,
+    442,
+    443,
+    445,
+    447,
+    449,
+    450,
+    451,
+    452,
+    453,
+    454,
+    455,
+    456,
+    457,
+    459,
+    467,
+    474
+   ]
+  },
+  {
+   "subject": "Aviation civile internationale",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    84,
+    85,
+    86,
+    87,
+    91,
+    92,
+    94,
+    95
+   ]
+  },
+  {
+   "subject": "Banque de la République d'Haïti",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    37,
+    38,
+    39,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54
+   ]
+  },
+  {
+   "subject": "Banque Nationale de Crédit",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    24,
+    243
+   ]
+  },
+  {
+   "subject": "Banque Nationale de Développement Agricole et Industriel (BNDAI)",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    25,
+    26,
+    27,
+    28,
+    29,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+   ]
+  },
+  {
+   "subject": "Banqueroute",
+   "ctRefs": [
+    88,
+    610,
+    611,
+    612,
+    613,
+    614,
+    615,
+    616,
+    617,
+    620
+   ]
+  },
+  {
+   "subject": "Billet à ordre",
+   "ctRefs": [
+    209,
+    210,
+    211,
+    212,
+    213
+   ]
+  },
+  {
+   "subject": "Brevet d'invention",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+   ]
+  },
+  {
+   "subject": "Capitaine de navire",
+   "ctRefs": [
+    28,
+    165,
+    231,
+    258,
+    260,
+    261,
+    263,
+    264,
+    266,
+    267,
+    268,
+    269,
+    270,
+    271,
+    272,
+    273,
+    275,
+    276,
+    277,
+    278,
+    279,
+    281,
+    282,
+    283,
+    284,
+    286,
+    287,
+    289,
+    290
+   ]
+  },
+  {
+   "subject": "Cartel",
+   "ctRefs": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    11
+   ]
+  },
+  {
+   "subject": "Caution Judicatum Solvi",
+   "ctRefs": [
+    656
+   ]
+  },
+  {
+   "subject": "Chambre de commerce",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    37,
+    48,
+    49,
+    50,
+    51,
+    52,
+    54
+   ]
+  },
+  {
+   "subject": "Change",
+   "ctRefs": [
+    1,
+    2
+   ]
+  },
+  {
+   "subject": "Chèque",
+   "ctRefs": [
+    168,
+    169,
+    208,
+    215,
+    216,
+    218,
+    219,
+    220,
+    221,
+    222,
+    223,
+    224,
+    225,
+    226,
+    227,
+    228,
+    229,
+    246
+   ]
+  },
+  {
+   "subject": "Circulation aérienne",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26
+   ]
+  },
+  {
+   "subject": "Clause compromissoire",
+   "ctRefs": [
+    375
+   ]
+  },
+  {
+   "subject": "Commandite par actions",
+   "ctRefs": [
+    19,
+    20,
+    35,
+    "35-bis",
+    36,
+    37,
+    38,
+    39,
+    41,
+    42,
+    43,
+    48,
+    49,
+    68
+   ]
+  },
+  {
+   "subject": "Commandite simple (Société en -)",
+   "ctRefs": [
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    68
+   ]
+  },
+  {
+   "subject": "Commerçant",
+   "ctRefs": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    "98-bis",
+    111
+   ]
+  },
+  {
+   "subject": "Commis-Voyageur",
+   "ctRefs": [
+    263,
+    264,
+    265,
+    266
+   ]
+  },
+  {
+   "subject": "Commissaire aux Comptes",
+   "ctRefs": [
+    35,
+    37,
+    38,
+    39,
+    40
+   ]
+  },
+  {
+   "subject": "Commissionnaire",
+   "ctRefs": [
+    96,
+    97
+   ]
+  },
+  {
+   "subject": "Commissionnaire de Transport",
+   "ctRefs": [
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105
+   ]
+  },
+  {
+   "subject": "Commissionnaire en Douane",
+   "ctRefs": [
+    1,
+    3,
+    4,
+    6,
+    7,
+    9,
+    10,
+    11,
+    12,
+    14,
+    15,
+    270,
+    272,
+    275,
+    276
+   ]
+  },
+  {
+   "subject": "Compétence commerciale",
+   "ctRefs": [
+    638,
+    639
+   ]
+  },
+  {
+   "subject": "Compromis",
+   "ctRefs": [
+    638
+   ]
+  },
+  {
+   "subject": "Comptabilité des Entreprises",
+   "ctRefs": [
+    1,
+    3
+   ]
+  },
+  {
+   "subject": "Connaissement",
+   "ctRefs": [
+    264,
+    322,
+    325,
+    326
+   ]
+  },
+  {
+   "subject": "Contrat de mariage",
+   "ctRefs": [
+    71
+   ]
+  },
+  {
+   "subject": "Contrat de société",
+   "ctRefs": [
+    19
+   ]
+  },
+  {
+   "subject": "Contrat de transport",
+   "ctRefs": [
+    99,
+    100,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    110,
+    227,
+    228,
+    229,
+    231,
+    232,
+    234,
+    235,
+    236,
+    237,
+    238,
+    239
+   ]
+  },
+  {
+   "subject": "Contrebande",
+   "ctRefs": [
+    227,
+    228,
+    229,
+    231,
+    232,
+    234,
+    235,
+    236,
+    237,
+    238,
+    239
+   ]
+  },
+  {
+   "subject": "Courtier",
+   "ctRefs": [
+    76,
+    77,
+    83,
+    84,
+    86,
+    87,
+    88,
+    89
+   ]
+  },
+  {
+   "subject": "Courtier d'Assurances",
+   "ctRefs": [
+    80,
+    82,
+    84
+   ]
+  },
+  {
+   "subject": "Courtier de Marchandises",
+   "ctRefs": [
+    76,
+    77,
+    78,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87
+   ]
+  },
+  {
+   "subject": "Courtier de Transport",
+   "ctRefs": [
+    77,
+    79
+   ]
+  },
+  {
+   "subject": "Courtier interprète et conducteur de navire",
+   "ctRefs": [
+    77,
+    81,
+    82
+   ]
+  },
+  {
+   "subject": "Cueillette",
+   "ctRefs": [
+    329,
+    334
+   ]
+  },
+  {
+   "subject": "Dégroupeur",
+   "ctRefs": [
+    267,
+    268
+   ]
+  },
+  {
+   "subject": "Délaissement",
+   "ctRefs": [
+    141,
+    411,
+    412,
+    414,
+    415,
+    416,
+    419,
+    420,
+    421,
+    427,
+    428,
+    429,
+    430,
+    431,
+    432,
+    435,
+    436,
+    473
+   ]
+  },
+  {
+   "subject": "Effets de commerce",
+   "ctRefs": [
+    112
+   ]
+  },
+  {
+   "subject": "Emprunt à la grosse",
+   "ctRefs": [
+    390
+   ]
+  },
+  {
+   "subject": "Endossement",
+   "ctRefs": [
+    91,
+    120,
+    123,
+    125,
+    126,
+    130,
+    216,
+    354
+   ]
+  },
+  {
+   "subject": "Équipage",
+   "ctRefs": [
+    291
+   ]
+  },
+  {
+   "subject": "Établissements touristiques",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    68,
+    69,
+    70,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83
+   ]
+  },
+  {
+   "subject": "Facture",
+   "ctRefs": [
+    109
+   ]
+  },
+  {
+   "subject": "Faillite",
+   "ctRefs": [
+    222,
+    447,
+    477,
+    478,
+    479,
+    480,
+    481,
+    482,
+    483,
+    484,
+    485,
+    486,
+    487,
+    488,
+    489,
+    490,
+    491,
+    492,
+    493,
+    494,
+    496,
+    497,
+    498,
+    499,
+    500,
+    501,
+    502,
+    503,
+    504,
+    505,
+    506,
+    507,
+    508,
+    509,
+    510,
+    511,
+    512,
+    513,
+    514,
+    515,
+    516,
+    517,
+    518,
+    519,
+    520,
+    521,
+    522,
+    523,
+    524,
+    525,
+    526,
+    527,
+    528,
+    529,
+    531,
+    532,
+    533,
+    534,
+    535,
+    536,
+    537,
+    538,
+    539,
+    540,
+    541,
+    542,
+    543,
+    544,
+    547,
+    548,
+    550,
+    555,
+    556,
+    557,
+    558,
+    559,
+    560,
+    561,
+    562,
+    563,
+    564,
+    565,
+    566,
+    567,
+    568,
+    569,
+    573,
+    574,
+    576,
+    577,
+    578,
+    579,
+    582,
+    584,
+    585,
+    586,
+    589,
+    591,
+    593,
+    594,
+    595,
+    596,
+    597,
+    598,
+    599,
+    600,
+    601,
+    602,
+    603,
+    604,
+    605,
+    606,
+    607,
+    608,
+    613,
+    618,
+    619,
+    624,
+    626,
+    627,
+    628,
+    629,
+    631,
+    632,
+    633,
+    634,
+    637,
+    639
+   ]
+  },
+  {
+   "subject": "Femme mariée",
+   "ctRefs": [
+    5,
+    6,
+    584
+   ]
+  },
+  {
+   "subject": "Fonds de Développement Industriel",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    27
+   ]
+  },
+  {
+   "subject": "Gage",
+   "ctRefs": [
+    91,
+    92,
+    93,
+    95,
+    111
+   ]
+  },
+  {
+   "subject": "Garantie de l'État",
+   "ctRefs": [
+    1,
+    4,
+    5,
+    7,
+    8
+   ]
+  },
+  {
+   "subject": "Impôt sur le Revenu",
+   "ctRefs": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    145,
+    146,
+    147,
+    148,
+    150,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173
+   ]
+  },
+  {
+   "subject": "Inventaire",
+   "ctRefs": [
+    1,
+    491
+   ]
+  },
+  {
+   "subject": "Jour férié",
+   "ctRefs": [
+    174,
+    208
+   ]
+  },
+  {
+   "subject": "Lettre de change",
+   "ctRefs": [
+    2,
+    112,
+    113,
+    114,
+    115,
+    117,
+    119,
+    120,
+    123,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    135,
+    138,
+    139,
+    140,
+    143,
+    144,
+    145,
+    150,
+    151,
+    153,
+    155,
+    156,
+    157,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    168,
+    172,
+    173,
+    174,
+    175,
+    176,
+    "176-bis",
+    177,
+    178,
+    181,
+    189,
+    190,
+    194,
+    199,
+    200,
+    201,
+    204,
+    206,
+    207,
+    208
+   ]
+  },
+  {
+   "subject": "Lettre de voiture",
+   "ctRefs": [
+    104,
+    105
+   ]
+  },
+  {
+   "subject": "Lettre missive",
+   "ctRefs": [
+    9
+   ]
+  },
+  {
+   "subject": "Licence",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    45,
+    47,
+    48,
+    49,
+    50,
+    51
+   ]
+  },
+  {
+   "subject": "Livres de commerce",
+   "ctRefs": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    84
+   ]
+  },
+  {
+   "subject": "Magasin général",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22
+   ]
+  },
+  {
+   "subject": "Manifeste",
+   "ctRefs": [
+    21,
+    22,
+    32,
+    34,
+    35
+   ]
+  },
+  {
+   "subject": "Marchande Publique",
+   "ctRefs": [
+    5,
+    6,
+    8
+   ]
+  },
+  {
+   "subject": "Marché noir",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "subject": "Marine Marchande",
+   "ctRefs": [
+    231,
+    261,
+    263,
+    264,
+    268,
+    269,
+    270,
+    271,
+    272,
+    274,
+    275,
+    276,
+    277,
+    279,
+    281,
+    282,
+    283,
+    286,
+    287,
+    288,
+    290,
+    291
+   ]
+  },
+  {
+   "subject": "Marques de Fabrique et de Commerce",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    18,
+    19
+   ]
+  },
+  {
+   "subject": "Minorité",
+   "ctRefs": [
+    2,
+    3,
+    4,
+    7
+   ]
+  },
+  {
+   "subject": "Nantissement",
+   "ctRefs": [
+    573
+   ]
+  },
+  {
+   "subject": "Navire",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    426,
+    437,
+    438,
+    439,
+    440,
+    441,
+    443,
+    444,
+    445,
+    447
+   ]
+  },
+  {
+   "subject": "Négociabilité",
+   "ctRefs": [
+    76
+   ]
+  },
+  {
+   "subject": "Nom collectif (Société en -)",
+   "ctRefs": [
+    20,
+    21,
+    23
+   ]
+  },
+  {
+   "subject": "Nom commercial",
+   "ctRefs": [
+    1,
+    2
+   ]
+  },
+  {
+   "subject": "Opposition à jugement par défaut",
+   "ctRefs": [
+    667,
+    668
+   ]
+  },
+  {
+   "subject": "Patente",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+   ]
+  },
+  {
+   "subject": "Poids et Mesures",
+   "ctRefs": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "subject": "Prescription (Droit commercial)",
+   "ctRefs": [
+    110,
+    207,
+    227,
+    472
+   ]
+  },
+  {
+   "subject": "Prescription (Droit maritime)",
+   "ctRefs": [
+    472,
+    473,
+    474,
+    475,
+    476
+   ]
+  },
+  {
+   "subject": "Prêt à la grosse",
+   "ctRefs": [
+    2,
+    354,
+    355,
+    356,
+    357,
+    358,
+    359,
+    360,
+    363,
+    364,
+    365,
+    366,
+    367,
+    368,
+    369,
+    370,
+    371,
+    373,
+    374,
+    474
+   ]
+  },
+  {
+   "subject": "Preuve",
+   "ctRefs": [
+    111
+   ]
+  },
+  {
+   "subject": "Prime",
+   "ctRefs": [
+    387
+   ]
+  },
+  {
+   "subject": "Privilèges (Droit maritime)",
+   "ctRefs": [
+    230,
+    231,
+    234
+   ]
+  },
+  {
+   "subject": "Procédure commerciale",
+   "ctRefs": [
+    647,
+    648,
+    649,
+    650,
+    651,
+    653,
+    655,
+    656,
+    657,
+    658,
+    659,
+    660,
+    661,
+    662,
+    663,
+    664,
+    665,
+    666,
+    667,
+    668,
+    670,
+    671,
+    672
+   ]
+  },
+  {
+   "subject": "Produits pharmaceutiques",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "subject": "Protêt",
+   "ctRefs": [
+    190,
+    211,
+    218
+   ]
+  },
+  {
+   "subject": "Provision",
+   "ctRefs": [
+    120,
+    223
+   ]
+  },
+  {
+   "subject": "Recel",
+   "ctRefs": [
+    618
+   ]
+  },
+  {
+   "subject": "Rectification fiscale",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "subject": "Réhabilitation",
+   "ctRefs": [
+    624
+   ]
+  },
+  {
+   "subject": "Relâche",
+   "ctRefs": [
+    286
+   ]
+  },
+  {
+   "subject": "Revendication",
+   "ctRefs": [
+    238,
+    599
+   ]
+  },
+  {
+   "subject": "Saisie conservatoire des aéronefs",
+   "ctRefs": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ]
+  },
+  {
+   "subject": "Saisie conservatoire des navires de mer",
+   "ctRefs": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ]
+  },
+  {
+   "subject": "Séparation de biens",
+   "ctRefs": [
+    70,
+    71,
+    73
+   ]
+  },
+  {
+   "subject": "Société anonyme mixte",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ]
+  },
+  {
+   "subject": "Société Financière de Développement",
+   "ctRefs": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25
+   ]
+  },
+  {
+   "subject": "Solidarité",
+   "ctRefs": [
+    144,
+    211,
+    219,
+    569
+   ]
+  },
+  {
+   "subject": "Timbre (Droit de -)",
+   "ctRefs": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    15,
+    16,
+    18,
+    22,
+    23,
+    24,
+    38
+   ]
+  },
+  {
+   "subject": "Transport aérien international",
+   "ctRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    39,
+    40,
+    41,
+    42
+   ]
+  },
+  {
+   "subject": "Tribunaux de Commerce",
+   "ctRefs": [
+    2,
+    553,
+    637,
+    638,
+    642,
+    643,
+    644,
+    646,
+    648,
+    649,
+    650,
+    651,
+    652,
+    655,
+    656,
+    657,
+    658,
+    659,
+    660,
+    661,
+    662,
+    663,
+    664,
+    665,
+    666,
+    667,
+    668,
+    670,
+    671
+   ]
+  },
+  {
+   "subject": "Tribunaux de Paix",
+   "ctRefs": [
+    635,
+    643
+   ]
+  },
+  {
+   "subject": "Vente",
+   "ctRefs": [
+    111
+   ]
+  }
+ ],
+ "oldVersions": {},
+ "status": {
+  "art-2": "modifié",
+  "art-5": "modifié",
+  "art-6": "modifié",
+  "art-13": "modifié",
+  "art-28": "modifié",
+  "art-34": "modifié",
+  "art-38": "modifié",
+  "art-40": "modifié",
+  "art-42": "modifié",
+  "art-43": "modifié",
+  "art-46": "modifié",
+  "art-48": "modifié",
+  "art-50": "modifié",
+  "art-69": "modifié",
+  "art-74": "abrogé",
+  "art-76": "modifié",
+  "art-77": "modifié",
+  "art-78": "modifié",
+  "art-79": "modifié",
+  "art-80": "modifié",
+  "art-81": "modifié",
+  "art-83": "modifié",
+  "art-84": "modifié",
+  "art-85": "modifié",
+  "art-86": "modifié",
+  "art-89": "modifié",
+  "art-92": "modifié",
+  "art-94": "modifié",
+  "art-93": "modifié",
+  "art-102": "modifié",
+  "art-104": "modifié",
+  "art-105": "modifié",
+  "art-106": "modifié",
+  "art-108": "modifié",
+  "art-109": "modifié",
+  "art-116": "modifié",
+  "art-113": "modifié",
+  "art-114": "modifié",
+  "art-115": "modifié",
+  "art-133": "modifié",
+  "art-120": "modifié",
+  "art-121": "modifié",
+  "art-119": "modifié",
+  "art-124": "modifié",
+  "art-125": "modifié",
+  "art-138": "modifié",
+  "art-139": "modifié",
+  "art-137": "modifié",
+  "art-128": "modifié",
+  "art-129": "modifié",
+  "art-130": "modifié",
+  "art-132": "modifié",
+  "art-153": "modifié",
+  "art-140": "modifié",
+  "art-154": "abrogé",
+  "art-167": "abrogé",
+  "art-159": "modifié",
+  "art-165": "modifié",
+  "art-155": "modifié",
+  "art-156": "modifié",
+  "art-157": "modifié",
+  "art-176": "modifié",
+  "art-186": "modifié",
+  "art-185": "modifié",
+  "art-280": "abrogé",
+  "art-285": "abrogé",
+  "art-361": "abrogé",
+  "art-362": "abrogé",
+  "art-636": "modifié",
+  "art-637": "modifié",
+  "art-3": "modifié",
+  "art-639": "abrogé",
+  "art-16": "abrogé",
+  "art-648": "modifié",
+  "art-659": "modifié",
+  "art-665": "modifié",
+  "art-668": "modifié",
+  "art-669": "abrogé",
+  "art-670": "modifié"
+ },
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2",
+  "art-3": "Article 3",
+  "art-4": "Article 4",
+  "art-5": "Article 5",
+  "art-6": "Article 6",
+  "art-7": "Article 7",
+  "art-8": "Article 8",
+  "art-9": "Article 9",
+  "art-10": "Article 10",
+  "art-11": "Article 11",
+  "art-12": "Article 12",
+  "art-13": "Article 13",
+  "art-14": "Article 14",
+  "art-15": "Article 15",
+  "art-16": "Article 16",
+  "art-17": "Article 17",
+  "art-18": "Article 18",
+  "art-19": "Article 19",
+  "art-20": "Article 20",
+  "art-21": "Article 21",
+  "art-22": "Article 22",
+  "art-23": "Article 23",
+  "art-24": "Article 24",
+  "art-25": "Article 25",
+  "art-26": "Article 26",
+  "art-27": "Article 27",
+  "art-28": "Article 28",
+  "art-29": "Article 29",
+  "art-30": "Article 30",
+  "art-31": "Article 31",
+  "art-32": "Article 32",
+  "art-33": "Article 33",
+  "art-34": "Article 34",
+  "art-35": "Article 35",
+  "art-35-bis": "Article 35 bis",
+  "art-36": "Article 36",
+  "art-37": "Article 37",
+  "art-38": "Article 38",
+  "art-39": "Article 39",
+  "art-40": "Article 40",
+  "art-41": "Article 41",
+  "art-42": "Article 42",
+  "art-43": "Article 43",
+  "art-44": "Article 44",
+  "art-45": "Article 45",
+  "art-46": "Article 46",
+  "art-47": "Article 47",
+  "art-48": "Article 48",
+  "art-49": "Article 49",
+  "art-50": "Article 50",
+  "art-51": "Article 51",
+  "art-52": "Article 52",
+  "art-53": "Article 53",
+  "art-54": "Article 54",
+  "art-68": "Article 68",
+  "art-69": "Article 69",
+  "art-70": "Article 70",
+  "art-71": "Article 71",
+  "art-72": "Article 72",
+  "art-73": "Article 73",
+  "art-74": "Article 74",
+  "art-75": "Article 75",
+  "art-76": "Article 76",
+  "art-77": "Article 77",
+  "art-78": "Article 78",
+  "art-79": "Article 79",
+  "art-80": "Article 80",
+  "art-81": "Article 81",
+  "art-82": "Article 82",
+  "art-83": "Article 83",
+  "art-84": "Article 84",
+  "art-85": "Article 85",
+  "art-86": "Article 86",
+  "art-87": "Article 87",
+  "art-88": "Article 88",
+  "art-89": "Article 89",
+  "art-90": "Article 90",
+  "art-91": "Article 91",
+  "art-92": "Article 92",
+  "art-93": "Article 93",
+  "art-94": "Article 94",
+  "art-95": "Article 95",
+  "art-96": "Article 96",
+  "art-97": "Article 97",
+  "art-98": "Article 98",
+  "art-98-bis": "Article 98 bis",
+  "art-99": "Article 99",
+  "art-100": "Article 100",
+  "art-101": "Article 101",
+  "art-102": "Article 102",
+  "art-103": "Article 103",
+  "art-104": "Article 104",
+  "art-105": "Article 105",
+  "art-106": "Article 106",
+  "art-106-bis": "Article 106 bis",
+  "art-107": "Article 107",
+  "art-108": "Article 108",
+  "art-109": "Article 109",
+  "art-110": "Article 110",
+  "art-111": "Article 111",
+  "art-112": "Article 112",
+  "art-113": "Article 113",
+  "art-114": "Article 114",
+  "art-115": "Article 115",
+  "art-116": "Article 116",
+  "art-117": "Article 117",
+  "art-118": "Article 118",
+  "art-119": "Article 119",
+  "art-120": "Article 120",
+  "art-121": "Article 121",
+  "art-122": "Article 122",
+  "art-123": "Article 123",
+  "art-124": "Article 124",
+  "art-125": "Article 125",
+  "art-126": "Article 126",
+  "art-127": "Article 127",
+  "art-128": "Article 128",
+  "art-129": "Article 129",
+  "art-130": "Article 130",
+  "art-131": "Article 131",
+  "art-132": "Article 132",
+  "art-133": "Article 133",
+  "art-134": "Article 134",
+  "art-135": "Article 135",
+  "art-136": "Article 136",
+  "art-137": "Article 137",
+  "art-138": "Article 138",
+  "art-139": "Article 139",
+  "art-140": "Article 140",
+  "art-141": "Article 141",
+  "art-142": "Article 142",
+  "art-143": "Article 143",
+  "art-144": "Article 144",
+  "art-145": "Article 145",
+  "art-146": "Article 146",
+  "art-147": "Article 147",
+  "art-148": "Article 148",
+  "art-149": "Article 149",
+  "art-150": "Article 150",
+  "art-151": "Article 151",
+  "art-152": "Article 152",
+  "art-153": "Article 153",
+  "art-154": "Article 154",
+  "art-155": "Article 155",
+  "art-156": "Article 156",
+  "art-157": "Article 157",
+  "art-158": "Article 158",
+  "art-159": "Article 159",
+  "art-160": "Article 160",
+  "art-161": "Article 161",
+  "art-162": "Article 162",
+  "art-163": "Article 163",
+  "art-164": "Article 164",
+  "art-165": "Article 165",
+  "art-166": "Article 166",
+  "art-167": "Article 167",
+  "art-168": "Article 168",
+  "art-169": "Article 169",
+  "art-170": "Article 170",
+  "art-171": "Article 171",
+  "art-172": "Article 172",
+  "art-173": "Article 173",
+  "art-174": "Article 174",
+  "art-175": "Article 175",
+  "art-176": "Article 176",
+  "art-176-bis": "Article 176 bis",
+  "art-177": "Article 177",
+  "art-178": "Article 178",
+  "art-179": "Article 179",
+  "art-180": "Article 180",
+  "art-181": "Article 181",
+  "art-182": "Article 182",
+  "art-183": "Article 183",
+  "art-184": "Article 184",
+  "art-185": "Article 185",
+  "art-186": "Article 186",
+  "art-187": "Article 187",
+  "art-188": "Article 188",
+  "art-189": "Article 189",
+  "art-190": "Article 190",
+  "art-191": "Article 191",
+  "art-192": "Article 192",
+  "art-193": "Article 193",
+  "art-194": "Article 194",
+  "art-195": "Article 195",
+  "art-196": "Article 196",
+  "art-197": "Article 197",
+  "art-198": "Article 198",
+  "art-199": "Article 199",
+  "art-200": "Article 200",
+  "art-201": "Article 201",
+  "art-202": "Article 202",
+  "art-203": "Article 203",
+  "art-204": "Article 204",
+  "art-205": "Article 205",
+  "art-206": "Article 206",
+  "art-207": "Article 207",
+  "art-208": "Article 208",
+  "art-209": "Article 209",
+  "art-210": "Article 210",
+  "art-211": "Article 211",
+  "art-212": "Article 212",
+  "art-213": "Article 213",
+  "art-214": "Article 214",
+  "art-215": "Article 215",
+  "art-216": "Article 216",
+  "art-217": "Article 217",
+  "art-218": "Article 218",
+  "art-219": "Article 219",
+  "art-220": "Article 220",
+  "art-221": "Article 221",
+  "art-222": "Article 222",
+  "art-223": "Article 223",
+  "art-224": "Article 224",
+  "art-225": "Article 225",
+  "art-226": "Article 226",
+  "art-227": "Article 227",
+  "art-228": "Article 228",
+  "art-229": "Article 229",
+  "art-229-bis": "Article 229bis",
+  "art-230": "Article 230",
+  "art-231": "Article 231",
+  "art-232": "Article 232",
+  "art-232-bis": "Article 232 bis",
+  "art-234": "Article 234",
+  "art-235": "Article 235",
+  "art-236": "Article 236",
+  "art-237": "Article 237",
+  "art-238": "Article 238",
+  "art-239": "Article 239",
+  "art-240": "Article 240",
+  "art-241": "Article 241",
+  "art-242": "Article 242",
+  "art-243": "Article 243",
+  "art-244": "Article 244",
+  "art-245": "Article 245",
+  "art-246": "Article 246",
+  "art-247": "Article 247",
+  "art-248": "Article 248",
+  "art-249": "Article 249",
+  "art-250": "Article 250",
+  "art-251": "Article 251",
+  "art-252": "Article 252",
+  "art-253": "Article 253",
+  "art-254": "Article 254",
+  "art-255": "Article 255",
+  "art-256": "Article 256",
+  "art-257": "Article 257",
+  "art-258": "Article 258",
+  "art-259": "Article 259",
+  "art-260": "Article 260",
+  "art-261": "Article 261",
+  "art-262": "Article 262",
+  "art-263": "Article 263",
+  "art-264": "Article 264",
+  "art-265": "Article 265",
+  "art-266": "Article 266",
+  "art-267": "Article 267",
+  "art-268": "Article 268",
+  "art-269": "Article 269",
+  "art-270": "Article 270",
+  "art-271": "Article 271",
+  "art-272": "Article 272",
+  "art-273": "Article 273",
+  "art-274": "Article 274",
+  "art-275": "Article 275",
+  "art-276": "Article 276",
+  "art-277": "Article 277",
+  "art-278": "Article 278",
+  "art-279": "Article 279",
+  "art-280": "Article 280",
+  "art-281": "Article 281",
+  "art-282": "Article 282",
+  "art-283": "Article 283",
+  "art-284": "Article 284",
+  "art-285": "Article 285",
+  "art-286": "Article 286",
+  "art-287": "Article 287",
+  "art-288": "Article 288",
+  "art-289": "Article 289",
+  "art-290": "Article 290",
+  "art-291": "Article 291",
+  "art-313": "Article 313",
+  "art-314": "Article 314",
+  "art-315": "Article 315",
+  "art-316": "Article 316",
+  "art-317": "Article 317",
+  "art-318": "Article 318",
+  "art-319": "Article 319",
+  "art-320": "Article 320",
+  "art-321": "Article 321",
+  "art-322": "Article 322",
+  "art-323": "Article 323",
+  "art-324": "Article 324",
+  "art-325": "Article 325",
+  "art-326": "Article 326",
+  "art-327": "Article 327",
+  "art-328": "Article 328",
+  "art-329": "Article 329",
+  "art-330": "Article 330",
+  "art-331": "Article 331",
+  "art-332": "Article 332",
+  "art-333": "Article 333",
+  "art-334": "Article 334",
+  "art-335": "Article 335",
+  "art-336": "Article 336",
+  "art-337": "Article 337",
+  "art-338": "Article 338",
+  "art-339": "Article 339",
+  "art-340": "Article 340",
+  "art-341": "Article 341",
+  "art-342": "Article 342",
+  "art-343": "Article 343",
+  "art-344": "Article 344",
+  "art-345": "Article 345",
+  "art-346": "Article 346",
+  "art-347": "Article 347",
+  "art-348": "Article 348",
+  "art-349": "Article 349",
+  "art-350": "Article 350",
+  "art-351": "Article 351",
+  "art-352": "Article 352",
+  "art-353": "Article 353",
+  "art-354": "Article 354",
+  "art-355": "Article 355",
+  "art-356": "Article 356",
+  "art-357": "Article 357",
+  "art-358": "Article 358",
+  "art-359": "Article 359",
+  "art-360": "Article 360",
+  "art-361": "Article 361",
+  "art-362": "Article 362",
+  "art-363": "Article 363",
+  "art-364": "Article 364",
+  "art-365": "Article 365",
+  "art-366": "Article 366",
+  "art-367": "Article 367",
+  "art-368": "Article 368",
+  "art-369": "Article 369",
+  "art-370": "Article 370",
+  "art-371": "Article 371",
+  "art-372": "Article 372",
+  "art-373": "Article 373",
+  "art-374": "Article 374",
+  "art-375": "Article 375",
+  "art-376": "Article 376",
+  "art-377": "Article 377",
+  "art-378": "Article 378",
+  "art-379": "Article 379",
+  "art-380": "Article 380",
+  "art-381": "Article 381",
+  "art-382": "Article 382",
+  "art-383": "Article 383",
+  "art-384": "Article 384",
+  "art-385": "Article 385",
+  "art-386": "Article 386",
+  "art-387": "Article 387",
+  "art-388": "Article 388",
+  "art-389": "Article 389",
+  "art-390": "Article 390",
+  "art-391": "Article 391",
+  "art-392": "Article 392",
+  "art-393": "Article 393",
+  "art-394": "Article 394",
+  "art-395": "Article 395",
+  "art-396": "Article 396",
+  "art-397": "Article 397",
+  "art-398": "Article 398",
+  "art-399": "Article 399",
+  "art-400": "Article 400",
+  "art-401": "Article 401",
+  "art-402": "Article 402",
+  "art-403": "Article 403",
+  "art-404": "Article 404",
+  "art-405": "Article 405",
+  "art-406": "Article 406",
+  "art-407": "Article 407",
+  "art-408": "Article 408",
+  "art-409": "Article 409",
+  "art-410": "Article 410",
+  "art-411": "Article 411",
+  "art-412": "Article 412",
+  "art-413": "Article 413",
+  "art-414": "Article 414",
+  "art-415": "Article 415",
+  "art-416": "Article 416",
+  "art-417": "Article 417",
+  "art-418": "Article 418",
+  "art-419": "Article 419",
+  "art-420": "Article 420",
+  "art-421": "Article 421",
+  "art-422": "Article 422",
+  "art-423": "Article 423",
+  "art-424": "Article 424",
+  "art-425": "Article 425",
+  "art-426": "Article 426",
+  "art-427": "Article 427",
+  "art-428": "Article 428",
+  "art-429": "Article 429",
+  "art-430": "Article 430",
+  "art-431": "Article 431",
+  "art-432": "Article 432",
+  "art-433": "Article 433",
+  "art-434": "Article 434",
+  "art-435": "Article 435",
+  "art-436": "Article 436",
+  "art-437": "Article 437",
+  "art-438": "Article 438",
+  "art-439": "Article 439",
+  "art-440": "Article 440",
+  "art-441": "Article 441",
+  "art-442": "Article 442",
+  "art-443": "Article 443",
+  "art-444": "Article 444",
+  "art-445": "Article 445",
+  "art-446": "Article 446",
+  "art-447": "Article 447",
+  "art-448": "Article 448",
+  "art-449": "Article 449",
+  "art-450": "Article 450",
+  "art-451": "Article 451",
+  "art-452": "Article 452",
+  "art-453": "Article 453",
+  "art-454": "Article 454",
+  "art-455": "Article 455",
+  "art-456": "Article 456",
+  "art-457": "Article 457",
+  "art-458": "Article 458",
+  "art-459": "Article 459",
+  "art-460": "Article 460",
+  "art-461": "Article 461",
+  "art-462": "Article 462",
+  "art-463": "Article 463",
+  "art-464": "Article 464",
+  "art-465": "Article 465",
+  "art-466": "Article 466",
+  "art-467": "Article 467",
+  "art-468": "Article 468",
+  "art-469": "Article 469",
+  "art-470": "Article 470",
+  "art-471": "Article 471",
+  "art-472": "Article 472",
+  "art-473": "Article 473",
+  "art-474": "Article 474",
+  "art-475": "Article 475",
+  "art-476": "Article 476",
+  "art-477": "Article 477",
+  "art-478": "Article 478",
+  "art-479": "Article 479",
+  "art-480": "Article 480",
+  "art-481": "Article 481",
+  "art-482": "Article 482",
+  "art-483": "Article 483",
+  "art-484": "Article 484",
+  "art-485": "Article 485",
+  "art-486": "Article 486",
+  "art-487": "Article 487",
+  "art-488": "Article 488",
+  "art-489": "Article 489",
+  "art-490": "Article 490",
+  "art-491": "Article 491",
+  "art-492": "Article 492",
+  "art-493": "Article 493",
+  "art-494": "Article 494",
+  "art-495": "Article 495",
+  "art-496": "Article 496",
+  "art-497": "Article 497",
+  "art-498": "Article 498",
+  "art-499": "Article 499",
+  "art-500": "Article 500",
+  "art-501": "Article 501",
+  "art-502": "Article 502",
+  "art-503": "Article 503",
+  "art-504": "Article 504",
+  "art-505": "Article 505",
+  "art-506": "Article 506",
+  "art-507": "Article 507",
+  "art-508": "Article 508",
+  "art-509": "Article 509",
+  "art-510": "Article 510",
+  "art-511": "Article 511",
+  "art-512": "Article 512",
+  "art-513": "Article 513",
+  "art-514": "Article 514",
+  "art-515": "Article 515",
+  "art-516": "Article 516",
+  "art-517": "Article 517",
+  "art-518": "Article 518",
+  "art-519": "Article 519",
+  "art-520": "Article 520",
+  "art-521": "Article 521",
+  "art-522": "Article 522",
+  "art-523": "Article 523",
+  "art-524": "Article 524",
+  "art-525": "Article 525",
+  "art-526": "Article 526",
+  "art-527": "Article 527",
+  "art-528": "Article 528",
+  "art-529": "Article 529",
+  "art-530": "Article 530",
+  "art-531": "Article 531",
+  "art-532": "Article 532",
+  "art-533": "Article 533",
+  "art-534": "Article 534",
+  "art-535": "Article 535",
+  "art-536": "Article 536",
+  "art-537": "Article 537",
+  "art-538": "Article 538",
+  "art-539": "Article 539",
+  "art-540": "Article 540",
+  "art-541": "Article 541",
+  "art-542": "Article 542",
+  "art-543": "Article 543",
+  "art-544": "Article 544",
+  "art-545": "Article 545",
+  "art-546": "Article 546",
+  "art-547": "Article 547",
+  "art-548": "Article 548",
+  "art-549": "Article 549",
+  "art-550": "Article 550",
+  "art-551": "Article 551",
+  "art-552": "Article 552",
+  "art-553": "Article 553",
+  "art-554": "Article 554",
+  "art-555": "Article 555",
+  "art-556": "Article 556",
+  "art-557": "Article 557",
+  "art-558": "Article 558",
+  "art-559": "Article 559",
+  "art-560": "Article 560",
+  "art-561": "Article 561",
+  "art-562": "Article 562",
+  "art-563": "Article 563",
+  "art-564": "Article 564",
+  "art-565": "Article 565",
+  "art-566": "Article 566",
+  "art-567": "Article 567",
+  "art-568": "Article 568",
+  "art-569": "Article 569",
+  "art-570": "Article 570",
+  "art-571": "Article 571",
+  "art-572": "Article 572",
+  "art-573": "Article 573",
+  "art-574": "Article 574",
+  "art-575": "Article 575",
+  "art-576": "Article 576",
+  "art-577": "Article 577",
+  "art-578": "Article 578",
+  "art-579": "Article 579",
+  "art-580": "Article 580",
+  "art-581": "Article 581",
+  "art-582": "Article 582",
+  "art-583": "Article 583",
+  "art-584": "Article 584",
+  "art-585": "Article 585",
+  "art-586": "Article 586",
+  "art-587": "Article 587",
+  "art-588": "Article 588",
+  "art-589": "Article 589",
+  "art-590": "Article 590",
+  "art-591": "Article 591",
+  "art-592": "Article 592",
+  "art-593": "Article 593",
+  "art-594": "Article 594",
+  "art-595": "Article 595",
+  "art-596": "Article 596",
+  "art-597": "Article 597",
+  "art-598": "Article 598",
+  "art-599": "Article 599",
+  "art-600": "Article 600",
+  "art-601": "Article 601",
+  "art-602": "Article 602",
+  "art-603": "Article 603",
+  "art-604": "Article 604",
+  "art-605": "Article 605",
+  "art-606": "Article 606",
+  "art-607": "Article 607",
+  "art-608": "Article 608",
+  "art-609": "Article 609",
+  "art-610": "Article 610",
+  "art-611": "Article 611",
+  "art-612": "Article 612",
+  "art-613": "Article 613",
+  "art-614": "Article 614",
+  "art-615": "Article 615",
+  "art-616": "Article 616",
+  "art-617": "Article 617",
+  "art-618": "Article 618",
+  "art-619": "Article 619",
+  "art-620": "Article 620",
+  "art-621": "Article 621",
+  "art-622": "Article 622",
+  "art-623": "Article 623",
+  "art-624": "Article 624",
+  "art-625": "Article 625",
+  "art-626": "Article 626",
+  "art-627": "Article 627",
+  "art-628": "Article 628",
+  "art-629": "Article 629",
+  "art-630": "Article 630",
+  "art-631": "Article 631",
+  "art-632": "Article 632",
+  "art-633": "Article 633",
+  "art-634": "Article 634",
+  "art-635": "Article 635",
+  "art-636": "Article 636",
+  "art-637": "Article 637",
+  "art-638": "Article 638",
+  "art-639": "Article 639",
+  "art-640": "Article 640",
+  "art-641": "Article 641",
+  "art-642": "Article 642",
+  "art-643": "Article 643",
+  "art-644": "Article 644",
+  "art-645": "Article 645",
+  "art-646": "Article 646",
+  "art-647": "Article 647",
+  "art-648": "Article 648",
+  "art-649": "Article 649",
+  "art-650": "Article 650",
+  "art-651": "Article 651",
+  "art-652": "Article 652",
+  "art-653": "Article 653",
+  "art-654": "Article 654",
+  "art-655": "Article 655",
+  "art-656": "Article 656",
+  "art-657": "Article 657",
+  "art-658": "Article 658",
+  "art-659": "Article 659",
+  "art-660": "Article 660",
+  "art-661": "Article 661",
+  "art-662": "Article 662",
+  "art-663": "Article 663",
+  "art-664": "Article 664",
+  "art-665": "Article 665",
+  "art-666": "Article 666",
+  "art-667": "Article 667",
+  "art-668": "Article 668",
+  "art-669": "Article 669",
+  "art-670": "Article 670",
+  "art-671": "Article 671",
+  "art-672": "Article 672",
+  "art-673": "Article 673"
+ },
+ "crossRefs": []
+}

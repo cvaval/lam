@@ -1,0 +1,38 @@
+{
+ "id": "I-D-1",
+ "partie": "I",
+ "rubrique": "D",
+ "title": "Loi du 11 juin 1935 règlementant l'arbitrage commercial",
+ "number": "Loi du 11 juin 1935",
+ "moniteurRef": "Le Moniteur n° 52 du 24 juin 1935",
+ "publicationDate": "1935-06-24",
+ "body": "Article 1er.- En vue d'établir un corps d'experts parmi lesquels les parties pourront choisir leurs arbitres, la Chambre de Commerce d'Haïti est autorisée à créer une Chambre de Conciliation et d'Arbitrage Commercial composée d'un comité exécutif de 3 membres directeurs et de 25 membres associés permanents.\nArticle 2.- Les commerçants auront la faculté de soumettre au Comité directeur de ladite Chambre de Conciliation et d'Arbitrage à titre de conciliation, tous les différends qui pourront les diviser.\nArticle 3.- Faute d'entente sur le recours à la conciliation, les commerçants pourront alors soumettre leurs différends à l'arbitrage légal conformément aux dispositions du Code de commerce et du Code de procédure civile régissant la matière.\nArticle 4.- Les commerçants ne sont pas obligés de choisir leurs experts parmi les membres permanents de la Chambre de Conciliation et d'Arbitrage souchée à la Chambre de Commerce d'Haïti et demeurent libres dans leur choix.\nArticle 5.- Les statuts de la Chambre d'Arbitrage et de Conciliation seront élaborés par la Chambre de Commerce d'Haïti et seront, sur le rapport du Secrétaire d'État du Commerce, approuvés par arrêté du Président de la République, publié au Moniteur officiel.",
+ "structure": {
+  "title": "Loi du 11 juin 1935 règlementant l'arbitrage commercial",
+  "annotationAuthor": "Édition Vandal",
+  "navToc": [],
+  "toc": [],
+  "connexes": [],
+  "jurisprudence": {},
+  "commentaires": {},
+  "connexe": {},
+  "indexEntries": [],
+  "oldVersions": {},
+  "status": {},
+  "labels": {
+   "art-1": "Article 1er",
+   "art-2": "Article 2",
+   "art-3": "Article 3",
+   "art-4": "Article 4",
+   "art-5": "Article 5"
+  },
+  "crossRefs": []
+ },
+ "stats": {
+  "paras": 7,
+  "articles": 5,
+  "toc": 0,
+  "statuts": 0
+ },
+ "anomalies": []
+}

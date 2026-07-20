@@ -1,0 +1,646 @@
+{
+ "resolution": {
+  "decret:28:8:1960": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiwwuo0001sa3zovs1xgz4",
+     "vandalId": "IV-A-2",
+     "title": "Décret du 28 août 1960 régissant la constitution et le fonctionnement des sociétés anonymes"
+    }
+   ]
+  },
+  "decret:11:11:1968": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiwytv0003sa3z1mu50hah",
+     "vandalId": "IV-A-4",
+     "title": "Décret du 11 novembre 1968 sur la constitution du capital des sociétés par actions, la déclaration de fonctionnement et les attributions des commissaires aux comptes"
+    }
+   ]
+  },
+  "decret:7:2:1961": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtixfso0000szg91a6qlk1g",
+     "vandalId": "VI-A",
+     "title": "Décret du 7 février 1961 réglementant l'exploitation des aérodromes."
+    },
+    {
+     "id": "cmrtixis00002szg9xf9qsbl9",
+     "vandalId": "VI-C",
+     "title": "Décret du 7 février 1961 règlementant la circulation aérienne et définissant les conditions d'autorisation et d'exploitation des services de transport aérien, des services aériens privés et règlementant le travail aérien."
+    }
+   ]
+  },
+  "decret:10:12:1960": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtixkho0004szg9ytikudjw",
+     "vandalId": "VI-D-2",
+     "title": "Décret du 10 décembre 1960 précisant le statut juridique des aéronefs et fixant les conditions d'immatriculation des aéronefs haïtiens."
+    }
+   ]
+  },
+  "decret:26:9:1960": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtio030000bot7lhit89viz",
+     "vandalId": "I-G",
+     "title": "Décret du 26 septembre 1960 réglementant l'exercice de la profession de commerçant."
+    },
+    {
+     "id": "cmrtixoxl00011267rq4b3uao",
+     "vandalId": "VII-A-2",
+     "title": "Décret du 26 septembre 1960 sur le livret de licence."
+    }
+   ]
+  },
+  "decret:6:10:1986": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtinnyu0000ot7labs3envn",
+     "vandalId": "I-A",
+     "title": "Décret du 6 octobre 1986 réglementant le statut et les activités des agents commerciaux"
+    }
+   ]
+  },
+  "loi:25:9:1890": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtinrhc0003ot7l2sk4ehed",
+     "vandalId": "I-B-1",
+     "title": "Loi du 25 septembre 1890 règlementant l'exercice de la profession d'agent de change et de courtier."
+    }
+   ]
+  },
+  "decret:29:11:1978": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtixrtm00041267b7ryqr7d",
+     "vandalId": "VII-B-2",
+     "title": "Décret du 29 novembre 1978 sur le timbre."
+    }
+   ]
+  },
+  "loi:11:6:1935": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtinuk60006ot7lcuh48yvx",
+     "vandalId": "I-D-1",
+     "title": "Loi du 11 juin 1935 règlementant l'arbitrage commercial"
+    }
+   ]
+  },
+  "loi:13:7:1956": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtix3ia0008sa3zg91rpcg3",
+     "vandalId": "IV-D-1",
+     "title": "Loi du 13 juillet 1956 sur les compagnies d'assurance, modifiée par le décret du 20 mars 1981"
+    }
+   ]
+  },
+  "decret:20:3:1981": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiwecg0007ue7ebz4ku9sj",
+     "vandalId": "II-E",
+     "title": "Décret du 20 mars 1981 créant le Fonds de Développement Industriel, modifié par le décret du 22 août 1983"
+    },
+    {
+     "id": "cmrtix4hv0009sa3z8tz9ss9n",
+     "vandalId": "IV-D-2",
+     "title": "Décret du 20 mars 1981 sur les compagnies d'assurance"
+    }
+   ]
+  },
+  "loi:17:8:1979": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiw88a0000ue7eobi0m4g1",
+     "vandalId": "II-A",
+     "title": "Loi du 17 août 1979 remplaçant la Banque Nationale de la République d'Haïti par la Banque de la République d'Haïti et la Banque Nationale de Crédit"
+    },
+    {
+     "id": "cmrtiw94r0001ue7edw6au9ca",
+     "vandalId": "II-B-1",
+     "title": "Loi du 17 août 1979 organisant la Banque de la République d'Haïti"
+    },
+    {
+     "id": "cmrtiwclw0005ue7eswri13vx",
+     "vandalId": "II-C",
+     "title": "Loi du 17 août 1979 sur la Banque Nationale de Crédit, modifiée par le Décret du 31 octobre 1983"
+    }
+   ]
+  },
+  "loi:14:12:1922": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiwoqa00005vhv6qekziwf",
+     "vandalId": "III-A",
+     "title": "Loi du 14 décembre 1922 sur les brevets d'invention"
+    }
+   ]
+  },
+  "decret:13:2:1961": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtix8620002bzc5sjoojq0p",
+     "vandalId": "V-B-1",
+     "title": "Décret du 13 février 1961 réglementant d'une manière adéquate le cabotage entre les ports haïtiens et la pêche dans les eaux territoriales haïtiennes"
+    }
+   ]
+  },
+  "decret:13:2:1964": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtinws20008ot7l6l8jwigq",
+     "vandalId": "I-E",
+     "title": "Décret du 13 février 1964 sur le fonctionnement des cartels."
+    }
+   ]
+  },
+  "decret:18:6:1964": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtinxtf0009ot7lzt71s9an",
+     "vandalId": "I-F-1",
+     "title": "Décret du 18 juin 1964 relatif à la Chambre de commerce"
+    }
+   ]
+  },
+  "reglement:31:7:1964": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtinyxf000aot7ltsoow25a",
+     "vandalId": "I-F-2",
+     "title": "Règlements du 31 juillet 1964 relatifs à la Chambre de Commerce."
+    }
+   ]
+  },
+  "decret:3:4:1984": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiwbsq0004ue7ebus403kg",
+     "vandalId": "II-B-4",
+     "title": "Décret du 3 avril 1984 sur les opérations d'exportation, d'achat et de vente de change"
+    }
+   ]
+  },
+  "loi:13:6:1996": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtio33g000eot7lec6alwpr",
+     "vandalId": "I-J",
+     "title": "Loi du 13 juin 1996 sur le statut du commissionnaire en douane."
+    }
+   ]
+  },
+  "decret:16:4:1981": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtio463000fot7l6to6dwap",
+     "vandalId": "I-K",
+     "title": "Décret du 16 avril 1981 sur le Conseil National de la Comptabilité."
+    }
+   ]
+  },
+  "decret:22:5:1843": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtio56z000got7l6tqbt9j2",
+     "vandalId": "I-L-1",
+     "title": "Décret du 22 mai 1843 sur la contrainte par corps, abrogeant L. 26 mai 1834 et modifié par L. 21 août 1907 et 22 juin 1915."
+    }
+   ]
+  },
+  "loi:22:6:1915": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtio79w000iot7l45hru7s6",
+     "vandalId": "I-L-3",
+     "title": "Loi du 22 juin 1915 sur la contrainte par corps."
+    }
+   ]
+  },
+  "loi:21:8:1907": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtio68b000hot7lwlw4qg9f",
+     "vandalId": "I-L-2",
+     "title": "Loi du 21 août 1907 sur la contrainte par corps."
+    }
+   ]
+  },
+  "loi:13:9:1947": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtio89v000jot7ld8mebprp",
+     "vandalId": "I-L-4",
+     "title": "Loi du 13 septembre 1947 sur les bons à caractère commercial souscrits par un fonctionnaire non commerçant."
+    }
+   ]
+  },
+  "decret:12:3:1975": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtio9a5000kot7lmt21gt7i",
+     "vandalId": "I-O",
+     "title": "Décret du 12 mars 1975 réglementant l'exploitation des établissements touristiques."
+    }
+   ]
+  },
+  "decret:1:2:1965": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiwg2n0009ue7ev9n2kz1m",
+     "vandalId": "II-G",
+     "title": "Décret du 1er février 1965 modifié par le décret du 8 octobre 1975"
+    }
+   ]
+  },
+  "decret:8:10:1975": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiwg2n0009ue7ev9n2kz1m",
+     "vandalId": "II-G",
+     "title": "Décret du 1er février 1965 modifié par le décret du 8 octobre 1975"
+    }
+   ]
+  },
+  "decret:1:10:1980": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiwa600002ue7emu84uf7c",
+     "vandalId": "II-B-2",
+     "title": "Décret du 1er octobre 1980 relatif à la garantie du remboursement du capital obtenu en emprunt"
+    }
+   ]
+  },
+  "decret:29:9:1986": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtixuf400061267rrhh6a36",
+     "vandalId": "VII-D-1",
+     "title": "Décret du 29 septembre 1986 relatif à l'impôt sur le revenu, modifié par celui du 27 septembre 1988"
+    }
+   ]
+  },
+  "decret:17:5:1995": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiwna3000hue7eew1lauci",
+     "vandalId": "II-M",
+     "title": "Décret du 17 mai 1995 supprimant le plafond des taux d'intérêt conventionnel et abrogeant les décrets des 1er décembre 1976, 8 avril 1980 et 2 avril 1981"
+    }
+   ]
+  },
+  "loi:27:6:1955": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtixnz200001267z6e4w2ee",
+     "vandalId": "VII-A-1",
+     "title": "Loi du 27 juin 1955 sur le livret de licence."
+    }
+   ]
+  },
+  "loi:26:9:1960": {
+   "primary": false,
+   "docs": [
+    {
+     "id": "cmrtio030000bot7lhit89viz",
+     "vandalId": "I-G",
+     "title": "Décret du 26 septembre 1960 réglementant l'exercice de la profession de commerçant."
+    },
+    {
+     "id": "cmrtixoxl00011267rq4b3uao",
+     "vandalId": "VII-A-2",
+     "title": "Décret du 26 septembre 1960 sur le livret de licence."
+    }
+   ]
+  },
+  "decret:28:9:1986": {
+   "primary": false,
+   "docs": []
+  },
+  "loi:13:9:1952": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiwdh60006ue7efazzcbws",
+     "vandalId": "II-D",
+     "title": "Loi du 13 septembre 1952 créant le Département du Magasin Général"
+    }
+   ]
+  },
+  "loi:5:2:1995": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtixbpk0006bzc5kil9byiw",
+     "vandalId": "V-F",
+     "title": "Loi du 5 février 1995 abrogeant le décret du 29 août 1989 qui fixait un taux d'ajustement de 30% de la valeur en douane des biens et services importés, de même que l'article 459 du Code douanier établissant «les moyens de paiement des sommes dues au trésor», modifiant également les articles 21, 22, 25, 32, 34, 35, 98, 120-13, 145, 176, 181, 216, 232, 459"
+    },
+    {
+     "id": "cmrtixx2300081267p74gapx4",
+     "vandalId": "VII-D-3",
+     "title": "Loi du 5 février 1995 établissant un acompte de 2% sur la valeur en douane des importations à caractère commercial de marchandises ou de biens, imputable au montant de l'impôt sur le revenu."
+    }
+   ]
+  },
+  "loi:20:12:1946": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtioaog000lot7l04kgwg21",
+     "vandalId": "I-P-1",
+     "title": "Loi du 20 décembre 1946 sur le marché noir."
+    }
+   ]
+  },
+  "decret:24:9:1970": {
+   "primary": false,
+   "docs": []
+  },
+  "loi:17:7:1954": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiwrdi00035vhv9hp3ix3d",
+     "vandalId": "III-B-3",
+     "title": "Loi du 17 juillet 1954 sur les marques de fabrique ou de commerce, modifiée par les décrets des 15 juillet 1956, 28 août 1960, 24 septembre 1970"
+    }
+   ]
+  },
+  "decret:18:7:1956": {
+   "primary": false,
+   "docs": []
+  },
+  "loi:20:8:1964": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtix9xw0004bzc584dwmy4a",
+     "vandalId": "V-D-1",
+     "title": "Loi du 20 août 1964 traçant la procédure d'immatriculation et de radiation des navires"
+    }
+   ]
+  },
+  "decret:12:10:1967": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiwsh000045vhv9toalumk",
+     "vandalId": "III-B-4",
+     "title": "Décret du 12 octobre 1967 sur l'utilisation du nom commercial"
+    }
+   ]
+  },
+  "decret:28:9:1987": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtixyzt000a1267r2hq3j5n",
+     "vandalId": "VII-E",
+     "title": "Décret du 28 septembre 1987 sur la patente."
+    }
+   ]
+  },
+  "decret:7:10:1975": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiofv0000qot7lrrqx9p4k",
+     "vandalId": "I-Q-4",
+     "title": "Décret du 7 octobre 1975 sur les poids et mesures"
+    }
+   ]
+  },
+  "loi:4:8:1920": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtioduq000oot7lk593lb8h",
+     "vandalId": "I-Q-2",
+     "title": "Loi du 4 août 1920 sur les poids et mesures"
+    }
+   ]
+  },
+  "loi:10:8:1877": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiocsb000not7lt045hp0z",
+     "vandalId": "I-Q-1",
+     "title": "Loi du 10 août 1877 sur les poids et mesures."
+    }
+   ]
+  },
+  "loi:10:8:1955": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiogt2000rot7ldc084b5s",
+     "vandalId": "I-R-1",
+     "title": "Loi du 10 août 1955 sur le commerce des produits pharmaceutiques"
+    }
+   ]
+  },
+  "decret:28:9:1996": {
+   "primary": false,
+   "docs": []
+  },
+  "decret:9:10:1986": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtixw1o00071267igp8s4b9",
+     "vandalId": "VII-D-2",
+     "title": "Décret du 9 octobre 1986 sur la rectification fiscale"
+    }
+   ]
+  },
+  "decret:13:12:1960": {
+   "primary": false,
+   "docs": []
+  },
+  "decret:8:3:1984": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtix0ng0005sa3zwdwilk8h",
+     "vandalId": "IV-A-6",
+     "title": "Décret du 8 mars 1984 sur les sociétés anonymes"
+    }
+   ]
+  },
+  "loi:3:8:1955": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiwvt80000sa3z2kc7krwl",
+     "vandalId": "IV-A-1",
+     "title": "Loi du 3 août 1955 sur la constitution et le fonctionnement des sociétés anonymes, modifiée par le décret du 28 août 1960, celui du 16 octobre 1967 et du 11 novembre 1968"
+    }
+   ]
+  },
+  "decret:10:10:1979": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiwzqw0004sa3zf6olqpbb",
+     "vandalId": "IV-A-5",
+     "title": "Décret du 10 octobre 1979 sur les sociétés anonymes"
+    }
+   ]
+  },
+  "decret:16:10:1967": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiwxvs0002sa3zjwlqs40s",
+     "vandalId": "IV-A-3",
+     "title": "Décret du 16 octobre 1967 sur le contrôle des sociétés de commerce"
+    }
+   ]
+  },
+  "loi:16:9:1963": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtix2lo0007sa3z1lgixxfn",
+     "vandalId": "IV-C",
+     "title": "Loi du 16 septembre 1963 sur les sociétés anonymes mixtes"
+    }
+   ]
+  },
+  "loi:20:9:1979": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtix1ma0006sa3ztg26hl4s",
+     "vandalId": "IV-B",
+     "title": "Loi du 16 juin 1975 sur les sociétés anonymes étrangères, modifiée par la loi du 20 septembre 1979"
+    }
+   ]
+  },
+  "loi:16:6:1975": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtix1ma0006sa3ztg26hl4s",
+     "vandalId": "IV-B",
+     "title": "Loi du 16 juin 1975 sur les sociétés anonymes étrangères, modifiée par la loi du 20 septembre 1979"
+    }
+   ]
+  },
+  "loi:30:8:1982": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiwjvz000due7e312y6gnd",
+     "vandalId": "II-J",
+     "title": "Loi du 30 août 1982 sur les sociétés financières de développement"
+    }
+   ]
+  },
+  "decret:28:3:1985": {
+   "primary": false,
+   "docs": []
+  },
+  "loi:19:9:1982": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtiy01v000b1267r7ioy2ur",
+     "vandalId": "VII-F-1",
+     "title": "Loi du 19 septembre 1982 instituant la taxe sur chiffre d'affaires, modifiée par les décrets des 4 avril 1984 et 28 mars 1985"
+    }
+   ]
+  },
+  "decret:10:10:1984": {
+   "primary": false,
+   "docs": []
+  },
+  "decret:4:4:1984": {
+   "primary": false,
+   "docs": [
+    {
+     "id": "cmrtiy01v000b1267r7ioy2ur",
+     "vandalId": "VII-F-1",
+     "title": "Loi du 19 septembre 1982 instituant la taxe sur chiffre d'affaires, modifiée par les décrets des 4 avril 1984 et 28 mars 1985"
+    }
+   ]
+  },
+  "loi:11:8:1903": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtixtae00051267bhwdvfxy",
+     "vandalId": "VII-C",
+     "title": "Loi du 11 août 1903 sur le droit de transmission, modifiée par la loi du 1er août 1921, celle du 4 décembre 1959^44 et le décret du 14 janvier 1974^45."
+    }
+   ]
+  },
+  "loi:4:12:1959": {
+   "primary": true,
+   "docs": [
+    {
+     "id": "cmrtixtae00051267bhwdvfxy",
+     "vandalId": "VII-C",
+     "title": "Loi du 11 août 1903 sur le droit de transmission, modifiée par la loi du 1er août 1921, celle du 4 décembre 1959^44 et le décret du 14 janvier 1974^45."
+    }
+   ]
+  }
+ },
+ "anomalies": [
+  "désignation ambiguë (2 textes) : D. 7 février 1961 → VI-A, VI-C",
+  "désignation ambiguë (2 textes) : D. 26 septembre 1960 → I-G, VII-A-2",
+  "désignation ambiguë (2 textes) : D. 20 mars 1981 → II-E, IV-D-2",
+  "désignation ambiguë (3 textes) : L. 17 août 1979 → II-A, II-B-1, II-C",
+  "désignation ambiguë (2 textes) : L. 26 septembre 1960 → I-G, VII-A-2",
+  "désignation hors lot : D. 28 septembre 1986",
+  "désignation ambiguë (2 textes) : L. 5 février 1995 → V-F, VII-D-3",
+  "désignation hors lot : D. 24 septembre 1970",
+  "désignation hors lot : D. 18 juillet 1956",
+  "désignation hors lot : D. 28 septembre 1996",
+  "désignation hors lot : D. 13 décembre 1960",
+  "désignation hors lot : D. 28 mars 1985",
+  "désignation hors lot : D. 10 octobre 1984"
+ ],
+ "satellites": 36,
+ "codeSubjectsWithDocRefs": 55,
+ "crossRefs": 58,
+ "deadSatRefs": 113
+}
