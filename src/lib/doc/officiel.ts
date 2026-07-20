@@ -29,9 +29,12 @@ function isPageNumber(line: string): boolean {
   return /^\d{1,3}$/.test(line)
 }
 
-/** Suite d'une ligne coupée par l'OCR : reprend en minuscule (ou ponctuation ouvrante). */
+/** Suite d'une ligne coupée par l'OCR : reprend en minuscule (ou ponctuation ouvrante).
+ *  Le guillemet ouvrant « n'en fait PAS partie : dans les textes du Moniteur, chaque
+ *  ALINÉA d'un article cité ouvre par « — le recoudre collait tous les alinéas en un
+ *  seul pavé (constat cliente : arts. 1853-1856, 1858-x, 1970-x du Décret sûretés). */
 function isContinuation(line: string): boolean {
-  return /^[a-zà-öø-ÿ(«"']/.test(line)
+  return /^[a-zà-öø-ÿ("']/.test(line)
 }
 
 /** Intertitre : ligne courte d'origine, sans ponctuation de fin de phrase. */
