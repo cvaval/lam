@@ -252,7 +252,12 @@ while i < N:
                     gaps.append((expected, base - 1))
                 expected = max(expected, base + 1)
         cur_art = anchor
-        body.append(t)
+        # Tête normalisée « Article N[ (paren)].- rest » : le séparateur canonique
+        # « .- » remplace les ponctuations OCR (« Article 247.· », « Article 252.:· »)
+        # que LEAD_ART (lecteur) ne dépouille pas → sinon « · » / « :· » restent en
+        # tête du texte de l'article. Parenthèse modificatrice préservée.
+        paren_part = f' {m.group(2)}' if m.group(2) else ''
+        body.append(clean(f'Article {desig}{paren_part}.- {m.group(3) or ""}'))
         i += 1
         continue
 

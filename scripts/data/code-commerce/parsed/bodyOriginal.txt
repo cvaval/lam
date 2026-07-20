@@ -84,7 +84,7 @@ Article 36.- L'action peut être établie sous la forme d'un titre au porteur.
 Dans ce cas, la cession s'opère par la tradition du titre.
 Article 37.- La propriété des actions peut être établie par une inscription sur les registres de la société.
 Dans ce cas, la cession s'opère par une déclaration de transfert sur les registres, et signée de celui qui fait le transport ou d'un fondé de pouvoir.
-Article 38 (L. 3 août 1955) .- Les sociétés par actions ne peuvent exister ou fonctionner en Haïti qu'avec l'autorisation du Président de la République et avec son approbation de l'acte constitutif et des statuts desdites sociétés, après rapport à lui adressé par le Secrétaire d'Etat du Commerce.
+Article 38 (L. 3 août 1955).- Les sociétés par actions ne peuvent exister ou fonctionner en Haïti qu'avec l'autorisation du Président de la République et avec son approbation de l'acte constitutif et des statuts desdites sociétés, après rapport à lui adressé par le Secrétaire d'Etat du Commerce.
 Cette autorisation et cette approbation qui sont données par arrêté, sont sujettes à révocation, lorsque la société qui les a obtenues ne se sera pas conformée aux buts pour lesquels elle a été constituée ou aura violé ses statuts.
 L'arrêté du Président de la République, autorisant les sociétés par actions et approuvant leur acte constitutif et leurs statuts, seront publiés au Moniteur et affichés pendant trois mois au greffe du tribunal civil du lieu où sera établi le siège social de ces sociétés et au local de la Chambre de Commerce d'Haïti.
 (L. 27 juin 1952) Les dispositions ci-dessus relatives à l'autorisation et à l'approbation des sociétés par actions ne peuvent préjudicier au droit des sociétés par actions, établies à l'étranger, d'ester en justice en Haïti, tant en demandant qu'en défendant, à l'occasion de l'exécution des obligations contractées envers elles par des haïtiens ou des étrangers en Haïti, et réciproquement.
@@ -789,7 +789,7 @@ La première mise à prix;
 Les jours des audiences auxquelles les enchères
 seront reçues.
 Article 246.- Après la première criée, les enchères seront reçues le jour indiqué par l'affiche.
-Article 247.· Après la troisième criée l'adjudication est faite au plus offrant et dernier enchérisseur, à l'extinction des feux sans autres fonnalités.
+Article 247.- Après la troisième criée l'adjudication est faite au plus offrant et dernier enchérisseur, à l'extinction des feux sans autres fonnalités.
 Le juge commis d'office peut accorder une ou deux remises, de huitaine chacune.
 Elles sont publiées et affichées.
 Article 248.- Si la saisie porte sur des barques, chaloupes et autres bâtiments au port de dix tonneaux et au- dessous, l'adjudication sera faite à l'audience, après publication sur le quai, pendant trois jours consécutifs, avec affiche au mât, ou à défaut, en autre lieu apparent du bâtiment, et à la porte du tribunal.
@@ -799,7 +799,7 @@ Article 250.- Les adjudicataires de navires de tout tonnage seront tenus de paye
 A défaut de paiement ou de consignation, le bâtiment sera remis en vente et adjugé trois jours après une nouvelle adjudication et affiche unique, à la folle enchère des adjudicataires, qui seront également contraints par corps pour le paiement du déficit, des dommages-intérêts et des frais.
 Article 251.- Les demandes en distraction seront formées et notifiées au greffe du tribunal avant l'adjudication.
 Si les demandes en distraction ne sont formées qu'après l'adjudication, elles seront converties, de plein droit, en opposition à la délivrance des sommes provenant de la vente.
-Article 252.:· Le demandeur ou l'opposant aura trois jours pour fournir ses moyens.
+Article 252.- Le demandeur ou l'opposant aura trois jours pour fournir ses moyens.
 Article 253.- Pendant trois jours après celui de l'adjudication, les oppositions à la délivrance du prix seront reçues; passé ce délai, elles ne seront plus admises.
 Article 254.- Les créanciers opposants sont tenus de produire au greffe leurs titres de créances dans les trois jours qui suivent la sommation qui leur est faite par le créancier poursuivant, ou par le tiers saisi; faute de quoi, il sera procédé à la distribution du prix de la vente, sans qu'ils y soient compris.
 Article 255.- La collocation des créanciers et la distribution des deniers sont faites entre les créanciers privilégiés dans l'ordre prescrit par l'article 231, et entre les autres créanciers, au marc la gourde de leurs créances.
@@ -980,7 +980,7 @@ Article 364.- Un emprunt à la grosse fait par le capitaine dans le lieu de la d
 Article 365.- Sont affectées aux sommes empruntées, même dans le lieu de la demeure des intéressés, pour radoub et victuailles, les parts et portions des propriétaires qui n'auraient pas fourni leur contingent pour mettre le bâtiment en état dans les 24 heures de la sommation qui leur en sera faite.
 Article 366.- Les emprunts faits pour le dernier voyage du navire sont remboursés par préférence aux sommes prêtées pour un précédent voyage, quand même il serait déclaré qu'elles sont laissées par continuation ou renouvellement.
 Les sommes empruntées pendant le voyage sont préférées à celles qui auraient été empruntées avant le départ
-Article 367 .- Le prêteur à la grosse sur marchandises ou denrées chargées dans un navire désigné au contrat ne supporte pas la perte des marchandises ou denrées, même par fortune de mer, si elles ont été chargées sur un autre navire, à moins qu'il ne soit légalement constaté que ce chargement a eu lieu par force majeure.
+Article 367.- Le prêteur à la grosse sur marchandises ou denrées chargées dans un navire désigné au contrat ne supporte pas la perte des marchandises ou denrées, même par fortune de mer, si elles ont été chargées sur un autre navire, à moins qu'il ne soit légalement constaté que ce chargement a eu lieu par force majeure.
 Article 368.- Si les effets sur lesquels le prêt à la grosse a eu lieu sont entièrement perdus et que la perte soit arrivée par cas fortuit dans le temps et dans le lieu des risques, la somme prêtée ne peut être réclamée.
 Article 369.- Les déchets, diminutions et pertes qui arrivent par le vice propre de la chose et les dommages causés par la faute de l'emprunteur, ne sont point à la charge du prêteur.
 Article 370.- En cas de naufrage, le payement des sommes empruntées à la grosse est réduit à la valeur des effets sauvés et affectés au contrat, déduction faite des frais de sauvetage.
@@ -1566,7 +1566,7 @@ Livre Quatrième — De la juridiction commerciale
 Titre Premier
 Dispositions générales
 Article 635.- Les tribunaux de paix et les tribunaux civils connaîtront des affaires commerciales, dans les limites de leur compétence, telles que lesdites affaires seront définies par le présent Code de commerce.
-Article 636. (L. 29 juillet 1955).- Dans chaque tribunal civil, il y aura une chambre spéciale dénommée Chambre des affaires commerciales.
+Article 636 (L. 29 juillet 1955).- Dans chaque tribunal civil, il y aura une chambre spéciale dénommée Chambre des affaires commerciales.
 Les audiences commerciales seront tenues, dans chaque tribunal civil, aux jours et heures déterminées par les règlements intérieurs, par un ou deux juges désignés par le doyen, pour la durée d'un an renouvelable.
 En cas d'empêchement dûment justifié des juges de la compétence, le doyen pourvoira provisoirement à leur remplacement.
 Il y aura par semaine, dans chaque tribunal civil, une audience commerciale, sauf au siège de Port-au-Prince où il en sera tenu au moins trois.
@@ -1598,7 +1598,7 @@ De la forme de procéder devant les tribunaux de paix et devant la Chambre des a
 Article 646.- [art. imprimé « 645 »] La procédure devant les tribunaux de paix et devant la Chambre des affaires commerciales des tribunaux civils, dans les limites de leur compétence respective, se fera par les parties elles-mêmes, par leurs avocats ou fondés de pouvoir autorisés, ces derniers, à militer devant les tribunaux de paix.
 Article 647.- Devant les tribunaux de paix, lorsque la demande est commerciale, elle sera introduite par citation.
 Elle sera jugée sans remise ni tour de rôle. Le dépôt des pièces sera effectué dans les 24 heures de l'audition et le jugement sera rendu, au plus tard, dans les trois jours de cette audition. Le juge de paix pourra être pris à partie, si le jugement n'est pas prononcé dans les huit jours.
-Article 648. (D. 28 août 1960).- Lorsque l'affaire commerciale sera de la compétence de la Chambre des affaires commerciales des tribunaux civils, elle sera introduite par ajournement, dans la forme prévue par le Code de procédure civile.
+Article 648 (D. 28 août 1960).- Lorsque l'affaire commerciale sera de la compétence de la Chambre des affaires commerciales des tribunaux civils, elle sera introduite par ajournement, dans la forme prévue par le Code de procédure civile.
 Dans tous les cas, elle sera considérée comme affaire sommaire. Les parties sont tenues de produire tous leurs moyens, tant en la forme qu'au fond. Si les exceptions proposées sont rejetées, le tribunal statuera sur le fond par le même jugement.
 En toutes matières commerciales, le juge sera tenu de rendre sa décision dans les huit jours. Si, à l'expiration de 15 jours, la décision n'est pas prononcée, le juge pourra être pris à partie.
 Le 3ème alinéa de l'article 919 du Code de procédure civile est applicable aux jugements rendus par le tribunal civil en ses attributions commerciales. Dans ce sens, les jugements définitifs sur exception et les jugements préparatoires ou interlocutoires ne pourront être attaqués par la voie de l'appel ou de la cassation, qu'avec le jugement du fond.
@@ -1621,7 +1621,7 @@ Article 656.- En matière commerciale, soit devant le juge de paix, soit devant 
 Article 657.- Si le tribunal est incompétent ratione materiae, il renverra l'affaire, même d'office, devant les juges qui doivent en connaître.
 Le déclinatoire fondé sur cette cause ne pourra être proposé que préalablement à toute autre défense et ensemble avec les moyens du fond.
 Article 658.- Les veuves et héritiers des justiciables de la juridiction commerciale y seront assignés en reprise d'instance ou par action nouvelle sauf, si les qualités sont constatées, à les renvoyer, pour y être réglés devant le juge compétent et être ensuite jugés, sur le fond, par la Chambre des affaires commerciales du tribunal civil.
-Article 659. (D. 28 août 1960).- L'exploit introductif d'instance comportera, en tête, copie de l'obligation, s'il y en a une.
+Article 659 (D. 28 août 1960).- L'exploit introductif d'instance comportera, en tête, copie de l'obligation, s'il y en a une.
 Le défendeur qui voudra méconnaître l'écriture, la dénier ou rendre plainte en faux principal en fera la déclaration à l'audience.
 Le tribunal lui accordera un délai de 8 jours pour rapporter la preuve de l'accomplissement des formalités relatives à ces procédures.
 Passé ce délai, s'il ne rapporte pas la preuve, le tribunal procédera au jugement, sans tenir compte d'aucune demande de sursis.
@@ -1631,7 +1631,7 @@ Article 661.- S'il y a lieu à contestation ou à estimation de marchandises ou 
 Article 662.- La récusation des experts ou arbitres-rapporteurs ne pourra être proposée que dans les trois jours de la signification du dispositif du jugement portant cette nomination.
 Article 663.- Le rapport des experts ou arbitres-rapporteurs sera déposé au greffe du tribunal, à l'expiration du délai à eux fixé.
 Article 664.- Si le tribunal ordonne la preuve par témoins, il y sera procédé dans les formes prescrites pour les enquêtes sommaires.
-Article 665. (D. 28 août 1960).- Si le demandeur ne se présente pas au jour fixé par la citation ou l'ajournement, le tribunal donnera défaut contre lui et renverra le défendeur de la demande.
+Article 665 (D. 28 août 1960).- Si le demandeur ne se présente pas au jour fixé par la citation ou l'ajournement, le tribunal donnera défaut contre lui et renverra le défendeur de la demande.
 Au tribunal de paix, si le défendeur ne comparaît pas, il sera donné défaut contre lui et les conclusions du demandeur ne lui seront adjugées que si elles sont trouvées justes et bien fondées.
 Si l'affaire est portée devant un tribunal civil, jugeant en ses attributions commerciales et que le défendeur n'ait pas comparu, ou si, ayant comparu, il n'a pas conclu, le tribunal donnera défaut contre lui.
 Devant la Chambre des affaires commerciales du tribunal civil, lorsqu'il y aura deux ou plusieurs défendeurs, les dispositions du Code de procédure civile concernant le défaut profit-joint seront applicables.
@@ -1639,9 +1639,9 @@ Si l'exploit signifié avait été remis à la Police ou au juge de paix, le jug
 Article 666.- Aucun jugement par défaut ne pourra être signifié que par un huissier commis à cet effet par le tribunal. La signification contiendra, à peine de nullité, élection de domicile dans la commune où elle se fait, si le demandeur n'y est domicilié.
 Article 667.- L'opposition à tout jugement par défaut n'est plus recevable après les trois jours de sa signification, s'il s'agit d'un jugement rendu par un tribunal de paix; et après le délai de huitaine, s'il s'agit d'un jugement par défaut rendu par un tribunal civil.
 Néanmoins, s'il s'agit d'un jugement par défaut faute de conclure prononcé par un tribunal civil, en ses attributions commerciales, le délai sera de huit jours francs à partir de la signification à avocat.
-Article 668. (D. 28 août 1960).- L'opposition contiendra tous les moyens de l'opposant y compris ses défenses au fond comme il est dit au deuxième alinéa de l'article 648, avec citation ou assignation à comparaître dans le délai de la loi. Elle sera signifiée à domicile élu, et sera plaidée à la première audience qui suivra l'expiration du délai pour comparaître, sans remise ni tour de rôle.
+Article 668 (D. 28 août 1960).- L'opposition contiendra tous les moyens de l'opposant y compris ses défenses au fond comme il est dit au deuxième alinéa de l'article 648, avec citation ou assignation à comparaître dans le délai de la loi. Elle sera signifiée à domicile élu, et sera plaidée à la première audience qui suivra l'expiration du délai pour comparaître, sans remise ni tour de rôle.
 Article 669.- Abrogé.
-Article 670. (D. 28 août 1960).- Le tribunal de paix ou le tribunal civil, jugeant en matière commerciale, pourront ordonner l'exécution provisoire de leurs jugements, avec ou sans caution, suivant les cas et les prévisions du Code de procédure civile.
+Article 670 (D. 28 août 1960).- Le tribunal de paix ou le tribunal civil, jugeant en matière commerciale, pourront ordonner l'exécution provisoire de leurs jugements, avec ou sans caution, suivant les cas et les prévisions du Code de procédure civile.
 Cette exécution provisoire pourra être ordonnée même sur minute quand il y aura péril en la demeure nettement justifié et motivé, notamment quand le débiteur est sur le point de laisser le pays ou qu'il est en train de détourner ou de faire disparaître le gage de ses créanciers.
 Chapitre III — Des voies de recours contre les jugements rendus en matière commerciale
 Article 671.- Les jugements rendus par les tribunaux civils, en matière commerciale, pourront être attaqués par la voie de recours en cassation.
