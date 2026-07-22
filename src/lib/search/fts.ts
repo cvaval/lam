@@ -1,6 +1,8 @@
 import { prisma } from '../db'
 import type { Prisma } from '@prisma/client'
 import { expandQuery, SYNONYMS } from './synonyms'
+import { buildTsQuery, toOrQuery } from './tsquery'
+import { searchDocumentsSql, searchDocumentsFuzzySql, type FtsFilters } from './ftsql'
 import { fuzzyExpand } from './fuzzy'
 import { makeSnippet } from './highlight'
 import { fold, extractAnnotationsText } from './normalize'
@@ -53,8 +55,19 @@ interface RelevanceCtx {
 }
 
 // Plafond du jeu de candidats rapporté du SQL pour le scoring en mémoire.
+// N'est plus utilisé par le chemin principal (plein-texte SQL, classement global) —
+// conservé pour le REPLI orthographique (fuzzy), qui ne concerne que des requêtes
+// sans correspondance exacte, donc peu volumineuses.
 const CANDIDATE_LIMIT = 1200
 const FUZZY_CANDIDATE_LIMIT = 600
+
+// Profondeur du classement plein-texte rapportée de SQL. Ne borne QUE l'affichage :
+// le classement, lui, est calculé par PostgreSQL sur la TOTALITÉ des documents appariés
+// (c'est ce qui supprime le trou de rappel de l'ancien plafond par date).
+const FTS_DEPTH = 400
+// Poids du rang plein-texte (ts_rank_cd ∈ ]0,1[, × bonus de type) ramené sur l'échelle
+// de `nameRelevance` (0…540) pour rester comparable aux scores des fiches Société.
+const FTS_WEIGHT = 120
 
 // Projection : colonnes réellement lues en JS (scoring + affichage). Exclut
 // volontairement `searchText` (jamais lu hors WHERE) et `bodyOriginal` (corps
@@ -149,11 +162,30 @@ export class FtsProvider implements SearchProvider {
     }
 
     // ── 1) Correspondances exactes ── (documents et sociétés en parallèle : -1 aller-retour)
+    // Documents : PLEIN-TEXTE NATIF PostgreSQL — filtrage ET classement en SQL sur tout le
+    // corpus (plus de plafond par date). Repli sur l'ancien `contains` trigram si la colonne
+    // vectorielle n'est pas encore migrée ou si la requête ne produit aucun lexème.
+    const plan = buildTsQuery(query.q)
+    const filters: FtsFilters = {
+      types: query.types as string[] | undefined,
+      status: query.status ?? undefined,
+      juridiction: query.juridiction ?? undefined,
+      matiere: query.matiere ?? undefined,
+      fiscalYear: typeof query.fiscalYear === 'number' ? query.fiscalYear : undefined,
+      niceClass: query.niceClass ?? undefined,
+      category: query.category ?? undefined,
+      yearFrom: query.yearFrom ?? undefined,
+      yearTo: query.yearTo ?? undefined,
+      num: query.num ?? undefined,
+    }
+    const depth = Math.max(FTS_DEPTH, page * size + size)
     const ctx = { groups, queryFold }
-    const [exactDocs, exactCompanies] = await Promise.all([
-      this.fetchDocHits(terms, base, query.locale, ctx, false),
+    const [ftsDocs, exactCompanies] = await Promise.all([
+      plan ? this.fetchDocHitsFts(plan, filters, depth, query.locale, ctx, terms) : Promise.resolve(null),
       this.fetchCompanyHits(terms, query, ctx, false, new Set()),
     ])
+    const exactDocs = ftsDocs ? ftsDocs.hits : await this.fetchDocHits(terms, base, query.locale, ctx, false)
+    const docTotal = ftsDocs ? ftsDocs.total : exactDocs.length
     const exact = [...exactDocs, ...exactCompanies].sort((a, b) => b.score - a.score || sortByDate(a, b))
 
     // ── 2) Correspondances approchantes (orthographe proche) ──
@@ -163,7 +195,33 @@ export class FtsProvider implements SearchProvider {
     // n'intervient que lorsque l'exact est insuffisant.
     let fuzzy: SearchHit[] = []
     let fuzzyTerms: string[] = []
-    if (exact.length < size) {
+    // Repli ORTHOGRAPHIQUE par trigrammes SQL (déterministe, sans préchauffage) — tenté en
+    // premier dès que l'exact ne remplit pas une page.
+    if (exact.length === 0 && plan && plan.words.length) {
+      const longest = [...plan.words].sort((a, b) => b.length - a.length)[0]
+      try {
+        const fz = await searchDocumentsFuzzySql(longest, filters, depth)
+        if (fz.rows.length) {
+          const seenIds = new Set(exactDocs.map((h) => h.id))
+          const { annotationsJson: _s, ...LIGHT } = DOC_SELECT
+          const rows = await prisma.document.findMany({ where: { id: { in: fz.rows.map((r) => r.id) } }, select: LIGHT })
+          const m = new Map(rows.map((d) => [d.id, d as DocRow]))
+          // Classement fin : proximité du terme mal orthographié avec le MOT le plus proche
+          // du titre (le SQL n'a fait que présélectionner, sans trier — cf. ftsql.ts).
+          for (const r of fz.rows) {
+            const d = m.get(r.id)
+            if (!d || seenIds.has(d.id)) continue
+            const title = fold([d.titleFr, d.titleHt, d.titleEn, d.number].filter(Boolean).join(' '))
+            const prox = bestWordProximity(longest, title)
+            fuzzy.push(toDocHit(d, terms, query.locale, (prox * 200 + r.score) * 0.4, true))
+          }
+          fuzzy.sort((a, b) => b.score - a.score || sortByDate(a, b))
+        }
+      } catch {
+        /* trigram indisponible → on laisse le repli historique ci-dessous */
+      }
+    }
+    if (exact.length === 0 && fuzzy.length === 0) {
       const queryWords = fold(query.q).split(/\s+/).filter((w) => w.length >= 4)
       const exactSet = new Set(terms)
       const fuzzyTermSet = new Set<string>()
@@ -178,8 +236,8 @@ export class FtsProvider implements SearchProvider {
           this.fetchDocHits(fuzzyTerms, base, query.locale, ctx, true, FUZZY_CANDIDATE_LIMIT),
           this.fetchCompanyHits(fuzzyTerms, query, ctx, true, seenCoIds),
         ])
-        const fDocs = fDocsRaw.filter((h) => !seenDocIds.has(h.id))
-        fuzzy = [...fDocs, ...fCos].sort((a, b) => b.score - a.score || sortByDate(a, b))
+        const fDocs = fDocsRaw.filter((h) => !seenDocIds.has(h.id) && !fuzzy.some((x) => x.id === h.id))
+        fuzzy = [...fuzzy, ...fDocs, ...fCos].sort((a, b) => b.score - a.score || sortByDate(a, b))
       }
     }
 
@@ -193,7 +251,10 @@ export class FtsProvider implements SearchProvider {
       all.push(h)
     }
 
-    const total = all.length
+    // Total : EXACT pour les documents (compté en SQL sur tout le corpus, pas seulement sur
+    // les candidats rapportés) + fiches Société + éventuels résultats approchants.
+    // La profondeur rapportée croît avec la page demandée : la pagination reste servie.
+    const total = ftsDocs ? docTotal + exactCompanies.length + fuzzy.length : all.length
     const start = (page - 1) * size
     const pageHits = all.slice(start, start + size)
     // Les extraits (snippets) issus du corps ne sont calculés que pour la page affichée
@@ -217,6 +278,52 @@ export class FtsProvider implements SearchProvider {
     })
     const bodyById = new Map(rows.map((r) => [r.id, r.bodyOriginal]))
     for (const h of need) h.snippet = makeSnippet(bodyById.get(h.id) || h.title, terms)
+  }
+
+  /**
+   * Chemin PRINCIPAL : plein-texte natif PostgreSQL. PostgreSQL apparie et CLASSE sur tout
+   * le corpus ; on ne rapatrie que les `depth` meilleurs, puis on hydrate ces seules lignes.
+   * Le rang FTS est recombiné avec `nameRelevance` (couverture des mots + phrase dans le
+   * titre/n°) pour rester sur la même échelle que les fiches Société.
+   * Renvoie null si la colonne vectorielle est absente (migration non jouée) → l'appelant
+   * retombe alors sur l'ancien chemin trigram, sans rupture de service.
+   */
+  private async fetchDocHitsFts(
+    plan: NonNullable<ReturnType<typeof buildTsQuery>>,
+    filters: FtsFilters,
+    depth: number,
+    locale: Locale,
+    ctx: RelevanceCtx,
+    terms: string[],
+  ): Promise<{ hits: SearchHit[]; total: number } | null> {
+    let res: Awaited<ReturnType<typeof searchDocumentsSql>>
+    try {
+      res = await searchDocumentsSql(plan, filters, depth)
+      // Le ET n'a rien donné → on élargit au OU avant de céder la place au fuzzy.
+      if (!res.total) {
+        const or = toOrQuery(plan)
+        if (or) res = await searchDocumentsSql({ ...plan, query: or }, filters, depth)
+      }
+    } catch {
+      return null // colonne/index absents → repli transparent
+    }
+    if (!res.rows.length) return { hits: [], total: res.total }
+
+    // annotationsJson n'est PAS chargé ici : le scoring est fait par PostgreSQL, et ce champ
+    // pèse jusqu'à ~590 Ko sur les codes annotés (transfert inutile pour la page affichée).
+    const { annotationsJson: _skip, ...LIGHT } = DOC_SELECT
+    const docs = await prisma.document.findMany({ where: { id: { in: res.rows.map((r) => r.id) } }, select: LIGHT })
+    const byId = new Map(docs.map((d) => [d.id, d as DocRow]))
+    const hits: SearchHit[] = []
+    for (const r of res.rows) {
+      const d = byId.get(r.id)
+      if (!d) continue
+      // Couverture des mots de la requête dans le titre + n° (fait primer la meilleure
+      // correspondance de nom) ; le bonus de TYPE est déjà appliqué côté SQL.
+      const rel = nameRelevance(fold([d.titleFr, d.titleHt, d.titleEn, d.number].filter(Boolean).join(' ')), ctx.groups, ctx.queryFold)
+      hits.push(toDocHit(d, terms, locale, rel + r.score * FTS_WEIGHT, false))
+    }
+    return { hits, total: res.total }
   }
 
   private async fetchDocHits(
@@ -383,6 +490,27 @@ function scoreFields(fields: Weighted[], terms: string[]): number {
     }
   }
   return score
+}
+
+/** Proximité trigramme [0..1] entre un terme et le mot le plus proche d'un texte court. */
+function bestWordProximity(term: string, text: string): number {
+  const tri = (s: string) => {
+    const p = `  ${s} `
+    const out = new Set<string>()
+    for (let i = 0; i < p.length - 2; i++) out.add(p.slice(i, i + 3))
+    return out
+  }
+  const a = tri(term)
+  let best = 0
+  for (const w of text.split(/\s+/)) {
+    if (!w || Math.abs(w.length - term.length) > 4) continue
+    const b = tri(w)
+    let inter = 0
+    for (const g of a) if (b.has(g)) inter++
+    const score = inter / (a.size + b.size - inter)
+    if (score > best) best = score
+  }
+  return best
 }
 
 function sortByDate(a: SearchHit, b: SearchHit): number {
