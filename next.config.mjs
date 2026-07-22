@@ -25,6 +25,18 @@ const nextConfig = {
     }
     return [{ source: '/:path*', headers: securityHeaders }]
   },
+  // Renommage d'URL (22 juil. 2026) : les rubriques servaient sur des chemins qui ne
+  // correspondaient pas à leur nom affiché (/doctrine → « Législation annotée »,
+  // /legislation → « Éditions Le Moniteur »). Redirections PERMANENTES (308) pour que
+  // les favoris et liens partagés existants continuent de fonctionner — y compris les
+  // sous-pages par année du Moniteur (/legislation/2024).
+  async redirects() {
+    return [
+      { source: '/:locale(fr|en|ht)/doctrine', destination: '/:locale/legislationannotee', permanent: true },
+      { source: '/:locale(fr|en|ht)/legislation', destination: '/:locale/editionsmoniteur', permanent: true },
+      { source: '/:locale(fr|en|ht)/legislation/:path*', destination: '/:locale/editionsmoniteur/:path*', permanent: true },
+    ]
+  },
 }
 
 export default nextConfig

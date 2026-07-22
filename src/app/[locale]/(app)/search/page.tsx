@@ -152,9 +152,10 @@ export default async function SearchPage({
   const totalPages = Math.ceil(result.total / PAGE_SIZE)
 
   // Retour vers l'accueil de la section quand la recherche est filtrée sur un type qui
-  // en possède une (ex. « Législation annotée » → /doctrine, « Le Moniteur » → /legislation).
+  // en possède une (ex. « Législation annotée » → /legislationannotee, « Éditions Le
+  // Moniteur » → /editionsmoniteur).
   const landingSlug = selectedType
-    ? ({ DOCTRINE: 'doctrine', LEGISLATION: 'legislation', TARIF_DOUANIER: 'tarifs' } as Partial<Record<DocType, string>>)[selectedType]
+    ? ({ DOCTRINE: 'legislationannotee', LEGISLATION: 'editionsmoniteur', TARIF_DOUANIER: 'tarifs' } as Partial<Record<DocType, string>>)[selectedType]
     : undefined
 
   return (

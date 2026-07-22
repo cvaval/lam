@@ -54,37 +54,39 @@ async function main() {
     if (only && d.partie !== only) continue
     const source = `CC_VANDAL_${d.id}`
     try {
-      const old = await prisma.document.findFirst({ where: { source }, select: { id: true } })
-      if (old) {
-        await prisma.documentTheme.deleteMany({ where: { documentId: old.id } })
-        await prisma.crossRef.deleteMany({ where: { fromId: old.id } }).catch(() => {})
-        await prisma.document.delete({ where: { id: old.id } })
-      }
       const pubDate = d.publicationDate ? new Date(`${d.publicationDate}T00:00:00Z`) : dateFromTitle(d.title)
-      const doc = await prisma.document.create({
-        data: {
-          type: 'LEGISLATION',
-          status: 'EN_VIGUEUR',
-          titleFr: d.title,
-          number: d.number ?? undefined,
-          originalLang: 'fr',
-          matiere: 'commercial',
-          moniteurRef: d.moniteurRef ?? undefined,
-          publicationDate: pubDate ?? undefined,
-          bodyOriginal: d.body,
-          annotationsJson: d.structure ? JSON.stringify(d.structure) : undefined,
-          searchText: buildSearchText({ titleFr: d.title, number: d.number, moniteurRef: d.moniteurRef, matiere: 'commercial', bodyOriginal: d.body }),
-          source,
-          metaJson: JSON.stringify({ vandalId: d.id, partie: d.partie, rubrique: d.rubrique }),
-          summaryFr:
-            `Texte de l'édition Vandal du Code de commerce — partie ${d.partie} (${PARTIES[d.partie] ?? d.partie}). ` +
-            `Publié dans le thème « Droit commercial » au même niveau que le Code de commerce et les autres textes de l'édition.`,
-        },
+      const data = {
+        type: 'LEGISLATION',
+        status: 'EN_VIGUEUR',
+        titleFr: d.title,
+        number: d.number ?? undefined,
+        originalLang: 'fr',
+        matiere: 'commercial',
+        moniteurRef: d.moniteurRef ?? undefined,
+        publicationDate: pubDate ?? undefined,
+        bodyOriginal: d.body,
+        annotationsJson: d.structure ? JSON.stringify(d.structure) : undefined,
+        searchText: buildSearchText({ titleFr: d.title, number: d.number, moniteurRef: d.moniteurRef, matiere: 'commercial', bodyOriginal: d.body }),
+        source,
+        metaJson: JSON.stringify({ vandalId: d.id, partie: d.partie, rubrique: d.rubrique }),
+        summaryFr:
+          `Texte de l'édition Vandal du Code de commerce — partie ${d.partie} (${PARTIES[d.partie] ?? d.partie}). ` +
+          `Publié dans le thème « Droit commercial » au même niveau que le Code de commerce et les autres textes de l'édition.`,
+      } as const
+      // Mise à jour EN PLACE si déjà importé (id stable → favoris, renvois CrossRef et
+      // liens externes vers ces textes préservés). Sinon création.
+      const old = await prisma.document.findFirst({ where: { source }, select: { id: true } })
+      const doc = old
+        ? await prisma.document.update({ where: { id: old.id }, data })
+        : await prisma.document.create({ data })
+      await prisma.documentTheme.upsert({
+        where: { documentId_themeId: { documentId: doc.id, themeId: theme.id } },
+        create: { documentId: doc.id, themeId: theme.id, isPrimary: true, assignedBy: 'IMPORT' },
+        update: {},
       })
-      await prisma.documentTheme.create({ data: { documentId: doc.id, themeId: theme.id, isPrimary: true, assignedBy: 'IMPORT' } })
       await reindexDocument(doc.id)
       byPart[d.partie] = (byPart[d.partie] ?? 0) + 1
-      console.log(`  ✔ ${d.id.padEnd(11)} ${doc.id}  ${d.stats.articles} art.  ${d.title.slice(0, 60)}`)
+      console.log(`  ${old ? '↻' : '✔'} ${d.id.padEnd(11)} ${doc.id}  ${d.stats.articles} art.  ${d.title.slice(0, 60)}`)
     } catch (e) {
       failures.push(`${d.id}: ${(e as Error).message.slice(0, 120)}`)
       console.error(`  ✖ ${d.id}: ${(e as Error).message.slice(0, 160)}`)

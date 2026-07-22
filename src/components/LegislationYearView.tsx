@@ -85,7 +85,7 @@ export function LegislationYearView({ locale, year, months }: { locale: Locale; 
   return (
     <div className="space-y-5">
       <div className="border-l-4 border-lank pl-4">
-        <Link href={`/${locale}/legislation`} className="text-xs font-medium text-endeks-700 hover:underline">
+        <Link href={`/${locale}/editionsmoniteur`} className="text-xs font-medium text-endeks-700 hover:underline">
           {LBL.back[locale]}
         </Link>
         <h1 className="mt-1 text-2xl font-bold text-lank">Le Moniteur — {year}</h1>

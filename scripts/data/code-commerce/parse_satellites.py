@@ -24,6 +24,14 @@ ROOT = '/Users/cvaval/Downloads/Officiel_Code-de-Commerce_Vandal_legislations-se
 
 EXCLUDED = {'I-C-2', 'I-I', 'I-M', 'I-N', 'V-A-3', 'V-B-2', 'V-D-2', 'V-G'}
 
+# Titres corrigés (demande cliente 20 juil.) : le CSV Vandal préfixe ces deux textes
+# de « ANNEXE I/II --- », ce qui les classait sous « A » dans l'index A→Z au lieu de
+# leur objet réel. Casse normalisée comme les autres intitulés (phrase, pas capitales).
+TITLE_OVERRIDES = {
+    'I-Annexe-I': 'Règlement de conciliation facultative',
+    'I-Annexe-II': "Règlement d'arbitrage",
+}
+
 ENT = [('&amp;', '&'), ('&lt;', '<'), ('&gt;', '>'), ('&#x2019;', '’'), ('&#x2018;', '‘'),
        ('&#x2013;', '–'), ('&#x2014;', '—'), ('&#xa0;', ' '), ('&quot;', '"'), ('&apos;', "'")]
 
@@ -211,7 +219,7 @@ for r in rows:
         report['exclus'] += 1
         continue
     meta = {'id': rid, 'partie': r['partie'], 'rubrique': r['rubrique'],
-            'title': clean(re.sub(r'^\d+°?\)\s*', '', r['intitulé (source Vandal)']))}
+            'title': TITLE_OVERRIDES.get(rid) or clean(re.sub(r'^\d+°?\)\s*', '', r['intitulé (source Vandal)']))}
     res = parse_one(files[rid], meta)
     json.dump(res, open(os.path.join(PARSED, f'{rid}.json'), 'w'), ensure_ascii=False, indent=1)
     report[f'partie {r["partie"]}'] += 1

@@ -62,6 +62,10 @@ export const TYPE_SLUGS: Record<string, DocType> = {
   ),
   brh: 'CIRCULAIRE_BRH',
   moniteur: 'INDEX',
+  // ANCIENS slugs des rubriques renommées (URL alignées sur les noms affichés,
+  // 22 juil. 2026) : conservés pour que les liens et favoris ?type=… résolvent encore.
+  doctrine: 'DOCTRINE', // → legislationannotee
+  legislation: 'LEGISLATION', // → editionsmoniteur
 }
 
 export function isRole(v: string): v is Role {

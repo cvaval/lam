@@ -30,7 +30,10 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
   LEGISLATION: {
     type: 'LEGISLATION',
     num: 1,
-    slug: 'legislation',
+    // URL de la rubrique : « editionsmoniteur » (et non « legislation ») pour coller au
+    // nom affiché « Éditions Le Moniteur ». Ancien slug accepté en alias (TYPE_SLUGS)
+    // et redirigé (next.config.mjs) — anciens liens/favoris préservés.
+    slug: 'editionsmoniteur',
     pastille: 'Lank',
     color: 'lank',
     badge: 'LE MONITEUR',
@@ -84,7 +87,10 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
   DOCTRINE: {
     type: 'DOCTRINE',
     num: 4,
-    slug: 'doctrine',
+    // URL de la rubrique : « legislationannotee » (et non « doctrine ») pour coller au
+    // nom affiché « Législation annotée ». L'ancien slug reste accepté en alias
+    // (TYPE_SLUGS) et redirigé (next.config.mjs) — anciens liens/favoris préservés.
+    slug: 'legislationannotee',
     pastille: 'Lagon',
     color: 'lagon',
     badge: 'ANNOTÉE',

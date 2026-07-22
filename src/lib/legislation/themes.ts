@@ -102,6 +102,33 @@ export async function documentsInTheme(
   return docs.map((d) => ({ ...d, anchor: anchorBy.get(d.id) ?? null }))
 }
 
+/**
+ * TOUS les documents accessibles rattachés à AU MOINS un thème ACTIF — pour les
+ * vues À PLAT de la Législation annotée (A→Z, par type, récents). Filtré par accès
+ * §03 (même barrière que documentsInTheme) ET borné aux thèmes actifs (même
+ * périmètre que l'arbre getThemeTree({activeOnly:true}), sinon un doc rattaché à
+ * un seul thème archivé apparaîtrait à plat mais pas dans l'arbre). Un document
+ * rattaché à plusieurs thèmes n'apparaît qu'une fois. Borné par `take` : l'appelant
+ * détecte l'atteinte de la borne (docs.length === take) pour signaler la troncature.
+ */
+export async function allThemedDocuments(
+  user: { role: Role; services: DocType[] },
+  opts: { take?: number } = {},
+) {
+  return prisma.document.findMany({
+    where: {
+      type: { in: accessibleTypes(user) }, // §03 — ne jamais retirer/élargir
+      themes: { some: { theme: { active: true } } },
+    },
+    select: {
+      id: true, type: true, titleFr: true, titleEn: true, titleHt: true,
+      number: true, status: true, publicationDate: true, updatedAt: true,
+    },
+    orderBy: [{ titleFr: 'asc' }],
+    take: opts.take ?? 3000,
+  })
+}
+
 // ─────────────────────────── Gestion (back-office) ───────────────────────────
 
 export class ThemeError extends Error {

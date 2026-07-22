@@ -53,7 +53,7 @@ export default async function LegislationPage({ params }: { params: { locale: st
           {years.map((y) => (
             <Link
               key={y.year}
-              href={`/${locale}/legislation/${y.year}`}
+              href={`/${locale}/editionsmoniteur/${y.year}`}
               className="group flex flex-col items-center rounded-2xl border border-lank/10 bg-white px-4 py-6 shadow-card transition hover:-translate-y-0.5 hover:shadow-lg"
             >
               <span className="text-3xl font-bold tracking-tight text-lank group-hover:text-endeks-700">{y.year}</span>
@@ -65,7 +65,7 @@ export default async function LegislationPage({ params }: { params: { locale: st
         </div>
       )}
 
-      <Link href={`/${locale}/search?type=legislation`} className="inline-block text-sm font-medium text-endeks-700 hover:underline">
+      <Link href={`/${locale}/search?type=editionsmoniteur`} className="inline-block text-sm font-medium text-endeks-700 hover:underline">
         {L.searchAll[locale]} →
       </Link>
     </div>

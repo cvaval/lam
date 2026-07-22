@@ -5,7 +5,13 @@
  * navigation client (notamment Safari, qui gère mal la préconnexion/navigation vers une
  * route qui ne fait que `redirect()`), et c'est plus rapide (un aller-retour de moins).
  */
-const DEDICATED: Record<string, string> = { legislation: 'legislation', doctrine: 'doctrine', tarifs: 'tarifs' }
+const DEDICATED: Record<string, string> = {
+  editionsmoniteur: 'editionsmoniteur',
+  legislation: 'editionsmoniteur', // ancien slug → nouvelle page
+  legislationannotee: 'legislationannotee',
+  doctrine: 'legislationannotee', // ancien slug → nouvelle page
+  tarifs: 'tarifs',
+}
 
 export function sectionHref(locale: string, slug: string): string {
   return DEDICATED[slug] ? `/${locale}/${DEDICATED[slug]}` : `/${locale}/search?type=${encodeURIComponent(slug)}`
