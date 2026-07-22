@@ -64,6 +64,9 @@ export interface SearchHit {
   number?: string | null
   moniteurRef?: string | null
   publicationDate?: string | null
+  /** Date d'entrée en vigueur — non affichée : sert au tri « entrée en vigueur »
+   *  lorsqu'il est combiné à une requête texte (fusion documents + sociétés). */
+  effectiveDate?: string | null
   niceClasses?: string | null
   bhdaNumber?: string | null
   holder?: string | null

@@ -2,7 +2,8 @@ import { prisma } from '../db'
 import type { Prisma } from '@prisma/client'
 import { expandQuery, SYNONYMS } from './synonyms'
 import { buildTsQuery, toOrQuery } from './tsquery'
-import { searchDocumentsSql, searchDocumentsFuzzySql, type FtsFilters } from './ftsql'
+import { searchDocumentsSql, searchDocumentsFuzzySql, type FtsFilters, type FtsOrder } from './ftsql'
+import { STOPWORDS } from './stopwords'
 import { fuzzyExpand } from './fuzzy'
 import { makeSnippet } from './highlight'
 import { fold, extractAnnotationsText } from './normalize'
@@ -14,12 +15,6 @@ import type { SearchProvider, SearchQuery, SearchResult, SearchHit } from './typ
 import type { DocType, DocStatus, Locale } from '../types'
 import { FULLTEXT_TYPES } from '../access'
 import { parseCirculaireRef } from '../brh/gaps'
-
-// Mots vides ignorés pour le calcul de couverture (un mot « de » ne compte pas).
-const STOPWORDS = new Set([
-  'de', 'la', 'le', 'les', 'des', 'du', 'et', 'en', 'au', 'aux', 'un', 'une', 'sur', 'pour', 'par',
-  'of', 'the', 'and', 'for', 'to', 'in', 'on',
-])
 
 /** Groupes de synonymes des mots de contenu de la requête (pour la couverture). */
 function buildGroups(q: string): string[][] {
@@ -42,11 +37,26 @@ function buildGroups(q: string): string[][] {
 function nameRelevance(primaryFold: string, groups: string[][], queryFold: string): number {
   if (!groups.length) return 0
   let matched = 0
-  for (const g of groups) if (g.some((w) => primaryFold.includes(w))) matched++
+  for (const g of groups) if (g.some((w) => hasWordPrefix(primaryFold, w))) matched++
   const coverage = matched / groups.length // 0..1
   let phrase = 0
-  if (queryFold.length >= 3 && primaryFold.includes(queryFold)) phrase = primaryFold === queryFold ? 400 : 220
+  if (queryFold.length >= 3 && hasWordPrefix(primaryFold, queryFold)) phrase = primaryFold === queryFold ? 400 : 220
   return coverage * 140 + phrase
+}
+
+/**
+ * Le mot apparaît-il au DÉBUT d'un mot du texte ? Même sémantique que le `mot:*` du SQL.
+ *
+ * Ce test était une simple sous-chaîne, ce qui désaccordait le classement (JS) du filtrage
+ * (SQL) : une recherche « loyer » plaçait en tête les textes dont le titre contient
+ * « em-ployer », crédités à tort d'une correspondance de titre (constat d'audit).
+ */
+function hasWordPrefix(hay: string, w: string): boolean {
+  if (!w) return false
+  for (let i = hay.indexOf(w); i >= 0; i = hay.indexOf(w, i + 1)) {
+    if (i === 0 || !/[a-z0-9]/.test(hay[i - 1])) return true
+  }
+  return false
 }
 
 interface RelevanceCtx {
@@ -65,6 +75,10 @@ const FUZZY_CANDIDATE_LIMIT = 600
 // le classement, lui, est calculé par PostgreSQL sur la TOTALITÉ des documents appariés
 // (c'est ce qui supprime le trou de rappel de l'ancien plafond par date).
 const FTS_DEPTH = 400
+// Plafond DUR de cette profondeur. `?page=` vient de l'URL et n'a pas de borne haute :
+// sans ce plafond, « ?q=loi&page=999999 » demandait LIMIT 50 000 000 puis l'hydratation
+// d'autant de lignes — déni de service à un seul appel (constat d'audit).
+const MAX_DEPTH = 2000
 // Poids du rang plein-texte (ts_rank_cd ∈ ]0,1[, × bonus de type) ramené sur l'échelle
 // de `nameRelevance` (0…540) pour rester comparable aux scores des fiches Société.
 const FTS_WEIGHT = 120
@@ -79,7 +93,7 @@ const DOC_SELECT = {
   summaryFr: true, summaryEn: true, summaryHt: true,
   number: true, bhdaNumber: true, holder: true, author: true,
   keywords: true, revue: true, matiere: true, juridiction: true,
-  moniteurRef: true, publicationDate: true, niceClasses: true, imageUrl: true,
+  moniteurRef: true, publicationDate: true, effectiveDate: true, niceClasses: true, imageUrl: true,
   // Texte des annotations (jurisprudence/commentaires/connexe/index) : nécessaire au SCORING
   // des mots d'arrêts (hors bodyOriginal). Léger — non nul seulement pour les ~10 textes
   // annotés ; nul (donc quasi gratuit) pour les ~28k entrées de l'Index du Moniteur.
@@ -178,10 +192,20 @@ export class FtsProvider implements SearchProvider {
       yearTo: query.yearTo ?? undefined,
       num: query.num ?? undefined,
     }
-    const depth = Math.max(FTS_DEPTH, page * size + size)
+    const depth = Math.min(MAX_DEPTH, Math.max(FTS_DEPTH, page * size + size))
     const ctx = { groups, queryFold }
+    // Le tri choisi s'applique AUSSI quand une requête texte est présente : le panneau de
+    // filtres reste affiché dès qu'un type est sélectionné, donc « trier par date / par
+    // numéro » est atteignable en même temps qu'une recherche — il était jusqu'ici ignoré
+    // en silence, les résultats restant classés par pertinence (constat d'audit).
+    // Le tri par NUMÉRO se fait en JS (numéro sériel dans une chaîne) et reste réservé aux
+    // circulaires BRH, dont l'effectif (~140) tient entièrement dans la profondeur rapportée.
+    const numSort =
+      query.types?.length === 1 && query.types[0] === 'CIRCULAIRE_BRH' &&
+      (query.sort === 'num-asc' || query.sort === 'num-desc')
+    const order: FtsOrder = numSort ? 'relevance' : query.sort === 'eff' ? 'eff' : query.sort === 'sig' ? 'sig' : 'relevance'
     const [ftsDocs, exactCompanies] = await Promise.all([
-      plan ? this.fetchDocHitsFts(plan, filters, depth, query.locale, ctx, terms) : Promise.resolve(null),
+      plan ? this.fetchDocHitsFts(plan, filters, depth, query.locale, ctx, terms, order) : Promise.resolve(null),
       this.fetchCompanyHits(terms, query, ctx, false, new Set()),
     ])
     const exactDocs = ftsDocs ? ftsDocs.hits : await this.fetchDocHits(terms, base, query.locale, ctx, false)
@@ -197,7 +221,11 @@ export class FtsProvider implements SearchProvider {
     let fuzzyTerms: string[] = []
     // Repli ORTHOGRAPHIQUE par trigrammes SQL (déterministe, sans préchauffage) — tenté en
     // premier dès que l'exact ne remplit pas une page.
-    if (exact.length === 0 && plan && plan.words.length) {
+    // Une EXPRESSION entre guillemets est une demande d'exactitude : si elle ne figure
+    // nulle part, proposer des à-peu-près serait trompeur (« "50%000" » ne renvoyait rien
+    // d'exact, mais 189 résultats approchants — constat d'audit). On rend alors 0 résultat.
+    const wantsExact = (plan?.phrases.length ?? 0) > 0
+    if (exact.length === 0 && plan && plan.words.length && !wantsExact) {
       const longest = [...plan.words].sort((a, b) => b.length - a.length)[0]
       try {
         const fz = await searchDocumentsFuzzySql(longest, filters, depth)
@@ -221,7 +249,7 @@ export class FtsProvider implements SearchProvider {
         /* trigram indisponible → on laisse le repli historique ci-dessous */
       }
     }
-    if (exact.length === 0 && fuzzy.length === 0) {
+    if (exact.length === 0 && fuzzy.length === 0 && !wantsExact) {
       const queryWords = fold(query.q).split(/\s+/).filter((w) => w.length >= 4)
       const exactSet = new Set(terms)
       const fuzzyTermSet = new Set<string>()
@@ -250,11 +278,20 @@ export class FtsProvider implements SearchProvider {
       seen.add(key)
       all.push(h)
     }
+    // Application du tri demandé sur l'ensemble fusionné (documents + sociétés). SQL a déjà
+    // rapporté les bonnes lignes dans le bon ordre ; ce tri final réaligne les fiches Société,
+    // qui proviennent d'une autre requête.
+    if (numSort) sortHitsByCirculaireNumber(all, query.sort === 'num-desc' ? -1 : 1)
+    else if (order === 'sig') all.sort((a, b) => sortByDate(a, b))
+    else if (order === 'eff') all.sort((a, b) => (b.effectiveDate ?? '').localeCompare(a.effectiveDate ?? ''))
 
     // Total : EXACT pour les documents (compté en SQL sur tout le corpus, pas seulement sur
     // les candidats rapportés) + fiches Société + éventuels résultats approchants.
     // La profondeur rapportée croît avec la page demandée : la pagination reste servie.
-    const total = ftsDocs ? docTotal + exactCompanies.length + fuzzy.length : all.length
+    // Borné à la profondeur réellement servie : au-delà, les pages seraient vides. Annoncer
+    // « 7 000 résultats » puis renvoyer une page blanche à la 101ᵉ serait pire qu'un total
+    // prudent. En deçà du plafond (l'immense majorité des requêtes), le total est EXACT.
+    const total = ftsDocs ? Math.min(docTotal, MAX_DEPTH) + exactCompanies.length + fuzzy.length : all.length
     const start = (page - 1) * size
     const pageHits = all.slice(start, start + size)
     // Les extraits (snippets) issus du corps ne sont calculés que pour la page affichée
@@ -295,14 +332,15 @@ export class FtsProvider implements SearchProvider {
     locale: Locale,
     ctx: RelevanceCtx,
     terms: string[],
+    order: FtsOrder = 'relevance',
   ): Promise<{ hits: SearchHit[]; total: number } | null> {
     let res: Awaited<ReturnType<typeof searchDocumentsSql>>
     try {
-      res = await searchDocumentsSql(plan, filters, depth)
+      res = await searchDocumentsSql(plan, filters, depth, order)
       // Le ET n'a rien donné → on élargit au OU avant de céder la place au fuzzy.
       if (!res.total) {
         const or = toOrQuery(plan)
-        if (or) res = await searchDocumentsSql({ ...plan, query: or }, filters, depth)
+        if (or) res = await searchDocumentsSql({ ...plan, query: or }, filters, depth, order)
       }
     } catch {
       return null // colonne/index absents → repli transparent
@@ -462,6 +500,7 @@ function toDocHit(d: DocRow, terms: string[], locale: Locale, score: number, fuz
     number: d.number,
     moniteurRef: d.moniteurRef,
     publicationDate: d.publicationDate?.toISOString() ?? null,
+    effectiveDate: d.effectiveDate?.toISOString() ?? null,
     niceClasses: d.niceClasses,
     bhdaNumber: d.bhdaNumber,
     holder: d.holder,
@@ -517,18 +556,26 @@ function sortByDate(a: SearchHit, b: SearchHit): number {
   return (b.publicationDate ?? '').localeCompare(a.publicationDate ?? '')
 }
 
+/** Comparateur de numéros de circulaire — partagé par les deux chemins (navigation, requête). */
+function compareCirculaireNumber(an: string | null | undefined, bn: string | null | undefined, dir: 1 | -1): number {
+  const serieOrd = (s?: string) => (s === 'CIRCULAIRE' ? 0 : s === 'LETTRE' ? 1 : 2)
+  const pa = parseCirculaireRef(an)
+  const pb = parseCirculaireRef(bn)
+  const so = serieOrd(pa?.serie) - serieOrd(pb?.serie)
+  if (so) return so
+  if (!pa && !pb) return 0
+  if (!pa) return 1
+  if (!pb) return -1
+  if (pa.base !== pb.base) return (pa.base - pb.base) * dir
+  return ((pa.rev ?? 0) - (pb.rev ?? 0)) * dir
+}
+
+/** Tri par numéro des RÉSULTATS (documents + sociétés) — chemin « requête texte ». */
+function sortHitsByCirculaireNumber(hits: SearchHit[], dir: 1 | -1): void {
+  hits.sort((a, b) => compareCirculaireNumber(a.number, b.number, dir))
+}
+
 /** Tri des circulaires par numéro (série, base, révision) ; réfs non standard en fin. */
 function sortByCirculaireNumber(docs: DocRow[], dir: 1 | -1): void {
-  const serieOrd = (s?: string) => (s === 'CIRCULAIRE' ? 0 : s === 'LETTRE' ? 1 : 2)
-  docs.sort((a, b) => {
-    const pa = parseCirculaireRef(a.number)
-    const pb = parseCirculaireRef(b.number)
-    const so = serieOrd(pa?.serie) - serieOrd(pb?.serie)
-    if (so) return so
-    if (!pa && !pb) return 0
-    if (!pa) return 1
-    if (!pb) return -1
-    if (pa.base !== pb.base) return (pa.base - pb.base) * dir
-    return ((pa.rev ?? 0) - (pb.rev ?? 0)) * dir
-  })
+  docs.sort((a, b) => compareCirculaireNumber(a.number, b.number, dir))
 }
