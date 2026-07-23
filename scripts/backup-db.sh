@@ -10,11 +10,21 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
+# libpq (pg_dump) n'est pas dans le PATH par défaut d'une tâche planifiée (launchd) :
+# on l'ajoute explicitement s'il est installé par Homebrew.
+[ -d /opt/homebrew/opt/libpq/bin ] && PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
 # Charge DIRECT_URL depuis .env si absent de l'environnement.
 if [ -z "${DIRECT_URL:-}" ] && [ -f .env ]; then
   DIRECT_URL="$(grep -E '^DIRECT_URL=' .env | head -1 | cut -d= -f2- | tr -d '"'"'"'')"
 fi
 : "${DIRECT_URL:?DIRECT_URL manquant (défini dans .env)}"
+
+# TCP keepalives : sans eux, le pooler Supabase coupe la connexion SSL en cours de
+# route sur une grosse table (« SSL connection has been closed unexpectedly ») et le
+# dump échoue à mi-parcours. Ajoutés à la chaîne de connexion (paramètres libpq).
+_sep=$([[ "$DIRECT_URL" == *\?* ]] && echo '&' || echo '?')
+DIRECT_URL="${DIRECT_URL}${_sep}keepalives=1&keepalives_idle=20&keepalives_interval=10&keepalives_count=15"
 
 if [ "${1:-}" = "--restore-into" ]; then
   TARGET="${2:?URL cible de restauration manquante}"
@@ -26,9 +36,22 @@ fi
 
 mkdir -p backups
 OUT="backups/lam-$(date +%F).dump"
-echo "→ Sauvegarde vers $OUT …"
-pg_dump "$DIRECT_URL" -Fc --no-owner --no-privileges -f "$OUT"
-echo "✓ $(du -h "$OUT" | cut -f1) — $OUT"
+echo "→ $(date '+%F %T') — Sauvegarde vers $OUT …"
+# Dump vers un fichier TEMPORAIRE : un dump interrompu ne remplace jamais un bon.
+pg_dump "$DIRECT_URL" -Fc --no-owner --no-privileges -f "$OUT.part"
+
+# Contrôle d'intégrité : l'archive doit être LISIBLE et contenir la table Document
+# (une tâche planifiée non surveillée doit échouer bruyamment si le dump est tronqué).
+if ! pg_restore --list "$OUT.part" >/dev/null 2>&1; then
+  echo "✗ ÉCHEC : archive illisible — dump abandonné (l'ancien dump est conservé)." >&2
+  rm -f "$OUT.part"; exit 1
+fi
+if ! pg_restore --list "$OUT.part" 2>/dev/null | grep -q 'TABLE DATA public Document '; then
+  echo "✗ ÉCHEC : table Document absente du dump — abandon." >&2
+  rm -f "$OUT.part"; exit 1
+fi
+mv -f "$OUT.part" "$OUT"
+echo "✓ $(du -h "$OUT" | cut -f1) — $OUT (intégrité vérifiée)"
 
 # Rotation : ne garder que les 14 dumps les plus récents.
 ls -1t backups/lam-*.dump 2>/dev/null | tail -n +15 | xargs -r rm -f

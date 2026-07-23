@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sauvegarde quotidienne de la base de production Lam (macOS launchd).
+
+  Installation :
+    cp scripts/launchd/ht.lam.backup.plist ~/Library/LaunchAgents/
+    launchctl load  ~/Library/LaunchAgents/ht.lam.backup.plist
+  Lancer une fois maintenant (test) :
+    launchctl kickstart -k gui/$(id -u)/ht.lam.backup
+  Désinstaller :
+    launchctl unload ~/Library/LaunchAgents/ht.lam.backup.plist
+
+  Écrit un dump horodaté dans backups/ (rotation 14 jours). Le dossier est dans
+  Dropbox → copie hors-machine automatique. Tourne à 03:00 ; si le Mac dort à cette
+  heure, launchd relance au réveil. Journal : ~/Library/Logs/lam-backup.log.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>ht.lam.backup</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/cvaval/Library/CloudStorage/Dropbox/Lam Veritab/lam-veritab/scripts/backup-db.sh</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/cvaval/Library/CloudStorage/Dropbox/Lam Veritab/lam-veritab</string>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/opt/libpq/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key><integer>3</integer>
+    <key>Minute</key><integer>0</integer>
+  </dict>
+
+  <key>StandardOutPath</key>
+  <string>/Users/cvaval/Library/Logs/lam-backup.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/cvaval/Library/Logs/lam-backup.log</string>
+
+  <key>ProcessType</key>
+  <string>Background</string>
+</dict>
+</plist>
