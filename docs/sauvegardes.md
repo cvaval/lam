@@ -16,7 +16,8 @@ indépendante du Mac. Le fichier est [`.github/workflows/backup-db.yml`](../.git
 
 Chaque jour (et sur demande via le bouton *Run workflow*) :
 
-1. installe `pg_dump` 17 (le serveur Supabase est en 17.x) ;
+1. exécute `pg_dump` 17 depuis l'image officielle PostgreSQL (conteneur Docker — le serveur
+   Supabase est en 17.x, pas d'installation de client à maintenir) ;
 2. dump la base via l'URL du **pooler en mode session** (port 5432, IPv4 — joignable
    depuis les runners GitHub, contrairement à la connexion directe IPv6) ;
 3. **contrôle l'intégrité** : l'archive doit être lisible et contenir la table `Document` ;

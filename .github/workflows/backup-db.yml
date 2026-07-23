@@ -50,19 +50,6 @@ jobs:
           test -n "$DB_URL"      || { echo "::error::secret DATABASE_BACKUP_URL manquant"; exit 1; }
           test -n "$PASSPHRASE"  || { echo "::error::secret BACKUP_PASSPHRASE manquant"; exit 1; }
 
-      - name: Installer le client PostgreSQL 17
-        run: |
-          set -euo pipefail
-          # Le serveur Supabase est en 17.x ; pg_dump doit être >= au serveur, d'où PGDG.
-          sudo install -d /usr/share/postgresql-common/pgdg
-          curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc \
-            | sudo gpg --dearmor -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.gpg
-          echo "deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.gpg] http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" \
-            | sudo tee /etc/apt/sources.list.d/pgdg.list >/dev/null
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq postgresql-client-17
-          pg_dump --version
-
       - name: Dump + contrôle d'intégrité + chiffrement
         run: |
           set -euo pipefail
@@ -71,14 +58,20 @@ jobs:
           # Keepalives : sans eux le pooler Supabase coupe la connexion SSL en cours de dump
           # sur une grosse table (« SSL connection has been closed unexpectedly »).
           SEP=$([ "${DB_URL#*\?}" != "$DB_URL" ] && echo '&' || echo '?')
-          pg_dump "${DB_URL}${SEP}keepalives=1&keepalives_idle=20&keepalives_interval=10&keepalives_count=15" \
-            -Fc --no-owner --no-privileges -f "$OUT"
-          # Une tâche non surveillée doit échouer BRUYAMMENT si le dump est tronqué.
-          pg_restore --list "$OUT" >/dev/null || { echo "::error::archive illisible"; exit 1; }
-          pg_restore --list "$OUT" | grep -q 'TABLE DATA public Document ' \
-            || { echo "::error::table Document absente — dump incomplet"; exit 1; }
-          echo "Dump OK : $(du -h "$OUT" | cut -f1)"
-          # Chiffrement symétrique AES-256 avant tout stockage.
+          CONN="${DB_URL}${SEP}keepalives=1&keepalives_idle=20&keepalives_interval=10&keepalives_count=15"
+          # pg_dump 17 via l'image officielle (le serveur Supabase est en 17.x, pg_dump doit
+          # être >= au serveur). Docker est préinstallé sur le runner : plus d'installation
+          # fragile de client PostgreSQL. Le dump + le contrôle d'intégrité tournent dans le
+          # conteneur (pg_restore 17) ; le fichier atterrit sur l'hôte via le montage /work.
+          docker run --rm -e DB="$CONN" -e OUT="$OUT" -v "$PWD:/work" -w /work postgres:17 \
+            bash -euo pipefail -c '
+              pg_dump "$DB" -Fc --no-owner --no-privileges -f "$OUT"
+              pg_restore --list "$OUT" >/dev/null || { echo "::error::archive illisible"; exit 1; }
+              pg_restore --list "$OUT" | grep -q "TABLE DATA public Document " \
+                || { echo "::error::table Document absente — dump incomplet"; exit 1; }
+              echo "Dump OK : $(du -h "$OUT" | cut -f1)"
+            '
+          # Chiffrement symétrique AES-256 sur l'hôte (gnupg préinstallé) avant tout stockage.
           gpg --batch --yes --pinentry-mode loopback --passphrase "$PASSPHRASE" \
             --cipher-algo AES256 -c "$OUT"
           rm -f "$OUT"
