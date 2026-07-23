@@ -2,6 +2,14 @@
 <!--
   Sauvegarde quotidienne de la base de production Lam (macOS launchd).
 
+  ⚠️  LIMITATION macOS : sur un chemin protégé (~/Library/CloudStorage/Dropbox/…),
+  macOS (TCC) refuse à launchd l'accès en arrière-plan → l'agent échoue en silence
+  (« Operation not permitted »). Pour que cette tâche fonctionne, il faudrait accorder
+  « Accès complet au disque » au processus, OU déplacer le dépôt hors de CloudStorage.
+  AUTOMATION RECOMMANDÉE (indépendante du Mac) : le workflow GitHub Actions
+  .github/workflows/backup-db.yml — voir docs/sauvegardes.md. Ce plist reste fourni
+  comme modèle pour une sauvegarde locale planifiée hors Dropbox.
+
   Installation :
     cp scripts/launchd/ht.lam.backup.plist ~/Library/LaunchAgents/
     launchctl load  ~/Library/LaunchAgents/ht.lam.backup.plist

@@ -1,0 +1,112 @@
+name: Sauvegarde de la base
+
+# Sauvegarde planifiée de la base de PRODUCTION, indépendante du Mac (audit 22 juil. 2026).
+# Tourne dans le cloud GitHub : dump chiffré (AES-256) déposé hors-site sur Cloudflare R2,
+# et conservé en secours comme artefact GitHub chiffré. Le dump contient des données
+# sensibles (mots de passe hachés, secrets 2FA) — d'où le chiffrement systématique avant
+# tout stockage. La restauration exige la phrase de passe BACKUP_PASSPHRASE.
+#
+# Secrets requis (Settings → Secrets and variables → Actions) :
+#   DATABASE_BACKUP_URL  — la DIRECT_URL Supabase (port 5432), OBLIGATOIRE
+#   BACKUP_PASSPHRASE    — phrase de passe forte pour chiffrer/déchiffrer, OBLIGATOIRE
+#   R2_ACCOUNT_ID        — id de compte Cloudflare (optionnel : sans lui, seul l'artefact GitHub sert)
+#   R2_BUCKET            — nom du bucket R2
+#   R2_ACCESS_KEY_ID     — clé S3 R2 (jeton R2 « Object Read & Write »)
+#   R2_SECRET_ACCESS_KEY — secret S3 R2
+#
+# Restauration d'un dump chiffré :
+#   gpg --batch --passphrase '…' -o lam.dump -d lam-AAAA-MM-JJ.dump.gpg
+#   pg_restore --clean --if-exists --no-owner --no-privileges -d "$URL_CIBLE" lam.dump
+
+on:
+  schedule:
+    - cron: '0 7 * * *'   # 07:00 UTC quotidien (~03:00 heure de l'Est)
+  workflow_dispatch: {}    # bouton « Run workflow » pour un test manuel
+
+concurrency:
+  group: db-backup
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    env:
+      DB_URL: ${{ secrets.DATABASE_BACKUP_URL }}
+      PASSPHRASE: ${{ secrets.BACKUP_PASSPHRASE }}
+      R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+      R2_BUCKET: ${{ secrets.R2_BUCKET }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: auto
+      # aws-cli v2 récent envoie des en-têtes de somme de contrôle que R2 refuse parfois.
+      AWS_REQUEST_CHECKSUM_CALCULATION: when_required
+      AWS_RESPONSE_CHECKSUM_VALIDATION: when_required
+    steps:
+      - name: Vérifier les secrets obligatoires
+        run: |
+          test -n "$DB_URL"      || { echo "::error::secret DATABASE_BACKUP_URL manquant"; exit 1; }
+          test -n "$PASSPHRASE"  || { echo "::error::secret BACKUP_PASSPHRASE manquant"; exit 1; }
+
+      - name: Installer le client PostgreSQL 17
+        run: |
+          set -euo pipefail
+          # Le serveur Supabase est en 17.x ; pg_dump doit être >= au serveur, d'où PGDG.
+          sudo install -d /usr/share/postgresql-common/pgdg
+          curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc \
+            | sudo gpg --dearmor -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.gpg
+          echo "deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.gpg] http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" \
+            | sudo tee /etc/apt/sources.list.d/pgdg.list >/dev/null
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq postgresql-client-17
+          pg_dump --version
+
+      - name: Dump + contrôle d'intégrité + chiffrement
+        run: |
+          set -euo pipefail
+          STAMP=$(date -u +%F)
+          OUT="lam-$STAMP.dump"
+          # Keepalives : sans eux le pooler Supabase coupe la connexion SSL en cours de dump
+          # sur une grosse table (« SSL connection has been closed unexpectedly »).
+          SEP=$([ "${DB_URL#*\?}" != "$DB_URL" ] && echo '&' || echo '?')
+          pg_dump "${DB_URL}${SEP}keepalives=1&keepalives_idle=20&keepalives_interval=10&keepalives_count=15" \
+            -Fc --no-owner --no-privileges -f "$OUT"
+          # Une tâche non surveillée doit échouer BRUYAMMENT si le dump est tronqué.
+          pg_restore --list "$OUT" >/dev/null || { echo "::error::archive illisible"; exit 1; }
+          pg_restore --list "$OUT" | grep -q 'TABLE DATA public Document ' \
+            || { echo "::error::table Document absente — dump incomplet"; exit 1; }
+          echo "Dump OK : $(du -h "$OUT" | cut -f1)"
+          # Chiffrement symétrique AES-256 avant tout stockage.
+          gpg --batch --yes --pinentry-mode loopback --passphrase "$PASSPHRASE" \
+            --cipher-algo AES256 -c "$OUT"
+          rm -f "$OUT"
+          ls -la "$OUT.gpg"
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+
+      - name: Artefact GitHub chiffré (destination de secours, toujours)
+        uses: actions/upload-artifact@v4
+        with:
+          name: lam-backup-${{ env.STAMP }}
+          path: lam-${{ env.STAMP }}.dump.gpg
+          retention-days: 30
+          if-no-files-found: error
+
+      - name: Envoi vers Cloudflare R2 (si configuré)
+        if: ${{ env.R2_ACCOUNT_ID != '' && env.R2_BUCKET != '' }}
+        run: |
+          set -euo pipefail
+          test -n "$AWS_ACCESS_KEY_ID" && test -n "$AWS_SECRET_ACCESS_KEY" \
+            || { echo "::error::R2_ACCESS_KEY_ID / R2_SECRET_ACCESS_KEY manquants"; exit 1; }
+          ENDPOINT="https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com"
+          # R2 est compatible S3 ; aws-cli est préinstallé sur le runner.
+          aws s3 cp "lam-${STAMP}.dump.gpg" "s3://${R2_BUCKET}/lam-${STAMP}.dump.gpg" \
+            --endpoint-url "$ENDPOINT" --only-show-errors
+          echo "✓ Déposé sur R2 : s3://${R2_BUCKET}/lam-${STAMP}.dump.gpg"
+          # Rotation : ne garder que les 30 dumps R2 les plus récents.
+          aws s3 ls "s3://${R2_BUCKET}/" --endpoint-url "$ENDPOINT" \
+            | awk '{print $4}' | grep -E '^lam-.*\.dump\.gpg$' | sort | head -n -30 \
+            | while read -r old; do
+                [ -n "$old" ] && aws s3 rm "s3://${R2_BUCKET}/${old}" --endpoint-url "$ENDPOINT" --only-show-errors
+              done
