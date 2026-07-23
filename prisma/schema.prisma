@@ -280,10 +280,13 @@ model Document {
   // Texte de recherche accent-folé (minuscules) — préfiltrage SQL du moteur FTS à grande
   // échelle (Index du Moniteur ~28k). Recalculé à chaque écriture.
   searchText     String?
-  /// Vecteur plein-texte FRANÇAIS — colonne GÉNÉRÉE par PostgreSQL (setweight A=titres+n°,
-  /// B=résumés/mots-clés, C=searchText). Toujours synchrone : ne JAMAIS l'écrire depuis l'app.
-  /// Déclarée ici uniquement pour que `prisma db push` ne la supprime pas.
-  /// Créée par scripts/migrate-fts-tsvector.ts (avec son index GIN Document_searchTsv_idx).
+  /// Vecteur plein-texte (config `simple`, setweight A=titres+n° · B=résumés/mots-clés · C=corps),
+  /// maintenu par le TRIGGER document_tsv_trg. Toujours synchrone : ne JAMAIS l'écrire depuis l'app.
+  /// Déclaré ici uniquement pour que `prisma db push` ne supprime pas la colonne.
+  /// Colonne, trigger ET index GIN créés par scripts/migrate-fts-tsvector.ts. Les DEUX index GIN
+  /// sont PARTIELS (visible / société) : Prisma ne sait pas les représenter, donc il les IGNORE
+  /// (`migrate diff` = empty) et ils survivent à `db push` — c'est pourquoi ils ne sont PAS
+  /// déclarés en @@index ci-dessous (le faire ferait recréer un index plein redondant).
   searchTsv      Unsupported("tsvector")?
 
   // Libellés (FR/EN/HT) des thèmes rattachés (cache dénormalisé) — champ CHERCHABLE
@@ -333,8 +336,10 @@ model Document {
   // Recherche sous-chaîne (LIKE '%terme%') accélérée — index GIN trigramme (extension
   // pg_trgm). Posé en prod via CREATE INDEX CONCURRENTLY (même nom via map:).
   @@index([searchText(ops: raw("gin_trgm_ops"))], type: Gin, map: "Document_searchText_trgm_idx")
-  /// Index du vecteur plein-texte français (recherche principale — voir scripts/migrate-fts-tsvector.ts).
-  @@index([searchTsv(ops: raw("tsvector_ops"))], type: Gin, map: "Document_searchTsv_idx")
+  // NB : les index GIN du vecteur searchTsv sont PARTIELS (Document_searchTsv_visible_idx +
+  // Document_searchTsv_societe_idx) et NE SONT PAS déclarés ici — Prisma ne représente pas les
+  // index partiels, les déclarer recréerait un index plein redondant. Voir migrate-fts-tsvector.ts
+  // et le commentaire sur le champ searchTsv.
 }
 
 /// Versions consolidées + historique des modifications (type 1 — §01).

@@ -83,20 +83,34 @@ async function main() {
     console.log('  ✓ colonne Document.searchTsv déjà présente (simple)')
   }
 
-  // La configuration plein-texte a-t-elle changé depuis la dernière exécution ? On compare
-  // le corps de la fonction déjà installée à celui qu'on s'apprête à poser. Si elle diffère
-  // (bascule french → simple, nouveau champ pondéré…), remplir les seules lignes NULL ne
-  // suffit pas : TOUS les vecteurs sont périmés et doivent être recalculés.
+  // Colonnes SOURCES du vecteur : toute écriture qui n'en touche AUCUNE ne doit PAS
+  // recalculer le vecteur ni churner l'index GIN. Sans cette garde, un simple
+  // `UPDATE … SET imageUrl=…` (marques), l'écriture du cache OCR de sommaire, ou un
+  // `touch` de updatedAt recomputait un tsvector de plusieurs centaines de Ko et
+  // réinsérait la ligne dans le GIN → fragmentation et écritures inutilement lentes.
+  const SRC_COLS = [
+    'titleFr', 'titleEn', 'titleHt', 'number', 'summaryFr', 'summaryEn', 'summaryHt',
+    'keywords', 'moniteurRef', 'searchText',
+  ]
+  const changedPredicate = SRC_COLS.map((c) => `NEW."${c}" IS DISTINCT FROM OLD."${c}"`).join(' OR ')
+
+  // La configuration plein-texte (l'EXPRESSION du vecteur) a-t-elle changé depuis la dernière
+  // exécution ? On cherche la signature de l'expression dans le corps de la fonction installée
+  // — insensible à la garde ci-dessus, sensible à un changement réel (french→simple, nouveau
+  // champ pondéré…). Si elle a changé, tous les vecteurs sont périmés → reconstruction totale.
   const TRIGGER_BODY = `
      BEGIN
-       NEW."searchTsv" := ${TSV_EXPR('NEW')};
+       IF (TG_OP = 'INSERT') OR (${changedPredicate}) THEN
+         NEW."searchTsv" := ${TSV_EXPR('NEW')};
+       END IF;
        RETURN NEW;
      END `
   const norm = (s: string) => s.replace(/\s+/g, ' ').trim()
+  const exprSig = norm(TSV_EXPR('NEW'))
   const prev = await prisma.$queryRawUnsafe<{ src: string }[]>(
     `SELECT prosrc AS src FROM pg_proc WHERE proname = 'document_tsv_refresh'`,
   )
-  const configChanged = prev.length > 0 && norm(prev[0].src) !== norm(TRIGGER_BODY)
+  const configChanged = prev.length > 0 && !norm(prev[0].src).includes(exprSig)
   if (configChanged) console.log('  ⚠️ configuration plein-texte MODIFIÉE → reconstruction complète des vecteurs')
 
   await step(
@@ -151,18 +165,53 @@ async function main() {
     console.log('  ✓ vecteurs déjà remplis')
   }
 
-  await step('index GIN Document_searchTsv_idx', `CREATE INDEX IF NOT EXISTS "Document_searchTsv_idx" ON "Document" USING GIN ("searchTsv")`)
-  // Une réécriture en masse laisse l'index GIN très fragmenté (mesuré : 15 Mo au lieu de
-  // 9,9 Mo, et des requêtes 3× plus lentes tant que la « pending list » n'est pas résorbée).
-  // CONCURRENTLY : aucun verrou exclusif, le service reste disponible pendant l'opération.
-  if (configChanged) await step('REINDEX (défragmentation après reconstruction)', `REINDEX INDEX CONCURRENTLY "Document_searchTsv_idx"`)
-  await step('ANALYZE Document', `ANALYZE "Document"`)
+  // ── Index GIN : DEUX index PARTIELS complémentaires (une partition du pauvre) ──
+  //
+  // 25 % du corpus (7 264 lignes) sont des avis-sociétés groupés (category='SOCIETE'),
+  // TOUJOURS masqués par défaut (représentés par les fiches Société). Avec un index unique,
+  // « societe » appariait 7 676 lignes puis en JETAIT 7 139 après lecture du tas (mesuré :
+  // 4 212 blocs de tas lus pour n'en garder que 537) → jusqu'à 2,6 s à froid.
+  //
+  //   • Document_searchTsv_visible_idx  WHERE (category IS NULL OR category <> 'SOCIETE')
+  //       → sert TOUTE recherche par défaut et tout filtre de catégorie ≠ SOCIETE.
+  //   • Document_searchTsv_societe_idx  WHERE category = 'SOCIETE'
+  //       → sert le seul filtre explicite « Société » (chip de l'Index).
+  // Union = tout le corpus ; chaque requête n'utilise QUE sa partition. Résultat : « societe »
+  // ~11 ms à chaud, ~8× moins de blocs de tas à froid.
+  //
+  // ⚠️ Prisma ne sait PAS représenter un index PARTIEL (pas de clause WHERE dans le schéma) :
+  // `prisma migrate diff` les IGNORE (« empty migration » vérifié) — ils survivent donc à
+  // `prisma db push` sans dérive. L'ancien index plein n'est plus déclaré dans le schéma.
+  //
+  // fastupdate=off : corpus lu en permanence, écrit rarement (admin). La « pending list » du
+  // GIN (source de la fragmentation : 15 Mo au lieu de 9,9) ne s'accumule plus jamais ; chaque
+  // écriture, rare, paie son insertion GIN en ligne. Fini les REINDEX périodiques.
+  const gin = (name: string, where: string) =>
+    `CREATE INDEX IF NOT EXISTS "${name}" ON "Document" USING GIN ("searchTsv") WITH (fastupdate = off) WHERE ${where}`
+  await step('index partiel « visible »', gin('Document_searchTsv_visible_idx', `("category" IS NULL OR "category" <> 'SOCIETE')`))
+  await step('index partiel « société »', gin('Document_searchTsv_societe_idx', `("category" = 'SOCIETE')`))
+  // Garantit fastupdate=off même si l'index préexistait sans (ex. créé par une version antérieure).
+  await step('fastupdate=off (visible)', `ALTER INDEX "Document_searchTsv_visible_idx" SET (fastupdate = off)`)
+  await step('fastupdate=off (société)', `ALTER INDEX "Document_searchTsv_societe_idx" SET (fastupdate = off)`)
+  // Abandon de l'index plein unique (remplacé par les deux partiels). CONCURRENTLY : sans verrou.
+  await step('abandon de l\'ancien index plein', `DROP INDEX CONCURRENTLY IF EXISTS "Document_searchTsv_idx"`)
+  // Après une reconstruction en masse, défragmenter les partiels (pending list résiduelle).
+  if (configChanged) {
+    await step('REINDEX visible', `REINDEX INDEX CONCURRENTLY "Document_searchTsv_visible_idx"`)
+    await step('REINDEX société', `REINDEX INDEX CONCURRENTLY "Document_searchTsv_societe_idx"`)
+  }
+  // VACUUM (ANALYZE) : rafraîchit les statistiques ET la visibility map (lectures plus rapides).
+  await step('VACUUM ANALYZE Document', `VACUUM (ANALYZE) "Document"`)
 
   // ── Contrôles ──
   const [{ n: total }] = await prisma.$queryRawUnsafe<{ n: bigint }[]>(`SELECT count(*) AS n FROM "Document"`)
   const [{ n: filled }] = await prisma.$queryRawUnsafe<{ n: bigint }[]>(`SELECT count(*) AS n FROM "Document" WHERE "searchTsv" IS NOT NULL AND "searchTsv" <> ''::tsvector`)
-  const [{ sz }] = await prisma.$queryRawUnsafe<{ sz: string }[]>(`SELECT pg_size_pretty(pg_relation_size('"Document_searchTsv_idx"')) AS sz`)
-  console.log(`\n  documents : ${filled}/${total} avec vecteur · index GIN : ${sz}`)
+  const sizes = await prisma.$queryRawUnsafe<{ relname: string; sz: string }[]>(
+    `SELECT relname, pg_size_pretty(pg_relation_size(oid)) AS sz FROM pg_class
+     WHERE relname IN ('Document_searchTsv_visible_idx','Document_searchTsv_societe_idx') ORDER BY relname`,
+  )
+  console.log(`\n  documents : ${filled}/${total} avec vecteur`)
+  for (const s of sizes) console.log(`  index GIN ${s.relname} : ${s.sz}`)
   const [{ n: hits }] = await prisma.$queryRawUnsafe<{ n: bigint }[]>(
     `SELECT count(*) AS n FROM "Document" WHERE "searchTsv" @@ to_tsquery('simple', 'societe:*')`,
   )
@@ -176,13 +225,23 @@ async function main() {
   )
   console.log(`  contrôle de précision : « loyer » → ${faux} faux positifs ${Number(faux) === 0 ? '✔' : '✗'}`)
 
-  // Contrôle du trigger : une écriture doit rafraîchir le vecteur automatiquement.
-  const [probe] = await prisma.$queryRawUnsafe<{ id: string }[]>(`SELECT id FROM "Document" LIMIT 1`)
-  await prisma.$executeRawUnsafe(`UPDATE "Document" SET "updatedAt" = "updatedAt" WHERE id = $1`, probe.id)
-  const [{ ok }] = await prisma.$queryRawUnsafe<{ ok: boolean }[]>(
+  // Contrôle du trigger — DEUX propriétés : (a) une écriture SANS champ source ne recalcule
+  // pas (la garde) ; (b) une écriture d'un champ source met bien le vecteur à jour.
+  const [probe] = await prisma.$queryRawUnsafe<{ id: string; kw: string | null }[]>(
+    `SELECT id, "keywords" AS kw FROM "Document" WHERE "searchTsv" IS NOT NULL LIMIT 1`,
+  )
+  // (a) touch de updatedAt : le vecteur doit rester présent (garde : pas de recalcul).
+  await prisma.$executeRawUnsafe(`UPDATE "Document" SET "updatedAt" = now() WHERE id = $1`, probe.id)
+  const [{ ok: kept }] = await prisma.$queryRawUnsafe<{ ok: boolean }[]>(
     `SELECT ("searchTsv" IS NOT NULL) AS ok FROM "Document" WHERE id = $1`, probe.id,
   )
-  console.log(`  contrôle trigger (écriture → vecteur maintenu) : ${ok ? 'OK ✔' : 'ÉCHEC ✗'}`)
+  // (b) écriture d'un champ source (remise à sa valeur d'origine) : le vecteur doit être recalculé
+  // (non nul). On restaure keywords à l'identique — aucune donnée modifiée.
+  await prisma.$executeRawUnsafe(`UPDATE "Document" SET "keywords" = $2 WHERE id = $1`, probe.id, probe.kw)
+  const [{ ok: refreshed }] = await prisma.$queryRawUnsafe<{ ok: boolean }[]>(
+    `SELECT ("searchTsv" IS NOT NULL) AS ok FROM "Document" WHERE id = $1`, probe.id,
+  )
+  console.log(`  contrôle trigger (garde + recalcul) : ${kept && refreshed ? 'OK ✔' : 'ÉCHEC ✗'}`)
 
   await prisma.$disconnect()
   console.log('\n✅ Migration terminée.')
