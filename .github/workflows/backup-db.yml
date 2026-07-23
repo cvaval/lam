@@ -55,6 +55,19 @@ jobs:
           set -euo pipefail
           STAMP=$(date -u +%F)
           OUT="lam-$STAMP.dump"
+          # Nettoyage défensif de l'URL : une valeur collée depuis .env peut arriver entourée
+          # de guillemets ou avec un saut de ligne, ce qui fait échouer pg_dump avec
+          # « invalid connection option ». On retire retours-chariot, espaces et guillemets
+          # encadrants avant usage.
+          DB_URL="$(printf '%s' "$DB_URL" | tr -d '\r\n')"
+          DB_URL="${DB_URL#"${DB_URL%%[![:space:]]*}"}"   # trim gauche
+          DB_URL="${DB_URL%"${DB_URL##*[![:space:]]}"}"   # trim droite
+          DB_URL="${DB_URL#\"}"; DB_URL="${DB_URL%\"}"    # guillemets doubles encadrants
+          DB_URL="${DB_URL#\'}"; DB_URL="${DB_URL%\'}"    # guillemets simples encadrants
+          case "$DB_URL" in
+            postgres://*|postgresql://*) : ;;
+            *) echo "::error::DATABASE_BACKUP_URL ne commence pas par postgresql:// (valeur mal collée ?)"; exit 1 ;;
+          esac
           # Keepalives : sans eux le pooler Supabase coupe la connexion SSL en cours de dump
           # sur une grosse table (« SSL connection has been closed unexpectedly »).
           SEP=$([ "${DB_URL#*\?}" != "$DB_URL" ] && echo '&' || echo '?')
