@@ -410,9 +410,9 @@ export default async function DocPage({
               annotations={annotations}
               locale={locale}
               terms={hlTerms}
-              hideInlineIndex={doc.source === 'CONSTITUTION_1987' || doc.source === 'CODE_CIVIL_ANNOTE' || doc.source === 'CODE_DOUANES_ANNOTE' || doc.source === 'DECRET_REGIMES_MATRIMONIAUX' || doc.source === 'LOI_FILIATION_2014' || doc.source === 'DECRET_SURETES' || doc.source === 'LOI_STATUT_COMMERCANT_2018'}
+              hideInlineIndex={doc.source === 'CONSTITUTION_1987' || doc.source === 'CODE_CIVIL_ANNOTE' || doc.source === 'CODE_DOUANES_ANNOTE' || doc.source === 'DECRET_REGIMES_MATRIMONIAUX' || doc.source === 'LOI_FILIATION_2014' || doc.source === 'DECRET_SURETES' || doc.source === 'LOI_STATUT_COMMERCANT_2018' || doc.source === 'LOI_BANQUES_2012'}
               linkCivRefs={doc.source === 'CODE_CIVIL_ANNOTE'}
-              linkArtRefs={doc.source === 'CODE_PENAL_ANNOTE' || doc.source === 'CODE_DOUANES_ANNOTE' || doc.source === 'DECRET_REGIMES_MATRIMONIAUX' || doc.source === 'LOI_FILIATION_2014' || doc.source === 'DECRET_SURETES' || doc.source === 'CODE_COMMERCE_ANNOTE' || doc.source === 'LOI_STATUT_COMMERCANT_2018' || (doc.source ?? '').startsWith('CC_VANDAL_')}
+              linkArtRefs={doc.source === 'CODE_PENAL_ANNOTE' || doc.source === 'CODE_DOUANES_ANNOTE' || doc.source === 'DECRET_REGIMES_MATRIMONIAUX' || doc.source === 'LOI_FILIATION_2014' || doc.source === 'DECRET_SURETES' || doc.source === 'CODE_COMMERCE_ANNOTE' || doc.source === 'LOI_STATUT_COMMERCANT_2018' || doc.source === 'LOI_BANQUES_2012' || (doc.source ?? '').startsWith('CC_VANDAL_')}
               annotationsVariant={doc.source === 'CODE_CIVIL_ANNOTE' || doc.source === 'CODE_COMMERCE_ANNOTE' ? 'annotations' : 'juris'}
             />
           </section>

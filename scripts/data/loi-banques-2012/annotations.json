@@ -1,0 +1,1242 @@
+{
+ "title": "Loi sur les banques et autres institutions financières",
+ "annotationAuthor": "",
+ "navToc": [
+  {
+   "label": "Loi sur les banques et autres institutions financières",
+   "anchor": "sec-1",
+   "children": [
+    {
+     "label": "Préambule (visas et considérants)",
+     "anchor": "sec-1"
+    },
+    {
+     "label": "TITRE I — GÉNÉRALITÉS",
+     "anchor": "sec-3",
+     "children": [
+      {
+       "label": "CHAPITRE 1 — OBJET – CHAMP D’APPLICATION",
+       "anchor": "sec-4"
+      },
+      {
+       "label": "CHAPITRE 2 — DÉFINITIONS",
+       "anchor": "sec-5"
+      }
+     ]
+    },
+    {
+     "label": "TITRE II — DES BANQUES",
+     "anchor": "sec-6",
+     "children": [
+      {
+       "label": "CHAPITRE 1 — AGRÉMENT",
+       "anchor": "sec-7"
+      },
+      {
+       "label": "CHAPITRE 2 — DU FONCTIONNEMENT DES BANQUES",
+       "anchor": "sec-8",
+       "children": [
+        {
+         "label": "SECTION 1 – Des administrateurs et dirigeants",
+         "anchor": "sec-9"
+        },
+        {
+         "label": "SECTION 2 – Du capital",
+         "anchor": "sec-10"
+        },
+        {
+         "label": "SECTION 3 – De la vérification financière",
+         "anchor": "sec-11"
+        },
+        {
+         "label": "SECTION 4 – De l’accès électronique aux services bancaires",
+         "anchor": "sec-12"
+        }
+       ]
+      },
+      {
+       "label": "CHAPITRE 3 — INTERDICTIONS",
+       "anchor": "sec-13"
+      },
+      {
+       "label": "CHAPITRE 4 — DE LA RÉGLEMENTATION",
+       "anchor": "sec-14"
+      },
+      {
+       "label": "CHAPITRE 5 — DU CONTRÔLE DES BANQUES",
+       "anchor": "sec-15"
+      },
+      {
+       "label": "CHAPITRE 6 — DE LA RESTRUCTURATION DES BANQUES EN SITUATION DIFFICILE",
+       "anchor": "sec-16",
+       "children": [
+        {
+         "label": "SECTION 1.- Mesures préventives",
+         "anchor": "sec-17"
+        },
+        {
+         "label": "SECTION 2.- Administration provisoire",
+         "anchor": "sec-18"
+        },
+        {
+         "label": "SECTION 3.- Régime spécial de supervision",
+         "anchor": "sec-19"
+        },
+        {
+         "label": "SECTION 4.- Intervention directe de la BRH",
+         "anchor": "sec-20"
+        }
+       ]
+      },
+      {
+       "label": "CHAPITRE 7 — LIQUIDATION DES BANQUES",
+       "anchor": "sec-21"
+      }
+     ]
+    },
+    {
+     "label": "TITRE 3 — DES AUTRES INSTITUTIONS FINANCIERES",
+     "anchor": "sec-22",
+     "children": []
+    },
+    {
+     "label": "TITRE 4 — DISPOSITIONS DIVERSES",
+     "anchor": "sec-23",
+     "children": [
+      {
+       "label": "CHAPITRE 1 — PREVENTION DU BLANCHIMENT DE CAPITAUX",
+       "anchor": "sec-24"
+      },
+      {
+       "label": "CHAPITRE 2 — SECRET PROFESSIONNEL",
+       "anchor": "sec-25"
+      },
+      {
+       "label": "CHAPITRE 3 — DISPOSITIONS PARTICULIERES",
+       "anchor": "sec-26"
+      },
+      {
+       "label": "CHAPITRE 4 — DISPOSITION TRANSITOIRE",
+       "anchor": "sec-27"
+      },
+      {
+       "label": "CHAPITRE 5 — DISPOSITIONS FINALES",
+       "anchor": "sec-28"
+      }
+     ]
+    },
+    {
+     "label": "Signatures et promulgation (17 juillet 2012)",
+     "anchor": "sec-29"
+    }
+   ]
+  }
+ ],
+ "toc": [
+  {
+   "label": "PORTANT SUR LES BANQUES ET AUTRES INSTITUTIONS FINANCIÈRES",
+   "level": 1,
+   "anchor": "sec-1",
+   "kind": "code"
+  },
+  {
+   "label": "Et le Corps Législatif a voté la Loi suivante :",
+   "level": 2,
+   "anchor": "sec-2",
+   "kind": "code"
+  },
+  {
+   "label": "TITRE I — GÉNÉRALITÉS",
+   "level": 2,
+   "anchor": "sec-3",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE 1 — OBJET – CHAMP D’APPLICATION",
+   "level": 3,
+   "anchor": "sec-4",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE 2 — DÉFINITIONS",
+   "level": 3,
+   "anchor": "sec-5",
+   "kind": "code"
+  },
+  {
+   "label": "TITRE II — DES BANQUES",
+   "level": 2,
+   "anchor": "sec-6",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE 1 — AGRÉMENT",
+   "level": 3,
+   "anchor": "sec-7",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE 2 — DU FONCTIONNEMENT DES BANQUES",
+   "level": 3,
+   "anchor": "sec-8",
+   "kind": "code"
+  },
+  {
+   "label": "SECTION 1 – Des administrateurs et dirigeants",
+   "level": 4,
+   "anchor": "sec-9",
+   "kind": "code"
+  },
+  {
+   "label": "SECTION 2 – Du capital",
+   "level": 4,
+   "anchor": "sec-10",
+   "kind": "code"
+  },
+  {
+   "label": "SECTION 3 – De la vérification financière",
+   "level": 4,
+   "anchor": "sec-11",
+   "kind": "code"
+  },
+  {
+   "label": "SECTION 4 – De l’accès électronique aux services bancaires",
+   "level": 4,
+   "anchor": "sec-12",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE 3 — INTERDICTIONS",
+   "level": 3,
+   "anchor": "sec-13",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE 4 — DE LA RÉGLEMENTATION",
+   "level": 3,
+   "anchor": "sec-14",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE 5 — DU CONTRÔLE DES BANQUES",
+   "level": 3,
+   "anchor": "sec-15",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE 6 — DE LA RESTRUCTURATION DES BANQUES EN SITUATION DIFFICILE",
+   "level": 3,
+   "anchor": "sec-16",
+   "kind": "code"
+  },
+  {
+   "label": "SECTION 1.- Mesures préventives",
+   "level": 4,
+   "anchor": "sec-17",
+   "kind": "code"
+  },
+  {
+   "label": "SECTION 2.- Administration provisoire",
+   "level": 4,
+   "anchor": "sec-18",
+   "kind": "code"
+  },
+  {
+   "label": "SECTION 3.- Régime spécial de supervision",
+   "level": 4,
+   "anchor": "sec-19",
+   "kind": "code"
+  },
+  {
+   "label": "SECTION 4.- Intervention directe de la BRH",
+   "level": 4,
+   "anchor": "sec-20",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE 7 — LIQUIDATION DES BANQUES",
+   "level": 3,
+   "anchor": "sec-21",
+   "kind": "code"
+  },
+  {
+   "label": "TITRE 3 — DES AUTRES INSTITUTIONS FINANCIERES",
+   "level": 2,
+   "anchor": "sec-22",
+   "kind": "code"
+  },
+  {
+   "label": "TITRE 4 — DISPOSITIONS DIVERSES",
+   "level": 2,
+   "anchor": "sec-23",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE 1 — PREVENTION DU BLANCHIMENT DE CAPITAUX",
+   "level": 3,
+   "anchor": "sec-24",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE 2 — SECRET PROFESSIONNEL",
+   "level": 3,
+   "anchor": "sec-25",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE 3 — DISPOSITIONS PARTICULIERES",
+   "level": 3,
+   "anchor": "sec-26",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE 4 — DISPOSITION TRANSITOIRE",
+   "level": 3,
+   "anchor": "sec-27",
+   "kind": "code"
+  },
+  {
+   "label": "CHAPITRE 5 — DISPOSITIONS FINALES",
+   "level": 3,
+   "anchor": "sec-28",
+   "kind": "code"
+  },
+  {
+   "label": "Donnée au Sénat de la République, le 13 mars 2012, An 209ème de l’Indépendance",
+   "level": 4,
+   "anchor": "sec-29",
+   "kind": "code"
+  },
+  {
+   "label": "AU NOM DE LA RÉPUBLIQUE",
+   "level": 2,
+   "anchor": "sec-30",
+   "kind": "code"
+  }
+ ],
+ "connexes": [],
+ "jurisprudence": {},
+ "indexEntries": [
+  {
+   "subject": "Accès des vérificateurs aux registres",
+   "ctRefs": [
+    67,
+    68
+   ]
+  },
+  {
+   "subject": "Acquisition de biens en recouvrement de dettes (banques étrangères — dérogation à la loi du 16 juin 1975)",
+   "ctRefs": [
+    190
+   ]
+  },
+  {
+   "subject": "Administrateurs (statut, devoirs)",
+   "ctRefs": [
+    32,
+    33,
+    36,
+    37,
+    38
+   ]
+  },
+  {
+   "subject": "Administration provisoire",
+   "ctRefs": [
+    118,
+    119,
+    120,
+    132
+   ]
+  },
+  {
+   "subject": "Agences, succursales et points de service",
+   "ctRefs": [
+    30,
+    160
+   ]
+  },
+  {
+   "subject": "Agents de change",
+   "ctRefs": [
+    156
+   ]
+  },
+  {
+   "subject": "Agrément des banques",
+   "ctRefs": [
+    20,
+    23,
+    24,
+    26,
+    27
+   ]
+  },
+  {
+   "subject": "Agrément des institutions financières non bancaires",
+   "ctRefs": [
+    155,
+    156,
+    157,
+    158
+   ]
+  },
+  {
+   "subject": "Apparenté (définition)",
+   "ctRefs": [
+    15
+   ]
+  },
+  {
+   "subject": "Autorisations préalables de la BRH",
+   "ctRefs": [
+    88,
+    89,
+    164,
+    165
+   ]
+  },
+  {
+   "subject": "Banque (définition, fonds du public)",
+   "ctRefs": [
+    3,
+    7
+   ]
+  },
+  {
+   "subject": "Banque de la République d'Haïti (régulation)",
+   "ctRefs": [
+    83,
+    97,
+    203
+   ]
+  },
+  {
+   "subject": "Banque électronique (accès à distance)",
+   "ctRefs": [
+    72,
+    73,
+    75
+   ]
+  },
+  {
+   "subject": "Banques correspondantes",
+   "ctRefs": [
+    173
+   ]
+  },
+  {
+   "subject": "Banques d'épargne et de logement (transition)",
+   "ctRefs": [
+    204
+   ]
+  },
+  {
+   "subject": "Banques étrangères (établissement en Haïti)",
+   "ctRefs": [
+    21,
+    25,
+    202
+   ]
+  },
+  {
+   "subject": "Blanchiment de capitaux (prévention)",
+   "ctRefs": [
+    171,
+    172
+   ]
+  },
+  {
+   "subject": "Capital minimum",
+   "ctRefs": [
+    42,
+    158
+   ]
+  },
+  {
+   "subject": "Champ d'application de la loi",
+   "ctRefs": [
+    1,
+    6
+   ]
+  },
+  {
+   "subject": "Clause abrogatoire",
+   "ctRefs": [
+    206
+   ]
+  },
+  {
+   "subject": "Coffres-forts (liquidation)",
+   "ctRefs": [
+    140
+   ]
+  },
+  {
+   "subject": "Compagnies d'assurance (opérations permises)",
+   "ctRefs": [
+    82
+   ]
+  },
+  {
+   "subject": "Compte de réserve de capital",
+   "ctRefs": [
+    48,
+    49
+   ]
+  },
+  {
+   "subject": "Concurrence dans le secteur bancaire",
+   "ctRefs": [
+    52
+   ]
+  },
+  {
+   "subject": "Conglomérat financier",
+   "ctRefs": [
+    18,
+    95,
+    104,
+    105
+   ]
+  },
+  {
+   "subject": "Contrôle d'une entreprise (définition)",
+   "ctRefs": [
+    11
+   ]
+  },
+  {
+   "subject": "Contrôle des institutions financières non bancaires",
+   "ctRefs": [
+    161,
+    166,
+    167,
+    168
+   ]
+  },
+  {
+   "subject": "Contrôle et inspection des banques",
+   "ctRefs": [
+    98,
+    99,
+    100,
+    106,
+    107
+   ]
+  },
+  {
+   "subject": "Crédit immobilier et hypothécaire",
+   "ctRefs": [
+    181,
+    185,
+    187,
+    188
+   ]
+  },
+  {
+   "subject": "Dation en paiement et biens adjugés",
+   "ctRefs": [
+    189,
+    190
+   ]
+  },
+  {
+   "subject": "Dirigeants (statut, devoirs)",
+   "ctRefs": [
+    34,
+    35,
+    37
+   ]
+  },
+  {
+   "subject": "Distribution de bénéfices (conditions)",
+   "ctRefs": [
+    50
+   ]
+  },
+  {
+   "subject": "Documents et informations à transmettre à la BRH",
+   "ctRefs": [
+    87,
+    96,
+    163
+   ]
+  },
+  {
+   "subject": "Documents et messages électroniques (preuve)",
+   "ctRefs": [
+    76,
+    77
+   ]
+  },
+  {
+   "subject": "Déclaration de confidentialité",
+   "ctRefs": [
+    74
+   ]
+  },
+  {
+   "subject": "Déclaration de transactions (espèces, soupçons)",
+   "ctRefs": [
+    175,
+    176
+   ]
+  },
+  {
+   "subject": "Décès du titulaire d'un compte",
+   "ctRefs": [
+    200
+   ]
+  },
+  {
+   "subject": "Dénominations protégées (« banque », « bancaire »)",
+   "ctRefs": [
+    81
+   ]
+  },
+  {
+   "subject": "Dépôts bancaires (répartition, tirage, frais)",
+   "ctRefs": [
+    194,
+    195,
+    196
+   ]
+  },
+  {
+   "subject": "Exercice financier et publication des états",
+   "ctRefs": [
+    86,
+    162
+   ]
+  },
+  {
+   "subject": "Exonérations et avantages fiscaux (logement)",
+   "ctRefs": [
+    183,
+    184,
+    185,
+    186
+   ]
+  },
+  {
+   "subject": "Faillite des institutions financières",
+   "ctRefs": [
+    134,
+    152,
+    153,
+    170
+   ]
+  },
+  {
+   "subject": "Filiale et entreprise mère",
+   "ctRefs": [
+    9,
+    10
+   ]
+  },
+  {
+   "subject": "Fonds et avoirs délaissés",
+   "ctRefs": [
+    192,
+    193
+   ]
+  },
+  {
+   "subject": "Fonds propres (ratios, exigences)",
+   "ctRefs": [
+    43,
+    44,
+    45,
+    46,
+    47,
+    94
+   ]
+  },
+  {
+   "subject": "Forme de société anonyme (banques)",
+   "ctRefs": [
+    22
+   ]
+  },
+  {
+   "subject": "Gros risques (limites)",
+   "ctRefs": [
+    92,
+    93,
+    94
+   ]
+  },
+  {
+   "subject": "Groupe (définition)",
+   "ctRefs": [
+    13,
+    14
+   ]
+  },
+  {
+   "subject": "Groupe de contreparties liées",
+   "ctRefs": [
+    16
+   ]
+  },
+  {
+   "subject": "Groupe financier",
+   "ctRefs": [
+    17,
+    95,
+    104,
+    105
+   ]
+  },
+  {
+   "subject": "Honorabilité et compétence (administrateurs, actionnaires)",
+   "ctRefs": [
+    27,
+    28,
+    29
+   ]
+  },
+  {
+   "subject": "Identification des clients",
+   "ctRefs": [
+    174
+   ]
+  },
+  {
+   "subject": "Influence néfaste d'actionnaires",
+   "ctRefs": [
+    111
+   ]
+  },
+  {
+   "subject": "Information du public sur les risques",
+   "ctRefs": [
+    51
+   ]
+  },
+  {
+   "subject": "Institution financière (définition)",
+   "ctRefs": [
+    2,
+    19
+   ]
+  },
+  {
+   "subject": "Instructions de la BRH (application)",
+   "ctRefs": [
+    203
+   ]
+  },
+  {
+   "subject": "Intervention directe de la BRH",
+   "ctRefs": [
+    127,
+    128,
+    129,
+    130
+   ]
+  },
+  {
+   "subject": "Liquidateur (pouvoirs)",
+   "ctRefs": [
+    137,
+    141,
+    142,
+    143,
+    145,
+    150
+   ]
+  },
+  {
+   "subject": "Liquidation forcée",
+   "ctRefs": [
+    134,
+    135,
+    136,
+    137,
+    141,
+    144,
+    148
+   ]
+  },
+  {
+   "subject": "Liquidation volontaire",
+   "ctRefs": [
+    133,
+    139
+   ]
+  },
+  {
+   "subject": "Lois maintenues en vigueur",
+   "ctRefs": [
+    205
+   ]
+  },
+  {
+   "subject": "Mesures préventives",
+   "ctRefs": [
+    116,
+    117
+   ]
+  },
+  {
+   "subject": "Modification des statuts",
+   "ctRefs": [
+    90,
+    91
+   ]
+  },
+  {
+   "subject": "Monopole bancaire (exercice illégal)",
+   "ctRefs": [
+    78,
+    79,
+    80
+   ]
+  },
+  {
+   "subject": "Non-discrimination par nationalité",
+   "ctRefs": [
+    202
+   ]
+  },
+  {
+   "subject": "Normes de gestion (liquidité, solvabilité)",
+   "ctRefs": [
+    84
+   ]
+  },
+  {
+   "subject": "Nullités de la période suspecte",
+   "ctRefs": [
+    151,
+    152,
+    153
+   ]
+  },
+  {
+   "subject": "Obligations de la banque en liquidation",
+   "ctRefs": [
+    138
+   ]
+  },
+  {
+   "subject": "Opération de crédit (définition)",
+   "ctRefs": [
+    8
+   ]
+  },
+  {
+   "subject": "Opérations connexes des banques",
+   "ctRefs": [
+    4
+   ]
+  },
+  {
+   "subject": "Ordre de paiement des créances (liquidation)",
+   "ctRefs": [
+    146,
+    147
+   ]
+  },
+  {
+   "subject": "Participation (définition)",
+   "ctRefs": [
+    12
+   ]
+  },
+  {
+   "subject": "Participation qualifiée (acquisition, cession)",
+   "ctRefs": [
+    55,
+    56,
+    57
+   ]
+  },
+  {
+   "subject": "Plafonds de participation (20 % / 5 %)",
+   "ctRefs": [
+    53,
+    54
+   ]
+  },
+  {
+   "subject": "Prêts et crédits aux administrateurs et apparentés",
+   "ctRefs": [
+    39
+   ]
+  },
+  {
+   "subject": "Recommandations et injonctions de la BRH",
+   "ctRefs": [
+    108,
+    116,
+    169
+   ]
+  },
+  {
+   "subject": "Recouvrement des créances de construction résidentielle",
+   "ctRefs": [
+    187,
+    188
+   ]
+  },
+  {
+   "subject": "Relevé de compte",
+   "ctRefs": [
+    197
+   ]
+  },
+  {
+   "subject": "Reliquat d'actif et clôture de la liquidation",
+   "ctRefs": [
+    149,
+    154
+   ]
+  },
+  {
+   "subject": "Reproduction et conservation des documents",
+   "ctRefs": [
+    198,
+    199
+   ]
+  },
+  {
+   "subject": "Responsabilité civile et pénale (administrateurs, dirigeants)",
+   "ctRefs": [
+    40,
+    41
+   ]
+  },
+  {
+   "subject": "Retenue sur avoirs (réquisition)",
+   "ctRefs": [
+    201
+   ]
+  },
+  {
+   "subject": "Retrait de l'agrément",
+   "ctRefs": [
+    31,
+    159
+   ]
+  },
+  {
+   "subject": "Règles de conduite",
+   "ctRefs": [
+    85
+   ]
+  },
+  {
+   "subject": "Régime spécial de supervision",
+   "ctRefs": [
+    121,
+    122,
+    123,
+    124,
+    125,
+    126
+   ]
+  },
+  {
+   "subject": "Réserves obligatoires (taux préférentiels)",
+   "ctRefs": [
+    182
+   ]
+  },
+  {
+   "subject": "Sanctions administratives et amendes",
+   "ctRefs": [
+    109,
+    110
+   ]
+  },
+  {
+   "subject": "Secret du personnel de la BRH (protection)",
+   "ctRefs": [
+    112,
+    113
+   ]
+  },
+  {
+   "subject": "Secret professionnel bancaire",
+   "ctRefs": [
+    177,
+    178,
+    179,
+    180
+   ]
+  },
+  {
+   "subject": "Sociétés de promotion des investissements",
+   "ctRefs": [
+    5,
+    155
+   ]
+  },
+  {
+   "subject": "Sous-capitalisation (seuils)",
+   "ctRefs": [
+    114,
+    115
+   ]
+  },
+  {
+   "subject": "Surveillance consolidée",
+   "ctRefs": [
+    95,
+    101,
+    102,
+    103,
+    104,
+    105
+   ]
+  },
+  {
+   "subject": "Unité Centrale de Renseignements Financiers (UCREF)",
+   "ctRefs": [
+    179
+   ]
+  },
+  {
+   "subject": "Vérificateur indépendant (expert-comptable)",
+   "ctRefs": [
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    69,
+    70,
+    71
+   ]
+  },
+  {
+   "subject": "Émission et placement de titres",
+   "ctRefs": [
+    191
+   ]
+  },
+  {
+   "subject": "Équipe technique (restructuration)",
+   "ctRefs": [
+    130,
+    131,
+    132
+   ]
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1",
+  "art-2": "Article 2",
+  "art-3": "Article 3",
+  "art-4": "Article 4",
+  "art-5": "Article 5",
+  "art-6": "Article 6",
+  "art-7": "Article 7",
+  "art-8": "Article 8",
+  "art-9": "Article 9",
+  "art-10": "Article 10",
+  "art-11": "Article 11",
+  "art-12": "Article 12",
+  "art-13": "Article 13",
+  "art-14": "Article 14",
+  "art-15": "Article 15",
+  "art-16": "Article 16",
+  "art-17": "Article 17",
+  "art-18": "Article 18",
+  "art-19": "Article 19",
+  "art-20": "Article 20",
+  "art-21": "Article 21",
+  "art-22": "Article 22",
+  "art-23": "Article 23",
+  "art-24": "Article 24",
+  "art-25": "Article 25",
+  "art-26": "Article 26",
+  "art-27": "Article 27",
+  "art-28": "Article 28",
+  "art-29": "Article 29",
+  "art-30": "Article 30",
+  "art-31": "Article 31",
+  "art-32": "Article 32",
+  "art-33": "Article 33",
+  "art-34": "Article 34",
+  "art-35": "Article 35",
+  "art-36": "Article 36",
+  "art-37": "Article 37",
+  "art-38": "Article 38",
+  "art-39": "Article 39",
+  "art-40": "Article 40",
+  "art-41": "Article 41",
+  "art-42": "Article 42",
+  "art-43": "Article 43",
+  "art-44": "Article 44",
+  "art-45": "Article 45",
+  "art-46": "Article 46",
+  "art-47": "Article 47",
+  "art-48": "Article 48",
+  "art-49": "Article 49",
+  "art-50": "Article 50",
+  "art-51": "Article 51",
+  "art-52": "Article 52",
+  "art-53": "Article 53",
+  "art-54": "Article 54",
+  "art-55": "Article 55",
+  "art-56": "Article 56",
+  "art-57": "Article 57",
+  "art-58": "Article 58",
+  "art-59": "Article 59",
+  "art-60": "Article 60",
+  "art-61": "Article 61",
+  "art-62": "Article 62",
+  "art-63": "Article 63",
+  "art-64": "Article 64",
+  "art-65": "Article 65",
+  "art-66": "Article 66",
+  "art-67": "Article 67",
+  "art-68": "Article 68",
+  "art-69": "Article 69",
+  "art-70": "Article 70",
+  "art-71": "Article 71",
+  "art-72": "Article 72",
+  "art-73": "Article 73",
+  "art-74": "Article 74",
+  "art-75": "Article 75",
+  "art-76": "Article 76",
+  "art-77": "Article 77",
+  "art-78": "Article 78",
+  "art-79": "Article 79",
+  "art-80": "Article 80",
+  "art-81": "Article 81",
+  "art-82": "Article 82",
+  "art-83": "Article 83",
+  "art-84": "Article 84",
+  "art-85": "Article 85",
+  "art-86": "Article 86",
+  "art-87": "Article 87",
+  "art-88": "Article 88",
+  "art-89": "Article 89",
+  "art-90": "Article 90",
+  "art-91": "Article 91",
+  "art-92": "Article 92",
+  "art-93": "Article 93",
+  "art-94": "Article 94",
+  "art-95": "Article 95",
+  "art-96": "Article 96",
+  "art-97": "Article 97",
+  "art-98": "Article 98",
+  "art-99": "Article 99",
+  "art-100": "Article 100",
+  "art-101": "Article 101",
+  "art-102": "Article 102",
+  "art-103": "Article 103",
+  "art-104": "Article 104",
+  "art-105": "Article 105",
+  "art-106": "Article 106",
+  "art-107": "Article 107",
+  "art-108": "Article 108",
+  "art-109": "Article 109",
+  "art-110": "Article 110",
+  "art-111": "Article 111",
+  "art-112": "Article 112",
+  "art-113": "Article 113",
+  "art-114": "Article 114",
+  "art-115": "Article 115",
+  "art-116": "Article 116",
+  "art-117": "Article 117",
+  "art-118": "Article 118",
+  "art-119": "Article 119",
+  "art-120": "Article 120",
+  "art-121": "Article 121",
+  "art-122": "Article 122",
+  "art-123": "Article 123",
+  "art-124": "Article 124",
+  "art-125": "Article 125",
+  "art-126": "Article 126",
+  "art-127": "Article 127",
+  "art-128": "Article 128",
+  "art-129": "Article 129",
+  "art-130": "Article 130",
+  "art-131": "Article 131",
+  "art-132": "Article 132",
+  "art-133": "Article 133",
+  "art-134": "Article 134",
+  "art-135": "Article 135",
+  "art-136": "Article 136",
+  "art-137": "Article 137",
+  "art-138": "Article 138",
+  "art-139": "Article 139",
+  "art-140": "Article 140",
+  "art-141": "Article 141",
+  "art-142": "Article 142",
+  "art-143": "Article 143",
+  "art-144": "Article 144",
+  "art-145": "Article 145",
+  "art-146": "Article 146",
+  "art-147": "Article 147",
+  "art-148": "Article 148",
+  "art-149": "Article 149",
+  "art-150": "Article 150",
+  "art-151": "Article 151",
+  "art-152": "Article 152",
+  "art-153": "Article 153",
+  "art-154": "Article 154",
+  "art-155": "Article 155",
+  "art-156": "Article 156",
+  "art-157": "Article 157",
+  "art-158": "Article 158",
+  "art-159": "Article 159",
+  "art-160": "Article 160",
+  "art-161": "Article 161",
+  "art-162": "Article 162",
+  "art-163": "Article 163",
+  "art-164": "Article 164",
+  "art-165": "Article 165",
+  "art-166": "Article 166",
+  "art-167": "Article 167",
+  "art-168": "Article 168",
+  "art-169": "Article 169",
+  "art-170": "Article 170",
+  "art-171": "Article 171",
+  "art-172": "Article 172",
+  "art-173": "Article 173",
+  "art-174": "Article 174",
+  "art-175": "Article 175",
+  "art-176": "Article 176",
+  "art-177": "Article 177",
+  "art-178": "Article 178",
+  "art-179": "Article 179",
+  "art-180": "Article 180",
+  "art-181": "Article 181",
+  "art-182": "Article 182",
+  "art-183": "Article 183",
+  "art-184": "Article 184",
+  "art-185": "Article 185",
+  "art-186": "Article 186",
+  "art-187": "Article 187",
+  "art-188": "Article 188",
+  "art-189": "Article 189",
+  "art-190": "Article 190",
+  "art-191": "Article 191",
+  "art-192": "Article 192",
+  "art-193": "Article 193",
+  "art-194": "Article 194",
+  "art-195": "Article 195",
+  "art-196": "Article 196",
+  "art-197": "Article 197",
+  "art-198": "Article 198",
+  "art-199": "Article 199",
+  "art-200": "Article 200",
+  "art-201": "Article 201",
+  "art-202": "Article 202",
+  "art-203": "Article 203",
+  "art-204": "Article 204",
+  "art-205": "Article 205",
+  "art-206": "Article 206"
+ }
+}
