@@ -31,10 +31,18 @@ const LOI_RE = /\bloi\s+N[oº°]\.?\s*:?\s*(\d{1,2})\b/gi
 // que si (1) le numéro EST réellement un article du Code (`artRefs`, anti-lien-mort) et (2) le
 // renvoi n'est PAS externe (« art. 2 DU DÉCRET… », « article 5 DE LA LOI… », « du code
 // d'instruction criminelle ») — « du présent code » reste un renvoi interne (donc lié).
+// 4 chiffres + suffixe « -N » admis : la réforme du Code de commerce (1111-2, 1136-15…)
+// et les décrets récents du Code civil numérotent ainsi (constat d'audit : aucun renvoi
+// interne de la réforme n'était cliquable avec la limite \d{1,3}).
 const ART_REF_RE =
-  /\b(?:articles?|art\.)\s+\d{1,3}(?!\d)(?:\s*(?:bis|ter))?(?:\s*(?:,|;|et|à)\s*\d{1,3}(?!\d)(?:\s*(?:bis|ter))?)*/gi
-const ART_NUM_RE = /(\d{1,3}(?!\d)(?:\s*(?:bis|ter))?)/i
+  /\b(?:articles?|art\.)\s+\d{1,4}(?!\d)(?:-\d{1,2}(?!\d))?(?:\s*(?:bis|ter))?(?:\s*(?:,|;|et|à)\s*\d{1,4}(?!\d)(?:-\d{1,2}(?!\d))?(?:\s*(?:bis|ter))?)*/gi
+const ART_NUM_RE = /(\d{1,4}(?!\d)(?:-\d{1,2}(?!\d))?(?:\s*(?:bis|ter))?)/i
 const ART_EXT_AFTER = /^\s*(?:du|de\s+la|de\s+l['’]|des)\s+(?:d[ée]cret|loi|ordonnance|arr[êe]t[ée]|constitution|code\s+d)/i
+// Renvoi externe annoncé AVANT les numéros (« selon les dispositions du décret du
+// 6 janvier 2016 … particulièrement en ses articles 9, 31, 32 et 41 ») : le garde
+// ART_EXT_AFTER ne voit rien après — on inspecte la fin du texte qui PRÉCÈDE (audit :
+// 4 faux liens vers les arts 9/31/32/41 du Code de 1826 depuis l'art. 1136-7).
+const ART_EXT_BEFORE = /(?:d[ée]cret|loi|ordonnance|arr[êe]t[ée]|constitution)\b[^.;:]{0,80}?(?:en|à|dans)\s+(?:ses|son|sa|leurs)\s*$/i
 
 // Cellule essentiellement numérique (montant, taux, %) → alignée à droite + chiffres
 // tabulaires quand aucun alignement n'est donné. Conservateur : doit commencer par un
@@ -205,7 +213,8 @@ export function OfficialText({
     ART_REF_RE.lastIndex = 0
     let m: RegExpExecArray | null
     while ((m = ART_REF_RE.exec(value))) {
-      if (ART_EXT_AFTER.test(value.slice(m.index + m[0].length))) continue // renvoi à un autre texte
+      if (ART_EXT_AFTER.test(value.slice(m.index + m[0].length))) continue // renvoi à un autre texte (après)
+      if (ART_EXT_BEFORE.test(value.slice(Math.max(0, m.index - 100), m.index))) continue // renvoi à un autre texte (avant)
       out.push(<span key={`t${k++}`}>{hl(value.slice(pos, m.index))}</span>)
       const parts = m[0].split(ART_NUM_RE)
       out.push(

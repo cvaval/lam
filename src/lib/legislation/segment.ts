@@ -49,7 +49,12 @@ export function applyAmendments(body: string, amendments: Map<string, ArticleOve
   // on n'applique l'overlay qu'à la 1ʳᵉ occurrence — comme l'ancre #art-N du lecteur — sinon
   // amender « Article 2 » du Code écraserait tous les « Article 2 » des textes annexés (audit).
   const seen = new Set<string>()
-  return splitArticles(body, isBoundary)
+  // Si la 1ʳᵉ ligne du corps est un en-tête de section, le segment initial est VIDE :
+  // on l'écarte, sinon le corps effectif s'ouvre sur un saut de ligne et le lecteur
+  // émet un premier bloc vide (constat d'audit, Code de commerce).
+  const segs = splitArticles(body, isBoundary)
+  if (segs.length && segs[0].anchor == null && segs[0].lines.length === 0) segs.shift()
+  return segs
     .map((s) => {
       const first = s.anchor != null && !seen.has(s.anchor)
       if (s.anchor != null) seen.add(s.anchor)

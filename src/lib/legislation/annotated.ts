@@ -37,9 +37,14 @@ export interface IndexEntry {
   docRefs?: { label: string; id: string; anchor?: string }[]
 }
 
-/** Affichage joli d'une référence d'article : « 12-1 » → « 12.1 », « 190-ter-5 » → « 190ter.5 ». */
+/** Affichage joli d'une référence d'article : « 12-1 » → « 12.1 » (numérotation
+ *  constitutionnelle), « 190-ter-5 » → « 190ter.5 ». Les numérotations à 4 chiffres
+ *  (réforme du Code de commerce « 1111-2 », décrets du Code civil « 1774-1 ») gardent
+ *  leur TRAIT D'UNION officiel (constat d'audit : « 1111.2 » n'existe pas au Moniteur). */
 export function prettyRef(r: ArtRef): string {
-  return String(r).replace(/-(bis|ter|quater)/g, '$1').replace(/-/g, '.')
+  const s = String(r)
+  if (/^\d{4}/.test(s)) return s
+  return s.replace(/-(bis|ter|quater)/g, '$1').replace(/-/g, '.')
 }
 /**
  * Nettoie un sujet d'index : retire la mention « définition(s) » en préfixe (« Définitions — X »)
