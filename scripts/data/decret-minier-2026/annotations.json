@@ -1,0 +1,3992 @@
+{
+ "title": "Décret régissant les activités minières",
+ "annotationAuthor": "",
+ "navToc": [
+  {
+   "label": "TITRE PREMIER — DISPOSITIONS GÉNÉRALES",
+   "anchor": "sec-1",
+   "children": [
+    {
+     "label": "CHAPITRE PREMIER — OBJET, PRINCIPES ET TERMINOLOGIE",
+     "anchor": "sec-2"
+    }
+   ]
+  },
+  {
+   "label": "TITRE II — DISPOSITIONS PROCÉDURALES",
+   "anchor": "sec-3",
+   "children": [
+    {
+     "label": "CHAPITRE PREMIER — CADASTRE MINIER",
+     "anchor": "sec-4"
+    },
+    {
+     "label": "CHAPITRE II — MODALITÉS DE MISE EN VALEUR DES RESSOURCES MINÉRALES",
+     "anchor": "sec-5"
+    },
+    {
+     "label": "CHAPITRE III — CONDITIONS GÉNÉRALES D’ÉLIGIBILITÉ AUX TITRES",
+     "anchor": "sec-6"
+    },
+    {
+     "label": "CHAPITRE IV — AUTORISATION DE PROSPECTION",
+     "anchor": "sec-7"
+    },
+    {
+     "label": "CHAPITRE V — PERMIS D’EXPLORATION",
+     "anchor": "sec-8"
+    },
+    {
+     "label": "CHAPITRE VI — PERMIS D’EXPLOITATION",
+     "anchor": "sec-9"
+    },
+    {
+     "label": "CHAPITRE VII — CONVENTION MINIÈRE",
+     "anchor": "sec-10"
+    },
+    {
+     "label": "CHAPITRE VIII — PERMIS D’EXPLOITATION DE CARRIÈRE",
+     "anchor": "sec-11"
+    }
+   ]
+  },
+  {
+   "label": "TITRE III — AUTORISATION D’EXPLOITATION ARTISANALE DE L’OR ALLUVIONNAIRE",
+   "anchor": "sec-12",
+   "children": [
+    {
+     "label": "CHAPITRE PREMIER — PÉRIMÈTRES D’EXPLOITATION ARTISANALE DE L’OR ALLUVIONNAIRE",
+     "anchor": "sec-13"
+    },
+    {
+     "label": "CHAPITRE II — ENCADREMENT ADMINISTRATIF DE L’EXPLOITATION ARTISANALE DE L’OR ALLUVIONNAIRE",
+     "anchor": "sec-14"
+    },
+    {
+     "label": "CHAPITRE III — AUTORISATION D’EXPLOITATION ARTISANALE DE L’OR ALLUVIONNAIRE",
+     "anchor": "sec-15"
+    }
+   ]
+  },
+  {
+   "label": "TITRE IV — TRAITEMENT ET COMMERCIALISATION DES PRODUITS MINIERS",
+   "anchor": "sec-16",
+   "children": [
+    {
+     "label": "CHAPITRE PREMIER — TRAITEMENT DES PRODUITS MINIERS",
+     "anchor": "sec-17"
+    },
+    {
+     "label": "CHAPITRE II — COMMERCIALISATION DES PRODUITS MINIERS",
+     "anchor": "sec-18"
+    },
+    {
+     "label": "CHAPITRE III — COMMERCIALISATION DES PRODUITS DE EXPLOITATION ARTISANALE DE L’OR ALLUVIONNAIRE",
+     "anchor": "sec-19"
+    }
+   ]
+  },
+  {
+   "label": "TITRE V — DISPOSITIONS COMMUNES AUX TITRES MINIERS",
+   "anchor": "sec-20",
+   "children": [
+    {
+     "label": "CHAPITRE PREMIER — ÉTENDUE DES DROITS CONFÉRÉS PAR LES TITRES MINIERS",
+     "anchor": "sec-21"
+    },
+    {
+     "label": "CHAPITRE II — RENOUVELLEMENT DES TITRES MINIERS",
+     "anchor": "sec-22"
+    },
+    {
+     "label": "CHAPITRE III — EXTENSION DES TITRES MINIERS",
+     "anchor": "sec-23"
+    },
+    {
+     "label": "CHAPITRE IV — CESSION ET TRANSMISSION DES TITRES MINIERS",
+     "anchor": "sec-24"
+    },
+    {
+     "label": "CHAPITRE V — FUSION DES PERMIS D’EXPLORATION",
+     "anchor": "sec-25"
+    },
+    {
+     "label": "CHAPITRE VI — RENONCIATION AUX TITRES MINIERS",
+     "anchor": "sec-26"
+    },
+    {
+     "label": "CHAPITRE VII — RETRAIT DES TITRES MINIERS",
+     "anchor": "sec-27"
+    },
+    {
+     "label": "CHAPITRE VIII — EXTINCTION DES TITRES MINIERS",
+     "anchor": "sec-28"
+    }
+   ]
+  },
+  {
+   "label": "TITRE VI — RAPPORTS DES DÉTENTEURS DE TITRES MINIERS AVEC L'ÉTAT, AVEC LES TIERS ET ENTRE EUX",
+   "anchor": "sec-29",
+   "children": [
+    {
+     "label": "CHAPITRE PREMIER — RAPPORTS AVEC L'ÉTAT",
+     "anchor": "sec-30"
+    },
+    {
+     "label": "CHAPITRE II — RAPPORTS AVEC LES TIERS",
+     "anchor": "sec-31"
+    },
+    {
+     "label": "CHAPITRE III — DES RAPPORTS AVEC L'ÉTAT ET LES TIERS",
+     "anchor": "sec-32"
+    },
+    {
+     "label": "CHAPITRE IV — RELATIONS ENTRE MINES VOISINES",
+     "anchor": "sec-33"
+    }
+   ]
+  },
+  {
+   "label": "TITRE VII — DISPOSITIONS APPLICABLES AUX ZONES INTERDITES, AUX ZONES RESERVÉES ET AUX SUBSTANCES DITES : « RESSOURCES RÉSERVÉES »",
+   "anchor": "sec-34",
+   "children": [
+    {
+     "label": "DISPOSITIONS APPLICABLES AUX ZONES INTERDITES, AUX ZONES RESERVÉES ET AUX SUBSTANCES DITES : « RESSOURCES RÉSERVÉES »",
+     "anchor": "sec-34"
+    }
+   ]
+  },
+  {
+   "label": "TITRE VIII — OBLIGATIONS ENVIRONNEMENTALES LIÉES AUX OPÉRATIONS MINIÈRES ET DE CARRIÈRE",
+   "anchor": "sec-35",
+   "children": [
+    {
+     "label": "CHAPITRE PREMIER — OBLIGATIONS ENVIRONNEMENTALES LIÉES À TOUS LES TITRES MINIERS",
+     "anchor": "sec-36"
+    },
+    {
+     "label": "CHAPITRE II — OBLIGATIONS ENVIRONNEMENTALES LIÉES AUX PERMIS D'EXPLORATION",
+     "anchor": "sec-37"
+    },
+    {
+     "label": "CHAPITRE III — OBLIGATIONS ENVIRONNEMENTALES LIÉES AU PERMIS D'EXPLOITATION MINIÈRE",
+     "anchor": "sec-38"
+    },
+    {
+     "label": "CHAPITRE IV — OBLIGATIONS ENVIRONNEMENTALES LIÉES AUX PERMIS D'EXPLOITATION DE CARRIÈRE",
+     "anchor": "sec-39"
+    }
+   ]
+  },
+  {
+   "label": "TITRE IX — OBLIGATIONS SOCIALES",
+   "anchor": "sec-40",
+   "children": [
+    {
+     "label": "CHAPITRE PREMIER — OBLIGATIONS LIÉES AU DÉVELOPPEMENT DURABLE",
+     "anchor": "sec-41"
+    },
+    {
+     "label": "CHAPITRE II — OBLIGATIONS EN MATIÈRE DE TRAVAIL",
+     "anchor": "sec-42"
+    },
+    {
+     "label": "CHAPITRE III — OBLIGATIONS LIÉES À LA SANTÉ ET À LA SÉCURITÉ AU TRAVAIL",
+     "anchor": "sec-43"
+    },
+    {
+     "label": "CHAPITRE IV — OBLIGATIONS LIÉES À L'APPROVISIONNEMENT",
+     "anchor": "sec-44"
+    }
+   ]
+  },
+  {
+   "label": "TITRE X — EXÉCUTION DES TRAVAUX D'EXPLORATION ET D'EXPLOITATION DES MINES ET DES TRAVAUX D'EXPLOITATION DE CARRIÈRE",
+   "anchor": "sec-45",
+   "children": [
+    {
+     "label": "CHAPITRE PREMIER — DÉCLARATIONS D'OUVERTURE ET DE FERMETURE DES TRAVAUX",
+     "anchor": "sec-46"
+    },
+    {
+     "label": "CHAPITRE II — FORMALITÉS À REMPLIR",
+     "anchor": "sec-47"
+    }
+   ]
+  },
+  {
+   "label": "TITRE XI — RÉGIME FISCAL DES MINES ET CARRIÈRES",
+   "anchor": "sec-48",
+   "children": [
+    {
+     "label": "CHAPITRE PREMIER — DISPOSITIONS FISCALES COMMUNES AUX MINES ET CARRIÈRES",
+     "anchor": "sec-49"
+    },
+    {
+     "label": "CHAPITRE II — RÉGIME FISCAL DES MINES",
+     "anchor": "sec-50"
+    },
+    {
+     "label": "CHAPITRE III — RÉGIME FISCAL DES CARRIÈRES",
+     "anchor": "sec-51"
+    }
+   ]
+  },
+  {
+   "label": "TITRE XII — DISPOSITIONS DOUANIÈRES, ÉCONOMIQUES ET FINANCIÈRES ET GARANTIES FONCIÈRES DES MINES ET CARRIÈRES",
+   "anchor": "sec-52",
+   "children": [
+    {
+     "label": "CHAPITRE PREMIER — DISPOSITIONS DOUANIÈRES DES MINES ET CARRIÈRES",
+     "anchor": "sec-53"
+    },
+    {
+     "label": "CHAPITRE II — DISPOSITIONS ÉCONOMIQUES DES MINES ET CARRIÈRES",
+     "anchor": "sec-54"
+    },
+    {
+     "label": "CHAPITRE III — DISPOSITIONS FINANCIÈRES DES MINES ET CARRIÈRES",
+     "anchor": "sec-55"
+    },
+    {
+     "label": "CHAPITRE IV — GARANTIES FONCIÈRES DES MINES ET CARRIÈRES",
+     "anchor": "sec-56"
+    }
+   ]
+  },
+  {
+   "label": "TITRE XIII — POLICE GÉNÉRALE DES MINES",
+   "anchor": "sec-57",
+   "children": [
+    {
+     "label": "CHAPITRE PREMIER — DISTANCES LIMITES ET ZONES DE PROTECTION",
+     "anchor": "sec-58"
+    },
+    {
+     "label": "CHAPITRE II — MESURES D'ORDRE ET DE POLICE",
+     "anchor": "sec-59"
+    },
+    {
+     "label": "CHAPITRE III — SURVEILLANCE ET CONTRÔLE ADMINISTRATIF",
+     "anchor": "sec-60"
+    }
+   ]
+  },
+  {
+   "label": "TITRE XIV — INFRACTIONS, SANCTIONS, RECOURS ET CAS DE FORCE MAJEURE",
+   "anchor": "sec-61",
+   "children": [
+    {
+     "label": "CHAPITRE PREMIER — INFRACTIONS ET SANCTIONS",
+     "anchor": "sec-62"
+    },
+    {
+     "label": "CHAPITRE II — RECOURS",
+     "anchor": "sec-63"
+    },
+    {
+     "label": "CHAPITRE III — CAS DE FORCE MAJEURE",
+     "anchor": "sec-64"
+    }
+   ]
+  },
+  {
+   "label": "TITRE XV — DISPOSITIONS SPÉCIALES",
+   "anchor": "sec-65",
+   "children": [
+    {
+     "label": "DISPOSITIONS SPÉCIALES",
+     "anchor": "sec-65"
+    }
+   ]
+  },
+  {
+   "label": "TITRE XVI — DISPOSITIONS TRANSITOIRES",
+   "anchor": "sec-66",
+   "children": [
+    {
+     "label": "DISPOSITIONS TRANSITOIRES",
+     "anchor": "sec-66"
+    }
+   ]
+  },
+  {
+   "label": "TITRE XVII — DISPOSITIONS FINALES",
+   "anchor": "sec-67",
+   "children": [
+    {
+     "label": "DISPOSITIONS FINALES",
+     "anchor": "sec-67"
+    }
+   ]
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "CHAPITRE PREMIER — DISPOSITIONS GÉNÉRALES",
+   "anchor": "sec-1",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE PREMIER — OBJET, PRINCIPES ET TERMINOLOGIE",
+   "anchor": "sec-2",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE II — DISPOSITIONS PROCÉDURALES",
+   "anchor": "sec-3",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE PREMIER — CADASTRE MINIER",
+   "anchor": "sec-4",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — MODALITÉS DE MISE EN VALEUR DES RESSOURCES MINÉRALES",
+   "anchor": "sec-5",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — CONDITIONS GÉNÉRALES D’ÉLIGIBILITÉ AUX TITRES",
+   "anchor": "sec-6",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE IV — AUTORISATION DE PROSPECTION",
+   "anchor": "sec-7",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE V — PERMIS D’EXPLORATION",
+   "anchor": "sec-8",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE VI — PERMIS D’EXPLOITATION",
+   "anchor": "sec-9",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE VII — CONVENTION MINIÈRE",
+   "anchor": "sec-10",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE VIII — PERMIS D’EXPLOITATION DE CARRIÈRE",
+   "anchor": "sec-11",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE III — AUTORISATION D’EXPLOITATION ARTISANALE DE L’OR ALLUVIONNAIRE",
+   "anchor": "sec-12",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE PREMIER — PÉRIMÈTRES D’EXPLOITATION ARTISANALE DE L’OR ALLUVIONNAIRE",
+   "anchor": "sec-13",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — ENCADREMENT ADMINISTRATIF DE L’EXPLOITATION ARTISANALE DE L’OR ALLUVIONNAIRE",
+   "anchor": "sec-14",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — AUTORISATION D’EXPLOITATION ARTISANALE DE L’OR ALLUVIONNAIRE",
+   "anchor": "sec-15",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE IV — TRAITEMENT ET COMMERCIALISATION DES PRODUITS MINIERS",
+   "anchor": "sec-16",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE PREMIER — TRAITEMENT DES PRODUITS MINIERS",
+   "anchor": "sec-17",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — COMMERCIALISATION DES PRODUITS MINIERS",
+   "anchor": "sec-18",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — COMMERCIALISATION DES PRODUITS DE EXPLOITATION ARTISANALE DE L’OR ALLUVIONNAIRE",
+   "anchor": "sec-19",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE V — DISPOSITIONS COMMUNES AUX TITRES MINIERS",
+   "anchor": "sec-20",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE PREMIER — ÉTENDUE DES DROITS CONFÉRÉS PAR LES TITRES MINIERS",
+   "anchor": "sec-21",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — RENOUVELLEMENT DES TITRES MINIERS",
+   "anchor": "sec-22",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — EXTENSION DES TITRES MINIERS",
+   "anchor": "sec-23",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE IV — CESSION ET TRANSMISSION DES TITRES MINIERS",
+   "anchor": "sec-24",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE V — FUSION DES PERMIS D’EXPLORATION",
+   "anchor": "sec-25",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE VI — RENONCIATION AUX TITRES MINIERS",
+   "anchor": "sec-26",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE VII — RETRAIT DES TITRES MINIERS",
+   "anchor": "sec-27",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE VIII — EXTINCTION DES TITRES MINIERS",
+   "anchor": "sec-28",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE VI — RAPPORTS DES DÉTENTEURS DE TITRES MINIERS AVEC L'ÉTAT, AVEC LES TIERS ET ENTRE EUX",
+   "anchor": "sec-29",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE PREMIER — RAPPORTS AVEC L'ÉTAT",
+   "anchor": "sec-30",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — RAPPORTS AVEC LES TIERS",
+   "anchor": "sec-31",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — DES RAPPORTS AVEC L'ÉTAT ET LES TIERS",
+   "anchor": "sec-32",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE IV — RELATIONS ENTRE MINES VOISINES",
+   "anchor": "sec-33",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE VII — DISPOSITIONS APPLICABLES AUX ZONES INTERDITES, AUX ZONES RESERVÉES ET AUX SUBSTANCES DITES : « RESSOURCES RÉSERVÉES »",
+   "anchor": "sec-34",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE VIII — OBLIGATIONS ENVIRONNEMENTALES LIÉES AUX OPÉRATIONS MINIÈRES ET DE CARRIÈRE",
+   "anchor": "sec-35",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE PREMIER — OBLIGATIONS ENVIRONNEMENTALES LIÉES À TOUS LES TITRES MINIERS",
+   "anchor": "sec-36",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — OBLIGATIONS ENVIRONNEMENTALES LIÉES AUX PERMIS D'EXPLORATION",
+   "anchor": "sec-37",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — OBLIGATIONS ENVIRONNEMENTALES LIÉES AU PERMIS D'EXPLOITATION MINIÈRE",
+   "anchor": "sec-38",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE IV — OBLIGATIONS ENVIRONNEMENTALES LIÉES AUX PERMIS D'EXPLOITATION DE CARRIÈRE",
+   "anchor": "sec-39",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE IX — OBLIGATIONS SOCIALES",
+   "anchor": "sec-40",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE PREMIER — OBLIGATIONS LIÉES AU DÉVELOPPEMENT DURABLE",
+   "anchor": "sec-41",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — OBLIGATIONS EN MATIÈRE DE TRAVAIL",
+   "anchor": "sec-42",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — OBLIGATIONS LIÉES À LA SANTÉ ET À LA SÉCURITÉ AU TRAVAIL",
+   "anchor": "sec-43",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE IV — OBLIGATIONS LIÉES À L'APPROVISIONNEMENT",
+   "anchor": "sec-44",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE X — EXÉCUTION DES TRAVAUX D'EXPLORATION ET D'EXPLOITATION DES MINES ET DES TRAVAUX D'EXPLOITATION DE CARRIÈRE",
+   "anchor": "sec-45",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE PREMIER — DÉCLARATIONS D'OUVERTURE ET DE FERMETURE DES TRAVAUX",
+   "anchor": "sec-46",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — FORMALITÉS À REMPLIR",
+   "anchor": "sec-47",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE XI — RÉGIME FISCAL DES MINES ET CARRIÈRES",
+   "anchor": "sec-48",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE PREMIER — DISPOSITIONS FISCALES COMMUNES AUX MINES ET CARRIÈRES",
+   "anchor": "sec-49",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — RÉGIME FISCAL DES MINES",
+   "anchor": "sec-50",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — RÉGIME FISCAL DES CARRIÈRES",
+   "anchor": "sec-51",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE XII — DISPOSITIONS DOUANIÈRES, ÉCONOMIQUES ET FINANCIÈRES ET GARANTIES FONCIÈRES DES MINES ET CARRIÈRES",
+   "anchor": "sec-52",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE PREMIER — DISPOSITIONS DOUANIÈRES DES MINES ET CARRIÈRES",
+   "anchor": "sec-53",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — DISPOSITIONS ÉCONOMIQUES DES MINES ET CARRIÈRES",
+   "anchor": "sec-54",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — DISPOSITIONS FINANCIÈRES DES MINES ET CARRIÈRES",
+   "anchor": "sec-55",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE IV — GARANTIES FONCIÈRES DES MINES ET CARRIÈRES",
+   "anchor": "sec-56",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE XIII — POLICE GÉNÉRALE DES MINES",
+   "anchor": "sec-57",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE PREMIER — DISTANCES LIMITES ET ZONES DE PROTECTION",
+   "anchor": "sec-58",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — MESURES D'ORDRE ET DE POLICE",
+   "anchor": "sec-59",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — SURVEILLANCE ET CONTRÔLE ADMINISTRATIF",
+   "anchor": "sec-60",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE XIV — INFRACTIONS, SANCTIONS, RECOURS ET CAS DE FORCE MAJEURE",
+   "anchor": "sec-61",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE PREMIER — INFRACTIONS ET SANCTIONS",
+   "anchor": "sec-62",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — RECOURS",
+   "anchor": "sec-63",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — CAS DE FORCE MAJEURE",
+   "anchor": "sec-64",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE XV — DISPOSITIONS SPÉCIALES",
+   "anchor": "sec-65",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE XVI — DISPOSITIONS TRANSITOIRES",
+   "anchor": "sec-66",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE XVII — DISPOSITIONS FINALES",
+   "anchor": "sec-67",
+   "kind": "code"
+  }
+ ],
+ "connexes": [],
+ "jurisprudence": {},
+ "indexEntries": [
+  {
+   "subject": "Abandon des travaux — déclaration préalable",
+   "ctRefs": [
+    "217"
+   ]
+  },
+  {
+   "subject": "Abandon des travaux — acte donné par l’AMN",
+   "ctRefs": [
+    "218"
+   ]
+  },
+  {
+   "subject": "Abandon des travaux — absence de déclaration",
+   "ctRefs": [
+    "219",
+    "220"
+   ]
+  },
+  {
+   "subject": "Abandon des travaux — arrêt définitif de l’exploitation",
+   "ctRefs": [
+    "221"
+   ]
+  },
+  {
+   "subject": "Abandon des travaux — abandon constaté du titre",
+   "ctRefs": [
+    "151"
+   ]
+  },
+  {
+   "subject": "Admission temporaire — régime douanier",
+   "ctRefs": [
+    "244",
+    "247"
+   ]
+  },
+  {
+   "subject": "Amende — falsification d’un Titre Minier",
+   "ctRefs": [
+    "282"
+   ]
+  },
+  {
+   "subject": "Amende — fausse déclaration, bornes, corruption",
+   "ctRefs": [
+    "282"
+   ]
+  },
+  {
+   "subject": "Amende — travaux sans titre — mine",
+   "ctRefs": [
+    "283"
+   ]
+  },
+  {
+   "subject": "Amende — travaux sans titre — carrière",
+   "ctRefs": [
+    "283"
+   ]
+  },
+  {
+   "subject": "Amende — ressources réservées, non-déclaration",
+   "ctRefs": [
+    "284"
+   ]
+  },
+  {
+   "subject": "Amende — violation des règlements d’application",
+   "ctRefs": [
+    "285"
+   ]
+  },
+  {
+   "subject": "Amende — obstacle aux travaux ordonnés",
+   "ctRefs": [
+    "286"
+   ]
+  },
+  {
+   "subject": "AMN (Autorité Minière Nationale) — définition (1°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "AMN (Autorité Minière Nationale) — institution et attributions",
+   "ctRefs": [
+    "3",
+    "4"
+   ]
+  },
+  {
+   "subject": "AMN (Autorité Minière Nationale) — cadastre minier",
+   "ctRefs": [
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16"
+   ]
+  },
+  {
+   "subject": "AMN (Autorité Minière Nationale) — octroi et instruction des titres",
+   "ctRefs": [
+    "32",
+    "48",
+    "72"
+   ]
+  },
+  {
+   "subject": "AMN (Autorité Minière Nationale) — surveillance et contrôle administratif",
+   "ctRefs": [
+    "265",
+    "266",
+    "267",
+    "268",
+    "269",
+    "270",
+    "271",
+    "272",
+    "273",
+    "274",
+    "275",
+    "276",
+    "277",
+    "278",
+    "279",
+    "280",
+    "281"
+   ]
+  },
+  {
+   "subject": "AMN (Autorité Minière Nationale) — droit d’accès et de vérification",
+   "ctRefs": [
+    "266",
+    "269",
+    "272"
+   ]
+  },
+  {
+   "subject": "AMN (Autorité Minière Nationale) — registre des Titres Miniers",
+   "ctRefs": [
+    "152",
+    "267",
+    "293"
+   ]
+  },
+  {
+   "subject": "AMN (Autorité Minière Nationale) — travaux exécutés d’office",
+   "ctRefs": [
+    "220",
+    "223",
+    "264",
+    "275",
+    "280"
+   ]
+  },
+  {
+   "subject": "AMN (Autorité Minière Nationale) — recours porté devant elle",
+   "ctRefs": [
+    "289"
+   ]
+  },
+  {
+   "subject": "Amortissement des coûts — exploration, développement, construction",
+   "ctRefs": [
+    "234"
+   ]
+  },
+  {
+   "subject": "Amortissement des coûts — méthode linéaire",
+   "ctRefs": [
+    "234"
+   ]
+  },
+  {
+   "subject": "Approvisionnement (Plan ~ National) — établissement et dépôt",
+   "ctRefs": [
+    "210"
+   ]
+  },
+  {
+   "subject": "Approvisionnement (Plan ~ National) — rapport annuel de mise en œuvre",
+   "ctRefs": [
+    "211"
+   ]
+  },
+  {
+   "subject": "Arbitrage — tribunal arbitral — retrait de titre",
+   "ctRefs": [
+    "149"
+   ]
+  },
+  {
+   "subject": "Arbitrage — commission arbitrale — indemnisation",
+   "ctRefs": [
+    "159",
+    "160",
+    "161"
+   ]
+  },
+  {
+   "subject": "Arbitrage — différend d’ordre technique",
+   "ctRefs": [
+    "289-1"
+   ]
+  },
+  {
+   "subject": "Arbitrage — zones interdites et réservées",
+   "ctRefs": [
+    "170"
+   ]
+  },
+  {
+   "subject": "Arbitrage — droits superficiaires",
+   "ctRefs": [
+    "229-1"
+   ]
+  },
+  {
+   "subject": "Arbitrage — taux de redevance",
+   "ctRefs": [
+    "232-3"
+   ]
+  },
+  {
+   "subject": "Arbitrage — Convention Minière Type",
+   "ctRefs": [
+    "65"
+   ]
+  },
+  {
+   "subject": "Autorisation d’Exploitation Artisanale de l’or alluvionnaire — définition — exploitation artisanale (18°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Autorisation d’Exploitation Artisanale de l’or alluvionnaire — périmètres",
+   "ctRefs": [
+    "93",
+    "94",
+    "95",
+    "96"
+   ]
+  },
+  {
+   "subject": "Autorisation d’Exploitation Artisanale de l’or alluvionnaire — encadrement administratif",
+   "ctRefs": [
+    "97",
+    "97-1",
+    "97-2",
+    "98"
+   ]
+  },
+  {
+   "subject": "Autorisation d’Exploitation Artisanale de l’or alluvionnaire — octroi de l’autorisation",
+   "ctRefs": [
+    "99",
+    "100",
+    "101"
+   ]
+  },
+  {
+   "subject": "Autorisation d’Exploitation Artisanale de l’or alluvionnaire — commercialisation des produits",
+   "ctRefs": [
+    "106",
+    "107",
+    "108",
+    "109"
+   ]
+  },
+  {
+   "subject": "Autorisation d’Opération d’Exploitation de Carrière — définition (3°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Autorisation d’Opération d’Exploitation de Carrière — condition environnementale préalable",
+   "ctRefs": [
+    "192"
+   ]
+  },
+  {
+   "subject": "Autorisation d’Opération d’Exploitation de Carrière — Protocole de Développement Communautaire préalable",
+   "ctRefs": [
+    "202"
+   ]
+  },
+  {
+   "subject": "Autorisation d’Opération d’Exploitation Minière — définition (2°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Autorisation d’Opération d’Exploitation Minière — condition environnementale préalable",
+   "ctRefs": [
+    "184"
+   ]
+  },
+  {
+   "subject": "Autorisation d’Opération d’Exploitation Minière — Protocole de Développement Communautaire préalable",
+   "ctRefs": [
+    "202"
+   ]
+  },
+  {
+   "subject": "Autorisation d’Opération d’Exploitation Minière — Plan d’Approvisionnement National préalable",
+   "ctRefs": [
+    "210"
+   ]
+  },
+  {
+   "subject": "Autorisation de Prospection — définition (4°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Autorisation de Prospection — régime",
+   "ctRefs": [
+    "25",
+    "26",
+    "27",
+    "28",
+    "29"
+   ]
+  },
+  {
+   "subject": "Bornage — obligation de placer des bornes",
+   "ctRefs": [
+    "223"
+   ]
+  },
+  {
+   "subject": "Bornage — exploitation artisanale",
+   "ctRefs": [
+    "98"
+   ]
+  },
+  {
+   "subject": "Bornage — destruction ou déplacement — sanction",
+   "ctRefs": [
+    "282"
+   ]
+  },
+  {
+   "subject": "Cadastre Minier — institution et fonctionnement",
+   "ctRefs": [
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16"
+   ]
+  },
+  {
+   "subject": "Carré — définition (5°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Carré — forme et orientation des périmètres",
+   "ctRefs": [
+    "8",
+    "30",
+    "41",
+    "46-2",
+    "58",
+    "110"
+   ]
+  },
+  {
+   "subject": "Carrière — définition (6°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Carrière — exploitation de carrière — définition (20°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Carrière — substance de carrière — définition (47°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Carrière — produit de carrière — définition (38°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Carrière — permis d’exploitation",
+   "ctRefs": [
+    "67",
+    "68",
+    "69",
+    "70",
+    "71",
+    "72",
+    "73",
+    "74",
+    "75",
+    "76",
+    "77",
+    "77-1",
+    "77-2",
+    "77-3",
+    "78",
+    "79",
+    "80",
+    "81",
+    "82",
+    "83",
+    "84",
+    "85",
+    "86",
+    "87",
+    "88",
+    "88-1",
+    "88-2",
+    "88-3",
+    "88-4",
+    "89",
+    "90",
+    "91",
+    "92"
+   ]
+  },
+  {
+   "subject": "Carrière — obligations environnementales",
+   "ctRefs": [
+    "192",
+    "193",
+    "194",
+    "195",
+    "196",
+    "197",
+    "198",
+    "199"
+   ]
+  },
+  {
+   "subject": "Carrière — régime fiscal",
+   "ctRefs": [
+    "240",
+    "241",
+    "242",
+    "243"
+   ]
+  },
+  {
+   "subject": "Carte d’Exploitant Artisanal — définition (7°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Certificat de capacité technique et financière — définition (8°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Cession et transmission des Titres Miniers — définition — transaction directe ou indirecte (54°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Cession et transmission des Titres Miniers — régime",
+   "ctRefs": [
+    "124",
+    "125",
+    "126",
+    "127",
+    "128",
+    "129",
+    "130"
+   ]
+  },
+  {
+   "subject": "Cession et transmission des Titres Miniers — imposition de la plus-value",
+   "ctRefs": [
+    "230"
+   ]
+  },
+  {
+   "subject": "Cession et transmission des Titres Miniers — cession entre Sociétés affiliées",
+   "ctRefs": [
+    "235",
+    "243"
+   ]
+  },
+  {
+   "subject": "Cession et transmission des Titres Miniers — cession des installations à l’État",
+   "ctRefs": [
+    "251"
+   ]
+  },
+  {
+   "subject": "Clôture des zones dangereuses — obligation et exécution d’office",
+   "ctRefs": [
+    "264"
+   ]
+  },
+  {
+   "subject": "Code des Investissements — inapplicabilité au secteur minier",
+   "ctRefs": [
+    "296"
+   ]
+  },
+  {
+   "subject": "Collectivités Territoriales — droit minier spécial à leur profit",
+   "ctRefs": [
+    "233"
+   ]
+  },
+  {
+   "subject": "Collectivités Territoriales — perception de droits et taxes",
+   "ctRefs": [
+    "225"
+   ]
+  },
+  {
+   "subject": "Collectivités Territoriales — exploitation artisanale",
+   "ctRefs": [
+    "97"
+   ]
+  },
+  {
+   "subject": "Commercialisation des produits miniers — traitement préalable",
+   "ctRefs": [
+    "102",
+    "103"
+   ]
+  },
+  {
+   "subject": "Commercialisation des produits miniers — régime",
+   "ctRefs": [
+    "104",
+    "105"
+   ]
+  },
+  {
+   "subject": "Commercialisation des produits miniers — or alluvionnaire",
+   "ctRefs": [
+    "106",
+    "107",
+    "108",
+    "109"
+   ]
+  },
+  {
+   "subject": "Commercialisation des produits miniers — libre commercialisation garantie",
+   "ctRefs": [
+    "249"
+   ]
+  },
+  {
+   "subject": "Comptabilité — tenue conforme aux normes haïtiennes",
+   "ctRefs": [
+    "252"
+   ]
+  },
+  {
+   "subject": "Comptabilité — valeur aux livres — sociétés affiliées",
+   "ctRefs": [
+    "235",
+    "243"
+   ]
+  },
+  {
+   "subject": "Concentré — définition (9°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Concentré — taux de redevance",
+   "ctRefs": [
+    "232-2"
+   ]
+  },
+  {
+   "subject": "Confidentialité des informations — régime",
+   "ctRefs": [
+    "115",
+    "271"
+   ]
+  },
+  {
+   "subject": "Convention Minière — définition (10°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Convention Minière — Convention Minière Type — définition (11°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Convention Minière — régime",
+   "ctRefs": [
+    "62",
+    "63",
+    "64",
+    "65",
+    "66"
+   ]
+  },
+  {
+   "subject": "Convention Minière — stabilité fiscale et douanière",
+   "ctRefs": [
+    "239"
+   ]
+  },
+  {
+   "subject": "Convention Minière — redevance — unité, indice, fait générateur",
+   "ctRefs": [
+    "232-2"
+   ]
+  },
+  {
+   "subject": "Convention Minière — régime transitoire",
+   "ctRefs": [
+    "297",
+    "298",
+    "299",
+    "300"
+   ]
+  },
+  {
+   "subject": "Date de Première Production — définition (12°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Décret Minier du 3 mars 1976 — définition (13°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Décret Minier du 3 mars 1976 — permis transformés ou convertis",
+   "ctRefs": [
+    "297",
+    "298",
+    "300"
+   ]
+  },
+  {
+   "subject": "Décret Minier du 3 mars 1976 — dispositions maintenues en vigueur",
+   "ctRefs": [
+    "304"
+   ]
+  },
+  {
+   "subject": "Décret Minier du 3 mars 1976 — abrogation des dispositions contraires",
+   "ctRefs": [
+    "306"
+   ]
+  },
+  {
+   "subject": "Développement durable — obligations liées",
+   "ctRefs": [
+    "200",
+    "201",
+    "202",
+    "203",
+    "204"
+   ]
+  },
+  {
+   "subject": "Devise — définition (14°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Devise — conversion et transfert",
+   "ctRefs": [
+    "253"
+   ]
+  },
+  {
+   "subject": "Devise — conservation à l’étranger, rapatriement",
+   "ctRefs": [
+    "254"
+   ]
+  },
+  {
+   "subject": "DGI (Direction Générale des Impôts) — droit d’octroi et de renouvellement",
+   "ctRefs": [
+    "228"
+   ]
+  },
+  {
+   "subject": "DGI (Direction Générale des Impôts) — redevance superficiaire annuelle",
+   "ctRefs": [
+    "229"
+   ]
+  },
+  {
+   "subject": "DGI (Direction Générale des Impôts) — impôt sur la plus-value",
+   "ctRefs": [
+    "230"
+   ]
+  },
+  {
+   "subject": "DGI (Direction Générale des Impôts) — droit minier spécial",
+   "ctRefs": [
+    "233"
+   ]
+  },
+  {
+   "subject": "DGI (Direction Générale des Impôts) — royalty de carrière",
+   "ctRefs": [
+    "240"
+   ]
+  },
+  {
+   "subject": "DGI (Direction Générale des Impôts) — retenue à la source sur dividendes",
+   "ctRefs": [
+    "253"
+   ]
+  },
+  {
+   "subject": "Direction technique des travaux — désignation et qualification",
+   "ctRefs": [
+    "224"
+   ]
+  },
+  {
+   "subject": "Distances limites et zones de protection — interdiction des travaux à moins de 50 mètres",
+   "ctRefs": [
+    "156"
+   ]
+  },
+  {
+   "subject": "Distances limites et zones de protection — mines à ciel ouvert",
+   "ctRefs": [
+    "258"
+   ]
+  },
+  {
+   "subject": "Distances limites et zones de protection — exploitation de masse",
+   "ctRefs": [
+    "259"
+   ]
+  },
+  {
+   "subject": "Distances limites et zones de protection — mines souterraines — avis préalable",
+   "ctRefs": [
+    "260"
+   ]
+  },
+  {
+   "subject": "Distances limites et zones de protection — massifs de protection",
+   "ctRefs": [
+    "261"
+   ]
+  },
+  {
+   "subject": "Distances limites et zones de protection — zones élargies de sécurité",
+   "ctRefs": [
+    "262"
+   ]
+  },
+  {
+   "subject": "Domicile (élection de) — obligation en Haïti",
+   "ctRefs": [
+    "222"
+   ]
+  },
+  {
+   "subject": "Douanes — admission temporaire",
+   "ctRefs": [
+    "244"
+   ]
+  },
+  {
+   "subject": "Douanes — exonération de droits et taxes",
+   "ctRefs": [
+    "245"
+   ]
+  },
+  {
+   "subject": "Douanes — liste minière",
+   "ctRefs": [
+    "245",
+    "245-1",
+    "245-2",
+    "245-3",
+    "245-4",
+    "245-5",
+    "245-6"
+   ]
+  },
+  {
+   "subject": "Douanes — effets personnels du personnel expatrié",
+   "ctRefs": [
+    "246"
+   ]
+  },
+  {
+   "subject": "Douanes — perte du bénéfice — biens restant en Haïti",
+   "ctRefs": [
+    "247"
+   ]
+  },
+  {
+   "subject": "Douanes — requête d’exonération",
+   "ctRefs": [
+    "248"
+   ]
+  },
+  {
+   "subject": "Douanes — stabilité du régime",
+   "ctRefs": [
+    "239"
+   ]
+  },
+  {
+   "subject": "Droit d’octroi — assiette et paiement",
+   "ctRefs": [
+    "226",
+    "228"
+   ]
+  },
+  {
+   "subject": "Droit minier spécial — taux, affectation, paiement",
+   "ctRefs": [
+    "226",
+    "233"
+   ]
+  },
+  {
+   "subject": "Droits fixes d’instruction — demandes soumises au paiement",
+   "ctRefs": [
+    "226",
+    "227"
+   ]
+  },
+  {
+   "subject": "Eaux souterraines — maintien du Décret de 1976",
+   "ctRefs": [
+    "304"
+   ]
+  },
+  {
+   "subject": "Échantillons — témoin d’échantillon — définition (51°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Échantillons — échantillons de prospection",
+   "ctRefs": [
+    "29"
+   ]
+  },
+  {
+   "subject": "EIES (Étude d’Impact Environnemental et Social) — définition (17°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "EIES (Étude d’Impact Environnemental et Social) — permis d’exploitation minière",
+   "ctRefs": [
+    "184",
+    "185",
+    "186",
+    "187",
+    "188",
+    "189",
+    "190",
+    "191"
+   ]
+  },
+  {
+   "subject": "EIES (Étude d’Impact Environnemental et Social) — permis d’exploitation de carrière",
+   "ctRefs": [
+    "192",
+    "193",
+    "194",
+    "195",
+    "196",
+    "197",
+    "198",
+    "199"
+   ]
+  },
+  {
+   "subject": "EIES (Étude d’Impact Environnemental et Social) — opérations non prévues — révision",
+   "ctRefs": [
+    "189",
+    "197"
+   ]
+  },
+  {
+   "subject": "Éligibilité aux Titres Miniers — conditions générales",
+   "ctRefs": [
+    "21",
+    "22",
+    "23",
+    "24"
+   ]
+  },
+  {
+   "subject": "Éligibilité aux Titres Miniers — inéligibilité — nullité du titre",
+   "ctRefs": [
+    "143"
+   ]
+  },
+  {
+   "subject": "Éligibilité aux Titres Miniers — inéligibilité — déchéance",
+   "ctRefs": [
+    "144",
+    "145"
+   ]
+  },
+  {
+   "subject": "État — définition (15°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "État — rapports avec les détenteurs de titres",
+   "ctRefs": [
+    "154",
+    "155",
+    "156",
+    "157"
+   ]
+  },
+  {
+   "subject": "État — rapports avec l’État et les tiers",
+   "ctRefs": [
+    "163",
+    "164",
+    "165",
+    "165-1",
+    "165-2"
+   ]
+  },
+  {
+   "subject": "État — droit d’option sur les installations",
+   "ctRefs": [
+    "153"
+   ]
+  },
+  {
+   "subject": "État — droit de préemption — ressources réservées",
+   "ctRefs": [
+    "174"
+   ]
+  },
+  {
+   "subject": "État — réquisition de substances minières",
+   "ctRefs": [
+    "157"
+   ]
+  },
+  {
+   "subject": "État — garanties économiques",
+   "ctRefs": [
+    "249"
+   ]
+  },
+  {
+   "subject": "État — garanties foncières",
+   "ctRefs": [
+    "255",
+    "256",
+    "257"
+   ]
+  },
+  {
+   "subject": "Étude de Faisabilité — définition (16°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Étude de Faisabilité — conformité de l’EIES",
+   "ctRefs": [
+    "184",
+    "185"
+   ]
+  },
+  {
+   "subject": "Expert — évaluation de l’indemnisation",
+   "ctRefs": [
+    "160"
+   ]
+  },
+  {
+   "subject": "Expert — contre-expertise — pierres précieuses",
+   "ctRefs": [
+    "232-1"
+   ]
+  },
+  {
+   "subject": "Expert — différend technique",
+   "ctRefs": [
+    "289-1"
+   ]
+  },
+  {
+   "subject": "Exploitant Artisanal Autorisé — définition (19°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Exploitant Artisanal Autorisé — carte d’exploitant artisanal",
+   "ctRefs": [
+    "98",
+    "99",
+    "100"
+   ]
+  },
+  {
+   "subject": "Exploitant Artisanal Autorisé — commercialisation",
+   "ctRefs": [
+    "109"
+   ]
+  },
+  {
+   "subject": "Exploitation Mécanique — définition (21°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Exploration minière — définition (23°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Exploration minière — permis d’exploration",
+   "ctRefs": [
+    "30",
+    "35"
+   ]
+  },
+  {
+   "subject": "Exploration minière — interdictions de distance",
+   "ctRefs": [
+    "156"
+   ]
+  },
+  {
+   "subject": "Exploration minière — zones interdites et ressources réservées",
+   "ctRefs": [
+    "170"
+   ]
+  },
+  {
+   "subject": "Exploration minière — amortissement des coûts",
+   "ctRefs": [
+    "234"
+   ]
+  },
+  {
+   "subject": "Explosifs — règles particulières d’utilisation",
+   "ctRefs": [
+    "278"
+   ]
+  },
+  {
+   "subject": "Expropriation — décision de l’État — intérêt général",
+   "ctRefs": [
+    "165"
+   ]
+  },
+  {
+   "subject": "Expropriation — à la demande du bénéficiaire",
+   "ctRefs": [
+    "165-1"
+   ]
+  },
+  {
+   "subject": "Expropriation — projets à caractère social — coûts",
+   "ctRefs": [
+    "165-2"
+   ]
+  },
+  {
+   "subject": "Extension des Titres Miniers — régime",
+   "ctRefs": [
+    "123"
+   ]
+  },
+  {
+   "subject": "Extinction des Titres Miniers — causes et effets",
+   "ctRefs": [
+    "151",
+    "152",
+    "153"
+   ]
+  },
+  {
+   "subject": "Extinction des Titres Miniers — reprise de possession du périmètre",
+   "ctRefs": [
+    "152"
+   ]
+  },
+  {
+   "subject": "Extinction des Titres Miniers — droit d’option de l’État",
+   "ctRefs": [
+    "153"
+   ]
+  },
+  {
+   "subject": "Force majeure — définition et événements visés",
+   "ctRefs": [
+    "291"
+   ]
+  },
+  {
+   "subject": "Force majeure — notification à l’AMN",
+   "ctRefs": [
+    "292"
+   ]
+  },
+  {
+   "subject": "Force majeure — instruction et agrément",
+   "ctRefs": [
+    "293"
+   ]
+  },
+  {
+   "subject": "Force majeure — prorogation du Titre Minier",
+   "ctRefs": [
+    "294"
+   ]
+  },
+  {
+   "subject": "Force majeure — recours",
+   "ctRefs": [
+    "295"
+   ]
+  },
+  {
+   "subject": "Fusion des Permis d’Exploration — régime",
+   "ctRefs": [
+    "131",
+    "132",
+    "133"
+   ]
+  },
+  {
+   "subject": "Garantie (dépôt, caution, garantie financière) — constitution avant travaux",
+   "ctRefs": [
+    "175"
+   ]
+  },
+  {
+   "subject": "Garantie (dépôt, caution, garantie financière) — mise en œuvre en cas de défaillance",
+   "ctRefs": [
+    "176"
+   ]
+  },
+  {
+   "subject": "Garantie (dépôt, caution, garantie financière) — permis d’exploration",
+   "ctRefs": [
+    "182"
+   ]
+  },
+  {
+   "subject": "Garantie (dépôt, caution, garantie financière) — ajustement proportionnel",
+   "ctRefs": [
+    "189",
+    "197"
+   ]
+  },
+  {
+   "subject": "Garantie (dépôt, caution, garantie financière) — dispense en matière douanière",
+   "ctRefs": [
+    "245"
+   ]
+  },
+  {
+   "subject": "Garanties foncières — occupation et utilisation des terrains",
+   "ctRefs": [
+    "255",
+    "256",
+    "257"
+   ]
+  },
+  {
+   "subject": "Gisement — définition (24°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Gîte — définition (25°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Hydrocarbures — maintien du Décret de 1976",
+   "ctRefs": [
+    "304"
+   ]
+  },
+  {
+   "subject": "Impôt sur le revenu — amortissement des coûts",
+   "ctRefs": [
+    "234"
+   ]
+  },
+  {
+   "subject": "Impôt sur le revenu — règles de calcul — sociétés minières",
+   "ctRefs": [
+    "235"
+   ]
+  },
+  {
+   "subject": "Impôt sur le revenu — dérogations et exonérations",
+   "ctRefs": [
+    "236"
+   ]
+  },
+  {
+   "subject": "Impôt sur le revenu — carrières",
+   "ctRefs": [
+    "242",
+    "243"
+   ]
+  },
+  {
+   "subject": "Indemnisation — réquisition de substances",
+   "ctRefs": [
+    "157"
+   ]
+  },
+  {
+   "subject": "Indemnisation — occupation des terrains",
+   "ctRefs": [
+    "159"
+   ]
+  },
+  {
+   "subject": "Indemnisation — fixation par commission arbitrale",
+   "ctRefs": [
+    "160"
+   ]
+  },
+  {
+   "subject": "Indemnisation — réparation des dommages aux tiers",
+   "ctRefs": [
+    "161"
+   ]
+  },
+  {
+   "subject": "Indemnisation — absence de droit à indemnité",
+   "ctRefs": [
+    "162",
+    "168"
+   ]
+  },
+  {
+   "subject": "Indemnisation — propriétaire du sol",
+   "ctRefs": [
+    "256"
+   ]
+  },
+  {
+   "subject": "Infractions et sanctions — régime",
+   "ctRefs": [
+    "282",
+    "283",
+    "284",
+    "285",
+    "286"
+   ]
+  },
+  {
+   "subject": "Juge de Paix — constat du défaut de démarrage des travaux",
+   "ctRefs": [
+    "144",
+    "145"
+   ]
+  },
+  {
+   "subject": "Juge de Paix — prise de possession du périmètre",
+   "ctRefs": [
+    "152"
+   ]
+  },
+  {
+   "subject": "Juge de Paix — constat du bornage",
+   "ctRefs": [
+    "223"
+   ]
+  },
+  {
+   "subject": "Libor — définition (26°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Liste minière — agrément et contrôle",
+   "ctRefs": [
+    "245",
+    "245-1"
+   ]
+  },
+  {
+   "subject": "Liste minière — contenu",
+   "ctRefs": [
+    "245-2"
+   ]
+  },
+  {
+   "subject": "Liste minière — listes par phase d’activité",
+   "ctRefs": [
+    "245-3"
+   ]
+  },
+  {
+   "subject": "Liste minière — révision et amendement",
+   "ctRefs": [
+    "245-4"
+   ]
+  },
+  {
+   "subject": "Liste minière — exclusion des équivalents fabriqués en Haïti",
+   "ctRefs": [
+    "245-5"
+   ]
+  },
+  {
+   "subject": "Liste minière — modalités",
+   "ctRefs": [
+    "245-6"
+   ]
+  },
+  {
+   "subject": "MDE (Ministère de l’Environnement) — Non-objection à l’EIES — mine",
+   "ctRefs": [
+    "184",
+    "185",
+    "186",
+    "187",
+    "188",
+    "189",
+    "190",
+    "191"
+   ]
+  },
+  {
+   "subject": "MDE (Ministère de l’Environnement) — Non-objection à l’EIES — carrière",
+   "ctRefs": [
+    "192",
+    "193",
+    "194",
+    "195",
+    "196",
+    "197",
+    "198",
+    "199"
+   ]
+  },
+  {
+   "subject": "MDE (Ministère de l’Environnement) — quitus environnemental",
+   "ctRefs": [
+    "183",
+    "191",
+    "199"
+   ]
+  },
+  {
+   "subject": "MDE (Ministère de l’Environnement) — sanction du défaut de Non-objection",
+   "ctRefs": [
+    "283"
+   ]
+  },
+  {
+   "subject": "Mine — définition (27°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Mine — exploitation minière — définition (22°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Mine — opérations minières — définition (28°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Mine — police générale",
+   "ctRefs": [
+    "258",
+    "259",
+    "260",
+    "261",
+    "262",
+    "263",
+    "264",
+    "265",
+    "266",
+    "267",
+    "268",
+    "269",
+    "270",
+    "271",
+    "272",
+    "273",
+    "274",
+    "275",
+    "276",
+    "277",
+    "278",
+    "279",
+    "280",
+    "281"
+   ]
+  },
+  {
+   "subject": "Mines voisines — travaux communs et participation",
+   "ctRefs": [
+    "166"
+   ]
+  },
+  {
+   "subject": "Mines voisines — réparation des dommages",
+   "ctRefs": [
+    "167"
+   ]
+  },
+  {
+   "subject": "Mines voisines — bande limitrophe",
+   "ctRefs": [
+    "168"
+   ]
+  },
+  {
+   "subject": "Mines voisines — différend",
+   "ctRefs": [
+    "169"
+   ]
+  },
+  {
+   "subject": "Moniteur (Journal Officiel « Le ~ ») — publication de la Convention Minière",
+   "ctRefs": [
+    "55",
+    "66"
+   ]
+  },
+  {
+   "subject": "Moniteur (Journal Officiel « Le ~ ») — décision sur les ressources réservées",
+   "ctRefs": [
+    "172"
+   ]
+  },
+  {
+   "subject": "Non-objection — mine — procédure et délais",
+   "ctRefs": [
+    "184",
+    "185",
+    "186",
+    "187"
+   ]
+  },
+  {
+   "subject": "Non-objection — carrière — procédure et délais",
+   "ctRefs": [
+    "192",
+    "193",
+    "194",
+    "195"
+   ]
+  },
+  {
+   "subject": "Non-objection — acquise par silence",
+   "ctRefs": [
+    "187",
+    "195"
+   ]
+  },
+  {
+   "subject": "Obligations environnementales — communes à tous les Titres Miniers",
+   "ctRefs": [
+    "175",
+    "176",
+    "177"
+   ]
+  },
+  {
+   "subject": "Obligations environnementales — permis d’exploration",
+   "ctRefs": [
+    "178",
+    "179",
+    "180",
+    "181",
+    "182",
+    "183"
+   ]
+  },
+  {
+   "subject": "Obligations environnementales — permis d’exploitation minière",
+   "ctRefs": [
+    "184",
+    "185",
+    "186",
+    "187",
+    "188",
+    "189",
+    "190",
+    "191"
+   ]
+  },
+  {
+   "subject": "Obligations environnementales — permis d’exploitation de carrière",
+   "ctRefs": [
+    "192",
+    "193",
+    "194",
+    "195",
+    "196",
+    "197",
+    "198",
+    "199"
+   ]
+  },
+  {
+   "subject": "Obligations environnementales — normes applicables",
+   "ctRefs": [
+    "177"
+   ]
+  },
+  {
+   "subject": "Obligations sociales — développement durable",
+   "ctRefs": [
+    "200",
+    "201",
+    "202",
+    "203",
+    "204"
+   ]
+  },
+  {
+   "subject": "Obligations sociales — travail",
+   "ctRefs": [
+    "205",
+    "206",
+    "207"
+   ]
+  },
+  {
+   "subject": "Obligations sociales — santé et sécurité au travail",
+   "ctRefs": [
+    "208",
+    "209"
+   ]
+  },
+  {
+   "subject": "Obligations sociales — approvisionnement",
+   "ctRefs": [
+    "210",
+    "211"
+   ]
+  },
+  {
+   "subject": "Or alluvionnaire — exploitation artisanale et commercialisation",
+   "ctRefs": [
+    "93",
+    "94",
+    "95",
+    "96",
+    "97",
+    "97-1",
+    "97-2",
+    "98",
+    "99",
+    "100",
+    "101",
+    "102",
+    "103",
+    "104",
+    "105",
+    "106",
+    "107",
+    "108",
+    "109"
+   ]
+  },
+  {
+   "subject": "Ouverture des travaux — déclaration préalable — chantier",
+   "ctRefs": [
+    "212"
+   ]
+  },
+  {
+   "subject": "Ouverture des travaux — puits ou galerie principale",
+   "ctRefs": [
+    "213"
+   ]
+  },
+  {
+   "subject": "Ouverture des travaux — observations de l’AMN",
+   "ctRefs": [
+    "214",
+    "215",
+    "216"
+   ]
+  },
+  {
+   "subject": "Périmètre — définition (29°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Périmètre — périmètre d’exploitation artisanale — définition (30°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Périmètre — reprise de possession à l’extinction",
+   "ctRefs": [
+    "152"
+   ]
+  },
+  {
+   "subject": "Périmètre — travaux de tiers à l’intérieur",
+   "ctRefs": [
+    "162"
+   ]
+  },
+  {
+   "subject": "Permis d’Exploitation — définition (31°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Permis d’Exploitation — octroi et régime",
+   "ctRefs": [
+    "46",
+    "46-1",
+    "46-2",
+    "47",
+    "48",
+    "49",
+    "50",
+    "51",
+    "51-1",
+    "52",
+    "53",
+    "54",
+    "54-1",
+    "54-2",
+    "54-3",
+    "55",
+    "56",
+    "57",
+    "58",
+    "59",
+    "60",
+    "61"
+   ]
+  },
+  {
+   "subject": "Permis d’Exploitation — renouvellement",
+   "ctRefs": [
+    "120",
+    "121",
+    "122"
+   ]
+  },
+  {
+   "subject": "Permis d’Exploitation — déchéance",
+   "ctRefs": [
+    "145"
+   ]
+  },
+  {
+   "subject": "Permis d’Exploitation — obligations environnementales",
+   "ctRefs": [
+    "184",
+    "185",
+    "186",
+    "187",
+    "188",
+    "189",
+    "190",
+    "191"
+   ]
+  },
+  {
+   "subject": "Permis d’Exploitation — régime fiscal",
+   "ctRefs": [
+    "232",
+    "232-1",
+    "232-2",
+    "232-3",
+    "233",
+    "234",
+    "235",
+    "236",
+    "237",
+    "238",
+    "239"
+   ]
+  },
+  {
+   "subject": "Permis d’Exploitation — régime transitoire",
+   "ctRefs": [
+    "300"
+   ]
+  },
+  {
+   "subject": "Permis d’Exploitation de Carrière — octroi et régime",
+   "ctRefs": [
+    "67",
+    "68",
+    "69",
+    "70",
+    "71",
+    "72",
+    "73",
+    "74",
+    "75",
+    "76",
+    "77",
+    "77-1",
+    "77-2",
+    "77-3",
+    "78",
+    "79",
+    "80",
+    "81",
+    "82",
+    "83",
+    "84",
+    "85",
+    "86",
+    "87",
+    "88",
+    "88-1",
+    "88-2",
+    "88-3",
+    "88-4",
+    "89",
+    "90",
+    "91",
+    "92"
+   ]
+  },
+  {
+   "subject": "Permis d’Exploitation de Carrière — déchéance",
+   "ctRefs": [
+    "145"
+   ]
+  },
+  {
+   "subject": "Permis d’Exploitation de Carrière — obligations environnementales",
+   "ctRefs": [
+    "192",
+    "193",
+    "194",
+    "195",
+    "196",
+    "197",
+    "198",
+    "199"
+   ]
+  },
+  {
+   "subject": "Permis d’Exploitation de Carrière — régime fiscal",
+   "ctRefs": [
+    "240",
+    "241",
+    "242",
+    "243"
+   ]
+  },
+  {
+   "subject": "Permis d’Exploitation de Carrière — régime transitoire",
+   "ctRefs": [
+    "301",
+    "303"
+   ]
+  },
+  {
+   "subject": "Permis d’Exploration — définition (32°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Permis d’Exploration — octroi et régime",
+   "ctRefs": [
+    "30",
+    "31",
+    "32",
+    "33",
+    "34",
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "39-1",
+    "39-2",
+    "40",
+    "41",
+    "42",
+    "43",
+    "44",
+    "45"
+   ]
+  },
+  {
+   "subject": "Permis d’Exploration — fusion",
+   "ctRefs": [
+    "131",
+    "132",
+    "133"
+   ]
+  },
+  {
+   "subject": "Permis d’Exploration — déchéance",
+   "ctRefs": [
+    "144"
+   ]
+  },
+  {
+   "subject": "Permis d’Exploration — obligations environnementales",
+   "ctRefs": [
+    "178",
+    "179",
+    "180",
+    "181",
+    "182",
+    "183"
+   ]
+  },
+  {
+   "subject": "Permis d’Exploration — régime transitoire",
+   "ctRefs": [
+    "297",
+    "298",
+    "299"
+   ]
+  },
+  {
+   "subject": "Permis de Prospection et de Recherche (Décret de 1976) — transformation en permis d’exploration",
+   "ctRefs": [
+    "297",
+    "298",
+    "299"
+   ]
+  },
+  {
+   "subject": "Permis de Prospection et de Recherche (Décret de 1976) — permis d’exploitation",
+   "ctRefs": [
+    "300"
+   ]
+  },
+  {
+   "subject": "Permis de Prospection et de Recherche (Décret de 1976) — demandes en instance au BME",
+   "ctRefs": [
+    "303"
+   ]
+  },
+  {
+   "subject": "Personnel expatrié — visas et autorisations",
+   "ctRefs": [
+    "206"
+   ]
+  },
+  {
+   "subject": "Personnel expatrié — effets personnels et domestiques",
+   "ctRefs": [
+    "246"
+   ]
+  },
+  {
+   "subject": "Personnel haïtien — plan de recrutement, formation, promotion",
+   "ctRefs": [
+    "206"
+   ]
+  },
+  {
+   "subject": "Personnel haïtien — contrôle de la mise en œuvre",
+   "ctRefs": [
+    "207"
+   ]
+  },
+  {
+   "subject": "PGES (Plan de Gestion Environnementale et Sociale) — définition (34°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "PGES (Plan de Gestion Environnementale et Sociale) — mine",
+   "ctRefs": [
+    "184",
+    "188"
+   ]
+  },
+  {
+   "subject": "PGES (Plan de Gestion Environnementale et Sociale) — carrière",
+   "ctRefs": [
+    "192",
+    "196"
+   ]
+  },
+  {
+   "subject": "Pierres précieuses — unité de poids et contre-expertise",
+   "ctRefs": [
+    "232-1"
+   ]
+  },
+  {
+   "subject": "Pierres précieuses — taux de redevance",
+   "ctRefs": [
+    "232-2"
+   ]
+  },
+  {
+   "subject": "Plan d’Atténuation des Impacts — présentation et approbation",
+   "ctRefs": [
+    "178",
+    "179"
+   ]
+  },
+  {
+   "subject": "Plan d’Atténuation des Impacts — mise en œuvre et révision",
+   "ctRefs": [
+    "180",
+    "181"
+   ]
+  },
+  {
+   "subject": "Plan de Réhabilitation du Site — définition (35°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Plan de Réhabilitation du Site — mine",
+   "ctRefs": [
+    "184",
+    "190"
+   ]
+  },
+  {
+   "subject": "Plan de Réhabilitation du Site — carrière",
+   "ctRefs": [
+    "192",
+    "198"
+   ]
+  },
+  {
+   "subject": "Plan de Réhabilitation du Site — déductibilité des provisions",
+   "ctRefs": [
+    "235",
+    "243"
+   ]
+  },
+  {
+   "subject": "Plus-value — cession de Titre Minier",
+   "ctRefs": [
+    "230"
+   ]
+  },
+  {
+   "subject": "Plus-value — cession entre sociétés affiliées",
+   "ctRefs": [
+    "235",
+    "243"
+   ]
+  },
+  {
+   "subject": "Police générale des mines — distances limites et zones de protection",
+   "ctRefs": [
+    "258",
+    "259",
+    "260",
+    "261",
+    "262"
+   ]
+  },
+  {
+   "subject": "Police générale des mines — mesures d’ordre et de police",
+   "ctRefs": [
+    "263",
+    "264"
+   ]
+  },
+  {
+   "subject": "Police générale des mines — surveillance et contrôle administratif",
+   "ctRefs": [
+    "265",
+    "266",
+    "267",
+    "268",
+    "269",
+    "270",
+    "271",
+    "272",
+    "273",
+    "274",
+    "275",
+    "276",
+    "277",
+    "278",
+    "279",
+    "280",
+    "281"
+   ]
+  },
+  {
+   "subject": "Préemption (droit de) — ressources réservées",
+   "ctRefs": [
+    "174"
+   ]
+  },
+  {
+   "subject": "Première transformation — définition (36°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Produit minier — définition (39°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Produit minier — produit — définition (37°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Produit minier — traitement et commercialisation",
+   "ctRefs": [
+    "102",
+    "103",
+    "104",
+    "105",
+    "106",
+    "107",
+    "108",
+    "109"
+   ]
+  },
+  {
+   "subject": "Prospection — définition (41°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Prospection — autorisation",
+   "ctRefs": [
+    "25",
+    "26",
+    "27",
+    "28",
+    "29"
+   ]
+  },
+  {
+   "subject": "Protocole de Développement Communautaire (PDC) — définition (40°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Protocole de Développement Communautaire (PDC) — plan de développement communautaire — définition (33°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Protocole de Développement Communautaire (PDC) — négociation et conclusion",
+   "ctRefs": [
+    "201"
+   ]
+  },
+  {
+   "subject": "Protocole de Développement Communautaire (PDC) — condition préalable à l’autorisation d’opération",
+   "ctRefs": [
+    "202"
+   ]
+  },
+  {
+   "subject": "Protocole de Développement Communautaire (PDC) — dépôt à l’AMN et exécution",
+   "ctRefs": [
+    "203",
+    "204"
+   ]
+  },
+  {
+   "subject": "Protocole de Développement Communautaire (PDC) — déductibilité des dépenses",
+   "ctRefs": [
+    "235",
+    "243"
+   ]
+  },
+  {
+   "subject": "Quitus Environnemental — définition (42°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Quitus Environnemental — permis d’exploration",
+   "ctRefs": [
+    "183"
+   ]
+  },
+  {
+   "subject": "Quitus Environnemental — permis d’exploitation minière",
+   "ctRefs": [
+    "191"
+   ]
+  },
+  {
+   "subject": "Quitus Environnemental — permis d’exploitation de carrière",
+   "ctRefs": [
+    "199"
+   ]
+  },
+  {
+   "subject": "Quitus Environnemental — réhabilitation préalable",
+   "ctRefs": [
+    "151"
+   ]
+  },
+  {
+   "subject": "Raffinage — définition (43°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Recours — droit de recours",
+   "ctRefs": [
+    "287"
+   ]
+  },
+  {
+   "subject": "Recours — délai de quinze jours",
+   "ctRefs": [
+    "288"
+   ]
+  },
+  {
+   "subject": "Recours — saisine de l’AMN",
+   "ctRefs": [
+    "289"
+   ]
+  },
+  {
+   "subject": "Recours — différend technique et arbitrage",
+   "ctRefs": [
+    "289-1"
+   ]
+  },
+  {
+   "subject": "Recours — recours judiciaire",
+   "ctRefs": [
+    "290"
+   ]
+  },
+  {
+   "subject": "Recours — force majeure",
+   "ctRefs": [
+    "295"
+   ]
+  },
+  {
+   "subject": "Recours — suspension du retrait",
+   "ctRefs": [
+    "149"
+   ]
+  },
+  {
+   "subject": "Redevance des transporteurs de produits de carrière — définition — transporteur (55°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Redevance des transporteurs de produits de carrière — assujettissement",
+   "ctRefs": [
+    "226",
+    "241"
+   ]
+  },
+  {
+   "subject": "Redevance pour enlèvement de minerais (« Royalty ») — principe et assiette",
+   "ctRefs": [
+    "232"
+   ]
+  },
+  {
+   "subject": "Redevance pour enlèvement de minerais (« Royalty ») — unité de poids et indice de prix",
+   "ctRefs": [
+    "232-1"
+   ]
+  },
+  {
+   "subject": "Redevance pour enlèvement de minerais (« Royalty ») — tableau des taux par substance",
+   "ctRefs": [
+    "232-2"
+   ]
+  },
+  {
+   "subject": "Redevance pour enlèvement de minerais (« Royalty ») — modification des taux",
+   "ctRefs": [
+    "232-3"
+   ]
+  },
+  {
+   "subject": "Redevance pour enlèvement de minerais (« Royalty ») — intérêts de retard",
+   "ctRefs": [
+    "232"
+   ]
+  },
+  {
+   "subject": "Redevance pour enlèvement de produit de carrière — taux de 10 %",
+   "ctRefs": [
+    "240"
+   ]
+  },
+  {
+   "subject": "Redevance pour enlèvement de produit de carrière — énumération",
+   "ctRefs": [
+    "226"
+   ]
+  },
+  {
+   "subject": "Redevance superficiaire annuelle — principe, assiette et taux",
+   "ctRefs": [
+    "229"
+   ]
+  },
+  {
+   "subject": "Redevance superficiaire annuelle — modification des montants",
+   "ctRefs": [
+    "229-1"
+   ]
+  },
+  {
+   "subject": "Redevance superficiaire annuelle — droit d’octroi corrélatif",
+   "ctRefs": [
+    "228"
+   ]
+  },
+  {
+   "subject": "Redevance superficiaire annuelle — défaut de paiement — déchéance",
+   "ctRefs": [
+    "144",
+    "145"
+   ]
+  },
+  {
+   "subject": "Régime fiscal — dispositions communes aux mines et carrières",
+   "ctRefs": [
+    "225",
+    "226",
+    "227",
+    "228",
+    "229",
+    "229-1",
+    "230",
+    "231"
+   ]
+  },
+  {
+   "subject": "Régime fiscal — mines",
+   "ctRefs": [
+    "232",
+    "232-1",
+    "232-2",
+    "232-3",
+    "233",
+    "234",
+    "235",
+    "236",
+    "237",
+    "238",
+    "239"
+   ]
+  },
+  {
+   "subject": "Régime fiscal — carrières",
+   "ctRefs": [
+    "240",
+    "241",
+    "242",
+    "243"
+   ]
+  },
+  {
+   "subject": "Régime fiscal — stabilisation",
+   "ctRefs": [
+    "239"
+   ]
+  },
+  {
+   "subject": "Régime fiscal — publication des recettes",
+   "ctRefs": [
+    "231"
+   ]
+  },
+  {
+   "subject": "Registre des Titres Miniers — mentions",
+   "ctRefs": [
+    "267"
+   ]
+  },
+  {
+   "subject": "Registre des Titres Miniers — mention de l’extinction",
+   "ctRefs": [
+    "152"
+   ]
+  },
+  {
+   "subject": "Registre des Titres Miniers — mention du cas de force majeure",
+   "ctRefs": [
+    "293"
+   ]
+  },
+  {
+   "subject": "Réhabilitation du site — garantie et fonds de réhabilitation",
+   "ctRefs": [
+    "175"
+   ]
+  },
+  {
+   "subject": "Réhabilitation du site — défaillance du Titulaire",
+   "ctRefs": [
+    "176"
+   ]
+  },
+  {
+   "subject": "Réhabilitation du site — permis d’exploration",
+   "ctRefs": [
+    "182"
+   ]
+  },
+  {
+   "subject": "Réhabilitation du site — permis d’exploitation minière",
+   "ctRefs": [
+    "190"
+   ]
+  },
+  {
+   "subject": "Réhabilitation du site — permis d’exploitation de carrière",
+   "ctRefs": [
+    "198"
+   ]
+  },
+  {
+   "subject": "Réhabilitation du site — charge de l’exploitant après extinction",
+   "ctRefs": [
+    "151"
+   ]
+  },
+  {
+   "subject": "Renonciation aux Titres Miniers — régime",
+   "ctRefs": [
+    "134",
+    "135",
+    "136",
+    "137",
+    "138",
+    "139",
+    "140",
+    "141",
+    "142"
+   ]
+  },
+  {
+   "subject": "Renouvellement des Titres Miniers — régime",
+   "ctRefs": [
+    "120",
+    "121",
+    "122"
+   ]
+  },
+  {
+   "subject": "Renouvellement des Titres Miniers — droit d’octroi",
+   "ctRefs": [
+    "228"
+   ]
+  },
+  {
+   "subject": "Rente Minière (Taxe sur la ~ — TRM) — assujettissement — rendement surélevé",
+   "ctRefs": [
+    "237"
+   ]
+  },
+  {
+   "subject": "Rente Minière (Taxe sur la ~ — TRM) — taux de 20 %",
+   "ctRefs": [
+    "238"
+   ]
+  },
+  {
+   "subject": "Réquisition de substances minières — ordre public et indemnisation",
+   "ctRefs": [
+    "157"
+   ]
+  },
+  {
+   "subject": "Ressources réservées — définition (44°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Ressources réservées — déclaration et interdictions",
+   "ctRefs": [
+    "170",
+    "171",
+    "172",
+    "173",
+    "174"
+   ]
+  },
+  {
+   "subject": "Ressources réservées — sanction",
+   "ctRefs": [
+    "284"
+   ]
+  },
+  {
+   "subject": "Retenue à la source — intérêts — exonération",
+   "ctRefs": [
+    "236"
+   ]
+  },
+  {
+   "subject": "Retenue à la source — dividendes — taux libératoire",
+   "ctRefs": [
+    "236",
+    "253"
+   ]
+  },
+  {
+   "subject": "Retenue à la source — loyers de sites de carrière",
+   "ctRefs": [
+    "242"
+   ]
+  },
+  {
+   "subject": "Retrait des Titres Miniers — nullité du titre",
+   "ctRefs": [
+    "143"
+   ]
+  },
+  {
+   "subject": "Retrait des Titres Miniers — déchéance — permis d’exploration",
+   "ctRefs": [
+    "144"
+   ]
+  },
+  {
+   "subject": "Retrait des Titres Miniers — déchéance — permis d’exploitation",
+   "ctRefs": [
+    "145"
+   ]
+  },
+  {
+   "subject": "Retrait des Titres Miniers — manquement grave",
+   "ctRefs": [
+    "146"
+   ]
+  },
+  {
+   "subject": "Retrait des Titres Miniers — date d’effet et responsabilité",
+   "ctRefs": [
+    "147",
+    "148"
+   ]
+  },
+  {
+   "subject": "Retrait des Titres Miniers — suspension et arbitrage",
+   "ctRefs": [
+    "149"
+   ]
+  },
+  {
+   "subject": "Retrait des Titres Miniers — interdiction d’obtenir un titre pendant cinq ans",
+   "ctRefs": [
+    "150"
+   ]
+  },
+  {
+   "subject": "Retrait des Titres Miniers — permis d’exploration — trois avis défavorables",
+   "ctRefs": [
+    "179"
+   ]
+  },
+  {
+   "subject": "Santé et sécurité au travail — législation et normes applicables",
+   "ctRefs": [
+    "208",
+    "209"
+   ]
+  },
+  {
+   "subject": "Santé et sécurité au travail — renseignements à fournir à l’AMN",
+   "ctRefs": [
+    "272"
+   ]
+  },
+  {
+   "subject": "Santé et sécurité au travail — observations des agents",
+   "ctRefs": [
+    "274"
+   ]
+  },
+  {
+   "subject": "Société affiliée — définition (45°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Société affiliée — contrats et conditions",
+   "ctRefs": [
+    "250"
+   ]
+  },
+  {
+   "subject": "Société affiliée — intérêts déductibles",
+   "ctRefs": [
+    "235",
+    "243"
+   ]
+  },
+  {
+   "subject": "Société affiliée — cession à la valeur aux livres",
+   "ctRefs": [
+    "235",
+    "243"
+   ]
+  },
+  {
+   "subject": "Société affiliée — régime douanier",
+   "ctRefs": [
+    "244",
+    "247",
+    "248"
+   ]
+  },
+  {
+   "subject": "Sous-traitant — définition (46°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Sous-traitant — expropriation pour projets sociaux",
+   "ctRefs": [
+    "165-2"
+   ]
+  },
+  {
+   "subject": "Sous-traitant — régime douanier",
+   "ctRefs": [
+    "244",
+    "247",
+    "248"
+   ]
+  },
+  {
+   "subject": "Sous-traitant — libre choix garanti",
+   "ctRefs": [
+    "249"
+   ]
+  },
+  {
+   "subject": "Sous-traitant — transferts de fonds",
+   "ctRefs": [
+    "253"
+   ]
+  },
+  {
+   "subject": "Substances — substance minière — définition (50°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Substances — substance minérale solide — définition (49°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Substances — substance fossile solide — définition (48°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Substances — substance de carrière — définition (47°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Substances — découverte — obligation d’aviser",
+   "ctRefs": [
+    "270"
+   ]
+  },
+  {
+   "subject": "Surveillance et contrôle administratif — pouvoirs de l’AMN",
+   "ctRefs": [
+    "265",
+    "266",
+    "267",
+    "268",
+    "269",
+    "270",
+    "271",
+    "272"
+   ]
+  },
+  {
+   "subject": "Surveillance et contrôle administratif — visites périodiques",
+   "ctRefs": [
+    "273",
+    "274"
+   ]
+  },
+  {
+   "subject": "Surveillance et contrôle administratif — exécution d’office",
+   "ctRefs": [
+    "275",
+    "280"
+   ]
+  },
+  {
+   "subject": "Surveillance et contrôle administratif — changements soumis à notification",
+   "ctRefs": [
+    "276"
+   ]
+  },
+  {
+   "subject": "Surveillance et contrôle administratif — règles de l’art et suspension",
+   "ctRefs": [
+    "277",
+    "278"
+   ]
+  },
+  {
+   "subject": "Surveillance et contrôle administratif — prévention des dangers",
+   "ctRefs": [
+    "279",
+    "281"
+   ]
+  },
+  {
+   "subject": "Tiers — définition (52°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Tiers — rapports avec les tiers",
+   "ctRefs": [
+    "158",
+    "159",
+    "160",
+    "161",
+    "162"
+   ]
+  },
+  {
+   "subject": "Tiers — voies de communication",
+   "ctRefs": [
+    "163"
+   ]
+  },
+  {
+   "subject": "Titres Miniers — définition (53°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Titres Miniers — étendue des droits conférés",
+   "ctRefs": [
+    "110",
+    "111",
+    "112",
+    "113",
+    "114",
+    "115",
+    "115-1",
+    "115-2",
+    "115-3",
+    "115-4",
+    "116",
+    "117",
+    "118",
+    "119"
+   ]
+  },
+  {
+   "subject": "Titres Miniers — renouvellement, extension",
+   "ctRefs": [
+    "120",
+    "121",
+    "122",
+    "123"
+   ]
+  },
+  {
+   "subject": "Titres Miniers — cession, transmission, fusion",
+   "ctRefs": [
+    "124",
+    "125",
+    "126",
+    "127",
+    "128",
+    "129",
+    "130",
+    "131",
+    "132",
+    "133"
+   ]
+  },
+  {
+   "subject": "Titres Miniers — renonciation, retrait, extinction",
+   "ctRefs": [
+    "134",
+    "135",
+    "136",
+    "137",
+    "138",
+    "139",
+    "140",
+    "141",
+    "142",
+    "143",
+    "144",
+    "145",
+    "146",
+    "147",
+    "148",
+    "149",
+    "150",
+    "151",
+    "152",
+    "153"
+   ]
+  },
+  {
+   "subject": "Titres Miniers — nullité",
+   "ctRefs": [
+    "143"
+   ]
+  },
+  {
+   "subject": "Traitement des produits miniers — régime",
+   "ctRefs": [
+    "102",
+    "103"
+   ]
+  },
+  {
+   "subject": "Transferts de fonds — conversion et transfert",
+   "ctRefs": [
+    "253"
+   ]
+  },
+  {
+   "subject": "Transferts de fonds — conservation à l’étranger et rapatriement",
+   "ctRefs": [
+    "254"
+   ]
+  },
+  {
+   "subject": "Travail (obligations en matière de) — législation applicable",
+   "ctRefs": [
+    "205",
+    "206",
+    "207"
+   ]
+  },
+  {
+   "subject": "Travaux souterrains — puits et galeries — déclaration",
+   "ctRefs": [
+    "213"
+   ]
+  },
+  {
+   "subject": "Travaux souterrains — avis préalable — distances",
+   "ctRefs": [
+    "260"
+   ]
+  },
+  {
+   "subject": "Travaux souterrains — massifs de protection",
+   "ctRefs": [
+    "261"
+   ]
+  },
+  {
+   "subject": "Travaux souterrains — accès interdit",
+   "ctRefs": [
+    "264"
+   ]
+  },
+  {
+   "subject": "Travaux souterrains — forages de plus de vingt mètres",
+   "ctRefs": [
+    "268",
+    "269"
+   ]
+  },
+  {
+   "subject": "Visites périodiques — agents de l’AMN",
+   "ctRefs": [
+    "273",
+    "274"
+   ]
+  },
+  {
+   "subject": "Voies de communication — usage par l’État et les tiers",
+   "ctRefs": [
+    "163"
+   ]
+  },
+  {
+   "subject": "Zones interdites — définition (56°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Zones interdites — déclaration par arrêté",
+   "ctRefs": [
+    "170"
+   ]
+  },
+  {
+   "subject": "Zones réservées — définition (57°)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Zones réservées — déclaration par arrêté",
+   "ctRefs": [
+    "170"
+   ]
+  }
+ ],
+ "crossRefs": [
+  {
+   "anchor": "sec-1",
+   "articles": [],
+   "note": "Le Journal officiel porte ici « CHAPITRE PREMIER — DISPOSITIONS GÉNÉRALES » au niveau hiérarchique des Titres ; la lecture systématique du Décret (le Titre suivant étant le « TITRE II ») établit qu'il s'agit du TITRE PREMIER. Le texte du Moniteur est reproduit tel quel."
+  },
+  {
+   "anchor": "sec-7",
+   "articles": [],
+   "note": "Le Journal officiel imprime « Articles 27.- » (sic, au pluriel) pour l'article 27, reproduit tel quel ci-dessous — l'article existe bien, entre les articles 26 et 28."
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2",
+  "art-3": "Article 3",
+  "art-4": "Article 4",
+  "art-5": "Article 5",
+  "art-6": "Article 6",
+  "art-7": "Article 7",
+  "art-8": "Article 8",
+  "art-9": "Article 9",
+  "art-10": "Article 10",
+  "art-11": "Article 11",
+  "art-12": "Article 12",
+  "art-13": "Article 13",
+  "art-14": "Article 14",
+  "art-15": "Article 15",
+  "art-16": "Article 16",
+  "art-17": "Article 17",
+  "art-18": "Article 18",
+  "art-19": "Article 19",
+  "art-20": "Article 20",
+  "art-21": "Article 21",
+  "art-22": "Article 22",
+  "art-23": "Article 23",
+  "art-24": "Article 24",
+  "art-25": "Article 25",
+  "art-26": "Article 26",
+  "art-27": "Article 27",
+  "art-28": "Article 28",
+  "art-29": "Article 29",
+  "art-30": "Article 30",
+  "art-31": "Article 31",
+  "art-32": "Article 32",
+  "art-33": "Article 33",
+  "art-34": "Article 34",
+  "art-35": "Article 35",
+  "art-36": "Article 36",
+  "art-37": "Article 37",
+  "art-38": "Article 38",
+  "art-39": "Article 39",
+  "art-39-1": "Article 39.1",
+  "art-39-2": "Article 39.2",
+  "art-40": "Article 40",
+  "art-41": "Article 41",
+  "art-42": "Article 42",
+  "art-43": "Article 43",
+  "art-44": "Article 44",
+  "art-45": "Article 45",
+  "art-46": "Article 46",
+  "art-46-1": "Article 46.1",
+  "art-46-2": "Article 46.2",
+  "art-47": "Article 47",
+  "art-48": "Article 48",
+  "art-49": "Article 49",
+  "art-50": "Article 50",
+  "art-51": "Article 51",
+  "art-51-1": "Article 51.1",
+  "art-52": "Article 52",
+  "art-53": "Article 53",
+  "art-54": "Article 54",
+  "art-54-1": "Article 54.1",
+  "art-54-2": "Article 54.2",
+  "art-54-3": "Article 54.3",
+  "art-55": "Article 55",
+  "art-56": "Article 56",
+  "art-57": "Article 57",
+  "art-58": "Article 58",
+  "art-59": "Article 59",
+  "art-60": "Article 60",
+  "art-61": "Article 61",
+  "art-62": "Article 62",
+  "art-63": "Article 63",
+  "art-64": "Article 64",
+  "art-65": "Article 65",
+  "art-66": "Article 66",
+  "art-67": "Article 67",
+  "art-68": "Article 68",
+  "art-69": "Article 69",
+  "art-70": "Article 70",
+  "art-71": "Article 71",
+  "art-72": "Article 72",
+  "art-73": "Article 73",
+  "art-74": "Article 74",
+  "art-75": "Article 75",
+  "art-76": "Article 76",
+  "art-77": "Article 77",
+  "art-77-1": "Article 77.1",
+  "art-77-2": "Article 77.2",
+  "art-77-3": "Article 77.3",
+  "art-78": "Article 78",
+  "art-79": "Article 79",
+  "art-80": "Article 80",
+  "art-81": "Article 81",
+  "art-82": "Article 82",
+  "art-83": "Article 83",
+  "art-84": "Article 84",
+  "art-85": "Article 85",
+  "art-86": "Article 86",
+  "art-87": "Article 87",
+  "art-88": "Article 88",
+  "art-88-1": "Article 88.1",
+  "art-88-2": "Article 88.2",
+  "art-88-3": "Article 88.3",
+  "art-88-4": "Article 88.4",
+  "art-89": "Article 89",
+  "art-90": "Article 90",
+  "art-91": "Article 91",
+  "art-92": "Article 92",
+  "art-93": "Article 93",
+  "art-94": "Article 94",
+  "art-95": "Article 95",
+  "art-96": "Article 96",
+  "art-97": "Article 97",
+  "art-97-1": "Article 97.1",
+  "art-97-2": "Article 97.2",
+  "art-98": "Article 98",
+  "art-99": "Article 99",
+  "art-100": "Article 100",
+  "art-101": "Article 101",
+  "art-102": "Article 102",
+  "art-103": "Article 103",
+  "art-104": "Article 104",
+  "art-105": "Article 105",
+  "art-106": "Article 106",
+  "art-107": "Article 107",
+  "art-108": "Article 108",
+  "art-109": "Article 109",
+  "art-110": "Article 110",
+  "art-111": "Article 111",
+  "art-112": "Article 112",
+  "art-113": "Article 113",
+  "art-114": "Article 114",
+  "art-115": "Article 115",
+  "art-115-1": "Article 115.1",
+  "art-115-2": "Article 115.2",
+  "art-115-3": "Article 115.3",
+  "art-115-4": "Article 115.4",
+  "art-116": "Article 116",
+  "art-117": "Article 117",
+  "art-118": "Article 118",
+  "art-119": "Article 119",
+  "art-120": "Article 120",
+  "art-121": "Article 121",
+  "art-122": "Article 122",
+  "art-123": "Article 123",
+  "art-124": "Article 124",
+  "art-125": "Article 125",
+  "art-126": "Article 126",
+  "art-127": "Article 127",
+  "art-128": "Article 128",
+  "art-129": "Article 129",
+  "art-130": "Article 130",
+  "art-131": "Article 131",
+  "art-132": "Article 132",
+  "art-133": "Article 133",
+  "art-134": "Article 134",
+  "art-135": "Article 135",
+  "art-136": "Article 136",
+  "art-137": "Article 137",
+  "art-138": "Article 138",
+  "art-139": "Article 139",
+  "art-140": "Article 140",
+  "art-141": "Article 141",
+  "art-142": "Article 142",
+  "art-143": "Article 143",
+  "art-144": "Article 144",
+  "art-145": "Article 145",
+  "art-146": "Article 146",
+  "art-147": "Article 147",
+  "art-148": "Article 148",
+  "art-149": "Article 149",
+  "art-150": "Article 150",
+  "art-151": "Article 151",
+  "art-152": "Article 152",
+  "art-153": "Article 153",
+  "art-154": "Article 154",
+  "art-155": "Article 155",
+  "art-156": "Article 156",
+  "art-157": "Article 157",
+  "art-158": "Article 158",
+  "art-159": "Article 159",
+  "art-160": "Article 160",
+  "art-161": "Article 161",
+  "art-162": "Article 162",
+  "art-163": "Article 163",
+  "art-164": "Article 164",
+  "art-165": "Article 165",
+  "art-165-1": "Article 165.1",
+  "art-165-2": "Article 165.2",
+  "art-166": "Article 166",
+  "art-167": "Article 167",
+  "art-168": "Article 168",
+  "art-169": "Article 169",
+  "art-170": "Article 170",
+  "art-171": "Article 171",
+  "art-172": "Article 172",
+  "art-173": "Article 173",
+  "art-174": "Article 174",
+  "art-175": "Article 175",
+  "art-176": "Article 176",
+  "art-177": "Article 177",
+  "art-178": "Article 178",
+  "art-179": "Article 179",
+  "art-180": "Article 180",
+  "art-181": "Article 181",
+  "art-182": "Article 182",
+  "art-183": "Article 183",
+  "art-184": "Article 184",
+  "art-185": "Article 185",
+  "art-186": "Article 186",
+  "art-187": "Article 187",
+  "art-188": "Article 188",
+  "art-189": "Article 189",
+  "art-190": "Article 190",
+  "art-191": "Article 191",
+  "art-192": "Article 192",
+  "art-193": "Article 193",
+  "art-194": "Article 194",
+  "art-195": "Article 195",
+  "art-196": "Article 196",
+  "art-197": "Article 197",
+  "art-198": "Article 198",
+  "art-199": "Article 199",
+  "art-200": "Article 200",
+  "art-201": "Article 201",
+  "art-202": "Article 202",
+  "art-203": "Article 203",
+  "art-204": "Article 204",
+  "art-205": "Article 205",
+  "art-206": "Article 206",
+  "art-207": "Article 207",
+  "art-208": "Article 208",
+  "art-209": "Article 209",
+  "art-210": "Article 210",
+  "art-211": "Article 211",
+  "art-212": "Article 212",
+  "art-213": "Article 213",
+  "art-214": "Article 214",
+  "art-215": "Article 215",
+  "art-216": "Article 216",
+  "art-217": "Article 217",
+  "art-218": "Article 218",
+  "art-219": "Article 219",
+  "art-220": "Article 220",
+  "art-221": "Article 221",
+  "art-222": "Article 222",
+  "art-223": "Article 223",
+  "art-224": "Article 224",
+  "art-225": "Article 225",
+  "art-226": "Article 226",
+  "art-227": "Article 227",
+  "art-228": "Article 228",
+  "art-229": "Article 229",
+  "art-229-1": "Article 229.1",
+  "art-230": "Article 230",
+  "art-231": "Article 231",
+  "art-232": "Article 232",
+  "art-232-1": "Article 232.1",
+  "art-232-2": "Article 232.2",
+  "art-232-3": "Article 232.3",
+  "art-233": "Article 233",
+  "art-234": "Article 234",
+  "art-235": "Article 235",
+  "art-236": "Article 236",
+  "art-237": "Article 237",
+  "art-238": "Article 238",
+  "art-239": "Article 239",
+  "art-240": "Article 240",
+  "art-241": "Article 241",
+  "art-242": "Article 242",
+  "art-243": "Article 243",
+  "art-244": "Article 244",
+  "art-245": "Article 245",
+  "art-245-1": "Article 245.1",
+  "art-245-2": "Article 245.2",
+  "art-245-3": "Article 245.3",
+  "art-245-4": "Article 245.4",
+  "art-245-5": "Article 245.5",
+  "art-245-6": "Article 245.6",
+  "art-246": "Article 246",
+  "art-247": "Article 247",
+  "art-248": "Article 248",
+  "art-249": "Article 249",
+  "art-250": "Article 250",
+  "art-251": "Article 251",
+  "art-252": "Article 252",
+  "art-253": "Article 253",
+  "art-254": "Article 254",
+  "art-255": "Article 255",
+  "art-256": "Article 256",
+  "art-257": "Article 257",
+  "art-258": "Article 258",
+  "art-259": "Article 259",
+  "art-260": "Article 260",
+  "art-261": "Article 261",
+  "art-262": "Article 262",
+  "art-263": "Article 263",
+  "art-264": "Article 264",
+  "art-265": "Article 265",
+  "art-266": "Article 266",
+  "art-267": "Article 267",
+  "art-268": "Article 268",
+  "art-269": "Article 269",
+  "art-270": "Article 270",
+  "art-271": "Article 271",
+  "art-272": "Article 272",
+  "art-273": "Article 273",
+  "art-274": "Article 274",
+  "art-275": "Article 275",
+  "art-276": "Article 276",
+  "art-277": "Article 277",
+  "art-278": "Article 278",
+  "art-279": "Article 279",
+  "art-280": "Article 280",
+  "art-281": "Article 281",
+  "art-282": "Article 282",
+  "art-283": "Article 283",
+  "art-284": "Article 284",
+  "art-285": "Article 285",
+  "art-286": "Article 286",
+  "art-287": "Article 287",
+  "art-288": "Article 288",
+  "art-289": "Article 289",
+  "art-289-1": "Article 289.1",
+  "art-290": "Article 290",
+  "art-291": "Article 291",
+  "art-292": "Article 292",
+  "art-293": "Article 293",
+  "art-294": "Article 294",
+  "art-295": "Article 295",
+  "art-296": "Article 296",
+  "art-297": "Article 297",
+  "art-298": "Article 298",
+  "art-299": "Article 299",
+  "art-300": "Article 300",
+  "art-301": "Article 301",
+  "art-302": "Article 302",
+  "art-302-1": "Article 302.1",
+  "art-302-2": "Article 302.2",
+  "art-303": "Article 303",
+  "art-304": "Article 304",
+  "art-305": "Article 305",
+  "art-306": "Article 306"
+ }
+}

@@ -33,10 +33,16 @@ const LOI_RE = /\bloi\s+N[oº°]\.?\s*:?\s*(\d{1,2})\b/gi
 // d'instruction criminelle ») — « du présent code » reste un renvoi interne (donc lié).
 // 4 chiffres + suffixe « -N » admis : la réforme du Code de commerce (1111-2, 1136-15…)
 // et les décrets récents du Code civil numérotent ainsi (constat d'audit : aucun renvoi
-// interne de la réforme n'était cliquable avec la limite \d{1,3}).
+// interne de la réforme n'était cliquable avec la limite \d{1,3}). Le suffixe DÉCIMAL
+// « .N » (Décret minier 2026 : « articles 54, 54.1, 54.2 ») est admis au même titre —
+// il exige 1-2 chiffres collés au point, un point final de phrase n'est jamais capturé ;
+// l'ancre reste anti-lien-mort (articleAnchorFromNum : 54.1 → art-54-1 ∈ artRefs ?).
+// EXCEPTION : décimal suivi de « ) » refusé — style des traités « article 17.2) » =
+// article 17, paragraphe 2) (Convention de Paris) : on capture la base « 17 » et son
+// lien interne est conservé (constat d'audit : 7 liens perdus sinon).
 const ART_REF_RE =
-  /\b(?:articles?|art\.)\s+\d{1,4}(?!\d)(?:-\d{1,2}(?!\d))?(?:\s*(?:bis|ter))?(?:\s*(?:,|;|et|à)\s*\d{1,4}(?!\d)(?:-\d{1,2}(?!\d))?(?:\s*(?:bis|ter))?)*/gi
-const ART_NUM_RE = /(\d{1,4}(?!\d)(?:-\d{1,2}(?!\d))?(?:\s*(?:bis|ter))?)/i
+  /\b(?:articles?|art\.)\s+\d{1,4}(?!\d)(?:-\d{1,2}(?!\d)|\.\d{1,2}(?!\d)(?!\)))?(?:\s*(?:bis|ter))?(?:\s*(?:,|;|et|à)\s*\d{1,4}(?!\d)(?:-\d{1,2}(?!\d)|\.\d{1,2}(?!\d)(?!\)))?(?:\s*(?:bis|ter))?)*/gi
+const ART_NUM_RE = /(\d{1,4}(?!\d)(?:-\d{1,2}(?!\d)|\.\d{1,2}(?!\d)(?!\)))?(?:\s*(?:bis|ter))?)/i
 const ART_EXT_AFTER = /^\s*(?:du|de\s+la|de\s+l['’]|des)\s+(?:d[ée]cret|loi|ordonnance|arr[êe]t[ée]|constitution|code\s+d)/i
 // Renvoi externe annoncé AVANT les numéros (« selon les dispositions du décret du
 // 6 janvier 2016 … particulièrement en ses articles 9, 31, 32 et 41 ») : le garde

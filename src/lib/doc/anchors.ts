@@ -39,6 +39,12 @@ export function articleAnchorFromHeading(textLine: string): string | undefined {
   const m = textLine.match(
     /^(?:art(?:icle)?\.?|section)\s+(premier|\d{1,4}(?:\s*(?:er|ère))?(?:\s*(?:bis|ter|quater))?(?:[.\-]\d+)*)/i,
   )
-  if (!m) return undefined
-  return anchorFromDesignation(m[1])
+  if (m) return anchorFromDesignation(m[1])
+  // Forme PLURIELLE « Articles 27.- » : coquille du Journal officiel (Décret minier,
+  // Spécial N° 16 du 30 mars 2026, p. 12) conservée VERBATIM dans le corps. Tolérée
+  // UNIQUEMENT avec la ponctuation de tête « .- » — une citation en début de ligne
+  // (« Articles 185 à 188 », « Articles 137, 138… ») ne devient jamais une tête.
+  const p = textLine.match(/^articles\s+(\d{1,4}(?:[.\-]\d+)*)\.-/i)
+  if (p) return anchorFromDesignation(p[1])
+  return undefined
 }

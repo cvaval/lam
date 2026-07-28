@@ -10,8 +10,11 @@ import type { Locale } from '@/lib/types'
 const INDEX_LBL: Record<Locale, string> = { fr: 'Index', en: 'Index', ht: 'Endèks' }
 // En-tête d'article en tête d'un bloc (« Article 12.- … » du Code du travail, « Article 12.1 »
 // de la Constitution, « Art. 2047 » du Code civil) : retiré du corps (affiché en badge).
+// « articles? » : tolère la forme plurielle « Articles 27.- » (coquille du Journal
+// officiel, Décret minier p. 12) — reconnue comme tête UNIQUEMENT suivie de « .- »
+// par anchors.ts ; ici le pluriel ne s'applique qu'au retrait du libellé en tête de bloc.
 const LEAD_ART =
-  /^(?:art(?:icle)?\.?|section)\s+(?:premier|\d{1,4}(?:\s*(?:er|ère))?(?:\s*(?:bis|ter|quater))?(?:[.\-]\d+)*)\s*[.)\-–]*\s*/i
+  /^(?:art(?:icle)?s?\.?|section)\s+(?:premier|\d{1,4}(?:\s*(?:er|ère))?(?:\s*(?:bis|ter|quater))?(?:[.\-]\d+)*)\s*[.)\-–]*\s*/i
 // Statut d'amendement (Constitution) → pastille colorée.
 const STATUS_BADGE: Record<string, { fr: string; cls: string }> = {
   modifié: { fr: 'modifié', cls: 'bg-brim-50 text-brim-700' },
