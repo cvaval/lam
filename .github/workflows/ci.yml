@@ -32,6 +32,10 @@ jobs:
         with: { node-version: 20, cache: npm }
       - run: npm ci
       - run: npx prisma generate
+      # pg_trgm : les index trigrammes du schéma (Document.searchText, Company.searchName)
+      # l'exigent. Présent en prod (Supabase) mais absent de la base jetable du CI — cause
+      # des 52 échecs « gin_trgm_ops does not exist » depuis la création du workflow.
+      - run: psql "$DATABASE_URL" -c 'CREATE EXTENSION IF NOT EXISTS pg_trgm'
       - run: npx prisma db push --skip-generate
       - run: npm run typecheck
       - run: npm run lint

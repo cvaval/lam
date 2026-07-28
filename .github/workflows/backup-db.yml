@@ -76,14 +76,33 @@ jobs:
           # être >= au serveur). Docker est préinstallé sur le runner : plus d'installation
           # fragile de client PostgreSQL. Le dump + le contrôle d'intégrité tournent dans le
           # conteneur (pg_restore 17) ; le fichier atterrit sur l'hôte via le montage /work.
-          docker run --rm -e DB="$CONN" -e OUT="$OUT" -v "$PWD:/work" -w /work postgres:17 \
-            bash -euo pipefail -c '
-              pg_dump "$DB" -Fc --no-owner --no-privileges -f "$OUT"
-              pg_restore --list "$OUT" >/dev/null || { echo "::error::archive illisible"; exit 1; }
-              pg_restore --list "$OUT" | grep -q "TABLE DATA public Document " \
-                || { echo "::error::table Document absente — dump incomplet"; exit 1; }
-              echo "Dump OK : $(du -h "$OUT" | cut -f1)"
-            '
+          # En cas de dump incomplet (échecs des 26-27 juil. : « table Document absente »
+          # alors que la même commande locale est saine), on IMPRIME le listing de
+          # l'archive pour voir ce qui a réellement été sauvegardé (noms de tables
+          # seulement — rien de sensible), puis on retente UNE fois après 60 s.
+          dump_once() {
+            docker run --rm -e DB="$CONN" -e OUT="$OUT" -v "$PWD:/work" -w /work postgres:17 \
+              bash -euo pipefail -c '
+                rm -f "$OUT"
+                pg_dump "$DB" -Fc --no-owner --no-privileges -f "$OUT"
+                pg_restore --list "$OUT" >/dev/null || { echo "::warning::archive illisible"; exit 1; }
+                if ! pg_restore --list "$OUT" | grep -q "TABLE DATA public Document "; then
+                  echo "::warning::table Document absente du listing — diagnostic :"
+                  echo "— taille de l archive : $(du -h "$OUT" | cut -f1)"
+                  echo "— entrées TABLE DATA présentes :"
+                  pg_restore --list "$OUT" | grep "TABLE DATA" || echo "  (aucune)"
+                  echo "— 40 premières lignes du listing :"
+                  pg_restore --list "$OUT" | head -40
+                  exit 1
+                fi
+                echo "Dump OK : $(du -h "$OUT" | cut -f1)"
+              '
+          }
+          if ! dump_once; then
+            echo "::warning::1re tentative incomplète — nouvelle tentative dans 60 s"
+            sleep 60
+            dump_once || { echo "::error::dump incomplet après 2 tentatives (diagnostic ci-dessus)"; exit 1; }
+          fi
           # Chiffrement symétrique AES-256 sur l'hôte (gnupg préinstallé) avant tout stockage.
           gpg --batch --yes --pinentry-mode loopback --passphrase "$PASSPHRASE" \
             --cipher-algo AES256 -c "$OUT"
