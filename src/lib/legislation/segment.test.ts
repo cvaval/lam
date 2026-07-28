@@ -2,7 +2,6 @@ import { describe, it, expect } from 'vitest'
 import { applyAmendments, splitArticles } from './segment'
 import type { ArticleOverlay } from './amendments'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const overlay = (anchor: string, body: string): ArticleOverlay => ({
   anchor,
   label: null,

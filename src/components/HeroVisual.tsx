@@ -52,7 +52,7 @@ export function HeroVisual() {
       <div className="absolute -bottom-6 -right-3 w-52 rounded-2xl bg-white p-4 shadow-2xl ring-1 ring-lank/5 sm:-right-6">
         <div className="font-serif text-3xl font-bold leading-none text-lank">1987</div>
         <div className="mt-2 h-1 w-12 rounded-full bg-sitwon" />
-        <div className="mt-2 text-sm font-semibold leading-snug text-lank">Constitution de la République d'Haïti</div>
+        <div className="mt-2 text-sm font-semibold leading-snug text-lank">Constitution de la République d&rsquo;Haïti</div>
         <div className="mt-1 font-mono text-[10px] text-lank/45">Le Moniteur · 29 mars 1987</div>
         <div className="mt-2 inline-flex items-center gap-1 rounded-full bg-sitwon px-2 py-0.5 text-[10px] font-bold text-lank">✓ DOKIMAN VERIFYE</div>
       </div>
