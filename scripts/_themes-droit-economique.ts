@@ -46,11 +46,15 @@ const ASSIGN: Record<string, string[]> = {
   'societes-anonymes': ['IV-A-1', 'IV-A-2', 'IV-A-3', 'IV-A-4', 'IV-A-5', 'IV-A-6', 'IV-B', 'IV-C'].map(V),
   'code-de-commerce': ['CODE_COMMERCE_ANNOTE', 'LOI_STATUT_COMMERCANT_2018', V('I-A'), V('I-G')],
   'droit-maritime': ['V-A-1', 'V-A-2', 'V-B-1', 'V-C', 'V-D-1', 'V-E', 'V-F', 'V-H', 'V-I', 'V-J', 'I-C-1'].map(V),
-  'droit-bancaire': ['II-A', 'II-B-1', 'II-B-2', 'II-B-3', 'II-B-4', 'II-C', 'II-D', 'II-E', 'II-F', 'II-G', 'II-H-1', 'II-H-2', 'II-I-1', 'II-J', 'II-K', 'II-L-1', 'II-L-2', 'II-M'].map(V),
+  // I-B-1/I-B-2 (agents de change et courtiers) : décision cliente 28 juil. (3ᵉ vague)
+  // — ils relèvent de la section bancaire, pas de la profession de commerçant.
+  'droit-bancaire': ['II-A', 'II-B-1', 'II-B-2', 'II-B-3', 'II-B-4', 'II-C', 'II-D', 'II-E', 'II-F', 'II-G', 'II-H-1', 'II-H-2', 'II-I-1', 'II-J', 'II-K', 'II-L-1', 'II-L-2', 'II-M', 'I-B-1', 'I-B-2'].map(V),
   fiscalite: ['VII-A-1', 'VII-A-2', 'VII-A-3', 'VII-B-1', 'VII-B-2', 'VII-C', 'VII-D-1', 'VII-D-2', 'VII-D-3', 'VII-D-4', 'VII-E', 'VII-F-1'].map(V),
   'propriete-intellectuelle': ['III-A', 'III-B-1', 'III-B-2', 'III-B-3', 'III-B-4', 'III-C'].map(V),
   arbitrage: ['I-D-1', 'I-D-2', 'I-Annexe-I', 'I-Annexe-II'].map(V),
-  'profession-de-commercant': ['LOI_STATUT_COMMERCANT_2018', V('I-G'), V('I-A'), V('I-B-1'), V('I-B-2'), V('I-C-1'), V('I-J')],
+  // Noyau strict (3ᵉ vague) : agents de change → bancaire, agents maritimes → maritime
+  // (déjà classé), commissionnaire en douane → douane (déjà classé).
+  'profession-de-commercant': ['LOI_STATUT_COMMERCANT_2018', V('I-G'), V('I-A')],
   'transport-aerien': ['VI-A', 'VI-B', 'VI-C', 'VI-D-1', 'VI-D-2', 'VI-E', 'VI-F'].map(V),
   assurances: ['IV-D-1', 'IV-D-2'].map(V),
   // Recoupements — thèmes existants d'autres branches (mêmes textes, autre foyer).
@@ -61,6 +65,13 @@ const ASSIGN: Record<string, string[]> = {
   'agriculture-rural': ['II-F'].map(V),
   'sante-publique': ['I-R-1', 'I-R-2', 'I-R-3'].map(V),
   'commerce-industrie': ['I-E', 'I-F-1', 'I-F-2', 'I-H-1', 'I-H-2', 'I-K', 'I-P-1', 'I-P-2', 'I-Q-1', 'I-Q-2', 'I-Q-3', 'I-Q-4', 'II-D'].map(V),
+}
+
+// ── Déclassements EXPLICITES (consigne cliente — seule exception à copier-sans-retirer) :
+// ces affectations, créées par la 2ᵉ vague, sont RETIRÉES du thème (le document reste
+// dans tous ses autres thèmes ; aucun document n'est supprimé).
+const REMOVE: Record<string, string[]> = {
+  'profession-de-commercant': ['I-B-1', 'I-B-2', 'I-C-1', 'I-J'].map(V),
 }
 
 async function main() {
@@ -127,6 +138,24 @@ async function main() {
   }
   console.log(`✓ affectations : ${created} créées · ${skipped} déjà en place`)
 
+  // ── 4 bis. Déclassements explicites (consigne cliente) ────────────────────────
+  let removed = 0
+  for (const [slug, sources] of Object.entries(REMOVE)) {
+    const theme = await prisma.theme.findFirst({ where: { slug } })
+    if (!theme) throw new Error(`thème ${slug} introuvable — annulé`)
+    for (const src of sources) {
+      const docId = bySource.get(src)?.[0]
+      if (!docId) throw new Error(`source à déclasser introuvable : ${src} — annulé`)
+      const row = await prisma.documentTheme.findFirst({ where: { documentId: docId, themeId: theme.id } })
+      if (!row) continue
+      if (row.isPrimary) throw new Error(`refus : ${src} est PRINCIPAL dans ${slug}`)
+      await prisma.documentTheme.delete({ where: { documentId_themeId: { documentId: docId, themeId: theme.id } } })
+      touched.add(docId)
+      removed++
+    }
+  }
+  if (removed) console.log(`✓ déclassements : ${removed} retirés (documents intacts)`)
+
   // ── 5. Réindexation des documents touchés (libellés de thèmes dans la recherche) ─
   // Le renommage bancaire touche aussi la Loi banques 2012 (libellé dénormalisé).
   const bankDocs = await prisma.documentTheme.findMany({ where: { themeId: bank.id }, select: { documentId: true } })
@@ -142,9 +171,9 @@ async function main() {
   const dcAfter = await prisma.documentTheme.count({ where: { theme: { slug: 'droit-commercial' } } })
   if (dcAfter !== dcBefore) throw new Error(`droit-commercial ${dcBefore} → ${dcAfter} : un déplacement a eu lieu !`)
   const EXPECTED: Record<string, number> = {
-    'societes-anonymes': 8, 'code-de-commerce': 4, 'droit-maritime': 11, 'droit-bancaire': 19,
+    'societes-anonymes': 8, 'code-de-commerce': 4, 'droit-maritime': 11, 'droit-bancaire': 21,
     fiscalite: 12, 'propriete-intellectuelle': 6, arbitrage: 4, 'transport-aerien': 7, assurances: 2,
-    'profession-de-commercant': 7,
+    'profession-de-commercant': 3,
     'fiscalite-impots': 12, douane: 2, 'travaux-publics-transports': 18, tourisme: 1,
     'agriculture-rural': 1, 'sante-publique': 3, 'commerce-industrie': 13,
   }
