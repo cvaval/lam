@@ -1,0 +1,1423 @@
+{
+ "title": "De l'enregistrement — Décret du 28 septembre 1977 (première partie)",
+ "annotationAuthor": "",
+ "navToc": [
+  {
+   "label": "TITRE I — Définition, nature & effets de l’enregistrement",
+   "anchor": "sec-1",
+   "children": [
+    {
+     "label": "TITRE I — Définition, nature & effets de l’enregistrement",
+     "anchor": "sec-1"
+    }
+   ]
+  },
+  {
+   "label": "TITRE II — Du droit fixe",
+   "anchor": "sec-2",
+   "children": [
+    {
+     "label": "TITRE II — Du droit fixe",
+     "anchor": "sec-2"
+    }
+   ]
+  },
+  {
+   "label": "TITRE III — Du droit proportionnel",
+   "anchor": "sec-3",
+   "children": [
+    {
+     "label": "TITRE III — Du droit proportionnel",
+     "anchor": "sec-3"
+    }
+   ]
+  },
+  {
+   "label": "TITRE IV — Des actes qui doivent être enregistrés en débet, de ceux qui doivent l’être gratuitement et de ceux qui sont exempts de cette formalité",
+   "anchor": "sec-4",
+   "children": [
+    {
+     "label": "TITRE IV — Des actes qui doivent être enregistrés en débet, de ceux qui doivent l’être gratuitement et de ceux qui sont exempts de cette formalité",
+     "anchor": "sec-4"
+    }
+   ]
+  },
+  {
+   "label": "TITRE V — Des délais pour l’enregistrement des actes",
+   "anchor": "sec-5",
+   "children": [
+    {
+     "label": "TITRE V — Des délais pour l’enregistrement des actes",
+     "anchor": "sec-5"
+    }
+   ]
+  },
+  {
+   "label": "TITRE VI — Du paiement des droits et de ceux qui doivent les acquitter",
+   "anchor": "sec-6",
+   "children": [
+    {
+     "label": "TITRE VI — Du paiement des droits et de ceux qui doivent les acquitter",
+     "anchor": "sec-6"
+    }
+   ]
+  },
+  {
+   "label": "TITRE VII — Des peines pour défaut d’enregistrement des actes dans les délais prescrits",
+   "anchor": "sec-7",
+   "children": [
+    {
+     "label": "TITRE VII — Des peines pour défaut d’enregistrement des actes dans les délais prescrits",
+     "anchor": "sec-7"
+    }
+   ]
+  },
+  {
+   "label": "TITRE VIII — Poursuites et sanctions",
+   "anchor": "sec-8",
+   "children": [
+    {
+     "label": "TITRE VIII — Poursuites et sanctions",
+     "anchor": "sec-8"
+    }
+   ]
+  },
+  {
+   "label": "TITRE IX — Des droits acquis et des prescriptions",
+   "anchor": "sec-9",
+   "children": [
+    {
+     "label": "TITRE IX — Des droits acquis et des prescriptions",
+     "anchor": "sec-9"
+    }
+   ]
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "TITRE I — Définition, nature & effets de l’enregistrement",
+   "anchor": "sec-1",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE II — Du droit fixe",
+   "anchor": "sec-2",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE III — Du droit proportionnel",
+   "anchor": "sec-3",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE IV — Des actes qui doivent être enregistrés en débet, de ceux qui doivent l’être gratuitement et de ceux qui sont exempts de cette formalité",
+   "anchor": "sec-4",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE V — Des délais pour l’enregistrement des actes",
+   "anchor": "sec-5",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE VI — Du paiement des droits et de ceux qui doivent les acquitter",
+   "anchor": "sec-6",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE VII — Des peines pour défaut d’enregistrement des actes dans les délais prescrits",
+   "anchor": "sec-7",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE VIII — Poursuites et sanctions",
+   "anchor": "sec-8",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE IX — Des droits acquis et des prescriptions",
+   "anchor": "sec-9",
+   "kind": "code"
+  }
+ ],
+ "connexes": [],
+ "jurisprudence": {},
+ "indexEntries": [
+  {
+   "subject": "Accessoires de l'acte (qualités, pouvoirs, charges, clauses et conditions)",
+   "ctRefs": [
+    "11",
+    "12"
+   ]
+  },
+  {
+   "subject": "Acquittement des droits (officiers publics et parties tenus)",
+   "ctRefs": [
+    "59"
+   ]
+  },
+  {
+   "subject": "Acte imparfait (défaut de signature de l'officier public, exemption de peine)",
+   "ctRefs": [
+    "64"
+   ]
+  },
+  {
+   "subject": "Actes civils (définition)",
+   "ctRefs": [
+    "18"
+   ]
+  },
+  {
+   "subject": "Actes civils (trois catégories pour le droit fixe)",
+   "ctRefs": [
+    "20"
+   ]
+  },
+  {
+   "subject": "Actes civils et extrajudiciaires (enregistrement sur minute, brevet ou original)",
+   "ctRefs": [
+    "4"
+   ]
+  },
+  {
+   "subject": "Actes de l'état civil (exemption d'enregistrement)",
+   "ctRefs": [
+    "47"
+   ]
+  },
+  {
+   "subject": "Actes de libération — évaluation par le total des capitaux et intérêts dont le débiteur est déchargé",
+   "ctRefs": [
+    "28"
+   ]
+  },
+  {
+   "subject": "Actes de notoriété",
+   "ctRefs": [
+    "5"
+   ]
+  },
+  {
+   "subject": "Actes de transmission passés en pays étranger (délai de six mois)",
+   "ctRefs": [
+    "52"
+   ]
+  },
+  {
+   "subject": "Actes judiciaires (assujettissement cumulatif au droit proportionnel)",
+   "ctRefs": [
+    "22"
+   ]
+  },
+  {
+   "subject": "Actes judiciaires (enregistrement sur minute ou sur expédition)",
+   "ctRefs": [
+    "5"
+   ]
+  },
+  {
+   "subject": "Actes judiciaires et extrajudiciaires (définition)",
+   "ctRefs": [
+    "19"
+   ]
+  },
+  {
+   "subject": "Actes judiciaires et extrajudiciaires (trois catégories pour le droit fixe)",
+   "ctRefs": [
+    "21"
+   ]
+  },
+  {
+   "subject": "Actes mixtes meubles et immeubles (liquidation aux taux respectifs ; expertise de la valeur mobilière)",
+   "ctRefs": [
+    "43"
+   ]
+  },
+  {
+   "subject": "Actes notariés (délai d'enregistrement de dix jours)",
+   "ctRefs": [
+    "49"
+   ]
+  },
+  {
+   "subject": "Actes publics (confirmation de la date)",
+   "ctRefs": [
+    "2"
+   ]
+  },
+  {
+   "subject": "Actes sous seing privé translatifs d'immeubles ou constatant des baux (délai d'un mois)",
+   "ctRefs": [
+    "51"
+   ]
+  },
+  {
+   "subject": "Amendes (défaut d'enregistrement dans les délais)",
+   "ctRefs": [
+    "62",
+    "63",
+    "65",
+    "66",
+    "68"
+   ]
+  },
+  {
+   "subject": "Antichrèse — évaluation par le prix ou les sommes stipulés",
+   "ctRefs": [
+    "28"
+   ]
+  },
+  {
+   "subject": "Assurance sur la vie (preuve du droit de mutation par décès avant paiement)",
+   "ctRefs": [
+    "82"
+   ]
+  },
+  {
+   "subject": "Avance des droits par l'officier public (exécutoire en remboursement)",
+   "ctRefs": [
+    "60"
+   ]
+  },
+  {
+   "subject": "Bail à rente perpétuelle ou à durée illimitée — capital de vingt fois la rente ou le prix annuel",
+   "ctRefs": [
+    "28"
+   ]
+  },
+  {
+   "subject": "Bail à vie — capital de dix fois le prix et les charges annuelles",
+   "ctRefs": [
+    "28"
+   ]
+  },
+  {
+   "subject": "Base du droit proportionnel — exclusion des droits de timbre, des droits d'enregistrement et des frais de formalités",
+   "ctRefs": [
+    "27"
+   ]
+  },
+  {
+   "subject": "Baux à ferme ou à loyer, sous-baux et cessions de baux (délai d'enregistrement)",
+   "ctRefs": [
+    "51"
+   ]
+  },
+  {
+   "subject": "Baux, locations, fermages et sous-baux — évaluation par les prix cumulés des termes et charges du preneur ; bail payable en nature (cours du marché, déclaration estimative)",
+   "ctRefs": [
+    "28"
+   ]
+  },
+  {
+   "subject": "Billets et reçus sous seing privé de moins de vingt-cinq gourdes (exemption)",
+   "ctRefs": [
+    "47"
+   ]
+  },
+  {
+   "subject": "Cautionnements (personnes à représenter en justice, sommes déterminées ou non)",
+   "ctRefs": [
+    "5"
+   ]
+  },
+  {
+   "subject": "Charge des droits (débiteurs, nouveaux possesseurs, parties auxquelles les actes profitent)",
+   "ctRefs": [
+    "58"
+   ]
+  },
+  {
+   "subject": "Classification des actes (perception du droit fixe)",
+   "ctRefs": [
+    "17"
+   ]
+  },
+  {
+   "subject": "Clauses pénales (absence de droit)",
+   "ctRefs": [
+    "48"
+   ]
+  },
+  {
+   "subject": "Code Rural (conventions ordonnées, droit fixe)",
+   "ctRefs": [
+    "15"
+   ]
+  },
+  {
+   "subject": "Collocation de valeurs — placements de fonds avec intérêts, pensions, rentes perpétuelles ou viagères",
+   "ctRefs": [
+    "25"
+   ]
+  },
+  {
+   "subject": "Condamnation de valeurs — restitutions de biens, dépens, frais et dommages-intérêts ordonnés en justice",
+   "ctRefs": [
+    "25"
+   ]
+  },
+  {
+   "subject": "Connaissements (exemption)",
+   "ctRefs": [
+    "47"
+   ]
+  },
+  {
+   "subject": "Conseil de famille (délibérations)",
+   "ctRefs": [
+    "5"
+   ]
+  },
+  {
+   "subject": "Contrainte (recouvrement des droits et amendes, visa exécutoire)",
+   "ctRefs": [
+    "94",
+    "95"
+   ]
+  },
+  {
+   "subject": "Contre-lettres (droit fixe et double droit proportionnel)",
+   "ctRefs": [
+    "70"
+   ]
+  },
+  {
+   "subject": "Contre-lettres (supplément de valeurs, amende du double droit)",
+   "ctRefs": [
+    "71"
+   ]
+  },
+  {
+   "subject": "Créances de personnes décédées (droit de mutation préalable à la transmission)",
+   "ctRefs": [
+    "80"
+   ]
+  },
+  {
+   "subject": "Créances à terme, cessions et transports — évaluation par le capital exprimé augmenté des intérêts",
+   "ctRefs": [
+    "28"
+   ]
+  },
+  {
+   "subject": "Date certaine (actes sous signature privée)",
+   "ctRefs": [
+    "2"
+   ]
+  },
+  {
+   "subject": "Date certaine (opposabilité à l'État, décès d'un signataire)",
+   "ctRefs": [
+    "112"
+   ]
+  },
+  {
+   "subject": "Direction Générale de l'Enregistrement et de la Conservation Foncière (représentation de l'État en justice)",
+   "ctRefs": [
+    "99",
+    "100",
+    "102"
+   ]
+  },
+  {
+   "subject": "Disposition facultative (droit fixe, puis droit proportionnel sur l'acte d'option)",
+   "ctRefs": [
+    "44"
+   ]
+  },
+  {
+   "subject": "Dispositions de natures diverses dans un même acte (taxation distincte de chaque disposition)",
+   "ctRefs": [
+    "42"
+   ]
+  },
+  {
+   "subject": "Dispositions ne donnant ouverture à aucun droit (acceptations, consentements, autorisations, narrés, qualités des parties)",
+   "ctRefs": [
+    "48"
+   ]
+  },
+  {
+   "subject": "Divorce (jugements assujettis à un droit fixe spécial)",
+   "ctRefs": [
+    "21"
+   ]
+  },
+  {
+   "subject": "Double droit (peine de retard d'enregistrement)",
+   "ctRefs": [
+    "63",
+    "68",
+    "70",
+    "71"
+   ]
+  },
+  {
+   "subject": "Doubles, brevets et expéditions (droit dû à la première présentation)",
+   "ctRefs": [
+    "7"
+   ]
+  },
+  {
+   "subject": "Droit fixe (application fondée sur la nature de l'acte)",
+   "ctRefs": [
+    "9",
+    "10"
+   ]
+  },
+  {
+   "subject": "Droit fixe (unicité ou pluralité de perception)",
+   "ctRefs": [
+    "13"
+   ]
+  },
+  {
+   "subject": "Droit fixe et droit proportionnel (distinction selon la nature des actes)",
+   "ctRefs": [
+    "6",
+    "7"
+   ]
+  },
+  {
+   "subject": "Droit proportionnel (perception suivant le tarif du décret)",
+   "ctRefs": [
+    "41"
+   ]
+  },
+  {
+   "subject": "Droit proportionnel — champ d'application (actes contenant obligation, condamnation, libération, collocation, liquidation ou transaction de valeurs)",
+   "ctRefs": [
+    "23"
+   ]
+  },
+  {
+   "subject": "Droits d'enregistrement (perception au profit du Trésor Public)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Droits de mutation (acquittement préalable à toute vente, cession ou transmission)",
+   "ctRefs": [
+    "40"
+   ]
+  },
+  {
+   "subject": "Décharge des officiers publics (action en supplément de droits contre les redevables)",
+   "ctRefs": [
+    "106"
+   ]
+  },
+  {
+   "subject": "Déclaration de succession (biens immeubles) — délais de six ou douze mois, contenu de la déclaration, amende du quart du droit de transmission",
+   "ctRefs": [
+    "28"
+   ]
+  },
+  {
+   "subject": "Déclaration estimative (biens transmis aux héritiers et légataires)",
+   "ctRefs": [
+    "54"
+   ]
+  },
+  {
+   "subject": "Déclaration estimative des héritiers et légataires (délai de l'article 654 du Code civil ; expertise en cas de refus)",
+   "ctRefs": [
+    "54"
+   ]
+  },
+  {
+   "subject": "Déclaration estimative des parties (valeurs non déterminées dans l'acte)",
+   "ctRefs": [
+    "32"
+   ]
+  },
+  {
+   "subject": "Défaut d'enregistrement (nullité limitée aux cas prévus par la Loi)",
+   "ctRefs": [
+    "3"
+   ]
+  },
+  {
+   "subject": "Délais d'enregistrement des actes publics (trois à quinze jours selon l'officier)",
+   "ctRefs": [
+    "49"
+   ]
+  },
+  {
+   "subject": "Délais francs (computation ; dimanches et jours fériés exclus)",
+   "ctRefs": [
+    "55"
+   ]
+  },
+  {
+   "subject": "Délivrance et usage d'actes non enregistrés (prohibitions et exceptions)",
+   "ctRefs": [
+    "76",
+    "77",
+    "78"
+   ]
+  },
+  {
+   "subject": "Dépens (condamnation aux) — perception du droit d'enregistrement sur leur totalité, sans déduction des sommes déjà payées au Trésor",
+   "ctRefs": [
+    "27"
+   ]
+  },
+  {
+   "subject": "Dépôt d'actes chez notaire ou greffier (acte de dépôt obligatoire)",
+   "ctRefs": [
+    "84"
+   ]
+  },
+  {
+   "subject": "Détermination des valeurs — règles d'évaluation de la propriété et de l'usufruit pour la liquidation du droit proportionnel",
+   "ctRefs": [
+    "28"
+   ]
+  },
+  {
+   "subject": "Effets négociables et billets à ordre (enregistrement avec les protêts)",
+   "ctRefs": [
+    "78"
+   ]
+  },
+  {
+   "subject": "Encanteurs publics (ventes d'objets mobiliers)",
+   "ctRefs": [
+    "4",
+    "15"
+   ]
+  },
+  {
+   "subject": "Enregistrement (définition)",
+   "ctRefs": [
+    "1"
+   ]
+  },
+  {
+   "subject": "Enregistrement (formalité essentielle à la validité des actes)",
+   "ctRefs": [
+    "2",
+    "3"
+   ]
+  },
+  {
+   "subject": "Enregistrement en débet (actes de police judiciaire et de police rurale, jugements)",
+   "ctRefs": [
+    "45"
+   ]
+  },
+  {
+   "subject": "Enregistrement gratuit (acquisitions de l'État, recouvrement des impôts et créances publiques)",
+   "ctRefs": [
+    "46"
+   ]
+  },
+  {
+   "subject": "Enregistrement préalable à tout usage public ou en justice (actes sans délai de rigueur)",
+   "ctRefs": [
+    "53"
+   ]
+  },
+  {
+   "subject": "Exemption de la formalité d'enregistrement (actes du Corps législatif, du gouvernement et de l'administration)",
+   "ctRefs": [
+    "47"
+   ]
+  },
+  {
+   "subject": "Expert de l'État (nomination par requête ; exclusion des employés de l'Administration)",
+   "ctRefs": [
+    "34"
+   ]
+  },
+  {
+   "subject": "Expert de la partie (nomination d'office à défaut)",
+   "ctRefs": [
+    "36"
+   ]
+  },
+  {
+   "subject": "Expertise (contestation entre le Fisc et le redevable)",
+   "ctRefs": [
+    "32",
+    "33"
+   ]
+  },
+  {
+   "subject": "Expertise (procédure devant le juge de paix)",
+   "ctRefs": [
+    "34",
+    "35",
+    "36",
+    "37",
+    "38"
+   ]
+  },
+  {
+   "subject": "Expertise (refus ou contestation de la déclaration estimative)",
+   "ctRefs": [
+    "54"
+   ]
+  },
+  {
+   "subject": "Experts et arbitres (actes, délai de huit jours)",
+   "ctRefs": [
+    "49"
+   ]
+  },
+  {
+   "subject": "Experts, tiers experts, arbitres et tiers arbitres (nomination)",
+   "ctRefs": [
+    "5"
+   ]
+  },
+  {
+   "subject": "Fausse mention d'enregistrement (peines du faux)",
+   "ctRefs": [
+    "75"
+   ]
+  },
+  {
+   "subject": "Fausse évaluation (donations d'immeubles, prescription)",
+   "ctRefs": [
+    "107"
+   ]
+  },
+  {
+   "subject": "Faveur de la Loi (actes soumis au droit fixe, interprétation stricte)",
+   "ctRefs": [
+    "15",
+    "16"
+   ]
+  },
+  {
+   "subject": "Frais d'expertise (charge de la partie succombante)",
+   "ctRefs": [
+    "39"
+   ]
+  },
+  {
+   "subject": "Frais d'instance (charge de la partie qui succombe)",
+   "ctRefs": [
+    "103"
+   ]
+  },
+  {
+   "subject": "Fraude sur l'âge de l'usufruitier (double droit)",
+   "ctRefs": [
+    "29"
+   ]
+  },
+  {
+   "subject": "Greffiers (amende pour défaut de présentation à l'enregistrement)",
+   "ctRefs": [
+    "66"
+   ]
+  },
+  {
+   "subject": "Huissiers (amende et nullité de l'exploit non enregistré)",
+   "ctRefs": [
+    "65"
+   ]
+  },
+  {
+   "subject": "Huissiers (exploits et procès-verbaux, délai de trois jours)",
+   "ctRefs": [
+    "49"
+   ]
+  },
+  {
+   "subject": "Hypothèque du Fisc — inscription sur les biens de la succession à défaut de déclaration dans les délais",
+   "ctRefs": [
+    "28"
+   ]
+  },
+  {
+   "subject": "Hypothèque spéciale au profit de l'État (complément de droits après expertise)",
+   "ctRefs": [
+    "39"
+   ]
+  },
+  {
+   "subject": "Indigence des condamnés (expéditions de jugements enregistrées gratuitement)",
+   "ctRefs": [
+    "46"
+   ]
+  },
+  {
+   "subject": "Instances fiscales (procédure sur simples mémoires, sans plaidoirie)",
+   "ctRefs": [
+    "98"
+   ]
+  },
+  {
+   "subject": "Insuffisance d'évaluation des immeubles transmis à titre gratuit (valeur vénale, expertise)",
+   "ctRefs": [
+    "33"
+   ]
+  },
+  {
+   "subject": "Interprètes (traductions certifiées, délai de quatre jours)",
+   "ctRefs": [
+    "49"
+   ]
+  },
+  {
+   "subject": "Intervention de tierces personnes dans l'acte (droit fixe unique)",
+   "ctRefs": [
+    "48"
+   ]
+  },
+  {
+   "subject": "Inventaires (relation de titres non enregistrés)",
+   "ctRefs": [
+    "76"
+   ]
+  },
+  {
+   "subject": "Jours de fête et de chômage (délais et communications)",
+   "ctRefs": [
+    "55",
+    "93"
+   ]
+  },
+  {
+   "subject": "Juge de paix (attributions en matière d'enregistrement)",
+   "ctRefs": [
+    "60",
+    "69",
+    "90",
+    "91",
+    "95"
+   ]
+  },
+  {
+   "subject": "Jugements en matière criminelle, correctionnelle et de simple police (enregistrement sur expédition)",
+   "ctRefs": [
+    "5"
+   ]
+  },
+  {
+   "subject": "Jugements en matière d'enregistrement (délai de huitaine, conclusions du Commissaire du Gouvernement)",
+   "ctRefs": [
+    "101"
+   ]
+  },
+  {
+   "subject": "Jugements enregistrés sur minute (défaut de consignation des droits par les parties)",
+   "ctRefs": [
+    "67"
+   ]
+  },
+  {
+   "subject": "Jugements et actes judiciaires portant condamnation, collocation, liquidation ou transmission — évaluation par le capital, les intérêts et les dépens",
+   "ctRefs": [
+    "28"
+   ]
+  },
+  {
+   "subject": "Jugements et estimations (mention du droit acquitté, restitution en cas d'omission)",
+   "ctRefs": [
+    "86"
+   ]
+  },
+  {
+   "subject": "Jugements portant transmission d'immeubles (enregistrement sur minute)",
+   "ctRefs": [
+    "5"
+   ]
+  },
+  {
+   "subject": "Juges, arbitres et experts (interdiction de statuer sur actes non enregistrés)",
+   "ctRefs": [
+    "85"
+   ]
+  },
+  {
+   "subject": "Justice de paix (procès-verbaux de conciliation, défaut, remise)",
+   "ctRefs": [
+    "5",
+    "21"
+   ]
+  },
+  {
+   "subject": "Libération de valeurs — acquits, reçus, soldes, quittances, décharges et remises totales ou partielles de créances",
+   "ctRefs": [
+    "25"
+   ]
+  },
+  {
+   "subject": "Liquidation de valeurs — arrêtés, balances, acceptations et reconnaissances de comptes",
+   "ctRefs": [
+    "25"
+   ]
+  },
+  {
+   "subject": "Liquidation du droit proportionnel — distinction des valeurs mobilières et immobilières, totalisation séparée et exclusion des doubles emplois",
+   "ctRefs": [
+    "26"
+   ]
+  },
+  {
+   "subject": "Livres et registres de commerce (exemption)",
+   "ctRefs": [
+    "47"
+   ]
+  },
+  {
+   "subject": "Marchés et conventions — évaluation par le prix exprimé et l'estimation des objets",
+   "ctRefs": [
+    "28"
+   ]
+  },
+  {
+   "subject": "Mention d'enregistrement (actes publics faits en vertu d'actes sous seing privé)",
+   "ctRefs": [
+    "73"
+   ]
+  },
+  {
+   "subject": "Mention de la quittance d'enregistrement (expéditions des actes sur minute)",
+   "ctRefs": [
+    "72"
+   ]
+  },
+  {
+   "subject": "Mentions d'actes ou d'annexes précédemment enregistrés (absence de droit)",
+   "ctRefs": [
+    "48"
+   ]
+  },
+  {
+   "subject": "Ministère Public (expéditions considérées comme secondes)",
+   "ctRefs": [
+    "8"
+   ]
+  },
+  {
+   "subject": "Mutation par décès (responsabilité personnelle et amende des tiers contrevenants)",
+   "ctRefs": [
+    "83"
+   ]
+  },
+  {
+   "subject": "Nature de l'acte (parties stipulantes et objets de la stipulation)",
+   "ctRefs": [
+    "10",
+    "12"
+   ]
+  },
+  {
+   "subject": "Notaires (actes, délai de dix jours)",
+   "ctRefs": [
+    "49"
+   ]
+  },
+  {
+   "subject": "Notaires (amende personnelle pour défaut d'enregistrement dans le délai)",
+   "ctRefs": [
+    "62"
+   ]
+  },
+  {
+   "subject": "Notaires (testaments déposés ou reçus)",
+   "ctRefs": [
+    "4"
+   ]
+  },
+  {
+   "subject": "Nue-propriété (évaluation ; transmission entre vifs à titre gratuit)",
+   "ctRefs": [
+    "29",
+    "30"
+   ]
+  },
+  {
+   "subject": "Obligation de valeurs — engagements et promesses de se libérer de dettes mobilières et immobilières (capital, intérêts, arrérages)",
+   "ctRefs": [
+    "25"
+   ]
+  },
+  {
+   "subject": "Officiers de l'état civil — relevé trimestriel des décès au receveur de l'enregistrement (amende de cinq gourdes par jour, révocation en cas de récidive)",
+   "ctRefs": [
+    "28"
+   ]
+  },
+  {
+   "subject": "Opposition à contrainte (délai de trois jours francs, forclusion)",
+   "ctRefs": [
+    "96",
+    "97"
+   ]
+  },
+  {
+   "subject": "Opposition à l'exécutoire de remboursement",
+   "ctRefs": [
+    "61"
+   ]
+  },
+  {
+   "subject": "Ordonnance d'expertise (délai de trois jours, signification)",
+   "ctRefs": [
+    "35"
+   ]
+  },
+  {
+   "subject": "Paiement des droits (préalable à l'enregistrement, taux et quotités du décret)",
+   "ctRefs": [
+    "56"
+   ]
+  },
+  {
+   "subject": "Passeports (exemption)",
+   "ctRefs": [
+    "47"
+   ]
+  },
+  {
+   "subject": "Prescription (suspension par contrainte, interruption des poursuites)",
+   "ctRefs": [
+    "109"
+   ]
+  },
+  {
+   "subject": "Prescription biennale (droits omis ou insuffisamment perçus)",
+   "ctRefs": [
+    "107",
+    "111"
+   ]
+  },
+  {
+   "subject": "Prescription de vingt ans (dispense de la formalité, sauf présentation volontaire)",
+   "ctRefs": [
+    "47"
+   ]
+  },
+  {
+   "subject": "Prescription vicennale (amendes et droits des actes non enregistrés)",
+   "ctRefs": [
+    "110"
+   ]
+  },
+  {
+   "subject": "Prix de vente d'immeubles (mention obligatoire par le notaire)",
+   "ctRefs": [
+    "79"
+   ]
+  },
+  {
+   "subject": "Procès-verbal d'expertise (remise au juge de paix sous quinzaine)",
+   "ctRefs": [
+    "38"
+   ]
+  },
+  {
+   "subject": "Procès-verbaux d'arpentage (délai de quinze jours)",
+   "ctRefs": [
+    "49"
+   ]
+  },
+  {
+   "subject": "Procès-verbaux des notaires, arpenteurs, encanteurs, courtiers et agents de change",
+   "ctRefs": [
+    "20"
+   ]
+  },
+  {
+   "subject": "Quittance ou obligation du prix consentie dans le même acte — absence de droit particulier d'enregistrement",
+   "ctRefs": [
+    "26"
+   ]
+  },
+  {
+   "subject": "Recouvrement des droits contre les parties condamnées (extraits de jugements fournis par les greffiers)",
+   "ctRefs": [
+    "45"
+   ]
+  },
+  {
+   "subject": "Remise ou modération des droits et amendes (interdiction)",
+   "ctRefs": [
+    "104"
+   ]
+  },
+  {
+   "subject": "Rentes et pensions — évaluation par le capital constitué ; capital de cinq fois la rente ou pension créée sans expression de capital",
+   "ctRefs": [
+    "28"
+   ]
+  },
+  {
+   "subject": "Restitution des droits (perceptions régulières non restituables)",
+   "ctRefs": [
+    "105"
+   ]
+  },
+  {
+   "subject": "Restitution des droits (pourvoi et délai de deux ans)",
+   "ctRefs": [
+    "57",
+    "86",
+    "96",
+    "108"
+   ]
+  },
+  {
+   "subject": "Retard imputable au receveur (certificat du juge de paix, exemption d'amende)",
+   "ctRefs": [
+    "69"
+   ]
+  },
+  {
+   "subject": "Réduction ou ajournement du paiement des droits (interdiction ; action en restitution)",
+   "ctRefs": [
+    "57"
+   ]
+  },
+  {
+   "subject": "Répertoires (contenu des inscriptions)",
+   "ctRefs": [
+    "88"
+   ]
+  },
+  {
+   "subject": "Répertoires (cote et paraphe par les doyens et juges de paix)",
+   "ctRefs": [
+    "91",
+    "92"
+   ]
+  },
+  {
+   "subject": "Répertoires (visa semestriel du receveur de l'enregistrement)",
+   "ctRefs": [
+    "89"
+   ]
+  },
+  {
+   "subject": "Répertoires (vérification par l'administration, refus de communication)",
+   "ctRefs": [
+    "90",
+    "93"
+   ]
+  },
+  {
+   "subject": "Répertoires des officiers publics (tenue jour par jour, amendes par omission)",
+   "ctRefs": [
+    "87"
+   ]
+  },
+  {
+   "subject": "Réserve d'usufruit ou de nue-propriété par le vendeur ou donateur (assiette du droit proportionnel)",
+   "ctRefs": [
+    "31"
+   ]
+  },
+  {
+   "subject": "Résiliations pures et simples (baux et transmissions à titre onéreux)",
+   "ctRefs": [
+    "15"
+   ]
+  },
+  {
+   "subject": "Résolution de vente pour défaut de paiement (jugements, droit fixe)",
+   "ctRefs": [
+    "15"
+   ]
+  },
+  {
+   "subject": "Réunion de l'usufruit à la nue-propriété par acte subséquent (droit fixe)",
+   "ctRefs": [
+    "31"
+   ]
+  },
+  {
+   "subject": "Scellés (apposition, reconnaissance, levée, oppositions)",
+   "ctRefs": [
+    "5"
+   ]
+  },
+  {
+   "subject": "Secondes expéditions (transcription littérale de la quittance)",
+   "ctRefs": [
+    "74"
+   ]
+  },
+  {
+   "subject": "Successions ouvertes (déclaration des titres et valeurs par les tiers détenteurs)",
+   "ctRefs": [
+    "81"
+   ]
+  },
+  {
+   "subject": "Sûretés (nantissement, cautionnement, hypothèque) — droit proportionnel perçu sur la seule obligation garantie",
+   "ctRefs": [
+    "26"
+   ]
+  },
+  {
+   "subject": "Testaments (double droit en cas de retard d'enregistrement)",
+   "ctRefs": [
+    "63"
+   ]
+  },
+  {
+   "subject": "Testaments (enregistrement sur extraits et expéditions)",
+   "ctRefs": [
+    "4"
+   ]
+  },
+  {
+   "subject": "Testaments (exceptions aux prohibitions de délivrance, de dépôt et de paraphe)",
+   "ctRefs": [
+    "77",
+    "84",
+    "92"
+   ]
+  },
+  {
+   "subject": "Testaments (présentation à l'enregistrement dans le mois du décès ou du dépôt)",
+   "ctRefs": [
+    "50"
+   ]
+  },
+  {
+   "subject": "Tiers expert (désaccord des experts ; serment)",
+   "ctRefs": [
+    "37"
+   ]
+  },
+  {
+   "subject": "Traductions d'actes en langue étrangère (enregistrement simultané)",
+   "ctRefs": [
+    "78"
+   ]
+  },
+  {
+   "subject": "Transmission de valeurs — aliénations de biens meubles et immeubles, en propriété ou usufruit, à titre onéreux ou gratuit",
+   "ctRefs": [
+    "25"
+   ]
+  },
+  {
+   "subject": "Transmissions immobilières à titre onéreux ou gratuit (cas d'ouverture de l'expertise)",
+   "ctRefs": [
+    "32"
+   ]
+  },
+  {
+   "subject": "Transmissions à titre gratuit de biens meubles — déclaration estimative des parties ; dépôt des testaments par les notaires au Bureau de l'Enregistrement",
+   "ctRefs": [
+    "28"
+   ]
+  },
+  {
+   "subject": "Travaux d'utilité publique (exemption du droit proportionnel)",
+   "ctRefs": [
+    "15"
+   ]
+  },
+  {
+   "subject": "Tuteurs, subrogés tuteurs et curateurs (procès-verbaux de nomination)",
+   "ctRefs": [
+    "5"
+   ]
+  },
+  {
+   "subject": "Usage en justice des actes non enregistrés (interdiction)",
+   "ctRefs": [
+    "2"
+   ]
+  },
+  {
+   "subject": "Usufruit perpétuel ou à durée indéterminée (valeur de la pleine propriété)",
+   "ctRefs": [
+    "30"
+   ]
+  },
+  {
+   "subject": "Usufruit à vie (barème d'estimation selon l'âge de l'usufruitier)",
+   "ctRefs": [
+    "29"
+   ]
+  },
+  {
+   "subject": "Valeurs (notion de) — sommes d'argent réelles ou fictives et biens meubles ou immeubles évaluables à prix d'argent",
+   "ctRefs": [
+    "24"
+   ]
+  },
+  {
+   "subject": "Ventes, cessions, adjudications et licitations à titre onéreux — évaluation par le prix estimé augmenté des charges imposées à l'acquéreur",
+   "ctRefs": [
+    "28"
+   ]
+  },
+  {
+   "subject": "Voies de recours (jugements en matière d'enregistrement)",
+   "ctRefs": [
+    "102"
+   ]
+  },
+  {
+   "subject": "Échanges de biens meubles ou immeubles — évaluation par la part la plus forte (ou l'une des parts égales)",
+   "ctRefs": [
+    "28"
+   ]
+  },
+  {
+   "subject": "Élection de command (déclaration dans les trois jours francs)",
+   "ctRefs": [
+    "15"
+   ]
+  },
+  {
+   "subject": "Émancipation (procès-verbaux)",
+   "ctRefs": [
+    "5"
+   ]
+  },
+  {
+   "subject": "Énonciations de valeurs (assujettissement au droit fixe)",
+   "ctRefs": [
+    "14"
+   ]
+  }
+ ],
+ "crossRefs": [
+  {
+   "anchor": "sec-1",
+   "articles": [],
+   "note": "Décret du 28 septembre 1977 (Le Moniteur # 67 D - 1977), Première partie « De l'enregistrement », titres I à IX, articles 1 à 112 — reproduction de l'édition Joseph Paillant du Code Fiscal d'Haïti (2018), Livre II, Troisième partie, rubrique 1 « Enregistrement et conservation foncière ». La suite de la rubrique (conservation foncière, tarif du domaine privé) fera l'objet d'une prochaine vague."
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1",
+  "art-2": "Article 2",
+  "art-3": "Article 3",
+  "art-4": "Article 4",
+  "art-5": "Article 5",
+  "art-6": "Article 6",
+  "art-7": "Article 7",
+  "art-8": "Article 8",
+  "art-9": "Article 9",
+  "art-10": "Article 10",
+  "art-11": "Article 11",
+  "art-12": "Article 12",
+  "art-13": "Article 13",
+  "art-14": "Article 14",
+  "art-15": "Article 15",
+  "art-16": "Article 16",
+  "art-17": "Article 17",
+  "art-18": "Article 18",
+  "art-19": "Article 19",
+  "art-20": "Article 20",
+  "art-21": "Article 21",
+  "art-22": "Article 22",
+  "art-23": "Article 23",
+  "art-24": "Article 24",
+  "art-25": "Article 25",
+  "art-26": "Article 26",
+  "art-27": "Article 27",
+  "art-28": "Article 28",
+  "art-29": "Article 29",
+  "art-30": "Article 30",
+  "art-31": "Article 31",
+  "art-32": "Article 32",
+  "art-33": "Article 33",
+  "art-34": "Article 34",
+  "art-35": "Article 35",
+  "art-36": "Article 36",
+  "art-37": "Article 37",
+  "art-38": "Article 38",
+  "art-39": "Article 39",
+  "art-40": "Article 40",
+  "art-41": "Article 41",
+  "art-42": "Article 42",
+  "art-43": "Article 43",
+  "art-44": "Article 44",
+  "art-45": "Article 45",
+  "art-46": "Article 46",
+  "art-47": "Article 47",
+  "art-48": "Article 48",
+  "art-49": "Article 49",
+  "art-50": "Article 50",
+  "art-51": "Article 51",
+  "art-52": "Article 52",
+  "art-53": "Article 53",
+  "art-54": "Article 54",
+  "art-55": "Article 55",
+  "art-56": "Article 56",
+  "art-57": "Article 57",
+  "art-58": "Article 58",
+  "art-59": "Article 59",
+  "art-60": "Article 60",
+  "art-61": "Article 61",
+  "art-62": "Article 62",
+  "art-63": "Article 63",
+  "art-64": "Article 64",
+  "art-65": "Article 65",
+  "art-66": "Article 66",
+  "art-67": "Article 67",
+  "art-68": "Article 68",
+  "art-69": "Article 69",
+  "art-70": "Article 70",
+  "art-71": "Article 71",
+  "art-72": "Article 72",
+  "art-73": "Article 73",
+  "art-74": "Article 74",
+  "art-75": "Article 75",
+  "art-76": "Article 76",
+  "art-77": "Article 77",
+  "art-78": "Article 78",
+  "art-79": "Article 79",
+  "art-80": "Article 80",
+  "art-81": "Article 81",
+  "art-82": "Article 82",
+  "art-83": "Article 83",
+  "art-84": "Article 84",
+  "art-85": "Article 85",
+  "art-86": "Article 86",
+  "art-87": "Article 87",
+  "art-88": "Article 88",
+  "art-89": "Article 89",
+  "art-90": "Article 90",
+  "art-91": "Article 91",
+  "art-92": "Article 92",
+  "art-93": "Article 93",
+  "art-94": "Article 94",
+  "art-95": "Article 95",
+  "art-96": "Article 96",
+  "art-97": "Article 97",
+  "art-98": "Article 98",
+  "art-99": "Article 99",
+  "art-100": "Article 100",
+  "art-101": "Article 101",
+  "art-102": "Article 102",
+  "art-103": "Article 103",
+  "art-104": "Article 104",
+  "art-105": "Article 105",
+  "art-106": "Article 106",
+  "art-107": "Article 107",
+  "art-108": "Article 108",
+  "art-109": "Article 109",
+  "art-110": "Article 110",
+  "art-111": "Article 111",
+  "art-112": "Article 112"
+ },
+ "commentaires": {},
+ "status": {}
+}

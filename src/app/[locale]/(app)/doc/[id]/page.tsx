@@ -38,6 +38,23 @@ import { parseAnnotations } from '@/lib/legislation/annotated'
 import { AnnotatedText } from '@/components/AnnotatedText'
 import { CodeSidebar } from '@/components/CodeSidebar'
 
+// Sources du lecteur annoté (listes devenues illisibles en conditions inline) :
+// index inline masqué (le panneau latéral l'affiche) et renvois « article N »
+// cliquables (anti-lien-mort côté composant). Les CC_VANDAL_* s'y ajoutent via
+// le préfixe testé plus bas.
+const HIDE_INLINE_INDEX_SOURCES = new Set([
+  'CONSTITUTION_1987', 'CODE_CIVIL_ANNOTE', 'CODE_DOUANES_ANNOTE', 'DECRET_REGIMES_MATRIMONIAUX',
+  'LOI_FILIATION_2014', 'DECRET_SURETES', 'LOI_STATUT_COMMERCANT_2018', 'LOI_BANQUES_2012',
+  'DECRET_MINIER_2026', 'DECRET_IMPOT_REVENU_2005', 'DECRET_TIMBRE_1978_CONSOLIDE', 'LOI_PATENTE_1996_CONSOLIDE',
+  'LOI_CFGDCT_1996_CONSOLIDE', 'DECRET_CFPB_1979_CONSOLIDE', 'DECRET_ENREGISTREMENT_1977',
+])
+const ART_REFS_SOURCES = new Set([
+  'CODE_PENAL_ANNOTE', 'CODE_DOUANES_ANNOTE', 'DECRET_REGIMES_MATRIMONIAUX', 'LOI_FILIATION_2014',
+  'DECRET_SURETES', 'CODE_COMMERCE_ANNOTE', 'LOI_STATUT_COMMERCANT_2018', 'LOI_BANQUES_2012',
+  'DECRET_MINIER_2026', 'DECRET_IMPOT_REVENU_2005', 'DECRET_TIMBRE_1978_CONSOLIDE', 'LOI_PATENTE_1996_CONSOLIDE',
+  'LOI_CFGDCT_1996_CONSOLIDE', 'DECRET_CFPB_1979_CONSOLIDE', 'DECRET_ENREGISTREMENT_1977',
+])
+
 export default async function DocPage({
   params,
   searchParams,
@@ -410,9 +427,9 @@ export default async function DocPage({
               annotations={annotations}
               locale={locale}
               terms={hlTerms}
-              hideInlineIndex={doc.source === 'CONSTITUTION_1987' || doc.source === 'CODE_CIVIL_ANNOTE' || doc.source === 'CODE_DOUANES_ANNOTE' || doc.source === 'DECRET_REGIMES_MATRIMONIAUX' || doc.source === 'LOI_FILIATION_2014' || doc.source === 'DECRET_SURETES' || doc.source === 'LOI_STATUT_COMMERCANT_2018' || doc.source === 'LOI_BANQUES_2012' || doc.source === 'DECRET_MINIER_2026' || doc.source === 'DECRET_IMPOT_REVENU_2005' || doc.source === 'DECRET_TIMBRE_1978_CONSOLIDE' || doc.source === 'LOI_PATENTE_1996_CONSOLIDE'}
+              hideInlineIndex={HIDE_INLINE_INDEX_SOURCES.has(doc.source ?? '')}
               linkCivRefs={doc.source === 'CODE_CIVIL_ANNOTE'}
-              linkArtRefs={doc.source === 'CODE_PENAL_ANNOTE' || doc.source === 'CODE_DOUANES_ANNOTE' || doc.source === 'DECRET_REGIMES_MATRIMONIAUX' || doc.source === 'LOI_FILIATION_2014' || doc.source === 'DECRET_SURETES' || doc.source === 'CODE_COMMERCE_ANNOTE' || doc.source === 'LOI_STATUT_COMMERCANT_2018' || doc.source === 'LOI_BANQUES_2012' || doc.source === 'DECRET_MINIER_2026' || doc.source === 'DECRET_IMPOT_REVENU_2005' || doc.source === 'DECRET_TIMBRE_1978_CONSOLIDE' || doc.source === 'LOI_PATENTE_1996_CONSOLIDE' || (doc.source ?? '').startsWith('CC_VANDAL_')}
+              linkArtRefs={ART_REFS_SOURCES.has(doc.source ?? '') || (doc.source ?? '').startsWith('CC_VANDAL_')}
               annotationsVariant={doc.source === 'CODE_CIVIL_ANNOTE' || doc.source === 'CODE_COMMERCE_ANNOTE' ? 'annotations' : 'juris'}
             />
           </section>

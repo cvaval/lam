@@ -1,4 +1,4 @@
-# Livraison — Phase 2 fiscale, vague 1 (textes du Code Fiscal Paillant 2018)
+# Livraison — Phase 2 fiscale, vagues 1 et 2 (textes du Code Fiscal Paillant 2018)
 
 Trois textes fiscaux CONSOLIDÉS téléversés en Législation annotée (lecteur annoté :
 sommaire + index latéral + renvois inline), classés par COPIE dans les deux foyers
@@ -57,6 +57,44 @@ sur la patente » demandée** : décret du 28 septembre 1987 refondu par la Loi 
   « — » (sans quoi « Article 4 Loi de Finances… » serait pris pour une tête
   d'article) — contenu verbatim après le préfixe ;
 - index 29 sujets, couverture 30/30 (rédigé après lecture intégrale de la tranche).
+
+## Vague 2 (28 juil.) — CFPB, Enregistrement, CFGDCT
+
+4. **CFPB — Décret du 5 avril 1979 (consolidé)** · `cms4san2s0001dcuiweb6dput` ·
+   `DECRET_CFPB_1979_CONSOLIDE` — l'« impôt locatif » : 37 articles, 6 chapitres,
+   barème 6 %→10 % sur la valeur vénale (LF 2017-2018), 19 anciennes rédactions
+   barrées en annotations (pastilles « modifié » arts 1-2), index 34 sujets 37/37.
+   Artefact source conservé : la citation LF de l'art. 1 est tronquée dans le docx
+   (« 2015-2016 : l'article premier… »).
+5. **Enregistrement — Décret du 28 septembre 1977, 1ʳᵉ partie** ·
+   `cms4smmsc000092ro2c4gjpam` · `DECRET_ENREGISTREMENT_1977` — 112 articles,
+   titres I à IX (**le titre IV est absent de la source**, notée en tête), index
+   **193 sujets, couverture 112/112** (curation distribuée 3 tranches + rattrapage
+   des arts 23-28 tombés dans une frontière de tranche).
+6. **CFGDCT — Loi du 20 août 1996 (consolidée)** · `cms4salcl0000dcuituymf406` ·
+   `LOI_CFGDCT_1996_CONSOLIDE` — 8 articles (assiette, FIDES, répartition), index
+   9 sujets 8/8.
+
+`page.tsx` refactorisé au passage : les 15 sources du lecteur annoté vivent dans
+deux ensembles lisibles (`HIDE_INLINE_INDEX_SOURCES`, `ART_REFS_SOURCES`).
+
+**Contre-audit vague 2** (fidélité 100 % caractère à caractère sur les 3 corps par
+ré-extraction indépendante) — **5 constats confirmés, tous corrigés avant commit** :
+1. **BLOQUANT — le TITRE IV de l'Enregistrement existe bel et bien dans la source**
+   (intitulé de 146 caractères rejeté par un filtre de longueur à 100) : ma note
+   publiée affirmait faussement son absence, verrouillée par une assertion
+   circulaire — sommaire réparé (9 titres), articles 45-48 reclassés sous leur
+   titre, note réécrite, assertion inversée (sentinelle sur l'intitulé complet) ;
+2. la note de consolidation du CFGDCT ne s'affichait nulle part (texte sans
+   section de tête) → déplacée en annotation repliable sous l'article 1, et le
+   sous-titre « Dispositions transitoires » promu au sommaire ;
+3. 4 faux liens internes sur les marqueurs « Article N Loi de Finances … » /
+   « loi sur les BEL » → garde `ART_EXT_AFTER` étendue (7 cas de non-régression
+   testés) ;
+4. 9 paires d'entrées d'index redondantes (Enregistrement) → dédoublonnées
+   (184 sujets nets) ;
+5. entrée de l'art. 23 rectifiée : « transaction de valeurs » (le corps dit
+   transaction ; la transmission est définie à l'art. 25).
 
 ## Quitus fiscal — déjà couvert
 
