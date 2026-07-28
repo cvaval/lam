@@ -206,7 +206,7 @@ Nouveaux sous-thèmes POSSIBLES sous `economique` (créer seulement sur accord) 
 |---|---|---|
 | `transport-aerien` « Transport aérien » | série VI : `VI-A`…`VI-F` (aérodromes 1961, Convention de Chicago 1944, circulation aérienne, statut des aéronefs 1948/1960, Rome 1933, transport aérien international) — 7 textes | OUI |
 | `assurances` « Assurances » | `IV-D-1` (compagnies d'assurance 1956), `IV-D-2` (décret 1981) | OUI (règle du même coup la question assurance/S.A.) |
-| `professions-commerce` « Professions réglementées du commerce » | `I-B-1/2` (agents de change et courtiers) + recoupement des textes déjà classés (agents commerciaux `I-A`, agents maritimes `I-C-1`, commerçant `I-G`, commissionnaire en douane `I-J`) | À TRANCHER |
+| ~~`professions-commerce`~~ | REMPLACÉ (décision cliente, 2ᵉ vague du 28 juil.) par **`profession-de-commercant` « Profession de commerçant », ENFANT de `code-de-commerce`** : `LOI_STATUT_COMMERCANT_2018`, `I-G` (profession de commerçant 1960), `I-A` (agents commerciaux), `I-B-1/2` (agents de change et courtiers), `I-C-1` (agents maritimes), `I-J` (commissionnaire en douane) — 7 textes. EXÉCUTÉ. | FAIT |
 
 ## Sous-thème DÉCIDÉ (28 juil.) — Arbitrage & règlement des différends, sous DROIT PRIVÉ
 
@@ -303,6 +303,8 @@ Droit économique & des affaires
 │   └── Propriété intellectuelle ✚ (6)
 ├── Droit commercial (95 — vue d'ensemble Vandal, INCHANGÉ)
 ├── ★ Code de commerce & statut du commerçant (4)
+│   └── ★ Profession de commerçant (7 — décret 1960, Loi 002-2018, agents de change,
+│       agents commerciaux, agents maritimes, commissionnaire en douane)
 ├── ★ Sociétés anonymes (8)
 ├── Banques & institutions financières ✚ (19) [renommage de « Droit bancaire & financier »]
 ├── ★ Ports & droit maritime (11)

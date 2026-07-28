@@ -27,6 +27,9 @@ const NEW_THEMES: [string, string, string, string, string][] = [
   ['assurances', 'economique', 'Assurances', 'Insurance', 'Asirans'],
   ['fiscalite', 'economique', 'Fiscalité', 'Taxation', 'Fiskalite'],
   ['arbitrage', 'droit-prive', 'Arbitrage & règlement des différends', 'Arbitration & dispute resolution', 'Abitraj & regleman dezakò'],
+  // Décision cliente 28 juil. (2ᵉ vague) : « Profession de commerçant » (et non
+  // « Professions réglementées du commerce »), ENFANT de code-de-commerce.
+  ['profession-de-commercant', 'code-de-commerce', 'Profession de commerçant', 'The trader profession', 'Pwofesyon komèsan'],
 ]
 
 // ── Renommage décidé (défaut accepté) ────────────────────────────────────────────
@@ -47,6 +50,7 @@ const ASSIGN: Record<string, string[]> = {
   fiscalite: ['VII-A-1', 'VII-A-2', 'VII-A-3', 'VII-B-1', 'VII-B-2', 'VII-C', 'VII-D-1', 'VII-D-2', 'VII-D-3', 'VII-D-4', 'VII-E', 'VII-F-1'].map(V),
   'propriete-intellectuelle': ['III-A', 'III-B-1', 'III-B-2', 'III-B-3', 'III-B-4', 'III-C'].map(V),
   arbitrage: ['I-D-1', 'I-D-2', 'I-Annexe-I', 'I-Annexe-II'].map(V),
+  'profession-de-commercant': ['LOI_STATUT_COMMERCANT_2018', V('I-G'), V('I-A'), V('I-B-1'), V('I-B-2'), V('I-C-1'), V('I-J')],
   'transport-aerien': ['VI-A', 'VI-B', 'VI-C', 'VI-D-1', 'VI-D-2', 'VI-E', 'VI-F'].map(V),
   assurances: ['IV-D-1', 'IV-D-2'].map(V),
   // Recoupements — thèmes existants d'autres branches (mêmes textes, autre foyer).
@@ -140,6 +144,7 @@ async function main() {
   const EXPECTED: Record<string, number> = {
     'societes-anonymes': 8, 'code-de-commerce': 4, 'droit-maritime': 11, 'droit-bancaire': 19,
     fiscalite: 12, 'propriete-intellectuelle': 6, arbitrage: 4, 'transport-aerien': 7, assurances: 2,
+    'profession-de-commercant': 7,
     'fiscalite-impots': 12, douane: 2, 'travaux-publics-transports': 18, tourisme: 1,
     'agriculture-rural': 1, 'sante-publique': 3, 'commerce-industrie': 13,
   }
@@ -152,7 +157,7 @@ async function main() {
     const prim = await prisma.documentTheme.count({ where: { documentId: id, isPrimary: true } })
     if (prim !== 1) throw new Error(`doc ${id} : ${prim} thèmes principaux (attendu 1)`)
   }
-  console.log(`✓ vérifications : droit-commercial intact (${dcAfter}), 16 comptes exacts, isPrimary uniques`)
+  console.log(`✓ vérifications : droit-commercial intact (${dcAfter}), ${Object.keys(EXPECTED).length} comptes exacts, isPrimary uniques`)
   await prisma.$disconnect()
 }
 main().catch(async (e) => { console.error(e); await prisma.$disconnect(); process.exit(1) })
