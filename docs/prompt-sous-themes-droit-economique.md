@@ -198,7 +198,7 @@ mécanique que le reste :
 | `economique → agriculture-rural` (0 doc) | `CC_VANDAL_II-F` (BNDAI 1984) | OUI |
 | `social → sante-publique` (0 doc) | `CC_VANDAL_I-R-1/2/3` (commerce des produits pharmaceutiques) | OUI |
 | `economique → commerce-industrie` (0 doc) | commerce intérieur & institutions : `I-E` (cartels), `I-F-1/2` (Chambre de commerce), `I-H-1/2` (commerce de détail), `I-K` (Conseil National de la Comptabilité), `I-P-1/2` (marché noir, contrôle des prix), `I-Q-1..4` (poids et mesures), `II-D` (Magasin Général) | OUI |
-| `droit-prive → obligations-biens-suretes` (Décret sûretés) | recoupement inverse : copier le **Décret sûretés** (`DECRET_SURETES`) dans `droit-bancaire` (il fonde les garanties du crédit) | À TRANCHER |
+| `droit-prive → obligations-biens-suretes` (Décret sûretés) | TRANCHÉ (4ᵉ vague, 28 juil.) : le **Décret sûretés** est copié dans **`droit-civil`** (aux côtés du Code civil), PAS en bancaire ; principal inchangé. EXÉCUTÉ. | FAIT |
 
 Nouveaux sous-thèmes POSSIBLES sous `economique` (créer seulement sur accord) :
 
@@ -293,7 +293,7 @@ descendants). ★ = créé par cette opération ; ✚ = thème existant qui se r
 ```
 Constitution & droits fondamentaux
 Droit privé
-├── Droit civil (1 — Code civil)
+├── Droit civil (2 — Code civil, Décret sûretés)
 ├── Personne et Famille (2 — Loi Filiation, Décret régimes matrimoniaux)
 ├── Obligations, biens & sûretés (1 — Décret sûretés)
 ├── Signature & échange électronique (0)

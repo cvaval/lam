@@ -55,6 +55,9 @@ const ASSIGN: Record<string, string[]> = {
   // Noyau strict (3ᵉ vague) : agents de change → bancaire, agents maritimes → maritime
   // (déjà classé), commissionnaire en douane → douane (déjà classé).
   'profession-de-commercant': ['LOI_STATUT_COMMERCANT_2018', V('I-G'), V('I-A')],
+  // 4ᵉ vague (28 juil., décision cliente) : le Décret sûretés va dans la section
+  // Droit civil (PAS en bancaire) — il reste principal dans obligations-biens-suretes.
+  'droit-civil': ['DECRET_SURETES'],
   'transport-aerien': ['VI-A', 'VI-B', 'VI-C', 'VI-D-1', 'VI-D-2', 'VI-E', 'VI-F'].map(V),
   assurances: ['IV-D-1', 'IV-D-2'].map(V),
   // Recoupements — thèmes existants d'autres branches (mêmes textes, autre foyer).
@@ -173,7 +176,7 @@ async function main() {
   const EXPECTED: Record<string, number> = {
     'societes-anonymes': 8, 'code-de-commerce': 4, 'droit-maritime': 11, 'droit-bancaire': 21,
     fiscalite: 12, 'propriete-intellectuelle': 6, arbitrage: 4, 'transport-aerien': 7, assurances: 2,
-    'profession-de-commercant': 3,
+    'profession-de-commercant': 3, 'droit-civil': 2,
     'fiscalite-impots': 12, douane: 2, 'travaux-publics-transports': 18, tourisme: 1,
     'agriculture-rural': 1, 'sante-publique': 3, 'commerce-industrie': 13,
   }
