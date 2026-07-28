@@ -1,0 +1,2496 @@
+[
+ {
+  "subject": "Abattement de 10 % sur salaires (supprimé, loi de finances 2012-2013)",
+  "ctRefs": [
+   "92"
+  ]
+ },
+ {
+  "subject": "Abattement de 30 % (concession de procédé par l'inventeur)",
+  "ctRefs": [
+   "69"
+  ]
+ },
+ {
+  "subject": "Abattement de 500 000 gourdes (base forfaitaire)",
+  "ctRefs": [
+   "34"
+  ]
+ },
+ {
+  "subject": "Abrogations",
+  "ctRefs": [
+   "188",
+   "189"
+  ]
+ },
+ {
+  "subject": "Acompte de 10 % à la source sur les loyers (contrats de l'État, entreprises, ONG)",
+  "ctRefs": [
+   "19"
+  ]
+ },
+ {
+  "subject": "Acompte de 2 % à la source (contrats de biens et de prestation de services)",
+  "ctRefs": [
+   "76"
+  ]
+ },
+ {
+  "subject": "Acompte provisionnel (75 % de l'impôt de l'exercice précédent, trois tranches)",
+  "ctRefs": [
+   "45",
+   "47",
+   "68"
+  ]
+ },
+ {
+  "subject": "Acompte provisionnel (abrogation de la loi du 5 février 1995)",
+  "ctRefs": [
+   "188"
+  ]
+ },
+ {
+  "subject": "Acompte provisionnel (professions non commerciales)",
+  "ctRefs": [
+   "76"
+  ]
+ },
+ {
+  "subject": "Administrateurs salariés (régime d'imposition des salaires)",
+  "ctRefs": [
+   "120"
+  ]
+ },
+ {
+  "subject": "Agents de l'État en fonction à l'étranger (domicile fiscal)",
+  "ctRefs": [
+   "5"
+  ]
+ },
+ {
+  "subject": "Agents diplomatiques et consulaires (franchise d'impôt)",
+  "ctRefs": [
+   "6"
+  ]
+ },
+ {
+  "subject": "Amende de 25 % du montant de l'impôt à payer",
+  "ctRefs": [
+   "10",
+   "19"
+  ]
+ },
+ {
+  "subject": "Amende pour défaut de déclaration des sommes versées (25 000 gourdes par mois, plafond 300 000)",
+  "ctRefs": [
+   "7"
+  ]
+ },
+ {
+  "subject": "Amendes fiscales",
+  "ctRefs": [
+   "79",
+   "84",
+   "85",
+   "92",
+   "94",
+   "95",
+   "96",
+   "105",
+   "107",
+   "109",
+   "125",
+   "126",
+   "133",
+   "134",
+   "147"
+  ]
+ },
+ {
+  "subject": "Amendes fiscales (défaut de déclaration, de livres ou de factures)",
+  "ctRefs": [
+   "37",
+   "39",
+   "45",
+   "46",
+   "48",
+   "49",
+   "50",
+   "51",
+   "52",
+   "56",
+   "57",
+   "58",
+   "59",
+   "63",
+   "63-2"
+  ]
+ },
+ {
+  "subject": "Amendes fiscales (détermination et recouvrement)",
+  "ctRefs": [
+   "159",
+   "164"
+  ]
+ },
+ {
+  "subject": "Amendes, confiscations et pénalités (non-déductibilité)",
+  "ctRefs": [
+   "30"
+  ]
+ },
+ {
+  "subject": "Amortissements différés (non-déductibilité)",
+  "ctRefs": [
+   "30"
+  ]
+ },
+ {
+  "subject": "Amortissements et réserve pour dépréciation (taux maxima)",
+  "ctRefs": [
+   "17",
+   "24",
+   "29"
+  ]
+ },
+ {
+  "subject": "Année d'imposition (bénéfices réalisés ou dont le contribuable a disposé)",
+  "ctRefs": [
+   "11"
+  ]
+ },
+ {
+  "subject": "Apport en nature en société (impôt sur plus-value différé)",
+  "ctRefs": [
+   "104"
+  ]
+ },
+ {
+  "subject": "Associations, fondations et institutions religieuses sans but lucratif (régime fiscal)",
+  "ctRefs": [
+   "15"
+  ]
+ },
+ {
+  "subject": "Assurance incendie et risques divers (réserve de 40 % des primes)",
+  "ctRefs": [
+   "157"
+  ]
+ },
+ {
+  "subject": "Assurance vie (réserve mathématique)",
+  "ctRefs": [
+   "157"
+  ]
+ },
+ {
+  "subject": "Autorisation judiciaire (Président du Tribunal de Première Instance, refus du contribuable)",
+  "ctRefs": [
+   "63-1",
+   "63-2"
+  ]
+ },
+ {
+  "subject": "Avances et prêts aux associés et actionnaires",
+  "ctRefs": [
+   "111",
+   "112"
+  ]
+ },
+ {
+  "subject": "Avantages en nature",
+  "ctRefs": [
+   "12",
+   "13",
+   "24"
+  ]
+ },
+ {
+  "subject": "Avantages en nature et en argent",
+  "ctRefs": [
+   "90",
+   "97"
+  ]
+ },
+ {
+  "subject": "Avis de cotisation",
+  "ctRefs": [
+   "179",
+   "180"
+  ]
+ },
+ {
+  "subject": "Avis de passage (collecte d'informations chez les tiers)",
+  "ctRefs": [
+   "177"
+  ]
+ },
+ {
+  "subject": "Avis de vérification (mentions obligatoires)",
+  "ctRefs": [
+   "173",
+   "174",
+   "184"
+  ]
+ },
+ {
+  "subject": "Banque de la République d'Haïti (autorité monétaire, transmission d'informations)",
+  "ctRefs": [
+   "63-1"
+  ]
+ },
+ {
+  "subject": "Barème de l'impôt sur le revenu des personnes physiques",
+  "ctRefs": [
+   "149"
+  ]
+ },
+ {
+  "subject": "Barème de l'impôt sur les sociétés",
+  "ctRefs": [
+   "149",
+   "153"
+  ]
+ },
+ {
+  "subject": "Barème de taxation (renvoi à l'article 149)",
+  "ctRefs": [
+   "64",
+   "65",
+   "75"
+  ]
+ },
+ {
+  "subject": "Base d'imposition forfaitaire (conditions d'application)",
+  "ctRefs": [
+   "140"
+  ]
+ },
+ {
+  "subject": "Base taxable des compagnies d'assurance",
+  "ctRefs": [
+   "158",
+   "160"
+  ]
+ },
+ {
+  "subject": "Biens amortissables (plus-value de cession)",
+  "ctRefs": [
+   "108"
+  ]
+ },
+ {
+  "subject": "Boni et étrennes (retenue de 10 %)",
+  "ctRefs": [
+   "95"
+  ]
+ },
+ {
+  "subject": "Bordereau complémentaire d'impôt",
+  "ctRefs": [
+   "147"
+  ]
+ },
+ {
+  "subject": "Bordereau d'impôt (paiement et contestation)",
+  "ctRefs": [
+   "162",
+   "167"
+  ]
+ },
+ {
+  "subject": "Bordereau d'impôt (échéance, délai de 30 jours)",
+  "ctRefs": [
+   "48",
+   "64"
+  ]
+ },
+ {
+  "subject": "Bordereau rectificatif",
+  "ctRefs": [
+   "42",
+   "48"
+  ]
+ },
+ {
+  "subject": "Brevets, marques de fabrique et procédés de fabrication (produits perçus par les inventeurs)",
+  "ctRefs": [
+   "69",
+   "74"
+  ]
+ },
+ {
+  "subject": "Bénéfice net (définition, actif net)",
+  "ctRefs": [
+   "23",
+   "27"
+  ]
+ },
+ {
+  "subject": "Bénéfice ou revenu imposable (détermination)",
+  "ctRefs": [
+   "12",
+   "14"
+  ]
+ },
+ {
+  "subject": "Bénéfice réel (base de l'impôt sur les sociétés)",
+  "ctRefs": [
+   "153"
+  ]
+ },
+ {
+  "subject": "Bénéfices des professions non commerciales",
+  "ctRefs": [
+   "69",
+   "70",
+   "71",
+   "72",
+   "73",
+   "74",
+   "75"
+  ]
+ },
+ {
+  "subject": "Bénéfices industriels et commerciaux (définition)",
+  "ctRefs": [
+   "20"
+  ]
+ },
+ {
+  "subject": "Bénéfices industriels et commerciaux (exploitant individuel)",
+  "ctRefs": [
+   "98"
+  ]
+ },
+ {
+  "subject": "Bénéfices industriels et commerciaux (modalités d'imposition : forfait ou bénéfice réel)",
+  "ctRefs": [
+   "31"
+  ]
+ },
+ {
+  "subject": "Caisses de crédit agricole (exonération)",
+  "ctRefs": [
+   "151"
+  ]
+ },
+ {
+  "subject": "Caisses enregistreuses (conservation des bandes de caisse)",
+  "ctRefs": [
+   "62"
+  ]
+ },
+ {
+  "subject": "Caractère définitif de l'impôt forfaitaire",
+  "ctRefs": [
+   "40"
+  ]
+ },
+ {
+  "subject": "Carrières de sable (taxe de 10 % du chiffre d'affaires, Loi de Finances 2013-2014) — insertion des lois de finances, sous l'article 20",
+  "ctRefs": [
+   "20"
+  ]
+ },
+ {
+  "subject": "Catégories de revenus (énumération et règles propres)",
+  "ctRefs": [
+   "13",
+   "14"
+  ]
+ },
+ {
+  "subject": "Centre des intérêts économiques",
+  "ctRefs": [
+   "5"
+  ]
+ },
+ {
+  "subject": "Certificat d'Accomplissement Fiscal",
+  "ctRefs": [
+   "170"
+  ]
+ },
+ {
+  "subject": "Certificat d'accomplissement fiscal (professions libérales)",
+  "ctRefs": [
+   "80"
+  ]
+ },
+ {
+  "subject": "Certificat de déclaration définitive d'impôts (accès aux services administratifs)",
+  "ctRefs": [
+   "81"
+  ]
+ },
+ {
+  "subject": "Certification conforme des états financiers remis aux banques",
+  "ctRefs": [
+   "50"
+  ]
+ },
+ {
+  "subject": "Cessation d'exercice et transfert de clientèle (indemnités imposables)",
+  "ctRefs": [
+   "70"
+  ]
+ },
+ {
+  "subject": "Cessation d'exploitation (valeur résiduelle des biens)",
+  "ctRefs": [
+   "108"
+  ]
+ },
+ {
+  "subject": "Cessation de l'exercice d'une profession non commerciale",
+  "ctRefs": [
+   "134"
+  ]
+ },
+ {
+  "subject": "Cession d'actions et de parts sociales (taxation à la source de 15 %)",
+  "ctRefs": [
+   "109"
+  ]
+ },
+ {
+  "subject": "Cession ou cessation d'entreprise (imposition immédiate)",
+  "ctRefs": [
+   "130",
+   "131",
+   "132",
+   "133"
+  ]
+ },
+ {
+  "subject": "Cession ou regroupement d'entreprise (solidarité fiscale)",
+  "ctRefs": [
+   "163"
+  ]
+ },
+ {
+  "subject": "Charges de famille (justification)",
+  "ctRefs": [
+   "137"
+  ]
+ },
+ {
+  "subject": "Charges déductibles des bénéfices industriels et commerciaux",
+  "ctRefs": [
+   "24"
+  ]
+ },
+ {
+  "subject": "Charges déductibles du revenu global",
+  "ctRefs": [
+   "128",
+   "139"
+  ]
+ },
+ {
+  "subject": "Charges non déductibles (exclusions du bénéfice net imposable)",
+  "ctRefs": [
+   "30"
+  ]
+ },
+ {
+  "subject": "Chiffre d'affaires (assiette de l'impôt forfaitaire)",
+  "ctRefs": [
+   "34",
+   "35"
+  ]
+ },
+ {
+  "subject": "Clauses contractuelles d'exonération d'impôt hors prescriptions légales",
+  "ctRefs": [
+   "8"
+  ]
+ },
+ {
+  "subject": "Commission d'expertise (contestation de redressement)",
+  "ctRefs": [
+   "106"
+  ]
+ },
+ {
+  "subject": "Commission mixte du contentieux fiscal",
+  "ctRefs": [
+   "168"
+  ]
+ },
+ {
+  "subject": "Commissions et courtages (retenue à la source de 15 %)",
+  "ctRefs": [
+   "96"
+  ]
+ },
+ {
+  "subject": "Communication du dossier de vérification au contribuable",
+  "ctRefs": [
+   "181"
+  ]
+ },
+ {
+  "subject": "Compagnies d'assurance (obligations comptables et déclaratives)",
+  "ctRefs": [
+   "157",
+   "158"
+  ]
+ },
+ {
+  "subject": "Comparaison avec des entreprises similaires (détermination des revenus imposables)",
+  "ctRefs": [
+   "66"
+  ]
+ },
+ {
+  "subject": "Compensation par jeu de notes de débit et de crédit (amende de 5 %)",
+  "ctRefs": [
+   "51"
+  ]
+ },
+ {
+  "subject": "Comptabilité informatisée (fiabilité du système comptable)",
+  "ctRefs": [
+   "39",
+   "56"
+  ]
+ },
+ {
+  "subject": "Comptabilité informatisée (livre-journal mensuel)",
+  "ctRefs": [
+   "185"
+  ]
+ },
+ {
+  "subject": "Comptabilité non probante ou non sincère",
+  "ctRefs": [
+   "57"
+  ]
+ },
+ {
+  "subject": "Conservation des documents comptables (cinq ans)",
+  "ctRefs": [
+   "185"
+  ]
+ },
+ {
+  "subject": "Conservation des documents comptables (délai de cinq ans)",
+  "ctRefs": [
+   "79",
+   "82",
+   "91"
+  ]
+ },
+ {
+  "subject": "Conservation des factures et pièces (délai de 5 ans)",
+  "ctRefs": [
+   "39",
+   "62"
+  ]
+ },
+ {
+  "subject": "Consolidation des résultats (entreprises financées par le même capital)",
+  "ctRefs": [
+   "65"
+  ]
+ },
+ {
+  "subject": "Contestation de la taxation d'office (limites)",
+  "ctRefs": [
+   "144",
+   "146"
+  ]
+ },
+ {
+  "subject": "Contestation du bordereau (délai de huit jours)",
+  "ctRefs": [
+   "167",
+   "168"
+  ]
+ },
+ {
+  "subject": "Contre-vérification des déclarations",
+  "ctRefs": [
+   "183"
+  ]
+ },
+ {
+  "subject": "Contribuable résidant à l'étranger (taxation d'office)",
+  "ctRefs": [
+   "139"
+  ]
+ },
+ {
+  "subject": "Contribution foncière des propriétés bâties (déduction)",
+  "ctRefs": [
+   "128"
+  ]
+ },
+ {
+  "subject": "Contrôle et vérification des déclarations",
+  "ctRefs": [
+   "136",
+   "138",
+   "147"
+  ]
+ },
+ {
+  "subject": "Contrôle fiscal (vérification des opérations de l'entreprise, délai de 5 ans)",
+  "ctRefs": [
+   "48",
+   "52",
+   "55",
+   "63-1",
+   "63-2",
+   "67"
+  ]
+ },
+ {
+  "subject": "Contrôle inopiné",
+  "ctRefs": [
+   "176",
+   "177"
+  ]
+ },
+ {
+  "subject": "Conventions internationales relatives aux doubles impositions",
+  "ctRefs": [
+   "3",
+   "4"
+  ]
+ },
+ {
+  "subject": "Coopératives agricoles (exonération)",
+  "ctRefs": [
+   "151"
+  ]
+ },
+ {
+  "subject": "Cotisations professionnelles et frais de formation (déduction)",
+  "ctRefs": [
+   "128"
+  ]
+ },
+ {
+  "subject": "Couple (déclaration des revenus communs par l'un ou l'autre conjoint)",
+  "ctRefs": [
+   "4"
+  ]
+ },
+ {
+  "subject": "Cour Supérieure des Comptes et du Contentieux Administratif (recours et contrôle)",
+  "ctRefs": [
+   "106",
+   "168",
+   "183"
+  ]
+ },
+ {
+  "subject": "Créances douteuses ou irrécouvrables (provision de 1 % des comptes à recevoir)",
+  "ctRefs": [
+   "24"
+  ]
+ },
+ {
+  "subject": "Crédit d'impôt (acompte excédentaire déductible)",
+  "ctRefs": [
+   "38",
+   "68"
+  ]
+ },
+ {
+  "subject": "Crédit d'impôt (imputation et report)",
+  "ctRefs": [
+   "76",
+   "94",
+   "117"
+  ]
+ },
+ {
+  "subject": "Crédit-bail (durée d'amortissement des biens financés)",
+  "ctRefs": [
+   "29"
+  ]
+ },
+ {
+  "subject": "Dation en paiement (plus-value)",
+  "ctRefs": [
+   "99",
+   "102"
+  ]
+ },
+ {
+  "subject": "Demande d'éclaircissements",
+  "ctRefs": [
+   "136",
+   "137",
+   "139"
+  ]
+ },
+ {
+  "subject": "Demande de justification",
+  "ctRefs": [
+   "136",
+   "137",
+   "139"
+  ]
+ },
+ {
+  "subject": "Direction de l'Inspection Fiscale du Ministère de l'Économie et des Finances (pouvoirs de contrôle)",
+  "ctRefs": [
+   "39",
+   "52",
+   "55",
+   "57",
+   "63-1",
+   "63-2",
+   "67"
+  ]
+ },
+ {
+  "subject": "Direction nationale de vérification (points litigieux)",
+  "ctRefs": [
+   "180",
+   "181"
+  ]
+ },
+ {
+  "subject": "Dirigeants de société (rémunérations, indemnités et allocations forfaitaires)",
+  "ctRefs": [
+   "89",
+   "97"
+  ]
+ },
+ {
+  "subject": "Dividendes (distribution après constitution de la réserve)",
+  "ctRefs": [
+   "153"
+  ]
+ },
+ {
+  "subject": "Dividendes (distribution et déclaration)",
+  "ctRefs": [
+   "7",
+   "27"
+  ]
+ },
+ {
+  "subject": "Dividendes (retenue libératoire de 20 %)",
+  "ctRefs": [
+   "113",
+   "114"
+  ]
+ },
+ {
+  "subject": "Dividendes et parts sociales",
+  "ctRefs": [
+   "110",
+   "113",
+   "117",
+   "119"
+  ]
+ },
+ {
+  "subject": "Domaine privé de l'État (construction érigée sur terrain)",
+  "ctRefs": [
+   "103"
+  ]
+ },
+ {
+  "subject": "Domicile fiscal du représentant en Haïti (personnes morales étrangères)",
+  "ctRefs": [
+   "155"
+  ]
+ },
+ {
+  "subject": "Domicile fiscal en Haïti (critères)",
+  "ctRefs": [
+   "4",
+   "5"
+  ]
+ },
+ {
+  "subject": "Donation entre vifs (calcul de la plus-value)",
+  "ctRefs": [
+   "101"
+  ]
+ },
+ {
+  "subject": "Dons aux fondations, institutions de charité et partis politiques (déduction)",
+  "ctRefs": [
+   "128"
+  ]
+ },
+ {
+  "subject": "Dons aux fondations, partis politiques et institutions à portée sociale (déduction plafonnée à 10 %)",
+  "ctRefs": [
+   "24",
+   "128"
+  ]
+ },
+ {
+  "subject": "Droit de communication (livres comptables et pièces justificatives)",
+  "ctRefs": [
+   "39",
+   "55"
+  ]
+ },
+ {
+  "subject": "Droit de communication (services publics et institutions)",
+  "ctRefs": [
+   "170"
+  ]
+ },
+ {
+  "subject": "Droit de communication de l'administration fiscale",
+  "ctRefs": [
+   "82",
+   "83",
+   "84",
+   "91"
+  ]
+ },
+ {
+  "subject": "Droit de contrôle de l'administration fiscale",
+  "ctRefs": [
+   "169",
+   "171",
+   "172",
+   "182"
+  ]
+ },
+ {
+  "subject": "Droit de timbre sur le dépôt des états financiers",
+  "ctRefs": [
+   "49"
+  ]
+ },
+ {
+  "subject": "Droits d'auteur (écrivains et compositeurs)",
+  "ctRefs": [
+   "69"
+  ]
+ },
+ {
+  "subject": "Droits de mutation",
+  "ctRefs": [
+   "101",
+   "105"
+  ]
+ },
+ {
+  "subject": "Durée de la vérification sur place (120 jours)",
+  "ctRefs": [
+   "175"
+  ]
+ },
+ {
+  "subject": "Débitants en détail de produits pétroliers (marge brute)",
+  "ctRefs": [
+   "34"
+  ]
+ },
+ {
+  "subject": "Déclaration annuelle des sommes versées à des tiers (entreprises, associations, mandataires)",
+  "ctRefs": [
+   "7",
+   "15"
+  ]
+ },
+ {
+  "subject": "Déclaration d'existence (professionnel nouvellement installé)",
+  "ctRefs": [
+   "85"
+  ]
+ },
+ {
+  "subject": "Déclaration d'existence des entreprises (immatriculation à la DGI)",
+  "ctRefs": [
+   "32"
+  ]
+ },
+ {
+  "subject": "Déclaration d'impôt des sociétés (dépôt des états financiers)",
+  "ctRefs": [
+   "44",
+   "47",
+   "156"
+  ]
+ },
+ {
+  "subject": "Déclaration d'impôt sur le revenu sur la base forfaitaire",
+  "ctRefs": [
+   "37",
+   "38"
+  ]
+ },
+ {
+  "subject": "Déclaration de cession immobilière (mentions obligatoires)",
+  "ctRefs": [
+   "105"
+  ]
+ },
+ {
+  "subject": "Déclaration de cession ou de cessation (délai de trente jours)",
+  "ctRefs": [
+   "130",
+   "131",
+   "134"
+  ]
+ },
+ {
+  "subject": "Déclaration des contrats de prêt à la Direction Générale des Impôts",
+  "ctRefs": [
+   "126"
+  ]
+ },
+ {
+  "subject": "Déclaration des paiements d'intérêts (débiteurs et intermédiaires)",
+  "ctRefs": [
+   "125",
+   "126"
+  ]
+ },
+ {
+  "subject": "Déclaration du revenu foncier (au plus tard le 31 janvier)",
+  "ctRefs": [
+   "19"
+  ]
+ },
+ {
+  "subject": "Déclaration définitive d'impôt sur le revenu",
+  "ctRefs": [
+   "47",
+   "53",
+   "75"
+  ]
+ },
+ {
+  "subject": "Déclaration définitive de revenus (renvoi à l'article 127)",
+  "ctRefs": [
+   "9",
+   "19",
+   "127"
+  ]
+ },
+ {
+  "subject": "Déclaration définitive des contribuables",
+  "ctRefs": [
+   "127",
+   "134",
+   "148",
+   "149"
+  ]
+ },
+ {
+  "subject": "Déclarations rectificatives",
+  "ctRefs": [
+   "162",
+   "186"
+  ]
+ },
+ {
+  "subject": "Décès du contribuable (établissement de l'impôt)",
+  "ctRefs": [
+   "129",
+   "132",
+   "133",
+   "135"
+  ]
+ },
+ {
+  "subject": "Déficit des exercices antérieurs (déduction)",
+  "ctRefs": [
+   "27"
+  ]
+ },
+ {
+  "subject": "Délai de reprise de l'administration (cinq ans)",
+  "ctRefs": [
+   "182"
+  ]
+ },
+ {
+  "subject": "Délais de soumission des états financiers (90/120 jours, prorogation de 30 jours)",
+  "ctRefs": [
+   "44"
+  ]
+ },
+ {
+  "subject": "Dépenses déductibles (professions non commerciales)",
+  "ctRefs": [
+   "72"
+  ]
+ },
+ {
+  "subject": "Dépenses personnelles ostensibles ou notoires",
+  "ctRefs": [
+   "139",
+   "143",
+   "145"
+  ]
+ },
+ {
+  "subject": "Dépréciation (définition)",
+  "ctRefs": [
+   "28"
+  ]
+ },
+ {
+  "subject": "Enfants mineurs et personnes à charge (revenus imposés au foyer)",
+  "ctRefs": [
+   "4"
+  ]
+ },
+ {
+  "subject": "Entreprise individuelle (imposition de l'exploitant, rémunération non déductible)",
+  "ctRefs": [
+   "98"
+  ]
+ },
+ {
+  "subject": "Entreprises interdépendantes (indices de dépendance)",
+  "ctRefs": [
+   "65",
+   "66"
+  ]
+ },
+ {
+  "subject": "Entreprises nouvelles (première période d'imposition)",
+  "ctRefs": [
+   "22"
+  ]
+ },
+ {
+  "subject": "Entreprises publiques et organismes d'État à autonomie financière",
+  "ctRefs": [
+   "150"
+  ]
+ },
+ {
+  "subject": "Entreprises sous le régime du code des investissements (obligations déclaratives)",
+  "ctRefs": [
+   "46"
+  ]
+ },
+ {
+  "subject": "Examen contradictoire de la situation fiscale personnelle",
+  "ctRefs": [
+   "172",
+   "173",
+   "178"
+  ]
+ },
+ {
+  "subject": "Excédent de remise à l'étranger (amende de 20 %)",
+  "ctRefs": [
+   "51"
+  ]
+ },
+ {
+  "subject": "Exercice fiscal (1er octobre au 30 septembre)",
+  "ctRefs": [
+   "21",
+   "22"
+  ]
+ },
+ {
+  "subject": "Exercices prescrits (vérification des reports et avantages)",
+  "ctRefs": [
+   "182"
+  ]
+ },
+ {
+  "subject": "Exonération fiscale (période d'exonération totale)",
+  "ctRefs": [
+   "46"
+  ]
+ },
+ {
+  "subject": "Exonérations d'impôt sur le revenu (énumération)",
+  "ctRefs": [
+   "15"
+  ]
+ },
+ {
+  "subject": "Expertise des biens (prix indéterminé ou contesté)",
+  "ctRefs": [
+   "100",
+   "102",
+   "106"
+  ]
+ },
+ {
+  "subject": "Exploitant individuel (décès ; imposition selon le barème des sociétés)",
+  "ctRefs": [
+   "132",
+   "149"
+  ]
+ },
+ {
+  "subject": "Exploitant individuel (revenu imposable, unicité de l'exercice financier)",
+  "ctRefs": [
+   "53"
+  ]
+ },
+ {
+  "subject": "Extension de la demande d'information aux dirigeants et aux proches du contribuable",
+  "ctRefs": [
+   "63-1"
+  ]
+ },
+ {
+  "subject": "Facturation obligatoire (ventes et prestations de services)",
+  "ctRefs": [
+   "60",
+   "61",
+   "62",
+   "63"
+  ]
+ },
+ {
+  "subject": "Facture et bordereau obligatoires (professions non commerciales)",
+  "ctRefs": [
+   "77",
+   "78",
+   "79"
+  ]
+ },
+ {
+  "subject": "Fait générateur de l'impôt sur les intérêts (paiement ou inscription en compte)",
+  "ctRefs": [
+   "124"
+  ]
+ },
+ {
+  "subject": "Fausse déclaration (amendes)",
+  "ctRefs": [
+   "94",
+   "95",
+   "107"
+  ]
+ },
+ {
+  "subject": "Fonctionnaires et employés de l'État (prélèvement mensuel du douzième)",
+  "ctRefs": [
+   "93"
+  ]
+ },
+ {
+  "subject": "Fonds de commerce (capitalisation des intérêts du prix de vente ; publication de la cession)",
+  "ctRefs": [
+   "124",
+   "131"
+  ]
+ },
+ {
+  "subject": "Frais médicaux (déduction)",
+  "ctRefs": [
+   "128"
+  ]
+ },
+ {
+  "subject": "Fraude fiscale (cas constitutifs, procès-verbal, amende de 5 % du chiffre d'affaires)",
+  "ctRefs": [
+   "52",
+   "57",
+   "63-1"
+  ]
+ },
+ {
+  "subject": "Fraude fiscale (constat par agents assermentés)",
+  "ctRefs": [
+   "87"
+  ]
+ },
+ {
+  "subject": "Fraude fiscale (sanctions)",
+  "ctRefs": [
+   "147"
+  ]
+ },
+ {
+  "subject": "Fraude fiscale (sanctions, complicité et négligence des agents)",
+  "ctRefs": [
+   "49",
+   "183"
+  ]
+ },
+ {
+  "subject": "Fret (détermination du chiffre d'affaires des lignes de navigation)",
+  "ctRefs": [
+   "161"
+  ]
+ },
+ {
+  "subject": "Heures supplémentaires (retenue de 10 %)",
+  "ctRefs": [
+   "92",
+   "95"
+  ]
+ },
+ {
+  "subject": "Héritiers et légataires (solidarité pour le recouvrement)",
+  "ctRefs": [
+   "129",
+   "132"
+  ]
+ },
+ {
+  "subject": "Imputation de l'impôt retenu à la source sur l'impôt définitif",
+  "ctRefs": [
+   "148"
+  ]
+ },
+ {
+  "subject": "Impôt forfaitaire des réassureurs non domiciliés",
+  "ctRefs": [
+   "159"
+  ]
+ },
+ {
+  "subject": "Impôt libératoire sur cessions immobilières (2½ % et 4 %)",
+  "ctRefs": [
+   "103"
+  ]
+ },
+ {
+  "subject": "Impôt payé à l'étranger (imputation, salariés de missions étrangères)",
+  "ctRefs": [
+   "94"
+  ]
+ },
+ {
+  "subject": "Impôt sur la base du bénéfice réel (BIC)",
+  "ctRefs": [
+   "43",
+   "44",
+   "47",
+   "53",
+   "64"
+  ]
+ },
+ {
+  "subject": "Impôt sur le revenu (établissement et champ d'application)",
+  "ctRefs": [
+   "1",
+   "3"
+  ]
+ },
+ {
+  "subject": "Impôt sur le revenu sur la base forfaitaire (régime simplifié des petites entreprises)",
+  "ctRefs": [
+   "33",
+   "34",
+   "35",
+   "36",
+   "37",
+   "38",
+   "39",
+   "40",
+   "41",
+   "42"
+  ]
+ },
+ {
+  "subject": "Impôt sur les sociétés (annualité et exercice fiscal)",
+  "ctRefs": [
+   "21",
+   "22",
+   "152"
+  ]
+ },
+ {
+  "subject": "Impôt sur les sociétés (champ d'application)",
+  "ctRefs": [
+   "150"
+  ]
+ },
+ {
+  "subject": "Impôt sur les sociétés (dénomination)",
+  "ctRefs": [
+   "1"
+  ]
+ },
+ {
+  "subject": "Impôt sur les sociétés (taux de 30 %)",
+  "ctRefs": [
+   "149"
+  ]
+ },
+ {
+  "subject": "Impôts payés à l'étranger (non-déductibilité)",
+  "ctRefs": [
+   "30"
+  ]
+ },
+ {
+  "subject": "Indemnités d'accident de travail (exonération)",
+  "ctRefs": [
+   "15"
+  ]
+ },
+ {
+  "subject": "Indemnités d'assurance vie et santé (exonération)",
+  "ctRefs": [
+   "15"
+  ]
+ },
+ {
+  "subject": "Indemnités de retraite et d'invalidité (exonération)",
+  "ctRefs": [
+   "15"
+  ]
+ },
+ {
+  "subject": "Inflation (ajustement des barèmes par la loi de finances)",
+  "ctRefs": [
+   "149"
+  ]
+ },
+ {
+  "subject": "Interruption de la prescription",
+  "ctRefs": [
+   "184"
+  ]
+ },
+ {
+  "subject": "Intérêts de comptes d'épargne et dépôts à terme (exonération)",
+  "ctRefs": [
+   "123",
+   "125"
+  ]
+ },
+ {
+  "subject": "Intérêts de retard",
+  "ctRefs": [
+   "76",
+   "94",
+   "95",
+   "114"
+  ]
+ },
+ {
+  "subject": "Intérêts de retard (3 % par mois)",
+  "ctRefs": [
+   "162"
+  ]
+ },
+ {
+  "subject": "Intérêts de retard (renvoi à l'article 162)",
+  "ctRefs": [
+   "36",
+   "47",
+   "68",
+   "74"
+  ]
+ },
+ {
+  "subject": "Intérêts de retard (soumission tardive de la déclaration)",
+  "ctRefs": [
+   "127"
+  ]
+ },
+ {
+  "subject": "Intérêts hypothécaires (déduction du revenu foncier)",
+  "ctRefs": [
+   "17"
+  ]
+ },
+ {
+  "subject": "Intérêts payés (déduction subordonnée à la retenue à la source de 15 %)",
+  "ctRefs": [
+   "24"
+  ]
+ },
+ {
+  "subject": "Jeux de hasard (impôt libératoire des tenanciers, 25 % de la valeur locative)",
+  "ctRefs": [
+   "74"
+  ]
+ },
+ {
+  "subject": "Journal de caisse (obligation des contribuables au forfait)",
+  "ctRefs": [
+   "39"
+  ]
+ },
+ {
+  "subject": "Justification et réintégration des charges excessives",
+  "ctRefs": [
+   "24",
+   "25",
+   "26"
+  ]
+ },
+ {
+  "subject": "Levée du secret bancaire (communication des comptes en vérification fiscale)",
+  "ctRefs": [
+   "63-1"
+  ]
+ },
+ {
+  "subject": "Lieu d'imposition des personnes morales",
+  "ctRefs": [
+   "155"
+  ]
+ },
+ {
+  "subject": "Lignes de navigation maritime et aérienne (imposition)",
+  "ctRefs": [
+   "161"
+  ]
+ },
+ {
+  "subject": "Liquidation, partage ou cession de société (avoir net, retenue de 20 %)",
+  "ctRefs": [
+   "116"
+  ]
+ },
+ {
+  "subject": "Livre d'inventaire (mention séparée des marchandises par lieu)",
+  "ctRefs": [
+   "58"
+  ]
+ },
+ {
+  "subject": "Livre de prix de revient et livre de stock (producteurs, importateurs, exportateurs)",
+  "ctRefs": [
+   "59"
+  ]
+ },
+ {
+  "subject": "Livre-Journal (tenue, scellé et visa de la DGI)",
+  "ctRefs": [
+   "82"
+  ]
+ },
+ {
+  "subject": "Locataire (déclaration des loyers payés au propriétaire)",
+  "ctRefs": [
+   "19"
+  ]
+ },
+ {
+  "subject": "Location d'établissement commercial ou industriel équipé",
+  "ctRefs": [
+   "20"
+  ]
+ },
+ {
+  "subject": "Lotissement et morcellement (cession de parcelles)",
+  "ctRefs": [
+   "103"
+  ]
+ },
+ {
+  "subject": "Lotissement et vente de terrains",
+  "ctRefs": [
+   "20"
+  ]
+ },
+ {
+  "subject": "Loyer des locaux professionnels (déductibilité)",
+  "ctRefs": [
+   "72"
+  ]
+ },
+ {
+  "subject": "Majoration d'impôt (25 %, 100 %, 200 %)",
+  "ctRefs": [
+   "86",
+   "87",
+   "147"
+  ]
+ },
+ {
+  "subject": "Mandataires et représentants à titre universel",
+  "ctRefs": [
+   "7",
+   "9"
+  ]
+ },
+ {
+  "subject": "Marais salants, mines, carrières et hydrocarbures (revenus fonciers)",
+  "ctRefs": [
+   "16"
+  ]
+ },
+ {
+  "subject": "Marchands de biens et opérations immobilières habituelles",
+  "ctRefs": [
+   "20"
+  ]
+ },
+ {
+  "subject": "Mentions obligatoires des factures",
+  "ctRefs": [
+   "61"
+  ]
+ },
+ {
+  "subject": "Missions diplomatiques et consulaires (imposition du personnel)",
+  "ctRefs": [
+   "94"
+  ]
+ },
+ {
+  "subject": "Non-résidents (impôt minimum forfaitaire de 10 000 gourdes)",
+  "ctRefs": [
+   "81"
+  ]
+ },
+ {
+  "subject": "Notaire (obligations et responsabilité fiscales)",
+  "ctRefs": [
+   "105",
+   "107"
+  ]
+ },
+ {
+  "subject": "Notification de la base d'imposition (délai d'observations de trente jours)",
+  "ctRefs": [
+   "140",
+   "146"
+  ]
+ },
+ {
+  "subject": "Notification de redressement",
+  "ctRefs": [
+   "178",
+   "179",
+   "180",
+   "184"
+  ]
+ },
+ {
+  "subject": "Notification des redressements (délai de 30 jours pour observations)",
+  "ctRefs": [
+   "66"
+  ]
+ },
+ {
+  "subject": "Obligations déclaratives des employeurs et payeurs de revenus",
+  "ctRefs": [
+   "91",
+   "92",
+   "94"
+  ]
+ },
+ {
+  "subject": "Opérations de bourse effectuées par des particuliers",
+  "ctRefs": [
+   "69"
+  ]
+ },
+ {
+  "subject": "Opérations en portefeuille extérieur (relevé obligatoire, sanctions)",
+  "ctRefs": [
+   "51",
+   "52"
+  ]
+ },
+ {
+  "subject": "Ordre des Comptables Professionnels Agréés d'Haïti",
+  "ctRefs": [
+   "49"
+  ]
+ },
+ {
+  "subject": "Paiement échelonné de l'impôt (24 mensualités)",
+  "ctRefs": [
+   "186"
+  ]
+ },
+ {
+  "subject": "Patente et carte d'identité professionnelle (secteur informel) — insertion des lois de finances, sous l'article 42",
+  "ctRefs": [
+   "42"
+  ]
+ },
+ {
+  "subject": "Pensions alimentaires reçues par décision de justice (exonération)",
+  "ctRefs": [
+   "15"
+  ]
+ },
+ {
+  "subject": "Pensions civiles et militaires (exonération)",
+  "ctRefs": [
+   "15"
+  ]
+ },
+ {
+  "subject": "Personnes imposables (impôt sur le revenu des personnes physiques)",
+  "ctRefs": [
+   "4"
+  ]
+ },
+ {
+  "subject": "Plan Comptable National et Normes Internationales de Comptabilité",
+  "ctRefs": [
+   "23",
+   "44",
+   "47"
+  ]
+ },
+ {
+  "subject": "Plus-value (base imposable : prix de cession moins prix d'acquisition)",
+  "ctRefs": [
+   "100"
+  ]
+ },
+ {
+  "subject": "Plus-value immobilière (caractère habituel des opérations)",
+  "ctRefs": [
+   "182"
+  ]
+ },
+ {
+  "subject": "Plus-value immobilière (retenue à la source de 10 %)",
+  "ctRefs": [
+   "103",
+   "108"
+  ]
+ },
+ {
+  "subject": "Plus-value immobilière des entreprises (retenue de 10 % déductible)",
+  "ctRefs": [
+   "108"
+  ]
+ },
+ {
+  "subject": "Plus-value à long terme et à court terme (seuil de dix ans)",
+  "ctRefs": [
+   "99",
+   "103"
+  ]
+ },
+ {
+  "subject": "Plus-values immobilières et mobilières (champ d'application)",
+  "ctRefs": [
+   "99",
+   "103"
+  ]
+ },
+ {
+  "subject": "Plus-values professionnelles (réalisation d'éléments d'actif, cession de charges ou d'offices)",
+  "ctRefs": [
+   "70"
+  ]
+ },
+ {
+  "subject": "Prescription quinquennale",
+  "ctRefs": [
+   "184"
+  ]
+ },
+ {
+  "subject": "Prestataires de services domiciliés à l'étranger (retenue libératoire de 5 % et 15 %)",
+  "ctRefs": [
+   "8"
+  ]
+ },
+ {
+  "subject": "Prime de fonction (personnel affecté aux Grands Commis) — insertion des lois de finances, sous l'article 95",
+  "ctRefs": [
+   "95"
+  ]
+ },
+ {
+  "subject": "Primes d'assurance (déductibilité, compagnies établies en Haïti)",
+  "ctRefs": [
+   "72"
+  ]
+ },
+ {
+  "subject": "Primes d'assurance (déduction et exclusion des compagnies étrangères non représentées)",
+  "ctRefs": [
+   "17",
+   "24",
+   "30"
+  ]
+ },
+ {
+  "subject": "Primes d'assurance vie et santé (déduction)",
+  "ctRefs": [
+   "128"
+  ]
+ },
+ {
+  "subject": "Primes d'efficacité et d'efficience (agents publics) — insertion des lois de finances, sous l'article 95",
+  "ctRefs": [
+   "95"
+  ]
+ },
+ {
+  "subject": "Primes de performance (inspecteurs et vérificateurs des organismes de perception) — insertion des lois de finances, sous l'article 95",
+  "ctRefs": [
+   "95"
+  ]
+ },
+ {
+  "subject": "Primes des agents publics (dispositions spéciales, budget 2013-2014) — insertion des lois de finances, sous l'article 95",
+  "ctRefs": [
+   "95"
+  ]
+ },
+ {
+  "subject": "Prix de transfert (bénéfices indirectement transférés à des entreprises hors d'Haïti)",
+  "ctRefs": [
+   "66"
+  ]
+ },
+ {
+  "subject": "Procédure contradictoire de redressement",
+  "ctRefs": [
+   "178",
+   "179",
+   "180",
+   "181"
+  ]
+ },
+ {
+  "subject": "Professionnels non résidents en séjour temporaire (retenue de 20 %)",
+  "ctRefs": [
+   "74"
+  ]
+ },
+ {
+  "subject": "Professions libérales (revenus imposables)",
+  "ctRefs": [
+   "69"
+  ]
+ },
+ {
+  "subject": "Profit différé",
+  "ctRefs": [
+   "116"
+  ]
+ },
+ {
+  "subject": "Profits accumulés non distribués ni réinvestis (imposition libératoire de 30 %)",
+  "ctRefs": [
+   "115"
+  ]
+ },
+ {
+  "subject": "Propriétés bâties (revenus)",
+  "ctRefs": [
+   "16"
+  ]
+ },
+ {
+  "subject": "Propriétés non bâties (revenus)",
+  "ctRefs": [
+   "16"
+  ]
+ },
+ {
+  "subject": "Préavis de cessation de travail (indemnité exonérée)",
+  "ctRefs": [
+   "15"
+  ]
+ },
+ {
+  "subject": "Prélèvement à la source de 15 %",
+  "ctRefs": [
+   "121",
+   "122"
+  ]
+ },
+ {
+  "subject": "Présomption d'exactitude de la déclaration",
+  "ctRefs": [
+   "136"
+  ]
+ },
+ {
+  "subject": "Publication et exécution du décret",
+  "ctRefs": [
+   "189"
+  ]
+ },
+ {
+  "subject": "Rachat d'actions",
+  "ctRefs": [
+   "109",
+   "110",
+   "112",
+   "118"
+  ]
+ },
+ {
+  "subject": "Rapprochement entre résultat comptable et résultat fiscal",
+  "ctRefs": [
+   "47"
+  ]
+ },
+ {
+  "subject": "Recettes professionnelles (professions non commerciales)",
+  "ctRefs": [
+   "71"
+  ]
+ },
+ {
+  "subject": "Reconstitution du revenu par l'accroissement de l'avoir net",
+  "ctRefs": [
+   "143",
+   "144"
+  ]
+ },
+ {
+  "subject": "Recours administratif (avance de 25 % du montant réclamé)",
+  "ctRefs": [
+   "168"
+  ]
+ },
+ {
+  "subject": "Recouvrement forcé des créances de l'État",
+  "ctRefs": [
+   "74"
+  ]
+ },
+ {
+  "subject": "Recouvrement par voie de contrainte",
+  "ctRefs": [
+   "164"
+  ]
+ },
+ {
+  "subject": "Rectification des déclarations par l'administration fiscale",
+  "ctRefs": [
+   "127",
+   "138",
+   "147"
+  ]
+ },
+ {
+  "subject": "Redressement du prix de cession (valeur marchande)",
+  "ctRefs": [
+   "106"
+  ]
+ },
+ {
+  "subject": "Redressement fiscal (erreurs et omissions)",
+  "ctRefs": [
+   "86",
+   "87"
+  ]
+ },
+ {
+  "subject": "Redressements fiscaux (majorations de 25 %, 100 %, 200 %)",
+  "ctRefs": [
+   "48"
+  ]
+ },
+ {
+  "subject": "Registre des bénéficiaires de paiements (employeurs)",
+  "ctRefs": [
+   "91"
+  ]
+ },
+ {
+  "subject": "Remboursement d'apports et de primes d'émission (exclusion des revenus distribués)",
+  "ctRefs": [
+   "118"
+  ]
+ },
+ {
+  "subject": "Renseignements des compagnies d'assurance et de réassurance (vérification fiscale)",
+  "ctRefs": [
+   "63-2"
+  ]
+ },
+ {
+  "subject": "Rente viagère (cession d'un bien contre)",
+  "ctRefs": [
+   "101"
+  ]
+ },
+ {
+  "subject": "Report de déficit",
+  "ctRefs": [
+   "182"
+  ]
+ },
+ {
+  "subject": "Report de déficit (jusqu'au cinquième exercice)",
+  "ctRefs": [
+   "54"
+  ]
+ },
+ {
+  "subject": "Report de la vérification sur place",
+  "ctRefs": [
+   "174"
+  ]
+ },
+ {
+  "subject": "Report des déficits antérieurs",
+  "ctRefs": [
+   "128"
+  ]
+ },
+ {
+  "subject": "Responsabilité des comptables et agents d'affaires (erreurs importantes, faux états financiers)",
+  "ctRefs": [
+   "49"
+  ]
+ },
+ {
+  "subject": "Responsabilité solidaire du paiement de l'impôt",
+  "ctRefs": [
+   "7",
+   "8"
+  ]
+ },
+ {
+  "subject": "Responsabilité solidaire en matière fiscale",
+  "ctRefs": [
+   "154",
+   "163"
+  ]
+ },
+ {
+  "subject": "Retenue à la source (obligations et sanction de réintégration)",
+  "ctRefs": [
+   "8",
+   "15",
+   "24"
+  ]
+ },
+ {
+  "subject": "Retenue à la source libératoire de 20 %",
+  "ctRefs": [
+   "74"
+  ]
+ },
+ {
+  "subject": "Retenue à la source sur les salaires",
+  "ctRefs": [
+   "92",
+   "93",
+   "94",
+   "95"
+  ]
+ },
+ {
+  "subject": "Retenues à la source (dettes fiscales imprescriptibles)",
+  "ctRefs": [
+   "184"
+  ]
+ },
+ {
+  "subject": "Revenu (définition)",
+  "ctRefs": [
+   "2"
+  ]
+ },
+ {
+  "subject": "Revenu brut des immeubles donnés en location",
+  "ctRefs": [
+   "18"
+  ]
+ },
+ {
+  "subject": "Revenu foncier net (charges déductibles de la propriété)",
+  "ctRefs": [
+   "17"
+  ]
+ },
+ {
+  "subject": "Revenu global net",
+  "ctRefs": [
+   "3",
+   "13"
+  ]
+ },
+ {
+  "subject": "Revenus de l'État, des collectivités territoriales et des établissements publics (exonération)",
+  "ctRefs": [
+   "15"
+  ]
+ },
+ {
+  "subject": "Revenus de source haïtienne (non-résidents)",
+  "ctRefs": [
+   "4",
+   "6",
+   "8"
+  ]
+ },
+ {
+  "subject": "Revenus des capitaux mobiliers (définition)",
+  "ctRefs": [
+   "110"
+  ]
+ },
+ {
+  "subject": "Revenus des créances, dépôts et cautionnements",
+  "ctRefs": [
+   "122",
+   "124",
+   "125"
+  ]
+ },
+ {
+  "subject": "Revenus distribués (définition et exclusions)",
+  "ctRefs": [
+   "111",
+   "112",
+   "118"
+  ]
+ },
+ {
+  "subject": "Revenus fonciers (définition)",
+  "ctRefs": [
+   "16"
+  ]
+ },
+ {
+  "subject": "Règlement par chèque, carte de crédit ou virement bancaire (transactions commerciales et des particuliers)",
+  "ctRefs": [
+   "63"
+  ]
+ },
+ {
+  "subject": "Réassurance (primes cédées et transférées)",
+  "ctRefs": [
+   "158",
+   "159",
+   "160"
+  ]
+ },
+ {
+  "subject": "Récidive (doublement des majorations et amendes)",
+  "ctRefs": [
+   "38",
+   "45",
+   "49"
+  ]
+ },
+ {
+  "subject": "Régime simplifié (professions non commerciales)",
+  "ctRefs": [
+   "73",
+   "74"
+  ]
+ },
+ {
+  "subject": "Régularisation volontaire (réduction de 50 % de l'impôt)",
+  "ctRefs": [
+   "186"
+  ]
+ },
+ {
+  "subject": "Réinvestissement des bénéfices (conditions et avis préalable)",
+  "ctRefs": [
+   "115",
+   "117"
+  ]
+ },
+ {
+  "subject": "Rémunérations des administrateurs et des membres de la famille de l'exploitant",
+  "ctRefs": [
+   "24"
+  ]
+ },
+ {
+  "subject": "Rémunérations des administrateurs et membres du conseil de surveillance",
+  "ctRefs": [
+   "120",
+   "121"
+  ]
+ },
+ {
+  "subject": "Rémunérations du personnel et de la main-d'œuvre (déduction)",
+  "ctRefs": [
+   "24"
+  ]
+ },
+ {
+  "subject": "Rémunérations occultes (imposition à 45 %)",
+  "ctRefs": [
+   "112",
+   "113"
+  ]
+ },
+ {
+  "subject": "Répartition Trésor public / commune (secteur informel) — insertion des lois de finances, sous l'article 42",
+  "ctRefs": [
+   "42"
+  ]
+ },
+ {
+  "subject": "Réserve légale des sociétés anonymes",
+  "ctRefs": [
+   "153"
+  ]
+ },
+ {
+  "subject": "Réserves légales",
+  "ctRefs": [
+   "27"
+  ]
+ },
+ {
+  "subject": "Réserves techniques d'assurance",
+  "ctRefs": [
+   "157",
+   "158",
+   "160"
+  ]
+ },
+ {
+  "subject": "Résidence principale (déduction des loyers, CFPB et intérêts hypothécaires)",
+  "ctRefs": [
+   "128"
+  ]
+ },
+ {
+  "subject": "Rôle de l'impôt forfaitaire (préparation par la DGI)",
+  "ctRefs": [
+   "41"
+  ]
+ },
+ {
+  "subject": "Sanctions de l'article 49 (application progressive par taille d'entreprise)",
+  "ctRefs": [
+   "49",
+   "187"
+  ]
+ },
+ {
+  "subject": "Sanctions pour dépôt tardif des états financiers",
+  "ctRefs": [
+   "45",
+   "46"
+  ]
+ },
+ {
+  "subject": "Secret fiscal (obligation des fonctionnaires et huissiers)",
+  "ctRefs": [
+   "166",
+   "181"
+  ]
+ },
+ {
+  "subject": "Secret professionnel (inopposabilité au fisc ; exception des dossiers médicaux)",
+  "ctRefs": [
+   "83"
+  ]
+ },
+ {
+  "subject": "Secret professionnel des vérificateurs fiscaux",
+  "ctRefs": [
+   "63-1"
+  ]
+ },
+ {
+  "subject": "Secteur informel (imposition forfaitaire de 10 000 gourdes) — insertion des lois de finances, sous l'article 42",
+  "ctRefs": [
+   "42"
+  ]
+ },
+ {
+  "subject": "Seuil de 2 500 000 gourdes (chiffre d'affaires ou actif total)",
+  "ctRefs": [
+   "33",
+   "43"
+  ]
+ },
+ {
+  "subject": "Sociétés anonymes (assujettissement et réserve légale)",
+  "ctRefs": [
+   "150",
+   "153"
+  ]
+ },
+ {
+  "subject": "Sociétés apparentées et filiales (exclusion des dividendes déjà soumis à retenue)",
+  "ctRefs": [
+   "119"
+  ]
+ },
+ {
+  "subject": "Sociétés concessionnaires de l'État (amortissement du capital)",
+  "ctRefs": [
+   "118"
+  ]
+ },
+ {
+  "subject": "Sociétés d'économie mixte (assujettissement)",
+  "ctRefs": [
+   "150"
+  ]
+ },
+ {
+  "subject": "Sociétés de personnes (imposition au nom des associés)",
+  "ctRefs": [
+   "154"
+  ]
+ },
+ {
+  "subject": "Sociétés étrangères (bénéfices réputés distribués, 20 % libératoire)",
+  "ctRefs": [
+   "117"
+  ]
+ },
+ {
+  "subject": "Sommes d'argent d'origine non révélée (imposition)",
+  "ctRefs": [
+   "23"
+  ]
+ },
+ {
+  "subject": "Stagiaires (allocations exonérées)",
+  "ctRefs": [
+   "15"
+  ]
+ },
+ {
+  "subject": "Stocks et travaux en cours (évaluation au prix de revient)",
+  "ctRefs": [
+   "23"
+  ]
+ },
+ {
+  "subject": "Succession (ancien prix du bien recueilli)",
+  "ctRefs": [
+   "101"
+  ]
+ },
+ {
+  "subject": "Suspension de la prescription",
+  "ctRefs": [
+   "184"
+  ]
+ },
+ {
+  "subject": "Séisme du 12 janvier 2010 (déduction majorée des dons, Budget 2010-2011)",
+  "ctRefs": [
+   "128"
+  ]
+ },
+ {
+  "subject": "Séisme du 12 janvier 2010 (mesures d'allègement fiscal, Budget 2010-2011)",
+  "ctRefs": [
+   "17",
+   "21"
+  ]
+ },
+ {
+  "subject": "Séjour de plus de cent quatre-vingt-trois (183) jours",
+  "ctRefs": [
+   "5"
+  ]
+ },
+ {
+  "subject": "Tantièmes et jetons de présence",
+  "ctRefs": [
+   "110"
+  ]
+ },
+ {
+  "subject": "Tantièmes et jetons de présence (retenue à la source)",
+  "ctRefs": [
+   "120",
+   "121"
+  ]
+ },
+ {
+  "subject": "Taux de 1 % (impôt forfaitaire) et minimum de 5 000 gourdes",
+  "ctRefs": [
+   "35"
+  ]
+ },
+ {
+  "subject": "Taxation d'office",
+  "ctRefs": [
+   "38",
+   "45",
+   "75",
+   "127",
+   "133",
+   "134",
+   "139",
+   "140",
+   "141",
+   "142",
+   "145"
+  ]
+ },
+ {
+  "subject": "Taxation d'office (utilisation d'informations recueillies chez des tiers)",
+  "ctRefs": [
+   "177"
+  ]
+ },
+ {
+  "subject": "Taxe sur le chiffre d'affaires (imprescriptibilité des valeurs retenues)",
+  "ctRefs": [
+   "184"
+  ]
+ },
+ {
+  "subject": "Tiers détenteurs de deniers (avis à tiers détenteur)",
+  "ctRefs": [
+   "165"
+  ]
+ },
+ {
+  "subject": "Train de vie (contrôle de cohérence)",
+  "ctRefs": [
+   "172"
+  ]
+ },
+ {
+  "subject": "Train de vie (imposition forfaitaire)",
+  "ctRefs": [
+   "140",
+   "141",
+   "142",
+   "144"
+  ]
+ },
+ {
+  "subject": "Traitements et salaires (revenus imposables)",
+  "ctRefs": [
+   "88",
+   "89",
+   "90"
+  ]
+ },
+ {
+  "subject": "Transformation d'entreprise (non assimilée à une cession)",
+  "ctRefs": [
+   "131"
+  ]
+ },
+ {
+  "subject": "Unité de Lutte Contre la Corruption",
+  "ctRefs": [
+   "170",
+   "183"
+  ]
+ },
+ {
+  "subject": "Vente à crédit (factures numérotées et timbrées)",
+  "ctRefs": [
+   "63"
+  ]
+ },
+ {
+  "subject": "Voies de recours du contribuable",
+  "ctRefs": [
+   "167",
+   "168"
+  ]
+ },
+ {
+  "subject": "Vérification de comptabilité",
+  "ctRefs": [
+   "56",
+   "172",
+   "173",
+   "174",
+   "175",
+   "176"
+  ]
+ },
+ {
+  "subject": "Vérification des déclarations (DGI et Direction de l'Inspection Fiscale, experts externes)",
+  "ctRefs": [
+   "67"
+  ]
+ },
+ {
+  "subject": "Vérification des états financiers par comptable professionnel agréé (seuil de 25 000 000 gourdes)",
+  "ctRefs": [
+   "49"
+  ]
+ },
+ {
+  "subject": "Échange de biens (plus-value)",
+  "ctRefs": [
+   "99",
+   "102",
+   "104"
+  ]
+ },
+ {
+  "subject": "Échéance de paiement de l'impôt forfaitaire (31 octobre)",
+  "ctRefs": [
+   "36"
+  ]
+ },
+ {
+  "subject": "Éléments de train de vie (barème d'évaluation)",
+  "ctRefs": [
+   "141",
+   "142",
+   "144"
+  ]
+ },
+ {
+  "subject": "Épargne retraite et épargne logement (traitement fiscal)",
+  "ctRefs": [
+   "123",
+   "128"
+  ]
+ },
+ {
+  "subject": "Épargne-retraite et épargne-logement (avantages fiscaux)",
+  "ctRefs": [
+   "182"
+  ]
+ },
+ {
+  "subject": "État explicatif (versement des retenues)",
+  "ctRefs": [
+   "93",
+   "94",
+   "95",
+   "96",
+   "114"
+  ]
+ },
+ {
+  "subject": "États financiers (dépôt à la Direction Générale des Impôts)",
+  "ctRefs": [
+   "44",
+   "45",
+   "46",
+   "47",
+   "49",
+   "50"
+  ]
+ },
+ {
+  "subject": "États financiers (imposition d'après le bénéfice réel)",
+  "ctRefs": [
+   "21",
+   "22",
+   "23",
+   "27"
+  ]
+ },
+ {
+  "subject": "Évaluation d'office de la matière imposable",
+  "ctRefs": [
+   "133",
+   "134",
+   "138"
+  ]
+ },
+ {
+  "subject": "Évaluation du stock (prix de revient ou cours du jour)",
+  "ctRefs": [
+   "58"
+  ]
+ }
+]

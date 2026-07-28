@@ -1,0 +1,524 @@
+{
+ "title": "Loi du 10 juin 1996 relative à la patente (texte consolidé)",
+ "annotationAuthor": "",
+ "navToc": [
+  {
+   "label": "Chapitre I.- Définition",
+   "anchor": "sec-1",
+   "children": [
+    {
+     "label": "Chapitre I.- Définition",
+     "anchor": "sec-1"
+    }
+   ]
+  },
+  {
+   "label": "Chapitre II.- Champ d'application",
+   "anchor": "sec-2",
+   "children": [
+    {
+     "label": "1) Personnes imposables",
+     "anchor": "sec-3"
+    },
+    {
+     "label": "2) Critères d'assujettissement",
+     "anchor": "sec-4"
+    },
+    {
+     "label": "3) Personnes exonérées",
+     "anchor": "sec-5"
+    }
+   ]
+  },
+  {
+   "label": "Chapitre III.- Base d'imposition",
+   "anchor": "sec-6",
+   "children": [
+    {
+     "label": "1) Règle générale",
+     "anchor": "sec-7"
+    },
+    {
+     "label": "2) Répartition des bases",
+     "anchor": "sec-8"
+    },
+    {
+     "label": "3) Réduction en faveur des artisans",
+     "anchor": "sec-9"
+    }
+   ]
+  },
+  {
+   "label": "Chapitre IV.- Règles de liquidation",
+   "anchor": "sec-10",
+   "children": [
+    {
+     "label": "1) Annualité",
+     "anchor": "sec-11"
+    },
+    {
+     "label": "2) Début d'activité",
+     "anchor": "sec-12"
+    },
+    {
+     "label": "3) Cessation d'activité",
+     "anchor": "sec-13"
+    },
+    {
+     "label": "4) Transfert de commune",
+     "anchor": "sec-14"
+    }
+   ]
+  },
+  {
+   "label": "Chapitre V.- Établissement de la contribution",
+   "anchor": "sec-15",
+   "children": [
+    {
+     "label": "1) Déclaration et paiement de la patente",
+     "anchor": "sec-16"
+    },
+    {
+     "label": "2) Certificat de patente",
+     "anchor": "sec-17"
+    },
+    {
+     "label": "3) Obligations comptables",
+     "anchor": "sec-18"
+    },
+    {
+     "label": "a) Comptabilité des recettes",
+     "anchor": "sec-19"
+    },
+    {
+     "label": "b) Comptabilité des salaires",
+     "anchor": "sec-20"
+    },
+    {
+     "label": "4) Droit de contrôle de l'administration",
+     "anchor": "sec-21"
+    },
+    {
+     "label": "5) Sanctions",
+     "anchor": "sec-22"
+    },
+    {
+     "label": "6) Dispositions spéciales",
+     "anchor": "sec-23"
+    }
+   ]
+  },
+  {
+   "label": "Tarif de patente — Nomenclature des secteurs d’activités",
+   "anchor": "sec-24",
+   "children": [
+    {
+     "label": "Tarif de patente — Nomenclature des secteurs d’activités",
+     "anchor": "sec-24"
+    }
+   ]
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "Chapitre I.- Définition",
+   "anchor": "sec-1",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "Chapitre II.- Champ d'application",
+   "anchor": "sec-2",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "1) Personnes imposables",
+   "anchor": "sec-3",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "2) Critères d'assujettissement",
+   "anchor": "sec-4",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "3) Personnes exonérées",
+   "anchor": "sec-5",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "Chapitre III.- Base d'imposition",
+   "anchor": "sec-6",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "1) Règle générale",
+   "anchor": "sec-7",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "2) Répartition des bases",
+   "anchor": "sec-8",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "3) Réduction en faveur des artisans",
+   "anchor": "sec-9",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "Chapitre IV.- Règles de liquidation",
+   "anchor": "sec-10",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "1) Annualité",
+   "anchor": "sec-11",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "2) Début d'activité",
+   "anchor": "sec-12",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "3) Cessation d'activité",
+   "anchor": "sec-13",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "4) Transfert de commune",
+   "anchor": "sec-14",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "Chapitre V.- Établissement de la contribution",
+   "anchor": "sec-15",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "1) Déclaration et paiement de la patente",
+   "anchor": "sec-16",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "2) Certificat de patente",
+   "anchor": "sec-17",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "3) Obligations comptables",
+   "anchor": "sec-18",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "a) Comptabilité des recettes",
+   "anchor": "sec-19",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "b) Comptabilité des salaires",
+   "anchor": "sec-20",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "4) Droit de contrôle de l'administration",
+   "anchor": "sec-21",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "5) Sanctions",
+   "anchor": "sec-22",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "6) Dispositions spéciales",
+   "anchor": "sec-23",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "Tarif de patente — Nomenclature des secteurs d’activités",
+   "anchor": "sec-24",
+   "kind": "code"
+  }
+ ],
+ "connexes": [],
+ "jurisprudence": {},
+ "indexEntries": [
+  {
+   "subject": "Annualité (patente due au 1er octobre)",
+   "ctRefs": [
+    "11"
+   ]
+  },
+  {
+   "subject": "Artisans (réduction de 75 % du droit fixe)",
+   "ctRefs": [
+    "10"
+   ]
+  },
+  {
+   "subject": "Certificat de patente (affichage, duplicata, défaut)",
+   "ctRefs": [
+    "18",
+    "19",
+    "24"
+   ]
+  },
+  {
+   "subject": "Cessation d'activité",
+   "ctRefs": [
+    "13",
+    "17",
+    "27"
+   ]
+  },
+  {
+   "subject": "Chiffre d'affaires (calcul de la patente)",
+   "ctRefs": [
+    "7",
+    "9",
+    "15"
+   ]
+  },
+  {
+   "subject": "Code des investissements (droit fixe de 30 000 gourdes — LF 2015-2016)",
+   "ctRefs": [
+    "29"
+   ]
+  },
+  {
+   "subject": "Création d'établissement (droit fixe de 5 000 gourdes — LF 2015-2016)",
+   "ctRefs": [
+    "12",
+    "16"
+   ]
+  },
+  {
+   "subject": "Dispositions transitoires (exercice 1986-1987)",
+   "ctRefs": [
+    "30"
+   ]
+  },
+  {
+   "subject": "Droit fixe et droit variable",
+   "ctRefs": [
+    "6",
+    "28"
+   ]
+  },
+  {
+   "subject": "Déclaration de patente (1er octobre – 15 décembre)",
+   "ctRefs": [
+    "15",
+    "16"
+   ]
+  },
+  {
+   "subject": "Exonérations de la patente (État, salariés, agriculteurs, coopératives, artistes)",
+   "ctRefs": [
+    "4"
+   ]
+  },
+  {
+   "subject": "Groupes de communes (1er, 2ᵉ, 3ᵉ) et modulation du tarif",
+   "ctRefs": [
+    "28"
+   ]
+  },
+  {
+   "subject": "Institutions financières (justification de la patente — LF 2015-2016)",
+   "ctRefs": [
+    "20"
+   ]
+  },
+  {
+   "subject": "Livre des salaires",
+   "ctRefs": [
+    "22"
+   ]
+  },
+  {
+   "subject": "Masse salariale déductible",
+   "ctRefs": [
+    "8"
+   ]
+  },
+  {
+   "subject": "Numéro de patente (validité des actes ; recevabilité en justice)",
+   "ctRefs": [
+    "20"
+   ]
+  },
+  {
+   "subject": "Obligations comptables (enregistrement des recettes, conservation six ans)",
+   "ctRefs": [
+    "21"
+   ]
+  },
+  {
+   "subject": "Partis politiques, associations, fondations et ONG (droit fixe annuel)",
+   "ctRefs": [
+    "29"
+   ]
+  },
+  {
+   "subject": "Patente (définition ; répartition des recettes État/communes)",
+   "ctRefs": [
+    "1"
+   ]
+  },
+  {
+   "subject": "Personnes imposables (activité professionnelle non salariée)",
+   "ctRefs": [
+    "2"
+   ]
+  },
+  {
+   "subject": "Professionnels à patente personnelle (architectes, avocats, médecins…)",
+   "ctRefs": [
+    "5"
+   ]
+  },
+  {
+   "subject": "Sanctions, amendes et intérêts de retard",
+   "ctRefs": [
+    "24",
+    "25",
+    "26"
+   ]
+  },
+  {
+   "subject": "Tarif de patente (nomenclature des secteurs d'activités)",
+   "ctRefs": [
+    "28"
+   ]
+  },
+  {
+   "subject": "Taux du droit variable (quatre pour mille — LF 2015-2016)",
+   "ctRefs": [
+    "6"
+   ]
+  },
+  {
+   "subject": "Taxation d'office",
+   "ctRefs": [
+    "15",
+    "26"
+   ]
+  },
+  {
+   "subject": "Transfert d'établissement entre communes",
+   "ctRefs": [
+    "14",
+    "17"
+   ]
+  },
+  {
+   "subject": "Ventilation entre établissements et secteurs d'activité",
+   "ctRefs": [
+    "9"
+   ]
+  },
+  {
+   "subject": "Vérification des déclarations",
+   "ctRefs": [
+    "23"
+   ]
+  },
+  {
+   "subject": "Établissement (imposition par établissement ; siège social)",
+   "ctRefs": [
+    "3",
+    "9"
+   ]
+  }
+ ],
+ "crossRefs": [
+  {
+   "anchor": "sec-1",
+   "articles": [],
+   "note": "Texte CONSOLIDÉ de la patente : Décret du 28 septembre 1987 (Le Moniteur n° 79 du 28 septembre 1987) refondu par la Loi du 10 juin 1996 (Le Moniteur n° 52 du 18 juillet 1996), tel que modifié par les Lois de Finances 2012-2013 et 2015-2016 — reproduction de l'édition Joseph Paillant du Code Fiscal d'Haïti (2018). Les articles modificateurs de la LF 2015-2016 sont cités en regard (« — Article N Loi de Finances 2015-2016 : … ») ; les anciennes rédactions (barrées dans l'édition) sont restituées en annotation sous l'article concerné. Le décret de 1987 d'origine figure aussi sur la plateforme dans le corpus du Code de commerce annoté."
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1",
+  "art-2": "Article 2",
+  "art-3": "Article 3",
+  "art-4": "Article 4",
+  "art-5": "Article 5",
+  "art-6": "Article 6",
+  "art-7": "Article 7",
+  "art-8": "Article 8",
+  "art-9": "Article 9",
+  "art-10": "Article 10",
+  "art-11": "Article 11",
+  "art-12": "Article 12",
+  "art-13": "Article 13",
+  "art-14": "Article 14",
+  "art-15": "Article 15",
+  "art-16": "Article 16",
+  "art-17": "Article 17",
+  "art-18": "Article 18",
+  "art-19": "Article 19",
+  "art-20": "Article 20",
+  "art-21": "Article 21",
+  "art-22": "Article 22",
+  "art-23": "Article 23",
+  "art-24": "Article 24",
+  "art-25": "Article 25",
+  "art-26": "Article 26",
+  "art-27": "Article 27",
+  "art-28": "Article 28",
+  "art-29": "Article 29",
+  "art-30": "Article 30"
+ },
+ "commentaires": {
+  "sec-7|art-6": [
+   "Ancienne rédaction abrogée (barrée dans l'édition Paillant 2018 — remplacée par la Loi de Finances 2015-2016) : « Le droit variable est obtenu en multipliant la base définie ci-après par le taux de deux pour mille. »"
+  ],
+  "sec-7|art-7": [
+   "Ancienne rédaction abrogée (barrée dans l'édition Paillant 2018 — remplacée par la Loi de Finances 2015-2016) : « Le chiffre d'affaires à retenir pour le calcul du droit variable est représenté par le montant des ventes réalisées et celui des rémunérations et commissions acquises comme prix des services rendus, sous déduction des commissions payées, rabais, rendus et frais sur vente, des droits de douane acquittés à l'exportation et de la Taxe sur le chiffre d'affaires. Toutefois, il est tenu compte des créances acquises pour les entreprises relevant du régime du bénéfice réel à l'Impôt sur le Revenu et des recettes effectivement encaissées pour les autres contribuables. »"
+  ],
+  "sec-7|art-8": [
+   "Ancienne rédaction abrogée (barrée dans l'édition Paillant 2018 — remplacée par la Loi de Finances 2015-2016) : « y compris la valeur des avantages en nature ou en espèces, ainsi que toutes indemnités, remboursements et allocations forfaitaires pour frais versées aux dirigeants de sociétés ; »",
+   "Ancienne rédaction abrogée (barrée dans l'édition Paillant 2018 — remplacée par la Loi de Finances 2015-2016) : « - cotisations obligatoires aux régimes d'assurances sociales (accidents du travail, maladie, maternité, retraite). »"
+  ],
+  "sec-12|art-12": [
+   "Ancienne rédaction abrogée (barrée dans l'édition Paillant 2018 — remplacée par la Loi de Finances 2015-2016) : « Au titre de la deuxième année, la patente est calculée sur la base des éléments de la première période de fonctionnement, corrigés pour correspondre à une année entière. »"
+  ],
+  "sec-23|art-29": [
+   "Ancienne rédaction abrogée (barrée dans l'édition Paillant 2018 — remplacée par la Loi de Finances 2015-2016) : « Les entreprises travaillant pour l'exportation sous le régime du Code des Investissements Industriels dûment enregistrées au Ministère du Commerce et de l'Industrie seront soumises à une patente comportant uniquement un droit fixe dont le montant est de 7 500 gourdes. »"
+  ]
+ },
+ "status": {
+  "art-6": "modifié",
+  "art-7": "modifié",
+  "art-8": "modifié",
+  "art-12": "modifié",
+  "art-29": "modifié"
+ }
+}

@@ -1,0 +1,576 @@
+{
+ "title": "Décret du 29 septembre 2005 relatif à l’Impôt sur le Revenu",
+ "annotationAuthor": "",
+ "navToc": [
+  {
+   "label": "TITRE I",
+   "anchor": "sec-1",
+   "children": [
+    {
+     "label": "Chapitre I : Dispositions Générales",
+     "anchor": "sec-2",
+     "children": []
+    }
+   ]
+  },
+  {
+   "label": "TITRE II — Impôt sur le Revenu des Personnes Physiques",
+   "anchor": "sec-3",
+   "children": [
+    {
+     "label": "Chapitre I",
+     "anchor": "sec-4",
+     "children": [
+      {
+       "label": "Section I. Personnes Imposables",
+       "anchor": "sec-5"
+      },
+      {
+       "label": "Section II : Revenus Imposables",
+       "anchor": "sec-6"
+      }
+     ]
+    },
+    {
+     "label": "Chapitre II : Des Catégories de Revenus",
+     "anchor": "sec-7",
+     "children": [
+      {
+       "label": "Section I. Revenus Fonciers",
+       "anchor": "sec-8"
+      },
+      {
+       "label": "Section II : Bénéfices Industriels et Commerciaux",
+       "anchor": "sec-9"
+      },
+      {
+       "label": "Section III : Bénéfices des Professions Non Commerciales",
+       "anchor": "sec-10"
+      },
+      {
+       "label": "Section IV : Traitements et Salaires",
+       "anchor": "sec-11"
+      },
+      {
+       "label": "Section V : Rémunérations Allouées aux gérants et associés",
+       "anchor": "sec-12"
+      },
+      {
+       "label": "Section VI : Plus-Value Immobilière et Mobilière",
+       "anchor": "sec-13"
+      },
+      {
+       "label": "Section VII : Revenus des Capitaux Mobiliers",
+       "anchor": "sec-14"
+      }
+     ]
+    },
+    {
+     "label": "Chapitre III : Déclaration Définitive des Contribuables",
+     "anchor": "sec-15",
+     "children": [
+      {
+       "label": "Section I - Dispositions Générales",
+       "anchor": "sec-16"
+      },
+      {
+       "label": "Section II : Décès et cession ou cessation d’activités",
+       "anchor": "sec-17"
+      },
+      {
+       "label": "Section III : Taxation d’Office",
+       "anchor": "sec-18"
+      },
+      {
+       "label": "Section IV : Tarif de l’impôt sur le revenu",
+       "anchor": "sec-19"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "TITRE III — Impôt sur le Revenu des Personnes Morales",
+   "anchor": "sec-20",
+   "children": [
+    {
+     "label": "Chapitre I : Impôt sur les Sociétés",
+     "anchor": "sec-21",
+     "children": []
+    },
+    {
+     "label": "Chapitre II : Les Compagnies d’ Assurance",
+     "anchor": "sec-22",
+     "children": [
+      {
+       "label": "Section I : Les Compagnies d’Assurance",
+       "anchor": "sec-23"
+      },
+      {
+       "label": "Section II : Les Lignes de Navigation Maritime et Aérienne",
+       "anchor": "sec-24"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "TITRE IV — Dispositions Communes à L’Impôt sur le Revenu des Personnes Physiques et à l’impôt sur les Sociétés",
+   "anchor": "sec-25",
+   "children": [
+    {
+     "label": "Chapitre I : Procédures Administratives",
+     "anchor": "sec-26",
+     "children": [
+      {
+       "label": "Section I : Dispositions générales",
+       "anchor": "sec-27"
+      },
+      {
+       "label": "Section II : De la Prescription",
+       "anchor": "sec-28"
+      },
+      {
+       "label": "Section III : De la Comptabilité Informatisée",
+       "anchor": "sec-29"
+      }
+     ]
+    },
+    {
+     "label": "Chapitre II : Dispositions Transitoires",
+     "anchor": "sec-30",
+     "children": []
+    },
+    {
+     "label": "Chapitre III : Disposition Spéciale",
+     "anchor": "sec-31",
+     "children": []
+    },
+    {
+     "label": "Chapitre IV : Disposition Finale",
+     "anchor": "sec-32",
+     "children": []
+    }
+   ]
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "TITRE I",
+   "anchor": "sec-1",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "Chapitre I : Dispositions Générales",
+   "anchor": "sec-2",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE II — Impôt sur le Revenu des Personnes Physiques",
+   "anchor": "sec-3",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "Chapitre I",
+   "anchor": "sec-4",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section I. Personnes Imposables",
+   "anchor": "sec-5",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section II : Revenus Imposables",
+   "anchor": "sec-6",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "Chapitre II : Des Catégories de Revenus",
+   "anchor": "sec-7",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section I. Revenus Fonciers",
+   "anchor": "sec-8",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section II : Bénéfices Industriels et Commerciaux",
+   "anchor": "sec-9",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section III : Bénéfices des Professions Non Commerciales",
+   "anchor": "sec-10",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section IV : Traitements et Salaires",
+   "anchor": "sec-11",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section V : Rémunérations Allouées aux gérants et associés",
+   "anchor": "sec-12",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section VI : Plus-Value Immobilière et Mobilière",
+   "anchor": "sec-13",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section VII : Revenus des Capitaux Mobiliers",
+   "anchor": "sec-14",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "Chapitre III : Déclaration Définitive des Contribuables",
+   "anchor": "sec-15",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section I - Dispositions Générales",
+   "anchor": "sec-16",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section II : Décès et cession ou cessation d’activités",
+   "anchor": "sec-17",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section III : Taxation d’Office",
+   "anchor": "sec-18",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section IV : Tarif de l’impôt sur le revenu",
+   "anchor": "sec-19",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE III — Impôt sur le Revenu des Personnes Morales",
+   "anchor": "sec-20",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "Chapitre I : Impôt sur les Sociétés",
+   "anchor": "sec-21",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "Chapitre II : Les Compagnies d’ Assurance",
+   "anchor": "sec-22",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section I : Les Compagnies d’Assurance",
+   "anchor": "sec-23",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section II : Les Lignes de Navigation Maritime et Aérienne",
+   "anchor": "sec-24",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE IV — Dispositions Communes à L’Impôt sur le Revenu des Personnes Physiques et à l’impôt sur les Sociétés",
+   "anchor": "sec-25",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "Chapitre I : Procédures Administratives",
+   "anchor": "sec-26",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section I : Dispositions générales",
+   "anchor": "sec-27",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section II : De la Prescription",
+   "anchor": "sec-28",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section III : De la Comptabilité Informatisée",
+   "anchor": "sec-29",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "Chapitre II : Dispositions Transitoires",
+   "anchor": "sec-30",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "Chapitre III : Disposition Spéciale",
+   "anchor": "sec-31",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "Chapitre IV : Disposition Finale",
+   "anchor": "sec-32",
+   "kind": "code"
+  }
+ ],
+ "connexes": [],
+ "jurisprudence": {},
+ "indexEntries": [],
+ "crossRefs": [
+  {
+   "anchor": "sec-1",
+   "articles": [],
+   "note": "Texte CONSOLIDÉ : Décret du 29 septembre 2005 relatif à l'Impôt sur le Revenu (Le Moniteur spécial # 10 du 5 octobre 2005), modifiant celui du 29 septembre 1986, tel que modifié par les Lois de Finances 2010-2011 (Moniteur spécial # 1 du 14 janvier 2011), 2013-2014 (Moniteur spécial # 2 du 10 juin 2014), 2014-2015 (Moniteur spécial # 3 du 1er octobre 2014), 2015-2016 (Moniteur spécial # 4 du 1er octobre 2015) et 2017-2018 (Moniteur spécial # 27 du 19 septembre 2017) — reproduction de l'édition Joseph Paillant du Code Fiscal d'Haïti (2018), Livre I, Première partie. Les articles insérés par les lois de finances figurent à leur place de consolidation, précédés d'un tiret (« — Article 15.- (Loi de Finances 2013-2014…) ») sous l'article hôte ; les passages abrogés (barrés dans l'édition) sont restitués en annotation sous l'article concerné."
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1",
+  "art-2": "Article 2",
+  "art-3": "Article 3",
+  "art-4": "Article 4",
+  "art-5": "Article 5",
+  "art-6": "Article 6",
+  "art-7": "Article 7",
+  "art-8": "Article 8",
+  "art-9": "Article 9",
+  "art-10": "Article 10",
+  "art-11": "Article 11",
+  "art-12": "Article 12",
+  "art-13": "Article 13",
+  "art-14": "Article 14",
+  "art-15": "Article 15",
+  "art-16": "Article 16",
+  "art-17": "Article 17",
+  "art-18": "Article 18",
+  "art-19": "Article 19",
+  "art-20": "Article 20",
+  "art-21": "Article 21",
+  "art-22": "Article 22",
+  "art-23": "Article 23",
+  "art-24": "Article 24",
+  "art-25": "Article 25",
+  "art-26": "Article 26",
+  "art-27": "Article 27",
+  "art-28": "Article 28",
+  "art-29": "Article 29",
+  "art-30": "Article 30",
+  "art-31": "Article 31",
+  "art-32": "Article 32",
+  "art-33": "Article 33",
+  "art-34": "Article 34",
+  "art-35": "Article 35",
+  "art-36": "Article 36",
+  "art-37": "Article 37",
+  "art-38": "Article 38",
+  "art-39": "Article 39",
+  "art-40": "Article 40",
+  "art-41": "Article 41",
+  "art-42": "Article 42",
+  "art-43": "Article 43",
+  "art-44": "Article 44",
+  "art-45": "Article 45",
+  "art-46": "Article 46",
+  "art-47": "Article 47",
+  "art-48": "Article 48",
+  "art-49": "Article 49",
+  "art-50": "Article 50",
+  "art-51": "Article 51",
+  "art-52": "Article 52",
+  "art-53": "Article 53",
+  "art-54": "Article 54",
+  "art-55": "Article 55",
+  "art-56": "Article 56",
+  "art-57": "Article 57",
+  "art-58": "Article 58",
+  "art-59": "Article 59",
+  "art-60": "Article 60",
+  "art-61": "Article 61",
+  "art-62": "Article 62",
+  "art-63": "Article 63",
+  "art-63-1": "Article 63-1",
+  "art-63-2": "Article 63-2",
+  "art-64": "Article 64",
+  "art-65": "Article 65",
+  "art-66": "Article 66",
+  "art-67": "Article 67",
+  "art-68": "Article 68",
+  "art-69": "Article 69",
+  "art-70": "Article 70",
+  "art-71": "Article 71",
+  "art-72": "Article 72",
+  "art-73": "Article 73",
+  "art-74": "Article 74",
+  "art-75": "Article 75",
+  "art-76": "Article 76",
+  "art-77": "Article 77",
+  "art-78": "Article 78",
+  "art-79": "Article 79",
+  "art-80": "Article 80",
+  "art-81": "Article 81",
+  "art-82": "Article 82",
+  "art-83": "Article 83",
+  "art-84": "Article 84",
+  "art-85": "Article 85",
+  "art-86": "Article 86",
+  "art-87": "Article 87",
+  "art-88": "Article 88",
+  "art-89": "Article 89",
+  "art-90": "Article 90",
+  "art-91": "Article 91",
+  "art-92": "Article 92",
+  "art-93": "Article 93",
+  "art-94": "Article 94",
+  "art-95": "Article 95",
+  "art-96": "Article 96",
+  "art-97": "Article 97",
+  "art-98": "Article 98",
+  "art-99": "Article 99",
+  "art-100": "Article 100",
+  "art-101": "Article 101",
+  "art-102": "Article 102",
+  "art-103": "Article 103",
+  "art-104": "Article 104",
+  "art-105": "Article 105",
+  "art-106": "Article 106",
+  "art-107": "Article 107",
+  "art-108": "Article 108",
+  "art-109": "Article 109",
+  "art-110": "Article 110",
+  "art-111": "Article 111",
+  "art-112": "Article 112",
+  "art-113": "Article 113",
+  "art-114": "Article 114",
+  "art-115": "Article 115",
+  "art-116": "Article 116",
+  "art-117": "Article 117",
+  "art-118": "Article 118",
+  "art-119": "Article 119",
+  "art-120": "Article 120",
+  "art-121": "Article 121",
+  "art-122": "Article 122",
+  "art-123": "Article 123",
+  "art-124": "Article 124",
+  "art-125": "Article 125",
+  "art-126": "Article 126",
+  "art-127": "Article 127",
+  "art-128": "Article 128",
+  "art-129": "Article 129",
+  "art-130": "Article 130",
+  "art-131": "Article 131",
+  "art-132": "Article 132",
+  "art-133": "Article 133",
+  "art-134": "Article 134",
+  "art-135": "Article 135",
+  "art-136": "Article 136",
+  "art-137": "Article 137",
+  "art-138": "Article 138",
+  "art-139": "Article 139",
+  "art-140": "Article 140",
+  "art-141": "Article 141",
+  "art-142": "Article 142",
+  "art-143": "Article 143",
+  "art-144": "Article 144",
+  "art-145": "Article 145",
+  "art-146": "Article 146",
+  "art-147": "Article 147",
+  "art-148": "Article 148",
+  "art-149": "Article 149",
+  "art-150": "Article 150",
+  "art-151": "Article 151",
+  "art-152": "Article 152",
+  "art-153": "Article 153",
+  "art-154": "Article 154",
+  "art-155": "Article 155",
+  "art-156": "Article 156",
+  "art-157": "Article 157",
+  "art-158": "Article 158",
+  "art-159": "Article 159",
+  "art-160": "Article 160",
+  "art-161": "Article 161",
+  "art-162": "Article 162",
+  "art-163": "Article 163",
+  "art-164": "Article 164",
+  "art-165": "Article 165",
+  "art-166": "Article 166",
+  "art-167": "Article 167",
+  "art-168": "Article 168",
+  "art-169": "Article 169",
+  "art-170": "Article 170",
+  "art-171": "Article 171",
+  "art-172": "Article 172",
+  "art-173": "Article 173",
+  "art-174": "Article 174",
+  "art-175": "Article 175",
+  "art-176": "Article 176",
+  "art-177": "Article 177",
+  "art-178": "Article 178",
+  "art-179": "Article 179",
+  "art-180": "Article 180",
+  "art-181": "Article 181",
+  "art-182": "Article 182",
+  "art-183": "Article 183",
+  "art-184": "Article 184",
+  "art-185": "Article 185",
+  "art-186": "Article 186",
+  "art-187": "Article 187",
+  "art-188": "Article 188",
+  "art-189": "Article 189"
+ },
+ "commentaires": {
+  "sec-5|art-8": [
+   "Passage abrogé (barré dans l'édition Paillant 2018) : « Néanmoins, lorsque le règlement se fait par tranche, une retenue de 20% de chaque tranche sera appliquée et versée à la Direction Générale des Impôts dans les quinze (15) jours suivant le paiement. Tout contrat passé avec une personne physique ou morale dont le domicile fiscal est situé hors d’Haïti doit être enregistré à la Direction Générale des Impôts. »"
+  ],
+  "sec-9|art-33": [
+   "Passage abrogé (barré dans l'édition Paillant 2018) : « un million deux cent cinquante mille (1.250.000) gourdes »"
+  ],
+  "sec-9|art-43": [
+   "Passage abrogé (barré dans l'édition Paillant 2018) : « Un Million Deux Cent Cinquante Mille (1.250.000,00) gourdes »"
+  ],
+  "sec-9|art-45": [
+   "Passage abrogé (barré dans l'édition Paillant 2018) : « quintuplant l’impôt forfaitaire »"
+  ],
+  "sec-9|art-49": [
+   "Passage abrogé (barré dans l'édition Paillant 2018) : « quinze millions (15.000.000) »",
+   "Passage abrogé (barré dans l'édition Paillant 2018) : « quinze millions (15.000.000) »",
+   "Passage abrogé (barré dans l'édition Paillant 2018) : « quinze millions (15.000.000) À l’occasion du dépôt des états financiers annuels, la Direction Générale des Impôts délivrera à l’entreprise un avis de réception contre un droit de timbre fixe de cent (100) gourdes. »"
+  ],
+  "sec-10|art-81": [
+   "Passage abrogé (barré dans l'édition Paillant 2018) : « Aucune demande d’autorisation d’un service quelconque de l’administration publique adressée par un professionnel de profession non commerciale, ne sera agréée que sur présentation du certificat d’accomplissement fiscal. »"
+  ]
+ }
+}
