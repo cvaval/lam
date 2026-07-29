@@ -171,6 +171,11 @@ def rendre_sommaire(d, struct):
 def main():
     d, struct = charger()
     idx, journal = construire_index(d)
+    # L'index CORRIGÉ (fusions + capitalisation) est réécrit en JSON : sans cela l'import
+    # reprenait la sortie BRUTE de l'IA et la plateforme affichait un index moins bon que
+    # le .docx livré à la cliente.
+    json.dump({k: sorted(v) for k, v in idx.items()}, open(f'{DIR}/index-final.json', 'w'),
+              ensure_ascii=False, indent=1)
     ci = rendre_index(idx, journal)
     cs = rendre_sommaire(d, struct)
     nrefs = sum(len(v) for v in idx.values())

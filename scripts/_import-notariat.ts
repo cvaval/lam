@@ -135,19 +135,17 @@ function buildNavToc(titre: string, toc: TocEntry[], body: string, rubriques: Re
   return [racine]
 }
 
-/** indexEntries : sujet → articles, trié alphabétiquement (accents ignorés). */
-function buildIndex(donnees: Record<string, { s: string[] }>): { subject: string; ctRefs: number[] }[] {
-  const inv = new Map<string, Set<number>>()
-  for (const [num, v] of Object.entries(donnees)) {
-    for (const s of v.s ?? []) {
-      const k = s.replace(/'/g, '’')
-      if (!inv.has(k)) inv.set(k, new Set())
-      inv.get(k)!.add(Number(num))
-    }
-  }
+/**
+ * indexEntries : repris de l'index CORRIGÉ (index-final.json), produit par les scripts de
+ * rendu — fusions des doublons, capitalisation française, désambiguïsations.
+ * ⚠️ NE PAS reconstruire depuis la sortie brute de l'IA : la plateforme afficherait alors un
+ * index de moindre qualité que le .docx remis à la cliente (« Acte Notarié » ET « Acte
+ * notarié », « Accès à la Fonction », « Ministère » ambigu…).
+ */
+function buildIndex(corrige: Record<string, number[]>): { subject: string; ctRefs: number[] }[] {
   const coll = new Intl.Collator('fr', { sensitivity: 'base' })
-  return [...inv.entries()]
-    .map(([subject, refs]) => ({ subject, ctRefs: [...refs].sort((a, b) => a - b) }))
+  return Object.entries(corrige)
+    .map(([subject, refs]) => ({ subject: subject.replace(/'/g, '’'), ctRefs: [...refs].sort((a, b) => a - b) }))
     .sort((a, b) => coll.compare(a.subject, b.subject))
 }
 
@@ -198,6 +196,7 @@ async function main() {
   const body69 = readFileSync(`${D69}/bodyOriginal.txt`, 'utf8').trimEnd()
   const st69 = JSON.parse(readFileSync(`${D69}/structure.json`, 'utf8')) as { toc: TocEntry[]; labels: Record<string, string> }
   const si69 = JSON.parse(readFileSync(`${D69}/sommaire-index.json`, 'utf8')) as Record<string, { r: string; s: string[] }>
+  const idx69 = JSON.parse(readFileSync(`${D69}/index-final.json`, 'utf8')) as Record<string, number[]>
   const ann69: Annotations & Record<string, unknown> = {
     title: 'Décret-loi du 27 novembre 1969 sur le Notariat',
     annotationAuthor: '',
@@ -205,7 +204,7 @@ async function main() {
     toc: st69.toc,
     connexes: [],
     jurisprudence: {},
-    indexEntries: buildIndex(si69),
+    indexEntries: buildIndex(idx69),
     labels: st69.labels,
   }
   await publier({
@@ -229,6 +228,7 @@ async function main() {
   // ── Les 7 textes de la compilation ──
   const textes = JSON.parse(readFileSync(`${DC}/textes.json`, 'utf8')) as Record<string, { titre: string; articles: { num: string }[]; corps: string }>
   const siC = JSON.parse(readFileSync(`${DC}/sommaire-index.json`, 'utf8')) as Record<string, Record<string, { r: string; s: string[] }>>
+  const idxC = JSON.parse(readFileSync(`${DC}/index-final.json`, 'utf8')) as Record<string, Record<string, number[]>>
   for (const [slug, meta] of Object.entries(META)) {
     const t = textes[slug]
     if (!t) throw new Error(`texte ${slug} absent de textes.json`)
@@ -243,7 +243,7 @@ async function main() {
       toc,
       connexes: [],
       jurisprudence: {},
-      indexEntries: buildIndex(donnees),
+      indexEntries: buildIndex(idxC[slug] ?? {}),
       labels: Object.fromEntries(t.articles.map((a) => [`art-${a.num}`, a.num === '1' ? 'Article 1er' : `Article ${a.num}`])),
     }
     await publier(meta, body, ann, themes)

@@ -1,0 +1,856 @@
+{
+ "loi-1862-notariat": {
+  "Notaire": [
+   1
+  ],
+  "Acte notarié": [
+   1
+  ],
+  "Authenticité": [
+   1
+  ],
+  "Dépôt": [
+   1
+  ],
+  "Grosse": [
+   1
+  ],
+  "Expédition": [
+   1
+  ],
+  "Extrait": [
+   1
+  ],
+  "Nomination": [
+   2
+  ],
+  "Serment": [
+   2
+  ],
+  "Surveillance": [
+   2
+  ],
+  "Commissaire du Gouvernement": [
+   2,
+   6
+  ],
+  "Tribunal Civil": [
+   2
+  ],
+  "Président d’Haïti": [
+   2,
+   7
+  ],
+  "Secrétaire d’État à la justice": [
+   2,
+   7
+  ],
+  "Résidence": [
+   3
+  ],
+  "Commission": [
+   3
+  ],
+  "Remplacement": [
+   3
+  ],
+  "Démission": [
+   3
+  ],
+  "Compétence territoriale": [
+   4
+  ],
+  "Suspension": [
+   4
+  ],
+  "Destitution": [
+   4
+  ],
+  "Récidive": [
+   4
+  ],
+  "Dommage-intérêt": [
+   4
+  ],
+  "Nombre de notaires": [
+   5
+  ],
+  "Incompatibilité": [
+   6
+  ],
+  "Juge": [
+   6
+  ],
+  "Greffier": [
+   6
+  ],
+  "Huissier": [
+   6
+  ],
+  "Fonctionnaire": [
+   6
+  ],
+  "Militaire": [
+   6
+  ],
+  "Accès à la fonction": [
+   7
+  ],
+  "Nationalité": [
+   7
+  ],
+  "Age légal": [
+   7
+  ],
+  "Moralité": [
+   7
+  ],
+  "Capacité": [
+   7,
+   8
+  ],
+  "Examen": [
+   7
+  ],
+  "Stage": [
+   7
+  ],
+  "Droit civil": [
+   7
+  ],
+  "Rédaction d’acte": [
+   7
+  ],
+  "Dispense de stage": [
+   8
+  ],
+  "Service judiciaire": [
+   8
+  ],
+  "Service administratif": [
+   8
+  ],
+  "Obligation de prêter ministère": [
+   9
+  ],
+  "Refus d’instrumenter": [
+   9
+  ],
+  "Acte injurieux": [
+   9
+  ],
+  "Acte diffamatoire": [
+   9
+  ],
+  "Fraude": [
+   9
+  ],
+  "Interdiction d’instrumenter": [
+   10
+  ],
+  "Parenté": [
+   10,
+   11
+  ],
+  "Alliance": [
+   10,
+   11
+  ],
+  "Partie": [
+   10
+  ],
+  "Connaissance personnelle": [
+   10
+  ],
+  "Identité": [
+   10
+  ],
+  "Capacité mentale": [
+   10
+  ],
+  "Témoin instrumentaire": [
+   11
+  ],
+  "Confrère": [
+   11
+  ],
+  "Capacité de signer": [
+   11
+  ],
+  "Domicile": [
+   11
+  ],
+  "Clerc": [
+   11
+  ],
+  "Serviteur": [
+   11
+  ]
+ },
+ "loi-1877-modificative": {
+  "Rémunération": [
+   1
+  ],
+  "Notaire": [
+   1
+  ],
+  "Inventaire": [
+   1
+  ],
+  "Minute": [
+   1
+  ],
+  "Expédition": [
+   1,
+   2
+  ],
+  "Tarif": [
+   2
+  ],
+  "Acte notarié": [
+   2
+  ],
+  "Testament": [
+   2
+  ],
+  "Contrat de mariage": [
+   2
+  ]
+ },
+ "loi-1919-notariat": {
+  "Notaire": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   16,
+   18,
+   19,
+   20,
+   22,
+   35,
+   39
+  ],
+  "Acte authentique": [
+   1
+  ],
+  "Grosse": [
+   1,
+   19,
+   23,
+   24,
+   25
+  ],
+  "Expédition": [
+   1,
+   19,
+   21,
+   36,
+   42
+  ],
+  "Nomination": [
+   2
+  ],
+  "Prestation de serment": [
+   2
+  ],
+  "Commissaire du Gouvernement": [
+   2,
+   20,
+   37,
+   38,
+   43,
+   45
+  ],
+  "Tribunal Civil": [
+   2,
+   4,
+   20,
+   22,
+   38,
+   39,
+   45
+  ],
+  "Résidence": [
+   3
+  ],
+  "Démission": [
+   3,
+   30,
+   40
+  ],
+  "Compétence territoriale": [
+   4
+  ],
+  "Nullité": [
+   4,
+   15,
+   16
+  ],
+  "Destitution": [
+   4,
+   9,
+   16,
+   24,
+   30,
+   31,
+   38,
+   41,
+   43
+  ],
+  "Dommage-intérêt": [
+   4,
+   12,
+   16,
+   36,
+   38
+  ],
+  "Ministère Public": [
+   4,
+   29
+  ],
+  "Nombre": [
+   5
+  ],
+  "Incompatibilité": [
+   6,
+   44
+  ],
+  "Condition d’accès": [
+   7
+  ],
+  "Nationalité": [
+   7
+  ],
+  "Âge": [
+   7
+  ],
+  "Moralité": [
+   7
+  ],
+  "Diplôme": [
+   7
+  ],
+  "Stage": [
+   7
+  ],
+  "Examen": [
+   7,
+   46
+  ],
+  "Ministère": [
+   8
+  ],
+  "Acte illicite": [
+   8
+  ],
+  "Fraude": [
+   8,
+   16
+  ],
+  "Interdiction": [
+   9,
+   36,
+   37
+  ],
+  "Parent": [
+   9,
+   10,
+   11
+  ],
+  "Allié": [
+   9,
+   10,
+   11
+  ],
+  "Identification": [
+   9
+  ],
+  "Capacité": [
+   9
+  ],
+  "Suspension": [
+   9,
+   17,
+   21,
+   30,
+   31,
+   38,
+   41,
+   45
+  ],
+  "Témoin instrumentaire": [
+   10,
+   13
+  ],
+  "Acte": [
+   11,
+   16,
+   18,
+   32,
+   34,
+   35,
+   36
+  ],
+  "Vente immobilière": [
+   12
+  ],
+  "Arpentage": [
+   12
+  ],
+  "Acte notarié": [
+   12,
+   13,
+   14,
+   15,
+   17
+  ],
+  "Responsabilité": [
+   12
+  ],
+  "Timbre": [
+   13
+  ],
+  "Minute": [
+   13,
+   18,
+   19,
+   20,
+   24,
+   27,
+   30,
+   42,
+   43
+  ],
+  "Procuration": [
+   13
+  ],
+  "Amende": [
+   13,
+   16,
+   21,
+   28,
+   31,
+   36,
+   37,
+   38
+  ],
+  "Signature": [
+   14,
+   15,
+   26,
+   39
+  ],
+  "Témoin": [
+   14
+  ],
+  "Renvoi": [
+   15
+  ],
+  "Apostille": [
+   15
+  ],
+  "Surcharge": [
+   16
+  ],
+  "Interligne": [
+   16
+  ],
+  "Addition": [
+   16
+  ],
+  "Force probante": [
+   17
+  ],
+  "Force exécutoire": [
+   17
+  ],
+  "Faux": [
+   17
+  ],
+  "Tribunal": [
+   17
+  ],
+  "Brevet": [
+   18,
+   25,
+   27
+  ],
+  "Copie": [
+   19
+  ],
+  "Dessaisissement": [
+   20
+  ],
+  "Jugement": [
+   20,
+   23,
+   38
+  ],
+  "Copie conforme": [
+   20
+  ],
+  "Communication": [
+   21
+  ],
+  "Sanction": [
+   21,
+   37
+  ],
+  "Compulsoire": [
+   22
+  ],
+  "Procès-verbal": [
+   22
+  ],
+  "Forme exécutoire": [
+   23
+  ],
+  "Délivrance": [
+   24
+  ],
+  "Ordonnance": [
+   24
+  ],
+  "Sceau": [
+   25
+  ],
+  "Extrait": [
+   25
+  ],
+  "Légalisation": [
+   26
+  ],
+  "Doyen": [
+   26,
+   27,
+   36
+  ],
+  "Secrétaire d’État de la Justice": [
+   26,
+   30,
+   46
+  ],
+  "Ressort": [
+   26
+  ],
+  "Répertoire": [
+   27,
+   28,
+   29,
+   30,
+   43
+  ],
+  "Registre": [
+   27
+  ],
+  "Enregistrement": [
+   27,
+   28
+  ],
+  "Visa": [
+   28
+  ],
+  "Directeur de l’Enregistrement": [
+   28
+  ],
+  "Prévarication": [
+   29
+  ],
+  "Poursuite": [
+   29
+  ],
+  "Mutation": [
+   30
+  ],
+  "Décès": [
+   30
+  ],
+  "Juge de Paix": [
+   30
+  ],
+  "Scellé": [
+   30
+  ],
+  "Inventaire": [
+   30,
+   32,
+   43
+  ],
+  "Notaire successeur": [
+   30
+  ],
+  "Tarif": [
+   31,
+   32,
+   34,
+   46
+  ],
+  "Honoraires": [
+   31,
+   33,
+   34,
+   35,
+   42
+  ],
+  "Émolument": [
+   31,
+   35
+  ],
+  "Vacation": [
+   32
+  ],
+  "Indemnité": [
+   33
+  ],
+  "Déplacement": [
+   33,
+   34
+  ],
+  "Contravention": [
+   37
+  ],
+  "Appel": [
+   38
+  ],
+  "Paraphe": [
+   39
+  ],
+  "Cautionnement": [
+   39,
+   40
+  ],
+  "Dépôt": [
+   39
+  ],
+  "Garantie": [
+   40
+  ],
+  "Condamnation": [
+   40
+  ],
+  "Remplacement": [
+   40,
+   41
+  ],
+  "Exercice de fonction": [
+   41
+  ],
+  "Dommage intérêt": [
+   41
+  ],
+  "Substitution": [
+   42
+  ],
+  "Empêchement": [
+   42
+  ],
+  "Association": [
+   44
+  ],
+  "Spéculation": [
+   44
+  ],
+  "Commerce": [
+   44
+  ],
+  "Banque": [
+   44
+  ],
+  "Discipline": [
+   45
+  ],
+  "Chambre": [
+   45
+  ],
+  "Abrogation": [
+   46
+  ]
+ },
+ "arrete-1919-examen": {
+  "Session": [
+   1,
+   9
+  ],
+  "Examen": [
+   1,
+   2,
+   5,
+   6,
+   8,
+   9,
+   10
+  ],
+  "Contrôle": [
+   2
+  ],
+  "Commissaire du Gouvernement": [
+   2,
+   3,
+   4,
+   13
+  ],
+  "Inspecteur des écoles": [
+   2,
+   4
+  ],
+  "Jury": [
+   3,
+   4,
+   7
+  ],
+  "Lieu de réunion": [
+   3
+  ],
+  "Composition": [
+   4
+  ],
+  "Notaire": [
+   4,
+   5,
+   10,
+   11,
+   12,
+   13
+  ],
+  "Avocat": [
+   4
+  ],
+  "Accès à la fonction": [
+   5
+  ],
+  "Titre": [
+   5
+  ],
+  "Épreuve orale": [
+   6
+  ],
+  "Épreuve écrite": [
+   6
+  ],
+  "Note": [
+   7
+  ],
+  "Admission": [
+   8
+  ],
+  "Refus": [
+   8
+  ],
+  "Ajournement": [
+   8
+  ],
+  "Secrétaire d’État de la Justice": [
+   9,
+   14
+  ],
+  "Déclaration": [
+   10
+  ],
+  "Document": [
+   10
+  ],
+  "Stage": [
+   10
+  ],
+  "Brevet de capacité": [
+   10
+  ],
+  "Certificat de bonnes vie et mœurs": [
+   10
+  ],
+  "Cautionnement": [
+   11,
+   12,
+   13
+  ],
+  "Dépôt": [
+   11
+  ],
+  "Banque nationale de la république d’Haïti": [
+   11
+  ],
+  "Garantie": [
+   12
+  ],
+  "Faute professionnelle": [
+   12
+  ],
+  "Défaut de dépôt": [
+   13
+  ],
+  "Diminution": [
+   13
+  ],
+  "Entrée en vigueur": [
+   14
+  ],
+  "Exécution": [
+   14
+  ]
+ },
+ "decret-loi-1941-etude-vacante": {
+  "Notaire": [
+   1
+  ],
+  "Archive": [
+   1
+  ],
+  "Scellé": [
+   1
+  ],
+  "Serment": [
+   1
+  ],
+  "Grosse": [
+   1
+  ],
+  "Abrogation": [
+   2
+  ]
+ },
+ "decret-1974-nombre-notaires": {
+  "Notaire": [
+   1
+  ],
+  "Nombre": [
+   1
+  ],
+  "Commune": [
+   1
+  ],
+  "Abrogation": [
+   2
+  ]
+ },
+ "decret-1986-nombre-notaires": {
+  "Notaire": [
+   1
+  ],
+  "Commune": [
+   1
+  ],
+  "Nombre": [
+   1
+  ],
+  "Abrogation": [
+   2
+  ],
+  "Ministre de la justice": [
+   2
+  ],
+  "Exécution": [
+   2
+  ]
+ }
+}

@@ -132,9 +132,11 @@ def main():
            'Ces entrées ne figurent pas au Journal Officiel : elles constituent un appareil éditorial.')
     total_sujets = total_refs = 0
     rapport = []
+    final = {}
     for slug in ORDRE:
         t = textes[slug]
         idx, journal = index_du_texte(si.get(slug, {}))
+        final[slug] = {k: sorted(v) for k, v in idx.items()}
         total_sujets += len(idx)
         total_refs += sum(len(v) for v in idx.values())
         p = di.add_paragraph()
@@ -158,6 +160,8 @@ def main():
         rapport.append((slug, len(idx), sum(len(v) for v in idx.values()), len(couv), len(t['articles']), journal))
     ci = os.path.join(OUT, 'Index_Notariat_Compilation.docx')
     di.save(ci)
+    # Index corrigé réinjectable par l'import (cf. commentaire du script du décret de 1969).
+    json.dump(final, open(f'{DIR}/index-final.json', 'w'), ensure_ascii=False, indent=1)
 
     print(f'{"texte":32} sujets renvois couverture')
     for slug, ns, nr, couv, tot, journal in rapport:

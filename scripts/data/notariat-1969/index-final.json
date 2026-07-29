@@ -1,0 +1,579 @@
+{
+ "Notaire": [
+  1,
+  2,
+  3,
+  4,
+  6,
+  16,
+  19,
+  25,
+  26,
+  28,
+  29,
+  30,
+  31,
+  32,
+  33,
+  35,
+  42,
+  53,
+  65,
+  68,
+  71,
+  72,
+  73,
+  76,
+  78
+ ],
+ "Officier public": [
+  1,
+  51,
+  63,
+  64,
+  65,
+  66
+ ],
+ "Acte authentique": [
+  1
+ ],
+ "Grosse": [
+  1,
+  38,
+  43,
+  44,
+  45
+ ],
+ "Expédition": [
+  1,
+  30,
+  38,
+  40,
+  41,
+  45,
+  55,
+  69
+ ],
+ "Extrait": [
+  1,
+  45
+ ],
+ "Ministère du notaire": [
+  2
+ ],
+ "Acte illégal": [
+  2
+ ],
+ "Nombre de notaires": [
+  3
+ ],
+ "Accès à la fonction": [
+  4
+ ],
+ "Examen professionnel": [
+  4,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15
+ ],
+ "Stage": [
+  4,
+  5,
+  6
+ ],
+ "Clerc de notaire": [
+  4,
+  5
+ ],
+ "Dispense": [
+  6
+ ],
+ "Session d'examen": [
+  7
+ ],
+ "Inscription": [
+  8
+ ],
+ "Certificat de stage": [
+  8
+ ],
+ "Diplôme de droit": [
+  8
+ ],
+ "Commissaire du Gouvernement": [
+  9,
+  11,
+  50,
+  51,
+  71,
+  75,
+  78
+ ],
+ "Jury d'examen": [
+  10,
+  11
+ ],
+ "Épreuve écrite": [
+  12
+ ],
+ "Épreuve orale": [
+  12
+ ],
+ "Acte notarié": [
+  12,
+  25,
+  26,
+  27,
+  29,
+  30,
+  33,
+  34,
+  36,
+  37,
+  40,
+  41,
+  46,
+  47,
+  54,
+  61,
+  69
+ ],
+ "Admission": [
+  13,
+  14
+ ],
+ "Nomination": [
+  16
+ ],
+ "Serment": [
+  16,
+  17,
+  65,
+  66
+ ],
+ "Exercice de la fonction": [
+  17
+ ],
+ "Signature": [
+  17,
+  33,
+  34
+ ],
+ "Sceau": [
+  17,
+  45
+ ],
+ "Incompatibilité": [
+  18,
+  19,
+  22,
+  24,
+  25,
+  28
+ ],
+ "Fonction publique": [
+  18
+ ],
+ "Commission": [
+  19
+ ],
+ "Résidence": [
+  20
+ ],
+ "Sanction pécuniaire": [
+  20
+ ],
+ "Suspension": [
+  20,
+  24,
+  25,
+  36,
+  40,
+  53,
+  67
+ ],
+ "Compétence territoriale": [
+  21
+ ],
+ "Nullité": [
+  21,
+  26,
+  27,
+  30,
+  32,
+  34
+ ],
+ "Destitution": [
+  21,
+  23,
+  24,
+  25,
+  32,
+  35,
+  44,
+  50,
+  53,
+  70,
+  74,
+  76
+ ],
+ "Dommages-intérêts": [
+  21,
+  32,
+  35,
+  40,
+  63
+ ],
+ "Association professionnelle": [
+  22
+ ],
+ "Spéculation": [
+  22
+ ],
+ "Remplacement": [
+  23
+ ],
+ "Capacité": [
+  24
+ ],
+ "Donation": [
+  26
+ ],
+ "Testament": [
+  26,
+  47
+ ],
+ "Témoin": [
+  26,
+  27,
+  28,
+  33
+ ],
+ "Validité": [
+  29
+ ],
+ "Papier timbré": [
+  30
+ ],
+ "Procuration": [
+  30,
+  54
+ ],
+ "Photocopie": [
+  30
+ ],
+ "Vente": [
+  31
+ ],
+ "Propriété urbaine": [
+  31
+ ],
+ "Propriété rurale": [
+  31
+ ],
+ "Arpentage": [
+  31
+ ],
+ "Taxe": [
+  31
+ ],
+ "Responsabilité": [
+  31
+ ],
+ "Bien rural": [
+  32
+ ],
+ "Vente à réméré": [
+  32
+ ],
+ "Hypothèque": [
+  32
+ ],
+ "Amende": [
+  32,
+  35,
+  40,
+  41,
+  48,
+  71,
+  79
+ ],
+ "Renvoi": [
+  34
+ ],
+ "Apostille": [
+  34
+ ],
+ "Surcharge": [
+  35
+ ],
+ "Interligne": [
+  35
+ ],
+ "Rature": [
+  35
+ ],
+ "Fraude": [
+  35,
+  51
+ ],
+ "Foi": [
+  36
+ ],
+ "Force exécutoire": [
+  36
+ ],
+ "Faux": [
+  36
+ ],
+ "Minute": [
+  37,
+  38,
+  39,
+  44,
+  69,
+  74,
+  75
+ ],
+ "Jugement": [
+  39,
+  52
+ ],
+ "Copie conforme": [
+  39
+ ],
+ "Interdiction": [
+  41
+ ],
+ "Compulsoire": [
+  42
+ ],
+ "Procès-Verbal": [
+  42
+ ],
+ "Forme exécutoire": [
+  43
+ ],
+ "Légalisation": [
+  46
+ ],
+ "Répertoire": [
+  47,
+  48,
+  49,
+  74,
+  75
+ ],
+ "Enregistrement": [
+  48,
+  52,
+  57
+ ],
+ "Ministère Public": [
+  49,
+  52
+ ],
+ "Délit": [
+  49
+ ],
+ "Poursuite": [
+  49
+ ],
+ "Discipline": [
+  50
+ ],
+ "Peine disciplinaire": [
+  50
+ ],
+ "Tribunal Civil": [
+  50,
+  62
+ ],
+ "Antidate": [
+  51
+ ],
+ "Action publique": [
+  51,
+  52
+ ],
+ "Fausse mention": [
+  52
+ ],
+ "Déplacement": [
+  53,
+  59
+ ],
+ "Exercice professionnel": [
+  53
+ ],
+ "Honoraires": [
+  54,
+  55,
+  56,
+  58,
+  59,
+  60,
+  61,
+  62,
+  63,
+  69,
+  70
+ ],
+ "Tarif": [
+  54,
+  55,
+  56,
+  60,
+  62,
+  64
+ ],
+ "Timbre mobile spécial": [
+  54,
+  79
+ ],
+ "Cautionnement": [
+  54,
+  66,
+  67,
+  68
+ ],
+ "Fonctions accessoires": [
+  56
+ ],
+ "Émoluments": [
+  57
+ ],
+ "Convention": [
+  57
+ ],
+ "Consignation": [
+  58
+ ],
+ "Frais": [
+  58
+ ],
+ "Indemnisation": [
+  59
+ ],
+ "Rédaction d'acte": [
+  60
+ ],
+ "Contestation": [
+  62
+ ],
+ "Référé": [
+  62,
+  63
+ ],
+ "Remboursement": [
+  63,
+  68
+ ],
+ "Étude notariale": [
+  64,
+  72,
+  73
+ ],
+ "Investiture": [
+  65
+ ],
+ "Banque Nationale": [
+  66,
+  79
+ ],
+ "Garantie": [
+  67
+ ],
+ "Condamnation": [
+  67
+ ],
+ "Démission": [
+  67,
+  68,
+  70,
+  74,
+  76
+ ],
+ "Retraite": [
+  68
+ ],
+ "Héritier": [
+  68,
+  72
+ ],
+ "Substitution": [
+  69
+ ],
+ "Archive": [
+  70,
+  71,
+  73,
+  74,
+  75
+ ],
+ "Scellé": [
+  70
+ ],
+ "Inventaire": [
+  70,
+  74
+ ],
+ "Décès": [
+  70,
+  74,
+  76
+ ],
+ "Mutation": [
+  70
+ ],
+ "Priorité": [
+  72
+ ],
+ "Successeur": [
+  73
+ ],
+ "Juge de Paix": [
+  74
+ ],
+ "Délai": [
+  75
+ ],
+ "Secrétaire d'État de la Justice": [
+  75,
+  77,
+  78,
+  79
+ ],
+ "Conseil Supérieur du Notariat": [
+  77,
+  78
+ ],
+ "Notariat": [
+  77
+ ],
+ "Organisation professionnelle": [
+  77
+ ],
+ "Commune": [
+  78
+ ],
+ "Liste": [
+  78
+ ],
+ "Doyen du Tribunal Civil": [
+  78
+ ],
+ "Fonds": [
+  79
+ ],
+ "Abrogation": [
+  80
+ ]
+}
