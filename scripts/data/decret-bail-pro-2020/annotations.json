@@ -1,0 +1,1224 @@
+{
+ "title": "Décret sur le Bail à Usage Professionnel",
+ "annotationAuthor": "",
+ "navToc": [
+  {
+   "label": "Décret sur le Bail à Usage Professionnel",
+   "anchor": "sec-1",
+   "children": [
+    {
+     "label": "Article 1er — Refonte du titre VII du livre 1er du Code de commerce : « Des contrats commerciaux » (chapitres Ier et II ; art. 1710-1 ; art. 1721-1 à 1729-3)",
+     "anchor": "sec-1",
+     "children": []
+    },
+    {
+     "label": "Article 2 — Section 1 : Champ d’application",
+     "anchor": "sec-2",
+     "children": [
+      {
+       "label": "Art. 1721-1 — Baux visés : locaux professionnels, locaux accessoires, terrains nus avec constructions",
+       "anchor": "art-1721-1"
+      },
+      {
+       "label": "Art. 1721-2 — Organismes autonomes, sociétés anonymes mixtes et sociétés d’économie mixte",
+       "anchor": "art-1721-2"
+      },
+      {
+       "label": "Art. 1721-3 — Immeubles à usage mixte professionnel et de résidence",
+       "anchor": "art-1721-3"
+      }
+     ]
+    },
+    {
+     "label": "Article 3 — Section 2 : Conclusion et durée du bail",
+     "anchor": "sec-3",
+     "children": [
+      {
+       "label": "Art. 1722-1 — Définition du bail à usage professionnel",
+       "anchor": "art-1722-1"
+      },
+      {
+       "label": "Art. 1722-2 — Présomption : bail d’habitation abritant une activité professionnelle",
+       "anchor": "art-1722-2"
+      },
+      {
+       "label": "Art. 1722-3 — Durée déterminée ou indéterminée ; prise d’effet à la signature",
+       "anchor": "art-1722-3"
+      }
+     ]
+    },
+    {
+     "label": "Article 4 — Section 3 : Obligations du bailleur",
+     "anchor": "sec-4",
+     "children": [
+      {
+       "label": "Art. 1723-1 — Délivrance des locaux en bon état ; présomptions",
+       "anchor": "art-1723-1"
+      },
+      {
+       "label": "Art. 1723-2 — Grosses réparations aux frais du bailleur ; diminution du loyer ; suspension ou résiliation judiciaire",
+       "anchor": "art-1723-2"
+      },
+      {
+       "label": "Art. 1723-3 — Refus du bailleur ; autorisation du Commissaire du Gouvernement ; imputation sur les loyers",
+       "anchor": "art-1723-3"
+      },
+      {
+       "label": "Art. 1723-4 — Travaux d’embellissement ; sommation de vider les lieux (90 jours francs) ; suspension et reprise du bail",
+       "anchor": "art-1723-4"
+      },
+      {
+       "label": "Art. 1723-5 — Interdiction de restreindre unilatéralement l’usage des locaux",
+       "anchor": "art-1723-5"
+      },
+      {
+       "label": "Art. 1723-6 — Responsabilité du bailleur pour trouble de jouissance",
+       "anchor": "art-1723-6"
+      },
+      {
+       "label": "Art. 1723-7 — Cession des droits du bailleur ; substitution de plein droit",
+       "anchor": "art-1723-7"
+      },
+      {
+       "label": "Art. 1723-8 — Décès des parties ; poursuite du bail ; dissolution de la personne morale preneuse",
+       "anchor": "art-1723-8"
+      }
+     ]
+    },
+    {
+     "label": "Article 5 — Section 4 : Obligations du preneur",
+     "anchor": "sec-5",
+     "children": [
+      {
+       "label": "Art. 1724-1 — Paiement du loyer ; modes de paiement (correspondance, voie électronique)",
+       "anchor": "art-1724-1"
+      },
+      {
+       "label": "Art. 1724-2 — Exploitation en bon père de famille ; destination ; activités connexes ; changement d’activité",
+       "anchor": "art-1724-2"
+      },
+      {
+       "label": "Art. 1724-3 — Réparations d’entretien ; responsabilité pour dégradations",
+       "anchor": "art-1724-3"
+      },
+      {
+       "label": "Art. 1724-4 — Maintien dans les lieux ; indemnité d’occupation",
+       "anchor": "art-1724-4"
+      }
+     ]
+    },
+    {
+     "label": "Article 6 — Section 5 : Loyer",
+     "anchor": "sec-6",
+     "children": [
+      {
+       "label": "Art. 1725-1 — Fixation libre ; caractère quérable ; révision",
+       "anchor": "art-1725-1"
+      },
+      {
+       "label": "Art. 1725-2 — Fixation du nouveau loyer par experts ; critères d’évaluation",
+       "anchor": "art-1725-2"
+      }
+     ]
+    },
+    {
+     "label": "Article 7 — Section 6 : Cession et sous-location",
+     "anchor": "sec-7",
+     "children": [
+      {
+       "label": "Art. 1726-1 — Interdiction de principe ; notification au bailleur ; inopposabilité",
+       "anchor": "art-1726-1"
+      },
+      {
+       "label": "Art. 1726-2 — Sous-location à loyer supérieur ; augmentation plafonnée à 80%",
+       "anchor": "art-1726-2"
+      }
+     ]
+    },
+    {
+     "label": "Article 8 — Section 7 : Conditions et formes du renouvellement",
+     "anchor": "sec-8",
+     "children": [
+      {
+       "label": "Art. 1727-1 — Renouvellement exprès, tacite ; préavis minimal de six mois",
+       "anchor": "art-1727-1"
+      },
+      {
+       "label": "Art. 1727-2 — Demande du preneur (7 mois) ; déchéance ; réponse du bailleur (6 mois) ; baux inférieurs à un an",
+       "anchor": "art-1727-2"
+      },
+      {
+       "label": "Art. 1727-3 — Congé du bail à durée indéterminée (6 mois)",
+       "anchor": "art-1727-3"
+      },
+      {
+       "label": "Art. 1727-4 — Prise d’effet du nouveau bail",
+       "anchor": "art-1727-4"
+      },
+      {
+       "label": "Art. 1727-5 — Droits du sous-locataire",
+       "anchor": "art-1727-5"
+      },
+      {
+       "label": "Art. 1727-6 — Remboursement des constructions et aménagements ; obligation de délaisser",
+       "anchor": "art-1727-6"
+      }
+     ]
+    },
+    {
+     "label": "Article 9 — Section 8 : Résiliation du bail",
+     "anchor": "sec-9",
+     "children": [
+      {
+       "label": "Art. 1728-1 — Résiliation pour violation des clauses ; mise en demeure ; clause résolutoire",
+       "anchor": "art-1728-1"
+      },
+      {
+       "label": "Art. 1728-2 — Non-paiement de deux mois consécutifs ; expulsion par le juge de paix",
+       "anchor": "art-1728-2"
+      }
+     ]
+    },
+    {
+     "label": "Article 10 — Section 9 : Dispositions finales",
+     "anchor": "sec-10",
+     "children": [
+      {
+       "label": "Art. 1729-1 — Application aux baux en cours ; report des augmentations de loyers",
+       "anchor": "art-1729-1"
+      },
+      {
+       "label": "Art. 1729-2 — Contestations réputées affaires sommaires",
+       "anchor": "art-1729-2"
+      },
+      {
+       "label": "Art. 1729-3 — Dispositions antérieures contraires écartées (lois de 1947, 1948, 1961 ; Code civil)",
+       "anchor": "art-1729-3"
+      }
+     ]
+    },
+    {
+     "label": "Article 11 — Clause abrogatoire générale ; publication et exécution",
+     "anchor": "sec-11",
+     "children": []
+    }
+   ]
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "DÉCRÈTE",
+   "anchor": "sec-1",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "SECTION 1 — CHAMP D’APPLICATION",
+   "anchor": "sec-2",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "SECTION 2 — CONCLUSION ET DURÉE DU BAIL",
+   "anchor": "sec-3",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "SECTION 3 — OBLIGATIONS DU BAILLEUR",
+   "anchor": "sec-4",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "SECTION 4 — OBLIGATIONS DU PRENEUR",
+   "anchor": "sec-5",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "SECTION 5 — LOYER",
+   "anchor": "sec-6",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "SECTION 6 — CESSION ET SOUS-LOCATION",
+   "anchor": "sec-7",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "SECTION 7 — CONDITIONS ET FORMES DU RENOUVELLEMENT",
+   "anchor": "sec-8",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "SECTION 8 — RÉSILIATION DU BAIL",
+   "anchor": "sec-9",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "SECTION 9 — DISPOSITIONS FINALES",
+   "anchor": "sec-10",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "DISPOSITIONS FINALES DU DÉCRET",
+   "anchor": "sec-11",
+   "kind": "code"
+  }
+ ],
+ "connexes": [],
+ "jurisprudence": {},
+ "indexEntries": [
+  {
+   "subject": "Abrogation — dispositions contraires au décret",
+   "ctRefs": [
+    "11"
+   ]
+  },
+  {
+   "subject": "Abrogation — lois antérieures écartées pour le bail à usage professionnel",
+   "ctRefs": [
+    "1729-3"
+   ]
+  },
+  {
+   "subject": "Activité (exercée dans les lieux) — activités connexes ou complémentaires — adjonction",
+   "ctRefs": [
+    "1724-2"
+   ]
+  },
+  {
+   "subject": "Activité (exercée dans les lieux) — changement — accord préalable et exprès du bailleur",
+   "ctRefs": [
+    "1724-2"
+   ]
+  },
+  {
+   "subject": "Affaires sommaires (contestations réputées)",
+   "ctRefs": [
+    "1729-2"
+   ]
+  },
+  {
+   "subject": "Aménagements et constructions — remboursement au preneur en fin de bail",
+   "ctRefs": [
+    "1727-6"
+   ]
+  },
+  {
+   "subject": "Aménagements et constructions — acquisition au bailleur sans indemnité (stipulation)",
+   "ctRefs": [
+    "1727-6"
+   ]
+  },
+  {
+   "subject": "Aménagements et constructions — obligation de délaisser nonobstant différend",
+   "ctRefs": [
+    "1727-6"
+   ]
+  },
+  {
+   "subject": "Ayants-droit — du bailleur — trouble de jouissance",
+   "ctRefs": [
+    "1723-6"
+   ]
+  },
+  {
+   "subject": "Ayants-droit — du preneur — expulsion pour non-paiement",
+   "ctRefs": [
+    "1728-2"
+   ]
+  },
+  {
+   "subject": "Bail à usage professionnel — définition",
+   "ctRefs": [
+    "1722-1"
+   ]
+  },
+  {
+   "subject": "Bail à usage professionnel — présomption — bail qualifié d’habitation avec activité professionnelle",
+   "ctRefs": [
+    "1722-2"
+   ]
+  },
+  {
+   "subject": "Bail à usage professionnel — durée (déterminée ou indéterminée)",
+   "ctRefs": [
+    "1722-3"
+   ]
+  },
+  {
+   "subject": "Bail à usage professionnel — prise d’effet à la signature",
+   "ctRefs": [
+    "1722-3"
+   ]
+  },
+  {
+   "subject": "Bail à usage professionnel — application aux baux en cours",
+   "ctRefs": [
+    "1729-1"
+   ]
+  },
+  {
+   "subject": "Bailleur — obligations",
+   "ctRefs": [
+    "1723-1",
+    "1723-8"
+   ]
+  },
+  {
+   "subject": "Bailleur — délivrance des locaux en bon état — présomption",
+   "ctRefs": [
+    "1723-1"
+   ]
+  },
+  {
+   "subject": "Bailleur — grosses réparations à ses frais",
+   "ctRefs": [
+    "1723-2"
+   ]
+  },
+  {
+   "subject": "Bailleur — refus d’assumer les grosses réparations",
+   "ctRefs": [
+    "1723-3"
+   ]
+  },
+  {
+   "subject": "Bailleur — travaux d’embellissement, rénovation, restructuration",
+   "ctRefs": [
+    "1723-4"
+   ]
+  },
+  {
+   "subject": "Bailleur — interdiction de restreindre l’usage des locaux",
+   "ctRefs": [
+    "1723-5"
+   ]
+  },
+  {
+   "subject": "Bailleur — responsabilité — trouble de jouissance",
+   "ctRefs": [
+    "1723-6"
+   ]
+  },
+  {
+   "subject": "Bailleur — cession de ses droits — substitution du nouveau bailleur",
+   "ctRefs": [
+    "1723-7"
+   ]
+  },
+  {
+   "subject": "Bailleur — décès",
+   "ctRefs": [
+    "1723-8"
+   ]
+  },
+  {
+   "subject": "Cession — de bail — interdiction sauf stipulation contraire",
+   "ctRefs": [
+    "1726-1"
+   ]
+  },
+  {
+   "subject": "Cession — des droits du bailleur — poursuite du bail",
+   "ctRefs": [
+    "1723-7"
+   ]
+  },
+  {
+   "subject": "Champ d’application",
+   "ctRefs": [
+    "1721-1",
+    "1721-3"
+   ]
+  },
+  {
+   "subject": "Cession — locaux et immeubles à usage professionnel",
+   "ctRefs": [
+    "1721-1"
+   ]
+  },
+  {
+   "subject": "Cession — locaux accessoires",
+   "ctRefs": [
+    "1721-1"
+   ]
+  },
+  {
+   "subject": "Cession — terrains nus avec constructions",
+   "ctRefs": [
+    "1721-1"
+   ]
+  },
+  {
+   "subject": "Cession — organismes autonomes, sociétés anonymes mixtes, sociétés d’économie mixte",
+   "ctRefs": [
+    "1721-2"
+   ]
+  },
+  {
+   "subject": "Cession — immeubles à usage mixte professionnel et de résidence",
+   "ctRefs": [
+    "1721-3"
+   ]
+  },
+  {
+   "subject": "Clause résolutoire de plein droit",
+   "ctRefs": [
+    "1728-1"
+   ]
+  },
+  {
+   "subject": "Code de commerce — titre VII du livre 1er — « Des contrats commerciaux »",
+   "ctRefs": [
+    "1"
+   ]
+  },
+  {
+   "subject": "Code de commerce — chapitre Ier — « Des achats et des ventes » (art. 1710-1)",
+   "ctRefs": [
+    "1"
+   ]
+  },
+  {
+   "subject": "Code de commerce — chapitre II — « Du bail à usage professionnel »",
+   "ctRefs": [
+    "1"
+   ]
+  },
+  {
+   "subject": "Commissaire du Gouvernement — autorisation d’exécuter les grosses réparations",
+   "ctRefs": [
+    "1723-3"
+   ]
+  },
+  {
+   "subject": "Commissaire du Gouvernement — fixation du montant des réparations",
+   "ctRefs": [
+    "1723-3"
+   ]
+  },
+  {
+   "subject": "Congé — préavis minimal de six mois (durée indéterminée)",
+   "ctRefs": [
+    "1727-1",
+    "1727-3"
+   ]
+  },
+  {
+   "subject": "Congé — point de départ du nouveau bail",
+   "ctRefs": [
+    "1727-4"
+   ]
+  },
+  {
+   "subject": "Constructions — sur terrains nus — champ d’application",
+   "ctRefs": [
+    "1721-1"
+   ]
+  },
+  {
+   "subject": "Constructions — remboursement / acquisition au bailleur",
+   "ctRefs": [
+    "1727-6"
+   ]
+  },
+  {
+   "subject": "Contestations (affaires sommaires)",
+   "ctRefs": [
+    "1729-2"
+   ]
+  },
+  {
+   "subject": "Décès de l’une des parties",
+   "ctRefs": [
+    "1723-8"
+   ]
+  },
+  {
+   "subject": "Constructions — poursuite du bail avec conjoints, ascendants, descendants",
+   "ctRefs": [
+    "1723-8"
+   ]
+  },
+  {
+   "subject": "Constructions — pluralité ou absence de demandes — résiliation de plein droit",
+   "ctRefs": [
+    "1723-8"
+   ]
+  },
+  {
+   "subject": "Délaissement (obligation de)",
+   "ctRefs": [
+    "1727-6"
+   ]
+  },
+  {
+   "subject": "Délivrance des locaux en bon état",
+   "ctRefs": [
+    "1723-1"
+   ]
+  },
+  {
+   "subject": "Destination des lieux",
+   "ctRefs": [
+    "1724-2"
+   ]
+  },
+  {
+   "subject": "Dissolution de la personne morale preneuse",
+   "ctRefs": [
+    "1723-8"
+   ]
+  },
+  {
+   "subject": "Durée du bail — fixation libre par les parties",
+   "ctRefs": [
+    "1722-3"
+   ]
+  },
+  {
+   "subject": "Durée du bail — défaut d’écrit ou de terme — durée indéterminée",
+   "ctRefs": [
+    "1722-3"
+   ]
+  },
+  {
+   "subject": "Durée du bail — renouvellement",
+   "ctRefs": [
+    "1727-1",
+    "1727-2"
+   ]
+  },
+  {
+   "subject": "Embellissement (travaux d’)",
+   "ctRefs": [
+    "1723-4"
+   ]
+  },
+  {
+   "subject": "Durée du bail — sommation de vider les lieux — 90 jours francs",
+   "ctRefs": [
+    "1723-4"
+   ]
+  },
+  {
+   "subject": "Durée du bail — suspension du bail — reprise — majoration du loyer",
+   "ctRefs": [
+    "1723-4"
+   ]
+  },
+  {
+   "subject": "Entretien (réparations d’)",
+   "ctRefs": [
+    "1724-3"
+   ]
+  },
+  {
+   "subject": "Évacuation des lieux",
+   "ctRefs": [
+    "1723-4"
+   ]
+  },
+  {
+   "subject": "Experts (fixation du nouveau loyer)",
+   "ctRefs": [
+    "1725-2"
+   ]
+  },
+  {
+   "subject": "Durée du bail — critères d’évaluation (situation, superficie, vétusté, prix du voisinage)",
+   "ctRefs": [
+    "1725-2"
+   ]
+  },
+  {
+   "subject": "Expulsion — après travaux d’embellissement (juge de paix)",
+   "ctRefs": [
+    "1723-4"
+   ]
+  },
+  {
+   "subject": "Expulsion — résiliation judiciaire ou clause résolutoire",
+   "ctRefs": [
+    "1728-1"
+   ]
+  },
+  {
+   "subject": "Expulsion — non-paiement du loyer — procédure devant le juge de paix",
+   "ctRefs": [
+    "1728-2"
+   ]
+  },
+  {
+   "subject": "Expulsion — offres de paiement irrecevables",
+   "ctRefs": [
+    "1728-2"
+   ]
+  },
+  {
+   "subject": "Famille du preneur (résidence)",
+   "ctRefs": [
+    "1721-3"
+   ]
+  },
+  {
+   "subject": "Forces de l’ordre (concours à l’expulsion)",
+   "ctRefs": [
+    "1728-2"
+   ]
+  },
+  {
+   "subject": "Grosses réparations",
+   "ctRefs": [
+    "1723-2",
+    "1723-3"
+   ]
+  },
+  {
+   "subject": "Expulsion — énumération (gros murs, voûtes, poutres, toitures, etc.)",
+   "ctRefs": [
+    "1723-2"
+   ]
+  },
+  {
+   "subject": "Expulsion — diminution proportionnelle du loyer",
+   "ctRefs": [
+    "1723-2"
+   ]
+  },
+  {
+   "subject": "Homme de l’art (estimation des réparations)",
+   "ctRefs": [
+    "1723-3"
+   ]
+  },
+  {
+   "subject": "Huissier (acte, signification d’)",
+   "ctRefs": [
+    "1723-4",
+    "1723-8",
+    "1727-2",
+    "1727-3",
+    "1728-1"
+   ]
+  },
+  {
+   "subject": "Indemnité d’occupation (maintien dans les lieux)",
+   "ctRefs": [
+    "1724-4"
+   ]
+  },
+  {
+   "subject": "Inopposabilité (sous-location non notifiée)",
+   "ctRefs": [
+    "1726-1"
+   ]
+  },
+  {
+   "subject": "Juge de paix — suspension du bail pour réparations urgentes",
+   "ctRefs": [
+    "1723-2"
+   ]
+  },
+  {
+   "subject": "Juge de paix — expulsion après travaux d’embellissement",
+   "ctRefs": [
+    "1723-4"
+   ]
+  },
+  {
+   "subject": "Juge de paix — expulsion pour non-paiement",
+   "ctRefs": [
+    "1728-2"
+   ]
+  },
+  {
+   "subject": "Juge des référés (clause résolutoire)",
+   "ctRefs": [
+    "1728-1"
+   ]
+  },
+  {
+   "subject": "Jouissance des lieux — contrepartie — paiement du loyer",
+   "ctRefs": [
+    "1724-1"
+   ]
+  },
+  {
+   "subject": "Jouissance des lieux — privation — diminution du loyer",
+   "ctRefs": [
+    "1723-2"
+   ]
+  },
+  {
+   "subject": "Jouissance des lieux — trouble imputable au bailleur",
+   "ctRefs": [
+    "1723-6"
+   ]
+  },
+  {
+   "subject": "Locaux accessoires",
+   "ctRefs": [
+    "1721-1"
+   ]
+  },
+  {
+   "subject": "Loyer — paiement aux termes convenus — correspondance ou voie électronique",
+   "ctRefs": [
+    "1724-1"
+   ]
+  },
+  {
+   "subject": "Loyer — fixation libre du montant",
+   "ctRefs": [
+    "1725-1"
+   ]
+  },
+  {
+   "subject": "Loyer — caractère quérable",
+   "ctRefs": [
+    "1725-1"
+   ]
+  },
+  {
+   "subject": "Loyer — révision",
+   "ctRefs": [
+    "1725-1"
+   ]
+  },
+  {
+   "subject": "Loyer — fixation du nouveau montant par experts",
+   "ctRefs": [
+    "1725-2"
+   ]
+  },
+  {
+   "subject": "Loyer — majoration après travaux d’embellissement",
+   "ctRefs": [
+    "1723-4"
+   ]
+  },
+  {
+   "subject": "Loyer — non-paiement pendant deux mois consécutifs — résiliation de plein droit",
+   "ctRefs": [
+    "1728-2"
+   ]
+  },
+  {
+   "subject": "Loyer — sous-location — augmentation du bail principal (plafond 80%)",
+   "ctRefs": [
+    "1726-2"
+   ]
+  },
+  {
+   "subject": "Loyer — augmentations et baux en cours",
+   "ctRefs": [
+    "1729-1"
+   ]
+  },
+  {
+   "subject": "Mise en demeure (préalable à la résiliation)",
+   "ctRefs": [
+    "1728-1"
+   ]
+  },
+  {
+   "subject": "Loyer — mentions à peine de nullité — délai d’un mois",
+   "ctRefs": [
+    "1728-1"
+   ]
+  },
+  {
+   "subject": "Motifs graves / motifs sérieux (opposition du bailleur)",
+   "ctRefs": [
+    "1724-2"
+   ]
+  },
+  {
+   "subject": "Non-paiement du loyer",
+   "ctRefs": [
+    "1728-2"
+   ]
+  },
+  {
+   "subject": "Notification (réception effective par le destinataire)",
+   "ctRefs": [
+    "1723-8",
+    "1727-2",
+    "1727-3"
+   ]
+  },
+  {
+   "subject": "Obligations du bailleur",
+   "ctRefs": [
+    "1723-1",
+    "1723-8"
+   ]
+  },
+  {
+   "subject": "Obligations du preneur",
+   "ctRefs": [
+    "1724-1",
+    "1724-4"
+   ]
+  },
+  {
+   "subject": "Occupation (indemnité d’)",
+   "ctRefs": [
+    "1724-4"
+   ]
+  },
+  {
+   "subject": "Organismes autonomes à caractère industriel ou commercial",
+   "ctRefs": [
+    "1721-2"
+   ]
+  },
+  {
+   "subject": "Paiement du loyer — modes (correspondance, voie électronique)",
+   "ctRefs": [
+    "1724-1"
+   ]
+  },
+  {
+   "subject": "Paiement du loyer — offres au moment de l’expulsion — irrecevabilité",
+   "ctRefs": [
+    "1728-2"
+   ]
+  },
+  {
+   "subject": "Personne morale — preneuse — dissolution",
+   "ctRefs": [
+    "1723-8"
+   ]
+  },
+  {
+   "subject": "Personne morale — baux conclus par organismes et sociétés mixtes",
+   "ctRefs": [
+    "1721-2"
+   ]
+  },
+  {
+   "subject": "Préavis de congé (six mois minimum)",
+   "ctRefs": [
+    "1727-1",
+    "1727-3"
+   ]
+  },
+  {
+   "subject": "Preneur — obligations",
+   "ctRefs": [
+    "1724-1",
+    "1724-4"
+   ]
+  },
+  {
+   "subject": "Preneur — exploitation en bon père de famille",
+   "ctRefs": [
+    "1724-2"
+   ]
+  },
+  {
+   "subject": "Preneur — réparations d’entretien — dégradations",
+   "ctRefs": [
+    "1724-3"
+   ]
+  },
+  {
+   "subject": "Preneur — maintien dans les lieux — indemnité d’occupation",
+   "ctRefs": [
+    "1724-4"
+   ]
+  },
+  {
+   "subject": "Preneur — décès — poursuite du bail",
+   "ctRefs": [
+    "1723-8"
+   ]
+  },
+  {
+   "subject": "Preneur — demande de renouvellement — déchéance",
+   "ctRefs": [
+    "1727-2"
+   ]
+  },
+  {
+   "subject": "Prise d’effet du bail",
+   "ctRefs": [
+    "1722-3"
+   ]
+  },
+  {
+   "subject": "Renouvellement — exprès — durée fixée librement",
+   "ctRefs": [
+    "1727-1"
+   ]
+  },
+  {
+   "subject": "Renouvellement — tacite (durée déterminée) — mêmes termes et conditions",
+   "ctRefs": [
+    "1727-1"
+   ]
+  },
+  {
+   "subject": "Renouvellement — demande du preneur — sept mois avant l’expiration",
+   "ctRefs": [
+    "1727-2"
+   ]
+  },
+  {
+   "subject": "Renouvellement — réponse du bailleur — six mois — acceptation présumée",
+   "ctRefs": [
+    "1727-2"
+   ]
+  },
+  {
+   "subject": "Renouvellement — bail d’une durée inférieure à un an",
+   "ctRefs": [
+    "1727-2"
+   ]
+  },
+  {
+   "subject": "Renouvellement — double renouvellement (bail ≤ 1 an) — transformation en durée indéterminée",
+   "ctRefs": [
+    "1727-2"
+   ]
+  },
+  {
+   "subject": "Renouvellement — prise d’effet du nouveau bail",
+   "ctRefs": [
+    "1727-4"
+   ]
+  },
+  {
+   "subject": "Réparations — grosses réparations (bailleur)",
+   "ctRefs": [
+    "1723-2",
+    "1723-3"
+   ]
+  },
+  {
+   "subject": "Réparations — réparations d’entretien (preneur)",
+   "ctRefs": [
+    "1724-3"
+   ]
+  },
+  {
+   "subject": "Réparations — urgentes rendant impossible la jouissance — suspension, résiliation",
+   "ctRefs": [
+    "1723-2"
+   ]
+  },
+  {
+   "subject": "Résidence du preneur ou de sa famille",
+   "ctRefs": [
+    "1721-3"
+   ]
+  },
+  {
+   "subject": "Résiliation du bail — violation des clauses et conditions",
+   "ctRefs": [
+    "1728-1"
+   ]
+  },
+  {
+   "subject": "Résiliation du bail — non-paiement du loyer (deux mois consécutifs)",
+   "ctRefs": [
+    "1728-2"
+   ]
+  },
+  {
+   "subject": "Résiliation du bail — de plein droit — désaccord persistant après travaux",
+   "ctRefs": [
+    "1723-4"
+   ]
+  },
+  {
+   "subject": "Résiliation du bail — de plein droit — décès (défaut de demande) ; dissolution",
+   "ctRefs": [
+    "1723-8"
+   ]
+  },
+  {
+   "subject": "Résiliation du bail — refus du preneur en cas de changement d’activité",
+   "ctRefs": [
+    "1724-2"
+   ]
+  },
+  {
+   "subject": "Résiliation du bail — judiciaire — réparations urgentes",
+   "ctRefs": [
+    "1723-2"
+   ]
+  },
+  {
+   "subject": "Résiliation du bail — congé (bail à durée indéterminée)",
+   "ctRefs": [
+    "1727-3"
+   ]
+  },
+  {
+   "subject": "Sommation — grosses réparations (huit jours)",
+   "ctRefs": [
+    "1723-3"
+   ]
+  },
+  {
+   "subject": "Sommation — de vider les lieux (90 jours francs)",
+   "ctRefs": [
+    "1723-4"
+   ]
+  },
+  {
+   "subject": "Sommation — de payer (huit jours)",
+   "ctRefs": [
+    "1728-2"
+   ]
+  },
+  {
+   "subject": "Sous-location — interdiction de principe sauf stipulation contraire",
+   "ctRefs": [
+    "1726-1"
+   ]
+  },
+  {
+   "subject": "Sous-location — notification écrite au bailleur — inopposabilité",
+   "ctRefs": [
+    "1726-1"
+   ]
+  },
+  {
+   "subject": "Sous-location — loyer supérieur au bail principal — augmentation plafonnée à 80%",
+   "ctRefs": [
+    "1726-2"
+   ]
+  },
+  {
+   "subject": "Sous-location — droits du sous-locataire — extinction",
+   "ctRefs": [
+    "1727-5"
+   ]
+  },
+  {
+   "subject": "Sociétés anonymes mixtes ; sociétés d’économie mixte",
+   "ctRefs": [
+    "1721-2"
+   ]
+  },
+  {
+   "subject": "Suspension du bail — réparations urgentes",
+   "ctRefs": [
+    "1723-2"
+   ]
+  },
+  {
+   "subject": "Suspension du bail — travaux d’embellissement",
+   "ctRefs": [
+    "1723-4"
+   ]
+  },
+  {
+   "subject": "Terrains nus",
+   "ctRefs": [
+    "1721-1"
+   ]
+  },
+  {
+   "subject": "Transformation en bail à durée indéterminée",
+   "ctRefs": [
+    "1727-2"
+   ]
+  },
+  {
+   "subject": "Tribunal de Première Instance — résiliation judiciaire (réparations urgentes)",
+   "ctRefs": [
+    "1723-2"
+   ]
+  },
+  {
+   "subject": "Tribunal de Première Instance — attributions commerciales — bref délai — résiliation et expulsion",
+   "ctRefs": [
+    "1728-1"
+   ]
+  },
+  {
+   "subject": "Trouble de jouissance",
+   "ctRefs": [
+    "1723-6"
+   ]
+  },
+  {
+   "subject": "Vétusté (état de)",
+   "ctRefs": [
+    "1725-2"
+   ]
+  },
+  {
+   "subject": "Voie électronique (paiement du loyer)",
+   "ctRefs": [
+    "1724-1"
+   ]
+  },
+  {
+   "subject": "Voies de droit (poursuite des loyers dus)",
+   "ctRefs": [
+    "1728-2"
+   ]
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2",
+  "art-1721-1": "Article 1721-1",
+  "art-1721-2": "Article 1721-2",
+  "art-1721-3": "Article 1721-3",
+  "art-3": "Article 3",
+  "art-1722-1": "Article 1722-1",
+  "art-1722-2": "Article 1722-2",
+  "art-1722-3": "Article 1722-3",
+  "art-4": "Article 4",
+  "art-1723-1": "Article 1723-1",
+  "art-1723-2": "Article 1723-2",
+  "art-1723-3": "Article 1723-3",
+  "art-1723-4": "Article 1723-4",
+  "art-1723-5": "Article 1723-5",
+  "art-1723-6": "Article 1723-6",
+  "art-1723-7": "Article 1723-7",
+  "art-1723-8": "Article 1723-8",
+  "art-5": "Article 5",
+  "art-1724-1": "Article 1724-1",
+  "art-1724-2": "Article 1724-2",
+  "art-1724-3": "Article 1724-3",
+  "art-1724-4": "Article 1724-4",
+  "art-6": "Article 6",
+  "art-1725-1": "Article 1725-1",
+  "art-1725-2": "Article 1725-2",
+  "art-7": "Article 7",
+  "art-1726-1": "Article 1726-1",
+  "art-1726-2": "Article 1726-2",
+  "art-8": "Article 8",
+  "art-1727-1": "Article 1727-1",
+  "art-1727-2": "Article 1727-2",
+  "art-1727-3": "Article 1727-3",
+  "art-1727-4": "Article 1727-4",
+  "art-1727-5": "Article 1727-5",
+  "art-1727-6": "Article 1727-6",
+  "art-9": "Article 9",
+  "art-1728-1": "Article 1728-1",
+  "art-1728-2": "Article 1728-2",
+  "art-10": "Article 10",
+  "art-1729-1": "Article 1729-1",
+  "art-1729-2": "Article 1729-2",
+  "art-1729-3": "Article 1729-3",
+  "art-11": "Article 11"
+ }
+}
