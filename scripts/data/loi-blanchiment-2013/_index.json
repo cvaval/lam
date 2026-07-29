@@ -1,0 +1,981 @@
+[
+ {
+  "subject": "Absence de justification politique, religieuse ou idéologique",
+  "ctRefs": [
+   "7"
+  ]
+ },
+ {
+  "subject": "Accès aux systèmes, réseaux et serveurs informatiques",
+  "ctRefs": [
+   "38"
+  ]
+ },
+ {
+  "subject": "Acquisition, détention ou utilisation de biens illicites",
+  "ctRefs": [
+   "5"
+  ]
+ },
+ {
+  "subject": "Acte terroriste (définition et conventions internationales)",
+  "ctRefs": [
+   "4"
+  ]
+ },
+ {
+  "subject": "Administration Générale des Douanes (transmission à l'UCREF)",
+  "ctRefs": [
+   "10",
+   "51",
+   "56"
+  ]
+ },
+ {
+  "subject": "Amendes (500 000 à 100 000 000 de gourdes)",
+  "ctRefs": [
+   "57"
+  ]
+ },
+ {
+  "subject": "Appel et pourvoi en cassation",
+  "ctRefs": [
+   "78"
+  ]
+ },
+ {
+  "subject": "Arrêté ministériel de gel (conditions et durée)",
+  "ctRefs": [
+   "47",
+   "48"
+  ]
+ },
+ {
+  "subject": "Assurance vie (identification des souscripteurs)",
+  "ctRefs": [
+   "25"
+  ]
+ },
+ {
+  "subject": "Banque fictive (interdiction de relation)",
+  "ctRefs": [
+   "24"
+  ]
+ },
+ {
+  "subject": "Biens (définition)",
+  "ctRefs": [
+   "4"
+  ]
+ },
+ {
+  "subject": "Blanchiment de capitaux (définition)",
+  "ctRefs": [
+   "5"
+  ]
+ },
+ {
+  "subject": "BRH — Banque de la République d'Haïti",
+  "ctRefs": [
+   "10",
+   "12",
+   "26",
+   "36",
+   "85"
+  ]
+ },
+ {
+  "subject": "Bénéficiaire effectif et véritable donneur d'ordre",
+  "ctRefs": [
+   "19",
+   "21"
+  ]
+ },
+ {
+  "subject": "Caisse des Dépôts et Consignations (dépôt des espèces saisies)",
+  "ctRefs": [
+   "56"
+  ]
+ },
+ {
+  "subject": "Casinos (registre des joueurs et des transferts, jetons)",
+  "ctRefs": [
+   "29"
+  ]
+ },
+ {
+  "subject": "Casinos, loteries, borlette et établissements de jeux",
+  "ctRefs": [
+   "3",
+   "29"
+  ]
+ },
+ {
+  "subject": "Circonstances atténuantes",
+  "ctRefs": [
+   "62"
+  ]
+ },
+ {
+  "subject": "Clause abrogatoire et exécution",
+  "ctRefs": [
+   "86"
+  ]
+ },
+ {
+  "subject": "Client non physiquement présent (relations à distance)",
+  "ctRefs": [
+   "14"
+  ]
+ },
+ {
+  "subject": "Commissaire du Gouvernement",
+  "ctRefs": [
+   "35"
+  ]
+ },
+ {
+  "subject": "Communication des renseignements aux autorités judiciaires et à la BRH",
+  "ctRefs": [
+   "36"
+  ]
+ },
+ {
+  "subject": "Comptes anonymes ou sous noms fictifs (interdiction)",
+  "ctRefs": [
+   "13"
+  ]
+ },
+ {
+  "subject": "Compétence territoriale (lieu de commission indifférent)",
+  "ctRefs": [
+   "9"
+  ]
+ },
+ {
+  "subject": "Concessionnaires de véhicules",
+  "ctRefs": [
+   "3"
+  ]
+ },
+ {
+  "subject": "Confiscation (définition)",
+  "ctRefs": [
+   "4",
+   "64"
+  ]
+ },
+ {
+  "subject": "Confiscation après condamnation définitive",
+  "ctRefs": [
+   "64"
+  ]
+ },
+ {
+  "subject": "Confiscation des biens d'une organisation criminelle ou terroriste",
+  "ctRefs": [
+   "66"
+  ]
+ },
+ {
+  "subject": "Confiscation en valeur et biens non représentés",
+  "ctRefs": [
+   "64"
+  ]
+ },
+ {
+  "subject": "Confiscation sans condamnation (auteurs inconnus ou non poursuivis)",
+  "ctRefs": [
+   "65"
+  ]
+ },
+ {
+  "subject": "Confiscation sur demande étrangère",
+  "ctRefs": [
+   "82",
+   "83"
+  ]
+ },
+ {
+  "subject": "Conservation des documents (cinq ans)",
+  "ctRefs": [
+   "23",
+   "28",
+   "29"
+  ]
+ },
+ {
+  "subject": "Contrats antérieurs au gel (fonds dus, fruits et intérêts)",
+  "ctRefs": [
+   "49"
+  ]
+ },
+ {
+  "subject": "Contrebande, extorsion et pillage des richesses",
+  "ctRefs": [
+   "8"
+  ]
+ },
+ {
+  "subject": "Contrefaçon de monnaie et de titres",
+  "ctRefs": [
+   "8"
+  ]
+ },
+ {
+  "subject": "Conversion ou transfert de biens d'origine criminelle",
+  "ctRefs": [
+   "5"
+  ]
+ },
+ {
+  "subject": "Correspondant bancaire transfrontalier",
+  "ctRefs": [
+   "24"
+  ]
+ },
+ {
+  "subject": "Corruption et détournement de fonds publics (infraction sous-jacente)",
+  "ctRefs": [
+   "8"
+  ]
+ },
+ {
+  "subject": "Diffusion de la décision par la presse",
+  "ctRefs": [
+   "58"
+  ]
+ },
+ {
+  "subject": "Dissimulation ou déguisement de l'origine des biens",
+  "ctRefs": [
+   "5"
+  ]
+ },
+ {
+  "subject": "Déclaration d'espèces aux frontières (entrée et sortie du territoire)",
+  "ctRefs": [
+   "10",
+   "50",
+   "54"
+  ]
+ },
+ {
+  "subject": "Déclaration de soupçon à l'UCREF",
+  "ctRefs": [
+   "31",
+   "32",
+   "44"
+  ]
+ },
+ {
+  "subject": "Déclaration des transactions en espèces à l'UCREF",
+  "ctRefs": [
+   "11",
+   "33"
+  ]
+ },
+ {
+  "subject": "Déclaration inexacte ou incomplète (non exécutée)",
+  "ctRefs": [
+   "54"
+  ]
+ },
+ {
+  "subject": "Déclaration écrite de transport international de monnaies",
+  "ctRefs": [
+   "50"
+  ]
+ },
+ {
+  "subject": "Défaut de vigilance et carence des procédures internes",
+  "ctRefs": [
+   "59"
+  ]
+ },
+ {
+  "subject": "Définitions",
+  "ctRefs": [
+   "4"
+  ]
+ },
+ {
+  "subject": "Délais de mise en conformité (UCREF et BRH)",
+  "ctRefs": [
+   "85"
+  ]
+ },
+ {
+  "subject": "Dévolution à l'État des biens confisqués et droits des tiers",
+  "ctRefs": [
+   "68"
+  ]
+ },
+ {
+  "subject": "Enlèvement, séquestration et prise d'otages",
+  "ctRefs": [
+   "8"
+  ]
+ },
+ {
+  "subject": "Enregistrement audio, vidéo et photographie",
+  "ctRefs": [
+   "38"
+  ]
+ },
+ {
+  "subject": "Entraide judiciaire (demandes des États étrangers)",
+  "ctRefs": [
+   "79",
+   "80"
+  ]
+ },
+ {
+  "subject": "Entreprises et professions non financières assujetties (casinos, ONG, immobilier, notaires, avocats, comptables)",
+  "ctRefs": [
+   "3",
+   "4"
+  ]
+ },
+ {
+  "subject": "Exonération de poursuite pour violation du secret bancaire",
+  "ctRefs": [
+   "41",
+   "45"
+  ]
+ },
+ {
+  "subject": "Exploitation sexuelle, y compris des enfants",
+  "ctRefs": [
+   "8"
+  ]
+ },
+ {
+  "subject": "Extradition",
+  "ctRefs": [
+   "84"
+  ]
+ },
+ {
+  "subject": "Faux témoignage (levée de l'anonymat)",
+  "ctRefs": [
+   "40"
+  ]
+ },
+ {
+  "subject": "Filiales à l'étranger (mesures compatibles)",
+  "ctRefs": [
+   "24"
+  ]
+ },
+ {
+  "subject": "Financement du terrorisme (définition)",
+  "ctRefs": [
+   "6"
+  ]
+ },
+ {
+  "subject": "Fonds spécial de lutte contre le crime organisé",
+  "ctRefs": [
+   "68",
+   "69"
+  ]
+ },
+ {
+  "subject": "Formation continue des employés",
+  "ctRefs": [
+   "16"
+  ]
+ },
+ {
+  "subject": "Forme et procédure des déclarations (règlement de l'UCREF)",
+  "ctRefs": [
+   "32"
+  ]
+ },
+ {
+  "subject": "Gel (définition)",
+  "ctRefs": [
+   "4",
+   "47"
+  ]
+ },
+ {
+  "subject": "Gel des fonds des terroristes (Conseil de sécurité des Nations Unies)",
+  "ctRefs": [
+   "47"
+  ]
+ },
+ {
+  "subject": "Gel ordonné par l'UCREF (dix jours)",
+  "ctRefs": [
+   "34",
+   "43"
+  ]
+ },
+ {
+  "subject": "Haute direction (définition et autorisations)",
+  "ctRefs": [
+   "4",
+   "15",
+   "24"
+  ]
+ },
+ {
+  "subject": "Identification d'une personne morale (dénomination, siège, dirigeants)",
+  "ctRefs": [
+   "18"
+  ]
+ },
+ {
+  "subject": "Identification d'une personne physique (documents exigés)",
+  "ctRefs": [
+   "18"
+  ]
+ },
+ {
+  "subject": "Identification et vérification de l'identité des clients",
+  "ctRefs": [
+   "17",
+   "18",
+   "25"
+  ]
+ },
+ {
+  "subject": "Immunité des fonctionnaires enquêteurs et sanctions en cas de détournement",
+  "ctRefs": [
+   "39"
+  ]
+ },
+ {
+  "subject": "Infraction grave (définition)",
+  "ctRefs": [
+   "4"
+  ]
+ },
+ {
+  "subject": "Infraction sous-jacente",
+  "ctRefs": [
+   "4",
+   "6",
+   "8"
+  ]
+ },
+ {
+  "subject": "Institutions financières assujetties (banques, assurances, cartes de crédit, coopératives, agents de change, maisons de transfert)",
+  "ctRefs": [
+   "2",
+   "4"
+  ]
+ },
+ {
+  "subject": "Interception et saisie du courrier",
+  "ctRefs": [
+   "38"
+  ]
+ },
+ {
+  "subject": "Interdiction d'activité, fermeture et dissolution (personnes morales)",
+  "ctRefs": [
+   "58"
+  ]
+ },
+ {
+  "subject": "Interdiction de divulgation au client (tipping off)",
+  "ctRefs": [
+   "37"
+  ]
+ },
+ {
+  "subject": "Interdictions attachées au gel (mise à disposition, services)",
+  "ctRefs": [
+   "48"
+  ]
+ },
+ {
+  "subject": "Irresponsabilité civile et pénale du déclarant de bonne foi",
+  "ctRefs": [
+   "42",
+   "43",
+   "44"
+  ]
+ },
+ {
+  "subject": "Juge d'instruction spécialisé en infractions financières",
+  "ctRefs": [
+   "74",
+   "76",
+   "77"
+  ]
+ },
+ {
+  "subject": "Juge doyen (contrôle de la légalité des arrestations et détentions)",
+  "ctRefs": [
+   "82-2"
+  ]
+ },
+ {
+  "subject": "Mandats et ordonnance motivée",
+  "ctRefs": [
+   "77"
+  ]
+ },
+ {
+  "subject": "Manquements aux obligations de transfert international de fonds",
+  "ctRefs": [
+   "60"
+  ]
+ },
+ {
+  "subject": "Mesures conservatoires du juge d'instruction et mainlevée",
+  "ctRefs": [
+   "46",
+   "81"
+  ]
+ },
+ {
+  "subject": "Mesures conservatoires sur demande étrangère",
+  "ctRefs": [
+   "81"
+  ]
+ },
+ {
+  "subject": "Ministère de l'Économie et des Finances",
+  "ctRefs": [
+   "25",
+   "29",
+   "47",
+   "86"
+  ]
+ },
+ {
+  "subject": "Ministère de la Justice et de la Sécurité Publique",
+  "ctRefs": [
+   "47",
+   "71",
+   "86"
+  ]
+ },
+ {
+  "subject": "Ministère public (mainlevée, confiscation)",
+  "ctRefs": [
+   "46",
+   "65"
+  ]
+ },
+ {
+  "subject": "Montant règlementaire fixé par la BRH",
+  "ctRefs": [
+   "12",
+   "17",
+   "20",
+   "33"
+  ]
+ },
+ {
+  "subject": "Notaires, avocats et comptables (obligations)",
+  "ctRefs": [
+   "3",
+   "19"
+  ]
+ },
+ {
+  "subject": "Nullité des actes visant à soustraire des biens à la confiscation",
+  "ctRefs": [
+   "67"
+  ]
+ },
+ {
+  "subject": "Négociants en métaux et pierres précieuses",
+  "ctRefs": [
+   "3"
+  ]
+ },
+ {
+  "subject": "Objet de la loi (prévention et répression)",
+  "ctRefs": [
+   "1"
+  ]
+ },
+ {
+  "subject": "Obligations simplifiées ou réduites (approche par les risques)",
+  "ctRefs": [
+   "26"
+  ]
+ },
+ {
+  "subject": "Officier ou agent de conformité",
+  "ctRefs": [
+   "16"
+  ]
+ },
+ {
+  "subject": "Omission de déclaration de soupçon (sanction)",
+  "ctRefs": [
+   "60"
+  ]
+ },
+ {
+  "subject": "Opposition de l'UCREF (quarante-huit heures)",
+  "ctRefs": [
+   "34"
+  ]
+ },
+ {
+  "subject": "Opérations complexes ou sans justification économique (rapport confidentiel)",
+  "ctRefs": [
+   "20"
+  ]
+ },
+ {
+  "subject": "Opérations immobilières (identification des parties)",
+  "ctRefs": [
+   "30"
+  ]
+ },
+ {
+  "subject": "Opérations occasionnelles et transferts de fonds",
+  "ctRefs": [
+   "17"
+  ]
+ },
+ {
+  "subject": "Opérations refusées (déclaration obligatoire)",
+  "ctRefs": [
+   "19",
+   "31"
+  ]
+ },
+ {
+  "subject": "Organisation terroriste (définition)",
+  "ctRefs": [
+   "4",
+   "47",
+   "66"
+  ]
+ },
+ {
+  "subject": "Organismes à but non lucratif (définition et obligations)",
+  "ctRefs": [
+   "4",
+   "27",
+   "28"
+  ]
+ },
+ {
+  "subject": "Organismes à but non lucratif (surveillance et transparence)",
+  "ctRefs": [
+   "27",
+   "28"
+  ]
+ },
+ {
+  "subject": "Origine illicite des capitaux (infractions sous-jacentes énumérées)",
+  "ctRefs": [
+   "8"
+  ]
+ },
+ {
+  "subject": "Outils informatiques de détection et rapports automatiques",
+  "ctRefs": [
+   "33",
+   "60"
+  ]
+ },
+ {
+  "subject": "Pays appliquant insuffisamment les normes internationales",
+  "ctRefs": [
+   "13"
+  ]
+ },
+ {
+  "subject": "Peines du blanchiment et du financement du terrorisme (3 à 15 ans)",
+  "ctRefs": [
+   "57",
+   "61"
+  ]
+ },
+ {
+  "subject": "Personne politiquement exposée (PPE)",
+  "ctRefs": [
+   "4",
+   "15"
+  ]
+ },
+ {
+  "subject": "Personnes morales (amende quintuple et peines complémentaires)",
+  "ctRefs": [
+   "58"
+  ]
+ },
+ {
+  "subject": "Pouvoirs des agents des douanes (immobilisation, perquisition, retenue)",
+  "ctRefs": [
+   "51"
+  ]
+ },
+ {
+  "subject": "Prestataires de services aux sociétés et fiducies",
+  "ctRefs": [
+   "3"
+  ]
+ },
+ {
+  "subject": "Produit d'une activité criminelle",
+  "ctRefs": [
+   "4",
+   "5",
+   "65"
+  ]
+ },
+ {
+  "subject": "Programmes internes de prévention (politiques, procédures, contrôles)",
+  "ctRefs": [
+   "16"
+  ]
+ },
+ {
+  "subject": "Protection de l'identité du déclarant",
+  "ctRefs": [
+   "35"
+  ]
+ },
+ {
+  "subject": "Protection et anonymat des témoins",
+  "ctRefs": [
+   "40"
+  ]
+ },
+ {
+  "subject": "Rapport de l'UCREF au Commissaire du Gouvernement",
+  "ctRefs": [
+   "35"
+  ]
+ },
+ {
+  "subject": "Règlements en espèces au-delà du montant autorisé",
+  "ctRefs": [
+   "60"
+  ]
+ },
+ {
+  "subject": "Réduction de peine pour coopération avec la justice",
+  "ctRefs": [
+   "63"
+  ]
+ },
+ {
+  "subject": "Réquisitoire d'informer",
+  "ctRefs": [
+   "75"
+  ]
+ },
+ {
+  "subject": "Saisie (définition)",
+  "ctRefs": [
+   "4",
+   "55"
+  ]
+ },
+ {
+  "subject": "Saisie douanière des espèces et procès-verbal",
+  "ctRefs": [
+   "55"
+  ]
+ },
+ {
+  "subject": "Saisine (dénonciation, plainte, demande de l'UCREF)",
+  "ctRefs": [
+   "73"
+  ]
+ },
+ {
+  "subject": "Sanctions administratives de l'autorité de contrôle",
+  "ctRefs": [
+   "59",
+   "60"
+  ]
+ },
+ {
+  "subject": "Sauvegarde constitutionnelle et indépendance des pouvoirs",
+  "ctRefs": [
+   "82-1"
+  ]
+ },
+ {
+  "subject": "Secret professionnel de l'avocat et inviolabilité du cabinet",
+  "ctRefs": [
+   "82-1"
+  ]
+ },
+ {
+  "subject": "Secret professionnel des agents de l'UCREF (article 323 du Code pénal)",
+  "ctRefs": [
+   "45"
+  ]
+ },
+ {
+  "subject": "Secret professionnel inopposable pour l'identification du donneur d'ordre",
+  "ctRefs": [
+   "19"
+  ]
+ },
+ {
+  "subject": "Substituts spécialisés en infractions financières",
+  "ctRefs": [
+   "70",
+   "71",
+   "73",
+   "75"
+  ]
+ },
+ {
+  "subject": "Sursis aux mesures privatives de liberté",
+  "ctRefs": [
+   "82-2"
+  ]
+ },
+ {
+  "subject": "Surveillance des comptes bancaires",
+  "ctRefs": [
+   "38"
+  ]
+ },
+ {
+  "subject": "Systèmes de gestion des risques",
+  "ctRefs": [
+   "15",
+   "26"
+  ]
+ },
+ {
+  "subject": "Techniques spéciales d'enquête (juge d'instruction)",
+  "ctRefs": [
+   "38",
+   "39"
+  ]
+ },
+ {
+  "subject": "Tentative, complicité et incitation",
+  "ctRefs": [
+   "6",
+   "57"
+  ]
+ },
+ {
+  "subject": "Terroriste (définition)",
+  "ctRefs": [
+   "4",
+   "47"
+  ]
+ },
+ {
+  "subject": "Trafic d'organes humains",
+  "ctRefs": [
+   "8"
+  ]
+ },
+ {
+  "subject": "Trafic illicite d'armes",
+  "ctRefs": [
+   "8"
+  ]
+ },
+ {
+  "subject": "Trafic illicite de stupéfiants",
+  "ctRefs": [
+   "8"
+  ]
+ },
+ {
+  "subject": "Traite des êtres humains et trafic de migrants",
+  "ctRefs": [
+   "8"
+  ]
+ },
+ {
+  "subject": "Transactions multiples liées entre elles",
+  "ctRefs": [
+   "11",
+   "17"
+  ]
+ },
+ {
+  "subject": "Tribunaux correctionnels (compétence)",
+  "ctRefs": [
+   "72"
+  ]
+ },
+ {
+  "subject": "UCREF — Unité Centrale de Renseignements Financiers",
+  "ctRefs": [
+   "10",
+   "11",
+   "31",
+   "32",
+   "34",
+   "35",
+   "45",
+   "73",
+   "77",
+   "85"
+  ]
+ },
+ {
+  "subject": "Vente aux enchères des biens saisis",
+  "ctRefs": [
+   "69"
+  ]
+ },
+ {
+  "subject": "Vigilance permanente sur les relations d'affaires",
+  "ctRefs": [
+   "13"
+  ]
+ },
+ {
+  "subject": "Virement électronique (définition et obligations)",
+  "ctRefs": [
+   "4",
+   "21",
+   "22"
+  ]
+ },
+ {
+  "subject": "Virements reçus incomplets (obtention des informations manquantes)",
+  "ctRefs": [
+   "22"
+  ]
+ },
+ {
+  "subject": "Virements électroniques (mentions obligatoires)",
+  "ctRefs": [
+   "21"
+  ]
+ },
+ {
+  "subject": "Visite corporelle (agent du même sexe, hygiène et décence)",
+  "ctRefs": [
+   "53"
+  ]
+ },
+ {
+  "subject": "Visite des personnes (interrogatoire, fouille des bagages)",
+  "ctRefs": [
+   "52"
+  ]
+ },
+ {
+  "subject": "Élément intentionnel (déduction de circonstances factuelles)",
+  "ctRefs": [
+   "5",
+   "6"
+  ]
+ },
+ {
+  "subject": "États financiers publiés annuellement (OBNL)",
+  "ctRefs": [
+   "28"
+  ]
+ }
+]
