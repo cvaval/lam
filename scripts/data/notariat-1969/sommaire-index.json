@@ -1,0 +1,717 @@
+{
+ "1": {
+  "r": "Statut et attributions générales des notaires",
+  "s": [
+   "Notaire",
+   "Officier Public",
+   "Acte Authentique",
+   "Grosse",
+   "Expédition",
+   "Extrait"
+  ]
+ },
+ "2": {
+  "r": "Obligation de prêter ministère et interdictions de recevoir certains actes",
+  "s": [
+   "Notaire",
+   "Ministère",
+   "Acte Illégal"
+  ]
+ },
+ "3": {
+  "r": "Fixation du nombre de notaires par commune",
+  "s": [
+   "Notaire",
+   "Nombre de Notaires"
+  ]
+ },
+ "4": {
+  "r": "Conditions d'accès à la fonction de notaire",
+  "s": [
+   "Notaire",
+   "Accès à la Fonction",
+   "Examen Professionnel",
+   "Stage",
+   "Clerc de Notaire"
+  ]
+ },
+ "5": {
+  "r": "Conditions d'admission au stage de clerc de notaire",
+  "s": [
+   "Stage",
+   "Clerc de Notaire"
+  ]
+ },
+ "6": {
+  "r": "Durée réduite du stage et dispenses d'accès à la fonction",
+  "s": [
+   "Stage",
+   "Notaire",
+   "Dispense",
+   "Examen Professionnel"
+  ]
+ },
+ "7": {
+  "r": "Périodicité des sessions d'examen professionnel",
+  "s": [
+   "Examen Professionnel",
+   "Session d'Examen"
+  ]
+ },
+ "8": {
+  "r": "Pièces requises pour l'inscription à l'examen professionnel",
+  "s": [
+   "Examen Professionnel",
+   "Inscription",
+   "Certificat de Stage",
+   "Diplôme de Droit"
+  ]
+ },
+ "9": {
+  "r": "Contrôle de l'examen professionnel",
+  "s": [
+   "Examen Professionnel",
+   "Commissaire du Gouvernement"
+  ]
+ },
+ "10": {
+  "r": "Lieu de délibération du jury d'examen",
+  "s": [
+   "Jury d'Examen",
+   "Examen Professionnel"
+  ]
+ },
+ "11": {
+  "r": "Composition du jury de l'examen professionnel",
+  "s": [
+   "Jury d'Examen",
+   "Examen Professionnel",
+   "Commissaire du Gouvernement"
+  ]
+ },
+ "12": {
+  "r": "Modalités des épreuves de l'examen professionnel",
+  "s": [
+   "Examen Professionnel",
+   "Épreuve Écrite",
+   "Épreuve Orale",
+   "Acte Notarié"
+  ]
+ },
+ "13": {
+  "r": "Barème de notation et conditions d'admission aux épreuves de l'examen professionnel notarial",
+  "s": [
+   "Examen Professionnel",
+   "Admission"
+  ]
+ },
+ "14": {
+  "r": "Perte du bénéfice de l'écrit en cas d'échec à l'épreuve orale de l'examen professionnel",
+  "s": [
+   "Examen Professionnel",
+   "Admission"
+  ]
+ },
+ "15": {
+  "r": "Matières de l'examen professionnel notarial",
+  "s": [
+   "Examen Professionnel"
+  ]
+ },
+ "16": {
+  "r": "Nomination, commissionnement et prestation de serment du notaire devant le Tribunal Civil",
+  "s": [
+   "Notaire",
+   "Nomination",
+   "Prestation de Serment"
+  ]
+ },
+ "17": {
+  "r": "Conditions d'exercice : prestation de serment, dépôt du spécimen de signature et de l'empreinte du sceau",
+  "s": [
+   "Exercice de la Fonction",
+   "Prestation de Serment",
+   "Signature",
+   "Sceau"
+  ]
+ },
+ "18": {
+  "r": "Incompatibilités des fonctions de notaire avec l'ordre judiciaire, administratif et militaire",
+  "s": [
+   "Incompatibilité",
+   "Fonction Publique"
+  ]
+ },
+ "19": {
+  "r": "Conditions de réintégration du notaire ayant opté pour une fonction incompatible",
+  "s": [
+   "Notaire",
+   "Incompatibilité",
+   "Commission"
+  ]
+ },
+ "20": {
+  "r": "Obligation de résidence du notaire et sanctions en cas de contravention (amende, suspension)",
+  "s": [
+   "Résidence",
+   "Sanction Pécuniaire",
+   "Suspension"
+  ]
+ },
+ "21": {
+  "r": "Interdiction d'instrumenter hors de la commune : sanctions (nullité, destitution, dommages-intérêts) et exception",
+  "s": [
+   "Compétence Territoriale",
+   "Nullité",
+   "Destitution",
+   "Dommages-Intérêts"
+  ]
+ },
+ "22": {
+  "r": "Interdiction d'association et de spéculation financière, commerciale, immobilière pour les notaires",
+  "s": [
+   "Incompatibilité",
+   "Association Professionnelle",
+   "Spéculation"
+  ]
+ },
+ "23": {
+  "r": "Remplacement du notaire destitué après notification du Parquet",
+  "s": [
+   "Destitution",
+   "Remplacement"
+  ]
+ },
+ "24": {
+  "r": "Interdiction de recevoir des actes impliquant des proches, des parties non identifiées ou des personnes incapables",
+  "s": [
+   "Incompatibilité",
+   "Suspension",
+   "Destitution",
+   "Capacité"
+  ]
+ },
+ "25": {
+  "r": "Prohibition des notaires parents ou alliés de concourir au même acte ; sanctions",
+  "s": [
+   "Notaire",
+   "Incompatibilité",
+   "Suspension",
+   "Destitution",
+   "Acte notarié"
+  ]
+ },
+ "26": {
+  "r": "Réception des actes notariés par un notaire unique : exceptions (testaments, donations, signatures)",
+  "s": [
+   "Acte notarié",
+   "Notaire",
+   "Donation",
+   "Testament",
+   "Témoin",
+   "Nullité"
+  ]
+ },
+ "27": {
+  "r": "Conditions requises pour les témoins instrumentaires dans certains actes",
+  "s": [
+   "Témoin",
+   "Nullité",
+   "Acte notarié"
+  ]
+ },
+ "28": {
+  "r": "Incompatibilités des témoins instrumentaires liées au notaire ou aux parties",
+  "s": [
+   "Témoin",
+   "Incompatibilité",
+   "Notaire"
+  ]
+ },
+ "29": {
+  "r": "Obligation du notaire de vérifier les conditions de validité des actes et d'informer les parties",
+  "s": [
+   "Notaire",
+   "Validité",
+   "Acte notarié"
+  ]
+ },
+ "30": {
+  "r": "Forme et contenu obligatoires des actes notariés ; interdiction des photocopies",
+  "s": [
+   "Acte notarié",
+   "Notaire",
+   "Papier timbré",
+   "Procuration",
+   "Expédition",
+   "Photocopie",
+   "Nullité"
+  ]
+ },
+ "31": {
+  "r": "Interdiction de vente de propriété sans arpentage préalable et mention des références fiscales",
+  "s": [
+   "Notaire",
+   "Vente",
+   "Propriété urbaine",
+   "Propriété rurale",
+   "Arpentage",
+   "Taxe",
+   "Responsabilité"
+  ]
+ },
+ "32": {
+  "r": "Maintien des dispositions du Code Rural sur les biens ruraux ; sanctions notariales en cas de violation",
+  "s": [
+   "Bien rural",
+   "Vente à réméré",
+   "Hypothèque",
+   "Nullité",
+   "Notaire",
+   "Amende",
+   "Destitution",
+   "Dommages-intérêts"
+  ]
+ },
+ "33": {
+  "r": "Signature des actes notariés par les parties, témoins et notaires ; mention des empêchements",
+  "s": [
+   "Acte notarié",
+   "Signature",
+   "Notaire",
+   "Témoin"
+  ]
+ },
+ "34": {
+  "r": "Règles de forme et de signature pour les renvois et apostilles dans les actes ; nullité",
+  "s": [
+   "Renvoi",
+   "Apostille",
+   "Signature",
+   "Nullité",
+   "Acte notarié"
+  ]
+ },
+ "35": {
+  "r": "Interdiction de surcharge, interligne, addition ; ratures ; sanctions en cas de fraude",
+  "s": [
+   "Surcharge",
+   "Interligne",
+   "Rature",
+   "Fraude",
+   "Amende",
+   "Notaire",
+   "Destitution",
+   "Dommages-intérêts"
+  ]
+ },
+ "36": {
+  "r": "Force probante et exécutoire des actes notariés ; suspension en cas de faux",
+  "s": [
+   "Acte notarié",
+   "Foi",
+   "Force exécutoire",
+   "Faux",
+   "Suspension"
+  ]
+ },
+ "37": {
+  "r": "Conservation des minutes de tous les actes reçus par les notaires, et exceptions",
+  "s": [
+   "Minute",
+   "Acte Notarié"
+  ]
+ },
+ "38": {
+  "r": "Droit de délivrance des grosses et expéditions au notaire détenteur de la minute",
+  "s": [
+   "Grosse",
+   "Expédition",
+   "Minute"
+  ]
+ },
+ "39": {
+  "r": "Conditions de dessaisissement des minutes et procédure de substitution",
+  "s": [
+   "Minute",
+   "Jugement",
+   "Copie Conforme"
+  ]
+ },
+ "40": {
+  "r": "Accès restreint aux expéditions et connaissance des actes ; sanctions en cas de violation",
+  "s": [
+   "Expédition",
+   "Acte Notarié",
+   "Dommages-Intérêts",
+   "Amende",
+   "Suspension"
+  ]
+ },
+ "41": {
+  "r": "Conditions de délivrance d'expéditions d'actes imparfaits et sanctions",
+  "s": [
+   "Expédition",
+   "Acte Notarié",
+   "Amende",
+   "Interdiction"
+  ]
+ },
+ "42": {
+  "r": "Procédure de compulsoire et désignation du rédacteur du procès-verbal",
+  "s": [
+   "Compulsoire",
+   "Procès-Verbal",
+   "Notaire"
+  ]
+ },
+ "43": {
+  "r": "Forme exécutoire des grosses et leur intitulé",
+  "s": [
+   "Grosse",
+   "Forme Exécutoire"
+  ]
+ },
+ "44": {
+  "r": "Mention de la délivrance de la première grosse et conditions des grosses supplémentaires",
+  "s": [
+   "Grosse",
+   "Minute",
+   "Destitution"
+  ]
+ },
+ "45": {
+  "r": "Empreinte du sceau du notaire sur les grosses, expéditions et extraits",
+  "s": [
+   "Grosse",
+   "Expédition",
+   "Extrait",
+   "Sceau"
+  ]
+ },
+ "46": {
+  "r": "Légalisation de la signature du notaire pour les actes notariés hors du ressort ou à l'étranger",
+  "s": [
+   "Acte Notarié",
+   "Légalisation"
+  ]
+ },
+ "47": {
+  "r": "Tenue d'un répertoire spécial par les notaires : inscription des actes et formalités de visa",
+  "s": [
+   "Répertoire",
+   "Acte Notarié",
+   "Testament"
+  ]
+ },
+ "48": {
+  "r": "Visa semestriel du répertoire par le Directeur de l'Enregistrement et sanctions",
+  "s": [
+   "Répertoire",
+   "Enregistrement",
+   "Amende"
+  ]
+ },
+ "49": {
+  "r": "Arrestation semestrielle du répertoire par le Ministère Public et poursuites en cas de délit.",
+  "s": [
+   "Répertoire",
+   "Ministère Public",
+   "Délit",
+   "Poursuite"
+  ]
+ },
+ "50": {
+  "r": "Compétence disciplinaire du Commissaire du Gouvernement et peines appliquées aux notaires.",
+  "s": [
+   "Discipline",
+   "Commissaire du Gouvernement",
+   "Peine disciplinaire",
+   "Destitution",
+   "Tribunal Civil"
+  ]
+ },
+ "51": {
+  "r": "Poursuite pénale par le Commissaire du Gouvernement en cas d'antidate frauduleuse d'acte.",
+  "s": [
+   "Commissaire du Gouvernement",
+   "Antidate",
+   "Fraude",
+   "Action publique",
+   "Officier Public"
+  ]
+ },
+ "52": {
+  "r": "Mise en mouvement de l'action publique pour fausse mention d'enregistrement.",
+  "s": [
+   "Ministère Public",
+   "Fausse mention",
+   "Enregistrement",
+   "Action publique",
+   "Jugement"
+  ]
+ },
+ "53": {
+  "r": "Cessation d'exercice en cas de suspension, destitution ou déplacement du notaire.",
+  "s": [
+   "Suspension",
+   "Destitution",
+   "Déplacement",
+   "Exercice professionnel",
+   "Notaire"
+  ]
+ },
+ "54": {
+  "r": "Assujettissement des notaires au tarif des honoraires et au droit de timbre mobile spécial.",
+  "s": [
+   "Honoraires",
+   "Tarif",
+   "Timbre mobile spécial",
+   "Acte notarié",
+   "Cautionnement",
+   "Procuration"
+  ]
+ },
+ "55": {
+  "r": "Inclusion du coût de la première expédition dans les honoraires et tarif des expéditions supplémentaires.",
+  "s": [
+   "Honoraires",
+   "Expédition",
+   "Tarif"
+  ]
+ },
+ "56": {
+  "r": "Fixation des honoraires de gré à gré pour actes non tarifés et fonctions accessoires.",
+  "s": [
+   "Honoraires",
+   "Tarif",
+   "Fonctions accessoires"
+  ]
+ },
+ "57": {
+  "r": "Perception des émoluments sur la convention principale ou pour chaque convention indépendante.",
+  "s": [
+   "Émoluments",
+   "Convention",
+   "Enregistrement"
+  ]
+ },
+ "58": {
+  "r": "Obligation pour le notaire de réclamer la consignation des frais et honoraires.",
+  "s": [
+   "Consignation",
+   "Frais",
+   "Honoraires"
+  ]
+ },
+ "59": {
+  "r": "Indemnisation des notaires pour les déplacements hors de l'étude.",
+  "s": [
+   "Indemnisation",
+   "Déplacement",
+   "Honoraires"
+  ]
+ },
+ "60": {
+  "r": "Majoration des honoraires pour les actes rédigés de nuit.",
+  "s": [
+   "Honoraires",
+   "Rédaction d'acte",
+   "Tarif"
+  ]
+ },
+ "61": {
+  "r": "Entente entre notaires pour la perception des honoraires lors d'actes collectifs",
+  "s": [
+   "Honoraire",
+   "Acte notarié"
+  ]
+ },
+ "62": {
+  "r": "Procédure de contestation relative à l'application du tarif des honoraires",
+  "s": [
+   "Tarif",
+   "Honoraire",
+   "Contestation",
+   "Tribunal Civil",
+   "Référé"
+  ]
+ },
+ "63": {
+  "r": "Remboursement d'honoraires excédentaires par le notaire et demandes de dommages-intérêts",
+  "s": [
+   "Honoraire",
+   "Remboursement",
+   "Officier Public",
+   "Dommage-intérêt",
+   "Référé"
+  ]
+ },
+ "64": {
+  "r": "Obligation d'affichage du tarif des honoraires et de soumission sur réquisition",
+  "s": [
+   "Tarif",
+   "Étude notariale",
+   "Officier Public"
+  ]
+ },
+ "65": {
+  "r": "Prestation de serment du notaire récipiendaire lors de son investiture",
+  "s": [
+   "Serment",
+   "Notaire",
+   "Investiture",
+   "Officier Public"
+  ]
+ },
+ "66": {
+  "r": "Montant et modalités de versement du cautionnement du notaire",
+  "s": [
+   "Cautionnement",
+   "Banque Nationale",
+   "Officier Public",
+   "Serment"
+  ]
+ },
+ "67": {
+  "r": "Affectation et rétablissement du cautionnement en cas de condamnation du notaire",
+  "s": [
+   "Cautionnement",
+   "Garantie",
+   "Condamnation",
+   "Suspension",
+   "Démission"
+  ]
+ },
+ "68": {
+  "r": "Remboursement du cautionnement en cas de cessation de fonctions ou de décès",
+  "s": [
+   "Cautionnement",
+   "Remboursement",
+   "Démission",
+   "Retraite",
+   "Héritier",
+   "Notaire"
+  ]
+ },
+ "69": {
+  "r": "Substitution d'un confrère notaire en cas d'empêchement ou de congé",
+  "s": [
+   "Substitution",
+   "Acte notarié",
+   "Expédition",
+   "Honoraire",
+   "Minute"
+  ]
+ },
+ "70": {
+  "r": "Apposition et levée des scellés sur les archives en cas de cessation de fonctions",
+  "s": [
+   "Archive",
+   "Scellé",
+   "Inventaire",
+   "Démission",
+   "Destitution",
+   "Décès",
+   "Mutation",
+   "Honoraire"
+  ]
+ },
+ "71": {
+  "r": "Amende pour retard dans la remise des archives notariales",
+  "s": [
+   "Archive",
+   "Amende",
+   "Commissaire du Gouvernement",
+   "Notaire"
+  ]
+ },
+ "72": {
+  "r": "Droit de priorité pour les héritiers d'un notaire à la succession d'une Étude",
+  "s": [
+   "Héritier",
+   "Étude notariale",
+   "Priorité",
+   "Notaire"
+  ]
+ },
+ "73": {
+  "r": "Proposition du successeur ou collègue pour la remise des archives de l'étude",
+  "s": [
+   "Notaire",
+   "Archive",
+   "Successeur",
+   "Étude"
+  ]
+ },
+ "74": {
+  "r": "Inventaire et procès-verbal de remise des archives, minutes et répertoires en cas de démission, décès ou destitution",
+  "s": [
+   "Archive",
+   "Minute",
+   "Répertoire",
+   "Démission",
+   "Décès",
+   "Destitution",
+   "Inventaire",
+   "Juge de Paix"
+  ]
+ },
+ "75": {
+  "r": "Procédure de remise des archives, minutes et répertoires en cas de non-respect du délai",
+  "s": [
+   "Archive",
+   "Minute",
+   "Répertoire",
+   "Délai",
+   "Secrétaire d'État de la Justice",
+   "Commissaire du Gouvernement"
+  ]
+ },
+ "76": {
+  "r": "Réduction progressive du nombre de notaires à Port-au-Prince",
+  "s": [
+   "Notaire",
+   "Démission",
+   "Décès",
+   "Destitution"
+  ]
+ },
+ "77": {
+  "r": "Établissement d'un Conseil Supérieur du Notariat et ses attributions consultatives",
+  "s": [
+   "Conseil Supérieur du Notariat",
+   "Secrétaire d'État de la Justice",
+   "Notariat",
+   "Organisation Professionnelle"
+  ]
+ },
+ "78": {
+  "r": "Établissement et diffusion annuelle de la liste des notaires par commune",
+  "s": [
+   "Notaire",
+   "Commune",
+   "Liste",
+   "Commissaire du Gouvernement",
+   "Secrétaire d'État de la Justice",
+   "Doyen du Tribunal Civil",
+   "Conseil Supérieur du Notariat"
+  ]
+ },
+ "79": {
+  "r": "Affectation des fonds du timbre mobile spécial et des amendes au compte spécial du Département de la Justice",
+  "s": [
+   "Timbre Mobile Spécial",
+   "Fonds",
+   "Banque Nationale",
+   "Secrétaire d'État de la Justice",
+   "Amende"
+  ]
+ },
+ "80": {
+  "r": "Abrogation des dispositions antérieures contraires et exécution du Décret",
+  "s": [
+   "Abrogation"
+  ]
+ }
+}
