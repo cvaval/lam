@@ -76,6 +76,9 @@ async function main() {
   const cc = await prisma.document.findFirst({ where: { source: 'CODE_CIVIL_ANNOTE' } })
   if (!cc?.bodyOriginal || !cc.annotationsJson) throw new Error('Code civil introuvable')
   const ann = JSON.parse(cc.annotationsJson) as Annotations & Record<string, any>
+  ann.status ??= {}
+  ann.oldVersions ??= {}
+  const connexe: Record<string, ConnexeBlock[]> = (ann.connexe ??= {})
   const entetes = new Set(ann.toc.map((t) => t.label))
   let lignes = cc.bodyOriginal.split('\n')
   let poses = 0
@@ -99,9 +102,6 @@ async function main() {
       poses++
     }
 
-    ann.status ??= {}
-    ann.oldVersions ??= {}
-    ann.connexe ??= {}
     ann.status[`art-${numCc}`] = 'modifié'
     if (!ann.oldVersions[`art-${numCc}`]) ann.oldVersions[`art-${numCc}`] = `Rédaction d’origine (Code civil de 1825) :\n${ancien.trim()}`
     const bloc: ConnexeBlock = {
@@ -116,10 +116,43 @@ async function main() {
       docId: loi2017.id,
       anchor: `art-${numLoi}`,
     }
-    const liste: ConnexeBlock[] = (ann.connexe[`art-${numCc}`] ??= [])
+    const liste: ConnexeBlock[] = (connexe[`art-${numCc}`] ??= [])
     const k = liste.findIndex((x) => x.label === bloc.label)
     if (k >= 0) liste[k] = bloc
     else liste.push(bloc)
+  }
+
+  // ── C. civ. 1110 : VISÉ sans être réécrit ──
+  // Le NOUVEL article 2.1 (décret de 2025) ne réécrit pas l'article 1110 : il dit à quelles
+  // conditions ses exigences de validité — le « double original » des conventions
+  // synallagmatiques — sont RESPECTÉES par un document électronique. Ni statut « modifié »,
+  // ni réécriture : un simple encadré, comme pour les articles du louage des choses écartés
+  // sectoriellement par le décret sur le bail à usage professionnel.
+  {
+    const i1110 = lignes.findIndex((l) => /^Art\.?\s+1110\b/.test(l.trim()))
+    if (i1110 < 0) throw new Error('C. civ. 1110 introuvable')
+    const art21 = loi['2.1']
+    for (const s of ['Toutes les parties ont accès au document électronique',
+                     'ne peut être modifié sans le consentement de toutes les parties'])
+      if (!art21.includes(s)) throw new Error(`sentinelle absente de l’art. 2.1 : « ${s} »`)
+    const bloc: ConnexeBlock = {
+      label: 'Convention synallagmatique par voie électronique — loi du 14 février 2017, art. 2.1',
+      text:
+        'Les exigences de validité du présent article (autant d’originaux qu’il y a de parties ayant un '
+        + 'intérêt distinct) sont RESPECTÉES, pour un document électronique, lorsque : a) toutes les parties '
+        + 'ont accès au document électronique ; b) le document électronique ne peut être modifié sans le '
+        + 'consentement de toutes les parties. — Article 2.1 de la loi du 14 février 2017 sur la signature '
+        + 'électronique, ajouté par le décret du 20 août 2025. Le présent article n’est ni modifié ni abrogé : '
+        + 'il demeure applicable en toutes ses dispositions.',
+      docId: loi2017.id,
+      anchor: 'art-2-1',
+    }
+    const liste: ConnexeBlock[] = (connexe['art-1110'] ??= [])
+    const k = liste.findIndex((x) => x.label === bloc.label)
+    if (k >= 0) liste[k] = bloc
+    else liste.push(bloc)
+    if (ann.status['art-1110']) throw new Error('C. civ. 1110 porte un statut : il n’est pourtant PAS modifié — annulé')
+    console.log('✓ C. civ. 1110 : encadré « convention synallagmatique électronique » (texte INCHANGÉ, aucun statut)')
   }
 
   const body = lignes.join('\n')
