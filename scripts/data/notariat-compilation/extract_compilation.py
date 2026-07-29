@@ -78,6 +78,58 @@ def paragraphes():
     return [re.sub(r'[ \t]+', ' ', p.strip()) for p in html.unescape(x).split('\n') if p.strip()]
 
 
+# Formule de clôture : promulgation, contreseings, signatures. Elle SUIT le dernier article
+# et n'en fait pas partie — absorbée, elle gonflait l'article 46 de la loi de 1919 à
+# 9 530 caractères.
+CLOTURE = re.compile(
+    r'(Donné (?:au Palais|à la Chambre|au Sénat)|Au Nom de la République|'
+    r'Par le Président\s*:|PAR LE CONSEIL|Le Président de la République ordonne|'
+    r'Donnée (?:au Palais|à la Chambre|au Sénat))')
+
+
+# Articulations de la formule de clôture : la compilation la donne d'un seul tenant
+# (9 309 caractères pour la loi de 1919, promulgation, contreseings et notes confondus).
+# On coupe AVANT chacun de ces marqueurs — aucun mot n'est ajouté ni retiré.
+ARTICULATIONS = re.compile(
+    r'(?=Donné (?:au Palais|à la Chambre|au Sénat)|Donnée (?:au Palais|à la Chambre|au Sénat)|'
+    r'Au Nom de la République|Le Président de la République ordonne|Par le Président\s*:|'
+    r'PAR LE CONSEIL|Le Président\b|Les Secrétaires\b|\(\d+\)\s+[A-ZÉÈÀ])')
+
+
+# Le matériel ANNEXÉ (dépêche de 1819, tarif des actes, droits d'enregistrement) est donné
+# d'un seul tenant par la compilation. Il porte sa propre numérotation en degré (« 33º ») et
+# des intitulés en capitales : on coupe dessus. Le lecteur rend ensuite ces numéros en liste.
+ITEMS = re.compile(r'(?=\d{1,2}\s*[ºo°]\s|DROITS\s+D|TARIF\b|DEPECHE\b|DÉPÊCHE\b)')
+LONG = 1500
+
+
+def ventiler(bloc):
+    """Coupe un bloc de clôture à ses articulations ; renvoie une liste de lignes."""
+    out = []
+    for x in ARTICULATIONS.split(bloc):
+        x = x.strip()
+        if not x:
+            continue
+        out.extend(y.strip() for y in ITEMS.split(x) if y.strip()) if len(x) > LONG else out.append(x)
+    return out
+
+
+def detacher_cloture(arts):
+    """Sort la formule de clôture du DERNIER article. Renvoie (articles, lignes de clôture)."""
+    if not arts:
+        return arts, []
+    dernier = arts[-1]
+    m = CLOTURE.search(dernier['text'])
+    if not m or m.start() == 0:
+        return arts, []
+    reste = dernier['text'][m.start():]
+    dernier['text'] = dernier['text'][: m.start()].strip()
+    lignes = []
+    for x in reste.split('\n'):
+        lignes.extend(ventiler(x))
+    return arts, lignes
+
+
 def corriger(s):
     for rx, rep in COQUILLES:
         s = re.sub(rx, rep, s)
@@ -110,9 +162,12 @@ def main():
         for i, (n, _, e0) in enumerate(garde):
             fin = garde[i + 1][1] if i + 1 < len(garde) else len(joint)
             arts.append({'num': str(n), 'text': re.sub(r'\s+', ' ', joint[e0:fin]).strip()})
+        arts, cloture = detacher_cloture(arts)
         entete = joint[: garde[0][1]].strip() if garde else joint
         corps = entete + '\n' + '\n'.join(f'Article {a["num"]}. — {a["text"]}' for a in arts)
-        sortie[slug] = {'titre': titre, 'date': date, 'articles': arts, 'corps': corps}
+        if cloture:
+            corps += '\n' + '\n'.join(cloture)
+        sortie[slug] = {'titre': titre, 'date': date, 'articles': arts, 'corps': corps, 'cloture': cloture}
         drapeau = '✓' if len(arts) == attendu else f'⚠ attendu {attendu}'
         print(f'{slug:34} ¶{a:>3}–{b - 1:<4} {len(arts):3}  {drapeau}')
 

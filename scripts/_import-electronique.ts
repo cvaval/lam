@@ -160,8 +160,12 @@ async function main() {
     const toc: TocEntry[] = [{ level: 1, label: meta.titleFr, anchor: 'sec-1', kind: 'code' }]
     for (const art of arts) {
       const lib = art.num === '1' ? 'Article 1er' : `Article ${art.num}`
+      // art.text porte ses ALINÉAS séparés par des sauts de ligne : la jointure finale les
+      // conserve. Les recoller en une seule ligne rendait l'article illisible d'un bloc.
       lignes.push(`${lib}.- ${art.text}`)
     }
+    // Formule de clôture (promulgation, contreseings) : elle suit les articles.
+    if (Array.isArray(t.cloture)) lignes.push(...(t.cloture as string[]))
     const body = lignes.join('\n')
 
     const labels = Object.fromEntries(arts.map((x) => [`art-${x.num.replace('.', '-')}`, x.num === '1' ? 'Article 1er' : `Article ${x.num}`]))

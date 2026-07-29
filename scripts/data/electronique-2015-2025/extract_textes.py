@@ -52,6 +52,39 @@ def paragraphes(nom):
             for p in html.unescape(x).split('\n') if p.strip()]
 
 
+# Formule de clôture : promulgation, contreseings, signatures. Elle SUIT le dernier article
+# et n'en fait pas partie — absorbée, elle gonflait l'article 46 de la loi de 1919 à
+# 9 530 caractères.
+CLOTURE = re.compile(
+    r'(Donné (?:au Palais|à la Chambre|au Sénat)|Au Nom de la République|'
+    r'Par le Président\s*:|PAR LE CONSEIL|Le Président de la République ordonne|'
+    r'Donnée (?:au Palais|à la Chambre|au Sénat))')
+
+
+def detacher_cloture(arts):
+    """Sort la formule de clôture du DERNIER article. Renvoie (articles, lignes de clôture)."""
+    if not arts:
+        return arts, []
+    dernier = arts[-1]
+    m = CLOTURE.search(dernier['text'])
+    if not m or m.start() == 0:
+        return arts, []
+    reste = dernier['text'][m.start():]
+    dernier['text'] = dernier['text'][: m.start()].strip()
+    return arts, [x.strip() for x in reste.split('\n') if x.strip()]
+
+
+# Un alinéa qui CITE un article (« « Article 1102.- … » ») garde son guillemet ouvrant :
+# c'est la typographie du J.O., et cela empêche la citation de passer pour une tête
+# d'article une fois les alinéas séparés (sans quoi le décret de 2025 comptait 19 articles
+# au lieu de 3, et la loi de 2017 en comptait 30 au lieu de 25).
+CITATION = re.compile(r'^«\s*Article\s+\d')
+
+
+def alinea(p):
+    return p if CITATION.match(p) else re.sub(r'^«\s*', '', p)
+
+
 def norm_num(n):
     return n.replace('er', '') if n.endswith('er') else n
 
@@ -89,21 +122,26 @@ def decouper(ps, decimaux=True):
         if m:
             num = norm_num(m.group(1))
             if not suivant_admis(num, dernier, decimaux):
-                # citation d'un article étranger : rattachée au texte de l'article courant
+                # citation d'un article étranger : rattachée comme alinéa de l'article courant
                 if cur:
-                    cur['text'] += ' ' + re.sub(r'^«\s*', '', p)
+                    cur['alineas'].append(alinea(p))
                 continue
             a, _, b = num.replace('-', '.').partition('.')
             dernier = (int(a), int(b) if b else 0)
-            cur = {'num': num, 'text': m.group(2).strip()}
+            # « alineas » : un paragraphe du .docx = un alinéa. Les recoller en une seule
+            # ligne rendait l'article illisible (l'art. 11 de la loi de 2017 faisait
+            # 4 131 caractères d'un bloc).
+            cur = {'num': num, 'alineas': [m.group(2).strip()] if m.group(2).strip() else []}
             arts.append(cur)
             continue
         if cur:
-            cur['text'] += ' ' + re.sub(r'^«\s*', '', p)
+            cur['alineas'].append(alinea(p))
         elif not arts:
             entete.append(p)
     for a in arts:
-        a['text'] = re.sub(r'\s+', ' ', a['text']).strip().rstrip(' »')
+        a['alineas'] = [re.sub(r'\s+', ' ', x).strip().rstrip(' »') for x in a['alineas']]
+        a['alineas'] = [x for x in a['alineas'] if x]
+        a['text'] = '\n'.join(a['alineas'])
     return entete, toc, arts
 
 
@@ -125,22 +163,24 @@ def amendements_2025(ps):
             m = rx.search(p)
             if m:
                 en_cours = (m.group(1), statut)
-                out[en_cours[0]] = [statut, '']
+                out[en_cours[0]] = [statut, []]
                 break
         else:
             m = ABROG.search(p)
             if m:
-                out[m.group(1)] = ['abrogé', '']
+                out[m.group(1)] = ['abrogé', []]
                 en_cours = None
                 continue
             if en_cours:
                 t = TETE.match(p)
                 if t and norm_num(t.group(1)) == en_cours[0]:
-                    out[en_cours[0]][1] = t.group(2).strip()
+                    if t.group(2).strip():
+                        out[en_cours[0]][1].append(t.group(2).strip())
                 else:
-                    out[en_cours[0]][1] += ' ' + re.sub(r'^«\s*', '', p)
+                    out[en_cours[0]][1].append(alinea(p))
     for k in out:
-        out[k][1] = re.sub(r'\s+', ' ', out[k][1]).strip().rstrip(' »')
+        al = [re.sub(r'\s+', ' ', x).strip().rstrip(' »') for x in out[k][1]]
+        out[k][1] = '\n'.join(x for x in al if x)
     return {k: tuple(v) for k, v in out.items()}
 
 
@@ -154,7 +194,8 @@ def main():
     for slug, nom in FICHIERS.items():
         ps = paragraphes(nom)
         entete, toc, arts = decouper(ps, decimaux=(slug != 'decret-2025-signature'))
-        sortie[slug] = {'entete': entete, 'toc': toc, 'articles': arts}
+        arts, cloture = detacher_cloture(arts)
+        sortie[slug] = {'entete': entete, 'toc': toc, 'articles': arts, 'cloture': cloture}
         print(f'{slug:30} {len(arts):3} articles · {len(toc)} en-têtes')
 
     # ── Loi de 2017 consolidée ──
