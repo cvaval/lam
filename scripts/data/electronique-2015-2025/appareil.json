@@ -1,0 +1,1676 @@
+{
+ "loi-2017-signature": {
+  "index": {
+   "Abrogation des dispositions contraires": [
+    "17"
+   ],
+   "Accords volontaires de droit privé (systèmes fermés)": [
+    "1"
+   ],
+   "Acte authentique": [
+    "2"
+   ],
+   "Actes des notaires — forme": [
+    "5"
+   ],
+   "Administrateurs des personnes morales": [
+    "14",
+    "6"
+   ],
+   "Admission en justice du document électronique": [
+    "1",
+    "16"
+   ],
+   "Agrément du plan de cessation": [
+    "15"
+   ],
+   "Approuvé (mention manuscrite)": [
+    "3"
+   ],
+   "Archivage des documents": [
+    "11"
+   ],
+   "Arrêtés d’application": [
+    "6"
+   ],
+   "Attestation de pratique": [
+    "9"
+   ],
+   "Audits": [
+    "15"
+   ],
+   "Authenticité de l’acte": [
+    "1",
+    "2"
+   ],
+   "Autorités administratives ou judiciaires": [
+    "11"
+   ],
+   "Billet sous seing privé": [
+    "3"
+   ],
+   "Bon (mention manuscrite)": [
+    "3",
+    "4"
+   ],
+   "Capacité financière du prestataire": [
+    "6"
+   ],
+   "Capacité technique du prestataire": [
+    "6"
+   ],
+   "Certificat de signature électronique": [
+    "6"
+   ],
+   "Certificats délivrés à l’étranger": [
+    "16",
+    "6"
+   ],
+   "Cessation d’activités du prestataire": [
+    "14",
+    "15"
+   ],
+   "Clé publique": [
+    "15",
+    "9"
+   ],
+   "Code Civil (dispositions modifiées)": [
+    "1"
+   ],
+   "Code Civil (renvoi en matière de responsabilité)": [
+    "13"
+   ],
+   "Condamnation pénale — disqualification": [
+    "6"
+   ],
+   "Confidentialité": [
+    "11",
+    "14",
+    "15"
+   ],
+   "Conseil National des Télécommunications (CONATEL)": [
+    "6"
+   ],
+   "Conservation des messages de données": [
+    "11",
+    "6"
+   ],
+   "Consentement des parties": [
+    "1"
+   ],
+   "Contrat prestataire / titulaire — résiliation": [
+    "12"
+   ],
+   "Coûts et droits applicables aux prestataires": [
+    "15"
+   ],
+   "Décret du 10 juin 1987": [
+    "8"
+   ],
+   "Décret du 12 octobre 1977 (monopole de l’État)": [
+    "8"
+   ],
+   "Décret-loi du 27 novembre 1969 (notariat)": [
+    "5"
+   ],
+   "Délai de quatre-vingt-dix (90) jours": [
+    "12",
+    "14"
+   ],
+   "Disqualification pour faute éthique grave": [
+    "6"
+   ],
+   "Droits de supervision": [
+    "15"
+   ],
+   "Droits de traitement de dossier": [
+    "15"
+   ],
+   "Écrit sous forme électronique": [
+    "1"
+   ],
+   "Enregistrement et impression chronologiques": [
+    "7"
+   ],
+   "Exercice fiscal": [
+    "9"
+   ],
+   "Fiabilité du procédé d’identification": [
+    "1"
+   ],
+   "Force probante": [
+    "1"
+   ],
+   "Formalités de publication": [
+    "11",
+    "15",
+    "9"
+   ],
+   "Identification du signataire": [
+    "1"
+   ],
+   "Informel (secteur) — exception": [
+    "3"
+   ],
+   "Inspection (pouvoir du CONATEL)": [
+    "11",
+    "15",
+    "8"
+   ],
+   "Intégrité de l’acte": [
+    "1"
+   ],
+   "Juge — conflits de preuve littérale": [
+    "1"
+   ],
+   "Messages de données": [
+    "11",
+    "6"
+   ],
+   "Ministres chargés de l’exécution": [
+    "17"
+   ],
+   "Officier public": [
+    "1",
+    "2"
+   ],
+   "Obligations des prestataires": [
+    "11"
+   ],
+   "Papier (support) — équivalence": [
+    "1",
+    "5"
+   ],
+   "Permanence du service": [
+    "11"
+   ],
+   "Personnes physiques ou morales": [
+    "6",
+    "7"
+   ],
+   "Plaintes et réclamations": [
+    "11",
+    "15"
+   ],
+   "Prestataires de services de certification électronique": [
+    "6"
+   ],
+   "Preuve littérale": [
+    "1"
+   ],
+   "Promesse sous seing privé": [
+    "3"
+   ],
+   "Présomption de fiabilité": [
+    "1"
+   ],
+   "Qualification du prestataire": [
+    "15",
+    "6"
+   ],
+   "Qualification — suspension ou révocation": [
+    "15",
+    "9"
+   ],
+   "Recevabilité en justice des signatures en systèmes fermés": [
+    "1"
+   ],
+   "Redressement (mesures de)": [
+    "15"
+   ],
+   "Rémunération des services": [
+    "10"
+   ],
+   "Responsabilité du prestataire": [
+    "13",
+    "16"
+   ],
+   "Révocation des certificats émis": [
+    "12"
+   ],
+   "Sanctions": [
+    "15"
+   ],
+   "Sécurité (systèmes de)": [
+    "11"
+   ],
+   "Signature — fonction et effets": [
+    "1"
+   ],
+   "Signature électronique sécurisée": [
+    "7"
+   ],
+   "Site électronique du CONATEL": [
+    "15",
+    "9"
+   ],
+   "Solennités requises": [
+    "2"
+   ],
+   "Support électronique": [
+    "1",
+    "2",
+    "2.5",
+    "3"
+   ],
+   "Systèmes fermés (nombre défini de participants)": [
+    "1"
+   ],
+   "Télécommunications (régime des)": [
+    "15",
+    "8"
+   ],
+   "Titulaire de certificat": [
+    "11"
+   ],
+   "Valeur juridique des certificats étrangers": [
+    "6"
+   ],
+   "Vraisemblance du titre": [
+    "1"
+   ],
+   "Abrogation, Loi": [
+    "16"
+   ],
+   "Accréditation": [
+    "15",
+    "6",
+    "7"
+   ],
+   "Admissibilité en justice": [
+    "2.5",
+    "6"
+   ],
+   "Altération (protection contre l’)": [
+    "11",
+    "15"
+   ],
+   "Annulation de certificat": [
+    "11"
+   ],
+   "Arrêté d’application": [
+    "1.1",
+    "11",
+    "15",
+    "2",
+    "2.3",
+    "2.4",
+    "6"
+   ],
+   "Assurance de responsabilité": [
+    "11"
+   ],
+   "Audit": [
+    "15",
+    "8",
+    "8.2"
+   ],
+   "Authentification de site internet": [
+    "2.2"
+   ],
+   "Base de données de certificats": [
+    "11"
+   ],
+   "Biométrie": [
+    "11",
+    "2"
+   ],
+   "Cachet électronique": [
+    "2.2",
+    "7"
+   ],
+   "Certificat qualifié": [
+    "11",
+    "6",
+    "7"
+   ],
+   "Cessation d’activités (plan de)": [
+    "11",
+    "14",
+    "15"
+   ],
+   "Circulaire du CONATEL": [
+    "7"
+   ],
+   "Clés publiques": [
+    "15"
+   ],
+   "Code Civil": [
+    "10",
+    "2",
+    "2.1"
+   ],
+   "CONATEL": [
+    "10",
+    "11",
+    "14",
+    "15",
+    "6",
+    "7",
+    "8",
+    "8.1",
+    "8.2"
+   ],
+   "Conformité (évaluation de)": [
+    "11",
+    "4",
+    "8"
+   ],
+   "Consentement": [
+    "1",
+    "11",
+    "2.1"
+   ],
+   "Conservation (services de)": [
+    "11",
+    "2.2",
+    "7"
+   ],
+   "Contrat synallagmatique": [
+    "2.1"
+   ],
+   "Contrôle (pouvoir de)": [
+    "10",
+    "15",
+    "6",
+    "8"
+   ],
+   "Délais": [
+    "11",
+    "14",
+    "8"
+   ],
+   "Document électronique": [
+    "2.1",
+    "2.5",
+    "6"
+   ],
+   "Données à caractère personnel": [
+    "11"
+   ],
+   "Droits et coûts": [
+    "15"
+   ],
+   "Enregistrement (entité d’)": [
+    "11"
+   ],
+   "Envoi recommandé électronique": [
+    "2.2"
+   ],
+   "Étrangers (prestataires établis hors d’Haïti)": [
+    "6"
+   ],
+   "Falsification": [
+    "11"
+   ],
+   "Fiabilité": [
+    "11"
+   ],
+   "Horodatage électronique": [
+    "2.2",
+    "7"
+   ],
+   "Identité (vérification de l’)": [
+    "1",
+    "11",
+    "4"
+   ],
+   "Inspection": [
+    "15",
+    "8"
+   ],
+   "Liste des Services de Confiance": [
+    "15"
+   ],
+   "Niveaux de sécurité": [
+    "1.1"
+   ],
+   "Numérisation certifiée": [
+    "7"
+   ],
+   "Organisme d’évaluation de la conformité": [
+    "11",
+    "4",
+    "8"
+   ],
+   "Personne morale": [
+    "1",
+    "11",
+    "7"
+   ],
+   "Personne physique": [
+    "1",
+    "11",
+    "7"
+   ],
+   "Plateforme unifiée": [
+    "7"
+   ],
+   "Prestataire de Services de Confiance": [
+    "10",
+    "15",
+    "2.3",
+    "6",
+    "8",
+    "8.1"
+   ],
+   "Prestataire qualifié": [
+    "11",
+    "14",
+    "15",
+    "2.3",
+    "2.4",
+    "7"
+   ],
+   "Preuve, Décret": [
+    "11",
+    "2.5",
+    "6"
+   ],
+   "Publication (obligations de)": [
+    "11",
+    "15"
+   ],
+   "Qualification (suspension ou révocation)": [
+    "15",
+    "8.1"
+   ],
+   "Recours": [
+    "8.1"
+   ],
+   "Rémunération": [
+    "2.2"
+   ],
+   "Révocation de certificat": [
+    "11"
+   ],
+   "Sanction": [
+    "15",
+    "8",
+    "8.1"
+   ],
+   "Sécurité équivalente": [
+    "11",
+    "4"
+   ],
+   "Service de confiance": [
+    "2.2"
+   ],
+   "Service de confiance qualifié": [
+    "2.4",
+    "7"
+   ],
+   "Signature électronique": [
+    "1.1",
+    "2.2",
+    "7"
+   ],
+   "Sous-traitants": [
+    "11"
+   ],
+   "Tarifs": [
+    "10",
+    "15"
+   ],
+   "Tiers (information des)": [
+    "11"
+   ],
+   "Validité (statut de)": [
+    "11"
+   ],
+   "Vérification à distance": [
+    "11",
+    "2",
+    "7"
+   ],
+   "Vie privée": [
+    "11"
+   ],
+   "Vol de données": [
+    "11"
+   ]
+  },
+  "sommaire": {
+   "1": "Nouvelle rédaction de l’article 1101 du Code Civil. Définition de la preuve littérale ; admission en preuve de l’écrit sous forme électronique ; règlement judiciaire des conflits de preuve littérale ; force probante égale de l’écrit électronique et de l’écrit papier ; fonction et effets de la signature ; présomption de fiabilité du procédé d’identification ; régime des systèmes fermés résultant d’accords volontaires de droit privé",
+   "2": "Acte authentique sur support électronique (C. civ., art. 1102)",
+   "3": "Nouvelle rédaction de l’article 1111 du Code Civil. Billet ou promesse sous seing privé sur support papier ou électronique ; mention manuscrite « bon » ou « approuvé » ; exception au profit du secteur informel",
+   "4": "Nouvelle rédaction de l’article 1112 du Code Civil. Discordance entre la somme exprimée au corps de l’acte et celle exprimée au bon",
+   "5": "Nouvelle rédaction du premier paragraphe de l’article 30 du décret-loi du 27 novembre 1969 sur le notariat. Forme des actes des notaires",
+   "6": "CONATEL, autorité d’accréditation et de contrôle",
+   "7": "Services offerts par les Prestataires qualifiés",
+   "8": "Pouvoirs d’audit, d’inspection, de contrôle et de sanction",
+   "9": "Attestation de pratique déposée au premier trimestre de chaque exercice fiscal ; contenu obligatoire ; publication sur le site du CONATEL",
+   "10": "Tarifs des services",
+   "11": "Obligations des Prestataires qualifiés",
+   "12": "Résiliation du contrat de certification ; préavis minimal de quatre-vingt-dix (90) jours ; révocation des certificats émis ; faculté réciproque du titulaire",
+   "13": "Responsabilité contractuelle, délictuelle ou quasi-délictuelle du prestataire ; renvoi au Code Civil",
+   "14": "Plan de cessation d’activités",
+   "15": "Compétences du CONATEL",
+   "16": "Renvoi à la loi pour la fixation des critères d’admission en justice du document électronique, la réglementation du fonctionnement et de la responsabilité des prestataires, et l’admissibilité des certificats délivrés par des prestataires établis hors d’Haïti",
+   "17": "Abrogation de toutes dispositions contraires ; publication et exécution à la diligence des ministres concernés",
+   "1.1": "Niveaux de sécurité de la signature électronique",
+   "2.1": "Contrat synallagmatique conclu par voie électronique",
+   "2.2": "Définition du service de confiance",
+   "2.3": "Exigences applicables aux Prestataires de Services de Confiance",
+   "2.4": "Service de confiance qualifié",
+   "2.5": "Admissibilité en justice du document électronique",
+   "8.1": "Recours contre les décisions du CONATEL",
+   "8.2": "Habilitation des entités d’audit"
+  }
+ },
+ "decret-2025-signature": {
+  "index": {
+   "Amendement de la loi du 14 février 2017": [
+    "1",
+    "2"
+   ],
+   "Abrogation des dispositions contraires": [
+    "3"
+   ]
+  },
+  "sommaire": {
+   "1": "Objet du Décret",
+   "2": "Amendements à la Loi du 14 février 2017",
+   "3": "Abrogation, publication et exécution"
+  }
+ },
+ "loi-2017-echanges": {
+  "index": {
+   "Abrogation de loi": [
+    "17"
+   ],
+   "Acceptation électronique": [
+    "7"
+   ],
+   "Accessibilité de l'information": [
+    "5"
+   ],
+   "Accusé de réception": [
+    "11"
+   ],
+   "Application de la loi": [
+    "1",
+    "17"
+   ],
+   "Autorité d'exécution": [
+    "17"
+   ],
+   "Avis de non-émanation": [
+    "9-1"
+   ],
+   "Bonne foi": [
+    "3"
+   ],
+   "Conditions de transport": [
+    "15"
+   ],
+   "Conservation de documents": [
+    "5"
+   ],
+   "Conservation de message de données": [
+    "5"
+   ],
+   "Contrat de transport de marchandises": [
+    "15"
+   ],
+   "Destinataire": [
+    "8"
+   ],
+   "Destinataire (confiance légitime)": [
+    "9-1"
+   ],
+   "Destinataire (traitement des messages)": [
+    "10"
+   ],
+   "Destination du message de données": [
+    "5"
+   ],
+   "Diligence du destinataire": [
+    "10"
+   ],
+   "Dispositif d'identification": [
+    "9-1"
+   ],
+   "Domicile de l'expéditeur": [
+    "13"
+   ],
+   "Domicile du destinataire": [
+    "13"
+   ],
+   "Effet du message de données": [
+    "11"
+   ],
+   "Effet juridique": [
+    "8"
+   ],
+   "Émanation du message de données": [
+    "9",
+    "9-1"
+   ],
+   "Embarquement de marchandises": [
+    "15"
+   ],
+   "Exécution de la loi": [
+    "17"
+   ],
+   "Exigence d'écrit": [
+    "16"
+   ],
+   "Exigence de forme originale": [
+    "4"
+   ],
+   "Expéditeur": [
+    "2",
+    "8",
+    "9"
+   ],
+   "Force exécutoire du contrat": [
+    "7"
+   ],
+   "Formation du contrat": [
+    "7"
+   ],
+   "Garantie d'intégrité": [
+    "4"
+   ],
+   "Information électronique": [
+    "2"
+   ],
+   "Intégrité de l'information": [
+    "4"
+   ],
+   "Interprétation de la loi": [
+    "3"
+   ],
+   "Lieu d'expédition": [
+    "13",
+    "14"
+   ],
+   "Lieu de réception": [
+    "13"
+   ],
+   "Manifestation de volonté": [
+    "8"
+   ],
+   "Message de données": [
+    "1",
+    "12",
+    "14",
+    "16",
+    "2",
+    "4",
+    "9"
+   ],
+   "Message de données (envoi/réception)": [
+    "6"
+   ],
+   "Moment d'expédition": [
+    "12",
+    "14"
+   ],
+   "Moment de réception": [
+    "12"
+   ],
+   "Obligation de conservation": [
+    "6"
+   ],
+   "Offre électronique": [
+    "7"
+   ],
+   "Organisme multilatéral": [
+    "3"
+   ],
+   "Origine du message de données": [
+    "5"
+   ],
+   "Présentation de l'information": [
+    "4"
+   ],
+   "Prestataire de services (conservation)": [
+    "6"
+   ],
+   "Preuve par écrit": [
+    "16"
+   ],
+   "Procédure convenue": [
+    "10"
+   ],
+   "Procédure d'authentification": [
+    "9-1"
+   ],
+   "Réception de marchandises": [
+    "15"
+   ],
+   "Reçu de marchandises": [
+    "15"
+   ],
+   "Règle applicable (support papier)": [
+    "14"
+   ],
+   "Relation commerciale": [
+    "1"
+   ],
+   "Relation contractuelle": [
+    "1"
+   ],
+   "Répétition de message": [
+    "10"
+   ],
+   "Résidence habituelle": [
+    "13"
+   ],
+   "Support physique": [
+    "14"
+   ],
+   "Système d'information (tiers)": [
+    "12"
+   ],
+   "Système d'information désigné": [
+    "12"
+   ],
+   "Transfert électronique": [
+    "2"
+   ],
+   "Uniformité d'application": [
+    "3"
+   ],
+   "Validité (acte juridique)": [
+    "8"
+   ],
+   "Validité de l'acte électronique": [
+    "16"
+   ],
+   "Validité du contrat": [
+    "7"
+   ],
+   "Échange de données informatisées (EDI)": [
+    "2"
+   ],
+   "Relation extracontractuelle": [
+    "1"
+   ]
+  },
+  "sommaire": {
+   "1": "Champ d’application : toute information prenant la forme d’un message de données dans des relations contractuelles ou extracontractuelles, civiles ou commerciales ; énumération des relations visées (litt. a à q), de la fourniture de marchandises au transport, en passant par l’affacturage, les opérations bancaires, l’assurance et la coentreprise. Exclusion des situations où la perfection de l’acte est soumise à une formalité d’affichage ou à l’intervention d’un officier ministériel ou d’un service de l’État",
+   "2": "Définitions : message de données ; échange de données informatisées (EDI) ; expéditeur ; destinataire ; intermédiaire ; système d’information",
+   "3": "Règles d’interprétation : prise en compte des recommandations des organismes multilatéraux, uniformité d’application et bonne foi ; comblement des lacunes par les principes généraux dont la loi s’inspire",
+   "4": "Exigence de présentation ou de conservation sous forme originale : garantie fiable d’intégrité et possibilité de montrer l’information. Critères d’appréciation de l’intégrité (caractère complet et non altéré, réserve faite des endossements et modifications du cours normal) et du niveau de fiabilité requis",
+   "5": "Exigence de conservation de documents, registres ou informations : accessibilité pour consultation ultérieure et dans la durée ; conservation sous la forme de création, d’envoi ou de réception ; conservation des données d’origine, de destination, de date et d’heure",
+   "6": "Portée de l’obligation de conservation : exclusion des informations servant uniquement à l’envoi ou à la réception ; recours possible aux services d’une autre personne qualifiée",
+   "7": "Formation des contrats : offre et acceptation exprimées par message de données ; validité et force exécutoire non contestables du seul fait de l’emploi de messages de données",
+   "8": "Effet juridique, validité et force exécutoire de la manifestation de volonté ou autre déclaration ayant emprunté la forme d’un message de données",
+   "9": "Attribution du message à l’expéditeur : envoi par lui-même, par une personne dûment autorisée ou par un système d’information programmé pour fonctionner automatiquement",
+   "9-1": "Droit du destinataire de considérer le message comme émanant de l’expéditeur : procédure préalablement acceptée ; dispositif d’identification accessible à un tiers. Exceptions : avis de l’expéditeur assorti d’un délai raisonnable ; connaissance effective ou présumée. Effets de la présomption et réserve de l’erreur de transmission",
+   "10": "Caractère distinct de chaque message reçu ; réserve du message répété que le destinataire savait ou aurait dû savoir identique",
+   "11": "Accusé de réception : formes admises à défaut de convention ; effet suspensif lorsque l’expéditeur y subordonne le message ; délai de quarante-huit heures et mise en demeure ; présomption de réception ; présomption de conformité aux conditions techniques ; portée limitée de l’article aux effets de l’accusé de réception",
+   "12": "Moment de l’expédition (entrée dans un système d’information ne dépendant pas de l’expéditeur) et de la réception, selon que le destinataire a ou non désigné un système d’information",
+   "13": "Lieu de l’expédition et de la réception : domicile ou siège social ; à défaut, établissement ayant la relation la plus étroite avec l’opération sous-jacente, établissement principal ou résidence habituelle",
+   "14": "Messages de données transmis sur supports physiques (disques numériques, supports magnétiques, photo-lithographiques, optiques et similaires) : renvoi aux règles de la transmission sur support papier",
+   "15": "Actes relatifs au contrat de transport de marchandises : embarquement et réception (marques, nombre, quantité, poids, nature et valeur, reçu, confirmation du chargement) ; conditions du transport (CIF, FOB, CAF, EXW, instructions au transporteur) ; livraison (demande, autorisation de remise, notification de perte ou d’avarie) ; notifications d’exécution ; engagement de livrer ; octroi, transfert, négociation ou abandon des droits sur les marchandises ; acquisition ou transfert des droits et obligations contractuels",
+   "16": "Équivalence fonctionnelle : satisfaction de l’exigence d’écrit papier par un ou plusieurs messages de données. Transfert d’un droit ou d’une obligation à une personne et à aucune autre : exigence d’une méthode fiable rendant le message unique ; appréciation du niveau de fiabilité. Abandon de la forme électronique au profit du papier et notification du remplacement. Maintien des règles d’ordre public et des lois de police applicables au contrat de transport",
+   "17": "Abrogation de toutes dispositions contraires ; exécution à la diligence des Ministres de la Justice et de la Sécurité, de l’Économie et des Finances, du Commerce et de l’Industrie"
+  }
+ },
+ "decret-2015-signature": {
+  "index": {
+   "Abrogation de loi": [
+    "17"
+   ],
+   "Acte authentique": [
+    "2"
+   ],
+   "Acte notarié": [
+    "5"
+   ],
+   "Admission en justice du document électronique": [
+    "16"
+   ],
+   "Attestation de pratique": [
+    "9"
+   ],
+   "Attestation de qualification": [
+    "15"
+   ],
+   "Billet sous seing privé": [
+    "3",
+    "4"
+   ],
+   "Capacité financière": [
+    "6"
+   ],
+   "Capacité technique": [
+    "6"
+   ],
+   "Certificat de signature électronique": [
+    "7"
+   ],
+   "Certificat électronique": [
+    "11"
+   ],
+   "Certificat électronique étranger": [
+    "16"
+   ],
+   "Cessation d’activités": [
+    "14"
+   ],
+   "Compétence": [
+    "15"
+   ],
+   "CONATEL": [
+    "14",
+    "15",
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "Confidentialité de l’information": [
+    "11",
+    "14"
+   ],
+   "Conservation": [
+    "1"
+   ],
+   "Contrat": [
+    "12"
+   ],
+   "Écrit électronique": [
+    "1"
+   ],
+   "Enregistrement de données": [
+    "7"
+   ],
+   "Exécution du décret": [
+    "17"
+   ],
+   "Identification": [
+    "1"
+   ],
+   "Inspection": [
+    "8"
+   ],
+   "Notariat": [
+    "5"
+   ],
+   "Notification": [
+    "14"
+   ],
+   "Officier public": [
+    "2",
+    "5"
+   ],
+   "Préavis": [
+    "12"
+   ],
+   "Présomption": [
+    "4"
+   ],
+   "Prestataire de services de certification électronique": [
+    "10",
+    "11",
+    "12",
+    "13",
+    "16",
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "Preuve littérale": [
+    "1"
+   ],
+   "Promesse sous seing privé": [
+    "3"
+   ],
+   "Protection des titulaires de certificats": [
+    "14"
+   ],
+   "Publication du décret": [
+    "17"
+   ],
+   "Qualification": [
+    "6"
+   ],
+   "Rémunération": [
+    "10"
+   ],
+   "Responsabilité contractuelle": [
+    "13"
+   ],
+   "Responsabilité délictuelle": [
+    "13"
+   ],
+   "Responsabilité quasi-délictuelle": [
+    "13"
+   ],
+   "Révocation de certificat": [
+    "12"
+   ],
+   "Révocation de qualification": [
+    "9"
+   ],
+   "Sanction": [
+    "15"
+   ],
+   "Sécurité des systèmes": [
+    "11"
+   ],
+   "Signature": [
+    "3"
+   ],
+   "Signature électronique sécurisée": [
+    "7"
+   ],
+   "Supervision": [
+    "15"
+   ],
+   "Support électronique": [
+    "2"
+   ],
+   "Suspension de qualification": [
+    "9"
+   ],
+   "Titulaire de certificat": [
+    "11"
+   ],
+   "Responsabilité du notaire": [
+    "5"
+   ]
+  },
+  "sommaire": {
+   "1": "Admissibilité et conditions de la preuve littérale électronique.",
+   "2": "Acte authentique sur support électronique et conditions de conservation.",
+   "3": "Formalités des billets ou promesses sous seing privé et exceptions applicables.",
+   "4": "Règle en cas de différence entre la somme de l'acte et celle du « bon ».",
+   "5": "Forme et conditions de rédaction des actes notariaux.",
+   "6": "Qualification des prestataires de services de certification électronique.",
+   "7": "Services offerts par les prestataires de certification électronique qualifiés.",
+   "8": "Exercice du pouvoir d'inspection du CONATEL sur les prestataires de certification.",
+   "9": "Affichage annuel des attestations de pratique des prestataires qualifiés au CONATEL.",
+   "10": "Libre fixation de la rémunération des services de certification électronique.",
+   "11": "Obligations des prestataires de services de certification électronique.",
+   "12": "Conditions de résiliation de contrat entre prestataire et titulaire de certificat.",
+   "13": "Régime de responsabilité des prestataires de services de certification électronique.",
+   "14": "Notification et mesures de protection en cas de cessation d'activité des prestataires.",
+   "15": "Compétences étendues du CONATEL en matière de certification électronique.",
+   "16": "Détermination par Arrêté présidentiel des critères d'admission et de régulation.",
+   "17": "Abrogation des dispositions contraires et exécution du Décret."
+  }
+ },
+ "decret-2016-administration": {
+  "index": {
+   "Abrogation": [
+    "51"
+   ],
+   "Acceptation du document": [
+    "16"
+   ],
+   "Accès à l'information": [
+    "31"
+   ],
+   "Accès au contenu de notification": [
+    "28"
+   ],
+   "Accès aux données": [
+    "9"
+   ],
+   "Accès aux procédures administratives": [
+    "3"
+   ],
+   "Accès aux services électroniques": [
+    "49",
+    "8"
+   ],
+   "Accessibilité": [
+    "35"
+   ],
+   "Accessibilité (du site)": [
+    "10"
+   ],
+   "Accord de collaboration": [
+    "44"
+   ],
+   "Accusé de réception": [
+    "26"
+   ],
+   "Activité de services": [
+    "5"
+   ],
+   "Administration centrale de l'État": [
+    "2"
+   ],
+   "Administration électronique": [
+    "1",
+    "40",
+    "46"
+   ],
+   "Administration publique": [
+    "13",
+    "21",
+    "24",
+    "26",
+    "27",
+    "29",
+    "30"
+   ],
+   "Administré": [
+    "16",
+    "2",
+    "22",
+    "26",
+    "27",
+    "30",
+    "32",
+    "34",
+    "35",
+    "36",
+    "37",
+    "41",
+    "5"
+   ],
+   "Adresse électronique": [
+    "5"
+   ],
+   "Agent administratif": [
+    "23"
+   ],
+   "Agent habilité": [
+    "22"
+   ],
+   "Agent public": [
+    "38"
+   ],
+   "Annonce officielle": [
+    "25"
+   ],
+   "Application (logicielle)": [
+    "5"
+   ],
+   "Application de source ouverte": [
+    "45"
+   ],
+   "Application informatique": [
+    "36",
+    "45"
+   ],
+   "Archivage électronique": [
+    "31"
+   ],
+   "Assistance à l'administré": [
+    "8"
+   ],
+   "Audit informatique": [
+    "39"
+   ],
+   "Authenticité (de la publication)": [
+    "11"
+   ],
+   "Authenticité de l’information": [
+    "31"
+   ],
+   "Authentification": [
+    "18",
+    "19"
+   ],
+   "Authentification (de document)": [
+    "15"
+   ],
+   "Bureau d'accueil": [
+    "8"
+   ],
+   "Calcul de délai": [
+    "26"
+   ],
+   "Calendrier d'adaptation": [
+    "50"
+   ],
+   "Canal de communication": [
+    "6",
+    "8"
+   ],
+   "Carte d'Identification Nationale": [
+    "14"
+   ],
+   "Certificat électronique": [
+    "13",
+    "15"
+   ],
+   "Certificat électronique qualifié": [
+    "17",
+    "18",
+    "21"
+   ],
+   "Certification électronique": [
+    "14"
+   ],
+   "Champ d'application": [
+    "2"
+   ],
+   "Choix du mode de communication": [
+    "27"
+   ],
+   "Clôture de procédure": [
+    "38"
+   ],
+   "Code sécurisé de vérification": [
+    "18"
+   ],
+   "Collectivité territoriale": [
+    "2"
+   ],
+   "Communication administrative": [
+    "24"
+   ],
+   "Communication sécurisée": [
+    "17"
+   ],
+   "Confiance numérique": [
+    "3"
+   ],
+   "Conformité à l'original": [
+    "30"
+   ],
+   "Conseil Supérieur de l’Administration et de la Fonction Publique": [
+    "40"
+   ],
+   "Consentement exprès": [
+    "22",
+    "27",
+    "28"
+   ],
+   "Contrôle de qualité": [
+    "39"
+   ],
+   "Copie électronique": [
+    "30"
+   ],
+   "Datation électronique": [
+    "29"
+   ],
+   "Date de disponibilité": [
+    "28"
+   ],
+   "Date officielle": [
+    "26"
+   ],
+   "Décision électronique": [
+    "47"
+   ],
+   "Définition": [
+    "5"
+   ],
+   "Délai d'accès à la notification": [
+    "28"
+   ],
+   "Délégation de compétence": [
+    "23"
+   ],
+   "Délibération électronique": [
+    "47"
+   ],
+   "Discrimination": [
+    "4"
+   ],
+   "Discrimination technologique": [
+    "41"
+   ],
+   "Dispositif sécurisé de création de signature électronique": [
+    "19"
+   ],
+   "Document administratif": [
+    "29"
+   ],
+   "Document électronique": [
+    "20",
+    "30",
+    "31"
+   ],
+   "Document électronique normalisé": [
+    "24"
+   ],
+   "Document sur support papier": [
+    "30"
+   ],
+   "Dossier électronique": [
+    "32"
+   ],
+   "Droit d'information": [
+    "6"
+   ],
+   "Droit de l'administré": [
+    "1",
+    "6",
+    "7"
+   ],
+   "Droit de propriété intellectuelle": [
+    "45"
+   ],
+   "Droit fondamental": [
+    "3",
+    "4"
+   ],
+   "Échange d'informations": [
+    "43"
+   ],
+   "Échange électronique de données": [
+    "20"
+   ],
+   "Effet juridique": [
+    "30"
+   ],
+   "Égalité de l'administré": [
+    "1",
+    "4"
+   ],
+   "Entité administrative": [
+    "19",
+    "20",
+    "33",
+    "38",
+    "40",
+    "41",
+    "43",
+    "44",
+    "45"
+   ],
+   "Environnement fermé de communication": [
+    "20"
+   ],
+   "État d'avancement de la procédure": [
+    "37"
+   ],
+   "Formalité": [
+    "12"
+   ],
+   "Format préétabli": [
+    "24"
+   ],
+   "Formation des agents": [
+    "48"
+   ],
+   "Formation du personnel": [
+    "33"
+   ],
+   "Formulaire électronique": [
+    "49"
+   ],
+   "Gestion de l'information": [
+    "48"
+   ],
+   "Gestion électronique": [
+    "33"
+   ],
+   "Guichet unique": [
+    "44"
+   ],
+   "Heure de disponibilité": [
+    "28"
+   ],
+   "Heure officielle": [
+    "25",
+    "26"
+   ],
+   "Identification": [
+    "17",
+    "18",
+    "19"
+   ],
+   "Identification de l'expéditeur": [
+    "20"
+   ],
+   "Identification du destinataire": [
+    "20"
+   ],
+   "Identification électronique": [
+    "15",
+    "37"
+   ],
+   "Identification par agent": [
+    "22"
+   ],
+   "Index électronique": [
+    "32"
+   ],
+   "Intégrité de l’information": [
+    "31"
+   ],
+   "Intégrité des dossiers": [
+    "32"
+   ],
+   "Intégrité du document électronique": [
+    "16",
+    "18"
+   ],
+   "Interconnexion de réseaux": [
+    "43"
+   ],
+   "Interopérabilité": [
+    "40",
+    "41",
+    "42"
+   ],
+   "Interopérabilité des données": [
+    "9"
+   ],
+   "Jour férié": [
+    "26"
+   ],
+   "Jour ouvrable": [
+    "25",
+    "26"
+   ],
+   "Journal Officiel": [
+    "11"
+   ],
+   "Langue officielle": [
+    "49"
+   ],
+   "Moment de la notification": [
+    "28"
+   ],
+   "Moyen d'identification": [
+    "22"
+   ],
+   "Moyen électronique": [
+    "23",
+    "27",
+    "28",
+    "29",
+    "6"
+   ],
+   "Notification électronique": [
+    "28",
+    "36",
+    "38"
+   ],
+   "Office National d'Identification": [
+    "14"
+   ],
+   "Organe collégial": [
+    "47"
+   ],
+   "Organisme autonome": [
+    "2"
+   ],
+   "Plainte": [
+    "7"
+   ],
+   "Plan de mise en œuvre": [
+    "40"
+   ],
+   "Plateforme de vérification de certificat électronique": [
+    "21"
+   ],
+   "Politique de sécurité": [
+    "42"
+   ],
+   "Prestataire de services de certification électronique": [
+    "14",
+    "15"
+   ],
+   "Prestataire de services de certification qualifié": [
+    "21"
+   ],
+   "Preuve de délégation": [
+    "23"
+   ],
+   "Procédure administrative": [
+    "32",
+    "33",
+    "34",
+    "35",
+    "36",
+    "37",
+    "38"
+   ],
+   "Procédure administrative automatisée": [
+    "18"
+   ],
+   "Procédure administrative électronique": [
+    "50"
+   ],
+   "Procédure administrative informatisée": [
+    "39"
+   ],
+   "Procès-verbal électronique": [
+    "47"
+   ],
+   "Propriété intellectuelle": [
+    "48"
+   ],
+   "Protecteur du Citoyen": [
+    "7"
+   ],
+   "Protection des données": [
+    "48"
+   ],
+   "Protection des données à caractère personnel": [
+    "3",
+    "4",
+    "9"
+   ],
+   "Publication d'annonce": [
+    "12"
+   ],
+   "Publication d'avis": [
+    "12"
+   ],
+   "Publication officielle": [
+    "11"
+   ],
+   "Publicité officielle": [
+    "10"
+   ],
+   "Qualification (du prestataire)": [
+    "14"
+   ],
+   "Rapport annuel": [
+    "7"
+   ],
+   "Réception de requête": [
+    "24"
+   ],
+   "Réclamation": [
+    "6"
+   ],
+   "Reconnaissance mutuelle": [
+    "21"
+   ],
+   "Registre électronique": [
+    "24",
+    "25"
+   ],
+   "Relation administration-administré": [
+    "49"
+   ],
+   "Relation administré-administration": [
+    "13"
+   ],
+   "Remise de requête": [
+    "24"
+   ],
+   "Répertoire d'applications": [
+    "46"
+   ],
+   "Réseau d’espaces communs": [
+    "44"
+   ],
+   "Réseau de communications": [
+    "43"
+   ],
+   "Respect de la vie privée": [
+    "4"
+   ],
+   "Responsabilité (du titulaire du site)": [
+    "10"
+   ],
+   "Responsabilité administrative": [
+    "39"
+   ],
+   "Réunion électronique": [
+    "47"
+   ],
+   "Réutilisation d'application": [
+    "46"
+   ],
+   "Sceau électronique": [
+    "18"
+   ],
+   "Sceau horodateur": [
+    "30"
+   ],
+   "Schéma national d'interopérabilité": [
+    "46",
+    "50"
+   ],
+   "Schéma National de Sécurité": [
+    "42",
+    "46",
+    "50"
+   ],
+   "Sécurité (du site)": [
+    "10"
+   ],
+   "Sécurité de l'information": [
+    "42"
+   ],
+   "Sécurité des données": [
+    "9"
+   ],
+   "Sécurité des moyens électroniques": [
+    "48"
+   ],
+   "Sécurité des systèmes": [
+    "3"
+   ],
+   "Sécurité juridique": [
+    "1"
+   ],
+   "Service administratif": [
+    "34"
+   ],
+   "Service administratif électronique": [
+    "50"
+   ],
+   "Service électronique": [
+    "37",
+    "8"
+   ],
+   "Signature électronique": [
+    "13",
+    "16",
+    "29",
+    "30",
+    "35"
+   ],
+   "Signature électronique de personnel": [
+    "19"
+   ],
+   "Signature électronique sécurisée": [
+    "13",
+    "15",
+    "17"
+   ],
+   "Simplification administrative": [
+    "33",
+    "34",
+    "36"
+   ],
+   "Site électronique": [
+    "10",
+    "11",
+    "12",
+    "17",
+    "35",
+    "49"
+   ],
+   "Site électronique d'accès au registre": [
+    "25",
+    "26"
+   ],
+   "Soumission de document": [
+    "26"
+   ],
+   "Suggestion": [
+    "7"
+   ],
+   "Support électronique": [
+    "9"
+   ],
+   "Système d’information": [
+    "39",
+    "41",
+    "43"
+   ],
+   "Technologie de l'information": [
+    "1"
+   ],
+   "Transparence administrative": [
+    "34",
+    "45"
+   ],
+   "Valeur juridique": [
+    "11"
+   ],
+   "Validité de certificat électronique": [
+    "21"
+   ],
+   "Validité de communication électronique": [
+    "27"
+   ]
+  },
+  "sommaire": {
+   "1": "Reconnaissance et encadrement du droit de l'administré à l'échange électronique avec l'administration",
+   "2": "Champ d'application du décret aux entités publiques et aux relations administratives",
+   "3": "Objectifs du décret : exercice des droits, accès, confiance, sécurité et transparence",
+   "4": "Limites et principes fondamentaux de l'utilisation des technologies de l'information",
+   "5": "Définitions des termes clés pour l'application du présent décret",
+   "6": "Droits des administrés d'utiliser les moyens électroniques et leurs prérogatives",
+   "7": "Rôle et missions du Protecteur du Citoyen dans la garantie des droits électroniques",
+   "8": "Obligations de l'administration : pluralité des canaux et garantie d'accès aux services électroniques",
+   "9": "Accès des entités administratives aux données détenues pour simplification des procédures",
+   "10": "Cadre de création et de responsabilité des sites électroniques de l'administration",
+   "11": "Valeur juridique de la publication électronique du Journal Officiel « Le Moniteur »",
+   "12": "Respect de la formalité de publication d'avis via le site électronique d'un journal",
+   "13": "Reconnaissance et utilisation des systèmes de signature électronique par l'administration",
+   "14": "L'Office National d'Identification en tant que prestataire de certification électronique qualifié",
+   "15": "Utilisation de la signature électronique sécurisée par les administrés pour l'identification",
+   "16": "Conditions d'utilisation d'autres systèmes de signature électronique par les entités administratives",
+   "17": "Exigence d'identification sécurisée pour les sites électroniques via signature ou certificat",
+   "18": "Systèmes d'identification et d'authentification des entités administratives dans les procédures automatisées",
+   "19": "Identification et authentification de l'entité administrative par signature électronique de son personnel",
+   "20": "Authenticité des documents électroniques intra-administration et conditions d'échange",
+   "21": "Reconnaissance des certificats électroniques et systèmes de signature par l'administration",
+   "22": "Identification de l'administré par agent en l'absence de moyens électroniques",
+   "23": "Utilisation de la délégation par les agents dans les transactions électroniques",
+   "24": "Création et contenu des registres électroniques pour requêtes et communications",
+   "25": "Annonce et détails de la création des registres électroniques",
+   "26": "Calcul des délais et accessibilité des registres électroniques",
+   "27": "Libre choix du mode de communication et validité des échanges électroniques",
+   "28": "Conditions et procédure de notification par moyen électronique",
+   "29": "Émission de documents administratifs électroniques avec signature",
+   "30": "Conformité des copies électroniques de documents administratifs",
+   "31": "Archivage électronique des documents administratifs et mesures de sécurité",
+   "32": "Définition et gestion du dossier électronique administratif",
+   "33": "Gestion électronique de l'activité administrative et simplification",
+   "34": "Réexamen et simplification des procédures avant application des moyens électroniques",
+   "35": "Disponibilité des modèles et dispositifs de requête pour procédures électroniques",
+   "36": "Exigences des systèmes d'information pour l'instruction des procédures électroniques",
+   "37": "Consultation électronique de l'état d'avancement des procédures administratives",
+   "38": "Identification lors de la clôture électronique des procédures administratives et notification informatisée",
+   "39": "Définition des responsabilités des services en cas de procédure administrative informatisée",
+   "40": "Rôle du Conseil Supérieur de l’Administration et de la Fonction Publique dans l'e-administration",
+   "41": "Exigences d'interopérabilité et de non-discrimination des systèmes d'information administratifs",
+   "42": "Schémas Nationaux d'Interopérabilité et de Sécurité pour les entités administratives",
+   "43": "Interconnexion des réseaux administratifs pour l'échange d'informations et de services",
+   "44": "Accords de collaboration pour le développement de guichets uniques administratifs",
+   "45": "Partage et ouverture des applications développées par les entités administratives",
+   "46": "Rôle du CSAFP dans le transfert de technologies et la réutilisation d'applications administratives",
+   "47": "Réunions et délibérations électroniques des organes collégiaux administratifs",
+   "48": "Formation des agents administratifs à l'utilisation sécurisée des moyens électroniques",
+   "49": "Utilisation des langues officielles (créole et français) dans l'administration électronique",
+   "50": "Publication des procédures électroniques accessibles et calendrier d'adaptation progressive",
+   "51": "Abrogation des dispositions contraires et exécution du Décret"
+  }
+ }
+}

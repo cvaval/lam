@@ -1,0 +1,215 @@
+{
+ "Abrogation de loi": [
+  "17"
+ ],
+ "Acceptation électronique": [
+  "7"
+ ],
+ "Accessibilité de l'information": [
+  "5"
+ ],
+ "Accusé de réception": [
+  "11"
+ ],
+ "Application de la loi": [
+  "1",
+  "17"
+ ],
+ "Autorité d'exécution": [
+  "17"
+ ],
+ "Avis de non-émanation": [
+  "9-1"
+ ],
+ "Bonne foi": [
+  "3"
+ ],
+ "Conditions de transport": [
+  "15"
+ ],
+ "Conservation de documents": [
+  "5"
+ ],
+ "Conservation de message de données": [
+  "5"
+ ],
+ "Contrat de transport de marchandises": [
+  "15"
+ ],
+ "Destinataire": [
+  "8"
+ ],
+ "Destinataire (confiance légitime)": [
+  "9-1"
+ ],
+ "Destinataire (traitement des messages)": [
+  "10"
+ ],
+ "Destination du message de données": [
+  "5"
+ ],
+ "Diligence du destinataire": [
+  "10"
+ ],
+ "Dispositif d'identification": [
+  "9-1"
+ ],
+ "Domicile de l'expéditeur": [
+  "13"
+ ],
+ "Domicile du destinataire": [
+  "13"
+ ],
+ "Effet du message de données": [
+  "11"
+ ],
+ "Effet juridique": [
+  "8"
+ ],
+ "Émanation du message de données": [
+  "9",
+  "9-1"
+ ],
+ "Embarquement de marchandises": [
+  "15"
+ ],
+ "Exécution de la loi": [
+  "17"
+ ],
+ "Exigence d'écrit": [
+  "16"
+ ],
+ "Exigence de forme originale": [
+  "4"
+ ],
+ "Expéditeur": [
+  "2",
+  "8",
+  "9"
+ ],
+ "Force exécutoire du contrat": [
+  "7"
+ ],
+ "Formation du contrat": [
+  "7"
+ ],
+ "Garantie d'intégrité": [
+  "4"
+ ],
+ "Information électronique": [
+  "2"
+ ],
+ "Intégrité de l'information": [
+  "4"
+ ],
+ "Interprétation de la loi": [
+  "3"
+ ],
+ "Lieu d'expédition": [
+  "13",
+  "14"
+ ],
+ "Lieu de réception": [
+  "13"
+ ],
+ "Manifestation de volonté": [
+  "8"
+ ],
+ "Message de données": [
+  "1",
+  "2",
+  "4",
+  "9",
+  "12",
+  "14",
+  "16"
+ ],
+ "Message de données (envoi/réception)": [
+  "6"
+ ],
+ "Moment d'expédition": [
+  "12",
+  "14"
+ ],
+ "Moment de réception": [
+  "12"
+ ],
+ "Obligation de conservation": [
+  "6"
+ ],
+ "Offre électronique": [
+  "7"
+ ],
+ "Organisme multilatéral": [
+  "3"
+ ],
+ "Origine du message de données": [
+  "5"
+ ],
+ "Présentation de l'information": [
+  "4"
+ ],
+ "Prestataire de services (conservation)": [
+  "6"
+ ],
+ "Preuve par écrit": [
+  "16"
+ ],
+ "Procédure convenue": [
+  "10"
+ ],
+ "Procédure d'authentification": [
+  "9-1"
+ ],
+ "Réception de marchandises": [
+  "15"
+ ],
+ "Reçu de marchandises": [
+  "15"
+ ],
+ "Règle applicable (support papier)": [
+  "14"
+ ],
+ "Relation commerciale": [
+  "1"
+ ],
+ "Relation contractuelle": [
+  "1"
+ ],
+ "Répétition de message": [
+  "10"
+ ],
+ "Résidence habituelle": [
+  "13"
+ ],
+ "Support physique": [
+  "14"
+ ],
+ "Système d'information (tiers)": [
+  "12"
+ ],
+ "Système d'information désigné": [
+  "12"
+ ],
+ "Transfert électronique": [
+  "2"
+ ],
+ "Uniformité d'application": [
+  "3"
+ ],
+ "Validité (acte juridique)": [
+  "8"
+ ],
+ "Validité de l'acte électronique": [
+  "16"
+ ],
+ "Validité du contrat": [
+  "7"
+ ],
+ "Échange de données informatisées (EDI)": [
+  "2"
+ ],
+ "Relation extracontractuelle": [
+  "1"
+ ]
+}

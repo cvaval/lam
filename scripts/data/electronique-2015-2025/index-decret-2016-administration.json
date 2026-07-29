@@ -1,0 +1,621 @@
+{
+ "Abrogation": [
+  "51"
+ ],
+ "Acceptation du document": [
+  "16"
+ ],
+ "Accès à l'information": [
+  "31"
+ ],
+ "Accès au contenu de notification": [
+  "28"
+ ],
+ "Accès aux données": [
+  "9"
+ ],
+ "Accès aux procédures administratives": [
+  "3"
+ ],
+ "Accès aux services électroniques": [
+  "8",
+  "49"
+ ],
+ "Accessibilité": [
+  "35"
+ ],
+ "Accessibilité (du site)": [
+  "10"
+ ],
+ "Accord de collaboration": [
+  "44"
+ ],
+ "Accusé de réception": [
+  "26"
+ ],
+ "Activité de services": [
+  "5"
+ ],
+ "Administration centrale de l'État": [
+  "2"
+ ],
+ "Administration électronique": [
+  "1",
+  "40",
+  "46"
+ ],
+ "Administration publique": [
+  "13",
+  "21",
+  "24",
+  "26",
+  "27",
+  "29",
+  "30"
+ ],
+ "Administré": [
+  "2",
+  "5",
+  "16",
+  "22",
+  "26",
+  "27",
+  "30",
+  "32",
+  "34",
+  "35",
+  "36",
+  "37",
+  "41"
+ ],
+ "Adresse électronique": [
+  "5"
+ ],
+ "Agent administratif": [
+  "23"
+ ],
+ "Agent habilité": [
+  "22"
+ ],
+ "Agent public": [
+  "38"
+ ],
+ "Annonce officielle": [
+  "25"
+ ],
+ "Application (logicielle)": [
+  "5"
+ ],
+ "Application de source ouverte": [
+  "45"
+ ],
+ "Application informatique": [
+  "36",
+  "45"
+ ],
+ "Archivage électronique": [
+  "31"
+ ],
+ "Assistance à l'administré": [
+  "8"
+ ],
+ "Audit informatique": [
+  "39"
+ ],
+ "Authenticité (de la publication)": [
+  "11"
+ ],
+ "Authenticité de l’information": [
+  "31"
+ ],
+ "Authentification": [
+  "18",
+  "19"
+ ],
+ "Authentification (de document)": [
+  "15"
+ ],
+ "Bureau d'accueil": [
+  "8"
+ ],
+ "Calcul de délai": [
+  "26"
+ ],
+ "Calendrier d'adaptation": [
+  "50"
+ ],
+ "Canal de communication": [
+  "6",
+  "8"
+ ],
+ "Carte d'Identification Nationale": [
+  "14"
+ ],
+ "Certificat électronique": [
+  "13",
+  "15"
+ ],
+ "Certificat électronique qualifié": [
+  "17",
+  "18",
+  "21"
+ ],
+ "Certification électronique": [
+  "14"
+ ],
+ "Champ d'application": [
+  "2"
+ ],
+ "Choix du mode de communication": [
+  "27"
+ ],
+ "Clôture de procédure": [
+  "38"
+ ],
+ "Code sécurisé de vérification": [
+  "18"
+ ],
+ "Collectivité territoriale": [
+  "2"
+ ],
+ "Communication administrative": [
+  "24"
+ ],
+ "Communication sécurisée": [
+  "17"
+ ],
+ "Confiance numérique": [
+  "3"
+ ],
+ "Conformité à l'original": [
+  "30"
+ ],
+ "Conseil Supérieur de l’Administration et de la Fonction Publique": [
+  "40"
+ ],
+ "Consentement exprès": [
+  "22",
+  "27",
+  "28"
+ ],
+ "Contrôle de qualité": [
+  "39"
+ ],
+ "Copie électronique": [
+  "30"
+ ],
+ "Datation électronique": [
+  "29"
+ ],
+ "Date de disponibilité": [
+  "28"
+ ],
+ "Date officielle": [
+  "26"
+ ],
+ "Décision électronique": [
+  "47"
+ ],
+ "Définition": [
+  "5"
+ ],
+ "Délai d'accès à la notification": [
+  "28"
+ ],
+ "Délégation de compétence": [
+  "23"
+ ],
+ "Délibération électronique": [
+  "47"
+ ],
+ "Discrimination": [
+  "4"
+ ],
+ "Discrimination technologique": [
+  "41"
+ ],
+ "Dispositif sécurisé de création de signature électronique": [
+  "19"
+ ],
+ "Document administratif": [
+  "29"
+ ],
+ "Document électronique": [
+  "20",
+  "30",
+  "31"
+ ],
+ "Document électronique normalisé": [
+  "24"
+ ],
+ "Document sur support papier": [
+  "30"
+ ],
+ "Dossier électronique": [
+  "32"
+ ],
+ "Droit d'information": [
+  "6"
+ ],
+ "Droit de l'administré": [
+  "1",
+  "6",
+  "7"
+ ],
+ "Droit de propriété intellectuelle": [
+  "45"
+ ],
+ "Droit fondamental": [
+  "3",
+  "4"
+ ],
+ "Échange d'informations": [
+  "43"
+ ],
+ "Échange électronique de données": [
+  "20"
+ ],
+ "Effet juridique": [
+  "30"
+ ],
+ "Égalité de l'administré": [
+  "1",
+  "4"
+ ],
+ "Entité administrative": [
+  "19",
+  "20",
+  "33",
+  "38",
+  "40",
+  "41",
+  "43",
+  "44",
+  "45"
+ ],
+ "Environnement fermé de communication": [
+  "20"
+ ],
+ "État d'avancement de la procédure": [
+  "37"
+ ],
+ "Formalité": [
+  "12"
+ ],
+ "Format préétabli": [
+  "24"
+ ],
+ "Formation des agents": [
+  "48"
+ ],
+ "Formation du personnel": [
+  "33"
+ ],
+ "Formulaire électronique": [
+  "49"
+ ],
+ "Gestion de l'information": [
+  "48"
+ ],
+ "Gestion électronique": [
+  "33"
+ ],
+ "Guichet unique": [
+  "44"
+ ],
+ "Heure de disponibilité": [
+  "28"
+ ],
+ "Heure officielle": [
+  "25",
+  "26"
+ ],
+ "Identification": [
+  "17",
+  "18",
+  "19"
+ ],
+ "Identification de l'expéditeur": [
+  "20"
+ ],
+ "Identification du destinataire": [
+  "20"
+ ],
+ "Identification électronique": [
+  "15",
+  "37"
+ ],
+ "Identification par agent": [
+  "22"
+ ],
+ "Index électronique": [
+  "32"
+ ],
+ "Intégrité de l’information": [
+  "31"
+ ],
+ "Intégrité des dossiers": [
+  "32"
+ ],
+ "Intégrité du document électronique": [
+  "16",
+  "18"
+ ],
+ "Interconnexion de réseaux": [
+  "43"
+ ],
+ "Interopérabilité": [
+  "40",
+  "41",
+  "42"
+ ],
+ "Interopérabilité des données": [
+  "9"
+ ],
+ "Jour férié": [
+  "26"
+ ],
+ "Jour ouvrable": [
+  "25",
+  "26"
+ ],
+ "Journal Officiel": [
+  "11"
+ ],
+ "Langue officielle": [
+  "49"
+ ],
+ "Moment de la notification": [
+  "28"
+ ],
+ "Moyen d'identification": [
+  "22"
+ ],
+ "Moyen électronique": [
+  "6",
+  "23",
+  "27",
+  "28",
+  "29"
+ ],
+ "Notification électronique": [
+  "28",
+  "36",
+  "38"
+ ],
+ "Office National d'Identification": [
+  "14"
+ ],
+ "Organe collégial": [
+  "47"
+ ],
+ "Organisme autonome": [
+  "2"
+ ],
+ "Plainte": [
+  "7"
+ ],
+ "Plan de mise en œuvre": [
+  "40"
+ ],
+ "Plateforme de vérification de certificat électronique": [
+  "21"
+ ],
+ "Politique de sécurité": [
+  "42"
+ ],
+ "Prestataire de services de certification électronique": [
+  "14",
+  "15"
+ ],
+ "Prestataire de services de certification qualifié": [
+  "21"
+ ],
+ "Preuve de délégation": [
+  "23"
+ ],
+ "Procédure administrative": [
+  "32",
+  "33",
+  "34",
+  "35",
+  "36",
+  "37",
+  "38"
+ ],
+ "Procédure administrative automatisée": [
+  "18"
+ ],
+ "Procédure administrative électronique": [
+  "50"
+ ],
+ "Procédure administrative informatisée": [
+  "39"
+ ],
+ "Procès-verbal électronique": [
+  "47"
+ ],
+ "Propriété intellectuelle": [
+  "48"
+ ],
+ "Protecteur du Citoyen": [
+  "7"
+ ],
+ "Protection des données": [
+  "48"
+ ],
+ "Protection des données à caractère personnel": [
+  "3",
+  "4",
+  "9"
+ ],
+ "Publication d'annonce": [
+  "12"
+ ],
+ "Publication d'avis": [
+  "12"
+ ],
+ "Publication officielle": [
+  "11"
+ ],
+ "Publicité officielle": [
+  "10"
+ ],
+ "Qualification (du prestataire)": [
+  "14"
+ ],
+ "Rapport annuel": [
+  "7"
+ ],
+ "Réception de requête": [
+  "24"
+ ],
+ "Réclamation": [
+  "6"
+ ],
+ "Reconnaissance mutuelle": [
+  "21"
+ ],
+ "Registre électronique": [
+  "24",
+  "25"
+ ],
+ "Relation administration-administré": [
+  "49"
+ ],
+ "Relation administré-administration": [
+  "13"
+ ],
+ "Remise de requête": [
+  "24"
+ ],
+ "Répertoire d'applications": [
+  "46"
+ ],
+ "Réseau d’espaces communs": [
+  "44"
+ ],
+ "Réseau de communications": [
+  "43"
+ ],
+ "Respect de la vie privée": [
+  "4"
+ ],
+ "Responsabilité (du titulaire du site)": [
+  "10"
+ ],
+ "Responsabilité administrative": [
+  "39"
+ ],
+ "Réunion électronique": [
+  "47"
+ ],
+ "Réutilisation d'application": [
+  "46"
+ ],
+ "Sceau électronique": [
+  "18"
+ ],
+ "Sceau horodateur": [
+  "30"
+ ],
+ "Schéma national d'interopérabilité": [
+  "46",
+  "50"
+ ],
+ "Schéma National de Sécurité": [
+  "42",
+  "46",
+  "50"
+ ],
+ "Sécurité (du site)": [
+  "10"
+ ],
+ "Sécurité de l'information": [
+  "42"
+ ],
+ "Sécurité des données": [
+  "9"
+ ],
+ "Sécurité des moyens électroniques": [
+  "48"
+ ],
+ "Sécurité des systèmes": [
+  "3"
+ ],
+ "Sécurité juridique": [
+  "1"
+ ],
+ "Service administratif": [
+  "34"
+ ],
+ "Service administratif électronique": [
+  "50"
+ ],
+ "Service électronique": [
+  "8",
+  "37"
+ ],
+ "Signature électronique": [
+  "13",
+  "16",
+  "29",
+  "30",
+  "35"
+ ],
+ "Signature électronique de personnel": [
+  "19"
+ ],
+ "Signature électronique sécurisée": [
+  "13",
+  "15",
+  "17"
+ ],
+ "Simplification administrative": [
+  "33",
+  "34",
+  "36"
+ ],
+ "Site électronique": [
+  "10",
+  "11",
+  "12",
+  "17",
+  "35",
+  "49"
+ ],
+ "Site électronique d'accès au registre": [
+  "25",
+  "26"
+ ],
+ "Soumission de document": [
+  "26"
+ ],
+ "Suggestion": [
+  "7"
+ ],
+ "Support électronique": [
+  "9"
+ ],
+ "Système d’information": [
+  "39",
+  "41",
+  "43"
+ ],
+ "Technologie de l'information": [
+  "1"
+ ],
+ "Transparence administrative": [
+  "34",
+  "45"
+ ],
+ "Valeur juridique": [
+  "11"
+ ],
+ "Validité de certificat électronique": [
+  "21"
+ ],
+ "Validité de communication électronique": [
+  "27"
+ ]
+}
