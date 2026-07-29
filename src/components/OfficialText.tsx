@@ -46,8 +46,12 @@ const ART_NUM_RE = /(\d{1,4}(?!\d)(?:-\d{1,2}(?!\d)|\.\d{1,2}(?!\d)(?!\)))?(?:\s
 // « Article 22 Loi de Finances 2015-2016 », « Article 5 : (Loi de Finances…) »,
 // « Articles 37 loi sur les BEL » : marqueurs de textes MODIFICATEURS sans « de la »
 // intercalé — 4 faux liens internes constatés à l'audit (CFPB/CFGDCT).
+// « code\s+\S » couvre TOUTES les dénominations de codes (« du Code pénal », « du Code
+// civil », « du Code rural », « du Code de commerce »…) : le garde ne visait que
+// « code d… » et laissait passer « article 323 du Code pénal » — 37 renvois externes
+// du corpus concernés (Code civil/pénal/rural/douanier).
 const ART_EXT_AFTER =
-  /^\s*(?:[:—–-]\s*)?(?:\(?\s*(?:du|de\s+la|de\s+l['’]|des)\s+(?:d[ée]cret|loi|ordonnance|arr[êe]t[ée]|constitution|code\s+d)|\(?\s*lois?\s+de\s+finances|\(?\s*loi\s+sur)/i
+  /^\s*(?:[:—–-]\s*)?(?:\(?\s*(?:du|de\s+la|de\s+l['’]|des)\s+(?:d[ée]cret|loi|ordonnance|arr[êe]t[ée]|constitution|code\s+\S)|\(?\s*lois?\s+de\s+finances|\(?\s*loi\s+sur)/i
 // Renvoi externe annoncé AVANT les numéros (« selon les dispositions du décret du
 // 6 janvier 2016 … particulièrement en ses articles 9, 31, 32 et 41 ») : le garde
 // ART_EXT_AFTER ne voit rien après — on inspecte la fin du texte qui PRÉCÈDE (audit :

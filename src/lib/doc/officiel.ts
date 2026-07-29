@@ -22,8 +22,9 @@ export type OfficialBlock =
 // Puces : symboles usuels + artefacts OCR fréquents du corpus BRH (ß, , ).
 const BULLET_RE = /^([•·▪‣◦●ß*]|[-–—])\s+(.+)$/
 // Numérotations : « 1. », « 2) », « 1- », « (3) », « 4.0 », « 2.1.3 », « a) », « b. »,
-// et romains minuscules « i. », « ii) », « iv. » (sous-items de la Loi banques 2012).
-const NUMBER_RE = /^(\(?\d{1,3}\)|\d{1,3}(?:\.\d{1,3})+\.?|\d{1,3}\s?[-–]|\d{1,3}[.)°]|[ivx]{2,4}[.)]|[a-z][.)])\s+(.+)$/i
+// romains minuscules « i. », « ii) », « iv. » (Loi banques 2012), et « 1°) », « 13°) »
+// (degré SUIVI de parenthèse — énumérations du Décret microfinance 2020).
+const NUMBER_RE = /^(\(?\d{1,3}\)|\d{1,3}°\)|\d{1,3}(?:\.\d{1,3})+\.?|\d{1,3}\s?[-–]|\d{1,3}[.)°]|[ivx]{2,4}[.)]|[a-z][.)])\s+(.+)$/i
 
 /** Ligne « numéro de page » isolée par l'OCR (1 à 3 chiffres, rien d'autre). */
 function isPageNumber(line: string): boolean {

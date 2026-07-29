@@ -1,0 +1,527 @@
+{
+ "title": "Décret portant organisation et fonctionnement des Institutions de Microfinance (IMF)",
+ "annotationAuthor": "",
+ "navToc": [
+  {
+   "label": "TITRE I — DISPOSITIONS GÉNÉRALES",
+   "anchor": "sec-1",
+   "children": [
+    {
+     "label": "CHAPITRE 1 — CHAMP D’APPLICATION",
+     "anchor": "sec-2",
+     "children": []
+    },
+    {
+     "label": "CHAPITRE 2 — DÉFINITIONS",
+     "anchor": "sec-3",
+     "children": []
+    },
+    {
+     "label": "CHAPITRE 3 — OPÉRATIONS ET SERVICES DE MICROFINANCE",
+     "anchor": "sec-4",
+     "children": []
+    }
+   ]
+  },
+  {
+   "label": "TITRE II — DISPOSITIONS SPÉCIFIQUES AUX INSTITUTIONS DE MICROFINANCE",
+   "anchor": "sec-5",
+   "children": [
+    {
+     "label": "CHAPITRE 1 — CATÉGORIES, FORME JURIDIQUE, CAPITAL MINIMUM ET AGRÉMENT",
+     "anchor": "sec-6",
+     "children": []
+    },
+    {
+     "label": "CHAPITRE 2 — APPROBATION, INTERDICTIONS ET INCOMPATIBILITÉS",
+     "anchor": "sec-7",
+     "children": []
+    },
+    {
+     "label": "CHAPITRE 3 — GOUVERNANCE ET CONTRÔLE INTERNE",
+     "anchor": "sec-8",
+     "children": [
+      {
+       "label": "Section 1ᵉʳ.- Principes généraux",
+       "anchor": "sec-9"
+      },
+      {
+       "label": "Section 2.- Conseil d’administration",
+       "anchor": "sec-10"
+      },
+      {
+       "label": "Section 3.- Direction générale et dispositif de contrôle interne",
+       "anchor": "sec-11"
+      },
+      {
+       "label": "Section 4.- Comités spécialisés",
+       "anchor": "sec-12"
+      },
+      {
+       "label": "Section 5.- Responsabilités",
+       "anchor": "sec-13"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE 4 — CONTRÔLE EXTERNE ET SUPERVISION",
+     "anchor": "sec-14",
+     "children": [
+      {
+       "label": "Section 1ʳᵉ.- Contrôle externe",
+       "anchor": "sec-15"
+      },
+      {
+       "label": "Section 2.- Supervision",
+       "anchor": "sec-16"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE 5 — RÉGLEMENTATION ET DIVULGATION FINANCIÈRES",
+     "anchor": "sec-17",
+     "children": [
+      {
+       "label": "Section 1ʳᵉ.- Réglementation prudentielle",
+       "anchor": "sec-18"
+      },
+      {
+       "label": "Section 2.- Réglementation non prudentielle",
+       "anchor": "sec-19"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE 6 — TRANSFORMATIONS",
+     "anchor": "sec-20",
+     "children": []
+    },
+    {
+     "label": "CHAPITRE 7 — RETRAIT D’AGRÉMENT, DISSOLUTION ET LIQUIDATION",
+     "anchor": "sec-21",
+     "children": []
+    },
+    {
+     "label": "CHAPITRE 8 — MESURES D’INCITATION FISCALES",
+     "anchor": "sec-22",
+     "children": []
+    }
+   ]
+  },
+  {
+   "label": "TITRE III — DISPOSITIONS D’INTÉRÊT GÉNÉRAL",
+   "anchor": "sec-23",
+   "children": [
+    {
+     "label": "CHAPITRE 1 — RÉGLEMENTATION DE LA CONCURRENCE",
+     "anchor": "sec-24",
+     "children": []
+    },
+    {
+     "label": "CHAPITRE 2 — PROTECTION DE LA CLIENTÈLE",
+     "anchor": "sec-25",
+     "children": []
+    },
+    {
+     "label": "CHAPITRE 3 — INTERMÉDIATION EN OPÉRATIONS DE MICROFINANCE",
+     "anchor": "sec-26",
+     "children": []
+    },
+    {
+     "label": "CHAPITRE 4 — MESURES RELATIVES À LA LUTTE CONTRE LE BLANCHIMENT DES CAPITAUX ET LE FINANCEMENT DU TERRORISME",
+     "anchor": "sec-27",
+     "children": []
+    },
+    {
+     "label": "CHAPITRE 5 — SECRET PROFESSIONNEL",
+     "anchor": "sec-28",
+     "children": []
+    }
+   ]
+  },
+  {
+   "label": "TITRE IV — INFRACTIONS ET SANCTIONS",
+   "anchor": "sec-29",
+   "children": [
+    {
+     "label": "CHAPITRE 1 — INFRACTIONS ET SANCTIONS ADMINISTRATIVES",
+     "anchor": "sec-30",
+     "children": []
+    },
+    {
+     "label": "CHAPITRE 2 — INFRACTIONS ET SANCTIONS PÉNALES",
+     "anchor": "sec-31",
+     "children": []
+    }
+   ]
+  },
+  {
+   "label": "TITRE V — DISPOSITIONS TRANSITOIRES ET FINALES",
+   "anchor": "sec-32",
+   "children": [
+    {
+     "label": "TITRE V — DISPOSITIONS TRANSITOIRES ET FINALES",
+     "anchor": "sec-32"
+    }
+   ]
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "TITRE I — DISPOSITIONS GÉNÉRALES",
+   "anchor": "sec-1",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE 1 — CHAMP D’APPLICATION",
+   "anchor": "sec-2",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE 2 — DÉFINITIONS",
+   "anchor": "sec-3",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE 3 — OPÉRATIONS ET SERVICES DE MICROFINANCE",
+   "anchor": "sec-4",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE II — DISPOSITIONS SPÉCIFIQUES AUX INSTITUTIONS DE MICROFINANCE",
+   "anchor": "sec-5",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE 1 — CATÉGORIES, FORME JURIDIQUE, CAPITAL MINIMUM ET AGRÉMENT",
+   "anchor": "sec-6",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE 2 — APPROBATION, INTERDICTIONS ET INCOMPATIBILITÉS",
+   "anchor": "sec-7",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE 3 — GOUVERNANCE ET CONTRÔLE INTERNE",
+   "anchor": "sec-8",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section 1ᵉʳ.- Principes généraux",
+   "anchor": "sec-9",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section 2.- Conseil d’administration",
+   "anchor": "sec-10",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section 3.- Direction générale et dispositif de contrôle interne",
+   "anchor": "sec-11",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section 4.- Comités spécialisés",
+   "anchor": "sec-12",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section 5.- Responsabilités",
+   "anchor": "sec-13",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE 4 — CONTRÔLE EXTERNE ET SUPERVISION",
+   "anchor": "sec-14",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section 1ʳᵉ.- Contrôle externe",
+   "anchor": "sec-15",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section 2.- Supervision",
+   "anchor": "sec-16",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE 5 — RÉGLEMENTATION ET DIVULGATION FINANCIÈRES",
+   "anchor": "sec-17",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section 1ʳᵉ.- Réglementation prudentielle",
+   "anchor": "sec-18",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Section 2.- Réglementation non prudentielle",
+   "anchor": "sec-19",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE 6 — TRANSFORMATIONS",
+   "anchor": "sec-20",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE 7 — RETRAIT D’AGRÉMENT, DISSOLUTION ET LIQUIDATION",
+   "anchor": "sec-21",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE 8 — MESURES D’INCITATION FISCALES",
+   "anchor": "sec-22",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE III — DISPOSITIONS D’INTÉRÊT GÉNÉRAL",
+   "anchor": "sec-23",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE 1 — RÉGLEMENTATION DE LA CONCURRENCE",
+   "anchor": "sec-24",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE 2 — PROTECTION DE LA CLIENTÈLE",
+   "anchor": "sec-25",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE 3 — INTERMÉDIATION EN OPÉRATIONS DE MICROFINANCE",
+   "anchor": "sec-26",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE 4 — MESURES RELATIVES À LA LUTTE CONTRE LE BLANCHIMENT DES CAPITAUX ET LE FINANCEMENT DU TERRORISME",
+   "anchor": "sec-27",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE 5 — SECRET PROFESSIONNEL",
+   "anchor": "sec-28",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE IV — INFRACTIONS ET SANCTIONS",
+   "anchor": "sec-29",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE 1 — INFRACTIONS ET SANCTIONS ADMINISTRATIVES",
+   "anchor": "sec-30",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE 2 — INFRACTIONS ET SANCTIONS PÉNALES",
+   "anchor": "sec-31",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "TITRE V — DISPOSITIONS TRANSITOIRES ET FINALES",
+   "anchor": "sec-32",
+   "kind": "code"
+  }
+ ],
+ "connexes": [],
+ "jurisprudence": {},
+ "indexEntries": [],
+ "crossRefs": [
+  {
+   "anchor": "sec-1",
+   "articles": [],
+   "note": "Décret donné au Palais National le 5 juin 2020, publié au Journal officiel « Le Moniteur », Spécial N° 24 du 25 août 2020, et signé du Président Jovenel Moïse. Textes visés au préambule et déjà disponibles sur la plateforme :",
+   "docs": [
+    {
+     "label": "Constitution de la République d’Haïti (art. 136, 159, 245)",
+     "id": "cmr1it23a0000b4r0l6r1xp5l"
+    },
+    {
+     "label": "Code civil",
+     "id": "cmr4b6f3v0000iz56asjmwrlg"
+    },
+    {
+     "label": "Code de commerce",
+     "id": "cmrtnrxhu0000hg04ggz2lw0f"
+    },
+    {
+     "label": "Loi du 3 août 1955 sur les sociétés anonymes",
+     "id": "cmrtiwvt80000sa3z2kc7krwl"
+    },
+    {
+     "label": "Loi du 13 juillet 1956 sur les compagnies d’assurance",
+     "id": "cmrtix3ia0008sa3zg91rpcg3"
+    },
+    {
+     "label": "Décret du 28 août 1960 (régime spécial des sociétés anonymes)",
+     "id": "cmrtiwwuo0001sa3zovs1xgz4"
+    },
+    {
+     "label": "Loi du 17 août 1979 créant la Banque de la République d’Haïti (BRH)",
+     "id": "cmrtiw94r0001ue7edw6au9ca"
+    },
+    {
+     "label": "Décret du 17 mai 1995 sur la libéralisation des taux d’intérêt",
+     "id": "cmrtiwna3000hue7eew1lauci"
+    },
+    {
+     "label": "Décret du 29 septembre 2005 sur l’Impôt sur le Revenu",
+     "id": "cms43ptub00008lo8tv3y25kk"
+    },
+    {
+     "label": "Loi du 14 mai 2012 sur les banques et autres institutions financières",
+     "id": "cms18kwzl0002pt2kbk9kv39y"
+    }
+   ]
+  },
+  {
+   "anchor": "sec-6",
+   "articles": [],
+   "note": "Le Journal officiel ne comporte pas d’article 13 : la numérotation passe directement de l’article 12 à l’article 14 (Le Moniteur, Spécial N° 24 du 25 août 2020, p. 8). La lacune est celle du texte publié ; le chapitre compte donc les articles 6 à 12 et 14 à 15."
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2",
+  "art-3": "Article 3",
+  "art-4": "Article 4",
+  "art-5": "Article 5",
+  "art-6": "Article 6",
+  "art-7": "Article 7",
+  "art-8": "Article 8",
+  "art-9": "Article 9",
+  "art-10": "Article 10",
+  "art-11": "Article 11",
+  "art-12": "Article 12",
+  "art-14": "Article 14",
+  "art-15": "Article 15",
+  "art-16": "Article 16",
+  "art-17": "Article 17",
+  "art-18": "Article 18",
+  "art-19": "Article 19",
+  "art-20": "Article 20",
+  "art-21": "Article 21",
+  "art-22": "Article 22",
+  "art-23": "Article 23",
+  "art-24": "Article 24",
+  "art-25": "Article 25",
+  "art-26": "Article 26",
+  "art-27": "Article 27",
+  "art-28": "Article 28",
+  "art-29": "Article 29",
+  "art-30": "Article 30",
+  "art-31": "Article 31",
+  "art-32": "Article 32",
+  "art-33": "Article 33",
+  "art-34": "Article 34",
+  "art-35": "Article 35",
+  "art-36": "Article 36",
+  "art-37": "Article 37",
+  "art-38": "Article 38",
+  "art-39": "Article 39",
+  "art-40": "Article 40",
+  "art-41": "Article 41",
+  "art-42": "Article 42",
+  "art-43": "Article 43",
+  "art-44": "Article 44",
+  "art-45": "Article 45",
+  "art-46": "Article 46",
+  "art-47": "Article 47",
+  "art-48": "Article 48",
+  "art-49": "Article 49",
+  "art-50": "Article 50",
+  "art-51": "Article 51",
+  "art-52": "Article 52",
+  "art-53": "Article 53",
+  "art-54": "Article 54",
+  "art-55": "Article 55",
+  "art-56": "Article 56",
+  "art-57": "Article 57",
+  "art-58": "Article 58",
+  "art-59": "Article 59",
+  "art-60": "Article 60",
+  "art-61": "Article 61",
+  "art-62": "Article 62",
+  "art-63": "Article 63",
+  "art-64": "Article 64",
+  "art-65": "Article 65",
+  "art-66": "Article 66",
+  "art-67": "Article 67",
+  "art-68": "Article 68",
+  "art-69": "Article 69",
+  "art-70": "Article 70",
+  "art-71": "Article 71",
+  "art-72": "Article 72",
+  "art-73": "Article 73",
+  "art-74": "Article 74",
+  "art-75": "Article 75",
+  "art-76": "Article 76",
+  "art-77": "Article 77",
+  "art-78": "Article 78",
+  "art-79": "Article 79",
+  "art-80": "Article 80",
+  "art-81": "Article 81"
+ },
+ "connexe": {
+  "art-80": [
+   {
+    "label": "Circulaire BRH/IMF/2026/1 — Gestion du risque de crédit des institutions de microfinance",
+    "text": "Mesure d’application prise par la BRH en vertu du présent article.",
+    "docId": "cmqn0uy1q000013at67jc43f1"
+   },
+   {
+    "label": "Circulaire BRH/IMF/2026/2 — Exigences minimales de liquidité des institutions de microfinance",
+    "text": "Mesure d’application prise par la BRH en vertu du présent article.",
+    "docId": "cmqn0v5eo000113atdcveup4j"
+   },
+   {
+    "label": "Circulaire BRH/IMF/2026/3 — Exigences minimales de fonds propres des institutions de microfinance",
+    "text": "Mesure d’application prise par la BRH en vertu du présent article.",
+    "docId": "cmqn0vcqo000213atbxlip573"
+   }
+  ]
+ },
+ "commentaires": {},
+ "_commentaires_by_art": {
+  "art-35": [
+   "Note de transcription — la structure d’énumération de l’article 35 est reproduite telle qu’imprimée dans la source (p. 13) : la seconde série 1° à 3° s’insère à l’intérieur du 3°, tandis que les 4° à 6° reprennent la série principale."
+  ]
+ }
+}
