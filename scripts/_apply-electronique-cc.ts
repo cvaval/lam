@@ -165,6 +165,44 @@ async function main() {
   await reindexDocument(cc.id)
   console.log(`✓ Code civil : ${poses} article(s) réécrit(s), 4 pastilles « modifié », rédactions de 1825 repliées · ${secs}/${ann.toc.length} en-têtes intacts`)
 
+  // ══ LOI DE 2017 CONSOLIDÉE : rédaction ANTÉRIEURE des articles du Code civil réécrits ══
+  // Le lecteur de l'article 3 (« L'article 1111 du Code Civil se lit désormais comme suit… »)
+  // doit pouvoir voir CE QUE DISAIT l'article 1111 avant. Sans cela, seule la nouvelle
+  // rédaction figurait, et l'article 2 était le seul à porter un texte replié — d'où
+  // l'asymétrie relevée par la cliente.
+  {
+    const dl = await prisma.document.findFirst({ where: { source: 'LOI_SIGNATURE_ELECTRONIQUE_2017' }, select: { id: true, annotationsJson: true } })
+    if (!dl?.annotationsJson) throw new Error('loi de 2017 introuvable')
+    const al = JSON.parse(dl.annotationsJson) as Annotations & Record<string, any>
+    const cxl: Record<string, ConnexeBlock[]> = (al.connexe ??= {})
+    let n = 0
+    for (const [numLoi, numCc] of CASCADE) {
+      // La rédaction de 1825 a été conservée dans le Code civil au moment de l'overlay.
+      const brut = String(ann.oldVersions[`art-${numCc}`] ?? '')
+      const av1825 = brut.replace(/^Rédaction d’origine \(Code civil de 1825\)\s*:\s*/, '').trim()
+      if (!av1825) throw new Error(`rédaction de 1825 introuvable pour C. civ. ${numCc}`)
+      const bloc: ConnexeBlock = {
+        label: `Article ${numCc} du Code civil — rédaction antérieure`,
+        text: `Avant la présente loi, l’article ${numCc} du Code civil (rédaction de 1825) disposait :\n\n`
+          + `« ${av1825} »\n\n`
+          + `Le décret du 9 décembre 2015 avait déjà procédé à une réécriture voisine ; il est supplanté `
+          + `par la présente loi.`
+          + (numCc === '1102'
+            ? ' La rédaction en vigueur est celle que le décret du 20 août 2025 a donnée au présent article.'
+            : ''),
+        docId: cc.id,
+        anchor: `art-${numCc}`,
+      }
+      const liste: ConnexeBlock[] = (cxl[`art-${numLoi}`] ??= [])
+      const k = liste.findIndex((x) => x.label === bloc.label)
+      if (k >= 0) liste[k] = bloc
+      else { liste.push(bloc); n++ }
+    }
+    await prisma.document.update({ where: { id: dl.id }, data: { annotationsJson: JSON.stringify(al) } })
+    await reindexDocument(dl.id)
+    console.log(`✓ loi de 2017 : rédaction de 1825 repliée sous les art. 1 à 4 (C. civ. 1101, 1102, 1111, 1112) — ${n} posé(s)`)
+  }
+
   // ══ Recâblage : article 30 du décret-loi de 1969 sur le notariat ══
   const not = await prisma.document.findFirst({ where: { source: 'DECRET_LOI_NOTARIAT_1969' }, select: { id: true, annotationsJson: true } })
   if (not?.annotationsJson) {
