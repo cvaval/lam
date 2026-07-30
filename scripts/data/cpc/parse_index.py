@@ -63,30 +63,35 @@ def main():
     valides = {k.replace('art-', '') for k in struct['labels']}
     ps = paragraphes()
 
+    # Structure : une SOUS-ENTRÉE commence par un tiret ; tout le reste est une VEDETTE.
+    #   Absence – Absent                                        ← vedette
+    #   – Communication au Ministère public, article 86 du Code; ← sous-entrée
+    #   Acquiescement, article 416 du Code;                     ← vedette portant son renvoi
+    SOUS = re.compile(r'^[–—-]\s+')
     index, vedette = {}, None
-    n_lignes = n_sous = 0
+    n_ved = n_sous = 0
     for p in ps:
-        if APPARAT.match(p) or len(p) < 3:
+        if APPARAT.match(p) or len(p) < 3 or (len(p) <= 2 and p.isalpha()):
             continue
-        # Une vedette n'a pas de renvoi sur sa propre ligne ; une sous-entrée en a un.
-        nums = numeros(p, valides)
-        # Sujet : ce qui précède le premier renvoi
-        m = RENVOI.search(p)
-        sujet = (p[: m.start()] if m else p).strip(' ,;:.—–-')
-        if not nums:
-            # ligne sans renvoi au Code : vedette d'accroche (ou renvoi hors Code)
-            if len(p) < 90 and not re.search(r'\bvoir\b', p, re.I):
-                vedette = p.strip(' ,;:.')
-            continue
-        n_lignes += 1
-        if sujet and vedette and sujet != vedette:
-            libelle = f'{vedette} — {sujet}'
+        est_sous = bool(SOUS.match(p))
+        ligne = SOUS.sub('', p).strip()
+        nums = numeros(ligne, valides)
+        m = RENVOI.search(ligne)
+        # Sujet = ce qui précède le premier renvoi, débarrassé des renvois hors Code
+        sujet = (ligne[: m.start()] if m else ligne)
+        sujet = re.split(r',\s*(?:Appendice|d[ée]cret du|loi du|jurisprudence)\b', sujet, 1, re.I)[0]
+        sujet = re.sub(r'\s*,?\s*voir\b.*$', '', sujet, flags=re.I).strip(' ,;:.—–-')
+        if est_sous:
+            if not nums or not vedette:
+                continue
             n_sous += 1
+            index.setdefault(f'{vedette} — {sujet}' if sujet else vedette, set()).update(nums)
         else:
-            libelle = sujet or vedette or ''
-        if not libelle:
-            continue
-        index.setdefault(libelle, set()).update(nums)
+            if sujet:
+                vedette = sujet
+            if nums and vedette:
+                n_ved += 1
+                index.setdefault(vedette, set()).update(nums)
 
     def cle(n):
         a, _, b = n.partition('-')
@@ -101,7 +106,7 @@ def main():
     print(f'entrées d’index    : {len(sortie)}')
     print(f'renvois au Code    : {refs} · {len(couv)}/{len(valides)} articles couverts')
     print(f'renvois morts      : {len(morts)} {"✓" if not morts else morts[:8]}')
-    print(f'dont sous-entrées  : {n_sous}')
+    print(f'vedettes portant un renvoi : {n_ved} · sous-entrées : {n_sous}')
     print(f'\n→ {DIR}/index.json')
 
 

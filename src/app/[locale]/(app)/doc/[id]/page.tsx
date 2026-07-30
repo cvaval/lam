@@ -57,6 +57,8 @@ const HIDE_INLINE_INDEX_SOURCES = new Set([
   'DECRET_SIGNATURE_ELECTRONIQUE_2015',
   // Circulaires BRH au lecteur annoté : divisions numérotées « N.- » (pointAnchors).
   'CIRC_BRH_105_2', 'CIRC_BRH_117_1',
+  // Code de procédure civile : renvois internes « article N » (anti-lien-mort).
+  'CODE_PROCEDURE_CIVILE',
 ])
 const ART_REFS_SOURCES = new Set([
   'CODE_PENAL_ANNOTE', 'CODE_DOUANES_ANNOTE', 'DECRET_REGIMES_MATRIMONIAUX', 'LOI_FILIATION_2014',
@@ -72,6 +74,8 @@ const ART_REFS_SOURCES = new Set([
   'DECRET_SIGNATURE_ELECTRONIQUE_2015',
   // Circulaires BRH au lecteur annoté : divisions numérotées « N.- » (pointAnchors).
   'CIRC_BRH_105_2', 'CIRC_BRH_117_1',
+  // Code de procédure civile : renvois internes « article N » (anti-lien-mort).
+  'CODE_PROCEDURE_CIVILE',
 ])
 
 export default async function DocPage({
