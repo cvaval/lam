@@ -1,0 +1,1 @@
+{"compilerOptions":{"jsx":"react-jsx","jsxImportSource":"react","esModuleInterop":true,"module":"esnext","target":"es2022","moduleResolution":"bundler","paths":{"@/*":["./src/*"]},"baseUrl":"."}}

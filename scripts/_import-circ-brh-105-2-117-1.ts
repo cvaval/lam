@@ -146,9 +146,11 @@ const CIRCS = [
       ],
       'art-6-2': [
         {
-          label: 'Circulaire BRH n° 129 — Mesures préventives LBC/FT',
+          // Renvoyer au texte EN VIGUEUR : la circulaire 129 a été abrogée par la 129-1 le
+          // 2 mars 2026. Pointer la 129 laissait croire à un dispositif encore applicable.
+          label: 'Circulaire BRH n° 129-1 — Mesures préventives LBC/FT (remplace la circulaire 129 depuis le 2 mars 2026)',
           text: "Dispositif de lutte contre le blanchiment que le cadre organisationnel doit comporter.",
-          docId: C129,
+          docId: C129_1,
         },
       ],
       'art-10': [
@@ -234,6 +236,22 @@ async function main() {
     const found = new Set((await prisma.document.findMany({ where: { id: { in: linked } }, select: { id: true } })).map((d) => d.id))
     const orphanLinks = linked.filter((id) => !found.has(id))
     if (orphanLinks.length) throw new Error(`${c.number} : liens morts ${orphanLinks.join(', ')} — annulé`)
+
+    // Un renvoi vers un texte ABROGÉ doit le DIRE, sinon le lecteur croit la règle
+    // applicable. Constat de contrôle : le bloc « § 6.2 » de la 117-1 pointait la
+    // circulaire 129, abrogée entre-temps par la 129-1, sans le mentionner.
+    const cibles = await prisma.document.findMany({
+      where: { id: { in: linked }, status: 'ABROGE' },
+      select: { id: true, number: true, abrogatedByNumber: true },
+    })
+    const muets = Object.values(c.connexe ?? {})
+      .flat()
+      .filter((b: any) => {
+        const t = cibles.find((x) => x.id === b.docId)
+        return t && !/abrog|remplac|antérieur/i.test(`${b.label ?? ''} ${b.text ?? ''}`)
+      })
+      .map((b: any) => b.label)
+    if (muets.length) throw new Error(`${c.number} : renvoi vers un texte ABROGÉ sans le dire — ${muets.join(' | ')} — annulé`)
 
     console.log(
       `✓ ${c.number} : sommaire ${secs.length} · divisions ${arts.length} · index ${raw.length} · ` +
