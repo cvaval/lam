@@ -1,4 +1,4 @@
-# Prompt — Code de procédure civile d'Haïti (édition annotée Pierre Marie Michel)
+# Prompt — Code de procédure civile d'Haïti
 
 > Cahier des charges de téléversement. Rédigé après analyse des trois documents fournis et
 > **audit du corpus en production** : qui cite le CPC, sous quelles formes, et combien de fois.
@@ -9,9 +9,14 @@
 
 | | |
 |---|---|
-| Fichier | `CPC_cumule_corrige.docx` — **1 634 642 caractères**, 10 839 paragraphes |
-| Édition | annotée, **Pierre Marie Michel** |
+| Texte | **Voté par la Chambre Législative le 17 septembre 1963 · promulgué le 17 janvier 1964** |
+| Transcription | `CPC_cumule_corrige.docx` — **1 634 642 caractères**, 10 839 paragraphes |
+| Second témoin | `Code_procedure_civile-pdf.pdf` — scan de 567 pages, couche texte exploitable |
 | Comparaison | Code civil 692 Ko · Code de commerce 289 Ko · **CPC 1,6 Mo** |
+
+⚠️ **Ne pas faire figurer de mention d'édition, d'éditeur ni d'annotateur** dans les
+métadonnées du document publié (`titleFr`, `summaryFr`, `moniteurRef`) : la plateforme
+publie le TEXTE de loi, voté et promulgué aux dates ci-dessus, non une édition commerciale.
 
 ### Trois parties, à ne pas confondre
 
@@ -24,7 +29,7 @@
 Charpente du Code : **10 Livres · 122 Titres · 89 Chapitres · 75 Sections**, sur
 **7 niveaux** de subdivision (570 divisions au total, d'après le sommaire).
 
-✅ **997 articles, série complète, sans lacune** — conforme au sommaire de l'auteur. Les
+✅ **997 articles, série complète, sans lacune** — conforme au sommaire fourni. Les
 14 articles qui semblaient manquer portent une mention de modification entre parenthèses
 avant le tiret (§2 bis).
 
@@ -74,7 +79,7 @@ Article 813 (D. 29 mai 1968).- Toute personne qui, dans la vie publique ou priv�
 ```
 
 Avec la tête `^Article N (…)?\.-`, le compte est de **997 / 997, sans lacune** — conforme au
-sommaire de l'auteur.
+sommaire fourni.
 
 Mieux : ces 14 articles sont **exactement les articles amendés du Code**, et le texte les
 désigne lui-même. Ils doivent recevoir la pastille « modifié », le texte modificateur nommé :
@@ -91,7 +96,7 @@ et le nom du texte modificateur suffisent.
 
 ### b) Les références au Code français sont RETIRÉES
 
-L'édition imprimée porte deux appareils de concordance, mêlés dans les mêmes lignes :
+La transcription porte deux appareils de concordance, mêlés dans les mêmes lignes :
 
 | | Exemple | Sort |
 |---|---|---|
@@ -116,6 +121,28 @@ sert à retrouver un article cité sous son ancien numéro dans la doctrine et l
 antérieurs à la renumérotation. La retirer aussi est un mot à changer dans la règle — dites-le
 si vous le préférez.
 
+### c) Le scan confirme la transcription — et sert de second témoin
+
+Le PDF de 567 pages porte une couche texte exploitable. Confronté au `.docx` :
+
+| | Résultat |
+|---|---|
+| Articles du Code repérés dans le scan | **996 / 997** au motif automatique |
+| Article 726 | présent, mais imprimé `Article 726 L.12 sept 1966).-` — parenthèse ouvrante perdue par l'OCR |
+| Article 10 | tête perdue au saut de colonne ; ses **six alinéas sont présents à 100 % des mots** |
+| Articles 18, 266, 436, 585, 590 | présents ; artefacts d'OCR (mots collés `Article436.-Toutautre`, espace parasite `Article 266. - `) |
+
+**Conclusion : rien ne manque, ni dans la transcription, ni dans le scan.**
+
+Le scan est en **deux colonnes avec notes de marge** : `Art 7 fr` et `Anc art 6` figurent
+dans la marge gauche, matériellement séparés du texte normatif. Cela **confirme** que ces
+renvois sont un appareil de concordance et non du texte de loi — le retrait des références
+françaises (§2 bis b) porte donc bien sur de l'apparat.
+
+⚠️ **Garder le PDF comme second témoin** pour arbitrer les coquilles du `.docx` au moment
+de l'import, comme la compilation notariale l'a permis pour le décret de 1969. Deux
+transcriptions indépendantes du même texte valent mieux qu'une relecture à l'aveugle.
+
 ---
 
 ## 3. Travail demandé
@@ -124,6 +151,11 @@ si vous le préférez.
 
 Source `CODE_PROCEDURE_CIVILE`, type `LEGISLATION`, format « lecteur annoté ».
 Corps = les Livres I à X. L'**Appendice** et la **Jurisprudence** : voir §5.
+
+Métadonnées : `titleFr` = « Code de procédure civile d'Haïti » ; `number` = « Code de
+procédure civile » ; `publicationDate` = **1964-01-17** (promulgation) ; le vote du
+**17 septembre 1963** est mentionné dans le résumé. **Aucune mention d'édition, d'éditeur
+ni d'annotateur** (§1).
 
 ### Lot B — Renvois INTERNES au CPC ⚠️ *demande explicite*
 
@@ -251,6 +283,8 @@ jurisprudence. Trois lots successifs valent mieux qu'un import de 1,6 Mo non vé
 - [ ] Vocabulaire des statuts inchangé — `npx tsx scripts/_audit-statuts.ts` : 0 écart.
 - [ ] Recherche : « saisie-arrêt », « juge de paix », « exploit », « péremption d'instance »
       remontent le CPC.
+- [ ] Aucune mention d'édition, d'éditeur ou d'annotateur dans `titleFr`, `summaryFr`,
+      `moniteurRef` ni dans le corps.
 - [ ] Idempotence : chaque script relancé deux fois ne produit ni doublon ni écart.
 
 ---
