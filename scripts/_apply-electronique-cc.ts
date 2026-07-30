@@ -43,6 +43,19 @@ function redactionCitee(texteLoi: string, numCc: string): string {
     .trim()
 }
 
+/** Comparaison de fond : casse, accents, apostrophes et espaces neutralisés. */
+function dur(x: string): string {
+  return x.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[’']/g, "'").replace(/\s+/g, ' ').trim()
+}
+
+/**
+ * Chaîne des rédactions successives d'un article du Code civil.
+ * La DERNIÈRE prévaut (elle est le corps de l'article) ; les précédentes sont repliées,
+ * dans l'ordre chronologique, chacune sous son texte modificateur.
+ */
+interface Etat { source: string; texte: string }
+
 async function main() {
   const textes = JSON.parse(readFileSync(`${DIR}/textes.json`, 'utf8')) as {
     'loi-2017-signature': { consolide: { num: string; text: string }[] }
@@ -51,6 +64,18 @@ async function main() {
 
   const nouvelles = new Map<string, string>()
   for (const [numLoi, numCc] of CASCADE) nouvelles.set(numCc, redactionCitee(loi[numLoi], numCc))
+
+  // États intermédiaires : décret de 2015 (articles 1 à 4) et rédaction de la loi de 2017
+  // AVANT le décret de 2025 (conservée par l'extracteur sous « anciennes »).
+  const t15 = JSON.parse(readFileSync(`${DIR}/textes.json`, 'utf8'))['decret-2015-signature'] as { articles: { num: string; text: string }[] }
+  const a15 = Object.fromEntries(t15.articles.map((a) => [a.num, a.text]))
+  const anc17 = (JSON.parse(readFileSync(`${DIR}/textes.json`, 'utf8'))['loi-2017-signature'] as { anciennes: Record<string, string> }).anciennes
+  const v2015: Record<string, string> = {}
+  const v2017: Record<string, string> = {}
+  for (const [numLoi, numCc] of CASCADE) {
+    if (a15[numLoi]) v2015[numCc] = redactionCitee(a15[numLoi], numCc)
+    if (anc17[numLoi]) v2017[numCc] = redactionCitee(anc17[numLoi], numCc)
+  }
 
   // ── Sentinelles : chaînes relevées à la main dans la loi et le décret de 2025 ──
   const SENT: [string, string][] = [
@@ -103,16 +128,41 @@ async function main() {
     }
 
     ann.status[`art-${numCc}`] = 'modifié'
-    if (!ann.oldVersions[`art-${numCc}`]) ann.oldVersions[`art-${numCc}`] = `Rédaction d’origine (Code civil de 1825) :\n${ancien.trim()}`
+
+    // ── Chaîne des amendements : 1825 → décret de 2015 → loi de 2017 → décret de 2025 ──
+    // Le texte de 1825 est celui déjà relevé au premier passage (il ne doit jamais être
+    // écrasé par un état postérieur) ; les états suivants sont lus dans leur texte source.
+    const brut1825 = String(ann.oldVersions[`art-${numCc}`] ?? '')
+    const texte1825 = brut1825.startsWith('Rédaction')
+      ? brut1825.replace(/^[^:]*:\s*/, '').split('\n\n')[0].trim()
+      : (brut1825 || ancien).trim()
+    const etats: Etat[] = [{ source: 'Rédaction d’origine (Code civil de 1825)', texte: texte1825 }]
+    if (v2015[numCc]) etats.push({ source: 'Rédaction issue du décret du 9 décembre 2015', texte: v2015[numCc] })
+    if (numCc === '1102' && v2017[numCc]) etats.push({ source: 'Rédaction issue de la loi du 14 février 2017', texte: v2017[numCc] })
+    // Dédoublonnage : deux textes successifs identiques au fond ne font qu'un état
+    // (C. civ. 1112 : les rédactions de 2015 et de 2017 sont les mêmes).
+    const chaine: Etat[] = []
+    for (const e of etats) if (!chaine.length || dur(chaine[chaine.length - 1].texte) !== dur(e.texte)) chaine.push(e)
+    if (dur(chaine[chaine.length - 1].texte) === dur(nouveau)) chaine.pop() // pas d'état égal à celui en vigueur
+    ann.oldVersions[`art-${numCc}`] = chaine.map((e) => `${e.source} :\n${e.texte}`).join('\n\n')
+    // Historique des amendements, énoncé : le lecteur doit voir COMBIEN de fois l'article a
+    // été réécrit et PAR QUOI, la dernière rédaction étant celle qui prévaut.
+    const jalons = [
+      'Rédaction d’origine : Code civil de 1825.',
+      v2015[numCc] ? `1ᵉʳ amendement : décret du 9 décembre 2015, art. ${numLoi} — texte supplanté depuis.` : '',
+      numCc === '1102' && v2017[numCc]
+        ? `2ᵉ amendement : loi du 14 février 2017, art. ${numLoi} (conditions « fixées par la loi »).`
+        : `Amendement en vigueur : loi du 14 février 2017, art. ${numLoi}.`,
+      numCc === '1102'
+        ? '3ᵉ amendement, EN VIGUEUR : décret du 20 août 2025 — les conditions de l’acte authentique '
+          + 'électronique sont désormais fixées par l’Arrêté d’application, et non plus « par la loi ».'
+        : '',
+    ].filter(Boolean)
     const bloc: ConnexeBlock = {
-      label: 'Loi du 14 février 2017 sur la signature électronique',
-      text: `Article réécrit par l’article ${numLoi} de la loi du 14 février 2017, qui adapte le droit de la preuve `
-        + `aux technologies de l’information.`
-        + (numCc === '1102'
-          ? ' Cette rédaction est celle que lui a donnée le décret du 20 août 2025 : les conditions de l’acte '
-            + 'authentique électronique sont désormais fixées par l’Arrêté d’application, et non plus « par la loi ».'
-          : '')
-        + ' Le décret du 9 décembre 2015 avait déjà procédé à la même réécriture ; il est supplanté par la loi de 2017.',
+      label: `Historique des amendements — article ${numCc} du Code civil`,
+      text: `Cet article a connu ${chaine.length + 1} rédactions successives. La dernière prévaut ; `
+        + `les précédentes sont consultables ci-dessus, dans l’ordre chronologique.\n\n`
+        + jalons.map((x) => `· ${x}`).join('\n'),
       docId: loi2017.id,
       anchor: `art-${numLoi}`,
     }
