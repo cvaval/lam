@@ -1,0 +1,423 @@
+{
+ "points": [
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "9.1",
+  "9.2",
+  "9.3",
+  "9.4",
+  "9.5",
+  "10",
+  "11",
+  "12"
+ ],
+ "labels": {
+  "art-1": "Point 1",
+  "art-2": "Point 2",
+  "art-3": "Point 3",
+  "art-4": "Point 4",
+  "art-5": "Point 5",
+  "art-6": "Point 6",
+  "art-7": "Point 7",
+  "art-8": "Point 8",
+  "art-9": "Point 9",
+  "art-9-1": "Point 9.1",
+  "art-9-2": "Point 9.2",
+  "art-9-3": "Point 9.3",
+  "art-9-4": "Point 9.4",
+  "art-9-5": "Point 9.5",
+  "art-10": "Point 10",
+  "art-11": "Point 11",
+  "art-12": "Point 12"
+ },
+ "toc": [
+  {
+   "level": 1,
+   "label": "ANNEXE 1",
+   "anchor": "sec-1",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "A) SPÉCIFICATIONS POUR LE TRANSFERT DES FICHIERS",
+   "anchor": "sec-2",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "1. INTRODUCTION",
+   "anchor": "sec-3",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "2. CONNECTIVITÉ SFTP",
+   "anchor": "sec-4",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "3. PROCESSUS DE TRANSMISSION",
+   "anchor": "sec-5",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "4. RÉPERTOIRES",
+   "anchor": "sec-6",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "ANNEXE 2",
+   "anchor": "sec-7",
+   "kind": "code"
+  },
+  {
+   "level": 2,
+   "label": "B) SPÉCIFICATIONS DES FICHIERS DE COLLECTE DE DONNÉES",
+   "anchor": "sec-8",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "1. Entreprise/Responsable/Actionnaire/Crédit",
+   "anchor": "sec-9",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "2. Individu/Emploi/Crédit",
+   "anchor": "sec-10",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "3. Crédit/Garantie",
+   "anchor": "sec-11",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "4. Crédit/Activité",
+   "anchor": "sec-12",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "5. Entreprise/Chèques retournés pour insuffisance de fonds",
+   "anchor": "sec-13",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "6. Individu/Chèques retournés pour insuffisance de fonds",
+   "anchor": "sec-14",
+   "kind": "code"
+  },
+  {
+   "level": 1,
+   "label": "ANNEXE 3",
+   "anchor": "sec-15",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Tableau 1 – Secteur d’activités",
+   "anchor": "sec-16",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Tableau 2 – Liste des communes",
+   "anchor": "sec-17",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Tableau 3 – Liste des pays",
+   "anchor": "sec-18",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Tableau 4 – Forme juridique",
+   "anchor": "sec-19",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Tableau 5 – Type de sûreté",
+   "anchor": "sec-20",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Tableau 6 – Nature de la garantie",
+   "anchor": "sec-21",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Tableau 7 – Liste des codes postaux",
+   "anchor": "sec-22",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Tableau 8.- Liste des professions",
+   "anchor": "sec-23",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Tableau 9 – Liste des codes sur le statut des crédits",
+   "anchor": "sec-24",
+   "kind": "code"
+  },
+  {
+   "level": 3,
+   "label": "Tableau 10 – Responsabilité envers le crédit",
+   "anchor": "sec-25",
+   "kind": "code"
+  }
+ ],
+ "navToc": [
+  {
+   "label": "Circulaire BRH n° 105-2",
+   "anchor": "art-1",
+   "children": [
+    {
+     "label": "1.- Dans le cadre de la présente circulaire, on entend par",
+     "anchor": "art-1",
+     "children": []
+    },
+    {
+     "label": "2.- Les institutions financières sont tenues de transmettre au BIC, au plus ta",
+     "anchor": "art-2",
+     "children": []
+    },
+    {
+     "label": "3.- Les institutions financières tirées sont tenues de notifier automatiquemen",
+     "anchor": "art-3",
+     "children": []
+    },
+    {
+     "label": "4.- Les informations requises dans le cadre de la présente circulaire doivent",
+     "anchor": "art-4",
+     "children": []
+    },
+    {
+     "label": "5.- Les institutions financières doivent en outre",
+     "anchor": "art-5",
+     "children": []
+    },
+    {
+     "label": "6.- Toutes les institutions financières sont tenues de soumettre des informati",
+     "anchor": "art-6",
+     "children": []
+    },
+    {
+     "label": "7.- À compter du 15 octobre 2025, les institutions financières doivent obtenir",
+     "anchor": "art-7",
+     "children": []
+    },
+    {
+     "label": "8.- Il est fait obligation à toutes les institutions financières de consulter",
+     "anchor": "art-8",
+     "children": []
+    },
+    {
+     "label": "9.- En cas de non-respect des dispositions de la présente circulaire, les inst",
+     "anchor": "art-9",
+     "children": [
+      {
+       "label": "9.1.- Retard de transmission",
+       "anchor": "art-9-1",
+       "children": []
+      },
+      {
+       "label": "9.2.- Retard de correction",
+       "anchor": "art-9-2",
+       "children": []
+      },
+      {
+       "label": "9.3.- Absence de rapports de crédit",
+       "anchor": "art-9-3",
+       "children": []
+      },
+      {
+       "label": "9.4.- Absence de consentement au partage d’information",
+       "anchor": "art-9-4",
+       "children": []
+      },
+      {
+       "label": "9.5.- Autres infractions",
+       "anchor": "art-9-5",
+       "children": []
+      }
+     ]
+    },
+    {
+     "label": "10.- Toute amende sera automatiquement prélevée sur l’un des comptes à la BRH d",
+     "anchor": "art-10",
+     "children": []
+    },
+    {
+     "label": "11.- Toute institution nouvellement affiliée au BIC bénéficie d’une période de",
+     "anchor": "art-11",
+     "children": []
+    },
+    {
+     "label": "12.- La présente circulaire abroge la circulaire 105-1 en date du 3 avril 2017",
+     "anchor": "art-12",
+     "children": []
+    }
+   ]
+  },
+  {
+   "label": "Annexes",
+   "anchor": "sec-1",
+   "children": [
+    {
+     "label": "ANNEXE 1",
+     "anchor": "sec-1",
+     "children": [
+      {
+       "label": "A) SPÉCIFICATIONS POUR LE TRANSFERT DES FICHIERS",
+       "anchor": "sec-2",
+       "children": [
+        {
+         "label": "1. INTRODUCTION",
+         "anchor": "sec-3",
+         "children": []
+        },
+        {
+         "label": "2. CONNECTIVITÉ SFTP",
+         "anchor": "sec-4",
+         "children": []
+        },
+        {
+         "label": "3. PROCESSUS DE TRANSMISSION",
+         "anchor": "sec-5",
+         "children": []
+        },
+        {
+         "label": "4. RÉPERTOIRES",
+         "anchor": "sec-6",
+         "children": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "ANNEXE 2",
+     "anchor": "sec-7",
+     "children": [
+      {
+       "label": "B) SPÉCIFICATIONS DES FICHIERS DE COLLECTE DE DONNÉES",
+       "anchor": "sec-8",
+       "children": [
+        {
+         "label": "1. Entreprise/Responsable/Actionnaire/Crédit",
+         "anchor": "sec-9",
+         "children": []
+        },
+        {
+         "label": "2. Individu/Emploi/Crédit",
+         "anchor": "sec-10",
+         "children": []
+        },
+        {
+         "label": "3. Crédit/Garantie",
+         "anchor": "sec-11",
+         "children": []
+        },
+        {
+         "label": "4. Crédit/Activité",
+         "anchor": "sec-12",
+         "children": []
+        },
+        {
+         "label": "5. Entreprise/Chèques retournés pour insuffisance de fonds",
+         "anchor": "sec-13",
+         "children": []
+        },
+        {
+         "label": "6. Individu/Chèques retournés pour insuffisance de fonds",
+         "anchor": "sec-14",
+         "children": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "ANNEXE 3",
+     "anchor": "sec-15",
+     "children": [
+      {
+       "label": "Tableau 1 – Secteur d’activités",
+       "anchor": "sec-16",
+       "children": [
+        {
+         "label": "Tableau 2 – Liste des communes",
+         "anchor": "sec-17",
+         "children": []
+        },
+        {
+         "label": "Tableau 3 – Liste des pays",
+         "anchor": "sec-18",
+         "children": []
+        },
+        {
+         "label": "Tableau 4 – Forme juridique",
+         "anchor": "sec-19",
+         "children": []
+        },
+        {
+         "label": "Tableau 5 – Type de sûreté",
+         "anchor": "sec-20",
+         "children": []
+        },
+        {
+         "label": "Tableau 6 – Nature de la garantie",
+         "anchor": "sec-21",
+         "children": []
+        },
+        {
+         "label": "Tableau 7 – Liste des codes postaux",
+         "anchor": "sec-22",
+         "children": []
+        },
+        {
+         "label": "Tableau 8.- Liste des professions",
+         "anchor": "sec-23",
+         "children": []
+        },
+        {
+         "label": "Tableau 9 – Liste des codes sur le statut des crédits",
+         "anchor": "sec-24",
+         "children": []
+        },
+        {
+         "label": "Tableau 10 – Responsabilité envers le crédit",
+         "anchor": "sec-25",
+         "children": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

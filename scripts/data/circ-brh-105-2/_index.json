@@ -1,0 +1,858 @@
+[
+ {
+  "subject": "Abrogation de la circulaire 105-1 du 3 avril 2017",
+  "ctRefs": [
+   "12"
+  ]
+ },
+ {
+  "subject": "Abréviations des types de crédit (PT, LC, MC, CC, MCL)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 1 — Entreprise/Responsable/Actionnaire/Crédit",
+    "anchor": "sec-9"
+   },
+   {
+    "label": "Annexe 2, fichier 2 — Individu/Emploi/Crédit",
+    "anchor": "sec-10"
+   }
+  ]
+ },
+ {
+  "subject": "Absence de consentement au partage d'information",
+  "ctRefs": [
+   "9-4"
+  ]
+ },
+ {
+  "subject": "Absence de rapport de crédit constatée en inspection",
+  "ctRefs": [
+   "9-3"
+  ]
+ },
+ {
+  "subject": "Actionnaires (données collectées)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 1 — Entreprise/Responsable/Actionnaire/Crédit",
+    "anchor": "sec-9"
+   }
+  ]
+ },
+ {
+  "subject": "Affiliation au BIC",
+  "ctRefs": [
+   "1",
+   "11"
+  ]
+ },
+ {
+  "subject": "Aggravation au-delà du quinzième jour du mois",
+  "ctRefs": [
+   "9-1"
+  ]
+ },
+ {
+  "subject": "Amende de cent cinquante mille gourdes (HTG 150 000) par jour",
+  "ctRefs": [
+   "9-1"
+  ]
+ },
+ {
+  "subject": "Amende de cent mille gourdes (HTG 100 000) par jour",
+  "ctRefs": [
+   "9-1"
+  ]
+ },
+ {
+  "subject": "Amende de cinquante mille gourdes (HTG 50 000) par jour",
+  "ctRefs": [
+   "9-1",
+   "9-2"
+  ]
+ },
+ {
+  "subject": "Amende de deux cent mille gourdes (HTG 200 000) par cas",
+  "ctRefs": [
+   "9-3",
+   "9-4",
+   "9-5"
+  ]
+ },
+ {
+  "subject": "Amende de soixante-quinze mille gourdes (HTG 75 000) par jour",
+  "ctRefs": [
+   "9-1"
+  ]
+ },
+ {
+  "subject": "Amende de vingt-cinq mille gourdes (HTG 25 000) par jour",
+  "ctRefs": [
+   "9-2"
+  ]
+ },
+ {
+  "subject": "Attribution des moyens de paiement",
+  "ctRefs": [
+   "8"
+  ]
+ },
+ {
+  "subject": "Authentification et registre des accès (log)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 1, §3 — Processus de transmission",
+    "anchor": "sec-5"
+   }
+  ]
+ },
+ {
+  "subject": "Autres infractions (cessation immédiate de la pratique)",
+  "ctRefs": [
+   "9-5"
+  ]
+ },
+ {
+  "subject": "Bonnes pratiques internationales",
+  "ctRefs": [
+   "5"
+  ]
+ },
+ {
+  "subject": "Bureau d'Information sur le Crédit (BIC)",
+  "ctRefs": [
+   "1",
+   "2",
+   "3"
+  ],
+  "secRefs": [
+   {
+    "label": "Annexe 1",
+    "anchor": "sec-1"
+   }
+  ]
+ },
+ {
+  "subject": "Bureaux de crédit habilités en Haïti ou à l'étranger",
+  "ctRefs": [
+   "7"
+  ]
+ },
+ {
+  "subject": "Carte d'identification nationale (CIN)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 1 — Entreprise/Responsable/Actionnaire/Crédit",
+    "anchor": "sec-9"
+   },
+   {
+    "label": "Annexe 2, fichier 2 — Individu/Emploi/Crédit",
+    "anchor": "sec-10"
+   }
+  ]
+ },
+ {
+  "subject": "Chèques retournés pour insuffisance de fonds",
+  "ctRefs": [
+   "3"
+  ],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 5 — Entreprise/Chèques retournés",
+    "anchor": "sec-13"
+   },
+   {
+    "label": "Annexe 2, fichier 6 — Individu/Chèques retournés",
+    "anchor": "sec-14"
+   }
+  ]
+ },
+ {
+  "subject": "Classification des prêts (courant, à signaler, faible, douteux, perte, fermé)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 1 — Entreprise/Responsable/Actionnaire/Crédit",
+    "anchor": "sec-9"
+   },
+   {
+    "label": "Annexe 3, tableau 9 — Statuts de crédit",
+    "anchor": "sec-24"
+   }
+  ]
+ },
+ {
+  "subject": "Clause de consentement dans le contrat de crédit",
+  "ctRefs": [
+   "7"
+  ]
+ },
+ {
+  "subject": "Client décédé, relation terminée, effacement du client",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 3, tableau 10 — Responsabilité envers le crédit",
+    "anchor": "sec-25"
+   }
+  ]
+ },
+ {
+  "subject": "Codes postaux",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 3, tableau 7 — Codes postaux",
+    "anchor": "sec-22"
+   }
+  ]
+ },
+ {
+  "subject": "Communes (codes IHSI)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 3, tableau 2 — Communes",
+    "anchor": "sec-17"
+   }
+  ]
+ },
+ {
+  "subject": "Consentement signé de l'emprunteur",
+  "ctRefs": [
+   "7",
+   "9-4"
+  ]
+ },
+ {
+  "subject": "Conservation d'une copie du rapport de crédit",
+  "ctRefs": [
+   "8"
+  ]
+ },
+ {
+  "subject": "Consultation obligatoire du rapport de crédit",
+  "ctRefs": [
+   "8",
+   "9-3"
+  ]
+ },
+ {
+  "subject": "Coopératives d'épargne et de crédit (CEC)",
+  "ctRefs": [
+   "1"
+  ]
+ },
+ {
+  "subject": "Correction des renseignements erronés (cinq jours ouvrables)",
+  "ctRefs": [
+   "5",
+   "9-2"
+  ]
+ },
+ {
+  "subject": "Crédit solidaire et responsabilité commerciale",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 3, tableau 10 — Responsabilité envers le crédit",
+    "anchor": "sec-25"
+   }
+  ]
+ },
+ {
+  "subject": "Date d'octroi, date de maturité et périodicité",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 1 — Entreprise/Responsable/Actionnaire/Crédit",
+    "anchor": "sec-9"
+   }
+  ]
+ },
+ {
+  "subject": "Date du 15 octobre 2025 (consentement et entrée en vigueur)",
+  "ctRefs": [
+   "7",
+   "12"
+  ]
+ },
+ {
+  "subject": "Données de référence (nomenclatures)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 3",
+    "anchor": "sec-15"
+   }
+  ]
+ },
+ {
+  "subject": "Durée du consentement (jusqu'à extinction des obligations)",
+  "ctRefs": [
+   "7"
+  ]
+ },
+ {
+  "subject": "Délai du dix (10) de chaque mois",
+  "ctRefs": [
+   "2",
+   "3"
+  ]
+ },
+ {
+  "subject": "Engagements de bilan et hors-bilan",
+  "ctRefs": [
+   "2"
+  ]
+ },
+ {
+  "subject": "Entrée en vigueur au 15 octobre 2025",
+  "ctRefs": [
+   "12"
+  ]
+ },
+ {
+  "subject": "Exactitude et exhaustivité des informations",
+  "ctRefs": [
+   "6"
+  ]
+ },
+ {
+  "subject": "Fichier credit_activite (crédit et activité)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 4 — Crédit/Activité",
+    "anchor": "sec-12"
+   }
+  ]
+ },
+ {
+  "subject": "Fichier credit_surete (crédit et garanties)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 3 — Crédit/Garantie",
+    "anchor": "sec-11"
+   }
+  ]
+ },
+ {
+  "subject": "Fichier ent_cheque (chèques des entreprises)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 5 — Entreprise/Chèques retournés",
+    "anchor": "sec-13"
+   }
+  ]
+ },
+ {
+  "subject": "Fichier ent_resp_act_credit (entreprise, responsable, actionnaire, crédit)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 1 — Entreprise/Responsable/Actionnaire/Crédit",
+    "anchor": "sec-9"
+   }
+  ]
+ },
+ {
+  "subject": "Fichier ind_cheque (chèques des individus)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 6 — Individu/Chèques retournés",
+    "anchor": "sec-14"
+   }
+  ]
+ },
+ {
+  "subject": "Fichier ind_emp_credit (individu, emploi, crédit)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 2 — Individu/Emploi/Crédit",
+    "anchor": "sec-10"
+   }
+  ]
+ },
+ {
+  "subject": "Filiale de banque (définition)",
+  "ctRefs": [
+   "1",
+   "9-1",
+   "9-2"
+  ]
+ },
+ {
+  "subject": "Format électronique des transmissions",
+  "ctRefs": [
+   "2",
+   "4"
+  ],
+  "secRefs": [
+   {
+    "label": "Annexe 1 — Transfert des fichiers",
+    "anchor": "sec-2"
+   },
+   {
+    "label": "Annexe 2 — Fichiers de collecte",
+    "anchor": "sec-8"
+   }
+  ]
+ },
+ {
+  "subject": "Formes juridiques (codes)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 3, tableau 4 — Formes juridiques",
+    "anchor": "sec-19"
+   }
+  ]
+ },
+ {
+  "subject": "Frais de collecte et de traitement à la charge de l'institution",
+  "ctRefs": [
+   "5"
+  ]
+ },
+ {
+  "subject": "Informations fausses, inexactes ou périmées (sanctions)",
+  "ctRefs": [
+   "6"
+  ]
+ },
+ {
+  "subject": "Informations obligatoires de l'annexe 2",
+  "ctRefs": [
+   "4"
+  ],
+  "secRefs": [
+   {
+    "label": "Annexe 2",
+    "anchor": "sec-7"
+   },
+   {
+    "label": "Annexe 2 — Fichiers de collecte",
+    "anchor": "sec-8"
+   }
+  ]
+ },
+ {
+  "subject": "Inspection de la BRH",
+  "ctRefs": [
+   "9-3",
+   "9-4",
+   "9-5"
+  ]
+ },
+ {
+  "subject": "Institution financière (définition)",
+  "ctRefs": [
+   "1"
+  ]
+ },
+ {
+  "subject": "Institutions de microfinance (IMF)",
+  "ctRefs": [
+   "1"
+  ]
+ },
+ {
+  "subject": "Interdiction d'usage à des fins de prospection ou de marketing",
+  "ctRefs": [
+   "8"
+  ]
+ },
+ {
+  "subject": "Lettre de blâme",
+  "ctRefs": [
+   "9-5"
+  ]
+ },
+ {
+  "subject": "Liaison VPN, WIMAX, fibre optique ou VSAT",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 1, §2 — Connectivité SFTP",
+    "anchor": "sec-4"
+   }
+  ]
+ },
+ {
+  "subject": "Logiciels de transfert (WinSCP, FileZilla, SSH Secure File Transfer)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 1, §3 — Processus de transmission",
+    "anchor": "sec-5"
+   }
+  ]
+ },
+ {
+  "subject": "Mise à jour des informations de crédit",
+  "ctRefs": [
+   "5",
+   "6"
+  ]
+ },
+ {
+  "subject": "Modification des termes d'un contrat de crédit",
+  "ctRefs": [
+   "8"
+  ]
+ },
+ {
+  "subject": "Montant autorisé et devise (HTG, USD)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 1 — Entreprise/Responsable/Actionnaire/Crédit",
+    "anchor": "sec-9"
+   }
+  ]
+ },
+ {
+  "subject": "Nature des garanties",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 3, tableau 6 — Nature des garanties",
+    "anchor": "sec-21"
+   }
+  ]
+ },
+ {
+  "subject": "Nomenclature des noms de fichiers",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 1, §2 — Connectivité SFTP",
+    "anchor": "sec-4"
+   },
+   {
+    "label": "Annexe 2 — Fichiers de collecte",
+    "anchor": "sec-8"
+   }
+  ]
+ },
+ {
+  "subject": "Notification automatique au BIC",
+  "ctRefs": [
+   "3"
+  ]
+ },
+ {
+  "subject": "Numéro d'identification fiscale (NIF)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 1 — Entreprise/Responsable/Actionnaire/Crédit",
+    "anchor": "sec-9"
+   },
+   {
+    "label": "Annexe 2, fichier 2 — Individu/Emploi/Crédit",
+    "anchor": "sec-10"
+   }
+  ]
+ },
+ {
+  "subject": "Numéro de patente",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 1 — Entreprise/Responsable/Actionnaire/Crédit",
+    "anchor": "sec-9"
+   }
+  ]
+ },
+ {
+  "subject": "Octroi, renouvellement, suivi et prolongation de crédit",
+  "ctRefs": [
+   "8"
+  ]
+ },
+ {
+  "subject": "Paiement par chèque de direction (institution sans compte à la BRH)",
+  "ctRefs": [
+   "10"
+  ]
+ },
+ {
+  "subject": "Pays (codes ISO)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 3, tableau 3 — Pays",
+    "anchor": "sec-18"
+   }
+  ]
+ },
+ {
+  "subject": "Permis de conduire et passeport (identifiants admis)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 1 — Entreprise/Responsable/Actionnaire/Crédit",
+    "anchor": "sec-9"
+   },
+   {
+    "label": "Annexe 2, fichier 2 — Individu/Emploi/Crédit",
+    "anchor": "sec-10"
+   }
+  ]
+ },
+ {
+  "subject": "Personne autorisée à engager l'entreprise",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 1 — Entreprise/Responsable/Actionnaire/Crédit",
+    "anchor": "sec-9"
+   }
+  ]
+ },
+ {
+  "subject": "Portefeuille de crédit (prêts, avances, acceptations, créances)",
+  "ctRefs": [
+   "2"
+  ]
+ },
+ {
+  "subject": "Professions (nomenclature)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 3, tableau 8 — Professions",
+    "anchor": "sec-23"
+   }
+  ]
+ },
+ {
+  "subject": "Protocole SFTP/SSH et adresse IP du serveur",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 1, §2 — Connectivité SFTP",
+    "anchor": "sec-4"
+   }
+  ]
+ },
+ {
+  "subject": "Prélèvement automatique de l'amende sur le compte à la BRH",
+  "ctRefs": [
+   "10"
+  ]
+ },
+ {
+  "subject": "Pénalité de deux mille cinq cents gourdes (HTG 2 500) par jour de retard",
+  "ctRefs": [
+   "10"
+  ]
+ },
+ {
+  "subject": "Pénalités et amendes (régime général)",
+  "ctRefs": [
+   "9",
+   "10"
+  ]
+ },
+ {
+  "subject": "Période de grâce de quatre (4) mois des nouvelles affiliées",
+  "ctRefs": [
+   "11"
+  ]
+ },
+ {
+  "subject": "Période de grâce du crédit (sursis d'amortissement)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 1 — Entreprise/Responsable/Actionnaire/Crédit",
+    "anchor": "sec-9"
+   }
+  ]
+ },
+ {
+  "subject": "Rapport mensuel sur les chèques retournés",
+  "ctRefs": [
+   "3"
+  ]
+ },
+ {
+  "subject": "Responsabilité envers le crédit (codes R01 à R-Z)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 3, tableau 10 — Responsabilité envers le crédit",
+    "anchor": "sec-25"
+   }
+  ]
+ },
+ {
+  "subject": "Retard de correction (amendes journalières)",
+  "ctRefs": [
+   "9-2"
+  ]
+ },
+ {
+  "subject": "Retard de transmission (amendes journalières)",
+  "ctRefs": [
+   "9-1"
+  ]
+ },
+ {
+  "subject": "Routage et règles d'accès certifiés par la BRH",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 1, §2 — Connectivité SFTP",
+    "anchor": "sec-4"
+   }
+  ]
+ },
+ {
+  "subject": "Répertoires dédiés par institution (cloisonnement)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 1, §4 — Répertoires",
+    "anchor": "sec-6"
+   }
+  ]
+ },
+ {
+  "subject": "Secteurs d'activités (codes)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 3, tableau 1 — Secteurs d'activités",
+    "anchor": "sec-16"
+   }
+  ]
+ },
+ {
+  "subject": "Segments obligatoires et optionnels",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 1 — Entreprise/Responsable/Actionnaire/Crédit",
+    "anchor": "sec-9"
+   },
+   {
+    "label": "Annexe 2, fichier 2 — Individu/Emploi/Crédit",
+    "anchor": "sec-10"
+   },
+   {
+    "label": "Annexe 2, fichier 3 — Crédit/Garantie",
+    "anchor": "sec-11"
+   },
+   {
+    "label": "Annexe 2, fichier 4 — Crédit/Activité",
+    "anchor": "sec-12"
+   }
+  ]
+ },
+ {
+  "subject": "Sociétés de carte de crédit, de crédit-bail, financières de développement",
+  "ctRefs": [
+   "1"
+  ]
+ },
+ {
+  "subject": "Spécifications de transfert des fichiers",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 1 — Transfert des fichiers",
+    "anchor": "sec-2"
+   },
+   {
+    "label": "Annexe 1, §1 — Introduction",
+    "anchor": "sec-3"
+   }
+  ]
+ },
+ {
+  "subject": "Statuts des crédits (codes)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 3, tableau 9 — Statuts de crédit",
+    "anchor": "sec-24"
+   }
+  ]
+ },
+ {
+  "subject": "Sécurisation des informations collectées et transmises",
+  "ctRefs": [
+   "5"
+  ]
+ },
+ {
+  "subject": "Textes fondant la circulaire (loi de 2012, décret IMF, loi CEC)",
+  "ctRefs": [
+   "1"
+  ]
+ },
+ {
+  "subject": "Transmission mensuelle des informations de crédit",
+  "ctRefs": [
+   "2",
+   "4"
+  ],
+  "secRefs": [
+   {
+    "label": "Annexe 2 — Fichiers de collecte",
+    "anchor": "sec-8"
+   }
+  ]
+ },
+ {
+  "subject": "Transmission partielle assimilée à un défaut de transmission",
+  "ctRefs": [
+   "6",
+   "9-1"
+  ]
+ },
+ {
+  "subject": "Types de prêt (PCN, PLT, PCL, LC, PC-CC, PC-ED, PL-AG, PL-CB, PRI)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 2, fichier 1 — Entreprise/Responsable/Actionnaire/Crédit",
+    "anchor": "sec-9"
+   }
+  ]
+ },
+ {
+  "subject": "Types de sûreté",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe 3, tableau 5 — Types de sûreté",
+    "anchor": "sec-20"
+   }
+  ]
+ },
+ {
+  "subject": "Utilisation des données en bon père de famille",
+  "ctRefs": [
+   "5"
+  ]
+ },
+ {
+  "subject": "Validité d'un (1) mois du rapport de crédit",
+  "ctRefs": [
+   "8"
+  ]
+ }
+]

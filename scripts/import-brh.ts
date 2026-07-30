@@ -416,7 +416,15 @@ async function main() {
   if (existsSync(enrichPath)) {
     const { html, supplement, status } = JSON.parse(readFileSync(enrichPath, 'utf8')) as {
       html: { number: string; bodyClean: string | null; richBlocksJson: string | null }[]
-      supplement: { number: string; title: string; date: string | null; bodyOriginal: string; bodyClean: string | null; richBlocksJson: string | null }[]
+      // `source` et `annotationsJson` (facultatifs) : les circulaires au LECTEUR ANNOTÉ
+      // (105-2, 117-1) ont leur propre source — elles échappent donc à la purge — mais
+      // une reconstruction complète de la base les recréerait dépouillées sans ces deux
+      // champs. `effective` : date d'entrée en vigueur, distincte de la publication.
+      supplement: {
+        number: string; title: string; date: string | null; bodyOriginal: string
+        bodyClean: string | null; richBlocksJson: string | null
+        source?: string; annotationsJson?: string | null; effective?: string | null
+      }[]
       // Statuts éditoriaux (ex. ABROGE) + renvoi d'abrogation (abrogatedByNumber) — la
       // création remet status='PUBLIE'/abrogatedByNumber=null, donc on les RÉAPPLIQUE à
       // chaque import. Source de vérité : brh-enrichments.json.
@@ -439,8 +447,13 @@ async function main() {
           type: 'CIRCULAIRE_BRH', status: 'EN_VIGUEUR', titleFr: s.title,
           bodyOriginal: s.bodyOriginal, bodyClean: s.bodyClean, richBlocksJson: s.richBlocksJson,
           number: s.number, publicationDate: s.date ? new Date(`${s.date}T00:00:00Z`) : null,
-          matiere: 'Droit bancaire', source: 'BRH', sealed: true,
-          searchText: buildSearchText({ titleFr: s.title, number: s.number, bodyOriginal: s.bodyOriginal, matiere: 'Droit bancaire' }),
+          effectiveDate: s.effective ? new Date(`${s.effective}T00:00:00Z`) : null,
+          annotationsJson: s.annotationsJson ?? null,
+          matiere: 'Droit bancaire', source: s.source ?? 'BRH', sealed: true,
+          searchText: buildSearchText({
+            titleFr: s.title, number: s.number, bodyOriginal: s.bodyOriginal,
+            matiere: 'Droit bancaire', annotationsJson: s.annotationsJson ?? null,
+          } as Parameters<typeof buildSearchText>[0]),
         },
       })
       supp++

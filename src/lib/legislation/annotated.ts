@@ -4,7 +4,7 @@
  * jurisprudence, table des matières et index n'en font pas partie et ne sont JAMAIS fondus
  * dedans. Cf. scripts/_import-code-travail.ts (parser parse_ct.py).
  */
-import { articleAnchorFromHeading } from '../doc/anchors'
+import { anchorFromDesignation, articleAnchorFromHeading } from '../doc/anchors'
 
 export interface JurisCase {
   ref: string // « Arrêt du 5 avril 1966, 2ᵉ section, X c. Y »
@@ -94,6 +94,10 @@ export interface Annotations {
   oldVersions?: Record<string, string> // ancre → texte de l'ancienne version (repliable)
   status?: Record<string, string | null> // ancre → « modifié » | « nouveau » | « abrogé »
   labels?: Record<string, string> // ancre → « Article 12.1 » (numérotation complexe)
+  // Circulaires BRH : désignations des divisions numérotées « 1.- » / « 4.2.1 » qui tiennent
+  // lieu d'articles (liste blanche, ordre du corps). Active l'ancrage art-… sur ces têtes et
+  // les renvois internes « la section 7 ». Absent = comportement historique inchangé.
+  pointAnchors?: string[]
   // Code civil : législation connexe (ancre art-N) + commentaires doctrinaux (clé sec-K|art-N).
   connexe?: Record<string, ConnexeBlock[]>
   commentaires?: Record<string, string[]>
@@ -166,6 +170,27 @@ function normLine(s: string): string {
 }
 
 /**
+ * Tête de division NUMÉROTÉE — « 1.- Dans le cadre… », « 9.1. Retard de transmission »,
+ * « 4.2.1 Composition… ». Forme propre aux CIRCULAIRES BRH, qui ne numérotent pas en
+ * « Article N » : `articleAnchorFromHeading` ne les voit donc pas.
+ */
+const POINT_HEAD_RE = /^(\d{1,2}(?:\.\d{1,2})*)\s*\.?\s*-?\s+\S/
+
+/**
+ * Ancre d'une tête numérotée, restreinte à une LISTE BLANCHE de désignations.
+ *
+ * La liste blanche est indispensable : dans les annexes d'une circulaire, des lignes comme
+ * « 2 segments par enregistrement : » ou « 1. INTRODUCTION » ont la même forme que les
+ * points du corps. Seules les désignations déclarées par le document (`pointAnchors`)
+ * deviennent des ancres — tout le reste demeure du texte courant.
+ */
+export function pointAnchorFromHeading(line: string, allow: ReadonlySet<string>): string | undefined {
+  const m = POINT_HEAD_RE.exec(line)
+  if (!m || !allow.has(m[1])) return undefined
+  return anchorFromDesignation(m[1])
+}
+
+/**
  * Découpe le corps officiel en blocs alternant sections (en-têtes) et corps d'articles.
  *
  * Ancres de section (sec-N) : on apparie chaque ligne au libellé TOC attendu, DANS L'ORDRE.
@@ -178,7 +203,11 @@ function normLine(s: string): string {
  * récupérerait à tort la jurisprudence de l'article 5 du Code. Le parseur (parse_ct.py)
  * produit la même clé en parcourant le corps dans le même ordre.
  */
-export function segmentAnnotated(body: string, toc: TocEntry[]): AnnBlock[] {
+export function segmentAnnotated(body: string, toc: TocEntry[], pointAnchors?: readonly string[]): AnnBlock[] {
+  // Circulaires BRH : divisions numérotées « N.- » / « N.M.P » au lieu de « Article N ».
+  // Sans liste blanche, la fonction est STRICTEMENT inchangée (les documents existants ne
+  // passent pas ce 3ᵉ argument).
+  const points = pointAnchors?.length ? new Set(pointAnchors) : null
   const blocks: AnnBlock[] = []
   let tocPtr = 0
   let cur: string[] = []
@@ -213,6 +242,19 @@ export function segmentAnnotated(body: string, toc: TocEntry[]): AnnBlock[] {
       curAnchor = null
       curNoAnchors = inAnnexe
       continue
+    }
+    if (points) {
+      const pt = pointAnchorFromHeading(line, points)
+      // 2ᵉ occurrence d'une désignation (en-tête courant d'annexe, « 2 segments par
+      // enregistrement : ») → simple texte : ni ancre dupliquée, ni faux bloc d'article.
+      if (pt && !seenArt.has(pt)) {
+        flush()
+        curAnchor = pt
+        curNoAnchors = false
+        seenArt.add(pt)
+        cur = [raw]
+        continue
+      }
     }
     const art = articleAnchorFromHeading(line)
     if (art) {

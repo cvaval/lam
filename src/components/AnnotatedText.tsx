@@ -15,6 +15,10 @@ const INDEX_LBL: Record<Locale, string> = { fr: 'Index', en: 'Index', ht: 'Endè
 // par anchors.ts ; ici le pluriel ne s'applique qu'au retrait du libellé en tête de bloc.
 const LEAD_ART =
   /^(?:art(?:icle)?s?\.?|section)\s+(?:premier|\d{1,4}(?:\s*(?:er|ère))?(?:\s*(?:bis|ter|quater))?(?:[.\-]\d+)*)\s*[.)\-–]*\s*/i
+// Tête de division numérotée des circulaires BRH (« 1.- », « 9.1. », « 4.2.1 ») — retirée
+// du corps du bloc, le libellé étant affiché en badge. N'est consultée que lorsque le
+// document déclare `pointAnchors` (sinon aucun texte n'est modifié).
+const LEAD_POINT = /^(\d{1,2}(?:\.\d{1,2})*)\s*\.?\s*-?\s+/
 // Statut d'amendement (Constitution) → pastille colorée.
 const STATUS_BADGE: Record<string, { fr: string; cls: string }> = {
   modifié: { fr: 'modifié', cls: 'bg-brim-50 text-brim-700' },
@@ -56,7 +60,10 @@ export function AnnotatedText({
    *  « Annotations » (Code civil : commentaires de l'auteur + jurisprudence). */
   annotationsVariant?: 'juris' | 'annotations'
 }) {
-  const blocks = segmentAnnotated(text, annotations.toc ?? [])
+  // Circulaires BRH : les divisions sont numérotées « 1.- » / « 4.2.1 » ; la liste blanche
+  // `pointAnchors` les fait porter les ancres art-… (et le rendu en carte d'article).
+  const pointMode = (annotations.pointAnchors ?? []).length > 0
+  const blocks = segmentAnnotated(text, annotations.toc ?? [], annotations.pointAnchors)
   const juris = annotations.jurisprudence ?? {}
   const backlinks = indexBacklinks(annotations.indexEntries ?? [])
   const crossRefMap = new Map((annotations.crossRefs ?? []).map((c) => [c.anchor, c]))
@@ -224,8 +231,9 @@ export function AnnotatedText({
 
         // Article : badge « Article N » (porte l'ancre) + statut d'amendement + corps allégé de
         // son en-tête + ancienne version repliable (Constitution).
-        if (b.anchor && LEAD_ART.test(b.text)) {
-          const body = b.text.replace(LEAD_ART, '').trimStart()
+        const leadPoint = pointMode && b.anchor && !LEAD_ART.test(b.text) && LEAD_POINT.test(b.text)
+        if (b.anchor && (LEAD_ART.test(b.text) || leadPoint)) {
+          const body = b.text.replace(leadPoint ? LEAD_POINT : LEAD_ART, '').trimStart()
           const label = labelsMap[b.anchor] ?? labelFromAnchor(b.anchor)
           const st = statusMap[b.anchor]
           const badge = st ? STATUS_BADGE[st] : undefined
@@ -239,7 +247,7 @@ export function AnnotatedText({
                   <span className={`rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${badge.cls}`}>{badge.fr}</span>
                 )}
               </h4>
-              <OfficialText text={body} locale={locale} terms={terms} noAnchors civRefs={linkCivRefs} artRefs={artRefSet} loiAnchors={loiAnchors} />
+              <OfficialText text={body} locale={locale} terms={terms} noAnchors civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} />
               {(cx && cx.length > 0) || (old && annotationsVariant === 'annotations') ? (
                 // Code civil : ancienne version + législation connexe dans un même pliable
                 // (même sans bloc connexe — le libellé d'OldVersion est propre à la Constitution).
@@ -253,7 +261,7 @@ export function AnnotatedText({
         }
         return (
           <div key={i} className="scroll-mt-24">
-            <OfficialText text={b.text} locale={locale} terms={terms} noAnchors={b.noAnchors} civRefs={linkCivRefs} artRefs={artRefSet} loiAnchors={loiAnchors} />
+            <OfficialText text={b.text} locale={locale} terms={terms} noAnchors={b.noAnchors} civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} />
             {showOldPreamble && oldPreamble && <OldVersion text={oldPreamble} locale={locale} />}
             {extra}
           </div>

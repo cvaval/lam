@@ -1,0 +1,159 @@
+{
+ "points": [
+  "1",
+  "2",
+  "3",
+  "4",
+  "4.1",
+  "4.2",
+  "4.2.1",
+  "4.2.2",
+  "4.3",
+  "5",
+  "5.1",
+  "5.2",
+  "5.3",
+  "6",
+  "6.1",
+  "6.2",
+  "7",
+  "8",
+  "9",
+  "10"
+ ],
+ "labels": {
+  "art-1": "Point 1",
+  "art-2": "Point 2",
+  "art-3": "Point 3",
+  "art-4": "Point 4",
+  "art-4-1": "Point 4.1",
+  "art-4-2": "Point 4.2",
+  "art-4-2-1": "Point 4.2.1",
+  "art-4-2-2": "Point 4.2.2",
+  "art-4-3": "Point 4.3",
+  "art-5": "Point 5",
+  "art-5-1": "Point 5.1",
+  "art-5-2": "Point 5.2",
+  "art-5-3": "Point 5.3",
+  "art-6": "Point 6",
+  "art-6-1": "Point 6.1",
+  "art-6-2": "Point 6.2",
+  "art-7": "Point 7",
+  "art-8": "Point 8",
+  "art-9": "Point 9",
+  "art-10": "Point 10"
+ },
+ "toc": [],
+ "navToc": [
+  {
+   "label": "Circulaire BRH n° 117-1 — Pratiques de gouvernance",
+   "anchor": "art-1",
+   "children": [
+    {
+     "label": "1. Définitions",
+     "anchor": "art-1",
+     "children": []
+    },
+    {
+     "label": "2. Mise en place d'un système de gouvernance",
+     "anchor": "art-2",
+     "children": []
+    },
+    {
+     "label": "3. Rôle des administrateurs et dirigeants",
+     "anchor": "art-3",
+     "children": []
+    },
+    {
+     "label": "4. Du conseil d’administration",
+     "anchor": "art-4",
+     "children": [
+      {
+       "label": "4.1. Attributions du conseil d’administration",
+       "anchor": "art-4-1",
+       "children": []
+      },
+      {
+       "label": "4.2. Caractéristiques et responsabilités en matière de gouvernance du conseil d’administration",
+       "anchor": "art-4-2",
+       "children": [
+        {
+         "label": "4.2.1. Composition et qualification du conseil d’administration",
+         "anchor": "art-4-2-1",
+         "children": []
+        },
+        {
+         "label": "4.2.2. Responsabilités en matière de gouvernance du conseil d’administration",
+         "anchor": "art-4-2-2",
+         "children": []
+        }
+       ]
+      },
+      {
+       "label": "4.3. Participation aux réunions du conseil d’administration",
+       "anchor": "art-4-3",
+       "children": []
+      }
+     ]
+    },
+    {
+     "label": "5. De la direction générale et des dirigeants",
+     "anchor": "art-5",
+     "children": [
+      {
+       "label": "5.1. Responsabilités en matière de gouvernance de la direction générale",
+       "anchor": "art-5-1",
+       "children": []
+      },
+      {
+       "label": "5.2. Désignation des dirigeants",
+       "anchor": "art-5-2",
+       "children": []
+      },
+      {
+       "label": "5.3. Qualification des dirigeants",
+       "anchor": "art-5-3",
+       "children": []
+      }
+     ]
+    },
+    {
+     "label": "6. De la gestion et du contrôle du cadre organisationnel",
+     "anchor": "art-6",
+     "children": [
+      {
+       "label": "6.1. Des outils de gestion du cadre organisationnel",
+       "anchor": "art-6-1",
+       "children": []
+      },
+      {
+       "label": "6.2. Des outils de contrôle de la gestion du cadre organisationnel",
+       "anchor": "art-6-2",
+       "children": []
+      }
+     ]
+    },
+    {
+     "label": "7. De la gestion des risques liés à la défaillance de la gouvernance",
+     "anchor": "art-7",
+     "children": []
+    },
+    {
+     "label": "8. Sanctions",
+     "anchor": "art-8",
+     "children": []
+    },
+    {
+     "label": "9. Disposition transitoire",
+     "anchor": "art-9",
+     "children": []
+    },
+    {
+     "label": "10. Entrée en vigueur",
+     "anchor": "art-10",
+     "children": []
+    }
+   ]
+  }
+ ]
+}
