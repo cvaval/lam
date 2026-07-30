@@ -26,9 +26,9 @@ Les administrateurs et les dirigeants d’une institution financière jouent un 
 L’obligation de loyauté, fondée sur une relation de confiance, engage l’administrateur ou le dirigeant à protéger les intérêts de l’institution financière en agissant de bonne foi envers l’institution et ses clients, en faisant preuve de compétence et d’honnêteté dans l’exercice de ses fonctions, en évitant tout conflit d’intérêts, et en préservant strictement le caractère confidentiel des questions qui touchent l’institution.
 L’obligation de diligence astreint l’administrateur ou le dirigeant à faire preuve de discernement et d’un grand sens des responsabilités dans l’orientation et la surveillance des activités de direction. Ce devoir l’oblige donc à respecter la règle de prudence raisonnable selon laquelle il doit agir avec la diligence, l’application, la compétence et la prudence dont une personne raisonnable ferait preuve dans les mêmes circonstances.
 L’obligation de vigilance et de conformité contraint les administrateurs et les dirigeants à prendre toutes les dispositions pour éviter que l’institution financière soit utilisée à des fins de blanchiment de capitaux et de financement du terrorisme. Par conséquent :
-Les administrateurs et les dirigeants doivent s’assurer de la mise en place de politiques, procédures et méthodes effectives en matière de lutte contre le blanchiment de capitaux et le financement du terrorisme.
-Les administrateurs sont tenus de procéder à la nomination d’un officier de conformité responsable de la fonction de conformité, et de s’assurer que les recommandations de celui-ci sont suivies.
-Les administrateurs doivent être fidèles à la mission de l'institution et promouvoir ses valeurs. Ils doivent s'assurer que les pratiques de l'institution sont cohérentes avec ses objectifs sociaux et financiers et qu'elles ne peuvent en aucun cas nuire à ses employés, à ses clients et à son environnement.
+• Les administrateurs et les dirigeants doivent s’assurer de la mise en place de politiques, procédures et méthodes effectives en matière de lutte contre le blanchiment de capitaux et le financement du terrorisme.
+• Les administrateurs sont tenus de procéder à la nomination d’un officier de conformité responsable de la fonction de conformité, et de s’assurer que les recommandations de celui-ci sont suivies.
+• Les administrateurs doivent être fidèles à la mission de l'institution et promouvoir ses valeurs. Ils doivent s'assurer que les pratiques de l'institution sont cohérentes avec ses objectifs sociaux et financiers et qu'elles ne peuvent en aucun cas nuire à ses employés, à ses clients et à son environnement.
 L’obligation de prudence et d’indépendance contraint les administrateurs à faire preuve de réserve, de discernement, de prudence, de rigueur et d’indépendance dans l’exercice de leur mandat.
 4. Du conseil d’administration
 4.1. Attributions du conseil d’administration
@@ -121,11 +121,11 @@ Les institutions financières sont tenues de mettre en place des systèmes de ge
 Ces systèmes doivent couvrir les risques suivants :
 a) risques stratégiques : englobant les risques de mauvaise gestion de la croissance et de mauvaises décisions à savoir : risque de routine, risque de défaut de maîtrise de la stratégie de croissance, risque d’erreurs décisionnelles liées à des insuffisances dans la conception du plan d’affaires, et risque de dérive par rapport aux objectifs.
 b) risques de dysfonctionnement des organes de gouvernance, à savoir :
-risque de non-conformité de l’organisation aux obligations légales et réglementaires ;
-risque de non-conformité du fonctionnement des organes de gouvernance aux obligations légales et réglementaires, aux règles et procédures internes, (notamment le non-respect de la séparation des fonctions entre organe exécutif et organe délibérant, le défaut d’information et de surveillance par l’organe délibérant sur la marche générale de l’entreprise et sur les dispositifs de maîtrise et de contrôle des risques) ;
-risque de blocage décisionnel du fait de l’absence de majorité au sein du conseil d’administration ;
-risque de conflit d’intérêts découlant de décisions motivées par la recherche ou la protection d’avantages personnels, tant du côté de la direction que de celui des administrateurs, et non alignées sur le développement à long terme de l’institution ;
-risque d'absence de mobilisation et de suivi des compétences et talents nécessaires à l'atteinte des objectifs de l’institution et au respect de ses obligations légales et réglementaires, notamment en matière de maîtrise et contrôle des risques.
+– risque de non-conformité de l’organisation aux obligations légales et réglementaires ;
+– risque de non-conformité du fonctionnement des organes de gouvernance aux obligations légales et réglementaires, aux règles et procédures internes, (notamment le non-respect de la séparation des fonctions entre organe exécutif et organe délibérant, le défaut d’information et de surveillance par l’organe délibérant sur la marche générale de l’entreprise et sur les dispositifs de maîtrise et de contrôle des risques) ;
+– risque de blocage décisionnel du fait de l’absence de majorité au sein du conseil d’administration ;
+– risque de conflit d’intérêts découlant de décisions motivées par la recherche ou la protection d’avantages personnels, tant du côté de la direction que de celui des administrateurs, et non alignées sur le développement à long terme de l’institution ;
+– risque d'absence de mobilisation et de suivi des compétences et talents nécessaires à l'atteinte des objectifs de l’institution et au respect de ses obligations légales et réglementaires, notamment en matière de maîtrise et contrôle des risques.
 8. Sanctions
 À défaut de fournir les renseignements énoncés aux sections 4.2.1 et 5.3 de la présente circulaire, la BRH se réserve le droit de :
 a) exiger le redressement immédiat de la situation ;

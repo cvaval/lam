@@ -26,6 +26,15 @@ POINTS = ["1", "2", "3", "4", "5", "6", "7", "8", "9",
           "9.1", "9.2", "9.3", "9.4", "9.5", "10", "11", "12"]
 HEAD_RE = re.compile(r"^(\d{1,2}(?:\.\d{1,2})*)\s*\.?\s*-?\s+(\S.*)$")
 
+# Rangée 0 réellement déclarée en-tête au Journal officiel (attribut <w:tblHeader>).
+# Les 5 autres (T1, T3, T5, T7 « Prêt à Terme | PT | … » et T18 « M001 | … ») commencent
+# directement par des DONNÉES : les afficher en en-tête de colonnes serait un contresens.
+HEADER_TABLES = {2, 4, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20}
+
+# Restitution d'après le fac-similé (scan p. 47) : le .docx de la BRH a perdu la barre
+# oblique de cette rangée du tableau 9. Le PDF officiel fait foi.
+SCAN_FIXES = [("P-024 | Saisie Créditeur a réalisé la garantie", "P-024 | Saisie / Créditeur a réalisé la garantie")]
+
 # En-têtes des annexes, dans l'ordre du corps. Repris VERBATIM : `segmentAnnotated`
 # apparie par égalité de ligne entière, en séquence.
 ANNEX_TOC = [
@@ -49,6 +58,20 @@ ANNEX_TOC = [
 ]
 
 
+def footnotes(z: zipfile.ZipFile) -> dict[str, str]:
+    """Notes de bas de page du texte officiel — perdues si l'on ne lit que document.xml."""
+    try:
+        fx = z.read("word/footnotes.xml").decode("utf-8", "replace")
+    except KeyError:
+        return {}
+    out = {}
+    for m in re.finditer(r'<w:footnote\b[^>]*w:id="(\d+)"[^>]*>(.*?)</w:footnote>', fx, re.S):
+        t = html.unescape("".join(re.findall(r"<w:t(?:\s[^>]*)?>(.*?)</w:t>", m.group(2), re.S))).strip()
+        if t:
+            out[m.group(1)] = re.sub(r"\s+", " ", t)
+    return out
+
+
 def para_text(p: str) -> str:
     p = re.sub(r"<w:pPr>.*?</w:pPr>", "", p, flags=re.S)
     # ⚠ La tabulation sépare deux <w:t> : seule l'injection d'un <w:t> </w:t> préserve
@@ -59,9 +82,15 @@ def para_text(p: str) -> str:
     return re.sub(r"\s+", " ", t).strip()
 
 
+NOTES: dict[str, str] = {}
+
+
 def read_docx(path: str):
     """Parcourt le corps DANS L'ORDRE : paragraphes et tableaux entremêlés."""
-    xml = zipfile.ZipFile(path).read("word/document.xml").decode("utf-8", "replace")
+    z = zipfile.ZipFile(path)
+    global NOTES
+    NOTES = footnotes(z)
+    xml = z.read("word/document.xml").decode("utf-8", "replace")
     body = re.search(r"<w:body>(.*)</w:body>", xml, re.S).group(1)
     items = []
     for m in re.finditer(r"(<w:tbl>.*?</w:tbl>)|(<w:p\b[^>]*(?:/>|>.*?</w:p>))", body, re.S):
@@ -73,8 +102,11 @@ def read_docx(path: str):
                     # Une cellule peut contenir PLUSIEURS paragraphes : les joindre par une
                     # espace (leçon du décret minier : sinon « zinc ;Concentré » collés).
                     ps = [para_text(x.group(0)) for x in re.finditer(r"<w:p\b[^>]*(?:/>|>.*?</w:p>)", c.group(0), re.S)]
-                    cells.append(" ".join(x for x in ps if x))
-                if any(cells):
+                    # <w:gridSpan> : cellule fusionnée (bandeaux « Segment : ENTREPRISE »,
+                    # en-tête « CODE / REGION 2 »). Sans colSpan, la rangée est disloquée.
+                    gs = re.search(r'<w:gridSpan\s+w:val="(\d+)"', c.group(0))
+                    cells.append({"text": " ".join(x for x in ps if x), "span": int(gs.group(1)) if gs else 1})
+                if any(c["text"] for c in cells):
                     rows.append(cells)
             if rows:
                 items.append(("table", rows))
@@ -82,6 +114,11 @@ def read_docx(path: str):
             t = para_text(m.group(2))
             if t:
                 items.append(("p", t))
+                # Notes appelées dans ce paragraphe : restituées juste après, en clair.
+                ids = re.findall(r'<w:footnoteReference[^>]*w:id="(\d+)"', m.group(2))
+                notes = [f"({i}) {NOTES[i]}" for i in ids if i in NOTES]
+                if notes:
+                    items.append(("p", "Notes : " + " · ".join(notes)))
     return items
 
 
@@ -110,7 +147,10 @@ def main() -> None:
             continue
         tables_at.append(len(clean_lines))
         for row in val:
-            flat = " | ".join(row)
+            flat = " | ".join(c["text"] for c in row)
+            for bad, good in SCAN_FIXES:
+                if flat == bad:
+                    flat = good
             lines.append(flat)
             clean_lines.append(flat)
 
@@ -130,12 +170,24 @@ def main() -> None:
         nxt = next((l for l in clean_lines[end:] if " | " not in l), None)
         assert after and len(after) >= 6, f"T{t + 1} : ancre de tête trop courte ({after!r})"
         assert nxt and len(nxt) >= 6, f"T{t + 1} : ancre de fin absente"
-        rich.append({
+        head = (t + 1) in HEADER_TABLES
+        block = {
             "type": "table",
-            "rows": [[{"text": c, "header": (i == 0)} for c in row] for i, row in enumerate(rows)],
+            # Légende = intitulé officiel qui précède le tableau ; sans elle, le composant
+            # numérote par ordre d'affichage (« Tableau 17 » sous « Tableau 7 – … »).
+            "caption": after,
+            "rows": [
+                [
+                    {"text": c["text"], **({"header": True} if head and i == 0 else {}),
+                     **({"colSpan": c["span"]} if c["span"] > 1 else {})}
+                    for c in row
+                ]
+                for i, row in enumerate(rows)
+            ],
             "afterText": after,
             "untilText": nxt,
-        })
+        }
+        rich.append(block)
 
     # ── Divisions du corps : liste blanche vérifiée dans l'ordre ──
     heads: list[tuple[str, str]] = []
@@ -153,12 +205,17 @@ def main() -> None:
         assert label in clean_lines, f"libellé TOC absent du corps : « {label} »"
         assert clean_lines.count(label) == 1, f"libellé TOC ambigu ({clean_lines.count(label)}×) : « {label} »"
         anchor = f"sec-{i}"
-        toc.append({"level": level, "label": label, "anchor": anchor, "kind": "code"})
+        # kind « connexe » : les annexes renumérotent (« 1. », « 2. »…) comme le corps.
+        # Sans cette bascule, OfficialText fabrique des ancres art-N depuis leurs marqueurs
+        # et duplique les id des points du corps.
+        toc.append({"level": level, "label": label, "anchor": anchor, "kind": "connexe"})
         node = {"label": label, "anchor": anchor, "children": []}
-        while len(stack) >= level:
+        # Dépilement par NIVEAU réel : l'annexe 3 n'a pas d'intertitre de niveau 2, la pile
+        # ne redescendait jamais et les tableaux 2 à 10 s'imbriquaient sous le tableau 1.
+        while stack and stack[-1]["level"] >= level:
             stack.pop()
-        (stack[-1]["children"] if stack else navannex).append(node)
-        stack.append(node)
+        (stack[-1]["node"]["children"] if stack else navannex).append(node)
+        stack.append({"level": level, "node": node})
 
     # ── Sommaire du corps ──
     labels, navcorps, cur9 = {}, [], None
@@ -166,7 +223,9 @@ def main() -> None:
         anchor = "art-" + desig.replace(".", "-")
         labels[anchor] = f"Point {desig}"
         title = HEAD_RE.match(line).group(2)
-        short = re.split(r"(?<=[a-zà-ÿ])\s*[:;]|\.\s", title)[0][:74].rstrip(" ,")
+        short = re.split(r"(?<=[a-zà-ÿ])\s*[:;]|\.\s", title)[0]
+        if len(short) > 74:  # jamais au milieu d'un mot
+            short = short[:74].rsplit(" ", 1)[0].rstrip(" ,;:") + "…"
         node = {"label": f"{desig}.- {short}", "anchor": anchor, "children": []}
         if "." in desig:
             cur9["children"].append(node)

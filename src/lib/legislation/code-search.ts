@@ -51,7 +51,9 @@ export async function getCodeArticles(docId: string): Promise<CodeArticle[]> {
   if (doc && ann) {
     const seen = new Set<string>()
     // Même texte que l'affichage (bodyClean si présent) pour éviter la divergence (constat audit §3).
-    for (const b of segmentAnnotated(doc.bodyClean ?? doc.bodyOriginal, ann.toc)) {
+    // pointAnchors : circulaires BRH (divisions « 1.- » / « 4.2.1 »). Sans ce 3ᵉ argument,
+    // aucune tête n'est reconnue et la recherche du menu latéral ne renvoie JAMAIS rien.
+    for (const b of segmentAnnotated(doc.bodyClean ?? doc.bodyOriginal, ann.toc, ann.pointAnchors)) {
       // Articles du Code uniquement (1ʳᵉ occurrence — noAnchors écarte les homonymes d'annexes).
       if (b.kind !== 'body' || !b.anchor || b.noAnchors || seen.has(b.anchor)) continue
       const m = b.anchor.match(/^art-(\d+)/)
@@ -64,7 +66,7 @@ export async function getCodeArticles(docId: string): Promise<CodeArticle[]> {
         .replace(/^Art\.?\s+\d+(?:er)?\s*[.\-–]*\s*/i, '')
         .replace(/\s+/g, ' ')
         .trim()
-      arts.push({ n: Number(m[1]), anchor: b.anchor, label: labelFromAnchor(b.anchor), fold: fold(b.text), snippet: body.slice(0, 180) })
+      arts.push({ n: Number(m[1]), anchor: b.anchor, label: ann.labels?.[b.anchor] ?? labelFromAnchor(b.anchor), fold: fold(b.text), snippet: body.slice(0, 180) })
     }
   }
   if (cache.size >= CACHE_MAX) cache.delete(cache.keys().next().value as string) // évince la plus ancienne

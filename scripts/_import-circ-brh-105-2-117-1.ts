@@ -160,9 +160,6 @@ const CIRCS = [
       ],
     },
     commentaires: {
-      'sec-0|art-3': [
-        'Le texte officiel annonce un « quadruple devoir » puis énumère cinq obligations (loyauté ; diligence ; vigilance et conformité ; prudence et indépendance). Décompte reproduit tel quel, conformément au Journal officiel.',
-      ],
       'sec-0|art-10': [
         'Circulaire signée à Port-au-Prince le 20 novembre 2025 par Ronald Gabriel, Gouverneur de la Banque de la République d’Haïti.',
       ],
@@ -218,6 +215,13 @@ async function main() {
 
     if (rich.length) {
       if (rich.length !== 20) throw new Error(`${c.number} : ${rich.length} tableaux au lieu de 20 — annulé`)
+      // parseRichBlocks ÉCRÊTE les tableaux trop longs (MAX_ROWS). Comparer les rangées
+      // avant/après : un plafond trop bas rendait 265 rangées du J.O. invisibles, sans
+      // la moindre alerte — le compte de BLOCS, lui, restait juste.
+      const rawRows = (JSON.parse(readFileSync(`${c.dir}/_rich.json`, 'utf8')) as { rows: unknown[] }[])
+        .reduce((n, b) => n + b.rows.length, 0)
+      const keptRows = rich.reduce((n, b) => n + ((b as { rows?: unknown[] }).rows?.length ?? 0), 0)
+      if (keptRows !== rawRows) throw new Error(`${c.number} : ${rawRows - keptRows} rangées perdues à la sanitisation (${keptRows}/${rawRows}) — annulé`)
       const segs = buildBodySegments(shown, rich)
       const orphans = segs.filter((s) => s.kind === 'rich' && (s as any).orphan).length
       if (orphans) throw new Error(`${c.number} : ${orphans} tableaux orphelins — annulé`)

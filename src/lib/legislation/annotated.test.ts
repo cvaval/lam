@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { segmentAnnotated, pointAnchorFromHeading, type TocEntry } from './annotated'
+import { segmentAnnotated, pointAnchorFromHeading, parseAnnotations, type TocEntry } from './annotated'
 
 // Corps type d'une circulaire BRH : divisions numérotées « N.- » / « N.M »,
 // puis des annexes qui REPRENNENT les mêmes formes numériques sans être des divisions.
@@ -61,5 +61,25 @@ describe('segmentAnnotated — mode pointAnchors', () => {
     const sec2 = blocks.find((b) => b.anchor === 'sec-2')
     expect(sec2?.kind).toBe('section')
     expect(sec2?.text).toBe('1. Entreprise/Responsable/Actionnaire/Crédit')
+  })
+})
+
+describe('parseAnnotations — acheminement des champs', () => {
+  // La coercition est une LISTE BLANCHE : tout champ oublié disparaît sans erreur. Ce test
+  // part d'une CHAÎNE (comme la base), seul chemin qu'emprunte réellement la page.
+  const json = JSON.stringify({
+    title: 'Circulaire',
+    toc: [],
+    labels: { 'art-1': 'Point 1' },
+    pointAnchors: ['1', '9.1', 42, null],
+  })
+  it('conserve pointAnchors — sans lui le lecteur annoté est inerte', () => {
+    const a = parseAnnotations(json)!
+    expect(a.pointAnchors).toEqual(['1', '9.1']) // les valeurs non textuelles sont écartées
+  })
+  it('bout en bout : la chaîne stockée suffit à ancrer les divisions', () => {
+    const a = parseAnnotations(json)!
+    const blocks = segmentAnnotated('1.- Objet du texte.\n9.1. Retard', a.toc, a.pointAnchors)
+    expect(blocks.filter((b) => b.kind === 'body' && b.anchor).map((b) => b.anchor)).toEqual(['art-1', 'art-9-1'])
   })
 })

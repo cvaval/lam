@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { OfficialText } from './OfficialText'
+import type { RichBlock } from '@/lib/doc/richblocks'
+import type { CircRef } from '@/lib/doc/crossref'
 import { Jurisprudence } from './Jurisprudence'
 import { OldVersion } from './OldVersion'
 import { RelatedLaw } from './RelatedLaw'
@@ -43,6 +45,8 @@ export function AnnotatedText({
   linkCivRefs = false,
   linkArtRefs = false,
   annotationsVariant = 'juris',
+  rich = [],
+  hrefFor,
 }: {
   text: string
   annotations: Annotations
@@ -59,6 +63,12 @@ export function AnnotatedText({
   /** Libellé du pliable d'annotations : « Jurisprudence » (Code du travail) ou
    *  « Annotations » (Code civil : commentaires de l'auteur + jurisprudence). */
   annotationsVariant?: 'juris' | 'annotations'
+  /** Tableaux reconstruits (Document.richBlocksJson). Le lecteur annoté les ignorait :
+   *  les rangées aplaties du corps restaient affichées en texte brut « a | b | c ». */
+  rich?: RichBlock[]
+  /** Renvois vers d'AUTRES circulaires BRH (« cf. circulaire 89-3 ») → hyperliens.
+   *  La branche annotée les laissait en texte mort, contrairement au lecteur standard. */
+  hrefFor?: (ref: CircRef) => string | null
 }) {
   // Circulaires BRH : les divisions sont numérotées « 1.- » / « 4.2.1 » ; la liste blanche
   // `pointAnchors` les fait porter les ancres art-… (et le rendu en carte d'article).
@@ -247,7 +257,7 @@ export function AnnotatedText({
                   <span className={`rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${badge.cls}`}>{badge.fr}</span>
                 )}
               </h4>
-              <OfficialText text={body} locale={locale} terms={terms} noAnchors civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} />
+              <OfficialText text={body} hrefFor={hrefFor} locale={locale} terms={terms} noAnchors civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} />
               {(cx && cx.length > 0) || (old && annotationsVariant === 'annotations') ? (
                 // Code civil : ancienne version + législation connexe dans un même pliable
                 // (même sans bloc connexe — le libellé d'OldVersion est propre à la Constitution).
@@ -261,7 +271,7 @@ export function AnnotatedText({
         }
         return (
           <div key={i} className="scroll-mt-24">
-            <OfficialText text={b.text} locale={locale} terms={terms} noAnchors={b.noAnchors} civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} />
+            <OfficialText text={b.text} rich={rich} hrefFor={hrefFor} locale={locale} terms={terms} noAnchors={b.noAnchors} civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} />
             {showOldPreamble && oldPreamble && <OldVersion text={oldPreamble} locale={locale} />}
             {extra}
           </div>

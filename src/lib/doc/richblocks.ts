@@ -57,7 +57,11 @@ export type RichBlock = RichTable | RichNote
 const HEX = /^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/
 const CONTROL_CHARS = /[\u0000-\u001F\u007F]/g
 const DIACRITICS = /[\u0300-\u036F]/g
-const MAX_ROWS = 80
+// 80 était un plafond anti-abus hérité, jamais réévalué : il AMPUTAIT silencieusement les
+// nomenclatures du Journal officiel (circulaire 105-2 : codes postaux 190 rangées, communes
+// 146, pays 141, secteurs 86, professions 102 — 265 rangées invisibles). Le plafond protège
+// encore d'un JSON aberrant, mais au-dessus de la plus grosse annexe réelle du corpus.
+const MAX_ROWS = 400
 const MAX_COLS = 24
 const MAX_CELL = 600
 const MAX_TEXT = 4000

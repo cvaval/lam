@@ -30,6 +30,14 @@ def paragraphs(path: str) -> list[str]:
     body = re.search(r"<w:body>(.*)</w:body>", xml, re.S).group(1)
     out: list[str] = []
     for m in re.finditer(r"<w:p\b[^>]*(?:/>|>.*?</w:p>)", body, re.S):
+        # Puces du texte officiel : Word les code dans <w:numPr> (aucun caractère dans les
+        # <w:t>). Sans restitution, les huit énumérations de la circulaire se lisent comme
+        # une prose continue. Deux niveaux dans ce texte (ilvl 0 et 1).
+        npr = re.search(r"<w:numPr>.*?</w:numPr>", m.group(0), re.S)
+        lvl = 0
+        if npr:
+            il = re.search(r'<w:ilvl\s+w:val="(\d+)"', npr.group(0))
+            lvl = int(il.group(1)) if il else 0
         p = re.sub(r"<w:pPr>.*?</w:pPr>", "", m.group(0), flags=re.S)
         # ⚠ La tabulation SÉPARE deux <w:t>. La remplacer par une espace nue dans le XML
         # ne sert à rien : seul le CONTENU des <w:t> est extrait, l'espace serait perdue
@@ -39,13 +47,15 @@ def paragraphs(path: str) -> list[str]:
         t = html.unescape("".join(re.findall(r"<w:t(?:\s[^>]*)?>(.*?)</w:t>", p, re.S)))
         t = re.sub(r"\s+", " ", t).strip()
         if t:
-            out.append(t)
+            out.append(("• " if lvl == 0 else "– ") + t if npr else t)
     return out
 
 
 def main() -> None:
     lines = paragraphs(SRC)
     assert len(lines) == 142, f"142 paragraphes attendus, {len(lines)} lus"
+    puces = [l for l in lines if l.startswith(("• ", "– "))]
+    assert len(puces) == 8, f"8 énumérations attendues, {len(puces)} restituées"
     assert lines[1] == "No 117-1", lines[1]
     assert lines[-1] == "Gouverneur" and lines[-3].startswith("Port-au-Prince, le 20 novembre 2025")
 

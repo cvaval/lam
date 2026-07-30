@@ -444,6 +444,8 @@ export default async function DocPage({
             <AnnotatedText
               text={effectiveBody}
               annotations={annotations}
+              rich={richBlocks}
+              hrefFor={hrefFor}
               locale={locale}
               terms={hlTerms}
               hideInlineIndex={HIDE_INLINE_INDEX_SOURCES.has(doc.source ?? '')}

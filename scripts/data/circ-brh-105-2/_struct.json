@@ -42,151 +42,151 @@
    "level": 1,
    "label": "ANNEXE 1",
    "anchor": "sec-1",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 2,
    "label": "A) SPÉCIFICATIONS POUR LE TRANSFERT DES FICHIERS",
    "anchor": "sec-2",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "1. INTRODUCTION",
    "anchor": "sec-3",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "2. CONNECTIVITÉ SFTP",
    "anchor": "sec-4",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "3. PROCESSUS DE TRANSMISSION",
    "anchor": "sec-5",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "4. RÉPERTOIRES",
    "anchor": "sec-6",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 1,
    "label": "ANNEXE 2",
    "anchor": "sec-7",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 2,
    "label": "B) SPÉCIFICATIONS DES FICHIERS DE COLLECTE DE DONNÉES",
    "anchor": "sec-8",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "1. Entreprise/Responsable/Actionnaire/Crédit",
    "anchor": "sec-9",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "2. Individu/Emploi/Crédit",
    "anchor": "sec-10",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "3. Crédit/Garantie",
    "anchor": "sec-11",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "4. Crédit/Activité",
    "anchor": "sec-12",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "5. Entreprise/Chèques retournés pour insuffisance de fonds",
    "anchor": "sec-13",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "6. Individu/Chèques retournés pour insuffisance de fonds",
    "anchor": "sec-14",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 1,
    "label": "ANNEXE 3",
    "anchor": "sec-15",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "Tableau 1 – Secteur d’activités",
    "anchor": "sec-16",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "Tableau 2 – Liste des communes",
    "anchor": "sec-17",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "Tableau 3 – Liste des pays",
    "anchor": "sec-18",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "Tableau 4 – Forme juridique",
    "anchor": "sec-19",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "Tableau 5 – Type de sûreté",
    "anchor": "sec-20",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "Tableau 6 – Nature de la garantie",
    "anchor": "sec-21",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "Tableau 7 – Liste des codes postaux",
    "anchor": "sec-22",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "Tableau 8.- Liste des professions",
    "anchor": "sec-23",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "Tableau 9 – Liste des codes sur le statut des crédits",
    "anchor": "sec-24",
-   "kind": "code"
+   "kind": "connexe"
   },
   {
    "level": 3,
    "label": "Tableau 10 – Responsabilité envers le crédit",
    "anchor": "sec-25",
-   "kind": "code"
+   "kind": "connexe"
   }
  ],
  "navToc": [
@@ -200,17 +200,17 @@
      "children": []
     },
     {
-     "label": "2.- Les institutions financières sont tenues de transmettre au BIC, au plus ta",
+     "label": "2.- Les institutions financières sont tenues de transmettre au BIC, au plus…",
      "anchor": "art-2",
      "children": []
     },
     {
-     "label": "3.- Les institutions financières tirées sont tenues de notifier automatiquemen",
+     "label": "3.- Les institutions financières tirées sont tenues de notifier…",
      "anchor": "art-3",
      "children": []
     },
     {
-     "label": "4.- Les informations requises dans le cadre de la présente circulaire doivent",
+     "label": "4.- Les informations requises dans le cadre de la présente circulaire doivent…",
      "anchor": "art-4",
      "children": []
     },
@@ -220,22 +220,22 @@
      "children": []
     },
     {
-     "label": "6.- Toutes les institutions financières sont tenues de soumettre des informati",
+     "label": "6.- Toutes les institutions financières sont tenues de soumettre des…",
      "anchor": "art-6",
      "children": []
     },
     {
-     "label": "7.- À compter du 15 octobre 2025, les institutions financières doivent obtenir",
+     "label": "7.- À compter du 15 octobre 2025, les institutions financières doivent…",
      "anchor": "art-7",
      "children": []
     },
     {
-     "label": "8.- Il est fait obligation à toutes les institutions financières de consulter",
+     "label": "8.- Il est fait obligation à toutes les institutions financières de consulter…",
      "anchor": "art-8",
      "children": []
     },
     {
-     "label": "9.- En cas de non-respect des dispositions de la présente circulaire, les inst",
+     "label": "9.- En cas de non-respect des dispositions de la présente circulaire, les…",
      "anchor": "art-9",
      "children": [
       {
@@ -266,17 +266,17 @@
      ]
     },
     {
-     "label": "10.- Toute amende sera automatiquement prélevée sur l’un des comptes à la BRH d",
+     "label": "10.- Toute amende sera automatiquement prélevée sur l’un des comptes à la BRH…",
      "anchor": "art-10",
      "children": []
     },
     {
-     "label": "11.- Toute institution nouvellement affiliée au BIC bénéficie d’une période de",
+     "label": "11.- Toute institution nouvellement affiliée au BIC bénéficie d’une période de…",
      "anchor": "art-11",
      "children": []
     },
     {
-     "label": "12.- La présente circulaire abroge la circulaire 105-1 en date du 3 avril 2017",
+     "label": "12.- La présente circulaire abroge la circulaire 105-1 en date du 3 avril 2017…",
      "anchor": "art-12",
      "children": []
     }
@@ -367,53 +367,52 @@
       {
        "label": "Tableau 1 – Secteur d’activités",
        "anchor": "sec-16",
-       "children": [
-        {
-         "label": "Tableau 2 – Liste des communes",
-         "anchor": "sec-17",
-         "children": []
-        },
-        {
-         "label": "Tableau 3 – Liste des pays",
-         "anchor": "sec-18",
-         "children": []
-        },
-        {
-         "label": "Tableau 4 – Forme juridique",
-         "anchor": "sec-19",
-         "children": []
-        },
-        {
-         "label": "Tableau 5 – Type de sûreté",
-         "anchor": "sec-20",
-         "children": []
-        },
-        {
-         "label": "Tableau 6 – Nature de la garantie",
-         "anchor": "sec-21",
-         "children": []
-        },
-        {
-         "label": "Tableau 7 – Liste des codes postaux",
-         "anchor": "sec-22",
-         "children": []
-        },
-        {
-         "label": "Tableau 8.- Liste des professions",
-         "anchor": "sec-23",
-         "children": []
-        },
-        {
-         "label": "Tableau 9 – Liste des codes sur le statut des crédits",
-         "anchor": "sec-24",
-         "children": []
-        },
-        {
-         "label": "Tableau 10 – Responsabilité envers le crédit",
-         "anchor": "sec-25",
-         "children": []
-        }
-       ]
+       "children": []
+      },
+      {
+       "label": "Tableau 2 – Liste des communes",
+       "anchor": "sec-17",
+       "children": []
+      },
+      {
+       "label": "Tableau 3 – Liste des pays",
+       "anchor": "sec-18",
+       "children": []
+      },
+      {
+       "label": "Tableau 4 – Forme juridique",
+       "anchor": "sec-19",
+       "children": []
+      },
+      {
+       "label": "Tableau 5 – Type de sûreté",
+       "anchor": "sec-20",
+       "children": []
+      },
+      {
+       "label": "Tableau 6 – Nature de la garantie",
+       "anchor": "sec-21",
+       "children": []
+      },
+      {
+       "label": "Tableau 7 – Liste des codes postaux",
+       "anchor": "sec-22",
+       "children": []
+      },
+      {
+       "label": "Tableau 8.- Liste des professions",
+       "anchor": "sec-23",
+       "children": []
+      },
+      {
+       "label": "Tableau 9 – Liste des codes sur le statut des crédits",
+       "anchor": "sec-24",
+       "children": []
+      },
+      {
+       "label": "Tableau 10 – Responsabilité envers le crédit",
+       "anchor": "sec-25",
+       "children": []
       }
      ]
     }

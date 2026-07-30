@@ -149,6 +149,10 @@ export function parseAnnotations(json: string | null | undefined): Annotations |
       labels: a.labels && typeof a.labels === 'object' ? a.labels : {},
       connexe: a.connexe && typeof a.connexe === 'object' ? a.connexe : {},
       commentaires: a.commentaires && typeof a.commentaires === 'object' ? a.commentaires : {},
+      // Circulaires BRH : sans ce champ, la liste blanche n'atteint pas segmentAnnotated et
+      // le lecteur annoté est INERTE (aucune ancre, aucune carte, aucun renvoi) — la
+      // coercition est une liste blanche, tout champ oublié ici disparaît silencieusement.
+      pointAnchors: Array.isArray(a.pointAnchors) ? a.pointAnchors.filter((x): x is string => typeof x === 'string') : undefined,
     }
   } catch {
     return null
