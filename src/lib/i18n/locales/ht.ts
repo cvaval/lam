@@ -84,6 +84,7 @@ export const ht: Dictionary = {
     indexOnlyBadge: 'Endèks Monitè a — aksè restren',
     publications: 'piblikasyon',
     fuzzyTag: 'òtograf pwòch',
+    abrogatedBy: 'abowje pa',
     fuzzySection: 'Rezilta apwoche — òtograf pwòch',
     categoryLabel: 'Kategori',
     numberLabel: 'Nimewo',

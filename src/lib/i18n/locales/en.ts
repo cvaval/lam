@@ -84,6 +84,7 @@ export const en: Dictionary = {
     indexOnlyBadge: 'Moniteur index — restricted access',
     publications: 'publications',
     fuzzyTag: 'similar spelling',
+    abrogatedBy: 'repealed by',
     fuzzySection: 'Approximate results — similar spelling',
     categoryLabel: 'Category',
     numberLabel: 'Number',

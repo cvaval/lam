@@ -88,6 +88,7 @@ export const fr = {
     indexOnlyBadge: 'Index du Moniteur — accès restreint',
     publications: 'publications',
     fuzzyTag: 'orthographe proche',
+    abrogatedBy: 'abrogée par',
     fuzzySection: 'Résultats approchants — orthographe proche',
     categoryLabel: 'Catégorie',
     numberLabel: 'Numéro',

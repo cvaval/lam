@@ -139,6 +139,19 @@ export default async function SearchPage({
   // Critères conservés quand on navigue entre types/filtres/pages. Valeurs
   // NORMALISÉES (slug canonique, bornes d'années validées et remises dans
   // l'ordre) : les liens régénérés et le panneau avancé restent cohérents.
+  // Renvoi d'abrogation dans les LISTES : la pastille « Abrogée » ne disait pas PAR QUOI.
+  // Résolu ici, côté serveur, en une requête pour la page affichée — plutôt que d'ajouter
+  // le champ aux deux moteurs de recherche (et de réindexer tout le corpus pour cela).
+  const abrogatedIds = result.hits.filter((h) => h.kind === 'document' && h.status === 'ABROGE').map((h) => h.id)
+  const abrogatedBy = new Map<string, string>()
+  if (abrogatedIds.length) {
+    const rows = await prisma.document.findMany({
+      where: { id: { in: abrogatedIds }, abrogatedByNumber: { not: null } },
+      select: { id: true, abrogatedByNumber: true },
+    })
+    for (const r of rows) abrogatedBy.set(r.id, r.abrogatedByNumber!)
+  }
+
   const baseParams: SP = {
     q,
     type: canonicalSlug,
@@ -255,7 +268,7 @@ export default async function SearchPage({
                   <span className="h-px flex-1 bg-endeks/30" />
                 </div>
               )}
-              <ResultCard hit={h} locale={locale} t={t} q={q} />
+              <ResultCard hit={h} locale={locale} t={t} q={q} abrogatedByNumber={abrogatedBy.get(h.id)} />
             </Fragment>
           )
         })}

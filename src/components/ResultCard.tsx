@@ -8,7 +8,22 @@ import type { DocType, Locale } from '@/lib/types'
 
 // Convention : t est passé en prop (le parent a déjà le dictionnaire) — pas de
 // getDictionary par carte.
-export function ResultCard({ hit, locale, t, q }: { hit: SearchHit; locale: Locale; t: Dictionary; q?: string }) {
+export function ResultCard({
+  hit,
+  locale,
+  t,
+  q,
+  abrogatedByNumber,
+}: {
+  hit: SearchHit
+  locale: Locale
+  t: Dictionary
+  q?: string
+  /** Numéro du texte qui abroge celui-ci — affiché à côté de la pastille « Abrogée ».
+   *  Non cliquable ici : la carte entière est déjà un lien (une ancre imbriquée serait
+   *  invalide) ; la fiche du texte porte le renvoi cliquable. */
+  abrogatedByNumber?: string | null
+}) {
   // Propage la requête au document/société → surlignage des termes à l'arrivée (§09).
   const qs = q && q.trim() ? `?q=${encodeURIComponent(q.trim().slice(0, 200))}` : ''
 
@@ -53,6 +68,11 @@ export function ResultCard({ hit, locale, t, q }: { hit: SearchHit; locale: Loca
           <div className="flex flex-wrap items-center gap-2">
             <TypeBadge type={type} />
             {hit.status && <StatusChip status={hit.status} label={t.statuses[hit.status]} />}
+            {hit.status === 'ABROGE' && abrogatedByNumber && (
+              <span className="text-[11px] font-medium text-red-700/80">
+                {t.search.abrogatedBy} {abrogatedByNumber}
+              </span>
+            )}
             {hit.fuzzy && <FuzzyTag t={t} />}
             {hit.number && <span className="text-xs font-medium text-lank/45">{hit.number}</span>}
           </div>
