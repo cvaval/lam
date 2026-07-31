@@ -92,4 +92,10 @@ export const LIMITS = {
   verify: { limit: 12, windowMs: 60_000 },
   // Activation de code promo : empêche le brute-force de codes (auto-élévation de palier).
   redeem: { limit: 8, windowMs: 3_600_000 },
+  // Carte judiciaire PUBLIQUE (par IP — aucune session) : suggestions au fil de la
+  // frappe (débouncées côté client), fiches, points de carte. Généreux pour l'humain,
+  // bloquant pour l'extraction massive.
+  jurSearch: { limit: 90, windowMs: 60_000 },
+  jurCommune: { limit: 120, windowMs: 60_000 },
+  jurMap: { limit: 30, windowMs: 60_000 },
 }

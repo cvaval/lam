@@ -111,3 +111,10 @@ mark.hl {
   background-color: #ffe9a8;
   color: inherit;
 }
+
+/* Carte judiciaire — les contrôles natifs de MapLibre font 29 px : sous le seuil de
+   cible tactile (44 px). On les agrandit sans toucher à la bibliothèque. */
+.maplibregl-ctrl-group button {
+  width: 44px;
+  height: 44px;
+}

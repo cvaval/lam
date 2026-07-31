@@ -38,6 +38,9 @@ export type AuditAction =
   | 'CROSSREF_REMOVED'
   | 'ARTICLE_AMENDED'
   | 'ARTICLE_ABROGATED'
+  // Carte judiciaire : import du référentiel + modifications administratives
+  | 'JUDICIAL_IMPORT'
+  | 'JUDICIAL_UPDATED'
 
 export async function audit(
   opts: {

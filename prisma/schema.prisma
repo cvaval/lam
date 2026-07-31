@@ -607,3 +607,132 @@ model ArticleVersion {
   @@index([documentId, anchor])
   @@index([amendedByDocId])
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CARTE JUDICIAIRE (§ carte-judiciaire) — référentiel administratif, postal et
+// judiciaire d'Haïti. Modèles DÉDIÉS (le référentiel ne vit pas dans
+// Document.metaJson) ; les identifiants stables viennent du fichier d'amorçage
+// data/judicial-map/seed-v1.json. Les « enums » (type, statut, précision) sont
+// des chaînes validées en TypeScript/Zod, comme partout dans le projet.
+// ─────────────────────────────────────────────────────────────────────────────
+
+model JudicialDepartment {
+  id                  String   @id
+  name                String   @unique
+  capital             String
+  arrondissementCount Int
+  communeCount        Int
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  arrondissements JudicialArrondissement[]
+  communes        JudicialCommune[]
+}
+
+model JudicialArrondissement {
+  id           String   @id
+  name         String
+  departmentId String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  department JudicialDepartment @relation(fields: [departmentId], references: [id])
+  communes   JudicialCommune[]
+
+  @@unique([departmentId, name])
+  @@index([departmentId])
+}
+
+model JudicialCommune {
+  id               String   @id
+  key              String   @unique // « Département|Commune » (clé du classeur source)
+  slug             String   @unique
+  name             String
+  city             String
+  departmentId     String
+  arrondissementId String
+  geometryKey      String? // adm2_pcode COD-AB (jointure carte) — null si limite non confirmée
+  centroidLat      Float? // centroïde DOCUMENTÉ (dérivé de la géométrie COD-AB), jamais inventé
+  centroidLng      Float?
+  aliasesJson      String   @default("[]")
+  observation      String?
+  sourceJson       String   @default("[]")
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  department     JudicialDepartment         @relation(fields: [departmentId], references: [id])
+  arrondissement JudicialArrondissement     @relation(fields: [arrondissementId], references: [id])
+  postalCodes    JudicialPostalCode[]
+  jurisdictions  CourtCommuneJurisdiction[]
+
+  @@index([departmentId])
+  @@index([arrondissementId])
+  @@index([name])
+}
+
+model JudicialPostalCode {
+  id                 String   @id
+  communeId          String
+  code               String
+  label              String?
+  isPrimary          Boolean  @default(false)
+  verificationStatus String
+  scopeNote          String?
+  sourceJson         String   @default("[]")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  commune JudicialCommune @relation(fields: [communeId], references: [id], onDelete: Cascade)
+
+  @@unique([communeId, code])
+  @@index([code])
+}
+
+model Court {
+  id                 String    @id
+  type               String // CASSATION | APPEL | PREMIERE_INSTANCE | PAIX (constants.ts)
+  name               String
+  normalizedName     String
+  scope              String    @default("TERRITORIAL") // NATIONAL pour la Cour de cassation
+  department         String?
+  arrondissement     String?
+  commune            String?
+  city               String?
+  address            String? // uniquement si vérifiée — jamais déduite
+  postalCode         String?
+  plusCode           String? // champ DISTINCT du code postal, jamais confondu
+  latitude           Float?
+  longitude          Float?
+  locationPrecision  String    @default("UNKNOWN")
+  operationalStatus  String?
+  verificationStatus String
+  observation        String?
+  sourceJson         String    @default("[]")
+  active             Boolean   @default(true)
+  verifiedAt         DateTime?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  jurisdictions CourtCommuneJurisdiction[]
+
+  @@index([type])
+  @@index([city])
+  @@index([active])
+}
+
+model CourtCommuneJurisdiction {
+  id             String   @id @default(cuid())
+  courtId        String
+  communeId      String
+  relationship   String // PAIX_LOCAL | TPI_COMPETENT | APPEL_COMPETENT | CASSATION_NATIONALE
+  scopeNote      String?
+  legalBasisJson String   @default("[]")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  court   Court           @relation(fields: [courtId], references: [id], onDelete: Cascade)
+  commune JudicialCommune @relation(fields: [communeId], references: [id], onDelete: Cascade)
+
+  @@unique([courtId, communeId, relationship])
+  @@index([communeId, relationship])
+}

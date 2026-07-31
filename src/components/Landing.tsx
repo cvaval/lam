@@ -2,7 +2,9 @@ import Link from 'next/link'
 import { Logo } from '@/components/Logo'
 import { LocaleSwitcher } from '@/components/LocaleSwitcher'
 import { CookieBanner } from '@/components/CookieBanner'
-import { HeroVisual } from '@/components/HeroVisual'
+import { HomeHeroCarousel } from '@/components/home/HomeHeroCarousel'
+import { LegislationHeroSlide } from '@/components/home/LegislationHeroSlide'
+import { JudicialMapHeroSlide } from '@/components/home/JudicialMapHeroSlide'
 import { PUBLICATIONS } from '@/lib/publications'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale } from '@/lib/types'
@@ -32,24 +34,24 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
         </div>
       </header>
 
-      {/* Hero */}
+      {/* Hero — carrousel à deux diapositives (Législation → login ; Carte judiciaire
+          → /juridictions). Hauteur réservée par la grille du carrousel (pas de CLS) ;
+          le lien direct « Carte judiciaire » ci-dessous reste accessible sans JS. */}
       <section className="bg-lank text-cream">
-        <div className="mx-auto grid max-w-6xl items-center gap-y-14 gap-x-12 px-4 py-16 lg:grid-cols-[1.05fr_1fr] lg:py-24">
-          <div>
-            <p className="font-mono text-xs uppercase tracking-[0.22em] text-sitwon">{tr("République d'Haïti · recherche juridique", 'Republic of Haiti · legal research', 'Repiblik Ayiti · rechèch jiridik')}</p>
-            <h1 className="mt-5 font-serif text-4xl font-semibold leading-[1.05] lg:text-[3.4rem]">
-              {tr('Le droit haïtien au bout des doigts.', 'Haitian law at your fingertips.', 'Dwa ayisyen an nan pwent dwèt ou.')}
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/75">
-              {tr(
-                "Accédez instantanément aux lois, décrets, circulaires de la BRH et à bien d'autres ressources dans la première bibliothèque juridique virtuelle d'Haïti.",
-                "Instantly access laws, decrees, BRH circulars and many other resources in Haiti's first virtual legal library.",
-                "Jwenn lwa, dekrè, sikilè BRH yo ak anpil lòt resous nan yon batman je — nan premye bibliyotèk jiridik vityèl Ayiti a.",
-              )}
-            </p>
-            <p className="mt-8 font-mono text-xs text-cream/45">🔒 {tr('La recherche nécessite une connexion sécurisée.', 'Search requires a secure sign-in.', 'Rechèch la mande yon koneksyon sekirize.')}</p>
-          </div>
-          <div className="pb-8 lg:pb-0"><HeroVisual /></div>
+        <HomeHeroCarousel
+          label={t.hero.carousel.label}
+          slideLabels={[t.hero.carousel.slideLegislation, t.hero.carousel.slideMap]}
+          prevLabel={t.hero.carousel.prev}
+          nextLabel={t.hero.carousel.next}
+          goToLabel={t.hero.carousel.goTo}
+        >
+          <LegislationHeroSlide locale={locale} t={t} />
+          <JudicialMapHeroSlide locale={locale} t={t} />
+        </HomeHeroCarousel>
+        <div className="mx-auto max-w-6xl px-4 pb-6">
+          <Link href={`/${locale}/juridictions`} className="font-mono text-xs text-cream/50 underline underline-offset-4 hover:text-sitwon">
+            {t.hero.map.cta} →
+          </Link>
         </div>
       </section>
 

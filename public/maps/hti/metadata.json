@@ -1,0 +1,1198 @@
+{
+ "title": "Haiti - Subnational Administrative Boundaries (COD-AB HTI)",
+ "organization": "CNIGS (Centre National de l'Information Géo-Spatiale) — diffusé par OCHA/ITOS via HDX",
+ "sourceUrl": "https://data.humdata.org/dataset/777e8b06-337f-4295-80bc-ca1515244215/resource/1d89a0d5-897d-4c83-ab37-f363a0dca850/download/hti_admin_boundaries.geojson.zip",
+ "sourceSha256": "9601ebe9bf79188d852cce50e846c789b801b10778701fc20355a4e35fd0a67a",
+ "downloadedAt": "2026-07-31",
+ "license": "Creative Commons Attribution for Intergovernmental Organisations (CC BY-IGO)",
+ "attribution": "Limites administratives : CNIGS / OCHA (COD-AB Haïti, CC BY-IGO)",
+ "originalProjection": "EPSG:4326 (WGS 84)",
+ "transformedAt": "2026-07-31",
+ "transformation": "Simplification Douglas-Peucker préservant la topologie par entité (tolérances {'adm1': 0.0012, 'adm2': 0.0008, 'adm3': 0.0015, 'arr': 0.0008}), coordonnées arrondies à 5 décimales ; centroïdes = points représentatifs Shapely DÉRIVÉS de la géométrie officielle ; arrondissements dissous par union des communes jointes (jamais sur des géométries partielles).",
+ "featureCounts": {
+  "adm1": 10,
+  "adm2": 140,
+  "adm3": 570,
+  "arrondissements": 42
+ },
+ "communeCorrespondence": [
+  {
+   "lamId": "commune-artibonite-anse-rouge",
+   "lamKey": "Artibonite|Anse-Rouge",
+   "adm2_pcode": "HT0523",
+   "aliasKreyol": null,
+   "centroidLat": 19.622143,
+   "centroidLng": -72.952241
+  },
+  {
+   "lamId": "commune-artibonite-desdunes",
+   "lamKey": "Artibonite|Desdunes",
+   "adm2_pcode": "HT0544",
+   "aliasKreyol": null,
+   "centroidLat": 19.313539,
+   "centroidLng": -72.690475
+  },
+  {
+   "lamId": "commune-artibonite-dessalines",
+   "lamKey": "Artibonite|Dessalines",
+   "adm2_pcode": "HT0541",
+   "aliasKreyol": null,
+   "centroidLat": 19.223784,
+   "centroidLng": -72.439907
+  },
+  {
+   "lamId": "commune-artibonite-ennery",
+   "lamKey": "Artibonite|Ennery",
+   "adm2_pcode": "HT0512",
+   "aliasKreyol": null,
+   "centroidLat": 19.48992,
+   "centroidLng": -72.474777
+  },
+  {
+   "lamId": "commune-artibonite-grande-saline",
+   "lamKey": "Artibonite|Grande-Saline",
+   "adm2_pcode": "HT0543",
+   "aliasKreyol": null,
+   "centroidLat": 19.257216,
+   "centroidLng": -72.661472
+  },
+  {
+   "lamId": "commune-artibonite-gros-morne",
+   "lamKey": "Artibonite|Gros-Morne",
+   "adm2_pcode": "HT0521",
+   "aliasKreyol": null,
+   "centroidLat": 19.706175,
+   "centroidLng": -72.715818
+  },
+  {
+   "lamId": "commune-artibonite-l-estere",
+   "lamKey": "Artibonite|L’Estère",
+   "adm2_pcode": "HT0513",
+   "aliasKreyol": null,
+   "centroidLat": 19.364476,
+   "centroidLng": -72.630803
+  },
+  {
+   "lamId": "commune-artibonite-la-chapelle",
+   "lamKey": "Artibonite|La Chapelle",
+   "adm2_pcode": "HT0533",
+   "aliasKreyol": null,
+   "centroidLat": 18.920732,
+   "centroidLng": -72.354586
+  },
+  {
+   "lamId": "commune-artibonite-les-gonaives",
+   "lamKey": "Artibonite|Les Gonaïves",
+   "adm2_pcode": "HT0511",
+   "aliasKreyol": null,
+   "centroidLat": 19.493245,
+   "centroidLng": -72.683677
+  },
+  {
+   "lamId": "commune-artibonite-marmelade",
+   "lamKey": "Artibonite|Marmelade",
+   "adm2_pcode": "HT0552",
+   "aliasKreyol": null,
+   "centroidLat": 19.52713,
+   "centroidLng": -72.37863
+  },
+  {
+   "lamId": "commune-artibonite-petite-riviere-de-l-artibonite",
+   "lamKey": "Artibonite|Petite-Rivière-de-l’Artibonite",
+   "adm2_pcode": "HT0542",
+   "aliasKreyol": null,
+   "centroidLat": 19.069545,
+   "centroidLng": -72.339704
+  },
+  {
+   "lamId": "commune-artibonite-saint-marc",
+   "lamKey": "Artibonite|Saint-Marc",
+   "adm2_pcode": "HT0531",
+   "aliasKreyol": null,
+   "centroidLat": 19.101965,
+   "centroidLng": -72.629493
+  },
+  {
+   "lamId": "commune-artibonite-saint-michel-de-l-attalaye",
+   "lamKey": "Artibonite|Saint-Michel-de-l’Attalaye",
+   "adm2_pcode": "HT0551",
+   "aliasKreyol": null,
+   "centroidLat": 19.347665,
+   "centroidLng": -72.361766
+  },
+  {
+   "lamId": "commune-artibonite-terre-neuve",
+   "lamKey": "Artibonite|Terre-Neuve",
+   "adm2_pcode": "HT0522",
+   "aliasKreyol": null,
+   "centroidLat": 19.622832,
+   "centroidLng": -72.80181
+  },
+  {
+   "lamId": "commune-artibonite-verrettes",
+   "lamKey": "Artibonite|Verrettes",
+   "adm2_pcode": "HT0532",
+   "aliasKreyol": null,
+   "centroidLat": 19.036829,
+   "centroidLng": -72.502344
+  },
+  {
+   "lamId": "commune-centre-belladere",
+   "lamKey": "Centre|Belladère",
+   "adm2_pcode": "HT0632",
+   "aliasKreyol": null,
+   "centroidLat": 18.865875,
+   "centroidLng": -71.813366
+  },
+  {
+   "lamId": "commune-centre-boucan-carre",
+   "lamKey": "Centre|Boucan-Carré",
+   "adm2_pcode": "HT0623",
+   "aliasKreyol": null,
+   "centroidLat": 18.96138,
+   "centroidLng": -72.152494
+  },
+  {
+   "lamId": "commune-centre-cerca-carvajal",
+   "lamKey": "Centre|Cerca-Carvajal",
+   "adm2_pcode": "HT0614",
+   "aliasKreyol": null,
+   "centroidLat": 19.260461,
+   "centroidLng": -71.922462
+  },
+  {
+   "lamId": "commune-centre-cerca-la-source",
+   "lamKey": "Centre|Cerca-la-Source",
+   "adm2_pcode": "HT0641",
+   "aliasKreyol": null,
+   "centroidLat": 19.166559,
+   "centroidLng": -71.740171
+  },
+  {
+   "lamId": "commune-centre-hinche",
+   "lamKey": "Centre|Hinche",
+   "adm2_pcode": "HT0611",
+   "aliasKreyol": null,
+   "centroidLat": 19.163677,
+   "centroidLng": -71.975403
+  },
+  {
+   "lamId": "commune-centre-lascahobas",
+   "lamKey": "Centre|Lascahobas",
+   "adm2_pcode": "HT0631",
+   "aliasKreyol": null,
+   "centroidLat": 18.837723,
+   "centroidLng": -71.955565
+  },
+  {
+   "lamId": "commune-centre-maissade",
+   "lamKey": "Centre|Maïssade",
+   "adm2_pcode": "HT0612",
+   "aliasKreyol": null,
+   "centroidLat": 19.188608,
+   "centroidLng": -72.173182
+  },
+  {
+   "lamId": "commune-centre-mirebalais",
+   "lamKey": "Centre|Mirebalais",
+   "adm2_pcode": "HT0621",
+   "aliasKreyol": null,
+   "centroidLat": 18.800436,
+   "centroidLng": -72.067214
+  },
+  {
+   "lamId": "commune-centre-saut-d-eau",
+   "lamKey": "Centre|Saut-d’Eau",
+   "adm2_pcode": "HT0622",
+   "aliasKreyol": null,
+   "centroidLat": 18.8259,
+   "centroidLng": -72.241846
+  },
+  {
+   "lamId": "commune-centre-savanette",
+   "lamKey": "Centre|Savanette",
+   "adm2_pcode": "HT0633",
+   "aliasKreyol": null,
+   "centroidLat": 18.742141,
+   "centroidLng": -71.84832
+  },
+  {
+   "lamId": "commune-centre-thomassique",
+   "lamKey": "Centre|Thomassique",
+   "adm2_pcode": "HT0642",
+   "aliasKreyol": null,
+   "centroidLat": 19.083311,
+   "centroidLng": -71.827049
+  },
+  {
+   "lamId": "commune-centre-thomonde",
+   "lamKey": "Centre|Thomonde",
+   "adm2_pcode": "HT0613",
+   "aliasKreyol": null,
+   "centroidLat": 18.957693,
+   "centroidLng": -71.975557
+  },
+  {
+   "lamId": "commune-grand-anse-abricots",
+   "lamKey": "Grand’Anse|Abricots",
+   "adm2_pcode": "HT0812",
+   "aliasKreyol": null,
+   "centroidLat": 18.614499,
+   "centroidLng": -74.31896
+  },
+  {
+   "lamId": "commune-grand-anse-anse-d-hainault",
+   "lamKey": "Grand’Anse|Anse-d’Hainault",
+   "adm2_pcode": "HT0821",
+   "aliasKreyol": null,
+   "centroidLat": 18.464836,
+   "centroidLng": -74.410259
+  },
+  {
+   "lamId": "commune-grand-anse-beaumont",
+   "lamKey": "Grand’Anse|Beaumont",
+   "adm2_pcode": "HT0833",
+   "aliasKreyol": null,
+   "centroidLat": 18.447994,
+   "centroidLng": -73.981729
+  },
+  {
+   "lamId": "commune-grand-anse-bonbon",
+   "lamKey": "Grand’Anse|Bonbon",
+   "adm2_pcode": "HT0813",
+   "aliasKreyol": null,
+   "centroidLat": 18.631634,
+   "centroidLng": -74.238582
+  },
+  {
+   "lamId": "commune-grand-anse-chambellan",
+   "lamKey": "Grand’Anse|Chambellan",
+   "adm2_pcode": "HT0815",
+   "aliasKreyol": null,
+   "centroidLat": 18.519111,
+   "centroidLng": -74.335105
+  },
+  {
+   "lamId": "commune-grand-anse-corail",
+   "lamKey": "Grand’Anse|Corail",
+   "adm2_pcode": "HT0831",
+   "aliasKreyol": null,
+   "centroidLat": 18.543466,
+   "centroidLng": -73.901781
+  },
+  {
+   "lamId": "commune-grand-anse-dame-marie",
+   "lamKey": "Grand’Anse|Dame-Marie",
+   "adm2_pcode": "HT0822",
+   "aliasKreyol": null,
+   "centroidLat": 18.565165,
+   "centroidLng": -74.380931
+  },
+  {
+   "lamId": "commune-grand-anse-jeremie",
+   "lamKey": "Grand’Anse|Jérémie",
+   "adm2_pcode": "HT0811",
+   "aliasKreyol": null,
+   "centroidLat": 18.53364,
+   "centroidLng": -74.155606
+  },
+  {
+   "lamId": "commune-grand-anse-les-irois",
+   "lamKey": "Grand’Anse|Les Irois",
+   "adm2_pcode": "HT0823",
+   "aliasKreyol": null,
+   "centroidLat": 18.405807,
+   "centroidLng": -74.378324
+  },
+  {
+   "lamId": "commune-grand-anse-moron",
+   "lamKey": "Grand’Anse|Moron",
+   "adm2_pcode": "HT0814",
+   "aliasKreyol": null,
+   "centroidLat": 18.485434,
+   "centroidLng": -74.279247
+  },
+  {
+   "lamId": "commune-grand-anse-pestel",
+   "lamKey": "Grand’Anse|Pestel",
+   "adm2_pcode": "HT0834",
+   "aliasKreyol": null,
+   "centroidLat": 18.464481,
+   "centroidLng": -73.844971
+  },
+  {
+   "lamId": "commune-grand-anse-roseaux",
+   "lamKey": "Grand’Anse|Roseaux",
+   "adm2_pcode": "HT0832",
+   "aliasKreyol": null,
+   "centroidLat": 18.501704,
+   "centroidLng": -74.064079
+  },
+  {
+   "lamId": "commune-nippes-anse-a-veau",
+   "lamKey": "Nippes|Anse-à-Veau",
+   "adm2_pcode": "HT1021",
+   "aliasKreyol": null,
+   "centroidLat": 18.463059,
+   "centroidLng": -73.317985
+  },
+  {
+   "lamId": "commune-nippes-arnaud",
+   "lamKey": "Nippes|Arnaud",
+   "adm2_pcode": "HT1024",
+   "aliasKreyol": null,
+   "centroidLat": 18.448192,
+   "centroidLng": -73.386412
+  },
+  {
+   "lamId": "commune-nippes-baraderes",
+   "lamKey": "Nippes|Baradères",
+   "adm2_pcode": "HT1031",
+   "aliasKreyol": null,
+   "centroidLat": 18.473771,
+   "centroidLng": -73.672443
+  },
+  {
+   "lamId": "commune-nippes-fonds-des-negres",
+   "lamKey": "Nippes|Fonds-des-Nègres",
+   "adm2_pcode": "HT1013",
+   "aliasKreyol": null,
+   "centroidLat": 18.386184,
+   "centroidLng": -73.247357
+  },
+  {
+   "lamId": "commune-nippes-grand-boucan",
+   "lamKey": "Nippes|Grand-Boucan",
+   "adm2_pcode": "HT1032",
+   "aliasKreyol": null,
+   "centroidLat": 18.567779,
+   "centroidLng": -73.646508
+  },
+  {
+   "lamId": "commune-nippes-l-asile",
+   "lamKey": "Nippes|L’Asile",
+   "adm2_pcode": "HT1023",
+   "aliasKreyol": null,
+   "centroidLat": 18.394141,
+   "centroidLng": -73.388741
+  },
+  {
+   "lamId": "commune-nippes-miragoane",
+   "lamKey": "Nippes|Miragoâne",
+   "adm2_pcode": "HT1011",
+   "aliasKreyol": null,
+   "centroidLat": 18.341361,
+   "centroidLng": -73.05363
+  },
+  {
+   "lamId": "commune-nippes-paillant",
+   "lamKey": "Nippes|Paillant",
+   "adm2_pcode": "HT1014",
+   "aliasKreyol": null,
+   "centroidLat": 18.416648,
+   "centroidLng": -73.182499
+  },
+  {
+   "lamId": "commune-nippes-petit-trou-de-nippes",
+   "lamKey": "Nippes|Petit-Trou-de-Nippes",
+   "adm2_pcode": "HT1022",
+   "aliasKreyol": null,
+   "centroidLat": 18.45345,
+   "centroidLng": -73.474244
+  },
+  {
+   "lamId": "commune-nippes-petite-riviere-de-nippes",
+   "lamKey": "Nippes|Petite-Rivière-de-Nippes",
+   "adm2_pcode": "HT1012",
+   "aliasKreyol": null,
+   "centroidLat": 18.449102,
+   "centroidLng": -73.191551
+  },
+  {
+   "lamId": "commune-nippes-plaisance-du-sud",
+   "lamKey": "Nippes|Plaisance-du-Sud",
+   "adm2_pcode": "HT1025",
+   "aliasKreyol": null,
+   "centroidLat": 18.425315,
+   "centroidLng": -73.558161
+  },
+  {
+   "lamId": "commune-nord-acul-du-nord",
+   "lamKey": "Nord|Acul-du-Nord",
+   "adm2_pcode": "HT0321",
+   "aliasKreyol": null,
+   "centroidLat": 19.670572,
+   "centroidLng": -72.321732
+  },
+  {
+   "lamId": "commune-nord-bahon",
+   "lamKey": "Nord|Bahon",
+   "adm2_pcode": "HT0332",
+   "aliasKreyol": null,
+   "centroidLat": 19.450402,
+   "centroidLng": -72.119869
+  },
+  {
+   "lamId": "commune-nord-bas-limbe",
+   "lamKey": "Nord|Bas-Limbé",
+   "adm2_pcode": "HT0362",
+   "aliasKreyol": null,
+   "centroidLat": 19.762419,
+   "centroidLng": -72.395059
+  },
+  {
+   "lamId": "commune-nord-borgne",
+   "lamKey": "Nord|Borgne",
+   "adm2_pcode": "HT0351",
+   "aliasKreyol": null,
+   "centroidLat": 19.806682,
+   "centroidLng": -72.572206
+  },
+  {
+   "lamId": "commune-nord-cap-haitien",
+   "lamKey": "Nord|Cap-Haïtien",
+   "adm2_pcode": "HT0311",
+   "aliasKreyol": null,
+   "centroidLat": 19.749318,
+   "centroidLng": -72.229358
+  },
+  {
+   "lamId": "commune-nord-dondon",
+   "lamKey": "Nord|Dondon",
+   "adm2_pcode": "HT0342",
+   "aliasKreyol": null,
+   "centroidLat": 19.520725,
+   "centroidLng": -72.269115
+  },
+  {
+   "lamId": "commune-nord-est-capotille",
+   "lamKey": "Nord-Est|Capotille",
+   "adm2_pcode": "HT0422",
+   "aliasKreyol": null,
+   "centroidLat": 19.462207,
+   "centroidLng": -71.70672
+  },
+  {
+   "lamId": "commune-nord-est-caracol",
+   "lamKey": "Nord-Est|Caracol",
+   "adm2_pcode": "HT0434",
+   "aliasKreyol": null,
+   "centroidLat": 19.686661,
+   "centroidLng": -72.010298
+  },
+  {
+   "lamId": "commune-nord-est-carice",
+   "lamKey": "Nord-Est|Carice",
+   "adm2_pcode": "HT0442",
+   "aliasKreyol": null,
+   "centroidLat": 19.356012,
+   "centroidLng": -71.822628
+  },
+  {
+   "lamId": "commune-nord-est-ferrier",
+   "lamKey": "Nord-Est|Ferrier",
+   "adm2_pcode": "HT0412",
+   "aliasKreyol": null,
+   "centroidLat": 19.645249,
+   "centroidLng": -71.762503
+  },
+  {
+   "lamId": "commune-nord-est-fort-liberte",
+   "lamKey": "Nord-Est|Fort-Liberté",
+   "adm2_pcode": "HT0411",
+   "aliasKreyol": null,
+   "centroidLat": 19.569236,
+   "centroidLng": -71.850172
+  },
+  {
+   "lamId": "commune-nord-est-mombin-crochu",
+   "lamKey": "Nord-Est|Mombin-Crochu",
+   "adm2_pcode": "HT0443",
+   "aliasKreyol": null,
+   "centroidLat": 19.338627,
+   "centroidLng": -71.900042
+  },
+  {
+   "lamId": "commune-nord-est-mont-organise",
+   "lamKey": "Nord-Est|Mont-Organisé",
+   "adm2_pcode": "HT0423",
+   "aliasKreyol": null,
+   "centroidLat": 19.387205,
+   "centroidLng": -71.779526
+  },
+  {
+   "lamId": "commune-nord-est-ouanaminthe",
+   "lamKey": "Nord-Est|Ouanaminthe",
+   "adm2_pcode": "HT0421",
+   "aliasKreyol": null,
+   "centroidLat": 19.497297,
+   "centroidLng": -71.771258
+  },
+  {
+   "lamId": "commune-nord-est-perches",
+   "lamKey": "Nord-Est|Perches",
+   "adm2_pcode": "HT0413",
+   "aliasKreyol": null,
+   "centroidLat": 19.515422,
+   "centroidLng": -71.93082
+  },
+  {
+   "lamId": "commune-nord-est-sainte-suzanne",
+   "lamKey": "Nord-Est|Sainte-Suzanne",
+   "adm2_pcode": "HT0432",
+   "aliasKreyol": null,
+   "centroidLat": 19.532821,
+   "centroidLng": -72.061457
+  },
+  {
+   "lamId": "commune-nord-est-terrier-rouge",
+   "lamKey": "Nord-Est|Terrier-Rouge",
+   "adm2_pcode": "HT0433",
+   "aliasKreyol": null,
+   "centroidLat": 19.627663,
+   "centroidLng": -71.94406
+  },
+  {
+   "lamId": "commune-nord-est-trou-du-nord",
+   "lamKey": "Nord-Est|Trou-du-Nord",
+   "adm2_pcode": "HT0431",
+   "aliasKreyol": null,
+   "centroidLat": 19.582071,
+   "centroidLng": -72.012707
+  },
+  {
+   "lamId": "commune-nord-est-vallieres",
+   "lamKey": "Nord-Est|Vallières",
+   "adm2_pcode": "HT0441",
+   "aliasKreyol": null,
+   "centroidLat": 19.441061,
+   "centroidLng": -71.948544
+  },
+  {
+   "lamId": "commune-nord-grande-riviere-du-nord",
+   "lamKey": "Nord|Grande-Rivière-du-Nord",
+   "adm2_pcode": "HT0331",
+   "aliasKreyol": null,
+   "centroidLat": 19.558042,
+   "centroidLng": -72.16373
+  },
+  {
+   "lamId": "commune-nord-la-victoire",
+   "lamKey": "Nord|La Victoire",
+   "adm2_pcode": "HT0345",
+   "aliasKreyol": null,
+   "centroidLat": 19.35161,
+   "centroidLng": -72.018895
+  },
+  {
+   "lamId": "commune-nord-limbe",
+   "lamKey": "Nord|Limbé",
+   "adm2_pcode": "HT0361",
+   "aliasKreyol": null,
+   "centroidLat": 19.645626,
+   "centroidLng": -72.417442
+  },
+  {
+   "lamId": "commune-nord-limonade",
+   "lamKey": "Nord|Limonade",
+   "adm2_pcode": "HT0313",
+   "aliasKreyol": null,
+   "centroidLat": 19.671101,
+   "centroidLng": -72.10361
+  },
+  {
+   "lamId": "commune-nord-milot",
+   "lamKey": "Nord|Milot",
+   "adm2_pcode": "HT0323",
+   "aliasKreyol": null,
+   "centroidLat": 19.646831,
+   "centroidLng": -72.218387
+  },
+  {
+   "lamId": "commune-nord-ouest-anse-a-foleur",
+   "lamKey": "Nord-Ouest|Anse-à-Foleur",
+   "adm2_pcode": "HT0922",
+   "aliasKreyol": null,
+   "centroidLat": 19.860299,
+   "centroidLng": -72.625817
+  },
+  {
+   "lamId": "commune-nord-ouest-baie-de-henne",
+   "lamKey": "Nord-Ouest|Baie-de-Henne",
+   "adm2_pcode": "HT0932",
+   "aliasKreyol": null,
+   "centroidLat": 19.708985,
+   "centroidLng": -73.202488
+  },
+  {
+   "lamId": "commune-nord-ouest-bassin-bleu",
+   "lamKey": "Nord-Ouest|Bassin-Bleu",
+   "adm2_pcode": "HT0913",
+   "aliasKreyol": null,
+   "centroidLat": 19.787483,
+   "centroidLng": -72.849
+  },
+  {
+   "lamId": "commune-nord-ouest-bombardopolis",
+   "lamKey": "Nord-Ouest|Bombardopolis",
+   "adm2_pcode": "HT0933",
+   "aliasKreyol": null,
+   "centroidLat": 19.697321,
+   "centroidLng": -73.347152
+  },
+  {
+   "lamId": "commune-nord-ouest-chansolme",
+   "lamKey": "Nord-Ouest|Chansolme",
+   "adm2_pcode": "HT0914",
+   "aliasKreyol": null,
+   "centroidLat": 19.859277,
+   "centroidLng": -72.81242
+  },
+  {
+   "lamId": "commune-nord-ouest-ile-de-la-tortue",
+   "lamKey": "Nord-Ouest|Île de la Tortue",
+   "adm2_pcode": "HT0912",
+   "aliasKreyol": null,
+   "centroidLat": 20.040151,
+   "centroidLng": -72.783705
+  },
+  {
+   "lamId": "commune-nord-ouest-jean-rabel",
+   "lamKey": "Nord-Ouest|Jean-Rabel",
+   "adm2_pcode": "HT0934",
+   "aliasKreyol": null,
+   "centroidLat": 19.81281,
+   "centroidLng": -73.140953
+  },
+  {
+   "lamId": "commune-nord-ouest-mole-saint-nicolas",
+   "lamKey": "Nord-Ouest|Môle-Saint-Nicolas",
+   "adm2_pcode": "HT0931",
+   "aliasKreyol": null,
+   "centroidLat": 19.770816,
+   "centroidLng": -73.376256
+  },
+  {
+   "lamId": "commune-nord-ouest-port-de-paix",
+   "lamKey": "Nord-Ouest|Port-de-Paix",
+   "adm2_pcode": "HT0911",
+   "aliasKreyol": null,
+   "centroidLat": 19.837342,
+   "centroidLng": -72.950326
+  },
+  {
+   "lamId": "commune-nord-ouest-saint-louis-du-nord",
+   "lamKey": "Nord-Ouest|Saint-Louis-du-Nord",
+   "adm2_pcode": "HT0921",
+   "aliasKreyol": null,
+   "centroidLat": 19.876248,
+   "centroidLng": -72.704619
+  },
+  {
+   "lamId": "commune-nord-pignon",
+   "lamKey": "Nord|Pignon",
+   "adm2_pcode": "HT0344",
+   "aliasKreyol": null,
+   "centroidLat": 19.3298,
+   "centroidLng": -72.086066
+  },
+  {
+   "lamId": "commune-nord-pilate",
+   "lamKey": "Nord|Pilate",
+   "adm2_pcode": "HT0372",
+   "aliasKreyol": null,
+   "centroidLat": 19.687471,
+   "centroidLng": -72.54221
+  },
+  {
+   "lamId": "commune-nord-plaine-du-nord",
+   "lamKey": "Nord|Plaine-du-Nord",
+   "adm2_pcode": "HT0322",
+   "aliasKreyol": null,
+   "centroidLat": 19.670572,
+   "centroidLng": -72.259707
+  },
+  {
+   "lamId": "commune-nord-plaisance",
+   "lamKey": "Nord|Plaisance",
+   "adm2_pcode": "HT0371",
+   "aliasKreyol": null,
+   "centroidLat": 19.599569,
+   "centroidLng": -72.494004
+  },
+  {
+   "lamId": "commune-nord-port-margot",
+   "lamKey": "Nord|Port-Margot",
+   "adm2_pcode": "HT0352",
+   "aliasKreyol": null,
+   "centroidLat": 19.748667,
+   "centroidLng": -72.469025
+  },
+  {
+   "lamId": "commune-nord-quartier-morin",
+   "lamKey": "Nord|Quartier-Morin",
+   "adm2_pcode": "HT0312",
+   "aliasKreyol": null,
+   "centroidLat": 19.6769,
+   "centroidLng": -72.165644
+  },
+  {
+   "lamId": "commune-nord-ranquitte",
+   "lamKey": "Nord|Ranquitte",
+   "adm2_pcode": "HT0343",
+   "aliasKreyol": null,
+   "centroidLat": 19.403529,
+   "centroidLng": -72.060776
+  },
+  {
+   "lamId": "commune-nord-saint-raphael",
+   "lamKey": "Nord|Saint-Raphaël",
+   "adm2_pcode": "HT0341",
+   "aliasKreyol": null,
+   "centroidLat": 19.396223,
+   "centroidLng": -72.181564
+  },
+  {
+   "lamId": "commune-ouest-anse-a-galets",
+   "lamKey": "Ouest|Anse-à-Galets",
+   "adm2_pcode": "HT0151",
+   "aliasKreyol": null,
+   "centroidLat": 18.811923,
+   "centroidLng": -72.917117
+  },
+  {
+   "lamId": "commune-ouest-arcahaie",
+   "lamKey": "Ouest|Arcahaie",
+   "adm2_pcode": "HT0141",
+   "aliasKreyol": null,
+   "centroidLat": 18.871371,
+   "centroidLng": -72.494008
+  },
+  {
+   "lamId": "commune-ouest-cabaret",
+   "lamKey": "Ouest|Cabaret",
+   "adm2_pcode": "HT0142",
+   "aliasKreyol": null,
+   "centroidLat": 18.769325,
+   "centroidLng": -72.418454
+  },
+  {
+   "lamId": "commune-ouest-carrefour",
+   "lamKey": "Ouest|Carrefour",
+   "adm2_pcode": "HT0113",
+   "aliasKreyol": null,
+   "centroidLat": 18.465279,
+   "centroidLng": -72.420377
+  },
+  {
+   "lamId": "commune-ouest-cite-soleil",
+   "lamKey": "Ouest|Cité Soleil",
+   "adm2_pcode": "HT0117",
+   "aliasKreyol": null,
+   "centroidLat": 18.595335,
+   "centroidLng": -72.316431
+  },
+  {
+   "lamId": "commune-ouest-cornillon",
+   "lamKey": "Ouest|Cornillon",
+   "adm2_pcode": "HT0134",
+   "aliasKreyol": null,
+   "centroidLat": 18.68744,
+   "centroidLng": -71.930701
+  },
+  {
+   "lamId": "commune-ouest-croix-des-bouquets",
+   "lamKey": "Ouest|Croix-des-Bouquets",
+   "adm2_pcode": "HT0131",
+   "aliasKreyol": null,
+   "centroidLat": 18.56587,
+   "centroidLng": -72.193842
+  },
+  {
+   "lamId": "commune-ouest-delmas",
+   "lamKey": "Ouest|Delmas",
+   "adm2_pcode": "HT0112",
+   "aliasKreyol": null,
+   "centroidLat": 18.551396,
+   "centroidLng": -72.287185
+  },
+  {
+   "lamId": "commune-ouest-fonds-verrettes",
+   "lamKey": "Ouest|Fonds-Verrettes",
+   "adm2_pcode": "HT0135",
+   "aliasKreyol": null,
+   "centroidLat": 18.361211,
+   "centroidLng": -71.838523
+  },
+  {
+   "lamId": "commune-ouest-ganthier",
+   "lamKey": "Ouest|Ganthier",
+   "adm2_pcode": "HT0133",
+   "aliasKreyol": null,
+   "centroidLat": 18.484351,
+   "centroidLng": -72.016902
+  },
+  {
+   "lamId": "commune-ouest-grand-goave",
+   "lamKey": "Ouest|Grand-Goâve",
+   "adm2_pcode": "HT0123",
+   "aliasKreyol": null,
+   "centroidLat": 18.35511,
+   "centroidLng": -72.750435
+  },
+  {
+   "lamId": "commune-ouest-gressier",
+   "lamKey": "Ouest|Gressier",
+   "adm2_pcode": "HT0116",
+   "aliasKreyol": null,
+   "centroidLat": 18.511092,
+   "centroidLng": -72.515101
+  },
+  {
+   "lamId": "commune-ouest-kenscoff",
+   "lamKey": "Ouest|Kenscoff",
+   "adm2_pcode": "HT0115",
+   "aliasKreyol": null,
+   "centroidLat": 18.412496,
+   "centroidLng": -72.293212
+  },
+  {
+   "lamId": "commune-ouest-leogane",
+   "lamKey": "Ouest|Léogâne",
+   "adm2_pcode": "HT0121",
+   "aliasKreyol": null,
+   "centroidLat": 18.443664,
+   "centroidLng": -72.573704
+  },
+  {
+   "lamId": "commune-ouest-petion-ville",
+   "lamKey": "Ouest|Pétion-Ville",
+   "adm2_pcode": "HT0114",
+   "aliasKreyol": null,
+   "centroidLat": 18.483698,
+   "centroidLng": -72.239559
+  },
+  {
+   "lamId": "commune-ouest-petit-goave",
+   "lamKey": "Ouest|Petit-Goâve",
+   "adm2_pcode": "HT0122",
+   "aliasKreyol": null,
+   "centroidLat": 18.363467,
+   "centroidLng": -72.921829
+  },
+  {
+   "lamId": "commune-ouest-pointe-a-raquette",
+   "lamKey": "Ouest|Pointe-à-Raquette",
+   "adm2_pcode": "HT0152",
+   "aliasKreyol": null,
+   "centroidLat": 18.856878,
+   "centroidLng": -73.181442
+  },
+  {
+   "lamId": "commune-ouest-port-au-prince",
+   "lamKey": "Ouest|Port-au-Prince",
+   "adm2_pcode": "HT0111",
+   "aliasKreyol": null,
+   "centroidLat": 18.531114,
+   "centroidLng": -72.333306
+  },
+  {
+   "lamId": "commune-ouest-tabarre",
+   "lamKey": "Ouest|Tabarre",
+   "adm2_pcode": "HT0118",
+   "aliasKreyol": null,
+   "centroidLat": 18.572983,
+   "centroidLng": -72.269374
+  },
+  {
+   "lamId": "commune-ouest-thomazeau",
+   "lamKey": "Ouest|Thomazeau",
+   "adm2_pcode": "HT0132",
+   "aliasKreyol": null,
+   "centroidLat": 18.668011,
+   "centroidLng": -72.147277
+  },
+  {
+   "lamId": "commune-sud-aquin",
+   "lamKey": "Sud|Aquin",
+   "adm2_pcode": "HT0731",
+   "aliasKreyol": null,
+   "centroidLat": 18.276205,
+   "centroidLng": -73.215309
+  },
+  {
+   "lamId": "commune-sud-arniquet",
+   "lamKey": "Sud|Arniquet",
+   "adm2_pcode": "HT0723",
+   "aliasKreyol": null,
+   "centroidLat": 18.149798,
+   "centroidLng": -73.91201
+  },
+  {
+   "lamId": "commune-sud-camp-perrin",
+   "lamKey": "Sud|Camp-Perrin",
+   "adm2_pcode": "HT0714",
+   "aliasKreyol": null,
+   "centroidLat": 18.339034,
+   "centroidLng": -73.865133
+  },
+  {
+   "lamId": "commune-sud-cavaillon",
+   "lamKey": "Sud|Cavaillon",
+   "adm2_pcode": "HT0733",
+   "aliasKreyol": null,
+   "centroidLat": 18.321597,
+   "centroidLng": -73.63259
+  },
+  {
+   "lamId": "commune-sud-chantal",
+   "lamKey": "Sud|Chantal",
+   "adm2_pcode": "HT0713",
+   "aliasKreyol": null,
+   "centroidLat": 18.280701,
+   "centroidLng": -73.974358
+  },
+  {
+   "lamId": "commune-sud-chardonnieres",
+   "lamKey": "Sud|Chardonnières",
+   "adm2_pcode": "HT0751",
+   "aliasKreyol": null,
+   "centroidLat": 18.32986,
+   "centroidLng": -74.095254
+  },
+  {
+   "lamId": "commune-sud-est-anse-a-pitres",
+   "lamKey": "Sud-Est|Anse-à-Pitres",
+   "adm2_pcode": "HT0234",
+   "aliasKreyol": null,
+   "centroidLat": 18.163211,
+   "centroidLng": -71.80597
+  },
+  {
+   "lamId": "commune-sud-est-bainet",
+   "lamKey": "Sud-Est|Bainet",
+   "adm2_pcode": "HT0221",
+   "aliasKreyol": null,
+   "centroidLat": 18.215753,
+   "centroidLng": -72.760398
+  },
+  {
+   "lamId": "commune-sud-est-belle-anse",
+   "lamKey": "Sud-Est|Belle-Anse",
+   "adm2_pcode": "HT0231",
+   "aliasKreyol": null,
+   "centroidLat": 18.275748,
+   "centroidLng": -72.078555
+  },
+  {
+   "lamId": "commune-sud-est-cayes-jacmel",
+   "lamKey": "Sud-Est|Cayes-Jacmel",
+   "adm2_pcode": "HT0213",
+   "aliasKreyol": null,
+   "centroidLat": 18.280258,
+   "centroidLng": -72.416604
+  },
+  {
+   "lamId": "commune-sud-est-cotes-de-fer",
+   "lamKey": "Sud-Est|Côtes-de-Fer",
+   "adm2_pcode": "HT0222",
+   "aliasKreyol": null,
+   "centroidLat": 18.241717,
+   "centroidLng": -72.953867
+  },
+  {
+   "lamId": "commune-sud-est-grand-gosier",
+   "lamKey": "Sud-Est|Grand-Gosier",
+   "adm2_pcode": "HT0232",
+   "aliasKreyol": null,
+   "centroidLat": 18.254736,
+   "centroidLng": -71.900874
+  },
+  {
+   "lamId": "commune-sud-est-jacmel",
+   "lamKey": "Sud-Est|Jacmel",
+   "adm2_pcode": "HT0211",
+   "aliasKreyol": null,
+   "centroidLat": 18.288567,
+   "centroidLng": -72.553227
+  },
+  {
+   "lamId": "commune-sud-est-la-vallee-de-jacmel",
+   "lamKey": "Sud-Est|La Vallée-de-Jacmel",
+   "adm2_pcode": "HT0214",
+   "aliasKreyol": null,
+   "centroidLat": 18.282912,
+   "centroidLng": -72.700921
+  },
+  {
+   "lamId": "commune-sud-est-marigot",
+   "lamKey": "Sud-Est|Marigot",
+   "adm2_pcode": "HT0212",
+   "aliasKreyol": null,
+   "centroidLat": 18.289478,
+   "centroidLng": -72.298374
+  },
+  {
+   "lamId": "commune-sud-est-thiotte",
+   "lamKey": "Sud-Est|Thiotte",
+   "adm2_pcode": "HT0233",
+   "aliasKreyol": null,
+   "centroidLat": 18.207038,
+   "centroidLng": -71.870677
+  },
+  {
+   "lamId": "commune-sud-ile-a-vache",
+   "lamKey": "Sud|Île-à-Vache",
+   "adm2_pcode": "HT0716",
+   "aliasKreyol": null,
+   "centroidLat": 18.08306,
+   "centroidLng": -73.608833
+  },
+  {
+   "lamId": "commune-sud-les-anglais",
+   "lamKey": "Sud|Les Anglais",
+   "adm2_pcode": "HT0752",
+   "aliasKreyol": null,
+   "centroidLat": 18.350751,
+   "centroidLng": -74.176728
+  },
+  {
+   "lamId": "commune-sud-les-cayes",
+   "lamKey": "Sud|Les Cayes",
+   "adm2_pcode": "HT0711",
+   "aliasKreyol": null,
+   "centroidLat": 18.260156,
+   "centroidLng": -73.76597
+  },
+  {
+   "lamId": "commune-sud-les-coteaux",
+   "lamKey": "Sud|Les Côteaux",
+   "adm2_pcode": "HT0741",
+   "aliasKreyol": null,
+   "centroidLat": 18.242783,
+   "centroidLng": -74.032078
+  },
+  {
+   "lamId": "commune-sud-maniche",
+   "lamKey": "Sud|Maniche",
+   "adm2_pcode": "HT0715",
+   "aliasKreyol": null,
+   "centroidLat": 18.36795,
+   "centroidLng": -73.75215
+  },
+  {
+   "lamId": "commune-sud-port-a-piment",
+   "lamKey": "Sud|Port-à-Piment",
+   "adm2_pcode": "HT0742",
+   "aliasKreyol": null,
+   "centroidLat": 18.282022,
+   "centroidLng": -74.071829
+  },
+  {
+   "lamId": "commune-sud-port-salut",
+   "lamKey": "Sud|Port-Salut",
+   "adm2_pcode": "HT0721",
+   "aliasKreyol": null,
+   "centroidLat": 18.0888,
+   "centroidLng": -73.898264
+  },
+  {
+   "lamId": "commune-sud-roche-a-bateau",
+   "lamKey": "Sud|Roche-à-Bateau",
+   "adm2_pcode": "HT0743",
+   "aliasKreyol": null,
+   "centroidLat": 18.197978,
+   "centroidLng": -73.969834
+  },
+  {
+   "lamId": "commune-sud-saint-jean-du-sud",
+   "lamKey": "Sud|Saint-Jean-du-Sud",
+   "adm2_pcode": "HT0722",
+   "aliasKreyol": null,
+   "centroidLat": 18.07185,
+   "centroidLng": -73.844893
+  },
+  {
+   "lamId": "commune-sud-saint-louis-du-sud",
+   "lamKey": "Sud|Saint-Louis-du-Sud",
+   "adm2_pcode": "HT0732",
+   "aliasKreyol": null,
+   "centroidLat": 18.277045,
+   "centroidLng": -73.523995
+  },
+  {
+   "lamId": "commune-sud-tiburon",
+   "lamKey": "Sud|Tiburon",
+   "adm2_pcode": "HT0753",
+   "aliasKreyol": null,
+   "centroidLat": 18.339708,
+   "centroidLng": -74.321704
+  },
+  {
+   "lamId": "commune-sud-torbeck",
+   "lamKey": "Sud|Torbeck",
+   "adm2_pcode": "HT0712",
+   "aliasKreyol": null,
+   "centroidLat": 18.242384,
+   "centroidLng": -73.867586
+  }
+ ],
+ "unmatchedLegalCommunes": [
+  {
+   "lamId": "commune-nord-est-grand-bassin",
+   "lamKey": "Nord-Est|Grand-Bassin",
+   "note": "Limite cartographique à confirmer — commune absente du COD-AB (140 communes)."
+  },
+  {
+   "lamId": "commune-artibonite-liancourt",
+   "lamKey": "Artibonite|Liancourt",
+   "note": "Limite cartographique à confirmer — commune absente du COD-AB (140 communes)."
+  },
+  {
+   "lamId": "commune-artibonite-montrouis",
+   "lamKey": "Artibonite|Montrouis",
+   "note": "Limite cartographique à confirmer — commune absente du COD-AB (140 communes)."
+  },
+  {
+   "lamId": "commune-centre-baptiste",
+   "lamKey": "Centre|Baptiste",
+   "note": "Limite cartographique à confirmer — commune absente du COD-AB (140 communes)."
+  },
+  {
+   "lamId": "commune-sud-ducis",
+   "lamKey": "Sud|Ducis",
+   "note": "Limite cartographique à confirmer — commune absente du COD-AB (140 communes)."
+  },
+  {
+   "lamId": "commune-sud-fonds-des-blancs",
+   "lamKey": "Sud|Fonds-des-Blancs",
+   "note": "Limite cartographique à confirmer — commune absente du COD-AB (140 communes)."
+  },
+  {
+   "lamId": "commune-grand-anse-marfranc",
+   "lamKey": "Grand’Anse|Marfranc",
+   "note": "Limite cartographique à confirmer — commune absente du COD-AB (140 communes)."
+  },
+  {
+   "lamId": "commune-grand-anse-ile-cayemites",
+   "lamKey": "Grand’Anse|Île Cayémites",
+   "note": "Limite cartographique à confirmer — commune absente du COD-AB (140 communes)."
+  },
+  {
+   "lamId": "commune-nord-ouest-la-pointe-des-palmistes",
+   "lamKey": "Nord-Ouest|La Pointe-des-Palmistes",
+   "note": "Limite cartographique à confirmer — commune absente du COD-AB (140 communes)."
+  }
+ ],
+ "unmatchedCodFeatures": [],
+ "incompleteArrondissements": [
+  "Artibonite / Saint-Marc — géométrie absente pour : Liancourt, Montrouis",
+  "Centre / Lascahobas — géométrie absente pour : Baptiste",
+  "Grand’Anse / Corail — géométrie absente pour : Île Cayémites",
+  "Grand’Anse / Jérémie — géométrie absente pour : Marfranc",
+  "Nord-Est / Trou-du-Nord — géométrie absente pour : Grand-Bassin",
+  "Nord-Ouest / Port-de-Paix — géométrie absente pour : La Pointe-des-Palmistes",
+  "Sud / Aquin — géométrie absente pour : Fonds-des-Blancs",
+  "Sud / Les Cayes — géométrie absente pour : Ducis"
+ ]
+}
