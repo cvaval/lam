@@ -77,6 +77,13 @@ const ART_REFS_SOURCES = new Set([
   // Code de procédure civile : renvois internes « article N » (anti-lien-mort).
   'CODE_PROCEDURE_CIVILE',
 ])
+/** Pliable intitulé « Annotations » plutôt que « Jurisprudence » : le bloc ne porte pas que
+ *  des arrêts. Code civil et Code de commerce y joignent les commentaires de l'auteur ; le
+ *  Code de procédure civile, l'ancienne numérotation de ses articles et 478 notes
+ *  doctrinales sans arrêt à citer. */
+const ANNOTATIONS_VARIANT_SOURCES = new Set([
+  'CODE_CIVIL_ANNOTE', 'CODE_COMMERCE_ANNOTE', 'CODE_PROCEDURE_CIVILE',
+])
 
 export default async function DocPage({
   params,
@@ -461,7 +468,7 @@ export default async function DocPage({
               hideInlineIndex={HIDE_INLINE_INDEX_SOURCES.has(doc.source ?? '')}
               linkCivRefs={doc.source === 'CODE_CIVIL_ANNOTE'}
               linkArtRefs={ART_REFS_SOURCES.has(doc.source ?? '') || (doc.source ?? '').startsWith('CC_VANDAL_')}
-              annotationsVariant={doc.source === 'CODE_CIVIL_ANNOTE' || doc.source === 'CODE_COMMERCE_ANNOTE' ? 'annotations' : 'juris'}
+              annotationsVariant={ANNOTATIONS_VARIANT_SOURCES.has(doc.source ?? '') ? 'annotations' : 'juris'}
             />
           </section>
         </div>

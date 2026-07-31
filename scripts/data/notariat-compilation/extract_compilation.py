@@ -39,9 +39,12 @@ TEXTES = [
     ('decret-loi-1941-etude-vacante',
      'Décret-loi du 20 juin 1941 sur le notaire dont l’étude est devenue vacante',
      114, 121, '1941-06-20', 2),
+    # ⚠️ 224–226 et non 224–228 : les paragraphes 227 et 228 sont l'« Annexe » de la
+    # compilation (notice sur l'histoire législative) et deux notes de jurisprudence. Ils
+    # étaient absorbés par la clôture du décret, qui atteignait 3 147 caractères.
     ('decret-1974-nombre-notaires',
      'Décret du 30 septembre 1974 augmentant le nombre des notaires',
-     224, 229, '1974-09-30', 2),
+     224, 227, '1974-09-30', 2),
     ('decret-1986-nombre-notaires',
      'Décret du 9 juillet 1986 du Conseil National de Gouvernement fixant le nombre des notaires',
      233, 242, '1986-07-09', 2),
@@ -67,6 +70,17 @@ COQUILLES = [
     (r'\barücle\b', 'article'), (r'\bConstiotution\b', 'Constitution'), (r'\bdérnontré\b', 'démontré'),
     (r'\bMiragoàne\b', 'Miragoâne'), (r'\bGoàve\b', 'Goâve'), (r'\bRiviére\b', 'Rivière'),
     (r'\bprofes:\s*sion\b', 'profession'), (r'\bTa Secrétairerie\b', 'La Secrétairerie'),
+    # Décret du 9 juillet 1986 — la transcription en est particulièrement abîmée.
+    (r'\bPrésiden\.', 'Président.'), (r'NATIONAL[\'’]DE', 'NATIONAL DE'),
+    (r'CONSEIL NATION DE GOUVERNEMENT', 'CONSEIL NATIONAL DE GOUVERNEMENT'),
+    (r'Port-auPrince', 'Port-au-Prince'), (r'An 183"-e de Indépendance', 'An 183e de l’Indépendance'),
+    (r'\bqu8e\b', 'que'), (r'\beroissance\b', 'croissance'), (r'\bderníéres\b', 'dernières'),
+    (r'\baugementation\b', 'augmentation'), (r'\bNotaríat\b', 'Notariat'),
+    (r'\bMinistére\b', 'Ministère'), (r'\baprés\b', 'après'), (r'\bannonqant\b', 'annonçant'),
+    (r'\bcornposition\b', 'composition'), (r'élargir [\'’]effectif', 'élargir l’effectif'),
+    (r'l[\'’]exode vers la capital\b', 'l’exode vers la capitale'),
+    (r'\bDelmas: Delmas:', 'Delmas:'), (r'\bGonaives\b', 'Gonaïves'), (r'\bLéogane\b', 'Léogâne'),
+    (r'Et de [\'’]avis', 'Et de l’avis'),
 ]
 
 
@@ -102,6 +116,55 @@ ARTICULATIONS = re.compile(
 ITEMS = re.compile(r'(?=\d{1,2}\s*[ºo°]\s|DROITS\s+D|TARIF\b|DEPECHE\b|DÉPÊCHE\b)')
 LONG = 1500
 
+# ── En-tête : visas et considérants ───────────────────────────────────────────
+# La compilation les donne d'un seul tenant — 1 202 caractères pour le décret de 1986, où
+# se suivent six « Vu », trois « Considérant » et la formule d'adoption. Le lecteur y voyait
+# un pavé. On coupe AVANT chaque articulation : aucun mot n'est ajouté ni retiré.
+VISAS = re.compile(r'(?=\bVu\s+(?:la|le|les|l’)|\bConsidérant\s+(?:que|qu’)|'
+                   r'\bSur le rapport\b|\bEt (?:de l’avis|après délibération)\b|'
+                   r'\bD[ÉE]CR[ÈE]TE\b|\bARR[ÊE]TE\b)')
+
+# ── Énumérations d'un article ─────────────────────────────────────────────────
+# Les deux décrets sur le NOMBRE DES NOTAIRES fixent un effectif par commune, en liste. La
+# compilation la donne en un seul paragraphe : « Port-au-Prince: 22 notaires Delmas: 5
+# notaires Pétion-Ville: 5 notaires… ». On ne coupe que dans un article qui s'annonce comme
+# une liste (« fixé ainsi qu'il suit », « fixé comme suit ») — ailleurs, le point-virgule
+# sépare des membres de phrase, non des items.
+ANNONCE_LISTE = re.compile(r'fix[ée]\s+(?:ainsi qu’il suit|comme suit)\s*:', re.I)
+ITEM_NOTAIRES = re.compile(r'(?<=[Nn]otaires)\s+(?=[A-ZÉÀ])|(?<=;)\s+(?=\d+\s+[Nn]otaires)')
+
+
+# ── Signatures et contreseings ────────────────────────────────────────────────
+# « Donné au Palais National… Henri NAMPHY Lieutenant-Général, FAD'H., Président Williams
+# REGALA, Colonel FAD'H., Membre Me. Jacques A. FRANÇOIS, Membre » : trois signataires en un
+# paragraphe. On coupe devant un nom (prénom capitalisé + PATRONYME en capitales) lorsqu'il
+# suit une ponctuation ou l'une des qualités qui closent la signature précédente.
+# ⚠️ La négative sur « Me. » est indispensable : son point est une ponctuation, et sans elle
+# la civilité se détache du nom qu'elle introduit.
+NOM = r'(?:Me\.\s+)?[A-ZÉÈ][a-zà-ÿ]+(?:\s+[A-Z]\.)?\s+[A-ZÉÈÀÇ]{4,}'
+SIGNATURES = re.compile(rf'(?<=[.:])(?<!Me\.)\s+(?={NOM})|(?<=Président)\s+(?={NOM})'
+                        rf'|(?<=Membre)\s+(?={NOM})|\s+(?=Le Ministre\b)|\s+(?=Le Secr[ée]taire\b)')
+
+
+def ventiler_entete(bloc):
+    """Visas, considérants et formule d'adoption, un par ligne."""
+    out = []
+    for x in VISAS.split(bloc):
+        x = x.strip()
+        if x:
+            out.extend(y.strip() for y in SIGNATURES.split(x) if y.strip())
+    return out
+
+
+def ventiler_article(texte):
+    """Article portant une énumération → chapeau puis un item par ligne."""
+    if not ANNONCE_LISTE.search(texte) or len(texte) < 200:
+        return texte
+    m = ANNONCE_LISTE.search(texte)
+    chapeau, liste = texte[: m.end()].strip(), texte[m.end():].strip()
+    items = [x.strip(' ;') for x in ITEM_NOTAIRES.split(liste) if x.strip(' ;')]
+    return chapeau + '\n' + '\n'.join(items) if items else texte
+
 
 def ventiler(bloc):
     """Coupe un bloc de clôture à ses articulations ; renvoie une liste de lignes."""
@@ -110,8 +173,17 @@ def ventiler(bloc):
         x = x.strip()
         if not x:
             continue
-        out.extend(y.strip() for y in ITEMS.split(x) if y.strip()) if len(x) > LONG else out.append(x)
+        if len(x) > LONG:
+            out.extend(y.strip() for y in ITEMS.split(x) if y.strip())
+        else:
+            out.extend(y.strip() for y in SIGNATURES.split(x) if y.strip())
     return out
+
+
+# Matière ÉTRANGÈRE au texte porteur, que la compilation enchaîne sans le moindre blanc :
+# la clôture du décret de 1974 était suivie, dans le même paragraphe, d'un avis sur la loi
+# du 21 août 1975. La clôture s'arrête là.
+HORS_TEXTE = re.compile(r'\s*Décret du 21 Août 1975 autorisant\b.*$', re.S)
 
 
 def detacher_cloture(arts):
@@ -119,6 +191,7 @@ def detacher_cloture(arts):
     if not arts:
         return arts, []
     dernier = arts[-1]
+    dernier['text'] = HORS_TEXTE.sub('', dernier['text'])
     m = CLOTURE.search(dernier['text'])
     if not m or m.start() == 0:
         return arts, []
@@ -149,8 +222,11 @@ def main():
         # « Art 37- » : la forme ABRÉGÉE existe aussi (articles 37 et 38 de la loi de 1919).
         # Ne la pas admettre faisait perdre ces deux articles ET tous les suivants, le garde
         # séquentiel s'arrêtant au premier trou.
+        # ⚠️ La ponctuation de tête est double dans cette transcription : « Article 1. — Le
+        # Décret… ». Ne consommer que le point laissait le tiret en tête du texte, et le
+        # gabarit d'écriture le redoublait : « Article 1. — — Le Décret… ».
         reperes = [(int(m.group(1)), m.start(), m.end())
-                   for m in re.finditer(r'(?<!l’)(?<!l\')(?<!du )(?<!L\')Art(?:icle)?\.?\s*(\d{1,3})\s*[.—-]+\s*', joint)]
+                   for m in re.finditer(r'(?<!l’)(?<!l\')(?<!du )(?<!L\')Art(?:icle)?\.?\s*(\d{1,3})\s*[.\s—\-]*', joint)]
         # Ne garder que la SÉQUENCE croissante depuis 1 (les « Article 32 » cités par un
         # texte modificatif ne sont pas des articles du texte porteur).
         garde, attendu_n = [], 1
@@ -163,8 +239,11 @@ def main():
             fin = garde[i + 1][1] if i + 1 < len(garde) else len(joint)
             arts.append({'num': str(n), 'text': re.sub(r'\s+', ' ', joint[e0:fin]).strip()})
         arts, cloture = detacher_cloture(arts)
+        for art in arts:
+            art['text'] = ventiler_article(art['text'])
         entete = joint[: garde[0][1]].strip() if garde else joint
-        corps = entete + '\n' + '\n'.join(f'Article {a["num"]}. — {a["text"]}' for a in arts)
+        corps = '\n'.join(ventiler_entete(entete))
+        corps += '\n' + '\n'.join(f'Article {a["num"]}. — {a["text"]}' for a in arts)
         if cloture:
             corps += '\n' + '\n'.join(cloture)
         sortie[slug] = {'titre': titre, 'date': date, 'articles': arts, 'corps': corps, 'cloture': cloture}
