@@ -154,3 +154,43 @@ diagnostiquer un composant client « inerte », vérifier qu'il porte bien une c
 `__react*` dans le DOM.
 
 Contrôles rejoués : `tsc --noEmit`, `next lint` (0), **66 tests**, `next build`.
+
+## 7. Revue du héros — contrastes mesurés, kreyòl, repli sans JS
+
+Contrastes calculés sur les couleurs réelles de la charte (lank `#1C1B3A`, cream
+`#F6F4EE`, sitwon `#BEF264`), pas estimés à l'œil. Quatre textes étaient **sous le
+seuil WCAG AA** (4,5:1 pour du texte courant) :
+
+| Texte | Avant | Après |
+|---|---|---|
+| Note « Cliquez pour ouvrir la recherche » (11 px) | cream/45 → **4,09:1** ❌ | cream/60 → **6,20:1** ✅ |
+| Puces de fonctionnalités (11 px) | cream/45 → **4,09:1** ❌ | cream/60 → **6,20:1** ✅ |
+| Fiche — « Ouest · Arrondissement… » (11 px) | lank/50 → **3,26:1** ❌ | lank/65 → **5,21:1** ✅ |
+| Fiche — adresse de la cassation (10,5 px) | lank/45 → **2,83:1** ❌ | lank/65 → **5,21:1** ✅ |
+
+Conformes sans retouche : description (7,96:1), étiquette Port-au-Prince (13,0:1),
+pastille du code postal (5,51:1), bouton et noms de tribunaux (12,7:1 et 16,6:1).
+
+**Kreyòl incohérent.** Le titre entier disait « Toupatou **ann** Ayiti » — c'est lui
+qui sert de nom accessible au lien — tandis que le titre coupé affichait « Toupatou
+**nan** Ayiti ». Une personne au lecteur d'écran entendait donc une phrase que
+personne ne voyait. Corrigé, et l'invariant `titleLead + ' ' + titleAccent === title`
+est désormais **testé pour les trois langues** (`src/lib/i18n/hero-map.test.ts`,
+9 assertions).
+
+**Repli sans JavaScript.** Le petit lien « Explorer la carte judiciaire → » sous les
+indicateurs doublait mot pour mot le bouton de la diapositive. Il n'existe que pour
+le cas sans JS (où la seconde diapositive reste `opacity-0 pointer-events-none`) :
+il est passé dans un `<noscript>`.
+
+Robustesse : la fiche blanche porte maintenant `text-lank` sur son conteneur — elle
+vit dans une section `text-cream`, donc tout texte oubliant sa couleur serait devenu
+invisible sur blanc.
+
+**Incident, deuxième occurrence.** La page est apparue **sans aucune feuille de
+style** : le serveur de développement était resté bloqué sur « Starting… » après que
+`npm run build` a écrasé le `.next` partagé. Ce n'est pas un défaut du code — mais
+c'est le troisième accident `.next` du chantier. Le réflexe : arrêter le serveur
+avant tout `build`, ou purger `.next` et redémarrer.
+
+Contrôles : `tsc`, `lint` (0), **75 tests** (10 fichiers), `next build`.

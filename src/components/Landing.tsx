@@ -38,8 +38,7 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
       </header>
 
       {/* Hero — carrousel à deux diapositives (Législation → login ; Carte judiciaire
-          → /juridictions). Hauteur réservée par la grille du carrousel (pas de CLS) ;
-          le lien direct « Carte judiciaire » ci-dessous reste accessible sans JS. */}
+          → /juridictions). Hauteur réservée par la grille du carrousel (pas de CLS). */}
       {/* overflow-x-clip : les décorations flottantes des deux diapositives (fiche
           de l'Index, carte débordant vers la gauche) ne doivent JAMAIS provoquer de
           barre de défilement horizontale — mesuré à 1024 px, où la fiche de la
@@ -56,11 +55,19 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
           <LegislationHeroSlide locale={locale} t={t} />
           <JudicialMapHeroSlide locale={locale} t={t} />
         </HomeHeroCarousel>
-        <div className="mx-auto max-w-6xl px-4 pb-6">
-          <Link href={`/${locale}/juridictions`} className="font-mono text-xs text-cream/50 underline underline-offset-4 hover:text-sitwon">
-            {t.hero.map.cta} →
-          </Link>
-        </div>
+        {/*
+          Repli SANS JAVASCRIPT uniquement. Sans JS, le carrousel rend bien les deux
+          diapositives mais la seconde reste à `opacity-0 pointer-events-none` : son
+          lien est inatteignable. Avec JS, ce lien doublait mot pour mot le bouton
+          de la diapositive — d'où le <noscript>.
+        */}
+        <noscript>
+          <div className="mx-auto max-w-6xl px-4 pb-6">
+            <Link href={`/${locale}/juridictions`} className="font-mono text-xs text-cream/70 underline underline-offset-4 hover:text-sitwon">
+              {t.hero.map.cta} →
+            </Link>
+          </div>
+        </noscript>
       </section>
 
       {/* Publications */}

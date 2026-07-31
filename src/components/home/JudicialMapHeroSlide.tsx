@@ -85,12 +85,14 @@ export function JudicialMapHeroSlide({ locale, t }: { locale: Locale; t: Diction
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
             </span>
 
-            <p className="mt-4 flex items-center gap-2 font-mono text-[11px] text-cream/45">
+            {/* cream/60 et non /45 : à 11 px le contraste sur le navy tombait à
+                4,09:1, sous le seuil AA de 4,5:1 (mesuré). /60 donne 6,2:1. */}
+            <p className="mt-4 flex items-center gap-2 font-mono text-[11px] text-cream/60">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-sitwon" />
               {h.note}
             </p>
 
-            <ul className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] text-cream/45">
+            <ul className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] text-cream/60">
               {[h.featureFuzzy, h.featureByCommune, h.featureVerified].map((f, i) => (
                 <li key={f} className="flex items-center gap-3">
                   {i > 0 && <span aria-hidden="true" className="h-1 w-1 rounded-full bg-sitwon/70" />}
@@ -137,9 +139,13 @@ export function JudicialMapHeroSlide({ locale, t }: { locale: Locale; t: Diction
               devenait du vide sous la diapositive 1. C'est un aperçu, pas la donnée :
               la fiche réelle est sur /juridictions, où le lien mène.
             */}
-            <div className="hidden rounded-2xl bg-white p-4 shadow-2xl ring-1 ring-lank/10 lg:absolute lg:right-0 lg:top-4 lg:block lg:w-[17.5rem] xl:w-[19rem]">
+            {/* `text-lank` sur le conteneur : la fiche est blanche à l'intérieur d'une
+                section `text-cream`. Sans cette base, tout texte qui oublierait sa
+                couleur hériterait du crème — invisible sur blanc. */}
+            <div className="hidden rounded-2xl bg-white p-4 text-lank shadow-2xl ring-1 ring-lank/10 lg:absolute lg:right-0 lg:top-4 lg:block lg:w-[17.5rem] xl:w-[19rem]">
               <h3 className="font-serif text-xl font-semibold text-lank">Port-au-Prince</h3>
-              <p className="mt-0.5 text-[11px] text-lank/50">Ouest · Arrondissement de Port-au-Prince</p>
+              {/* /65 et non /50 : sur blanc, /50 ne donnait que 3,26:1 (AA = 4,5). */}
+              <p className="mt-0.5 text-[11px] text-lank/65">Ouest · Arrondissement de Port-au-Prince</p>
               <p className="mt-2.5 inline-flex items-baseline gap-1.5 rounded-md bg-sitwon px-2.5 py-1">
                 <span className="font-mono text-[9px] uppercase tracking-wider text-lank/70">{j.primaryPostalCode}</span>
                 <span className="font-mono text-xs font-bold text-lank">HT6110</span>
@@ -150,7 +156,7 @@ export function JudicialMapHeroSlide({ locale, t }: { locale: Locale; t: Diction
                     <CourtGlyph tone={c.tone} />
                     <span className="min-w-0">
                       <span className="block text-[12.5px] font-medium leading-tight text-lank">{c.name}</span>
-                      {c.detail && <span className="mt-0.5 block truncate text-[10.5px] text-lank/45">{c.detail}</span>}
+                      {c.detail && <span className="mt-0.5 block truncate text-[10.5px] text-lank/65">{c.detail}</span>}
                     </span>
                   </li>
                 ))}
