@@ -31,56 +31,11 @@ import { prisma } from '../src/lib/db'
 import { reindexDocument } from '../src/lib/search/reindex'
 import { parseCirculaireRef } from '../src/lib/brh/gaps'
 
-interface Relation {
-  cible: string
-  par: string
-  /** Date d'effet ANNONCÉE PAR LA CLAUSE (pas la date de signature). */
-  effet: string
-  /** Extrait verbatim du texte abrogeant — la seule justification admise. */
-  clause: string
-}
+import { ABROGATIONS, type AbrogationRelation as Relation } from '../src/lib/brh/abrogations'
 
-export const ABROGATIONS: Relation[] = [
-  { cible: 'Circulaire n° 70', par: 'Circulaire n° 110-1', effet: '2017-04-17',
-    clause: 'Cette circulaire annule et remplace celle du 16 mai 1995 (Réf. BRH/CIR/95 # 70).' },
-  { cible: 'Circulaire n° 72-3', par: 'Circulaire n° 111', effet: '2017-12-01',
-    clause: 'La présente circulaire abroge les circulaires No 72-3 du 1er septembre 1998 et 78-1 du 27 mars 2000.' },
-  { cible: 'Circulaire n° 78-1', par: 'Circulaire n° 111', effet: '2017-12-01',
-    clause: 'La présente circulaire abroge les circulaires No 72-3 du 1er septembre 1998 et 78-1 du 27 mars 2000.' },
-  { cible: 'Circulaire n° 61-2', par: 'Circulaire n° 63-3', effet: '2020-11-03',
-    clause: 'Les dispositions de la présente circulaire remplacent celles de la Circulaire No 61-2 et entrent en vigueur le 3 novembre 2020.' },
-  { cible: 'Circulaire n° 89-1', par: 'Circulaire n° 89-2', effet: '2020-11-03',
-    clause: 'Les dispositions de la présente circulaire remplacent celles de la Circulaire No 89-1 du 29 septembre 2015 et entrent en vigueur le 3 novembre 2020.' },
-  { cible: 'Circulaire n° 82-2', par: 'Circulaire n° 82-3', effet: '2020-11-03',
-    clause: 'Les dispositions de la présente circulaire remplacent celles de la circulaire N° 82-2 du 12 décembre 1997 et entrent en vigueur le 3 novembre 2020.' },
-  { cible: 'Circulaire n° 88', par: 'Circulaire n° 88-1', effet: '2021-04-01',
-    clause: 'Les dispositions de la présente circulaire remplacent celles de la Circulaire No 88 du 10 décembre 1998 et entrent en vigueur à compter du 1er avril 2021.' },
-  { cible: 'Circulaire n° 92', par: 'Circulaire n° 92-1', effet: '2022-02-01',
-    clause: 'Les dispositions de la présente circulaire remplacent celles de la circulaire No 92 du 9 avril 1998 et entrent en vigueur le 1er février 2022.' },
-  { cible: 'Circulaire n° 99-3', par: 'Circulaire n° 99-4', effet: '2023-08-14',
-    clause: 'La présente circulaire abroge la circulaire 99-3 du 27 août 2020 et la note additionnelle du 14 novembre 2022.' },
-  { cible: 'Circulaire n° 83-4', par: 'Circulaire n° 83-5', effet: '2024-04-01',
-    clause: 'Les dispositions de la présente circulaire remplacent celles de la circulaire No 83-4 du 18 septembre 2000 et entrent en vigueur le 1er avril 2024.' },
-  { cible: 'Circulaire n° 115-5', par: 'Circulaire n° 115-6', effet: '2024-10-01',
-    clause: 'La présente circulaire remplace la circulaire 115-5 du 28 mars 2024 et entre en vigueur le 1er octobre 2024.' },
-  { cible: 'Lettre-Circulaire n° 09-1', par: 'Circulaire n° 130', effet: '2025-04-02',
-    clause: 'Cette circulaire abroge la lettre-circulaire 09-1 du 7 juin 2016 et entre en vigueur le 2 avril 2025.' },
-  { cible: 'Circulaire n° 95-4', par: 'Circulaire n° 95-5', effet: '2025-04-16',
-    clause: 'La présente circulaire abroge la circulaire No 95-4 et entre en vigueur à la date de signature.' },
-  { cible: 'Circulaire n° 105', par: 'Circulaire n° 105-1', effet: '2017-05-02',
-    clause: 'La présente circulaire abroge la circulaire 105 en date du 28 novembre 2013 et entre en vigueur le 2 mai 2017.' },
-  { cible: 'Circulaire n° 105-1', par: 'Circulaire n° 105-2', effet: '2025-10-15',
-    clause: 'La présente circulaire abroge la circulaire 105-1 en date du 3 avril 2017 et entre en vigueur le 15 octobre 2025.' },
-  { cible: 'Circulaire n° 117', par: 'Circulaire n° 117-1', effet: '2026-01-05',
-    clause: 'Les dispositions de la présente circulaire remplacent celles de la circulaire 117 et entrent en vigueur le 5 janvier 2026.' },
-  { cible: 'Circulaire n° 129', par: 'Circulaire n° 129-1', effet: '2026-03-02',
-    clause: 'La présente circulaire abroge la circulaire 129 du 31 mars 2025 et entre en vigueur le 2 mars 2026.' },
-  { cible: 'Circulaire n° 109-1', par: 'Circulaire n° 131', effet: '2026-03-02',
-    clause: 'La présente circulaire abroge la circulaire 109-1 du 10 mai 2019 et entre en vigueur le 2 mars 2026.' },
-  // ── EN ATTENTE D'EFFET ──────────────────────────────────────────────────────
-  { cible: 'Circulaire n° 87', par: 'Circulaire n° 87-1', effet: '2026-10-01',
-    clause: 'Les dispositions de la présente circulaire remplacent celles de la Circulaire No 87 du 29 septembre 1997 et entrent en vigueur le 1er octobre 2026.' },
-]
+// La table vit dans src/lib/brh/abrogations.ts : la passe quotidienne doit pouvoir
+// l'appliquer (une relation peut prendre effet APRÈS son écriture). Ce script n'en garde
+// que ce qui relève de l'exploitation : les écartements et les retraits.
 
 /**
  * ÉCARTÉES à la lecture — la clause ne fait pas tomber le texte visé. Conservées ici pour
