@@ -190,7 +190,39 @@ invisible sur blanc.
 **Incident, deuxième occurrence.** La page est apparue **sans aucune feuille de
 style** : le serveur de développement était resté bloqué sur « Starting… » après que
 `npm run build` a écrasé le `.next` partagé. Ce n'est pas un défaut du code — mais
-c'est le troisième accident `.next` du chantier. Le réflexe : arrêter le serveur
-avant tout `build`, ou purger `.next` et redémarrer.
+c'est le troisième accident `.next` du chantier.
 
 Contrôles : `tsc`, `lint` (0), **75 tests** (10 fichiers), `next build`.
+
+## 7. Le build est désormais ISOLÉ du serveur de développement
+
+Trois fois dans ce chantier, une vérification a cassé le serveur en cours : `next dev`
+et `next build` écrivent dans le **même** `.next`, et le second remplace les chunks que
+le premier sert encore. Le symptôme ne ressemble jamais à sa cause — page non hydratée
+(les clics ne font rien), `main-app.js` en 404, ou page entièrement sans CSS — d'où
+plusieurs faux diagnostics « le composant est cassé ».
+
+`next.config.mjs` lit maintenant `distDir: process.env.NEXT_DIST_DIR || '.next'`, et
+deux scripts s'en servent :
+
+```bash
+npm run build:check   # NEXT_DIST_DIR=.next-verify next build — ne touche pas au dev
+npm run start:check   # sert ce build isolé
+```
+
+`npm run build` reste inchangé : ni Vercel ni la CI ne définissent la variable, donc
+leur sortie demeure `.next`. `.next-verify/` est ignoré par git.
+
+**Preuve mesurée** — serveur de dev démarré, `/fr` et ses 7 chunks à 200 ; `npm run
+build:check` exécuté **pendant** qu'il tournait ; immédiatement après :
+
+| Ressource | Avant | Après |
+|---|---|---|
+| `/fr` | 200 | **200** |
+| `main-app.js`, `app-pages-internals.js`, `webpack.js`, `polyfills.js` | 200 | **200** |
+| `app/[locale]/{layout,page,not-found}.js` | 200 | **200** |
+| `app/layout.css` | 200 | **200** |
+
+Et dans le navigateur : page hydratée du premier coup, diapositive 2 activable,
+fond navy appliqué, 0 px de débordement. Avec l'ancien `npm run build`, ce sont
+exactement ces chunks-là qui tombaient en 404.

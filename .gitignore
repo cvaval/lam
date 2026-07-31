@@ -5,6 +5,8 @@
 
 # next.js
 /.next/
+# sortie des builds de vérification (npm run build:check) — jamais celle de Vercel
+/.next-verify/
 /out/
 next-env.d.ts
 

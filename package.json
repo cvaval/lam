@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:check": "NEXT_DIST_DIR=.next-verify next build",
     "start": "next start",
+    "start:check": "NEXT_DIST_DIR=.next-verify next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",

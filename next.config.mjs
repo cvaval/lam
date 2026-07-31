@@ -1,6 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Répertoire de sortie ISOLABLE. `next dev` et `next build` écrivent tous deux dans
+  // `.next` : lancer une vérification pendant que le serveur de développement tourne
+  // corrompt son cache — la page cesse d'être hydratée, les chunks partent en 404 et
+  // le site paraît « cassé » sans qu'aucune ligne de code soit en cause (c'est arrivé
+  // deux fois). `npm run build:check` pose NEXT_DIST_DIR=.next-verify et n'y touche
+  // plus. Vercel et la CI ne définissent pas la variable : ils gardent `.next`.
+  distDir: process.env.NEXT_DIST_DIR || '.next',
   experimental: {
     // pdfjs-dist (via pdf-parse) ne supporte pas le bundling webpack côté serveur :
     // chargé en require() au runtime Node.
