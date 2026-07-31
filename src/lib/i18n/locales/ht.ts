@@ -534,6 +534,12 @@ export const ht: Dictionary = {
       title: 'Jwenn tribinal ki konpetan an. Toupatou ann Ayiti.',
       description: 'Chèche yon vil oswa chwazi li sou kat la pou wè tribinal ki konpetan yo ak kòd postal zòn nan.',
       cta: 'Eksplore kat jidisyè a',
+      titleLead: 'Jwenn tribinal ki konpetan an. Toupatou nan',
+      titleAccent: 'Ayiti.',
+      openRecord: 'Louvri fich konplè a',
+      featureFuzzy: 'Rechèch ki tolere fot',
+      featureByCommune: 'Rezilta pa komin',
+      featureVerified: 'Done verifye',
       note: 'Chwazi pou ouvri paj rechèch la.',
     },
     carousel: {

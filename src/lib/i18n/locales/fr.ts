@@ -541,6 +541,12 @@ export const fr = {
       title: 'Trouvez la juridiction compétente. Partout en Haïti.',
       description: 'Recherchez une ville ou cliquez sur la carte pour connaître les tribunaux compétents et le code postal de la zone.',
       cta: 'Explorer la carte judiciaire',
+      titleLead: 'Trouvez la juridiction compétente. Partout en',
+      titleAccent: 'Haïti.',
+      openRecord: 'Consulter la fiche complète',
+      featureFuzzy: 'Recherche tolérante aux fautes',
+      featureByCommune: 'Résultats par commune',
+      featureVerified: 'Données vérifiées',
       note: 'Cliquez pour ouvrir la recherche.',
     },
     carousel: {

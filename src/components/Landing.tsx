@@ -25,9 +25,12 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
       <header className="sticky top-0 z-40 border-b border-sitwon/15 bg-lank">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
           <Logo size={30} tone="dark" />
-          <div className="flex items-center gap-4">
+          {/* gap et rembourrage resserrés sous 360 px : à 320 px l'ensemble
+              « langues + Connexion » débordait de 16 px et faisait défiler la page
+              horizontalement. */}
+          <div className="flex items-center gap-2 sm:gap-4">
             <LocaleSwitcher current={locale} />
-            <Link href={`/${locale}/login`} className="rounded-full bg-sitwon px-5 py-2 text-sm font-semibold text-lank hover:bg-sitwon/90">
+            <Link href={`/${locale}/login`} className="whitespace-nowrap rounded-full bg-sitwon px-4 py-2 text-sm font-semibold text-lank hover:bg-sitwon/90 sm:px-5">
               {t.nav.login}
             </Link>
           </div>
@@ -37,7 +40,12 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
       {/* Hero — carrousel à deux diapositives (Législation → login ; Carte judiciaire
           → /juridictions). Hauteur réservée par la grille du carrousel (pas de CLS) ;
           le lien direct « Carte judiciaire » ci-dessous reste accessible sans JS. */}
-      <section className="bg-lank text-cream">
+      {/* overflow-x-clip : les décorations flottantes des deux diapositives (fiche
+          de l'Index, carte débordant vers la gauche) ne doivent JAMAIS provoquer de
+          barre de défilement horizontale — mesuré à 1024 px, où la fiche de la
+          diapositive 1 dépassait de 5 px. `clip` et non `hidden` : aucun conteneur
+          de défilement créé, donc rien ne casse le collage vertical ni les ancres. */}
+      <section className="overflow-x-clip bg-lank text-cream">
         <HomeHeroCarousel
           label={t.hero.carousel.label}
           slideLabels={[t.hero.carousel.slideLegislation, t.hero.carousel.slideMap]}

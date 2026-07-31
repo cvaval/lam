@@ -535,6 +535,12 @@ export const en: Dictionary = {
       title: 'Find the competent court. Anywhere in Haiti.',
       description: "Search for a city or select it on the map to view the competent courts and the area's postal code.",
       cta: 'Explore the judicial map',
+      titleLead: 'Find the competent court. Anywhere in',
+      titleAccent: 'Haiti.',
+      openRecord: 'Open the full record',
+      featureFuzzy: 'Typo-tolerant search',
+      featureByCommune: 'Results by commune',
+      featureVerified: 'Verified data',
       note: 'Select to open the search page.',
     },
     carousel: {

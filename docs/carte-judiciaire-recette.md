@@ -125,3 +125,32 @@ Après purge de `.next`, la touche Entrée navigue correctement. Aucun code n'é
 | Couche **arrondissements** complète | **PARTIEL** | 42 arrondissements dissous ; 13 le sont sur géométrie **incomplète** (9 communes sans polygone COD-AB) et sont marqués `complete: false`. Documenté dans `rapport-jointure.md`. |
 | Coordonnées exactes des tribunaux | **PARTIEL** | Seule la Cour de cassation en a (source citée). Les 213 autres sont au centroïde, signalé « position indicative ». **Aucune n'a été inventée** — c'est un travail de vérification éditoriale, pas de code. |
 | Fond de carte d'un fournisseur | **NON REQUIS** | Le style auto-hébergé évite toute dépendance externe et laisse la CSP intacte. `NEXT_PUBLIC_MAP_STYLE_URL` est prêt si vous approuvez un fournisseur. |
+
+## 6. Refonte du héros d'après la maquette (31 juillet 2026)
+
+La diapositive 2 a été redessinée sur la maquette fournie : titre coupé (« … Partout en
+**Haïti.** »), grand bouton Sitwon, puces de fonctionnalités,
+fiche blanche de Port-au-Prince en aperçu. La carte du héros est un **SVG statique**
+(9 Ko) — le héros ne charge toujours pas MapLibre — mais sa géométrie vient du **même
+COD-AB** que la carte interactive : `scripts/build-hero-map-svg.py` régénère
+`src/components/home/hero-map-data.ts`. Les points sont les centroïdes documentés des
+communes-sièges ; aucune position dessinée à la main.
+
+**Défauts trouvés à la mesure, pas à l'œil** (rectangles relevés dans le navigateur) :
+
+| Constat | Correction |
+|---|---|
+| Douglas-Peucker appliqué aux anneaux **fermés** : la distance point→*droite* dégénère quand le premier et le dernier point coïncident — les 10 départements s'effondraient en deux points | distance point→**segment** |
+| La fiche blanche recouvrait exactement Port-au-Prince (commune mise en avant, son marqueur et la moitié de son étiquette) | carte décalée à gauche + largeurs par palier ; **écart mesuré 46 px à 1024, 68 px à 1280, 77 px à 1366** |
+| Étiquette « Port-au-Prince » posée à l'œil (`left-[54%]`) | position **calculée** depuis `HERO_MAP_FOCUS` : elle suivra la géométrie si on la régénère |
+| Sous `lg`, la fiche empilée allongeait la diapositive de 550 px de plus que la diapositive 1 — les deux partagent une cellule de grille, donc ce surplus devenait du **vide sous la diapositive 1** | fiche à partir de `lg` ; carte à partir de `sm` (comme le visuel de la diapositive 1). Écart résiduel : 42 px à 768, 129 px à 375 |
+| **Débordement horizontal de la page d'accueil** : 5 px à 1024 (fiche décorative de la diapositive 1) et 16 px à 320 (langues + bouton Connexion de l'en-tête) — antérieurs à ce chantier | `overflow-x-clip` sur la section du héros ; gap et rembourrage resserrés sous 360 px. **Mesuré à 0 aux deux largeurs** |
+
+Incident de méthode : le carrousel ne réagissait plus au clic. Cause réelle — le cache
+`.next` du serveur de développement était corrompu (`Cannot find module './7787.js'`,
+`main-app.js` en 404) : **la page n'était pas hydratée du tout**. Aucun code en cause ;
+purge de `.next` et redémarrage. C'est la deuxième fois dans ce chantier : avant de
+diagnostiquer un composant client « inerte », vérifier qu'il porte bien une clé
+`__react*` dans le DOM.
+
+Contrôles rejoués : `tsc --noEmit`, `next lint` (0), **66 tests**, `next build`.
