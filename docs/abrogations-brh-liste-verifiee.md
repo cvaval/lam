@@ -16,7 +16,7 @@ Trois d'entre elles l'avaient été à la livraison des circulaires 105-2 et 117
 
 | Texte abrogé | Abrogé par | Effet | Clause du texte abrogeant |
 |---|---|---|---|
-| n° 95 | **n° 95-1** | 03/11/2008 | « entre en vigueur le 3 novembre 2008 et **remplace la circulaire No 95 du 1er août 2000** » |
+| n° 70 | **n° 110-1** | 17/04/2017 | « Cette circulaire **annule et remplace celle du 16 mai 1995** (Réf. BRH/CIR/95 # 70) » — pénalité de retard portée de 500 à 50 000 gourdes/jour |
 | n° 72-3 | **n° 111** | 01/12/2017 | « La présente circulaire **abroge les circulaires No 72-3 du 1er septembre 1998 et 78-1 du 27 mars 2000** » |
 | n° 78-1 | **n° 111** | 01/12/2017 | *(même clause)* |
 | n° 105 | **n° 105-1** | 02/05/2017 | « **abroge la circulaire 105** en date du 28 novembre 2013 » |
@@ -61,7 +61,21 @@ represente pas comme des oublis.
 | Normes CEC n° 7 / n° 9 | CEC 7-1 et 9-1 | Cible absente du corpus |
 | Circ. CEC n° 2 / n° 3 | CEC 01 et 03 | À trancher : la numérotation des normes CEC ne suit pas celle des circulaires BRH |
 
-## 4. Un défaut de méthode, corrigé en cours de route
+## 4. Deux défauts de méthode, trouvés par l'audit
+
+**Une abrogation portée à tort.** La clause de la 95-1 vise « la circulaire No 95 **du 1er
+août 2000** » (blanchiment), texte absent du corpus. La fiche « Circulaire n° 95 » de la base
+est la circulaire de **réserves obligatoires du 6 juillet 2015**, que le Moniteur de 2017
+liste en vigueur. La cible avait été résolue par son seul **numéro** — ce que la règle du
+projet interdit. Un texte de 2008 ne peut pas abroger un texte de 2015 : une **garde
+chronologique** refuse désormais toute cible postérieure à son abrogeante. La circulaire 95
+est remise en vigueur.
+
+**Une abrogation oubliée.** La 110-1 désigne sa cible par la date et la référence, sans le
+mot « circulaire » devant le numéro : « celle du 16 mai 1995 (Réf. BRH/CIR/95 # 70) ». Le
+relevé ne la voyait pas.
+
+## 5. Un défaut de méthode, corrigé en cours de route
 
 Le premier relevé n'a remonté que 34 clauses et **en manquait six**. La cause : le découpage
 en phrases coupait après le point de l'abréviation « **No.** », tronquant la clause juste
@@ -69,7 +83,7 @@ avant sa cible — « *les dispositions de la présente circulaire remplacent ce
 Circulaire No.* » et rien de plus. Les abrogations des circulaires 87, 88, 89-1, 92, 83-4 et
 72-3/78-1 étaient invisibles. Le relevé protège désormais « No. », « n°. » et « art. ».
 
-## 5. Chaînes obtenues
+## 6. Chaînes obtenues
 
 Toutes se terminent sur un texte en vigueur :
 
@@ -79,11 +93,11 @@ Toutes se terminent sur un texte en vigueur :
 107-3 → 129  → 129-1              117   → 117-1
 128-1 → 129  → 129-1              109-1 → 131
 61-2 → 63-3   ·  72-3 → 111  ·  78-1 → 111  ·  82-2 → 82-3  ·  83-4 → 83-5
-88 → 88-1     ·  92 → 92-1   ·  95 → 95-1   ·  95-4 → 95-5   ·  115-5 → 115-6
+88 → 88-1     ·  92 → 92-1   ·  70 → 110-1  ·  95-4 → 95-5   ·  115-5 → 115-6
 Lettre-Circulaire 09-1 → 130
 ```
 
-## 6. Durabilité
+## 7. Durabilité
 
 Les 24 statuts sont inscrits dans `scripts/brh-enrichments.json`, que `import-brh` rejoue
 après sa purge. Sans cela, le prochain ré-import du recueil rétablirait « en vigueur » sur
