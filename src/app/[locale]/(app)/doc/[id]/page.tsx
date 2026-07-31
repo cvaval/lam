@@ -118,10 +118,16 @@ export default async function DocPage({
   // ré-import qui change les id) → note + lien sur la fiche (statut ABROGE).
   const abrogatedBy =
     doc.status === 'ABROGE' && doc.abrogatedByNumber
-      ? await prisma.document.findFirst({
-          where: { type: 'CIRCULAIRE_BRH', number: doc.abrogatedByNumber },
-          select: { id: true, number: true },
-        })
+      ? await prisma.document
+          .findMany({
+            where: { type: 'CIRCULAIRE_BRH', number: doc.abrogatedByNumber },
+            select: { id: true, number: true, titleFr: true, publicationDate: true },
+            orderBy: { publicationDate: 'asc' },
+          })
+          // Trois documents portent « Circulaire n° 88-1 » : le texte et ses deux notes
+          // additionnelles. Un findFirst sans tri renvoyait la note — le lecteur atterrissait
+          // sur un complément au lieu du texte qui abroge. On écarte les notes d'abord.
+          .then((rows) => rows.find((r) => !/note\s+additionnelle/i.test(r.titleFr)) ?? rows[0] ?? null)
       : null
 
   const summary = pickLocale(doc.summaryFr, doc.summaryEn, doc.summaryHt, locale)

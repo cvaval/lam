@@ -35,11 +35,28 @@ const ABROGATIONS = [
 
 async function main() {
   const file = JSON.parse(readFileSync(PATH, 'utf8')) as {
-    html: unknown[]
+    html: { number: string; bodyClean: string | null; richBlocksJson: string | null }[]
     supplement: Record<string, unknown>[]
     status?: { number: string; status: string; abrogatedByNumber?: string | null }[]
   }
   file.status ??= []
+
+  // Le bloc `html` est REJOUÉ par import-brh après sa purge : s'il est plus ancien que la
+  // base, un ré-import écrase les enrichissements par une version périmée (constat d'audit :
+  // ~13 ko de tableaux perdus sur la circulaire 131). On le régénère depuis la base.
+  let rafraichis = 0
+  for (const h of file.html) {
+    const d = await prisma.document.findFirst({
+      where: { type: 'CIRCULAIRE_BRH', number: h.number },
+      select: { bodyClean: true, richBlocksJson: true },
+    })
+    if (!d) { console.warn(`   ⚠ enrichissement sans cible en base : ${h.number}`); continue }
+    if (d.bodyClean !== h.bodyClean || d.richBlocksJson !== h.richBlocksJson) {
+      h.bodyClean = d.bodyClean
+      h.richBlocksJson = d.richBlocksJson
+      rafraichis++
+    }
+  }
 
   const docs = await prisma.document.findMany({
     where: { source: { in: NEW_SOURCES } },
@@ -74,6 +91,7 @@ async function main() {
   }
 
   writeFileSync(PATH, JSON.stringify(file, null, 1))
+  console.log(`   ${rafraichis} enrichissement(s) HTML rafraîchi(s) depuis la base`)
   console.log(
     `✓ brh-enrichments.json : ${file.supplement.length} suppléments (dont les 2 circulaires annotées) · ` +
       `${file.status.length} statuts éditoriaux (dont les 3 abrogations)`,
