@@ -17,15 +17,15 @@ Trois d'entre elles l'avaient été à la livraison des circulaires 105-2 et 117
 | Texte abrogé | Abrogé par | Effet | Clause du texte abrogeant |
 |---|---|---|---|
 | n° 95 | **n° 95-1** | 03/11/2008 | « entre en vigueur le 3 novembre 2008 et **remplace la circulaire No 95 du 1er août 2000** » |
-| n° 72-3 | **n° 111** | 25/09/2017 | « La présente circulaire **abroge les circulaires No 72-3 du 1er septembre 1998 et 78-1 du 27 mars 2000** » |
-| n° 78-1 | **n° 111** | 25/09/2017 | *(même clause)* |
+| n° 72-3 | **n° 111** | 01/12/2017 | « La présente circulaire **abroge les circulaires No 72-3 du 1er septembre 1998 et 78-1 du 27 mars 2000** » |
+| n° 78-1 | **n° 111** | 01/12/2017 | *(même clause)* |
 | n° 105 | **n° 105-1** | 02/05/2017 | « **abroge la circulaire 105** en date du 28 novembre 2013 » |
 | n° 61-2 | **n° 63-3** | 03/11/2020 | « Les dispositions de la présente circulaire **remplacent celles de la Circulaire No 61-2** » |
 | n° 89-1 | **n° 89-2** | 03/11/2020 | « **remplacent celles de la Circulaire No 89-1 du 29 septembre 2015** » |
 | n° 82-2 | **n° 82-3** | 03/11/2020 | « **remplacent celles de la circulaire N° 82-2 du 12 décembre 1997** » |
 | n° 88 | **n° 88-1** | 01/04/2021 | « **remplacent celles de la Circulaire No 88 du 10 décembre 1998** » |
 | n° 92 | **n° 92-1** | 01/02/2022 | « **remplacent celles de la circulaire No 92 du 9 avril 1998** » |
-| n° 99-3 | **n° 99-4** | 27/07/2023 | « **abroge la circulaire 99-3 du 27 août 2020** et la note additionnelle du 14 novembre 2022 » |
+| n° 99-3 | **n° 99-4** | 14/08/2023 | « **abroge la circulaire 99-3 du 27 août 2020** et la note additionnelle du 14 novembre 2022 » |
 | n° 83-4 | **n° 83-5** | 01/04/2024 | « **remplacent celles de la circulaire No 83-4 du 18 septembre 2000** » |
 | n° 115-5 | **n° 115-6** | 01/10/2024 | « **remplace la circulaire 115-5 du 28 mars 2024** » |
 | Lettre-Circ. n° 09-1 | **n° 130** | 02/04/2025 | « **abroge la lettre-circulaire 09-1 du 7 juin 2016** » |
@@ -57,7 +57,9 @@ represente pas comme des oublis.
 | n° 93 | Circulaire du 8 sept. 2008 | Remplacement d'**une disposition** (provisions pour créances douteuses), non du texte |
 | n° 87 | Lettre-Circ. n° 04 | Abrogation **partielle** : « le point 3 … **pour ce qui concerne uniquement** la provision générale » |
 | n° 87 | n° 130 | **Simple renvoi** : « selon les dispositions ou prescrits de la circulaire 87 » |
-| n° 95 | n° 95-1A et 95-1B | **Variantes du même acte** que la 95-1 (même date, même clause) : la relation est portée une seule fois |
+| n° 95 *(du 1er août 2000)* | n° 95-1, 95-1A, 95-1B | **Cible absente du corpus.** Les trois circulaires du 30 oct. 2008 (destinataires distincts) remplacent « la circulaire No 95 **du 1er août 2000** », relative au blanchiment — texte qui n'est pas à la plateforme. La fiche « Circulaire n° 95 » qui s'y trouve est la circulaire de **réserves obligatoires du 6 juillet 2015**, un autre acte |
+| Normes CEC n° 7 / n° 9 | CEC 7-1 et 9-1 | Cible absente du corpus |
+| Circ. CEC n° 2 / n° 3 | CEC 01 et 03 | À trancher : la numérotation des normes CEC ne suit pas celle des circulaires BRH |
 
 ## 4. Un défaut de méthode, corrigé en cours de route
 

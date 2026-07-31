@@ -1020,7 +1020,7 @@ COURANT | P-000 : Normal
 COURANT A SIGNALER FAIBLE DOUTEUX PERTE | P-021 : En réclamation auprès de l’assurance pour la partie assurée.
  | P-022 : Le compte est en défaut et assigné à des recouvrements.
  | P-023 : Prêt restructuré.
- | P-024 : Saisie Créditeur a réalisé la garantie pour amortir le prêt. Il y a une balance due.
+ | P-024 : Saisie / Créditeur a réalisé la garantie pour amortir le prêt. Il y a une balance due.
  | P-025 : Dation.
 FERME | P-026 : Balance non payée rapportée comme perte. (Compte radié)
  | P-050 : Payé ou fermé avec une balance nulle

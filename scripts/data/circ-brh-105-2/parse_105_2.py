@@ -33,7 +33,7 @@ HEADER_TABLES = {2, 4, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20}
 
 # Restitution d'après le fac-similé (scan p. 47) : le .docx de la BRH a perdu la barre
 # oblique de cette rangée du tableau 9. Le PDF officiel fait foi.
-SCAN_FIXES = [("P-024 | Saisie Créditeur a réalisé la garantie", "P-024 | Saisie / Créditeur a réalisé la garantie")]
+SCAN_FIXES = [("P-024 : Saisie Créditeur a réalisé", "P-024 : Saisie / Créditeur a réalisé")]
 
 # En-têtes des annexes, dans l'ordre du corps. Repris VERBATIM : `segmentAnnotated`
 # apparie par égalité de ligne entière, en séquence.
@@ -105,7 +105,14 @@ def read_docx(path: str):
                     # <w:gridSpan> : cellule fusionnée (bandeaux « Segment : ENTREPRISE »,
                     # en-tête « CODE / REGION 2 »). Sans colSpan, la rangée est disloquée.
                     gs = re.search(r'<w:gridSpan\s+w:val="(\d+)"', c.group(0))
-                    cells.append({"text": " ".join(x for x in ps if x), "span": int(gs.group(1)) if gs else 1})
+                    # <w:vMerge> sans w:val = continuation d'une fusion verticale : la
+                    # cellule est VIDE au J.O. et ne doit pas être rendue comme une valeur.
+                    vm = re.search(r'<w:vMerge(\s+w:val="([^"]+)")?\s*/?>', c.group(0))
+                    cells.append({
+                        "text": " ".join(x for x in ps if x),
+                        "span": int(gs.group(1)) if gs else 1,
+                        "vcont": bool(vm and not (vm.group(2) or "").startswith("restart")),
+                    })
                 if any(c["text"] for c in cells):
                     rows.append(cells)
             if rows:
@@ -114,11 +121,14 @@ def read_docx(path: str):
             t = para_text(m.group(2))
             if t:
                 items.append(("p", t))
-                # Notes appelées dans ce paragraphe : restituées juste après, en clair.
+                # Notes de bas de page appelées dans ce paragraphe. Elles font partie du
+                # texte officiel, mais la ligne qui les regroupe est une COMPOSITION : elle
+                # va donc au seul texte d'AFFICHAGE (§02 — bodyOriginal reste ce que le
+                # Journal officiel imprime dans le corps).
                 ids = re.findall(r'<w:footnoteReference[^>]*w:id="(\d+)"', m.group(2))
                 notes = [f"({i}) {NOTES[i]}" for i in ids if i in NOTES]
                 if notes:
-                    items.append(("p", "Notes : " + " · ".join(notes)))
+                    items.append(("note", "Notes : " + " · ".join(notes)))
     return items
 
 
@@ -137,6 +147,9 @@ def main() -> None:
     tables_at: list[int] = []  # indice, dans clean_lines, de la 1ʳᵉ rangée de chaque tableau
     seen_annexe3 = False
     for kind, val in items:
+        if kind == "note":
+            clean_lines.append(val)  # affichage seul — hors bodyOriginal
+            continue
         if kind == "p":
             lines.append(val)
             if val == "ANNEXE 3":
@@ -149,15 +162,17 @@ def main() -> None:
         for row in val:
             flat = " | ".join(c["text"] for c in row)
             for bad, good in SCAN_FIXES:
-                if flat == bad:
-                    flat = good
+                flat = flat.replace(bad, good)
             lines.append(flat)
             clean_lines.append(flat)
 
     body = "\n".join(lines)
     clean = "\n".join(clean_lines)
     removed = len(lines) - len(clean_lines)
-    assert removed == 6, f"6 en-têtes courants « ANNEXE 3 » attendus, {removed} retirés"
+    # 6 en-têtes courants retirés, 1 ligne de notes ajoutée à l'affichage.
+    assert removed == 5, f"écart attendu de 5 lignes (6 en-têtes retirés, 1 note ajoutée), obtenu {removed}"
+    assert not any(l.startswith("Notes :") for l in lines), "la ligne de notes ne doit pas entrer dans bodyOriginal"
+    assert sum(l.startswith("Notes :") for l in clean_lines) == 1, "1 ligne de notes attendue à l'affichage"
     assert lines[2] == "No. 105-2", lines[2]
     assert "abroge la circulaire 105-1 en date du 3 avril 2017" in body
     assert "Port-au-Prince, le 15 septembre 2025." in lines
@@ -173,9 +188,11 @@ def main() -> None:
         head = (t + 1) in HEADER_TABLES
         block = {
             "type": "table",
-            # Légende = intitulé officiel qui précède le tableau ; sans elle, le composant
-            # numérote par ordre d'affichage (« Tableau 17 » sous « Tableau 7 – … »).
-            "caption": after,
+            # Légende = intitulé OFFICIEL du Journal officiel, et lui seul. Une puce
+            # d'énumération (« - Crédit : segment obligatoire ») ou un chapeau
+            # (« Abréviation type de crédit : ») n'est pas un titre : laisser vide, le
+            # composant retombe alors sur la 1ʳᵉ cellule d'en-tête.
+            **({"caption": after} if re.match(r"^Tableau\s+\d", after or "") else {}),
             "rows": [
                 [
                     {"text": c["text"], **({"header": True} if head and i == 0 else {}),

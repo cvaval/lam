@@ -56,7 +56,6 @@ Pour le transfert des fichiers, les institutions financières doivent tenir comp
 Le système d’exploitation installé sur le serveur offre un niveau de sécurité élevé.
 2. CONNECTIVITÉ SFTP
 L’adresse IP du serveur SFTP/SSH doit être configurée sur le poste client de l’institution comme adresse de destination pour pouvoir transférer les fichiers. Il est important de souligner que toute institution financière doit préalablement avoir une liaison VPN, WIMAX, Fibre optique, VSAT) avec la BRH et que le routage et les règles d’accès au serveur soient bien définis, configurés, testés et certifiés par la BRH.
-Notes : (1) Virtual Private Network · (2) Worldwide Interoperability for Microwave Access · (3) Very Small Aperture Terminal
 Tous les fichiers déposés dans les répertoires doivent avoir des noms uniques qui suivent la nomenclature définie par la BRH (voir document de spécification des fichiers de collecte de données).
 3. PROCESSUS DE TRANSMISSION
 Toute institution financière doit s’assurer que la liaison est bien établie avant de démarrer toute transmission. Une fois la connexion établie, il faut lancer le logiciel de transfert de fichiers, partie client (SSH Secure File Transfer, WinSCP, Filezilla, etc.).
@@ -1026,7 +1025,7 @@ COURANT | P-000 : Normal
 COURANT A SIGNALER FAIBLE DOUTEUX PERTE | P-021 : En réclamation auprès de l’assurance pour la partie assurée.
  | P-022 : Le compte est en défaut et assigné à des recouvrements.
  | P-023 : Prêt restructuré.
- | P-024 : Saisie Créditeur a réalisé la garantie pour amortir le prêt. Il y a une balance due.
+ | P-024 : Saisie / Créditeur a réalisé la garantie pour amortir le prêt. Il y a une balance due.
  | P-025 : Dation.
 FERME | P-026 : Balance non payée rapportée comme perte. (Compte radié)
  | P-050 : Payé ou fermé avec une balance nulle

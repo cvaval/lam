@@ -73,6 +73,39 @@ export function AnnotatedText({
   // Circulaires BRH : les divisions sont numérotées « 1.- » / « 4.2.1 » ; la liste blanche
   // `pointAnchors` les fait porter les ancres art-… (et le rendu en carte d'article).
   const pointMode = (annotations.pointAnchors ?? []).length > 0
+  // Répartition des tableaux entre les blocs. Passer `rich` entier à chaque bloc de corps
+  // fait re-tenter le placement des 20 tableaux dans les 22 blocs : ils sont rendus 22 fois,
+  // dont 21 en « emplacement approximatif » — 8,7 Mo de HTML pour la circulaire 105-2.
+  // Un tableau appartient au bloc qui contient ses RANGÉES aplaties (son intitulé, lui, est
+  // souvent devenu une section et se trouve donc dans un AUTRE bloc). Les ancres ne sont
+  // conservées que si elles tombent dans ce même bloc ; sinon on retire les rangées du texte
+  // et le tableau est rendu à la suite, sans être signalé « emplacement approximatif ».
+  const rowsOf = (b: RichBlock) =>
+    ((b as { rows?: { text: string }[][] }).rows ?? []).map((r) => r.map((c) => c.text).join(' | '))
+  // Curseur : les tableaux sont dans l'ORDRE du document, les blocs aussi. Sans lui, les
+  // quatre tableaux « Abréviation type de crédit » — dont les rangées sont identiques — sont
+  // réclamés par chacun des quatre blocs qui les contiennent (16 rendus au lieu de 4).
+  let richCursor = 0
+  function splitRich(text: string): { text: string; rich: RichBlock[] } {
+    if (richCursor >= rich.length) return { text, rich: [] }
+    let out = text
+    const mine: RichBlock[] = []
+    while (richCursor < rich.length) {
+      const b = rich[richCursor]
+      const rows = rowsOf(b)
+      if (!rows.length || !out.includes(rows[0])) break
+      richCursor++
+      // Les ancres afterText/untilText ont été calculées sur le corps ENTIER : dans un bloc
+      // isolé elles se résolvent mal (zones qui se recoupent → tableau « orphelin » et
+      // rangées laissées en double). On retire donc toujours les rangées ici, et le tableau
+      // est rendu à leur place par OfficialText.
+      const bloc = rows.join('\n')
+      out = out.includes(bloc) ? out.replace(bloc, '').replace(/\n{3,}/g, '\n\n').trim() : out
+      const { afterText: _a, untilText: _u, ...sansAncres } = b as unknown as Record<string, unknown>
+      mine.push(sansAncres as unknown as RichBlock)
+    }
+    return { text: out, rich: mine }
+  }
   const blocks = segmentAnnotated(text, annotations.toc ?? [], annotations.pointAnchors)
   const juris = annotations.jurisprudence ?? {}
   const backlinks = indexBacklinks(annotations.indexEntries ?? [])
@@ -269,9 +302,10 @@ export function AnnotatedText({
             </article>
           )
         }
+        const split = splitRich(b.text)
         return (
           <div key={i} className="scroll-mt-24">
-            <OfficialText text={b.text} rich={rich} hrefFor={hrefFor} locale={locale} terms={terms} noAnchors={b.noAnchors} civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} />
+            <OfficialText text={split.text} rich={split.rich} hrefFor={hrefFor} locale={locale} terms={terms} noAnchors={b.noAnchors} civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} />
             {showOldPreamble && oldPreamble && <OldVersion text={oldPreamble} locale={locale} />}
             {extra}
           </div>
