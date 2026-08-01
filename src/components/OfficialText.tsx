@@ -4,6 +4,8 @@ import { parseOfficialText } from '@/lib/doc/officiel'
 import { articleAnchorFromHeading, articleAnchorFromNum } from '@/lib/doc/anchors'
 import { ART_REF_RE, ART_OR_SEC_REF_RE, ART_NUM_RE, ART_EXT_AFTER, ART_EXT_BEFORE } from '@/lib/doc/artrefs'
 import { segmentText, type CircRef } from '@/lib/doc/crossref'
+import { segmentCpcRefs, isCpcArticle } from '@/lib/doc/coderefs'
+import { cpcArticleHref, CPC_LINK_CLS } from './CodeRefText'
 import { buildBodySegments, tableShortCaption, type RichBlock, type RichTable, type RichNote, type RichCell } from '@/lib/doc/richblocks'
 import { TableActions } from './TableActions'
 import { TableFilter } from './TableFilter'
@@ -60,6 +62,7 @@ export function OfficialText({
   artRefs,
   sectionRefs = false,
   loiAnchors,
+  cpcDocHref,
 }: {
   text: string
   hrefFor?: (ref: CircRef) => string | null
@@ -85,6 +88,10 @@ export function OfficialText({
   /** Numéro de LOI interne → ancre de section (« 20 » → « sec-193 ») : rend cliquables
    *  les mentions « la loi No 20 » du corps (liens #sec-N). */
   loiAnchors?: Record<string, string>
+  /** Chemin du Code de procédure civile (« /fr/doc/cms7u… ») : les renvois « C. p. c. »
+   *  du Code civil deviennent des liens SORTANTS vers ce document, ancrés sur l'article
+   *  cité quand il existe. Absent → aucun changement de rendu. */
+  cpcDocHref?: string
 }) {
   const segments = buildBodySegments(text, rich)
   const usedAnchors = new Set<string>()
@@ -151,8 +158,32 @@ export function OfficialText({
     return out
   }
 
+  // Renvois SORTANTS « C. p. c. 956 » → le Code de procédure civile, ancré sur l'article.
+  // Le Code civil en porte 348 (corps + annotations), sous onze graphies d'OCR. Les parts
+  // de texte continuent leur chemin habituel (loiLinks → hl) : aucune régression ailleurs,
+  // puisque tout dépend de la présence de cpcDocHref.
+  function cpcLinks(value: string): ReactNode {
+    if (!cpcDocHref) return loiLinks(value)
+    const segs = segmentCpcRefs(value, isCpcArticle)
+    if (!segs) return loiLinks(value)
+    return segs.map((s, i) =>
+      s.kind === 'text' ? (
+        <span key={i}>{loiLinks(s.text)}</span>
+      ) : (
+        <Link
+          key={i}
+          href={cpcArticleHref(cpcDocHref, s.kind === 'article' ? s.article : null)}
+          className={CPC_LINK_CLS}
+          title={s.kind === 'article' ? `Code de procédure civile, article ${s.article}` : 'Code de procédure civile'}
+        >
+          {s.text}
+        </Link>
+      ),
+    )
+  }
+
   // Renvois « C. civ., 969, 1102 » → chaque numéro devient un lien #art-N ; le reste du
-  // texte passe par loiLinks() puis hl(). Retourne la valeur telle quelle si aucun renvoi.
+  // texte passe par cpcLinks() puis loiLinks() puis hl(). Valeur inchangée si aucun renvoi.
   // Le lien n'est émis que pour un numéro d'article PLAUSIBLE (1..2047) — un numéro OCR
   // résiduel reste en texte simple plutôt qu'en lien mort. Dans une paire « A-B », un B
   // plus court que A est un ordinal/alinéa (« 2102-4 »), pas un article → pas de lien.
@@ -164,7 +195,7 @@ export function OfficialText({
     let m: RegExpExecArray | null
     while ((m = CIV_RE.exec(value))) {
       const numsStart = m.index + m[0].length - m[1].length
-      out.push(<span key={`t${k++}`}>{loiLinks(value.slice(pos, numsStart))}</span>)
+      out.push(<span key={`t${k++}`}>{cpcLinks(value.slice(pos, numsStart))}</span>)
       const parts = m[1].split(/(\d+)/)
       out.push(
         <span key={`c${k++}`}>
@@ -185,8 +216,8 @@ export function OfficialText({
       )
       pos = m.index + m[0].length
     }
-    if (!out.length) return loiLinks(value)
-    out.push(<span key={`t${k++}`}>{loiLinks(value.slice(pos))}</span>)
+    if (!out.length) return cpcLinks(value)
+    out.push(<span key={`t${k++}`}>{cpcLinks(value.slice(pos))}</span>)
     return out
   }
 

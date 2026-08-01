@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import type { Locale } from '@/lib/types'
 import type { JurisCase } from '@/lib/legislation/annotated'
+import { CodeRefText } from './CodeRefText'
 
 const LBL = {
   juris: { fr: 'Jurisprudence', en: 'Case law', ht: 'Jurisprudans' },
@@ -25,11 +26,14 @@ export function Jurisprudence({
   comments,
   variant = 'juris',
   locale,
+  cpcDocHref,
 }: {
   cases: JurisCase[]
   comments?: string[]
   variant?: 'juris' | 'annotations'
   locale: Locale
+  /** Code civil : les notes citent « C. p. c. 949 » — lien vers le Code de procédure civile. */
+  cpcDocHref?: string
 }) {
   const [open, setOpen] = useState(false)
   const lt = (o: Record<Locale, string>) => o[locale] ?? o.fr
@@ -64,7 +68,7 @@ export function Jurisprudence({
                 {comments.map((c, i) => (
                   <li key={i} className="relative pl-6 text-[13px] italic leading-relaxed text-lank/70">
                     <span aria-hidden className="absolute left-0 top-0 text-lagon-700">✎</span>
-                    {c}
+                    <CodeRefText text={c} cpcDocHref={cpcDocHref} />
                   </li>
                 ))}
               </ul>
@@ -86,12 +90,12 @@ export function Jurisprudence({
                     </span>
                     {c.ref ? (
                       <>
-                        <p className="text-sm font-semibold leading-snug text-lank">{c.ref}</p>
-                        {c.excerpt && <p className="mt-1 text-[13px] leading-relaxed text-lank/70">{c.excerpt}</p>}
+                        <p className="text-sm font-semibold leading-snug text-lank"><CodeRefText text={c.ref} cpcDocHref={cpcDocHref} /></p>
+                        {c.excerpt && <p className="mt-1 text-[13px] leading-relaxed text-lank/70"><CodeRefText text={c.excerpt} cpcDocHref={cpcDocHref} /></p>}
                       </>
                     ) : (
                       // Note sans intitulé distinct (Code civil) : l'extrait EST la note.
-                      <p className="text-[13px] leading-relaxed text-lank/80">{c.excerpt}</p>
+                      <p className="text-[13px] leading-relaxed text-lank/80"><CodeRefText text={c.excerpt ?? ''} cpcDocHref={cpcDocHref} /></p>
                     )}
                   </li>
                 ))}

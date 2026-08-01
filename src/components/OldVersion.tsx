@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import type { Locale } from '@/lib/types'
+import { CodeRefText } from './CodeRefText'
 
 const LBL = {
   title: { fr: 'Ancienne version (1987)', en: 'Former version (1987)', ht: 'Ansyen vèsyon (1987)' },
@@ -13,7 +14,7 @@ const LBL = {
  * Ancienne version (1987) d'un article amendé — repliable, fermée par défaut. La version
  * en vigueur (amendée) reste le texte principal ; celle-ci est l'ancienne, à titre historique.
  */
-export function OldVersion({ text, locale }: { text: string; locale: Locale }) {
+export function OldVersion({ text, locale, cpcDocHref }: { text: string; locale: Locale; cpcDocHref?: string }) {
   const [open, setOpen] = useState(false)
   const lt = (o: Record<Locale, string>) => o[locale] ?? o.fr
   return (
@@ -30,7 +31,7 @@ export function OldVersion({ text, locale }: { text: string; locale: Locale }) {
       </button>
       {open && (
         <p className="whitespace-pre-wrap border-t border-lagon-600/20 bg-white/60 px-4 py-2.5 text-[11.5px] italic leading-relaxed text-lank/60">
-          {text}
+          <CodeRefText text={text} cpcDocHref={cpcDocHref} />
         </p>
       )}
     </div>

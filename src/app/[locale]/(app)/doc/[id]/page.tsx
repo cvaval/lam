@@ -179,6 +179,16 @@ export default async function DocPage({
 
   // Tableaux & encadrés colorés (reproduction du rendu visuel du PDF).
   const richBlocks = parseRichBlocks(doc.richBlocksJson)
+  // Le Code civil renvoie 348 fois au Code de procédure civile (« C. p. c. 956 »), dans
+  // son corps comme dans ses annotations. On résout la CIBLE ici — une requête d'un seul
+  // champ, et uniquement pour ce document : le rendu, lui, reste pur (§02, le texte
+  // officiel n'est pas retouché ; seuls des liens s'ajoutent à l'affichage).
+  const cpcDocHref =
+    doc.source === 'CODE_CIVIL_ANNOTE'
+      ? await prisma.document
+          .findFirst({ where: { source: 'CODE_PROCEDURE_CIVILE' }, select: { id: true } })
+          .then((d) => (d ? `/${locale}/doc/${d.id}` : undefined))
+      : undefined
   // Index thématique IA (codes/lois longs) — alimente le navigateur par thème + renvois.
   let themeIndex: ThemeArticle[] = []
   try { if (doc.themeIndexJson) themeIndex = JSON.parse(doc.themeIndexJson) as ThemeArticle[] } catch { themeIndex = [] }
@@ -469,6 +479,7 @@ export default async function DocPage({
               linkCivRefs={doc.source === 'CODE_CIVIL_ANNOTE'}
               linkArtRefs={ART_REFS_SOURCES.has(doc.source ?? '') || (doc.source ?? '').startsWith('CC_VANDAL_')}
               annotationsVariant={ANNOTATIONS_VARIANT_SOURCES.has(doc.source ?? '') ? 'annotations' : 'juris'}
+              cpcDocHref={cpcDocHref}
             />
           </section>
         </div>
