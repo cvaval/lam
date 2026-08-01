@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import type { Locale } from '@/lib/types'
 import type { ConnexeBlock } from '@/lib/legislation/annotated'
-import { CodeRefText } from './CodeRefText'
+import { CodeRefText, type CodeHrefs } from './CodeRefText'
 
 const LBL = {
   title: {
@@ -23,7 +23,7 @@ const LBL = {
  * + décrets/lois intégrés qui le modifient ou s'y rattachent. Fermé par défaut, petits
  * caractères — même patron visuel qu'OldVersion (Constitution).
  */
-export function RelatedLaw({ old, blocks = [], locale, cpcDocHref }: { old?: string; blocks?: ConnexeBlock[]; locale: Locale; cpcDocHref?: string }) {
+export function RelatedLaw({ old, blocks = [], locale, codeHrefs }: { old?: string; blocks?: ConnexeBlock[]; locale: Locale; codeHrefs?: CodeHrefs }) {
   const [open, setOpen] = useState(false)
   const lt = (o: Record<Locale, string>) => o[locale] ?? o.fr
   const count = blocks.length + (old ? 1 : 0)
@@ -46,7 +46,7 @@ export function RelatedLaw({ old, blocks = [], locale, cpcDocHref }: { old?: str
           {old && (
             <div>
               <p className="text-[10px] font-bold uppercase tracking-wide text-lagon-700">{lt(LBL.old)}</p>
-              <p className="mt-1 whitespace-pre-wrap text-[11.5px] italic leading-relaxed text-lank/60"><CodeRefText text={old} cpcDocHref={cpcDocHref} /></p>
+              <p className="mt-1 whitespace-pre-wrap text-[11.5px] italic leading-relaxed text-lank/60"><CodeRefText text={old} codeHrefs={codeHrefs} /></p>
             </div>
           )}
           {blocks.map((b, i) => (

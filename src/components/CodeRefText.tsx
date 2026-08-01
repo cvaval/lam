@@ -1,28 +1,36 @@
 import Link from 'next/link'
-import { segmentCpcRefs, isCpcArticle } from '@/lib/doc/coderefs'
+import { segmentCodeRefs, type CodeKey } from '@/lib/doc/coderefs'
 
 /**
- * Rend un texte en transformant les renvois « C. p. c. » en liens vers le Code de
- * procédure civile — l'abréviation vers le Code, chaque numéro vers son article.
+ * Rend un texte en transformant les renvois à un AUTRE code en liens : l'abréviation
+ * vers le code, chaque numéro vers son article.
  *
- * `cpcDocHref` est une CHAÎNE (« /fr/doc/cms7u… »), pas une fonction : ce composant
- * est utilisé aussi bien côté serveur que dans des composants clients (le pliable
- * d'annotations, l'ancienne rédaction), et une fonction ne franchit pas la frontière.
+ * Le Code civil cite deux codes : le Code de procédure civile (« C. p. c. 956 ») et le
+ * Code pénal (« C. pén., 300 »).
  *
- * Sans `cpcDocHref`, le texte est rendu tel quel : le comportement des autres
- * documents ne change pas.
+ * `codeHrefs` porte des CHAÎNES (« /fr/doc/cms7u… »), pas des fonctions : ce composant
+ * sert aussi bien côté serveur que dans des composants clients (le pliable d'annotations,
+ * l'ancienne rédaction), et une fonction ne franchit pas cette frontière.
+ *
+ * Sans `codeHrefs`, le texte est rendu tel quel : le rendu des autres documents ne
+ * change pas.
  */
+
+export type CodeHrefs = Partial<Record<CodeKey, string>>
 
 /** Lien sortant : souligné discret, pour le distinguer d'un renvoi INTERNE (#art-N). */
 const CLS = 'font-medium text-soley-700 underline decoration-soley/30 underline-offset-2 hover:decoration-soley'
 
-export function cpcArticleHref(base: string, article: number | null): string {
+const NOM: Record<CodeKey, string> = { cpc: 'Code de procédure civile', cp: 'Code pénal' }
+
+export function codeArticleHref(base: string, article: number | null): string {
   return article == null ? base : `${base}#art-${article}`
 }
 
-export function CodeRefText({ text, cpcDocHref }: { text: string; cpcDocHref?: string }) {
-  if (!cpcDocHref) return <>{text}</>
-  const segs = segmentCpcRefs(text, isCpcArticle)
+export function CodeRefText({ text, codeHrefs }: { text: string; codeHrefs?: CodeHrefs }) {
+  const actifs = (Object.keys(codeHrefs ?? {}) as CodeKey[]).filter((k) => codeHrefs?.[k])
+  if (!actifs.length) return <>{text}</>
+  const segs = segmentCodeRefs(text, actifs)
   if (!segs) return <>{text}</>
   return (
     <>
@@ -32,9 +40,9 @@ export function CodeRefText({ text, cpcDocHref }: { text: string; cpcDocHref?: s
         ) : (
           <Link
             key={i}
-            href={cpcArticleHref(cpcDocHref, s.kind === 'article' ? s.article : null)}
+            href={codeArticleHref(codeHrefs![s.code]!, s.kind === 'article' ? s.article : null)}
             className={CLS}
-            title={s.kind === 'article' ? `Code de procédure civile, article ${s.article}` : 'Code de procédure civile'}
+            title={s.kind === 'article' ? `${NOM[s.code]}, article ${s.article}` : NOM[s.code]}
           >
             {s.text}
           </Link>
@@ -44,4 +52,4 @@ export function CodeRefText({ text, cpcDocHref }: { text: string; cpcDocHref?: s
   )
 }
 
-export { CLS as CPC_LINK_CLS }
+export { CLS as CODE_LINK_CLS, NOM as CODE_NOM }

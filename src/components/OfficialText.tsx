@@ -4,8 +4,8 @@ import { parseOfficialText } from '@/lib/doc/officiel'
 import { articleAnchorFromHeading, articleAnchorFromNum } from '@/lib/doc/anchors'
 import { ART_REF_RE, ART_OR_SEC_REF_RE, ART_NUM_RE, ART_EXT_AFTER, ART_EXT_BEFORE } from '@/lib/doc/artrefs'
 import { segmentText, type CircRef } from '@/lib/doc/crossref'
-import { segmentCpcRefs, isCpcArticle } from '@/lib/doc/coderefs'
-import { cpcArticleHref, CPC_LINK_CLS } from './CodeRefText'
+import { segmentCodeRefs, type CodeKey } from '@/lib/doc/coderefs'
+import { codeArticleHref, CODE_LINK_CLS, CODE_NOM, type CodeHrefs } from './CodeRefText'
 import { buildBodySegments, tableShortCaption, type RichBlock, type RichTable, type RichNote, type RichCell } from '@/lib/doc/richblocks'
 import { TableActions } from './TableActions'
 import { TableFilter } from './TableFilter'
@@ -62,7 +62,7 @@ export function OfficialText({
   artRefs,
   sectionRefs = false,
   loiAnchors,
-  cpcDocHref,
+  codeHrefs,
 }: {
   text: string
   hrefFor?: (ref: CircRef) => string | null
@@ -88,10 +88,10 @@ export function OfficialText({
   /** Numéro de LOI interne → ancre de section (« 20 » → « sec-193 ») : rend cliquables
    *  les mentions « la loi No 20 » du corps (liens #sec-N). */
   loiAnchors?: Record<string, string>
-  /** Chemin du Code de procédure civile (« /fr/doc/cms7u… ») : les renvois « C. p. c. »
-   *  du Code civil deviennent des liens SORTANTS vers ce document, ancrés sur l'article
-   *  cité quand il existe. Absent → aucun changement de rendu. */
-  cpcDocHref?: string
+  /** Chemins des codes cités (« /fr/doc/cms7u… ») : les renvois « C. p. c. » et
+   *  « C. pén. » du Code civil deviennent des liens SORTANTS vers ces documents, ancrés
+   *  sur l'article cité quand il existe. Absent → aucun changement de rendu. */
+  codeHrefs?: CodeHrefs
 }) {
   const segments = buildBodySegments(text, rich)
   const usedAnchors = new Set<string>()
@@ -163,8 +163,9 @@ export function OfficialText({
   // de texte continuent leur chemin habituel (loiLinks → hl) : aucune régression ailleurs,
   // puisque tout dépend de la présence de cpcDocHref.
   function cpcLinks(value: string): ReactNode {
-    if (!cpcDocHref) return loiLinks(value)
-    const segs = segmentCpcRefs(value, isCpcArticle)
+    const actifs = (Object.keys(codeHrefs ?? {}) as CodeKey[]).filter((k) => codeHrefs?.[k])
+    if (!actifs.length) return loiLinks(value)
+    const segs = segmentCodeRefs(value, actifs)
     if (!segs) return loiLinks(value)
     return segs.map((s, i) =>
       s.kind === 'text' ? (
@@ -172,9 +173,9 @@ export function OfficialText({
       ) : (
         <Link
           key={i}
-          href={cpcArticleHref(cpcDocHref, s.kind === 'article' ? s.article : null)}
-          className={CPC_LINK_CLS}
-          title={s.kind === 'article' ? `Code de procédure civile, article ${s.article}` : 'Code de procédure civile'}
+          href={codeArticleHref(codeHrefs![s.code]!, s.kind === 'article' ? s.article : null)}
+          className={CODE_LINK_CLS}
+          title={s.kind === 'article' ? `${CODE_NOM[s.code]}, article ${s.article}` : CODE_NOM[s.code]}
         >
           {s.text}
         </Link>

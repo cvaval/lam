@@ -1,16 +1,16 @@
 import { describe, expect, it } from 'vitest'
-import { segmentCpcRefs, isCpcArticle, CPC_LAST_ARTICLE } from './coderefs'
+import { segmentCodeRefs, isCpcArticle, isCpArticle, CPC_LAST_ARTICLE, CP_LAST_ARTICLE, CP_MISSING_ARTICLES } from './coderefs'
 
 /** Rend les segments sous une forme lisible : les liens d'article entre crochets. */
 function rendu(value: string): string {
-  const segs = segmentCpcRefs(value, isCpcArticle)
+  const segs = segmentCodeRefs(value, ['cpc'])
   if (!segs) return value
   return segs.map((s) => (s.kind === 'article' ? `[${s.text}]` : s.kind === 'abbrev' ? `{${s.text}}` : s.text)).join('')
 }
 
 /** Le texte rendu doit être RIGOUREUSEMENT identique à l'entrée, hors marqueurs. */
 function texteIntact(value: string): boolean {
-  const segs = segmentCpcRefs(value, isCpcArticle)
+  const segs = segmentCodeRefs(value, ['cpc'])
   return (segs ? segs.map((s) => s.text).join('') : value) === value
 }
 
@@ -70,13 +70,13 @@ describe('renvois au Code de procédure civile', () => {
     ]
     for (const s of intacts) {
       it(`« ${s} » reste du texte`, () => {
-        expect(segmentCpcRefs(s, isCpcArticle)).toBeNull()
+        expect(segmentCodeRefs(s, ['cpc'])).toBeNull()
       })
     }
 
     it('« C.P. Cass., 21 décembre 1914 » : Cass. n\'est pas le c de l\'abréviation', () => {
       // Le piège : « C.P. C » ressemble à l'abréviation si l'on ne vérifie pas ce qui suit.
-      expect(segmentCpcRefs('de l\'art. 713, C.P. Cass., 21 décembre 1914', isCpcArticle)).toBeNull()
+      expect(segmentCodeRefs('de l\'art. 713, C.P. Cass., 21 décembre 1914', ['cpc'])).toBeNull()
     })
   })
 
@@ -92,7 +92,7 @@ describe('renvois au Code de procédure civile', () => {
       expect(isCpcArticle(1.5)).toBe(false)
     })
     it("l'abréviation seule reste cliquable même sans numéro exploitable", () => {
-      const segs = segmentCpcRefs('voir le C. p. c. sur ce point', isCpcArticle)
+      const segs = segmentCodeRefs('voir le C. p. c. sur ce point', ['cpc'])
       expect(segs?.some((s) => s.kind === 'abbrev')).toBe(true)
       expect(segs?.some((s) => s.kind === 'article')).toBe(false)
     })
@@ -105,7 +105,7 @@ describe('renvois au Code de procédure civile', () => {
         "Art. 8 (…) sur les causes qui leur sont soumises.- C. p. c. 268.- C. pén. 95. " +
         "Art. 10 (…) déni de justice.- C. p. c. 464, et s ; C. pén. 146, 190-13."
       expect(texteIntact(extrait)).toBe(true)
-      const segs = segmentCpcRefs(extrait, isCpcArticle)!
+      const segs = segmentCodeRefs(extrait, ['cpc'])!
       expect(segs.filter((s) => s.kind === 'article').map((s) => s.text)).toEqual(['956', '268', '464'])
     })
 
@@ -129,6 +129,57 @@ describe('renvois au Code de procédure civile', () => {
     it('le point-virgule clôt la liste, même sur une seule ligne', () => {
       // Il sépare deux codes : « C. civ., 51, 88;-C.p. c. 809 ».
       expect(rendu('C. p. c. 769; 3 autres pièces')).toBe('{C. p. c.} [769]; 3 autres pièces')
+    })
+  })
+})
+
+describe('renvois au Code pénal', () => {
+  const rp = (v: string) => {
+    const segs = segmentCodeRefs(v, ['cp'])
+    if (!segs) return v
+    return segs.map((s) => (s.kind === 'article' ? `[${s.text}]` : s.kind === 'abbrev' ? `{${s.text}}` : s.text)).join('')
+  }
+
+  const cas: Array<[string, string]> = [
+    ['- C. pén. 95.', '- {C. pén.} [95].'],
+    ['C. pén., 300.', '{C. pén.}, [300].'],
+    ['C. pén. 146, 190-13.', '{C. pén.} [146], [190]-13.'],
+    ['C.pén, 107 et s, 192 et s.', '{C.pén}, [107] et s, [192] et s.'],
+    ['C. pén., 287', '{C. pén.}, [287]'],
+    ["l'art. 300 du C. pén.", "l'art. [300] du {C. pén.}"],
+  ]
+  for (const [entree, attendu] of cas) {
+    it(`« ${entree} »`, () => {
+      expect(rp(entree)).toBe(attendu)
+      const segs = segmentCodeRefs(entree, ['cp'])
+      expect((segs ?? []).map((s) => s.text).join('')).toBe(entree)
+    })
+  }
+
+  it('« C. p. c. » n’est pas confondu avec le Code pénal', () => {
+    expect(segmentCodeRefs('C. p. c. 956.', ['cp'])).toBeNull()
+  })
+
+  it('les deux codes cohabitent dans une même phrase', () => {
+    const segs = segmentCodeRefs('- C. p. c. 464, et s ; C. pén. 146.', ['cpc', 'cp'])!
+    const liens = segs.filter((s) => s.kind === 'article').map((s) => `${s.kind === 'article' ? s.code : ''}:${s.text}`)
+    expect(liens).toEqual(['cpc:464', 'cp:146'])
+    expect(segs.map((s) => s.text).join('')).toBe('- C. p. c. 464, et s ; C. pén. 146.')
+  })
+
+  describe('anti-lien-mort : le Code pénal a des trous', () => {
+    it('les sept numéros sans article ne deviennent pas des liens', () => {
+      for (const n of CP_MISSING_ARTICLES) {
+        expect(isCpArticle(n)).toBe(false)
+        expect(rp(`C. pén. ${n}.`)).toBe(`{C. pén.} ${n}.`)
+      }
+    })
+    it('les bornes sont celles du Code réel', () => {
+      expect(isCpArticle(1)).toBe(true)
+      expect(isCpArticle(CP_LAST_ARTICLE)).toBe(true)
+      expect(isCpArticle(CP_LAST_ARTICLE + 1)).toBe(false)
+      expect(isCpArticle(11)).toBe(true)
+      expect(isCpArticle(15)).toBe(true)
     })
   })
 })

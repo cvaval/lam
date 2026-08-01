@@ -49,7 +49,7 @@ const texte = (html: string) =>
 
 describe('Code civil → Code de procédure civile (chemin de rendu)', () => {
   it('les renvois du CORPS deviennent des liens ancrés sur l’article', () => {
-    const html = renderToStaticMarkup(<OfficialText text={CORPS} civRefs cpcDocHref={CPC} />)
+    const html = renderToStaticMarkup(<OfficialText text={CORPS} civRefs codeHrefs={{ cpc: CPC }} />)
     expect(hrefs(html)).toEqual([
       CPC, `${CPC}#art-956`,
       CPC, `${CPC}#art-268`,
@@ -64,13 +64,13 @@ describe('Code civil → Code de procédure civile (chemin de rendu)', () => {
   })
 
   it('les renvois INTERNES « C. civ., 16 » restent des ancres du document courant', () => {
-    const html = renderToStaticMarkup(<OfficialText text={CORPS} civRefs cpcDocHref={CPC} />)
+    const html = renderToStaticMarkup(<OfficialText text={CORPS} civRefs codeHrefs={{ cpc: CPC }} />)
     // « C. civ., 16, 17, 155, 398 » : quatre ancres internes, non préfixées par /fr/doc/
     for (const n of [16, 17, 155, 398]) expect(html).toContain(`href="#art-${n}"`)
   })
 
   it('« C. pén. » n’est jamais transformé', () => {
-    const html = renderToStaticMarkup(<OfficialText text={CORPS} civRefs cpcDocHref={CPC} />)
+    const html = renderToStaticMarkup(<OfficialText text={CORPS} civRefs codeHrefs={{ cpc: CPC }} />)
     // Guillemet fermant obligatoire : sans lui, « #art-95 » est un PRÉFIXE de « #art-956 »
     // et l'assertion échouerait sur un lien pourtant légitime.
     expect(html).not.toContain(`${CPC}#art-95"`)
@@ -80,7 +80,7 @@ describe('Code civil → Code de procédure civile (chemin de rendu)', () => {
   })
 
   it('le texte affiché est mot pour mot celui du recueil', () => {
-    const html = renderToStaticMarkup(<OfficialText text={CORPS} civRefs cpcDocHref={CPC} />)
+    const html = renderToStaticMarkup(<OfficialText text={CORPS} civRefs codeHrefs={{ cpc: CPC }} />)
     for (const ligne of CORPS.split('\n')) expect(texte(html)).toContain(ligne.replace(/^Art\. \d+ /, ''))
   })
 
@@ -94,7 +94,7 @@ describe('Code civil → Code de procédure civile (chemin de rendu)', () => {
         })}
         linkCivRefs
         annotationsVariant="annotations"
-        cpcDocHref={CPC}
+        codeHrefs={{ cpc: CPC }}
       />,
     )
     expect(html).toContain(`${CPC}#art-949"`)
@@ -107,14 +107,14 @@ describe('Code civil → Code de procédure civile (chemin de rendu)', () => {
   describe('surfaces repliables (annotations, ancienne rédaction)', () => {
     it('CodeRefText transforme une note de jurisprudence', () => {
       const html = renderToStaticMarkup(
-        <CodeRefText text="Réclamer le paiement de ses créances.- C. p. c. 949." cpcDocHref={CPC} />,
+        <CodeRefText text="Réclamer le paiement de ses créances.- C. p. c. 949." codeHrefs={{ cpc: CPC }} />,
       )
       expect(html).toContain(`${CPC}#art-949"`)
       expect(texte(html)).toBe('Réclamer le paiement de ses créances.- C. p. c. 949.')
     })
 
     it('CodeRefText transforme « l’art. 930 du C. p. c. » d’un commentaire', () => {
-      const html = renderToStaticMarkup(<CodeRefText text="Voir l'art. 930 du C. p. c." cpcDocHref={CPC} />)
+      const html = renderToStaticMarkup(<CodeRefText text="Voir l'art. 930 du C. p. c." codeHrefs={{ cpc: CPC }} />)
       expect(html).toContain(`${CPC}#art-930"`)
     })
 

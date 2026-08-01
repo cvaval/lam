@@ -8,6 +8,7 @@ import { RelatedLaw } from './RelatedLaw'
 import { segmentAnnotated, indexBacklinks, cleanIndexSubject, prettyRef, type Annotations, type Backlink, type ArtRef } from '@/lib/legislation/annotated'
 import { labelFromAnchor } from '@/lib/legislation/articles'
 import type { Locale } from '@/lib/types'
+import type { CodeHrefs } from './CodeRefText'
 
 const INDEX_LBL: Record<Locale, string> = { fr: 'Index', en: 'Index', ht: 'Endèks' }
 // En-tête d'article en tête d'un bloc (« Article 12.- … » du Code du travail, « Article 12.1 »
@@ -47,7 +48,7 @@ export function AnnotatedText({
   annotationsVariant = 'juris',
   rich = [],
   hrefFor,
-  cpcDocHref,
+  codeHrefs,
 }: {
   text: string
   annotations: Annotations
@@ -72,7 +73,7 @@ export function AnnotatedText({
   hrefFor?: (ref: CircRef) => string | null
   /** Code civil : chemin du Code de procédure civile, pour rendre cliquables ses 348
    *  renvois « C. p. c. » — corps, annotations, commentaires et anciennes rédactions. */
-  cpcDocHref?: string
+  codeHrefs?: CodeHrefs
 }) {
   // Circulaires BRH : les divisions sont numérotées « 1.- » / « 4.2.1 » ; la liste blanche
   // `pointAnchors` les fait porter les ancres art-… (et le rendu en carte d'article).
@@ -271,7 +272,7 @@ export function AnnotatedText({
               </div>
             )}
             {((cases && cases.length > 0) || (comm && comm.length > 0)) && (
-              <Jurisprudence cases={cases ?? []} comments={comm} variant={annotationsVariant} locale={locale} cpcDocHref={cpcDocHref} />
+              <Jurisprudence cases={cases ?? []} comments={comm} variant={annotationsVariant} locale={locale} codeHrefs={codeHrefs} />
             )}
           </>
         )
@@ -294,13 +295,13 @@ export function AnnotatedText({
                   <span className={`rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${badge.cls}`}>{badge.fr}</span>
                 )}
               </h4>
-              <OfficialText text={body} hrefFor={hrefFor} locale={locale} terms={terms} noAnchors civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} cpcDocHref={cpcDocHref} />
+              <OfficialText text={body} hrefFor={hrefFor} locale={locale} terms={terms} noAnchors civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} codeHrefs={codeHrefs} />
               {(cx && cx.length > 0) || (old && annotationsVariant === 'annotations') ? (
                 // Code civil : ancienne version + législation connexe dans un même pliable
                 // (même sans bloc connexe — le libellé d'OldVersion est propre à la Constitution).
-                <RelatedLaw old={old} blocks={cx} locale={locale} cpcDocHref={cpcDocHref} />
+                <RelatedLaw old={old} blocks={cx} locale={locale} codeHrefs={codeHrefs} />
               ) : (
-                old && <OldVersion text={old} locale={locale} cpcDocHref={cpcDocHref} />
+                old && <OldVersion text={old} locale={locale} codeHrefs={codeHrefs} />
               )}
               {extra}
             </article>
@@ -309,8 +310,8 @@ export function AnnotatedText({
         const split = splitRich(b.text)
         return (
           <div key={i} className="scroll-mt-24">
-            <OfficialText text={split.text} rich={split.rich} hrefFor={hrefFor} locale={locale} terms={terms} noAnchors={b.noAnchors} civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} cpcDocHref={cpcDocHref} />
-            {showOldPreamble && oldPreamble && <OldVersion text={oldPreamble} locale={locale} cpcDocHref={cpcDocHref} />}
+            <OfficialText text={split.text} rich={split.rich} hrefFor={hrefFor} locale={locale} terms={terms} noAnchors={b.noAnchors} civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} codeHrefs={codeHrefs} />
+            {showOldPreamble && oldPreamble && <OldVersion text={oldPreamble} locale={locale} codeHrefs={codeHrefs} />}
             {extra}
           </div>
         )

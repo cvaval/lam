@@ -31,6 +31,13 @@
 const ABBREV_SRC = String.raw`C\s*\.?\s*p\s*\.?\s*(?:r\s*\.?\s*)?c(?:iv(?:ile)?)?\s*\.?(?![\p{L}])`
 
 /**
+ * Abréviation du Code pénal : « C. pén. », « C.pén », « C. pén, », « C. penal ».
+ * Le `én` la sépare sans ambiguïté de celle du Code de procédure civile, dont le
+ * troisième terme est un `c`.
+ */
+const ABBREV_CP_SRC = String.raw`C\s*\.?\s*p[ée]n(?:al)?\s*\.?(?![\p{L}])`
+
+/**
  * Une liste de numéros telle que le recueil l'écrit : « 70, 470 », « 124 et s. »,
  * « 258 et s, 989 ».
  *
@@ -69,11 +76,21 @@ export const CPC_BEFORE_RE = new RegExp(
   'giu',
 )
 
+/** 2 bis. Le numéro puis l'abréviation, pour le Code pénal. */
+export const CP_AFTER_RE = new RegExp(String.raw`(${ABBREV_CP_SRC})((?:${H}|[,;:])*)(${NUM_LIST_SRC})?`, 'giu')
+export const CP_BEFORE_RE = new RegExp(
+  String.raw`(?:\b(arts?\.?|articles?)(\s+))?(\d{1,4})(\s*,?\s*(?:du\s+|de\s+la\s+)?)(${ABBREV_CP_SRC})`,
+  'giu',
+)
+
+/** Code cité. La clé sert à fabriquer le bon lien côté appelant. */
+export type CodeKey = 'cpc' | 'cp'
+
 /** Segment de rendu : texte brut, abréviation (lien vers le code) ou numéro d'article (lien ancré). */
 export type CodeRefSegment =
   | { kind: 'text'; text: string }
-  | { kind: 'abbrev'; text: string }
-  | { kind: 'article'; text: string; article: number }
+  | { kind: 'abbrev'; text: string; code: CodeKey }
+  | { kind: 'article'; text: string; article: number; code: CodeKey }
 
 /**
  * Découpe `value` en segments, en ne transformant en lien d'article QUE les numéros
@@ -84,53 +101,59 @@ export type CodeRefSegment =
  * Retourne `null` si le texte ne contient aucun renvoi — l'appelant garde alors son
  * rendu habituel sans allocation inutile.
  */
-export function segmentCpcRefs(value: string, isArticle: (n: number) => boolean): CodeRefSegment[] | null {
+export function segmentCodeRefs(value: string, codes: readonly CodeKey[] = ['cpc', 'cp']): CodeRefSegment[] | null {
   type Hit = { start: number; end: number; segs: CodeRefSegment[] }
   const hits: Hit[] = []
 
-  // Construction 2 d'abord : elle englobe « art. 921 C. p. c. », dont l'abréviation
-  // serait sinon happée par la construction 1 (qui prendrait le numéro SUIVANT).
-  CPC_BEFORE_RE.lastIndex = 0
-  let m: RegExpExecArray | null
-  while ((m = CPC_BEFORE_RE.exec(value))) {
-    const [whole, mot, sp1, num, liaison, abbrev] = m
-    // Sans le mot « article », seule une liaison « du » / « de la » rattache le numéro
-    // à l'abréviation ; « … 1914 C. p. c. » (une date, p. ex.) n'est pas un renvoi.
-    if (!mot && !/\bd(?:u|e\s+la)\b/i.test(liaison)) continue
-    const n = Number(num)
-    hits.push({
-      start: m.index,
-      end: m.index + whole.length,
-      segs: [
-        { kind: 'text', text: (mot ?? '') + (sp1 ?? '') },
-        isArticle(n) ? { kind: 'article', text: num, article: n } : { kind: 'text', text: num },
-        { kind: 'text', text: liaison },
-        { kind: 'abbrev', text: abbrev },
-      ],
-    })
-  }
+  for (const code of codes) {
+    const { before, after, isArticle } = GRAMMAIRES[code]
 
-  // Construction 1, en ignorant ce qui chevauche un résultat de la construction 2.
-  CPC_AFTER_RE.lastIndex = 0
-  while ((m = CPC_AFTER_RE.exec(value))) {
-    const start = m.index
-    if (hits.some((h) => start < h.end && start + m![0].length > h.start)) continue
-    const [whole, abbrev, sep, nums] = m
-    const segs: CodeRefSegment[] = [{ kind: 'abbrev', text: abbrev }]
-    if (sep) segs.push({ kind: 'text', text: sep })
-    if (nums) {
-      // On coupe sur les nombres : « 258 et s, 989 » → ['', '258', ' et s, ', '989', '']
-      for (const part of nums.split(/(\d+)/)) {
-        if (!part) continue
-        if (!/^\d+$/.test(part)) {
-          segs.push({ kind: 'text', text: part })
-          continue
-        }
-        const n = Number(part)
-        segs.push(isArticle(n) ? { kind: 'article', text: part, article: n } : { kind: 'text', text: part })
-      }
+    // Construction 2 d'abord : elle englobe « art. 921 C. p. c. », dont l'abréviation
+    // serait sinon happée par la construction 1 (qui prendrait le numéro SUIVANT).
+    before.lastIndex = 0
+    let m: RegExpExecArray | null
+    while ((m = before.exec(value))) {
+      const [whole, mot, sp1, num, liaison, abbrev] = m
+      // Sans le mot « article », seule une liaison « du » / « de la » rattache le numéro
+      // à l'abréviation ; « … 1914 C. p. c. » (une date, p. ex.) n'est pas un renvoi.
+      if (!mot && !/\bd(?:u|e\s+la)\b/i.test(liaison)) continue
+      const start = m.index
+      if (hits.some((h) => start < h.end && start + whole.length > h.start)) continue
+      const n = Number(num)
+      hits.push({
+        start,
+        end: start + whole.length,
+        segs: [
+          { kind: 'text', text: (mot ?? '') + (sp1 ?? '') },
+          isArticle(n) ? { kind: 'article', text: num, article: n, code } : { kind: 'text', text: num },
+          { kind: 'text', text: liaison },
+          { kind: 'abbrev', text: abbrev, code },
+        ],
+      })
     }
-    hits.push({ start, end: start + whole.length, segs })
+
+    // Construction 1, en ignorant ce qui chevauche un résultat déjà retenu.
+    after.lastIndex = 0
+    while ((m = after.exec(value))) {
+      const start = m.index
+      if (hits.some((h) => start < h.end && start + m![0].length > h.start)) continue
+      const [whole, abbrev, sep, nums] = m
+      const segs: CodeRefSegment[] = [{ kind: 'abbrev', text: abbrev, code }]
+      if (sep) segs.push({ kind: 'text', text: sep })
+      if (nums) {
+        // On coupe sur les nombres : « 258 et s, 989 » → ['', '258', ' et s, ', '989', '']
+        for (const part of nums.split(/(\d+)/)) {
+          if (!part) continue
+          if (!/^\d+$/.test(part)) {
+            segs.push({ kind: 'text', text: part })
+            continue
+          }
+          const n = Number(part)
+          segs.push(isArticle(n) ? { kind: 'article', text: part, article: n, code } : { kind: 'text', text: part })
+        }
+      }
+      hits.push({ start, end: start + whole.length, segs })
+    }
   }
 
   if (!hits.length) return null
@@ -150,6 +173,23 @@ export function segmentCpcRefs(value: string, isArticle: (n: number) => boolean)
 
 /** Le Code de procédure civile d'Haïti porte les articles 1 à 997, sans trou (mesuré en
  *  base le 31 juillet 2026 : 1 040 ancres, dont les décimaux « 957-1 »…). Le prédicat par
- *  défaut s'appuie sur cette borne ; `scripts/verify-cpc-articles.ts` la revérifie. */
+ *  défaut s'appuie sur cette borne ; `scripts/verify-code-articles.ts` la revérifie. */
 export const CPC_LAST_ARTICLE = 997
 export const isCpcArticle = (n: number) => Number.isInteger(n) && n >= 1 && n <= CPC_LAST_ARTICLE
+
+/**
+ * Le Code pénal, lui, n'est PAS continu : 422 ancres, articles 1 à 413, mais sept
+ * numéros n'ont pas d'article dans notre édition (mesuré en base le 31 juillet 2026).
+ * Une simple borne y fabriquerait sept liens morts — d'où la liste explicite.
+ */
+export const CP_LAST_ARTICLE = 413
+export const CP_MISSING_ARTICLES: readonly number[] = [12, 13, 14, 160, 161, 222, 355]
+const CP_ABSENTS = new Set(CP_MISSING_ARTICLES)
+export const isCpArticle = (n: number) =>
+  Number.isInteger(n) && n >= 1 && n <= CP_LAST_ARTICLE && !CP_ABSENTS.has(n)
+
+/** Grammaire par code : les deux constructions et le prédicat anti-lien-mort. */
+const GRAMMAIRES: Record<CodeKey, { after: RegExp; before: RegExp; isArticle: (n: number) => boolean }> = {
+  cpc: { after: CPC_AFTER_RE, before: CPC_BEFORE_RE, isArticle: isCpcArticle },
+  cp: { after: CP_AFTER_RE, before: CP_BEFORE_RE, isArticle: isCpArticle },
+}

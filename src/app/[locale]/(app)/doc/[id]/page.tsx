@@ -183,12 +183,17 @@ export default async function DocPage({
   // son corps comme dans ses annotations. On résout la CIBLE ici — une requête d'un seul
   // champ, et uniquement pour ce document : le rendu, lui, reste pur (§02, le texte
   // officiel n'est pas retouché ; seuls des liens s'ajoutent à l'affichage).
-  const cpcDocHref =
-    doc.source === 'CODE_CIVIL_ANNOTE'
-      ? await prisma.document
-          .findFirst({ where: { source: 'CODE_PROCEDURE_CIVILE' }, select: { id: true } })
-          .then((d) => (d ? `/${locale}/doc/${d.id}` : undefined))
-      : undefined
+  const codeHrefs: { cpc?: string; cp?: string } = {}
+  if (doc.source === 'CODE_CIVIL_ANNOTE') {
+    const cites = await prisma.document.findMany({
+      where: { source: { in: ['CODE_PROCEDURE_CIVILE', 'CODE_PENAL_ANNOTE'] } },
+      select: { id: true, source: true },
+    })
+    for (const c of cites) {
+      if (c.source === 'CODE_PROCEDURE_CIVILE') codeHrefs.cpc = `/${locale}/doc/${c.id}`
+      if (c.source === 'CODE_PENAL_ANNOTE') codeHrefs.cp = `/${locale}/doc/${c.id}`
+    }
+  }
   // Index thématique IA (codes/lois longs) — alimente le navigateur par thème + renvois.
   let themeIndex: ThemeArticle[] = []
   try { if (doc.themeIndexJson) themeIndex = JSON.parse(doc.themeIndexJson) as ThemeArticle[] } catch { themeIndex = [] }
@@ -479,7 +484,7 @@ export default async function DocPage({
               linkCivRefs={doc.source === 'CODE_CIVIL_ANNOTE'}
               linkArtRefs={ART_REFS_SOURCES.has(doc.source ?? '') || (doc.source ?? '').startsWith('CC_VANDAL_')}
               annotationsVariant={ANNOTATIONS_VARIANT_SOURCES.has(doc.source ?? '') ? 'annotations' : 'juris'}
-              cpcDocHref={cpcDocHref}
+              codeHrefs={codeHrefs}
             />
           </section>
         </div>
