@@ -310,3 +310,79 @@ déplacée** (`sec-92|art-573` → `sec-356|art-573`), **zéro orpheline**.
   2020 — LOI Nº 28-1 sur les sûretés, chapitres de l'agent des sûretés, de la propriété
   retenue, de l'antichrèse, paragraphes de la dissolution de communauté. Le sommaire de
   l'édition ne pouvait pas les connaître.
+
+---
+
+# §10 — Dispositif, appareil et textes connexes remis en ordre (2 août 2026)
+
+Le recueil imprime, à la suite de certains articles, des **renvois éditoriaux** (« V. le
+D. du 8 octobre 1982 ») et des **textes connexes reproduits en clair** (intitulé,
+référence au Moniteur, parfois plusieurs alinéas). L'océrisation les avait versés dans le
+CORPS, où ils se lisaient comme des alinéas du Code. Symétriquement, **l'énumération** de
+certains articles (« La qualité de citoyen se perd : 1. … 2. … ») avait été rangée en
+JURISPRUDENCE, si bien que le dispositif s'arrêtait sur son deux-points.
+
+`scripts/corriger-articles-code-civil.ts` (re-jouable, simulation par défaut,
+`--voir=18,38` pour prévisualiser un article) corrige les deux, sur **tout** le Code.
+
+| | |
+|---|---|
+| articles touchés | **107** |
+| lignes sorties du dispositif | **109** — 72 blocs créés dans le pliable, 20 doublons d'un bloc existant, 17 regroupées |
+| items rendus au dispositif | **76**, sur 24 articles |
+| renvois « V. … » restant au corps | **0** (69 avant) |
+| intitulés de texte connexe restant au corps | **0** (22 avant) |
+| liens sortants vers la Constitution de 1987 | 5 (arts 25, 38, 82, 150, 398) |
+| corrections d'OCR « Art. \|. » → « Art. 1. » | 2 (art. 314) |
+
+## La règle, et pourquoi elle est sûre
+
+**À partir de la première ligne éditoriale d'un article, tout appartient au texte
+connexe.** Vérifié sur la totalité du Code avant d'être appliqué : 85 articles portent une
+telle insertion, **3 seulement** ont une suite après elle — arts 57, 151 et 781 — et les
+trois fois cette suite est la suite du texte annexé. Le dispositif ne reprend jamais après
+une insertion.
+
+## Ce que la mesure de similitude a coûté
+
+Décider « cette ligne est-elle déjà dans le pliable ? » a demandé trois essais, dont deux
+se sont trompés sur des cas réels :
+
+1. **égalité littérale** — ratait « art. 1er » ≡ « art. 1 », « déclaration(s) »,
+   « y relatif » ≡ « y relatives », « ll devra » ≡ « Il devra » : autant de variantes de
+   l'OCR ou du recueil pour un texte identique ;
+2. **alignement de tous les mots** — déclarait « déjà présents » les deux alinéas de la
+   loi de 1945 (art. 151) qui n'y étaient pas : les mots-outils français (« de la le des
+   en ») suffisaient à eux seuls à franchir le seuil ;
+3. **alignement des seuls mots pleins** (retenu) — deux textes ne s'alignent à 85 % sur
+   leur vocabulaire propre que s'ils disent la même chose.
+
+Le premier filet de sécurité partageait la mesure du détecteur, donc son angle mort : il a
+laissé passer l'erreur de l'étape 2. Il a été remplacé par une **conservation des mots
+rares article par article** — indépendante de toute mesure de similitude. Une seule
+variante lui échappe, consignée dans le script : « y relatif » / « y relatives » (art. 151).
+
+## Renvois rendus cliquables (composant)
+
+Deux défauts du lecteur, invisibles autrement, corrigés et couverts par
+`src/components/CodeCivilRenvois.test.tsx` :
+
+- `civRefs` et `artRefs` **s'excluaient** dans la chaîne de rendu : le Code civil liait
+  « C. civ., 969 » mais laissait « conformément à l'article 170 » en texte mort (arts 48,
+  79, 173, 183, 323…). La chaîne les enchaîne désormais.
+- Le garde anti-renvoi-externe écarte tout « article N du Code … » — protection nécessaire
+  contre les autres codes, mais qui aveuglait « l'article 311 **du Code civil** » cité
+  dans le Code civil. La prop `ownCode` nomme le code courant ; lui seul y échappe.
+  « du Code de procédure civile », « du Code pénal », « du décret … » restent inertes.
+- La graphie **« Civ., 51 et s »**, sans le « C. », est désormais reconnue (10 renvois du
+  corps). Sentinelle posée : « C. p. civ. » et « C. pr. civ. » ne sont jamais pris pour
+  des renvois internes.
+
+## Reste à décider
+
+- Les gloses d'harmonisation du recueil (« Cet article n'est pas en harmonie avec le
+  Décret du 8 octobre 1982 », art. 267) sont du même genre que celle de l'art. 221 que
+  vous avez fait retirer. Elles n'ont pas été touchées faute d'instruction.
+- Art. 314 : trois décrets (27 janvier 1959, 8 octobre 1982, 30 août 1988) restent
+  **collés en milieu d'alinéa**, pas en début de ligne — le repli automatique ne les voit
+  donc pas. Leur découpe demande une coupure en milieu de phrase, à valider.

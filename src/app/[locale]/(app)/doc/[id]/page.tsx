@@ -61,6 +61,10 @@ const HIDE_INLINE_INDEX_SOURCES = new Set([
   'CODE_PROCEDURE_CIVILE',
 ])
 const ART_REFS_SOURCES = new Set([
+  // Le Code civil renvoie en toutes lettres à ses propres articles (« conformément à
+  // l'article 170 », « dans les cas des articles 180 et 181 ») : ces renvois restaient
+  // du texte mort. L'anti-lien-mort du composant ne relie qu'un article RÉEL.
+  'CODE_CIVIL_ANNOTE',
   'CODE_PENAL_ANNOTE', 'CODE_DOUANES_ANNOTE', 'DECRET_REGIMES_MATRIMONIAUX', 'LOI_FILIATION_2014',
   'DECRET_SURETES', 'CODE_COMMERCE_ANNOTE', 'LOI_STATUT_COMMERCANT_2018', 'LOI_BANQUES_2012',
   'DECRET_MINIER_2026', 'DECRET_IMPOT_REVENU_2005', 'DECRET_TIMBRE_1978_CONSOLIDE', 'LOI_PATENTE_1996_CONSOLIDE',
@@ -482,6 +486,7 @@ export default async function DocPage({
               terms={hlTerms}
               hideInlineIndex={HIDE_INLINE_INDEX_SOURCES.has(doc.source ?? '')}
               linkCivRefs={doc.source === 'CODE_CIVIL_ANNOTE'}
+              ownCode={doc.source === 'CODE_CIVIL_ANNOTE' ? 'civil' : doc.source === 'CODE_PENAL_ANNOTE' ? 'pénal' : undefined}
               linkArtRefs={ART_REFS_SOURCES.has(doc.source ?? '') || (doc.source ?? '').startsWith('CC_VANDAL_')}
               annotationsVariant={ANNOTATIONS_VARIANT_SOURCES.has(doc.source ?? '') ? 'annotations' : 'juris'}
               codeHrefs={codeHrefs}

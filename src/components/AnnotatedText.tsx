@@ -44,6 +44,7 @@ export function AnnotatedText({
   terms,
   hideInlineIndex = false,
   linkCivRefs = false,
+  ownCode,
   linkArtRefs = false,
   annotationsVariant = 'juris',
   rich = [],
@@ -59,6 +60,8 @@ export function AnnotatedText({
   hideInlineIndex?: boolean
   /** Code civil : rend cliquables les renvois « C. civ., 969, 1102 » du texte (liens #art-N). */
   linkCivRefs?: boolean
+  /** Dénomination du code courant — propagée à OfficialText (renvois « du Code civil »). */
+  ownCode?: string
   /** Code pénal : rend cliquables les renvois internes « l'article N » (liens #art-N vers un
    *  article existant, hors renvoi à un autre texte). */
   linkArtRefs?: boolean
@@ -295,7 +298,7 @@ export function AnnotatedText({
                   <span className={`rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${badge.cls}`}>{badge.fr}</span>
                 )}
               </h4>
-              <OfficialText text={body} hrefFor={hrefFor} locale={locale} terms={terms} noAnchors civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} codeHrefs={codeHrefs} />
+              <OfficialText text={body} hrefFor={hrefFor} locale={locale} terms={terms} noAnchors civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} codeHrefs={codeHrefs} ownCode={ownCode} />
               {(cx && cx.length > 0) || (old && annotationsVariant === 'annotations') ? (
                 // Code civil : ancienne version + législation connexe dans un même pliable
                 // (même sans bloc connexe — le libellé d'OldVersion est propre à la Constitution).
@@ -310,7 +313,7 @@ export function AnnotatedText({
         const split = splitRich(b.text)
         return (
           <div key={i} className="scroll-mt-24">
-            <OfficialText text={split.text} rich={split.rich} hrefFor={hrefFor} locale={locale} terms={terms} noAnchors={b.noAnchors} civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} codeHrefs={codeHrefs} />
+            <OfficialText text={split.text} rich={split.rich} hrefFor={hrefFor} locale={locale} terms={terms} noAnchors={b.noAnchors} civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} codeHrefs={codeHrefs} ownCode={ownCode} />
             {showOldPreamble && oldPreamble && <OldVersion text={oldPreamble} locale={locale} codeHrefs={codeHrefs} />}
             {extra}
           </div>

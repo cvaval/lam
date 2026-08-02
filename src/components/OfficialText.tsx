@@ -22,8 +22,16 @@ const SCROLL_HINT: Record<Locale, string> = { fr: 'Faites glisser pour voir tout
 // « c. civ. » minuscule (variantes du texte) matche (/i). Numéros jusqu'à 6 chiffres capturés
 // pour couvrir les rares réfs OCR non désambiguïsables — le lien n'est émis que pour 1..2047.
 const CIV_MAX_ART = 2047
+
+/** Comparaison de dénominations insensible aux accents (« pénal » ≡ « penal »). */
+function sansAccent(s: string): string {
+  return s.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase()
+}
+// « Civ., 51 et s » : le recueil laisse parfois tomber le « C. » (10 renvois du Code
+// civil). Le point après « Civ » reste exigé, et un mot-frontière devant : « Cass. civ »
+// n'existe pas dans ce corpus, mais la sentinelle coûte moins qu'un faux lien.
 const CIV_RE =
-  /C\.\s?civ\.[\s,]*((?:\d{1,6}(?:\s*(?:[-–]|à)\s*\d{1,6})?(?:\s+(?:et\s+)?s\b\.?)?)(?:\s*(?:,|;|et)\s*\d{1,6}(?:\s*(?:[-–]|à)\s*\d{1,6})?(?:\s+(?:et\s+)?s\b\.?)?)*)/gi
+  /(?<!\bproc[\wé]*\.\s{0,2})(?<!\bpr?\.\s{0,2})(?<![\w.])(?:C\.\s?)?civ\.[\s,]*((?:\d{1,6}(?:\s*(?:[-–]|à)\s*\d{1,6})?(?:\s+(?:et\s+)?s\b\.?)?)(?:\s*(?:,|;|et)\s*\d{1,6}(?:\s*(?:[-–]|à)\s*\d{1,6})?(?:\s+(?:et\s+)?s\b\.?)?)*)/gi
 
 // Mentions internes « la loi No 20 » / « loi Nº 16 » (Code civil : le Code est organisé en
 // LOIS) → lien vers l'en-tête de la LOI correspondante (#sec-N), via la carte `loiAnchors`.
@@ -63,6 +71,7 @@ export function OfficialText({
   sectionRefs = false,
   loiAnchors,
   codeHrefs,
+  ownCode,
 }: {
   text: string
   hrefFor?: (ref: CircRef) => string | null
@@ -92,6 +101,9 @@ export function OfficialText({
    *  « C. pén. » du Code civil deviennent des liens SORTANTS vers ces documents, ancrés
    *  sur l'article cité quand il existe. Absent → aucun changement de rendu. */
   codeHrefs?: CodeHrefs
+  /** Dénomination du code courant (« civil », « pénal ») : « l'article N du Code civil »
+   *  lu DANS le Code civil est un renvoi interne, pas un renvoi à un autre texte. */
+  ownCode?: string
 }) {
   const segments = buildBodySegments(text, rich)
   const usedAnchors = new Set<string>()
@@ -133,10 +145,18 @@ export function OfficialText({
     )
   }
 
+  // Terminaison de la chaîne de rendu : les renvois « l'article N » d'abord (si le document
+  // fournit ses ancres), puis le surlignage. Sans ce relais, `civRefs` et `artRefs`
+  // s'excluaient — le Code civil liait « C. civ., 969 » mais laissait « conformément à
+  // l'article 170 » en texte mort (constat : arts 48, 79, 173, 183, 323…).
+  function txt(value: string): ReactNode {
+    return artRefs ? artLinks(value) : hl(value)
+  }
+
   // Mentions « la loi No 20 » → lien vers l'en-tête de la LOI (#sec-N) ; le reste passe
-  // par hl(). Ne s'active que si `loiAnchors` connaît le numéro (sinon texte inchangé).
+  // par txt(). Ne s'active que si `loiAnchors` connaît le numéro (sinon texte inchangé).
   function loiLinks(value: string): ReactNode {
-    if (!loiAnchors) return hl(value)
+    if (!loiAnchors) return txt(value)
     const out: ReactNode[] = []
     let pos = 0
     let k = 0
@@ -145,7 +165,7 @@ export function OfficialText({
     while ((m = LOI_RE.exec(value))) {
       const anchor = loiAnchors[m[1]]
       if (!anchor) continue
-      out.push(<span key={`p${k++}`}>{hl(value.slice(pos, m.index))}</span>)
+      out.push(<span key={`p${k++}`}>{txt(value.slice(pos, m.index))}</span>)
       out.push(
         <a key={`l${k++}`} href={`#${anchor}`} className="font-medium text-soley-700 hover:underline">
           {m[0]}
@@ -153,8 +173,8 @@ export function OfficialText({
       )
       pos = m.index + m[0].length
     }
-    if (!out.length) return hl(value)
-    out.push(<span key={`p${k++}`}>{hl(value.slice(pos))}</span>)
+    if (!out.length) return txt(value)
+    out.push(<span key={`p${k++}`}>{txt(value.slice(pos))}</span>)
     return out
   }
 
@@ -227,6 +247,15 @@ export function OfficialText({
   // (« art. 2 du décret… ») sont laissés en texte. Le reste passe par hl().
   function artLinks(value: string): ReactNode {
     if (!artRefs) return hl(value)
+    // « l'article 311 DU CODE CIVIL », cité DANS le Code civil, est un renvoi INTERNE. Le
+    // garde ART_EXT_AFTER écarte tout « du Code … » (il protège des renvois aux AUTRES
+    // codes) et aveuglait donc celui-ci. Seule la dénomination du code courant y échappe ;
+    // « du Code de procédure civile » reste écarté (le mot capturé serait « de »).
+    const dansSonPropreCode = (reste: string) => {
+      if (!ownCode) return false
+      const m = /^\s*(?:[:—–-]\s*)?\(?\s*du\s+code\s+(\p{L}+)/iu.exec(reste)
+      return !!m && sansAccent(m[1]) === sansAccent(ownCode)
+    }
     const out: ReactNode[] = []
     let pos = 0
     let k = 0
@@ -234,7 +263,8 @@ export function OfficialText({
     re.lastIndex = 0
     let m: RegExpExecArray | null
     while ((m = re.exec(value))) {
-      if (ART_EXT_AFTER.test(value.slice(m.index + m[0].length))) continue // renvoi à un autre texte (après)
+      const reste = value.slice(m.index + m[0].length)
+      if (ART_EXT_AFTER.test(reste) && !dansSonPropreCode(reste)) continue // renvoi à un autre texte (après)
       if (ART_EXT_BEFORE.test(value.slice(Math.max(0, m.index - 100), m.index))) continue // renvoi à un autre texte (avant)
       out.push(<span key={`t${k++}`}>{hl(value.slice(pos, m.index))}</span>)
       const parts = m[0].split(ART_NUM_RE)
