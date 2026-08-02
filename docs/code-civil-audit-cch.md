@@ -191,3 +191,55 @@ pas s'écarter du fichier de composition.
   (l'article 683 pour l'un, la Convention relative aux droits de l'enfant pour l'autre) ;
 - **727** et **1333** : le dispositif de notre base contient des alinéas que le docx
   n'a pas — à vérifier sur le fac-similé avant toute reprise.
+
+# 8. Les notes restantes, et la loi de 2014 (2 août 2026)
+
+## Les 43 notes encore soudées au dispositif
+
+Le discriminant est sans appel : **un code de 1825 ne cite pas un arrêt de 1941**. Un
+paragraphe du dispositif qui porte « Cass., 15 juillet 1941 » est une note de l'auteur,
+quelle que soit la façon dont le recueil — ou notre import — l'a composé.
+
+- **40** notes de fin d'article rendues à l'appareil (`ventiler-notes-collees-code-civil.ts`) ;
+  aucune note enclavée au milieu d'un dispositif, ce qui aurait demandé un examen à la main.
+- **3** notes soudées sur la LIGNE même de l'article, hors d'atteinte d'une ventilation
+  ligne à ligne, reprises une par une sur le fac-similé (`fix-code-civil-trois-derniers.ts`) :
+  - **682** (p. 152) : la note « L'accord des parties… Cass., 15 juin 1928 » retirée du
+    dispositif, et avec elle un fragment de l'**article 683** recopié là, en-tête mangé
+    (« . 683 ») — supprimé seulement après vérification que l'article 683 figure bien en
+    propre quelques lignes plus bas ;
+  - **1780** : note « 1. Il appartient souverainement aux juges du fond… Cass., 4 mars
+    1890 », dont l'OCR avait fait « !. 1 appartient » — coquille corrigée au passage ;
+  - **1846** (p. 371) : « Le créancier cessionnaire… Cass., 6 décembre 1926 » est composé
+    en deux colonnes sous l'article. C'est une note, contrairement à ce qu'en dit le docx.
+
+**Résultat : 0 note recollée.** Les articles 1780 et 1846 étant amendés, seul ce qui
+n'appartenait pas à leur dispositif a bougé.
+
+## La loi du 28 mai 2014 confrontée à sa source
+
+Le fichier de l'éditrice a permis de vérifier l'overlay d'amendement du Code civil.
+
+**Ce qui est exact et n'appelait aucune correction :**
+
+| Vérification | Résultat |
+|---|---|
+| Article 293 du Code civil (texte en vigueur) | **identique mot à mot** (86 mots) |
+| Article 311 | **identique mot à mot** (57 mots) |
+| Article 606 | **identique mot à mot** (32 mots) |
+| Abrogations prononcées | **294, 295, 302, 303, 304, 306, 308, 309, 313, 611** des deux côtés |
+
+Les articles **305 et 307 ne sont pas abrogés** — la loi ne les touche pas, et la base ne
+les marque pas non plus. Une lecture rapide de l'intervalle « 302 à 309 » aurait pu le
+faire croire.
+
+**Ce qui a été corrigé** (`fix-loi-filiation-2014.ts`) :
+
+- le nom d'un signataire restait en réserve — « Jos[…] JOHN [nom partiellement illisible] »
+  devient **« Joseph Joël JOHN »**, deuxième secrétaire du Sénat. Une loi promulguée n'a
+  pas à porter la trace de nos doutes de lecture quand le texte existe ;
+- les visas portaient « Loi N° : 8 » et « Loi N° : 16 » là où la loi écrit « Loi No 8 » et
+  « Loi No 16 ».
+
+Reste, dans le corps de la loi, une mention « (Signé) Jos[…] » qui n'était pas dans la
+même ligne — le fichier source ne donne pas non plus ce prénom en toutes lettres.
