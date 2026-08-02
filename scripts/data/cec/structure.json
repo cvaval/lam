@@ -1,0 +1,445 @@
+{
+ "toc": [
+  {
+   "level": 1,
+   "label": "TITRE I — DISPOSITIONS PRELIMINAIRES",
+   "anchor": "sec-1",
+   "kind": "titre"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE I — OBJET DE LA LOI",
+   "anchor": "sec-2",
+   "kind": "chapitre"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — DEFINITIONS PARTICULIERES, GENERALES ET SIGLES",
+   "anchor": "sec-3",
+   "kind": "chapitre"
+  },
+  {
+   "level": 1,
+   "label": "TITRE II — DES ORGANES DE REGLEMENTATION,",
+   "anchor": "sec-4",
+   "kind": "titre"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE I — ROLE DE LA BRH, DU CNC ET DE LA FCP",
+   "anchor": "sec-5",
+   "kind": "chapitre"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — DU CONTROLE ET DE LA SUPERVISION DES CEC",
+   "anchor": "sec-6",
+   "kind": "chapitre"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 1. DISPOSITIONS GÉNÉRALES",
+   "anchor": "sec-7",
+   "kind": "section"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — DE L’AUTORISATION DE FONCTIONNEMENT DES CEC",
+   "anchor": "sec-8",
+   "kind": "chapitre"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 1.- DÉNOMINATION",
+   "anchor": "sec-9",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 2.- ACTE CONSTITUTIF",
+   "anchor": "sec-10",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 3.- SIÈGE SOCIAL",
+   "anchor": "sec-11",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 4.- FONDS PROPRES",
+   "anchor": "sec-12",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 5. - QUALITÉ DES MEMBRES",
+   "anchor": "sec-13",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 6.- ASSEMBLÉE GÉNÉRALE",
+   "anchor": "sec-14",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 7- DIRIGEANTS",
+   "anchor": "sec-15",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 8. CONSEIL D’ADMINISTRATION",
+   "anchor": "sec-16",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 9. - COMITE DE SURVEILLANCE ET DE CRÉDIT",
+   "anchor": "sec-17",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 10- AVANTAGES FISCAUX ET DOUANIERS",
+   "anchor": "sec-18",
+   "kind": "section"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE V — FONCTIONNEMENT",
+   "anchor": "sec-19",
+   "kind": "chapitre"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 1.- GARANTIES",
+   "anchor": "sec-20",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 2.- FONDS DE SOUTIEN AUX COOPÉRATIVES",
+   "anchor": "sec-21",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 3.- FONDS DE RÉSERVES",
+   "anchor": "sec-22",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 4.- FONDS À DES FINS SOCIALES",
+   "anchor": "sec-23",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 5.- TROP-PERCUS OU EXCEDENTS",
+   "anchor": "sec-24",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 6.- PRATIQUES DE GESTION SAINE",
+   "anchor": "sec-25",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 7.- DONS, LEGS ET LIBÉRALITÉS",
+   "anchor": "sec-26",
+   "kind": "section"
+  },
+  {
+   "level": 1,
+   "label": "TITRE III — DIVULGATION FINANCIERE, TENUE DES LIVRES",
+   "anchor": "sec-27",
+   "kind": "titre"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE I — DIVULGATION FINANCIERE",
+   "anchor": "sec-28",
+   "kind": "chapitre"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — TENUE DES LIVRES ET REGISTRES",
+   "anchor": "sec-29",
+   "kind": "chapitre"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — SURVEILLANCE ET CONTROLE DES CEC",
+   "anchor": "sec-30",
+   "kind": "chapitre"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE IV — VERIFICATION ET CONCOURS EXCEPTIONNELS",
+   "anchor": "sec-31",
+   "kind": "chapitre"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 1.- VERIFICATION",
+   "anchor": "sec-32",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 2.- CONCOURS EXCEPTIONNELS",
+   "anchor": "sec-33",
+   "kind": "section"
+  },
+  {
+   "level": 1,
+   "label": "TITRE IV — DE LA FEDERATION ET DE L’AFFILIATION DES CEC",
+   "anchor": "sec-34",
+   "kind": "titre"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE I — DISPOSITIONS GENERALES",
+   "anchor": "sec-35",
+   "kind": "chapitre"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — ASSEMBLEES DE MEMBRES ET CONSEIL D’ADMINISTRATION",
+   "anchor": "sec-36",
+   "kind": "chapitre"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 1.- ASSEMBLEES DES MEMBRES",
+   "anchor": "sec-37",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 2.- CONSEIL D’ADMINISTRATION",
+   "anchor": "sec-38",
+   "kind": "section"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — FONCTIONNEMENT – POUVOIRS D’INSPECTION",
+   "anchor": "sec-39",
+   "kind": "chapitre"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 1.- FONCTIONNEMENT",
+   "anchor": "sec-40",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 2.- POUVOIR D’INSPECTION",
+   "anchor": "sec-41",
+   "kind": "section"
+  },
+  {
+   "level": 3,
+   "label": "SECTION 3.- VERIFICATION",
+   "anchor": "sec-42",
+   "kind": "section"
+  },
+  {
+   "level": 1,
+   "label": "TITRE V — DE LA FUSION, DU DESSAISISSEMENT,",
+   "anchor": "sec-43",
+   "kind": "titre"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE I — FUSION",
+   "anchor": "sec-44",
+   "kind": "chapitre"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — DESSAISISSEMENT",
+   "anchor": "sec-45",
+   "kind": "chapitre"
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — LIQUIDATION, DISSOLUTION",
+   "anchor": "sec-46",
+   "kind": "chapitre"
+  },
+  {
+   "level": 1,
+   "label": "TITRE VI — DES INFRACTIONS ET SANCTIONS",
+   "anchor": "sec-47",
+   "kind": "titre"
+  },
+  {
+   "level": 1,
+   "label": "TITRE VII — DISPOSITIONS TRANSITOIRES ET FINALES",
+   "anchor": "sec-48",
+   "kind": "titre"
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2",
+  "art-3": "Article 3",
+  "art-4": "Article 4",
+  "art-5": "Article 5",
+  "art-6": "Article 6",
+  "art-7": "Article 7",
+  "art-8": "Article 8",
+  "art-9": "Article 9",
+  "art-10": "Article 10",
+  "art-11": "Article 11",
+  "art-12": "Article 12",
+  "art-13": "Article 13",
+  "art-14": "Article 14",
+  "art-15": "Article 15",
+  "art-16": "Article 16",
+  "art-17": "Article 17",
+  "art-18": "Article 18",
+  "art-19": "Article 19",
+  "art-20": "Article 20",
+  "art-21": "Article 21",
+  "art-22": "Article 22",
+  "art-23": "Article 23",
+  "art-24": "Article 24",
+  "art-25": "Article 25",
+  "art-26": "Article 26",
+  "art-27": "Article 27",
+  "art-28": "Article 28",
+  "art-29": "Article 29",
+  "art-30": "Article 30",
+  "art-31": "Article 31",
+  "art-32": "Article 32",
+  "art-33": "Article 33",
+  "art-34": "Article 34",
+  "art-35": "Article 35",
+  "art-36": "Article 36",
+  "art-37": "Article 37",
+  "art-38": "Article 38",
+  "art-39": "Article 39",
+  "art-40": "Article 40",
+  "art-41": "Article 41",
+  "art-42": "Article 42",
+  "art-43": "Article 43",
+  "art-44": "Article 44",
+  "art-45": "Article 45",
+  "art-46": "Article 46",
+  "art-47": "Article 47",
+  "art-48": "Article 48",
+  "art-49": "Article 49",
+  "art-50": "Article 50",
+  "art-51": "Article 51",
+  "art-52": "Article 52",
+  "art-53": "Article 53",
+  "art-54": "Article 54",
+  "art-55": "Article 55",
+  "art-56": "Article 56",
+  "art-57": "Article 57",
+  "art-58": "Article 58",
+  "art-59": "Article 59",
+  "art-60": "Article 60",
+  "art-61": "Article 61",
+  "art-62": "Article 62",
+  "art-63": "Article 63",
+  "art-64": "Article 64",
+  "art-65": "Article 65",
+  "art-66": "Article 66",
+  "art-67": "Article 67",
+  "art-68": "Article 68",
+  "art-69": "Article 69",
+  "art-70": "Article 70",
+  "art-71": "Article 71",
+  "art-72": "Article 72",
+  "art-73": "Article 73",
+  "art-74": "Article 74",
+  "art-75": "Article 75",
+  "art-76": "Article 76",
+  "art-77": "Article 77",
+  "art-78": "Article 78",
+  "art-79": "Article 79",
+  "art-80": "Article 80",
+  "art-81": "Article 81",
+  "art-82": "Article 82",
+  "art-83": "Article 83",
+  "art-84": "Article 84",
+  "art-85": "Article 85",
+  "art-86": "Article 86",
+  "art-87": "Article 87",
+  "art-88": "Article 88",
+  "art-89": "Article 89",
+  "art-90": "Article 90",
+  "art-91": "Article 91",
+  "art-92": "Article 92",
+  "art-93": "Article 93",
+  "art-94": "Article 94",
+  "art-95": "Article 95",
+  "art-96": "Article 96",
+  "art-97": "Article 97",
+  "art-98": "Article 98",
+  "art-99": "Article 99",
+  "art-100": "Article 100",
+  "art-101": "Article 101",
+  "art-102": "Article 102",
+  "art-103": "Article 103",
+  "art-104": "Article 104",
+  "art-105": "Article 105",
+  "art-106": "Article 106",
+  "art-107": "Article 107",
+  "art-108": "Article 108",
+  "art-109": "Article 109",
+  "art-110": "Article 110",
+  "art-111": "Article 111",
+  "art-112": "Article 112",
+  "art-113": "Article 113",
+  "art-114": "Article 114",
+  "art-115": "Article 115",
+  "art-116": "Article 116",
+  "art-117": "Article 117",
+  "art-118": "Article 118",
+  "art-119": "Article 119",
+  "art-120": "Article 120",
+  "art-121": "Article 121",
+  "art-122": "Article 122",
+  "art-123": "Article 123",
+  "art-124": "Article 124",
+  "art-125": "Article 125",
+  "art-126": "Article 126",
+  "art-127": "Article 127",
+  "art-128": "Article 128",
+  "art-129": "Article 129",
+  "art-130": "Article 130",
+  "art-131": "Article 131",
+  "art-132": "Article 132",
+  "art-133": "Article 133",
+  "art-134": "Article 134",
+  "art-135": "Article 135",
+  "art-136": "Article 136",
+  "art-137": "Article 137",
+  "art-138": "Article 138",
+  "art-139": "Article 139",
+  "art-140": "Article 140",
+  "art-141": "Article 141",
+  "art-142": "Article 142",
+  "art-143": "Article 143",
+  "art-144": "Article 144",
+  "art-145": "Article 145",
+  "art-146": "Article 146",
+  "art-147": "Article 147",
+  "art-148": "Article 148",
+  "art-149": "Article 149",
+  "art-150": "Article 150",
+  "art-151": "Article 151"
+ }
+}
