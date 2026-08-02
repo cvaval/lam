@@ -243,3 +243,70 @@ faire croire.
 
 Reste, dans le corps de la loi, une mention « (Signé) Jos[…] » qui n'était pas dans la
 même ligne — le fichier source ne donne pas non plus ce prénom en toutes lettres.
+
+# 9. Le sommaire confronté à celui de l'édition (2 août 2026)
+
+Source : `Sommaire_Code_Civil.docx` (pages 7 à 14 du recueil), 726 paragraphes.
+
+## Méthode
+
+Comparer les intitulés mot à mot n'a pas de sens : le sommaire compose « **SUR** la
+promulgation, les effets et l'application des lois en général », l'en-tête du corps
+« **De** la promulgation, des effets et de l'application… ». Notre table reprend le CORPS
+verbatim — c'est voulu, elle sert à repérer les lignes du texte. On aligne donc les deux
+suites **dans l'ordre**, sur les seules DÉSIGNATIONS (LOI 15, CHAPITRE IV, SECTION V…) :
+un rapprochement par ensembles trébuche sur « Dispositions générales », qui revient dans
+huit lois.
+
+Deux pièges de lecture, notés parce qu'ils ont d'abord faussé le compte : le folio est
+collé à l'intitulé (« …DES DROITS CIVILS ET POLITIQUES**26** ») mais **jamais à la
+désignation** — le retirer de « LOI No 1 » réduisait les 36 lois à une seule ; et
+l'intitulé d'une loi est au même fer que sa désignation, celui d'un chapitre en retrait.
+
+## Ce que la confrontation établit
+
+| | |
+|---|---:|
+| Rubriques du sommaire | 357 |
+| En-têtes dans le corps | 322 |
+| Entrées de table | 353 → **356** |
+| **Entrées de table sans ligne correspondante dans le corps** | **0** |
+| **En-têtes du corps hors de la table** | 3 → **0** |
+
+**La table est saine** : chaque entrée pointe vers une ligne réelle du texte, et
+désormais chaque ligne d'en-tête du corps a son entrée.
+
+## Les trois rubriques inscrites
+
+Trois « Dispositions générales » figuraient dans le corps et au sommaire de l'édition,
+mais pas dans notre table : sous la **LOI Nº 15**, sous le **CHAPITRE IV du bail à
+cheptel**, sous le **CHAPITRE V du temps requis pour prescrire**. Elles étaient donc
+invisibles au sommaire latéral — et, une ligne d'en-tête hors table vivant dans le bloc
+de l'article qui la suit, un futur amendement de cet article les aurait fait disparaître
+de l'affichage (leçon du décret Régimes matrimoniaux).
+
+Ancres NEUVES (sec-356/357/358) : les existantes ne sont jamais renumérotées. Une entrée
+de table change la section courante des articles suivants, donc leur clé `sec-K|art-N` :
+la migration a été calculée en comparant la segmentation avant et après — **une seule clé
+déplacée** (`sec-92|art-573` → `sec-356|art-573`), **zéro orpheline**.
+
+## Ce qui diffère sans être un manque
+
+- **31 paragraphes (§)** — « § I — De la condition en général », « § II — Du paiement
+  avec subrogation »… — sont listés au sommaire des Lois 18, 20, 21, 23 et 33. Ils
+  **n'existent ni dans notre corps ni dans CCH.docx** : la table imprimée les annonce, le
+  texte composé ne les porte pas. Les inscrire demanderait de retrouver, page à page sur
+  le fac-similé, l'article devant lequel chacun tombe — un travail éditorial, pas une
+  transformation mécanique. À décider.
+- **Écarts de numérotation** entre le sommaire et le corps : le sommaire dit « CHAPITRE VI
+  — DE LA DISSOLUTION DU MARIAGE » là où le corps écrit « CHAPITRE VII » ; « SECTION V —
+  De la tutelle déférée par la mère ou le père » contre « SECTION II — … par le père ou la
+  mère ». Une demi-douzaine de cas, où c'est le recueil qui n'est pas d'accord avec
+  lui-même.
+- **11 « Dispositions générales »** que le sommaire présente en rubrique autonome et que
+  le corps intègre à son chapitre (« CHAPITRE PREMIER — DISPOSITIONS GÉNÉRALES ») :
+  présentation différente, contenu identique.
+- **29 en-têtes du corps absents du sommaire de 2011**, dont 23 créés par les décrets de
+  2020 — LOI Nº 28-1 sur les sûretés, chapitres de l'agent des sûretés, de la propriété
+  retenue, de l'antichrèse, paragraphes de la dissolution de communauté. Le sommaire de
+  l'édition ne pouvait pas les connaître.
