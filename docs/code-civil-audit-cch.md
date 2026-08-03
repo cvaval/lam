@@ -523,3 +523,26 @@ identifiés (« confon » d'une césure, « tiveedy », « octobre » du renvoi 
 réécrit ; les doublons océrisés signalés hors mandat (arts 1036, 1045, 1077) et la loi du
 21 juillet 1954 (Caisse des Dépôts, art. 1043), dont le fac-similé donne les pages 219-220 presque
 entièrement absentes de la base, restent à traiter.
+
+---
+
+# §13 — La loi de 1954 sur la Caisse des Dépôts rétablie (art. 1043)
+
+Lacune signalée au §12. Le recueil reproduit cette loi dans un encadré sous l'article 1043,
+**pages 219-220 du fac-similé**. La base n'en portait que les articles 2 à 9, agglomérés en un
+paragraphe par article ; son **article 1er manquait** — le texte s'ouvrait sur « Art. 2 » — et
+l'intitulé annonçait des « (extraits) ».
+
+Transcription faite sur l'**image** des deux pages, jamais sur la couche texte du PDF : c'est
+elle qui avait produit « du 1*' au 15 », « II sera prélevé », « la signature du [_ greffier ».
+Le bloc passe de 8 à **17 alinéas**, l'intitulé perd sa mention « (extraits) » — la loi est
+complète, de l'article 1er à l'article 9. Cinq fautes d'OCR corrigées et déclarées dans le script
+(`scripts/completer-loi-caisse-depots-1954.ts`) ; l'invariant « rien ne disparaît » ne relève
+aucun mot perdu hors de ces corrections.
+
+⚠️ **Anomalie du recueil préservée.** En page 220, l'alinéa « Le déposant ou la partie à qui des
+offres ont été faites… » est imprimé DEUX FOIS : une première avec « Il sera inscrit au jour le
+jour… » couru à la suite, une seconde s'arrêtant à « …sur lesdits objets, valeurs ou titres »,
+suivie du même « Il sera inscrit… » en alinéa autonome. C'est un doublon de composition. Il est
+reproduit tel quel — on ne retranche pas du texte d'une loi sans décision de la cliente. **À
+trancher.**
