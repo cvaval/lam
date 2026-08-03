@@ -546,3 +546,51 @@ jour… » couru à la suite, une seconde s'arrêtant à « …sur lesdits objet
 suivie du même « Il sera inscrit… » en alinéa autonome. C'est un doublon de composition. Il est
 reproduit tel quel — on ne retranche pas du texte d'une loi sans décision de la cliente. **À
 trancher.**
+
+---
+
+# §14 — Doublons d'OCR et sommaire (2 août, fin)
+
+Les deux derniers constats du §11 traités.
+
+## Doublons d'OCR de l'appareil (arts 1036, 1045, 1077)
+
+Le recueil compose ses notes sur DEUX COLONNES. L'océrisation les a lues en travers : les
+phrases de gauche et de droite s'entrelacent au milieu des mots (« 1. Il n'existe aucune
+responsabilité de la **dispose d'aucune action récursoire ou subroga-** victime décédée envers
+ses proches… »). Aux arts 1036 et 1077, une seconde lecture, correcte, avait été versée à la
+suite : les notes y figuraient **deux fois**, une fois illisible et une fois propre.
+
+`scripts/corriger-doublons-ocr-code-civil.ts` — **3 notes supprimées, 3 réécrites**, appareil
+1 209 → 1 206 notes :
+
+- **art. 1036** : la version entrelacée de la note 1 supprimée ; la note 2, qui n'existait
+  QU'entrelacée et court sur deux pages, remise dans l'ordre (colonne gauche p. 217, colonne
+  droite p. 218) ; ordre des deux notes rétabli et les deux alinéas de la note 1 réunis.
+- **art. 1045** : rien à supprimer — un fragment de la note 2 (« en faisait un effet sans
+  valeur… puis requiert la ») s'était logé au milieu de la note 3. Rendu à sa note. « l'inpossibilité »
+  → « l'impossibilité », d'après le fac-similé p. 222.
+- **art. 1077** : les deux versions entrelacées supprimées, les versions propres conservées.
+
+Transcriptions collationnées sur l'**image** des pages, jamais sur la couche texte du PDF —
+c'est elle, précisément, qui produit le désordre. L'invariant « rien ne se perd » ne relève que
+trois disparitions, toutes déclarées : « subroga » et « sonnes », demi-mots coupés par la césure
+de colonne, et la faute d'OCR corrigée.
+
+## Sommaire et menu latéral remis d'accord
+
+Deux dissymétries de sens contraire entre la TABLE (qui découpe le corps) et le MENU LATÉRAL
+(qui l'affiche), corrigées par `scripts/reparer-sommaire-code-civil.ts` :
+
+1. **sec-343** « Dispositions communes aux huit sections ci-dessus » figurait au menu mais
+   n'avait aucune entrée de table : la ligne vivait à la fin du bloc de l'article 1311 —
+   abrogé — et l'overlay l'avait déjà **effacée du texte affiché**, le menu y renvoyant dans le
+   vide. Entrée inscrite (niveau 3, après sec-342, l'ancre étant celle que le menu employait
+   déjà). Vérifié : la ligne est maintenant un bloc de section autonome, hors du bloc de
+   l'article 1311, que l'abrogation ne peut plus emporter.
+2. **sec-356, 357, 358** — les trois « Dispositions générales » inscrites par `e3a452b`
+   l'avaient été dans la table mais pas dans le menu : visibles dans le texte, introuvables au
+   sommaire. Ajoutées, chacune après son voisin de table.
+
+Table 356 → 357 entrées, menu 354 → 357 ancres. **0 clé d'annotation migrée, 0 orpheline,
+0 lien mort, 0 entrée absente** — les deux listes coïncident désormais exactement.
