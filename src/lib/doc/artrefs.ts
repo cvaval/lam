@@ -43,10 +43,24 @@ export const ART_NUM_RE = new RegExp(String.raw`(\d{1,4}(?!\d)${ART_NUM_TAIL})`,
 // civil », « du Code rural », « du Code de commerce »…) : le garde ne visait que
 // « code d… » et laissait passer « article 323 du Code pénal » — 37 renvois externes
 // du corpus concernés (Code civil/pénal/rural/douanier).
+// `(?:\p{L}+\s+)?` : un adjectif peut s'intercaler — « de la PRÉSENTE loi », « du MÊME décret »,
+// « de ladite ordonnance ». Sans lui, « l'article 7 de la présente loi » (art. 311, loi de 2014)
+// devenait un lien vers l'article 7 du Code civil.
 export const ART_EXT_AFTER =
-  /^\s*(?:[:—–-]\s*)?(?:\(?\s*(?:du|de\s+la|de\s+l['’]|des)\s+(?:d[ée]cret|loi|ordonnance|arr[êe]t[ée]|constitution|code\s+\S)|\(?\s*lois?\s+de\s+finances|\(?\s*loi\s+sur)/i
+  /^\s*(?:[:—–-]\s*)?(?:\(?\s*(?:du|de\s+la|de\s+l['’]|des|dudit|de\s+ladite)\s+(?:\p{L}+\s+)?(?:d[ée]cret|loi|ordonnance|arr[êe]t[ée]|constitution|code\s+\S)|\(?\s*lois?\s+de\s+finances|\(?\s*loi\s+sur)/iu
 // Renvoi externe annoncé AVANT les numéros (« selon les dispositions du décret du
 // 6 janvier 2016 … particulièrement en ses articles 9, 31, 32 et 41 ») : le garde
 // ART_EXT_AFTER ne voit rien après — on inspecte la fin du texte qui PRÉCÈDE (audit :
 // 4 faux liens vers les arts 9/31/32/41 du Code de 1826 depuis l'art. 1136-7).
 export const ART_EXT_BEFORE = /(?:d[ée]cret|loi|ordonnance|arr[êe]t[ée]|constitution)\b[^.;:]{0,80}?(?:en|à|dans)\s+(?:ses|son|sa|leurs)\s*$/i
+
+// Le texte est DÉSIGNÉ juste avant son article, séparé par une simple virgule :
+// « Décret du 27 janvier 1959, Art. 1. », « (D. L. du 22 décembre 1944, art. 1) »,
+// « Constitution de 1987, art. 17 ». C'est la forme du recueil pour citer un texte connexe,
+// et elle échappait aux deux gardes : rien n'annonce le renvoi APRÈS le numéro, et la
+// formule « en ses » de ART_EXT_BEFORE est absente. Le numéro d'article devenait un lien
+// vers l'article homonyme du Code (constat d'audit : arts 55, 229, 230, 241, 314, 330,
+// 608, 742). La date/désignation ne peut contenir ni point ni point-virgule : « … 1959, »
+// matche, « … est abrogé. Loi du 8 mai, » aussi (la borne est le dernier point).
+export const ART_EXT_DESIGNATION =
+  /(?:d[ée]cret[-\s]?loi|d[ée]cret|\bD\.\s?L\.|\bD\.|\bL\.|loi|ordonnance|arr[êe]t[ée]|constitution)\s[^.;:]{0,70},\s*$/i

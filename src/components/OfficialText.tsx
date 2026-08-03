@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { parseOfficialText } from '@/lib/doc/officiel'
 import { articleAnchorFromHeading, articleAnchorFromNum } from '@/lib/doc/anchors'
-import { ART_REF_RE, ART_OR_SEC_REF_RE, ART_NUM_RE, ART_EXT_AFTER, ART_EXT_BEFORE } from '@/lib/doc/artrefs'
+import { ART_REF_RE, ART_OR_SEC_REF_RE, ART_NUM_RE, ART_EXT_AFTER, ART_EXT_BEFORE, ART_EXT_DESIGNATION } from '@/lib/doc/artrefs'
 import { segmentText, type CircRef } from '@/lib/doc/crossref'
 import { segmentCodeRefs, type CodeKey } from '@/lib/doc/coderefs'
 import { codeArticleHref, CODE_LINK_CLS, CODE_NOM, type CodeHrefs } from './CodeRefText'
@@ -265,7 +265,9 @@ export function OfficialText({
     while ((m = re.exec(value))) {
       const reste = value.slice(m.index + m[0].length)
       if (ART_EXT_AFTER.test(reste) && !dansSonPropreCode(reste)) continue // renvoi à un autre texte (après)
-      if (ART_EXT_BEFORE.test(value.slice(Math.max(0, m.index - 100), m.index))) continue // renvoi à un autre texte (avant)
+      const avant = value.slice(Math.max(0, m.index - 100), m.index)
+      if (ART_EXT_BEFORE.test(avant)) continue // renvoi à un autre texte (annoncé avant)
+      if (ART_EXT_DESIGNATION.test(avant)) continue // « Décret du 27 janvier 1959, art. 1 »
       out.push(<span key={`t${k++}`}>{hl(value.slice(pos, m.index))}</span>)
       const parts = m[0].split(ART_NUM_RE)
       out.push(

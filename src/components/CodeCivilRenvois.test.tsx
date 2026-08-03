@@ -52,6 +52,21 @@ describe('renvois internes du Code civil', () => {
     expect(liens("conformément à l'article 5 du décret du 8 octobre 1982.", 'civil')).toEqual([])
   })
 
+  it("n'attrape pas l'article d'un texte DÉSIGNÉ juste avant son numéro", () => {
+    // Forme du recueil pour citer un texte connexe : la désignation, une virgule, l'article.
+    // Rien n'annonce le renvoi APRÈS le numéro et la formule « en ses » est absente : les deux
+    // gardes historiques passaient à côté (constat d'audit : arts 55, 229, 230, 241, 314, 330…).
+    expect(liens('Décret du 27 janvier 1959, Art. 1. La filiation naturelle engendre les mêmes droits.', 'civil')).toEqual([])
+    expect(liens("Décret du 8 octobre 1982, art. 14. Les père et mère ont l'administration conjointe.", 'civil')).toEqual([])
+    expect(liens('(D. L. du 22 décembre 1944, art. 1). Les déclarations de naissance seront faites dans le mois.', 'civil')).toEqual([])
+    expect(liens('Constitution de 1987, art. 17. Les Haïtiens sans distinction de sexe.', 'civil')).toEqual([])
+    // Un adjectif intercalé ne doit pas désarmer le garde « … de la … loi ».
+    expect(liens("Cette action est régie par l'article 7 de la présente loi.", 'civil')).toEqual([])
+    expect(liens("comme le prévoit l'article 12 du même décret.", 'civil')).toEqual([])
+    // …et le renvoi interne voisin reste bien un lien.
+    expect(liens("Le tribunal statue conformément à l'article 170.", 'civil')).toEqual(['#art-170'])
+  })
+
   it('lie « Civ., N » sans le « C. », sans confondre avec la procédure civile', () => {
     expect(liens('elles pourront se faire représenter.- Civ., 19, 46, 50.')).toEqual(['#art-19', '#art-46', '#art-50'])
     // « C. p. c. » et « C. p. civ. » désignent le Code de procédure civile : lien SORTANT.
