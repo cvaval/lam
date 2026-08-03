@@ -540,12 +540,15 @@ complète, de l'article 1er à l'article 9. Cinq fautes d'OCR corrigées et déc
 (`scripts/completer-loi-caisse-depots-1954.ts`) ; l'invariant « rien ne disparaît » ne relève
 aucun mot perdu hors de ces corrections.
 
-⚠️ **Anomalie du recueil préservée.** En page 220, l'alinéa « Le déposant ou la partie à qui des
-offres ont été faites… » est imprimé DEUX FOIS : une première avec « Il sera inscrit au jour le
-jour… » couru à la suite, une seconde s'arrêtant à « …sur lesdits objets, valeurs ou titres »,
-suivie du même « Il sera inscrit… » en alinéa autonome. C'est un doublon de composition. Il est
-reproduit tel quel — on ne retranche pas du texte d'une loi sans décision de la cliente. **À
-trancher.**
+**Doublon de composition écarté** (sur décision de la cliente). En page 220, l'alinéa « Le
+déposant ou la partie à qui des offres ont été faites… » est imprimé DEUX FOIS : une première
+avec « Il sera inscrit au jour le jour… » couru à la suite, une seconde s'arrêtant à « …sur
+lesdits objets, valeurs ou titres », suivie du même « Il sera inscrit… » en alinéa autonome.
+
+La première n'est pas une variante de rédaction : elle fait **669 caractères, soit exactement
+les 462 de la seconde plus les 206 de l'alinéa suivant et l'espace qui les joint**. C'est
+l'accident du compositeur. La version scindée est conservée — elle suit la mise en page du reste
+de la loi — et pas un mot n'est perdu. Bloc 17 → 16 alinéas.
 
 ---
 
