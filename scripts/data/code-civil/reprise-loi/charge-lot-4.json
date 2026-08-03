@@ -1,0 +1,221 @@
+{
+ "art-1868": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "inserer": [
+   "1. Les frais de justice. C. civ., 669, 1865.- C. p. c., 130 et s, 530, 574, 626, 952.",
+   "2. Les frais funéraires.",
+   "3. Les frais quelconques de la dernière maladie, concurremment entre eux à qui ils sont dus; C. civ., 2037.- C. p. c., 568.",
+   "4. Les salaires de gens de service, pour l'année échue et ce qui est dû sur l'année courante; C. civ., 114, 118, 2037.- C. p. c., 461, 497, 506, 1871, 2037.",
+   "5. Les fournitures de subsistances faites au débiteur et à sa famille, savoir : pendant les six derniers mois, par les marchands en détail, tels que boulangers, bouchers et autres, et pendant la dernière année par les maîtres de pension et les marchands en gros. C. civ., 1114, 1118, 2037.- C. p. c., 461, 497, 506, 717."
+  ],
+  "modifie": {
+   "3": "leçon propre du recueil substituée à la note de la base (« C.p. c, » recollé, « 2037 C. p. c, ») ; le renvoi du fac-similé est maintenu : « C. civ., 114, 118, 2037 » — CCH imprime « 1114, 1118 », qui est une correction éditoriale, pas la leçon du recueil."
+  },
+  "preuve": "Fac-similé p. 376 (idx 375) : les cinq items composés en Times 10,8 pt pleine largeur (x0 = 39-49, x1 = 349-355), sous le chapeau de l'article ; la seule note de l'appareil est le bloc à deux colonnes de 7,5-8,8 pt à y = 306-317 (honoraires d'avocat, Cass., 2 août 1892). Le dispositif s'arrêtait sur « …s'exercent dans l'ordre suivant. » alors que l'art. 1871 (« ceux énoncés en l'article 1868 ») et l'art. 1872-1° (« Les frais de justice et autres énoncés en l'article 1868 ») renvoient à l'énumération. Décalque de l'art. 2101 C. civ. fr.",
+  "reserve": "Deux points hors charge. 1) « C. civ., 114, 118 » (item 4) : le recueil l'imprime ainsi — vérifié sur l'image, p. 376 — alors que l'item 5 porte « 1114, 1118 » et que l'art. 1114 renvoie lui-même à 1868 ; j'ai suivi le fac-similé, la leçon CCH serait « C. civ., 1114, 1118, 2037 ». 2) Les notes 5 et 6, qui restent à l'appareil, sont le MÊME arrêt (Cass., 2 août 1892) en double : la 6 (« …emportent privilèges… », numérotée « 1. ») est celle du fac-similé, la 5 est l'ancienne lecture de juillet. Dédoublonnage à confier à scripts/purger-notes-doublons-code-civil.ts ; je ne l'inscris pas ici pour ne pas mêler deux opérations."
+ },
+ "art-1869": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13
+  ],
+  "inserer": [
+   "1. Les loyers et fermages des immeubles, sur les fruits de la récolte de l'année, et sur le prix de tout ce qui garnit la maison louée ou la ferme, et de tout ce qui sert à l'exploitation de la ferme; savoir, pour tout ce qui est échu, et pour tout ce qui est à échoir, si les baux sont authentiques, ou si, étant sous signature privée, ils ont une date certaine; et, dans ces deux cas, les autres créanciers ont le droit de relouer la maison ou la ferme pour le restant du bail, et de faire leur profit des baux ou fermages, à la charge toutefois de payer au propriétaire tout ce qui lui serait encore dû;",
+   "Et, à défaut de baux authentiques, ou lorsqu'étant sous signature privée, ils n'ont pas une date certaine, pour une année, à partir de l'expiration de l'année courante.",
+   "Le même privilège a lieu pour les réparations locatives, et pour tout ce qui concerne l'exécution du bail. C. civ., 1491, 1499, 1502, 1525, 1526.",
+   "Néanmoins les sommes dues pour les semences ou pour les frais de la récolte de l'année, sont payées sur le prix de la récolte, et celles dues pour ustensiles, sur le prix de ces ustensiles, par préférence au propriétaire dans l'un et l'autre cas; C. civ., 453.",
+   "Le propriétaire peut saisir les meubles qui garnissent sa maison ou sa ferme, lorsqu'ils ont été déplacés sans son consentement, et il conserve sur eux son privilège, pourvu qu'il ait fait la revendication; savoir, lorsqu'il s'agit du mobilier qui garnissait une ferme, dans le délai de quarante jours; et dans celui de quinzaine, s'il s'agit des meubles garnissant une maison. C. civ., 1523, 1336, 1548, 1583.- C. p. c., 504 et s, 717 et s.",
+   "2. La créance sur le gage dont le créancier est saisi; C. civ., 1839-1843.",
+   "3. Les frais pour la conservation de la chose. C. civ., 928, 1161, 1167, 1658, 1714.- C. p. c., 569, 574, 663.",
+   "4. Le prix d'effets mobiliers non payés, s'ils sont encore en la possession du débiteur, soit qu'il ait acheté à terme ou sans terme; C. civ., 430 et s, 975 et s, 1367, 1368, 1391, 1392, 2044.",
+   "Si la vente a été faite sans terme, le vendeur peut même revendiquer ses effets, tant qu'ils sont en la possession de l'acheteur, et en empêcher la revente, pourvu que la revendication soit faite dans la huitaine de la livraison, et que les effets se trouvent dans le même état dans lequel cette livraison a été faite. C. civ., 974.- C. p. c., 724 et s.",
+   "Le privilège du vendeur ne s'exerce toutefois qu'après celui du propriétaire de la maison ou de la ferme, à moins que les meubles et autres objets garnissant sa maison ou sa ferme n'appartenaient pas au locataire;",
+   "Il n'est rien innové aux lois et usages du commerce sur la revendication. C. civ., 254, 1472, 1455, 904.- C. p. c., 402-5°, 573.",
+   "5. Les fournitures d'un aubergiste, sur les effets du voyageur qui ont été transportés dans son auberge; C. civ., 1719 et s, 2036.",
+   "6. Les frais de voiture ou de transport et les dépenses accessoires, sur la chose voiturée ou transportée; C. civ., 1552.",
+   "7. Les créances résultant d'abus et prévarication commis par les fonctionnaires publics dans l'exercice de leurs fonctions, sur le fonds de leur cautionnement, et sur les intérêts qui peuvent en être dus. C. civ., 1675, 1865, 1881.- C. p. c., 79-2°.- C. pén., 136, 158, 354."
+  ],
+  "modifie": {},
+  "preuve": "Fac-similé p. 376-377 (idx 375 fin + 376) : l'article occupe une page et demie, ENTIÈREMENT en Times 10,5-10,8 pt pleine largeur ; aucun bloc à deux colonnes sur ces pages. Les sept items numérotés et les alinéas de liaison (« Et, à défaut de baux authentiques… », « Le même privilège a lieu… », « Néanmoins les sommes dues… », « Le propriétaire peut saisir… », « Si la vente a été faite sans terme… », « Le privilège du vendeur ne s'exerce toutefois… », « Il n'est rien innové… ») sont tous des alinéas de loi. Le dispositif se réduisait au chapeau « Les créances privilégiées sur certains meubles sont : », que l'art. 1869-3 (D. du 14 mai 2020) présuppose (« s'exercent dans l'ordre de l'article 1869 »). Décalque de l'art. 2102 C. civ. fr. Collation mot à mot fac-similé/CCH : 0,954 de concordance, tous les écarts sont du bruit d'OCR (gamit/garnit, ctv/civ, jes/les).",
+  "reserve": "Le corps du 20 juillet (cc-juillet-body.txt) portait déjà ces alinéas, mais SANS leurs numéros et avec plusieurs d'entre eux collés bout à bout ; la version CCH rétablit la numérotation « 1. » à « 7. » du recueil, indispensable puisque l'art. 1869-3 renvoie à l'ordre de l'article."
+ },
+ "art-1870": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "inserer": [
+   "1. Le vendeur, sur l'immeuble vendu, pour le paiement du prix; C. civ., 974, 1019, 1036, 1367, 1368, 1435, 1875, 1875, 2036.",
+   "S'il y a plusieurs ventes successives dont le prix soit dû en tout ou en partie, le premier vendeur est préféré au second, le deuxième au troisième, et ainsi de suite;",
+   "2. Ceux qui ont fourni les deniers pour l'acquisition d'un immeuble, pourvu qu'il soit authentiquement constaté, par l'acte d'emprunt, que la somme était destinée à cet emploi, et, par la quittance du vendeur, que ce paiement a été fait des deniers empruntés; C. civ., 1036, 1102, 1462.- C. p. c., 605.",
+   "3. Les cohéritiers, sur les immeubles de la succession, pour la garantie des partages faits entre eux et des soultes et retour des lots; C. civ., 674, 691, 692, 713 et s, 1876.",
+   "4. Les architectes, entrepreneurs, maçons et autres ouvriers employés pour édifier, reconstruire ou réparer des bâtiments, canaux ou autres ouvrages quelconques, pourvu néanmoins que, par un expert nommé d'office par le tribunal civil dans le ressort duquel les bâtiments sont situés, il ait été dressé préalablement un procès-verbal, à l'effet de constater l'état des lieux relativement aux ouvrages que le propriétaire déclarera avoir le dessein de faire, et que les ouvrages aient été, dans les six mois au plus de leur perfection, reçus par un expert également nommé d'office. C. civ., 1561 et s, 1877.- C. p. c., 302 et s, 955, 956.",
+   "Mais le montant du privilège ne peut excéder les valeurs constatées par le second procès-verbal, et il se réduit à la plus-value existante à l'époque de l'aliénation de l'immeuble et résultant des travaux qui y ont été faits.",
+   "5. Ceux qui ont prêté les deniers pour payer ou rembourser les ouvriers jouissent du même privilège pourvu que cet emploi soit authentiquement constaté par l'acte d'emprunt, et par la quittance des ouvriers, ainsi qu'il a été dit ci-dessus, pour ceux qui ont prêté les deniers pour l'acquisition d'un immeuble. C. civ., 1036, 1102, 1462, 1877."
+  ],
+  "modifie": {
+   "0": "renvoi du fac-similé maintenu : « 1875, 1875, 2036 » — le recueil répète 1875 ; CCH imprime « 1875, 1876 », correction éditoriale."
+  },
+  "preuve": "Fac-similé p. 377-378 (idx 376 fin + 377) : les cinq items et les deux alinéas de liaison (« S'il y a plusieurs ventes successives… », « Mais le montant du privilège ne peut excéder… ») en Times 10,5-10,8 pt pleine largeur ; aucun bloc à deux colonnes. Le dispositif se réduisait à « Les créanciers privilégiés sur les immeubles sont : ». L'art. 1872-2° (« Les créanciers désignés en l'article 1870 ») présuppose l'énumération. Décalque de l'art. 2103 C. civ. fr. Concordance fac-similé/CCH 0,926, écarts = bruit d'OCR.",
+  "reserve": "« C. civ., 974, 1019, 1036, 1367, 1368, 1435, 1875, 1875, 2036 » : le 1875 répété est bien ce qu'imprime le recueil (vérifié sur l'image, p. 377, et confirmé par la lecture de juillet). CCH lit « 1875, 1876 ». Si l'on préfère la leçon CCH, ne changer que ce chiffre."
+ },
+ "art-1885": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1
+  ],
+  "inserer": [
+   "1. Les biens immobiliers qui sont dans le commerce, et leurs accessoires réputés immeubles. C. civ., 426 et s, 456 et s, 1900.",
+   "2. L'usufruit des mêmes biens et accessoires pendant le temps de sa durée. C. civ., 478 et s, 522, 1921."
+  ],
+  "modifie": {},
+  "preuve": "Fac-similé p. 380 (idx 379, item 1 à y = 560-573) et p. 381 (idx 380, item 2 à y = 37-48) : les deux items en Times 10,8 pt pleine largeur. Le bloc à deux colonnes de la p. 380 (y = 331-402, indivisibilité de l'hypothèque, Cass. 26 octobre 1943 et 10 avril 1945) appartient à l'art. 1881, pas au 1885. Le dispositif se réduisait au chapeau « Sont seuls susceptibles d'hypothèques; ». Décalque de l'art. 2118 C. civ. fr.",
+  "reserve": ""
+ },
+ "art-1947": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "inserer": [
+   "1. Par l'extinction de l'obligation principale ; C. civ., 925.",
+   "2. Par la renonciation du créancier à l'hypothèque ; C. civ., 1924, 1925.",
+   "3. Par l'accomplissement des formalités et conditions prescrites aux tiers détenteurs pour purger les biens par eux acquis ; C. civ., 1934, 1948 et s, 1960 et s.",
+   "4. Par la prescription. C. civ., 1987."
+  ],
+  "modifie": {
+   "0": "remplacée par la leçon propre : la note de la base porte « G. civ, 925 » (OCR fautif) ; elle faisait double emploi avec la note 4.",
+   "2": "remplacée par la leçon propre : la note de la base finit par « 1960 & S. » (OCR fautif).",
+   "3": "queue supprimée : après « 4. Par la prescription.- C. civ., 1987. », la note recopiait les trois alinéas qui sont DÉJÀ les lignes 1, 2 et 3 du corps. Seul l'item 4 est réinséré, et une seule fois (la note 5 en est le doublon propre)."
+  },
+  "preuve": "Fac-similé p. 391 (idx 390) : chapeau à y = 285, puis les quatre items numérotés à y = 300, 308, 325-352 et 361, tous en 9,9-14,9 pt pleine largeur (x0 = 56-65), puis les trois alinéas de la prescription à y = 373-490 ; aucun bloc à deux colonnes sur la page. Le dispositif sautait du chapeau « …s'éteignent : » directement au premier alinéa de la prescription. Preuve interne décisive : l'art. 1946 renvoie à « 1947-3° », l'art. 1953 à « 1947-3° » et l'art. 1957 à « 1947-2° » — les items numérotés doivent exister. Décalque de l'art. 2180 C. civ. fr.",
+  "reserve": "Après application, l'article n'a plus d'appareil : c'est conforme au fac-similé, qui n'imprime aucune note sous l'art. 1947. Les six notes de la base n'étaient que les quatre items en double lecture (juillet + CCH), dont une contaminée."
+ },
+ "art-1948": {
+  "garde": true,
+  "apresLigne": null,
+  "supprimerNotes": [
+   0
+  ],
+  "inserer": [],
+  "modifie": {
+   "0": "rien à réinsérer : la note est intégralement au corps. Sa tête « 5. C.p.c, 732. » est un débris de la fin de la ligne 0 (« …1960 et s.- C. p. c., 732. ») et sa suite reproduit mot pour mot la ligne 1 du corps."
+  },
+  "preuve": "Fac-similé p. 392 (idx 391) : l'art. 1948 n'a que deux alinéas (y = 84-132 et y = 142-159), tous deux présents et corrects au corps (lignes 3222 et 3223 du corps courant) ; aucune note à deux colonnes ne lui est rattachée. Le « 5. » de tête ne désigne aucun item : l'article ne comporte pas d'énumération.",
+  "reserve": ""
+ },
+ "art-1950": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2
+  ],
+  "inserer": [
+   "1. Extrait de son titre contenant seulement la date et la qualité de l'acte, le nom et la désignation précise du vendeur ou du donateur, la nature et la situation de la chose vendue ou donnée ; et, s'il s'agit d'un corps de biens, la dénomination générale seulement du domaine et des ressorts de bureaux dans lesquels il est situé, le prix et les charges faisant partie du prix de la vente, ou l'évaluation de la chose si elle a été donnée ; C. civ., 750, 1367, 1951, 1952, 1959.",
+   "2. Extrait de la transcription de l'acte de vente ; C. civ., 1948, 1963.",
+   "3. Un tableau sur trois colonnes, dont la première contiendra la date des hypothèques et celle des inscriptions ; la seconde, le nom des créanciers ; la troisième, le montant des créances inscrites. C. civ., 1915, 1963.- T., 28, 137."
+  ],
+  "modifie": {
+   "0": "remplacée par la leçon propre : la note de la base porte « - €. civ, 750 » (OCR fautif)."
+  },
+  "preuve": "Fac-similé p. 392 (idx 391) : les trois pièces à notifier à y = 336-411, y = 419 et y = 432-455, en Times 10,0-10,4 pt pleine largeur (x0 = 42-52) ; l'appareil ne commence qu'en dessous, à y = 472, en 7,5 pt sur deux colonnes (x0 = 35 / x0 = 199), et contient exactement les trois notes de l'arrêt Lacombe vs. Rabeau — ce sont les notes 3, 4 et 5 de la base, qui restent en place. Le dispositif s'arrêtait sur « …de notifier aux créanciers, aux domiciles par eux élus dans leurs inscriptions », phrase privée de son complément d'objet. Décalque de l'art. 2183 C. civ. fr.",
+  "reserve": ""
+ },
+ "art-1952": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "inserer": [
+   "1. Que cette réquisition sera signifiée au nouveau propriétaire dans quarante jours, au plus tard, de la notification faite à la requête de ce dernier, en y ajourant un jour par cinq lieues de distance entre le domicile réel de chaque créancier requérant. C. civ., 98.- C. p. c., 954.",
+   "2. Qu'elle contiendra soumission du requérant, de porter ou faire porter le prix à un dixième en sus de celui qui aura été stipulé dans le contrat, ou déclaré par le nouveau propriétaire ; C. civ., 1368.",
+   "3. Que la même signification sera faite dans le même délai au précédent propriétaire, débiteur principal ;",
+   "4. Que l'original et les copies de ces exploits seront signés par le créancier requérant, ou par son fondé de procuration expresse, lequel en ce cas, est tenu de donner copie de sa procuration ; C. civ., 1751, 1761.",
+   "5. Qu'il offrira de donner caution jusqu'à concurrence du prix et des charges. C. civ., 1755, 1805, 1807.- C. p. c., 443 et s."
+  ],
+  "modifie": {
+   "0": "leçon du fac-similé maintenue : « en y ajourant un jour par cinq lieues de distance entre le domicile réel de chaque créancier requérant » — CCH corrige en « ajoutant » et rétablit « entre le domicile élu et le domicile réel » ; le recueil n'imprime ni l'un ni l'autre.",
+   "4": "queue « Le tout à peine de nullité.- 7. 60. » retirée : c'est déjà la ligne 1 du corps (« Le tout à peine de nullité. T. 60. »), que les cinq items doivent précéder."
+  },
+  "preuve": "Fac-similé p. 393 (idx 392) : chapeau à y = 142-181, les cinq charges à y = 193, 242, 278, 302 et 338, en Times 10,0-10,3 pt pleine largeur (x0 = 55-65), puis « Le tout à peine de nullité.- T. 60. » à y = 361, en retrait, qui les clôt. Le bloc à deux colonnes du haut de page (y = 31-66) est la fin de l'appareil de l'art. 1950. Le dispositif sautait de « …à la charge : » à « Le tout à peine de nullité. » Décalque de l'art. 2185 C. civ. fr.",
+  "reserve": "Item 1 : le recueil imprime « ajourant » (mot inexistant) et omet « le domicile élu et ». J'ai reproduit la page plutôt que de reconstituer, conformément à la consigne (« n'invente aucun mot »). Leçon CCH disponible si l'on préfère corriger : « …en y ajoutant un jour par cinq lieues de distance entre le domicile élu et le domicile réel de chaque créancier requérant. C. civ., 98.- C. p. c., 954. »"
+ },
+ "art-1964": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1
+  ],
+  "inserer": [
+   "1. De l'omission sur leurs registres, des transcriptions d'actes de mutation, et des inscriptions, et des inscriptions requises en leur bureaux ; C. civ., 1913, 1915, 1948.",
+   "2. Du défaut de mention dans leurs certificats, d'une ou de plusieurs des inscriptions existantes, à moins, dans ce dernier cas, que l'erreur ne provînt de désignations insuffisantes qui ne pourraient leur être imputées. C. civ., 1963, 1967, 1966."
+  ],
+  "modifie": {
+   "0": "leçon du fac-similé rétablie : « …des transcriptions d'actes de mutation, et des inscriptions, et des inscriptions requises en leur bureaux » — le recueil imprime bien cette répétition ; CCH la réduit fautivement en « et et des inscriptions requises en leurs bureaux »."
+  },
+  "preuve": "Fac-similé p. 395 (idx 394) : item 1 à y = 526-552, item 2 à y = 562-574 et sa fin p. 396 (idx 395) y = 35-50, en Times 10,0 pt pleine largeur (x0 = 57-67) ; aucun bloc à deux colonnes. Le dispositif se réduisait à « Ils sont responsables du préjudice résultant. », phrase suspendue sans son complément. Décalque de l'art. 2197 C. civ. fr.",
+  "reserve": "La répétition « et des inscriptions, et des inscriptions » et le singulier « en leur bureaux » sont bien de l'imprimé (vérifiés sur l'image, p. 395) ; la lecture de juillet les portait déjà. Leçon CCH si l'on préfère corriger : « …de mutation, et des inscriptions requises en leurs bureaux ; »"
+ },
+ "art-2024": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1
+  ],
+  "inserer": [
+   "1. Dans le cas où l'action de la femme ne pourrait être exercée qu'après une option à faire sur l'acceptation ou la renonciation à la communauté.",
+   "2. Dans le cas où le mari, ayant vendu le bien propre de la femme sans son consentement, est garant de la vente, et dans tous les autres cas où l'action de la femme réfléchirait contre le mari."
+  ],
+  "modifie": {
+   "0": "note remise à son rang — c'est l'item 2, la base l'avait en premier — et queue « V. le D. du 8 octobre 1982. » détachée : elle devient la ligne suivante du corps, comme dans CCH (2ᵉ paragraphe de l'article) et comme les quelque vingt renvois « V. le D. du 8 octobre 1982 » du Code, qui sont tous au dispositif."
+  },
+  "preuve": "Fac-similé p. 407 (idx 406, item 1 à y = 545-552) et p. 408 (idx 407, item 2 à y = 36-60), en Times 9,9 pt pleine largeur (x0 = 50-64) ; le renvoi « V. le D. du 8 octobre 1982. » suit à y = 72 en italique 8,5 pt aligné sur la marge de l'article (x0 = 31), et non dans une colonne d'appareil. Le dispositif se réduisait à « La prescription est pareillement suspendue pendant le mariage. » : phrase grammaticalement complète, mais qui EN DROIT dit tout autre chose que l'article — une suspension générale au lieu des deux cas limitativement énumérés. Décalque de l'art. 2256-1° et 2° C. civ. fr.",
+  "reserve": "Le renvoi « V. le D. du 8 octobre 1982. » a été RETIRÉ de la charge : la cliente a fait replier tous les renvois éditoriaux dans le pliable « Textes connexes » (2 août), et celui-ci s'y trouve déjà pour cet article. L'insérer au corps en ferait une troisième copie et une exception isolée dans tout le Code. La troisième ligne insérée (« V. le D. du 8 octobre 1982. ») est le 2ᵉ paragraphe de l'art. 2024 dans CCH, que l'alignement du 2 août n'a pas porté au corps ; le même renvoi manque aussi à l'art. 2022 (CCH 2022, paragraphe 2) — hors de mon lot, à signaler. Si l'on préfère s'en tenir strictement aux deux items, retirer cette ligne : elle ne doit en aucun cas retourner à l'appareil, où elle passerait pour de la jurisprudence."
+ }
+}

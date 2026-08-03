@@ -465,3 +465,61 @@ seraient déplacés ; l'art. 1529 dont l'article 1er de la loi de 1947 manquerai
 de textes annexés absents du pliable ; le fait que rejouer l'alignement défairait la
 correction du 2 août. Journal complet des mesures :
 `.claude/projects/…/subagents/workflows/wf_d79236a6-5dc/journal.jsonl`.
+
+---
+
+# §12 — Le texte de loi rendu au dispositif (2 août, nuit)
+
+Le défaut annoncé au §11 a été repris à fond. Il était **beaucoup plus large** que le diff avec
+juillet ne le montrait : celui-ci ne pouvait pas voir les articles dont l'énumération était déjà
+mal classée AVANT juillet. Balayage complet : **227 articles portaient au moins une note suspecte,
+1 084 notes en tout**.
+
+**Huit lecteurs, en deux vagues.** Quatre ont arbitré tout le Code note par note — loi ou
+annotation — sur le fac-similé (la loi y est en Times 9-10 pt pleine largeur, l'appareil en
+6,5-8 pt sur deux colonnes sous un filet), sur `CCH.docx` et sur la concordance avec le Code civil
+français de 1804 dont le Code haïtien de 1825 est le décalque. Quatre autres ont produit le texte
+propre à réinsérer et repris la question à zéro, avec mandat de rejeter tout verdict qu'ils ne
+pourraient pas établir.
+
+**Résultat : 37 articles amputés, 136 lignes rendues au dispositif, 141 notes retirées de
+l'appareil.** Corps 3 400 → 3 536 lignes (671 → 692 Ko) ; appareil 927 → 900 Ko.
+
+Les cas les plus graves : les **arts 1869 et 1870** (privilèges sur certains meubles, sur les
+immeubles) étaient passés ENTIÈREMENT en note, alinéas de liaison compris — le lecteur n'en voyait
+que le chapeau ; l'**art. 903**, qui pose les quatre conditions de validité d'une convention, se
+lisait « Quatre conditions sont essentielles… » et rien ; l'**art. 452** avait perdu son verbe ;
+les arts 1767 (fin du mandat), 1798, 1826, 1868, 1885 étaient réduits à leur chapeau.
+
+## Ce que le tri automatique aurait manqué, et pourquoi
+
+- **Le repérage ne voyait que les notes NUMÉROTÉES.** Les items sans numéro — « Les ustensiles
+  aratoires », « Par la mort, ou par l'effet du jugement… » — n'étaient pas signalés. À l'art. 428
+  la liste des suspectes désignait exactement les deux mauvaises. Aux arts 452 et 506 elle était
+  lacunaire et aurait rétabli des énumérations en 1-3-5.
+- **La moitié des lignes suspectes sont de vraies annotations** que l'alignement a eu raison de
+  sortir du corps (arts 106, 195, 368, 724, 848, 962, 1035). Avoir été dans le corps en juillet ne
+  prouve rien — c'est ce mélange que l'alignement corrigeait.
+- **Deux pièges d'appartenance** : aux arts 57 et 151, les items relèvent d'une LOI ANNEXÉE, pas de
+  l'article du Code. Les remonter aurait fabriqué une règle inexistante.
+- **Des notes contaminées** : queue de jurisprudence collée à l'item (arts 1008, 1143, 1758, 1826),
+  recopie d'une ligne déjà au corps (arts 1952, 1948), fragment mutilé d'un autre item. Réinsérées
+  telles quelles, elles auraient remis dans le dispositif ce qu'on en retirait. Le texte propre a
+  été repris de `CCH.docx`, jamais reconstitué de mémoire.
+- **Une décision éditoriale contre le fac-similé** : à l'art. 2024, le recueil imprime « V. le D. du
+  8 octobre 1982. » dans la marge de l'article, et un lecteur proposait donc de le rendre au corps.
+  Écarté : la cliente a fait replier TOUS les renvois éditoriaux au pliable (§10), celui-ci s'y
+  trouve déjà, et l'y remettre en aurait fait une exception isolée dans tout le Code.
+
+## Traçabilité
+
+`scripts/rendre-loi-au-dispositif-code-civil.ts` (simulation par défaut, `--voir=1044,1869`) ;
+verdicts et charges versionnés dans `scripts/data/code-civil/reprise-loi/`. Le script refuse de se
+rejouer une fois appliqué (l'appareil ne correspond plus au relevé) et vérifie, note par note,
+qu'aucun mot rare ne se perd : trois seulement sont restés isolés, tous des artefacts d'OCR
+identifiés (« confon » d'une césure, « tiveedy », « octobre » du renvoi écarté).
+
+**Reste ouvert** : l'art. 1135, note 5 — un arrêt dont le colonnage a coupé le milieu — a été
+réécrit ; les doublons océrisés signalés hors mandat (arts 1036, 1045, 1077) et la loi du
+21 juillet 1954 (Caisse des Dépôts, art. 1043), dont le fac-similé donne les pages 219-220 presque
+entièrement absentes de la base, restent à traiter.

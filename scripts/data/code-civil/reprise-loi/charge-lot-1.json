@@ -1,0 +1,182 @@
+{
+ "art-301": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2
+  ],
+  "inserer": [
+   "1. Lorsque l'individu a toujours porté le nom du père auquel il prétend appartenir;",
+   "2. Lorsque le père l'a traité comme son enfant, et a pourvu en cette qualité à son éducation, à son établissement;",
+   "3. Lorsqu'il a été reconnu pour tel dans la société et par la famille."
+  ],
+  "modifie": {},
+  "preuve": "fac-similé p. 85 (idx 84) : les trois conditions imprimées y=231/254/279 en Times 9,6-10,5 pt sur toute la largeur (x=56-367), au-dessus de la note d'arrêt composée en 7,8 pt sur deux colonnes (y=295 s.). Décalque de l'art. 321 C. civ. fr. (« Les principaux de ces faits sont : Que l'individu a toujours porté le nom du père… »). Les trois items figuraient déjà au corps avant l'alignement (cc-juillet-body.txt, l. 430-432).",
+  "reserve": ""
+ },
+ "art-354": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "inserer": [
+   "1. Les mineurs excepté le père ou la mère ;",
+   "2. Les interdits ;",
+   "3. Les femmes autres que la mère et les ascendants ;",
+   "4. Tous ceux qui ont, ou dont les père et mère ont avec le mineur, un procès dans lequel l'état de ce mineur, sa fortune, ou une partie notable de ses biens, sont compromis.- C. civ., 314, 355, 356, 405, 416."
+  ],
+  "modifie": {},
+  "preuve": "fac-similé p. 100 (idx 99) : les quatre incapacités y=438/450/461/474 en 10,0-11,1 pt pleine largeur (x=41-352), contre 7,4 pt sur deux colonnes pour la note d'arrêt (y=514 s.). Décalque de l'art. 442 C. civ. fr. La chaîne « - C. civ., 314, 355, 356, 405, 416. » clôt l'item 4 et donc l'article. Items déjà au corps avant l'alignement (cc-juillet-body.txt, l. 532-535).",
+  "reserve": ""
+ },
+ "art-428": {
+  "garde": true,
+  "apresLigne": 1,
+  "supprimerNotes": [
+   2,
+   3,
+   4,
+   5
+  ],
+  "inserer": [
+   "Les animaux attachés à la culture, les cabrouets, ou tombereaux ;",
+   "Les ustensiles aratoires ;",
+   "Les ruches à miel ; la cochenille ;",
+   "Les chaudières à sucre, alambics, cuves, tonnes et objets semblables."
+  ],
+  "modifie": {},
+  "preuve": "fac-similé p. 112 (idx 111) : les quatre catégories y=368/380/392/404 en 9,6-9,7 pt, retrait x=42 contre x=33 pour le corps courant, insérées ENTRE le chapeau « …pour le service et l'exploitation du fonds : » (y=341-353) et l'alinéa « Sont aussi immeubles par destination… » (y=416). Les seules annotations de l'article sont les deux arrêts de la p. 113 (7,3 pt, deux colonnes) = notes 0 et 1, qui restent à l'appareil. Décalque adapté de l'art. 524 C. civ. fr. Items déjà au corps avant l'alignement (cc-juillet-body.txt, l. 639-642).",
+  "reserve": "Le verdict ne visait que les notes 0 et 1 comme « suspectes » ; ce sont au contraire les seules à rester. Les items à rendre sont les notes 2 à 5."
+ },
+ "art-452": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2
+  ],
+  "inserer": [
+   "Les fruits civils ;",
+   "Le croît des animaux ;",
+   "Appartiennent au propriétaire par droits d'accession.- C. civ., 481 s."
+  ],
+  "modifie": {},
+  "preuve": "fac-similé p. 116 (idx 115) : les quatre lignes de l'article (y=334/350/365/379) sont toutes en 10,0-10,1 pt ; l'article n'a AUCUNE annotation sur la page. Sans les notes 0 à 2 le corps n'a ni sujets complémentaires ni verbe : « Les fruits naturels ou industriels de la terre ; » seul. Décalque de l'art. 547 C. civ. fr. Items déjà au corps avant l'alignement (cc-juillet-body.txt, l. 677-679).",
+  "reserve": "L'appareil de l'art. 452 devient vide : la clé sec-69|art-452 disparaît (comportement prévu par le script). Le renvoi « C. civ., 547. » reste au milieu de la phrase, comme au fac-similé (le recueil pose ses renvois en fin de première ligne) — la ligne du corps n'est pas touchée."
+ },
+ "art-506": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "inserer": [
+   "Par la mort, ou par l'effet du jugement en emportant la perte des droits civils ;",
+   "Par l'expiration du temps pour lequel il a été accordé ; C. civ., 925.",
+   "Par la consolidation ou la réunion sur la même tête, des deux qualités d'usufruitier et de propriétaire ;",
+   "Par le non-usage du droit pendant vingt ans ;",
+   "Par la perte totale de la chose sur laquelle l'usufruit est établi.- C. civ., 19, 20, 566, 1085, 2030."
+  ],
+  "modifie": {},
+  "preuve": "fac-similé p. 125 (idx 124) : les cinq causes d'extinction y=187/211/223/247/259 en 9,9-10,3 pt pleine largeur (x=64-365), contre 7,2 pt sur deux colonnes pour la seule annotation (y=288 s., Cass. 16 décembre 1895). Décalque de l'art. 617 C. civ. fr. Les cinq causes figuraient déjà au corps avant l'alignement (cc-juillet-body.txt, l. 768-772).",
+  "reserve": ""
+ },
+ "art-588": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2
+  ],
+  "inserer": [
+   "1. Celui qui serait condamné pour avoir donné ou tenté de donner la mort au défunt ;",
+   "2. Celui qui a porté contre le défunt une accusation capitale, jugée calomnieuse ; - C. pén., 320.",
+   "3. L’héritier majeur qui, instruit du meurtre du défunt, ne l’aura pas dénoncé à la justice. - C. civ., 589 ; C. i. c. 20, 21, 290."
+  ],
+  "modifie": {
+   "0": "note DB « …au défunt; » → graphie CCH « …au défunt ; »",
+   "1": "note DB « calomnieuse; C. pén, 320. » : point manquant après « pén » (OCR) → « calomnieuse ; - C. pén., 320. » (CCH.docx)",
+   "2": "note DB « C. 1. c. 20, 21, 290 » : le « 1 » est un « i » mal lu (Code d'instruction criminelle) → « C. i. c. 20, 21, 290 » ; le fac-similé p. 139 imprime bien « c. i. c. »"
+  },
+  "preuve": "fac-similé p. 139 (idx 138) : les trois causes d'indignité y=480/504/528 en 9,6-9,8 pt pleine largeur (x=57-369) ; aucune annotation sur l'article. Le renvoi « C. civ., 589 à 591. » est imprimé seul (y=470, 7,9 pt) entre le chapeau et l'item 1 : le laisser rattaché au chapeau, comme aujourd'hui, est fidèle. Décalque de l'art. 727 C. civ. fr. Texte propre : cch-source.json articles.588.notes[0..2].",
+  "reserve": "Ces trois items n'étaient PAS au corps avant l'alignement (cc-juillet-body.txt, l. 917 : l'article s'y réduisait déjà au chapeau) : le seul texte disponible est celui de CCH.docx, contrôlé sur le fac-similé."
+ },
+ "art-821": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1
+  ],
+  "inserer": [
+   "1. Lorsque le testateur aura expressément déclaré sa volonté, à cet égard, dans le testament. - C. civ., 820.",
+   "2. Lorsqu’une rente viagère ou une pension aura été léguée à titre d’aliments. - C. civ., 499, 925, 965, 1733.- C. p. c. 535, 536."
+  ],
+  "modifie": {
+   "0": "note DB « …dans le testament.- C. civ., 820. » → graphie CCH « …dans le testament. - C. civ., 820. »",
+   "1": "note DB « 2. Lorsqu'une… » (apostrophe droite) → graphie CCH « 2. Lorsqu’une… » ; séparateur de renvoi normalisé"
+  },
+  "preuve": "fac-similé p. 177 (idx 176) : les deux cas y=344 et y=368 en 9,9-10,3 pt pleine largeur (x=56/66-366), dans le flux du corps ; les annotations de l'article 820 s'arrêtent en y=276, au-dessus de la tête de l'art. 821. Décalque de l'art. 1015 C. civ. fr. (« … sans qu'il ait formé sa demande en justice : 1° Lorsque le testateur a expressément déclaré sa volonté à cet égard dans le testament ; 2° Lorsqu'une rente viagère ou une pension a été léguée à titre d'aliments »).",
+  "reserve": "Lu seul, le corps actuel forme une phrase complète — mais il énonce alors une règle générale qui CONTREDIT l'art. 820 al. 2 (le légataire ne peut prétendre aux fruits qu'à compter de sa demande en délivrance). L'art. 821 n'est l'exception que dans les deux cas énumérés : sans eux l'article dit le contraire de la loi. Le recueil ferme le chapeau par un point suivi du renvoi là où le modèle français porte deux points ; la ligne du corps est laissée telle quelle."
+ },
+ "art-903": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "inserer": [
+   "1. Le consentement de la partie qui s'oblige. – C. civ., 904-914.",
+   "2. Sa capacité de contracter. – C. civ., 915-917.",
+   "3. Un objet certain qui forme la matière de l'engagement. – C. civ., 918-921.",
+   "4. Une cause licite dans l'obligation. – C. civ., 922-924."
+  ],
+  "modifie": {
+   "0": "note DB « …s’oblige.- C. civ., 904-914. » → graphie CCH « …s'oblige. – C. civ., 904-914. » (apostrophe droite, tiret demi-cadratin comme la ligne du chapeau déjà au corps)",
+   "1": "séparateur de renvoi « .- » → « . – » (CCH)",
+   "2": "note DB « …de l'engagement. C. civ., 918-921. » : tiret de renvoi absent (OCR) → « …de l'engagement. – C. civ., 918-921. »",
+   "3": "séparateur de renvoi « .- » → « . – » (CCH)"
+  },
+  "preuve": "fac-similé p. 189 (idx 188) : les quatre conditions y=171/184/194/207 en 9,6-10,3 pt pleine largeur (x=57-345) ; les trois annotations ne commencent qu'en y=223, en 7,0 pt sur deux colonnes. Décalque de l'art. 1108 C. civ. fr. Sans ces items l'article annonce quatre conditions et n'en énonce aucune. Texte propre : cch-source.json articles.903.notes[0..3].",
+  "reserve": "Les notes 4, 5 et 6, que le recueil renumérote 1-2-3, sont bien de la jurisprudence (Cass. 1906, 1929, 1949) : elles restent à l'appareil."
+ },
+ "art-1008": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "inserer": [
+   "1. Dans le cas où la dette est hypothécaire. – C. civ., 704, 1850, 1881.",
+   "2. Lorsqu'elle est d'un corps certain. – C. civ., 1031, 1033, 1050, 1087, 1088.",
+   "3. Lorsqu'il s'agit de la dette alternative de chose au choix du créancier, dont l'une est indivisible. – C. civ., 978, 979.",
+   "4. Lorsque l'un des héritiers est chargé seul, par le titre, de l'exécution des obligations. – C. civ., 925.",
+   "5. Lorsqu'il résulte, soit de la nature de l'engagement, soit de la chose qui en fait l'objet, soit de la fin qu'on s'est proposée dans le contrat, que l'intention des contractants a été que la dette ne pût s'acquitter partiellement. – C. civ., 925, 946, 965, 1005, 1020."
+  ],
+  "modifie": {
+   "2": "note DB « …indivisible.- c. civ, 978, 979. » : « c. civ » sans point ni capitales (OCR) → « …indivisible. – C. civ., 978, 979. »",
+   "4": "note DB TRONQUÉE : (a) « püût » → « pût » ; (b) renvoi « €. ci, 925… » → « C. civ., 925… » ; (c) SUPPRESSION de la queue parasite qui recopiait mot pour mot les lignes C1 et C2 du corps (« Dans les trois premiers cas… », « Dans le quatrième cas… - C. civ., 706, 707, 1009-1012, 1870-7 ») puis, en colonnes entrelacées, la note d'arrêt Riboul déjà portée par la note 5. Texte propre : cch-source.json articles.1008.notes[4]"
+  },
+  "preuve": "fac-similé p. 212 (idx 211) : les cinq cas y=79/91/104/128/152 en 9,8-10,3 pt pleine largeur (x=46-355), imprimés AVANT les alinéas « Dans les trois premiers cas… » (y=200) et « Dans le quatrième cas… » (y=239) ; la seule annotation (Cass. 20 octobre 1896, Aff. Riboul) vient après, en 7,4-8,5 pt sur deux colonnes (y=281 s.). Décalque de l'art. 1221 C. civ. fr.",
+  "reserve": "L'ordre est impératif : « Dans les trois premiers cas » et « Dans le quatrième cas » ne renvoient à rien tant que les cinq cas ne sont pas rétablis au-dessus d'eux."
+ }
+}

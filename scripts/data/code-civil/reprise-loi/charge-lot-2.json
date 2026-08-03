@@ -1,0 +1,176 @@
+{
+ "art-1036": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   2,
+   3
+  ],
+  "inserer": [
+   "1. Lorsque le créancier recevant son paiement d'une tierce personne, la subroge dans ses droits, actions, privilèges ou hypothèques contre le débiteur : cette subrogation doit être expresse, et faite en même temps que le paiement;",
+   "2. Lorsque le débiteur emprunte une somme à l'effet de payer sa dette, et de subroger le prêteur dans les droits du créancier. Il faut, pour que cette subrogation soit valable, que l'acte d'emprunt et la quittance soient passés devant notaire; que dans l'acte d'emprunt il soit déclaré que la somme a été empruntée pour faire le paiement, et que dans la quittance il soit déclaré que le paiement a été fait des deniers fournis à cet effet par le nouveau créancier. Cette subrogation s'opère sans le concours de la volonté du créancier. – C. civ., 704, 1037, 1038, 1795, 1870-2° et 5°, 1879."
+  ],
+  "modifie": {},
+  "preuve": "Fac-similé p. 217 : les deux items sont composés en Times 9,5-10,1 pt sur toute la largeur (x0≈47/57, x1≈358), immédiatement sous le chapeau « Art. 1036 Cette subrogation est conventionnelle : » ; les notes ne commencent qu'à y=500 en 7,2 pt sur deux colonnes (x0≈39 / x0≈204). Le corps du 20 juillet (cc-juillet-body.txt) portait déjà ces deux alinéas au dispositif. Décalque de l'art. 1250-1° et 2° C. civ. fr. Texte pris à cch-source (identique mot pour mot aux notes 2 et 3 de la base).",
+  "reserve": "Hors mandat, à signaler : les notes 0 et 1 sont les versions océrisées à colonnes entrelacées des deux arrêts (Cass., 16 décembre 1971 ; Cass., 21 décembre 1970) ; la n° 1 existe au propre en notes 4+5, la n° 2 (« Le coassocié… ») n'existe QU'en note 1 mutilée — ne pas la supprimer sans la remplacer par le texte propre de cch-source (articles.1036.notes[4])."
+ },
+ "art-1044": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12
+  ],
+  "inserer": [
+   "1. Qu'elles soient faites au créancier ayant la capacité de recevoir, ou à celui qui a pouvoir de recevoir pour lui; – C. civ., 1021, 1025-1028;",
+   "2. Qu'elles soient faites par une personne capable de payer; – C. civ., 1022, 1024;",
+   "3. Qu'elles soient de la totalité de la somme exigible, des arrérages ou intérêts dus, des frais liquidés, et d'une somme pour les frais non liquidés, sauf à la parfaire; – C. civ., 1029, 1030;",
+   "4. Que le terme soit échu, s'il a été stipulé en faveur du créancier; – C. civ., 975, 976;",
+   "5. Que la condition sous laquelle la dette a été contractée soit arrivée; – C. civ., 963, 971, 1022.",
+   "6. Que les offres soient faites au lieu dont on est convenu pour le paiement, et que, s'il n'y a pas de convention spéciale sur le lieu du paiement, elles soient faites, ou à la personne du créancier ou à son domicile, ou au domicile élu pour l'exécution de la convention; – C. civ., 91, 98, 925, 1033, 1050;",
+   "7. Que les offres soient faites par un officier ministériel ayant un caractère pour ces sortes d'actes. – C. p. c., 351 et s, 710 et s."
+  ],
+  "modifie": {},
+  "preuve": "Fac-similé p. 221 : les sept conditions occupent y=62 à y=270 en Times 10,0-10,5 pt sur toute la largeur (x0≈44/54, x1≈355) ; le filet (« --- », y=276) et les deux colonnes de notes en 7,1 pt ne viennent qu'après. Le corps du 20 juillet portait déjà les sept conditions au dispositif. Décalque de l'art. 1258 C. civ. fr. Aucun des sept items n'est contaminé : ils sont identiques mot pour mot dans cch-source et dans la base.",
+  "reserve": "Piège de numérotation confirmé : les notes 0 à 5 et 13 portent les numéros 1 à 8 de l'appareil, qui chevauchent la numérotation des conditions. Hors mandat : la note 3 agglutine les arrêts 5 et 6, la note 14 est la reprise propre du seul arrêt 6 — dédoublonner l'appareil demanderait de garder 14 et de scinder 3, l'inverse de ce qu'une purge mécanique ferait."
+ },
+ "art-1045": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   3,
+   4,
+   5,
+   6
+  ],
+  "inserer": [
+   "1. Qu'elle ait été précédée d'une sommation signifiée au créancier, et contenant l'indication du jour, de l'heure et du lieu où la chose offerte sera déposée;",
+   "2. Que le débiteur se soit dessaisi de la chose offerte, en la remettant dans le dépôt indiqué par la loi pour recevoir les consignations, avec les intérêts jusqu'au jour du dépôt. – C. civ., 1043, 1675. – C. p. c., 769;",
+   "3. Qu'il y ait eu procès-verbal dressé par l'officier ministériel, de la nature des espèces offertes, du refus qu'a fait le créancier de les recevoir, ou de sa non-comparution, et enfin du dépôt; – C. civ., 1675. – C. p. c., 765 et s;",
+   "4. Qu'en cas de non-comparution, de la part du créancier, le procès-verbal du dépôt lui ait été signifié avec sommation de retirer la chose déposée. – C. p. c., 765 et s. – T. 28. 57."
+  ],
+  "modifie": {},
+  "preuve": "Fac-similé p. 221 (item 1, y=546-570) et p. 222 (items 2 à 4, y=51-146), Times 9,9-10,5 pt pleine largeur ; les notes de la p. 222 sont en 7,2 pt sur deux colonnes à partir de y=163. Le corps du 20 juillet portait déjà les quatre conditions au dispositif. Décalque de l'art. 1259 C. civ. fr. Les quatre items sont identiques mot pour mot dans cch-source et dans la base.",
+  "reserve": "Les notes 0 à 2, numérotées 1-2-3 comme les items, sont bien de la jurisprudence (Cass., 21 juillet 1924 ; 7 juillet 1924 ; 26 juillet 1918) : elles restent à l'appareil. La note 2 est entrelacée avec la note 1 par le colonnage de l'OCR (« …Gaz. en faisait un effet sans valeur… ») ; le texte propre existe en cch-source (articles.1045.notes[5] et [6]) — nettoyage d'appareil, hors de ce mandat."
+ },
+ "art-1056": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2
+  ],
+  "inserer": [
+   "1. Lorsque le débiteur contracte avec son créancier une nouvelle dette qui est substituée à l'ancienne, laquelle est éteinte;",
+   "2. Lorsqu'un nouveau débiteur est substitué à l'ancien, qui est déchargé par le créancier; – C. civ., 1059, 1063-1065, 1462, 1463.",
+   "3. Lorsque par l'effet d'un nouvel engagement, un nouveau créancier est substitué à l'ancien, envers lequel le débiteur se trouve déchargé. – C. civ., 708, 709, 1049, 1057 et s."
+  ],
+  "modifie": {
+   "2": "Note 2 = bloc fusionné : seul « 3. Lorsque par l'effet d'un nouvel engagement, un nouveau créancier est substitué à l'ancien, envers lequel le débiteur se trouve déchargé. – C. civ., 708, 709, 1049, 1057 et s. » est de la loi. Retirées : la queue de jurisprudence (« l. Les billets à ordre souscrits en remplacement de lettres de change… Cuss., 7 mai 1907 »), qui subsiste au propre en note 8. Corrigé aussi le renvoi océrisé « c. æ, 708, 709 1049 » → « – C. civ., 708, 709, 1049 » (virgule manquante ; le fac-similé imprime « 708, 709 1049 », coquille de composition ou d'OCR)."
+  },
+  "preuve": "Fac-similé p. 224 : les trois items en Times 10,0-15,4 pt pleine largeur (y=151 à 226, x0≈60/70), sous le chapeau « Art. 1056 La novation s'opère de trois manières :- c. ctv., 897 925, 1021. » ; l'appareil commence à y=235 en 7,2 pt sur deux colonnes. Décalque de l'art. 1271 C. civ. fr. Article déjà amputé le 20 juillet (les trois items étaient en annotation) : le fac-similé, et non le corps antérieur, fait ici la preuve.",
+  "reserve": ""
+ },
+ "art-1077": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2,
+   5
+  ],
+  "inserer": [
+   "1. De la demande en restitution d'une chose dont le propriétaire a été injustement dépouillé. – C. civ., 1073.",
+   "2. De la demande en restitution d'un dépôt et du prêt à usage. – C. civ., 1643, 1644 et s, 1653, 1682, 1699.",
+   "3. D'une dette qui a pour cause des aliments déclarés insaisissables. – C. civ., 821-2°. – C. p. c., 535, 536, 546, 956."
+  ],
+  "modifie": {
+   "2": "Note 2 supprimée SANS réinsertion : c'est le doublon océrisé de l'item 3 (« insaisissables.- c. dv, 821-2;-C. p. c., … »). L'item 3 est rendu au dispositif dans la version propre de la note 5 (« – C. civ., 821-2°. – C. p. c., 535, 536, 546, 956. »), conforme au fac-similé (« c. civ., 821-2\";- C. p. c. »)."
+  },
+  "preuve": "Fac-similé p. 228 : les trois exceptions en Times 9,9-10,3 pt pleine largeur (y=78 à 139, x0≈59/69), puis le filet (« --- », y=145) et les notes en 7,1 pt sur deux colonnes. Le chapeau imprime bien « excepté dans le cas. » avec un point. Décalque de l'art. 1293 C. civ. fr. Article déjà amputé le 20 juillet.",
+  "reserve": "Hors mandat : les notes 3 et 4 sont les versions à colonnes entrelacées des notes 6 et 7, qui existent au propre — elles pourront être purgées sans perte lors d'un nettoyage d'appareil."
+ },
+ "art-1121": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   2,
+   3
+  ],
+  "inserer": [
+   "1. Qu'il soit constant que toutes les minutes du notaire, de l'année dans laquelle l'acte paraît avoir été fait, soient perdues, ou que l'on prouve que la perte de la minute de cet acte a été faite par un accident particulier.",
+   "2. Qu'il existe un répertoire en règle du notaire, qui constate que l'acte a été fait à la même date."
+  ],
+  "modifie": {},
+  "preuve": "Fac-similé p. 241 : les deux conditions en Times 10,0 pt pleine largeur (y=484 à 527) ENTRE le chapeau (y=457-468) et l'alinéa « Lorsqu'au moyen du concours de ces deux circonstances… » (y=544) — d'où l'insertion après la ligne 0, l'alinéa actuel C[1] restant en dernier. Le corps du 20 juillet portait déjà les deux conditions à cette place exacte. Décalque de l'art. 1336 C. civ. fr. Sans elles, « ces deux circonstances » de C[1] ne renvoie à rien.",
+  "reserve": "Les notes 0 et 1 restent à l'appareil : ce sont deux arrêts (Cass., 11 mars 1890 ; Cass., 10 janvier 1945) que le colonnage a entrelacés ; le texte propre est en cch-source (articles.1121.notes[2] et [3])."
+ },
+ "art-1133": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   3,
+   4,
+   5,
+   6
+  ],
+  "inserer": [
+   "1. Aux obligations qui naissent des quasi-contrats et des délits ou quasi-délits. – C. civ., 1156 et s, 1168 et s; C. pén., 1.",
+   "2. Aux dépôts nécessaires faits en cas d'incendie, ruine, tumulte ou naufrage, et à ceux faits par les voyageurs en logeant dans une hôtellerie, le tout suivant la qualité des personnes et les circonstances du fait. – C. civ., 1716 et s.",
+   "3. Aux obligations contractées en cas d'accidents imprévus, où l'on ne pourrait pas avoir fait des actes par écrit.",
+   "4. Au cas où le créancier a perdu le titre qui lui servait de preuve littérale, par suite d'un cas fortuit, imprévu résultant d'une force majeure. – C. civ., 938."
+  ],
+  "modifie": {},
+  "preuve": "Fac-similé p. 245 : les quatre cas en Times 10,1-10,3 pt pleine largeur (y=265 à 385, x0≈44/54) ; l'appareil suit à y=401 en 7,2 pt sur deux colonnes. Le corps du 20 juillet portait déjà les quatre cas au dispositif. Décalque de l'art. 1348 C. civ. fr. Les quatre items sont identiques mot pour mot dans cch-source et dans la base.",
+  "reserve": ""
+ },
+ "art-1135": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   7,
+   8
+  ],
+  "inserer": [
+   "1. Les actes que la loi déclare nuls, comme présumés faits en fraude de ses dispositions, d'après leur seule qualité. – C. civ., 789.",
+   "2. Les cas dans lesquels la loi déclare la propriété ou la libération résulter de certaines circonstances déterminées. – C. civ., 1066, 1115, et s, 1118, 1676.",
+   "3. L'autorité que la loi attribue à la chose jugée. – C. civ., 1136.",
+   "4. La force que la loi attache à l'aveu de la partie ou à son serment. – C. civ., 1140 et s, 1142 et s."
+  ],
+  "modifie": {
+   "0": "Tiret de renvoi rétabli : la base porte « …d'après leur seule qualité. C. civ., 789. », le fac-similé imprime « qualite.- c. ctv., 789. » → « …d'après leur seule qualité. – C. civ., 789. » (texte de cch-source).",
+   "1": "Queue « ets, 1142 et s. » retirée : c'est un débordement OCR du renvoi de l'item 4. Le renvoi propre de l'item 2 est « – C. civ., 1066, 1115, et s, 1118, 1676. », conforme au fac-similé p. 246 (« c. ctv., 1066, 1115, et s, 1118, 1676. »)."
+  },
+  "preuve": "Fac-similé p. 246 : les quatre items en Times 9,8-15,0 pt pleine largeur (y=301 à 376, x0≈59/69) sous le chapeau « …tels sont ;- C. clv., 459, 428, 580, 1119, 1310, 1354. » ; les notes commencent à y=389 en 7,1 pt sur deux colonnes. Décalque de l'art. 1350 C. civ. fr. Article déjà amputé le 20 juillet ; les items 3 et 4 y étaient noyés au milieu de la note 4. Versions propres reprises de cch-source (identiques aux notes 7 et 8 de la base pour les items 3 et 4).",
+  "remplacerNotes": {
+   "5": "4. Les juges ne peuvent, hors le cas où la loi leur permet de déduire d'un fait connu à un fait inconnu, des présomptions graves, précises et concordantes, pour procurer des éléments légaux à leurs décisions, tirer arbitrairement de tels ou tels autres faits qu'ils apprécient suivant leur convenance, de prétendues présomptions. Cass., 20 mars 1914."
+  },
+  "reserve": "ATTENTION — la note 5 doit être RÉÉCRITE, pas conservée telle quelle ni supprimée : c'est l'arrêt Cass., 20 mars 1914 dont le colonnage a coupé le milieu pour y insérer les items 3° et 4° (« . L'autorité que la loi attribue à la chose jugée.- c. civ, 1136. . La force que la loi attache à l'aveu… »). Une fois les items rendus au dispositif, ces fragments de loi resteraient affichés dans l'appareil. La version propre — seule version complète de cet arrêt dans le corpus — est donnée en « remplacerNotes » (elle vient de cch-source articles.1135.notes[7]). Le script rendre-loi-au-dispositif ne sait pas remplacer une note : prévoir un passage séparé, sinon la supprimer ferait perdre l'arrêt."
+ },
+ "art-1143": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1
+  ],
+  "inserer": [
+   "1. Celui qu'une partie défère à une autre pour en faire dépendre le jugement de la cause : il est appelé décisoire. – C. civ., 1144 et s.",
+   "2. Celui qui est déféré d'office par le juge à l'une ou à l'autre des parties. – C. civ., 1152, 1486, 1691, 2040. – C. p. c., 258 et s, 989."
+  ],
+  "modifie": {
+   "1": "Note 1 tronquée à « …– C. p. c., 258 et s, 989. » : la suite (« Est vicié d'excès de pouvoir la décision du juge qui, à une comparution personnelle des parties… Cass., 26 novembre 1940, Bull. 1940-1941. ») est l'annotation de l'article, conservée au propre en note 2. Renvoi remis à la graphie du recueil : « – C. civ., 1152, 1486, 1691, 2040. – C. p. c., 258 et s, 989. » (la base portait « C. p. c, » sans point)."
+  },
+  "preuve": "Fac-similé p. 251 : les deux espèces en Times 10,1-15,0 pt pleine largeur (y=280 à 322), puis le filet (« ----», y=325) et l'unique note en 7,2 pt sur deux colonnes. Décalque de l'art. 1357 C. civ. fr. Article déjà amputé le 20 juillet. Après retrait des notes 0 et 1, il reste à l'appareil la note 2, seule et propre.",
+  "reserve": "Un mot ne se retrouvera pas après coup : « confon », moitié de « confon- dant » coupé par la césure dans la note 1 ; le mot entier (« confondant ») figure dans la note 2 conservée. C'est un artefact de césure, pas une perte de texte — l'invariant du script le tolère (≤ 2 mots)."
+ }
+}

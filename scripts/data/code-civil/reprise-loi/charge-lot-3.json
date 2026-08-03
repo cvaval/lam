@@ -1,0 +1,177 @@
+{
+ "art-1153": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   8
+  ],
+  "inserer": [
+   "1. que la demande ou l'exception ne soit pas pleinement justifiée;",
+   "2. qu'elle ne soit pas totalement dénuée de preuves."
+  ],
+  "modifie": {
+   "0": "espace avant « ; » supprimée : le recueil imprime « justifiée; » (fac-similé p. 254) — leçon CCH.docx retenue",
+   "1": "note-magma NON réinsérée et supprimée de l'appareil : elle recopie l'item 2 (rendu au propre par la note 8), puis l'alinéa « Hors ces deux cas… » déjà au corps (ligne 1), puis la note d'arrêt n° 1 qui figure au propre en note 9 (« !. » pour « 1. », « À donc » pour « A donc »). Rien de neuf n'y disparaît."
+  },
+  "preuve": "Fac-similé p. 254 : « Art. 1153 … que sous les deux conditions suivantes: il faut, » (Times 9,9-10,4, x=34-355), puis y=346 « 1. que la demande ou l'exception ne soit pas pleinement justifiee; » (9,9 ; x=43-313) et y=359 « 2. qu'elle ne soit pas totalement denuee de preuves. » (9,9 ; x=43-255), puis y=371 « Hors ces deux cas… » (9,9) qui est déjà au corps. L'appareil de la page est en 7,2-8,5 pt sur deux colonnes (x=34 / x=199) : les deux conditions n'y sont pas. Décalque de l'art. 1367 C. civ. fr.",
+  "reserve": "Le dispositif s'arrêtait sur « il faut, » : amputation visible à l'œil nu. Après retrait, la note d'arrêt n° 1 (indice 9) reste en DERNIÈRE position de l'appareil, qui se lira 2, 3, 4, 5, 6, 7, 1 ; la remonter en tête est une remise en ordre d'affichage, hors du périmètre de cette charge."
+ },
+ "art-1415": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "inserer": [
+   "1. La restitution du prix.",
+   "2. Celle des fruits, lorsqu'il est obligé de les rendre au propriétaire qui l'évince;",
+   "3. Les frais faits sur la demande en garantie de l'acheteur, et ceux faits par le demandeur originaire;",
+   "4. Enfin, les dommages et intérêts, ainsi que les frais et loyaux coûts du contrat.- C. civ., 549 s, 1149 s, 1582 s, 1592, 1614, 1621, 1646, 1652, 1673, 1682, 1699, 2188.- C. p. c. 130, 185."
+  ],
+  "modifie": {},
+  "preuve": "Fac-similé p. 299 : les quatre items sont en corps de loi (9,9-10,3 pt, x=58-364, mêmes fonte et largeur que le chapeau y=140 et que l'art. 1416 qui suit) ; la page ne porte NI filet NI colonnage — elle n'a aucune annotation. L'item 4 se clôt sur la chaîne de renvois « - C. civ., 549 s … - C. p. c. 130, 185. », qui lui appartient. Décalque de l'art. 1630 C. civ. fr. Les quatre notes de la base sont mot pour mot celles de CCH.docx : rien à nettoyer.",
+  "reserve": "Le dispositif s'arrêtait sur « il a le droit de demander contre le vendeur » — phrase sans objet ni point final. L'appareil de l'article devient vide."
+ },
+ "art-1549": {
+  "garde": true,
+  "apresLigne": 1,
+  "supprimerNotes": [
+   0
+  ],
+  "inserer": [
+   "2. Celui des voituriers, soit par terre, soit par eau, qui se chargent du transport des personnes ou des marchandises ;"
+  ],
+  "modifie": {},
+  "preuve": "Fac-similé p. 324 : y=417 « 2. Celui des voituriers, soit par terre, soit par eau, qui se chargent du transport / des personnes ou des marchandises; » en 10,8 pt, x=41-352 — exactement la fonte, le corps et le retrait des items 1 (y=393) et 3 (y=441) restés au dispositif. Aucune annotation sous l'article. Décalque de l'art. 1779 C. civ. fr. Note identique à CCH.docx.",
+  "reserve": "Insérée après la ligne 1 (item 1) pour rétablir la suite 1, 2, 3 annoncée par « Il y a trois espèces principales ». La couche texte du fac-similé lit « soit parterre » : c'est un défaut d'OCR, le recueil imprime « par terre » (CCH.docx et l'espacement du scan)."
+ },
+ "art-1628": {
+  "garde": true,
+  "apresLigne": 1,
+  "supprimerNotes": [
+   0
+  ],
+  "inserer": [
+   "2. Chaque associé peut se servir des choses appartenant à la société pourvu qu'il les emploie à leur destination fixée par l'usage, et qu'il ne serve pas contre l'intérêt de la société, ou de manière à empêcher ses associés d'en user selon leur droit ;"
+  ],
+  "modifie": {},
+  "preuve": "Fac-similé p. 335 : y=56 « 2. Chaque associe peut se servir des choses appartenant a la societe pourvu… user selon leur droit; » en 10,8-14,8 pt, x=54-365 (retrait de tête x=54, continuation x=64) — même composition que les items 3 (y=105) et 4 (y=144) et que l'item 1 qui finit en haut de la page. Aucune annotation sur l'article. Décalque de l'art. 1859-2° C. civ. fr. Note identique à CCH.docx.",
+  "reserve": "Insérée après la ligne 1 (item 1) pour rétablir la suite 1, 2, 3, 4 annoncée par « l'on suit les règles suivantes »."
+ },
+ "art-1695": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2
+  ],
+  "inserer": [
+   "1. Si le dépositaire s'est offert lui-même pour recevoir le dépôt ;",
+   "2. S'il a stipulé un salaire pour la garde du dépôt ;",
+   "3. Si le dépôt a été fait uniquement pour l'intérêt du dépositaire ;"
+  ],
+  "modifie": {
+   "0": "espace fine rétablie avant « ; » (leçon CCH.docx), pour que les quatre items de l'article s'écrivent de la même façon",
+   "1": "idem : « la garde du dépôt ; »"
+  },
+  "preuve": "Fac-similé p. 344 (y=569) et p. 345 (y=35, y=47) : les items 1, 2 et 3 sont en 10,0-10,1 pt, x=41-51 → 315, immédiatement au-dessus de l'item 4 (p. 345, y=59) resté au dispositif et dans la même composition ; aucun filet, aucune colonne sur ces deux pages à cet endroit. Décalque de l'art. 1928 C. civ. fr.",
+  "reserve": "Le corps enchaînait le chapeau et l'item 4 : la numérotation sautait de rien à « 4. ». Insérés avant l'item 4 (ligne 1). L'appareil de l'article devient vide."
+ },
+ "art-1758": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1
+  ],
+  "inserer": [
+   "1. Quand il n'a reçu le pouvoir de se substituer quelqu'un.",
+   "2. Quand ce pouvoir lui a été conféré sans désignation d'une personne et que celle dont il a fait choix était notoirement incapable ou insolvable. C. civ., 1170."
+  ],
+  "modifie": {
+   "1": "DEUX queues retirées : (a) la recopie de l'alinéa « Dans tous les cas, le mandant peut agir directement contre la personne que le mandataire s'est substituée.- C. civ., 1756. », qui est DÉJÀ au corps (ligne 1) ; (b) la note d'arrêt « L. Il y a mandat tacite de substitution… Cass., 29 mai 1888, Aff. Tiveedy vs. Peters. », qui figure au propre en note 4 (« L. » pour « 1. », « Tiveedy » pour « Tweedy »). Ne subsiste que l'item 2, dans la leçon de CCH.docx.",
+   "0": "apostrophe droite rétablie (« n'a » et non « n’a »), leçon CCH.docx"
+  },
+  "preuve": "Fac-similé p. 357, agrandi à 450 dpi : sous « Art. 1758 Le mandataire répond de celui qu'il s'est substitué dans la gestion. » (10,0 pt) viennent, dans la MÊME fonte et la même largeur, « 1. Quand il n'a reçu le pouvoir de se substituer quelqu'un. » (y=84, 10,6 pt) et « 2. Quand ce pouvoir lui a été conféré sans désignation d'une personne et que celle dont il a fait choix était notoirement incapable ou insolvable.- C. civ., 1170. » (y=97-120), puis l'alinéa « Dans tous les cas… » (y=133) déjà au corps. L'appareil ne commence qu'à y=164, en 7,2-8,9 pt sur deux colonnes. Décalque de l'art. 1994 C. civ. fr.",
+  "reserve": "Contre-épreuve : lu seul, le dispositif fait une phrase complète (« Le mandataire répond de celui qu'il s'est substitué dans la gestion. »), l'amputation n'est donc pas visible grammaticalement — mais elle est SUBSTANTIELLE : sans les deux cas, l'article rend le mandataire garant de son substitué en toute hypothèse, alors que le texte ne l'y oblige que dans ces deux-là. ⚠ Le recueil imprime « Quand il n'a reçu le pouvoir » là où l'art. 1994 fr porte « n'a POINT reçu » : vérifié sur l'agrandissement du scan, le mot « point » ne figure pas. Reproduit tel quel — à confronter au Moniteur si l'occasion s'en présente. Après retrait, l'appareil se lira 2, 3, 1 (la note 1 propre, indice 4, est en dernière position) : remise en ordre d'affichage hors périmètre."
+ },
+ "art-1767": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2
+  ],
+  "inserer": [
+   "Par la révocation du mandataire. C. civ., 1159, 1755, 1768-1770.",
+   "Par la renonciation de celui-ci au mandat. C. civ., 1771.",
+   "Par la mort ou la perte des droits civils, l'interdiction ou la déconfiture, soit du mandant, soit du mandataire. C. civ., 19, 399, 410, 1159, 1160, 1755, 1785."
+  ],
+  "modifie": {},
+  "preuve": "Fac-similé p. 359 : « Art. 1767 Le mandat finit, » (y=502, 10,7 pt) puis les trois causes y=516, y=528, y=541 en 10,8 pt, x=56-367 — corps de loi pleine largeur, sans numérotation (le recueil ne numérote pas cette énumération : c'est pourquoi la note 0 n'avait pas été marquée suspecte, alors qu'elle est de la loi au même titre que les deux autres). Aucune annotation sur l'article. Décalque de l'art. 2003 C. civ. fr. Les trois notes sont mot pour mot celles de CCH.docx.",
+  "reserve": "Amputation TOTALE : le dispositif se réduisait au chapeau « Le mandat finit, ». L'appareil de l'article devient vide."
+ },
+ "art-1798": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "inserer": [
+   "1. Lorsqu'elle est poursuivie en justice pour le paiement;",
+   "2. Lorsque le débiteur a fait faillite ou est en déconfiture;",
+   "3. Lorsque le débiteur s'est obligé de lui rapporter sa décharge dans un certain temps;",
+   "4. Lorsque la dette est devenue exigible par l'échéance du terme sous lequel elle avait été contractée;",
+   "5. Au bout de dix années, lorsque l'obligation principale, n'a point de terme fixe d'échéance, à moins que l'obligation principale, telle qu'une tutelle ne soit pas de nature à pouvoir être éteinte avant un temps déterminé. C. civ., 975 et s."
+  ],
+  "modifie": {
+   "1": "espace avant « ; » supprimée (leçon CCH.docx), pour que les cinq items s'écrivent de la même façon",
+   "3": "idem : « avait été contractée; »"
+  },
+  "preuve": "Fac-similé p. 364 : les cinq cas sont en 10,0-10,2 pt, x=40-352, sous le chapeau (y=217-229) et dans sa fonte ; la page ne porte aucune colonne d'annotation à cet endroit. Le renvoi « - C. civ., 975 et s. » clôt l'item 5. Décalque de l'art. 2032 C. civ. fr.",
+  "reserve": "Contre-épreuve : le chapeau fait une phrase complète, mais sans les cinq cas il autorise la caution à agir contre le débiteur AVANT paiement en toute circonstance — l'inverse de la règle, qui n'ouvre le recours anticipé que dans ces cinq hypothèses. Amputation réelle. L'appareil de l'article devient vide. La virgule de « lorsque l'obligation principale, n'a point de terme fixe » est celle du recueil, conservée."
+ },
+ "art-1826": {
+  "garde": true,
+  "apresLigne": 0,
+  "supprimerNotes": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   10
+  ],
+  "inserer": [
+   "1. Pour dépôt nécessaire. C. civ., 1133-2°, 1716.",
+   "2. En cas de réintégrande, pour le délaissement, ordonné par justice, d'un fonds dont le propriétaire a été dépouillé par voie de fait; pour la restitution des fruits qui en ont été perçus pendant l'indue possession et pour le paiement des dommages et intérêts adjugés au propriétaire. C. civ., 481, 938, 1827;- C. p. c., 31, 35, 133, 134, 136, 451.",
+   "3. Pour répétition de deniers consignés entre les mains de personnes publiques établies à cet effet. C. civ., 1728;- C. p. c., 133, 458.",
+   "4. Pour la représentation des choses déposées aux séquestres, commissaires et autres gardiens. C. civ., 1723 et s.",
+   "5. Contre les cautions judiciaires, et contre les cautions des contraignables par corps, lorsqu'elles se sont soumises à cette contrainte;",
+   "6. Contre tous officiers publics, pour la représentation de leurs minutes quand elle est ordonnée;",
+   "7. Contre les notaires, les défenseurs publics et les huissiers, pour la restitution des titres à eux confiés, et des deniers par eux reçus pour leurs clients, par suite de leurs fonctions. C. civ., 939, 1133, 1716, 1723 et s, 1805.- C. p. c., 133 et s, 192 et s, 451 et s."
+  ],
+  "modifie": {
+   "0": "« C. civ., 1133-2, 1716 » → « C. civ., 1133-2°, 1716 » : le signe de degré, imprimé au fac-similé (p. 368, y=250) et présent dans CCH.docx, avait sauté à l'OCR",
+   "2": "renvois rétablis : « c. civ, 1728;-C.p. c, 133, 458 » → « C. civ., 1728;- C. p. c., 133, 458 » (leçon CCH.docx)",
+   "4": "queue retirée : le fragment mutilé de l'item 6 (« ; . Contre tous officiers publics, pou la représentation de leurs minutes quand elle est ordonnée; ») collé à la fin de l'item 5 ; l'item 5 s'arrête sur « soumises à cette contrainte; », et l'item 6 est repris au propre de la note 10",
+   "1": "« ;- C.p. c, » → « ;- C. p. c., » et « propriétaire.- C. civ. » → « propriétaire. C. civ. » (leçon CCH.docx, homogène avec les six autres items)",
+   "3": "« gardiens.- C. civ., 1723 et s. » → « gardiens. C. civ., 1723 et s. » (leçon CCH.docx)",
+   "5": "« fonctions.- C. civ. » → « fonctions. C. civ. » et « C. p. c, » → « C. p. c., » (leçon CCH.docx)"
+  },
+  "preuve": "Fac-similé p. 368 : les sept cas occupent y=250 à y=459 en 10,8 pt, x=41-353, sous « Art. 1826 La contrainte par corps a lieu pareillement, » (y=236) ; le filet et les deux colonnes de l'appareil (7,7-8,7 pt, x=32 / x=197) ne commencent qu'à y=472, avec les trois arrêts (21 juin 1898, 21 décembre 1914, 3 mars 1922). Ordre de réinsertion 1→7, l'item 6 venant de la note 10 (leçon propre) et non de la queue de la note 4. Décalque de l'art. 2060 C. civ. fr. ⚠ L'agrandissement à 500 dpi du scan montre que le recueil imprime bien « pou la représentation » à l'item 6 : c'est une coquille du recueil, que CCH.docx corrige en « pour » et que je conserve corrigée (le mot est indiscutable et la ligne, rendue au dispositif, doit se lire).",
+  "reserve": "Amputation TOTALE (le corps se réduisait au chapeau, virgule comprise). ⚠ L'APPAREIL de cet article est lui-même abîmé, indépendamment de la présente charge : la note 6 est un doublon océrisé de la note 9 (même arrêt du 21 juin 1898) dont les colonnes ont fondu, et le fragment « perçus durant l'indue possession et paiement des » qu'elle a avalé appartient à la note 7 (arrêt du 21 décembre 1914), qui reste donc amputée en base — CCH.docx en donne la leçon complète. Je ne supprime PAS la note 6 : l'outil n'écrit que le dispositif, et la détruire ferait disparaître le seul exemplaire de ce fragment. À corriger dans une passe « appareil »."
+ }
+}
