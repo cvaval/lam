@@ -386,3 +386,82 @@ Deux défauts du lecteur, invisibles autrement, corrigés et couverts par
 - Art. 314 : trois décrets (27 janvier 1959, 8 octobre 1982, 30 août 1988) restent
   **collés en milieu d'alinéa**, pas en début de ligne — le repli automatique ne les voit
   donc pas. Leur découpe demande une coupure en milieu de phrase, à valider.
+
+---
+
+# §11 — Audit adversarial du 2 août (soir)
+
+Huit dimensions auditées en parallèle sur la base de production, en lecture seule, puis
+réfutation de chaque constat par un sceptique indépendant. **43 constats levés.**
+
+⚠️ **L'audit est INCOMPLET** : 30 des 52 agents ont été interrompus par la limite de
+dépense du compte, dont la majeure partie de la phase de réfutation et la synthèse.
+**14 constats ont reçu un verdict** (13 confirmés, 1 écarté) ; **29 restent non vérifiés** —
+ni confirmés ni réfutés. Le script les comptait à tort comme « réfutés » : un agent mort
+ne rend pas de verdict, et l'absence de verdict n'est pas une réfutation.
+
+## Confirmé et CORRIGÉ
+
+**Faux liens de renvoi** (régression de `347a6a4`, corrigée par `bd0374d`). En activant les
+renvois « l'article N » sur le Code civil, la forme du recueil pour citer un texte connexe —
+la désignation, une virgule, l'article — devenait un lien vers l'article homonyme du Code :
+« (D. L. du 22 décembre 1944, art. 1) » renvoyait à l'article 1er du Code civil, « Décret du
+8 octobre 1982, art. 14 » à l'article 14. Arts 55, 229, 230, 241, 314, 330, 608, 742 ; et
+« l'article 7 de la présente loi » (art. 311) → article 7 du Code. Deux gardes ajoutés à
+`src/lib/doc/artrefs.ts` (`ART_EXT_DESIGNATION`, adjectif intercalé dans `ART_EXT_AFTER`),
+sept cas verrouillés dans `src/components/CodeCivilRenvois.test.tsx`.
+
+**Index de recherche périmé.** `Document.searchText` n'est reconstruit que par
+`reindexDocument()`, appelé depuis les routes d'administration — jamais par une écriture
+directe en base. Les écritures du 2 août l'avaient donc laissé en arrière (1 280 550 →
+1 332 796 caractères). Reconstruit. **Leçon : tout script qui écrit `bodyOriginal` ou
+`annotationsJson` doit recalculer `searchText`.** Mesure annexe : sur les 300 documents les
+plus récemment modifiés du corpus, **30 ont encore un index périmé** (surtout
+`MONITEUR_PDF_2019`) — antérieur à ce chantier, à traiter à part.
+
+## Confirmé, NON corrigé — demande une vérification pièce à pièce
+
+**Du texte de loi est présenté comme du commentaire.** L'alignement sur `CCH.docx`
+(`aca6f66`, le matin même) s'est fié au discriminant typographique du docx, qui échoue sur
+les ÉNUMÉRATIONS : les items y sont composés comme l'appareil. Résultat, dans **27 articles,
+54 lignes** qui étaient au dispositif le 20 juillet sont aujourd'hui dans le pliable
+« Annotations ». Un avocat qui ouvre l'article 1044 lit « Pour que les offres réelles soient
+valables, il faut : » et rien d'autre — les conditions sont derrière un bouton qui annonce
+de la jurisprudence. Idem arts 301, 354, 452 (le VERBE de la phrase est en note), 506, 1036,
+1045, 1133, 1767, 1869, 1870.
+
+Le geste B du 2 août a rendu 76 items à 24 articles, mais sa règle exige un item numéroté
+(« 1. », « 2. ») : les énumérations qui commencent par « Par la mort… », « Lorsque… »,
+« Qu'elles soient… » lui échappent.
+
+**Pourquoi la réparation n'a pas été appliquée** : la liste des 54 lignes est MIXTE. Certaines
+sont de vraies notes que l'alignement a eu raison de sortir du corps (« Il y a violation de
+l'art. 106 du C. civ. … », art. 106, 195, 368, 724, 848, 962, 1035). Avoir été dans le corps
+en juillet ne prouve rien — c'est ce mélange même que l'alignement corrigeait. Un classement
+automatique a été essayé (chapeau annonçant une liste + forme de l'item) : il se trompe sur
+les arts 1869 et 1870, dont les alinéas de loi ne ressemblent pas à des items. **Trancher
+demande `CCH.docx` et le fac-similé, article par article.** L'état du 20 juillet est
+reconstituable : `pg_restore -f … --data-only -n public -t Document backups/lam-2026-07-22.dump`.
+
+## Confirmé, non corrigé — structure du sommaire
+
+- **sec-343** « Dispositions communes aux huit sections ci-dessus » (entre les arts 1311 et
+  1312) n'a pas d'entrée de table : la ligne vit dans le bloc de l'article 1311, lequel est
+  abrogé par le décret de 2020 — l'overlay remplace le bloc entier et **l'intitulé a déjà
+  disparu de l'affichage**. Le sommaire latéral y renvoie dans le vide. C'est le quatrième
+  cas du défaut traité par `e3a452b`, que son critère (« Dispositions générales ») ne pouvait
+  pas attraper. Antérieur au 2 août ; portée limitée (les arts 1312-1313 sont abrogés).
+- **Symétrie inverse** : les trois « Dispositions générales » inscrites par `e3a452b` l'ont
+  été dans `toc` mais pas dans `navToc` — elles s'affichent dans le texte et restent
+  introuvables au sommaire latéral.
+- Correctif commun : réutiliser `scripts/ajouter-dispositions-generales-toc.ts`, qui migre
+  les clés `sec-K|art-N` et refuse d'écrire si l'une se perdrait.
+
+## Non vérifiés — à reprendre quand le budget d'agents le permettra
+
+29 constats sans verdict, dont : 20 renvois « V. … » qui resteraient au corps (le §10 annonce
+0) ; 150 paires de notes quasi identiques dans un même article ; l'art. 1120 dont deux alinéas
+seraient déplacés ; l'art. 1529 dont l'article 1er de la loi de 1947 manquerait ; 29 alinéas
+de textes annexés absents du pliable ; le fait que rejouer l'alignement défairait la
+correction du 2 août. Journal complet des mesures :
+`.claude/projects/…/subagents/workflows/wf_d79236a6-5dc/journal.jsonl`.
