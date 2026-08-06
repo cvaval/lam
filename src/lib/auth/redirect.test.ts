@@ -1,4 +1,5 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, beforeEach, vi } from 'vitest'
+import { hardRedirect } from './redirect'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
@@ -48,3 +49,58 @@ describe('bascule d’identité — navigation dure obligatoire', () => {
     }
   })
 })
+
+/**
+ * Comportement de `hardRedirect` lui-même. `window` n'existe pas dans l'environnement de
+ * test : on le pose, on observe ce que la fonction en fait.
+ */
+describe('hardRedirect', () => {
+  const assign = vi.fn()
+  const replace = vi.fn()
+  const store = new Map<string, string>()
+
+  beforeEach(() => {
+    assign.mockClear()
+    replace.mockClear()
+    store.clear()
+    ;(globalThis as Record<string, unknown>).window = { location: { assign, replace } }
+    ;(globalThis as Record<string, unknown>).localStorage = {
+      removeItem: (k: string) => store.delete(k),
+      setItem: (k: string, v: string) => store.set(k, v),
+    }
+  })
+
+  it('entrée : empile ; sortie : remplace l’entrée d’historique', () => {
+    hardRedirect('/fr/dashboard')
+    expect(assign).toHaveBeenCalledWith('/fr/dashboard')
+    expect(replace).not.toHaveBeenCalled()
+
+    hardRedirect('/fr/login', { sortie: true })
+    expect(replace).toHaveBeenCalledWith('/fr/login')
+  })
+
+  it('purge le contenu du compte, épargne les deux signaux', () => {
+    for (const k of ['lv:searchHistory', 'lv:doctrineMode', 'lv:doctrineTree', 'lv:logged-out', 'lv:last-activity'])
+      store.set(k, 'x')
+    hardRedirect('/fr/login', { sortie: true })
+    // L'historique de recherche du compte précédent ne doit pas reparaître chez le suivant.
+    expect([...store.keys()].sort()).toEqual(['lv:last-activity', 'lv:logged-out'])
+  })
+
+  it('refuse de quitter le site', () => {
+    for (const hostile of ['//exemple.tld/vol', 'https://exemple.tld', 'javascript:alert(1)', ''])
+      hardRedirect(hostile)
+    expect(assign.mock.calls.flat()).toEqual(['/', '/', '/', '/'])
+  })
+
+  it('un stockage indisponible n’empêche pas la redirection', () => {
+    ;(globalThis as Record<string, unknown>).localStorage = {
+      removeItem: () => {
+        throw new Error('quota')
+      },
+    }
+    expect(() => hardRedirect('/fr/login', { sortie: true })).not.toThrow()
+    expect(replace).toHaveBeenCalledWith('/fr/login')
+  })
+})
+

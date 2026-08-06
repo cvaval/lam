@@ -168,10 +168,35 @@ export async function markTwoFactorVerified(sessionId: string) {
   await prisma.session.update({ where: { id: sessionId }, data: { twoFactorVerified: true } })
 }
 
-export async function destroyCurrentSession() {
+/**
+ * Retire le COOKIE de session et rend le jeton qu'il portait. Synchrone, sans base :
+ * c'est le seul geste qui déconnecte réellement le navigateur, et il ne doit dépendre
+ * de rien. La suppression en base vient après, en meilleur effort.
+ */
+export function clearSessionCookie(): string | undefined {
   const token = cookies().get(SESSION_COOKIE)?.value
-  if (token) await prisma.session.deleteMany({ where: { token } })
   cookies().delete(SESSION_COOKIE)
+  return token
+}
+
+/** Supprime la ligne de session. Sans effet si elle n'existe plus. */
+export async function deleteSessionByToken(token: string) {
+  await prisma.session.deleteMany({ where: { token } })
+}
+
+/**
+ * Déconnexion complète — le cookie D'ABORD, la base ensuite.
+ *
+ * L'ordre n'est pas indifférent. Quand la base était interrogée en premier, son
+ * indisponibilité (pool saturé, démarrage à froid) faisait échouer toute la déconnexion :
+ * le cookie survivait, et la page /login, qui renvoie au tableau de bord si une session
+ * existe, ramenait l'utilisateur dans le compte qu'il venait de quitter. Une ligne de
+ * session orpheline en base est au contraire inoffensive : plus aucun cookie ne la
+ * désigne, et elle expire.
+ */
+export async function destroyCurrentSession() {
+  const token = clearSessionCookie()
+  if (token) await deleteSessionByToken(token)
 }
 
 export function deviceCookieOpts(days: number) {

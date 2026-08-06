@@ -94,7 +94,7 @@ export function IdleTimer({
     } catch {
       /* on redirige quand même */
     }
-    hardRedirect(`/${locale}/login?timeout=1`)
+    hardRedirect(`/${locale}/login?timeout=1`, { sortie: true })
   }, [locale])
 
   const beat = useCallback((force = false) => {
@@ -156,7 +156,7 @@ export function IdleTimer({
       if (loggingOut.current) return
       if (e.key === LOGGED_OUT_KEY && e.newValue) {
         loggingOut.current = true
-        hardRedirect(`/${locale}/login?timeout=1`)
+        hardRedirect(`/${locale}/login?timeout=1`, { sortie: true })
         return
       }
       if (e.key === ACTIVITY_KEY) arm() // dissout aussi un avertissement en cours : présence avérée

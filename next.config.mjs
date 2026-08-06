@@ -12,6 +12,14 @@ const nextConfig = {
     // pdfjs-dist (via pdf-parse) ne supporte pas le bundling webpack côté serveur :
     // chargé en require() au runtime Node.
     serverComponentsExternalPackages: ['pdf-parse', 'pdfjs-dist'],
+    // Le cache de routeur CLIENT de Next réutilise pendant 30 s (défaut) la charge déjà
+    // rendue d'un segment visité, SANS repasser par le serveur — et la fenêtre est
+    // glissante, elle repart à chaque réutilisation. C'est ce qui faisait réapparaître le
+    // compte précédent après un changement de compte, mais la même mécanique périme aussi
+    // l'ordre des tuiles du tableau de bord, les alertes de veille et les favoris juste
+    // après qu'on les a modifiés. On la neutralise : ici, une donnée juste à l'écran vaut
+    // mieux qu'un aller-retour économisé.
+    staleTimes: { dynamic: 0 },
   },
   // The legal corpus is the source of truth; we never want stale edge caches of
   // official text. Security headers harden the export/anti-scraping posture (§09).

@@ -31,9 +31,13 @@ export function UsersManager({
   mode: 'pending' | 'all'
 }) {
   const router = useRouter()
-  const [roles, setRoles] = useState<Record<string, Role>>(
-    Object.fromEntries(users.map((u) => [u.id, u.role === 'SITWAYEN' && mode === 'pending' ? 'PWOFESYONEL' : u.role])),
-  )
+  // On ne mémorise QUE les choix explicites de l'administrateur ; le rôle affiché est
+  // dérivé de la donnée serveur à chaque rendu. Un `useState` initialisé depuis `users` ne
+  // rejouait pas son initialiseur après `router.refresh()` : les lignes rafraîchies —
+  // et surtout celles qui venaient d'apparaître — affichaient un rôle faux, voire vide.
+  const [choix, setChoix] = useState<Record<string, Role>>({})
+  const roleDe = (u: AdminUser): Role =>
+    choix[u.id] ?? (u.role === 'SITWAYEN' && mode === 'pending' ? 'PWOFESYONEL' : u.role)
   const [busy, setBusy] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [openServices, setOpenServices] = useState<string | null>(null)
@@ -48,6 +52,8 @@ export function UsersManager({
       return
     }
     setOpenServices(null)
+    // Les choix locaux ont été enregistrés : la donnée serveur redevient la source.
+    setChoix({})
     router.refresh()
   }
 
@@ -92,8 +98,8 @@ export function UsersManager({
                 </td>
                 <td className="px-4 py-3">
                   <select
-                    value={roles[u.id]}
-                    onChange={(e) => setRoles((r) => ({ ...r, [u.id]: e.target.value as Role }))}
+                    value={roleDe(u)}
+                    onChange={(e) => setChoix((c) => ({ ...c, [u.id]: e.target.value as Role }))}
                     className="rounded-lg border border-lank/15 bg-white px-2 py-1.5 text-sm outline-none focus:border-sitwon"
                   >
                     {ASSIGNABLE.map((r) => (
@@ -108,7 +114,7 @@ export function UsersManager({
                     {mode === 'pending' ? (
                       <>
                         <button
-                          onClick={() => act(u.id, 'activate', { role: roles[u.id] })}
+                          onClick={() => act(u.id, 'activate', { role: roleDe(u) })}
                           disabled={!!busy}
                           className="rounded-lg bg-fey px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50"
                         >
@@ -125,8 +131,8 @@ export function UsersManager({
                     ) : (
                       <>
                         <button
-                          onClick={() => act(u.id, 'changeType', { role: roles[u.id] })}
-                          disabled={!!busy || roles[u.id] === u.role}
+                          onClick={() => act(u.id, 'changeType', { role: roleDe(u) })}
+                          disabled={!!busy || roleDe(u) === u.role}
                           className="rounded-lg border border-lank/15 px-2.5 py-1.5 text-xs font-medium text-lank/70 hover:bg-paper disabled:opacity-40"
                         >
                           {t.admin.changeType}

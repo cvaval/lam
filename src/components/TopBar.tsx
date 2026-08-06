@@ -39,7 +39,7 @@ export function TopBar({
     }
     // Navigation DURE : une navigation douce resservirait, au retour, les pages déjà
     // rendues pour le compte qu'on vient de quitter (cf. lib/auth/redirect).
-    hardRedirect(`/${locale}/login`)
+    hardRedirect(`/${locale}/login`, { sortie: true })
   }
 
   return (
