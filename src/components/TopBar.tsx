@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import { Logo } from './Logo'
 import { LocaleSwitcher } from './LocaleSwitcher'
 import { TopBarSearch } from './TopBarSearch'
@@ -10,6 +9,7 @@ import type { Dictionary } from '@/lib/i18n/dictionaries'
 import { postJson } from '@/lib/http'
 import { LOGGED_OUT_KEY } from './IdleTimer'
 import type { Locale } from '@/lib/types'
+import { hardRedirect } from '@/lib/auth/redirect'
 
 export function TopBar({
   locale,
@@ -26,7 +26,6 @@ export function TopBar({
   roleLabel: string
   isAdmin: boolean
 }) {
-  const router = useRouter()
   const [open, setOpen] = useState(false)
 
   async function logout() {
@@ -38,7 +37,9 @@ export function TopBar({
     } catch {
       /* sans stockage : les autres onglets le découvriront à leur prochaine requête */
     }
-    router.push(`/${locale}/login`)
+    // Navigation DURE : une navigation douce resservirait, au retour, les pages déjà
+    // rendues pour le compte qu'on vient de quitter (cf. lib/auth/redirect).
+    hardRedirect(`/${locale}/login`)
   }
 
   return (

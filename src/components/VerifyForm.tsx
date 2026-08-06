@@ -1,10 +1,10 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/navigation'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import { postJson } from '@/lib/http'
 import type { Locale } from '@/lib/types'
+import { hardRedirect } from '@/lib/auth/redirect'
 
 export function VerifyForm({
   locale,
@@ -22,7 +22,6 @@ export function VerifyForm({
   secretKey?: string | null
   sensitive: boolean
 }) {
-  const router = useRouter()
   const [digits, setDigits] = useState<string[]>(['', '', '', '', '', ''])
   const [trust, setTrust] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -84,7 +83,7 @@ export function VerifyForm({
         setLoading(false)
         return
       }
-      router.push(`/${locale}/dashboard`)
+      hardRedirect(`/${locale}/dashboard`)
     } catch {
       setError(t.errors.badCode)
       setLoading(false)

@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
 import { postJson } from '@/lib/http'
 import type { Locale } from '@/lib/types'
+import { hardRedirect } from '@/lib/auth/redirect'
 
 const LBL = {
   password: { fr: 'Nouveau mot de passe', en: 'New password', ht: 'Nouvo modpas' },
@@ -37,7 +37,6 @@ const LBL = {
 } as const
 
 export function ResetForm({ locale, token }: { locale: Locale; token: string }) {
-  const router = useRouter()
   const [pw, setPw] = useState('')
   const [confirm, setConfirm] = useState('')
   const [error, setError] = useState<string | null>(null)
@@ -72,7 +71,7 @@ export function ResetForm({ locale, token }: { locale: Locale; token: string }) 
         <p className="rounded-lg bg-green-50 px-3 py-3 text-sm text-green-800">{LBL.done[locale]}</p>
         <button
           type="button"
-          onClick={() => router.push(`/${locale}/login`)}
+          onClick={() => hardRedirect(`/${locale}/login`)}
           className="w-full rounded-lg bg-lank py-2.5 text-sm font-semibold text-white transition hover:bg-lank-600"
         >
           {LBL.toLogin[locale]}

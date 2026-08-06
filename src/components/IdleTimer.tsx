@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { Locale } from '@/lib/types'
+import { hardRedirect } from '@/lib/auth/redirect'
 
 /**
  * Déconnexion automatique pour inactivité (§sécurité). Détecte l'absence d'activité
@@ -93,11 +94,7 @@ export function IdleTimer({
     } catch {
       /* on redirige quand même */
     }
-    // Redirection DURE (rechargement complet) : réévalue l'authentification côté serveur
-    // et purge tout l'état client. Un router.push (navigation douce) pouvait laisser
-    // l'application affichée alors que la session venait d'être détruite → « pas de
-    // déconnexion » perçue par l'utilisateur.
-    window.location.assign(`/${locale}/login?timeout=1`)
+    hardRedirect(`/${locale}/login?timeout=1`)
   }, [locale])
 
   const beat = useCallback((force = false) => {
@@ -159,7 +156,7 @@ export function IdleTimer({
       if (loggingOut.current) return
       if (e.key === LOGGED_OUT_KEY && e.newValue) {
         loggingOut.current = true
-        window.location.assign(`/${locale}/login?timeout=1`)
+        hardRedirect(`/${locale}/login?timeout=1`)
         return
       }
       if (e.key === ACTIVITY_KEY) arm() // dissout aussi un avertissement en cours : présence avérée

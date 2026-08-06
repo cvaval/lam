@@ -1,13 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import { postJson } from '@/lib/http'
 import type { Locale } from '@/lib/types'
+import { hardRedirect } from '@/lib/auth/redirect'
 
 export function LoginForm({ locale, t }: { locale: Locale; t: Dictionary }) {
-  const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState<string | null>(null)
@@ -23,7 +22,7 @@ export function LoginForm({ locale, t }: { locale: Locale; t: Dictionary }) {
       setLoading(false)
       return
     }
-    router.push(res.data.step === 'done' ? `/${locale}/dashboard` : `/${locale}/verify`)
+    hardRedirect(res.data.step === 'done' ? `/${locale}/dashboard` : `/${locale}/verify`)
   }
 
   return (
