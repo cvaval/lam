@@ -59,9 +59,18 @@ export function RelatedLaw({ old, blocks = [], locale, codeHrefs }: { old?: stri
                     {b.label}
                   </Link>
                 ) : (
-                  <p className="text-[11.5px] font-semibold leading-snug text-lank/80">{b.label}</p>
+                  <p className="text-[11.5px] font-semibold leading-snug text-lank/80">
+                    <CodeRefText text={b.label} codeHrefs={codeHrefs} />
+                  </p>
                 ))}
-              <p className="mt-1 whitespace-pre-wrap text-[11.5px] leading-relaxed text-lank/60">{b.text}</p>
+              {/* Le contenu d'un texte connexe cite les codes comme n'importe quelle
+                  disposition (« - C. civ., 1728 »). Il était rendu BRUT, alors que
+                  l'ancienne version juste au-dessus et tout le pliable des annotations
+                  passent par le linkificateur : le même renvoi était cliquable au corps et
+                  mort dans le pliable. */}
+              <p className="mt-1 whitespace-pre-wrap text-[11.5px] leading-relaxed text-lank/60">
+                <CodeRefText text={b.text} codeHrefs={codeHrefs} />
+              </p>
             </div>
           ))}
         </div>
