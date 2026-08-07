@@ -82,21 +82,37 @@ Les renvois du document sont de la forme « art. 3, 8) » : porte le numéro d'a
 (soit `3`) et garde la précision de l'item dans le `subject`, comme le fait déjà l'index du Code
 civil. Vérifie qu'aucun `ctRefs` ne vise un article inexistant (il n'y en a que cinq).
 
-## Trois points à trancher, et à me rapporter — n'en corrige aucun en silence
+## Règle d'arbitrage — décidée par la cliente
 
-1. **Dix-huit ministres signent le texte, le sommaire en annonce dix-neuf.** Compte-les toi-même
-   pour confirmer. Il manque probablement un signataire à la reconstitution — un ministre délégué,
-   typiquement. Le Moniteur de 2018 **n'est pas** au corpus (années présentes : 2016, 2019, 2021,
-   2024, 2025, 2026), il n'y a donc pas de fac-similé pour trancher : signale l'écart, ne comble
-   pas le trou de mémoire.
-2. **« pr Antonio RODRIGUE » et « pr Hervé DENIS »** — ce « pr » est dans le `.docx` source, ce
-   n'est pas un artefact d'extraction. C'est vraisemblablement un « Me » (maître) mal transcrit,
-   mais rien ne l'établit. Reproduis tel quel et signale.
-3. **L'index porte un doublon** : l'entrée 6 (« Restriction - consultation réservée aux services
-   habilités… ») répète la seconde moitié de l'entrée 5 (« Accès (restriction d'—) »), et se
-   termine sur « art. 3, 6 » sans la parenthèse fermante. Avant de retrancher quoi que ce soit,
-   **établis le doublon par une mesure** — comparaison exacte des chaînes, longueurs — et non à
-   l'impression de similitude. Propose, n'exécute pas : c'est une décision éditoriale.
+**Le contenu de l'ARRÊTÉ prime sur le sommaire.** Partout où les deux divergent, c'est le texte
+qui fait foi et le sommaire qu'on ajuste — jamais l'inverse. On ne complète pas le texte d'un
+arrêté d'après la description qu'un sommaire en donne.
+
+Application immédiate : **dix-huit ministres signent le texte, le sommaire en annonce dix-neuf**
+(« le Président, le Premier ministre et dix-neuf ministres »). Compte-les toi-même pour
+confirmer, puis retiens dix-huit et corrige le sommaire en conséquence. Ne cherche pas à
+inventer un dix-neuvième signataire : le Moniteur de 2018 n'est pas au corpus (années présentes :
+2016, 2019, 2021, 2024, 2025, 2026), rien ne permettrait de le nommer. Mentionne l'écart dans la
+note de livraison — si la cliente retrouve le numéro 87, le signataire manquant s'ajoutera.
+
+## Le doublon de l'index — à supprimer
+
+L'entrée 6, « Restriction - consultation réservée aux services habilités… », est un doublon de
+l'entrée 5, « Accès (restriction d'—) ». **Établi par la mesure** : son corps, à partir de
+« consultation réservée », est identique caractère pour caractère à la queue de l'entrée 5 —
+150 signes contre 151, la seule différence étant la parenthèse fermante, que la seconde a perdue.
+C'est une hésitation d'indexation entre deux vedettes, dont la seconde est restée inachevée.
+
+**Supprime-la.** L'index descend de 37 à 36 entrées. Refais la mesure avant de retrancher : la
+règle de la maison est qu'on n'écarte jamais un doublon sur une impression de similitude.
+
+## Un point à me rapporter — ne le corrige pas en silence
+
+**« pr Antonio RODRIGUE » et « pr Hervé DENIS ».** Ce « pr » est dans le `.docx` source, ce n'est
+pas un artefact d'extraction : les deux runs sont en texte simple, sans exposant ni petites
+capitales. Il apparaît exactement deux fois dans tout le document, chaque fois devant un nom de
+ministre, et le document n'emploie aucun autre titre de civilité. Reproduis-le **tel quel** et
+signale-le : la question est en attente d'arbitrage.
 
 ## Exécution
 
