@@ -37,6 +37,7 @@ import { AmendmentHistory, type AmendItem } from '@/components/AmendmentHistory'
 import { parseAnnotations } from '@/lib/legislation/annotated'
 import { AnnotatedText } from '@/components/AnnotatedText'
 import { CodeSidebar } from '@/components/CodeSidebar'
+import type { CodeHrefs } from '@/components/CodeRefText'
 
 // Sources du lecteur annoté (listes devenues illisibles en conditions inline) :
 // index inline masqué (le panneau latéral l'affiche) et renvois « article N »
@@ -187,15 +188,29 @@ export default async function DocPage({
   // son corps comme dans ses annotations. On résout la CIBLE ici — une requête d'un seul
   // champ, et uniquement pour ce document : le rendu, lui, reste pur (§02, le texte
   // officiel n'est pas retouché ; seuls des liens s'ajoutent à l'affichage).
-  const codeHrefs: { cpc?: string; cp?: string } = {}
-  if (doc.source === 'CODE_CIVIL_ANNOTE') {
+  const codeHrefs: CodeHrefs = {}
+  // Quels codes ce document cite-t-il ? Le Code civil cite les trois autres ; le Code de
+  // procédure civile et son appendice citent le Code d'instruction criminelle (« C.I.C. »).
+  // Mesuré sur le corpus : le Code pénal, lui, n'en cite aucun.
+  const CITE: Record<string, readonly string[]> = {
+    CODE_CIVIL_ANNOTE: ['CODE_PROCEDURE_CIVILE', 'CODE_PENAL_ANNOTE', 'CODE_INSTRUCTION_CRIMINELLE'],
+    CODE_PROCEDURE_CIVILE: ['CODE_INSTRUCTION_CRIMINELLE'],
+    CODE_INSTRUCTION_CRIMINELLE: ['CODE_PROCEDURE_CIVILE', 'CODE_PENAL_ANNOTE', 'CODE_CIVIL_ANNOTE'],
+  }
+  const PAR_SOURCE: Record<string, 'cpc' | 'cp' | 'cic' | 'civ'> = {
+    CODE_PROCEDURE_CIVILE: 'cpc',
+    CODE_PENAL_ANNOTE: 'cp',
+    CODE_INSTRUCTION_CRIMINELLE: 'cic',
+  }
+  const aResoudre = CITE[doc.source ?? ''] ?? (doc.source?.startsWith('CPC_APPENDICE_') ? ['CODE_INSTRUCTION_CRIMINELLE'] : [])
+  if (aResoudre.length) {
     const cites = await prisma.document.findMany({
-      where: { source: { in: ['CODE_PROCEDURE_CIVILE', 'CODE_PENAL_ANNOTE'] } },
+      where: { source: { in: [...aResoudre] }, type: 'LEGISLATION' },
       select: { id: true, source: true },
     })
     for (const c of cites) {
-      if (c.source === 'CODE_PROCEDURE_CIVILE') codeHrefs.cpc = `/${locale}/doc/${c.id}`
-      if (c.source === 'CODE_PENAL_ANNOTE') codeHrefs.cp = `/${locale}/doc/${c.id}`
+      const cle = PAR_SOURCE[c.source ?? '']
+      if (cle && cle !== 'civ') codeHrefs[cle] = `/${locale}/doc/${c.id}`
     }
   }
   // Index thématique IA (codes/lois longs) — alimente le navigateur par thème + renvois.

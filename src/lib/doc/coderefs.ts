@@ -76,6 +76,41 @@ export const CPC_BEFORE_RE = new RegExp(
   'giu',
 )
 
+/**
+ * Abréviation du Code d'instruction criminelle : « C. i. c. » (Code civil, 26 renvois)
+ * et « C.I.C. » (Code de procédure civile et son appendice, 3 renvois) — les DEUX seules
+ * graphies du corpus (mesuré sur les 29 227 documents, 20 Mo de texte).
+ *
+ * Trois sentinelles, chacune payée par un faux positif MESURÉ :
+ *  a) `(?<![\p{L}\d\-–'’])` : « notifiée à celui-ci. C. civ., 1767 » — sans l'exclusion du
+ *     trait d'union, « ci. C. » est lu comme le sigle et VOLE au Code civil son renvoi
+ *     (2 occurrences dans le Code civil, 4 de la même famille dans les circulaires BRH) ;
+ *  b) le point FINAL obligatoire : sans lui entrent « CIC » (société « Coles Immobilier
+ *     Construction »), « CLC », « Cic(éron) », « CI CÔTE D'IVOIRE » / « CL CHILI » (codes
+ *     pays des circulaires BRH 105) et les colonnes ravagées des lois de finances —
+ *     33 faux positifs mesurés (62 correspondances sans le point, 29 avec) ;
+ *  c) `(?![\s.]*(?:civ|com|p[ée]n|proc|pr[\s.]|p[\s.]*c\b))` : le troisième terme ne peut
+ *     ouvrir l'abréviation d'un AUTRE code. Redondante avec (a) sur le corpus actuel, elle
+ *     protège le jour où le recueil écrira « ceci. C. civ. ».
+ *
+ * NE PAS exiger « aucune lettre après » : deux des trois « C.I.C. » sont suivis d'un mot
+ * (« 443 C.I.C. que la communication… », « l'art. 3 du C.I.C. auquel… »).
+ *
+ * Le `i` admet les confusions d'OCR i/l/1 ; le troisième terme est un `c` sec — jamais
+ * « cr » ni « crim » (aucune occurrence).
+ */
+const ABBREV_CIC_SRC = String.raw`C(?=[^\p{L}\d]{0,4}[il1íÍ])[\s.,;:]{0,4}[il1íÍ][\s.,;:]{0,4}c\s*\.(?![\s.]*(?:civ|com|p[ée]n|proc|pr[\s.]|p[\s.]*c\b))`
+/** La sentinelle de TÊTE ne peut pas vivre dans `CIC_BEFORE_RE` (le sigle y est précédé
+ *  d'un chiffre ou de « du ») : on la pose sur la seule construction 1. */
+const CIC_TETE = String.raw`(?<![\p{L}\d\-–'’])`
+
+/** 2 ter. Les deux constructions, pour le Code d'instruction criminelle. */
+export const CIC_AFTER_RE = new RegExp(String.raw`(${CIC_TETE}${ABBREV_CIC_SRC})((?:${H}|[,;:])*)(${NUM_LIST_SRC})?`, 'giu')
+export const CIC_BEFORE_RE = new RegExp(
+  String.raw`(?:\b(arts?\.?|articles?)(\s+))?(\d{1,4})(\s*,?\s*(?:du\s+|de\s+la\s+)?)(${ABBREV_CIC_SRC})`,
+  'giu',
+)
+
 /** 2 bis. Le numéro puis l'abréviation, pour le Code pénal. */
 export const CP_AFTER_RE = new RegExp(String.raw`(${ABBREV_CP_SRC})((?:${H}|[,;:])*)(${NUM_LIST_SRC})?`, 'giu')
 export const CP_BEFORE_RE = new RegExp(
@@ -84,7 +119,7 @@ export const CP_BEFORE_RE = new RegExp(
 )
 
 /** Code cité. La clé sert à fabriquer le bon lien côté appelant. */
-export type CodeKey = 'cpc' | 'cp'
+export type CodeKey = 'cpc' | 'cp' | 'cic'
 
 /** Segment de rendu : texte brut, abréviation (lien vers le code) ou numéro d'article (lien ancré). */
 export type CodeRefSegment =
@@ -101,7 +136,7 @@ export type CodeRefSegment =
  * Retourne `null` si le texte ne contient aucun renvoi — l'appelant garde alors son
  * rendu habituel sans allocation inutile.
  */
-export function segmentCodeRefs(value: string, codes: readonly CodeKey[] = ['cpc', 'cp']): CodeRefSegment[] | null {
+export function segmentCodeRefs(value: string, codes: readonly CodeKey[] = ['cpc', 'cp', 'cic']): CodeRefSegment[] | null {
   type Hit = { start: number; end: number; segs: CodeRefSegment[] }
   const hits: Hit[] = []
 
@@ -188,8 +223,24 @@ const CP_ABSENTS = new Set(CP_MISSING_ARTICLES)
 export const isCpArticle = (n: number) =>
   Number.isInteger(n) && n >= 1 && n <= CP_LAST_ARTICLE && !CP_ABSENTS.has(n)
 
+/**
+ * Le Code d'instruction criminelle court de l'article 1er à l'article 472, mais DIX
+ * numéros n'ont pas d'article : 109 à 111 et 202 à 208, « supprimés par la loi du
+ * 12 juillet 1920 » — le corps du Code le dit lui-même en toutes lettres. Le Code civil
+ * cite pourtant « C. i. c., 108, 110 » : sans cette liste, ce renvoi serait un lien MORT.
+ * (Les articles 1 à 24 de la loi du 26 juillet 1979 et l'article 2 de la loi du
+ * 20 juillet 1929, insérés dans le corps, portent une numérotation PROPRE : ils ne
+ * doivent pas recevoir d'ancre #art-N, sous peine de doublons.)
+ */
+export const CIC_LAST_ARTICLE = 472
+export const CIC_MISSING_ARTICLES: readonly number[] = [109, 110, 111, 202, 203, 204, 205, 206, 207, 208]
+const CIC_ABSENTS = new Set(CIC_MISSING_ARTICLES)
+export const isCicArticle = (n: number) =>
+  Number.isInteger(n) && n >= 1 && n <= CIC_LAST_ARTICLE && !CIC_ABSENTS.has(n)
+
 /** Grammaire par code : les deux constructions et le prédicat anti-lien-mort. */
 const GRAMMAIRES: Record<CodeKey, { after: RegExp; before: RegExp; isArticle: (n: number) => boolean }> = {
   cpc: { after: CPC_AFTER_RE, before: CPC_BEFORE_RE, isArticle: isCpcArticle },
   cp: { after: CP_AFTER_RE, before: CP_BEFORE_RE, isArticle: isCpArticle },
+  cic: { after: CIC_AFTER_RE, before: CIC_BEFORE_RE, isArticle: isCicArticle },
 }
