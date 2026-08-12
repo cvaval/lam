@@ -142,8 +142,13 @@ d'autres décisions, réserve d'interprétation.
 - **Rédacteur** : MASTER_ADMIN ou EDITEUR uniquement.
 - **Texte long**, mis en forme simple (paragraphes, listes) — pas de HTML libre : le
   contenu est rendu par React et échappé, comme partout ailleurs sur la plateforme.
-- **Signée et datée** : nom de l'éditeur et date de dernière révision, affichés. Une note
-  éditoriale anonyme n'engage personne.
+- **Signée et datée** : nom de l'éditeur et date de dernière révision, affichés.
+
+⚠️ **L'ANONYMAT DU §1.6 NE S'APPLIQUE PAS ICI.** La note de la rédaction n'est pas une
+contribution parmi d'autres : c'est Lam qui parle, dans la fiche même de la décision.
+Anonyme, elle n'engagerait personne tout en ayant l'autorité de la maison — le pire des
+deux. Un éditeur qui souhaite s'exprimer sans se nommer dispose du fil des commentaires,
+où l'anonymat est prévu. (À confirmer avec le client si l'intention était autre.)
 - **Toujours visible** quand elle existe, en dessous du résumé et des domaines.
 
 ⚠️ **ELLE DOIT SE DISTINGUER DU TEXTE DE L'ARRÊT AU PREMIER COUP D'ŒIL.** Le corps de
@@ -178,6 +183,39 @@ n'est visible avant qu'un éditeur l'ait approuvée.**
 et deux actions — approuver, refuser avec motif. Compteur des notes en attente visible
 dans la navigation du back-office : une file invisible ne se traite pas.
 
+#### Signature, date, et anonymat au choix
+
+Chaque note publiée porte **le nom de son auteur et la date** de sa contribution. L'auteur
+— utilisateur comme éditeur — peut à la place demander que sa note paraisse **anonyme**.
+Le choix se fait note par note, à la soumission, et reste modifiable par l'auteur.
+
+⚠️ **ANONYME À L'AFFICHAGE, JAMAIS ANONYME EN BASE.** C'est la règle qui fait tenir tout
+le reste. La table conserve toujours `userId` ; seul le RENDU masque le nom. Sans cette
+distinction :
+- le frein de débit ne s'applique plus — on ne compte pas les envois d'un auteur inconnu ;
+- un contributeur abusif devient introuvable, et ses notes irretirables en bloc ;
+- l'auteur ne peut plus retirer sa propre note, faute de pouvoir prouver qu'elle est
+  sienne ;
+- la modération se fait à l'aveugle.
+
+**Le modérateur voit toujours l'identité réelle**, y compris pour une note anonyme, et
+l'écran le dit explicitement (« publiée sous anonymat »). Modérer sans savoir qui écrit
+serait modérer sans rien savoir.
+
+⚠️ **NE PAS AFFICHER LE RÔLE SOUS ANONYMAT.** Le premier réflexe est d'écrire
+« Éditeur (anonyme) » pour conserver le poids de la parole. Ce serait vider l'anonymat de
+son sens : les éditeurs se comptent sur les doigts d'une main, et la mention désigne
+presque la personne. Sous anonymat, aucune qualité n'est montrée — pas plus « Éditeur »
+que « Professionnel ».
+
+**La date, elle, reste affichée**, anonymat ou non : elle situe la contribution dans le
+temps sans rien dire de son auteur. Une note sur un arrêt de 1964 rédigée en 2019 ou en
+2026 ne se lit pas de la même façon.
+
+**Libellé** : « Contribution anonyme », et non « Anonyme » seul — la première formule dit
+qu'un auteur existe et a choisi de ne pas se nommer ; la seconde laisse croire à un
+contenu sans origine.
+
 #### Ce qu'il faut prévoir, et qui n'est pas optionnel
 
 ⚠️ **DISTINCTION VISUELLE ABSOLUE.** Un lecteur ne doit JAMAIS pouvoir prendre la note
@@ -207,9 +245,15 @@ modération et la rendre inutilisable.
 l'acteur, la cible et le motif. La modération est une décision éditoriale : elle se trace
 comme les autres.
 
-**Modèle** : nouvelle table (`DecisionNote` ou `UserNote`) — `documentId`, `userId`,
-`body`, `status`, `moderatorId`, `moderatedAt`, `rejectionReason`, horodatages. Index sur
+**Modèle** : nouvelle table (`DecisionNote` ou `UserNote`) — `documentId`, `userId`
+(**toujours renseigné**, y compris sous anonymat), `body`, `status`, `anonymous`,
+`moderatorId`, `moderatedAt`, `rejectionReason`, horodatages. Index sur
 `(documentId, status)` pour la lecture publique et sur `(status, createdAt)` pour la file.
+
+⚠️ **L'API PUBLIQUE NE DOIT JAMAIS SÉRIALISER `userId` NI LE NOM D'UNE NOTE ANONYME.**
+Le masquage se fait à la SOURCE, dans la couche de données — pas dans le composant. Une
+note anonyme dont l'identité voyage jusqu'au navigateur est une note démasquée : il suffit
+d'ouvrir l'inspecteur. C'est le contrôle n° 17 ci-dessous.
 
 **Portée** : le prompt vise les décisions judiciaires, mais le mécanisme n'a rien de
 propre à elles. Concevoir la table sur `documentId` — et non sur un identifiant d'arrêt —
@@ -401,6 +445,11 @@ doit offrir `--dry-run` et l'exécuter par défaut.
 14. La modification d'une note déjà approuvée la remet en attente, la version publiée
     restant affichée entre-temps
 15. La limite de longueur est refusée par le SERVEUR, contournement du formulaire compris
+16. Une note signée affiche nom ET date ; une note anonyme affiche « Contribution
+    anonyme » et la date, sans aucune mention de rôle
+17. **La charge utile reçue par le navigateur ne contient ni `userId` ni nom** pour une
+    note anonyme — vérifié dans l'onglet réseau, pas dans le rendu
+18. La file de modération montre l'identité réelle d'une note anonyme, en le signalant
 
 ---
 
