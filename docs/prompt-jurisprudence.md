@@ -144,11 +144,10 @@ d'autres décisions, réserve d'interprétation.
   contenu est rendu par React et échappé, comme partout ailleurs sur la plateforme.
 - **Signée et datée** : nom de l'éditeur et date de dernière révision, affichés.
 
-⚠️ **L'ANONYMAT DU §1.6 NE S'APPLIQUE PAS ICI.** La note de la rédaction n'est pas une
-contribution parmi d'autres : c'est Lam qui parle, dans la fiche même de la décision.
-Anonyme, elle n'engagerait personne tout en ayant l'autorité de la maison — le pire des
-deux. Un éditeur qui souhaite s'exprimer sans se nommer dispose du fil des commentaires,
-où l'anonymat est prévu. (À confirmer avec le client si l'intention était autre.)
+⚠️ **AUCUN ANONYMAT ICI NON PLUS.** La note de la rédaction n'est pas une contribution
+parmi d'autres : c'est Lam qui parle, dans la fiche même de la décision. Elle est signée,
+comme tout ce qu'écrit un éditeur sur la plateforme (§1.6) — l'anonymat est un droit du
+lecteur, jamais une option du personnel.
 - **Toujours visible** quand elle existe, en dessous du résumé et des domaines.
 
 ⚠️ **ELLE DOIT SE DISTINGUER DU TEXTE DE L'ARRÊT AU PREMIER COUP D'ŒIL.** Le corps de
@@ -185,9 +184,24 @@ dans la navigation du back-office : une file invisible ne se traite pas.
 
 #### Signature, date, et anonymat au choix
 
-Chaque note publiée porte **le nom de son auteur et la date** de sa contribution. L'auteur
-— utilisateur comme éditeur — peut à la place demander que sa note paraisse **anonyme**.
-Le choix se fait note par note, à la soumission, et reste modifiable par l'auteur.
+Chaque note publiée porte **le nom de son auteur et la date** de sa contribution.
+
+**L'anonymat est réservé aux UTILISATEURS de la plateforme** — `SITWAYEN`, `PWOFESYONEL`,
+`ENSTITISYON`. Le choix se fait note par note, à la soumission, et reste modifiable par
+l'auteur.
+
+⚠️ **UN ÉDITEUR NE PEUT JAMAIS ÊTRE ANONYME.** `EDITEUR` et `MASTER_ADMIN` commentent
+toujours sous leur nom, l'option n'apparaît même pas dans leur formulaire — et le serveur
+refuse le drapeau si le rôle est éditorial, car une option absente de l'écran n'est pas
+une option interdite. Un éditeur parle avec l'autorité de la maison ; non signée, cette
+parole aurait le poids de Lam sans que personne ne la porte.
+
+Cette réserve produit une propriété utile, à ne pas défaire : **une note anonyme ne peut
+jamais émaner de la rédaction.** Le lecteur qui voit « Contribution anonyme » sait, par
+construction, qu'il ne lit pas la position de Lam.
+
+⚠️ L'anonymat ne dispense de rien : la note d'un utilisateur anonyme suit **le même
+circuit de validation**, approuvée par un éditeur ou le master admin avant publication.
 
 ⚠️ **ANONYME À L'AFFICHAGE, JAMAIS ANONYME EN BASE.** C'est la règle qui fait tenir tout
 le reste. La table conserve toujours `userId` ; seul le RENDU masque le nom. Sans cette
@@ -202,11 +216,10 @@ distinction :
 l'écran le dit explicitement (« publiée sous anonymat »). Modérer sans savoir qui écrit
 serait modérer sans rien savoir.
 
-⚠️ **NE PAS AFFICHER LE RÔLE SOUS ANONYMAT.** Le premier réflexe est d'écrire
-« Éditeur (anonyme) » pour conserver le poids de la parole. Ce serait vider l'anonymat de
-son sens : les éditeurs se comptent sur les doigts d'une main, et la mention désigne
-presque la personne. Sous anonymat, aucune qualité n'est montrée — pas plus « Éditeur »
-que « Professionnel ».
+⚠️ **NE PAS AFFICHER LE RÔLE SOUS ANONYMAT.** Même restreint aux utilisateurs, montrer
+« Professionnel (anonyme) » réduit le champ des auteurs possibles et, dans une communauté
+de spécialistes qui se connaissent, désigne parfois la personne. Sous anonymat, aucune
+qualité n'est montrée.
 
 **La date, elle, reste affichée**, anonymat ou non : elle situe la contribution dans le
 temps sans rien dire de son auteur. Une note sur un arrêt de 1964 rédigée en 2019 ou en
@@ -249,6 +262,9 @@ comme les autres.
 (**toujours renseigné**, y compris sous anonymat), `body`, `status`, `anonymous`,
 `moderatorId`, `moderatedAt`, `rejectionReason`, horodatages. Index sur
 `(documentId, status)` pour la lecture publique et sur `(status, createdAt)` pour la file.
+
+Le drapeau `anonymous` n'est accepté que si le rôle de l'auteur n'est PAS éditorial —
+contrôle **côté serveur**, à la soumission comme à la modification.
 
 ⚠️ **L'API PUBLIQUE NE DOIT JAMAIS SÉRIALISER `userId` NI LE NOM D'UNE NOTE ANONYME.**
 Le masquage se fait à la SOURCE, dans la couche de données — pas dans le composant. Une
@@ -447,6 +463,9 @@ doit offrir `--dry-run` et l'exécuter par défaut.
 15. La limite de longueur est refusée par le SERVEUR, contournement du formulaire compris
 16. Une note signée affiche nom ET date ; une note anonyme affiche « Contribution
     anonyme » et la date, sans aucune mention de rôle
+16 bis. Le formulaire d'un compte `EDITEUR` ou `MASTER_ADMIN` **n'offre pas** l'option
+    d'anonymat — et une requête forgée qui la pose quand même est **refusée par le
+    serveur**, contrôlée en appelant l'API directement
 17. **La charge utile reçue par le navigateur ne contient ni `userId` ni nom** pour une
     note anonyme — vérifié dans l'onglet réseau, pas dans le rendu
 18. La file de modération montre l'identité réelle d'une note anonyme, en le signalant
