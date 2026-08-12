@@ -34,41 +34,41 @@ model Organization {
 /// status ∈ {PENDING, ACTIVE, SUSPENDED}. Aucun compte n'accède au contenu payant
 /// sans activation par le master admin (§03).
 model User {
-  id           String  @id @default(cuid())
-  email        String  @unique
-  passwordHash String
-  name         String?
+  id             String   @id @default(cuid())
+  email          String   @unique
+  passwordHash   String
+  name           String?
   // Organisation déclarée à la demande d'accès (texte libre) — affichée au master
   // admin dans la file d'activation. Distincte de la relation Organization (§03).
-  org          String?
-  role         String  @default("SITWAYEN")
-  status       String  @default("PENDING")
-  locale       String  @default("fr") // fr | en | ht — mémorisé par compte (§02)
+  org            String?
+  role           String   @default("SITWAYEN")
+  status         String   @default("PENDING")
+  locale         String   @default("fr") // fr | en | ht — mémorisé par compte (§02)
 
   // 2FA / TOTP (§04, §09)
-  totpSecret   String?
-  totpEnabled  Boolean @default(false)
+  totpSecret     String?
+  totpEnabled    Boolean  @default(false)
   // Dernier « pas » TOTP (floor(epoch/30)+delta) accepté : un code n'est validé qu'une
   // fois (anti-rejeu §04). Un code dont le pas est ≤ lastTotpStep est refusé.
-  lastTotpStep Int?
+  lastTotpStep   Int?
 
   // Quota de recherche mensuel (Sitwayen gratuit) — illimité = null
-  monthlyQuota Int?     @default(30)
-  quotaUsed    Int      @default(0)
-  quotaResetAt DateTime @default(now())
+  monthlyQuota   Int?     @default(30)
+  quotaUsed      Int      @default(0)
+  quotaResetAt   DateTime @default(now())
 
   // Palier octroyé par code promo : expire à cette date (puis retour Sitwayen).
-  planExpiresAt DateTime?
+  planExpiresAt  DateTime?
 
   // Services à texte intégral accordés à ce compte — CSV de DocType
   // (ex. "LEGISLATION,LOI_FINANCES"). Vide = Index du Moniteur seulement (défaut §03).
   // INDEX est toujours accessible ; EDITEUR/MASTER_ADMIN voient tout (cf. src/lib/access.ts).
-  services         String  @default("")
+  services       String   @default("")
   // Ordre d'affichage des onglets/rubriques choisi par l'utilisateur (réorganisables au
   // glisser-déposer) : CSV de DocType (ex. "INDEX,DOCTRINE,TARIF_DOUANIER,…"). Vide = ordre
   // canonique (num). Les types absents (nouveaux onglets) sont ajoutés à la fin. Persisté
   // côté compte → suit l'utilisateur sur toute machine.
-  sectionOrder     String  @default("")
+  sectionOrder   String   @default("")
   // Autorise l'affichage du lien vers le PDF original du document retranscrit.
   canViewSourcePdf Boolean @default(false)
 
@@ -78,35 +78,35 @@ model User {
   resetTokenExpiresAt DateTime?
 
   // Verrouillage anti-bruteforce : 5 échecs → 15 min (§04)
-  failedLogins Int       @default(0)
-  lockedUntil  DateTime?
+  failedLogins   Int      @default(0)
+  lockedUntil    DateTime?
 
   organizationId String?
   organization   Organization? @relation(fields: [organizationId], references: [id])
 
   // Traçabilité de l'activation (master admin)
-  requestedAt    DateTime  @default(now())
+  requestedAt    DateTime @default(now())
   activatedAt    DateTime?
   activatedById  String?
-  activatedBy    User?     @relation("Activator", fields: [activatedById], references: [id])
-  activatedUsers User[]    @relation("Activator")
+  activatedBy    User?    @relation("Activator", fields: [activatedById], references: [id])
+  activatedUsers User[]   @relation("Activator")
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 
-  sessions           Session[]
-  trustedDevices     TrustedDevice[]
-  favorites          Favorite[]
-  searchLogs         SearchLog[]
-  alerts             Alert[]
-  exports            ExportRecord[]
-  auditLogs          AuditLog[]        @relation("AuditActor")
-  publishedDocs      Document[]        @relation("Publisher")
-  promoRedemptions   PromoRedemption[]
-  assignedPromoCodes PromoCode[]       @relation("PromoAssignee")
-  documentNotes      DocumentNote[]    @relation("NoteAuthor")
-  moderatedNotes     DocumentNote[]    @relation("NoteModerator")
-  createdPromoCodes  PromoCode[]       @relation("PromoCreator")
+  sessions       Session[]
+  trustedDevices TrustedDevice[]
+  favorites      Favorite[]
+  searchLogs     SearchLog[]
+  alerts         Alert[]
+  exports          ExportRecord[]
+  auditLogs        AuditLog[] @relation("AuditActor")
+  publishedDocs    Document[] @relation("Publisher")
+  promoRedemptions PromoRedemption[]
+  assignedPromoCodes PromoCode[] @relation("PromoAssignee")
+  documentNotes      DocumentNote[] @relation("NoteAuthor")
+  moderatedNotes     DocumentNote[] @relation("NoteModerator")
+  createdPromoCodes  PromoCode[] @relation("PromoCreator")
 
   @@index([status])
   @@index([role])
@@ -116,21 +116,21 @@ model User {
 /// palier payant gratuitement pour une durée donnée. Un code peut être assigné à un
 /// compte précis (« donner un code à un compte ») ou être ouvert à la redemption.
 model PromoCode {
-  id               String            @id @default(cuid())
-  code             String            @unique
+  id               String   @id @default(cuid())
+  code             String   @unique
   label            String?
-  grantsRole       String            @default("PWOFESYONEL") // palier octroyé
-  durationDays     Int? // null = permanent
-  percentOff       Int? // remise indicative (affichage paiement)
-  maxRedemptions   Int? // null = illimité
-  redeemedCount    Int               @default(0)
+  grantsRole       String   @default("PWOFESYONEL") // palier octroyé
+  durationDays     Int?     // null = permanent
+  percentOff       Int?     // remise indicative (affichage paiement)
+  maxRedemptions   Int?     // null = illimité
+  redeemedCount    Int      @default(0)
   expiresAt        DateTime? // date limite d'utilisation du code
-  active           Boolean           @default(true)
-  assignedToUserId String? // code réservé/attribué à un compte précis
-  assignedTo       User?             @relation("PromoAssignee", fields: [assignedToUserId], references: [id], onDelete: SetNull)
+  active           Boolean  @default(true)
+  assignedToUserId String?  // code réservé/attribué à un compte précis
+  assignedTo       User?    @relation("PromoAssignee", fields: [assignedToUserId], references: [id], onDelete: SetNull)
   createdById      String?
-  createdBy        User?             @relation("PromoCreator", fields: [createdById], references: [id], onDelete: SetNull)
-  createdAt        DateTime          @default(now())
+  createdBy        User?    @relation("PromoCreator", fields: [createdById], references: [id], onDelete: SetNull)
+  createdAt        DateTime @default(now())
   redemptions      PromoRedemption[]
 
   @@index([active])
@@ -154,18 +154,18 @@ model PromoRedemption {
 /// Session serveur (cookie opaque httpOnly). twoFactorVerified passe à true après
 /// validation du code 6 chiffres. Éditeur/Admin : 2FA à chaque session (§04).
 model Session {
-  id                String    @id @default(cuid())
-  token             String    @unique
-  userId            String
-  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  twoFactorVerified Boolean   @default(false)
-  ip                String?
-  userAgent         String?
-  createdAt         DateTime  @default(now())
-  expiresAt         DateTime
+  id               String   @id @default(cuid())
+  token            String   @unique
+  userId           String
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  twoFactorVerified Boolean @default(false)
+  ip               String?
+  userAgent        String?
+  createdAt        DateTime @default(now())
+  expiresAt        DateTime
   // Dernière activité — déconnexion auto pour inactivité (§sécurité). Null pour les
   // sessions antérieures à la fonctionnalité → initialisé à la première requête.
-  lastSeenAt        DateTime?
+  lastSeenAt       DateTime?
 
   @@index([userId])
 }
@@ -176,8 +176,8 @@ model TrustedDevice {
   id          String   @id @default(cuid())
   userId      String
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  deviceId    String // identifiant aléatoire stocké dans un cookie signé HMAC
-  fingerprint String // empreinte UA + entête (dissuasion du vol de cookie)
+  deviceId    String   // identifiant aléatoire stocké dans un cookie signé HMAC
+  fingerprint String   // empreinte UA + entête (dissuasion du vol de cookie)
   label       String?
   lastIp      String?
   createdAt   DateTime @default(now())
@@ -197,81 +197,83 @@ model TrustedDevice {
 /// publication, JAMAIS traduit. Les champs éditoriaux (titres, résumés, « Sa sa vle
 /// di / What it means ») existent en FR/EN/HT et sont balisés comme éditoriaux.
 model Document {
-  id                String  @id @default(cuid())
-  type              String
-  status            String  @default("PUBLIE") // EN_VIGUEUR | ABROGE | MODIFIE | PUBLIE
+  id             String   @id @default(cuid())
+  type           String
+  status         String   @default("PUBLIE") // EN_VIGUEUR | ABROGE | MODIFIE | PUBLIE
   // Numéro du texte qui ABROGE celui-ci (ex. « Circulaire n° 129 ») — affiché en note
   // sur la fiche (statut ABROGE) avec un lien vers ce texte, résolu par numéro à
   // l'affichage (robuste au ré-import qui change les id). Null = pas de renvoi.
   abrogatedByNumber String?
 
   // Titres descriptifs éditoriaux (traduisibles)
-  titleFr String
-  titleEn String?
-  titleHt String?
+  titleFr        String
+  titleEn        String?
+  titleHt        String?
 
   // Texte officiel — NON traduit
-  bodyOriginal String
-  originalLang String @default("fr")
+  bodyOriginal   String
+  originalLang   String   @default("fr")
 
   // Résumés éditoriaux & encadrés pédagogiques « Sa sa vle di / What it means »
-  summaryFr String?
-  summaryEn String?
-  summaryHt String?
-  meansFr   String?
-  meansEn   String?
-  meansHt   String?
+  summaryFr      String?
+  summaryEn      String?
+  summaryHt      String?
+  meansFr        String?
+  meansEn        String?
+  meansHt        String?
 
   // Source & publication au Moniteur
-  moniteurRef     String? // ex. « Le Moniteur n° 112 du 9 juin 2020 »
+  moniteurRef    String?  // ex. « Le Moniteur n° 112 du 9 juin 2020 »
   publicationDate DateTime?
   // Date d'entrée en vigueur (distincte de la signature/publication) — circulaires
   // BRH notamment : « à compter du … ». Nullable, affichée à côté de publicationDate.
-  effectiveDate   DateTime?
-  sourcePdfUrl    String?
-  number          String? // n° de loi / n° de circulaire / n° d'arrêt
+  effectiveDate  DateTime?
+  sourcePdfUrl   String?
+  number         String?  // n° de loi / n° de circulaire / n° d'arrêt
 
   // Champs filtrables spécifiques par type (nullables)
-  juridiction      String? // JURISPRUDENCE : CASSATION | APPEL | PREMIERE_INSTANCE
-  // ── JURISPRUDENCE (phase 1) — toutes NULLABLES : migration purement additive ──
-  chambre          String? // « Première Section », « 2e Chambre »… vide hors Cassation
-  decisionAttaquee String? // arrêt ou jugement frappé de pourvoi, texte du recueil
-  solution         String? // REJET | CASSATION_AVEC_RENVOI | CASSATION_SANS_RENVOI | DECHEANCE | IRRECEVABILITE
-  dispositif       String? // libellé LITTÉRAL de la solution, reproduit du recueil
-  recueilRef       String? // « Cass. 1re Sect. — exercice 1964-1965 » : regroupe un volume
-  exerciceDebut    Int? // un exercice judiciaire couvre DEUX millésimes : 1964…
-  exerciceFin      Int? // …et 1965. `year` (Int) ne pouvait pas les porter tous deux.
-  traitement       String? // POSITIF | NEGATIF | NEUTRE — qualification éditoriale
-  traitementNote   String? // « renversée par Cass. 2e Sect. n° 47 du 12 mars 1971 »
-  portee           String? // JURISPRUDENCE | ESPECE
+  juridiction    String?  // JURISPRUDENCE : CASSATION | APPEL | PREMIERE_INSTANCE
+
+  // ── JURISPRUDENCE — toutes NULLABLES : migration purement additive ──
+  chambre          String?   // « Première Section », « 2e Chambre »… vide hors Cassation
+  decisionAttaquee String?   // arrêt ou jugement frappé de pourvoi, texte du recueil
+  solution         String?   // REJET | CASSATION_AVEC_RENVOI | CASSATION_SANS_RENVOI | DECHEANCE | IRRECEVABILITE
+  dispositif       String?   // libellé LITTÉRAL de la solution, reproduit du recueil
+  recueilRef       String?   // « Cass. 1re Sect. — exercice 1964-1965 » : regroupe un volume
+  exerciceDebut    Int?      // un exercice judiciaire couvre DEUX millésimes : 1964…
+  exerciceFin      Int?      // …et 1965. `year` (Int) ne pouvait pas les porter tous deux.
+  traitement       String?   // POSITIF | NEGATIF | NEUTRE — qualification éditoriale
+  traitementNote   String?   // « renversée par Cass. 2e Sect. n° 47 du 12 mars 1971 »
+  portee           String?   // JURISPRUDENCE | ESPECE
   porteeNote       String?
-  noteRedaction    String? // commentaire éditorial, signé
-  noteRedactionBy  String? // nom de l'éditeur signataire
+  noteRedaction    String?   // commentaire éditorial, signé
+  noteRedactionBy  String?   // nom de l'éditeur signataire
   noteRedactionAt  DateTime?
-  sourceFileUrl    String? // .docx d'origine archivé — sans lui, une erreur d'analyse
-  // découverte plus tard est irréparable
-  matiere          String? // JURISPRUDENCE / DOCTRINE : civil, commercial, fiscal…
-  author           String? // DOCTRINE
-  revue            String? // DOCTRINE
-  year             Int? // DOCTRINE
-  fiscalYear       Int? // LOI_FINANCES : exercice fiscal
-  niceClasses      String? // MARQUE : classes de Nice, CSV « 35,41,42 »
-  bhdaNumber       String? // MARQUE : n° de dépôt BHDA
-  holder           String? // MARQUE : titulaire (texte) — voir aussi Company
-  imageUrl         String? // MARQUE : reproduction de la marque si publiée
+  // .docx d'origine archivé — sans lui, une erreur d'analyse découverte plus tard est irréparable
+  sourceFileUrl    String?
+
+  matiere        String?  // JURISPRUDENCE / DOCTRINE : civil, commercial, fiscal…
+  author         String?  // DOCTRINE
+  revue          String?  // DOCTRINE
+  year           Int?     // DOCTRINE
+  fiscalYear     Int?     // LOI_FINANCES : exercice fiscal
+  niceClasses    String?  // MARQUE : classes de Nice, CSV « 35,41,42 »
+  bhdaNumber     String?  // MARQUE : n° de dépôt BHDA
+  holder         String?  // MARQUE : titulaire (texte) — voir aussi Company
+  imageUrl       String?  // MARQUE : reproduction de la marque si publiée
 
   // Mots-clés thématiques (FR), séparés par « ; » — extraits par IA au téléversement
   // (repli heuristique sans clé API) ou par scripts/backfill-keywords.ts. Cherchables
   // via searchText et SEARCH_FIELD_WEIGHTS ; affichés en chips sur la fiche document.
-  keywords String?
+  keywords       String?
 
   // Le long terme : champs additionnels en JSON (stocké en texte pour portabilité SQLite)
-  metaJson String?
+  metaJson       String?
 
   // Texte corrigé (OCR + orthographe) par l'IA — AFFICHAGE seulement, jamais stocké
   // en remplacement de bodyOriginal (§02). Produit par scripts/clean-body.ts via
   // Gemini ou Claude. Null = non encore traité, on affiche bodyOriginal.
-  bodyClean String?
+  bodyClean      String?
 
   // Rendu enrichi (tableaux + encadrés colorés) reconstruit du rendu visuel du PDF
   // par l'IA vision (src/lib/ai/extract.ts) ou à la main. JSON sérialisé de RichBlock[]
@@ -284,7 +286,7 @@ model Document {
   // ocrSommaire). Cache rempli à la demande par la route /api/doc/[id]/sommaire (ou
   // en lot via scripts/ocr-sommaires.ts). AFFICHAGE seulement — bodyOriginal reste
   // le texte officiel (§02). Null = pas encore océrisé.
-  sommaireOcr String?
+  sommaireOcr    String?
 
   // Index thématique par article (codes/lois longs) : JSON [{num, heading, themes[], summary}]
   // produit par IA (scripts/index-code-themes.ts). Alimente la recherche par thème, les
@@ -298,7 +300,7 @@ model Document {
 
   // Texte de recherche accent-folé (minuscules) — préfiltrage SQL du moteur FTS à grande
   // échelle (Index du Moniteur ~28k). Recalculé à chaque écriture.
-  searchText String?
+  searchText     String?
   /// Vecteur plein-texte (config `simple`, setweight A=titres+n° · B=résumés/mots-clés · C=corps),
   /// maintenu par le TRIGGER document_tsv_trg. Toujours synchrone : ne JAMAIS l'écrire depuis l'app.
   /// Déclaré ici uniquement pour que `prisma db push` ne supprime pas la colonne.
@@ -306,38 +308,38 @@ model Document {
   /// sont PARTIELS (visible / société) : Prisma ne sait pas les représenter, donc il les IGNORE
   /// (`migrate diff` = empty) et ils survivent à `db push` — c'est pourquoi ils ne sont PAS
   /// déclarés en @@index ci-dessous (le faire ferait recréer un index plein redondant).
-  searchTsv  Unsupported("tsvector")?
+  searchTsv      Unsupported("tsvector")?
 
   // Libellés (FR/EN/HT) des thèmes rattachés (cache dénormalisé) — champ CHERCHABLE
   // (cf. SEARCH_FIELD_WEIGHTS) : permet de retrouver un texte par son thème. Recalculé
   // par reindexDocument() à chaque écriture de DocumentTheme. Null = aucun thème.
-  themeLabels String?
+  themeLabels    String?
 
   // Provenance (ex. "MONITEUR" pour l'Index du Moniteur 1900-2023) — ré-import idempotent.
-  source String?
+  source         String?
 
   // Sous-catégorie d'une entrée d'index (LOI, DECRET, ARRETE, AVIS, SOCIETE, MARQUE…).
   // Les avis-sociétés groupés (SOCIETE) sont représentés par des fiches Société
   // individuelles : on les masque de la recherche au profit de la société (réf. unique).
-  category String?
+  category       String?
 
   // Type d'édition du Moniteur : REGULIERE | SPECIALE (saisi au téléversement,
   // ou déduit de la référence pour l'Index — « SP » dans le numéro).
-  editionType String?
+  editionType    String?
 
-  sealed        Boolean @default(false) // sceau apposé à la publication (§00, §08)
-  publishedById String?
-  publishedBy   User?   @relation("Publisher", fields: [publishedById], references: [id])
+  sealed         Boolean  @default(false) // sceau apposé à la publication (§00, §08)
+  publishedById  String?
+  publishedBy    User?    @relation("Publisher", fields: [publishedById], references: [id])
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 
-  versions      DocumentVersion[]
-  citationsFrom Citation[]           @relation("CitationFrom")
-  citationsTo   Citation[]           @relation("CitationTo")
-  favorites     Favorite[]
-  exports       ExportRecord[]
-  publications  CompanyPublication[]
+  versions       DocumentVersion[]
+  citationsFrom  Citation[]  @relation("CitationFrom")
+  citationsTo    Citation[]  @relation("CitationTo")
+  favorites      Favorite[]
+  exports        ExportRecord[]
+  publications   CompanyPublication[]
 
   // ── Section Législation annotée : thématisation + renvois + amendements (§ thèmes) ──
   themes          DocumentTheme[]
@@ -345,10 +347,6 @@ model Document {
   refsTo          CrossRef[]       @relation("RefTo")
   articleVersions ArticleVersion[]
   notes           DocumentNote[]
-  // NB : les index GIN du vecteur searchTsv sont PARTIELS (Document_searchTsv_visible_idx +
-  // Document_searchTsv_societe_idx) et NE SONT PAS déclarés ici — Prisma ne représente pas les
-  // index partiels, les déclarer recréerait un index plein redondant. Voir migrate-fts-tsvector.ts
-  // et le commentaire sur le champ searchTsv.
 
   @@index([type])
   @@index([status])
@@ -360,19 +358,23 @@ model Document {
   // Recherche sous-chaîne (LIKE '%terme%') accélérée — index GIN trigramme (extension
   // pg_trgm). Posé en prod via CREATE INDEX CONCURRENTLY (même nom via map:).
   @@index([searchText(ops: raw("gin_trgm_ops"))], type: Gin, map: "Document_searchText_trgm_idx")
+  // NB : les index GIN du vecteur searchTsv sont PARTIELS (Document_searchTsv_visible_idx +
+  // Document_searchTsv_societe_idx) et NE SONT PAS déclarés ici — Prisma ne représente pas les
+  // index partiels, les déclarer recréerait un index plein redondant. Voir migrate-fts-tsvector.ts
+  // et le commentaire sur le champ searchTsv.
 }
 
 /// Versions consolidées + historique des modifications (type 1 — §01).
 model DocumentVersion {
-  id            String    @id @default(cuid())
+  id            String   @id @default(cuid())
   documentId    String
-  document      Document  @relation(fields: [documentId], references: [id], onDelete: Cascade)
-  versionLabel  String // ex. « Version consolidée au 31/12/2021 »
-  status        String    @default("EN_VIGUEUR")
+  document      Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  versionLabel  String   // ex. « Version consolidée au 31/12/2021 »
+  status        String   @default("EN_VIGUEUR")
   effectiveDate DateTime?
   body          String
-  changeNote    String? // ex. « Modifié par la loi du … art. 4 »
-  createdAt     DateTime  @default(now())
+  changeNote    String?  // ex. « Modifié par la loi du … art. 4 »
+  createdAt     DateTime @default(now())
 
   @@index([documentId])
 }
@@ -395,14 +397,14 @@ model Citation {
 /// Fiche société : agrège toutes ses publications au Moniteur (statuts, modifications
 /// de capital, marques déposées). Couche d'indexation transversale, pas un 7ᵉ type (§01).
 model Company {
-  id           String               @id @default(cuid())
+  id           String   @id @default(cuid())
   name         String
-  searchName   String? // nom accent-folé (minuscules) — recherche accent-insensible
-  rcNumber     String? // registre du commerce
-  nif          String? // numéro d'identité fiscale (DGI)
+  searchName   String?  // nom accent-folé (minuscules) — recherche accent-insensible
+  rcNumber     String?  // registre du commerce
+  nif          String?  // numéro d'identité fiscale (DGI)
   capital      String?
   address      String?
-  createdAt    DateTime             @default(now())
+  createdAt    DateTime @default(now())
   publications CompanyPublication[]
 
   @@index([name])
@@ -413,12 +415,12 @@ model Company {
 /// Lien société ↔ publication. Une publication peut pointer un document (statuts,
 /// modif. de capital, marque déposée).
 model CompanyPublication {
-  id          String    @id @default(cuid())
+  id          String   @id @default(cuid())
   companyId   String
-  company     Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  company     Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
   documentId  String?
   document    Document? @relation(fields: [documentId], references: [id], onDelete: SetNull)
-  kind        String // STATUTS | MODIF_CAPITAL | DISSOLUTION | MARQUE | AUTRE
+  kind        String   // STATUTS | MODIF_CAPITAL | DISSOLUTION | MARQUE | AUTRE
   label       String
   date        DateTime?
   moniteurRef String?
@@ -449,7 +451,7 @@ model SearchLog {
   user         User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
   query        String
   locale       String   @default("fr")
-  type         String? // type filtré, le cas échéant
+  type         String?  // type filtré, le cas échéant
   resultsCount Int      @default(0)
   createdAt    DateTime @default(now())
 
@@ -460,16 +462,16 @@ model SearchLog {
 // P2 — NON CÂBLÉ : alertes de veille (roadmap §10). Aucun code applicatif ne lit
 // ni n'écrit cette table pour l'instant ; conservée pour la phase 2.
 model Alert {
-  id             String    @id @default(cuid())
+  id             String   @id @default(cuid())
   userId         String
-  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   label          String
-  type           String? // type de document surveillé
+  type           String?  // type de document surveillé
   query          String?
-  sector         String? // alerte sectorielle (Enstitisyon)
-  active         Boolean   @default(true)
+  sector         String?  // alerte sectorielle (Enstitisyon)
+  active         Boolean  @default(true)
   lastNotifiedAt DateTime?
-  createdAt      DateTime  @default(now())
+  createdAt      DateTime @default(now())
 
   @@index([userId])
 }
@@ -482,7 +484,7 @@ model ExportRecord {
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   documentId  String
   document    Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
-  watermarkId String // identifiant tatoué dans le PDF (compte + horodatage)
+  watermarkId String   // identifiant tatoué dans le PDF (compte + horodatage)
   ip          String?
   createdAt   DateTime @default(now())
 
@@ -494,16 +496,16 @@ model ExportRecord {
 /// 2FA_OK, 2FA_FAIL, ACCOUNT_ACTIVATED, ACCOUNT_SUSPENDED, ROLE_CHANGED,
 /// 2FA_RESET, DOC_PUBLISHED, EXPORT, SCRAPING_ALERT, …}.
 model AuditLog {
-  id         String   @id @default(cuid())
-  actorId    String?
-  actor      User?    @relation("AuditActor", fields: [actorId], references: [id], onDelete: SetNull)
-  action     String
-  targetType String? // USER | DOCUMENT | SESSION …
-  targetId   String?
-  ip         String?
-  userAgent  String?
-  metaJson   String?
-  createdAt  DateTime @default(now())
+  id           String   @id @default(cuid())
+  actorId      String?
+  actor        User?    @relation("AuditActor", fields: [actorId], references: [id], onDelete: SetNull)
+  action       String
+  targetType   String?  // USER | DOCUMENT | SESSION …
+  targetId     String?
+  ip           String?
+  userAgent    String?
+  metaJson     String?
+  createdAt    DateTime @default(now())
 
   @@index([action])
   @@index([createdAt])
@@ -515,16 +517,16 @@ model AuditLog {
 /// reste des Document type='TARIF_DOUANIER'. §01/§03
 model CustomsTariff {
   id          String   @id @default(cuid())
-  code        String // code SH / position tarifaire (ex. « 0101.21.00 »)
-  searchCode  String? // code en chiffres seuls (« 01012100 ») → recherche sans séparateurs
-  designation String // désignation des marchandises
-  unite       String? // unité de quantité (ex. « kg », « u »)
-  dd          String? // droit de douane (texte : « 10 % », « 0 % », « Exonéré »)
-  ddRef       String? // loi de finances ayant fixé/modifié le DD (info-bulle)
-  tca         String? // taxe sur le chiffre d'affaires
-  accises     String? // droits d'accises / taxe spécifique
-  note        String? // remarque / renvoi
-  chapter     String? // chapitre SH (ex. « 01 ») pour le regroupement
+  code        String   // code SH / position tarifaire (ex. « 0101.21.00 »)
+  searchCode  String?  // code en chiffres seuls (« 01012100 ») → recherche sans séparateurs
+  designation String   // désignation des marchandises
+  unite       String?  // unité de quantité (ex. « kg », « u »)
+  dd          String?  // droit de douane (texte : « 10 % », « 0 % », « Exonéré »)
+  ddRef       String?  // loi de finances ayant fixé/modifié le DD (info-bulle)
+  tca         String?  // taxe sur le chiffre d'affaires
+  accises     String?  // droits d'accises / taxe spécifique
+  note        String?  // remarque / renvoi
+  chapter     String?  // chapitre SH (ex. « 01 ») pour le regroupement
   position    Int      @default(0) // ordre d'affichage dans un chapitre
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
@@ -767,19 +769,19 @@ model CourtCommuneJurisdiction {
 /// qu'il écrit : sa parole engage la plateforme. Le champ existe pour tous, la route le
 /// refuse à la rédaction.
 model DocumentNote {
-  id             String    @id @default(cuid())
-  documentId     String
-  document       Document  @relation(fields: [documentId], references: [id], onDelete: Cascade)
-  authorId       String
-  author         User      @relation("NoteAuthor", fields: [authorId], references: [id], onDelete: Cascade)
-  body           String
+  id            String    @id @default(cuid())
+  documentId    String
+  document      Document  @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  authorId      String
+  author        User      @relation("NoteAuthor", fields: [authorId], references: [id], onDelete: Cascade)
+  body          String
   /// Note signée « Contribution anonyme » côté lecture — l'auteur reste connu de la rédaction.
-  anonymous      Boolean   @default(false)
+  anonymous     Boolean   @default(false)
   /// EN_ATTENTE | PUBLIEE | REFUSEE
-  status         String    @default("EN_ATTENTE")
-  moderatedById  String?
-  moderatedBy    User?     @relation("NoteModerator", fields: [moderatedById], references: [id], onDelete: SetNull)
-  moderatedAt    DateTime?
+  status        String    @default("EN_ATTENTE")
+  moderatedById String?
+  moderatedBy   User?     @relation("NoteModerator", fields: [moderatedById], references: [id], onDelete: SetNull)
+  moderatedAt   DateTime?
   /// Motif communiqué à l'auteur lorsqu'une note est refusée.
   moderationNote String?
   createdAt      DateTime  @default(now())
