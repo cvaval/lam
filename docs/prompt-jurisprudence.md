@@ -233,7 +233,8 @@ contenu sans origine.
 
 ⚠️ **DISTINCTION VISUELLE ABSOLUE.** Un lecteur ne doit JAMAIS pouvoir prendre la note
 d'un utilisateur pour la position de Lam. Bloc nettement séparé, intitulé « Notes des
-lecteurs », nom de l'auteur et sa qualité (rôle) affichés, et un avertissement en tête :
+lecteurs », nom de l'auteur et sa qualité — **sauf sous anonymat, où ni l'un ni l'autre
+n'apparaît** —, et un avertissement en tête :
 ces contributions n'engagent que leurs auteurs. C'est la contrepartie directe de la clause
 des CGU — « Lam fournit de l'information juridique à titre documentaire, et non un conseil
 juridique ; l'utilisation de la Plateforme ne crée aucune relation avocat-client ». Une
@@ -269,7 +270,7 @@ contrôle **côté serveur**, à la soumission comme à la modification.
 ⚠️ **L'API PUBLIQUE NE DOIT JAMAIS SÉRIALISER `userId` NI LE NOM D'UNE NOTE ANONYME.**
 Le masquage se fait à la SOURCE, dans la couche de données — pas dans le composant. Une
 note anonyme dont l'identité voyage jusqu'au navigateur est une note démasquée : il suffit
-d'ouvrir l'inspecteur. C'est le contrôle n° 17 ci-dessous.
+d'ouvrir l'inspecteur. C'est le contrôle n° 18 ci-dessous.
 
 **Portée** : le prompt vise les décisions judiciaires, mais le mécanisme n'a rien de
 propre à elles. Concevoir la table sur `documentId` — et non sur un identifiant d'arrêt —
@@ -289,8 +290,31 @@ pour qu'elle serve demain aux lois et aux circulaires sans migration.
 | juridiction | `juridiction` (commentée « CASSATION \| APPEL \| PREMIERE_INSTANCE ») |
 | domaine(s) | `matiere` |
 | résumé | `summaryFr` |
-| texte intégral / dispositif | `bodyOriginal` |
-| exercice | `year` |
+
+⚠️ **`year` NE CONVIENT PAS POUR L'EXERCICE.** La colonne est un `Int?`, et un exercice
+judiciaire en couvre DEUX (« 1964-1965 »). Écrire `1964` perdrait la moitié de
+l'information et fausserait tout filtre à cheval sur deux millésimes. Prévoir
+`exerciceDebut Int` et `exerciceFin Int` — deux entiers restent filtrables par intervalle,
+là où une chaîne « 1964-1965 » ne le serait pas.
+
+⚠️ **`bodyOriginal` EST OBLIGATOIRE ET LE DOCUMENT NE LE FOURNIT PAS.** La colonne est un
+`String` non nullable, mais le sommaire analytique ne contient PAS le texte intégral des
+arrêts — seulement résumé, dispositif et domaines. Trancher avant d'écrire une ligne :
+y placer le résumé suivi du dispositif (le document reste alors la source unique), et
+prévoir que le texte intégral, s'il est téléversé plus tard, le remplace. **Ne jamais y
+mettre une chaîne vide ou un espace** pour satisfaire la contrainte : un corpus juridique
+dont le corps est vide est un corpus qui ment.
+
+⚠️ **`matiere` EST UNE COLONNE UNIQUE, ET LES DOMAINES SONT PLURIELS.** Le document écrit
+« Procédure civile / voies d'exécution ; incapacités ; biens ». Concaténer dans `matiere`
+rend tout filtre par domaine inopérant — `LIKE '%biens%'` attraperait aussi
+« immobiliers ». Réutiliser le mécanisme de THÈMES déjà en place (`Theme` /
+`DocumentTheme`, relation M:N), qui résout exactement ce problème pour la législation.
+`matiere` peut conserver le libellé littéral du document, pour la fidélité.
+
+⚠️ **`sealed`, `status` et `originalLang` sont OBLIGATOIRES** : les renseigner
+explicitement à la création (`status: 'PUBLIE'`, `originalLang: 'fr'`), sans compter sur
+les valeurs par défaut.
 
 **Manquent quatre notions du document** (décision attaquée, solution, chambre, référence
 de recueil) **et quatre posées par l'éditeur** (§1.4) : traitement, note de traitement,
@@ -381,6 +405,17 @@ un corpus juridique est indéfendable.
 **Rapport après import** : créés / mis à jour / ignorés, et la liste nominative des
 rejets avec leur motif.
 
+⚠️ **APPELER `reindexDocument()` À CHAQUE CRÉATION ET MISE À JOUR.** Tous les autres
+imports du dépôt le font (`src/app/api/admin/index-moniteur/route.ts`). Sans cet appel,
+les quinze arrêts existent en base mais **restent introuvables à la recherche** — la
+fonction centrale de la plateforme. Le défaut serait invisible à la relecture d'une fiche
+et ne se révélerait qu'à la première recherche d'un utilisateur.
+
+⚠️ **RENSEIGNER `source`.** Les autres documents portent leur origine (`'MONITEUR'`,
+`'CODE_TRAVAIL_ANNOTE'`…). Prévoir une valeur propre au recueil — par exemple
+`CASSATION_1964_1965` — sans quoi on ne pourra plus distinguer ces arrêts d'un futur
+versement, ni réimporter proprement.
+
 ⚠️ **L'IMPORT NE QUALIFIE RIEN.** Traitement et portée restent vides après téléversement :
 le document joint ne les contient pas, et les déduire d'un mot du dispositif produirait
 des affirmations qu'aucune source n'appuie. C'est à l'éditeur de les poser, arrêt par
@@ -463,12 +498,14 @@ doit offrir `--dry-run` et l'exécuter par défaut.
 15. La limite de longueur est refusée par le SERVEUR, contournement du formulaire compris
 16. Une note signée affiche nom ET date ; une note anonyme affiche « Contribution
     anonyme » et la date, sans aucune mention de rôle
-16 bis. Le formulaire d'un compte `EDITEUR` ou `MASTER_ADMIN` **n'offre pas** l'option
+17. Le formulaire d'un compte `EDITEUR` ou `MASTER_ADMIN` **n'offre pas** l'option
     d'anonymat — et une requête forgée qui la pose quand même est **refusée par le
     serveur**, contrôlée en appelant l'API directement
-17. **La charge utile reçue par le navigateur ne contient ni `userId` ni nom** pour une
+18. **La charge utile reçue par le navigateur ne contient ni `userId` ni nom** pour une
     note anonyme — vérifié dans l'onglet réseau, pas dans le rendu
-18. La file de modération montre l'identité réelle d'une note anonyme, en le signalant
+19. La file de modération montre l'identité réelle d'une note anonyme, en le signalant
+20. Une recherche plein texte sur un mot du résumé **retrouve l'arrêt** — preuve que
+    `reindexDocument()` a bien été appelé
 
 ---
 
