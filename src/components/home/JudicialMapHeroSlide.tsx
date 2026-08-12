@@ -93,9 +93,13 @@ export function JudicialMapHeroSlide({ locale, t }: { locale: Locale; t: Diction
           {/* ── Colonne de texte ─────────────────────────────────────────── */}
           <div className="relative z-10">
             <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-grafit">{h.eyebrow}</p>
-            <h2 className="mt-5 font-sans text-display-2 lowercase text-grafit sm:text-[2.7rem] lg:text-[3.2rem]">
+            {/* ⚠️ `h1`, PAS `h2`. Cette diapositive était l'une de DEUX dans un carrousel,
+                d'où le niveau 2 ; elle est désormais le seul héros de l'accueil, et la page
+                n'avait donc PLUS AUCUN `h1` — un lecteur d'écran ouvrait le site sans titre
+                de niveau 1, et la hiérarchie démarrait au niveau 2 (§16). */}
+            <h1 className="mt-5 font-sans text-display-2 lowercase text-grafit sm:text-[2.7rem] lg:text-[3.2rem]">
               {h.titleLead} <span className="text-ank">{h.titleAccent}</span>
-            </h2>
+            </h1>
             <p className="mt-5 max-w-md text-base leading-relaxed text-grafit">{h.description}</p>
 
             <span className="mt-7 inline-flex items-center gap-3 rounded-xl bg-wouj px-7 py-3.5 text-[15px] font-semibold text-white transition group-hover:brightness-95">

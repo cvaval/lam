@@ -130,18 +130,36 @@ export async function getCommuneRecord(communeId: string): Promise<CommuneRecord
   const appealJ = linked.find((j) => j.relationship === 'APPEL_COMPETENT')
   const cassJ = linked.find((j) => j.relationship === 'CASSATION_NATIONALE')
 
-  // TPI / cour d'appel / cassation : positionnés sur le centroïde de leur commune-SIÈGE
-  // (pas celui de la commune consultée).
-  const seatCentroid = async (dept: string | null, name: string | null) => {
+  // TPI / cour d'appel : positionnés sur le centroïde de leur commune-SIÈGE (pas celui
+  // de la commune consultée).
+  //
+  // ⚠️ UNE SEULE REQUÊTE POUR LES DEUX SIÈGES. Deux `findFirst` successifs — l'un pour le
+  // TPI, l'autre pour la cour d'appel — coûtaient DEUX transactions complètes
+  // (BEGIN/DEALLOCATE/SELECT/COMMIT chacune), soit 8 des 17 énoncés SQL de la fiche et,
+  // surtout, deux allers-retours enchaînés puisque le second attendait le premier.
+  //
+  // On interroge par la CLÉ `département|nom`, qui est unique et indexée : elle évite la
+  // jointure sur `department` qu'imposait la recherche par nom, laquelle aurait ajouté
+  // un SELECT de plus. Vérifié : les 149 communes ont `key === department.name|name`.
+  const clesSieges = [
+    tpiJ && tpiJ.court.department && tpiJ.court.commune ? `${tpiJ.court.department}|${tpiJ.court.commune}` : null,
+    appealJ && appealJ.court.department && appealJ.court.city ? `${appealJ.court.department}|${appealJ.court.city}` : null,
+  ].filter((k): k is string => k !== null)
+
+  const sieges = clesSieges.length
+    ? await prisma.judicialCommune.findMany({
+        where: { key: { in: [...new Set(clesSieges)] } },
+        select: { key: true, centroidLat: true, centroidLng: true },
+      })
+    : []
+
+  const centroidSiege = (dept: string | null, name: string | null) => {
     if (!dept || !name) return null
-    const seat = await prisma.judicialCommune.findFirst({
-      where: { name, department: { name: dept } },
-      select: { centroidLat: true, centroidLng: true },
-    })
-    return seat?.centroidLat != null && seat.centroidLng != null ? { lat: seat.centroidLat, lng: seat.centroidLng } : null
+    const s = sieges.find((x) => x.key === `${dept}|${name}`)
+    return s?.centroidLat != null && s.centroidLng != null ? { lat: s.centroidLat, lng: s.centroidLng } : null
   }
-  const tpi = tpiJ ? toView(tpiJ.court, await seatCentroid(tpiJ.court.department, tpiJ.court.commune)) : null
-  const appeal = appealJ ? toView(appealJ.court, await seatCentroid(appealJ.court.department, appealJ.court.city)) : null
+  const tpi = tpiJ ? toView(tpiJ.court, centroidSiege(tpiJ.court.department, tpiJ.court.commune)) : null
+  const appeal = appealJ ? toView(appealJ.court, centroidSiege(appealJ.court.department, appealJ.court.city)) : null
   const cassation = cassJ ? { ...toView(cassJ.court, null), scope: cassJ.court.scope } : null
 
   const primary = commune.postalCodes.find((p) => p.isPrimary) ?? null
