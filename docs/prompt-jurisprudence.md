@@ -270,7 +270,7 @@ contrôle **côté serveur**, à la soumission comme à la modification.
 ⚠️ **L'API PUBLIQUE NE DOIT JAMAIS SÉRIALISER `userId` NI LE NOM D'UNE NOTE ANONYME.**
 Le masquage se fait à la SOURCE, dans la couche de données — pas dans le composant. Une
 note anonyme dont l'identité voyage jusqu'au navigateur est une note démasquée : il suffit
-d'ouvrir l'inspecteur. C'est le contrôle n° 18 ci-dessous.
+d'ouvrir l'inspecteur. C'est le contrôle n° 20 ci-dessous.
 
 **Portée** : le prompt vise les décisions judiciaires, mais le mécanisme n'a rien de
 propre à elles. Concevoir la table sur `documentId` — et non sur un identifiant d'arrêt —
@@ -378,6 +378,47 @@ suivante) ; intitulé, décision attaquée, issue, résumé et domaine non vides
 Second mode, indispensable ici : le document joint contient **15 arrêts**, personne ne
 les saisira à la main.
 
+### 4.0 Une fonction du portail, pas un script d'import
+
+⚠️ **CE N'EST PAS UNE MIGRATION UNIQUE.** Le téléversement doit vivre dans le portail
+`/[locale]/admin/jurisprudence`, accessible à MASTER_ADMIN et EDITEUR, et servir à
+**toutes les décisions à venir** — pas seulement au recueil 1964-1965. Un script en
+ligne de commande, exécuté une fois par un développeur, ne répond pas à la demande : la
+rédaction doit pouvoir verser un nouveau recueil sans intervention technique.
+
+Ce que cela change, et qui est le vrai enjeu :
+
+⚠️ **L'ANALYSEUR NE DOIT PAS ÊTRE CÂBLÉ SUR CE DOCUMENT-CI.** Le prochain recueil
+n'aura pas exactement la même mise en forme — un intertitre déplacé, un préfixe écrit
+`Décision attaquée:` sans espace, une section absente. Un analyseur qui suppose le
+gabarit de 1964-1965 échouera au premier volume suivant, et pire, **échouera en
+silence** en produisant des champs vides.
+
+Trois exigences en découlent :
+
+1. **Reconnaissance tolérante** — préfixes insensibles à la casse, aux espaces et aux
+   accents ; `ARRÊT NO.`, `ARRET N°`, `ARRÊT N.` reconnus de la même façon.
+2. **Aucun champ deviné.** Ce qui n'est pas reconnu reste VIDE et remonte au rapport de
+   contrôle. Ne jamais combler un manque par une valeur par défaut : sur un corpus
+   juridique, un champ inventé est pire qu'un champ absent.
+3. **Correction à l'écran.** Le tableau de contrôle (§4.2) est ÉDITABLE : l'opérateur
+   rectifie ce que l'analyseur a mal lu avant d'enregistrer. C'est ce qui rend la
+   fonction utilisable sur des documents que personne n'a prévus.
+
+**Accepter aussi une décision isolée**, pas seulement un recueil : un arrêt reçu seul est
+le cas courant hors campagne de rattrapage.
+
+⚠️ **CONSERVER LE FICHIER SOURCE.** Le .docx téléversé est archivé (Vercel Blob privé —
+voir `src/lib/storage/blob.ts`, déjà employé pour les PDF), et la décision garde le lien.
+Sans lui, une erreur d'analyse découverte six mois plus tard est irréparable : on ne sait
+plus ce que disait l'original.
+
+**Réemployer l'existant plutôt que réinventer** : `mammoth` est déjà une dépendance et
+`src/app/api/admin/upload/asset/route.ts` convertit déjà un .docx côté serveur
+(`kind=word`). S'en inspirer, sans dupliquer.
+
+### 4.1 Analyse
+
 **Analyser le .docx côté serveur** — jamais dans le navigateur : le fichier peut peser
 plusieurs mégaoctets et l'analyse doit être reproductible.
 
@@ -397,7 +438,9 @@ faute de quoi chaque arrêt sera importé deux fois — sous une forme tronquée
 les colonnes du tableau faute de convertir les tabulations. Convertir `<w:tab/>` en
 séparateur AVANT toute analyse.
 
-**Écran de contrôle obligatoire avant écriture.** Le téléversement ne doit RIEN écrire
+### 4.2 Écran de contrôle
+
+**Obligatoire avant écriture.** Le téléversement ne doit RIEN écrire
 directement : il affiche ce qu'il a compris — n arrêts détectés, leurs numéros, les
 champs manquants, les doublons avec la base — et l'opérateur valide. Un import muet sur
 un corpus juridique est indéfendable.
@@ -475,37 +518,24 @@ doit offrir `--dry-run` et l'exécuter par défaut.
 2. `npm run lint`
 3. `npm test`
 4. `npx tsx scripts/audit-contraste.ts` → 0 échec
-5. `npm run build` (arrêter le serveur de dev d'abord ; `.next` est exclu de la
-   synchronisation Dropbox par `xattr com.dropbox.ignored` — ne pas retirer cet attribut,
-   sans quoi la synchronisation corrompt le build)
-6. Import du document joint en `--dry-run` : **15 arrêts détectés, numéros 2 à 16**,
-   aucun champ manquant
-7. Import réel, puis relecture d'un arrêt sur le site : intitulé, date, décision attaquée,
-   dispositif, résumé et domaines conformes au document
+5. `npm run build` (arrêter le serveur de dev d'abord ; `.next` est exclu de la synchronisation Dropbox par `xattr com.dropbox.ignored` — ne pas retirer cet attribut, sans quoi la synchronisation corrompt le build)
+6. Import du document joint en `--dry-run` : **15 arrêts détectés, numéros 2 à 16**, aucun champ manquant
+7. Import réel, puis relecture d'un arrêt sur le site : intitulé, date, décision attaquée, dispositif, résumé et domaines conformes au document
 8. Réimport du MÊME fichier : aucun doublon créé (idempotence)
 9. Écrans testés à 320 px et 390 px, sans débordement horizontal
-10. Les trois traitements et les deux portées se distinguent **en niveaux de gris** —
-    capture d'écran désaturée à l'appui : c'est le contrôle qui prouve que la forme, et
-    non la couleur, porte l'information
-11. Un arrêt non qualifié n'affiche AUCUNE pastille de traitement — l'absence
-    d'évaluation ne doit pas se lire comme un « neutre »
-12. Une note soumise par un utilisateur **n'apparaît pas** pour un AUTRE utilisateur tant
-    qu'elle n'est pas approuvée — vérifié depuis deux sessions distinctes, pas seulement
-    en lisant le code
-13. Son auteur, lui, la voit avec son état ; un refus lui parvient avec son motif
-14. La modification d'une note déjà approuvée la remet en attente, la version publiée
-    restant affichée entre-temps
-15. La limite de longueur est refusée par le SERVEUR, contournement du formulaire compris
-16. Une note signée affiche nom ET date ; une note anonyme affiche « Contribution
-    anonyme » et la date, sans aucune mention de rôle
-17. Le formulaire d'un compte `EDITEUR` ou `MASTER_ADMIN` **n'offre pas** l'option
-    d'anonymat — et une requête forgée qui la pose quand même est **refusée par le
-    serveur**, contrôlée en appelant l'API directement
-18. **La charge utile reçue par le navigateur ne contient ni `userId` ni nom** pour une
-    note anonyme — vérifié dans l'onglet réseau, pas dans le rendu
-19. La file de modération montre l'identité réelle d'une note anonyme, en le signalant
-20. Une recherche plein texte sur un mot du résumé **retrouve l'arrêt** — preuve que
-    `reindexDocument()` a bien été appelé
+10. **Le téléversement se fait depuis le NAVIGATEUR**, connecté en `EDITEUR` — aucune étape en ligne de commande. Un éditeur sans accès au dépôt doit pouvoir verser un recueil de bout en bout.
+11. Un document au gabarit LÉGÈREMENT différent (préfixe sans espace, intertitre renommé) produit un rapport de contrôle signalant les champs non reconnus — **et non des champs silencieusement vides**
+12. Les trois traitements et les deux portées se distinguent **en niveaux de gris** — capture d'écran désaturée à l'appui : c'est le contrôle qui prouve que la forme, et non la couleur, porte l'information
+13. Un arrêt non qualifié n'affiche AUCUNE pastille de traitement — l'absence d'évaluation ne doit pas se lire comme un « neutre »
+14. Une note soumise par un utilisateur **n'apparaît pas** pour un AUTRE utilisateur tant qu'elle n'est pas approuvée — vérifié depuis deux sessions distinctes, pas seulement en lisant le code
+15. Son auteur, lui, la voit avec son état ; un refus lui parvient avec son motif
+16. La modification d'une note déjà approuvée la remet en attente, la version publiée restant affichée entre-temps
+17. La limite de longueur est refusée par le SERVEUR, contournement du formulaire compris
+18. Une note signée affiche nom ET date ; une note anonyme affiche « Contribution anonyme » et la date, sans aucune mention de rôle
+19. Le formulaire d'un compte `EDITEUR` ou `MASTER_ADMIN` **n'offre pas** l'option d'anonymat — et une requête forgée qui la pose quand même est **refusée par le serveur**, contrôlée en appelant l'API directement
+20. **La charge utile reçue par le navigateur ne contient ni `userId` ni nom** pour une note anonyme — vérifié dans l'onglet réseau, pas dans le rendu
+21. La file de modération montre l'identité réelle d'une note anonyme, en le signalant
+22. Une recherche plein texte sur un mot du résumé **retrouve l'arrêt** — preuve que `reindexDocument()` a bien été appelé
 
 ---
 
@@ -514,6 +544,8 @@ doit offrir `--dry-run` et l'exécuter par défaut.
 - un écran de saisie manuelle d'une décision, accessible aux éditeurs ;
 - une note de la rédaction par décision, signée et datée ;
 - des notes de lecteurs soumises à approbation, avec file de modération et motif de refus ;
-- un téléversement de recueil .docx avec écran de contrôle avant écriture ;
+- un téléversement de recueil .docx **depuis le portail**, avec écran de contrôle
+  éditable avant écriture, utilisable pour tous les versements à venir ;
+- le fichier source archivé et lié à chaque décision ;
 - les 15 arrêts du document joint en ligne, lisibles et filtrables ;
 - aucune régression : contraste, liens, tests et build inchangés.
