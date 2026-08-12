@@ -67,11 +67,43 @@ describe('plan d’import', () => {
     }
   })
 
-  it('les 10 sièges UNMAPPED existent comme juridictions mais SANS rattachement communal', () => {
+  it('les sièges UNMAPPED existent comme juridictions mais SANS rattachement communal', () => {
+    // Ils étaient dix. Huit ont été rattachés par déduction du code postal de leur
+    // section (voir data/judicial-map/rapport-unmapped.md) ; CORRIDON et HATTE CHEVREAU
+    // restent introuvables au répertoire, donc hors publication.
     const unmapped = plan.courts.filter((c) => c.verificationStatus === 'UNMAPPED')
-    expect(unmapped).toHaveLength(10)
+    expect(unmapped.map((c) => c.name).sort()).toEqual([
+      'Tribunal de paix — CORRIDON',
+      'Tribunal de paix — HATTE CHEVREAU',
+    ])
     const linked = new Set(plan.jurisdictions.map((j) => j.courtId))
     for (const c of unmapped) expect(linked.has(c.id)).toBe(false)
+  })
+
+  it('les 8 sièges résolus sont CORROBORATED, rattachés, et gardent leur ressort CSPJ', () => {
+    // Le rattachement postal doit tomber dans le ressort que le CSPJ inscrivait déjà au
+    // siège : c'est ce recoupement, et non le seul code, qui fonde la résolution.
+    const attendu: Record<string, string> = {
+      'Tribunal de paix — DAMASSIN': 'Les Côteaux',
+      'Tribunal de paix — CAHOUANE': 'Tiburon',
+      'Tribunal de paix — RENDEL': 'Chardonnières',
+      'Tribunal de paix — GROSSE ROCHE': 'Vallières',
+      'Tribunal de paix — BOIS DE LAURENCE': 'Mombin-Crochu',
+      'Tribunal de paix — ACUL SAMEDI': 'Fort-Liberté',
+      'Tribunal de paix — BANANE': 'Anse-à-Pitres',
+      'Tribunal de paix — SAVANNE A ROCHE': 'Petite-Rivière-de-l’Artibonite',
+    }
+    const parId = new Map(plan.communes.map((c) => [c.id, c.name]))
+    for (const [nom, commune] of Object.entries(attendu)) {
+      const cour = plan.courts.find((c) => c.name === nom)
+      expect(cour, nom).toBeDefined()
+      expect(cour!.verificationStatus, nom).toBe('CORROBORATED')
+      // Sans adresse vérifiée, la position ne peut être que le centroïde communal.
+      expect(cour!.locationPrecision, nom).toBe('COMMUNE_CENTROID')
+      const lien = plan.jurisdictions.find((j) => j.courtId === cour!.id && j.relationship === 'PAIX_LOCAL')
+      expect(lien, nom).toBeDefined()
+      expect(parId.get(lien!.communeId), nom).toBe(commune)
+    }
   })
 
   it('la Cour de cassation est NATIONALE, adresse et Plus Code distincts', () => {
