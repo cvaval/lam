@@ -649,6 +649,8 @@ export const ht: Dictionary = {
     badCode: 'Kòd pa valab oswa li ekspire.',
     wrongSecret: "Kòd sa a pa soti nan QR ki afiche la a. Si « Lam » deja nan aplikasyon otantifikasyon ou, EFASE ansyen antre a, epi eskane QR ki anwo a : kle a chanje.",
     clockSkew: "Lè telefòn ou an dekale plis pase yon minit. Mete dat ak lè otomatik, epi eseye ankò.",
+    clockSkewFast: "Lè telefòn ou an avanse anviwon {n} min. Mete dat ak lè otomatik, epi eseye ankò.",
+    clockSkewSlow: "Lè telefòn ou an an reta anviwon {n} min. Mete dat ak lè otomatik, epi eseye ankò.",
     forbidden: 'Aksè refize pou tip kont ou a.',
     quota: 'Ou rive nan kota rechèch mansyèl ou. Pase nan yon palye pi wo.',
     rate: 'Twòp demann — tanpri ralanti yon ti moman.',

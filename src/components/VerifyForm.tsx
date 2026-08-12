@@ -79,8 +79,18 @@ export function VerifyForm({
       if (!res.ok) {
         // Le serveur nomme la cause : on la restitue telle quelle plutôt que de tout
         // ramener à « code invalide », seul message que l'utilisateur voyait jusqu'ici.
+        // Quand il chiffre le décalage, on préfère la variante qui le dit : « environ
+        // 4 minutes d'avance » se corrige, « plus d'une minute » se devine.
         const messages = t.errors as Record<string, string | undefined>
-        setError(messages[res.error ?? ''] ?? t.errors.badCode)
+        // `minutes` voyage dans le CORPS de la réponse, que `postJson` expose en `data`.
+        const min = typeof (res.data as { minutes?: number } | null)?.minutes === 'number'
+          ? (res.data as { minutes: number }).minutes
+          : null
+        const cle =
+          res.error === 'clockSkew' && min !== null && Math.abs(min) >= 1
+            ? min > 0 ? 'clockSkewFast' : 'clockSkewSlow'
+            : res.error ?? ''
+        setError((messages[cle] ?? messages[res.error ?? ''] ?? t.errors.badCode).replace('{n}', String(Math.abs(min ?? 0))))
         setDigits(['', '', '', '', '', ''])
         refs.current[0]?.focus()
         setLoading(false)

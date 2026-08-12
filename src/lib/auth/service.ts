@@ -124,7 +124,12 @@ export async function beginEnrollment(): Promise<{ qr: string; secret: string } 
  */
 export type VerifyResult =
   | { ok: true }
-  | { ok: false; error: 'badCode' | 'wrongSecret' | 'clockSkew' | 'locked' | 'session' }
+  | {
+      ok: false
+      error: 'badCode' | 'wrongSecret' | 'clockSkew' | 'locked' | 'session'
+      /** Décalage d'horloge en MINUTES, signé (+ = téléphone en avance). `clockSkew` seul. */
+      minutes?: number
+    }
 
 async function finishTwoFactor(
   userId: string,
@@ -175,7 +180,10 @@ export async function verifyTwoFactor(code: string, trustDevice: boolean, ctx: C
     const locking = await registerFailedAttempt(user, '2FA_FAIL', ctx, { delta, enrolling })
     if (locking) return { ok: false, error: 'locked' }
     if (delta === null) return { ok: false, error: 'wrongSecret' }
-    return { ok: false, error: 'clockSkew' }
+    // « Plus d'une minute » n'aide pas à agir ; « environ 4 minutes d'avance » si.
+    // Le delta ne peut être connu que d'un code issu du BON secret : le communiquer
+    // n'apprend rien à qui ne l'a pas déjà.
+    return { ok: false, error: 'clockSkew', minutes: Math.round((delta * 30) / 60) }
   }
   // Anti-rejeu (§04) : un code déjà consommé (pas ≤ dernier accepté) est refusé, même valide.
   if (user.lastTotpStep != null && step <= user.lastTotpStep) {
