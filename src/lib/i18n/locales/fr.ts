@@ -655,6 +655,8 @@ export const fr = {
     suspended: 'Votre compte est suspendu. Contactez un administrateur.',
     locked: 'Trop de tentatives. Compte verrouillé 15 minutes.',
     badCode: 'Code invalide ou expiré.',
+    wrongSecret: "Ce code ne provient pas du QR affiché ici. Si « Lam » figure déjà dans votre application d’authentification, SUPPRIMEZ cette ancienne entrée, puis scannez le QR ci-dessus : la clé a changé.",
+    clockSkew: "L’horloge de votre téléphone est décalée de plus d’une minute. Activez le réglage automatique de la date et de l’heure, puis réessayez.",
     forbidden: "Accès refusé pour votre type de compte.",
     quota: 'Quota mensuel de recherches atteint. Passez à un palier supérieur.',
     rate: 'Trop de requêtes — veuillez ralentir quelques instants.',

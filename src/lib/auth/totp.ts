@@ -51,14 +51,33 @@ export function verifyTotpStep(token: string, secret: string): number | null {
 }
 
 /**
- * Décalage (en pas de 30 s) entre le code saisi et l'horloge serveur, recherché sur
- * une fenêtre LARGE (±10 pas = ±5 min) — DIAGNOSTIC uniquement, n'autorise rien.
- * Journalisé sur 2FA_FAIL : un |delta| > 2 révèle une horloge de téléphone déréglée
- * (cause n°1 des « codes invalides »), distincte d'un mauvais secret (delta = null).
+ * Décalage (en pas de 30 s) entre le code saisi et l'horloge serveur, cherché sur une
+ * fenêtre LARGE (±20 pas = ±10 min) — DIAGNOSTIC uniquement, n'autorise rien.
+ *
+ * ⚠️ NE PAS REVENIR À `clone({ window: [10, 10] }).checkDelta(...)`. Cette forme
+ * N'ÉCRASE PAS la fenêtre globale (`authenticator.options = { window: 2 }`) : mesuré,
+ * elle plafonne à ±2 pas et rend `null` au-delà. L'instrument était donc AVEUGLE depuis
+ * sa mise en place — tout échec hors ±1 min était journalisé `delta: null`, si bien
+ * qu'une horloge déréglée et une mauvaise clé rendaient le MÊME diagnostic. C'est ce qui
+ * a fait conclure à tort « ce n'est pas le code » lors de l'enquête de juin.
+ *
+ * On balaie donc les pas à la main : `clone({ epoch })`, lui, fonctionne pour la
+ * GÉNÉRATION, et comparer le code attendu à chaque décalage ne dépend d'aucune option.
  */
+const DIAG_STEPS = 20
+
 export function totpDelta(token: string, secret: string): number | null {
+  const code = token.replace(/\s/g, '')
   try {
-    return authenticator.clone({ window: [10, 10] }).checkDelta(token.replace(/\s/g, ''), secret)
+    const now = Date.now()
+    for (let k = 0; k <= DIAG_STEPS; k++) {
+      // Du plus proche au plus lointain : le premier trouvé est le décalage le plus probable.
+      for (const signe of k === 0 ? [0] : [1, -1]) {
+        const d = k * signe
+        if (authenticator.clone({ epoch: now + d * STEP_SECONDS * 1000 }).generate(secret) === code) return d
+      }
+    }
+    return null
   } catch {
     return null
   }

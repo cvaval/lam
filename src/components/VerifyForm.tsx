@@ -77,7 +77,10 @@ export function VerifyForm({
     try {
       const res = await postJson('/api/auth/verify', { code, trustDevice: trust })
       if (!res.ok) {
-        setError(res.error === 'locked' ? t.errors.locked : t.errors.badCode)
+        // Le serveur nomme la cause : on la restitue telle quelle plutôt que de tout
+        // ramener à « code invalide », seul message que l'utilisateur voyait jusqu'ici.
+        const messages = t.errors as Record<string, string | undefined>
+        setError(messages[res.error ?? ''] ?? t.errors.badCode)
         setDigits(['', '', '', '', '', ''])
         refs.current[0]?.focus()
         setLoading(false)
@@ -100,6 +103,20 @@ export function VerifyForm({
               : locale === 'ht'
               ? 'Eskane kòd QR sa a ak aplikasyon otantifikatè ou a (premye koneksyon).'
               : "Scannez ce QR code avec votre application d'authentification (première connexion)."}
+          </p>
+          {/* ⚠️ L'AVERTISSEMENT QUI MANQUAIT. Après une réinitialisation de la 2FA, la clé
+              change mais l'ancienne entrée « Lam » reste dans l'application : elle continue
+              d'afficher des codes, tous refusés. Sans cette phrase, l'utilisateur retape
+              indéfiniment un code condamné — c'est exactement ce qui s'est produit. */}
+          <p className="mb-3 flex items-start gap-1.5 rounded-lg border-l-2 border-wouj bg-white px-3 py-2 text-left text-[11px] font-medium leading-relaxed text-wouj">
+            <span aria-hidden="true">⚠</span>
+            <span>
+              {locale === 'en'
+                ? 'If “Lam” already appears in your app, delete that entry first — its key is no longer valid.'
+                : locale === 'ht'
+                ? 'Si « Lam » deja parèt nan aplikasyon ou, efase ansyen antre a anvan — kle li pa bon ankò.'
+                : "Si « Lam » figure déjà dans votre application, supprimez d'abord cette entrée — sa clé n'est plus valable."}
+            </span>
           </p>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={qr} alt="QR TOTP" width={170} height={170} className="mx-auto rounded-lg" />

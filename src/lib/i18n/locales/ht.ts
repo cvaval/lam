@@ -647,6 +647,8 @@ export const ht: Dictionary = {
     suspended: 'Kont ou sispann. Kontakte yon administratè.',
     locked: 'Twòp tantativ. Kont lan bloke pou 15 minit.',
     badCode: 'Kòd pa valab oswa li ekspire.',
+    wrongSecret: "Kòd sa a pa soti nan QR ki afiche la a. Si « Lam » deja nan aplikasyon otantifikasyon ou, EFASE ansyen antre a, epi eskane QR ki anwo a : kle a chanje.",
+    clockSkew: "Lè telefòn ou an dekale plis pase yon minit. Mete dat ak lè otomatik, epi eseye ankò.",
     forbidden: 'Aksè refize pou tip kont ou a.',
     quota: 'Ou rive nan kota rechèch mansyèl ou. Pase nan yon palye pi wo.',
     rate: 'Twòp demann — tanpri ralanti yon ti moman.',

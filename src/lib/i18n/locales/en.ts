@@ -648,6 +648,8 @@ export const en: Dictionary = {
     suspended: 'Your account is suspended. Contact an administrator.',
     locked: 'Too many attempts. Account locked for 15 minutes.',
     badCode: 'Invalid or expired code.',
+    wrongSecret: "This code does not come from the QR shown here. If “Lam” is already listed in your authenticator app, DELETE that older entry, then scan the QR above: the key has changed.",
+    clockSkew: "Your phone clock is more than a minute off. Turn on automatic date and time, then try again.",
     forbidden: 'Access denied for your account type.',
     quota: 'Monthly search quota reached. Upgrade to a higher tier.',
     rate: 'Too many requests — please slow down for a moment.',

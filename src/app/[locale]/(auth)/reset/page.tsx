@@ -42,8 +42,8 @@ export default function ResetPage({
             <ResetForm locale={locale} token={token} />
           ) : (
             <div className="space-y-4">
-              <p className="rounded-lg bg-pil px-3 py-2 text-sm text-wouj">{NOTOKEN[locale]}</p>
-              <a href={`/${locale}/forgot`} className="block text-center text-xs text-ank/80 hover:text-ank">
+              <p role="alert" className="flex items-start gap-2 rounded-lg border-l-2 border-wouj bg-pil px-3 py-2 text-sm text-wouj"><span aria-hidden="true">⚠</span><span>{NOTOKEN[locale]}</span></p>
+              <a href={`/${locale}/forgot`} className="inline-flex min-h-[44px] w-full items-center justify-center text-xs text-grafit outline-none ring-wouj transition hover:text-wouj focus-visible:ring-2">
                 {BACK[locale]}
               </a>
             </div>

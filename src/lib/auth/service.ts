@@ -112,7 +112,19 @@ export async function beginEnrollment(): Promise<{ qr: string; secret: string } 
   return { qr, secret }
 }
 
-export type VerifyResult = { ok: true } | { ok: false; error: 'badCode' | 'locked' | 'session' }
+/**
+ * `wrongSecret` et `clockSkew` séparent DEUX causes que le serveur distinguait déjà dans
+ * son journal depuis juin, sans jamais le dire à la personne concernée :
+ *   delta === null  le code ne provient pas du secret enregistré — presque toujours une
+ *                   ancienne entrée « Lam » restée dans l'application d'authentification
+ *                   après une réinitialisation. Aucun nombre d'essais n'en viendra à bout.
+ *   |delta| > 2     l'horloge du téléphone dérive.
+ * Les confondre sous « Code invalide » enferme l'utilisateur dans une boucle : il retape
+ * indéfiniment un code qui ne peut pas fonctionner, jusqu'au verrouillage.
+ */
+export type VerifyResult =
+  | { ok: true }
+  | { ok: false; error: 'badCode' | 'wrongSecret' | 'clockSkew' | 'locked' | 'session' }
 
 async function finishTwoFactor(
   userId: string,
@@ -158,12 +170,12 @@ export async function verifyTwoFactor(code: string, trustDevice: boolean, ctx: C
 
   const step = verifyTotpStep(code, user.totpSecret)
   if (step === null) {
-    // Diagnostic : delta d'horloge (null = mauvais secret ; |delta|>2 = téléphone déréglé).
-    const locking = await registerFailedAttempt(user, '2FA_FAIL', ctx, {
-      delta: totpDelta(code, user.totpSecret),
-      enrolling,
-    })
-    return { ok: false, error: locking ? 'locked' : 'badCode' }
+    // Le delta, cherché sur ±5 min, dit LAQUELLE des deux causes s'applique.
+    const delta = totpDelta(code, user.totpSecret)
+    const locking = await registerFailedAttempt(user, '2FA_FAIL', ctx, { delta, enrolling })
+    if (locking) return { ok: false, error: 'locked' }
+    if (delta === null) return { ok: false, error: 'wrongSecret' }
+    return { ok: false, error: 'clockSkew' }
   }
   // Anti-rejeu (§04) : un code déjà consommé (pas ≤ dernier accepté) est refusé, même valide.
   if (user.lastTotpStep != null && step <= user.lastTotpStep) {
