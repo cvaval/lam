@@ -13,6 +13,8 @@ import { guard, LIMITS } from '@/lib/security/ratelimit'
 import { RateLimitNotice } from '@/components/RateLimitNotice'
 import { StatusChip } from '@/components/StatusChip'
 import { JurisprudenceHeader } from '@/components/JurisprudenceHeader'
+import { DocumentNotes, type NoteAffichee } from '@/components/DocumentNotes'
+import { signature, peutEtreAnonyme } from '@/lib/notes/rules'
 import { BackLink } from '@/components/BackLink'
 import { OfficialText } from '@/components/OfficialText'
 import { splitKeywords } from '@/lib/ai/keywords'
@@ -123,6 +125,33 @@ export default async function DocPage({
   // Renvoi vers la section d'édition — la rédaction seule le voit.
   const peutEditer = user.role === 'MASTER_ADMIN' || user.role === 'EDITEUR'
 
+  // Notes des lecteurs. ⚠️ LA REQUÊTE EST LE FILTRE DE PUBLICATION : on ne charge que les
+  // notes VALIDÉES, plus celles de l'utilisateur courant (qui doit voir où en est la
+  // sienne). Filtrer côté composant enverrait au navigateur des notes non validées.
+  const notesBrutes =
+    type === 'JURISPRUDENCE'
+      ? await prisma.documentNote.findMany({
+          where: { documentId: doc.id, OR: [{ status: 'PUBLIEE' }, { authorId: user.id }] },
+          orderBy: { createdAt: 'desc' },
+          take: 100,
+          select: {
+            id: true, body: true, anonymous: true, status: true, createdAt: true,
+            moderationNote: true, authorId: true,
+            author: { select: { name: true, email: true } },
+          },
+        })
+      : []
+  const notes: NoteAffichee[] = notesBrutes.map((n) => ({
+    id: n.id,
+    body: n.body,
+    // ⚠️ L'anonymat est appliqué ICI, à la sérialisation : le nom de l'auteur ne doit pas
+    // seulement être masqué à l'écran, il ne doit pas quitter le serveur.
+    signature: signature(n),
+    createdAt: n.createdAt.toISOString(),
+    status: n.status,
+    moderationNote: n.moderationNote,
+    sienne: n.authorId === user.id,
+  }))
   const fav = await prisma.favorite.findUnique({
     where: { userId_documentId: { userId: user.id, documentId: doc.id } },
   })
@@ -619,6 +648,17 @@ export default async function DocPage({
             ))}
           </ul>
         </section>
+      )}
+
+      {type === 'JURISPRUDENCE' && (
+        <div className="no-print">
+          <DocumentNotes
+            documentId={doc.id}
+            notes={notes}
+            locale={locale}
+            peutEtreAnonyme={peutEtreAnonyme(user.role)}
+          />
+        </div>
       )}
 
       {/* Les outils éditoriaux vivent dans la SECTION D'ÉDITION, pas sur la plateforme :

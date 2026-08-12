@@ -22,6 +22,7 @@ export function AdminNav({ locale, t, role }: { locale: Locale; t: Dictionary; r
     // Ouvert aux ÉDITEURS, pas seulement au master admin : la rédaction doit pouvoir
     // verser un recueil sans passer par un développeur.
     { href: `/${locale}/admin/jurisprudence`, label: 'Jurisprudence' },
+    { href: `/${locale}/admin/notes`, label: 'Notes des lecteurs' },
     { href: `/${locale}/admin/upload`, label: t.admin.upload },
     ...(isAdmin ? [{ href: `/${locale}/admin/logs`, label: t.admin.logs }] : []),
   ]

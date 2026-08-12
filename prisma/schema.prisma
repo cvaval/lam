@@ -104,6 +104,8 @@ model User {
   publishedDocs      Document[]        @relation("Publisher")
   promoRedemptions   PromoRedemption[]
   assignedPromoCodes PromoCode[]       @relation("PromoAssignee")
+  documentNotes      DocumentNote[]    @relation("NoteAuthor")
+  moderatedNotes     DocumentNote[]    @relation("NoteModerator")
   createdPromoCodes  PromoCode[]       @relation("PromoCreator")
 
   @@index([status])
@@ -342,6 +344,7 @@ model Document {
   refsFrom        CrossRef[]       @relation("RefFrom")
   refsTo          CrossRef[]       @relation("RefTo")
   articleVersions ArticleVersion[]
+  notes           DocumentNote[]
   // NB : les index GIN du vecteur searchTsv sont PARTIELS (Document_searchTsv_visible_idx +
   // Document_searchTsv_societe_idx) et NE SONT PAS déclarés ici — Prisma ne représente pas les
   // index partiels, les déclarer recréerait un index plein redondant. Voir migrate-fts-tsvector.ts
@@ -752,4 +755,37 @@ model CourtCommuneJurisdiction {
 
   @@unique([courtId, communeId, relationship])
   @@index([communeId, relationship])
+}
+
+/// Note d'un lecteur au sujet d'un document — décisions judiciaires en premier lieu.
+///
+/// ⚠️ RIEN N'EST PUBLIÉ SANS VALIDATION. Une note naît EN_ATTENTE et n'est visible que de
+/// son auteur et de la rédaction ; elle n'apparaît aux autres lecteurs qu'une fois
+/// approuvée par un éditeur ou le master admin.
+///
+/// ⚠️ L'ANONYMAT EST RÉSERVÉ AUX LECTEURS. Un éditeur ou le master admin signe toujours ce
+/// qu'il écrit : sa parole engage la plateforme. Le champ existe pour tous, la route le
+/// refuse à la rédaction.
+model DocumentNote {
+  id             String    @id @default(cuid())
+  documentId     String
+  document       Document  @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  authorId       String
+  author         User      @relation("NoteAuthor", fields: [authorId], references: [id], onDelete: Cascade)
+  body           String
+  /// Note signée « Contribution anonyme » côté lecture — l'auteur reste connu de la rédaction.
+  anonymous      Boolean   @default(false)
+  /// EN_ATTENTE | PUBLIEE | REFUSEE
+  status         String    @default("EN_ATTENTE")
+  moderatedById  String?
+  moderatedBy    User?     @relation("NoteModerator", fields: [moderatedById], references: [id], onDelete: SetNull)
+  moderatedAt    DateTime?
+  /// Motif communiqué à l'auteur lorsqu'une note est refusée.
+  moderationNote String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@index([documentId, status])
+  @@index([status, createdAt])
+  @@index([authorId])
 }
