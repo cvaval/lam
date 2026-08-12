@@ -133,6 +133,88 @@ que le composant actuel ne prévoit pas encore.
 filtres de la liste (§5). C'est le premier usage réel de ces qualifications — « les arrêts
 qui font jurisprudence en matière de travail, hors ceux renversés depuis ».
 
+### 1.5 Note de l'éditeur
+
+Un champ de commentaire éditorial propre à chaque décision : ce que Lam veut dire de
+l'arrêt au-delà de ce que l'arrêt dit lui-même — portée réelle, rapprochement avec
+d'autres décisions, réserve d'interprétation.
+
+- **Rédacteur** : MASTER_ADMIN ou EDITEUR uniquement.
+- **Texte long**, mis en forme simple (paragraphes, listes) — pas de HTML libre : le
+  contenu est rendu par React et échappé, comme partout ailleurs sur la plateforme.
+- **Signée et datée** : nom de l'éditeur et date de dernière révision, affichés. Une note
+  éditoriale anonyme n'engage personne.
+- **Toujours visible** quand elle existe, en dessous du résumé et des domaines.
+
+⚠️ **ELLE DOIT SE DISTINGUER DU TEXTE DE L'ARRÊT AU PREMIER COUP D'ŒIL.** Le corps de
+l'arrêt est du droit, la note est un commentaire ; les confondre serait grave sur une
+plateforme juridique. Surface distincte (Pil ou blanc encadré, filet Wouj à gauche),
+intitulé explicite « Note de la rédaction », et **jamais la fonte du corpus** — la note
+se compose en Libre Franklin, quand l'arrêt se lit en Source Serif 4.
+
+---
+
+### 1.6 Notes des utilisateurs, soumises à validation
+
+Les utilisateurs authentifiés peuvent proposer une note sous une décision. **Aucune note
+n'est visible avant qu'un éditeur l'ait approuvée.**
+
+#### Circuit
+
+`BROUILLON` → `EN_ATTENTE` → `APPROUVEE` (publiée) ou `REFUSEE` (motif obligatoire)
+
+- L'auteur voit **toujours sa propre note**, quel que soit son état, avec une mention
+  claire de cet état — sans quoi il la croit publiée et la ressoumet.
+- Les autres utilisateurs ne voient que les notes `APPROUVEE`.
+- Le refus **exige un motif**, communiqué à l'auteur. Un refus muet est un renvoi sans
+  explication.
+- Après approbation, toute **modification par l'auteur repasse en `EN_ATTENTE`** et la
+  version publiée reste affichée entre-temps. Sans cette règle, une note anodine peut
+  être approuvée puis réécrite en tout autre chose.
+
+#### File de modération
+
+Écran éditeur listant les notes en attente : décision visée, auteur, date, texte intégral,
+et deux actions — approuver, refuser avec motif. Compteur des notes en attente visible
+dans la navigation du back-office : une file invisible ne se traite pas.
+
+#### Ce qu'il faut prévoir, et qui n'est pas optionnel
+
+⚠️ **DISTINCTION VISUELLE ABSOLUE.** Un lecteur ne doit JAMAIS pouvoir prendre la note
+d'un utilisateur pour la position de Lam. Bloc nettement séparé, intitulé « Notes des
+lecteurs », nom de l'auteur et sa qualité (rôle) affichés, et un avertissement en tête :
+ces contributions n'engagent que leurs auteurs. C'est la contrepartie directe de la clause
+des CGU — « Lam fournit de l'information juridique à titre documentaire, et non un conseil
+juridique ; l'utilisation de la Plateforme ne crée aucune relation avocat-client ». Une
+note de lecteur mal cadrée transformerait la plateforme en lieu de consultation.
+
+⚠️ **PAS DE HTML.** Texte simple, échappé par React. Longueur bornée (2 000 caractères
+suffisent) et bornée AUSSI côté serveur : une limite posée seulement dans le formulaire
+n'est pas une limite.
+
+⚠️ **FREIN À LA SOUMISSION.** Réutiliser `guard()` de `src/lib/security/ratelimit.ts`,
+déjà employé sur `/api/auth/verify`. Sans frein, un compte peut inonder la file de
+modération et la rendre inutilisable.
+
+⚠️ **CE QU'ON FAIT DU PASSÉ.** Trancher explicitement, et l'écrire :
+- compte supprimé → que deviennent ses notes approuvées ? (anonymiser plutôt que
+  supprimer préserve la cohérence des échanges ; supprimer respecte mieux l'effacement) ;
+- décision supprimée → ses notes suivent, en cascade ;
+- l'auteur peut-il retirer sa note après publication ? (recommandation : oui, avec trace
+  d'audit — c'est sa contribution).
+
+**Audit** : `NOTE_SOUMISE`, `NOTE_APPROUVEE`, `NOTE_REFUSEE`, `NOTE_SUPPRIMEE`, avec
+l'acteur, la cible et le motif. La modération est une décision éditoriale : elle se trace
+comme les autres.
+
+**Modèle** : nouvelle table (`DecisionNote` ou `UserNote`) — `documentId`, `userId`,
+`body`, `status`, `moderatorId`, `moderatedAt`, `rejectionReason`, horodatages. Index sur
+`(documentId, status)` pour la lecture publique et sur `(status, createdAt)` pour la file.
+
+**Portée** : le prompt vise les décisions judiciaires, mais le mécanisme n'a rien de
+propre à elles. Concevoir la table sur `documentId` — et non sur un identifiant d'arrêt —
+pour qu'elle serve demain aux lois et aux circulaires sans migration.
+
 ---
 
 ## 2. Ce que le schéma offre déjà, et ce qui manque
@@ -312,12 +394,21 @@ doit offrir `--dry-run` et l'exécuter par défaut.
     non la couleur, porte l'information
 11. Un arrêt non qualifié n'affiche AUCUNE pastille de traitement — l'absence
     d'évaluation ne doit pas se lire comme un « neutre »
+12. Une note soumise par un utilisateur **n'apparaît pas** pour un AUTRE utilisateur tant
+    qu'elle n'est pas approuvée — vérifié depuis deux sessions distinctes, pas seulement
+    en lisant le code
+13. Son auteur, lui, la voit avec son état ; un refus lui parvient avec son motif
+14. La modification d'une note déjà approuvée la remet en attente, la version publiée
+    restant affichée entre-temps
+15. La limite de longueur est refusée par le SERVEUR, contournement du formulaire compris
 
 ---
 
 ## 8. Résultat attendu
 
 - un écran de saisie manuelle d'une décision, accessible aux éditeurs ;
+- une note de la rédaction par décision, signée et datée ;
+- des notes de lecteurs soumises à approbation, avec file de modération et motif de refus ;
 - un téléversement de recueil .docx avec écran de contrôle avant écriture ;
 - les 15 arrêts du document joint en ligne, lisibles et filtrables ;
 - aucune régression : contraste, liens, tests et build inchangés.
