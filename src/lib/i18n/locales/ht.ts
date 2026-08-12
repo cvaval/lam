@@ -389,6 +389,7 @@ export const ht: Dictionary = {
       alerts: 'Alèt veye',
       'multiuser.api': 'Plizyè itilizatè / API',
       'upload.publish': 'Telechaje / OCR / pibliye',
+      'corpus.manage': 'Kirè kòpis la (edisyon, endèks, mak, BRH, tarif, tèm)',
       'admin.accounts': 'Administrasyon kont yo',
     },
     grants: {

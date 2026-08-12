@@ -40,7 +40,7 @@ export interface NoteEdition {
 export function LegislationAdminPanel({
   documentId,
   docType,
-  estMaster,
+  peutCurer,
   themeTree,
   currentThemeIds,
   primaryThemeId,
@@ -50,8 +50,8 @@ export function LegislationAdminPanel({
 }: {
   documentId: string
   docType: string
-  /** Thèmes, renvois et amendements sont réservés au Master Admin (cf. requireAdminApi). */
-  estMaster: boolean
+  /** Thèmes, renvois et amendements : capacité de curation (cf. requireCapabilityApi). */
+  peutCurer: boolean
   themeTree: ThemeNode[]
   currentThemeIds: string[]
   primaryThemeId: string | null
@@ -193,8 +193,8 @@ export function LegislationAdminPanel({
       </p>
       {msg && <p className={`mb-3 rounded-lg px-3 py-2 text-sm ${msg.ok ? 'bg-vet/10 text-ank/80' : 'bg-pil text-wouj'}`}>{msg.text}</p>}
 
-      {/* Thèmes — Master Admin seulement */}
-      {estMaster && (
+      {/* Thèmes — capacité de curation */}
+      {peutCurer && (
       <details open className="mb-2 rounded-lg border border-chabon/10 bg-white">
         <summary className="cursor-pointer px-3 py-2 text-sm font-semibold text-ank">Thèmes ({checked.size})</summary>
         <div className="border-t border-chabon/10 p-3">
@@ -210,8 +210,8 @@ export function LegislationAdminPanel({
       </details>
       )}
 
-      {/* Renvois — Master Admin seulement */}
-      {estMaster && (
+      {/* Renvois — capacité de curation */}
+      {peutCurer && (
       <details className="mb-2 rounded-lg border border-chabon/10 bg-white">
         <summary className="cursor-pointer px-3 py-2 text-sm font-semibold text-ank">Renvois ({refs.length})</summary>
         <div className="space-y-3 border-t border-chabon/10 p-3">
@@ -253,7 +253,7 @@ export function LegislationAdminPanel({
       )}
 
       {/* Amender : un ARTICLE pour un texte normatif, la NOTE D'ÉDITION pour une décision. */}
-      {!estDecision && estMaster && (
+      {!estDecision && peutCurer && (
       <details className="rounded-lg border border-chabon/10 bg-white">
         <summary className="cursor-pointer px-3 py-2 text-sm font-semibold text-ank">Amender un article</summary>
         <div className="space-y-2 border-t border-chabon/10 p-3">

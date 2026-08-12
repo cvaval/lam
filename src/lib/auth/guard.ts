@@ -38,8 +38,22 @@ export async function requireEditor(locale: Locale): Promise<SessionUser> {
 }
 
 /**
+ * Variante API de requireCapability : retourne l'utilisateur ou null (l'appelant répond
+ * 401/403).
+ *
+ * ⚠️ UNE PAGE ET SA ROUTE BOUGENT ENSEMBLE. Ouvrir l'écran sans ouvrir la route donne un
+ * formulaire qui s'affiche, accepte la saisie, puis échoue : du point de vue de
+ * l'utilisateur ce n'est pas un refus de droits, c'est un travail perdu.
+ */
+export async function requireCapabilityApi(cap: Capability): Promise<SessionUser | null> {
+  const user = await getCurrentUser()
+  return user && can(user.role, cap) ? user : null
+}
+
+/**
  * Variante API du garde Master Admin : retourne l'utilisateur ou null (l'appelant
- * répond 403). À utiliser dans toutes les routes /api/admin/*.
+ * répond 403). Réservée à la GOUVERNANCE — comptes, facturation, journaux de sécurité —
+ * et aux suppressions de documents.
  */
 export async function requireAdminApi(): Promise<SessionUser | null> {
   const user = await getCurrentUser()

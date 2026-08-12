@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { dictFor } from '@/lib/i18n/server'
-import { requireAdmin } from '@/lib/auth/guard'
+import { requireCapability } from '@/lib/auth/guard'
 import { prisma } from '@/lib/db'
 import { formatDate } from '@/lib/i18n/format'
 import { loadGaps } from '@/lib/moniteur/gaps'
@@ -29,7 +29,7 @@ export default async function AdminMoniteurPage({
   searchParams: { annee?: string }
 }) {
   const { locale, t } = dictFor(params.locale)
-  await requireAdmin(locale)
+  await requireCapability(locale, 'corpus.manage')
 
   // Bornes d'années couvertes par le corpus (toutes sources confondues).
   const [minAgg, maxAgg] = await Promise.all([

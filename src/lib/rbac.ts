@@ -14,6 +14,11 @@ export type Capability =
   | 'alerts' // alertes de veille
   | 'multiuser.api' // multi-utilisateurs / API
   | 'upload.publish' // téléverser / OCR / publier
+  // Curer le corpus : éditions du Moniteur, index, marques, circulaires BRH, tarifs,
+  // thèmes, carte judiciaire. DISTINCTE de `upload.publish` — verser un document et
+  // curer le corpus sont deux intentions ; les confondre sous un même nom rendrait
+  // impossible de restreindre l'une sans l'autre.
+  | 'corpus.manage'
   | 'admin.accounts' // activer/suspendre des comptes, rôles, logs
 
 export type Grant = boolean | 'extracts' | 'read' | 'own' | 'sectoral' | 'unlimited'
@@ -27,6 +32,7 @@ export const ACCESS_MATRIX: Record<Role, Record<Capability, Grant>> = {
     alerts: false,
     'multiuser.api': false,
     'upload.publish': false,
+    'corpus.manage': false,
     'admin.accounts': false,
   },
   PWOFESYONEL: {
@@ -37,6 +43,7 @@ export const ACCESS_MATRIX: Record<Role, Record<Capability, Grant>> = {
     alerts: true,
     'multiuser.api': false,
     'upload.publish': false,
+    'corpus.manage': false,
     'admin.accounts': false,
   },
   ENSTITISYON: {
@@ -47,6 +54,7 @@ export const ACCESS_MATRIX: Record<Role, Record<Capability, Grant>> = {
     alerts: 'sectoral',
     'multiuser.api': true,
     'upload.publish': false,
+    'corpus.manage': false,
     'admin.accounts': 'own', // gère ses sièges
   },
   EDITEUR: {
@@ -57,6 +65,7 @@ export const ACCESS_MATRIX: Record<Role, Record<Capability, Grant>> = {
     alerts: false,
     'multiuser.api': false,
     'upload.publish': true,
+    'corpus.manage': true,
     'admin.accounts': false,
   },
   MASTER_ADMIN: {
@@ -67,6 +76,7 @@ export const ACCESS_MATRIX: Record<Role, Record<Capability, Grant>> = {
     alerts: true,
     'multiuser.api': true,
     'upload.publish': true,
+    'corpus.manage': true,
     'admin.accounts': true,
   },
 }

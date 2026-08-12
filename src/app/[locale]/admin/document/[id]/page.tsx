@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { requireEditor } from '@/lib/auth/guard'
+import { requireCapability } from '@/lib/auth/guard'
+import { can } from '@/lib/rbac'
 import { dictFor } from '@/lib/i18n/server'
 import { prisma } from '@/lib/db'
 import { getThemeTree } from '@/lib/legislation/themes'
@@ -21,7 +22,7 @@ export const dynamic = 'force-dynamic'
  */
 export default async function AdminDocumentPage({ params }: { params: { locale: string; id: string } }) {
   const { locale } = dictFor(params.locale)
-  const user = await requireEditor(locale)
+  const user = await requireCapability(locale, 'corpus.manage')
 
   const doc = await prisma.document.findUnique({
     where: { id: params.id },
@@ -60,7 +61,7 @@ export default async function AdminDocumentPage({ params }: { params: { locale: 
       <LegislationAdminPanel
         documentId={doc.id}
         docType={doc.type as DocType}
-        estMaster={user.role === 'MASTER_ADMIN'}
+        peutCurer={can(user.role, 'corpus.manage')}
         themeTree={tree}
         currentThemeIds={dThemes.map((dt) => dt.themeId)}
         primaryThemeId={dThemes.find((dt) => dt.isPrimary)?.themeId ?? null}

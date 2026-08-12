@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { apiError } from '@/lib/api'
-import { requireAdminApi } from '@/lib/auth/guard'
+import { requireCapabilityApi } from '@/lib/auth/guard'
 import { loadGaps } from '@/lib/moniteur/gaps'
 
 export const runtime = 'nodejs'
@@ -12,7 +12,7 @@ export const runtime = 'nodejs'
  *  GET /api/admin/moniteur/gaps?format=csv   → fichier CSV téléchargeable
  */
 export async function GET(req: NextRequest) {
-  if (!(await requireAdminApi())) return apiError('forbidden', 403)
+  if (!(await requireCapabilityApi('corpus.manage'))) return apiError('forbidden', 403)
 
   const annee = req.nextUrl.searchParams.get('annee')
   const year = annee ? Number(annee) : undefined

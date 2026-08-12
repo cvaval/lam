@@ -390,6 +390,7 @@ export const en: Dictionary = {
       alerts: 'Watch alerts',
       'multiuser.api': 'Multi-user / API',
       'upload.publish': 'Upload / OCR / publish',
+      'corpus.manage': 'Curate the corpus (editions, index, trademarks, BRH, tariffs, themes)',
       'admin.accounts': 'Account administration',
     },
     grants: {

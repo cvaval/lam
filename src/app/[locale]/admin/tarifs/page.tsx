@@ -1,6 +1,6 @@
 import { prisma } from '@/lib/db'
 import { dictFor } from '@/lib/i18n/server'
-import { requireAdmin } from '@/lib/auth/guard'
+import { requireCapability } from '@/lib/auth/guard'
 import { tariffWhere } from '@/lib/tarifs'
 import { TariffAdmin } from '@/components/TariffAdmin'
 
@@ -15,7 +15,7 @@ export default async function AdminTarifsPage({
   searchParams: { q?: string | string[] }
 }) {
   const { locale, t } = dictFor(params.locale)
-  await requireAdmin(locale)
+  await requireCapability(locale, 'corpus.manage')
 
   const rawQ = Array.isArray(searchParams?.q) ? searchParams.q[0] : searchParams?.q
   const q = (rawQ ?? '').trim().slice(0, 120)

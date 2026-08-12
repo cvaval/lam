@@ -395,6 +395,7 @@ export const fr = {
       alerts: 'Alertes de veille',
       'multiuser.api': 'Multi-utilisateurs / API',
       'upload.publish': 'Téléverser / OCR / publier',
+      'corpus.manage': 'Curer le corpus (éditions, index, marques, BRH, tarifs, thèmes)',
       'admin.accounts': 'Administration des comptes',
     },
     grants: {

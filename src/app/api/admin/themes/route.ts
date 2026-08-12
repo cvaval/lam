@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { apiError } from '@/lib/api'
-import { requireAdminApi } from '@/lib/auth/guard'
+import { requireCapabilityApi } from '@/lib/auth/guard'
 import { audit, type AuditAction } from '@/lib/auth/audit'
 import { getClientCtx } from '@/lib/auth/request'
 import { createTheme, updateTheme, removeTheme, reorderThemes, getThemeTree, ThemeError } from '@/lib/legislation/themes'
@@ -52,12 +52,12 @@ const schema = z.discriminatedUnion('action', [
 
 /** Arbre des thèmes (back-office). */
 export async function GET() {
-  if (!(await requireAdminApi())) return apiError('forbidden', 403)
+  if (!(await requireCapabilityApi('corpus.manage'))) return apiError('forbidden', 403)
   return NextResponse.json({ ok: true, tree: await getThemeTree() })
 }
 
 export async function POST(req: NextRequest) {
-  const admin = await requireAdminApi()
+  const admin = await requireCapabilityApi('corpus.manage')
   if (!admin) return apiError('forbidden', 403)
 
   const parsed = schema.safeParse(await req.json().catch(() => null))

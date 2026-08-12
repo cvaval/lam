@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { apiError } from '@/lib/api'
+import { can } from '@/lib/rbac'
 import { prisma } from '@/lib/db'
 import { getCurrentUser } from '@/lib/auth/session'
 import { audit } from '@/lib/auth/audit'
@@ -59,7 +60,7 @@ const bodySchema = z.object({
 /** GET ?number=LM2001-51 → entrées d'index existantes de cette édition (détection doublon). */
 export async function GET(req: NextRequest) {
   const user = await getCurrentUser()
-  if (!user || user.role !== 'MASTER_ADMIN') return apiError('unauthorized', 401)
+  if (!user || !can(user.role, 'corpus.manage')) return apiError('unauthorized', 401)
   const number = (req.nextUrl.searchParams.get('number') ?? '').trim()
   if (!number) return apiError('invalidFields', 400)
   const entries = await prisma.document.findMany({
@@ -73,7 +74,7 @@ export async function GET(req: NextRequest) {
 /** POST : crée/met à jour/supprime les entrées d'une édition. Idempotent par (number, titre). */
 export async function POST(req: NextRequest) {
   const user = await getCurrentUser()
-  if (!user || user.role !== 'MASTER_ADMIN') return apiError('unauthorized', 401)
+  if (!user || !can(user.role, 'corpus.manage')) return apiError('unauthorized', 401)
   const parsed = bodySchema.safeParse(await req.json().catch(() => null))
   if (!parsed.success) return apiError('invalidFields', 400)
   const { editionType, numero, annee, dateISO, titles, deletedIds } = parsed.data
@@ -90,6 +91,12 @@ export async function POST(req: NextRequest) {
   let created = 0
   let updated = 0
   let deleted = 0
+
+  // ⚠️ LA SUPPRESSION RESTE AU MASTER ADMIN, même sur un écran ouvert à la curation.
+  // Le corpus est la valeur de la plateforme et une suppression ne se rattrape pas depuis
+  // l'écran qui l'a causée. On refuse la requête entière plutôt que d'en ignorer une
+  // partie en silence : un enregistrement à moitié appliqué est indétectable à l'écran.
+  if ((deletedIds ?? []).length && user.role !== 'MASTER_ADMIN') return apiError('forbidden', 403)
 
   // ── Suppressions (journal DOC_DELETED — obligatoire) ──
   for (const id of deletedIds ?? []) {

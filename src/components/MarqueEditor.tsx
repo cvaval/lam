@@ -28,7 +28,9 @@ const L = {
   confirmDel: { fr: 'Supprimer cette marque ?', en: 'Delete this trademark?', ht: 'Efase mak sa a ?' },
 } as const
 
-export function MarqueEditor({ locale }: { locale: Locale }) {
+const MOTIF_SUPPRESSION = 'Suppression réservée au master admin'
+
+export function MarqueEditor({ locale, peutSupprimer }: { locale: Locale; peutSupprimer: boolean }) {
   const lt = (o: Record<Locale, string>) => o[locale] ?? o.fr
   const [nom, setNom] = useState('')
   const [holder, setHolder] = useState('')
@@ -137,7 +139,17 @@ export function MarqueEditor({ locale }: { locale: Locale }) {
                   ) : (
                     <span className="shrink-0 text-xs text-ank/80">— {lt(L.file2)}</span>
                   )}
-                  <button type="button" onClick={() => remove(m.id)} title={lt(L.del)} className="shrink-0 rounded-md px-2 py-1 text-xs text-wouj hover:bg-pil">
+                  {/* ⚠️ Supprimer une marque supprime un DOCUMENT : réservé au master admin.
+                      Le bouton reste VISIBLE et DÉSACTIVÉ, avec son motif — un bouton actif
+                      qui échoue, ou disparu sans explication, se lit comme une panne. */}
+                  <button
+                    type="button"
+                    onClick={() => remove(m.id)}
+                    disabled={!peutSupprimer}
+                    title={peutSupprimer ? lt(L.del) : MOTIF_SUPPRESSION}
+                    aria-label={peutSupprimer ? lt(L.del) : `${lt(L.del)} — ${MOTIF_SUPPRESSION}`}
+                    className="shrink-0 rounded-md px-2 py-1 text-xs text-wouj hover:bg-pil disabled:cursor-not-allowed disabled:text-ank/40 disabled:hover:bg-transparent"
+                  >
                     ✕
                   </button>
                 </li>

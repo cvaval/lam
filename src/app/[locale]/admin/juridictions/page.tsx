@@ -1,5 +1,5 @@
 import { dictFor } from '@/lib/i18n/server'
-import { requireAdmin } from '@/lib/auth/guard'
+import { requireCapability } from '@/lib/auth/guard'
 import { prisma } from '@/lib/db'
 import { JudicialAdminTable } from '@/components/jurisdictions/JudicialAdminTable'
 
@@ -14,7 +14,7 @@ export const dynamic = 'force-dynamic'
  */
 export default async function AdminJuridictionsPage({ params }: { params: { locale: string } }) {
   const { locale, t } = dictFor(params.locale)
-  await requireAdmin(locale)
+  await requireCapability(locale, 'corpus.manage')
 
   const [courts, communesSansGeo, history] = await Promise.all([
     prisma.court.findMany({

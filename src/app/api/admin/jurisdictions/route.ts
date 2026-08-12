@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { apiError } from '@/lib/api'
 import { prisma } from '@/lib/db'
-import { requireAdminApi } from '@/lib/auth/guard'
+import { requireCapabilityApi } from '@/lib/auth/guard'
 import { audit } from '@/lib/auth/audit'
 import { getClientCtx } from '@/lib/auth/request'
 import { COURT_TYPES, LOCATION_PRECISIONS, VERIFICATION_STATUSES } from '@/lib/jurisdictions/constants'
@@ -32,7 +32,7 @@ const patchSchema = z.object({
 })
 
 export async function GET(req: NextRequest) {
-  const admin = await requireAdminApi()
+  const admin = await requireCapabilityApi('corpus.manage')
   if (!admin) return apiError('forbidden', 403)
 
   if (req.nextUrl.searchParams.get('export') === 'anomalies') {
@@ -77,7 +77,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function PATCH(req: NextRequest) {
-  const admin = await requireAdminApi()
+  const admin = await requireCapabilityApi('corpus.manage')
   if (!admin) return apiError('forbidden', 403)
   let body: unknown
   try {

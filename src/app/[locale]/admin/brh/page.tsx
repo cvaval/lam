@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { dictFor } from '@/lib/i18n/server'
-import { requireAdmin } from '@/lib/auth/guard'
+import { requireCapability } from '@/lib/auth/guard'
 import { prisma } from '@/lib/db'
 import { formatDate } from '@/lib/i18n/format'
 import { findMissingCirculaires, parseCirculaireRef, type BrhSerie, type SerieGaps } from '@/lib/brh/gaps'
@@ -16,7 +16,7 @@ export const dynamic = 'force-dynamic'
  */
 export default async function AdminBrhPage({ params }: { params: { locale: string } }) {
   const { locale, t } = dictFor(params.locale)
-  await requireAdmin(locale)
+  await requireCapability(locale, 'corpus.manage')
 
   const docs = await prisma.document.findMany({
     where: { type: 'CIRCULAIRE_BRH' },

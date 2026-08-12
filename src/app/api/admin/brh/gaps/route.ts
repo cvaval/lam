@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { apiError } from '@/lib/api'
-import { requireAdminApi } from '@/lib/auth/guard'
+import { requireCapabilityApi } from '@/lib/auth/guard'
 import { loadBrhGaps, type MissingCirculaire } from '@/lib/brh/gaps'
 
 export const runtime = 'nodejs'
@@ -18,7 +18,7 @@ const CSV_MOTIFS: Record<MissingCirculaire['reason'], string> = {
  *  GET /api/admin/brh/gaps?format=csv   → fichier CSV téléchargeable (2 séries)
  */
 export async function GET(req: NextRequest) {
-  if (!(await requireAdminApi())) return apiError('forbidden', 403)
+  if (!(await requireCapabilityApi('corpus.manage'))) return apiError('forbidden', 403)
 
   const { circulaires, lettres, missing } = await loadBrhGaps()
 

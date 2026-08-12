@@ -4,47 +4,74 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale, Role } from '@/lib/types'
+import { can } from '@/lib/rbac'
 
 export function AdminNav({ locale, t, role }: { locale: Locale; t: Dictionary; role: Role }) {
   const pathname = usePathname() || ''
-  const isAdmin = role === 'MASTER_ADMIN'
-  const items = [
-    ...(isAdmin ? [{ href: `/${locale}/admin`, label: t.admin.overview, exact: true }] : []),
-    ...(isAdmin ? [{ href: `/${locale}/admin/users`, label: t.admin.users }] : []),
-    ...(isAdmin ? [{ href: `/${locale}/admin/promo`, label: t.admin.promoNav }] : []),
-    ...(isAdmin ? [{ href: `/${locale}/admin/moniteur`, label: t.admin.moniteurNav }] : []),
-    ...(isAdmin ? [{ href: `/${locale}/admin/index-moniteur`, label: t.admin.indexMoniteurNav }] : []),
-    ...(isAdmin ? [{ href: `/${locale}/admin/marques`, label: t.admin.marquesNav }] : []),
-    ...(isAdmin ? [{ href: `/${locale}/admin/brh`, label: t.admin.brhNav }] : []),
-    ...(isAdmin ? [{ href: `/${locale}/admin/tarifs`, label: t.admin.tarifsNav }] : []),
-    ...(isAdmin ? [{ href: `/${locale}/admin/juridictions`, label: t.admin.juridictionsNav }] : []),
-    ...(isAdmin ? [{ href: `/${locale}/admin/themes`, label: t.admin.themesNav }] : []),
-    // Ouvert aux ÉDITEURS, pas seulement au master admin : la rédaction doit pouvoir
-    // verser un recueil sans passer par un développeur.
-    { href: `/${locale}/admin/jurisprudence`, label: 'Jurisprudence' },
-    { href: `/${locale}/admin/notes`, label: 'Notes des lecteurs' },
-    { href: `/${locale}/admin/upload`, label: t.admin.upload },
-    ...(isAdmin ? [{ href: `/${locale}/admin/logs`, label: t.admin.logs }] : []),
-  ]
+  // Deux natures de travail, deux groupes : la CURATION du corpus, ouverte à la rédaction,
+  // et la GOUVERNANCE — comptes, facturation, journaux — réservée au master admin.
+  //
+  // ⚠️ CE MENU N'EST PAS UNE SÉCURITÉ. Masquer une entrée ne protège rien : ce sont les
+  // gardes de page et de route qui protègent. Ne jamais « ouvrir » un écran en se
+  // contentant d'afficher son lien.
+  const estMaster = role === 'MASTER_ADMIN'
+  const peutCurer = can(role, 'corpus.manage')
+
+  const curation = peutCurer
+    ? [
+        { href: `/${locale}/admin/moniteur`, label: t.admin.moniteurNav },
+        { href: `/${locale}/admin/index-moniteur`, label: t.admin.indexMoniteurNav },
+        { href: `/${locale}/admin/marques`, label: t.admin.marquesNav },
+        { href: `/${locale}/admin/brh`, label: t.admin.brhNav },
+        { href: `/${locale}/admin/tarifs`, label: t.admin.tarifsNav },
+        { href: `/${locale}/admin/juridictions`, label: t.admin.juridictionsNav },
+        { href: `/${locale}/admin/themes`, label: t.admin.themesNav },
+        { href: `/${locale}/admin/jurisprudence`, label: 'Jurisprudence' },
+        { href: `/${locale}/admin/notes`, label: 'Notes des lecteurs' },
+        { href: `/${locale}/admin/upload`, label: t.admin.upload },
+      ]
+    : []
+
+  const gouvernance = estMaster
+    ? [
+        { href: `/${locale}/admin`, label: t.admin.overview, exact: true },
+        { href: `/${locale}/admin/users`, label: t.admin.users },
+        { href: `/${locale}/admin/promo`, label: t.admin.promoNav },
+        { href: `/${locale}/admin/logs`, label: t.admin.logs },
+      ]
+    : []
+
+  const groupes: { titre: string; items: { href: string; label: string; exact?: boolean }[] }[] = [
+    { titre: 'Corpus', items: curation },
+    { titre: 'Administration', items: gouvernance },
+  ].filter((g) => g.items.length)
+
   return (
-    <nav className="space-y-1">
-      {items.map((it) => {
-        const active = it.exact ? pathname === it.href : pathname.startsWith(it.href)
-        return (
-          <Link
-            key={it.href}
-            href={it.href}
-            className={`block rounded-lg px-3 py-2 text-sm transition ${
-              // Soulignement 2 px Sitwon : la couleur de l'USAGE marque où l'on se trouve.
-              active
-                ? 'border-l-2 border-wouj bg-white/15 font-medium text-white'
-                : 'border-l-2 border-transparent text-white/65 hover:bg-white/10 hover:text-white'
-            }`}
-          >
-            {it.label}
-          </Link>
-        )
-      })}
+    <nav className="space-y-4">
+      {groupes.map((g) => (
+        <div key={g.titre} className="space-y-1">
+          {/* Le sur-titre n'apparaît que s'il y a deux groupes à distinguer. */}
+          {groupes.length > 1 && (
+            <p className="px-3 pb-1 text-[10px] font-semibold uppercase tracking-widest text-koton/70">{g.titre}</p>
+          )}
+          {g.items.map((it) => {
+            const active = it.exact ? pathname === it.href : pathname.startsWith(it.href)
+            return (
+              <Link
+                key={it.href}
+                href={it.href}
+                className={`block rounded-lg px-3 py-2 text-sm transition ${
+                  active
+                    ? 'border-l-2 border-wouj bg-white/15 font-medium text-white'
+                    : 'border-l-2 border-transparent text-white/65 hover:bg-white/10 hover:text-white'
+                }`}
+              >
+                {it.label}
+              </Link>
+            )
+          })}
+        </div>
+      ))}
     </nav>
   )
 }

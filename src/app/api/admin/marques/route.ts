@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { apiError } from '@/lib/api'
+import { can } from '@/lib/rbac'
 import { prisma } from '@/lib/db'
 import { getCurrentUser } from '@/lib/auth/session'
 import { audit } from '@/lib/auth/audit'
@@ -18,7 +19,7 @@ const MAX_BYTES = 15 * 1024 * 1024 // 15 Mo
 /** GET → liste des marques (les plus récentes d'abord). */
 export async function GET() {
   const user = await getCurrentUser()
-  if (!user || user.role !== 'MASTER_ADMIN') return apiError('unauthorized', 401)
+  if (!user || !can(user.role, 'corpus.manage')) return apiError('unauthorized', 401)
   const marques = await prisma.document.findMany({
     where: { type: 'MARQUE' },
     select: { id: true, titleFr: true, holder: true, imageUrl: true, sourcePdfUrl: true, number: true, createdAt: true },
@@ -31,7 +32,7 @@ export async function GET() {
 /** POST (multipart) : { nom, holder?, number?, file } → crée la marque + téléverse le fichier. */
 export async function POST(req: NextRequest) {
   const user = await getCurrentUser()
-  if (!user || user.role !== 'MASTER_ADMIN') return apiError('unauthorized', 401)
+  if (!user || !can(user.role, 'corpus.manage')) return apiError('unauthorized', 401)
 
   const form = await req.formData().catch(() => null)
   if (!form) return apiError('invalidFields', 400)
@@ -92,6 +93,8 @@ export async function POST(req: NextRequest) {
 /** DELETE ?id= → retire une marque (journal DOC_DELETED). */
 export async function DELETE(req: NextRequest) {
   const user = await getCurrentUser()
+  // ⚠️ Supprimer une marque supprime un DOCUMENT : réservé au master admin, même si
+  // l'écran est ouvert à la curation.
   if (!user || user.role !== 'MASTER_ADMIN') return apiError('unauthorized', 401)
   const id = (req.nextUrl.searchParams.get('id') ?? '').trim()
   if (!id) return apiError('invalidFields', 400)

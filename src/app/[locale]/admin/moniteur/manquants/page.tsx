@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { dictFor } from '@/lib/i18n/server'
-import { requireAdmin } from '@/lib/auth/guard'
+import { requireCapability } from '@/lib/auth/guard'
 import { loadGaps } from '@/lib/moniteur/gaps'
 
 export const dynamic = 'force-dynamic'
@@ -12,7 +12,7 @@ export const dynamic = 'force-dynamic'
  */
 export default async function MoniteurManquantsPage({ params }: { params: { locale: string } }) {
   const { locale, t } = dictFor(params.locale)
-  await requireAdmin(locale)
+  await requireCapability(locale, 'corpus.manage')
 
   const gaps = await loadGaps()
   const total = gaps.reduce((s, y) => s + y.missing.length, 0)

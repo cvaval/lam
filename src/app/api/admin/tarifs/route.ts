@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { apiError } from '@/lib/api'
 import { z } from 'zod'
 import { prisma } from '@/lib/db'
-import { requireAdminApi } from '@/lib/auth/guard'
+import { requireCapabilityApi } from '@/lib/auth/guard'
 import { audit } from '@/lib/auth/audit'
 
 export const runtime = 'nodejs'
@@ -48,7 +48,7 @@ function toData(d: Fields) {
 
 // Créer une position tarifaire.
 export async function POST(req: NextRequest) {
-  const admin = await requireAdminApi()
+  const admin = await requireCapabilityApi('corpus.manage')
   if (!admin) return apiError('forbidden', 403)
   const parsed = fields.safeParse(await req.json().catch(() => null))
   if (!parsed.success) return apiError('invalidFields', 400)
@@ -59,7 +59,7 @@ export async function POST(req: NextRequest) {
 
 // Modifier une position tarifaire.
 export async function PATCH(req: NextRequest) {
-  const admin = await requireAdminApi()
+  const admin = await requireCapabilityApi('corpus.manage')
   if (!admin) return apiError('forbidden', 403)
   const body = await req.json().catch(() => null)
   const id = typeof body?.id === 'string' ? body.id : null
@@ -74,7 +74,7 @@ export async function PATCH(req: NextRequest) {
 
 // Supprimer une position tarifaire.
 export async function DELETE(req: NextRequest) {
-  const admin = await requireAdminApi()
+  const admin = await requireCapabilityApi('corpus.manage')
   if (!admin) return apiError('forbidden', 403)
   const body = await req.json().catch(() => null)
   const id = typeof body?.id === 'string' ? body.id : null

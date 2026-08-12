@@ -54,7 +54,9 @@ function editionNumber(annee: string, numero: string, special: boolean): string 
   return special ? `LM${y}-SP${n}` : `LM${y}-${n}`
 }
 
-export function IndexMoniteurEditor({ locale }: { locale: Locale }) {
+const MOTIF_SUPPRESSION = 'Suppression d’une entrée déjà enregistrée : réservée au master admin'
+
+export function IndexMoniteurEditor({ locale, peutSupprimer }: { locale: Locale; peutSupprimer: boolean }) {
   const lt = (o: Record<Locale, string>) => o[locale] ?? o.fr
   const [editionType, setEditionType] = useState<EditionType>('REGULIERE')
   const [numero, setNumero] = useState('')
@@ -108,6 +110,11 @@ export function IndexMoniteurEditor({ locale }: { locale: Locale }) {
   function removeRow(i: number) {
     setRows((r) => {
       const row = r[i]
+      // ⚠️ Retirer une ligne NON ENREGISTRÉE est libre ; retirer une entrée déjà en base
+      // est une suppression de document, réservée au master admin. La route refuse la
+      // requête entière si `deletedIds` arrive d'un compte qui n'y a pas droit : mieux
+      // vaut ne pas laisser l'opérateur composer un enregistrement qui sera rejeté.
+      if (row.id && !peutSupprimer) return r
       if (row.id) setDeletedIds((d) => [...d, row.id!])
       return r.filter((_, k) => k !== i)
     })
