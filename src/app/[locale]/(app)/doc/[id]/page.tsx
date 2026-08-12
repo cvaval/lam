@@ -12,6 +12,7 @@ import { isBlobUrl } from '@/lib/storage/blob'
 import { guard, LIMITS } from '@/lib/security/ratelimit'
 import { RateLimitNotice } from '@/components/RateLimitNotice'
 import { StatusChip } from '@/components/StatusChip'
+import { JurisprudenceHeader } from '@/components/JurisprudenceHeader'
 import { BackLink } from '@/components/BackLink'
 import { OfficialText } from '@/components/OfficialText'
 import { splitKeywords } from '@/lib/ai/keywords'
@@ -24,10 +25,7 @@ import { parseEditionHeader } from '@/lib/doc/edition-meta'
 import { pickLocale } from '@/lib/i18n/pick'
 import { DOC_TYPE_META } from '@/lib/brand'
 import type { DocType, DocStatus } from '@/lib/types'
-import { getThemeTree } from '@/lib/legislation/themes'
-import { resolveCrossRefs, outgoingRefs, backlinks } from '@/lib/legislation/refs'
-import { listArticles } from '@/lib/legislation/articles'
-import { LegislationAdminPanel } from '@/components/LegislationAdminPanel'
+import { outgoingRefs, backlinks } from '@/lib/legislation/refs'
 import { getAmendments } from '@/lib/legislation/amendments'
 import { applyAmendments } from '@/lib/legislation/segment'
 import { CiteButton } from '@/components/CiteButton'
@@ -122,6 +120,9 @@ export default async function DocPage({
   if (!canReadService(user, type)) redirect(`/${locale}/search?type=index`)
 
   const meta = DOC_TYPE_META[type]
+  // Renvoi vers la section d'édition — la rédaction seule le voit.
+  const peutEditer = user.role === 'MASTER_ADMIN' || user.role === 'EDITEUR'
+
   const fav = await prisma.favorite.findUnique({
     where: { userId_documentId: { userId: user.id, documentId: doc.id } },
   })
@@ -247,26 +248,6 @@ export default async function DocPage({
     backlinks({ id: doc.id, type: doc.type, number: doc.number }, user),
   ])
 
-  // Outils éditoriaux (Master Admin) : thèmes, renvois et amendements de cette fiche.
-  const adminPanel =
-    user.role === 'MASTER_ADMIN'
-      ? await (async () => {
-          const [tree, dThemes, crossRefs] = await Promise.all([
-            getThemeTree({ activeOnly: true }),
-            prisma.documentTheme.findMany({ where: { documentId: doc.id }, select: { themeId: true, isPrimary: true } }),
-            prisma.crossRef.findMany({ where: { fromId: doc.id }, orderBy: { position: 'asc' } }),
-          ])
-          const resolved = await resolveCrossRefs(crossRefs)
-          return {
-            tree,
-            currentThemeIds: dThemes.map((dt) => dt.themeId),
-            primaryThemeId: dThemes.find((dt) => dt.isPrimary)?.themeId ?? null,
-            articles: listArticles(body),
-            refs: resolved.map((r) => ({ refId: r.refId, kind: r.kind, label: r.label, toId: r.toId, pending: r.pending, anchor: r.anchor })),
-          }
-        })()
-      : null
-
   // Termes recherchés à surligner dans le texte et les tableaux (depuis ?q= au clic
   // d'un résultat de recherche) — mêmes termes étendus que le moteur (synonymes).
   // ?q peut arriver en tableau (lien forgé « ?q=a&q=b ») : normaliser avant .trim/.slice.
@@ -313,8 +294,11 @@ export default async function DocPage({
         <h1 className="font-serif text-3xl font-semibold leading-tight text-ank">{title}</h1>
         <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-ank/80">
           {doc.moniteurRef && (
+            // ⚠️ Pour une DÉCISION, `moniteurRef` porte la référence de l'arrêt
+            // (juridiction · n° · année), pas une citation du Moniteur : la préfixer de
+            // « Publié au » donnerait « Publié au Cour de Cassation… ».
             <span>
-              {t.doc.moniteur} {doc.moniteurRef}
+              {type === 'JURISPRUDENCE' ? doc.moniteurRef : `${t.doc.moniteur} ${doc.moniteurRef}`}
             </span>
           )}
           {doc.publicationDate && <span>{formatDate(locale, doc.publicationDate)}</span>}
@@ -338,8 +322,11 @@ export default async function DocPage({
               {t.doc.dgLabel} : {editionHeader.directeurGeneral}
             </span>
           )}
+          {doc.recueilRef && <span>{doc.recueilRef}</span>}
           {editionHeader?.issn && <span>ISSN {editionHeader.issn}</span>}
         </div>
+        {/* Décision judiciaire : décision attaquée, dispositif, qualifications, note. */}
+        <JurisprudenceHeader doc={doc} locale={locale} />
         {/* Mots-clés thématiques — cliquables vers la recherche */}
         {doc.keywords && (
           <div className="flex flex-wrap items-center gap-1.5">
@@ -485,11 +472,8 @@ export default async function DocPage({
         <div className="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:items-start print:block">
           <CodeSidebar docId={doc.id} groups={annotations.navToc} indexEntries={annotations.indexEntries} locale={locale} />
           <section className="min-w-0 rounded-2xl border border-chabon/10 bg-white p-5">
-            <div className="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-chabon/10 pb-3">
+            <div className="mb-3 border-b border-chabon/10 pb-3">
               <h2 className="text-sm font-semibold text-ank">{t.doc.officialText}</h2>
-              <span className="rounded-md bg-pil px-2 py-1 text-[11px] text-chabon">
-                {locale === 'fr' ? t.doc.officialBannerFr : t.doc.officialBanner}
-              </span>
             </div>
             <p className="mb-3 rounded-lg bg-pil px-3 py-2 text-[11px] leading-relaxed text-grafit">{t.doc.unofficialNote}</p>
             <AnnotatedText
@@ -526,11 +510,8 @@ export default async function DocPage({
         </section>
       ) : (
         <section className="rounded-2xl border border-chabon/10 bg-white p-5">
-          <div className="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-chabon/10 pb-3">
+          <div className="mb-3 border-b border-chabon/10 pb-3">
             <h2 className="text-sm font-semibold text-ank">{t.doc.officialText}</h2>
-            <span className="rounded-md bg-pil px-2 py-1 text-[11px] text-chabon">
-              {locale === 'fr' ? t.doc.officialBannerFr : t.doc.officialBanner}
-            </span>
           </div>
           <p className="mb-3 rounded-lg bg-pil px-3 py-2 text-[11px] leading-relaxed text-grafit">{t.doc.unofficialNote}</p>
           {themeIndex.length > 0 && <div className="mb-4"><CodeThemeBrowser index={themeIndex} t={t} /></div>}
@@ -640,16 +621,17 @@ export default async function DocPage({
         </section>
       )}
 
-      {adminPanel && (
-        <div className="no-print">
-          <LegislationAdminPanel
-            documentId={doc.id}
-            themeTree={adminPanel.tree}
-            currentThemeIds={adminPanel.currentThemeIds}
-            primaryThemeId={adminPanel.primaryThemeId}
-            articles={adminPanel.articles}
-            refs={adminPanel.refs}
-          />
+      {/* Les outils éditoriaux vivent dans la SECTION D'ÉDITION, pas sur la plateforme :
+          la fiche publique doit se lire comme la lit un abonné. Ne subsiste ici qu'un
+          renvoi, réservé à la rédaction et retiré à l'impression. */}
+      {peutEditer && (
+        <div className="no-print flex justify-end">
+          <Link
+            href={`/${locale}/admin/document/${doc.id}`}
+            className="inline-flex min-h-[44px] items-center rounded-lg border border-liy px-4 text-sm font-semibold text-ank outline-none ring-wouj transition hover:bg-pil focus-visible:ring-2"
+          >
+            Outils éditoriaux ↗
+          </Link>
         </div>
       )}
     </article>

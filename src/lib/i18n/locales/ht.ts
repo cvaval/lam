@@ -118,10 +118,8 @@ export const ht: Dictionary = {
   },
   doc: {
     officialText: 'Tèks ofisyèl',
-    officialBanner: 'Official text in French — Lam never translates the law.',
     unofficialNote:
       'Vèsyon anglè ak kreyòl entèfas la ak rezime yo disponib pou enfòmasyon sèlman: yo PA OFISYÈL e yo pa gen okenn valè jiridik. Se sèl tèks ofisyèl an franse a ki fè otorite.',
-    officialBannerFr: 'Tèks ofisyèl an franse — Lam pa janm tradui lalwa.',
     editorialSummary: 'Rezime editoryal',
     means: 'Sa sa vle di / What it means',
     editorial: 'Editoryal',

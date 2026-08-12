@@ -27,6 +27,17 @@ export async function requireAdmin(locale: Locale): Promise<SessionUser> {
 }
 
 /**
+ * Garde RÉDACTIONNEL : master admin OU éditeur. Les écrans de versement de corpus
+ * (décisions judiciaires) sont ouverts à la rédaction — c'est l'objet même de la
+ * demande : verser un recueil sans passer par un développeur.
+ */
+export async function requireEditor(locale: Locale): Promise<SessionUser> {
+  const user = await requireUser(locale)
+  if (user.role !== 'MASTER_ADMIN' && user.role !== 'EDITEUR') redirect(`/${locale}/dashboard`)
+  return user
+}
+
+/**
  * Variante API du garde Master Admin : retourne l'utilisateur ou null (l'appelant
  * répond 403). À utiliser dans toutes les routes /api/admin/*.
  */

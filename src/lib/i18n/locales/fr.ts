@@ -122,10 +122,8 @@ export const fr = {
   },
   doc: {
     officialText: 'Texte officiel',
-    officialBanner: 'Official text in French — Lam never translates the law.',
     unofficialNote:
       "Les versions anglaise et kreyòl de l'interface et des résumés sont fournies à titre informatif : elles sont NON OFFICIELLES et n'ont aucune valeur juridique. Seul le texte officiel en français fait foi.",
-    officialBannerFr: 'Texte officiel en français — Lam ne traduit jamais la loi.',
     editorialSummary: 'Résumé éditorial',
     means: 'Sa sa vle di / What it means',
     editorial: 'Éditorial',

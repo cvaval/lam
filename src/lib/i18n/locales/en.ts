@@ -118,10 +118,8 @@ export const en: Dictionary = {
   },
   doc: {
     officialText: 'Official text',
-    officialBanner: 'Official text in French — Lam never translates the law.',
     unofficialNote:
       'The English and Kreyòl versions of the interface and summaries are provided for information only: they are UNOFFICIAL and have no legal value. Only the official French text is authoritative.',
-    officialBannerFr: 'Texte officiel en français — Lam ne traduit jamais la loi.',
     editorialSummary: 'Editorial summary',
     means: 'Sa sa vle di / What it means',
     editorial: 'Editorial',

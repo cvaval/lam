@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { postJson } from '@/lib/http'
+import { TRAITEMENTS, PORTEES, GLYPHE_TRAITEMENT, GLYPHE_PORTEE } from '@/lib/jurisprudence/constants'
 
 interface ThemeNode {
   id: string
@@ -27,21 +28,39 @@ const KINDS = ['CITE', 'COMMENTE', 'MODIFIE', 'ABROGE', 'APPLIQUE', 'VOIR']
 const TYPES = ['LEGISLATION', 'CIRCULAIRE_BRH', 'JURISPRUDENCE', 'DOCTRINE', 'LOI_FINANCES', 'MARQUE', 'TARIF_DOUANIER']
 const inputCls = 'rounded-md border border-chabon/15 bg-white px-2 py-1.5 text-sm outline-none focus:border-liy'
 
+export interface NoteEdition {
+  noteRedaction: string | null
+  noteRedactionBy: string | null
+  traitement: string | null
+  portee: string | null
+  traitementNote: string | null
+  porteeNote: string | null
+}
+
 export function LegislationAdminPanel({
   documentId,
+  docType,
+  estMaster,
   themeTree,
   currentThemeIds,
   primaryThemeId,
   articles,
   refs,
+  noteEdition,
 }: {
   documentId: string
+  docType: string
+  /** Thèmes, renvois et amendements sont réservés au Master Admin (cf. requireAdminApi). */
+  estMaster: boolean
   themeTree: ThemeNode[]
   currentThemeIds: string[]
   primaryThemeId: string | null
   articles: ArticleRef[]
   refs: RefItem[]
+  noteEdition?: NoteEdition
 }) {
+  // Une décision n'a pas d'articles à amender : ce qu'on y amende, c'est la NOTE D'ÉDITION.
+  const estDecision = docType === 'JURISPRUDENCE'
   const router = useRouter()
   const [busy, setBusy] = useState(false)
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null)
@@ -135,13 +154,47 @@ export function LegislationAdminPanel({
     await call({ action: 'abrogate', documentId, anchor: anchor.trim(), originalBody: oldBody.trim() || null, amendedByNumber: aby.trim() || null, effectiveDate: eff || null, note: anote.trim() || null }, 'Article abrogé.')
   }
 
+  // ── Note d'édition (décisions judiciaires) ──
+  const [note, setNote] = useState(noteEdition?.noteRedaction ?? '')
+  const [trait, setTrait] = useState(noteEdition?.traitement ?? '')
+  const [traitNote, setTraitNote] = useState(noteEdition?.traitementNote ?? '')
+  const [port, setPort] = useState(noteEdition?.portee ?? '')
+  const [portNote, setPortNote] = useState(noteEdition?.porteeNote ?? '')
+  async function enregistrerNote() {
+    setBusy(true)
+    setMsg(null)
+    const r = await fetch('/api/admin/jurisprudence', {
+      method: 'PATCH',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        majs: [{
+          id: documentId,
+          noteRedaction: note.trim() || null,
+          traitement: trait || null,
+          traitementNote: traitNote.trim() || null,
+          portee: port || null,
+          porteeNote: portNote.trim() || null,
+        }],
+      }),
+    }).catch(() => null)
+    setBusy(false)
+    const ok = !!r?.ok
+    setMsg({ ok, text: ok ? 'Note d’édition enregistrée.' : `Échec (${r?.status ?? 'réseau'}).` })
+    if (ok) router.refresh()
+  }
+
   return (
     <section className="mt-6 rounded-2xl border border-dashed border-chabon/40 bg-pil/40 p-4">
-      <h2 className="mb-1 text-sm font-bold uppercase tracking-wide text-grafit">Outils éditoriaux — Master Admin</h2>
-      <p className="mb-3 text-xs text-ank/80">Classer ce texte par thèmes, ajouter des renvois, ou amender un article. Le texte officiel n’est jamais modifié.</p>
+      <h2 className="mb-1 text-sm font-bold uppercase tracking-wide text-grafit">Outils éditoriaux</h2>
+      <p className="mb-3 text-xs text-ank/80">
+        {estDecision
+          ? 'Classer cette décision par thèmes, ajouter des renvois, ou amender la note d’édition. Le texte de la décision n’est jamais modifié.'
+          : 'Classer ce texte par thèmes, ajouter des renvois, ou amender un article. Le texte officiel n’est jamais modifié.'}
+      </p>
       {msg && <p className={`mb-3 rounded-lg px-3 py-2 text-sm ${msg.ok ? 'bg-vet/10 text-ank/80' : 'bg-pil text-wouj'}`}>{msg.text}</p>}
 
-      {/* Thèmes */}
+      {/* Thèmes — Master Admin seulement */}
+      {estMaster && (
       <details open className="mb-2 rounded-lg border border-chabon/10 bg-white">
         <summary className="cursor-pointer px-3 py-2 text-sm font-semibold text-ank">Thèmes ({checked.size})</summary>
         <div className="border-t border-chabon/10 p-3">
@@ -155,8 +208,10 @@ export function LegislationAdminPanel({
           </button>
         </div>
       </details>
+      )}
 
-      {/* Renvois */}
+      {/* Renvois — Master Admin seulement */}
+      {estMaster && (
       <details className="mb-2 rounded-lg border border-chabon/10 bg-white">
         <summary className="cursor-pointer px-3 py-2 text-sm font-semibold text-ank">Renvois ({refs.length})</summary>
         <div className="space-y-3 border-t border-chabon/10 p-3">
@@ -195,8 +250,10 @@ export function LegislationAdminPanel({
           </button>
         </div>
       </details>
+      )}
 
-      {/* Amendement */}
+      {/* Amender : un ARTICLE pour un texte normatif, la NOTE D'ÉDITION pour une décision. */}
+      {!estDecision && estMaster && (
       <details className="rounded-lg border border-chabon/10 bg-white">
         <summary className="cursor-pointer px-3 py-2 text-sm font-semibold text-ank">Amender un article</summary>
         <div className="space-y-2 border-t border-chabon/10 p-3">
@@ -229,6 +286,44 @@ export function LegislationAdminPanel({
           </div>
         </div>
       </details>
+      )}
+
+      {/* Note d'édition — ce qu'on amende sur une DÉCISION. Un arrêt n'a pas d'articles :
+          ce que la rédaction reprend au fil du temps, c'est son commentaire et ses
+          qualifications. La signature est ajoutée par le serveur — un éditeur n'est
+          jamais anonyme. */}
+      {estDecision && (
+        <details open className="rounded-lg border border-chabon/10 bg-white">
+          <summary className="cursor-pointer px-3 py-2 text-sm font-semibold text-ank">Amender la note d’édition</summary>
+          <div className="space-y-2 border-t border-chabon/10 p-3">
+            {noteEdition?.noteRedactionBy && (
+              <p className="text-xs text-ank/80">Dernière signature : {noteEdition.noteRedactionBy}</p>
+            )}
+            <textarea value={note} onChange={(e) => setNote(e.target.value)} rows={4} placeholder="Note d’édition — commentaire de la rédaction sur cette décision" className={`${inputCls} w-full`} />
+            <div className="grid gap-2 sm:grid-cols-2">
+              <div>
+                <label htmlFor="ne-trait" className="mb-1 block text-xs text-ank/80">Traitement ultérieur</label>
+                <select id="ne-trait" value={trait} onChange={(e) => setTrait(e.target.value)} className={`${inputCls} w-full`}>
+                  <option value="">— non évalué —</option>
+                  {TRAITEMENTS.map((tv) => <option key={tv} value={tv}>{GLYPHE_TRAITEMENT[tv]} {tv.toLowerCase()}</option>)}
+                </select>
+              </div>
+              <div>
+                <label htmlFor="ne-port" className="mb-1 block text-xs text-ank/80">Portée</label>
+                <select id="ne-port" value={port} onChange={(e) => setPort(e.target.value)} className={`${inputCls} w-full`}>
+                  <option value="">— non qualifiée —</option>
+                  {PORTEES.map((pv) => <option key={pv} value={pv}>{GLYPHE_PORTEE[pv]} {pv === 'JURISPRUDENCE' ? 'fait jurisprudence' : 'décision d’espèce'}</option>)}
+                </select>
+              </div>
+              <input value={traitNote} onChange={(e) => setTraitNote(e.target.value)} placeholder="Précision sur le traitement — optionnel" className={inputCls} />
+              <input value={portNote} onChange={(e) => setPortNote(e.target.value)} placeholder="Précision sur la portée — optionnel" className={inputCls} />
+            </div>
+            <button type="button" disabled={busy} onClick={enregistrerNote} className="rounded-md bg-chabon px-3 py-1.5 text-xs font-semibold text-koton hover:bg-chabon disabled:opacity-50">
+              Enregistrer la note d’édition
+            </button>
+          </div>
+        </details>
+      )}
     </section>
   )
 }
