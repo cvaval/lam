@@ -14,6 +14,7 @@ export const en: Dictionary = {
     dashboard: 'Dashboard',
     search: 'Search',
     admin: 'Master Admin',
+    edition: 'Editorial desk',
     account: 'My account',
   },
   home: {

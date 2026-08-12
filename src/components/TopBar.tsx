@@ -17,14 +17,17 @@ export function TopBar({
   name,
   email,
   roleLabel,
-  isAdmin,
+  adminHref,
+  adminLabel,
 }: {
   locale: Locale
   t: Dictionary
   name: string
   email: string
   roleLabel: string
-  isAdmin: boolean
+  /** Destination de la console d'édition — null si le compte n'y a pas accès. */
+  adminHref: string | null
+  adminLabel: string
 }) {
   const [open, setOpen] = useState(false)
 
@@ -52,12 +55,12 @@ export function TopBar({
           <TopBarSearch locale={locale} placeholder={t.dashboard.omnibox} advancedLabel={t.search.advanced} />
         </div>
         <div className="ml-auto flex items-center gap-2">
-          {isAdmin && (
+          {adminHref && (
             <Link
-              href={`/${locale}/admin`}
+              href={adminHref}
               className="hidden rounded-full bg-chabon px-3 py-1.5 text-xs font-semibold text-white md:inline-block"
             >
-              {t.nav.admin}
+              {adminLabel}
             </Link>
           )}
           <LocaleSwitcher current={locale} />
@@ -84,13 +87,13 @@ export function TopBar({
                 >
                   {t.nav.account}
                 </Link>
-                {isAdmin && (
+                {adminHref && (
                   <Link
-                    href={`/${locale}/admin`}
+                    href={adminHref}
                     className="block rounded-lg px-3 py-2 text-sm text-ank hover:bg-koton md:hidden"
                     onClick={() => setOpen(false)}
                   >
-                    {t.nav.admin}
+                    {adminLabel}
                   </Link>
                 )}
                 <button

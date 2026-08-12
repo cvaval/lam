@@ -3,6 +3,7 @@ import { TopBar } from '@/components/TopBar'
 import { IdleTimer } from '@/components/IdleTimer'
 import { dictFor } from '@/lib/i18n/server'
 import { requireUser } from '@/lib/auth/guard'
+import { consoleHref } from '@/lib/nav'
 import { trustedDeviceDaysLeft } from '@/lib/auth/devices'
 import { IDLE_TIMEOUT_MINUTES, IDLE_WARNING_SECONDS } from '@/lib/auth/session'
 
@@ -20,6 +21,11 @@ export default async function AppLayout({
   const user = await requireUser(locale)
   const daysLeft = await trustedDeviceDaysLeft(user.id)
 
+  // Le lien suit la CAPACITÉ, pas le rôle, et pointe là où le compte peut réellement
+  // aller (voir consoleHref).
+  const estMaster = user.role === 'MASTER_ADMIN'
+  const hrefConsole = consoleHref(user.role, locale)
+
   return (
     <div className="min-h-screen bg-koton">
       {/* Déconnexion automatique pour inactivité (§sécurité). */}
@@ -30,7 +36,8 @@ export default async function AppLayout({
         name={user.name ?? ''}
         email={user.email}
         roleLabel={t.roles[user.role]}
-        isAdmin={user.role === 'MASTER_ADMIN'}
+        adminHref={hrefConsole}
+        adminLabel={estMaster ? t.nav.admin : t.nav.edition}
       />
       {/* Rappel J-3 (§04) : appareil de confiance bientôt expiré. */}
       {daysLeft !== null && daysLeft <= 3 && (

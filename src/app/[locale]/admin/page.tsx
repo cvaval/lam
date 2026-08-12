@@ -1,7 +1,8 @@
 import { UsersManager } from '@/components/UsersManager'
 import { toAdminUser, type AdminUser } from '@/lib/admin/mappers'
 import { dictFor } from '@/lib/i18n/server'
-import { requireAdmin } from '@/lib/auth/guard'
+import { redirect } from 'next/navigation'
+import { requireCapability } from '@/lib/auth/guard'
 import { prisma } from '@/lib/db'
 
 function startOfToday() {
@@ -12,7 +13,11 @@ function startOfToday() {
 
 export default async function AdminOverview({ params }: { params: { locale: string } }) {
   const { locale, t } = dictFor(params.locale)
-  await requireAdmin(locale)
+  // La vue d'ensemble reste au master admin ; un éditeur est mené à SON premier écran
+  // plutôt que renvoyé au tableau de bord — sortir quelqu'un de la console parce qu'il a
+  // atterri sur sa page d'accueil se lit comme un refus d'accès.
+  const user = await requireCapability(locale, 'upload.publish')
+  if (user.role !== 'MASTER_ADMIN') redirect(`/${locale}/admin/jurisprudence`)
 
   const [registered, searchesToday, scrapingAlerts, pending] = await Promise.all([
     prisma.user.count(),

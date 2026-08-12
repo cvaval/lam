@@ -17,6 +17,7 @@ export const fr = {
     dashboard: 'Tableau de bord',
     search: 'Recherche',
     admin: 'Master Admin',
+    edition: 'Espace d’édition',
     account: 'Mon compte',
   },
   home: {

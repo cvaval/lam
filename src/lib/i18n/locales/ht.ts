@@ -14,6 +14,7 @@ export const ht: Dictionary = {
     dashboard: 'Tablo debò',
     search: 'Rechèch',
     admin: 'Master Admin',
+    edition: 'Espas edisyon',
     account: 'Kont mwen',
   },
   home: {
