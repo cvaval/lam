@@ -13,8 +13,8 @@ import type { Locale } from '@/lib/types'
 const JudicialMap = dynamic(() => import('./JudicialMap').then((m) => m.JudicialMap), {
   ssr: false,
   loading: () => (
-    <div className="flex h-[46vh] items-center justify-center bg-lank-50 lg:h-[560px]" aria-hidden="true">
-      <span className="animate-pulse font-mono text-xs text-lank/40">…</span>
+    <div className="flex h-[46vh] items-center justify-center bg-pil lg:h-[560px]" aria-hidden="true">
+      <span className="animate-pulse font-mono text-xs text-ank/80">…</span>
     </div>
   ),
 })

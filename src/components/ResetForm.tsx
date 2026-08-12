@@ -68,11 +68,11 @@ export function ResetForm({ locale, token }: { locale: Locale; token: string }) 
   if (done) {
     return (
       <div className="space-y-4">
-        <p className="rounded-lg bg-green-50 px-3 py-3 text-sm text-green-800">{LBL.done[locale]}</p>
+        <p className="rounded-lg bg-white px-3 py-3 text-sm text-vet ring-1 ring-vet/30">{LBL.done[locale]}</p>
         <button
           type="button"
           onClick={() => hardRedirect(`/${locale}/login`)}
-          className="w-full rounded-lg bg-lank py-2.5 text-sm font-semibold text-white transition hover:bg-lank-600"
+          className="w-full rounded-lg bg-chabon py-2.5 text-sm font-semibold text-white transition hover:bg-chabon"
         >
           {LBL.toLogin[locale]}
         </button>
@@ -80,29 +80,29 @@ export function ResetForm({ locale, token }: { locale: Locale; token: string }) 
     )
   }
 
-  const input = 'w-full rounded-lg border border-lank/15 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-sitwon'
-  const label = 'mb-1 block text-[11px] font-semibold uppercase tracking-wide text-lank/60'
+  const input = 'w-full rounded-lg border border-chabon/15 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-liy'
+  const label = 'mb-1 block text-[11px] font-semibold uppercase tracking-wide text-ank/60'
 
   return (
     <form onSubmit={submit} className="space-y-4">
       <div>
         <label className={label}>{LBL.password[locale]}</label>
         <input type="password" required autoComplete="new-password" value={pw} onChange={(e) => setPw(e.target.value)} className={input} />
-        <p className="mt-1 text-[11px] text-lank/45">{LBL.hint[locale]}</p>
+        <p className="mt-1 text-[11px] text-ank/80">{LBL.hint[locale]}</p>
       </div>
       <div>
         <label className={label}>{LBL.confirm[locale]}</label>
         <input type="password" required autoComplete="new-password" value={confirm} onChange={(e) => setConfirm(e.target.value)} className={input} />
       </div>
       {error && (
-        <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700" role="alert">
+        <p className="rounded-lg bg-pil px-3 py-2 text-sm text-wouj" role="alert">
           {error}
         </p>
       )}
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-lg bg-lank py-2.5 text-sm font-semibold text-white transition hover:bg-lank-600 disabled:opacity-60"
+        className="w-full rounded-lg bg-sitwon py-2.5 text-sm font-semibold text-chabon transition hover:brightness-95 disabled:opacity-60"
       >
         {loading ? LBL.saving[locale] : LBL.submit[locale]}
       </button>

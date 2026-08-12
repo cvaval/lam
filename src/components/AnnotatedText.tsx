@@ -24,12 +24,12 @@ const LEAD_ART =
 const LEAD_POINT = /^(\d{1,2}(?:\.\d{1,2})*)\s*\.?\s*-?\s+/
 // Statut d'amendement (Constitution) → pastille colorée.
 const STATUS_BADGE: Record<string, { fr: string; cls: string }> = {
-  modifié: { fr: 'modifié', cls: 'bg-brim-50 text-brim-700' },
-  nouveau: { fr: 'nouveau', cls: 'bg-sitwon-50 text-sitwon-700' },
-  abrogé: { fr: 'abrogé', cls: 'bg-red-50 text-red-700' },
+  modifié: { fr: 'modifié', cls: 'bg-pil text-chabon' },
+  nouveau: { fr: 'nouveau', cls: 'bg-pil text-chabon' },
+  abrogé: { fr: 'abrogé', cls: 'bg-pil text-wouj' },
   // Abrogation PARTIELLE (ex. art. 7 du Décret régimes matrimoniaux : seules les dispositions
   // relatives à l'hypothèque légale de la femme mariée tombent — le reste demeure en vigueur).
-  'partiellement abrogé': { fr: 'partiellement abrogé', cls: 'bg-red-50 text-red-700' },
+  'partiellement abrogé': { fr: 'partiellement abrogé', cls: 'bg-pil text-wouj' },
 }
 
 /**
@@ -159,30 +159,30 @@ export function AnnotatedText({
               <p
                 key={i}
                 id={b.anchor}
-                className={`scroll-mt-24 text-center font-serif font-bold uppercase tracking-wide ${bigTitle ? 'text-xl text-soley-700' : 'text-lank'}`}
+                className={`scroll-mt-24 text-center font-serif font-bold uppercase tracking-wide ${bigTitle ? 'text-xl text-chabon' : 'text-ank'}`}
               >
                 {b.text}
               </p>
             ) : b.level === 1 ? (
               // TITRE / ANNEXE : séparateur majeur.
-              <h3 key={i} id={b.anchor} className="mt-7 flex scroll-mt-24 items-center gap-2.5 border-b-2 border-soley/30 pb-2 font-serif text-lg font-bold uppercase tracking-wide text-lank first:mt-0">
-                <span aria-hidden className="h-5 w-1.5 rounded-full bg-soley" />
+              <h3 key={i} id={b.anchor} className="mt-7 flex scroll-mt-24 items-center gap-2.5 border-b-2 border-chabon/30 pb-2 font-serif text-lg font-bold uppercase tracking-wide text-ank first:mt-0">
+                <span aria-hidden className="h-5 w-1.5 rounded-full bg-chabon" />
                 {b.text}
               </h3>
             ) : b.level === 3 ? (
               // Chapitre : « Chapitre N — Titre ».
-              <h5 key={i} id={b.anchor} className="mt-5 flex scroll-mt-24 items-baseline gap-2 font-serif text-[15px] font-semibold text-lank">
-                <span aria-hidden className="text-base leading-none text-soley-600">§</span>
+              <h5 key={i} id={b.anchor} className="mt-5 flex scroll-mt-24 items-baseline gap-2 font-serif text-[15px] font-semibold text-ank">
+                <span aria-hidden className="text-base leading-none text-chabon">§</span>
                 {b.text}
               </h5>
             ) : b.level === 4 ? (
               // Section (sous-titre d'un chapitre).
-              <p key={i} id={b.anchor} className="mt-3 scroll-mt-24 pl-4 text-[12.5px] font-semibold uppercase tracking-wide text-lank/50">
+              <p key={i} id={b.anchor} className="mt-3 scroll-mt-24 pl-4 text-[12.5px] font-semibold uppercase tracking-wide text-ank/80">
                 {b.text}
               </p>
             ) : (
               // Niveau 2 : sous-titre (livre / « LOI No. X »).
-              <p key={i} id={b.anchor} className="scroll-mt-24 pt-1 text-sm font-semibold uppercase tracking-wide text-soley-700">
+              <p key={i} id={b.anchor} className="scroll-mt-24 pt-1 text-sm font-semibold uppercase tracking-wide text-chabon">
                 {b.text}
               </p>
             )
@@ -193,31 +193,31 @@ export function AnnotatedText({
           return (
             <div key={i}>
               {header}
-              <p className="mt-2 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5 rounded-md border border-sitwon/30 bg-sitwon-50 px-3 py-1.5 text-[11.5px] text-lank/75">
-                <span className="font-bold uppercase tracking-wide text-sitwon-700">↪ Renvoi{xref.articles.length > 0 ? ' au Code' : ''}&nbsp;:</span>
-                {hasDocs && xref.note && <span className="text-lank/55">{xref.note}</span>}
+              <p className="mt-2 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5 rounded-md border border-chabon/30 bg-pil px-3 py-1.5 text-[11.5px] text-ank/75">
+                <span className="font-bold uppercase tracking-wide text-chabon">↪ Renvoi{xref.articles.length > 0 ? ' au Code' : ''}&nbsp;:</span>
+                {hasDocs && xref.note && <span className="text-ank/80">{xref.note}</span>}
                 {xref.docs!== undefined && xref.docs.map((d, k) => (
-                  <Link key={d.id + k} href={`/${locale}/doc/${d.id}`} className="font-semibold text-sitwon-700 underline decoration-sitwon/40 underline-offset-2 hover:decoration-sitwon">
+                  <Link key={d.id + k} href={`/${locale}/doc/${d.id}`} className="font-semibold text-chabon underline decoration-chabon/40 underline-offset-2 hover:decoration-chabon">
                     {d.label}
                   </Link>
                 ))}
                 {xref.articles.map((n, k, arr) => (
                   <span key={n}>
-                    <a href={`#art-${n}`} className="font-semibold text-sitwon-700 hover:underline">
+                    <a href={`#art-${n}`} className="font-semibold text-chabon hover:underline">
                       article {n}
                     </a>
-                    {k < arr.length - 1 && <span className="text-lank/30">, </span>}
+                    {k < arr.length - 1 && <span className="text-ank/80">, </span>}
                   </span>
                 ))}
-                {!hasDocs && xref.note && <span className="text-lank/55">— {xref.note}</span>}
+                {!hasDocs && xref.note && <span className="text-ank/80">— {xref.note}</span>}
               </p>
               {/* Dispositions générales insérées par une loi modificatrice sous cet en-tête
                   (ex. principes d'égalité des filiations posés sous la LOI Nº 8 du Code civil). */}
               {xref.insertedArticles?.map((a, k) => (
-                <article key={`ins-${k}`} className="mt-2 rounded-r-lg border-l-2 border-sitwon/30 pl-4">
-                  <h4 className="mb-1 font-serif text-[15px] font-bold text-sitwon-700">{a.label}</h4>
+                <article key={`ins-${k}`} className="mt-2 rounded-r-lg border-l-2 border-chabon/30 pl-4">
+                  <h4 className="mb-1 font-serif text-[15px] font-bold text-chabon">{a.label}</h4>
                   {a.body.split('\n').map((p, j) => (
-                    <p key={j} className="text-[15px] leading-relaxed text-lank/90">{p}</p>
+                    <p key={j} className="text-[15px] leading-relaxed text-ank/90">{p}</p>
                   ))}
                 </article>
               ))}
@@ -257,14 +257,14 @@ export function AnnotatedText({
               // data-nocopy : exclu de « Copier l'article » (CiteButton) — sujets
               // d'index éditoriaux, pas le texte de l'article.
               <div data-nocopy className="mt-2 flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
-                <span className="rounded bg-soley-50 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-soley-700">{lt(INDEX_LBL)}</span>
+                <span className="rounded bg-pil px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-chabon">{lt(INDEX_LBL)}</span>
                 {linked.slice(0, 8).map((s) => (
-                  <span key={s.subject} className="text-[11px] text-lank/55">
+                  <span key={s.subject} className="text-[11px] text-ank/80">
                     {s.subject}
                     {' → '}
                     {s.refs.slice(0, 4).map((r, j, a) => (
                       <span key={String(r)}>
-                        <a href={`#art-${r}`} className="font-semibold text-soley-700 hover:underline">
+                        <a href={`#art-${r}`} className="font-semibold text-chabon hover:underline">
                           {prettyRef(r)}
                         </a>
                         {j < a.length - 1 ? ', ' : s.refs.length > 4 ? '…' : ''}
@@ -291,9 +291,9 @@ export function AnnotatedText({
           const old = oldVersions[b.anchor]
           const cx = connexeMap[b.anchor]
           return (
-            <article key={i} className="scroll-mt-24 rounded-r-lg border-l-2 border-soley/20 pl-4 transition-colors hover:border-soley/60">
+            <article key={i} className="scroll-mt-24 rounded-r-lg border-l-2 border-chabon/20 pl-4 transition-colors hover:border-chabon/60">
               <h4 id={b.noAnchors ? undefined : b.anchor} className="mb-1 flex scroll-mt-24 flex-wrap items-center gap-2">
-                <span className="font-serif text-[15px] font-bold text-soley-700">{label}</span>
+                <span className="font-serif text-[15px] font-bold text-chabon">{label}</span>
                 {badge && (
                   <span className={`rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${badge.cls}`}>{badge.fr}</span>
                 )}

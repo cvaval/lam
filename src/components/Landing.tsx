@@ -20,9 +20,9 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
   const featured = PUBLICATIONS[0]
 
   return (
-    <div className="bg-paper">
+    <div className="bg-koton">
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-sitwon/15 bg-lank">
+      <header className="sticky top-0 z-40 border-b border-chabon/15 bg-chabon">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
           <Logo size={30} tone="dark" />
           {/* gap et rembourrage resserrés sous 360 px : à 320 px l'ensemble
@@ -30,7 +30,7 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
               horizontalement. */}
           <div className="flex items-center gap-2 sm:gap-4">
             <LocaleSwitcher current={locale} />
-            <Link href={`/${locale}/login`} className="whitespace-nowrap rounded-full bg-sitwon px-4 py-2 text-sm font-semibold text-lank hover:bg-sitwon/90 sm:px-5">
+            <Link href={`/${locale}/login`} className="whitespace-nowrap rounded-full bg-sitwon px-4 py-2 text-sm font-semibold text-chabon hover:brightness-95 sm:px-5">
               {t.nav.login}
             </Link>
           </div>
@@ -44,7 +44,7 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
           barre de défilement horizontale — mesuré à 1024 px, où la fiche de la
           diapositive 1 dépassait de 5 px. `clip` et non `hidden` : aucun conteneur
           de défilement créé, donc rien ne casse le collage vertical ni les ancres. */}
-      <section className="overflow-x-clip bg-lank text-cream">
+      <section className="overflow-x-clip bg-chabon text-koton">
         <HomeHeroCarousel
           label={t.hero.carousel.label}
           slideLabels={[t.hero.carousel.slideLegislation, t.hero.carousel.slideMap]}
@@ -63,7 +63,7 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
         */}
         <noscript>
           <div className="mx-auto max-w-6xl px-4 pb-6">
-            <Link href={`/${locale}/juridictions`} className="font-mono text-xs text-cream/70 underline underline-offset-4 hover:text-sitwon">
+            <Link href={`/${locale}/juridictions`} className="font-mono text-xs text-koton/70 underline underline-offset-4 hover:text-chabon">
               {t.hero.map.cta} →
             </Link>
           </div>
@@ -74,51 +74,51 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
       <section className="mx-auto max-w-6xl px-4 py-20">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-soley">{tr('Actualités & analyses', 'News & analysis', 'Aktyalite & analiz')}</p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold text-lank">{tr('Les dernières publications de Lam', 'Latest publications from Lam', 'Dènye piblikasyon Lam yo')}</h2>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-chabon">{tr('Actualités & analyses', 'News & analysis', 'Aktyalite & analiz')}</p>
+            <h2 className="mt-3 font-sans text-display-3 lowercase text-ank">{tr('Les dernières publications de Lam', 'Latest publications from Lam', 'Dènye piblikasyon Lam yo')}</h2>
           </div>
-          <Link href={`/${locale}/publications`} className="rounded-full bg-lank px-5 py-2.5 text-sm font-semibold text-cream hover:bg-lank/90">{tr('Voir toutes les publications', 'See all publications', 'Gade tout piblikasyon yo')}</Link>
+          <Link href={`/${locale}/publications`} className="rounded-full bg-chabon px-5 py-2.5 text-sm font-semibold text-koton hover:bg-chabon/90">{tr('Voir toutes les publications', 'See all publications', 'Gade tout piblikasyon yo')}</Link>
         </div>
         {featured && (
-          <Link href={`/${locale}/publications/${featured.slug}`} className="mt-9 block rounded-2xl border border-lank/10 bg-white p-8 shadow-card transition hover:-translate-y-1 hover:shadow-lg">
-            <p className="font-mono text-xs uppercase tracking-wide text-lank/45">{featured.date} · {featured.author}</p>
-            <h3 className="mt-2 font-serif text-2xl font-semibold leading-snug text-lank">{featured.titleFr}</h3>
-            <p className="mt-3 max-w-3xl leading-relaxed text-lank/65">{featured.summaryFr}</p>
-            <span className="mt-4 inline-block text-sm font-semibold text-fey">{tr('En savoir plus', 'Read more', 'Aprann plis')} →</span>
+          <Link href={`/${locale}/publications/${featured.slug}`} className="mt-9 block rounded-2xl border border-chabon/10 bg-white p-8 transition hover:-translate-y-1 hover:">
+            <p className="font-mono text-xs uppercase tracking-wide text-ank/80">{featured.date} · {featured.author}</p>
+            <h3 className="mt-2 font-sans text-display-3 text-ank">{featured.titleFr}</h3>
+            <p className="mt-3 max-w-3xl leading-relaxed text-grafit">{featured.summaryFr}</p>
+            <span className="mt-4 inline-block text-sm font-semibold text-chabon">{tr('En savoir plus', 'Read more', 'Aprann plis')} →</span>
           </Link>
         )}
       </section>
 
       {/* Offre */}
       <section className="mx-auto max-w-6xl px-4 py-20">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-soley">{tr('Ce que vous pouvez consulter', 'What you can consult', 'Sa ou ka konsilte')}</p>
-        <h2 className="mt-3 font-serif text-3xl font-semibold text-lank">{tr('Trois sources officielles, un seul moteur.', 'Three official sources, one search engine.', 'Twa sous ofisyèl, yon sèl motè.')}</h2>
+        <p className="font-mono text-xs uppercase tracking-[0.2em] text-chabon">{tr('Ce que vous pouvez consulter', 'What you can consult', 'Sa ou ka konsilte')}</p>
+        <h2 className="mt-3 font-sans text-display-3 lowercase text-ank">{tr('Trois sources officielles, un seul moteur.', 'Three official sources, one search engine.', 'Twa sous ofisyèl, yon sèl motè.')}</h2>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {[
             { f: 'Le Moniteur', e: 'Le Moniteur', h: 'Le Moniteur', df: "Accès au contenu des éditions du Journal Officiel. Recherche par mots-clés, date, numéro d'édition et type d'acte.", de: 'Access to the editions of the Official Journal. Search by keyword, date, edition number and type of act.', dh: 'Aksè ak kontni edisyon Jounal Ofisyèl la. Rechèch pa mo kle, dat, nimewo edisyon ak tip zak.' },
             { f: 'Index législatif', e: 'Legislative index', h: 'Endèks lejislatif', df: 'Index structuré de la législation haïtienne : lois, décrets, arrêtés et autres actes normatifs.', de: 'A structured index of Haitian legislation: laws, decrees, orders and other normative acts.', dh: 'Endèks estriktire lejislasyon ayisyen an : lwa, dekrè, arete ak lòt zak nòmatif.' },
             { f: 'Circulaires de la BRH', e: 'BRH circulars', h: 'Sikilè BRH yo', df: "Contenu des circulaires de la Banque de la République d'Haïti, avec recherche par numéro et par année.", de: 'The circulars of the Bank of the Republic of Haiti, searchable by number and year.', dh: "Kontni sikilè Bank Repiblik Ayiti a, ak rechèch pa nimewo ak pa ane." },
           ].map((c, i) => (
-            <Link key={i} href={`/${locale}/login`} className="group rounded-2xl border border-lank/10 bg-white p-7 shadow-card transition hover:-translate-y-1 hover:shadow-lg">
-              <h3 className="font-serif text-xl font-semibold text-lank">{tr(c.f, c.e, c.h)}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-lank/60">{tr(c.df, c.de, c.dh)}</p>
+            <Link key={i} href={`/${locale}/login`} className="group rounded-2xl border border-chabon/10 bg-white p-7 transition hover:-translate-y-1 hover:">
+              <h3 className="font-sans text-xl font-medium text-ank">{tr(c.f, c.e, c.h)}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-grafit">{tr(c.df, c.de, c.dh)}</p>
             </Link>
           ))}
         </div>
       </section>
 
       {/* Mission */}
-      <section className="bg-lank text-cream">
+      <section className="bg-chabon text-koton">
         <div className="mx-auto max-w-6xl px-4 py-20">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-soley">{tr('Mission', 'Mission', 'Misyon')}</p>
-          <p className="mt-7 text-base leading-relaxed text-cream/90 lg:text-lg">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-koton/70">{tr('Mission', 'Mission', 'Misyon')}</p>
+          <p className="mt-7 text-base leading-relaxed text-koton/90 lg:text-lg">
             {tr(
               "Notre mission est de centraliser, structurer et rendre accessible l'information juridique haïtienne afin d'aider chacun à identifier rapidement les sources de droit applicables. En réunissant sur une plateforme unique la législation, les publications du Moniteur et les circulaires administratives, Lam offre un accès simplifié, fiable et moderne au droit.",
               'Our mission is to centralize, structure and make Haitian legal information accessible, helping everyone quickly identify the applicable sources of law. By bringing together on a single platform the legislation, the publications of the Moniteur and administrative circulars, Lam offers simplified, reliable and modern access to the law.',
               "Misyon nou se santralize, estriktire epi rann enfòmasyon jiridik ayisyen an aksesib, pou ede tout moun jwenn rapidman sous dwa ki aplikab yo. Lè li reyini sou yon sèl platfòm lejislasyon an, piblikasyon Monitè yo ak sikilè administratif yo, Lam ofri yon aksè senp, fyab epi modèn ak dwa a.",
             )}
           </p>
-          <p className="mt-5 text-base leading-relaxed text-cream/70 lg:text-lg">
+          <p className="mt-5 text-base leading-relaxed text-koton/70 lg:text-lg">
             {tr(
               "Au-delà d'un simple moteur de recherche, Lam vise à démocratiser l'accès au droit. En facilitant l'accès à une information juridique complète et organisée, la plateforme contribue à renforcer la transparence, la sécurité juridique, l'égalité devant la loi et l'État de droit.",
               'Beyond a simple search engine, Lam aims to democratize access to the law. By facilitating access to comprehensive, organized legal information, the platform helps strengthen transparency, legal certainty, equality before the law and the rule of law.',
@@ -130,9 +130,9 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
 
       {/* Avertissement */}
       <section className="mx-auto max-w-4xl px-4 py-16">
-        <div className="rounded-2xl border border-soley/50 border-l-[6px] border-l-soley bg-soley-50 p-7">
-          <p className="mb-3 font-serif text-lg font-semibold text-lank">⚠ {tr('Mise en garde', 'Disclaimer', 'Avètisman')}</p>
-          <p className="leading-relaxed text-lank/80">
+        <div className="rounded-2xl border border-chabon/50 border-l-[6px] border-l-chabon bg-pil p-7">
+          <p className="mb-3 font-sans text-lg font-medium text-ank">⚠ {tr('Mise en garde', 'Disclaimer', 'Avètisman')}</p>
+          <p className="leading-relaxed text-ank/80">
             {tr(
               "Les documents disponibles sur Lam ne sont pas des textes officiels. Il s'agit d'une reproduction des textes publiés au Moniteur et par la Banque de la République d'Haïti. La consultation de cette base de données ne se substitue pas aux versions officielles publiées par les Presses Nationales d'Haïti, la BRH et les autres autorités étatiques. En cas de divergence, les dernières versions publiées font foi. Lam fournit de l'information juridique à titre documentaire, et non un conseil juridique ; l'utilisation de la Plateforme ne crée aucune relation avocat-client.",
               'The documents available on Lam are not official texts. They are a reproduction of the texts published in the Moniteur and by the Bank of the Republic of Haiti. Consulting this database is not a substitute for the official versions published by the Presses Nationales d’Haïti, the BRH and other state authorities. In the event of any discrepancy, the latest published versions prevail. Lam provides legal information for documentary purposes, not legal advice; use of the Platform creates no attorney-client relationship.',
@@ -143,7 +143,7 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
       </section>
 
       {/* Atouts */}
-      <section className="border-y border-lank/10 bg-white">
+      <section className="border-y border-chabon/10 bg-white">
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 md:grid-cols-3">
           {[
             { tF: 'Sources centralisées', tE: 'Centralized sources', tH: 'Sous santralize', dF: 'Retrouvez au même endroit la législation, la jurisprudence, les circulaires, la doctrine, les lois de finances et les publications du Moniteur.', dE: 'Find legislation, case law, circulars, legal doctrine, finance laws and the publications of the Moniteur all in one place.', dH: 'Jwenn nan yon sèl kote lejislasyon, jurisprudans, sikilè, doktrin, lwa finans ak piblikasyon Monitè yo.' },
@@ -151,8 +151,8 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
             { tF: 'Accès simplifié au droit', tE: 'Simplified access to the law', tH: 'Aksè senp ak dwa a', dF: "Une plateforme conçue pour permettre aux professionnels, aux institutions et aux citoyens d'accéder plus facilement à l'information juridique haïtienne.", dE: 'A platform designed to help professionals, institutions and citizens access Haitian legal information more easily.', dH: 'Yon platfòm ki fèt pou pèmèt pwofesyonèl, enstitisyon ak sitwayen jwenn enfòmasyon jiridik ayisyen an pi fasilman.' },
           ].map((it, i) => (
             <div key={i}>
-              <h4 className="font-serif text-lg font-semibold text-lank">{tr(it.tF, it.tE, it.tH)}</h4>
-              <p className="mt-1.5 text-sm leading-relaxed text-lank/60">{tr(it.dF, it.dE, it.dH)}</p>
+              <h4 className="font-sans text-lg font-medium text-ank">{tr(it.tF, it.tE, it.tH)}</h4>
+              <p className="mt-1.5 text-sm leading-relaxed text-grafit">{tr(it.dF, it.dE, it.dH)}</p>
             </div>
           ))}
         </div>
@@ -160,27 +160,27 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
 
 
       {/* Footer */}
-      <footer className="bg-lank text-cream/75">
+      <footer className="bg-chabon text-koton/75">
         <div className="mx-auto max-w-6xl px-4 py-14">
-          <div className="flex flex-col gap-8 border-b border-cream/10 pb-8 md:flex-row md:justify-between">
+          <div className="flex flex-col gap-8 border-b border-koton/10 pb-8 md:flex-row md:justify-between">
             <div>
               <Logo size={30} tone="dark" />
-              <p className="mt-4 max-w-xs font-serif text-cream/85">{tr('État de droit · accès au droit pour tous.', 'Rule of law · access to the law for all.', 'Eta dedwa · aksè ak dwa pou tout moun.')}</p>
+              <p className="mt-4 max-w-xs font-sans text-koton/85">{tr('État de droit · accès au droit pour tous.', 'Rule of law · access to the law for all.', 'Eta dedwa · aksè ak dwa pou tout moun.')}</p>
             </div>
             <nav className="flex flex-col gap-2.5 text-sm">
-              <span className="mb-1 font-mono text-[11px] uppercase tracking-wider text-sitwon">{tr('Informations légales', 'Legal', 'Enfòmasyon legal')}</span>
-              <Link className="hover:text-sitwon" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
-              <Link className="hover:text-sitwon" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
-              <Link className="hover:text-sitwon" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
+              <span className="mb-1 font-mono text-[11px] uppercase tracking-wider text-koton/70">{tr('Informations légales', 'Legal', 'Enfòmasyon legal')}</span>
+              <Link className="hover:text-chabon" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
+              <Link className="hover:text-chabon" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
+              <Link className="hover:text-chabon" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
             </nav>
             <nav className="flex flex-col gap-2.5 text-sm">
-              <span className="mb-1 font-mono text-[11px] uppercase tracking-wider text-sitwon">{tr('Liens', 'Links', 'Lyen')}</span>
-              <Link className="hover:text-sitwon" href={`/${locale}/publications`}>Publications</Link>
-              <a className="hover:text-sitwon" href="mailto:legal@lam.ht">Contact</a>
-              <a className="hover:text-sitwon" href="mailto:erreur@lam.ht?subject=Signalement%20d'une%20erreur">{tr('Signaler une erreur', 'Report an error', 'Siyale yon erè')}</a>
+              <span className="mb-1 font-mono text-[11px] uppercase tracking-wider text-koton/70">{tr('Liens', 'Links', 'Lyen')}</span>
+              <Link className="hover:text-chabon" href={`/${locale}/publications`}>Publications</Link>
+              <a className="hover:text-chabon" href="mailto:legal@lam.ht">Contact</a>
+              <a className="hover:text-chabon" href="mailto:erreur@lam.ht?subject=Signalement%20d'une%20erreur">{tr('Signaler une erreur', 'Report an error', 'Siyale yon erè')}</a>
             </nav>
           </div>
-          <div className="flex flex-wrap justify-between gap-3 pt-6 text-xs text-cream/45">
+          <div className="flex flex-wrap justify-between gap-3 pt-6 text-xs text-koton/70">
             <span>© 2026 Lam. {tr('Base de données contenant la reproduction des textes officiels.', 'A database containing the reproduction of official texts.', 'Baz done ki gen repwodiksyon tèks ofisyèl yo.')}</span>
             <span className="font-mono">Éditeur : Lam · 62 rue Geffrard, Pétion-Ville · Hébergeur : Vercel (USA) · DNSSEC</span>
           </div>

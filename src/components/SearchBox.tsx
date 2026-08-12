@@ -252,7 +252,7 @@ export function SearchBox({
   return (
     <form onSubmit={submit} className="flex w-full items-center gap-2" role="search">
       <div ref={boxRef} className="relative flex-1">
-        <svg viewBox="0 0 24 24" className={`pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-lank/35 ${big ? 'h-5 w-5' : 'h-4 w-4'}`} fill="none" stroke="currentColor" strokeWidth="2">
+        <svg viewBox="0 0 24 24" className={`pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-ank/80 ${big ? 'h-5 w-5' : 'h-4 w-4'}`} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="11" cy="11" r="7" />
           <path d="m21 21-4.3-4.3" strokeLinecap="round" />
         </svg>
@@ -268,23 +268,23 @@ export function SearchBox({
           aria-autocomplete="list"
           aria-controls="lv-search-menu"
           autoComplete="off"
-          className={`w-full rounded-full border border-lank/15 bg-white pl-10 text-lank shadow-card outline-none focus:border-sitwon ${big ? 'py-3.5 pr-12 text-base' : 'py-2 pr-10 text-sm'}`}
+          className={`w-full rounded-full border border-chabon/15 bg-white pl-10 text-ank outline-none focus:border-liy ${big ? 'py-3.5 pr-12 text-base' : 'py-2 pr-10 text-sm'}`}
         />
         {q && (
-          <button type="button" onClick={clearInput} aria-label={LBL.clearInput[locale] ?? LBL.clearInput.fr} className={`absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center rounded-full text-lank/40 transition hover:bg-lank/5 hover:text-lank ${big ? 'h-7 w-7' : 'h-5 w-5'}`}>
-            <svg viewBox="0 0 24 24" className={big ? 'h-4 w-4' : 'h-3.5 w-3.5'} fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" /></svg>
+          <button type="button" onClick={clearInput} aria-label={LBL.clearInput[locale] ?? LBL.clearInput.fr} className={`absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center rounded-full text-ank/80 transition hover:bg-chabon/5 hover:text-ank ${big ? 'h-7 w-7' : 'h-5 w-5'}`}>
+            <svg viewBox="0 0 24 24" className={big ? 'h-4 w-4' : 'h-3.5 w-3.5'} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" /></svg>
           </button>
         )}
 
         {showMenu && (
-          <div className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-2xl border border-lank/10 bg-white py-1 shadow-xl">
+          <div className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-2xl border border-chabon/10 bg-white py-1 shadow-flottant">
             <div id="lv-search-menu" role="listbox">
             {groups.map((g, gi) => (
-              <div key={g.header} className={gi > 0 ? 'border-t border-lank/5' : ''}>
+              <div key={g.header} className={gi > 0 ? 'border-t border-chabon/5' : ''}>
                 <div className="flex items-center justify-between px-3 pt-2 pb-1">
-                  <span className="text-[11px] font-semibold uppercase tracking-wide text-lank/40">{g.header}</span>
+                  <span className="text-[11px] font-semibold uppercase tracking-wide text-ank/80">{g.header}</span>
                   {g.items[0]?.t === 'term' && (g.items[0] as { section: string }).section === 'recent' && term.length < 2 && (
-                    <button type="button" onMouseDown={(e) => { e.preventDefault(); clearHistory() }} className="text-[11px] font-medium text-endeks-700 hover:underline">
+                    <button type="button" onMouseDown={(e) => { e.preventDefault(); clearHistory() }} className="text-[11px] font-medium text-chabon hover:underline">
                       {LBL.clearAll[locale] ?? LBL.clearAll.fr}
                     </button>
                   )}
@@ -295,23 +295,23 @@ export function SearchBox({
                   const on = i === active
                   if (it.t === 'nav') {
                     return (
-                      <div key={it.key} role="option" aria-selected={on} onMouseEnter={() => setActive(i)} onMouseDown={(e) => { e.preventDefault(); select(it) }} className={`flex cursor-pointer items-center gap-2.5 px-3 py-2 text-sm ${on ? 'bg-paper' : 'hover:bg-paper'}`}>
-                        <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 text-lank/30" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 5h13M4 10h13M4 15h9" strokeLinecap="round" /><path d="m17 14 4 3-4 3" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                        <span className="min-w-0 flex-1 truncate text-lank/85">{it.label}</span>
-                        {it.sub && <span className="shrink-0 text-xs text-lank/40">{it.sub}</span>}
-                        {it.badge && <span className="shrink-0 rounded-full bg-endeks-50 px-2 py-0.5 text-[10px] font-semibold text-endeks-700">{it.badge} ›</span>}
+                      <div key={it.key} role="option" aria-selected={on} onMouseEnter={() => setActive(i)} onMouseDown={(e) => { e.preventDefault(); select(it) }} className={`flex cursor-pointer items-center gap-2.5 px-3 py-2 text-sm ${on ? 'bg-koton' : 'hover:bg-koton'}`}>
+                        <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 text-ank/80" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 5h13M4 10h13M4 15h9" strokeLinecap="round" /><path d="m17 14 4 3-4 3" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                        <span className="min-w-0 flex-1 truncate text-ank/85">{it.label}</span>
+                        {it.sub && <span className="shrink-0 text-xs text-ank/80">{it.sub}</span>}
+                        {it.badge && <span className="shrink-0 rounded-full bg-pil px-2 py-0.5 text-[10px] font-semibold text-chabon">{it.badge} ›</span>}
                       </div>
                     )
                   }
                   return (
-                    <div key={it.key} role="option" aria-selected={on} onMouseEnter={() => setActive(i)} onMouseDown={(e) => { e.preventDefault(); select(it) }} className={`flex cursor-pointer items-center gap-2.5 px-3 py-2 text-sm ${on ? 'bg-paper' : 'hover:bg-paper'}`}>
-                      <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 text-lank/30" fill="none" stroke="currentColor" strokeWidth="2">
+                    <div key={it.key} role="option" aria-selected={on} onMouseEnter={() => setActive(i)} onMouseDown={(e) => { e.preventDefault(); select(it) }} className={`flex cursor-pointer items-center gap-2.5 px-3 py-2 text-sm ${on ? 'bg-koton' : 'hover:bg-koton'}`}>
+                      <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 text-ank/80" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         {it.section === 'recent' ? (<><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" strokeLinecap="round" strokeLinejoin="round" /></>) : (<><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" strokeLinecap="round" /></>)}
                       </svg>
-                      <span className="min-w-0 flex-1 truncate text-lank/80">{it.label}</span>
+                      <span className="min-w-0 flex-1 truncate text-ank/80">{it.label}</span>
                       {it.section === 'recent' && term.length < 2 && (
-                        <button type="button" aria-label={`${LBL.remove[locale] ?? LBL.remove.fr} « ${it.label} »`} onMouseDown={(e) => { e.preventDefault(); e.stopPropagation(); removeItem(it.label) }} className="shrink-0 rounded-full p-1 text-lank/30 transition hover:bg-lank/5 hover:text-lank">
-                          <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" /></svg>
+                        <button type="button" aria-label={`${LBL.remove[locale] ?? LBL.remove.fr} « ${it.label} »`} onMouseDown={(e) => { e.preventDefault(); e.stopPropagation(); removeItem(it.label) }} className="shrink-0 rounded-full p-1 text-ank/80 transition hover:bg-chabon/5 hover:text-ank">
+                          <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" /></svg>
                         </button>
                       )}
                     </div>
@@ -325,7 +325,7 @@ export function SearchBox({
                 listbox (c'est un bouton, pas une option) ; onClick pour rester
                 actionnable au CLAVIER (Entrée/Espace), onMouseDown ne gardant que
                 l'anti-blur. */}
-            <div className={hasOptions ? 'border-t border-lank/5' : ''}>
+            <div className={hasOptions ? 'border-t border-chabon/5' : ''}>
               <button
                 type="button"
                 onMouseDown={(e) => e.preventDefault()}
@@ -333,9 +333,9 @@ export function SearchBox({
                   setOpen(false)
                   router.push(searchUrl({ adv: '1', q: term || undefined }))
                 }}
-                className="flex w-full items-center gap-2.5 px-3 py-2.5 text-sm font-medium text-endeks-700 hover:bg-paper"
+                className="flex w-full items-center gap-2.5 px-3 py-2.5 text-sm font-medium text-chabon hover:bg-koton"
               >
-                <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden strokeLinecap="round" strokeLinejoin="round">
                   <path d="M4 6h16M7 12h10M10 18h4" strokeLinecap="round" />
                 </svg>
                 {advancedLabel} ›
@@ -345,8 +345,8 @@ export function SearchBox({
         )}
       </div>
 
-      <button type="submit" aria-label={searchLabel} title={searchLabel} className={`flex shrink-0 items-center justify-center gap-2 rounded-full bg-lank font-semibold text-white shadow-card transition hover:bg-lank-600 ${big ? 'px-5 py-3.5 text-base' : 'px-3.5 py-2 text-sm'}`}>
-        <svg viewBox="0 0 24 24" className={big ? 'h-5 w-5' : 'h-4 w-4'} fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" strokeLinecap="round" /></svg>
+      <button type="submit" aria-label={searchLabel} title={searchLabel} className={`flex shrink-0 items-center justify-center gap-2 rounded-full bg-sitwon font-semibold text-chabon transition hover:brightness-95 ${big ? 'px-5 py-3.5 text-base' : 'px-3.5 py-2 text-sm'}`}>
+        <svg viewBox="0 0 24 24" className={big ? 'h-5 w-5' : 'h-4 w-4'} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" strokeLinecap="round" /></svg>
         {big && <span>{searchLabel}</span>}
       </button>
     </form>

@@ -20,19 +20,19 @@ export default async function AdminUsersPage({ params }: { params: { locale: str
 
   return (
     <div className="space-y-8">
-      <h1 className="text-xl font-semibold text-lank">{t.admin.users}</h1>
+      <h1 className="text-xl font-semibold text-ank">{t.admin.users}</h1>
 
       <CreateUserForm t={t} />
 
       {pending.length > 0 && (
         <section>
-          <h2 className="mb-3 text-sm font-semibold text-lank">{t.admin.pending}</h2>
+          <h2 className="mb-3 text-sm font-semibold text-ank">{t.admin.pending}</h2>
           <UsersManager users={pending} t={t} locale={locale} mode="pending" />
         </section>
       )}
 
       <section>
-        <h2 className="mb-3 text-sm font-semibold text-lank">{t.admin.allUsers}</h2>
+        <h2 className="mb-3 text-sm font-semibold text-ank">{t.admin.allUsers}</h2>
         <UsersManager users={active} t={t} locale={locale} mode="all" />
       </section>
     </div>

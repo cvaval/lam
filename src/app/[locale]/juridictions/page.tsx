@@ -77,27 +77,27 @@ export default async function JuridictionsPage({
   const resultsPanel = (
     <section aria-label={t.judicial.resultsRegion} className="flex min-w-0 flex-col gap-4">
       {notFound && (
-        <p role="status" className="rounded-xl border border-soley/40 bg-soley-50 px-4 py-3 text-sm text-lank/80">
+        <p role="status" className="rounded-xl border border-chabon/40 bg-pil px-4 py-3 text-sm text-ank/80">
           {t.judicial.notFoundCommune}
         </p>
       )}
       {record ? (
         <JudicialResults record={record} locale={locale} t={t} />
       ) : (
-        !notFound && <p className="rounded-xl border border-lank/10 bg-white px-4 py-3 text-sm text-lank/60">{t.judicial.selectPrompt}</p>
+        !notFound && <p className="rounded-xl border border-chabon/10 bg-white px-4 py-3 text-sm text-grafit">{t.judicial.selectPrompt}</p>
       )}
-      <p className="text-xs leading-relaxed text-lank/45">{t.judicial.disclaimer}</p>
+      <p className="text-xs leading-relaxed text-ank/80">{t.judicial.disclaimer}</p>
     </section>
   )
 
   return (
-    <div className="min-h-screen bg-paper">
-      <header className="sticky top-0 z-40 border-b border-sitwon/15 bg-lank">
+    <div className="min-h-screen bg-koton">
+      <header className="sticky top-0 z-40 border-b border-chabon/15 bg-chabon">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
           <Link href={`/${locale}`} aria-label={t.judicial.breadcrumbHome}><Logo size={30} tone="dark" /></Link>
           <div className="flex items-center gap-4">
             <LocaleSwitcher current={locale} />
-            <Link href={`/${locale}/login`} className="rounded-full bg-sitwon px-5 py-2 text-sm font-semibold text-lank hover:bg-sitwon/90">
+            <Link href={`/${locale}/login`} className="rounded-full bg-chabon px-5 py-2 text-sm font-semibold text-koton hover:bg-chabon/90">
               {t.nav.login}
             </Link>
           </div>
@@ -105,16 +105,16 @@ export default async function JuridictionsPage({
       </header>
 
       <main className="mx-auto max-w-7xl px-4 pb-16 pt-6">
-        <nav aria-label="Fil d’Ariane" className="text-sm text-lank/55">
+        <nav aria-label="Fil d’Ariane" className="text-sm text-ank/80">
           <ol className="flex flex-wrap items-center gap-1.5">
-            <li><Link href={`/${locale}`} className="hover:text-lank hover:underline">{t.judicial.breadcrumbHome}</Link></li>
+            <li><Link href={`/${locale}`} className="hover:text-ank hover:underline">{t.judicial.breadcrumbHome}</Link></li>
             <li aria-hidden="true">/</li>
-            <li aria-current="page" className="font-medium text-lank">{t.judicial.breadcrumbHere}</li>
+            <li aria-current="page" className="font-medium text-ank">{t.judicial.breadcrumbHere}</li>
           </ol>
         </nav>
 
-        <h1 className="mt-3 font-serif text-3xl font-semibold text-lank lg:text-4xl">{t.judicial.title}</h1>
-        <p className="mt-2 max-w-3xl leading-relaxed text-lank/65">{t.judicial.intro}</p>
+        <h1 className="mt-3 font-serif text-3xl font-semibold text-ank lg:text-4xl">{t.judicial.title}</h1>
+        <p className="mt-2 max-w-3xl leading-relaxed text-grafit">{t.judicial.intro}</p>
 
         <div className="mt-6 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
           <JudicialSearch locale={locale} t={t} layersQs={layersQs} />
@@ -128,7 +128,7 @@ export default async function JuridictionsPage({
           </div>
 
           <div className="order-1 min-w-0 lg:order-2">
-            <div className="overflow-hidden rounded-2xl border border-lank/10 bg-white shadow-card">
+            <div className="overflow-hidden rounded-2xl border border-chabon/10 bg-white">
               <JudicialMapClient
                 locale={locale}
                 selectedCommuneId={record?.commune.id ?? null}
@@ -137,20 +137,20 @@ export default async function JuridictionsPage({
                 loadingLabel={t.judicial.loadingMap}
                 fallback={
                   <div className="p-6">
-                    <p className="text-sm leading-relaxed text-lank/70">{t.judicial.mapFallback}</p>
+                    <p className="text-sm leading-relaxed text-grafit">{t.judicial.mapFallback}</p>
                   </div>
                 }
               />
-              <div className="flex flex-wrap items-center justify-between gap-2 border-t border-lank/10 bg-paper px-3 py-2">
-                <p className="text-[11px] text-lank/55">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-t border-chabon/10 bg-koton px-3 py-2">
+                <p className="text-[11px] text-ank/80">
                   <span className="font-medium">{t.judicial.attributionLabel} :</span> {attribution}
                 </p>
-                <a href={reportIssueUrl} target="_blank" rel="noopener noreferrer" className="text-[11px] font-medium text-fey underline underline-offset-2 hover:text-fey-700">
+                <a href={reportIssueUrl} target="_blank" rel="noopener noreferrer" className="text-[11px] font-medium text-chabon underline underline-offset-2 hover:text-chabon">
                   {t.judicial.reportIssue}
                 </a>
               </div>
             </div>
-            <p className="mt-2 text-sm text-lank/55">{t.judicial.mapUsage}</p>
+            <p className="mt-2 text-sm text-ank/80">{t.judicial.mapUsage}</p>
             <MapLegend t={t} />
 
             {/* Mobile : résultats dans une feuille repliable sous la carte. */}
@@ -164,8 +164,8 @@ export default async function JuridictionsPage({
 
         {/* Liste textuelle COMPLÈTE et accessible (la carte n'est jamais le seul accès). */}
         <section className="mt-10" aria-label={t.judicial.communeList}>
-          <details className="rounded-2xl border border-lank/10 bg-white shadow-card" open={!record}>
-            <summary className="cursor-pointer px-5 py-4 font-serif text-lg font-semibold text-lank">
+          <details className="rounded-2xl border border-chabon/10 bg-white" open={!record}>
+            <summary className="cursor-pointer px-5 py-4 font-serif text-lg font-semibold text-ank">
               {t.judicial.communeList} ({directory.length})
             </summary>
             <div className="grid gap-x-8 gap-y-1 px-5 pb-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -174,14 +174,14 @@ export default async function JuridictionsPage({
                   key={c.id}
                   href={`/${locale}/juridictions?commune=${c.id}${layersQs}`}
                   aria-current={c.id === record?.commune.id ? 'page' : undefined}
-                  className={`flex items-baseline justify-between gap-2 rounded-lg px-2 py-1.5 text-sm hover:bg-lank-50 ${c.id === record?.commune.id ? 'bg-sitwon-50 font-semibold text-lank' : 'text-lank/80'}`}
+                  className={`flex items-baseline justify-between gap-2 rounded-lg px-2 py-1.5 text-sm hover:bg-pil ${c.id === record?.commune.id ? 'bg-pil font-semibold text-ank' : 'text-ank/80'}`}
                 >
                   <span>
                     {c.name}
-                    <span className="ml-1.5 text-xs text-lank/45">{c.department}</span>
-                    {!c.boundaryConfirmed && <span className="ml-1.5 text-[10px] text-soley-700">({t.judicial.boundaryUnconfirmed})</span>}
+                    <span className="ml-1.5 text-xs text-ank/80">{c.department}</span>
+                    {!c.boundaryConfirmed && <span className="ml-1.5 text-[10px] text-chabon">({t.judicial.boundaryUnconfirmed})</span>}
                   </span>
-                  {c.postalCode && <span className="font-mono text-xs text-lank/50">{c.postalCode}</span>}
+                  {c.postalCode && <span className="font-mono text-xs text-ank/80">{c.postalCode}</span>}
                 </Link>
               ))}
             </div>
@@ -189,13 +189,13 @@ export default async function JuridictionsPage({
         </section>
       </main>
 
-      <footer className="border-t border-lank/10 bg-white">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-6 text-xs text-lank/50">
+      <footer className="border-t border-chabon/10 bg-white">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-6 text-xs text-ank/80">
           <span>© 2026 Lam</span>
           <nav className="flex gap-4">
-            <Link className="hover:text-lank" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
-            <Link className="hover:text-lank" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
-            <Link className="hover:text-lank" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
+            <Link className="hover:text-ank" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
+            <Link className="hover:text-ank" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
+            <Link className="hover:text-ank" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
           </nav>
         </div>
       </footer>

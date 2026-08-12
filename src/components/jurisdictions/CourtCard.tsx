@@ -2,14 +2,29 @@ import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale } from '@/lib/types'
 import type { CourtView } from '@/lib/jurisdictions/data'
 import type { CourtType } from '@/lib/jurisdictions/constants'
+import { BRAND_COLORS } from '@/lib/brand-colors'
 
-/** Couleur + FORME par type (l'information n'est jamais portée par la couleur seule). */
+/**
+ * SOURCE UNIQUE du codage des ordres de juridiction — consommée par la légende, les
+ * filtres de couche, les fiches et la toile MapLibre (`JudicialMap`), qui recopiait
+ * ces teintes avant l'avenant AV-02.
+ *
+ * Gamme cartographique AV-02 : Wouj / Sitwon / Vèt / Ble. La FORME accompagne toujours
+ * la couleur — la règle 5 de la charte interdit l'information portée par la teinte seule,
+ * et Vèt/Wouj sont à 1,05:1 de luminance, indiscernables en daltonisme rouge-vert.
+ *
+ * ⚠️ Le contour Chabon est CONSTITUTIF, non décoratif : Sitwon n'est qu'à 1,2:1 de Koton,
+ * un marqueur jaune sans contour disparaîtrait du fond de carte.
+ */
 export const COURT_STYLE: Record<CourtType, { color: string; shape: 'circle' | 'triangle' | 'square' | 'diamond' }> = {
-  PAIX: { color: '#BEF264', shape: 'circle' },
-  PREMIERE_INSTANCE: { color: '#F4A823', shape: 'triangle' },
-  APPEL: { color: '#4F8EF7', shape: 'square' },
-  CASSATION: { color: '#7C6F9B', shape: 'diamond' },
+  PAIX: { color: BRAND_COLORS.wouj, shape: 'circle' },
+  PREMIERE_INSTANCE: { color: BRAND_COLORS.sitwon, shape: 'triangle' },
+  APPEL: { color: BRAND_COLORS.vet, shape: 'square' },
+  CASSATION: { color: BRAND_COLORS.ble, shape: 'diamond' },
 }
+
+/** Contour de tout marqueur de juridiction — voir l'avertissement ci-dessus. */
+export const MARKER_STROKE = BRAND_COLORS.chabon
 
 export function ShapeIcon({ kind, size = 12 }: { kind: CourtType; size?: number }) {
   const { color, shape } = COURT_STYLE[kind]
@@ -21,7 +36,7 @@ export function ShapeIcon({ kind, size = 12 }: { kind: CourtType; size?: number 
     : <polygon points={`${s / 2},0 ${s},${s / 2} ${s / 2},${s} 0,${s / 2}`} />
   return (
     <svg aria-hidden="true" width={s} height={s} viewBox={`0 0 ${s} ${s}`} className="shrink-0">
-      <g fill={color} stroke="#1C1B3A" strokeWidth="1">{path}</g>
+      <g fill={color} stroke={MARKER_STROKE} strokeWidth="2">{path}</g>
     </svg>
   )
 }
@@ -39,59 +54,59 @@ export function CourtCard({ court, kind, t }: { court: CourtView; kind: CourtTyp
       ? `https://www.google.com/maps/search/?api=1&query=${court.latitude}%2C${court.longitude}`
       : null
   return (
-    <div className="rounded-xl border border-lank/10 bg-white p-4 shadow-card">
+    <div className="rounded-xl border border-chabon/10 bg-white p-4">
       <div className="flex items-center gap-2">
         <ShapeIcon kind={kind} />
-        <h4 className="min-w-0 flex-1 text-sm font-semibold leading-snug text-lank">{court.name}</h4>
+        <h4 className="min-w-0 flex-1 text-sm font-semibold leading-snug text-ank">{court.name}</h4>
       </div>
-      <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-xs text-lank/70">
+      <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-xs text-grafit">
         {court.seatCity && (
           <>
             {/* Un tribunal de paix siège dans une SECTION, pas dans une ville : le
                 libellé « Ville-siège » ne vaut que pour les juridictions supérieures. */}
-            <dt className="text-lank/45">{kind === 'PAIX' ? j.seat : j.seatCity}</dt>
+            <dt className="text-ank/80">{kind === 'PAIX' ? j.seat : j.seatCity}</dt>
             <dd>{court.seatCity}</dd>
           </>
         )}
         {court.address && (
           <>
-            <dt className="text-lank/45">{j.address}</dt>
+            <dt className="text-ank/80">{j.address}</dt>
             <dd>{court.address}</dd>
           </>
         )}
         {court.postalCode && (
           <>
-            <dt className="text-lank/45">{j.primaryPostalCode}</dt>
+            <dt className="text-ank/80">{j.primaryPostalCode}</dt>
             <dd className="font-mono">{court.postalCode}</dd>
           </>
         )}
         {court.plusCode && (
           <>
             {/* Plus Code = champ DISTINCT, jamais présenté comme code postal. */}
-            <dt className="text-lank/45">{j.plusCode}</dt>
-            <dd className="font-mono">{court.plusCode} <span className="font-sans text-lank/40">({j.plusCodeNote})</span></dd>
+            <dt className="text-ank/80">{j.plusCode}</dt>
+            <dd className="font-mono">{court.plusCode} <span className="font-sans text-ank/80">({j.plusCodeNote})</span></dd>
           </>
         )}
         {court.operationalStatus && (
           <>
-            <dt className="text-lank/45">{j.statusLabel}</dt>
+            <dt className="text-ank/80">{j.statusLabel}</dt>
             <dd>{court.operationalStatus}</dd>
           </>
         )}
       </dl>
       <div className="mt-2 flex flex-wrap items-center gap-2">
         {court.indicative && (
-          <span className="rounded-full bg-lank-50 px-2 py-0.5 text-[10px] font-medium text-lank/60">📍 {j.indicativePosition}</span>
+          <span className="rounded-full bg-pil px-2 py-0.5 text-[10px] font-medium text-grafit">📍 {j.indicativePosition}</span>
         )}
         {mapsHref && (
-          <a href={mapsHref} target="_blank" rel="noopener noreferrer" className="rounded-full bg-fey-50 px-2 py-0.5 text-[10px] font-medium text-fey underline-offset-2 hover:underline">
+          <a href={mapsHref} target="_blank" rel="noopener noreferrer" className="rounded-full bg-pil px-2 py-0.5 text-[10px] font-medium text-chabon underline-offset-2 hover:underline">
             {j.openInMaps} ↗
           </a>
         )}
       </div>
-      {court.observation && <p className="mt-2 text-[11px] leading-relaxed text-lank/50">{court.observation}</p>}
+      {court.observation && <p className="mt-2 text-[11px] leading-relaxed text-ank/80">{court.observation}</p>}
       {(court.sources.length > 0 || court.verifiedAt) && (
-        <p className="mt-2 truncate text-[10px] text-lank/40">
+        <p className="mt-2 truncate text-[10px] text-ank/80">
           {court.sources.length > 0 && (
             <>
               {j.sources} :{' '}
@@ -99,7 +114,7 @@ export function CourtCard({ court, kind, t }: { court: CourtView; kind: CourtTyp
                 <span key={i}>
                   {i > 0 && ' · '}
                   {s.type === 'url' ? (
-                    <a href={s.value} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-fey">
+                    <a href={s.value} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-chabon">
                       {(() => { try { return new URL(s.value).hostname } catch { return s.value.slice(0, 40) } })()}
                     </a>
                   ) : (

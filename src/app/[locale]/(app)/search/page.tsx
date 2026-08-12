@@ -174,16 +174,16 @@ export default async function SearchPage({
   return (
     <div className="space-y-5">
       {landingSlug && selectedType && (
-        <Link href={`/${locale}/${landingSlug}`} className="inline-flex items-center gap-1 text-sm font-medium text-endeks-700 hover:underline">
+        <Link href={`/${locale}/${landingSlug}`} className="inline-flex items-center gap-1 text-sm font-medium text-chabon hover:underline">
           ← {DOC_TYPE_META[selectedType].label[locale]}
         </Link>
       )}
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div>
-          <p className="text-sm text-lank/55">
+          <p className="text-sm text-ank/80">
             {result.total} {t.search.results} {q && <>· {t.search.resultsFor} « {q} »</>}
           </p>
-          <p className="mt-0.5 text-xs text-lank/35">{t.search.translingualNote}</p>
+          <p className="mt-0.5 text-xs text-ank/80">{t.search.translingualNote}</p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
           {/* Quota Sitwayen proactif + alerte de veille sur la recherche courante */}
@@ -214,7 +214,7 @@ export default async function SearchPage({
 
       {/* Filtres par type (navigation par couleur §01) */}
       {indexOnly ? (
-        <div className="inline-flex items-center gap-1.5 rounded-full bg-endeks px-3 py-1 text-xs font-medium text-white">
+        <div className="inline-flex items-center gap-1.5 rounded-full bg-chabon px-3 py-1 text-xs font-medium text-white">
           <Pastille type="INDEX" /> {t.search.indexOnlyBadge}
         </div>
       ) : (
@@ -222,7 +222,7 @@ export default async function SearchPage({
           <Link
             href={`/${locale}/search?${qs(baseParams, { type: undefined, status: undefined, juridiction: undefined, matiere: undefined, fiscalYear: undefined, niceClass: undefined, category: undefined, num: undefined, year: undefined, yearFrom: undefined, yearTo: undefined })}`}
             className={`rounded-full border px-3 py-1 text-xs font-medium ${
-              !selectedType ? 'border-lank bg-lank text-white' : 'border-lank/15 bg-white text-lank/70 hover:border-lank/40'
+              !selectedType ? 'border-liy bg-chabon text-white' : 'border-chabon/15 bg-white text-ank/70 hover:border-chabon/40'
             }`}
           >
             {t.search.allTypes}
@@ -234,7 +234,7 @@ export default async function SearchPage({
               key={m.type}
               href={`/${locale}/search?${qs(baseParams, { type: m.slug })}`}
               className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium ${
-                selectedType === m.type ? 'border-lank bg-lank text-white' : 'border-lank/15 bg-white text-lank/70 hover:border-lank/40'
+                selectedType === m.type ? 'border-liy bg-chabon text-white' : 'border-chabon/15 bg-white text-ank/70 hover:border-chabon/40'
               }`}
             >
               <Pastille type={m.type as DocType} />
@@ -250,11 +250,11 @@ export default async function SearchPage({
       )}
 
       {quotaBlocked && (
-        <div className="rounded-2xl border border-soley/40 bg-soley-50 p-5 text-sm text-lank">{t.errors.quota}</div>
+        <div className="rounded-2xl border border-chabon/40 bg-pil p-5 text-sm text-ank">{t.errors.quota}</div>
       )}
 
       {!quotaBlocked && result.hits.length === 0 && (
-        <div className="rounded-2xl border border-lank/10 bg-white p-10 text-center text-lank/45">{t.search.noResults}</div>
+        <div className="rounded-2xl border border-chabon/10 bg-white p-10 text-center text-ank/80">{t.search.noResults}</div>
       )}
 
       <div className="grid gap-3">
@@ -263,9 +263,9 @@ export default async function SearchPage({
           return (
             <Fragment key={`${h.kind}-${h.id}`}>
               {showFuzzyDivider && (
-                <div className="flex items-center gap-3 pt-2 text-[11px] font-semibold uppercase tracking-wide text-endeks-700">
-                  <span className="h-px flex-1 bg-endeks/30" />≈ {t.search.fuzzySection}
-                  <span className="h-px flex-1 bg-endeks/30" />
+                <div className="flex items-center gap-3 pt-2 text-[11px] font-semibold uppercase tracking-wide text-chabon">
+                  <span className="h-px flex-1 bg-chabon/30" />≈ {t.search.fuzzySection}
+                  <span className="h-px flex-1 bg-chabon/30" />
                 </div>
               )}
               <ResultCard hit={h} locale={locale} t={t} q={q} abrogatedByNumber={abrogatedBy.get(h.id)} />
@@ -279,18 +279,18 @@ export default async function SearchPage({
           {page > 1 && (
             <Link
               href={`/${locale}/search?${qs(searchParams, { page: String(page - 1) })}`}
-              className="rounded-lg border border-lank/15 bg-white px-3 py-1.5 text-lank"
+              className="rounded-lg border border-chabon/15 bg-white px-3 py-1.5 text-ank"
             >
               ←
             </Link>
           )}
-          <span className="text-lank/50">
+          <span className="text-ank/80">
             {page} / {totalPages}
           </span>
           {page < totalPages && (
             <Link
               href={`/${locale}/search?${qs(searchParams, { page: String(page + 1) })}`}
-              className="rounded-lg border border-lank/15 bg-white px-3 py-1.5 text-lank"
+              className="rounded-lg border border-chabon/15 bg-white px-3 py-1.5 text-ank"
             >
               →
             </Link>

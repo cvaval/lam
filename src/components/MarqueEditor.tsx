@@ -87,57 +87,57 @@ export function MarqueEditor({ locale }: { locale: Locale }) {
   return (
     <div className="space-y-5">
       <div>
-        <h1 className="text-lg font-semibold text-lank">{lt(L.title)}</h1>
-        <p className="mt-1 max-w-2xl text-sm text-lank/55">{lt(L.intro)}</p>
+        <h1 className="text-lg font-semibold text-ank">{lt(L.title)}</h1>
+        <p className="mt-1 max-w-2xl text-sm text-ank/80">{lt(L.intro)}</p>
       </div>
 
-      <div className="grid gap-4 rounded-2xl border border-lank/10 bg-white p-5 shadow-card sm:grid-cols-2">
+      <div className="grid gap-4 rounded-2xl border border-chabon/10 bg-white p-5 sm:grid-cols-2">
         <div className="sm:col-span-2">
-          <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-lank/55">{lt(L.nom)}</label>
-          <input value={nom} onChange={(e) => setNom(e.target.value)} className="w-full rounded-lg border border-lank/15 bg-paper px-3 py-2 text-sm text-lank outline-none focus:border-sitwon" />
+          <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-ank/80">{lt(L.nom)}</label>
+          <input value={nom} onChange={(e) => setNom(e.target.value)} className="w-full rounded-lg border border-chabon/15 bg-koton px-3 py-2 text-sm text-ank outline-none focus:border-liy" />
         </div>
         <div>
-          <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-lank/55">{lt(L.holder)}</label>
-          <input value={holder} onChange={(e) => setHolder(e.target.value)} className="w-full rounded-lg border border-lank/15 bg-paper px-3 py-2 text-sm text-lank outline-none focus:border-sitwon" />
+          <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-ank/80">{lt(L.holder)}</label>
+          <input value={holder} onChange={(e) => setHolder(e.target.value)} className="w-full rounded-lg border border-chabon/15 bg-koton px-3 py-2 text-sm text-ank outline-none focus:border-liy" />
         </div>
         <div>
-          <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-lank/55">{lt(L.numberOpt)}</label>
-          <input value={number} onChange={(e) => setNumber(e.target.value)} className="w-full rounded-lg border border-lank/15 bg-paper px-3 py-2 text-sm text-lank outline-none focus:border-sitwon" />
+          <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-ank/80">{lt(L.numberOpt)}</label>
+          <input value={number} onChange={(e) => setNumber(e.target.value)} className="w-full rounded-lg border border-chabon/15 bg-koton px-3 py-2 text-sm text-ank outline-none focus:border-liy" />
         </div>
         <div className="sm:col-span-2">
-          <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-lank/55">{lt(L.file)}</label>
-          <input ref={fileRef} type="file" accept="image/png,image/jpeg,image/gif,image/webp,application/pdf" className="block w-full text-sm text-lank/70 file:mr-3 file:rounded-lg file:border-0 file:bg-lank file:px-3 file:py-2 file:text-xs file:font-semibold file:text-white hover:file:bg-lank-600" />
+          <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-ank/80">{lt(L.file)}</label>
+          <input ref={fileRef} type="file" accept="image/png,image/jpeg,image/gif,image/webp,application/pdf" className="block w-full text-sm text-grafit file:mr-3 file:rounded-lg file:border-0 file:bg-chabon file:px-3 file:py-2 file:text-xs file:font-semibold file:text-white hover:file:bg-chabon" />
         </div>
         <div className="flex items-center gap-3 sm:col-span-2">
-          <button type="button" onClick={save} disabled={busy || nom.trim().length < 2} className="rounded-lg bg-lank px-5 py-2.5 text-sm font-semibold text-white hover:bg-lank-600 disabled:opacity-40">
+          <button type="button" onClick={save} disabled={busy || nom.trim().length < 2} className="rounded-lg bg-chabon px-5 py-2.5 text-sm font-semibold text-white hover:bg-chabon disabled:opacity-40">
             {busy ? lt(L.saving) : lt(L.add)}
           </button>
-          {msg && <span className="text-sm text-lank/70">{msg}</span>}
+          {msg && <span className="text-sm text-grafit">{msg}</span>}
         </div>
       </div>
 
-      <div className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
-        <h2 className="mb-3 text-sm font-semibold text-lank">{lt(L.existing)} <span className="text-lank/45">({marques.length})</span></h2>
+      <div className="rounded-2xl border border-chabon/10 bg-white p-5">
+        <h2 className="mb-3 text-sm font-semibold text-ank">{lt(L.existing)} <span className="text-ank/80">({marques.length})</span></h2>
         {marques.length === 0 ? (
-          <p className="text-sm text-lank/45">{lt(L.none)}</p>
+          <p className="text-sm text-ank/80">{lt(L.none)}</p>
         ) : (
-          <ul className="divide-y divide-lank/10">
+          <ul className="divide-y divide-chabon/10">
             {marques.map((m) => {
               const fileUrl = m.imageUrl || m.sourcePdfUrl
               return (
                 <li key={m.id} className="flex items-center gap-3 py-2.5">
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-medium text-lank">{m.titleFr}</p>
-                    {(m.holder || m.number) && <p className="truncate text-xs text-lank/55">{[m.holder, m.number].filter(Boolean).join(' · ')}</p>}
+                    <p className="truncate text-sm font-medium text-ank">{m.titleFr}</p>
+                    {(m.holder || m.number) && <p className="truncate text-xs text-ank/80">{[m.holder, m.number].filter(Boolean).join(' · ')}</p>}
                   </div>
                   {fileUrl ? (
-                    <a href={`/api/admin/marques/${m.id}/file`} target="_blank" rel="noopener noreferrer" className="shrink-0 text-xs font-medium text-sitwon-700 hover:underline">
+                    <a href={`/api/admin/marques/${m.id}/file`} target="_blank" rel="noopener noreferrer" className="shrink-0 text-xs font-medium text-chabon hover:underline">
                       {m.imageUrl ? '🖼 image' : '📄 PDF'}
                     </a>
                   ) : (
-                    <span className="shrink-0 text-xs text-lank/35">— {lt(L.file2)}</span>
+                    <span className="shrink-0 text-xs text-ank/80">— {lt(L.file2)}</span>
                   )}
-                  <button type="button" onClick={() => remove(m.id)} title={lt(L.del)} className="shrink-0 rounded-md px-2 py-1 text-xs text-red-600 hover:bg-red-50">
+                  <button type="button" onClick={() => remove(m.id)} title={lt(L.del)} className="shrink-0 rounded-md px-2 py-1 text-xs text-wouj hover:bg-pil">
                     ✕
                   </button>
                 </li>

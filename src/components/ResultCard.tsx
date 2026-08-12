@@ -31,20 +31,20 @@ export function ResultCard({
     return (
       <Link
         href={`/${locale}/company/${hit.id}${qs}`}
-        className="block rounded-2xl border border-lank/10 bg-white p-4 shadow-card transition hover:-translate-y-0.5 hover:shadow-lg"
+        className="block rounded-2xl border border-chabon/10 bg-white p-4 transition hover:-translate-y-0.5 hover:"
       >
         <div className="flex flex-wrap items-center gap-2">
-          <span className="rounded-full bg-lank px-2 py-0.5 text-[11px] font-semibold text-white">
+          <span className="rounded-full bg-chabon px-2 py-0.5 text-[11px] font-semibold text-white">
             {t.search.companies.toUpperCase()}
           </span>
           {hit.fuzzy && <FuzzyTag t={t} />}
-          <h3 className="font-semibold text-lank">{hit.title}</h3>
+          <h3 className="font-semibold text-ank">{hit.title}</h3>
         </div>
         {/* Référence unique de la société (et non l'ensemble de l'édition). */}
-        <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-lank/55">
+        <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ank/80">
           {hit.moniteurRef && <span>{hit.moniteurRef}</span>}
           {hit.refCount != null && hit.refCount > 1 && (
-            <span className="rounded-full bg-lank-50 px-2 py-0.5 font-medium text-lank/60">
+            <span className="rounded-full bg-pil px-2 py-0.5 font-medium text-grafit">
               {hit.refCount} {t.search.publications}
             </span>
           )}
@@ -57,30 +57,30 @@ export function ResultCard({
   return (
     <Link
       href={`/${locale}/doc/${hit.id}${qs}`}
-      className="block rounded-2xl border border-lank/10 bg-white p-4 shadow-card transition hover:-translate-y-0.5 hover:shadow-lg"
+      className="block rounded-2xl border border-chabon/10 bg-white p-4 transition hover:-translate-y-0.5 hover:"
     >
       <div className="flex items-start gap-3">
         {hit.imageUrl && (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={hit.imageUrl} alt="" className="h-14 w-14 shrink-0 rounded-lg border border-lank/10 object-contain" />
+          <img src={hit.imageUrl} alt="" className="h-14 w-14 shrink-0 rounded-lg border border-chabon/10 object-contain" />
         )}
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <TypeBadge type={type} />
             {hit.status && <StatusChip status={hit.status} label={t.statuses[hit.status]} />}
             {hit.status === 'ABROGE' && abrogatedByNumber && (
-              <span className="text-[11px] font-medium text-red-700/80">
+              <span className="text-[11px] font-medium text-wouj">
                 {t.search.abrogatedBy} {abrogatedByNumber}
               </span>
             )}
             {hit.fuzzy && <FuzzyTag t={t} />}
-            {hit.number && <span className="text-xs font-medium text-lank/45">{hit.number}</span>}
+            {hit.number && <span className="text-xs font-medium text-ank/80">{hit.number}</span>}
           </div>
-          <h3 className="mt-2 font-semibold leading-snug text-lank">{hit.title}</h3>
+          <h3 className="mt-2 font-semibold leading-snug text-ank">{hit.title}</h3>
           {hit.snippet && (
-            <p className="mt-1.5 text-sm leading-relaxed text-lank/65" dangerouslySetInnerHTML={{ __html: hit.snippet }} />
+            <p className="mt-1.5 text-sm leading-relaxed text-grafit" dangerouslySetInnerHTML={{ __html: hit.snippet }} />
           )}
-          <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-lank/45">
+          <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-ank/80">
             {hit.publicationDate && <span>{formatDate(locale, hit.publicationDate)}</span>}
             {hit.moniteurRef && <span>{hit.moniteurRef}</span>}
             {hit.bhdaNumber && <span>BHDA {hit.bhdaNumber}</span>}
@@ -95,7 +95,7 @@ export function ResultCard({
 
 function FuzzyTag({ t }: { t: Dictionary }) {
   return (
-    <span className="inline-flex items-center gap-1 rounded-full bg-endeks-50 px-2 py-0.5 text-[10px] font-medium text-endeks-700">
+    <span className="inline-flex items-center gap-1 rounded-full bg-pil px-2 py-0.5 text-[10px] font-medium text-chabon">
       ≈ {t.search.fuzzyTag}
     </span>
   )

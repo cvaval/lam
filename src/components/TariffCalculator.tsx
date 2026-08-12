@@ -99,62 +99,62 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
   const hasVariable = ddVariable
 
   const Line = ({ label, value, strong = false }: { label: string; value: string; strong?: boolean }) => (
-    <div className={`flex items-center justify-between gap-4 py-1.5 ${strong ? 'border-t border-lank/15 pt-2 font-semibold text-lank' : 'text-lank/80'}`}>
+    <div className={`flex items-center justify-between gap-4 py-1.5 ${strong ? 'border-t border-chabon/15 pt-2 font-semibold text-ank' : 'text-ank/80'}`}>
       <span className="text-sm">{label}</span>
       <span className="shrink-0 tabular-nums text-sm">{value}</span>
     </div>
   )
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center bg-lank/40 p-0 sm:items-center sm:p-4" onClick={onClose}>
+    <div className="fixed inset-0 z-50 flex items-end justify-center bg-chabon/40 p-0 sm:items-center sm:p-4" onClick={onClose}>
       <div
         role="dialog"
         aria-modal="true"
         aria-label={t.tarifs.calcTitle}
         onClick={(e) => e.stopPropagation()}
-        className="max-h-[92vh] w-full max-w-lg overflow-auto rounded-t-2xl bg-white p-5 shadow-2xl sm:rounded-2xl"
+        className="max-h-[92vh] w-full max-w-lg overflow-auto rounded-t-2xl bg-white p-5 sm:rounded-2xl"
       >
         <div className="flex items-start justify-between gap-3">
           <div>
-            <h2 className="font-semibold text-lank">{t.tarifs.calcTitle}</h2>
-            <p className="mt-0.5 text-xs text-lank/55">
+            <h2 className="font-semibold text-ank">{t.tarifs.calcTitle}</h2>
+            <p className="mt-0.5 text-xs text-ank/80">
               <span className="font-mono">{row.code}</span> — {tariffLabel(row.designation).label}
             </p>
           </div>
-          <button type="button" onClick={onClose} aria-label={t.tarifs.close} className="rounded-lg px-2 py-1 text-lank/50 hover:bg-paper">✕</button>
+          <button type="button" onClick={onClose} aria-label={t.tarifs.close} className="rounded-lg px-2 py-1 text-ank/80 hover:bg-koton">✕</button>
         </div>
 
         <div className="mt-4 space-y-3">
           <label className="block">
-            <span className="text-xs font-medium text-lank/60">{t.tarifs.calcValeurDouane}</span>
+            <span className="text-xs font-medium text-grafit">{t.tarifs.calcValeurDouane}</span>
             <input
               type="text" inputMode="decimal" value={valeur} onChange={(e) => setValeur(e.target.value)} autoFocus
-              placeholder="0" className="mt-1 w-full rounded-lg border border-lank/15 px-3 py-2 text-sm tabular-nums outline-none focus:border-kannel"
+              placeholder="0" className="mt-1 w-full rounded-lg border border-chabon/15 px-3 py-2 text-sm tabular-nums outline-none focus:border-liy"
             />
             {/* Valeur interprétée en clair : lève toute ambiguïté sur le point/virgule saisi. */}
-            {valeur.trim() !== '' && <span className="mt-1 block text-xs text-lank/45 tabular-nums">= {fmt(V)} HTG</span>}
+            {valeur.trim() !== '' && <span className="mt-1 block text-xs text-ank/80 tabular-nums">= {fmt(V)} HTG</span>}
           </label>
           {acc.kind === 'fixed' && (
             <label className="block">
-              <span className="text-xs font-medium text-lank/60">{t.tarifs.quantity} ({acc.unit}) *</span>
-              <input type="text" inputMode="decimal" value={qty} onChange={(e) => setQty(e.target.value)} placeholder="0" className={`mt-1 w-full rounded-lg border px-3 py-2 text-sm tabular-nums outline-none focus:border-kannel ${acciseMissing ? 'border-brim' : 'border-lank/15'}`} />
+              <span className="text-xs font-medium text-grafit">{t.tarifs.quantity} ({acc.unit}) *</span>
+              <input type="text" inputMode="decimal" value={qty} onChange={(e) => setQty(e.target.value)} placeholder="0" className={`mt-1 w-full rounded-lg border px-3 py-2 text-sm tabular-nums outline-none focus:border-liy ${acciseMissing ? 'border-liy' : 'border-chabon/15'}`} />
             </label>
           )}
-          <div className="flex flex-col gap-2 text-sm text-lank/80">
+          <div className="flex flex-col gap-2 text-sm text-ank/80">
             <label className="inline-flex items-center gap-2">
               <input type="checkbox" className="h-4 w-4" checked={vehicle} onChange={(e) => setVehicleOverride(e.target.checked)} /> {t.tarifs.calcVehicle}
-              {vehicleByCode && <span className="text-xs text-lank/45">{t.tarifs.calcVehicleAuto}</span>}
+              {vehicleByCode && <span className="text-xs text-ank/80">{t.tarifs.calcVehicleAuto}</span>}
             </label>
             {vehicle && (
               <label className="ml-6 inline-flex items-center gap-2">
                 <input type="checkbox" className="h-4 w-4" checked={vehicleOld} onChange={(e) => setVehicleOldOverride(e.target.checked)} /> {t.tarifs.calcVehicleOld}
-                {vehicleByCode && <span className="text-xs text-lank/45">{t.tarifs.calcVehicleOldHint}</span>}
+                {vehicleByCode && <span className="text-xs text-ank/80">{t.tarifs.calcVehicleOldHint}</span>}
               </label>
             )}
           </div>
         </div>
 
-        <div className="mt-4 rounded-xl border border-lank/10 bg-paper px-4 py-2">
+        <div className="mt-4 rounded-xl border border-chabon/10 bg-koton px-4 py-2">
           {shown.map((c) => (
             <Line key={c.label} label={c.label} value={c.valueText ?? (c.missing ? `— (${t.tarifs.quantity} ?)` : `${fmt(c.amt)} HTG`)} />
           ))}
@@ -162,12 +162,12 @@ export function TariffCalculator({ row, t, onClose }: { row: TariffRow; t: Dicti
           <Line label={t.tarifs.calcRinfo} value={ddVariable ? rng(L.rinfo, Lx.rinfo) : `${fmt(L.rinfo)} HTG`} />
           <Line label={t.tarifs.calcBordereau} value={ddVariable ? rng(L.bordereau, Lx.bordereau) : `${fmt(L.bordereau)} HTG`} strong />
           <Line label={t.tarifs.calcGrand} value={ddVariable ? rng(V + L.bordereau, V + Lx.bordereau) : `${fmt(V + L.bordereau)} HTG`} strong />
-          {hasVariable && <p className="pt-2 text-[11px] leading-relaxed text-lank/50">{t.tarifs.calcVariableNote}</p>}
-          {acciseMissing && <p className="pt-1 text-[11px] leading-relaxed text-lank/50">{t.tarifs.calcTotalExAccise}</p>}
+          {hasVariable && <p className="pt-2 text-[11px] leading-relaxed text-ank/80">{t.tarifs.calcVariableNote}</p>}
+          {acciseMissing && <p className="pt-1 text-[11px] leading-relaxed text-ank/80">{t.tarifs.calcTotalExAccise}</p>}
         </div>
 
-        <p className="mt-3 text-[11px] leading-relaxed text-lank/50">{t.tarifs.calcDisclaimer}</p>
-        <p className="mt-1 text-[11px] leading-relaxed text-lank/45">{t.tarifs.calcSituational}</p>
+        <p className="mt-3 text-[11px] leading-relaxed text-ank/80">{t.tarifs.calcDisclaimer}</p>
+        <p className="mt-1 text-[11px] leading-relaxed text-ank/80">{t.tarifs.calcSituational}</p>
       </div>
     </div>
   )

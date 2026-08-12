@@ -139,7 +139,7 @@ export function OfficialText({
   function amendMark(id: string | undefined) {
     if (!id || !amendedAnchors?.has(id)) return null
     return (
-      <a href={`#hist-${id}`} className="ml-1.5 align-super text-[10px] font-semibold text-sitwon-600 no-underline hover:underline" title="Article amendé — voir l'historique">
+      <a href={`#hist-${id}`} className="ml-1.5 align-super text-[10px] font-semibold text-chabon no-underline hover:underline" title="Article amendé — voir l'historique">
         ✎ modifié
       </a>
     )
@@ -167,7 +167,7 @@ export function OfficialText({
       if (!anchor) continue
       out.push(<span key={`p${k++}`}>{txt(value.slice(pos, m.index))}</span>)
       out.push(
-        <a key={`l${k++}`} href={`#${anchor}`} className="font-medium text-soley-700 hover:underline">
+        <a key={`l${k++}`} href={`#${anchor}`} className="font-medium text-chabon hover:underline">
           {m[0]}
         </a>,
       )
@@ -228,7 +228,7 @@ export function OfficialText({
             const ordinal = afterDash && typeof prevNum === 'string' && p.length < prevNum.length
             if (n < 1 || n > CIV_MAX_ART || ordinal) return p
             return (
-              <a key={j} href={`#art-${n}`} className="font-medium text-soley-700 hover:underline">
+              <a key={j} href={`#art-${n}`} className="font-medium text-chabon hover:underline">
                 {p}
               </a>
             )
@@ -277,7 +277,7 @@ export function OfficialText({
             const anchor = articleAnchorFromNum(p.trim())
             if (!artRefs.has(anchor)) return p
             return (
-              <a key={j} href={`#${anchor}`} className="font-medium text-soley-700 hover:underline">
+              <a key={j} href={`#${anchor}`} className="font-medium text-chabon hover:underline">
                 {p}
               </a>
             )
@@ -301,7 +301,7 @@ export function OfficialText({
         <Link
           key={i}
           href={s.href}
-          className="font-medium text-lank underline decoration-lank/30 underline-offset-2 hover:decoration-lank"
+          className="font-medium text-ank underline decoration-chabon/30 underline-offset-2 hover:decoration-chabon"
         >
           {hl(s.text)}
         </Link>
@@ -320,7 +320,7 @@ export function OfficialText({
           <ul key={key} className="space-y-1.5 pl-2">
             {b.items.map((item, k) => (
               <li key={k} className="flex gap-2.5">
-                <span aria-hidden className="select-none text-lank/45">
+                <span aria-hidden className="select-none text-ank/80">
                   •
                 </span>
                 <span>{render(item)}</span>
@@ -336,7 +336,7 @@ export function OfficialText({
               const id = markerAnchor(item.marker)
               return (
                 <li key={k} id={id} className="flex scroll-mt-24 gap-2.5">
-                  <span className="min-w-[2.5ch] shrink-0 font-semibold text-lank">{item.marker}</span>
+                  <span className="min-w-[2.5ch] shrink-0 font-semibold text-ank">{item.marker}</span>
                   <span>{render(item.text)}</span>
                 </li>
               )
@@ -347,7 +347,7 @@ export function OfficialText({
       if (b.heading) {
         const id = headingAnchor(b.text)
         return (
-          <p key={key} id={id} className="scroll-mt-24 pt-1.5 font-semibold text-lank">
+          <p key={key} id={id} className="scroll-mt-24 pt-1.5 font-semibold text-ank">
             {render(b.text)}
             {amendMark(id)}
           </p>
@@ -370,7 +370,7 @@ export function OfficialText({
     // Couleurs = palette Lam (jamais les hex bruts du PDF) : en-tête → soley-50,
     // cellule ombrée non-en-tête → ton soley translucide (lit la zébrure du <tr> par
     // transparence au lieu de la masquer comme un fond opaque). `cell.bg` = indicateur d'ombrage.
-    const shade = isHeader ? 'bg-soley-50' : cell.bg ? 'bg-soley-100/50' : ''
+    const shade = isHeader ? 'bg-pil' : cell.bg ? 'bg-pil/50' : ''
     // Alignement : explicite prioritaire ; sinon les nombres se calent à droite.
     const auto = !isHeader && !cell.align && isNumericCell(cell.text)
     const align = cell.align ?? (auto ? 'right' : undefined)
@@ -381,9 +381,9 @@ export function OfficialText({
         colSpan={cell.colSpan}
         rowSpan={cell.rowSpan}
         style={align ? { textAlign: align } : undefined}
-        className={`border border-lank/20 px-2.5 py-1.5 align-top text-lank/90 ${shade} ${auto ? 'tabular-nums' : ''} ${
+        className={`border border-chabon/20 px-2.5 py-1.5 align-top text-ank/90 ${shade} ${auto ? 'tabular-nums' : ''} ${
           sticky ? 'sticky top-0 z-10' : ''
-        } ${isHeader || cell.bold ? 'font-semibold text-lank' : ''}`}
+        } ${isHeader || cell.bold ? 'font-semibold text-ank' : ''}`}
       >
         {render(cell.text)}
       </Tag>
@@ -409,9 +409,9 @@ export function OfficialText({
     return (
       <figure key={key} id={`tableau-${num}`} className="my-4 scroll-mt-24">
         <div className="mb-1.5 flex flex-wrap items-center justify-between gap-2">
-          <figcaption className="text-sm font-semibold text-lank">
+          <figcaption className="text-sm font-semibold text-ank">
             {caption}
-            {orphan && <span className="ml-2 text-xs font-normal text-lank/45">({ORPHAN_LABEL[locale] ?? ORPHAN_LABEL.fr})</span>}
+            {orphan && <span className="ml-2 text-xs font-normal text-ank/80">({ORPHAN_LABEL[locale] ?? ORPHAN_LABEL.fr})</span>}
           </figcaption>
           <div className="flex items-center gap-2">
             {showFilter && <TableFilter total={bodyRows.length} locale={locale} />}
@@ -422,9 +422,9 @@ export function OfficialText({
           role="region"
           aria-label={caption}
           tabIndex={0}
-          className={longTable ? 'max-h-[78vh] overflow-auto rounded-md border border-lank/10' : 'overflow-x-auto'}
+          className={longTable ? 'max-h-[78vh] overflow-auto rounded-md border border-chabon/10' : 'overflow-x-auto'}
         >
-          <table className="w-full border-collapse text-[13px] text-lank/90">
+          <table className="w-full border-collapse text-[13px] text-ank/90">
             <caption className="sr-only">{caption}</caption>
             {headerRow && <thead><tr>{headerRow.map((cell, c) => renderCell(cell, c, true, 'col', true))}</tr></thead>}
             <tbody>
@@ -438,7 +438,7 @@ export function OfficialText({
             </tbody>
           </table>
         </div>
-        {wide && <p className="mt-1 text-xs text-lank/40 sm:hidden">↔ {SCROLL_HINT[locale] ?? SCROLL_HINT.fr}</p>}
+        {wide && <p className="mt-1 text-xs text-ank/80 sm:hidden">↔ {SCROLL_HINT[locale] ?? SCROLL_HINT.fr}</p>}
       </figure>
     )
   }
@@ -449,7 +449,7 @@ export function OfficialText({
     return (
       <p
         key={key}
-        className="my-3 rounded-lg border border-soley/40 bg-soley-50 px-4 py-2.5 text-sm leading-relaxed text-lank/90"
+        className="my-3 rounded-lg border border-chabon/40 bg-pil px-4 py-2.5 text-sm leading-relaxed text-ank/90"
       >
         {render(n.text)}
       </p>
@@ -458,7 +458,7 @@ export function OfficialText({
 
   let tableNo = 0 // numérotation « Tableau N » par ordre d'AFFICHAGE (orphelins en fin inclus)
   return (
-    <div className="official-text space-y-3 text-[15px] text-lank/90">
+    <div className="official-text space-y-3 text-[15px] text-ank/90">
       {segments.map((seg, i) => {
         if (seg.kind === 'text') return renderTextSegment(seg.text, i)
         if (seg.block.type === 'table') {

@@ -58,38 +58,38 @@ export function UsersManager({
   }
 
   if (users.length === 0) {
-    return <p className="rounded-xl border border-lank/10 bg-white p-8 text-center text-sm text-lank/40">—</p>
+    return <p className="rounded-xl border border-chabon/10 bg-white p-8 text-center text-sm text-ank/80">—</p>
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-lank/10 bg-white shadow-card">
+    <div className="overflow-hidden rounded-2xl border border-chabon/10 bg-white">
       {error && (
-        <p className="border-b border-soley/40 bg-soley-50 px-4 py-2 text-sm text-lank">{error}</p>
+        <p className="border-b border-chabon/40 bg-pil px-4 py-2 text-sm text-ank">{error}</p>
       )}
       <table className="w-full text-sm">
         <thead>
-          <tr className="border-b border-lank/10 bg-paper text-left text-[11px] uppercase tracking-wide text-lank/45">
+          <tr className="border-b border-chabon/10 bg-koton text-left text-[11px] uppercase tracking-wide text-ank/80">
             <th className="px-4 py-3 font-semibold">Email</th>
             <th className="px-4 py-3 font-semibold">{mode === 'pending' ? t.admin.requestedOn : t.admin.status}</th>
             <th className="px-4 py-3 font-semibold">{mode === 'pending' ? t.admin.typeToAssign : t.admin.role}</th>
             <th className="px-4 py-3 text-right font-semibold">{t.admin.action}</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-lank/5">
+        <tbody className="divide-y divide-chabon/5">
           {users.map((u) => (
             <Fragment key={u.id}>
-              <tr className="hover:bg-paper/50">
+              <tr className="hover:bg-koton/50">
                 <td className="px-4 py-3">
-                  <p className="font-medium text-lank">{u.email}</p>
+                  <p className="font-medium text-ank">{u.email}</p>
                   {(u.name || u.org) && (
-                    <p className="text-xs text-lank/45">
+                    <p className="text-xs text-ank/80">
                       {u.name}
                       {u.name && u.org ? ' · ' : ''}
                       {u.org}
                     </p>
                   )}
                 </td>
-                <td className="px-4 py-3 text-lank/60">
+                <td className="px-4 py-3 text-grafit">
                   {mode === 'pending' ? (
                     formatDate(locale, u.requestedAt, { day: 'numeric', month: 'short' })
                   ) : (
@@ -100,7 +100,7 @@ export function UsersManager({
                   <select
                     value={roleDe(u)}
                     onChange={(e) => setChoix((c) => ({ ...c, [u.id]: e.target.value as Role }))}
-                    className="rounded-lg border border-lank/15 bg-white px-2 py-1.5 text-sm outline-none focus:border-sitwon"
+                    className="rounded-lg border border-chabon/15 bg-white px-2 py-1.5 text-sm outline-none focus:border-liy"
                   >
                     {ASSIGNABLE.map((r) => (
                       <option key={r} value={r}>
@@ -116,14 +116,14 @@ export function UsersManager({
                         <button
                           onClick={() => act(u.id, 'activate', { role: roleDe(u) })}
                           disabled={!!busy}
-                          className="rounded-lg bg-fey px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50"
+                          className="rounded-lg bg-chabon px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50"
                         >
                           {t.admin.activate}
                         </button>
                         <button
                           onClick={() => act(u.id, 'reject')}
                           disabled={!!busy}
-                          className="rounded-lg border border-lank/15 px-3 py-1.5 text-xs font-medium text-lank/70 hover:bg-paper"
+                          className="rounded-lg border border-chabon/15 px-3 py-1.5 text-xs font-medium text-grafit hover:bg-koton"
                         >
                           {t.admin.reject}
                         </button>
@@ -133,7 +133,7 @@ export function UsersManager({
                         <button
                           onClick={() => act(u.id, 'changeType', { role: roleDe(u) })}
                           disabled={!!busy || roleDe(u) === u.role}
-                          className="rounded-lg border border-lank/15 px-2.5 py-1.5 text-xs font-medium text-lank/70 hover:bg-paper disabled:opacity-40"
+                          className="rounded-lg border border-chabon/15 px-2.5 py-1.5 text-xs font-medium text-grafit hover:bg-koton disabled:opacity-40"
                         >
                           {t.admin.changeType}
                         </button>
@@ -142,8 +142,8 @@ export function UsersManager({
                           disabled={!!busy}
                           className={`rounded-lg border px-2.5 py-1.5 text-xs font-medium ${
                             openServices === u.id
-                              ? 'border-endeks bg-endeks-50 text-endeks-700'
-                              : 'border-lank/15 text-lank/70 hover:bg-paper'
+                              ? 'border-liy bg-pil text-chabon'
+                              : 'border-chabon/15 text-grafit hover:bg-koton'
                           }`}
                           title={t.admin.services}
                         >
@@ -154,7 +154,7 @@ export function UsersManager({
                           <button
                             onClick={() => act(u.id, 'reactivate')}
                             disabled={!!busy}
-                            className="rounded-lg bg-fey px-2.5 py-1.5 text-xs font-semibold text-white"
+                            className="rounded-lg bg-chabon px-2.5 py-1.5 text-xs font-semibold text-white"
                           >
                             {t.admin.reactivate}
                           </button>
@@ -162,7 +162,7 @@ export function UsersManager({
                           <button
                             onClick={() => act(u.id, 'suspend')}
                             disabled={!!busy}
-                            className="rounded-lg border border-red-200 px-2.5 py-1.5 text-xs font-medium text-red-700 hover:bg-red-50"
+                            className="rounded-lg border border-wouj/40 px-2.5 py-1.5 text-xs font-medium text-wouj hover:bg-pil"
                           >
                             {t.admin.suspend}
                           </button>
@@ -170,7 +170,7 @@ export function UsersManager({
                         <button
                           onClick={() => act(u.id, 'reset2fa')}
                           disabled={!!busy}
-                          className="rounded-lg border border-lank/15 px-2.5 py-1.5 text-xs font-medium text-lank/70 hover:bg-paper"
+                          className="rounded-lg border border-chabon/15 px-2.5 py-1.5 text-xs font-medium text-grafit hover:bg-koton"
                         >
                           {t.admin.reset2fa}
                         </button>
@@ -180,7 +180,7 @@ export function UsersManager({
                 </td>
               </tr>
               {mode === 'all' && openServices === u.id && (
-                <tr className="bg-paper/40">
+                <tr className="bg-koton/40">
                   <td colSpan={4} className="px-4 py-4">
                     <ServicesPanel
                       user={u}
@@ -219,7 +219,7 @@ function ServicesPanel({
   const [pdf, setPdf] = useState(user.canViewSourcePdf)
 
   if (staff) {
-    return <p className="text-xs text-lank/55">{t.admin.staffAllServices}</p>
+    return <p className="text-xs text-ank/80">{t.admin.staffAllServices}</p>
   }
 
   function toggle(type: DocType) {
@@ -233,24 +233,24 @@ function ServicesPanel({
 
   return (
     <div className="space-y-3">
-      <p className="text-xs font-semibold uppercase tracking-wide text-lank/45">{t.admin.services}</p>
+      <p className="text-xs font-semibold uppercase tracking-wide text-ank/80">{t.admin.services}</p>
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
         {/* Index : toujours actif (socle). */}
-        <label className="flex items-center gap-2 rounded-lg border border-lank/10 bg-white px-3 py-2 text-sm text-lank/50">
-          <input type="checkbox" checked disabled className="accent-endeks" />
+        <label className="flex items-center gap-2 rounded-lg border border-chabon/10 bg-white px-3 py-2 text-sm text-ank/80">
+          <input type="checkbox" checked disabled className="accent-chabon" />
           <Pastille type="INDEX" />
           <span>{t.admin.indexAlwaysOn}</span>
         </label>
         {FULLTEXT_TYPE_LIST.map((m) => (
           <label
             key={m.type}
-            className="flex cursor-pointer items-center gap-2 rounded-lg border border-lank/10 bg-white px-3 py-2 text-sm text-lank hover:border-lank/30"
+            className="flex cursor-pointer items-center gap-2 rounded-lg border border-chabon/10 bg-white px-3 py-2 text-sm text-ank hover:border-chabon/30"
           >
             <input
               type="checkbox"
               checked={services.has(m.type)}
               onChange={() => toggle(m.type)}
-              className="accent-fey"
+              className="accent-chabon"
             />
             <Pastille type={m.type as DocType} />
             <span>{DOC_TYPE_META[m.type].label[locale]}</span>
@@ -258,8 +258,8 @@ function ServicesPanel({
         ))}
       </div>
 
-      <label className="flex w-fit cursor-pointer items-center gap-2 rounded-lg border border-lank/10 bg-white px-3 py-2 text-sm text-lank hover:border-lank/30">
-        <input type="checkbox" checked={pdf} onChange={(e) => setPdf(e.target.checked)} className="accent-fey" />
+      <label className="flex w-fit cursor-pointer items-center gap-2 rounded-lg border border-chabon/10 bg-white px-3 py-2 text-sm text-ank hover:border-chabon/30">
+        <input type="checkbox" checked={pdf} onChange={(e) => setPdf(e.target.checked)} className="accent-chabon" />
         <span>{t.admin.sourcePdfPerm}</span>
       </label>
 
@@ -267,7 +267,7 @@ function ServicesPanel({
         <button
           onClick={() => onSave([...services], pdf)}
           disabled={busy}
-          className="rounded-lg bg-lank px-4 py-1.5 text-xs font-semibold text-white hover:bg-lank-600 disabled:opacity-50"
+          className="rounded-lg bg-chabon px-4 py-1.5 text-xs font-semibold text-white hover:bg-chabon disabled:opacity-50"
         >
           {t.admin.save}
         </button>

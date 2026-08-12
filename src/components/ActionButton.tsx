@@ -19,7 +19,7 @@ export function ActionButton({
       type="button"
       onClick={onClick}
       aria-live={ariaLive}
-      className="inline-flex items-center gap-1.5 rounded-lg border border-lank/15 bg-white px-3 py-1.5 text-sm text-lank/70 transition hover:bg-lank-50"
+      className="inline-flex items-center gap-1.5 rounded-lg border border-chabon/15 bg-white px-3 py-1.5 text-sm text-grafit transition hover:bg-pil"
     >
       {children}
     </button>

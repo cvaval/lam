@@ -43,7 +43,7 @@ export function TopBar({
   }
 
   return (
-    <header className="no-print sticky top-0 z-30 border-b border-lank/10 bg-paper/90 backdrop-blur">
+    <header className="no-print sticky top-0 z-30 border-b border-chabon/10 bg-koton/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2.5">
         <Link href={`/${locale}/dashboard`} className="shrink-0">
           <Logo size={26} />
@@ -55,7 +55,7 @@ export function TopBar({
           {isAdmin && (
             <Link
               href={`/${locale}/admin`}
-              className="hidden rounded-full bg-lank px-3 py-1.5 text-xs font-semibold text-white md:inline-block"
+              className="hidden rounded-full bg-chabon px-3 py-1.5 text-xs font-semibold text-white md:inline-block"
             >
               {t.nav.admin}
             </Link>
@@ -64,22 +64,22 @@ export function TopBar({
           <div className="relative">
             <button
               onClick={() => setOpen((v) => !v)}
-              className="flex items-center gap-2 rounded-full border border-lank/15 bg-white py-1 pl-1 pr-2.5"
+              className="flex items-center gap-2 rounded-full border border-chabon/15 bg-white py-1 pl-1 pr-2.5"
             >
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-lank text-xs font-semibold text-white">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-chabon text-xs font-semibold text-white">
                 {(name || email).slice(0, 1).toUpperCase()}
               </span>
-              <span className="hidden text-xs font-medium text-lank sm:inline">{name || email.split('@')[0]}</span>
+              <span className="hidden text-xs font-medium text-ank sm:inline">{name || email.split('@')[0]}</span>
             </button>
             {open && (
-              <div className="absolute right-0 mt-2 w-56 rounded-xl border border-lank/10 bg-white p-2 shadow-card">
+              <div className="absolute right-0 mt-2 w-56 rounded-xl border border-chabon/10 bg-white p-2">
                 <div className="px-3 py-2">
-                  <p className="truncate text-sm font-medium text-lank">{email}</p>
-                  <p className="text-xs text-lank/55">{roleLabel}</p>
+                  <p className="truncate text-sm font-medium text-ank">{email}</p>
+                  <p className="text-xs text-ank/80">{roleLabel}</p>
                 </div>
                 <Link
                   href={`/${locale}/account`}
-                  className="block rounded-lg px-3 py-2 text-sm text-lank hover:bg-paper"
+                  className="block rounded-lg px-3 py-2 text-sm text-ank hover:bg-koton"
                   onClick={() => setOpen(false)}
                 >
                   {t.nav.account}
@@ -87,7 +87,7 @@ export function TopBar({
                 {isAdmin && (
                   <Link
                     href={`/${locale}/admin`}
-                    className="block rounded-lg px-3 py-2 text-sm text-lank hover:bg-paper md:hidden"
+                    className="block rounded-lg px-3 py-2 text-sm text-ank hover:bg-koton md:hidden"
                     onClick={() => setOpen(false)}
                   >
                     {t.nav.admin}
@@ -95,7 +95,7 @@ export function TopBar({
                 )}
                 <button
                   onClick={logout}
-                  className="mt-1 block w-full rounded-lg px-3 py-2 text-left text-sm text-red-700 hover:bg-red-50"
+                  className="mt-1 block w-full rounded-lg px-3 py-2 text-left text-sm text-wouj hover:bg-pil"
                 >
                   {t.common.signOut}
                 </button>

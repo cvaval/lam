@@ -49,9 +49,9 @@ export function TableFilter({ total, locale }: { total: number; locale: Locale }
         onChange={(e) => apply(e.target.value)}
         placeholder={LBL.placeholder[locale] ?? LBL.placeholder.fr}
         aria-label={LBL.placeholder[locale] ?? LBL.placeholder.fr}
-        className="w-36 rounded-md border border-lank/15 bg-white px-2 py-1 text-xs text-lank outline-none focus:border-sitwon sm:w-44"
+        className="w-36 rounded-md border border-chabon/15 bg-white px-2 py-1 text-xs text-ank outline-none focus:border-liy sm:w-44"
       />
-      <span aria-live="polite" aria-atomic="true" className="whitespace-nowrap text-[11px] text-lank/45">
+      <span aria-live="polite" aria-atomic="true" className="whitespace-nowrap text-[11px] text-ank/80">
         {shown}/{total} {LBL.rows[locale] ?? LBL.rows.fr}
       </span>
     </span>

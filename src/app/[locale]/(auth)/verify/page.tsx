@@ -25,20 +25,20 @@ export default async function VerifyPage({ params }: { params: { locale: string 
   const sensitive = isSensitiveRole(pending.user.role)
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-lank px-6 py-10">
+    <main className="flex min-h-screen items-center justify-center bg-chabon px-6 py-10">
       <div className="w-full max-w-sm">
         <div className="mb-4 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-cream">
+          <div className="flex items-center gap-2 text-koton">
             <FruitMark size={26} tone="dark" />
             <span className="text-sm font-extrabold lowercase tracking-tight">{BRAND.wordmark}</span>
           </div>
           <LocaleSwitcher current={locale} />
         </div>
 
-        <div className="rounded-2xl bg-white p-7 shadow-card">
+        <div className="rounded-2xl bg-white p-7">
           <div className="mb-5 flex flex-col items-center text-center">
             <FruitMark size={40} className="mb-2" />
-            <h1 className="text-lg font-semibold text-lank">{t.verify.title}</h1>
+            <h1 className="text-lg font-semibold text-ank">{t.verify.title}</h1>
           </div>
           <VerifyForm locale={locale} t={t} enroll={enroll} qr={enrollment?.qr ?? null} secretKey={enrollment?.secret ?? null} sensitive={sensitive} />
         </div>

@@ -13,10 +13,22 @@ export interface DocTypeMeta {
   type: DocType
   num: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
   slug: string
-  /** nom de couleur (créole) tel que défini au Brand Book */
+  /** ancien nom de couleur (créole) du système v1 — conservé pour l'infobulle d'archive */
   pastille: string
-  /** clé de couleur Tailwind (cf. tailwind.config.ts) */
-  color: 'lank' | 'soley' | 'brim' | 'lagon' | 'fey' | 'sitwon' | 'endeks' | 'kannel'
+  /**
+   * CODE de type, en IBM Plex Mono, qui remplace le codage par teinte du système v1.
+   *
+   * Les six premiers viennent de la charte « Klinik » v3.0 ; **IDX et TAR ont été validés
+   * par l'AVENANT AV-01** (LAM-BRAND-2026-08-V3-AV01, 11 août 2026), qui porte la taxonomie
+   * de six à huit types sans aucun effet chromatique — les huit partagent la même pastille.
+   *
+   * ⚠️ L'avenant propose aussi des LIBELLÉS taxonomiques (« Index et répertoires »,
+   * « Tarifs douaniers ») qui diffèrent des noms de SERVICE employés ici (« Index du
+   * Moniteur »…). Ces derniers sont commerciaux et paraissent dans la navigation et les
+   * URL : ils n'ont PAS été alignés. Divergence la plus notable, à arbitrer — le type 4
+   * est « Doctrine » pour la charte et « Législation annotée » sur la plateforme.
+   */
+  code: string
   badge: string
   /** titres traduisibles du type */
   label: Record<Locale, string>
@@ -35,7 +47,7 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
     // et redirigé (next.config.mjs) — anciens liens/favoris préservés.
     slug: 'editionsmoniteur',
     pastille: 'Lank',
-    color: 'lank',
+    code: 'LÉG',
     badge: 'LE MONITEUR',
     label: {
       fr: 'Éditions Le Moniteur',
@@ -53,7 +65,7 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
     num: 2,
     slug: 'circulaires',
     pastille: 'Solèy',
-    color: 'soley',
+    code: 'BRH',
     badge: 'BRH',
     label: {
       fr: 'Circulaires de la BRH',
@@ -71,7 +83,7 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
     num: 3,
     slug: 'jurisprudence',
     pastille: 'Brim',
-    color: 'brim',
+    code: 'JUR',
     badge: 'JURISPRUDENCE',
     label: {
       fr: 'Recueil de jurisprudence',
@@ -92,7 +104,7 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
     // (TYPE_SLUGS) et redirigé (next.config.mjs) — anciens liens/favoris préservés.
     slug: 'legislationannotee',
     pastille: 'Lagon',
-    color: 'lagon',
+    code: 'DOC',
     badge: 'ANNOTÉE',
     label: {
       fr: 'Législation annotée',
@@ -110,7 +122,7 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
     num: 5,
     slug: 'finances',
     pastille: 'Fèy',
-    color: 'fey',
+    code: 'FIN',
     badge: 'FINANCES',
     label: {
       fr: 'Lois de finances haïtiennes',
@@ -128,7 +140,7 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
     num: 6,
     slug: 'marques',
     pastille: 'Sitwon',
-    color: 'sitwon',
+    code: 'MRK',
     badge: 'MARQUES',
     label: {
       fr: 'Marques de commerce & de fabrique',
@@ -146,7 +158,7 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
     num: 7,
     slug: 'index',
     pastille: 'Endèks',
-    color: 'endeks',
+    code: 'IDX',
     badge: 'INDEX',
     referenceOnly: true,
     label: {
@@ -165,7 +177,7 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
     num: 8,
     slug: 'tarifs',
     pastille: 'Kannèl',
-    color: 'kannel',
+    code: 'TAR',
     badge: 'DOUANES',
     label: {
       fr: 'Tarifs douaniers',
@@ -182,17 +194,17 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
 
 export const DOC_TYPE_LIST = Object.values(DOC_TYPE_META).sort((a, b) => a.num - b.num)
 
-/** Classes Tailwind par couleur — pastille (fond doux + texte) et badge (plein). */
-export const COLOR_CLASSES: Record<DocTypeMeta['color'], { dot: string; badge: string; ring: string; text: string }> = {
-  lank: { dot: 'bg-lank', badge: 'bg-lank text-white', ring: 'ring-lank', text: 'text-lank' },
-  soley: { dot: 'bg-soley', badge: 'bg-soley text-lank', ring: 'ring-soley', text: 'text-soley-700' },
-  brim: { dot: 'bg-brim', badge: 'bg-brim text-white', ring: 'ring-brim', text: 'text-brim-700' },
-  lagon: { dot: 'bg-lagon', badge: 'bg-lagon text-lank', ring: 'ring-lagon', text: 'text-lagon-700' },
-  fey: { dot: 'bg-fey', badge: 'bg-fey text-white', ring: 'ring-fey', text: 'text-fey' },
-  sitwon: { dot: 'bg-sitwon', badge: 'bg-sitwon text-lank', ring: 'ring-sitwon', text: 'text-sitwon-700' },
-  endeks: { dot: 'bg-endeks', badge: 'bg-endeks text-white', ring: 'ring-endeks', text: 'text-endeks-700' },
-  kannel: { dot: 'bg-kannel', badge: 'bg-kannel text-white', ring: 'ring-kannel', text: 'text-kannel-700' },
-}
+/**
+ * Pastille de type — UNIFORME. Le système v1.0 attribuait une teinte à chaque type et
+ * s'en servait pour naviguer ; Klinik supprime ce codage chromatique et le remplace par un
+ * codage TYPOGRAPHIQUE, conforme au rationnement de la couleur (une seule reste
+ * signifiante : Wouj, et elle est rationnée à une occurrence par écran).
+ *
+ * fond Pil · bordure #C7C6C1 · texte Chabon · IBM Plex Mono, approche +14 %.
+ */
+export const TYPE_CHIP =
+  'inline-flex items-center rounded-md border border-[#C7C6C1] bg-pil px-1.5 py-0.5 ' +
+  'font-mono text-[10px] font-semibold uppercase leading-none tracking-[0.14em] text-chabon'
 
 /** Le sous-ensemble « 6 services de textes intégraux » (sans l'Index). */
 export const FULLTEXT_TYPE_LIST = DOC_TYPE_LIST.filter((m) => !m.referenceOnly)

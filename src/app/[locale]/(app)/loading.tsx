@@ -10,7 +10,7 @@ export default function Loading() {
       <div className="skeleton h-9 w-full max-w-xl rounded-full" />
       <div className="grid gap-3">
         {Array.from({ length: 4 }, (_, i) => (
-          <div key={i} className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
+          <div key={i} className="rounded-2xl border border-chabon/10 bg-white p-5">
             <div className="skeleton h-4 w-2/3 rounded" />
             <div className="skeleton mt-3 h-3 w-full rounded" />
             <div className="skeleton mt-2 h-3 w-5/6 rounded" />

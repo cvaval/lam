@@ -52,27 +52,27 @@ export default async function TarifsPage({ params }: { params: { locale: string 
         <div>
           <div className="flex items-center gap-2">
             <Pastille type="TARIF_DOUANIER" />
-            <h1 className="text-lg font-semibold text-lank">{t.tarifs.title}</h1>
+            <h1 className="text-lg font-semibold text-ank">{t.tarifs.title}</h1>
           </div>
-          <p className="mt-1 max-w-2xl text-sm text-lank/55">{t.tarifs.subtitle}</p>
+          <p className="mt-1 max-w-2xl text-sm text-ank/80">{t.tarifs.subtitle}</p>
         </div>
-        <span className="hidden h-1.5 w-16 shrink-0 rounded-full bg-kannel sm:block" />
+        <span className="hidden h-1.5 w-16 shrink-0 rounded-full bg-chabon sm:block" />
       </div>
 
-      <Suspense fallback={<div className="h-24 animate-pulse rounded-2xl bg-lank/5" />}>
+      <Suspense fallback={<div className="h-24 animate-pulse rounded-2xl bg-chabon/5" />}>
         <TariffTable locale={locale} t={t} chapters={chapters} total={total} docCount={docCount} />
       </Suspense>
 
       {/* Prélèvements connexes (référence) */}
-      <details className="rounded-2xl border border-lank/10 bg-white shadow-card">
+      <details className="rounded-2xl border border-chabon/10 bg-white">
         <summary className="cursor-pointer list-none px-5 py-4">
-          <span className="font-semibold text-lank">{t.tarifs.leviesTitle}</span>
-          <span className="mt-0.5 block text-xs text-lank/55">{t.tarifs.leviesSub}</span>
+          <span className="font-semibold text-ank">{t.tarifs.leviesTitle}</span>
+          <span className="mt-0.5 block text-xs text-ank/80">{t.tarifs.leviesSub}</span>
         </summary>
-        <div className="overflow-x-auto border-t border-lank/10">
-          <table className="w-full border-collapse text-[13px] text-lank/90">
+        <div className="overflow-x-auto border-t border-chabon/10">
+          <table className="w-full border-collapse text-[13px] text-ank/90">
             <thead>
-              <tr className="border-b border-lank/15 bg-paper text-left text-xs uppercase tracking-wide text-lank/55">
+              <tr className="border-b border-chabon/15 bg-koton text-left text-xs uppercase tracking-wide text-ank/80">
                 <th scope="col" className="px-4 py-2 font-semibold">{t.tarifs.thLevy}</th>
                 <th scope="col" className="px-4 py-2 font-semibold">{t.tarifs.thScope}</th>
               </tr>
@@ -80,8 +80,8 @@ export default async function TarifsPage({ params }: { params: { locale: string 
             <tbody>
               {levies.map((l, i) => (
                 <tr key={i} className={i % 2 === 1 ? 'bg-[rgba(27,31,61,0.025)]' : ''}>
-                  <td className="px-4 py-1.5 font-medium text-lank">{l.levy}</td>
-                  <td className="px-4 py-1.5 text-lank/75">{l.scope}</td>
+                  <td className="px-4 py-1.5 font-medium text-ank">{l.levy}</td>
+                  <td className="px-4 py-1.5 text-ank/75">{l.scope}</td>
                 </tr>
               ))}
             </tbody>

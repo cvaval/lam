@@ -323,7 +323,7 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
   return (
     <div className="space-y-5">
       {done && (
-        <div className="flex items-center justify-between rounded-xl border border-fey/30 bg-fey-50 px-4 py-3 text-sm text-fey">
+        <div className="flex items-center justify-between rounded-xl border border-chabon/30 bg-pil px-4 py-3 text-sm text-chabon">
           <span>
             ✔ {done.count} {t.cms.published}
             {done.societes ? ` · ${done.societes} ${t.cms.societeCreated}` : ''}
@@ -338,11 +338,11 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
 
       {/* Alerte numéros manquants de l'année (détection après publication) */}
       {gaps && gaps.missing.length > 0 && (
-        <div className="rounded-xl border border-soley/40 bg-soley-50 px-4 py-3 text-sm text-lank">
+        <div className="rounded-xl border border-chabon/40 bg-pil px-4 py-3 text-sm text-ank">
           <p className="font-semibold">
             ⚠ {t.cms.gapsWarning} {gaps.year} ({gaps.missing.length})
           </p>
-          <p className="mt-1 font-mono text-xs leading-relaxed text-lank/75">
+          <p className="mt-1 font-mono text-xs leading-relaxed text-ank/75">
             {gaps.missing.slice(0, 30).join(' · ')}
             {gaps.missing.length > 30 ? ` … (+${gaps.missing.length - 30})` : ''}
           </p>
@@ -354,11 +354,11 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
 
       {/* Alerte numéros de circulaires BRH manquants (détection après publication) */}
       {brhGaps && brhGaps.missing.length > 0 && (
-        <div className="rounded-xl border border-soley/40 bg-soley-50 px-4 py-3 text-sm text-lank">
+        <div className="rounded-xl border border-chabon/40 bg-pil px-4 py-3 text-sm text-ank">
           <p className="font-semibold">
             ⚠ {t.cms.brhGapsWarning} ({brhGaps.missing.length})
           </p>
-          <p className="mt-1 font-mono text-xs leading-relaxed text-lank/75">
+          <p className="mt-1 font-mono text-xs leading-relaxed text-ank/75">
             {brhGaps.missing.slice(0, 30).join(' · ')}
             {brhGaps.missing.length > 30 ? ` … (+${brhGaps.missing.length - 30})` : ''}
           </p>
@@ -369,16 +369,16 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
       )}
 
       {/* 1 — Dépôt du PDF + analyse */}
-      <div className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
+      <div className="rounded-2xl border border-chabon/10 bg-white p-5">
         <div className="flex flex-wrap items-center gap-3">
-          <label className="flex flex-1 cursor-pointer items-center justify-center rounded-xl border-2 border-dashed border-lank/20 px-6 py-6 text-center hover:border-sitwon">
+          <label className="flex flex-1 cursor-pointer items-center justify-center rounded-xl border-2 border-dashed border-chabon/20 px-6 py-6 text-center hover:border-liy">
             <input type="file" accept="application/pdf" className="hidden" onChange={(e) => onFile(e.target.files?.[0])} />
-            <span className="text-sm text-lank/60">{file?.name ?? t.cms.drop}</span>
+            <span className="text-sm text-grafit">{file?.name ?? t.cms.drop}</span>
           </label>
           <button
             onClick={analyze}
             disabled={!file || analyzing}
-            className="rounded-lg bg-lank px-4 py-2.5 text-sm font-semibold text-white hover:bg-lank-600 disabled:opacity-40"
+            className="rounded-lg bg-chabon px-4 py-2.5 text-sm font-semibold text-white hover:bg-chabon disabled:opacity-40"
           >
             {analyzing ? t.cms.analyzing : `✨ ${t.cms.analyze}`}
           </button>
@@ -387,30 +387,30 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
           <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
             <span
               className={`rounded-full px-2 py-0.5 font-medium ${
-                analysis.ai ? 'bg-sitwon-50 text-sitwon-700' : 'bg-soley-50 text-soley-700'
+                analysis.ai ? 'bg-pil text-chabon' : 'bg-pil text-chabon'
               }`}
             >
               {analysis.ai ? `✨ ${t.cms.aiBadge}` : t.cms.heuristicBadge}
             </span>
             {analysis.detected && (
-              <span className="rounded-full bg-fey-50 px-2 py-0.5 font-medium text-fey">
+              <span className="rounded-full bg-pil px-2 py-0.5 font-medium text-chabon">
                 {analysis.detected === 'CIRCULAIRE_BRH' ? t.cms.detectedCirculaire : t.cms.detectedMoniteur}
               </span>
             )}
-            {analysis.aiError && <span className="text-red-600">{t.cms.aiFailed}</span>}
-            {!analysis.textLayer && <span className="text-soley-700">{t.cms.noTextLayer}</span>}
+            {analysis.aiError && <span className="text-wouj">{t.cms.aiFailed}</span>}
+            {!analysis.textLayer && <span className="text-chabon">{t.cms.noTextLayer}</span>}
           </div>
         )}
       </div>
 
       {/* 1bis — Pièces : Word → version HTML · PDF → fichier original (Blob privé) */}
-      <div className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
-        <h2 className="mb-1 text-sm font-semibold text-lank">Pièces du document</h2>
-        <p className="mb-3 text-xs text-lank/50">
+      <div className="rounded-2xl border border-chabon/10 bg-white p-5">
+        <h2 className="mb-1 text-sm font-semibold text-ank">Pièces du document</h2>
+        <p className="mb-3 text-xs text-ank/80">
           Word (.docx) = version HTML (texte propre + tableaux, modifiable ci-dessous) · PDF = fichier original (accès réservé).
         </p>
         <div className="flex flex-wrap gap-3">
-          <label className="flex-1 cursor-pointer rounded-xl border-2 border-dashed border-lank/20 px-4 py-4 text-center text-sm text-lank/60 hover:border-sitwon">
+          <label className="flex-1 cursor-pointer rounded-xl border-2 border-dashed border-chabon/20 px-4 py-4 text-center text-sm text-grafit hover:border-liy">
             <input
               type="file"
               accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
@@ -419,21 +419,21 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
             />
             {assetBusy === 'word' ? 'Conversion du Word…' : '📄 Importer un Word (.docx) → version HTML'}
           </label>
-          <label className="flex-1 cursor-pointer rounded-xl border-2 border-dashed border-lank/20 px-4 py-4 text-center text-sm text-lank/60 hover:border-sitwon">
+          <label className="flex-1 cursor-pointer rounded-xl border-2 border-dashed border-chabon/20 px-4 py-4 text-center text-sm text-grafit hover:border-liy">
             <input type="file" accept="application/pdf" className="hidden" onChange={(e) => attachPdf(e.target.files?.[0])} />
             {assetBusy === 'pdf' ? 'Téléversement…' : pdfBlobUrl ? '✓ PDF original joint — remplacer' : '📎 Joindre le PDF original'}
           </label>
         </div>
-        {assetNote && <p className="mt-2 text-xs text-fey">{assetNote}</p>}
+        {assetNote && <p className="mt-2 text-xs text-chabon">{assetNote}</p>}
       </div>
 
       {/* 2 — Nature du document : édition du Moniteur ↔ circulaire BRH */}
-      <div className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
+      <div className="rounded-2xl border border-chabon/10 bg-white p-5">
         <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-          <h2 className="text-sm font-semibold text-lank">
+          <h2 className="text-sm font-semibold text-ank">
             {mode === 'CIRCULAIRE_BRH' ? t.cms.circulaireMeta : t.cms.editionMeta}
           </h2>
-          <div className="flex gap-1 rounded-lg border border-lank/15 p-1" role="tablist" aria-label={t.cms.docKindLabel}>
+          <div className="flex gap-1 rounded-lg border border-chabon/15 p-1" role="tablist" aria-label={t.cms.docKindLabel}>
             {(['MONITEUR', 'CIRCULAIRE_BRH'] as const).map((v) => (
               <button
                 key={v}
@@ -442,7 +442,7 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
                 aria-selected={mode === v}
                 onClick={() => setMode(v)}
                 className={`rounded-md px-3 py-1.5 text-xs font-medium transition ${
-                  mode === v ? 'bg-lank text-white' : 'text-lank/60 hover:bg-paper'
+                  mode === v ? 'bg-chabon text-white' : 'text-grafit hover:bg-koton'
                 }`}
               >
                 {v === 'MONITEUR' ? t.cms.modeMoniteur : t.cms.modeCirculaire}
@@ -454,17 +454,17 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
         {mode === 'MONITEUR' ? (
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             <div>
-              <span className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-lank/55">
+              <span className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-ank/80">
                 {t.cms.editionTypeLabel}
               </span>
-              <div className="flex gap-1 rounded-lg border border-lank/15 p-1">
+              <div className="flex gap-1 rounded-lg border border-chabon/15 p-1">
                 {(['REGULIERE', 'SPECIALE'] as const).map((v) => (
                   <button
                     key={v}
                     type="button"
                     onClick={() => setEditionType(v)}
                     className={`flex-1 rounded-md px-2 py-1.5 text-xs font-medium transition ${
-                      editionType === v ? 'bg-lank text-white' : 'text-lank/60 hover:bg-paper'
+                      editionType === v ? 'bg-chabon text-white' : 'text-grafit hover:bg-koton'
                     }`}
                   >
                     {v === 'REGULIERE' ? t.moniteur.regularOne : t.moniteur.specialOne}
@@ -474,7 +474,7 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
             </div>
             <Field label={t.cms.moniteurNumber} value={moniteurNumber} onChange={setMoniteurNumber} placeholder="35" />
             <div>
-              <label className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-lank/55">
+              <label className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-ank/80">
                 {t.moniteur.pubDate}
               </label>
               <input
@@ -494,7 +494,7 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               <Field label={t.cms.circulaireNumber} value={circNumber} onChange={setCircNumber} placeholder="114" />
               <div>
-                <label className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-lank/55">
+                <label className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-ank/80">
                   {t.brh.pubDate}
                 </label>
                 <input
@@ -505,7 +505,7 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
                 />
               </div>
               <div>
-                <label className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-lank/55">
+                <label className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-ank/80">
                   {t.brh.effDate}
                 </label>
                 <input
@@ -516,7 +516,7 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
                 />
               </div>
               <div>
-                <label className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-lank/55">
+                <label className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-ank/80">
                   {t.admin.status}
                 </label>
                 <select value={circStatus} onChange={(e) => setCircStatus(e.target.value)} className={fieldCls}>
@@ -539,13 +539,13 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
                 onChange={setKeywords}
                 placeholder="politique monétaire, réserves obligatoires, BRH"
               />
-              <p className="mt-1 text-[11px] text-lank/45">{t.cms.keywordsHint}</p>
+              <p className="mt-1 text-[11px] text-ank/80">{t.cms.keywordsHint}</p>
             </div>
             <div className="flex justify-end">
               <button
                 onClick={publishCirculaire}
                 disabled={busy}
-                className="rounded-lg bg-fey px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
+                className="rounded-lg bg-chabon px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
               >
                 {busy ? t.common.loading : t.cms.publishCirculaire}
               </button>
@@ -556,43 +556,43 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
 
       {/* 3 — Titres extraits (orthographe modifiable, type par publication) — Moniteur */}
       {mode === 'MONITEUR' && pubs.length > 0 && (
-        <div className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
+        <div className="rounded-2xl border border-chabon/10 bg-white p-5">
           <div className="mb-1 flex items-center justify-between">
-            <h2 className="text-sm font-semibold text-lank">
+            <h2 className="text-sm font-semibold text-ank">
               {t.cms.extractedTitles} ({pubs.length})
             </h2>
             <button
               onClick={publishSelected}
               disabled={busy || !selectedCount}
-              className="rounded-lg bg-fey px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
+              className="rounded-lg bg-chabon px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
             >
               {busy ? t.common.loading : `${t.cms.publishSelected} (${selectedCount})`}
             </button>
           </div>
-          <p className="mb-3 text-xs text-lank/45">
+          <p className="mb-3 text-xs text-ank/80">
             {t.cms.editHint}
-            {societeCount > 0 && <span className="ml-1 font-medium text-fey">· {societeCount} {t.cms.societeLinked}</span>}
+            {societeCount > 0 && <span className="ml-1 font-medium text-chabon">· {societeCount} {t.cms.societeLinked}</span>}
           </p>
           <div className="max-h-[28rem] space-y-2 overflow-y-auto pr-1">
             {pubs.map((p, i) => (
-              <div key={i} className="rounded-lg border border-lank/10 bg-paper/60 p-2">
+              <div key={i} className="rounded-lg border border-chabon/10 bg-koton/60 p-2">
                 <div className="flex items-start gap-2">
                   <input
                     type="checkbox"
                     checked={p.selected}
                     onChange={(e) => patchPub(i, { selected: e.target.checked })}
-                    className="mt-2 h-4 w-4 accent-lank"
+                    className="mt-2 h-4 w-4 accent-chabon"
                   />
                   <textarea
                     value={p.title}
                     onChange={(e) => patchPub(i, { title: e.target.value })}
                     rows={2}
-                    className="flex-1 resize-y rounded-md border border-lank/15 bg-white px-2.5 py-1.5 text-sm outline-none focus:border-sitwon"
+                    className="flex-1 resize-y rounded-md border border-chabon/15 bg-white px-2.5 py-1.5 text-sm outline-none focus:border-liy"
                   />
                   <select
                     value={p.type}
                     onChange={(e) => patchPub(i, { type: e.target.value as DocType })}
-                    className="rounded-md border border-lank/15 bg-white px-2 py-1.5 text-xs outline-none focus:border-sitwon"
+                    className="rounded-md border border-chabon/15 bg-white px-2 py-1.5 text-xs outline-none focus:border-liy"
                   >
                     {FULLTEXT_TYPE_LIST.map((m) => (
                       <option key={m.type} value={m.type}>
@@ -603,8 +603,8 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
                 </div>
                 {/* Acte de société : champs structurés → fiche société de l'index */}
                 {p.societe && (
-                  <div className="ml-6 mt-2 rounded-md border border-fey/30 bg-fey-50/50 p-2">
-                    <p className="mb-1.5 flex items-center gap-1 text-[11px] font-semibold text-fey">
+                  <div className="ml-6 mt-2 rounded-md border border-chabon/30 bg-pil/50 p-2">
+                    <p className="mb-1.5 flex items-center gap-1 text-[11px] font-semibold text-chabon">
                       🏢 {t.cms.societeBlock}
                     </p>
                     <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
@@ -612,18 +612,18 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
                         value={p.societe.denomination}
                         onChange={(e) => patchSociete(i, { denomination: e.target.value })}
                         placeholder={t.cms.societeDenom}
-                        className="col-span-2 rounded border border-lank/15 bg-white px-2 py-1 text-xs outline-none focus:border-sitwon"
+                        className="col-span-2 rounded border border-chabon/15 bg-white px-2 py-1 text-xs outline-none focus:border-liy"
                       />
                       <input
                         value={p.societe.nif ?? ''}
                         onChange={(e) => patchSociete(i, { nif: e.target.value || null })}
                         placeholder={t.cms.societeNif}
-                        className="rounded border border-lank/15 bg-white px-2 py-1 text-xs outline-none focus:border-sitwon"
+                        className="rounded border border-chabon/15 bg-white px-2 py-1 text-xs outline-none focus:border-liy"
                       />
                       <select
                         value={p.societe.typeOperation ?? ''}
                         onChange={(e) => patchSociete(i, { typeOperation: (e.target.value || null) as SocieteData['typeOperation'] })}
-                        className="rounded border border-lank/15 bg-white px-1.5 py-1 text-xs outline-none focus:border-sitwon"
+                        className="rounded border border-chabon/15 bg-white px-1.5 py-1 text-xs outline-none focus:border-liy"
                       >
                         <option value="">{t.cms.societeOp}</option>
                         <option value="constitution">{t.cms.opConstitution}</option>
@@ -635,13 +635,13 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
                         onChange={(e) => patchSociete(i, { capital: e.target.value ? Number(e.target.value) : null })}
                         placeholder={t.cms.societeCapital}
                         inputMode="numeric"
-                        className="rounded border border-lank/15 bg-white px-2 py-1 text-xs outline-none focus:border-sitwon"
+                        className="rounded border border-chabon/15 bg-white px-2 py-1 text-xs outline-none focus:border-liy"
                       />
                       <input
                         value={p.societe.notaire ?? ''}
                         onChange={(e) => patchSociete(i, { notaire: e.target.value || null })}
                         placeholder={t.cms.societeNotaire}
-                        className="col-span-2 rounded border border-lank/15 bg-white px-2 py-1 text-xs outline-none focus:border-sitwon"
+                        className="col-span-2 rounded border border-chabon/15 bg-white px-2 py-1 text-xs outline-none focus:border-liy"
                       />
                     </div>
                   </div>
@@ -654,55 +654,55 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
 
       {/* 4 — Écran scindé : PDF source ↔ texte (orthographe modifiable) */}
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <p className="text-xs text-lank/45">{t.cms.splitScreen}</p>
+        <p className="text-xs text-ank/80">{t.cms.splitScreen}</p>
         {/* OCR : nécessite la vision IA (analysis.ai) — inutile de proposer sans clé configurée. */}
         {file && analysis?.ai && (
           <div className="flex items-center gap-2">
-            {!analysis.textLayer && <span className="text-xs font-medium text-soley-700">{t.cms.ocrSuggest}</span>}
+            {!analysis.textLayer && <span className="text-xs font-medium text-chabon">{t.cms.ocrSuggest}</span>}
             <button
               onClick={runOcr}
               disabled={ocrBusy}
               title={t.cms.ocrHint}
-              className="rounded-lg border border-lank/20 bg-white px-3 py-1.5 text-xs font-semibold text-lank hover:border-sitwon disabled:opacity-40"
+              className="rounded-lg border border-chabon/20 bg-white px-3 py-1.5 text-xs font-semibold text-ank hover:border-liy disabled:opacity-40"
             >
               {ocrBusy ? t.cms.ocrBusy : `🔎 ${t.cms.ocr}`}
             </button>
           </div>
         )}
       </div>
-      {ocrNote && <p className="text-xs text-fey">✔ {ocrNote}</p>}
+      {ocrNote && <p className="text-xs text-vet">✔ {ocrNote}</p>}
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <div className="h-96 overflow-hidden rounded-xl border border-lank/10 bg-lank/5">
+        <div className="h-96 overflow-hidden rounded-xl border border-chabon/10 bg-chabon/5">
           {pdfUrl ? (
             <object data={pdfUrl} type="application/pdf" className="h-full w-full">
-              <p className="p-4 text-sm text-lank/50">{file?.name}</p>
+              <p className="p-4 text-sm text-ank/80">{file?.name}</p>
             </object>
           ) : (
-            <div className="flex h-full items-center justify-center text-sm text-lank/30">{t.cms.drop}</div>
+            <div className="flex h-full items-center justify-center text-sm text-ank/80">{t.cms.drop}</div>
           )}
         </div>
         <textarea
           value={body}
           onChange={(e) => setBody(e.target.value)}
           placeholder={t.cms.validate}
-          className="official-text h-96 w-full rounded-xl border border-lank/15 bg-white p-4 text-sm outline-none focus:border-sitwon"
+          className="official-text h-96 w-full rounded-xl border border-chabon/15 bg-white p-4 text-sm outline-none focus:border-liy"
         />
       </div>
 
       {/* 5 — Publication manuelle (un document) — Moniteur (la circulaire a son propre formulaire) */}
       {mode === 'MONITEUR' && (
-      <div className="rounded-2xl border border-lank/10 bg-white shadow-card">
+      <div className="rounded-2xl border border-chabon/10 bg-white">
         <button
           onClick={() => setManualOpen((v) => !v)}
-          className="flex w-full items-center justify-between px-5 py-3 text-sm font-semibold text-lank"
+          className="flex w-full items-center justify-between px-5 py-3 text-sm font-semibold text-ank"
         >
           {t.cms.manualMode}
-          <span className="text-lank/40">{manualOpen ? '▴' : '▾'}</span>
+          <span className="text-ank/80">{manualOpen ? '▴' : '▾'}</span>
         </button>
         {manualOpen && (
-          <div className="grid grid-cols-1 gap-4 border-t border-lank/10 p-5 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 border-t border-chabon/10 p-5 sm:grid-cols-2">
             <div>
-              <label className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-lank/55">
+              <label className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-ank/80">
                 {t.cms.typeRequired} *
               </label>
               <select value={manualType} onChange={(e) => setManualType(e.target.value as DocType)} className={fieldCls}>
@@ -722,10 +722,10 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
                 onChange={setKeywords}
                 placeholder="politique monétaire, réserves obligatoires, BRH"
               />
-              <p className="mt-1 text-[11px] text-lank/45">{t.cms.keywordsHint}</p>
+              <p className="mt-1 text-[11px] text-ank/80">{t.cms.keywordsHint}</p>
             </div>
             <div>
-              <label className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-lank/55">
+              <label className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-ank/80">
                 {t.admin.status}
               </label>
               <select value={status} onChange={(e) => setStatus(e.target.value)} className={fieldCls}>
@@ -740,7 +740,7 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
               <button
                 onClick={publishManual}
                 disabled={busy}
-                className="rounded-lg bg-lank px-5 py-2.5 text-sm font-semibold text-white hover:bg-lank-600 disabled:opacity-50"
+                className="rounded-lg bg-chabon px-5 py-2.5 text-sm font-semibold text-white hover:bg-chabon disabled:opacity-50"
               >
                 {busy ? t.common.loading : t.cms.publish}
               </button>
@@ -750,8 +750,12 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
       </div>
       )}
 
-      {error && <p className="text-sm text-red-700">{error}</p>}
-      <p className="max-w-xl text-xs text-lank/45">{t.cms.note}</p>
+      {error && (
+        <p role="alert" className="rounded-lg border-l-2 border-wouj bg-white px-3 py-2 text-sm text-wouj">
+          {error}
+        </p>
+      )}
+      <p className="max-w-xl text-xs text-ank/80">{t.cms.note}</p>
     </div>
   )
 }

@@ -6,12 +6,12 @@
  */
 
 export const fieldCls =
-  'w-full rounded-lg border border-lank/15 bg-white px-3 py-2 text-sm outline-none focus:border-sitwon'
+  'w-full rounded-lg border border-chabon/15 bg-white px-3 py-2 text-sm outline-none focus:border-liy'
 
 export function FieldLabel({ children, hint }: { children: React.ReactNode; hint?: string }) {
   return (
-    <span className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-lank/55">
-      {children} {hint && <span className="font-normal normal-case text-lank/35">· {hint}</span>}
+    <span className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-ank/80">
+      {children} {hint && <span className="font-normal normal-case text-ank/80">· {hint}</span>}
     </span>
   )
 }

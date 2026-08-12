@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale } from '@/lib/types'
+import { BRAND_COLORS as C } from '@/lib/brand-colors'
 import { HeroJudicialMapArt } from './HeroJudicialMapArt'
 import { HERO_MAP_FOCUS, HERO_MAP_VIEWBOX } from './hero-map-data'
 
@@ -26,17 +27,33 @@ const FOCUS_PCT = { left: `${(HERO_MAP_FOCUS.x / VB_W) * 100}%`, top: `${(HERO_M
  * tribunaux de paix, l'adresse vérifiée de la Cour de cassation).
  */
 
-/** Petits pictogrammes de juridiction — décoratifs, la couleur ne porte rien seule. */
+/**
+ * Petits pictogrammes de juridiction — décoratifs : le NOM du tribunal est juste à côté,
+ * la couleur ne porte jamais l'information seule.
+ *
+ * Teintes de la gamme cartographique AV-02, pour que le héros et /juridictions codent les
+ * ordres de la même façon. Auparavant Cassation et TPI portaient tous deux #414042 :
+ * quatre ordres, trois couleurs.
+ *
+ * ⚠️ La teinte est portée par le FOND de la pastille, jamais par le trait : le pictogramme
+ * reste en Chabon. Sur la fiche blanche, un palais de justice tracé en Sitwon serait à
+ * 1,2:1 — illisible. Le fond teinté distingue, l'encre porte le dessin.
+ *
+ * ⚠️ OPACITÉ À 40 % ET NON 18 %. Mesuré sur la fiche blanche, le Sitwon à 18 % tombait à
+ * 1,08:1 : la pastille ne se distinguait plus de la carte, et une teinte qui ne teinte
+ * rien ne sert à rien. La contrainte WCAG des 3:1 ne s'applique pas ici (graphique
+ * décoratif, `aria-hidden`, doublé du NOM du tribunal) — mais la lisibilité, si.
+ */
 function CourtGlyph({ tone }: { tone: 'cassation' | 'appel' | 'tpi' | 'paix' }) {
-  const color = { cassation: '#7C6F9B', appel: '#4F8EF7', tpi: '#F4A823', paix: '#5e8a2a' }[tone]
+  const teinte = { cassation: C.ble, appel: C.vet, tpi: C.sitwon, paix: C.wouj }[tone]
   return (
     <span
       aria-hidden="true"
       className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"
-      style={{ backgroundColor: `${color}1a` }}
+      style={{ backgroundColor: `${teinte}66` }}
     >
-      <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round">
-        <path d="M10 2.5 17.5 6.5H2.5L10 2.5Z" fill={color} fillOpacity="0.25" />
+      <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke={C.chabon} strokeWidth="2" strokeLinecap="round">
+        <path d="M10 2.5 17.5 6.5H2.5L10 2.5Z" fill={C.chabon} fillOpacity="0.25" />
         <path d="M4.5 8.5v6M8.2 8.5v6M11.8 8.5v6M15.5 8.5v6" />
         <path d="M2.5 17.5h15" />
       </svg>
@@ -64,38 +81,40 @@ export function JudicialMapHeroSlide({ locale, t }: { locale: Locale; t: Diction
       aria-label={`${h.title} — ${h.cta}`}
     >
       <div className="relative overflow-hidden">
-        {/* Lueur d'ambiance — la maquette pose un fond navy profond, éclairé au centre. */}
+        {/* Lueur d'ambiance — Koton très dilué. La maquette d'origine posait un bleu
+            (79,142,247) étranger à la palette : la section est sur Chabon, pas sur du navy. */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-70"
-          style={{ background: 'radial-gradient(60% 70% at 62% 42%, rgba(79,142,247,0.16), transparent 70%)' }}
+          style={{ background: 'radial-gradient(60% 70% at 62% 42%, rgba(234,233,229,0.10), transparent 70%)' }}
         />
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-x-8 gap-y-8 px-4 pb-10 pt-12 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:pt-16">
           {/* ── Colonne de texte ─────────────────────────────────────────── */}
           <div className="relative z-10">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-sitwon">{h.eyebrow}</p>
-            <h2 className="mt-5 font-serif text-[2.1rem] font-semibold leading-[1.08] text-cream sm:text-[2.7rem] lg:text-[3.2rem]">
-              {h.titleLead} <span className="text-sitwon">{h.titleAccent}</span>
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-koton/70">{h.eyebrow}</p>
+            <h2 className="mt-5 font-sans text-display-2 lowercase text-koton/75 sm:text-[2.7rem] lg:text-[3.2rem]">
+              {h.titleLead} <span className="text-koton">{h.titleAccent}</span>
             </h2>
-            <p className="mt-5 max-w-md text-base leading-relaxed text-cream/70">{h.description}</p>
+            <p className="mt-5 max-w-md text-base leading-relaxed text-koton/70">{h.description}</p>
 
-            <span className="mt-7 inline-flex items-center gap-3 rounded-xl bg-sitwon px-7 py-3.5 text-[15px] font-semibold text-lank shadow-lg shadow-sitwon/20 transition group-hover:bg-sitwon/90">
+            <span className="mt-7 inline-flex items-center gap-3 rounded-xl bg-sitwon px-7 py-3.5 text-[15px] font-semibold text-chabon transition group-hover:brightness-95">
               {h.cta}
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
             </span>
 
-            {/* cream/60 et non /45 : à 11 px le contraste sur le navy tombait à
-                4,09:1, sous le seuil AA de 4,5:1 (mesuré). /60 donne 6,2:1. */}
-            <p className="mt-4 flex items-center gap-2 font-mono text-[11px] text-cream/60">
+            {/* Koton/70 et non /60 : sur CHABON (et non le navy de la maquette, disparu),
+                /60 ne donne que 4,21:1 — sous le seuil AA de 4,5:1. /70 donne 5,10:1.
+                Mesuré à l'écran, pas déduit : les deux valeurs sont trop proches à l'œil. */}
+            <p className="mt-4 flex items-center gap-2 font-mono text-[11px] text-koton/70">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-sitwon" />
               {h.note}
             </p>
 
-            <ul className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] text-cream/60">
+            <ul className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] text-koton/70">
               {[h.featureFuzzy, h.featureByCommune, h.featureVerified].map((f, i) => (
                 <li key={f} className="flex items-center gap-3">
-                  {i > 0 && <span aria-hidden="true" className="h-1 w-1 rounded-full bg-sitwon/70" />}
+                  {i > 0 && <span aria-hidden="true" className="h-1 w-1 rounded-full bg-koton/50" />}
                   {f}
                 </li>
               ))}
@@ -124,7 +143,7 @@ export function JudicialMapHeroSlide({ locale, t }: { locale: Locale; t: Diction
               {/* Étiquette de la commune mise en avant — ancrée sur le point réel. */}
               <span
                 style={FOCUS_PCT}
-                className="absolute hidden -translate-x-[calc(100%+0.9rem)] -translate-y-1/2 whitespace-nowrap rounded-md bg-[#171634]/90 px-2 py-1 text-[10px] font-medium text-cream/90 shadow-lg ring-1 ring-white/10 sm:inline-block"
+                className="absolute hidden -translate-x-[calc(100%+0.9rem)] -translate-y-1/2 whitespace-nowrap rounded-md bg-chabon/90 px-2 py-1 text-[10px] font-medium text-koton/90 ring-1 ring-white/10 sm:inline-block"
               >
                 Port-au-Prince
               </span>
@@ -139,29 +158,29 @@ export function JudicialMapHeroSlide({ locale, t }: { locale: Locale; t: Diction
               devenait du vide sous la diapositive 1. C'est un aperçu, pas la donnée :
               la fiche réelle est sur /juridictions, où le lien mène.
             */}
-            {/* `text-lank` sur le conteneur : la fiche est blanche à l'intérieur d'une
-                section `text-cream`. Sans cette base, tout texte qui oublierait sa
+            {/* `text-ank` sur le conteneur : la fiche est blanche à l'intérieur d'une
+                section `text-koton`. Sans cette base, tout texte qui oublierait sa
                 couleur hériterait du crème — invisible sur blanc. */}
-            <div className="hidden rounded-2xl bg-white p-4 text-lank shadow-2xl ring-1 ring-lank/10 lg:absolute lg:right-0 lg:top-4 lg:block lg:w-[17.5rem] xl:w-[19rem]">
-              <h3 className="font-serif text-xl font-semibold text-lank">Port-au-Prince</h3>
+            <div className="hidden rounded-2xl bg-white p-4 text-ank ring-1 ring-chabon/10 lg:absolute lg:right-0 lg:top-4 lg:block lg:w-[17.5rem] xl:w-[19rem]">
+              <h3 className="font-sans text-xl font-medium text-ank">Port-au-Prince</h3>
               {/* /65 et non /50 : sur blanc, /50 ne donnait que 3,26:1 (AA = 4,5). */}
-              <p className="mt-0.5 text-[11px] text-lank/65">Ouest · Arrondissement de Port-au-Prince</p>
-              <p className="mt-2.5 inline-flex items-baseline gap-1.5 rounded-md bg-sitwon px-2.5 py-1">
-                <span className="font-mono text-[9px] uppercase tracking-wider text-lank/70">{j.primaryPostalCode}</span>
-                <span className="font-mono text-xs font-bold text-lank">HT6110</span>
+              <p className="mt-0.5 text-[11px] text-ank/75">Ouest · Arrondissement de Port-au-Prince</p>
+              <p className="mt-2.5 inline-flex items-baseline gap-1.5 rounded-md border border-[#C7C6C1] bg-pil px-2.5 py-1">
+                <span className="font-mono text-[9px] uppercase tracking-wider text-ank/75">{j.primaryPostalCode}</span>
+                <span className="font-mono text-xs font-bold text-ank">HT6110</span>
               </p>
-              <ul className="mt-3 flex flex-col divide-y divide-lank/5">
+              <ul className="mt-3 flex flex-col divide-y divide-chabon/5">
                 {courts.map((c) => (
                   <li key={c.name} className="flex items-center gap-2.5 py-2">
                     <CourtGlyph tone={c.tone} />
                     <span className="min-w-0">
-                      <span className="block text-[12.5px] font-medium leading-tight text-lank">{c.name}</span>
-                      {c.detail && <span className="mt-0.5 block truncate text-[10.5px] text-lank/65">{c.detail}</span>}
+                      <span className="block text-[12.5px] font-medium leading-tight text-ank">{c.name}</span>
+                      {c.detail && <span className="mt-0.5 block truncate text-[10.5px] text-ank/75">{c.detail}</span>}
                     </span>
                   </li>
                 ))}
               </ul>
-              <span className="mt-3 flex items-center justify-between rounded-lg bg-lank px-3.5 py-2.5 text-[12px] font-semibold text-cream">
+              <span className="mt-3 flex items-center justify-between rounded-lg bg-chabon px-3.5 py-2.5 text-[12px] font-semibold text-koton">
                 {h.openRecord}
                 <span aria-hidden="true">→</span>
               </span>

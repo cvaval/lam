@@ -1,56 +1,71 @@
 import type { Config } from 'tailwindcss'
-import { BRAND_COLORS } from './src/lib/brand-colors'
+import { BRAND_COLORS as C } from './src/lib/brand-colors'
 
 /**
- * Lam Veritab — design tokens (§01 du plan).
+ * Lam — système chromatique « Klinik » v3.0, CHARTE GELÉE (LAM-BRAND-2026-08-V3).
  *
- * Le système de couleurs traverse toute la plateforme : pastilles, badges,
- * filtres, badges de résultats, admin. Chaque type de document (1–6) reçoit
- * une couleur unique.
+ * Le codage des types par la TEINTE, qui traversait la v1.0, a été remplacé par un codage
+ * TYPOGRAPHIQUE : pastilles uniformes portant un code en IBM Plex Mono (LÉG · BRH · JUR ·
+ * DOC · FIN · MRK · IDX · TAR) — voir src/lib/brand.ts.
  *
- *   Lank   — Légistation (type 1) · couleur de marque, fond admin, texte profond
- *   Solèy  — Circulaires BRH (type 2) · couleur de marque
- *   Brim   — Jurisprudence (type 3) · couleur de marque
- *   Lagon  — Doctrine (type 4) · accent fonctionnel  #9ADCDC  (valeur exacte du plan)
- *   Fèy    — Lois de finances (type 5) · accent fonctionnel  #3a5505 (valeur exacte du plan)
- *   Sitwon — Marques (type 6) · couleur de marque, anneau de focus, surlignage des termes
- *
- * Lagon (#9ADCDC) et Fèy (#3a5505) sont fixés par le plan. Lank/Solèy/Brim/Sitwon
- * sont des valeurs de travail cohérentes, à réconcilier avec le Brand Book v1.
+ * ⚠️ DEUX ACCENTS, DEUX RÉCITS — ne pas les intervertir :
+ *   WOUJ   le trait du CERTIFICATEUR — logotype (hors quota), statut « Abrogé », erreur,
+ *          alerte de certification. Rationné à UNE occurrence d'interface par écran.
+ *   SITWON la couleur de l'USAGE — CTA principal, badge « Dokiman verifye », surligneur du
+ *          terme exact, soulignement de navigation active. JAMAIS en couleur de texte.
  */
 const config: Config = {
   content: ['./src/**/*.{ts,tsx,mdx}'],
   theme: {
     extend: {
       colors: {
-        // — Couleurs de marque officielles (Brand Book : navy profond + vert lime) —
-        // DEFAULT/700 dérivés de BRAND_COLORS (source unique, src/lib/brand-colors.ts).
-        lank: { DEFAULT: BRAND_COLORS.lank, 50: '#eceef4', 100: '#c9cdde', 600: '#2c3360', 700: BRAND_COLORS.lank, 900: '#10132a' },
-        // Accents fonctionnels par type — distincts de Sitwon, jamais hors badges —
-        soley: { DEFAULT: '#F4A823', 50: '#fef6e7', 100: '#fde7bd', 600: '#d98c0c', 700: '#a96a08' },
-        brim: { DEFAULT: '#5E7488', 50: '#eef1f4', 100: '#d4dbe2', 600: '#4b5e70', 700: '#3a4a58' },
-        lagon: { DEFAULT: '#9ADCDC', 50: '#effafa', 100: '#cdeeee', 600: '#5fb9b9', 700: '#3f9696' },
-        fey: { DEFAULT: '#3A5505', 50: '#f0f4e6', 100: '#d8e3b8', 600: '#3a5505', 700: '#2b3f04' },
-        // Sitwon = le vert lime de la marque (fruit, anneau de focus, surlignage) —
-        sitwon: { DEFAULT: BRAND_COLORS.sitwon, 50: '#f1fae1', 100: '#dcf2b9', 600: '#7cb23a', 700: '#5e8a2a' },
-        // Endèks = mauve de l'Index du Moniteur (7ᵉ service, références) —
-        endeks: { DEFAULT: '#7C6F9B', 50: '#f1eff6', 100: '#dcd6e8', 600: '#5f5379', 700: '#473e5c' },
-        // Kannèl = cannelle des Tarifs douaniers (8ᵉ section) —
-        kannel: { DEFAULT: '#B5651D', 50: '#f7efe6', 100: '#e8d2ba', 600: '#94501a', 700: '#6e3b13' },
-        // — Surfaces neutres —
-        paper: '#FBFAF7', // fond crème « papier juridique »
-        cream: BRAND_COLORS.cream, // crème du logotype sur fond navy
-        ink: BRAND_COLORS.lank,
+        // ── Couleurs de marque ──
+        chabon: C.chabon,
+        adwaz: C.adwaz,
+        koton: C.koton,
+        blan: C.blan,
+        grafit: C.grafit,
+        wouj: C.wouj,
+        sitwon: C.sitwon,
+        // ── Couleurs de soutien ──
+        ank: C.ank,
+        liy: C.liy,
+        pil: C.pil,
+        'sitwon-pal': C.sitwonPal,
+        // ── Accent fonctionnel, HORS marque : succès uniquement ──
+        vet: C.vet,
+        // ── Gamme cartographique (AV-02) : carte judiciaire uniquement, jamais un CTA ──
+        ble: C.ble,
+        // Texte sur fond sombre (Chabon / Adwaz).
+        inverse: C.inverse,
       },
+      // Trois familles NORMATIVES, toutes embarquées (variables posées au layout racine).
+      // Aucune police système : la typographie est un élément de marque.
       fontFamily: {
-        sans: ['ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
-        serif: ['Georgia', 'Cambria', '"Times New Roman"', 'serif'],
-        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+        sans: ['var(--font-franklin)', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+        // Corpus juridique — Source Serif 4, axe optique. Remplace Georgia.
+        serif: ['var(--font-source-serif)', 'Georgia', 'Cambria', 'serif'],
+        // Codes de type des pastilles, références du Moniteur, montants, empreintes.
+        mono: ['var(--font-plex-mono)', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+      },
+      // Échelle NORMATIVE de la charte — aucune taille improvisée hors de celle-ci.
+      fontSize: {
+        'display-1': ['44px', { lineHeight: '1.08', letterSpacing: '-0.02em', fontWeight: '500' }],
+        'display-2': ['36px', { lineHeight: '1.10', letterSpacing: '-0.02em', fontWeight: '500' }],
+        'display-3': ['28px', { lineHeight: '1.15', letterSpacing: '-0.015em', fontWeight: '500' }],
+        body: ['16px', { lineHeight: '1.6' }],
+        'body-sm': ['14px', { lineHeight: '1.55' }],
+        label: ['12px', { lineHeight: '1.3', letterSpacing: '0.14em', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '1.3', letterSpacing: '0.14em', fontWeight: '600' }],
+        legal: ['17px', { lineHeight: '1.7' }],
+        meta: ['12px', { lineHeight: '1.6' }],
       },
       boxShadow: {
-        card: '0 1px 2px rgba(27,31,61,0.04), 0 8px 24px rgba(27,31,61,0.06)',
-        // L'anneau de focus Sitwon (accessibilité §06) et le shimmer des squelettes
-        // vivent dans globals.css (*:focus-visible et .skeleton) — pas de token ici.
+        // ⚠️ ÉLÉVATION ZÉRO (charte v3.0) : la hiérarchie se fait par les fonds et les
+        // bordures Liy, jamais par l'ombre. `card` est conservé comme ALIAS NEUTRE le temps
+        // de la purge ; l'ombre douce n'est admise que sur modales et menus flottants.
+        card: 'none',
+        flottant: '0 4px 16px rgba(65,64,66,0.10)',
       },
     },
   },

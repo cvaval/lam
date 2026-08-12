@@ -176,17 +176,17 @@ export function IdleTimer({
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-center justify-center bg-lank/40 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-chabon/40 p-4 backdrop-blur-sm"
       role="alertdialog"
       aria-modal="true"
       aria-labelledby="idle-title"
     >
-      <div className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-xl">
-        <h2 id="idle-title" className="text-lg font-bold text-lank">
+      <div className="w-full max-w-sm rounded-2xl bg-white p-6">
+        <h2 id="idle-title" className="text-lg font-bold text-ank">
           {LBL.title[locale]}
         </h2>
-        <p className="mt-2 text-sm leading-relaxed text-lank/70">
-          {LBL.body[locale]} <span className="font-bold text-lank">{remaining}</span> {LBL.seconds[locale]}.
+        <p className="mt-2 text-sm leading-relaxed text-grafit">
+          {LBL.body[locale]} <span className="font-bold text-ank">{remaining}</span> {LBL.seconds[locale]}.
         </p>
         <div className="mt-5 flex gap-2">
           <button
@@ -195,14 +195,14 @@ export function IdleTimer({
               arm()
               beat(true)
             }}
-            className="flex-1 rounded-lg bg-lank px-4 py-2 text-sm font-medium text-cream transition hover:bg-lank/90"
+            className="flex-1 rounded-lg bg-chabon px-4 py-2 text-sm font-medium text-koton transition hover:bg-chabon/90"
           >
             {LBL.stay[locale]}
           </button>
           <button
             type="button"
             onClick={logout}
-            className="rounded-lg border border-lank/15 px-4 py-2 text-sm text-lank/70 transition hover:bg-paper"
+            className="rounded-lg border border-chabon/15 px-4 py-2 text-sm text-grafit transition hover:bg-koton"
           >
             {LBL.logout[locale]}
           </button>

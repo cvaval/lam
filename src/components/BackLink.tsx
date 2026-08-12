@@ -17,7 +17,7 @@ export function BackLink({ fallback, label }: { fallback: string; label: string 
         if (typeof window !== 'undefined' && window.history.length > 1) router.back()
         else router.push(fallback)
       }}
-      className="text-sm text-lank/50 hover:text-lank"
+      className="text-sm text-ank/80 hover:text-ank"
     >
       ← {label}
     </button>

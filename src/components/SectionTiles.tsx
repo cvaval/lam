@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { Pastille } from './TypeBadge'
-import { COLOR_CLASSES } from '@/lib/brand'
 import { postJson } from '@/lib/http'
 import { sectionHref } from '@/lib/nav'
 import type { DocType, Locale } from '@/lib/types'
@@ -12,7 +11,6 @@ export interface SectionTile {
   type: DocType
   slug: string
   num: number
-  color: keyof typeof COLOR_CLASSES
   label: string
   feature: string
   newCount: number
@@ -173,13 +171,15 @@ export function SectionTiles({
         <div
           key={m.type}
           data-tile={m.type}
-          className={`group relative overflow-hidden rounded-2xl border bg-white p-5 shadow-card transition ${
+          className={`group relative overflow-hidden rounded-2xl border bg-white p-5 transition ${
             dragType === m.type
-              ? 'z-10 scale-[1.02] border-lank/40 shadow-lg ring-2 ring-lank/20'
-              : 'border-lank/10 hover:-translate-y-0.5 hover:shadow-lg'
+              ? 'z-10 scale-[1.02] border-chabon/40 ring-2 ring-chabon/20'
+              : 'border-chabon/10 hover:-translate-y-0.5 hover:'
           }`}
         >
-          <span className={`absolute inset-x-0 top-0 h-1 ${COLOR_CLASSES[m.color].dot}`} />
+          {/* Filet NEUTRE : le système v1 y codait le type par sa teinte ; Klinik confie
+              cette distinction au code de la pastille (voir TypeBadge). */}
+          <span className="absolute inset-x-0 top-0 h-1 bg-liy" />
           {/* Poignée de réorganisation — seul élément qui déclenche le glisser (touch-none). */}
           <button
             type="button"
@@ -190,18 +190,18 @@ export function SectionTiles({
             onPointerUp={onGripUp}
             onPointerCancel={onGripUp}
             onKeyDown={(e) => onGripKey(e, m.type)}
-            className="absolute right-1.5 top-1.5 z-20 touch-none cursor-grab rounded-md px-1.5 py-1 text-lank/30 transition hover:bg-paper hover:text-lank/70 active:cursor-grabbing"
+            className="absolute right-1.5 top-1.5 z-20 touch-none cursor-grab rounded-md px-1.5 py-1 text-ank/80 transition hover:bg-koton hover:text-ank/70 active:cursor-grabbing"
           >
             <span aria-hidden className="text-base leading-none">⠿</span>
           </button>
           <Link href={sectionHref(locale, m.slug)} className="block">
             <div className="flex items-center justify-between pr-7">
-              <span className="font-mono text-xs text-lank/40">0{m.num}</span>
+              <span className="font-mono text-xs text-ank/80">0{m.num}</span>
               <span className="flex items-center gap-2">
                 {m.newCount > 0 && (
                   <span
                     title={`${m.newCount.toLocaleString('fr')} ${labels.newEntries}`}
-                    className="inline-flex h-5 items-center rounded-full bg-sitwon px-2 text-[10px] font-bold uppercase tracking-wide text-lank"
+                    className="inline-flex h-5 items-center rounded-full bg-chabon px-2 text-[10px] font-bold uppercase tracking-wide text-koton"
                   >
                     {labels.whatsNew}
                   </span>
@@ -209,8 +209,8 @@ export function SectionTiles({
                 <Pastille type={m.type} />
               </span>
             </div>
-            <h3 className="mt-3 font-semibold leading-snug text-lank">{m.label}</h3>
-            <p className="mt-1.5 text-xs leading-relaxed text-lank/55">{m.feature}</p>
+            <h3 className="mt-3 font-semibold leading-snug text-ank">{m.label}</h3>
+            <p className="mt-1.5 text-xs leading-relaxed text-ank/80">{m.feature}</p>
           </Link>
         </div>
       ))}

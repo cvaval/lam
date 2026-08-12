@@ -39,13 +39,13 @@ export default async function LegislationPage({ params }: { params: { locale: st
 
   return (
     <div className="space-y-6">
-      <header className="border-l-4 border-lank pl-4">
-        <h1 className="text-2xl font-bold text-lank">{L.title[locale]}</h1>
-        <p className="mt-1 max-w-2xl text-sm text-lank/55">{L.sub[locale]}</p>
+      <header className="border-l-4 border-liy pl-4">
+        <h1 className="text-2xl font-bold text-ank">{L.title[locale]}</h1>
+        <p className="mt-1 max-w-2xl text-sm text-ank/80">{L.sub[locale]}</p>
       </header>
 
       {years.length === 0 ? (
-        <p className="rounded-2xl border border-lank/10 bg-white px-4 py-10 text-center text-sm text-lank/40 shadow-card">
+        <p className="rounded-2xl border border-chabon/10 bg-white px-4 py-10 text-center text-sm text-ank/80">
           {L.empty[locale]}
         </p>
       ) : (
@@ -54,10 +54,10 @@ export default async function LegislationPage({ params }: { params: { locale: st
             <Link
               key={y.year}
               href={`/${locale}/editionsmoniteur/${y.year}`}
-              className="group flex flex-col items-center rounded-2xl border border-lank/10 bg-white px-4 py-6 shadow-card transition hover:-translate-y-0.5 hover:shadow-lg"
+              className="group flex flex-col items-center rounded-2xl border border-chabon/10 bg-white px-4 py-6 transition hover:-translate-y-0.5 hover:"
             >
-              <span className="text-3xl font-bold tracking-tight text-lank group-hover:text-endeks-700">{y.year}</span>
-              <span className="mt-1 text-xs text-lank/50">
+              <span className="text-3xl font-bold tracking-tight text-ank group-hover:text-chabon">{y.year}</span>
+              <span className="mt-1 text-xs text-ank/80">
                 {y.count.toLocaleString('fr')} {L.editions[locale]}
               </span>
             </Link>
@@ -65,7 +65,7 @@ export default async function LegislationPage({ params }: { params: { locale: st
         </div>
       )}
 
-      <Link href={`/${locale}/search?type=editionsmoniteur`} className="inline-block text-sm font-medium text-endeks-700 hover:underline">
+      <Link href={`/${locale}/search?type=editionsmoniteur`} className="inline-block text-sm font-medium text-chabon hover:underline">
         {L.searchAll[locale]} →
       </Link>
     </div>

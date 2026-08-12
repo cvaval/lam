@@ -133,10 +133,10 @@ export function TariffTable({
 
   function ddCell(r: TariffRow) {
     const v = r.dd
-    if (!v) return <span title={t.tarifs.ddUnknown} className="text-lank/35">—</span>
-    if (v === 'Exonéré') return <span className="rounded bg-fey/10 px-1.5 py-0.5 text-[11px] font-semibold text-fey">{v}</span>
-    if (v === 'Suspendu') return <span className="rounded bg-soley-100 px-1.5 py-0.5 text-[11px] font-semibold text-soley-700">{v}</span>
-    return <span className={v === '0 %' ? 'text-lank/45' : 'font-medium text-lank'}>{v}</span>
+    if (!v) return <span title={t.tarifs.ddUnknown} className="text-ank/80">—</span>
+    if (v === 'Exonéré') return <span className="rounded bg-white px-1.5 py-0.5 text-[11px] font-semibold text-vet ring-1 ring-vet/40">{v}</span>
+    if (v === 'Suspendu') return <span className="rounded bg-pil px-1.5 py-0.5 text-[11px] font-semibold text-chabon">{v}</span>
+    return <span className={v === '0 %' ? 'text-ank/80' : 'font-medium text-ank'}>{v}</span>
   }
 
   const chLabel = chapters.find((c) => c.code === chapter)?.label
@@ -156,57 +156,57 @@ export function TariffTable({
           placeholder={t.tarifs.searchPlaceholder}
           aria-label={t.tarifs.searchPlaceholder}
           autoComplete="off"
-          className="w-full rounded-xl border border-lank/15 bg-white px-4 py-2 pr-10 text-sm text-lank outline-none focus:border-kannel"
+          className="w-full rounded-xl border border-chabon/15 bg-white px-4 py-2 pr-10 text-sm text-ank outline-none focus:border-liy"
         />
-        {loading && <span aria-hidden className="absolute right-3 top-1/2 -mt-2 h-4 w-4 animate-spin rounded-full border-2 border-kannel/30 border-t-kannel" />}
+        {loading && <span aria-hidden className="absolute right-3 top-1/2 -mt-2 h-4 w-4 animate-spin rounded-full border-2 border-chabon/30 border-t-chabon" />}
         <span role="status" className="sr-only">{loading ? t.tarifs.loadingTxt : ''}</span>
       </div>
-      <p className="text-xs text-lank/55">{t.tarifs.tcaNote}</p>
+      <p className="text-xs text-ank/80">{t.tarifs.tcaNote}</p>
 
       {/* Page d'atterrissage : sommaire des chapitres */}
       {!active ? (
         <section>
-          <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-lank/45">{t.tarifs.chaptersTitle}</h2>
+          <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-ank/80">{t.tarifs.chaptersTitle}</h2>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {chapters.map((c) => (
               <button
                 key={c.code}
                 type="button"
                 onClick={() => { setQ(''); setChapter(c.code) }}
-                className="flex items-start gap-3 rounded-xl border border-lank/10 bg-white px-3 py-2.5 text-left shadow-card transition hover:-translate-y-0.5 hover:border-kannel/40 hover:shadow-lg"
+                className="flex items-start gap-3 rounded-xl border border-chabon/10 bg-white px-3 py-2.5 text-left transition hover:-translate-y-0.5 hover:border-chabon/40 hover:"
               >
-                <span className="mt-0.5 shrink-0 rounded-md bg-kannel-50 px-1.5 py-0.5 font-mono text-xs font-semibold text-kannel-700">{c.code}</span>
+                <span className="mt-0.5 shrink-0 rounded-md bg-pil px-1.5 py-0.5 font-mono text-xs font-semibold text-chabon">{c.code}</span>
                 <span className="min-w-0">
-                  <span className="block text-sm leading-snug text-lank">{c.label}</span>
-                  <span className="text-[11px] text-lank/45">{c.count} {t.tarifs.results}</span>
+                  <span className="block text-sm leading-snug text-ank">{c.label}</span>
+                  <span className="text-[11px] text-ank/80">{c.count} {t.tarifs.results}</span>
                 </span>
               </button>
             ))}
           </div>
-          <p className="mt-3 text-xs text-lank/40">{total.toLocaleString('fr')} {t.tarifs.results} · {chapters.length} {t.tarifs.chapterPrefix.toLowerCase()}s</p>
+          <p className="mt-3 text-xs text-ank/80">{total.toLocaleString('fr')} {t.tarifs.results} · {chapters.length} {t.tarifs.chapterPrefix.toLowerCase()}s</p>
         </section>
       ) : (
         <>
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div className="flex items-center gap-2">
-              <button type="button" onClick={() => { setChapter(''); setQ('') }} className="rounded-lg border border-lank/15 bg-white px-2.5 py-1 text-xs text-lank/70 hover:bg-paper">← {t.tarifs.allChapters}</button>
-              {chapter && <span className="text-sm font-semibold text-lank">{t.tarifs.chapterPrefix} {chapter}{chLabel ? ` — ${chLabel}` : ''}</span>}
+              <button type="button" onClick={() => { setChapter(''); setQ('') }} className="rounded-lg border border-chabon/15 bg-white px-2.5 py-1 text-xs text-grafit hover:bg-koton">← {t.tarifs.allChapters}</button>
+              {chapter && <span className="text-sm font-semibold text-ank">{t.tarifs.chapterPrefix} {chapter}{chLabel ? ` — ${chLabel}` : ''}</span>}
             </div>
-            <p aria-live="polite" className="text-sm text-lank/55">
+            <p aria-live="polite" className="text-sm text-ank/80">
               {!rate && <>{count.toLocaleString('fr')} {t.tarifs.results}{q.trim() && <> · « {q.trim()} »</>}</>}
             </p>
           </div>
 
           {rate ? (
-            <div role="alert" className="rounded-2xl border border-soley/40 bg-soley-50 p-6 text-center text-sm text-lank">{t.tarifs.rateLimited}</div>
+            <div role="alert" className="rounded-2xl border border-chabon/40 bg-pil p-6 text-center text-sm text-ank">{t.tarifs.rateLimited}</div>
           ) : rows.length === 0 && !loading ? (
-            <div className="rounded-2xl border border-lank/10 bg-white p-10 text-center text-lank/45">{t.tarifs.empty}</div>
+            <div className="rounded-2xl border border-chabon/10 bg-white p-10 text-center text-ank/80">{t.tarifs.empty}</div>
           ) : (
-            <div className="max-h-[72vh] overflow-auto rounded-2xl border border-lank/10 bg-white shadow-card">
-              <table className="w-full border-collapse text-[13px] text-lank/90">
+            <div className="max-h-[72vh] overflow-auto rounded-2xl border border-chabon/10 bg-white">
+              <table className="w-full border-collapse text-[13px] text-ank/90">
                 <caption className="sr-only">{t.tarifs.title}</caption>
                 <thead>
-                  <tr className="sticky top-0 z-10 border-b border-lank/15 bg-kannel-50 text-left text-xs uppercase tracking-wide text-lank/60">
+                  <tr className="sticky top-0 z-10 border-b border-chabon/15 bg-pil text-left text-xs uppercase tracking-wide text-grafit">
                     <th scope="col" className="px-3 py-2 font-semibold">{t.tarifs.thCode}</th>
                     <th scope="col" className="px-3 py-2 font-semibold">{t.tarifs.thDesignation}</th>
                     <th scope="col" className="px-3 py-2 font-semibold">{t.tarifs.thUnite}</th>
@@ -221,21 +221,21 @@ export function TariffTable({
                     return (
                       <tr key={r.id} className={i % 2 === 1 ? 'bg-[rgba(27,31,61,0.025)]' : ''}>
                         <td className="whitespace-nowrap px-3 py-1.5 align-top">
-                          <span className="font-mono text-xs font-medium text-lank">{codeHl(r.code)}</span>
-                          <button type="button" onClick={() => copy(r.code)} title={t.tarifs.copyCode} aria-label={t.tarifs.copyCode} className="ml-1 inline-flex h-6 w-6 items-center justify-center rounded text-xs text-lank/40 hover:bg-kannel-50 hover:text-kannel-700">
+                          <span className="font-mono text-xs font-medium text-ank">{codeHl(r.code)}</span>
+                          <button type="button" onClick={() => copy(r.code)} title={t.tarifs.copyCode} aria-label={t.tarifs.copyCode} className="ml-1 inline-flex h-6 w-6 items-center justify-center rounded text-xs text-ank/80 hover:bg-pil hover:text-chabon">
                             {copied === r.code ? '✓' : '⧉'}
                           </button>
                         </td>
                         <td className="px-3 py-1.5 align-top" style={{ paddingLeft: level ? `${0.75 + level * 0.85}rem` : undefined }}>
                           {hl(label)}
-                          {r.note && <span className="mt-0.5 block text-[11px] text-lank/55">{r.note}</span>}
-                          {r.ddRef && <span title={r.ddRef} className="mt-0.5 block line-clamp-1 text-[11px] text-kannel-700/80">ⓘ {r.ddRef}</span>}
+                          {r.note && <span className="mt-0.5 block text-[11px] text-ank/80">{r.note}</span>}
+                          {r.ddRef && <span title={r.ddRef} className="mt-0.5 block line-clamp-1 text-[11px] text-chabon/80">ⓘ {r.ddRef}</span>}
                         </td>
-                        <td className="whitespace-nowrap px-3 py-1.5 align-top text-lank/70">{r.unite ?? '—'}</td>
+                        <td className="whitespace-nowrap px-3 py-1.5 align-top text-grafit">{r.unite ?? '—'}</td>
                         <td className={`${numCls} align-top`}>{ddCell(r)}</td>
-                        <td className={`${numCls} align-top ${r.accises ? 'bg-soley-50' : ''}`}>{r.accises ?? '—'}</td>
+                        <td className={`${numCls} align-top ${r.accises ? 'bg-pil' : ''}`}>{r.accises ?? '—'}</td>
                         <td className="whitespace-nowrap px-3 py-1.5 text-right align-top">
-                          <button type="button" onClick={() => setCalcRow(r)} className="rounded-md border border-kannel/30 px-2 py-1 text-xs font-medium text-kannel-700 hover:bg-kannel-50">{t.tarifs.calc}</button>
+                          <button type="button" onClick={() => setCalcRow(r)} className="rounded-md border border-chabon/30 px-2 py-1 text-xs font-medium text-chabon hover:bg-pil">{t.tarifs.calc}</button>
                         </td>
                       </tr>
                     )
@@ -248,9 +248,9 @@ export function TariffTable({
           {hasMore && !rate && (
             <div className="text-center">
               {rateMore ? (
-                <p role="alert" className="text-sm text-soley-700">{t.tarifs.rateLimited}</p>
+                <p role="alert" className="text-sm text-chabon">{t.tarifs.rateLimited}</p>
               ) : (
-                <button type="button" onClick={() => void doFetch(q, chapter, rows.length, false)} disabled={loading} className="rounded-lg border border-lank/15 bg-white px-4 py-2 text-sm font-medium text-lank hover:bg-paper disabled:opacity-50">
+                <button type="button" onClick={() => void doFetch(q, chapter, rows.length, false)} disabled={loading} className="rounded-lg border border-chabon/15 bg-white px-4 py-2 text-sm font-medium text-ank hover:bg-koton disabled:opacity-50">
                   {t.tarifs.loadMore} ({(count - rows.length).toLocaleString('fr')})
                 </button>
               )}
@@ -261,14 +261,14 @@ export function TariffTable({
 
       <Link
         href={`/${locale}/search?type=tarifs`}
-        className="flex items-center justify-between rounded-2xl border border-kannel/30 bg-kannel-50 px-5 py-4 transition hover:border-kannel/60"
+        className="flex items-center justify-between rounded-2xl border border-chabon/30 bg-pil px-5 py-4 transition hover:border-chabon/60"
       >
         <span>
-          <span className="block font-semibold text-lank">{t.tarifs.docsTitle}</span>
-          <span className="mt-0.5 block text-xs text-lank/55">{t.tarifs.docsSub}</span>
+          <span className="block font-semibold text-ank">{t.tarifs.docsTitle}</span>
+          <span className="mt-0.5 block text-xs text-ank/80">{t.tarifs.docsSub}</span>
         </span>
-        <span className="shrink-0 text-sm font-medium text-kannel-700">
-          {docCount > 0 && <span className="mr-2 text-lank/45">{docCount}</span>}
+        <span className="shrink-0 text-sm font-medium text-chabon">
+          {docCount > 0 && <span className="mr-2 text-ank/80">{docCount}</span>}
           {t.tarifs.docsLink} →
         </span>
       </Link>

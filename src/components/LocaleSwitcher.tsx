@@ -25,7 +25,7 @@ export function LocaleSwitcher({ current }: { current: Locale }) {
   }
 
   return (
-    <div className="inline-flex items-center rounded-full border border-lank/15 bg-white p-0.5 text-xs font-medium">
+    <div className="inline-flex items-center rounded-full border border-chabon/15 bg-white p-0.5 text-xs font-medium">
       {LOCALES.map((l) => (
         <button
           key={l}
@@ -34,7 +34,7 @@ export function LocaleSwitcher({ current }: { current: Locale }) {
           aria-label={LOCALE_NAMES[l]}
           title={LOCALE_NAMES[l]}
           className={`rounded-full px-2.5 py-1 transition ${
-            l === current ? 'bg-lank text-white' : 'text-lank/60 hover:text-lank'
+            l === current ? 'bg-chabon text-white' : 'text-grafit hover:text-koton'
           }`}
         >
           {LOCALE_SHORT[l]}

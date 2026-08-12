@@ -64,7 +64,7 @@ export default async function DoctrinePage({ params }: { params: { locale: strin
   return (
     <div className="space-y-5">
       <ThemeBrowser locale={locale} tree={tree} counts={counts} recentThemeIds={recentThemeIds} allDocs={flatDocs} />
-      <Link href={`/${locale}/search?type=legislationannotee`} className="inline-block text-sm font-medium text-endeks-700 hover:underline">
+      <Link href={`/${locale}/search?type=legislationannotee`} className="inline-block text-sm font-medium text-chabon hover:underline">
         {L.searchAll[locale]} →
       </Link>
     </div>

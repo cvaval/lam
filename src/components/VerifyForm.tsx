@@ -93,8 +93,8 @@ export function VerifyForm({
   return (
     <form onSubmit={submit} className="space-y-5">
       {enroll && qr && (
-        <div className="rounded-xl border border-lank/10 bg-paper p-4 text-center">
-          <p className="mb-3 text-xs text-lank/60">
+        <div className="rounded-xl border border-chabon/10 bg-koton p-4 text-center">
+          <p className="mb-3 text-xs text-grafit">
             {locale === 'en'
               ? 'Scan this QR code with your authenticator app (first sign-in).'
               : locale === 'ht'
@@ -104,20 +104,20 @@ export function VerifyForm({
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={qr} alt="QR TOTP" width={170} height={170} className="mx-auto rounded-lg" />
           {secretKey && (
-            <div className="mt-3 border-t border-lank/10 pt-3">
-              <p className="text-[11px] text-lank/50">
+            <div className="mt-3 border-t border-chabon/10 pt-3">
+              <p className="text-[11px] text-ank/80">
                 {locale === 'en'
                   ? "Can't scan? Enter this key manually:"
                   : locale === 'ht'
                   ? 'Ou pa ka eskane? Antre kle sa a alamen:'
                   : 'Impossible de scanner ? Saisissez cette clé manuellement :'}
               </p>
-              <p className="mt-1 select-all font-mono text-sm font-semibold tracking-widest text-lank">
+              <p className="mt-1 select-all font-mono text-sm font-semibold tracking-widest text-ank">
                 {secretKey.replace(/(.{4})/g, '$1 ').trim()}
               </p>
             </div>
           )}
-          <p className="mt-3 rounded-lg bg-soley-50 px-3 py-2 text-[11px] leading-relaxed text-lank/70">
+          <p className="mt-3 rounded-lg bg-pil px-3 py-2 text-[11px] leading-relaxed text-grafit">
             {locale === 'en'
               ? '⏰ Make sure your phone’s date & time are set to automatic — a clock that is off by more than ~2 min makes every code fail.'
               : locale === 'ht'
@@ -128,8 +128,8 @@ export function VerifyForm({
       )}
 
       <div>
-        <p className="text-center text-sm text-lank/80">{t.verify.instruction}</p>
-        <p className="text-center text-xs text-lank/45">{t.verify.instructionAlt}</p>
+        <p className="text-center text-sm text-ank/80">{t.verify.instruction}</p>
+        <p className="text-center text-xs text-ank/80">{t.verify.instructionAlt}</p>
       </div>
 
       <div className="flex justify-center gap-2">
@@ -145,13 +145,13 @@ export function VerifyForm({
             onChange={(e) => setDigit(i, e.target.value)}
             onKeyDown={(e) => onKey(i, e)}
             aria-label={`chiffre ${i + 1}`}
-            className="h-14 w-11 rounded-xl border border-lank/15 bg-white text-center text-2xl font-semibold text-lank outline-none focus:border-sitwon"
+            className="h-14 w-11 rounded-xl border border-chabon/15 bg-white text-center text-2xl font-semibold text-ank outline-none focus:border-liy"
           />
         ))}
       </div>
 
       {devCode && (
-        <p className="rounded-lg bg-sitwon-50 px-3 py-2 text-center text-xs text-lank/70">
+        <p className="rounded-lg bg-pil px-3 py-2 text-center text-xs text-grafit">
           {locale === 'en' ? 'Demo code (dev only): ' : 'Code de démo (dev) : '}
           <button
             type="button"
@@ -167,7 +167,7 @@ export function VerifyForm({
       )}
 
       {error && (
-        <p className="rounded-lg bg-red-50 px-3 py-2 text-center text-sm text-red-700" role="alert">
+        <p className="rounded-lg bg-pil px-3 py-2 text-center text-sm text-wouj" role="alert">
           {error}
         </p>
       )}
@@ -176,14 +176,14 @@ export function VerifyForm({
           qui refont la 2FA à chaque session. On masque la case (au lieu de la griser)
           pour ne pas donner l'impression d'un contrôle cassé ; la note explique pourquoi. */}
       {sensitive ? (
-        <p className="text-center text-[11px] text-lank/45">{t.verify.sensitiveNote}</p>
+        <p className="text-center text-[11px] text-ank/80">{t.verify.sensitiveNote}</p>
       ) : (
-        <label className="flex cursor-pointer items-center justify-center gap-2 text-xs text-lank/70">
+        <label className="flex cursor-pointer items-center justify-center gap-2 text-xs text-grafit">
           <input
             type="checkbox"
             checked={trust}
             onChange={(e) => setTrust(e.target.checked)}
-            className="h-4 w-4 rounded border-lank/30 accent-lank"
+            className="h-4 w-4 rounded border-chabon/30 accent-chabon"
           />
           {t.verify.trust} / {t.verify.trustAlt}
         </label>
@@ -192,7 +192,7 @@ export function VerifyForm({
       <button
         type="submit"
         disabled={loading || digits.join('').length !== 6}
-        className="w-full rounded-lg bg-lank py-2.5 text-sm font-semibold text-white transition hover:bg-lank-600 disabled:opacity-50"
+        className="w-full rounded-lg bg-sitwon py-2.5 text-sm font-semibold text-chabon transition hover:brightness-95 disabled:opacity-50"
       >
         {loading ? t.common.loading : t.verify.validate}
       </button>

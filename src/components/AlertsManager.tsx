@@ -30,21 +30,21 @@ export function AlertsManager({ initial, locale, t }: { initial: AlertDto[]; loc
   }
 
   if (!alerts.length) {
-    return <p className="text-sm text-lank/45">{t.alerts.empty}</p>
+    return <p className="text-sm text-ank/80">{t.alerts.empty}</p>
   }
 
   return (
-    <ul className="divide-y divide-lank/5">
+    <ul className="divide-y divide-chabon/5">
       {alerts.map((a) => (
         <li key={a.id} className="flex flex-wrap items-center justify-between gap-2 py-2.5 text-sm">
           <div className="min-w-0">
-            <p className={`truncate font-medium ${a.active ? 'text-lank' : 'text-lank/40'}`}>
+            <p className={`truncate font-medium ${a.active ? 'text-ank' : 'text-ank/80'}`}>
               « {a.label} »
               {!a.active && (
-                <span className="ml-2 rounded-full bg-lank/5 px-2 py-0.5 text-[11px] font-normal text-lank/45">{t.alerts.paused}</span>
+                <span className="ml-2 rounded-full bg-chabon/5 px-2 py-0.5 text-[11px] font-normal text-ank/80">{t.alerts.paused}</span>
               )}
             </p>
-            <p className="text-xs text-lank/45">
+            <p className="text-xs text-ank/80">
               {a.type ? DOC_TYPE_META[a.type].label[locale as 'fr' | 'en' | 'ht'] : t.alerts.everything}
               {' · '}
               {t.alerts.lastSent} :{' '}
@@ -56,7 +56,7 @@ export function AlertsManager({ initial, locale, t }: { initial: AlertDto[]; loc
               type="button"
               onClick={() => toggle(a)}
               disabled={busy === a.id}
-              className="rounded-lg border border-lank/15 bg-white px-2.5 py-1 text-xs text-lank/60 hover:border-lank/40 disabled:opacity-60"
+              className="rounded-lg border border-chabon/15 bg-white px-2.5 py-1 text-xs text-grafit hover:border-chabon/40 disabled:opacity-60"
             >
               {a.active ? t.alerts.pause : t.alerts.resume}
             </button>
@@ -64,7 +64,7 @@ export function AlertsManager({ initial, locale, t }: { initial: AlertDto[]; loc
               type="button"
               onClick={() => remove(a)}
               disabled={busy === a.id}
-              className="rounded-lg border border-red-200 bg-white px-2.5 py-1 text-xs text-red-700 hover:bg-red-50 disabled:opacity-60"
+              className="rounded-lg border border-wouj/40 bg-white px-2.5 py-1 text-xs text-wouj hover:bg-pil disabled:opacity-60"
             >
               {t.alerts.delete}
             </button>

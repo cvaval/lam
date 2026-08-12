@@ -18,19 +18,19 @@ export function OldVersion({ text, locale, codeHrefs }: { text: string; locale: 
   const [open, setOpen] = useState(false)
   const lt = (o: Record<Locale, string>) => o[locale] ?? o.fr
   return (
-    <div data-nocopy className="mt-2.5 overflow-hidden rounded-lg border border-lagon-600/30 bg-lagon-50/40">
+    <div data-nocopy className="mt-2.5 overflow-hidden rounded-lg border border-chabon/30 bg-pil/40">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="flex w-full items-center gap-2 px-3.5 py-2 text-left text-xs transition hover:bg-lagon-50"
+        className="flex w-full items-center gap-2 px-3.5 py-2 text-left text-xs transition hover:bg-pil"
       >
-        <span aria-hidden className="select-none text-lagon-700">{open ? '▾' : '▸'}</span>
-        <span className="font-semibold text-lank">{lt(LBL.title)}</span>
-        <span className="ml-auto text-[11px] font-medium text-lagon-700">{open ? lt(LBL.hide) : lt(LBL.show)}</span>
+        <span aria-hidden className="select-none text-chabon">{open ? '▾' : '▸'}</span>
+        <span className="font-semibold text-ank">{lt(LBL.title)}</span>
+        <span className="ml-auto text-[11px] font-medium text-chabon">{open ? lt(LBL.hide) : lt(LBL.show)}</span>
       </button>
       {open && (
-        <p className="whitespace-pre-wrap border-t border-lagon-600/20 bg-white/60 px-4 py-2.5 text-[11.5px] italic leading-relaxed text-lank/60">
+        <p className="whitespace-pre-wrap border-t border-chabon/20 bg-white/60 px-4 py-2.5 text-[11.5px] italic leading-relaxed text-grafit">
           <CodeRefText text={text} codeHrefs={codeHrefs} />
         </p>
       )}

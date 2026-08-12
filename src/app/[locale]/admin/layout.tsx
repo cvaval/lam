@@ -22,32 +22,32 @@ export default async function AdminLayout({
   const user = await requireCapability(locale, 'upload.publish')
 
   return (
-    <div className="flex min-h-screen bg-paper">
-      <aside className="hidden w-60 shrink-0 flex-col bg-lank px-4 py-5 md:flex">
+    <div className="flex min-h-screen bg-koton">
+      <aside className="hidden w-60 shrink-0 flex-col bg-chabon px-4 py-5 md:flex">
         <Link
           href={`/${locale}/dashboard`}
           title={t.nav.dashboard}
-          className="mb-1 flex items-center gap-2 rounded-lg px-2 py-1 text-cream transition hover:bg-white/10"
+          className="mb-1 flex items-center gap-2 rounded-lg px-2 py-1 text-koton transition hover:bg-white/10"
         >
           <FruitMark size={24} tone="dark" />
           <span className="text-sm font-extrabold lowercase tracking-tight">{BRAND.wordmark}</span>
         </Link>
-        <p className="mb-6 px-2 text-[10px] font-semibold uppercase tracking-widest text-sitwon">
+        <p className="mb-6 px-2 text-[10px] font-semibold uppercase tracking-widest text-koton/70">
           {user.role === 'MASTER_ADMIN' ? 'Master Admin' : t.roles.EDITEUR}
         </p>
         <AdminNav locale={locale} t={t} role={user.role} />
         <div className="mt-auto px-2 pt-6">
-          <Link href={`/${locale}/dashboard`} className="text-xs text-white/55 hover:text-white">
+          <Link href={`/${locale}/dashboard`} className="text-xs text-white/70 hover:text-white">
             ← {t.nav.dashboard}
           </Link>
         </div>
       </aside>
 
       <div className="flex-1">
-        <header className="flex items-center justify-between border-b border-lank/10 bg-white px-6 py-3 md:justify-end">
-          <Link href={`/${locale}/dashboard`} title={t.nav.dashboard} className="flex items-center gap-2 text-lank md:hidden">
+        <header className="flex items-center justify-between border-b border-chabon/10 bg-white px-6 py-3 md:justify-end">
+          <Link href={`/${locale}/dashboard`} title={t.nav.dashboard} className="flex items-center gap-2 text-ank md:hidden">
             <FruitMark size={22} />
-            <span className="text-xs font-semibold uppercase tracking-wide text-lank/60">Admin</span>
+            <span className="text-xs font-semibold uppercase tracking-wide text-grafit">Admin</span>
           </Link>
           <LocaleSwitcher current={locale} />
         </header>

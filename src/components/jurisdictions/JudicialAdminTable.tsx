@@ -86,7 +86,7 @@ export function JudicialAdminTable({ courts }: { courts: Row[] }) {
             type="button"
             aria-pressed={filter === f}
             onClick={() => setFilter(f)}
-            className={`rounded-full border px-3 py-1.5 text-xs font-medium ${filter === f ? 'border-lank bg-lank text-cream' : 'border-lank/20 bg-white text-lank/60'}`}
+            className={`rounded-full border px-3 py-1.5 text-xs font-medium ${filter === f ? 'border-liy bg-chabon text-koton' : 'border-chabon/20 bg-white text-grafit'}`}
           >
             {f}
           </button>
@@ -96,14 +96,14 @@ export function JudicialAdminTable({ courts }: { courts: Row[] }) {
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="Filtrer par nom, département, ville…"
-          className="ml-auto w-64 rounded-lg border border-lank/15 px-3 py-1.5 text-sm"
+          className="ml-auto w-64 rounded-lg border border-chabon/15 px-3 py-1.5 text-sm"
           aria-label="Filtrer les juridictions"
         />
       </div>
 
-      <div className="mt-3 overflow-x-auto rounded-xl border border-lank/10 bg-white shadow-card">
+      <div className="mt-3 overflow-x-auto rounded-xl border border-chabon/10 bg-white">
         <table className="w-full min-w-[900px] text-left text-xs">
-          <thead className="border-b border-lank/10 bg-lank-50/50 font-mono text-[10px] uppercase tracking-wide text-lank/50">
+          <thead className="border-b border-chabon/10 bg-pil/50 font-mono text-[10px] uppercase tracking-wide text-ank/80">
             <tr>
               <th className="px-3 py-2">Type</th>
               <th className="px-3 py-2">Nom</th>
@@ -118,22 +118,22 @@ export function JudicialAdminTable({ courts }: { courts: Row[] }) {
           </thead>
           <tbody>
             {rows.map((c) => (
-              <tr key={c.id} className="border-b border-lank/5 hover:bg-paper">
+              <tr key={c.id} className="border-b border-chabon/5 hover:bg-koton">
                 <td className="px-3 py-2 font-mono text-[10px]">{c.type}</td>
-                <td className="px-3 py-2 font-medium text-lank">{c.name}</td>
+                <td className="px-3 py-2 font-medium text-ank">{c.name}</td>
                 <td className="px-3 py-2">{c.department ?? '—'}</td>
                 <td className="px-3 py-2">{c.city ?? '—'}</td>
                 <td className="px-3 py-2 font-mono text-[10px]">{c.latitude != null ? `${c.latitude}, ${c.longitude}` : '—'}</td>
                 <td className="px-3 py-2">{c.locationPrecision}</td>
                 <td className="px-3 py-2">
-                  <span className={c.verificationStatus === 'UNMAPPED' ? 'text-red-700' : c.verificationStatus === 'TO_VERIFY' ? 'text-soley-700' : 'text-fey'}>
+                  <span className={c.verificationStatus === 'UNMAPPED' ? 'text-wouj' : c.verificationStatus === 'TO_VERIFY' ? 'text-chabon' : 'text-chabon'}>
                     {c.verificationStatus}
                   </span>
-                  {c.verifiedAt && <span className="ml-1 text-lank/40">({c.verifiedAt})</span>}
+                  {c.verifiedAt && <span className="ml-1 text-ank/80">({c.verifiedAt})</span>}
                 </td>
                 <td className="px-3 py-2">{c.active ? 'oui' : 'non'}</td>
                 <td className="px-3 py-2">
-                  <button type="button" onClick={() => { setEditing(c); setError(null) }} className="rounded-full bg-lank px-3 py-1 text-[10px] font-semibold text-cream">
+                  <button type="button" onClick={() => { setEditing(c); setError(null) }} className="rounded-full bg-chabon px-3 py-1 text-[10px] font-semibold text-koton">
                     Modifier
                   </button>
                 </td>
@@ -144,59 +144,59 @@ export function JudicialAdminTable({ courts }: { courts: Row[] }) {
       </div>
 
       {editing && (
-        <div role="dialog" aria-modal="true" aria-label={`Modifier ${editing.name}`} className="fixed inset-0 z-50 flex items-center justify-center bg-lank/50 p-4" onKeyDown={(e) => { if (e.key === 'Escape') setEditing(null) }}>
+        <div role="dialog" aria-modal="true" aria-label={`Modifier ${editing.name}`} className="fixed inset-0 z-50 flex items-center justify-center bg-chabon/50 p-4" onKeyDown={(e) => { if (e.key === 'Escape') setEditing(null) }}>
           <form
             action={save}
-            className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-white p-5 shadow-2xl"
+            className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-white p-5"
           >
-            <h3 className="font-serif text-lg font-semibold text-lank">{editing.name}</h3>
-            <p className="font-mono text-[10px] text-lank/45">{editing.id}</p>
-            {error && <p role="alert" className="mt-2 rounded-lg bg-red-50 px-3 py-2 text-xs text-red-700">{error}</p>}
+            <h3 className="font-serif text-lg font-semibold text-ank">{editing.name}</h3>
+            <p className="font-mono text-[10px] text-ank/80">{editing.id}</p>
+            {error && <p role="alert" className="mt-2 rounded-lg bg-pil px-3 py-2 text-xs text-wouj">{error}</p>}
             <div className="mt-3 grid gap-3">
-              <label className="text-xs font-medium text-lank/70">
+              <label className="text-xs font-medium text-grafit">
                 Adresse (uniquement si vérifiée)
-                <input name="address" defaultValue={editing.address ?? ''} maxLength={300} className="mt-1 w-full rounded-lg border border-lank/15 px-3 py-2 text-sm" />
+                <input name="address" defaultValue={editing.address ?? ''} maxLength={300} className="mt-1 w-full rounded-lg border border-chabon/15 px-3 py-2 text-sm" />
               </label>
               <div className="grid grid-cols-2 gap-3">
-                <label className="text-xs font-medium text-lank/70">
+                <label className="text-xs font-medium text-grafit">
                   Latitude (17.5 à 20.5)
-                  <input name="latitude" type="number" step="any" min="17.5" max="20.5" defaultValue={editing.latitude ?? ''} className="mt-1 w-full rounded-lg border border-lank/15 px-3 py-2 text-sm" />
+                  <input name="latitude" type="number" step="any" min="17.5" max="20.5" defaultValue={editing.latitude ?? ''} className="mt-1 w-full rounded-lg border border-chabon/15 px-3 py-2 text-sm" />
                 </label>
-                <label className="text-xs font-medium text-lank/70">
+                <label className="text-xs font-medium text-grafit">
                   Longitude (−75.5 à −71)
-                  <input name="longitude" type="number" step="any" min="-75.5" max="-71" defaultValue={editing.longitude ?? ''} className="mt-1 w-full rounded-lg border border-lank/15 px-3 py-2 text-sm" />
+                  <input name="longitude" type="number" step="any" min="-75.5" max="-71" defaultValue={editing.longitude ?? ''} className="mt-1 w-full rounded-lg border border-chabon/15 px-3 py-2 text-sm" />
                 </label>
               </div>
-              <label className="text-xs font-medium text-lank/70">
+              <label className="text-xs font-medium text-grafit">
                 Précision
-                <select name="locationPrecision" defaultValue={editing.locationPrecision} className="mt-1 w-full rounded-lg border border-lank/15 px-3 py-2 text-sm">
+                <select name="locationPrecision" defaultValue={editing.locationPrecision} className="mt-1 w-full rounded-lg border border-chabon/15 px-3 py-2 text-sm">
                   {LOCATION_PRECISIONS.map((p) => <option key={p}>{p}</option>)}
                 </select>
               </label>
-              <label className="text-xs font-medium text-lank/70">
+              <label className="text-xs font-medium text-grafit">
                 Statut de vérification
-                <select name="verificationStatus" defaultValue={editing.verificationStatus} className="mt-1 w-full rounded-lg border border-lank/15 px-3 py-2 text-sm">
+                <select name="verificationStatus" defaultValue={editing.verificationStatus} className="mt-1 w-full rounded-lg border border-chabon/15 px-3 py-2 text-sm">
                   {VERIFICATION_STATUSES.map((p) => <option key={p}>{p}</option>)}
                 </select>
               </label>
-              <label className="text-xs font-medium text-lank/70">
+              <label className="text-xs font-medium text-grafit">
                 Ajouter une source (URL)
-                <input name="addSourceUrl" type="url" maxLength={500} placeholder="https://…" className="mt-1 w-full rounded-lg border border-lank/15 px-3 py-2 text-sm" />
+                <input name="addSourceUrl" type="url" maxLength={500} placeholder="https://…" className="mt-1 w-full rounded-lg border border-chabon/15 px-3 py-2 text-sm" />
               </label>
               <div className="flex items-center gap-5">
-                <label className="flex items-center gap-2 text-xs font-medium text-lank/70">
+                <label className="flex items-center gap-2 text-xs font-medium text-grafit">
                   <input name="active" type="checkbox" defaultChecked={editing.active} /> Active (décocher = désactiver, jamais supprimer)
                 </label>
-                <label className="flex items-center gap-2 text-xs font-medium text-lank/70">
+                <label className="flex items-center gap-2 text-xs font-medium text-grafit">
                   <input name="markVerified" type="checkbox" /> Marquer vérifiée aujourd’hui
                 </label>
               </div>
             </div>
             <div className="mt-4 flex justify-end gap-2">
-              <button type="button" onClick={() => setEditing(null)} className="rounded-full border border-lank/20 px-4 py-2 text-xs font-semibold text-lank/70">
+              <button type="button" onClick={() => setEditing(null)} className="rounded-full border border-chabon/20 px-4 py-2 text-xs font-semibold text-grafit">
                 Annuler
               </button>
-              <button type="submit" disabled={busy} className="rounded-full bg-lank px-4 py-2 text-xs font-semibold text-cream disabled:opacity-50">
+              <button type="submit" disabled={busy} className="rounded-full bg-sitwon px-4 py-2 text-xs font-semibold text-chabon disabled:opacity-50">
                 {busy ? 'Enregistrement…' : 'Enregistrer'}
               </button>
             </div>

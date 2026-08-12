@@ -7,16 +7,16 @@ const CHIP = 'rounded-full px-2 py-0.5 text-[11px] font-medium'
 
 const STATUS_STYLES: Record<string, string> = {
   // Document
-  EN_VIGUEUR: 'bg-fey-50 text-fey',
-  ABROGE: 'bg-red-50 text-red-700',
-  MODIFIE: 'bg-soley-50 text-soley-700',
-  PUBLIE: 'bg-lank-50 text-lank/70',
+  EN_VIGUEUR: 'bg-pil text-chabon',
+  ABROGE: 'bg-pil text-wouj',
+  MODIFIE: 'bg-pil text-chabon',
+  PUBLIE: 'bg-pil text-ank/70',
   // Compte
-  ACTIVE: 'bg-fey-50 text-fey',
-  PENDING: 'bg-soley-50 text-soley-700',
-  SUSPENDED: 'bg-red-50 text-red-700',
+  ACTIVE: 'bg-pil text-chabon',
+  PENDING: 'bg-pil text-chabon',
+  SUSPENDED: 'bg-pil text-wouj',
   // Générique « inactif » (code promo désactivé…)
-  INACTIVE: 'bg-lank-50 text-lank/50',
+  INACTIVE: 'bg-pil text-ank/50',
 }
 
 export function StatusChip({ status, label }: { status: string; label: string }) {

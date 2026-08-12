@@ -1,3 +1,19 @@
+/* ============================================================
+   LAM — système chromatique « Klinik » v3.0, CHARTE GELÉE
+   Réf. LAM-BRAND-2026-08-V3 · « Le fruit du savoir »
+
+   LE RÉCIT : « Le trait rouge est la marque du certificateur ;
+               le jaune Sitwon est la couleur de l'usage. »
+
+   1. WOUJ #D21034 — rationné à UNE occurrence d'INTERFACE par écran.
+      Le logotype en est EXEMPT. Jamais en fond, jamais en texte courant.
+   2. SITWON #FDD228 — CTA, badge vérifié, surligneur, nav active.
+      Jamais en grande surface, JAMAIS en couleur de texte.
+   3. Tout texte juridique se lit sur Blan ; Koton n'accueille jamais plus
+      de deux lignes de texte continu.
+   4. Noir pur #000000 interdit — bornes sombres : Chabon et Ank.
+   5. Aucune information par la couleur seule (Vèt/Wouj : 1,05:1).
+   ============================================================ */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,22 +23,30 @@
 }
 
 body {
-  @apply bg-paper text-lank antialiased;
+  @apply bg-koton text-ank antialiased;
 }
 
-/* Surlignage des termes de recherche — vert Sitwon (§09). */
+/* Surlignage — SITWON, la couleur de l'usage. La v2.0 avait dû improviser (fond Pil,
+   trait Wouj) faute d'accent disponible ; la charte v3.0 tranche : le terme EXACT se
+   marque en Sitwon, le passage ÉTENDU (ligne de résultat, citation) en Sitwon Pal,
+   texte Ank. Le rouge n'a plus rien à faire ici — il appartient au certificateur. */
 mark.hl {
-  background-color: #e3f3c6;
-  color: #1b1f3d;
+  background-color: #FDD228;
+  color: #414042;
   border-radius: 2px;
-  padding: 0 1px;
-  box-shadow: inset 0 -0.45em 0 rgba(168, 224, 95, 0.55);
+  padding: 0 2px;
+}
+mark.hl-ext,
+::selection {
+  background-color: #FFF3C6;
+  color: #3F4043;
 }
 
-/* Accessibilité : anneau de focus Sitwon (§06). */
+/* Focus — outline 2 px Chabon, offset 2 px (--lam-focus). Il ne peut être ni Wouj ni
+   Sitwon : le focus se déplace partout, les deux accents sont rationnés. */
 *:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(168, 224, 95, 0.65);
+  outline: 2px solid #414042;
+  outline-offset: 2px;
   border-radius: 6px;
 }
 
@@ -30,7 +54,7 @@ mark.hl {
 .skeleton {
   position: relative;
   overflow: hidden;
-  background: #eef1f5;
+  background: #EAE9E5;
 }
 .skeleton::after {
   content: '';
@@ -49,8 +73,11 @@ mark.hl {
 /* Texte officiel : rendu « papier juridique », jamais retouché (§02). */
 .official-text {
   white-space: pre-wrap;
-  font-family: Georgia, Cambria, 'Times New Roman', serif;
+  /* Source Serif 4, axe optique — police NORMATIVE du corpus (remplace Georgia). */
+  font-family: var(--font-source-serif), Georgia, Cambria, serif;
+  font-size: 17px;
   line-height: 1.7;
+  color: #3F4043;
 }
 
 /* Tableaux : neutraliser le pre-wrap hérité (rafales d'espaces OCR → colonnes
@@ -108,7 +135,7 @@ mark.hl {
 /* Passage trouvé par la recherche du Code (CSS Custom Highlight API — voir CodeSidebar.goToHit) :
    surligné sans toucher au DOM du texte officiel. */
 ::highlight(lv-passage) {
-  background-color: #ffe9a8;
+  background-color: #F2F1EE;
   color: inherit;
 }
 
@@ -117,4 +144,17 @@ mark.hl {
 .maplibregl-ctrl-group button {
   width: 44px;
   height: 44px;
+}
+
+/* Motion (charte v3.0) : 150–200 ms ease-out, sur opacité, transformation et couleur
+   UNIQUEMENT. Aucune animation décorative. Le réglage système prime sur tout. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

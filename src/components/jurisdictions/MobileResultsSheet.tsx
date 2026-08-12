@@ -14,15 +14,15 @@ export function MobileResultsSheet({
   const next = state === 'reduced' ? 'half' : state === 'half' ? 'full' : 'reduced'
   const maxH = state === 'reduced' ? 'max-h-0' : state === 'half' ? 'max-h-[45vh]' : 'max-h-none'
   return (
-    <section aria-label={label} className="rounded-2xl border border-lank/10 bg-white shadow-card">
+    <section aria-label={label} className="rounded-2xl border border-chabon/10 bg-white">
       <button
         type="button"
         aria-expanded={state !== 'reduced'}
         onClick={() => setState(next)}
-        className="flex min-h-[44px] w-full items-center justify-between px-4 py-3 text-left text-sm font-semibold text-lank"
+        className="flex min-h-[44px] w-full items-center justify-between px-4 py-3 text-left text-sm font-semibold text-ank"
       >
         {label}
-        <span aria-hidden="true" className="text-lank/40">{state === 'reduced' ? '▲' : state === 'half' ? '⬍' : '▼'}</span>
+        <span aria-hidden="true" className="text-ank/80">{state === 'reduced' ? '▲' : state === 'half' ? '⬍' : '▼'}</span>
       </button>
       <div className={`overflow-y-auto px-4 transition-all ${maxH} ${state === 'reduced' ? '' : 'pb-4'}`}>{children}</div>
     </section>

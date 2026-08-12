@@ -18,48 +18,48 @@ export default function PublicationsPage({ params }: { params: { locale: string 
   const more = en ? 'Read more' : ht ? 'Aprann plis' : 'En savoir plus'
 
   return (
-    <div className="min-h-screen bg-paper">
-      <header className="border-b border-lank/10 bg-lank">
+    <div className="min-h-screen bg-koton">
+      <header className="border-b border-chabon/10 bg-chabon">
         <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4">
           <Link href={`/${locale}`} aria-label="Lam"><Logo size={28} tone="dark" /></Link>
           <div className="flex items-center gap-4">
             <LocaleSwitcher current={locale} />
-            <Link href={`/${locale}`} className="rounded-full border border-cream/30 px-4 py-1.5 text-sm font-medium text-cream hover:bg-white/10">
+            <Link href={`/${locale}`} className="rounded-full border border-koton/30 px-4 py-1.5 text-sm font-medium text-koton hover:bg-white/10">
               ← {t.legal.back}
             </Link>
           </div>
         </div>
       </header>
 
-      <div className="bg-lank pb-12 pt-8 text-cream">
+      <div className="bg-chabon pb-12 pt-8 text-koton">
         <div className="mx-auto max-w-4xl px-4">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-soley">{en ? 'News & analysis' : ht ? 'Aktyalite & analiz' : 'Actualités & analyses'}</p>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-koton/70">{en ? 'News & analysis' : ht ? 'Aktyalite & analiz' : 'Actualités & analyses'}</p>
           <h1 className="mt-3 font-serif text-4xl font-semibold leading-tight">{heading}</h1>
-          <p className="mt-3 max-w-2xl text-cream/70">{sub}</p>
+          <p className="mt-3 max-w-2xl text-koton/70">{sub}</p>
         </div>
       </div>
 
       <div className="mx-auto max-w-4xl px-4 py-10">
         {PUBLICATIONS.map((p) => (
-          <article key={p.slug} className="border-b border-lank/10 py-7 first:pt-0">
-            <p className="font-mono text-xs uppercase tracking-wide text-lank/45">{p.date} · {p.author}</p>
-            <h2 className="mt-2 font-serif text-2xl font-semibold leading-snug text-lank">
-              <Link href={`/${locale}/publications/${p.slug}`} className="hover:text-fey">{p.titleFr}</Link>
+          <article key={p.slug} className="border-b border-chabon/10 py-7 first:pt-0">
+            <p className="font-mono text-xs uppercase tracking-wide text-ank/80">{p.date} · {p.author}</p>
+            <h2 className="mt-2 font-serif text-2xl font-semibold leading-snug text-ank">
+              <Link href={`/${locale}/publications/${p.slug}`} className="hover:text-chabon">{p.titleFr}</Link>
             </h2>
-            <p className="mt-2 max-w-3xl text-lank/70">{p.summaryFr}</p>
-            <Link href={`/${locale}/publications/${p.slug}`} className="mt-3 inline-block text-sm font-semibold text-fey hover:underline">{more} →</Link>
+            <p className="mt-2 max-w-3xl text-grafit">{p.summaryFr}</p>
+            <Link href={`/${locale}/publications/${p.slug}`} className="mt-3 inline-block text-sm font-semibold text-chabon hover:underline">{more} →</Link>
           </article>
         ))}
       </div>
 
-      <footer className="border-t border-lank/10 bg-white">
-        <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-between gap-3 px-4 py-6 text-sm text-lank/55">
+      <footer className="border-t border-chabon/10 bg-white">
+        <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-between gap-3 px-4 py-6 text-sm text-ank/80">
           <span>© 2026 Lam · {t.brand.baseline}</span>
           <nav className="flex flex-wrap gap-x-5 gap-y-2">
-            <Link className="hover:text-lank" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
-            <Link className="hover:text-lank" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
-            <Link className="hover:text-lank" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
-            <a className="hover:text-lank" href="mailto:legal@lam.ht">legal@lam.ht</a>
+            <Link className="hover:text-ank" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
+            <Link className="hover:text-ank" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
+            <Link className="hover:text-ank" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
+            <a className="hover:text-ank" href="mailto:legal@lam.ht">legal@lam.ht</a>
           </nav>
         </div>
       </footer>

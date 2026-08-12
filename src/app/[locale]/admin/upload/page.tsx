@@ -7,7 +7,7 @@ export default async function AdminUploadPage({ params }: { params: { locale: st
   await requireCapability(locale, 'upload.publish')
   return (
     <div className="space-y-5">
-      <h1 className="text-xl font-semibold text-lank">{t.cms.title}</h1>
+      <h1 className="text-xl font-semibold text-ank">{t.cms.title}</h1>
       <UploadStudio locale={locale} t={t} />
     </div>
   )

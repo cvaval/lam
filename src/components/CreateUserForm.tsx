@@ -40,11 +40,11 @@ export function CreateUserForm({ t }: { t: Dictionary }) {
 
   if (result) {
     return (
-      <div className="rounded-2xl border border-fey/30 bg-fey-50 p-5">
-        <p className="text-sm font-medium text-lank">{result.email}</p>
-        <p className="mt-3 text-xs uppercase tracking-wide text-lank/50">{t.admin.tempPasswordNote}</p>
+      <div className="rounded-2xl border border-chabon/30 bg-pil p-5">
+        <p className="text-sm font-medium text-ank">{result.email}</p>
+        <p className="mt-3 text-xs uppercase tracking-wide text-ank/80">{t.admin.tempPasswordNote}</p>
         <div className="mt-1 flex items-center gap-2">
-          <code className="rounded-lg bg-white px-3 py-2 font-mono text-base font-semibold tracking-widest text-lank">
+          <code className="rounded-lg bg-white px-3 py-2 font-mono text-base font-semibold tracking-widest text-ank">
             {result.tempPassword}
           </code>
           <button
@@ -52,19 +52,19 @@ export function CreateUserForm({ t }: { t: Dictionary }) {
               navigator.clipboard?.writeText(result.tempPassword)
               setCopied(true)
             }}
-            className="rounded-lg border border-lank/15 bg-white px-3 py-2 text-xs font-medium text-lank/70 hover:bg-paper"
+            className="rounded-lg border border-chabon/15 bg-white px-3 py-2 text-xs font-medium text-grafit hover:bg-koton"
           >
             {copied ? t.admin.copied : '⧉'}
           </button>
         </div>
-        {result.promo?.applied && <p className="mt-3 text-xs text-fey">✔ {t.promo.assignDone}</p>}
+        {result.promo?.applied && <p className="mt-3 text-xs text-vet">✔ {t.promo.assignDone}</p>}
         <button
           onClick={() => {
             setResult(null)
             setOpen(false)
             setCopied(false)
           }}
-          className="mt-4 text-xs text-lank/60 hover:text-lank"
+          className="mt-4 text-xs text-grafit hover:text-ank"
         >
           ← {t.common.close}
         </button>
@@ -76,7 +76,7 @@ export function CreateUserForm({ t }: { t: Dictionary }) {
     return (
       <button
         onClick={() => setOpen(true)}
-        className="rounded-lg bg-lank px-4 py-2 text-sm font-semibold text-white hover:bg-lank-600"
+        className="rounded-lg bg-chabon px-4 py-2 text-sm font-semibold text-white hover:bg-chabon"
       >
         + {t.admin.createAccount}
       </button>
@@ -84,8 +84,8 @@ export function CreateUserForm({ t }: { t: Dictionary }) {
   }
 
   return (
-    <form onSubmit={submit} className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
-      <h3 className="mb-4 text-sm font-semibold text-lank">{t.admin.createAccount}</h3>
+    <form onSubmit={submit} className="rounded-2xl border border-chabon/10 bg-white p-5">
+      <h3 className="mb-4 text-sm font-semibold text-ank">{t.admin.createAccount}</h3>
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <input name="email" type="email" required placeholder={t.admin.emailField} className={field} />
         <input name="name" placeholder={t.admin.nameField} className={field} />
@@ -99,12 +99,12 @@ export function CreateUserForm({ t }: { t: Dictionary }) {
         <input name="org" placeholder={t.admin.orgField} className={field} />
         <input name="promo" placeholder={`${t.promo.code} (${t.admin.applyPromo})`} className={`${field} sm:col-span-2`} />
       </div>
-      {error && <p className="mt-3 text-sm text-red-700">{error === 'exists' ? t.errors.exists : t.errors.invalidFields}</p>}
+      {error && <p className="mt-3 text-sm text-wouj">{error === 'exists' ? t.errors.exists : t.errors.invalidFields}</p>}
       <div className="mt-4 flex gap-2">
-        <button type="submit" disabled={busy} className="rounded-lg bg-lank px-4 py-2 text-sm font-semibold text-white disabled:opacity-50">
+        <button type="submit" disabled={busy} className="rounded-lg bg-sitwon px-4 py-2 text-sm font-semibold text-chabon disabled:opacity-50">
           {busy ? t.common.loading : t.admin.create}
         </button>
-        <button type="button" onClick={() => setOpen(false)} className="rounded-lg border border-lank/15 px-4 py-2 text-sm text-lank/70">
+        <button type="button" onClick={() => setOpen(false)} className="rounded-lg border border-chabon/15 px-4 py-2 text-sm text-grafit">
           {t.common.cancel}
         </button>
       </div>

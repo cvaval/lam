@@ -45,23 +45,23 @@ export default async function AdminJuridictionsPage({ params }: { params: { loca
 
   return (
     <div className="p-6">
-      <h1 className="font-serif text-2xl font-semibold text-lank">{t.admin.juridictionsNav}</h1>
+      <h1 className="font-serif text-2xl font-semibold text-ank">{t.admin.juridictionsNav}</h1>
       <div className="mt-4 grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
         {[
           ['Juridictions', kpis.total], ['UNMAPPED', kpis.unmapped], ['À vérifier', kpis.toVerify],
           ['Sans coordonnées', kpis.sansCoordonnees], ['Désactivées', kpis.inactifs], ['Communes sans limite', kpis.communesSansGeo],
         ].map(([label, n]) => (
-          <div key={String(label)} className="rounded-xl border border-lank/10 bg-white p-3 text-center shadow-card">
-            <div className="font-serif text-2xl font-bold text-lank">{n}</div>
-            <div className="text-[11px] text-lank/55">{label}</div>
+          <div key={String(label)} className="rounded-xl border border-chabon/10 bg-white p-3 text-center">
+            <div className="font-serif text-2xl font-bold text-ank">{n}</div>
+            <div className="text-[11px] text-ank/80">{label}</div>
           </div>
         ))}
       </div>
       <div className="mt-3 flex gap-3 text-sm">
-        <a href="/api/admin/jurisdictions?export=anomalies" className="rounded-full bg-lank px-4 py-2 text-xs font-semibold text-cream hover:bg-lank/90">
+        <a href="/api/admin/jurisdictions?export=anomalies" className="rounded-full bg-chabon px-4 py-2 text-xs font-semibold text-koton hover:bg-chabon/90">
           ↓ Rapport d’anomalies (JSON)
         </a>
-        <span className="self-center font-mono text-[11px] text-lank/45">
+        <span className="self-center font-mono text-[11px] text-ank/80">
           Import / simulation : `npx tsx scripts/import-judicial-map.ts --file data/judicial-map/seed-v1.json --dry-run`
         </span>
       </div>
@@ -69,15 +69,15 @@ export default async function AdminJuridictionsPage({ params }: { params: { loca
       <JudicialAdminTable courts={courts.map((c) => ({ ...c, verifiedAt: c.verifiedAt?.toISOString().slice(0, 10) ?? null }))} />
 
       <section className="mt-8">
-        <h2 className="font-serif text-lg font-semibold text-lank">Historique des modifications</h2>
-        <ul className="mt-2 flex flex-col gap-1 text-xs text-lank/70">
+        <h2 className="font-serif text-lg font-semibold text-ank">Historique des modifications</h2>
+        <ul className="mt-2 flex flex-col gap-1 text-xs text-grafit">
           {history.map((h) => (
-            <li key={h.id} className="rounded-lg border border-lank/10 bg-white px-3 py-2">
-              <span className="font-mono text-[10px] text-lank/45">{h.createdAt.toISOString().slice(0, 16).replace('T', ' ')}</span>{' '}
+            <li key={h.id} className="rounded-lg border border-chabon/10 bg-white px-3 py-2">
+              <span className="font-mono text-[10px] text-ank/80">{h.createdAt.toISOString().slice(0, 16).replace('T', ' ')}</span>{' '}
               <span className="font-semibold">{h.action}</span> · {h.targetId} · {h.actor?.email ?? 'script'}
             </li>
           ))}
-          {history.length === 0 && <li className="text-lank/45">Aucune entrée.</li>}
+          {history.length === 0 && <li className="text-ank/80">Aucune entrée.</li>}
         </ul>
       </section>
     </div>

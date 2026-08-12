@@ -302,16 +302,16 @@ export default async function DocPage({
       <header className="space-y-3">
         <div className="flex flex-wrap items-center gap-2">
           <TypeBadge type={type} />
-          {doc.number && <span className="text-sm font-medium text-lank/50">{doc.number}</span>}
+          {doc.number && <span className="text-sm font-medium text-ank/80">{doc.number}</span>}
           {doc.status && <StatusChip status={doc.status} label={t.statuses[doc.status as DocStatus]} />}
           {doc.sealed && (
-            <span className="inline-flex items-center gap-1 rounded-full bg-lank px-2 py-0.5 text-[11px] font-semibold text-white">
-              <Pastille type={type} className="!bg-sitwon" /> {t.doc.verified}
+            <span className="inline-flex items-center gap-1 rounded-full bg-sitwon px-2.5 py-0.5 text-[11px] font-semibold text-chabon">
+              <span aria-hidden>✓</span> {t.doc.verified}
             </span>
           )}
         </div>
-        <h1 className="font-serif text-3xl font-semibold leading-tight text-lank">{title}</h1>
-        <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-lank/50">
+        <h1 className="font-serif text-3xl font-semibold leading-tight text-ank">{title}</h1>
+        <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-ank/80">
           {doc.moniteurRef && (
             <span>
               {t.doc.moniteur} {doc.moniteurRef}
@@ -343,12 +343,12 @@ export default async function DocPage({
         {/* Mots-clés thématiques — cliquables vers la recherche */}
         {doc.keywords && (
           <div className="flex flex-wrap items-center gap-1.5">
-            <span className="text-[11px] font-semibold uppercase tracking-wide text-lank/40">{t.doc.keywords}</span>
+            <span className="text-[11px] font-semibold uppercase tracking-wide text-ank/80">{t.doc.keywords}</span>
             {splitKeywords(doc.keywords).map((kw) => (
               <Link
                 key={kw}
                 href={`/${locale}/search?q=${encodeURIComponent(kw)}`}
-                className="rounded-full border border-lank/15 bg-paper px-2.5 py-0.5 text-xs text-lank/70 hover:border-sitwon hover:text-lank"
+                className="rounded-full border border-chabon/15 bg-koton px-2.5 py-0.5 text-xs text-grafit hover:border-liy hover:text-ank"
               >
                 {kw}
               </Link>
@@ -371,7 +371,7 @@ export default async function DocPage({
         {can(user.role, 'export.sealed') ? (
           <a
             href={`/api/export?id=${doc.id}`}
-            className="inline-flex items-center gap-1.5 rounded-lg bg-lank px-3 py-1.5 text-sm font-semibold text-white hover:bg-lank-600"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-chabon px-3 py-1.5 text-sm font-semibold text-white hover:bg-chabon"
           >
             ↓ {t.doc.export}
           </a>
@@ -384,7 +384,7 @@ export default async function DocPage({
             href={`/api/doc/${doc.id}/pdf${type === 'CIRCULAIRE_BRH' ? '?download=1' : ''}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-lank/15 bg-white px-3 py-1.5 text-sm text-lank/70 hover:bg-lank-50"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-chabon/15 bg-white px-3 py-1.5 text-sm text-grafit hover:bg-pil"
           >
             {type === 'CIRCULAIRE_BRH' ? `↓ ${t.doc.downloadPdf}` : t.doc.source}
           </a>
@@ -394,22 +394,22 @@ export default async function DocPage({
       {/* Annexes à compléter : téléchargement Word (formulaires) / Excel (tableaux),
           filigrane Lam + mention légale (src/lib/annexes/generate.ts). */}
       {type === 'CIRCULAIRE_BRH' && can(user.role, 'export.sealed') && annexCount > 0 && (
-        <div className="no-print rounded-xl border border-lank/10 bg-paper/60 px-4 py-3">
+        <div className="no-print rounded-xl border border-chabon/10 bg-koton/60 px-4 py-3">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <p className="text-sm font-semibold text-lank">{t.doc.annexes}</p>
-              <p className="text-xs text-lank/55">{t.doc.annexesHint}</p>
+              <p className="text-sm font-semibold text-ank">{t.doc.annexes}</p>
+              <p className="text-xs text-ank/80">{t.doc.annexesHint}</p>
             </div>
             <div className="flex gap-2">
               <a
                 href={`/api/doc/${doc.id}/annexes?format=docx&locale=${locale}`}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-lank/15 bg-white px-3 py-1.5 text-sm font-medium text-lank hover:bg-lank-50"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-chabon/15 bg-white px-3 py-1.5 text-sm font-medium text-ank hover:bg-pil"
               >
                 ↓ Word
               </a>
               <a
                 href={`/api/doc/${doc.id}/annexes?format=xlsx&locale=${locale}`}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-lank/15 bg-white px-3 py-1.5 text-sm font-medium text-lank hover:bg-lank-50"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-chabon/15 bg-white px-3 py-1.5 text-sm font-medium text-ank hover:bg-pil"
               >
                 ↓ Excel
               </a>
@@ -419,13 +419,13 @@ export default async function DocPage({
       )}
 
       {doc.status === 'ABROGE' && (
-        <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-2.5 text-sm text-red-700">
+        <div className="rounded-xl border border-wouj/40 bg-pil px-4 py-2.5 text-sm text-wouj">
           {abrogatedBy ? (
             <>
               {t.doc.abrogatedByPrefix}{' '}
               <Link
                 href={`/${locale}/doc/${abrogatedBy.id}`}
-                className="font-semibold underline underline-offset-2 hover:text-red-900"
+                className="font-semibold underline underline-offset-2 hover:text-wouj"
               >
                 {abrogatedBy.number}
               </Link>
@@ -440,7 +440,7 @@ export default async function DocPage({
       )}
 
       {isIndex && (
-        <div className="rounded-xl border border-endeks/30 bg-endeks-50 px-4 py-2.5 text-sm text-endeks-700">
+        <div className="rounded-xl border border-chabon/30 bg-pil px-4 py-2.5 text-sm text-chabon">
           {t.doc.indexNote}
         </div>
       )}
@@ -448,32 +448,32 @@ export default async function DocPage({
       {/* Marque : reproduction si publiée */}
       {type === 'MARQUE' && doc.imageUrl && (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={doc.imageUrl} alt={title} className="h-40 w-40 rounded-xl border border-lank/10 object-contain p-2" />
+        <img src={doc.imageUrl} alt={title} className="h-40 w-40 rounded-xl border border-chabon/10 object-contain p-2" />
       )}
 
       {/* Résumé éditorial */}
       {summary && (
-        <section className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
+        <section className="rounded-2xl border border-chabon/10 bg-white p-5">
           <div className="mb-2 flex items-center gap-2">
-            <h2 className="text-sm font-semibold text-lank">{t.doc.editorialSummary}</h2>
-            <span className="rounded bg-lank-50 px-1.5 py-0.5 text-[10px] font-medium uppercase text-lank/50">
+            <h2 className="text-sm font-semibold text-ank">{t.doc.editorialSummary}</h2>
+            <span className="rounded bg-pil px-1.5 py-0.5 text-[10px] font-medium uppercase text-ank/80">
               {t.doc.editorial}
             </span>
           </div>
-          <p className="text-sm leading-relaxed text-lank/75">{summary}</p>
+          <p className="text-sm leading-relaxed text-ank/75">{summary}</p>
         </section>
       )}
 
       {/* « Sa sa vle di / What it means » */}
       {means && (
-        <section className="rounded-2xl border-2 border-lagon bg-lagon-50 p-5">
+        <section className="rounded-2xl border-2 border-liy bg-pil p-5">
           <div className="mb-2 flex items-center gap-2">
-            <h2 className="text-sm font-semibold text-lank">{t.doc.means}</h2>
-            <span className="rounded bg-white/70 px-1.5 py-0.5 text-[10px] font-medium uppercase text-lank/50">
+            <h2 className="text-sm font-semibold text-ank">{t.doc.means}</h2>
+            <span className="rounded bg-white/70 px-1.5 py-0.5 text-[10px] font-medium uppercase text-ank/80">
               {t.doc.editorial}
             </span>
           </div>
-          <p className="text-sm leading-relaxed text-lank/80">{means}</p>
+          <p className="text-sm leading-relaxed text-ank/80">{means}</p>
         </section>
       )}
 
@@ -484,14 +484,14 @@ export default async function DocPage({
       {annotations ? (
         <div className="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:items-start print:block">
           <CodeSidebar docId={doc.id} groups={annotations.navToc} indexEntries={annotations.indexEntries} locale={locale} />
-          <section className="min-w-0 rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
-            <div className="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-lank/10 pb-3">
-              <h2 className="text-sm font-semibold text-lank">{t.doc.officialText}</h2>
-              <span className="rounded-md bg-soley-50 px-2 py-1 text-[11px] text-soley-700">
+          <section className="min-w-0 rounded-2xl border border-chabon/10 bg-white p-5">
+            <div className="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-chabon/10 pb-3">
+              <h2 className="text-sm font-semibold text-ank">{t.doc.officialText}</h2>
+              <span className="rounded-md bg-pil px-2 py-1 text-[11px] text-chabon">
                 {locale === 'fr' ? t.doc.officialBannerFr : t.doc.officialBanner}
               </span>
             </div>
-            <p className="mb-3 rounded-lg bg-lank-50 px-3 py-2 text-[11px] leading-relaxed text-lank/60">{t.doc.unofficialNote}</p>
+            <p className="mb-3 rounded-lg bg-pil px-3 py-2 text-[11px] leading-relaxed text-grafit">{t.doc.unofficialNote}</p>
             <AnnotatedText
               text={effectiveBody}
               annotations={annotations}
@@ -509,43 +509,43 @@ export default async function DocPage({
           </section>
         </div>
       ) : isScannedEdition ? (
-        <section className="rounded-2xl border border-lank/10 bg-white p-6 text-center shadow-card">
-          <p className="mx-auto mb-4 max-w-md text-sm leading-relaxed text-lank/70">{t.doc.scannedEdition}</p>
+        <section className="rounded-2xl border border-chabon/10 bg-white p-6 text-center">
+          <p className="mx-auto mb-4 max-w-md text-sm leading-relaxed text-grafit">{t.doc.scannedEdition}</p>
           {canViewPdf ? (
             <a
               href={`/api/doc/${doc.id}/pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-lank px-4 py-2.5 text-sm font-semibold text-white hover:bg-lank-600"
+              className="inline-flex items-center gap-2 rounded-lg bg-chabon px-4 py-2.5 text-sm font-semibold text-white hover:bg-chabon"
             >
               ↗ {t.doc.openPdf}
             </a>
           ) : (
-            <p className="text-xs text-lank/45">{t.doc.pdfNotIncluded}</p>
+            <p className="text-xs text-ank/80">{t.doc.pdfNotIncluded}</p>
           )}
         </section>
       ) : (
-        <section className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
-          <div className="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-lank/10 pb-3">
-            <h2 className="text-sm font-semibold text-lank">{t.doc.officialText}</h2>
-            <span className="rounded-md bg-soley-50 px-2 py-1 text-[11px] text-soley-700">
+        <section className="rounded-2xl border border-chabon/10 bg-white p-5">
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-chabon/10 pb-3">
+            <h2 className="text-sm font-semibold text-ank">{t.doc.officialText}</h2>
+            <span className="rounded-md bg-pil px-2 py-1 text-[11px] text-chabon">
               {locale === 'fr' ? t.doc.officialBannerFr : t.doc.officialBanner}
             </span>
           </div>
-          <p className="mb-3 rounded-lg bg-lank-50 px-3 py-2 text-[11px] leading-relaxed text-lank/60">{t.doc.unofficialNote}</p>
+          <p className="mb-3 rounded-lg bg-pil px-3 py-2 text-[11px] leading-relaxed text-grafit">{t.doc.unofficialNote}</p>
           {themeIndex.length > 0 && <div className="mb-4"><CodeThemeBrowser index={themeIndex} t={t} /></div>}
           {tableEntries.length >= 2 && (
-            <details className="mb-4 rounded-xl border border-lank/10 bg-paper/40 px-4 py-2.5">
-              <summary className="cursor-pointer select-none text-xs font-semibold uppercase tracking-wide text-lank/55">
+            <details className="mb-4 rounded-xl border border-chabon/10 bg-koton/40 px-4 py-2.5">
+              <summary className="cursor-pointer select-none text-xs font-semibold uppercase tracking-wide text-ank/80">
                 {TLBL.heading} ({tableEntries.length})
               </summary>
               <ul className="mt-2 grid gap-1 sm:grid-cols-2">
                 {tableEntries.map((e) => (
                   <li key={e.num}>
-                    <a href={`#tableau-${e.num}`} className="text-sm text-endeks-700 hover:underline">
+                    <a href={`#tableau-${e.num}`} className="text-sm text-chabon hover:underline">
                       {TLBL.table} {e.num}
-                      {e.cap && <span className="text-lank/60"> — {e.cap}</span>}
-                      {e.orphan && <span className="text-lank/40"> ({TLBL.orphan})</span>}
+                      {e.cap && <span className="text-grafit"> — {e.cap}</span>}
+                      {e.orphan && <span className="text-ank/80"> ({TLBL.orphan})</span>}
                     </a>
                   </li>
                 ))}
@@ -562,13 +562,13 @@ export default async function DocPage({
 
       {/* Versions & historique (type 1) */}
       {doc.versions.length > 0 && (
-        <section className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
-          <h2 className="mb-3 text-sm font-semibold text-lank">{t.doc.versions}</h2>
+        <section className="rounded-2xl border border-chabon/10 bg-white p-5">
+          <h2 className="mb-3 text-sm font-semibold text-ank">{t.doc.versions}</h2>
           <ul className="space-y-2">
             {doc.versions.map((v) => (
-              <li key={v.id} className="flex items-center justify-between rounded-lg bg-paper px-3 py-2 text-sm">
-                <span className="text-lank">{v.versionLabel}</span>
-                <span className="text-xs text-lank/45">{v.changeNote}</span>
+              <li key={v.id} className="flex items-center justify-between rounded-lg bg-koton px-3 py-2 text-sm">
+                <span className="text-ank">{v.versionLabel}</span>
+                <span className="text-xs text-ank/80">{v.changeNote}</span>
               </li>
             ))}
           </ul>
@@ -577,35 +577,35 @@ export default async function DocPage({
 
       {/* Citations croisées & renvois : CrossRef éditoriaux (sortants) + rétroliens + Citation legacy */}
       {(doc.citationsFrom.length > 0 || doc.citationsTo.length > 0 || outRefs.length > 0 || inRefs.length > 0) && (
-        <section className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
-          <h2 className="mb-3 text-sm font-semibold text-lank">{t.doc.citations}</h2>
+        <section className="rounded-2xl border border-chabon/10 bg-white p-5">
+          <h2 className="mb-3 text-sm font-semibold text-ank">{t.doc.citations}</h2>
           <ul className="space-y-2">
             {outRefs.map((r) => {
               const inner = (
                 <>
                   {r.type && <Pastille type={r.type} />}
-                  <span className="text-lank/45">{r.kind} →</span> {r.label}
-                  {r.anchor && <span className="text-xs text-lank/40">(art. {r.anchor.replace('art-', '')})</span>}
-                  {r.pending && <span className="text-xs text-soley-600">· cible non importée</span>}
+                  <span className="text-ank/80">{r.kind} →</span> {r.label}
+                  {r.anchor && <span className="text-xs text-ank/80">(art. {r.anchor.replace('art-', '')})</span>}
+                  {r.pending && <span className="text-xs text-chabon">· cible non importée</span>}
                 </>
               )
               return (
                 <li key={r.refId}>
                   {r.accessible && r.toId ? (
-                    <Link href={`/${locale}/doc/${r.toId}${r.anchor ? '#' + r.anchor : ''}`} className="flex items-center gap-2 text-sm text-lank hover:underline">
+                    <Link href={`/${locale}/doc/${r.toId}${r.anchor ? '#' + r.anchor : ''}`} className="flex items-center gap-2 text-sm text-ank hover:underline">
                       {inner}
                     </Link>
                   ) : (
-                    <span className="flex items-center gap-2 text-sm text-lank/70">{inner}</span>
+                    <span className="flex items-center gap-2 text-sm text-grafit">{inner}</span>
                   )}
                 </li>
               )
             })}
             {doc.citationsFrom.map((c) => (
               <li key={c.id}>
-                <Link href={`/${locale}/doc/${c.to.id}`} className="flex items-center gap-2 text-sm text-lank hover:underline">
+                <Link href={`/${locale}/doc/${c.to.id}`} className="flex items-center gap-2 text-sm text-ank hover:underline">
                   <Pastille type={c.to.type as DocType} />
-                  <span className="text-lank/45">{c.kind} →</span> {c.to.titleFr}
+                  <span className="text-ank/80">{c.kind} →</span> {c.to.titleFr}
                 </Link>
               </li>
             ))}
@@ -613,26 +613,26 @@ export default async function DocPage({
               const inner = (
                 <>
                   <Pastille type={b.fromType} />
-                  <span className="text-lank/45">← {b.kind}</span> {b.fromTitleFr || t.doc.otherService}
+                  <span className="text-ank/80">← {b.kind}</span> {b.fromTitleFr || t.doc.otherService}
                 </>
               )
               return (
                 <li key={`bl-${b.refId}`}>
                   {b.accessible ? (
-                    <Link href={`/${locale}/doc/${b.fromId}`} className="flex items-center gap-2 text-sm text-lank hover:underline">
+                    <Link href={`/${locale}/doc/${b.fromId}`} className="flex items-center gap-2 text-sm text-ank hover:underline">
                       {inner}
                     </Link>
                   ) : (
-                    <span className="flex items-center gap-2 text-sm text-lank/70">{inner}</span>
+                    <span className="flex items-center gap-2 text-sm text-grafit">{inner}</span>
                   )}
                 </li>
               )
             })}
             {doc.citationsTo.map((c) => (
               <li key={c.id}>
-                <Link href={`/${locale}/doc/${c.from.id}`} className="flex items-center gap-2 text-sm text-lank hover:underline">
+                <Link href={`/${locale}/doc/${c.from.id}`} className="flex items-center gap-2 text-sm text-ank hover:underline">
                   <Pastille type={c.from.type as DocType} />
-                  <span className="text-lank/45">← {c.kind}</span> {c.from.titleFr}
+                  <span className="text-ank/80">← {c.kind}</span> {c.from.titleFr}
                 </Link>
               </li>
             ))}

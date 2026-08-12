@@ -90,7 +90,7 @@ export function BrhCirculaireList({ rows, locale, labels }: { rows: BrhRow[]; lo
       type="button"
       onClick={() => setView(key)}
       className={`rounded-md px-3 py-1.5 text-xs font-medium transition ${
-        view === key ? 'bg-lank text-white' : 'text-lank/60 hover:bg-paper'
+        view === key ? 'bg-chabon text-white' : 'text-grafit hover:bg-koton'
       }`}
     >
       {label}
@@ -100,13 +100,13 @@ export function BrhCirculaireList({ rows, locale, labels }: { rows: BrhRow[]; lo
   return (
     <section>
       <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-        <div className="flex items-center gap-1 rounded-lg border border-lank/15 p-1">
+        <div className="flex items-center gap-1 rounded-lg border border-chabon/15 p-1">
           {tab('number', labels.byNumber)}
           {tab('year', labels.byYear)}
         </div>
-        <label className="flex items-center gap-1.5 text-xs text-lank/60">
+        <label className="flex items-center gap-1.5 text-xs text-grafit">
           {/* icône « trier » */}
-          <svg viewBox="0 0 24 24" className="h-4 w-4 text-lank/45" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+          <svg viewBox="0 0 24 24" className="h-4 w-4 text-ank/80" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden strokeLinecap="round" strokeLinejoin="round">
             <path d="M3 6h12M3 12h9M3 18h6" strokeLinecap="round" />
             <path d="M18 9l3-3 3 3M21 6v12" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -115,7 +115,7 @@ export function BrhCirculaireList({ rows, locale, labels }: { rows: BrhRow[]; lo
             value={sort}
             onChange={(e) => setSort(e.target.value as SortMode)}
             aria-label="Trier les circulaires"
-            className="rounded-md border border-lank/15 bg-white px-2 py-1 text-xs text-lank outline-none focus:border-sitwon"
+            className="rounded-md border border-chabon/15 bg-white px-2 py-1 text-xs text-ank outline-none focus:border-liy"
           >
             <option value="num-asc">N° croissant</option>
             <option value="num-desc">N° décroissant</option>
@@ -126,14 +126,14 @@ export function BrhCirculaireList({ rows, locale, labels }: { rows: BrhRow[]; lo
       </div>
 
       {rows.length === 0 ? (
-        <p className="rounded-2xl border border-lank/10 bg-white px-4 py-8 text-center text-sm text-lank/40 shadow-card">
+        <p className="rounded-2xl border border-chabon/10 bg-white px-4 py-8 text-center text-sm text-ank/80">
           {labels.none}
         </p>
       ) : view === 'number' ? (
-        <div className="overflow-hidden rounded-2xl border border-lank/10 bg-white shadow-card">
+        <div className="overflow-hidden rounded-2xl border border-chabon/10 bg-white">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-lank/10 bg-paper text-left text-[11px] uppercase tracking-wide text-lank/45">
+              <tr className="border-b border-chabon/10 bg-koton text-left text-[11px] uppercase tracking-wide text-ank/80">
                 <th className="px-4 py-3 font-semibold">{labels.number}</th>
                 <th className="px-4 py-3 font-semibold">{labels.pubDate}</th>
                 <th className="px-4 py-3 font-semibold">{labels.effDate}</th>
@@ -141,15 +141,15 @@ export function BrhCirculaireList({ rows, locale, labels }: { rows: BrhRow[]; lo
                 <th className="px-4 py-3 font-semibold">{labels.titleCol}</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-lank/5">
+            <tbody className="divide-y divide-chabon/5">
               {sorted.map((d) => (
-                <tr key={d.id} className="hover:bg-paper/50">
-                  <td className="whitespace-nowrap px-4 py-2.5 font-mono font-semibold text-lank">{d.number ?? '—'}</td>
-                  <td className="whitespace-nowrap px-4 py-2.5 text-lank/65">{d.pubLabel}</td>
-                  <td className="whitespace-nowrap px-4 py-2.5 text-lank/65">{d.effLabel}</td>
-                  <td className="px-4 py-2.5 text-lank/65">{d.matiere ?? '—'}</td>
+                <tr key={d.id} className="hover:bg-koton/50">
+                  <td className="whitespace-nowrap px-4 py-2.5 font-mono font-semibold text-ank">{d.number ?? '—'}</td>
+                  <td className="whitespace-nowrap px-4 py-2.5 text-grafit">{d.pubLabel}</td>
+                  <td className="whitespace-nowrap px-4 py-2.5 text-grafit">{d.effLabel}</td>
+                  <td className="px-4 py-2.5 text-grafit">{d.matiere ?? '—'}</td>
                   <td className="px-4 py-2.5">
-                    <Link href={`/${locale}/doc/${d.id}`} className="text-lank hover:underline">
+                    <Link href={`/${locale}/doc/${d.id}`} className="text-ank hover:underline">
                       {d.titleFr}
                     </Link>
                   </td>
@@ -161,10 +161,10 @@ export function BrhCirculaireList({ rows, locale, labels }: { rows: BrhRow[]; lo
       ) : (
         <div className="space-y-4">
           {byYear.map(([year, list]) => (
-            <div key={year ?? 'none'} className="rounded-2xl border border-lank/10 bg-white p-4 shadow-card">
+            <div key={year ?? 'none'} className="rounded-2xl border border-chabon/10 bg-white p-4">
               <div className="mb-2 flex items-baseline gap-2">
-                <h3 className="font-mono text-lg font-semibold text-lank">{year ?? labels.noDate}</h3>
-                <span className="text-xs text-lank/45">
+                <h3 className="font-mono text-lg font-semibold text-ank">{year ?? labels.noDate}</h3>
+                <span className="text-xs text-ank/80">
                   {list.length} {labels.count}
                 </span>
               </div>
@@ -174,7 +174,7 @@ export function BrhCirculaireList({ rows, locale, labels }: { rows: BrhRow[]; lo
                     key={d.id}
                     href={`/${locale}/doc/${d.id}`}
                     title={`${d.titleFr}${d.pubLabel !== '—' ? ` — ${d.pubLabel}` : ''}`}
-                    className="rounded-full border border-lank/15 bg-paper px-2.5 py-1 font-mono text-xs text-lank hover:border-sitwon hover:text-lank"
+                    className="rounded-full border border-chabon/15 bg-koton px-2.5 py-1 font-mono text-xs text-ank hover:border-liy hover:text-ank"
                   >
                     {d.number ?? '—'}
                   </Link>

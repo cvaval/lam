@@ -18,13 +18,13 @@ export function LegislationHeroSlide({ locale, t }: { locale: Locale; t: Diction
     >
       <div className="mx-auto grid max-w-6xl items-center gap-y-10 gap-x-12 px-4 pb-8 pt-14 lg:grid-cols-[1.05fr_1fr] lg:pt-20">
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.22em] text-sitwon">{h.eyebrow}</p>
-          <h1 className="mt-5 font-serif text-4xl font-semibold leading-[1.05] text-cream lg:text-[3.2rem]">{h.title}</h1>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-cream/75">{h.description}</p>
-          <span className="mt-7 inline-block rounded-full bg-sitwon px-6 py-3 text-sm font-semibold text-lank transition group-hover:bg-sitwon/90">
+          <p className="font-mono text-xs uppercase tracking-[0.22em] text-koton/70">{h.eyebrow}</p>
+          <h1 className="mt-5 font-sans text-display-1 lowercase text-koton lg:text-[3.2rem]">{h.title}</h1>
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-koton/75">{h.description}</p>
+          <span className="mt-7 inline-block rounded-full bg-sitwon px-6 py-3 text-sm font-semibold text-chabon transition group-hover:brightness-95">
             {h.cta} →
           </span>
-          <p className="mt-3 font-mono text-xs text-cream/45">🔒 {h.note}</p>
+          <p className="mt-3 font-mono text-xs text-koton/70">🔒 {h.note}</p>
         </div>
         <div className="hidden pb-4 sm:block"><HeroVisual /></div>
       </div>

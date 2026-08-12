@@ -16,20 +16,20 @@ const SUB = {
 export default function ForgotPage({ params }: { params: { locale: string } }) {
   const { locale } = dictFor(params.locale)
   return (
-    <main className="flex min-h-screen items-center justify-center bg-lank px-6 py-10">
+    <main className="flex min-h-screen items-center justify-center bg-chabon px-6 py-10">
       <div className="w-full max-w-sm">
         <div className="mb-4 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-cream">
+          <div className="flex items-center gap-2 text-koton">
             <FruitMark size={26} tone="dark" />
             <span className="text-sm font-extrabold lowercase tracking-tight">{BRAND.wordmark}</span>
           </div>
           <LocaleSwitcher current={locale} />
         </div>
-        <div className="rounded-2xl bg-white p-7 shadow-card">
+        <div className="rounded-2xl bg-white p-7">
           <div className="mb-5 flex flex-col items-center text-center">
             <FruitMark size={40} className="mb-2" />
-            <h1 className="text-lg font-semibold text-lank">{TITLE[locale]}</h1>
-            <p className="mt-1 text-xs leading-relaxed text-lank/55">{SUB[locale]}</p>
+            <h1 className="text-lg font-semibold text-ank">{TITLE[locale]}</h1>
+            <p className="mt-1 text-xs leading-relaxed text-ank/80">{SUB[locale]}</p>
           </div>
           <ForgotForm locale={locale} />
         </div>

@@ -19,7 +19,7 @@ import { segmentCodeRefs, type CodeKey } from '@/lib/doc/coderefs'
 export type CodeHrefs = Partial<Record<CodeKey, string>>
 
 /** Lien sortant : souligné discret, pour le distinguer d'un renvoi INTERNE (#art-N). */
-const CLS = 'font-medium text-soley-700 underline decoration-soley/30 underline-offset-2 hover:decoration-soley'
+const CLS = 'font-medium text-chabon underline decoration-chabon/30 underline-offset-2 hover:decoration-chabon'
 
 const NOM: Record<CodeKey, string> = {
   cpc: 'Code de procédure civile',

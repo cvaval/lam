@@ -25,10 +25,10 @@ export function QuotaChip({
   if (monthlyQuota == null || remaining == null) return null
   const tone =
     remaining === 0
-      ? 'border-red-200 bg-red-50 text-red-800'
+      ? 'border-wouj/40 bg-pil text-wouj'
       : remaining <= 5
-        ? 'border-soley/40 bg-soley-50 text-lank'
-        : 'border-lank/15 bg-white text-lank/55'
+        ? 'border-chabon/40 bg-pil text-ank'
+        : 'border-chabon/15 bg-white text-ank/55'
   return (
     <Link
       href={`/${locale}/account`}

@@ -24,22 +24,22 @@ export function AlertButton({ q, type, locale, t }: { q: string; type?: DocType;
 
   if (state === 'done') {
     return (
-      <Link href={`/${locale}/account`} className="inline-flex items-center gap-1.5 rounded-full border border-fey/40 bg-fey/10 px-3 py-1 text-xs font-medium text-fey">
+      <Link href={`/${locale}/account`} className="inline-flex items-center gap-1.5 rounded-full border border-chabon/40 bg-chabon/10 px-3 py-1 text-xs font-medium text-chabon">
         {t.alerts.created}
       </Link>
     )
   }
   if (state === 'limit') {
-    return <span className="inline-flex items-center rounded-full border border-soley/40 bg-soley-50 px-3 py-1 text-xs text-lank">{t.alerts.limit}</span>
+    return <span className="inline-flex items-center rounded-full border border-chabon/40 bg-pil px-3 py-1 text-xs text-ank">{t.alerts.limit}</span>
   }
   return (
     <button
       type="button"
       onClick={create}
       disabled={state === 'busy'}
-      className="inline-flex items-center gap-1.5 rounded-full border border-lank/15 bg-white px-3 py-1 text-xs text-lank/60 transition hover:border-lank/40 disabled:opacity-60"
+      className="inline-flex items-center gap-1.5 rounded-full border border-chabon/15 bg-white px-3 py-1 text-xs text-grafit transition hover:border-chabon/40 disabled:opacity-60"
     >
-      <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+      <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden strokeLinecap="round" strokeLinejoin="round">
         <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M10.3 21a1.94 1.94 0 0 0 3.4 0" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
       {t.alerts.create}

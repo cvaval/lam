@@ -2,8 +2,15 @@ import { PDFDocument, StandardFonts, rgb, degrees } from 'pdf-lib'
 import { BRAND } from '../brand'
 import { BRAND_COLORS, hexToRgb01 } from '../brand-colors'
 
-// Palette dérivée de la source unique (brand-colors.ts).
-const LANK = rgb(...hexToRgb01(BRAND_COLORS.lank))
+// Palette « Klinik » v3.0, dérivée de la source unique (brand-colors.ts).
+// Deux accents, deux récits : SITWON est la couleur de l'USAGE — un document exporté est un
+// acte du lecteur, d'où le filet de titre. WOUJ est le trait du CERTIFICATEUR, réservé au
+// statut « Abrogé » et aux alertes ; il ne paraît donc pas sur un sceau ordinaire.
+// Tout le reste — bandeau, wordmark, pieds de page — se tient en Chabon et Ank.
+const CHABON = rgb(...hexToRgb01(BRAND_COLORS.chabon))
+const ANK = rgb(...hexToRgb01(BRAND_COLORS.ank))
+const KOTON = rgb(...hexToRgb01(BRAND_COLORS.koton))
+const WOUJ = rgb(...hexToRgb01(BRAND_COLORS.wouj))
 const SITWON = rgb(...hexToRgb01(BRAND_COLORS.sitwon))
 
 export interface SealInput {
@@ -63,10 +70,10 @@ export async function buildSealedPdf(input: SealInput): Promise<Uint8Array> {
   let y = A4[1] - margin
 
   const header = (p: any) => {
-    p.drawText(BRAND.wordmark, { x: margin, y: A4[1] - 40, size: 14, font: bold, color: LANK })
-    p.drawText(BRAND.baseline.fr, { x: margin, y: A4[1] - 54, size: 8, font, color: LANK })
-    p.drawRectangle({ x: A4[0] - margin - 96, y: A4[1] - 50, width: 96, height: 16, color: LANK })
-    p.drawText(input.badge, { x: A4[0] - margin - 90, y: A4[1] - 46, size: 8, font: bold, color: rgb(1, 1, 1) })
+    p.drawText(BRAND.wordmark, { x: margin, y: A4[1] - 40, size: 14, font: bold, color: CHABON })
+    p.drawText(BRAND.baseline.fr, { x: margin, y: A4[1] - 54, size: 8, font, color: CHABON })
+    p.drawRectangle({ x: A4[0] - margin - 96, y: A4[1] - 50, width: 96, height: 16, color: CHABON })
+    p.drawText(input.badge, { x: A4[0] - margin - 90, y: A4[1] - 46, size: 8, font: bold, color: KOTON })
   }
 
   const watermark = (p: any) => {
@@ -77,7 +84,7 @@ export async function buildSealedPdf(input: SealInput): Promise<Uint8Array> {
       y: 250,
       size: 11,
       font: mono,
-      color: SITWON,
+      color: CHABON,
       opacity: 0.18,
       rotate: degrees(35),
     })
@@ -86,7 +93,7 @@ export async function buildSealedPdf(input: SealInput): Promise<Uint8Array> {
       y: 520,
       size: 11,
       font: mono,
-      color: SITWON,
+      color: CHABON,
       opacity: 0.18,
       rotate: degrees(35),
     })
@@ -97,12 +104,12 @@ export async function buildSealedPdf(input: SealInput): Promise<Uint8Array> {
       start: { x: margin, y: 48 },
       end: { x: A4[0] - margin, y: 48 },
       thickness: 0.5,
-      color: LANK,
+      color: CHABON,
       opacity: 0.4,
     })
-    p.drawText(`${BRAND.seal}  ·  ${BRAND.verifiedBadge.fr}  ·  ${BRAND.domain}`, { x: margin, y: 36, size: 7, font, color: LANK })
-    p.drawText(`p. ${n}`, { x: A4[0] - margin - 20, y: 36, size: 7, font, color: LANK })
-    p.drawText(`Réf. export ${input.watermarkId}`, { x: margin, y: 26, size: 6.5, font: mono, color: LANK, opacity: 0.7 })
+    p.drawText(`${BRAND.seal}  ·  ${BRAND.verifiedBadge.fr}  ·  ${BRAND.domain}`, { x: margin, y: 36, size: 7, font, color: CHABON })
+    p.drawText(`p. ${n}`, { x: A4[0] - margin - 20, y: 36, size: 7, font, color: CHABON })
+    p.drawText(`Réf. export ${input.watermarkId}`, { x: margin, y: 26, size: 6.5, font: mono, color: CHABON, opacity: 0.7 })
   }
 
   header(page)
@@ -111,15 +118,15 @@ export async function buildSealedPdf(input: SealInput): Promise<Uint8Array> {
 
   // Titre + métadonnées
   for (const tl of wrap(input.title, bold, 15, contentWidth)) {
-    page.drawText(tl, { x: margin, y, size: 15, font: bold, color: LANK })
+    page.drawText(tl, { x: margin, y, size: 15, font: bold, color: CHABON })
     y -= 20
   }
   const metaBits = [input.number, input.status, input.moniteurRef].filter(Boolean).join('  ·  ')
   if (metaBits) {
-    page.drawText(metaBits, { x: margin, y, size: 9, font, color: LANK, opacity: 0.8 })
+    page.drawText(metaBits, { x: margin, y, size: 9, font, color: CHABON, opacity: 0.8 })
     y -= 22
   }
-  page.drawLine({ start: { x: margin, y }, end: { x: A4[0] - margin, y }, thickness: 1, color: SITWON })
+  page.drawLine({ start: { x: margin, y }, end: { x: A4[0] - margin, y }, thickness: 1.4, color: SITWON }) // Sitwon — le document exporté est un acte d'usage
   y -= 18
 
   let pageNo = 1
@@ -134,7 +141,7 @@ export async function buildSealedPdf(input: SealInput): Promise<Uint8Array> {
       footer(page, pageNo)
       y = A4[1] - 96
     }
-    page.drawText(line, { x: margin, y, size: bodySize, font, color: rgb(0.1, 0.12, 0.16) })
+    page.drawText(line, { x: margin, y, size: bodySize, font, color: ANK })
     y -= leading
   }
 

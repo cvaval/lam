@@ -30,7 +30,7 @@ export function FavoriteButton({
       onClick={toggle}
       disabled={busy}
       className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-sm font-medium transition ${
-        on ? 'border-sitwon-600 bg-sitwon-50 text-lank' : 'border-lank/15 bg-white text-lank/70 hover:border-lank/40'
+        on ? 'border-liy bg-pil text-ank' : 'border-chabon/15 bg-white text-grafit hover:border-chabon/40'
       }`}
     >
       <svg viewBox="0 0 24 24" className="h-4 w-4" fill={on ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2">

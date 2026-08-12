@@ -109,28 +109,28 @@ export default async function AdminBrhPage({ params }: { params: { locale: strin
     <div className="space-y-6">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-xl font-semibold text-lank">{t.brh.title}</h1>
-          <p className="mt-1 text-sm text-lank/55">{t.brh.subtitle}</p>
+          <h1 className="text-xl font-semibold text-ank">{t.brh.title}</h1>
+          <p className="mt-1 text-sm text-ank/80">{t.brh.subtitle}</p>
         </div>
         <a
           href="/api/admin/brh/gaps?format=csv"
-          className="rounded-lg bg-lank px-3 py-2 text-sm font-semibold text-white hover:bg-lank-600"
+          className="rounded-lg bg-chabon px-3 py-2 text-sm font-semibold text-white hover:bg-chabon"
         >
           ↓ {t.brh.missingCsv}
         </a>
       </div>
 
       {/* Vue d'ensemble — TOUTES les circulaires (total exact, toutes séries). */}
-      <section className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
+      <section className="rounded-2xl border border-chabon/10 bg-white p-5">
         <div className="flex items-baseline justify-between">
-          <h2 className="text-sm font-semibold text-lank">{overview.heading}</h2>
-          <p className="text-sm text-lank/55">{overview.total} : <span className="font-mono text-lg font-semibold text-lank">{docs.length}</span></p>
+          <h2 className="text-sm font-semibold text-ank">{overview.heading}</h2>
+          <p className="text-sm text-ank/80">{overview.total} : <span className="font-mono text-lg font-semibold text-ank">{docs.length}</span></p>
         </div>
         <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7">
           {overview.cards.map((k) => (
-            <div key={k.label} className="rounded-xl border border-lank/10 bg-paper/40 p-3">
-              <p className="font-mono text-xl font-semibold tracking-tight text-lank">{k.value}</p>
-              <p className="mt-1 text-[11px] leading-tight text-lank/45">{k.label}</p>
+            <div key={k.label} className="rounded-xl border border-chabon/10 bg-koton/40 p-3">
+              <p className="font-mono text-xl font-semibold tracking-tight text-ank">{k.value}</p>
+              <p className="mt-1 text-[11px] leading-tight text-ank/80">{k.label}</p>
             </div>
           ))}
         </div>
@@ -141,8 +141,8 @@ export default async function AdminBrhPage({ params }: { params: { locale: strin
         const count = docs.filter((d) => parseCirculaireRef(d.number)?.serie === sg.serie).length
         const range = sg.present.length ? `${sg.present[0]} → ${sg.present[sg.present.length - 1]}` : '—'
         return (
-          <section key={sg.serie} className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
-            <h2 className="text-sm font-semibold text-lank">{label}</h2>
+          <section key={sg.serie} className="rounded-2xl border border-chabon/10 bg-white p-5">
+            <h2 className="text-sm font-semibold text-ank">{label}</h2>
             <div className="mt-3 grid grid-cols-2 gap-4 sm:grid-cols-4">
               {[
                 { label: t.brh.total, value: String(count), alert: false },
@@ -152,24 +152,24 @@ export default async function AdminBrhPage({ params }: { params: { locale: strin
               ].map((k) => (
                 <div
                   key={k.label}
-                  className={`rounded-2xl border p-4 ${k.alert ? 'border-soley/40 bg-soley-50' : 'border-lank/10 bg-paper/40'}`}
+                  className={`rounded-2xl border p-4 ${k.alert ? 'border-chabon/40 bg-pil' : 'border-chabon/10 bg-koton/40'}`}
                 >
-                  <p className="font-mono text-2xl font-semibold tracking-tight text-lank">{k.value}</p>
-                  <p className="mt-1 text-xs uppercase tracking-wide text-lank/45">{k.label}</p>
+                  <p className="font-mono text-2xl font-semibold tracking-tight text-ank">{k.value}</p>
+                  <p className="mt-1 text-xs uppercase tracking-wide text-ank/80">{k.label}</p>
                 </div>
               ))}
             </div>
-            <p className="mt-3 text-xs text-lank/45">{t.brh.missingHint}</p>
+            <p className="mt-3 text-xs text-ank/80">{t.brh.missingHint}</p>
             {sg.missing.length === 0 ? (
-              <p className="mt-3 text-sm text-fey">✔ {t.brh.missingNone}</p>
+              <p className="mt-3 text-sm text-vet">✔ {t.brh.missingNone}</p>
             ) : (
               <div className="mt-3 flex flex-wrap gap-1.5">
                 {sg.missing.map((m) => (
                   <span
                     key={m.ref}
                     title={reasonLabels[m.reason]}
-                    className={`rounded-full border px-2.5 py-1 font-mono text-xs text-lank ${
-                      m.reason === 'numero' ? 'border-soley/50 bg-soley-50' : 'border-lank/20 bg-paper'
+                    className={`rounded-full border px-2.5 py-1 font-mono text-xs text-ank ${
+                      m.reason === 'numero' ? 'border-chabon/50 bg-pil' : 'border-chabon/20 bg-koton'
                     }`}
                   >
                     {m.ref}
@@ -182,21 +182,21 @@ export default async function AdminBrhPage({ params }: { params: { locale: strin
       })}
 
       {/* Documents non exploitables (numérisés sans couche texte) */}
-      <section className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
-        <h2 className="text-sm font-semibold text-lank">
-          {t.brh.unusable} {unusable.length > 0 && <span className="text-soley-700">({unusable.length})</span>}
+      <section className="rounded-2xl border border-chabon/10 bg-white p-5">
+        <h2 className="text-sm font-semibold text-ank">
+          {t.brh.unusable} {unusable.length > 0 && <span className="text-chabon">({unusable.length})</span>}
         </h2>
-        <p className="mt-1 text-xs text-lank/45">{t.brh.unusableHint}</p>
+        <p className="mt-1 text-xs text-ank/80">{t.brh.unusableHint}</p>
         {unusable.length === 0 ? (
-          <p className="mt-3 text-sm text-fey">✔ {t.brh.unusableNone}</p>
+          <p className="mt-3 text-sm text-vet">✔ {t.brh.unusableNone}</p>
         ) : (
           <ul className="mt-3 space-y-1.5">
             {unusable.map((d) => (
               <li key={d.id} className="flex items-center gap-2 text-sm">
-                <span className="whitespace-nowrap rounded-full border border-soley/50 bg-soley-50 px-2.5 py-0.5 font-mono text-xs text-lank">
+                <span className="whitespace-nowrap rounded-full border border-chabon/50 bg-pil px-2.5 py-0.5 font-mono text-xs text-ank">
                   {d.number}
                 </span>
-                <Link href={`/${locale}/doc/${d.id}`} className="truncate text-lank hover:underline">
+                <Link href={`/${locale}/doc/${d.id}`} className="truncate text-ank hover:underline">
                   {d.titleFr}
                 </Link>
               </li>
@@ -207,7 +207,7 @@ export default async function AdminBrhPage({ params }: { params: { locale: strin
 
       {/* Liste des circulaires — vues par numéro / par année */}
       <div>
-        <h2 className="mb-3 text-sm font-semibold text-lank">{t.brh.list}</h2>
+        <h2 className="mb-3 text-sm font-semibold text-ank">{t.brh.list}</h2>
         <BrhCirculaireList
           rows={listRows}
           locale={locale}

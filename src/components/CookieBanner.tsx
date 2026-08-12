@@ -31,13 +31,13 @@ export function CookieBanner({
     setShow(false)
   }
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 border-t-2 border-sitwon bg-lank text-cream shadow-2xl">
+    <div className="fixed inset-x-0 bottom-0 z-50 border-t-2 border-liy bg-chabon text-koton shadow-flottant">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-4">
-        <p className="max-w-2xl text-sm text-cream/85">{text}</p>
+        <p className="max-w-2xl text-sm text-koton/85">{text}</p>
         <div className="flex flex-wrap gap-2">
-          <a href={manageHref} className="rounded-full border border-cream/30 px-4 py-2 text-sm font-medium text-cream hover:bg-white/10">{manage}</a>
-          <button onClick={() => choose('essential')} className="rounded-full border border-cream/30 px-4 py-2 text-sm font-medium text-cream hover:bg-white/10">{reject}</button>
-          <button onClick={() => choose('all')} className="rounded-full bg-sitwon px-4 py-2 text-sm font-semibold text-lank hover:bg-sitwon/90">{accept}</button>
+          <a href={manageHref} className="rounded-full border border-koton/30 px-4 py-2 text-sm font-medium text-koton hover:bg-white/10">{manage}</a>
+          <button onClick={() => choose('essential')} className="rounded-full border border-koton/30 px-4 py-2 text-sm font-medium text-koton hover:bg-white/10">{reject}</button>
+          <button onClick={() => choose('all')} className="rounded-full bg-chabon px-4 py-2 text-sm font-semibold text-koton hover:bg-chabon/90">{accept}</button>
         </div>
       </div>
     </div>

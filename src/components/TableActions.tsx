@@ -69,9 +69,9 @@ export function TableActions({ rows, locale }: { rows: RichCell[][]; locale: Loc
       onClick={copy}
       title={LBL.title[locale] ?? LBL.title.fr}
       aria-label={LBL.title[locale] ?? LBL.title.fr}
-      className="inline-flex shrink-0 items-center gap-1 rounded-md border border-lank/15 bg-white px-2 py-1 text-xs font-medium text-lank/70 transition hover:bg-lank-50 hover:text-lank"
+      className="inline-flex shrink-0 items-center gap-1 rounded-md border border-chabon/15 bg-white px-2 py-1 text-xs font-medium text-grafit transition hover:bg-pil hover:text-ank"
     >
-      <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2">
+      <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         {done ? (
           <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
         ) : (

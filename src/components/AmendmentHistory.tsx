@@ -40,36 +40,36 @@ export function AmendmentHistory({ items, locale }: { items: AmendItem[]; locale
   const allOpen = items.length > 0 && open.size === items.length
 
   return (
-    <section className="mt-6 rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
+    <section className="mt-6 rounded-2xl border border-chabon/10 bg-white p-5">
       <div className="mb-2 flex items-center justify-between gap-2">
-        <h2 className="text-sm font-semibold text-lank">{LBL.title[locale]}</h2>
+        <h2 className="text-sm font-semibold text-ank">{LBL.title[locale]}</h2>
         <button
           type="button"
           onClick={() => setOpen(allOpen ? new Set() : new Set(items.map((i) => i.anchor)))}
-          className="text-xs text-lank/60 hover:underline"
+          className="text-xs text-grafit hover:underline"
         >
           {allOpen ? LBL.hideAll[locale] : LBL.showAll[locale]}
         </button>
       </div>
-      <p className="mb-3 text-xs text-lank/50">{LBL.intro[locale]}</p>
+      <p className="mb-3 text-xs text-ank/80">{LBL.intro[locale]}</p>
       <ul className="space-y-2">
         {items.map((it) => (
-          <li key={it.anchor} id={`hist-${it.anchor}`} className="scroll-mt-24 rounded-lg border border-lank/10 p-3">
+          <li key={it.anchor} id={`hist-${it.anchor}`} className="scroll-mt-24 rounded-lg border border-chabon/10 p-3">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-sm font-semibold text-lank">{it.label}</span>
-              {it.abrogated && <span className="rounded-full bg-red-50 px-1.5 text-[11px] text-red-700">{LBL.abrogated[locale]}</span>}
-              <span className="text-xs text-lank/55">{it.statusLine}</span>
+              <span className="text-sm font-semibold text-ank">{it.label}</span>
+              {it.abrogated && <span className="rounded-full bg-pil px-1.5 text-[11px] text-wouj">{LBL.abrogated[locale]}</span>}
+              <span className="text-xs text-ank/80">{it.statusLine}</span>
               {it.history.length > 0 && (
-                <button type="button" onClick={() => toggle(it.anchor)} className="ml-auto text-xs font-medium text-sitwon-600 hover:underline">
+                <button type="button" onClick={() => toggle(it.anchor)} className="ml-auto text-xs font-medium text-chabon hover:underline">
                   {open.has(it.anchor) ? LBL.hideOld[locale] : LBL.showOld[locale]}
                 </button>
               )}
             </div>
             {open.has(it.anchor) &&
               it.history.map((h, i) => (
-                <div key={i} className="mt-2 border-l-2 border-lank/15 pl-3">
-                  <p className="text-xs font-medium text-lank/50">{h.heading}</p>
-                  <p className="mt-0.5 whitespace-pre-wrap text-sm leading-relaxed text-lank/80">{h.body}</p>
+                <div key={i} className="mt-2 border-l-2 border-chabon/15 pl-3">
+                  <p className="text-xs font-medium text-ank/80">{h.heading}</p>
+                  <p className="mt-0.5 whitespace-pre-wrap text-sm leading-relaxed text-ank/80">{h.body}</p>
                 </div>
               ))}
           </li>

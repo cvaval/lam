@@ -11,8 +11,13 @@
  * style — les origines correspondantes devront alors être listées dans la CSP.
  *
  * Icônes : formes distinctes dessinées sur canvas (cercle/triangle/carré/losange)
- * — pas de texte sur la carte (aucun serveur de glyphes), pas de 185 nœuds DOM :
- * des couches `symbol`/`circle`, avec regroupement (cluster) des tribunaux de paix.
+ * et couleurs de la gamme AV-02, via `COURT_STYLE` — une seule définition, partagée
+ * avec la légende et les fiches. Des couches `symbol`/`circle`, avec regroupement
+ * (cluster) des tribunaux de paix : pas 185 nœuds DOM.
+ *
+ * SEULE EXCEPTION AU « ZÉRO DOM » : le nombre porté par chaque agrégat (quelques nœuds,
+ * un par agrégat visible). Le style ne déclare aucune source de glyphes PBF, donc une
+ * couche `text-field` ne rendrait rien — voir `syncClusterLabels`.
  */
 import { useEffect, useMemo, useRef } from 'react'
 import { useRouter } from 'next/navigation'
@@ -22,19 +27,29 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 import type { LayerSlug } from '@/lib/jurisdictions/constants'
 import { LAYER_SLUGS } from '@/lib/jurisdictions/constants'
 import type { Locale } from '@/lib/types'
+import { BRAND_COLORS } from '@/lib/brand-colors'
+import { COURT_STYLE, MARKER_STROKE } from './CourtCard'
 
 const HAITI_BOUNDS: [[number, number], [number, number]] = [[-75.0, 17.9], [-71.5, 20.2]]
+
+/**
+ * Fond de carte seulement. Le codage des ORDRES DE JURIDICTION vient de `COURT_STYLE`
+ * (avenant AV-02) : ces quatre teintes étaient recopiées ici, et la carte a divergé de
+ * sa propre légende. Une seule définition, désormais.
+ */
 const COLORS = {
-  bg: '#e8ecf2',
-  land: '#F6F4EE',
-  deptLine: '#1C1B3A',
-  arrLine: '#1C1B3A',
-  communeLine: '#1C1B3A',
-  selected: '#BEF264',
-  PAIX: '#BEF264',
-  PREMIERE_INSTANCE: '#F4A823',
-  APPEL: '#4F8EF7',
-  CASSATION: '#7C6F9B',
+  bg: BRAND_COLORS.koton,
+  land: BRAND_COLORS.koton,
+  deptLine: BRAND_COLORS.chabon,
+  arrLine: BRAND_COLORS.chabon,
+  communeLine: BRAND_COLORS.chabon,
+  /**
+   * Sitwon Pal — la charte le désigne nommément comme « fond de sélection ». Depuis
+   * AV-02, la commune choisie doit se lire comme une SURFACE teintée et non comme un
+   * simple liseré, sinon son contour Sitwon se confond avec le triangle Sitwon d'un TPI
+   * posé à l'intérieur. Une aire remplie et un marqueur cerné ne se confondent pas.
+   */
+  selected: BRAND_COLORS.sitwonPal,
 } as const
 
 /** Icône de forme (bordure navy) dessinée hors DOM — retourne l'ImageData. */
@@ -44,7 +59,9 @@ function shapeIcon(shape: 'circle' | 'triangle' | 'square' | 'diamond', color: s
   canvas.height = size
   const ctx = canvas.getContext('2d')!
   ctx.fillStyle = color
-  ctx.strokeStyle = '#1C1B3A'
+  // Contour CONSTITUTIF : Sitwon est à 1,2:1 de Koton — sans lui, le triangle des TPI
+  // s'évanouit dans le fond de carte (AV-02).
+  ctx.strokeStyle = MARKER_STROKE
   ctx.lineWidth = 2.5
   const m = 3
   ctx.beginPath()
@@ -85,10 +102,74 @@ export function JudicialMap({
   selectedRef.current = selectedCommuneId
   const layersRef = useRef(layers)
   layersRef.current = layers
+  /** Étiquettes de dénombrement des agrégats, indexées par `cluster_id`. */
+  const clusterLabelsRef = useRef<globalThis.Map<number, maplibregl.Marker>>(new globalThis.Map())
+  /** Demande une resynchronisation des étiquettes depuis l'extérieur du gestionnaire `load`. */
+  const resyncRef = useRef<(() => void) | null>(null)
   const reduceMotion = useMemo(
     () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches,
     [],
   )
+
+  /**
+   * DÉNOMBREMENT DES AGRÉGATS DE TRIBUNAUX DE PAIX.
+   *
+   * Un disque qui en cache quinze sans le dire n'informe pas : il trompe. Depuis que les
+   * tribunaux de paix sont en Wouj (AV-02), le disque muet est en plus la tache la plus
+   * voyante de la carte — raison de plus pour qu'il dise ce qu'il vaut.
+   *
+   * ⚠️ POURQUOI DU DOM ET NON UNE COUCHE `text-field`. Le texte MapLibre exige une source
+   * de glyphes PBF déclarée par le style ; ce style n'en a pas, et en héberger imposerait
+   * de convertir les fontes et de servir ~1 Mo d'atlas. Une étiquette DOM coûte zéro octet
+   * et rend la marque dans SA fonte (Plex Mono), ce qu'un atlas de glyphes ne ferait pas.
+   *
+   * `pointer-events: none` est INDISPENSABLE : sans lui l'étiquette intercepterait le clic
+   * qui déplie l'agrégat, et le disque deviendrait inerte au centre — précisément là où
+   * l'on clique.
+   *
+   * ⚠️ ON INTERROGE LES AGRÉGATS **RENDUS**, pas la source. `queryRenderedFeatures` ne
+   * retourne que ce qui est réellement à l'écran et respecte la visibilité de la couche :
+   * décocher « Tribunaux de paix » vide donc les étiquettes sans code supplémentaire.
+   * `querySourceFeatures` retournait en plus des agrégats hors cadre (20 contre 15).
+   */
+  const syncClusterLabels = (map: MlMap) => {
+    const labels = clusterLabelsRef.current
+    const drop = (id: number) => { labels.get(id)?.remove(); labels.delete(id) }
+    if (!map.getLayer('paix-clusters')) {
+      for (const id of [...labels.keys()]) drop(id)
+      return
+    }
+    let feats: ReturnType<MlMap['queryRenderedFeatures']> = []
+    try { feats = map.queryRenderedFeatures({ layers: ['paix-clusters'] }) } catch { return }
+
+    const vus = new Set<number>()
+    for (const f of feats) {
+      const n = f.properties?.point_count as number | undefined
+      const id = f.properties?.cluster_id as number | undefined
+      // Un agrégat chevauchant deux tuiles revient deux fois : une seule étiquette.
+      if (!n || id == null || vus.has(id) || f.geometry.type !== 'Point') continue
+      vus.add(id)
+      const at = f.geometry.coordinates as [number, number]
+      const existant = labels.get(id)
+      // Supercluster réattribue les identifiants par niveau de zoom, mais un même
+      // identifiant peut réapparaître ailleurs : on repositionne plutôt que de faire
+      // confiance à la seule présence en table.
+      if (existant) { existant.setLngLat(at); continue }
+
+      // Corps calés sur `circle-radius` de la couche : le nombre doit tenir DANS le
+      // disque, pas déborder. Les deux expressions évoluent ENSEMBLE.
+      const taille = n >= 15 ? 13 : n >= 5 ? 12 : 10
+      const el = document.createElement('div')
+      el.textContent = String(n)
+      el.setAttribute('aria-hidden', 'true') // la donnée accessible est la liste des communes
+      el.style.cssText =
+        `pointer-events:none;font-family:var(--font-plex-mono),ui-monospace,monospace;`
+        + `font-size:${taille}px;font-weight:600;line-height:1;color:${BRAND_COLORS.blan};`
+        + `text-align:center;user-select:none;`
+      labels.set(id, new maplibregl.Marker({ element: el }).setLngLat(at).addTo(map))
+    }
+    for (const id of [...labels.keys()]) if (!vus.has(id)) drop(id)
+  }
 
   // Navigation déclenchée par la carte : l'URL reste la source de vérité.
   const selectCommune = (id: string | null) => {
@@ -136,10 +217,7 @@ export function JudicialMap({
 
     map.on('load', async () => {
       try {
-      for (const [shape, color] of [
-        ['circle', COLORS.PAIX], ['triangle', COLORS.PREMIERE_INSTANCE],
-        ['square', COLORS.APPEL], ['diamond', COLORS.CASSATION],
-      ] as const) {
+      for (const { shape, color } of Object.values(COURT_STYLE)) {
         map.addImage(`court-${shape}`, shapeIcon(shape, color), { pixelRatio: 2 })
       }
 
@@ -167,12 +245,15 @@ export function JudicialMap({
       map.addLayer({
         id: 'commune-selected-fill', type: 'fill', source: 'communes',
         filter: ['==', ['get', 'lamId'], selectedRef.current ?? ''],
-        paint: { 'fill-color': COLORS.selected, 'fill-opacity': 0.28 },
+        paint: { 'fill-color': COLORS.selected, 'fill-opacity': 0.55 },
       })
       map.addLayer({
         id: 'commune-selected-line', type: 'line', source: 'communes',
         filter: ['==', ['get', 'lamId'], selectedRef.current ?? ''],
-        paint: { 'line-color': '#5e8a2a', 'line-width': 2.2 },
+        // Sitwon — la sélection est un acte d'usage. Depuis AV-02 les TPI sont eux aussi
+        // Sitwon : le trait passe à 3,2 px pour que la limite communale ne se confonde pas
+        // avec un marqueur (une frontière épaisse ≠ un triangle cerné de 26 px).
+        paint: { 'line-color': BRAND_COLORS.sitwon, 'line-width': 3.2 },
       })
 
       // Emprises par commune (survol clavier/centrage) calculées UNE fois du GeoJSON servi.
@@ -211,7 +292,7 @@ export function JudicialMap({
         map.addLayer({
           id: 'paix-clusters', type: 'circle', source: 'courts-paix', filter: ['has', 'point_count'],
           paint: {
-            'circle-color': COLORS.PAIX, 'circle-stroke-color': '#1C1B3A', 'circle-stroke-width': 2,
+            'circle-color': COURT_STYLE.PAIX.color, 'circle-stroke-color': MARKER_STROKE, 'circle-stroke-width': 2,
             'circle-radius': ['step', ['get', 'point_count'], 10, 5, 14, 15, 18],
             'circle-opacity': 0.9,
           },
@@ -248,6 +329,34 @@ export function JudicialMap({
           map.on('mouseenter', layerId, () => { map.getCanvas().style.cursor = 'pointer' })
           map.on('mouseleave', layerId, () => { map.getCanvas().style.cursor = '' })
         }
+        /*
+         * QUAND RESYNCHRONISER — le point délicat.
+         *
+         * `idle` serait l'événement naturel : il NE SE DÉCLENCHE JAMAIS sur cette carte
+         * (vérifié, 0 occurrence après déplacement). Et sur `sourcedata` la source est
+         * chargée mais pas encore découpée en tuiles : la requête revient vide.
+         *
+         * D'où le substitut usuel : les événements qui, eux, arrivent, lèvent un drapeau ;
+         * `render` le consomme à la première frame où les tuiles sont prêtes. Une requête
+         * par stabilisation, jamais une par frame.
+         */
+        let aResynchroniser = true
+        const marquer = () => { aResynchroniser = true }
+        map.on('moveend', marquer)
+        map.on('zoomend', marquer)
+        map.on('sourcedata', (e) => {
+          if (e.sourceId === 'courts-paix' && e.isSourceLoaded) marquer()
+        })
+        map.on('render', () => {
+          // ⚠️ Le drapeau se RÉARME tant que les tuiles chargent. Sans cela il était
+          // consommé à la première frame venue — avant que le moindre agrégat soit
+          // dessiné — et plus rien ne le relevait : aucune étiquette n'apparaissait.
+          if (!map.areTilesLoaded()) { aResynchroniser = true; return }
+          if (!aResynchroniser) return
+          aResynchroniser = false
+          syncClusterLabels(map)
+        })
+        resyncRef.current = marquer
       } catch { /* points indisponibles → la carte reste utilisable (limites + liste) */ }
 
       map.on('click', 'commune-fill', (e: MapLayerMouseEvent) => {
@@ -268,7 +377,13 @@ export function JudicialMap({
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') selectCommune(null) }
     containerRef.current.addEventListener('keydown', onKey)
 
+    // La table est saisie ICI, pas dans le nettoyage : au démontage, `ref.current` peut
+    // déjà désigner autre chose, et l'on retirerait alors les marqueurs d'une autre carte
+    // en laissant fuir ceux-ci (react-hooks/exhaustive-deps).
+    const etiquettes = clusterLabelsRef.current
     return () => {
+      for (const m of etiquettes.values()) m.remove()
+      etiquettes.clear()
       map.remove()
       mapRef.current = null
       readyRef.current = false
@@ -288,6 +403,10 @@ export function JudicialMap({
     }
     setVis('paix-clusters', visible.has('PAIX'))
     setVis('paix-points', visible.has('PAIX'))
+    // Les étiquettes de dénombrement sont du DOM : `visibility` ne les atteint pas.
+    // On lève le drapeau — `queryRenderedFeatures` ne verra la couche masquée qu'APRÈS
+    // le prochain rendu, un appel immédiat lirait l'état d'avant.
+    resyncRef.current?.()
     setVis('courts-PREMIERE_INSTANCE', visible.has('PREMIERE_INSTANCE'))
     setVis('courts-APPEL', visible.has('APPEL'))
     setVis('courts-CASSATION', visible.has('CASSATION'))
@@ -311,7 +430,7 @@ export function JudicialMap({
       role="application"
       aria-label={loadingLabel}
       tabIndex={0}
-      className="h-[46vh] w-full outline-none ring-sitwon focus-visible:ring-2 lg:h-[560px]"
+      className="h-[46vh] w-full outline-none ring-chabon focus-visible:ring-2 lg:h-[560px]"
     />
   )
 }

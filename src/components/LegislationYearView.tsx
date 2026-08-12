@@ -39,14 +39,14 @@ const LBL = {
 
 /** Aperçu (sommaire) d'une édition — texte verbatim, liste d'index, ou extrait. */
 function SommairePreview({ som, locale }: { som: Sommaire; locale: Locale }) {
-  if (som.source === 'none') return <p className="text-sm text-lank/40">{LBL.none[locale]}</p>
+  if (som.source === 'none') return <p className="text-sm text-ank/80">{LBL.none[locale]}</p>
   if (som.source === 'index' && som.items?.length) {
     return (
       <ul className="space-y-1">
         {som.items.map((it, i) => (
-          <li key={i} className="flex gap-2 text-sm text-lank/75">
+          <li key={i} className="flex gap-2 text-sm text-grafit">
             {it.category && (
-              <span className="mt-0.5 shrink-0 rounded bg-lank-50 px-1.5 py-0.5 text-[10px] font-medium uppercase text-lank/50">{it.category}</span>
+              <span className="mt-0.5 shrink-0 rounded bg-pil px-1.5 py-0.5 text-[10px] font-medium uppercase text-ank/80">{it.category}</span>
             )}
             <span>{it.title}</span>
           </li>
@@ -54,7 +54,7 @@ function SommairePreview({ som, locale }: { som: Sommaire; locale: Locale }) {
       </ul>
     )
   }
-  return <pre className="whitespace-pre-wrap font-sans text-sm leading-relaxed text-lank/80">{som.text}</pre>
+  return <pre className="whitespace-pre-wrap font-sans text-sm leading-relaxed text-ank/80">{som.text}</pre>
 }
 
 // Navigation Législation : mois pliables → numéros (éditions). Au clic sur un numéro :
@@ -84,35 +84,35 @@ export function LegislationYearView({ locale, year, months }: { locale: Locale; 
 
   return (
     <div className="space-y-5">
-      <div className="border-l-4 border-lank pl-4">
-        <Link href={`/${locale}/editionsmoniteur`} className="text-xs font-medium text-endeks-700 hover:underline">
+      <div className="border-l-4 border-liy pl-4">
+        <Link href={`/${locale}/editionsmoniteur`} className="text-xs font-medium text-chabon hover:underline">
           {LBL.back[locale]}
         </Link>
-        <h1 className="mt-1 text-2xl font-bold text-lank">Le Moniteur — {year}</h1>
+        <h1 className="mt-1 text-2xl font-bold text-ank">Le Moniteur — {year}</h1>
       </div>
 
       <div className="space-y-2">
         {months.map((m) => {
           const isOpen = open === m.idx
           return (
-            <div key={m.idx} className="overflow-hidden rounded-xl border border-lank/10 bg-white shadow-card">
+            <div key={m.idx} className="overflow-hidden rounded-xl border border-chabon/10 bg-white">
               <button
                 type="button"
                 onClick={() => setOpen(isOpen ? null : m.idx)}
                 aria-expanded={isOpen}
-                className="flex w-full items-center justify-between px-4 py-3 text-left transition hover:bg-paper"
+                className="flex w-full items-center justify-between px-4 py-3 text-left transition hover:bg-koton"
               >
-                <span className="font-semibold text-lank">{MONTHS[locale][m.idx]}</span>
+                <span className="font-semibold text-ank">{MONTHS[locale][m.idx]}</span>
                 <span className="flex items-center gap-3">
-                  <span className="text-xs text-lank/50">
+                  <span className="text-xs text-ank/80">
                     {m.editions.length} {LBL.editions[locale]}
                   </span>
-                  <span className={`text-lank/40 transition-transform ${isOpen ? 'rotate-90' : ''}`}>›</span>
+                  <span className={`text-ank/80 transition-transform ${isOpen ? 'rotate-90' : ''}`}>›</span>
                 </span>
               </button>
 
               {isOpen && (
-                <ul className="divide-y divide-lank/5 border-t border-lank/10">
+                <ul className="divide-y divide-chabon/5 border-t border-chabon/10">
                   {m.editions.map((e) => {
                     const isPrev = preview === e.id
                     return (
@@ -121,33 +121,33 @@ export function LegislationYearView({ locale, year, months }: { locale: Locale; 
                           type="button"
                           onClick={() => togglePreview(e.id)}
                           aria-expanded={isPrev}
-                          className="flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left text-sm transition hover:bg-paper"
+                          className="flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left text-sm transition hover:bg-koton"
                         >
                           <span className="flex min-w-0 items-center gap-2">
                             {e.special && (
-                              <span className="shrink-0 rounded bg-soley px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-lank">
+                              <span className="shrink-0 rounded bg-chabon px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-koton">
                                 {LBL.special[locale]}
                               </span>
                             )}
-                            <span className="truncate text-lank">{e.title}</span>
+                            <span className="truncate text-ank">{e.title}</span>
                           </span>
                           <span className="flex shrink-0 items-center gap-2">
-                            {e.dateISO && <span className="text-xs text-lank/40">{e.dateISO}</span>}
-                            <span className={`text-lank/40 transition-transform ${isPrev ? 'rotate-90' : ''}`}>›</span>
+                            {e.dateISO && <span className="text-xs text-ank/80">{e.dateISO}</span>}
+                            <span className={`text-ank/80 transition-transform ${isPrev ? 'rotate-90' : ''}`}>›</span>
                           </span>
                         </button>
 
                         {isPrev && (
-                          <div className="border-t border-lank/10 bg-paper/40 px-4 py-3">
-                            <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-lank/45">{LBL.sommaire[locale]}</p>
+                          <div className="border-t border-chabon/10 bg-koton/40 px-4 py-3">
+                            <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-ank/80">{LBL.sommaire[locale]}</p>
                             {loadingId === e.id || !cache[e.id] ? (
-                              <p className="text-sm text-lank/40">{LBL.loading[locale]}</p>
+                              <p className="text-sm text-ank/80">{LBL.loading[locale]}</p>
                             ) : (
                               <SommairePreview som={cache[e.id]} locale={locale} />
                             )}
                             <Link
                               href={`/${locale}/doc/${e.id}`}
-                              className="mt-3 inline-flex items-center gap-1.5 rounded-lg bg-lank px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-lank-600"
+                              className="mt-3 inline-flex items-center gap-1.5 rounded-lg bg-chabon px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-chabon"
                             >
                               {LBL.fullText[locale]} →
                             </Link>

@@ -61,7 +61,7 @@ const TYPE_SHORT: Record<string, string> = {
   TARIF_DOUANIER: 'Tarif douanier',
   INDEX: 'Index',
 }
-const DEFAULT_COLOR = '#5E7488' // brim — repli si un domaine n'a pas de couleur
+const DEFAULT_COLOR = '#55565A' // brim — repli si un domaine n'a pas de couleur
 const MODE_KEY = 'lv:doctrineMode'
 const TREE_KEY = 'lv:doctrineTree'
 
@@ -266,7 +266,7 @@ export function ThemeBrowser({
           expandToRecent(node)
         }}
         title="Nouveau document — voir la sous-section"
-        className="mr-3 shrink-0 rounded-full bg-sitwon px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-lank transition hover:bg-sitwon-600 hover:text-cream"
+        className="mr-3 shrink-0 rounded-full bg-chabon px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-koton transition hover:bg-chabon hover:text-koton"
       >
         Nouveau
       </button>
@@ -343,15 +343,15 @@ export function ThemeBrowser({
   function Breadcrumb({ id }: { id: string }) {
     const path = pathOf(id)
     return (
-      <div className="flex flex-wrap items-center gap-1 border-b border-lank/5 px-3 py-2 text-xs">
+      <div className="flex flex-wrap items-center gap-1 border-b border-chabon/5 px-3 py-2 text-xs">
         <button
           type="button"
           onClick={() => goUp(id)}
           aria-label={lt(L.back)}
           title={lt(L.back)}
-          className="mr-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-lank/50 transition hover:bg-lank/5 hover:text-lank"
+          className="mr-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-ank/80 transition hover:bg-chabon/5 hover:text-ank"
         >
-          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden strokeLinecap="round" strokeLinejoin="round">
             <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
@@ -361,11 +361,11 @@ export function ThemeBrowser({
           const isLast = k === path.length - 1
           return (
             <span key={pid} className="flex items-center gap-1">
-              {k > 0 && <span className="text-lank/25" aria-hidden>›</span>}
+              {k > 0 && <span className="text-ank/80" aria-hidden>›</span>}
               {isLast ? (
-                <span className="font-semibold text-lank">{label(node)}</span>
+                <span className="font-semibold text-ank">{label(node)}</span>
               ) : (
-                <button type="button" onClick={() => goTo(pid)} className="text-lank/55 hover:text-lank hover:underline">
+                <button type="button" onClick={() => goTo(pid)} className="text-ank/80 hover:text-ank hover:underline">
                   {label(node)}
                 </button>
               )}
@@ -398,16 +398,16 @@ export function ThemeBrowser({
         {/* Badge de type masqué dans la vue « Par type » : le groupe le porte déjà
             (et évite deux libellés différents pour un même type). */}
         {showType && (
-          <span className="mt-0.5 shrink-0 rounded bg-lank/5 px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-lank/50">
+          <span className="mt-0.5 shrink-0 rounded bg-chabon/5 px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-ank/80">
             {TYPE_SHORT[d.type] ?? d.type}
           </span>
         )}
         <span className="min-w-0 flex-1">
-          <span className="block text-sm text-lank">{docTitle(d)}</span>
-          {d.number && <span className="block text-xs text-lank/40">{d.number}</span>}
+          <span className="block text-sm text-ank">{docTitle(d)}</span>
+          {d.number && <span className="block text-xs text-ank/80">{d.number}</span>}
         </span>
         {showDate && (
-          <span className="mt-0.5 shrink-0 whitespace-nowrap text-xs tabular-nums text-lank/45">
+          <span className="mt-0.5 shrink-0 whitespace-nowrap text-xs tabular-nums text-ank/80">
             {pub ? formatDate(locale, pub) : '—'}
           </span>
         )}
@@ -420,12 +420,12 @@ export function ThemeBrowser({
     // Textes triés A→Z par titre (défaut demandé ; l'API renvoie par date).
     const sorted = docs ? [...docs].sort((a, b) => cmp(docTitle(a), docTitle(b))) : docs
     return (
-      <div className="mt-2 overflow-hidden rounded-xl border border-lank/10 bg-paper/60">
+      <div className="mt-2 overflow-hidden rounded-xl border border-chabon/10 bg-koton/60">
         <Breadcrumb id={themeId} />
         {loading ? (
-          <p className="px-3 py-3 text-xs text-lank/50">{lt(L.loading)}</p>
+          <p className="px-3 py-3 text-xs text-ank/80">{lt(L.loading)}</p>
         ) : sorted && sorted.length > 0 ? (
-          <ul className="divide-y divide-lank/5">
+          <ul className="divide-y divide-chabon/5">
             {sorted.map((d) => (
               <li key={d.id}>
                 <DocLink d={d} anchor={d.anchor} />
@@ -433,7 +433,7 @@ export function ThemeBrowser({
             ))}
           </ul>
         ) : (
-          <p className="px-3 py-3 text-xs text-lank/50">{lt(L.empty)}</p>
+          <p className="px-3 py-3 text-xs text-ank/80">{lt(L.empty)}</p>
         )}
       </div>
     )
@@ -447,10 +447,10 @@ export function ThemeBrowser({
     const empty = isEmpty(node)
     return (
       <li>
-        <div className={`overflow-hidden rounded-2xl border border-lank/10 bg-white shadow-card transition hover:shadow-lg ${empty ? 'opacity-55' : ''}`}>
+        <div className={`overflow-hidden rounded-2xl border border-chabon/10 bg-white transition hover: ${empty ? 'opacity-55' : ''}`}>
           <div className="flex items-center gap-1">
             {hasChildren ? (
-              <button type="button" onClick={() => toggleExpand(node.id)} aria-expanded={open} aria-label={open ? 'Replier' : 'Déplier'} className="flex h-12 w-9 items-center justify-center text-lank/40 hover:text-lank">
+              <button type="button" onClick={() => toggleExpand(node.id)} aria-expanded={open} aria-label={open ? 'Replier' : 'Déplier'} className="flex h-12 w-9 items-center justify-center text-ank/80 hover:text-ank">
                 <span className={`text-xs transition-transform ${open ? 'rotate-90' : ''}`}>▶</span>
               </button>
             ) : (
@@ -461,14 +461,14 @@ export function ThemeBrowser({
                 <span className="h-4 w-4 rounded-md" style={{ backgroundColor: color }} />
               </span>
               <span className="min-w-0">
-                <span className="block text-[15px] font-semibold text-lank">{label(node)}</span>
-                <span className="block text-xs text-lank/45">{empty ? 'Aucun texte pour le moment' : countText(node)}</span>
+                <span className="block text-[15px] font-semibold text-ank">{label(node)}</span>
+                <span className="block text-xs text-ank/80">{empty ? 'Aucun texte pour le moment' : countText(node)}</span>
               </span>
             </button>
             <NewBadge node={node} />
           </div>
           {(open || selected === node.id) && (
-            <div className="border-t border-lank/5 px-3 pb-3 pt-1">
+            <div className="border-t border-chabon/5 px-3 pb-3 pt-1">
               <DocList themeId={node.id} />
               {open && hasChildren && (
                 <ul className="mt-1">
@@ -492,18 +492,18 @@ export function ThemeBrowser({
     const empty = isEmpty(node)
     return (
       <li>
-        <div className={`flex items-center gap-1.5 rounded-lg hover:bg-paper ${empty ? 'opacity-55' : ''}`} style={{ paddingLeft: (depth - 1) * 18 }}>
+        <div className={`flex items-center gap-1.5 rounded-lg hover:bg-koton ${empty ? 'opacity-55' : ''}`} style={{ paddingLeft: (depth - 1) * 18 }}>
           {hasChildren ? (
-            <button type="button" onClick={() => toggleExpand(node.id)} aria-expanded={open} aria-label={open ? 'Replier' : 'Déplier'} className="flex h-7 w-6 items-center justify-center text-lank/40 hover:text-lank">
+            <button type="button" onClick={() => toggleExpand(node.id)} aria-expanded={open} aria-label={open ? 'Replier' : 'Déplier'} className="flex h-7 w-6 items-center justify-center text-ank/80 hover:text-ank">
               <span className={`text-[10px] transition-transform ${open ? 'rotate-90' : ''}`}>▶</span>
             </button>
           ) : (
             <span className="w-6" />
           )}
           <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: domainColor }} />
-          <button type="button" disabled={empty} onClick={empty ? undefined : () => select(node.id)} className={`flex-1 py-1.5 text-left text-sm ${empty ? 'cursor-default text-lank/40' : isSel ? 'font-semibold text-lank' : 'text-lank/75 hover:text-lank'}`}>
+          <button type="button" disabled={empty} onClick={empty ? undefined : () => select(node.id)} className={`flex-1 py-1.5 text-left text-sm ${empty ? 'cursor-default text-ank/80' : isSel ? 'font-semibold text-ank' : 'text-grafit hover:text-ank'}`}>
             {label(node)}
-            <span className="ml-2 text-xs font-normal text-lank/35">{countText(node)}</span>
+            <span className="ml-2 text-xs font-normal text-ank/80">{countText(node)}</span>
           </button>
           <NewBadge node={node} />
         </div>
@@ -531,15 +531,15 @@ export function ThemeBrowser({
     showType?: boolean
     showDate?: boolean
   }) {
-    if (allDocs.length === 0) return <p className="rounded-2xl border border-lank/10 bg-white px-4 py-10 text-center text-sm text-lank/40 shadow-card">{lt(L.emptyFlat)}</p>
+    if (allDocs.length === 0) return <p className="rounded-2xl border border-chabon/10 bg-white px-4 py-10 text-center text-sm text-ank/80">{lt(L.emptyFlat)}</p>
     return (
-      <div className="overflow-hidden rounded-2xl border border-lank/10 bg-white shadow-card">
+      <div className="overflow-hidden rounded-2xl border border-chabon/10 bg-white">
         {groups.map((g) => (
           <section key={g.key}>
-            <h2 className="sticky top-0 z-10 border-y border-lank/5 bg-paper/90 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-lank/50 backdrop-blur">
-              {g.label} <span className="font-normal text-lank/35">· {g.docs.length}</span>
+            <h2 className="sticky top-0 z-10 border-y border-chabon/5 bg-koton/90 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-ank/80 backdrop-blur">
+              {g.label} <span className="font-normal text-ank/80">· {g.docs.length}</span>
             </h2>
-            <ul className="divide-y divide-lank/5">
+            <ul className="divide-y divide-chabon/5">
               {g.docs.map((d) => (
                 <li key={d.id}>
                   <DocLink d={d} showType={showType} showDate={showDate} />
@@ -613,18 +613,18 @@ export function ThemeBrowser({
           onClick={() => setSortOpen((o) => !o)}
           aria-haspopup="menu"
           aria-expanded={sortOpen}
-          className="inline-flex items-center gap-1.5 rounded-full border border-lank/10 bg-white px-3 py-1.5 text-xs font-medium text-lank/60 shadow-card transition hover:text-lank"
+          className="inline-flex items-center gap-1.5 rounded-full border border-chabon/10 bg-white px-3 py-1.5 text-xs font-medium text-grafit transition hover:text-ank"
         >
-          <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+          <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden strokeLinecap="round" strokeLinejoin="round">
             <path d="M3 6h11M3 12h8M3 18h5" strokeLinecap="round" />
             <path d="M18 9l3-3 3 3M21 6v12" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           <span>{lt(L.sort)}</span>
-          <span className="text-lank">{current.label}</span>
+          <span className="text-ank">{current.label}</span>
           <span aria-hidden className={`text-[10px] transition-transform ${sortOpen ? 'rotate-180' : ''}`}>▾</span>
         </button>
         {sortOpen && (
-          <div role="menu" aria-label={lt(L.sort)} className="absolute left-0 top-full z-30 mt-1 min-w-[11rem] overflow-hidden rounded-xl border border-lank/10 bg-white py-1 shadow-xl">
+          <div role="menu" aria-label={lt(L.sort)} className="absolute left-0 top-full z-30 mt-1 min-w-[11rem] overflow-hidden rounded-xl border border-chabon/10 bg-white py-1 shadow-flottant">
             {options.map((o) => (
               <button
                 key={o.key}
@@ -636,7 +636,7 @@ export function ThemeBrowser({
                   setSortOpen(false)
                 }}
                 className={`flex w-full items-center gap-2 px-3 py-2 text-left text-xs transition ${
-                  o.active ? 'bg-paper font-semibold text-lank' : 'text-lank/70 hover:bg-paper hover:text-lank'
+                  o.active ? 'bg-koton font-semibold text-ank' : 'text-grafit hover:bg-koton hover:text-ank'
                 }`}
               >
                 <span className="w-3 shrink-0" aria-hidden>{o.active ? '✓' : ''}</span>
@@ -652,12 +652,12 @@ export function ThemeBrowser({
   return (
     <div className="space-y-5">
       <header className="flex items-center gap-4">
-        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-lagon/25">
-          <span className="h-5 w-5 rounded-lg bg-lagon-700" />
+        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-chabon/25">
+          <span className="h-5 w-5 rounded-lg bg-chabon" />
         </span>
         <div>
-          <h1 className="text-2xl font-bold text-lank">{lt(L.title)}</h1>
-          <p className="mt-0.5 max-w-2xl text-sm text-lank/55">{lt(L.sub)}</p>
+          <h1 className="text-2xl font-bold text-ank">{lt(L.title)}</h1>
+          <p className="mt-0.5 max-w-2xl text-sm text-ank/80">{lt(L.sub)}</p>
         </div>
       </header>
 
@@ -670,7 +670,7 @@ export function ThemeBrowser({
 
       {view === 'tree' &&
         (tree.length === 0 ? (
-          <p className="rounded-2xl border border-lank/10 bg-white px-4 py-10 text-center text-sm text-lank/40 shadow-card">—</p>
+          <p className="rounded-2xl border border-chabon/10 bg-white px-4 py-10 text-center text-sm text-ank/80">—</p>
         ) : (
           <ul className="space-y-2.5">
             {displayTree.map((n) => (

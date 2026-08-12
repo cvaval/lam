@@ -7,7 +7,7 @@ import type { Dictionary } from '@/lib/i18n/dictionaries'
  */
 export function RateLimitNotice({ t }: { t: Dictionary }) {
   return (
-    <div className="mx-auto max-w-xl rounded-2xl border border-soley/40 bg-soley-50 p-8 text-center text-sm text-lank">
+    <div className="mx-auto max-w-xl rounded-2xl border border-chabon/40 bg-pil p-8 text-center text-sm text-ank">
       {t.errors.rate}
     </div>
   )

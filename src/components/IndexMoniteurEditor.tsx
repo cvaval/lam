@@ -122,22 +122,22 @@ export function IndexMoniteurEditor({ locale }: { locale: Locale }) {
   }
 
   const statusCls =
-    status?.kind === 'ok' ? 'bg-green-50 text-green-800 border-green-200'
-    : status?.kind === 'warn' ? 'bg-soley-50 text-soley-700 border-soley/30'
-    : status?.kind === 'err' ? 'bg-red-50 text-red-700 border-red-200'
-    : 'bg-lank-50 text-lank/70 border-lank/15'
+    status?.kind === 'ok' ? 'bg-vet/10 text-vet border-vet/30'
+    : status?.kind === 'warn' ? 'bg-pil text-chabon border-chabon/30'
+    : status?.kind === 'err' ? 'bg-pil text-wouj border-wouj/40'
+    : 'bg-pil text-ank/70 border-chabon/15'
 
   return (
     <div className="space-y-5">
       <div>
-        <h1 className="text-lg font-semibold text-lank">{lt(L.title)}</h1>
-        <p className="mt-1 max-w-2xl text-sm text-lank/55">{lt(L.intro)}</p>
+        <h1 className="text-lg font-semibold text-ank">{lt(L.title)}</h1>
+        <p className="mt-1 max-w-2xl text-sm text-ank/80">{lt(L.intro)}</p>
       </div>
 
       {/* En-tête d'édition */}
-      <div className="grid gap-4 rounded-2xl border border-lank/10 bg-white p-5 shadow-card sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 rounded-2xl border border-chabon/10 bg-white p-5 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2 lg:col-span-1">
-          <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-lank/55">{lt(L.type)}</label>
+          <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-ank/80">{lt(L.type)}</label>
           <div className="flex gap-2">
             {(['REGULIERE', 'SPECIALE'] as EditionType[]).map((et) => (
               <button
@@ -145,7 +145,7 @@ export function IndexMoniteurEditor({ locale }: { locale: Locale }) {
                 type="button"
                 onClick={() => setEditionType(et)}
                 className={`flex-1 rounded-lg border px-3 py-2 text-sm font-medium transition ${
-                  editionType === et ? 'border-soley bg-soley-50 text-soley-700' : 'border-lank/15 bg-paper text-lank/60 hover:border-lank/30'
+                  editionType === et ? 'border-liy bg-pil text-chabon' : 'border-chabon/15 bg-koton text-grafit hover:border-chabon/30'
                 }`}
               >
                 {et === 'REGULIERE' ? lt(L.regular) : lt(L.special)}
@@ -154,22 +154,22 @@ export function IndexMoniteurEditor({ locale }: { locale: Locale }) {
           </div>
         </div>
         <div>
-          <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-lank/55">{lt(L.numero)}</label>
-          <input value={numero} onChange={(e) => setNumero(e.target.value)} onBlur={checkExisting} inputMode="numeric" placeholder="51" className="w-full rounded-lg border border-lank/15 bg-paper px-3 py-2 text-sm text-lank outline-none focus:border-sitwon" />
+          <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-ank/80">{lt(L.numero)}</label>
+          <input value={numero} onChange={(e) => setNumero(e.target.value)} onBlur={checkExisting} inputMode="numeric" placeholder="51" className="w-full rounded-lg border border-chabon/15 bg-koton px-3 py-2 text-sm text-ank outline-none focus:border-liy" />
         </div>
         <div>
-          <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-lank/55">{lt(L.annee)}</label>
-          <input value={annee} onChange={(e) => setAnnee(e.target.value)} onBlur={checkExisting} inputMode="numeric" placeholder="2024" className="w-full rounded-lg border border-lank/15 bg-paper px-3 py-2 text-sm text-lank outline-none focus:border-sitwon" />
+          <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-ank/80">{lt(L.annee)}</label>
+          <input value={annee} onChange={(e) => setAnnee(e.target.value)} onBlur={checkExisting} inputMode="numeric" placeholder="2024" className="w-full rounded-lg border border-chabon/15 bg-koton px-3 py-2 text-sm text-ank outline-none focus:border-liy" />
         </div>
         <div>
-          <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-lank/55">{lt(L.dateOpt)}</label>
-          <input type="date" value={dateISO} onChange={(e) => setDateISO(e.target.value)} className="w-full rounded-lg border border-lank/15 bg-paper px-3 py-2 text-sm text-lank outline-none focus:border-sitwon" />
+          <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-ank/80">{lt(L.dateOpt)}</label>
+          <input type="date" value={dateISO} onChange={(e) => setDateISO(e.target.value)} className="w-full rounded-lg border border-chabon/15 bg-koton px-3 py-2 text-sm text-ank outline-none focus:border-liy" />
         </div>
         <div className="flex items-end gap-2 sm:col-span-2 lg:col-span-4">
-          <div className="flex-1 text-xs text-lank/55">
-            {lt(L.ref)} : <span className="font-mono font-semibold text-lank">{number || '—'}</span>
+          <div className="flex-1 text-xs text-ank/80">
+            {lt(L.ref)} : <span className="font-mono font-semibold text-ank">{number || '—'}</span>
           </div>
-          <button type="button" onClick={checkExisting} disabled={!number || busy} className="rounded-lg border border-lank/20 px-3 py-1.5 text-xs font-semibold text-lank/70 hover:bg-paper disabled:opacity-40">
+          <button type="button" onClick={checkExisting} disabled={!number || busy} className="rounded-lg border border-chabon/20 px-3 py-1.5 text-xs font-semibold text-grafit hover:bg-koton disabled:opacity-40">
             {lt(L.check)}
           </button>
         </div>
@@ -178,36 +178,36 @@ export function IndexMoniteurEditor({ locale }: { locale: Locale }) {
       {status && <div className={`rounded-lg border px-3 py-2 text-sm ${statusCls}`}>{status.text}</div>}
 
       {/* Titres */}
-      <div className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
+      <div className="rounded-2xl border border-chabon/10 bg-white p-5">
         <div className="mb-1 flex items-center justify-between">
-          <h2 className="text-sm font-semibold text-lank">{lt(L.titles)}</h2>
-          <span className="text-xs text-lank/45">{rows.filter((r) => r.text.trim()).length}</span>
+          <h2 className="text-sm font-semibold text-ank">{lt(L.titles)}</h2>
+          <span className="text-xs text-ank/80">{rows.filter((r) => r.text.trim()).length}</span>
         </div>
-        <p className="mb-3 text-xs text-lank/50">{lt(L.titlesHint)}</p>
+        <p className="mb-3 text-xs text-ank/80">{lt(L.titlesHint)}</p>
         <div className="space-y-2">
           {rows.map((row, i) => (
             <div key={i} className="flex items-start gap-2">
-              <span className="mt-2 w-6 shrink-0 text-right text-xs tabular-nums text-lank/40">{i + 1}.</span>
+              <span className="mt-2 w-6 shrink-0 text-right text-xs tabular-nums text-ank/80">{i + 1}.</span>
               <textarea
                 value={row.text}
                 onChange={(e) => setRow(i, e.target.value)}
                 rows={2}
                 placeholder="Titre de la publication…"
-                className={`min-h-[2.5rem] flex-1 resize-y rounded-lg border bg-paper px-3 py-2 text-sm text-lank outline-none focus:border-sitwon ${row.id ? 'border-sitwon/30' : 'border-lank/15'}`}
+                className={`min-h-[2.5rem] flex-1 resize-y rounded-lg border bg-koton px-3 py-2 text-sm text-ank outline-none focus:border-liy ${row.id ? 'border-chabon/30' : 'border-chabon/15'}`}
               />
-              <button type="button" onClick={() => removeRow(i)} title={lt(L.remove)} className="mt-1.5 shrink-0 rounded-md px-2 py-1 text-xs text-red-600 hover:bg-red-50">
+              <button type="button" onClick={() => removeRow(i)} title={lt(L.remove)} className="mt-1.5 shrink-0 rounded-md px-2 py-1 text-xs text-wouj hover:bg-pil">
                 ✕
               </button>
             </div>
           ))}
         </div>
-        <button type="button" onClick={addRow} className="mt-3 rounded-lg border border-dashed border-lank/25 px-3 py-1.5 text-sm font-medium text-lank/60 hover:border-lank/40 hover:text-lank">
+        <button type="button" onClick={addRow} className="mt-3 rounded-lg border border-dashed border-chabon/25 px-3 py-1.5 text-sm font-medium text-grafit hover:border-chabon/40 hover:text-ank">
           {lt(L.addTitle)}
         </button>
       </div>
 
       <div className="flex justify-end">
-        <button type="button" onClick={save} disabled={busy || !number || !rows.some((r) => r.text.trim())} className="rounded-lg bg-lank px-5 py-2.5 text-sm font-semibold text-white hover:bg-lank-600 disabled:opacity-40">
+        <button type="button" onClick={save} disabled={busy || !number || !rows.some((r) => r.text.trim())} className="rounded-lg bg-chabon px-5 py-2.5 text-sm font-semibold text-white hover:bg-chabon disabled:opacity-40">
           {busy ? lt(L.saving) : lt(L.save)}
         </button>
       </div>

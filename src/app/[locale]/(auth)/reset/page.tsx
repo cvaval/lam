@@ -24,26 +24,26 @@ export default function ResetPage({
   const { locale } = dictFor(params.locale)
   const token = (searchParams.token ?? '').trim()
   return (
-    <main className="flex min-h-screen items-center justify-center bg-lank px-6 py-10">
+    <main className="flex min-h-screen items-center justify-center bg-chabon px-6 py-10">
       <div className="w-full max-w-sm">
         <div className="mb-4 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-cream">
+          <div className="flex items-center gap-2 text-koton">
             <FruitMark size={26} tone="dark" />
             <span className="text-sm font-extrabold lowercase tracking-tight">{BRAND.wordmark}</span>
           </div>
           <LocaleSwitcher current={locale} />
         </div>
-        <div className="rounded-2xl bg-white p-7 shadow-card">
+        <div className="rounded-2xl bg-white p-7">
           <div className="mb-5 flex flex-col items-center text-center">
             <FruitMark size={40} className="mb-2" />
-            <h1 className="text-lg font-semibold text-lank">{TITLE[locale]}</h1>
+            <h1 className="text-lg font-semibold text-ank">{TITLE[locale]}</h1>
           </div>
           {token ? (
             <ResetForm locale={locale} token={token} />
           ) : (
             <div className="space-y-4">
-              <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">{NOTOKEN[locale]}</p>
-              <a href={`/${locale}/forgot`} className="block text-center text-xs text-lank/55 hover:text-lank">
+              <p className="rounded-lg bg-pil px-3 py-2 text-sm text-wouj">{NOTOKEN[locale]}</p>
+              <a href={`/${locale}/forgot`} className="block text-center text-xs text-ank/80 hover:text-ank">
                 {BACK[locale]}
               </a>
             </div>

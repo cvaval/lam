@@ -56,39 +56,39 @@ export function CodeThemeBrowser({ index, t }: { index: ThemeArticle[]; t: Dicti
     <button
       type="button"
       onClick={() => { setTheme(th); setQ('') }}
-      className="inline-flex items-center gap-1.5 rounded-full border border-lank/15 bg-white px-3 py-1 text-xs text-lank/80 transition hover:border-lank/40 hover:bg-paper"
+      className="inline-flex items-center gap-1.5 rounded-full border border-chabon/15 bg-white px-3 py-1 text-xs text-ank/80 transition hover:border-chabon/40 hover:bg-koton"
     >
-      {th}{count != null && <span className="rounded-full bg-lank-50 px-1.5 text-[10px] font-semibold text-lank/55">{count}</span>}
+      {th}{count != null && <span className="rounded-full bg-pil px-1.5 text-[10px] font-semibold text-ank/80">{count}</span>}
     </button>
   )
 
   return (
-    <details className="rounded-2xl border border-lank/10 bg-white shadow-card" open>
+    <details className="rounded-2xl border border-chabon/10 bg-white" open>
       <summary className="cursor-pointer list-none px-5 py-4">
-        <span className="font-semibold text-lank">{t.codeIndex.title}</span>
-        <span className="mt-0.5 block text-xs text-lank/55">{t.codeIndex.sub}</span>
+        <span className="font-semibold text-ank">{t.codeIndex.title}</span>
+        <span className="mt-0.5 block text-xs text-ank/80">{t.codeIndex.sub}</span>
       </summary>
-      <div className="space-y-4 border-t border-lank/10 px-5 py-4">
+      <div className="space-y-4 border-t border-chabon/10 px-5 py-4">
         <input
           type="search"
           value={q}
           onChange={(e) => { setQ(e.target.value); setTheme(null) }}
           placeholder={t.codeIndex.searchPlaceholder}
           aria-label={t.codeIndex.searchPlaceholder}
-          className="w-full rounded-xl border border-lank/15 px-4 py-2 text-sm text-lank outline-none focus:border-lank/50"
+          className="w-full rounded-xl border border-chabon/15 px-4 py-2 text-sm text-ank outline-none focus:border-chabon/50"
         />
 
         {theme && (
           <div className="flex flex-wrap items-center gap-2">
-            <button type="button" onClick={() => setTheme(null)} className="rounded-lg border border-lank/15 bg-white px-2.5 py-1 text-xs text-lank/70 hover:bg-paper">← {t.codeIndex.allThemes}</button>
-            <span className="text-sm font-semibold text-lank">{theme}</span>
-            <span className="text-xs text-lank/45">{articles.length} {t.codeIndex.articles}</span>
+            <button type="button" onClick={() => setTheme(null)} className="rounded-lg border border-chabon/15 bg-white px-2.5 py-1 text-xs text-grafit hover:bg-koton">← {t.codeIndex.allThemes}</button>
+            <span className="text-sm font-semibold text-ank">{theme}</span>
+            <span className="text-xs text-ank/80">{articles.length} {t.codeIndex.articles}</span>
           </div>
         )}
 
         {theme && proches.length > 0 && (
           <div>
-            <p className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-lank/45">{t.codeIndex.relatedThemes}</p>
+            <p className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-ank/80">{t.codeIndex.relatedThemes}</p>
             <div className="flex flex-wrap gap-1.5">{proches.map((th) => <ThemeChip key={th} th={th} count={themeMap.get(th)?.length} />)}</div>
           </div>
         )}
@@ -104,22 +104,22 @@ export function CodeThemeBrowser({ index, t }: { index: ThemeArticle[]; t: Dicti
         {/* Articles (thème sélectionné ou recherche texte) */}
         {(theme || fq) && (
           articles.length === 0 ? (
-            <p className="text-sm text-lank/45">{t.codeIndex.noResult}</p>
+            <p className="text-sm text-ank/80">{t.codeIndex.noResult}</p>
           ) : (
-            <ul className="divide-y divide-lank/5">
+            <ul className="divide-y divide-chabon/5">
               {articles.map((a) => {
                 const rel = related(a)
                 return (
                   <li key={a.num} className="py-2">
                     <div className="flex flex-wrap items-baseline gap-x-2">
-                      <a href={`#${anchorOf(a.num)}`} className="font-semibold text-lank underline decoration-lank/30 underline-offset-2 hover:decoration-lank">{t.codeIndex.articleLabel} {a.num.replace('-', ' ')}</a>
-                      {a.summary && <span className="text-sm text-lank/70">{a.summary}</span>}
+                      <a href={`#${anchorOf(a.num)}`} className="font-semibold text-ank underline decoration-chabon/30 underline-offset-2 hover:decoration-chabon">{t.codeIndex.articleLabel} {a.num.replace('-', ' ')}</a>
+                      {a.summary && <span className="text-sm text-grafit">{a.summary}</span>}
                     </div>
                     <div className="mt-1 flex flex-wrap items-center gap-1.5">
-                      {a.themes.map((th) => <button key={th} type="button" onClick={() => { setTheme(th); setQ('') }} className="rounded bg-lank-50 px-1.5 py-0.5 text-[10px] text-lank/55 hover:bg-lank-100">{th}</button>)}
+                      {a.themes.map((th) => <button key={th} type="button" onClick={() => { setTheme(th); setQ('') }} className="rounded bg-pil px-1.5 py-0.5 text-[10px] text-ank/80 hover:bg-chabon">{th}</button>)}
                       {rel.length > 0 && (
-                        <span className="text-[11px] text-lank/45">
-                          ↔ {t.codeIndex.related} : {rel.map((b, i) => <span key={b.num}>{i > 0 && ', '}<a href={`#${anchorOf(b.num)}`} className="text-lagon-700 hover:underline">{b.num.replace('-', ' ')}</a></span>)}
+                        <span className="text-[11px] text-ank/80">
+                          ↔ {t.codeIndex.related} : {rel.map((b, i) => <span key={b.num}>{i > 0 && ', '}<a href={`#${anchorOf(b.num)}`} className="text-chabon hover:underline">{b.num.replace('-', ' ')}</a></span>)}
                         </span>
                       )}
                     </div>

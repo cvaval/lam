@@ -75,7 +75,7 @@ export function JudicialSearch({ locale, t, layersQs }: { locale: Locale; t: Dic
 
   return (
     <div className="relative w-full max-w-xl">
-      <label htmlFor={`${listId}-input`} className="mb-1 block text-sm font-medium text-lank/70">
+      <label htmlFor={`${listId}-input`} className="mb-1 block text-sm font-medium text-grafit">
         {j.searchLabel}
       </label>
       <input
@@ -95,7 +95,7 @@ export function JudicialSearch({ locale, t, layersQs }: { locale: Locale; t: Dic
         onKeyDown={onKeyDown}
         onBlur={() => setTimeout(() => setOpen(false), 150)}
         onFocus={() => { if (items.length) setOpen(true) }}
-        className="min-h-[44px] w-full rounded-xl border border-lank/15 bg-white px-4 py-3 text-sm text-lank shadow-card outline-none ring-sitwon focus:ring-2"
+        className="min-h-[44px] w-full rounded-xl border border-chabon/15 bg-white px-4 py-3 text-sm text-ank outline-none ring-chabon focus:ring-2"
       />
       <div aria-live="polite" className="sr-only">{announce}</div>
       {open && (
@@ -103,10 +103,10 @@ export function JudicialSearch({ locale, t, layersQs }: { locale: Locale; t: Dic
           id={`${listId}-listbox`}
           role="listbox"
           aria-label={j.searchLabel}
-          className="absolute z-30 mt-1 max-h-80 w-full overflow-y-auto rounded-xl border border-lank/10 bg-white py-1 shadow-lg"
+          className="absolute z-30 mt-1 max-h-80 w-full overflow-y-auto rounded-xl border border-chabon/10 bg-white py-1 shadow-flottant"
         >
           {items.length === 0 ? (
-            <li role="presentation" className="px-4 py-2 text-sm text-lank/50">{j.noResults}</li>
+            <li role="presentation" className="px-4 py-2 text-sm text-ank/80">{j.noResults}</li>
           ) : (
             items.map((s, i) => (
               <li
@@ -116,11 +116,11 @@ export function JudicialSearch({ locale, t, layersQs }: { locale: Locale; t: Dic
                 aria-selected={i === active}
                 onMouseDown={(e) => { e.preventDefault(); select(s) }}
                 onMouseEnter={() => setActive(i)}
-                className={`cursor-pointer px-4 py-2 text-sm ${i === active ? 'bg-sitwon-50 text-lank' : 'text-lank/80'}`}
+                className={`cursor-pointer px-4 py-2 text-sm ${i === active ? 'bg-pil text-ank' : 'text-ank/80'}`}
               >
                 <span className="font-medium">{s.name}</span>
-                <span className="ml-2 text-xs text-lank/50">{s.department} · {s.arrondissement}</span>
-                {s.postalCode && <span className="ml-2 font-mono text-xs text-lank/45">{s.postalCode}</span>}
+                <span className="ml-2 text-xs text-ank/80">{s.department} · {s.arrondissement}</span>
+                {s.postalCode && <span className="ml-2 font-mono text-xs text-ank/80">{s.postalCode}</span>}
               </li>
             ))
           )}

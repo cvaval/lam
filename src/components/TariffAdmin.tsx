@@ -68,7 +68,7 @@ export function TariffAdmin({ locale, t, q, total, rows }: { locale: Locale; t: 
     if (window.confirm(`${t.tarifs.confirmDel}\n\n${r.code} — ${r.designation}`)) void send('DELETE', { id: r.id })
   }
 
-  const inputCls = 'w-full rounded-md border border-lank/15 bg-white px-2 py-1 text-xs text-lank outline-none focus:border-kannel'
+  const inputCls = 'w-full rounded-md border border-chabon/15 bg-white px-2 py-1 text-xs text-ank outline-none focus:border-liy'
   const field = (k: keyof Draft, ph: string, mono = false) => (
     <input
       value={draft[k]}
@@ -82,27 +82,27 @@ export function TariffAdmin({ locale, t, q, total, rows }: { locale: Locale; t: 
     <div className="space-y-4">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="text-lg font-semibold text-lank">{t.tarifs.adminTitle}</h1>
-          <p className="mt-0.5 text-sm text-lank/55">{t.tarifs.adminSub}</p>
+          <h1 className="text-lg font-semibold text-ank">{t.tarifs.adminTitle}</h1>
+          <p className="mt-0.5 text-sm text-ank/80">{t.tarifs.adminSub}</p>
         </div>
-        <button type="button" onClick={startAdd} className="rounded-lg bg-kannel px-3 py-2 text-sm font-medium text-white hover:bg-kannel-600">
+        <button type="button" onClick={startAdd} className="rounded-lg bg-chabon px-3 py-2 text-sm font-medium text-white hover:bg-chabon">
           + {t.tarifs.add}
         </button>
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-3">
         <form action={`/${locale}/admin/tarifs`} method="get" className="flex gap-2">
-          <input name="q" defaultValue={q} placeholder={t.tarifs.searchPlaceholder} className="w-72 rounded-lg border border-lank/15 bg-white px-3 py-1.5 text-sm text-lank outline-none focus:border-kannel" />
-          <button type="submit" className="rounded-lg border border-lank/15 bg-white px-3 py-1.5 text-sm text-lank hover:bg-paper">{t.common.search}</button>
+          <input name="q" defaultValue={q} placeholder={t.tarifs.searchPlaceholder} className="w-72 rounded-lg border border-chabon/15 bg-white px-3 py-1.5 text-sm text-ank outline-none focus:border-liy" />
+          <button type="submit" className="rounded-lg border border-chabon/15 bg-white px-3 py-1.5 text-sm text-ank hover:bg-koton">{t.common.search}</button>
         </form>
-        <span className="text-sm text-lank/50">{total.toLocaleString('fr')} {t.tarifs.results}</span>
+        <span className="text-sm text-ank/80">{total.toLocaleString('fr')} {t.tarifs.results}</span>
       </div>
 
-      {error && <p className="rounded-lg bg-brim-50 px-3 py-2 text-sm text-brim-700">{error}</p>}
-      {saved && <p role="status" className="rounded-lg bg-fey/10 px-3 py-2 text-sm font-medium text-fey">✓ {t.tarifs.saved}</p>}
+      {error && <p className="rounded-lg bg-pil px-3 py-2 text-sm text-chabon">{error}</p>}
+      {saved && <p role="status" className="rounded-lg bg-chabon/10 px-3 py-2 text-sm font-medium text-chabon">✓ {t.tarifs.saved}</p>}
 
       {adding && (
-        <div className="rounded-xl border border-kannel/40 bg-kannel-50 p-3">
+        <div className="rounded-xl border border-chabon/40 bg-pil p-3">
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-7">
             {field('code', t.tarifs.thCode, true)}
             <div className="sm:col-span-2">{field('designation', t.tarifs.thDesignation)}</div>
@@ -116,16 +116,16 @@ export function TariffAdmin({ locale, t, q, total, rows }: { locale: Locale; t: 
             {field('note', t.tarifs.thNote)}
           </div>
           <div className="mt-2 flex items-center justify-end gap-2">
-            <button type="button" disabled={busy} onClick={save} className="shrink-0 rounded-lg bg-kannel px-3 py-1.5 text-sm font-medium text-white hover:bg-kannel-600 disabled:opacity-50">{t.tarifs.save}</button>
-            <button type="button" onClick={cancel} className="shrink-0 rounded-lg border border-lank/15 px-3 py-1.5 text-sm text-lank/70 hover:bg-paper">{t.tarifs.cancel}</button>
+            <button type="button" disabled={busy} onClick={save} className="shrink-0 rounded-lg bg-chabon px-3 py-1.5 text-sm font-medium text-white hover:bg-chabon disabled:opacity-50">{t.tarifs.save}</button>
+            <button type="button" onClick={cancel} className="shrink-0 rounded-lg border border-chabon/15 px-3 py-1.5 text-sm text-grafit hover:bg-koton">{t.tarifs.cancel}</button>
           </div>
         </div>
       )}
 
-      <div className="overflow-x-auto rounded-2xl border border-lank/10 bg-white shadow-card">
-        <table className="w-full border-collapse text-[13px] text-lank/90">
+      <div className="overflow-x-auto rounded-2xl border border-chabon/10 bg-white">
+        <table className="w-full border-collapse text-[13px] text-ank/90">
           <thead>
-            <tr className="border-b border-lank/15 bg-paper text-left text-xs uppercase tracking-wide text-lank/55">
+            <tr className="border-b border-chabon/15 bg-koton text-left text-xs uppercase tracking-wide text-ank/80">
               <th className="px-3 py-2 font-semibold">{t.tarifs.thCode}</th>
               <th className="px-3 py-2 font-semibold">{t.tarifs.thDesignation}</th>
               <th className="px-3 py-2 font-semibold">{t.tarifs.thUnite}</th>
@@ -137,11 +137,11 @@ export function TariffAdmin({ locale, t, q, total, rows }: { locale: Locale; t: 
           </thead>
           <tbody>
             {rows.length === 0 && (
-              <tr><td colSpan={7} className="px-3 py-8 text-center text-lank/40">{q ? t.tarifs.empty : t.tarifs.emptyAll}</td></tr>
+              <tr><td colSpan={7} className="px-3 py-8 text-center text-ank/80">{q ? t.tarifs.empty : t.tarifs.emptyAll}</td></tr>
             )}
             {rows.map((r) =>
               editingId === r.id ? (
-                <tr key={r.id} className="bg-kannel-50/60">
+                <tr key={r.id} className="bg-pil/60">
                   <td className="px-2 py-1.5">{field('code', t.tarifs.thCode, true)}</td>
                   <td className="space-y-1 px-2 py-1.5">{field('designation', t.tarifs.thDesignation)}{field('note', t.tarifs.thNote)}{field('ddRef', t.tarifs.thRef)}</td>
                   <td className="px-2 py-1.5">{field('unite', t.tarifs.thUnite)}</td>
@@ -149,21 +149,21 @@ export function TariffAdmin({ locale, t, q, total, rows }: { locale: Locale; t: 
                   <td className="px-2 py-1.5">{field('tca', t.tarifs.thTca)}</td>
                   <td className="px-2 py-1.5">{field('accises', t.tarifs.thAccises)}</td>
                   <td className="whitespace-nowrap px-2 py-1.5 text-right">
-                    <button type="button" disabled={busy} onClick={save} className="rounded-md bg-kannel px-2 py-1 text-xs font-medium text-white hover:bg-kannel-600 disabled:opacity-50">{t.tarifs.save}</button>
-                    <button type="button" onClick={cancel} className="ml-1 rounded-md border border-lank/15 px-2 py-1 text-xs text-lank/70 hover:bg-paper">{t.tarifs.cancel}</button>
+                    <button type="button" disabled={busy} onClick={save} className="rounded-md bg-chabon px-2 py-1 text-xs font-medium text-white hover:bg-chabon disabled:opacity-50">{t.tarifs.save}</button>
+                    <button type="button" onClick={cancel} className="ml-1 rounded-md border border-chabon/15 px-2 py-1 text-xs text-grafit hover:bg-koton">{t.tarifs.cancel}</button>
                   </td>
                 </tr>
               ) : (
-                <tr key={r.id} className="border-b border-lank/5 last:border-0 hover:bg-paper">
-                  <td className="whitespace-nowrap px-3 py-1.5 font-mono text-xs font-medium text-lank">{r.code}</td>
-                  <td className="px-3 py-1.5">{tariffLabel(r.designation).label}{r.note && <span className="mt-0.5 block text-[11px] text-lank/45">{r.note}</span>}{r.ddRef && <span className="mt-0.5 block text-[11px] text-kannel-700/80">ⓘ {r.ddRef}</span>}</td>
-                  <td className="whitespace-nowrap px-3 py-1.5 text-lank/70">{r.unite ?? '—'}</td>
+                <tr key={r.id} className="border-b border-chabon/5 last:border-0 hover:bg-koton">
+                  <td className="whitespace-nowrap px-3 py-1.5 font-mono text-xs font-medium text-ank">{r.code}</td>
+                  <td className="px-3 py-1.5">{tariffLabel(r.designation).label}{r.note && <span className="mt-0.5 block text-[11px] text-ank/80">{r.note}</span>}{r.ddRef && <span className="mt-0.5 block text-[11px] text-chabon/80">ⓘ {r.ddRef}</span>}</td>
+                  <td className="whitespace-nowrap px-3 py-1.5 text-grafit">{r.unite ?? '—'}</td>
                   <td className="px-3 py-1.5 text-right tabular-nums whitespace-nowrap">{r.dd ?? '—'}</td>
                   <td className="px-3 py-1.5 text-right tabular-nums whitespace-nowrap">{r.tca ?? '—'}</td>
                   <td className="px-3 py-1.5 text-right tabular-nums whitespace-nowrap">{r.accises ?? '—'}</td>
                   <td className="whitespace-nowrap px-3 py-1.5 text-right">
-                    <button type="button" onClick={() => startEdit(r)} className="rounded-md border border-lank/15 px-2 py-1 text-xs text-lank/70 hover:bg-paper">{t.tarifs.edit}</button>
-                    <button type="button" onClick={() => remove(r)} className="ml-1 rounded-md border border-brim/30 px-2 py-1 text-xs text-brim-700 hover:bg-brim-50">{t.tarifs.del}</button>
+                    <button type="button" onClick={() => startEdit(r)} className="rounded-md border border-chabon/15 px-2 py-1 text-xs text-grafit hover:bg-koton">{t.tarifs.edit}</button>
+                    <button type="button" onClick={() => remove(r)} className="ml-1 rounded-md border border-chabon/30 px-2 py-1 text-xs text-chabon hover:bg-pil">{t.tarifs.del}</button>
                   </td>
                 </tr>
               ),

@@ -65,7 +65,7 @@ export function HomeHeroCarousel({
             aria-roledescription="slide"
             aria-label={`${i + 1} / 2 — ${slideLabels[i]}`}
             aria-hidden={active !== i}
-            className={`col-start-1 row-start-1 transition-opacity duration-500 motion-reduce:transition-none ${
+            className={`col-start-1 row-start-1 transition-opacity duration-200 motion-reduce:transition-none ${
               active === i ? 'opacity-100' : 'pointer-events-none opacity-0'
             }`}
             // inert empêche le focus clavier d'atteindre la diapositive masquée
@@ -82,7 +82,7 @@ export function HomeHeroCarousel({
           type="button"
           onClick={() => interact((active + 1) % 2)}
           aria-label={prevLabel}
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-cream/20 text-cream/70 outline-none ring-sitwon transition hover:border-sitwon hover:text-sitwon focus-visible:ring-2"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-koton/20 text-koton/70 outline-none ring-sitwon transition hover:border-liy hover:text-koton focus-visible:ring-2"
         >
           ‹
         </button>
@@ -95,7 +95,7 @@ export function HomeHeroCarousel({
             onClick={() => interact(i)}
             className={`flex h-11 items-center rounded-full px-2 outline-none ring-sitwon focus-visible:ring-2`}
           >
-            <span className={`block h-2.5 rounded-full transition-all ${active === i ? 'w-8 bg-sitwon' : 'w-2.5 bg-cream/30 hover:bg-cream/50'}`} />
+            <span className={`block h-2.5 rounded-full transition-all ${active === i ? 'w-8 bg-sitwon' : 'w-2.5 bg-koton/30 hover:bg-koton/50'}`} />
             <span className="sr-only">{slideLabels[i]}</span>
           </button>
         ))}
@@ -103,7 +103,7 @@ export function HomeHeroCarousel({
           type="button"
           onClick={() => interact((active + 1) % 2)}
           aria-label={nextLabel}
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-cream/20 text-cream/70 outline-none ring-sitwon transition hover:border-sitwon hover:text-sitwon focus-visible:ring-2"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-koton/20 text-koton/70 outline-none ring-sitwon transition hover:border-liy hover:text-koton focus-visible:ring-2"
         >
           ›
         </button>

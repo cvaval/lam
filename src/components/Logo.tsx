@@ -1,11 +1,11 @@
 /**
  * Marque officielle Lam — le fruit à pain (« lam veritab »), le fruit du savoir.
- * Les visuels viennent du kit de marque officiel (public/brand/, juin 2026) :
+ * Les visuels viennent du kit de marque officiel (public/brand/, août 2026 — système « Klinik ») :
  *  - Lam_Logo_Principal.svg          logotype fruit + « lam » (fond clair)
  *  - Lam_Logo_FondFonce.svg          idem en crème (fond navy)
  *  - Lam_Logo_Principal_Baseline.svg logotype + « LE FRUIT DU SAVOIR »
- *  - Lam_Fruit(.svg|_FondFonce.svg)  fruit seul (extrait du logotype — favicon,
- *                                    barre admin, écran 2FA)
+ *  - Lam_Marque_Klinik.svg           marque seule (favicon vectoriel, barre admin, 2FA)
+ *  - Lam_AppIcon_Klinik.svg          marque sur carré Chabon — variante « fond foncé »
  * Le PNG (Lam_Logo_Principal.png) est servi dans public/brand/ pour les usages
  * hors interface (e-mails riches, documents) ; l'interface utilise les SVG
  * vectoriels du même kit.
@@ -14,9 +14,10 @@
 // Proportions des fichiers du kit (viewBox) — évitent tout décalage de mise en page.
 const LOGO_RATIO = 315 / 140 // logotype principal
 const BASELINE_RATIO = 315 / 150 // variante avec baseline (plus haute)
-const FRUIT_RATIO = 92 / 124 // fruit seul
+// La marque « Klinik » est CARRÉE (viewBox 132×132), là où le fruit v1 était en 92×124.
+const FRUIT_RATIO = 1 // marque seule
 
-/** Fruit seul (favicon, barre admin, 2FA). tone="dark" = contour crème sur fond navy. */
+/** Fruit seul (favicon, barre admin, 2FA). tone="dark" = marque Koton sur carré Chabon. */
 export function FruitMark({
   size = 28,
   tone = 'light',
@@ -29,7 +30,7 @@ export function FruitMark({
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={tone === 'dark' ? '/brand/Lam_Fruit_FondFonce.svg' : '/brand/Lam_Fruit.svg'}
+      src={tone === 'dark' ? '/brand/Lam_AppIcon_Klinik.svg' : '/brand/Lam_Marque_Klinik.svg'}
       alt=""
       aria-hidden
       width={Math.round(size * FRUIT_RATIO)}

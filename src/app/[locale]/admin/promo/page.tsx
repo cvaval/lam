@@ -31,8 +31,8 @@ export default async function AdminPromoPage({ params }: { params: { locale: str
   return (
     <div className="space-y-5">
       <div>
-        <h1 className="text-xl font-semibold text-lank">{t.promo.title}</h1>
-        <p className="mt-1 text-sm text-lank/55">{t.promo.subtitle}</p>
+        <h1 className="text-xl font-semibold text-ank">{t.promo.title}</h1>
+        <p className="mt-1 text-sm text-ank/80">{t.promo.subtitle}</p>
       </div>
       <PromoManager t={t} codes={codeRows} users={assignUsers} />
     </div>

@@ -26,7 +26,7 @@ export function RegisterForm({ t }: { t: Dictionary }) {
   }
 
   if (done) {
-    return <p className="rounded-lg bg-sitwon-50 px-4 py-3 text-sm text-lank">{t.register.done}</p>
+    return <p className="rounded-lg bg-pil px-4 py-3 text-sm text-ank">{t.register.done}</p>
   }
 
   return (
@@ -34,19 +34,19 @@ export function RegisterForm({ t }: { t: Dictionary }) {
       <input
         name="name"
         placeholder={t.register.name}
-        className="w-full rounded-lg border border-lank/15 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-sitwon"
+        className="w-full rounded-lg border border-chabon/15 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-liy"
       />
       <input
         name="org"
         placeholder={t.register.org}
-        className="w-full rounded-lg border border-lank/15 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-sitwon"
+        className="w-full rounded-lg border border-chabon/15 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-liy"
       />
       <input
         name="email"
         type="email"
         required
         placeholder={t.home.emailLabel}
-        className="w-full rounded-lg border border-lank/15 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-sitwon"
+        className="w-full rounded-lg border border-chabon/15 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-liy"
       />
       <input
         name="password"
@@ -54,13 +54,17 @@ export function RegisterForm({ t }: { t: Dictionary }) {
         required
         minLength={8}
         placeholder={t.home.passwordLabel}
-        className="w-full rounded-lg border border-lank/15 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-sitwon"
+        className="w-full rounded-lg border border-chabon/15 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-liy"
       />
-      {error && <p className="text-sm text-red-700">{error}</p>}
+      {error && (
+        <p role="alert" className="rounded-lg border-l-2 border-wouj bg-white px-3 py-2 text-sm text-wouj">
+          {error}
+        </p>
+      )}
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-lg bg-lank py-2.5 text-sm font-semibold text-white hover:bg-lank-600 disabled:opacity-60"
+        className="w-full rounded-lg bg-sitwon py-2.5 text-sm font-semibold text-chabon hover:brightness-95 disabled:opacity-60"
       >
         {loading ? t.common.loading : t.register.submit}
       </button>

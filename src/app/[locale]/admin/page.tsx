@@ -31,21 +31,21 @@ export default async function AdminOverview({ params }: { params: { locale: stri
 
   return (
     <div className="space-y-8">
-      <h1 className="text-xl font-semibold text-lank">{t.admin.overview}</h1>
+      <h1 className="text-xl font-semibold text-ank">{t.admin.overview}</h1>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         {kpis.map((k) => (
-          <div key={k.label} className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
-            <p className="font-mono text-4xl font-semibold tracking-tight text-lank">{k.value.toLocaleString('fr')}</p>
-            <p className="mt-1 text-xs uppercase tracking-wide text-lank/45">{k.label}</p>
+          <div key={k.label} className="rounded-2xl border border-chabon/10 bg-white p-5">
+            <p className="font-mono text-4xl font-semibold tracking-tight text-ank">{k.value.toLocaleString('fr')}</p>
+            <p className="mt-1 text-xs uppercase tracking-wide text-ank/80">{k.label}</p>
           </div>
         ))}
       </div>
 
       <section>
-        <h2 className="mb-3 text-sm font-semibold text-lank">{t.admin.pending}</h2>
+        <h2 className="mb-3 text-sm font-semibold text-ank">{t.admin.pending}</h2>
         <UsersManager users={pendingUsers} t={t} locale={locale} mode="pending" />
-        <p className="mt-3 max-w-2xl text-xs leading-relaxed text-lank/45">{t.admin.activateNote}</p>
+        <p className="mt-3 max-w-2xl text-xs leading-relaxed text-ank/80">{t.admin.activateNote}</p>
       </section>
     </div>
   )

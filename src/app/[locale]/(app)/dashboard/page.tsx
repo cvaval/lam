@@ -55,7 +55,6 @@ export default async function DashboardPage({ params }: { params: { locale: stri
       type,
       slug: m.slug,
       num: m.num,
-      color: m.color,
       label: m.label[locale],
       feature: m.feature[locale],
       newCount: newByType.get(type) ?? 0,
@@ -65,7 +64,7 @@ export default async function DashboardPage({ params }: { params: { locale: stri
   return (
     <div className="space-y-8">
       <div className="mx-auto max-w-2xl pt-2 text-center">
-        <p className="text-sm text-lank/55">
+        <p className="text-sm text-ank/80">
           {t.dashboard.greeting}
           {user.name ? `, ${user.name.split(' ')[0]}` : ''}.
         </p>
@@ -81,8 +80,8 @@ export default async function DashboardPage({ params }: { params: { locale: stri
 
       <section>
         <div className="mb-3 flex items-center justify-between gap-3">
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-lank/45">{t.dashboard.quickAccess}</h2>
-          <span className="text-[11px] text-lank/35">{t.dashboard.reorderTip}</span>
+          <h2 className="text-xs font-semibold uppercase tracking-wide text-ank/80">{t.dashboard.quickAccess}</h2>
+          <span className="text-[11px] text-ank/80">{t.dashboard.reorderTip}</span>
         </div>
         <SectionTiles
           tiles={tiles}
@@ -104,17 +103,17 @@ export default async function DashboardPage({ params }: { params: { locale: stri
         <section>
           <div className="mb-3 flex items-end justify-between">
             <div>
-              <h2 className="flex items-center gap-2 text-sm font-semibold text-lank">
-                <span className="inline-flex h-5 items-center rounded-full bg-sitwon px-2 text-[10px] font-bold uppercase tracking-wide text-lank">
+              <h2 className="flex items-center gap-2 text-sm font-semibold text-ank">
+                <span className="inline-flex h-5 items-center rounded-full bg-chabon px-2 text-[10px] font-bold uppercase tracking-wide text-koton">
                   {t.dashboard.whatsNew}
                 </span>
-                <span className="text-lank/55">
+                <span className="text-ank/80">
                   {newCount.toLocaleString('fr')} {t.dashboard.newEntries}
                 </span>
               </h2>
-              <p className="mt-1 text-xs text-lank/40">{t.dashboard.whatsNewSub}</p>
+              <p className="mt-1 text-xs text-ank/80">{t.dashboard.whatsNewSub}</p>
             </div>
-            <Link href={`/${locale}/search?type=index`} className="text-xs font-medium text-endeks-700 hover:underline">
+            <Link href={`/${locale}/search?type=index`} className="text-xs font-medium text-chabon hover:underline">
               {t.dashboard.viewAll} →
             </Link>
           </div>
@@ -123,12 +122,12 @@ export default async function DashboardPage({ params }: { params: { locale: stri
               <Link
                 key={d.id}
                 href={`/${locale}/doc/${d.id}`}
-                className="flex items-start gap-3 rounded-xl border border-lank/10 bg-white px-4 py-3 shadow-card transition hover:-translate-y-0.5 hover:shadow-lg"
+                className="flex items-start gap-3 rounded-xl border border-chabon/10 bg-white px-4 py-3 transition hover:-translate-y-0.5 hover:"
               >
                 <TypeBadge type={d.type as DocType} />
                 <span className="min-w-0 flex-1">
-                  <span className="line-clamp-2 text-sm text-lank">{d.titleFr}</span>
-                  {d.moniteurRef && <span className="mt-0.5 block truncate text-[11px] text-lank/40">{d.moniteurRef}</span>}
+                  <span className="line-clamp-2 text-sm text-ank">{d.titleFr}</span>
+                  {d.moniteurRef && <span className="mt-0.5 block truncate text-[11px] text-ank/80">{d.moniteurRef}</span>}
                 </span>
               </Link>
             ))}
@@ -138,32 +137,32 @@ export default async function DashboardPage({ params }: { params: { locale: stri
 
       <section className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <div>
-          <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-lank/45">{t.dashboard.recent}</h2>
-          <div className="rounded-2xl border border-lank/10 bg-white p-2 shadow-card">
-            {recent.length === 0 && <p className="px-3 py-6 text-center text-sm text-lank/40">{t.dashboard.empty}</p>}
+          <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-ank/80">{t.dashboard.recent}</h2>
+          <div className="rounded-2xl border border-chabon/10 bg-white p-2">
+            {recent.length === 0 && <p className="px-3 py-6 text-center text-sm text-ank/80">{t.dashboard.empty}</p>}
             {recent.map((r) => (
               <Link
                 key={r.id}
                 href={`/${locale}/search?q=${encodeURIComponent(r.query)}`}
-                className="flex items-center justify-between rounded-lg px-3 py-2 text-sm text-lank hover:bg-paper"
+                className="flex items-center justify-between rounded-lg px-3 py-2 text-sm text-ank hover:bg-koton"
               >
                 <span className="truncate">{r.query}</span>
-                <span className="ml-2 shrink-0 text-xs text-lank/35">{r.resultsCount}</span>
+                <span className="ml-2 shrink-0 text-xs text-ank/80">{r.resultsCount}</span>
               </Link>
             ))}
           </div>
         </div>
         <div>
-          <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-lank/45">{t.dashboard.favorites}</h2>
-          <div className="rounded-2xl border border-lank/10 bg-white p-2 shadow-card">
+          <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-ank/80">{t.dashboard.favorites}</h2>
+          <div className="rounded-2xl border border-chabon/10 bg-white p-2">
             {favorites.length === 0 && (
-              <p className="px-3 py-6 text-center text-sm text-lank/40">{t.dashboard.empty}</p>
+              <p className="px-3 py-6 text-center text-sm text-ank/80">{t.dashboard.empty}</p>
             )}
             {favorites.map((f) => (
               <Link
                 key={f.id}
                 href={`/${locale}/doc/${f.documentId}`}
-                className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-lank hover:bg-paper"
+                className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-ank hover:bg-koton"
               >
                 <Pastille type={f.document.type as DocType} />
                 <span className="truncate">{f.document.titleFr}</span>

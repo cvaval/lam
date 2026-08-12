@@ -231,7 +231,7 @@ const FALLBACK_COMPANIES: CompanyRecord[] = [
 
 function markSvgDataUrl(name: string): string {
   const initials = name.replace(/[^A-Za-zÀ-ÿ ]/g, '').split(/\s+/).slice(0, 2).map((w) => w[0]?.toUpperCase() ?? '').join('')
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><rect width='120' height='120' rx='14' fill='${BRAND_COLORS.lank}'/><circle cx='60' cy='60' r='30' fill='${BRAND_COLORS.sitwon}' opacity='0.9'/><text x='60' y='70' font-family='Georgia' font-size='34' font-weight='bold' text-anchor='middle' fill='${BRAND_COLORS.lank}'>${initials}</text></svg>`
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><rect width='120' height='120' rx='14' fill='${BRAND_COLORS.chabon}'/><circle cx='60' cy='60' r='30' fill='${BRAND_COLORS.koton}' opacity='0.9'/><text x='60' y='70' font-family='Georgia' font-size='34' font-weight='bold' text-anchor='middle' fill='${BRAND_COLORS.chabon}'>${initials}</text></svg>`
   return `data:image/svg+xml,${encodeURIComponent(svg)}`
 }
 

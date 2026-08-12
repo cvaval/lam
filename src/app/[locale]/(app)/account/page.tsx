@@ -34,18 +34,18 @@ export default async function AccountPage({ params }: { params: { locale: string
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
-      <header className="rounded-2xl border border-lank/10 bg-white p-6 shadow-card">
-        <h1 className="text-xl font-semibold text-lank">{t.nav.account}</h1>
-        <p className="mt-1 text-sm text-lank/60">{user.email}</p>
+      <header className="rounded-2xl border border-chabon/10 bg-white p-6">
+        <h1 className="text-xl font-semibold text-ank">{t.nav.account}</h1>
+        <p className="mt-1 text-sm text-grafit">{user.email}</p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
-          <span className="rounded-full bg-lank px-3 py-1 text-sm font-semibold text-white">{t.roles[user.role]}</span>
+          <span className="rounded-full bg-chabon px-3 py-1 text-sm font-semibold text-white">{t.roles[user.role]}</span>
           {remaining != null && (
-            <span className="text-sm text-lank/55">
+            <span className="text-sm text-ank/80">
               {remaining} / {user.monthlyQuota} {t.account.searchesRemaining}
             </span>
           )}
           {user.planExpiresAt && (
-            <span className="rounded-full bg-sitwon-50 px-3 py-1 text-xs font-medium text-sitwon-700">
+            <span className="rounded-full bg-pil px-3 py-1 text-xs font-medium text-chabon">
               {t.promo.planExpires} {formatDate(locale, user.planExpiresAt)}
             </span>
           )}
@@ -55,22 +55,27 @@ export default async function AccountPage({ params }: { params: { locale: string
       <RedeemPromo t={t} />
 
       {alerts && (
-        <section className="rounded-2xl border border-lank/10 bg-white p-6 shadow-card">
-          <h2 className="text-sm font-semibold text-lank">{t.alerts.title}</h2>
-          <p className="mb-4 mt-1 text-xs text-lank/50">{t.alerts.hint}</p>
+        <section className="rounded-2xl border border-chabon/10 bg-white p-6">
+          <h2 className="text-sm font-semibold text-ank">{t.alerts.title}</h2>
+          <p className="mb-4 mt-1 text-xs text-ank/80">{t.alerts.hint}</p>
           <AlertsManager initial={alerts} locale={locale} t={t} />
         </section>
       )}
 
-      <section className="rounded-2xl border border-lank/10 bg-white p-6 shadow-card">
-        <h2 className="mb-4 text-sm font-semibold text-lank">{t.account.capabilitiesTitle}</h2>
-        <ul className="divide-y divide-lank/5">
+      <section className="rounded-2xl border border-chabon/10 bg-white p-6">
+        <h2 className="mb-4 text-sm font-semibold text-ank">{t.account.capabilitiesTitle}</h2>
+        <ul className="divide-y divide-chabon/5">
           {(Object.keys(t.account.caps) as Capability[]).map((cap) => {
             const g = grantText(matrix[cap], t)
             return (
               <li key={cap} className="flex items-center justify-between py-2.5 text-sm">
-                <span className="text-lank/75">{t.account.caps[cap]}</span>
-                <span className={g.ok ? 'font-medium text-fey' : 'text-lank/35'}>{g.label}</span>
+                <span className="text-ank/75">{t.account.caps[cap]}</span>
+                {/* Pictogramme EN PLUS du libellé : la charte interdit toute information
+                    portée par la couleur seule, et l'œil balaie ici une colonne entière. */}
+                <span className={g.ok ? 'font-medium text-vet' : 'text-ank/80'}>
+                  <span aria-hidden className="mr-1">{g.ok ? '✓' : '—'}</span>
+                  {g.label}
+                </span>
               </li>
             )
           })}

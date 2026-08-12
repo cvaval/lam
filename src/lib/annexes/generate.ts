@@ -45,9 +45,12 @@ import { BRAND_COLORS } from '@/lib/brand-colors'
 import { formatDate } from '@/lib/i18n/format'
 import type { Locale } from '@/lib/types'
 
-const LANK = BRAND_COLORS.lank.replace('#', '') // 1C1B3A
-const SITWON = BRAND_COLORS.sitwon.replace('#', '') // BEF264
-const HEADER_FILL = 'E8E7F0' // lank très clair pour les en-têtes sans couleur propre
+// Palette « Klinik » v3.0. Le filet de titre est en SITWON, couleur de l'usage : un fichier
+// d'annexes est produit à la demande du lecteur. WOUJ reste au certificateur.
+const CHABON = BRAND_COLORS.chabon.replace('#', '') // 414042
+const SITWON = BRAND_COLORS.sitwon.replace('#', '') // FDD228
+const ANK = BRAND_COLORS.ank.replace('#', '') // 3F4043
+const HEADER_FILL = BRAND_COLORS.pil.replace('#', '') // F2F1EE — en-têtes de tableau
 
 /** Couleur hex 6 chiffres (sans #) pour docx/exceljs ; sinon `fallback`. */
 function hx(v: string | undefined, fallback?: string): string | undefined {
@@ -119,7 +122,7 @@ function docAlign(a: RichCell['align']): (typeof AlignmentType)[keyof typeof Ali
 function docCell(cell: RichCell): TableCell {
   const isHeader = cell.header === true
   const fill = hx(cell.bg, isHeader ? HEADER_FILL : undefined)
-  const textColor = hx(cell.color, isHeader ? LANK : '1A1F29')
+  const textColor = hx(cell.color, isHeader ? CHABON : ANK)
   return new TableCell({
     columnSpan: cell.colSpan,
     rowSpan: cell.rowSpan,
@@ -182,11 +185,11 @@ export async function buildAnnexesDocx(input: AnnexeInput): Promise<Buffer> {
   const footer = new Footer({
     children: [
       new Paragraph({
-        border: { top: { style: BorderStyle.SINGLE, size: 4, color: LANK } },
+        border: { top: { style: BorderStyle.SINGLE, size: 4, color: CHABON } },
         spacing: { before: 60 },
         children: [
-          new TextRun({ text: d.line1 + ' ', bold: true, color: LANK, size: 14 }),
-          new TextRun({ text: d.line2, color: LANK, size: 14 }),
+          new TextRun({ text: d.line1 + ' ', bold: true, color: CHABON, size: 14 }),
+          new TextRun({ text: d.line2, color: CHABON, size: 14 }),
         ],
       }),
       new Paragraph({
@@ -202,13 +205,13 @@ export async function buildAnnexesDocx(input: AnnexeInput): Promise<Buffer> {
   const children: (Paragraph | Table)[] = [
     new Paragraph({
       spacing: { after: 60 },
-      children: [new TextRun({ text: BRAND.name.toUpperCase(), bold: true, color: LANK, size: 22 })],
+      children: [new TextRun({ text: BRAND.name.toUpperCase(), bold: true, color: CHABON, size: 22 })],
     }),
     new Paragraph({
       spacing: { after: 40 },
       children: [
-        new TextRun({ text: input.locale === 'en' ? 'Annexes — ' : input.locale === 'ht' ? 'Anèks — ' : 'Annexes — ', bold: true, color: LANK, size: 30 }),
-        new TextRun({ text: input.number ? `${input.number}` : '', bold: true, color: LANK, size: 30 }),
+        new TextRun({ text: input.locale === 'en' ? 'Annexes — ' : input.locale === 'ht' ? 'Anèks — ' : 'Annexes — ', bold: true, color: CHABON, size: 30 }),
+        new TextRun({ text: input.number ? `${input.number}` : '', bold: true, color: CHABON, size: 30 }),
       ],
     }),
     new Paragraph({
@@ -228,7 +231,7 @@ export async function buildAnnexesDocx(input: AnnexeInput): Promise<Buffer> {
       children.push(
         new Paragraph({
           spacing: { before: 240, after: 80 },
-          children: [new TextRun({ text: headingBits, bold: true, color: LANK, size: 22 })],
+          children: [new TextRun({ text: headingBits, bold: true, color: CHABON, size: 22 })],
         }),
       )
       children.push(docTable(block))
@@ -292,11 +295,11 @@ export async function buildAnnexesXlsx(input: AnnexeInput): Promise<Buffer> {
     let r = 1
     const titleCell = sheet.getCell(`A${r}`)
     titleCell.value = `${BRAND.name.toUpperCase()} · ${input.number ?? ''}`
-    titleCell.font = { bold: true, size: 13, color: { argb: 'FF' + LANK } }
+    titleCell.font = { bold: true, size: 13, color: { argb: 'FF' + CHABON } }
     r += 1
     const capCell = sheet.getCell(`A${r}`)
     capCell.value = [annexeLabel(input.locale, tableNo), block.caption].filter(Boolean).join(' — ')
-    capCell.font = { bold: true, size: 11, color: { argb: 'FF' + LANK } }
+    capCell.font = { bold: true, size: 11, color: { argb: 'FF' + CHABON } }
     r += 1
     for (const note of pendingNotes) {
       const n = sheet.getCell(`A${r}`)
@@ -321,7 +324,7 @@ export async function buildAnnexesXlsx(input: AnnexeInput): Promise<Buffer> {
         xc.font = {
           bold: cell.header === true || cell.bold === true,
           size: 10,
-          color: { argb: 'FF' + (hx(cell.color, cell.header ? LANK : '1A1F29') ?? '1A1F29') },
+          color: { argb: 'FF' + (hx(cell.color, cell.header ? CHABON : '1A1F29') ?? '1A1F29') },
         }
         xc.alignment = xlAlign(cell.align)
         xc.border = {

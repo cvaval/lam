@@ -34,15 +34,15 @@ export function AdvancedSearch({
   const sections = DOC_TYPE_LIST.filter((m) => allowed.includes(m.type))
   const currentType = values.type ? TYPE_SLUGS[values.type] : undefined
   const showStatus = !currentType || STATUS_TYPES.includes(currentType)
-  const label = 'text-[11px] font-semibold uppercase tracking-wide text-lank/45'
+  const label = 'text-[11px] font-semibold uppercase tracking-wide text-ank/45'
 
   return (
     <details
       open={open}
-      className="no-print rounded-2xl border border-lank/10 bg-white shadow-card open:pb-4"
+      className="no-print rounded-2xl border border-chabon/10 bg-white open:pb-4"
     >
-      <summary className="flex cursor-pointer select-none items-center gap-2 px-4 py-3 text-sm font-semibold text-lank">
-        <svg viewBox="0 0 24 24" className="h-4 w-4 text-lank/45" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+      <summary className="flex cursor-pointer select-none items-center gap-2 px-4 py-3 text-sm font-semibold text-ank">
+        <svg viewBox="0 0 24 24" className="h-4 w-4 text-ank/80" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden strokeLinecap="round" strokeLinejoin="round">
           <path d="M4 6h16M7 12h10M10 18h4" strokeLinecap="round" />
         </svg>
         {t.search.advanced}
@@ -69,7 +69,7 @@ export function AdvancedSearch({
         <div className="flex flex-col gap-1">
           <span className={label}>{t.search.period}</span>
           <div className="flex items-center gap-1.5">
-            <label htmlFor="adv-from" className="text-xs text-lank/50">
+            <label htmlFor="adv-from" className="text-xs text-ank/80">
               {t.search.yearFrom}
             </label>
             <div className="w-24">
@@ -84,7 +84,7 @@ export function AdvancedSearch({
                 className={fieldCls}
               />
             </div>
-            <label htmlFor="adv-to" className="text-xs text-lank/50">
+            <label htmlFor="adv-to" className="text-xs text-ank/80">
               {t.search.yearTo}
             </label>
             <div className="w-24">
@@ -120,13 +120,13 @@ export function AdvancedSearch({
           </div>
         )}
         <div className="flex items-center gap-3">
-          <button type="submit" className="rounded-lg bg-lank px-4 py-1.5 text-sm font-semibold text-white hover:bg-lank-600">
+          <button type="submit" className="rounded-lg bg-sitwon px-4 py-1.5 text-sm font-semibold text-chabon hover:brightness-95">
             {t.search.apply}
           </button>
           {/* Réinitialise les CRITÈRES ; la requête appartient à la barre du haut. */}
           <Link
             href={`/${locale}/search?adv=1${values.q ? `&q=${encodeURIComponent(values.q)}` : ''}`}
-            className="text-xs text-lank/45 hover:text-lank/70 hover:underline"
+            className="text-xs text-ank/45 hover:text-ank/70 hover:underline"
           >
             {t.search.reset}
           </Link>

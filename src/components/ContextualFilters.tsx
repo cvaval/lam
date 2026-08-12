@@ -42,7 +42,7 @@ export function ContextualFilters({
       key={label}
       href={`/${locale}/search?${qs(base, patch)}`}
       className={`rounded-full border px-2.5 py-1 text-xs ${
-        on ? 'border-sitwon-600 bg-sitwon-50 text-lank' : 'border-lank/15 bg-white text-lank/60 hover:border-lank/40'
+        on ? 'border-liy bg-pil text-ank' : 'border-chabon/15 bg-white text-grafit hover:border-chabon/40'
       }`}
     >
       {label}
@@ -53,14 +53,14 @@ export function ContextualFilters({
   // entrée en vigueur. Rendu pour TOUS les types — les circulaires BRH y ajoutent
   // le tri par numéro dans leur bloc dédié ci-dessous.
   const sortIcon = (
-    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden strokeLinecap="round" strokeLinejoin="round">
       <path d="M3 6h11M3 12h8M3 18h5" strokeLinecap="round" />
       <path d="M18 9l3-3 3 3M21 6v12" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
   const sortRow = (
     <div className="flex flex-wrap items-center gap-2">
-      <span className="inline-flex items-center gap-1 text-xs text-lank/40">
+      <span className="inline-flex items-center gap-1 text-xs text-ank/80">
         {sortIcon}
         {t.search.sortLabel}:
       </span>
@@ -73,7 +73,7 @@ export function ContextualFilters({
     return (
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="text-xs text-lank/40">{t.search.status}:</span>
+          <span className="text-xs text-ank/80">{t.search.status}:</span>
           {chip(t.statuses.EN_VIGUEUR, { status: active.status === 'EN_VIGUEUR' ? undefined : 'EN_VIGUEUR' }, active.status === 'EN_VIGUEUR')}
           {chip(t.statuses.ABROGE, { status: active.status === 'ABROGE' ? undefined : 'ABROGE' }, active.status === 'ABROGE')}
         </div>
@@ -85,7 +85,7 @@ export function ContextualFilters({
     return (
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="text-xs text-lank/40">{t.search.juridiction}:</span>
+          <span className="text-xs text-ank/80">{t.search.juridiction}:</span>
           {JURIDICTIONS.map((j) => chip(t.juridictions[j], { juridiction: j }, active.juridiction === j))}
         </div>
         {sortRow}
@@ -97,7 +97,7 @@ export function ContextualFilters({
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         {fiscalYears.length > 0 && (
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs text-lank/40">{t.search.fiscalYear}:</span>
+            <span className="text-xs text-ank/80">{t.search.fiscalYear}:</span>
             {fiscalYears.map((y) => chip(y, { fiscalYear: active.fiscalYear === y ? undefined : y }, active.fiscalYear === y))}
           </div>
         )}
@@ -110,7 +110,7 @@ export function ContextualFilters({
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         {niceClasses.length > 0 && (
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs text-lank/40">{t.search.niceClass}:</span>
+            <span className="text-xs text-ank/80">{t.search.niceClass}:</span>
             {niceClasses.map((c) => chip(c, { niceClass: active.niceClass === c ? undefined : c }, active.niceClass === c))}
           </div>
         )}
@@ -131,25 +131,25 @@ export function ContextualFilters({
             .map(([k, v]) => (
               <input key={k} type="hidden" name={k} value={v} />
             ))}
-          <span className="text-xs text-lank/40">{t.search.numberLabel}:</span>
+          <span className="text-xs text-ank/80">{t.search.numberLabel}:</span>
           <input
             name="num"
             defaultValue={active.num ?? ''}
             placeholder={t.search.numberPh}
-            className="w-24 rounded-full border border-lank/15 bg-white px-2.5 py-1 text-xs text-lank outline-none focus:border-sitwon"
+            className="w-24 rounded-full border border-chabon/15 bg-white px-2.5 py-1 text-xs text-ank outline-none focus:border-liy"
           />
-          <button type="submit" className="rounded-full border border-lank/15 bg-white px-2 py-1 text-xs text-lank/60 hover:border-lank/40">
+          <button type="submit" className="rounded-full border border-chabon/15 bg-white px-2 py-1 text-xs text-grafit hover:border-chabon/40">
             {t.search.numberGo}
           </button>
           {active.num ? (
-            <Link href={`/${locale}/search?${qs(base, { num: undefined })}`} className="text-xs text-lank/40 hover:text-lank/70">
+            <Link href={`/${locale}/search?${qs(base, { num: undefined })}`} className="text-xs text-ank/40 hover:text-ank/70">
               ✕
             </Link>
           ) : null}
         </form>
         {brhYears.length > 0 && (
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs text-lank/40">{t.search.yearLabel}:</span>
+            <span className="text-xs text-ank/80">{t.search.yearLabel}:</span>
             {/* Choisir une année exacte remplace la période avancée (sinon la puce
                 serait active mais inerte, la période ayant précédence). */}
             {brhYears.map((y) =>
@@ -159,7 +159,7 @@ export function ContextualFilters({
         )}
         {/* Tri : signature (défaut) / entrée en vigueur / numéro ↑↓ */}
         <div className="flex flex-wrap items-center gap-2">
-          <span className="inline-flex items-center gap-1 text-xs text-lank/40">
+          <span className="inline-flex items-center gap-1 text-xs text-ank/80">
             {sortIcon}
             {t.search.sortLabel}:
           </span>
@@ -175,7 +175,7 @@ export function ContextualFilters({
     // Sous-catégories de l'Index du Moniteur — re-cliquer une chip active la désélectionne.
     return (
       <div className="flex flex-wrap items-center gap-2">
-        <span className="text-xs text-lank/40">{t.search.categoryLabel}:</span>
+        <span className="text-xs text-ank/80">{t.search.categoryLabel}:</span>
         {INDEX_CATEGORIES.map((c) =>
           chip(t.search.indexCategories[c], { category: active.category === c ? undefined : c }, active.category === c),
         )}

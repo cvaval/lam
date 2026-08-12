@@ -83,8 +83,8 @@ export function PromoManager({
   return (
     <div className="space-y-8">
       {/* Générer un code */}
-      <form onSubmit={create} className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
-        <h2 className="mb-4 text-sm font-semibold text-lank">{t.promo.create}</h2>
+      <form onSubmit={create} className="rounded-2xl border border-chabon/10 bg-white p-5">
+        <h2 className="mb-4 text-sm font-semibold text-ank">{t.promo.create}</h2>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
           <Labeled label={t.promo.code} hint={t.promo.codeAuto}>
             <input name="code" placeholder="LV-…" className={field} />
@@ -111,15 +111,15 @@ export function PromoManager({
             <input name="expiresAt" type="date" className={field} />
           </Labeled>
         </div>
-        {error && <p className="mt-3 text-sm text-red-700">{error}</p>}
-        <button type="submit" disabled={busy} className="mt-4 rounded-lg bg-lank px-4 py-2 text-sm font-semibold text-white disabled:opacity-50">
+        {error && <p className="mt-3 text-sm text-wouj">{error}</p>}
+        <button type="submit" disabled={busy} className="mt-4 rounded-lg bg-sitwon px-4 py-2 text-sm font-semibold text-chabon disabled:opacity-50">
           {busy ? t.common.loading : t.promo.create}
         </button>
       </form>
 
       {/* Attribuer un code à un compte */}
-      <div className="rounded-2xl border border-lank/10 bg-white p-5 shadow-card">
-        <h2 className="mb-4 text-sm font-semibold text-lank">{t.promo.assignTitle}</h2>
+      <div className="rounded-2xl border border-chabon/10 bg-white p-5">
+        <h2 className="mb-4 text-sm font-semibold text-ank">{t.promo.assignTitle}</h2>
         <div className="flex flex-wrap items-end gap-3">
           <Labeled label={t.promo.code}>
             <select value={assignCode} onChange={(e) => setAssignCode(e.target.value)} className={field}>
@@ -144,19 +144,19 @@ export function PromoManager({
           <button
             onClick={assign}
             disabled={!assignCode || !assignUser}
-            className="rounded-lg bg-fey px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
+            className="rounded-lg bg-chabon px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
           >
             {t.promo.assign}
           </button>
-          {assignMsg && <span className="text-sm text-lank/70">{assignMsg}</span>}
+          {assignMsg && <span className="text-sm text-grafit">{assignMsg}</span>}
         </div>
       </div>
 
       {/* Liste des codes */}
-      <div className="overflow-hidden rounded-2xl border border-lank/10 bg-white shadow-card">
+      <div className="overflow-hidden rounded-2xl border border-chabon/10 bg-white">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-lank/10 bg-paper text-left text-[11px] uppercase tracking-wide text-lank/45">
+            <tr className="border-b border-chabon/10 bg-koton text-left text-[11px] uppercase tracking-wide text-ank/80">
               <th className="px-4 py-3 font-semibold">{t.promo.code}</th>
               <th className="px-4 py-3 font-semibold">{t.promo.grants}</th>
               <th className="px-4 py-3 font-semibold">{t.promo.duration}</th>
@@ -164,25 +164,25 @@ export function PromoManager({
               <th className="px-4 py-3 font-semibold">{t.admin.status}</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-lank/5">
+          <tbody className="divide-y divide-chabon/5">
             {codes.length === 0 && (
               <tr>
-                <td colSpan={5} className="px-4 py-8 text-center text-lank/40">
+                <td colSpan={5} className="px-4 py-8 text-center text-ank/80">
                   {t.promo.none}
                 </td>
               </tr>
             )}
             {codes.map((c) => (
-              <tr key={c.id} className="hover:bg-paper/50">
+              <tr key={c.id} className="hover:bg-koton/50">
                 <td className="px-4 py-2.5">
-                  <span className="font-mono font-semibold text-lank">{c.code}</span>
-                  {c.label && <span className="ml-2 text-xs text-lank/45">{c.label}</span>}
+                  <span className="font-mono font-semibold text-ank">{c.code}</span>
+                  {c.label && <span className="ml-2 text-xs text-ank/80">{c.label}</span>}
                 </td>
-                <td className="px-4 py-2.5 text-lank/70">{t.roles[c.grantsRole]}</td>
-                <td className="px-4 py-2.5 text-lank/60">
+                <td className="px-4 py-2.5 text-grafit">{t.roles[c.grantsRole]}</td>
+                <td className="px-4 py-2.5 text-grafit">
                   {c.durationDays ? `${c.durationDays} ${t.promo.days}` : t.promo.permanent}
                 </td>
-                <td className="px-4 py-2.5 font-mono text-lank/60">
+                <td className="px-4 py-2.5 font-mono text-grafit">
                   {c.redeemedCount}
                   {c.maxRedemptions ? ` / ${c.maxRedemptions}` : ''}
                 </td>
