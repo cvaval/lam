@@ -20,12 +20,12 @@ export default async function LoginPage({ params }: { params: { locale: string }
     <main className="min-h-screen lg:grid lg:grid-cols-2">
       {/* Gauche : promesse + 6 piliers */}
       <section className="flex flex-col justify-between bg-koton px-6 py-6 lg:px-14 lg:py-8">
-        <header className="flex items-center justify-between">
+        <header className="flex items-center justify-between gap-4">
           {/* Logo cliquable → page d'accueil (demande client). */}
-          <Link href={`/${locale}`} aria-label="Accueil Lam">
+          <Link href={`/${locale}`} aria-label="Accueil Lam" className="inline-flex min-h-[44px] items-center rounded-lg outline-none ring-wouj transition focus-visible:ring-2">
             <Logo size={30} />
           </Link>
-          <nav className="hidden items-center gap-5 text-sm text-grafit md:flex">
+          <nav className="hidden shrink-0 items-center gap-5 text-sm text-grafit md:flex">
             <span className="cursor-default hover:text-ank">{t.nav.features}</span>
             <span className="cursor-default hover:text-ank">{t.nav.pricing}</span>
             <span className="cursor-default hover:text-ank">{t.nav.about}</span>
@@ -52,34 +52,34 @@ export default async function LoginPage({ params }: { params: { locale: string }
 
         <footer className="text-xs text-ank/80">
           <nav className="mb-2 flex flex-wrap gap-x-4 gap-y-1">
-            <Link className="hover:text-ank" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
-            <Link className="hover:text-ank" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
-            <Link className="hover:text-ank" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
           </nav>
           {`Lam · ${t.brand.baseline} · ${t.common.poweredBy}`}
         </footer>
       </section>
 
       {/* Droite : carte de connexion */}
-      <section className="flex items-center justify-center bg-chabon px-6 py-10 lg:px-14">
+      <section className="flex items-center justify-center border-liy bg-white px-6 py-10 lg:border-l lg:px-14">
         <div className="w-full max-w-sm">
           <div className="mb-5 flex items-center justify-between lg:hidden">
             <LocaleSwitcher current={locale} />
           </div>
-          <div className="rounded-2xl bg-white p-7">
-            <h2 className="text-xl font-semibold text-ank">{t.home.signinTitle}</h2>
+          <div className="w-full">
+            <h2 className="font-serif text-2xl font-semibold text-ank">{t.home.signinTitle}</h2>
             <p className="mt-1 text-sm text-grafit">{t.home.signinSubtitle}</p>
             <div className="mt-6">
               <LoginForm locale={locale} t={t} />
             </div>
-            <div className="mt-6 border-t border-chabon/10 pt-4 text-center">
+            <div className="mt-8 border-t border-liy pt-5 text-center">
               <Link
                 href={`/${locale}/register`}
-                className="inline-block rounded-lg border border-chabon/15 px-4 py-2 text-sm font-medium text-ank hover:bg-koton"
+                className="inline-flex min-h-[44px] items-center rounded-lg border border-liy px-4 py-2 text-sm font-medium text-ank outline-none ring-wouj transition hover:border-wouj hover:text-wouj focus-visible:ring-2"
               >
                 {t.nav.createAccount}
               </Link>
-              <p className="mt-3 text-[11px] leading-relaxed text-ank/80">{t.home.cardNote}</p>
+              <p className="mt-3 text-[11px] leading-relaxed text-grafit">{t.home.cardNote}</p>
             </div>
           </div>
         </div>

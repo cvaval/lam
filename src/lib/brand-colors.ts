@@ -9,21 +9,32 @@
  * Module-feuille SANS import : utilisable partout, y compris par tailwind.config.ts
  * (chargé hors du bundle applicatif).
  *
- * ⚠️ LE RÉCIT DE LA MARQUE, dont découlent toutes les règles :
- *   « Le trait rouge est la marque du CERTIFICATEUR ; le jaune Sitwon est la couleur de
- *     l'USAGE. »
- *   WOUJ ne paraît que là où Lam engage sa rigueur — logotype, statut d'un texte, alerte de
- *   certification. SITWON est l'action du lecteur — le bouton, le terme trouvé, le document
- *   vérifié.
+ * ─── AVENANT AV-03 · 12 août 2026 — LES DEUX ACCENTS SONT ÉCHANGÉS ─────────────────
+ * Le récit de la v3.0 faisait du rouge le trait du CERTIFICATEUR et du jaune la couleur
+ * de l'USAGE. Le site inverse les deux rôles :
+ *
+ *   WOUJ   conduit l'ACTION — CTA, bouton Connexion, bouton de recherche, lien actif,
+ *          indicateur actif, soulignement éditorial, anneau de focus.
+ *   SITWON atteste la VÉRIFICATION — badge « Dokiman verifye », marque de document
+ *          vérifié, surlignage d'une information vérifiée.
+ *
+ * Ce que l'échange emporte, et qu'il ne faut pas manquer :
+ *  - le RATIONNEMENT du Wouj tombe. Une couleur d'action ne peut pas être rationnée à une
+ *    occurrence par écran : elle doit être là où l'on agit, partout et de la même façon.
+ *    Ce qui demeure, c'est qu'elle ne serve jamais de fond de page ni de grande surface.
+ *  - le Wouj devient une couleur de TEXTE et de FOND DE BOUTON, ce que la v3.0 interdisait.
+ *    Sur bouton, le texte passe donc en BLAN : Blan sur Wouj vaut 5,43:1, quand Chabon sur
+ *    Wouj ne vaut que 2,76:1 — sous le seuil, illisible.
+ *  - le Sitwon quitte les boutons. Il reste interdit comme couleur de TEXTE (1,2:1 sur
+ *    Koton) et garde son texte Chabon sur fond jaune (7,08:1).
  *
  * ⚠️ RÈGLES NON NÉGOCIABLES :
- *  1. WOUJ est rationné à UNE occurrence d'INTERFACE par écran (montant critique, statut
- *     « Abrogé », erreur, alerte de certification). Le LOGOTYPE en est EXEMPT.
- *     Jamais en fond, jamais en texte courant.
- *  2. SITWON : CTA principal (fond Sitwon, texte Chabon — jamais l'inverse), badge
- *     « Dokiman verifye », surlignage du terme exact, soulignement de navigation active.
- *     Jamais en fond de page ni en grande surface, JAMAIS comme couleur de texte.
- *     Absent du logotype.
+ *  1. WOUJ conduit l'action. Fond de bouton avec texte BLAN, ou trait (lien actif,
+ *     soulignement, anneau de focus, filet éditorial). Jamais en fond de page ni en
+ *     grande surface. Le logotype garde son filet Wouj.
+ *  2. SITWON atteste. Badge « Dokiman verifye » et surlignage d'une information vérifiée,
+ *     fond Sitwon et texte Chabon — jamais l'inverse. Jamais en fond de page, JAMAIS
+ *     comme couleur de texte. Absent du logotype.
  *  3. Tout texte juridique se lit sur BLAN. Koton n'accueille jamais plus de deux lignes
  *     de texte continu.
  *  4. Noir pur #000000 INTERDIT — les bornes sombres sont Chabon et Ank.
@@ -61,9 +72,9 @@ export const BRAND_COLORS = {
   blan: '#FFFFFF',
   /** Texte d'interface */
   grafit: '#55565A',
-  /** Trait du CERTIFICATEUR — rouge du bicolore haïtien. Rationné hors logotype (règle 1). */
+  /** Couleur de l'ACTION — CTA (texte Blan), lien actif, focus, filet (AV-03, règle 1). */
   wouj: '#D21034',
-  /** Couleur de l'USAGE — CTA, badge vérifié, surligneur. Absent du logotype (règle 2). */
+  /** Couleur de la VÉRIFICATION — badge « Dokiman verifye », surlignage attesté (règle 2). */
   sitwon: '#FDD228',
   /** Texte juridique long */
   ank: '#3F4043',
@@ -71,7 +82,7 @@ export const BRAND_COLORS = {
   liy: '#D8D7D2',
   /** Pilules · contrôles secondaires */
   pil: '#F2F1EE',
-  /** Seul dérivé admis de Sitwon — surlignage étendu, fonds de sélection (texte Ank). */
+  /** Seul dérivé admis de Sitwon — passage vérifié étendu, fond de sélection (texte Ank). */
   sitwonPal: '#FFF3C6',
   /** Succès — accent fonctionnel. Libellé ou pictogramme OBLIGATOIRE (règle 5). */
   vet: '#347436',

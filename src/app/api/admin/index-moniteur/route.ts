@@ -45,7 +45,11 @@ const bodySchema = z.object({
   editionType: z.enum(['REGULIERE', 'SPECIALE']),
   numero: z.string().trim().min(1).max(20),
   annee: z.number().int().min(1800).max(2200),
-  dateISO: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable().optional(),
+  // ⚠️ DATE OBLIGATOIRE. Elle était facultative, et son absence était comblée par le
+  // 1ER JANVIER de l'année : une édition se retrouvait datée d'un jour où rien n'avait
+  // paru, sans que rien ne le signale. Une entrée d'index sans sa date de publication
+  // n'est pas une entrée incomplète, c'est une entrée FAUSSE.
+  dateISO: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   // Titres des publications : pas de limite de caractères. `id` présent = mise à jour d'une
   // entrée existante ; absent = création.
   titles: z.array(z.object({ id: z.string().optional(), text: z.string(), category: z.enum(CATEGORIES).optional() })).max(1000),
@@ -76,8 +80,12 @@ export async function POST(req: NextRequest) {
 
   const special = editionType === 'SPECIALE'
   const number = editionNumber(annee, numero, special)
-  const date = dateISO ? new Date(dateISO + 'T00:00:00Z') : new Date(Date.UTC(annee, 0, 1))
-  const ref = `Le Moniteur · ${number} · ${dateISO ? frDateLabel(date) : annee}`
+  const date = new Date(dateISO + 'T00:00:00Z')
+  // ⚠️ On NE REFUSE PAS une date dont l'année diffère de la référence : une édition
+  // tardive peut paraître l'année suivante, et bloquer la saisie coûterait plus cher que
+  // le risque de coquille. L'écart est signalé à l'opérateur DANS le formulaire, et
+  // journalisé ici pour qu'il reste traçable après coup.
+  const ref = `Le Moniteur · ${number} · ${frDateLabel(date)}`
 
   let created = 0
   let updated = 0
@@ -140,6 +148,6 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  await audit({ action: 'DOC_PUBLISHED', actorId: user.id, targetType: 'Document', targetId: number, meta: { number, editionType, created, updated, deleted, via: 'index-moniteur-admin' } })
+  await audit({ action: 'DOC_PUBLISHED', actorId: user.id, targetType: 'Document', targetId: number, meta: { number, editionType, dateISO, created, updated, deleted, yearMismatch: date.getUTCFullYear() !== annee || undefined, via: 'index-moniteur-admin' } })
   return NextResponse.json({ ok: true, number, moniteurRef: ref, created, updated, deleted })
 }

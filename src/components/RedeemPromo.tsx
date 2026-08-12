@@ -40,7 +40,7 @@ export function RedeemPromo({ t }: { t: Dictionary }) {
         <button
           type="submit"
           disabled={busy}
-          className="rounded-lg bg-sitwon px-4 py-2 text-sm font-semibold text-chabon hover:brightness-95 disabled:opacity-50"
+          className="rounded-lg bg-wouj px-4 py-2 text-sm font-semibold text-white hover:brightness-95 disabled:opacity-50"
         >
           {busy ? t.common.loading : t.promo.redeem}
         </button>

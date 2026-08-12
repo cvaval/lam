@@ -25,7 +25,11 @@ export function LocaleSwitcher({ current }: { current: Locale }) {
   }
 
   return (
-    <div className="inline-flex items-center rounded-full border border-chabon/15 bg-white p-0.5 text-xs font-medium">
+    // ⚠️ CIBLE TACTILE DE 44 px (§16). Les trois boutons mesuraient 24 px de haut : sur
+    // 24 cibles trop petites relevées dans tout le site public, C'ÉTAIENT LES SEULES —
+    // et elles paraissent sur chaque page. La pastille garde son allure ; c'est la zone
+    // CLIQUABLE qui s'étend, par le rembourrage vertical.
+    <div className="inline-flex items-center rounded-full border border-liy bg-white text-xs font-medium">
       {LOCALES.map((l) => (
         <button
           key={l}
@@ -33,8 +37,8 @@ export function LocaleSwitcher({ current }: { current: Locale }) {
           aria-pressed={l === current}
           aria-label={LOCALE_NAMES[l]}
           title={LOCALE_NAMES[l]}
-          className={`rounded-full px-2.5 py-1 transition ${
-            l === current ? 'bg-chabon text-white' : 'text-grafit hover:text-koton'
+          className={`min-h-[44px] min-w-[44px] rounded-full px-4 outline-none ring-wouj transition focus-visible:ring-2 ${
+            l === current ? 'bg-wouj text-white' : 'text-grafit hover:text-wouj'
           }`}
         >
           {LOCALE_SHORT[l]}

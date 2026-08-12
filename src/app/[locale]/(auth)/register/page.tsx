@@ -18,7 +18,7 @@ export default function RegisterPage({ params }: { params: { locale: string } })
           <p className="mt-1 mb-5 text-sm text-grafit">{t.register.subtitle}</p>
           <RegisterForm t={t} />
           <div className="mt-5 border-t border-chabon/10 pt-4 text-center text-sm">
-            <Link href={`/${locale}/login`} className="text-grafit hover:text-ank">
+            <Link href={`/${locale}/login`} className="inline-flex min-h-[44px] items-center text-sm font-medium text-grafit outline-none ring-wouj transition hover:text-wouj focus-visible:ring-2">
               ← {t.nav.login}
             </Link>
           </div>

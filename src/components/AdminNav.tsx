@@ -33,7 +33,7 @@ export function AdminNav({ locale, t, role }: { locale: Locale; t: Dictionary; r
             className={`block rounded-lg px-3 py-2 text-sm transition ${
               // Soulignement 2 px Sitwon : la couleur de l'USAGE marque où l'on se trouve.
               active
-                ? 'border-l-2 border-sitwon bg-white/15 font-medium text-white'
+                ? 'border-l-2 border-wouj bg-white/15 font-medium text-white'
                 : 'border-l-2 border-transparent text-white/65 hover:bg-white/10 hover:text-white'
             }`}
           >

@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import { Logo } from '@/components/Logo'
-import { LocaleSwitcher } from '@/components/LocaleSwitcher'
+import { PublicHeader } from '@/components/PublicHeader'
 import { PUBLICATIONS } from '@/lib/publications'
 import { dictFor } from '@/lib/i18n/server'
 
@@ -19,35 +18,26 @@ export default function PublicationsPage({ params }: { params: { locale: string 
 
   return (
     <div className="min-h-screen bg-koton">
-      <header className="border-b border-chabon/10 bg-chabon">
-        <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4">
-          <Link href={`/${locale}`} aria-label="Lam"><Logo size={28} tone="dark" /></Link>
-          <div className="flex items-center gap-4">
-            <LocaleSwitcher current={locale} />
-            <Link href={`/${locale}`} className="rounded-full border border-koton/30 px-4 py-1.5 text-sm font-medium text-koton hover:bg-white/10">
-              ← {t.legal.back}
-            </Link>
-          </div>
-        </div>
-      </header>
+      <PublicHeader locale={locale} t={t} width="max-w-4xl" back={{ href: `/${locale}`, label: t.legal.back }} />
 
-      <div className="bg-chabon pb-12 pt-8 text-koton">
+      <div className="border-b border-liy bg-white pb-12 pt-14">
         <div className="mx-auto max-w-4xl px-4">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-koton/70">{en ? 'News & analysis' : ht ? 'Aktyalite & analiz' : 'Actualités & analyses'}</p>
-          <h1 className="mt-3 font-serif text-4xl font-semibold leading-tight">{heading}</h1>
-          <p className="mt-3 max-w-2xl text-koton/70">{sub}</p>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-grafit">{en ? 'News & analysis' : ht ? 'Aktyalite & analiz' : 'Actualités & analyses'}</p>
+          <h1 className="mt-3 font-serif text-4xl font-semibold leading-tight text-ank">{heading}</h1>
+          <div aria-hidden="true" className="mt-5 h-1 w-16 bg-wouj" />
+          <p className="mt-5 max-w-2xl text-grafit">{sub}</p>
         </div>
       </div>
 
       <div className="mx-auto max-w-4xl px-4 py-10">
         {PUBLICATIONS.map((p) => (
-          <article key={p.slug} className="border-b border-chabon/10 py-7 first:pt-0">
-            <p className="font-mono text-xs uppercase tracking-wide text-ank/80">{p.date} · {p.author}</p>
+          <article key={p.slug} className="border-b border-liy py-8 first:pt-0 last:border-0">
+            <p className="font-mono text-xs uppercase tracking-wide text-ank/80">{en ? p.dateEn : p.date} · {p.author}</p>
             <h2 className="mt-2 font-serif text-2xl font-semibold leading-snug text-ank">
-              <Link href={`/${locale}/publications/${p.slug}`} className="hover:text-chabon">{p.titleFr}</Link>
+              <Link href={`/${locale}/publications/${p.slug}`} className="transition hover:text-wouj">{en ? p.titleEn : p.titleFr}</Link>
             </h2>
-            <p className="mt-2 max-w-3xl text-grafit">{p.summaryFr}</p>
-            <Link href={`/${locale}/publications/${p.slug}`} className="mt-3 inline-block text-sm font-semibold text-chabon hover:underline">{more} →</Link>
+            <p className="mt-2 max-w-3xl text-grafit">{en ? p.summaryEn : p.summaryFr}</p>
+            <Link href={`/${locale}/publications/${p.slug}`} className="mt-4 inline-flex min-h-[44px] items-center text-sm font-semibold text-ank outline-none ring-wouj transition hover:text-wouj focus-visible:ring-2">{more} →</Link>
           </article>
         ))}
       </div>
@@ -56,10 +46,10 @@ export default function PublicationsPage({ params }: { params: { locale: string 
         <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-between gap-3 px-4 py-6 text-sm text-ank/80">
           <span>© 2026 Lam · {t.brand.baseline}</span>
           <nav className="flex flex-wrap gap-x-5 gap-y-2">
-            <Link className="hover:text-ank" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
-            <Link className="hover:text-ank" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
-            <Link className="hover:text-ank" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
-            <a className="hover:text-ank" href="mailto:legal@lam.ht">legal@lam.ht</a>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
+            <a className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href="mailto:legal@lam.ht">legal@lam.ht</a>
           </nav>
         </div>
       </footer>

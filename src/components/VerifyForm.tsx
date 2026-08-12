@@ -192,7 +192,7 @@ export function VerifyForm({
       <button
         type="submit"
         disabled={loading || digits.join('').length !== 6}
-        className="w-full rounded-lg bg-sitwon py-2.5 text-sm font-semibold text-chabon transition hover:brightness-95 disabled:opacity-50"
+        className="min-h-[44px] w-full rounded-lg bg-wouj text-sm font-semibold text-white outline-none ring-wouj ring-offset-2 transition hover:brightness-95 focus-visible:ring-2 disabled:opacity-50"
       >
         {loading ? t.common.loading : t.verify.validate}
       </button>

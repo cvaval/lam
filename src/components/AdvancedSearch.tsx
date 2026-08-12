@@ -120,7 +120,7 @@ export function AdvancedSearch({
           </div>
         )}
         <div className="flex items-center gap-3">
-          <button type="submit" className="rounded-lg bg-sitwon px-4 py-1.5 text-sm font-semibold text-chabon hover:brightness-95">
+          <button type="submit" className="rounded-lg bg-wouj px-4 py-1.5 text-sm font-semibold text-white hover:brightness-95">
             {t.search.apply}
           </button>
           {/* Réinitialise les CRITÈRES ; la requête appartient à la barre du haut. */}

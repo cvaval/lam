@@ -72,7 +72,7 @@ export function ResetForm({ locale, token }: { locale: Locale; token: string }) 
         <button
           type="button"
           onClick={() => hardRedirect(`/${locale}/login`)}
-          className="w-full rounded-lg bg-chabon py-2.5 text-sm font-semibold text-white transition hover:bg-chabon"
+          className="min-h-[44px] w-full rounded-lg bg-chabon text-sm font-semibold text-white outline-none ring-wouj ring-offset-2 transition hover:brightness-110 focus-visible:ring-2"
         >
           {LBL.toLogin[locale]}
         </button>
@@ -102,7 +102,7 @@ export function ResetForm({ locale, token }: { locale: Locale; token: string }) 
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-lg bg-sitwon py-2.5 text-sm font-semibold text-chabon transition hover:brightness-95 disabled:opacity-60"
+        className="min-h-[44px] w-full rounded-lg bg-wouj text-sm font-semibold text-white outline-none ring-wouj ring-offset-2 transition hover:brightness-95 focus-visible:ring-2 disabled:opacity-60"
       >
         {loading ? LBL.saving[locale] : LBL.submit[locale]}
       </button>

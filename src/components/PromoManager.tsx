@@ -112,7 +112,7 @@ export function PromoManager({
           </Labeled>
         </div>
         {error && <p className="mt-3 text-sm text-wouj">{error}</p>}
-        <button type="submit" disabled={busy} className="mt-4 rounded-lg bg-sitwon px-4 py-2 text-sm font-semibold text-chabon disabled:opacity-50">
+        <button type="submit" disabled={busy} className="mt-4 rounded-lg bg-wouj px-4 py-2 text-sm font-semibold text-white disabled:opacity-50">
           {busy ? t.common.loading : t.promo.create}
         </button>
       </form>

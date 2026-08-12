@@ -196,7 +196,7 @@ export function JudicialAdminTable({ courts }: { courts: Row[] }) {
               <button type="button" onClick={() => setEditing(null)} className="rounded-full border border-chabon/20 px-4 py-2 text-xs font-semibold text-grafit">
                 Annuler
               </button>
-              <button type="submit" disabled={busy} className="rounded-full bg-sitwon px-4 py-2 text-xs font-semibold text-chabon disabled:opacity-50">
+              <button type="submit" disabled={busy} className="rounded-full bg-wouj px-4 py-2 text-xs font-semibold text-white disabled:opacity-50">
                 {busy ? 'Enregistrement…' : 'Enregistrer'}
               </button>
             </div>

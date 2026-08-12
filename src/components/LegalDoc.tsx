@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import { Logo } from '@/components/Logo'
-import { LocaleSwitcher } from '@/components/LocaleSwitcher'
+import { PublicHeader } from '@/components/PublicHeader'
 import type { LegalDocData } from '@/lib/legal'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale } from '@/lib/types'
@@ -15,26 +14,15 @@ export function LegalDoc({ doc, locale, t }: { doc: LegalDocData; locale: Locale
 
   return (
     <div className="min-h-screen bg-koton">
-      <header className="border-b border-chabon/10 bg-chabon">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
-          <Link href={`/${locale}`} aria-label="Lam">
-            <Logo size={28} tone="dark" />
-          </Link>
-          <div className="flex items-center gap-4">
-            <LocaleSwitcher current={locale} />
-            <Link href={`/${locale}`} className="rounded-full border border-koton/30 px-4 py-1.5 text-sm font-medium text-koton hover:bg-white/10">
-              ← {t.legal.back}
-            </Link>
-          </div>
-        </div>
-      </header>
+      <PublicHeader locale={locale} t={t} width="max-w-5xl" back={{ href: `/${locale}`, label: t.legal.back }} />
 
-      <div className="bg-chabon pb-12 pt-8 text-koton">
+      <div className="border-b border-liy bg-white pb-12 pt-14">
         <div className="mx-auto max-w-5xl px-4">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-koton/70">{locale === 'en' ? 'Legal information' : locale === 'ht' ? 'Enfòmasyon legal' : 'Informations légales'}</p>
-          <h1 className="mt-3 font-serif text-3xl font-semibold leading-tight lg:text-4xl">{doc.title}</h1>
-          {doc.updated && <p className="mt-4 font-mono text-xs text-koton/70">{t.legal.updated} : {doc.updated}</p>}
-          <p className="mt-2 max-w-2xl text-xs text-koton/70">{t.legal.frenchNote}</p>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-grafit">{locale === 'en' ? 'Legal information' : locale === 'ht' ? 'Enfòmasyon legal' : 'Informations légales'}</p>
+          <h1 className="mt-3 font-serif text-3xl font-semibold leading-tight text-ank lg:text-4xl">{doc.title}</h1>
+          <div aria-hidden="true" className="mt-5 h-1 w-16 bg-wouj" />
+          {doc.updated && <p className="mt-5 font-mono text-xs text-grafit">{t.legal.updated} : {doc.updated}</p>}
+          <p className="mt-2 max-w-2xl text-xs text-grafit">{t.legal.frenchNote}</p>
         </div>
       </div>
 
@@ -44,7 +32,7 @@ export function LegalDoc({ doc, locale, t }: { doc: LegalDocData; locale: Locale
           <ol className="space-y-1 text-sm">
             {toc.map((b) => (
               <li key={b.id}>
-                <a href={`#${b.id}`} className="block rounded-r-md border-l-2 border-chabon/10 px-3 py-1.5 text-ank/80 transition hover:border-liy hover:bg-white hover:text-ank">
+                <a href={`#${b.id}`} className="flex min-h-[44px] items-center rounded-r-md border-l-2 border-liy px-3 text-ank/80 outline-none ring-wouj transition hover:border-wouj hover:bg-white hover:text-wouj focus-visible:ring-2">
                   {b.s}
                 </a>
               </li>
@@ -89,10 +77,10 @@ export function LegalDoc({ doc, locale, t }: { doc: LegalDocData; locale: Locale
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-4 py-6 text-sm">
           <span className="text-ank/80">© 2026 Lam · {t.brand.baseline}</span>
           <nav className="flex flex-wrap gap-x-5 gap-y-2 text-grafit">
-            <Link className="hover:text-ank" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
-            <Link className="hover:text-ank" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
-            <Link className="hover:text-ank" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
-            <a className="hover:text-ank" href="mailto:legal@lam.ht">legal@lam.ht</a>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
+            <a className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href="mailto:legal@lam.ht">legal@lam.ht</a>
           </nav>
         </div>
       </footer>

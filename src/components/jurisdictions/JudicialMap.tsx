@@ -430,7 +430,7 @@ export function JudicialMap({
       role="application"
       aria-label={loadingLabel}
       tabIndex={0}
-      className="h-[46vh] w-full outline-none ring-chabon focus-visible:ring-2 lg:h-[560px]"
+      className="h-[46vh] w-full outline-none ring-wouj focus-visible:ring-2 lg:h-[560px]"
     />
   )
 }

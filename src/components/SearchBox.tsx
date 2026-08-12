@@ -345,7 +345,7 @@ export function SearchBox({
         )}
       </div>
 
-      <button type="submit" aria-label={searchLabel} title={searchLabel} className={`flex shrink-0 items-center justify-center gap-2 rounded-full bg-sitwon font-semibold text-chabon transition hover:brightness-95 ${big ? 'px-5 py-3.5 text-base' : 'px-3.5 py-2 text-sm'}`}>
+      <button type="submit" aria-label={searchLabel} title={searchLabel} className={`flex shrink-0 items-center justify-center gap-2 rounded-full bg-wouj font-semibold text-white transition hover:brightness-95 ${big ? 'px-5 py-3.5 text-base' : 'px-3.5 py-2 text-sm'}`}>
         <svg viewBox="0 0 24 24" className={big ? 'h-5 w-5' : 'h-4 w-4'} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" strokeLinecap="round" /></svg>
         {big && <span>{searchLabel}</span>}
       </button>

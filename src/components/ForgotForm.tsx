@@ -34,7 +34,7 @@ export function ForgotForm({ locale }: { locale: Locale }) {
     return (
       <div className="space-y-4">
         <p className="rounded-lg bg-pil px-3 py-3 text-sm leading-relaxed text-ank/80">{LBL.done[locale]}</p>
-        <a href={`/${locale}/login`} className="block text-center text-xs text-ank/80 hover:text-ank">
+        <a href={`/${locale}/login`} className="inline-flex min-h-[44px] w-full items-center justify-center text-xs text-grafit outline-none ring-wouj transition hover:text-wouj focus-visible:ring-2">
           {LBL.back[locale]}
         </a>
       </div>
@@ -54,17 +54,17 @@ export function ForgotForm({ locale }: { locale: Locale }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="vous@cabinet.ht"
-          className="w-full rounded-lg border border-chabon/15 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-liy"
+          className="min-h-[44px] w-full rounded-lg border border-liy bg-white px-3.5 text-sm text-ank outline-none ring-wouj transition focus:border-wouj focus-visible:ring-2"
         />
       </div>
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-lg bg-sitwon py-2.5 text-sm font-semibold text-chabon transition hover:brightness-95 disabled:opacity-60"
+        className="min-h-[44px] w-full rounded-lg bg-wouj text-sm font-semibold text-white outline-none ring-wouj ring-offset-2 transition hover:brightness-95 focus-visible:ring-2 disabled:opacity-60"
       >
         {loading ? LBL.sending[locale] : LBL.submit[locale]}
       </button>
-      <a href={`/${locale}/login`} className="block text-center text-xs text-ank/80 hover:text-ank">
+      <a href={`/${locale}/login`} className="inline-flex min-h-[44px] w-full items-center justify-center text-xs text-grafit outline-none ring-wouj transition hover:text-wouj focus-visible:ring-2">
         {LBL.back[locale]}
       </a>
     </form>

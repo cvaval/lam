@@ -34,19 +34,19 @@ export function RegisterForm({ t }: { t: Dictionary }) {
       <input
         name="name"
         placeholder={t.register.name}
-        className="w-full rounded-lg border border-chabon/15 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-liy"
+        className="min-h-[44px] w-full rounded-lg border border-liy bg-white px-3.5 text-sm text-ank outline-none ring-wouj transition focus:border-wouj focus-visible:ring-2"
       />
       <input
         name="org"
         placeholder={t.register.org}
-        className="w-full rounded-lg border border-chabon/15 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-liy"
+        className="min-h-[44px] w-full rounded-lg border border-liy bg-white px-3.5 text-sm text-ank outline-none ring-wouj transition focus:border-wouj focus-visible:ring-2"
       />
       <input
         name="email"
         type="email"
         required
         placeholder={t.home.emailLabel}
-        className="w-full rounded-lg border border-chabon/15 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-liy"
+        className="min-h-[44px] w-full rounded-lg border border-liy bg-white px-3.5 text-sm text-ank outline-none ring-wouj transition focus:border-wouj focus-visible:ring-2"
       />
       <input
         name="password"
@@ -54,7 +54,7 @@ export function RegisterForm({ t }: { t: Dictionary }) {
         required
         minLength={8}
         placeholder={t.home.passwordLabel}
-        className="w-full rounded-lg border border-chabon/15 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-liy"
+        className="min-h-[44px] w-full rounded-lg border border-liy bg-white px-3.5 text-sm text-ank outline-none ring-wouj transition focus:border-wouj focus-visible:ring-2"
       />
       {error && (
         <p role="alert" className="rounded-lg border-l-2 border-wouj bg-white px-3 py-2 text-sm text-wouj">
@@ -64,7 +64,7 @@ export function RegisterForm({ t }: { t: Dictionary }) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-lg bg-sitwon py-2.5 text-sm font-semibold text-chabon hover:brightness-95 disabled:opacity-60"
+        className="min-h-[44px] w-full rounded-lg bg-wouj text-sm font-semibold text-white outline-none ring-wouj ring-offset-2 transition hover:brightness-95 focus-visible:ring-2 disabled:opacity-60"
       >
         {loading ? t.common.loading : t.register.submit}
       </button>

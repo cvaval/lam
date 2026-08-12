@@ -49,8 +49,9 @@ const FOND_PAR_DEFAUT = C.koton
  * à tort. Chaque entrée est une CONSTATATION, pas une préférence — vérifiée au source.
  */
 const RACINES: { prefixe: string; fond: string; motif: string }[] = [
-  { prefixe: 'src/components/home/', fond: C.chabon, motif: 'héros rendu dans <section class="bg-chabon"> (Landing.tsx)' },
-  { prefixe: 'src/components/HeroVisual.tsx', fond: C.chabon, motif: 'visuel du héros, même section Chabon' },
+  // Le héros est passé du Chabon sombre au KOTON clair (refonte AV-03) : sans cette mise
+  // à jour, tout y serait audité sur un fond qui n'existe plus.
+  { prefixe: 'src/components/home/', fond: C.koton, motif: 'héros rendu dans <section class="bg-koton"> (Landing.tsx)' },
   { prefixe: 'src/components/AdminNav.tsx', fond: C.chabon, motif: 'rendu dans <aside class="bg-chabon"> (admin/layout.tsx)' },
 ]
 

@@ -101,7 +101,7 @@ export function CreateUserForm({ t }: { t: Dictionary }) {
       </div>
       {error && <p className="mt-3 text-sm text-wouj">{error === 'exists' ? t.errors.exists : t.errors.invalidFields}</p>}
       <div className="mt-4 flex gap-2">
-        <button type="submit" disabled={busy} className="rounded-lg bg-sitwon px-4 py-2 text-sm font-semibold text-chabon disabled:opacity-50">
+        <button type="submit" disabled={busy} className="rounded-lg bg-wouj px-4 py-2 text-sm font-semibold text-white disabled:opacity-50">
           {busy ? t.common.loading : t.admin.create}
         </button>
         <button type="button" onClick={() => setOpen(false)} className="rounded-lg border border-chabon/15 px-4 py-2 text-sm text-grafit">

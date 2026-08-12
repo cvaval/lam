@@ -77,7 +77,7 @@ export function JudicialMapHeroSlide({ locale, t }: { locale: Locale; t: Diction
   return (
     <Link
       href={`/${locale}/juridictions`}
-      className="group block outline-none ring-sitwon focus-visible:ring-2"
+      className="group block outline-none ring-wouj focus-visible:ring-2"
       aria-label={`${h.title} — ${h.cta}`}
     >
       <div className="relative overflow-hidden">
@@ -86,19 +86,19 @@ export function JudicialMapHeroSlide({ locale, t }: { locale: Locale; t: Diction
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-70"
-          style={{ background: 'radial-gradient(60% 70% at 62% 42%, rgba(234,233,229,0.10), transparent 70%)' }}
+          style={{ background: 'radial-gradient(60% 70% at 70% 45%, rgba(253,210,40,0.13), transparent 70%)' }}
         />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-x-8 gap-y-8 px-4 pb-10 pt-12 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:pt-16">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-x-8 gap-y-8 px-4 pb-10 pt-12 lg:min-h-[610px] lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:py-16">
           {/* ── Colonne de texte ─────────────────────────────────────────── */}
           <div className="relative z-10">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-koton/70">{h.eyebrow}</p>
-            <h2 className="mt-5 font-sans text-display-2 lowercase text-koton/75 sm:text-[2.7rem] lg:text-[3.2rem]">
-              {h.titleLead} <span className="text-koton">{h.titleAccent}</span>
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-grafit">{h.eyebrow}</p>
+            <h2 className="mt-5 font-sans text-display-2 lowercase text-grafit sm:text-[2.7rem] lg:text-[3.2rem]">
+              {h.titleLead} <span className="text-ank">{h.titleAccent}</span>
             </h2>
-            <p className="mt-5 max-w-md text-base leading-relaxed text-koton/70">{h.description}</p>
+            <p className="mt-5 max-w-md text-base leading-relaxed text-grafit">{h.description}</p>
 
-            <span className="mt-7 inline-flex items-center gap-3 rounded-xl bg-sitwon px-7 py-3.5 text-[15px] font-semibold text-chabon transition group-hover:brightness-95">
+            <span className="mt-7 inline-flex items-center gap-3 rounded-xl bg-wouj px-7 py-3.5 text-[15px] font-semibold text-white transition group-hover:brightness-95">
               {h.cta}
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
             </span>
@@ -106,15 +106,15 @@ export function JudicialMapHeroSlide({ locale, t }: { locale: Locale; t: Diction
             {/* Koton/70 et non /60 : sur CHABON (et non le navy de la maquette, disparu),
                 /60 ne donne que 4,21:1 — sous le seuil AA de 4,5:1. /70 donne 5,10:1.
                 Mesuré à l'écran, pas déduit : les deux valeurs sont trop proches à l'œil. */}
-            <p className="mt-4 flex items-center gap-2 font-mono text-[11px] text-koton/70">
-              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-sitwon" />
+            <p className="mt-4 flex items-center gap-2 font-mono text-[11px] text-grafit">
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-wouj" />
               {h.note}
             </p>
 
-            <ul className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] text-koton/70">
+            <ul className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] text-grafit">
               {[h.featureFuzzy, h.featureByCommune, h.featureVerified].map((f, i) => (
                 <li key={f} className="flex items-center gap-3">
-                  {i > 0 && <span aria-hidden="true" className="h-1 w-1 rounded-full bg-koton/50" />}
+                  {i > 0 && <span aria-hidden="true" className="h-1 w-1 rounded-full bg-grafit/40" />}
                   {f}
                 </li>
               ))}
@@ -126,7 +126,7 @@ export function JudicialMapHeroSlide({ locale, t }: { locale: Locale; t: Diction
               deux diapositives partagent une cellule de grille, et une illustration
               de 260 px de haut ici laissait autant de vide sous l'autre. Le contenu
               de la carte n'est pas perdu — le bouton mène à /juridictions. */}
-          <div className="relative hidden sm:block">
+          <div className="relative hidden rounded-2xl bg-adwaz/10 p-6 sm:block lg:p-8">
             {/*
               La carte déborde vers la GAUCHE (marge négative) : Port-au-Prince est
               au quart sud-est d'Haïti, et la fiche est ancrée à droite — sans ce

@@ -98,7 +98,7 @@ export default async function AdminMoniteurPage({
               </option>
             ))}
           </select>
-          <button type="submit" className="rounded-lg bg-sitwon px-3 py-2 text-sm font-semibold text-chabon">
+          <button type="submit" className="rounded-lg bg-wouj px-3 py-2 text-sm font-semibold text-white">
             {t.moniteur.show}
           </button>
         </form>

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { Logo } from '@/components/Logo'
+import { PublicHeader } from '@/components/PublicHeader'
 import { LocaleSwitcher } from '@/components/LocaleSwitcher'
 import { CookieBanner } from '@/components/CookieBanner'
 import { dictFor } from '@/lib/i18n/server'
@@ -92,22 +92,12 @@ export default async function JuridictionsPage({
 
   return (
     <div className="min-h-screen bg-koton">
-      <header className="sticky top-0 z-40 border-b border-chabon/15 bg-chabon">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
-          <Link href={`/${locale}`} aria-label={t.judicial.breadcrumbHome}><Logo size={30} tone="dark" /></Link>
-          <div className="flex items-center gap-4">
-            <LocaleSwitcher current={locale} />
-            <Link href={`/${locale}/login`} className="rounded-full bg-chabon px-5 py-2 text-sm font-semibold text-koton hover:bg-chabon/90">
-              {t.nav.login}
-            </Link>
-          </div>
-        </div>
-      </header>
+      <PublicHeader locale={locale} t={t} width="max-w-7xl" />
 
       <main className="mx-auto max-w-7xl px-4 pb-16 pt-6">
         <nav aria-label="Fil d’Ariane" className="text-sm text-ank/80">
           <ol className="flex flex-wrap items-center gap-1.5">
-            <li><Link href={`/${locale}`} className="hover:text-ank hover:underline">{t.judicial.breadcrumbHome}</Link></li>
+            <li><Link href={`/${locale}`} className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center transition hover:text-wouj hover:underline">{t.judicial.breadcrumbHome}</Link></li>
             <li aria-hidden="true">/</li>
             <li aria-current="page" className="font-medium text-ank">{t.judicial.breadcrumbHere}</li>
           </ol>
@@ -145,7 +135,7 @@ export default async function JuridictionsPage({
                 <p className="text-[11px] text-ank/80">
                   <span className="font-medium">{t.judicial.attributionLabel} :</span> {attribution}
                 </p>
-                <a href={reportIssueUrl} target="_blank" rel="noopener noreferrer" className="text-[11px] font-medium text-chabon underline underline-offset-2 hover:text-chabon">
+                <a href={reportIssueUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[44px] items-center text-[11px] font-medium text-ank underline underline-offset-2 outline-none ring-wouj transition hover:text-wouj focus-visible:ring-2">
                   {t.judicial.reportIssue}
                 </a>
               </div>
@@ -174,7 +164,7 @@ export default async function JuridictionsPage({
                   key={c.id}
                   href={`/${locale}/juridictions?commune=${c.id}${layersQs}`}
                   aria-current={c.id === record?.commune.id ? 'page' : undefined}
-                  className={`flex items-baseline justify-between gap-2 rounded-lg px-2 py-1.5 text-sm hover:bg-pil ${c.id === record?.commune.id ? 'bg-pil font-semibold text-ank' : 'text-ank/80'}`}
+                  className={`flex min-h-[44px] items-center justify-between gap-2 rounded-lg px-2 text-sm outline-none ring-wouj transition hover:bg-pil focus-visible:ring-2 ${c.id === record?.commune.id ? 'bg-pil font-semibold text-ank' : 'text-ank/80'}`}
                 >
                   <span>
                     {c.name}
@@ -193,9 +183,9 @@ export default async function JuridictionsPage({
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-6 text-xs text-ank/80">
           <span>© 2026 Lam</span>
           <nav className="flex gap-4">
-            <Link className="hover:text-ank" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
-            <Link className="hover:text-ank" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
-            <Link className="hover:text-ank" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
           </nav>
         </div>
       </footer>
