@@ -63,6 +63,76 @@ Le document se clôt sur une **« Synthèse par domaine du droit »** — quatre
 commentent l'ensemble du volume. Elle appartient au recueil, pas à une décision : lui
 prévoir un champ propre, et l'afficher en tête du recueil.
 
+### 1.4 Deux qualifications posées par l'éditeur
+
+Au-delà de ce que le document contient, MASTER_ADMIN et EDITEUR doivent pouvoir qualifier
+chaque décision sur **deux axes indépendants**. Indépendants, et il faut y insister : un
+arrêt peut faire jurisprudence ET avoir été renversé depuis. Les fondre en un seul champ
+rendrait ce cas indescriptible.
+
+#### Axe 1 — TRAITEMENT ultérieur (positif / négatif / neutre)
+
+Comment les décisions postérieures ont traité celle-ci.
+
+| Valeur stockée | Icône | Libellé FR | Sens |
+|---|---|---|---|
+| `POSITIF` | ✅ | Confirmée, suivie | reprise ou approuvée depuis |
+| `NEGATIF` | ⚠️ | Renversée, critiquée | contredite ou abandonnée depuis |
+| `NEUTRE` | ➖ | Citée sans prise de position | mentionnée, sans approbation ni rejet |
+| *(non renseigné)* | — | Non évalué | état par défaut |
+
+⚠️ **TROIS FORMES DISTINCTES, pas trois couleurs.** Coche, triangle, tiret : chacune se
+reconnaît en niveaux de gris et en daltonisme. La règle 5 de la charte interdit
+l'information portée par la seule couleur — or le rouge et le vert sont à 1,05:1 de
+luminance, indiscernables en daltonisme rouge-vert. Un émoji vert et un émoji rouge de
+même forme seraient exactement le défaut que la règle proscrit.
+
+⚠️ **L'ÉMOJI NE DOIT JAMAIS VOYAGER SEUL.** Il accompagne toujours son libellé textuel :
+les émojis se rendent différemment d'un système à l'autre, et les lecteurs d'écran les
+annoncent de façon inconstante. Prévoir `aria-hidden` sur le glyphe et le sens dans le
+texte.
+
+⚠️ **NE PAS STOCKER L'ÉMOJI.** La base garde l'énumération (`POSITIF`…), l'interface rend
+le glyphe. Stocker une présentation interdit de la changer, et casse tout filtre.
+
+#### Axe 2 — PORTÉE (fait jurisprudence, ou non)
+
+Toute décision n'établit pas une règle. Distinguer :
+
+| Valeur stockée | Icône | Libellé FR | Sens |
+|---|---|---|---|
+| `JURISPRUDENCE` | ⚖️ | Fait jurisprudence | pose ou confirme une règle |
+| `ESPECE` | 📄 | Décision d'espèce | tranche un litige sans portée générale |
+| *(non renseigné)* | — | Non qualifiée | état par défaut |
+
+Dans le volume joint, la distinction est parlante : les arrêts qui prononcent une
+**déchéance** pour défaut de consignation de l'amende (n° 2, 6, 10, 11) tranchent une
+formalité et n'établissent rien ; ceux qui appliquent l'article 1170 C.Civ. à la garde
+des choses (n° 5, 7, 13) posent une règle. **Ne pas déduire cette qualification
+automatiquement** — c'est un jugement éditorial, il revient à l'éditeur.
+
+#### Ce que ces deux champs imposent
+
+**Une qualification non sourcée est une affirmation gratuite.** Sur une plateforme
+juridique, dire d'un arrêt qu'il est « renversé » sans dire par quoi n'engage personne et
+n'aide pas le lecteur. Chaque axe reçoit donc :
+
+- une **note libre** (« renversée par Cass. 2e Sect., n° 47 du 12 mars 1971 ») ;
+- l'**auteur** de la qualification et sa **date**, tracés par `audit()`.
+
+Les deux champs restent **facultatifs** : mieux vaut « non évalué » qu'une évaluation
+inventée pour remplir la case. L'interface doit rendre cet état visible — un blanc n'est
+pas un neutre.
+
+**Réutiliser `src/components/StatusChip.tsx`**, déjà factorisé (constat d'audit : quatre
+implémentations identiques auparavant). Y ajouter les nouvelles clés plutôt que de créer
+une cinquième pastille — mais en veillant à ce que le glyphe accompagne le libellé, ce
+que le composant actuel ne prévoit pas encore.
+
+**Filtres** : les deux axes rejoignent juridiction, exercice, issue et domaine dans les
+filtres de la liste (§5). C'est le premier usage réel de ces qualifications — « les arrêts
+qui font jurisprudence en matière de travail, hors ceux renversés depuis ».
+
 ---
 
 ## 2. Ce que le schéma offre déjà, et ce qui manque
@@ -80,16 +150,21 @@ prévoir un champ propre, et l'afficher en tête du recueil.
 | texte intégral / dispositif | `bodyOriginal` |
 | exercice | `year` |
 
-**Manquent quatre notions.** Deux options — trancher explicitement et documenter le choix :
+**Manquent quatre notions du document** (décision attaquée, solution, chambre, référence
+de recueil) **et quatre posées par l'éditeur** (§1.4) : traitement, note de traitement,
+portée, note de portée. Deux options — trancher explicitement et documenter le choix :
 
-1. **Colonnes dédiées** (`decisionAttaquee`, `solution`, `chambre`, `recueilRef`) —
-   requêtables, indexables, typées. Impose une migration Prisma.
+1. **Colonnes dédiées** — `decisionAttaquee`, `solution`, `chambre`, `recueilRef`,
+   `traitement`, `traitementNote`, `portee`, `porteeNote`. Requêtables, indexables,
+   typées. Impose une migration Prisma.
 2. **`metaJson`** — aucune migration, mais ni filtre ni index, et le champ devient un
    fourre-tout.
 
-**Recommandation : colonnes dédiées.** L'issue (`solution`) a vocation à être **filtrée**
-(« tous les rejets en matière de travail ») ; enfouie dans `metaJson`, elle ne le serait
-pas. Prévoir la migration, et un index sur `(type, juridiction, solution)`.
+**Recommandation : colonnes dédiées.** L'issue (`solution`), le traitement et la portée
+ont tous vocation à être **filtrés** (« les arrêts qui font jurisprudence en matière de
+travail, hors ceux renversés depuis ») ; enfouis dans `metaJson`, ils ne le seraient pas.
+Prévoir la migration, et un index sur `(type, juridiction, solution)` ainsi que sur
+`(type, portee, traitement)`.
 
 ⚠️ `status` ne convient pas pour l'issue : il porte déjà `EN_VIGUEUR | ABROGE | MODIFIE |
 PUBLIE`, propre aux textes normatifs. Une jurisprudence n'est pas abrogée, elle est
@@ -119,8 +194,10 @@ Structure de l'écran :
 
 1. **Bloc recueil** — juridiction, section, exercice, synthèse. Renseigné une fois, il
    pré-remplit chaque décision ajoutée ensuite.
-2. **Liste des décisions** — une carte par arrêt, repliable, avec les huit champs.
-   Ajout/retrait de cartes sans limite.
+2. **Liste des décisions** — une carte par arrêt, repliable, avec les huit champs du
+   document **plus les deux qualifications du §1.4**. Ajout/retrait de cartes sans limite.
+   Le traitement et la portée se choisissent parmi des boutons portant glyphe ET libellé —
+   jamais un menu d'émojis nus, où l'on choisit à l'aveugle.
 3. **Aperçu** de la référence composée (`Cass., 1re Sect., n° 2, 28 octobre 1964`) —
    visible avant enregistrement, comme l'éditeur de l'Index affiche `LM2024-51`.
 
@@ -162,6 +239,11 @@ un corpus juridique est indéfendable.
 **Rapport après import** : créés / mis à jour / ignorés, et la liste nominative des
 rejets avec leur motif.
 
+⚠️ **L'IMPORT NE QUALIFIE RIEN.** Traitement et portée restent vides après téléversement :
+le document joint ne les contient pas, et les déduire d'un mot du dispositif produirait
+des affirmations qu'aucune source n'appuie. C'est à l'éditeur de les poser, arrêt par
+arrêt, après lecture.
+
 ---
 
 ## 5. Lecture publique
@@ -173,6 +255,8 @@ Une décision se lit comme un texte de droit, pas comme une fiche :
 - **décision attaquée** et **dispositif** mis en évidence — ce sont les deux points qu'un
   juriste cherche en premier ;
 - **domaines** en pastilles cliquables, menant à la liste filtrée ;
+- **traitement et portée** en pastilles (glyphe + libellé), avec la note de qualification
+  au survol ou en dessous — et rien du tout si l'éditeur ne s'est pas prononcé ;
 - rattachement au recueil (« Arrêts n° 2 à 16, exercice 1964-1965 »), navigable.
 
 **Filtres de la liste** : juridiction, exercice, issue, domaine. C'est la raison d'être
@@ -223,6 +307,11 @@ doit offrir `--dry-run` et l'exécuter par défaut.
    dispositif, résumé et domaines conformes au document
 8. Réimport du MÊME fichier : aucun doublon créé (idempotence)
 9. Écrans testés à 320 px et 390 px, sans débordement horizontal
+10. Les trois traitements et les deux portées se distinguent **en niveaux de gris** —
+    capture d'écran désaturée à l'appui : c'est le contrôle qui prouve que la forme, et
+    non la couleur, porte l'information
+11. Un arrêt non qualifié n'affiche AUCUNE pastille de traitement — l'absence
+    d'évaluation ne doit pas se lire comme un « neutre »
 
 ---
 
