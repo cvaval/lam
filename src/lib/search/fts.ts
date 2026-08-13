@@ -162,10 +162,18 @@ export class FtsProvider implements SearchProvider {
       }
       // Tri par DATE : signature (publicationDate, défaut) ou entrée en vigueur, récent
       // d'abord, sans-date en fin.
-      const orderBy: Prisma.DocumentOrderByWithRelationInput =
+      //
+      // ⚠️ `id` DÉPARTAGE LES EX ÆQUO, ET CE N'EST PAS COSMÉTIQUE. Sans lui, une pagination
+      // `skip`/`take` sur une colonne où beaucoup de lignes valent la même chose — 88 des
+      // 141 circulaires BRH n'ont pas de date d'entrée en vigueur — laisse PostgreSQL libre
+      // de rendre les ex æquo dans un ordre différent d'une page à l'autre : mesuré, 7
+      // circulaires n'apparaissaient JAMAIS et 7 autres deux fois. La requête SQL de la
+      // recherche texte (ftsql.orderClause) porte ce départage depuis toujours ; il
+      // manquait au seul mode NAVIGATION.
+      const orderBy: Prisma.DocumentOrderByWithRelationInput[] =
         query.sort === 'eff'
-          ? { effectiveDate: { sort: 'desc', nulls: 'last' } }
-          : { publicationDate: { sort: 'desc', nulls: 'last' } }
+          ? [{ effectiveDate: { sort: 'desc', nulls: 'last' } }, { id: 'asc' }]
+          : [{ publicationDate: { sort: 'desc', nulls: 'last' } }, { id: 'asc' }]
       const [total, docs] = await Promise.all([
         prisma.document.count({ where: base }),
         prisma.document.findMany({ where: base, orderBy, skip: (page - 1) * size, take: size, select: DOC_SELECT }),
@@ -386,7 +394,7 @@ export class FtsProvider implements SearchProvider {
         ...(base.category == null ? [{ OR: [{ category: null }, { category: { not: 'SOCIETE' } }] }] : []),
       ],
     }
-    const docs = await prisma.document.findMany({ where, take: limit, orderBy: { publicationDate: 'desc' }, select: DOC_SELECT })
+    const docs = await prisma.document.findMany({ where, take: limit, orderBy: [{ publicationDate: 'desc' }, { id: 'asc' }], select: DOC_SELECT })
     const hits: SearchHit[] = []
     for (const d of docs) {
       const fieldScore = scoreFields(weightedFields(d), terms)
