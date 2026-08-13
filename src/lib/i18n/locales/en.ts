@@ -147,6 +147,8 @@ export const en: Dictionary = {
     annexes: 'Download annexes',
     annexesHint: 'Forms and tables to complete — Lam watermark, verify before use.',
     moniteur: 'Published in',
+    adopted: 'Adopted on',
+    published: 'Published on',
     anneeLabel: 'Year',
     dgLabel: 'Director General',
     abrogatedBanner: 'This text is repealed. See the version in force.',

@@ -147,6 +147,8 @@ export const ht: Dictionary = {
     annexes: 'Telechaje anèks yo',
     annexesHint: 'Fòmilè ak tablo pou ranpli — filigran Lam, verifye anvan itilizasyon.',
     moniteur: 'Pibliye nan',
+    adopted: 'Adopte le',
+    published: 'Pibliye le',
     anneeLabel: 'Ane',
     dgLabel: 'Direktè jeneral',
     abrogatedBanner: 'Tèks sa a abowje. Gade vèsyon an vigè a.',

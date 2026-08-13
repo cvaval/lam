@@ -151,6 +151,8 @@ export const fr = {
     annexes: 'Télécharger les annexes',
     annexesHint: 'Formulaires et tableaux à compléter — filigrane Lam, à vérifier avant usage.',
     moniteur: 'Publié au',
+    adopted: 'Adopté le',
+    published: 'Publié le',
     anneeLabel: 'Année',
     dgLabel: 'Directeur général',
     abrogatedBanner: 'Ce texte est abrogé. Consultez la version en vigueur.',

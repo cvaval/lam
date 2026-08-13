@@ -225,7 +225,12 @@ model Document {
   // Source & publication au Moniteur
   moniteurRef    String?  // ex. « Le Moniteur n° 112 du 9 juin 2020 »
   publicationDate DateTime?
-  // Date d'entrée en vigueur (distincte de la signature/publication) — circulaires
+  // Date d'ADOPTION du texte — « Donné au Palais National, le 25 novembre 2020 » — à ne pas
+  // confondre avec sa PUBLICATION au Moniteur, qui vient après (ici le 30 novembre 2020).
+  // Un texte peut aussi être adopté sans jamais être publié, ou publié des mois plus tard :
+  // écraser l'une par l'autre fait perdre une information qu'aucune ne remplace.
+  adoptionDate   DateTime?
+  // Date d'entrée en vigueur (distincte de l'adoption et de la publication) — circulaires
   // BRH notamment : « à compter du … ». Nullable, affichée à côté de publicationDate.
   effectiveDate  DateTime?
   sourcePdfUrl   String?

@@ -330,7 +330,22 @@ export default async function DocPage({
               {type === 'JURISPRUDENCE' ? doc.moniteurRef : `${t.doc.moniteur} ${doc.moniteurRef}`}
             </span>
           )}
-          {doc.publicationDate && <span>{formatDate(locale, doc.publicationDate)}</span>}
+          {/* ⚠️ TROIS DATES, TROIS SENS. Un décret « donné au Palais National » le 25 novembre
+              n'est publié au Moniteur que le 30, et n'entre parfois en vigueur que plus tard
+              encore. Tant qu'une seule date était affichée sans étiquette, le lecteur ne
+              savait pas laquelle il lisait. L'étiquette n'apparaît que lorsqu'il y a de quoi
+              confondre — une date seule reste nue, comme avant. */}
+          {doc.adoptionDate && (
+            <span>
+              {t.doc.adopted} {formatDate(locale, doc.adoptionDate)}
+            </span>
+          )}
+          {doc.publicationDate && (
+            <span>
+              {doc.adoptionDate ? `${t.doc.published} ` : ''}
+              {formatDate(locale, doc.publicationDate)}
+            </span>
+          )}
           {doc.effectiveDate && (
             <span>
               {t.brh.effDate} : {formatDate(locale, doc.effectiveDate)}
