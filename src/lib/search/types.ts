@@ -42,6 +42,15 @@ export interface SearchQuery {
   /** période de publication (recherche avancée) : bornes d'années incluses */
   yearFrom?: number
   yearTo?: number
+  /**
+   * Fiches SANS date de publication (puce « sans date » des circulaires BRH).
+   *
+   * ⚠️ Il ne s'agit pas d'une année particulière mais de leur ABSENCE : sept circulaires
+   * — six normes CEC et la 86-12-A — n'ont pas de date au recueil et ne tombaient donc
+   * sous aucune puce d'année. Elles restaient atteignables par la liste sans filtre, mais
+   * aucun filtre ne les ramenait.
+   */
+  noDate?: boolean
   /** numéro contenu dans Document.number (filtre circulaires BRH par numéro) */
   num?: string
   includeCompanies?: boolean

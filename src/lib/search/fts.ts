@@ -141,6 +141,8 @@ export class FtsProvider implements SearchProvider {
         ...(query.yearTo != null ? { lt: new Date(Date.UTC(query.yearTo + 1, 0, 1)) } : {}),
       }
     }
+    // Puce « sans date » : l'ABSENCE de date de publication, pas une année.
+    if (query.noDate) base.publicationDate = null
     if (query.num) base.number = { contains: query.num }
 
     // ── Navigation (sans requête texte) : pagination SQL, ou tri par numéro en mémoire ──
@@ -198,6 +200,7 @@ export class FtsProvider implements SearchProvider {
       category: query.category ?? undefined,
       yearFrom: query.yearFrom ?? undefined,
       yearTo: query.yearTo ?? undefined,
+      noDate: query.noDate ?? undefined,
       num: query.num ?? undefined,
     }
     const depth = Math.min(MAX_DEPTH, Math.max(FTS_DEPTH, page * size + size))

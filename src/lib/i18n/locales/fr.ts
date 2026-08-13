@@ -96,6 +96,7 @@ export const fr = {
     numberPh: 'ex. 114',
     numberGo: 'Chercher',
     yearLabel: 'Année',
+    noDateLabel: 'Sans date',
     sortLabel: 'Trier',
     sortSig: 'Date de signature',
     sortPub: 'Date de publication',

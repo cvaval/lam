@@ -27,6 +27,7 @@ export function ContextualFilters({
   fiscalYears = [],
   niceClasses = [],
   brhYears = [],
+  brhSansDate = 0,
 }: {
   type: DocType
   locale: string
@@ -36,6 +37,8 @@ export function ContextualFilters({
   fiscalYears?: string[]
   niceClasses?: string[]
   brhYears?: string[]
+  /** Nombre de circulaires sans date de publication — 0 masque la puce. */
+  brhSansDate?: number
 }) {
   const chip = (label: string, patch: SP, on: boolean) => (
     <Link
@@ -153,8 +156,18 @@ export function ContextualFilters({
             {/* Choisir une année exacte remplace la période avancée (sinon la puce
                 serait active mais inerte, la période ayant précédence). */}
             {brhYears.map((y) =>
-              chip(y, { year: active.year === y ? undefined : y, yearFrom: undefined, yearTo: undefined }, active.year === y),
+              chip(y, { year: active.year === y ? undefined : y, yearFrom: undefined, yearTo: undefined, sansDate: undefined }, active.year === y),
             )}
+            {/* ⚠️ Sans cette puce, les fiches DÉPOURVUES de date ne tombent sous aucune
+                année : elles restaient atteignables par la liste complète, mais aucun
+                filtre ne les ramenait. Le compte est affiché — un filtre dont on ne sait
+                pas ce qu'il contient ne se clique pas. */}
+            {brhSansDate > 0 &&
+              chip(
+                `${t.search.noDateLabel} (${brhSansDate})`,
+                { sansDate: active.sansDate === '1' ? undefined : '1', year: undefined, yearFrom: undefined, yearTo: undefined },
+                active.sansDate === '1',
+              )}
           </div>
         )}
         {/* Tri : signature (défaut) / entrée en vigueur / numéro ↑↓ */}

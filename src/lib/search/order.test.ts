@@ -37,3 +37,24 @@ describe('stabilité de la pagination', () => {
     expect(s).toContain('d."effectiveDate" DESC NULLS LAST, d.id')
   })
 })
+
+describe('puce « sans date »', () => {
+  it('le filtre existe dans LES DEUX chemins du moteur intégré', () => {
+    // Navigation (Prisma) et recherche texte (SQL) sont deux requêtes distinctes : une
+    // puce câblée d'un seul côté filtrerait en navigation et ne filtrerait plus dès qu'on
+    // tape un mot — le pire des deux, parce que ça ne se voit qu'au second geste.
+    expect(src('src/lib/search/fts.ts')).toContain('if (query.noDate) base.publicationDate = null')
+    expect(src('src/lib/search/ftsql.ts')).toContain('d."publicationDate" IS NULL')
+  })
+
+  it('le miroir OpenSearch porte le même sens', () => {
+    // Sans lui, la puce rendrait TOUT le corpus en développement et le défaut ne se
+    // verrait qu'en production.
+    expect(src('src/lib/search/opensearch.ts')).toContain("must_not: { exists: { field: 'publicationDate' } }")
+  })
+
+  it('la clé de cache tient compte du filtre', () => {
+    // Sinon la page filtrée servirait le résultat non filtré déjà en cache.
+    expect(src('src/lib/search/index.ts')).toContain('noDate: query.noDate ?? null')
+  })
+})

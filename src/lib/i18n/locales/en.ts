@@ -92,6 +92,7 @@ export const en: Dictionary = {
     numberPh: 'e.g. 114',
     numberGo: 'Search',
     yearLabel: 'Year',
+    noDateLabel: 'Undated',
     sortLabel: 'Sort',
     sortSig: 'Signature date',
     sortPub: 'Publication date',

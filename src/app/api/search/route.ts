@@ -56,6 +56,7 @@ export async function GET(req: NextRequest) {
       locale: user.locale,
       types,
       status: (sp.get('status') as DocStatus) || undefined,
+      noDate: sp.get('sansDate') === '1' || undefined,
       juridiction: sp.get('juridiction') || undefined,
       matiere: sp.get('matiere') || undefined,
       fiscalYear: fiscalYearRaw ? Number(fiscalYearRaw) : undefined,

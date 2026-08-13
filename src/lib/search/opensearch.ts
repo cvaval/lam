@@ -51,6 +51,8 @@ export class OpenSearchProvider implements SearchProvider {
         },
       })
     }
+    // Puce « sans date » : must_not exists — le même sens que `publicationDate IS NULL`.
+    if (query.noDate) filter.push({ bool: { must_not: { exists: { field: 'publicationDate' } } } })
     if (query.num) {
       const n = query.num.replace(/[*?\s]/g, '').slice(0, 20)
       if (n) filter.push({ wildcard: { number: `*${n}*` } })
