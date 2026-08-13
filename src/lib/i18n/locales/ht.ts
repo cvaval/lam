@@ -93,6 +93,8 @@ export const ht: Dictionary = {
     numberGo: 'Chèche',
     yearLabel: 'Ane',
     noDateLabel: 'San dat',
+    sigYearLabel: 'Siyen an',
+    effYearLabel: 'Antre an vigè',
     sortLabel: 'Triye',
     sortSig: 'Dat siyati',
     sortPub: 'Dat piblikasyon',

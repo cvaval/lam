@@ -143,6 +143,13 @@ export class FtsProvider implements SearchProvider {
     }
     // Puce « sans date » : l'ABSENCE de date de publication, pas une année.
     if (query.noDate) base.publicationDate = null
+    // Axe ENTRÉE EN VIGUEUR — indépendant de l'axe signature : les deux peuvent se cumuler
+    // (« signée en 2025, applicable en 2026 »).
+    if (query.effYear != null) {
+      base.effectiveDate = { gte: new Date(Date.UTC(query.effYear, 0, 1)), lt: new Date(Date.UTC(query.effYear + 1, 0, 1)) }
+    } else if (query.noEffDate) {
+      base.effectiveDate = null
+    }
     if (query.num) base.number = { contains: query.num }
 
     // ── Navigation (sans requête texte) : pagination SQL, ou tri par numéro en mémoire ──
@@ -201,6 +208,8 @@ export class FtsProvider implements SearchProvider {
       yearFrom: query.yearFrom ?? undefined,
       yearTo: query.yearTo ?? undefined,
       noDate: query.noDate ?? undefined,
+      effYear: query.effYear ?? undefined,
+      noEffDate: query.noEffDate ?? undefined,
       num: query.num ?? undefined,
     }
     const depth = Math.min(MAX_DEPTH, Math.max(FTS_DEPTH, page * size + size))

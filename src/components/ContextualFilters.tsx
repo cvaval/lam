@@ -28,6 +28,8 @@ export function ContextualFilters({
   niceClasses = [],
   brhYears = [],
   brhSansDate = 0,
+  brhEffYears = [],
+  brhEffSansDate = 0,
 }: {
   type: DocType
   locale: string
@@ -39,6 +41,10 @@ export function ContextualFilters({
   brhYears?: string[]
   /** Nombre de circulaires sans date de publication — 0 masque la puce. */
   brhSansDate?: number
+  /** Années d'entrée en vigueur présentes dans les données. */
+  brhEffYears?: string[]
+  /** Nombre de circulaires sans date d'entrée en vigueur — 0 masque la puce. */
+  brhEffSansDate?: number
 }) {
   const chip = (label: string, patch: SP, on: boolean) => (
     <Link
@@ -150,9 +156,13 @@ export function ContextualFilters({
             </Link>
           ) : null}
         </form>
+        {/* DEUX AXES DE DATE, jamais confondus. Une circulaire signée le 20 novembre 2025
+            peut n'entrer en vigueur que le 5 janvier 2026 : « signée en » et « applicable
+            en » ne rendent pas le même ensemble, et c'est la seconde question qu'un
+            juriste pose le plus souvent. Les deux axes se cumulent. */}
         {brhYears.length > 0 && (
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs text-ank/80">{t.search.yearLabel}:</span>
+            <span className="text-xs text-ank/80">{t.search.sigYearLabel}:</span>
             {/* Choisir une année exacte remplace la période avancée (sinon la puce
                 serait active mais inerte, la période ayant précédence). */}
             {brhYears.map((y) =>
@@ -167,6 +177,22 @@ export function ContextualFilters({
                 `${t.search.noDateLabel} (${brhSansDate})`,
                 { sansDate: active.sansDate === '1' ? undefined : '1', year: undefined, yearFrom: undefined, yearTo: undefined },
                 active.sansDate === '1',
+              )}
+          </div>
+        )}
+        {brhEffYears.length > 0 && (
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs text-ank/80">{t.search.effYearLabel}:</span>
+            {brhEffYears.map((y) =>
+              chip(y, { effYear: active.effYear === y ? undefined : y, effSansDate: undefined }, active.effYear === y),
+            )}
+            {/* Comme pour la signature : sans cette puce, les 88 circulaires dépourvues de
+                date d'effet seraient hors de cet axe, sans aucun moyen de les y retrouver. */}
+            {brhEffSansDate > 0 &&
+              chip(
+                `${t.search.noDateLabel} (${brhEffSansDate})`,
+                { effSansDate: active.effSansDate === '1' ? undefined : '1', effYear: undefined },
+                active.effSansDate === '1',
               )}
           </div>
         )}

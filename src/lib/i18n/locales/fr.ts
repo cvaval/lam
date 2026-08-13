@@ -97,6 +97,8 @@ export const fr = {
     numberGo: 'Chercher',
     yearLabel: 'Année',
     noDateLabel: 'Sans date',
+    sigYearLabel: 'Signée en',
+    effYearLabel: 'Entrée en vigueur',
     sortLabel: 'Trier',
     sortSig: 'Date de signature',
     sortPub: 'Date de publication',

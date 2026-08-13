@@ -98,6 +98,9 @@ export default async function SearchPage({
           // Puce « sans date » : exclusive de toute année (les liens l'assurent côté UI,
           // et l'année a de toute façon la précédence si les deux arrivaient ensemble).
           noDate: searchParams.sansDate === '1' && !searchParams.year ? true : undefined,
+          // Axe ENTRÉE EN VIGUEUR — cumulable avec l'axe signature.
+          effYear: parseYearParam(searchParams.effYear),
+          noEffDate: searchParams.effSansDate === '1' && !searchParams.effYear ? true : undefined,
           yearFrom,
           yearTo,
           num: searchParams.num?.trim().slice(0, 20) || undefined,
@@ -115,6 +118,8 @@ export default async function SearchPage({
   let niceClasses: string[] = []
   let brhYears: string[] = []
   let brhSansDate = 0
+  let brhEffYears: string[] = []
+  let brhEffSansDate = 0
   if (selectedType === 'CIRCULAIRE_BRH') {
     const rows = await prisma.document.findMany({
       where: { type: 'CIRCULAIRE_BRH', publicationDate: { not: null } },
@@ -125,6 +130,15 @@ export default async function SearchPage({
     // aucun filtre ne les ramène. On n'affiche la puce que s'il y en a — un filtre qui
     // ne rend jamais rien vaut moins que pas de filtre.
     brhSansDate = await prisma.document.count({ where: { type: 'CIRCULAIRE_BRH', publicationDate: null } })
+    // Axe ENTRÉE EN VIGUEUR : mêmes règles — les années viennent des données, et les
+    // fiches sans date d'effet ont leur propre puce, sans quoi 88 des 141 circulaires
+    // seraient hors de cet axe.
+    const eff = await prisma.document.findMany({
+      where: { type: 'CIRCULAIRE_BRH', effectiveDate: { not: null } },
+      select: { effectiveDate: true },
+    })
+    brhEffYears = [...new Set(eff.map((r) => String(r.effectiveDate!.getUTCFullYear())))].sort((a, b) => Number(b) - Number(a))
+    brhEffSansDate = await prisma.document.count({ where: { type: 'CIRCULAIRE_BRH', effectiveDate: null } })
   }
   if (selectedType === 'LOI_FINANCES') {
     const rows = await prisma.document.findMany({
@@ -166,6 +180,8 @@ export default async function SearchPage({
     num: searchParams.num,
     year: searchParams.year,
     sansDate: searchParams.sansDate,
+    effYear: searchParams.effYear,
+    effSansDate: searchParams.effSansDate,
     sort: searchParams.sort,
     yearFrom: yearFrom?.toString(),
     yearTo: yearTo?.toString(),
@@ -229,7 +245,7 @@ export default async function SearchPage({
       ) : (
         <div className="flex flex-wrap gap-2">
           <Link
-            href={`/${locale}/search?${qs(baseParams, { type: undefined, status: undefined, juridiction: undefined, matiere: undefined, fiscalYear: undefined, niceClass: undefined, category: undefined, num: undefined, year: undefined, sansDate: undefined, yearFrom: undefined, yearTo: undefined })}`}
+            href={`/${locale}/search?${qs(baseParams, { type: undefined, status: undefined, juridiction: undefined, matiere: undefined, fiscalYear: undefined, niceClass: undefined, category: undefined, num: undefined, year: undefined, sansDate: undefined, effYear: undefined, effSansDate: undefined, yearFrom: undefined, yearTo: undefined })}`}
             className={`rounded-full border px-3 py-1 text-xs font-medium ${
               !selectedType ? 'border-liy bg-chabon text-white' : 'border-chabon/15 bg-white text-ank/70 hover:border-chabon/40'
             }`}
@@ -255,7 +271,7 @@ export default async function SearchPage({
 
       {/* Filtres contextuels du type sélectionné (y compris pour l'accès Index seul) */}
       {selectedType && (
-        <ContextualFilters type={selectedType} locale={locale} base={baseParams} active={searchParams} t={t} fiscalYears={fiscalYears} niceClasses={niceClasses} brhYears={brhYears} brhSansDate={brhSansDate} />
+        <ContextualFilters type={selectedType} locale={locale} base={baseParams} active={searchParams} t={t} fiscalYears={fiscalYears} niceClasses={niceClasses} brhYears={brhYears} brhSansDate={brhSansDate} brhEffYears={brhEffYears} brhEffSansDate={brhEffSansDate} />
       )}
 
       {quotaBlocked && (

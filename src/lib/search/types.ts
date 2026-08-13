@@ -51,6 +51,17 @@ export interface SearchQuery {
    * aucun filtre ne les ramenait.
    */
   noDate?: boolean
+  /**
+   * Année d'ENTRÉE EN VIGUEUR (axe distinct de l'année de signature).
+   *
+   * ⚠️ Les deux axes ne se confondent pas : une circulaire signée le 20 novembre 2025 peut
+   * n'entrer en vigueur que le 5 janvier 2026. Chercher « ce qui s'applique en 2026 » et
+   * « ce qui a été signé en 2026 » sont deux questions différentes, et c'est la première
+   * qu'un juriste pose le plus souvent.
+   */
+  effYear?: number
+  /** Fiches sans date d'entrée en vigueur (puce « sans date » de l'axe effet). */
+  noEffDate?: boolean
   /** numéro contenu dans Document.number (filtre circulaires BRH par numéro) */
   num?: string
   includeCompanies?: boolean

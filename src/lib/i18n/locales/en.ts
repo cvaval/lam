@@ -93,6 +93,8 @@ export const en: Dictionary = {
     numberGo: 'Search',
     yearLabel: 'Year',
     noDateLabel: 'Undated',
+    sigYearLabel: 'Signed in',
+    effYearLabel: 'In force from',
     sortLabel: 'Sort',
     sortSig: 'Signature date',
     sortPub: 'Publication date',

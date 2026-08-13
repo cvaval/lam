@@ -30,6 +30,10 @@ export interface FtsFilters {
   yearTo?: number
   /** Fiches sans date de publication (puce « sans date »). */
   noDate?: boolean
+  /** Année d'entrée en vigueur (axe distinct de la signature). */
+  effYear?: number
+  /** Fiches sans date d'entrée en vigueur. */
+  noEffDate?: boolean
   num?: string
 }
 
@@ -62,6 +66,12 @@ function filterConds(filters: FtsFilters): Prisma.Sql[] {
   if (filters.yearFrom != null) conds.push(Prisma.sql`d."publicationDate" >= ${new Date(Date.UTC(filters.yearFrom, 0, 1))}`)
   if (filters.yearTo != null) conds.push(Prisma.sql`d."publicationDate" < ${new Date(Date.UTC(filters.yearTo + 1, 0, 1))}`)
   if (filters.noDate) conds.push(Prisma.sql`d."publicationDate" IS NULL`)
+  if (filters.effYear != null) {
+    conds.push(Prisma.sql`d."effectiveDate" >= ${new Date(Date.UTC(filters.effYear, 0, 1))}`)
+    conds.push(Prisma.sql`d."effectiveDate" < ${new Date(Date.UTC(filters.effYear + 1, 0, 1))}`)
+  } else if (filters.noEffDate) {
+    conds.push(Prisma.sql`d."effectiveDate" IS NULL`)
+  }
   // Sous-catégorie de l'Index : filtrée explicitement, sinon on masque les avis-sociétés
   // groupés (représentés par les fiches Société) — même règle que le moteur historique.
   if (filters.category) conds.push(Prisma.sql`d."category" = ${filters.category}`)

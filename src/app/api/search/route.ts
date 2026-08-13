@@ -3,7 +3,7 @@ import { apiError } from '@/lib/api'
 import { getCurrentUser } from '@/lib/auth/session'
 import { getClientCtx } from '@/lib/auth/request'
 import { runSearch } from '@/lib/search'
-import { PAGE_SIZE, parseYearRange } from '@/lib/search/types'
+import { PAGE_SIZE, parseYearRange, parseYearParam } from '@/lib/search/types'
 import { consumeSearchQuota } from '@/lib/quota'
 import { guard, LIMITS } from '@/lib/security/ratelimit'
 import { can } from '@/lib/rbac'
@@ -57,6 +57,8 @@ export async function GET(req: NextRequest) {
       types,
       status: (sp.get('status') as DocStatus) || undefined,
       noDate: sp.get('sansDate') === '1' || undefined,
+      effYear: parseYearParam(sp.get('effYear')),
+      noEffDate: sp.get('effSansDate') === '1' || undefined,
       juridiction: sp.get('juridiction') || undefined,
       matiere: sp.get('matiere') || undefined,
       fiscalYear: fiscalYearRaw ? Number(fiscalYearRaw) : undefined,

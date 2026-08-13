@@ -53,6 +53,12 @@ export class OpenSearchProvider implements SearchProvider {
     }
     // Puce « sans date » : must_not exists — le même sens que `publicationDate IS NULL`.
     if (query.noDate) filter.push({ bool: { must_not: { exists: { field: 'publicationDate' } } } })
+    // Axe entrée en vigueur.
+    if (query.effYear != null) {
+      filter.push({ range: { effectiveDate: { gte: `${query.effYear}-01-01`, lt: `${query.effYear + 1}-01-01` } } })
+    } else if (query.noEffDate) {
+      filter.push({ bool: { must_not: { exists: { field: 'effectiveDate' } } } })
+    }
     if (query.num) {
       const n = query.num.replace(/[*?\s]/g, '').slice(0, 20)
       if (n) filter.push({ wildcard: { number: `*${n}*` } })

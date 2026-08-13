@@ -58,3 +58,32 @@ describe('puce « sans date »', () => {
     expect(src('src/lib/search/index.ts')).toContain('noDate: query.noDate ?? null')
   })
 })
+
+describe('axe « entrée en vigueur »', () => {
+  it('filtre dans LES DEUX chemins du moteur intégré', () => {
+    expect(src('src/lib/search/fts.ts')).toContain('if (query.effYear != null)')
+    expect(src('src/lib/search/fts.ts')).toContain('base.effectiveDate = null')
+    expect(src('src/lib/search/ftsql.ts')).toContain('d."effectiveDate" IS NULL')
+    expect(src('src/lib/search/ftsql.ts')).toContain('if (filters.effYear != null)')
+  })
+
+  it('le miroir OpenSearch porte le même sens', () => {
+    const s = src('src/lib/search/opensearch.ts')
+    expect(s).toContain("must_not: { exists: { field: 'effectiveDate' } }")
+    expect(s).toContain('range: { effectiveDate:')
+  })
+
+  it('la clé de cache tient compte des deux nouveaux critères', () => {
+    const s = src('src/lib/search/index.ts')
+    expect(s).toContain('effYear: query.effYear ?? null')
+    expect(s).toContain('noEffDate: query.noEffDate ?? null')
+  })
+
+  it('année et « sans date » s’excluent SUR LE MÊME AXE, pas entre axes', () => {
+    // Une circulaire signée en 2025 et applicable en 2026 doit rester trouvable par la
+    // combinaison des deux axes : les cumuler est le cas d'usage, pas une erreur.
+    const s = src('src/lib/search/fts.ts')
+    expect(s).toContain('} else if (query.noEffDate) {')
+    expect(s).not.toContain('if (query.effYear != null && query.year != null) return')
+  })
+})
