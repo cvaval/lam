@@ -91,25 +91,38 @@ async function lireSommaire(): Promise<Fiche[]> {
 
 async function lireArrets(): Promise<Map<string, string>> {
   const l = lignes((await mammoth.extractRawText({ buffer: readFileSync(F_ARRETS) })).value)
-  // ⚠️ DEUX TRANSCRIPTIONS DU MÊME RECUEIL COHABITENT. La première écrit « No.35).- » seul
-  // sur sa ligne ; la seconde « No 35).— [Mention manuscrite : 31 Mars 1965] ». Une regex
-  // ancrée sur la fin de ligne ne voyait que la première, et les 1 900 lignes de la seconde
-  // tombaient dans l'arrêt précédent — qui pesait alors 228 455 caractères au lieu de 6 000.
-  const entete = (x: string) => /^N[o°]s?\.?\s*(\d{1,3})\s*\)?\.?[-—–]?\s*(?:\[.*\])?\s*$/.exec(x)
-  const idx: { n: string; i: number; s: string }[] = []
+  // ⚠️ DEUX TRANSCRIPTIONS DU MÊME RECUEIL COHABITENT, ET C'EST LA PREMIÈRE QUI FAIT FOI
+  // (décision de la rédaction). Elle écrit « No.35).- » seul sur sa ligne ; la seconde
+  // « No 35).— [Mention manuscrite : 31 Mars 1965] ».
+  //
+  // Les en-têtes de la SECONDE servent malgré tout de BORNES : sans elles, les 1 900 lignes
+  // de cette seconde transcription tombent dans l'arrêt qui la précède — mesuré, 228 455
+  // caractères au lieu de 6 000. On les repère donc pour couper, sans en faire des arrêts.
+  // TROIS graphies d'en-tête, deux sens :
+  //   « No.35).- »                      → arrêt (première transcription)
+  //   « No. 44).— 29 juillet 1965 »     → arrêt (première transcription, date en ligne)
+  //   « No 35).— [Mention manuscrite… ] » → SECONDE transcription : borne, pas un arrêt
+  // La distinction tient au CROCHET, pas au tiret : s'en remettre au tiret ferait perdre
+  // les arrêts n° 44 et suivants de la Deuxième Section.
+  const borne = (x: string) => /^N[o°]s?\.?\s*\d{1,3}\s*\)?\.?[-—–]\s*\[.*\]\s*$/.test(x)
+  const retenu = (x: string) =>
+    borne(x) ? null : /^N[o°]s?\.?\s*(\d{1,3})\s*\)?\.?[-—–]?\s*(?:\d{1,2}\s+\p{L}+\s+\d{4})?\s*$/u.exec(x)
+  const idx: { n: string | null; i: number; s: string }[] = []
   let sect = 'Première Section'
   for (let i = 0; i < l.length; i++) {
     if (/^PREMI[ÈE]RE SECTION$/i.test(l[i])) sect = 'Première Section'
     else if (/^DEUXI[ÈE]ME SECTION$/i.test(l[i])) sect = 'Deuxième Section'
-    const m = entete(l[i])
+    const m = retenu(l[i])
     if (m) idx.push({ n: m[1], i, s: sect })
+    else if (borne(l[i])) idx.push({ n: null, i, s: sect })
   }
   const out = new Map<string, string>()
   for (let k = 0; k < idx.length; k++) {
+    if (idx[k].n === null) continue // borne de la seconde transcription — pas un arrêt
     let fin = k + 1 < idx.length ? idx[k + 1].i : l.length
     // L'en-tête d'archive du suivant (exercice, section, mention marginale) lui appartient.
     while (fin - 1 > idx[k].i && /^(EXERCICE|EX\s*:|PREMI[ÈE]RE SECTION|DEUXI[ÈE]ME SECTION|C\.T\.|\[)/i.test(l[fin - 1])) fin--
-    out.set(`${idx[k].s}|${idx[k].n}`, l.slice(idx[k].i + 1, fin).join('\n').replace(/\n{3,}/g, '\n\n').trim())
+    out.set(`${idx[k].s}|${idx[k].n!}`, l.slice(idx[k].i + 1, fin).join('\n').replace(/\n{3,}/g, '\n\n').trim())
   }
   return out
 }
