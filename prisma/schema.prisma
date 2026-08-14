@@ -254,6 +254,13 @@ model Document {
   noteRedaction    String?   // commentaire éditorial, signé
   noteRedactionBy  String?   // nom de l'éditeur signataire
   noteRedactionAt  DateTime?
+  // ── Sommaire analytique (rubriques IRAC des recueils de la Cour de Cassation) ──
+  // ⚠️ « Solution » et « MOTIFS » sont deux choses : `dispositif` reproduit ce que l'arrêt
+  // écrit (« Rejet du pourvoi. »), `solution` le code (REJET), `motifs` porte le
+  // raisonnement. Deux arrêts peuvent partager un dispositif sans un seul motif commun.
+  regleDroit       String?  // « Règle de droit (Rule of Law) » — l'attendu de principe
+  questionDroit    String?  // « Question de droit (Issue) » — ce que la Cour avait à trancher
+  motifs           String?  // « Solution et motifs (Holding and Reasoning) »
   // .docx d'origine archivé — sans lui, une erreur d'analyse découverte plus tard est irréparable
   sourceFileUrl    String?
 
