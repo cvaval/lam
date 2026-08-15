@@ -4,8 +4,13 @@ import {
 } from '@/lib/jurisprudence/constants'
 
 /**
- * Bandeau propre aux DÉCISIONS JUDICIAIRES : décision attaquée, dispositif et
- * qualifications éditoriales — les deux premiers points qu'un juriste cherche.
+ * Bandeau propre aux DÉCISIONS JUDICIAIRES : les QUALIFICATIONS éditoriales — comment la
+ * décision a été traitée depuis, quelle portée on lui reconnaît, ce que la rédaction en
+ * dit. Elles précèdent le sommaire : on situe la décision avant de l'analyser.
+ *
+ * ⚠️ DÉCISION ATTAQUÉE ET DISPOSITIF NE SONT PLUS ICI. Ce sont des rubriques du
+ * sommaire — le recueil les range lui-même parmi les siennes — et elles vivent
+ * désormais dans `JurisprudenceSommaire`. Les rendre ici aussi les ferait lire deux fois.
  *
  * ⚠️ LE GLYPHE NE VOYAGE JAMAIS SEUL. Il accompagne son libellé et porte `aria-hidden` :
  * les émojis se rendent différemment d'un système à l'autre et les lecteurs d'écran les
@@ -29,8 +34,6 @@ const LIB_PORTEE: Record<string, { fr: string; en: string; ht: string }> = {
 }
 
 const LIB = {
-  attaquee: { fr: 'Décision attaquée', en: 'Decision under appeal', ht: 'Desizyon atake' },
-  dispositif: { fr: 'Dispositif', en: 'Ruling', ht: 'Dispozitif' },
   note: { fr: 'Note de la rédaction', en: 'Editorial note', ht: 'Nòt redaksyon an' },
 }
 
@@ -39,8 +42,6 @@ export function JurisprudenceHeader({
   locale,
 }: {
   doc: {
-    decisionAttaquee: string | null
-    dispositif: string | null
     traitement: string | null
     traitementNote: string | null
     portee: string | null
@@ -52,9 +53,7 @@ export function JurisprudenceHeader({
   locale: string
 }) {
   const lt = (o: { fr: string; en: string; ht: string }) => (locale === 'en' ? o.en : locale === 'ht' ? o.ht : o.fr)
-  const rien =
-    !doc.decisionAttaquee && !doc.dispositif && !doc.traitement && !doc.portee && !doc.noteRedaction
-  if (rien) return null
+  if (!doc.traitement && !doc.portee && !doc.noteRedaction) return null
 
   const pastille = 'inline-flex items-center gap-1.5 rounded-full border border-liy bg-pil px-2.5 py-1 text-[11px] font-medium text-ank'
 
@@ -75,23 +74,6 @@ export function JurisprudenceHeader({
             </span>
           )}
         </div>
-      )}
-
-      {(doc.decisionAttaquee || doc.dispositif) && (
-        <dl className="grid gap-x-4 gap-y-2 rounded-xl border border-liy bg-white p-4 text-sm sm:grid-cols-[auto_1fr]">
-          {doc.decisionAttaquee && (
-            <>
-              <dt className="font-mono text-[11px] uppercase tracking-wider text-grafit">{lt(LIB.attaquee)}</dt>
-              <dd className="text-ank">{doc.decisionAttaquee}</dd>
-            </>
-          )}
-          {doc.dispositif && (
-            <>
-              <dt className="font-mono text-[11px] uppercase tracking-wider text-grafit">{lt(LIB.dispositif)}</dt>
-              <dd className="font-medium text-ank">{doc.dispositif}</dd>
-            </>
-          )}
-        </dl>
       )}
 
       {doc.noteRedaction && (

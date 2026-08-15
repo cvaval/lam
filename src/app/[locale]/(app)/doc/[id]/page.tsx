@@ -13,6 +13,8 @@ import { guard, LIMITS } from '@/lib/security/ratelimit'
 import { RateLimitNotice } from '@/components/RateLimitNotice'
 import { StatusChip } from '@/components/StatusChip'
 import { JurisprudenceHeader } from '@/components/JurisprudenceHeader'
+import { ANCRE_TEXTE, JurisprudenceSommaire } from '@/components/JurisprudenceSommaire'
+import { JurisprudenceComposition } from '@/components/JurisprudenceComposition'
 import { DocumentNotes, type NoteAffichee } from '@/components/DocumentNotes'
 import { signature, peutEtreAnonyme } from '@/lib/notes/rules'
 import { BackLink } from '@/components/BackLink'
@@ -111,6 +113,9 @@ export default async function DocPage({
       versions: { orderBy: { effectiveDate: 'desc' } },
       citationsFrom: { include: { to: true } },
       citationsTo: { include: { from: true } },
+      // La formation de jugement, dans l'ordre du recueil : présidence, juges, ministère
+      // public, greffe. `position` porte cet ordre — un tri par nom le détruirait.
+      judges: { orderBy: { position: 'asc' } },
     },
   })
   if (!doc) notFound()
@@ -369,9 +374,17 @@ export default async function DocPage({
           {doc.recueilRef && <span>{doc.recueilRef}</span>}
           {editionHeader?.issn && <span>ISSN {editionHeader.issn}</span>}
         </div>
-        {/* Décision judiciaire : décision attaquée, dispositif, qualifications, note. */}
+        {/* Décision judiciaire : qualifications éditoriales (traitement, portée, note). */}
         <JurisprudenceHeader doc={doc} locale={locale} />
-        {/* Mots-clés thématiques — cliquables vers la recherche */}
+        {/* Sommaire analytique — AVANT le texte de l'arrêt. Le résumé éditorial y est une
+            rubrique : son bloc générique plus bas est donc tu pour les décisions. */}
+        {type === 'JURISPRUDENCE' && <JurisprudenceSommaire doc={doc} resume={summary} locale={locale} />}
+        {/* La composition suit le sommaire : qui a jugé, après ce qui a été jugé. */}
+        {type === 'JURISPRUDENCE' && (
+          <JurisprudenceComposition membres={doc.judges} note={doc.compositionNote} locale={locale} />
+        )}
+        {/* Mots-clés thématiques — cliquables vers la recherche. Ils suivent le sommaire :
+            placés avant, ils s'intercaleraient entre les rubriques et le texte résumé. */}
         {doc.keywords && (
           <div className="flex flex-wrap items-center gap-1.5">
             <span className="text-[11px] font-semibold uppercase tracking-wide text-ank/80">{t.doc.keywords}</span>
@@ -482,8 +495,8 @@ export default async function DocPage({
         <img src={doc.imageUrl} alt={title} className="h-40 w-40 rounded-xl border border-chabon/10 object-contain p-2" />
       )}
 
-      {/* Résumé éditorial */}
-      {summary && (
+      {/* Résumé éditorial — tu pour les décisions : il y est la 2ᵉ ligne du sommaire. */}
+      {summary && type !== 'JURISPRUDENCE' && (
         <section className="rounded-2xl border border-chabon/10 bg-white p-5">
           <div className="mb-2 flex items-center gap-2">
             <h2 className="text-sm font-semibold text-ank">{t.doc.editorialSummary}</h2>
@@ -515,7 +528,7 @@ export default async function DocPage({
       {annotations ? (
         <div className="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:items-start print:block">
           <CodeSidebar docId={doc.id} groups={annotations.navToc} indexEntries={annotations.indexEntries} locale={locale} />
-          <section className="min-w-0 rounded-2xl border border-chabon/10 bg-white p-5">
+          <section id={ANCRE_TEXTE} className="min-w-0 scroll-mt-4 rounded-2xl border border-chabon/10 bg-white p-5">
             <div className="mb-3 border-b border-chabon/10 pb-3">
               <h2 className="text-sm font-semibold text-ank">{t.doc.officialText}</h2>
             </div>
@@ -553,7 +566,7 @@ export default async function DocPage({
           )}
         </section>
       ) : (
-        <section className="rounded-2xl border border-chabon/10 bg-white p-5">
+        <section id={ANCRE_TEXTE} className="scroll-mt-4 rounded-2xl border border-chabon/10 bg-white p-5">
           <div className="mb-3 border-b border-chabon/10 pb-3">
             <h2 className="text-sm font-semibold text-ank">{t.doc.officialText}</h2>
           </div>
