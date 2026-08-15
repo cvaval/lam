@@ -29,20 +29,19 @@ Le corpus est versé et les colonnes existent. Ce prompt ne porte que sur **l'af
 | --- | --- | --- | --- |
 | Domaine du droit | `matiere` | **80/80** | 254 c. |
 | Juridiction, date | `juridiction`, `publicationDate` | **80/80** | — |
+| Règle de droit | `regleDroit` | **80/80** | 660 c. |
+| Question de droit | `questionDroit` | **80/80** | 393 c. |
+| Solution et motifs | `motifs` | **80/80** | 517 c. |
+| Décision attaquée | `decisionAttaquee` | 67/80 | 159 c. |
 | Résumé éditorial | `summaryFr` | 61/80 | 608 c. |
-| Décision attaquée | `decisionAttaquee` | 53/80 | 159 c. |
-| Règle de droit | `regleDroit` | **66/80** | 660 c. |
-| Question de droit | `questionDroit` | **66/80** | 393 c. |
-| Solution et motifs | `motifs` | **66/80** | 517 c. |
 | Dispositif | `dispositif` | 29/80 | 74 c. |
 | Issue codée | `solution` | 28/80 | — |
 | Composition | *(aucun champ)* | **0/80** | — |
 
-> ⚠️ **AUCUNE RUBRIQUE N'EST REMPLIE PARTOUT, ET L'ÉCART EST LARGE** — de 80/80 pour le
-> domaine à 28/80 pour l'issue codée. Une maquette dessinée sur une fiche complète produira
-> des trous sur les **quatorze** décisions qui n'ont ni règle ni question ni motifs —
-> Deuxième Section n° 2 à 15. **L'interface se conçoit à partir de la fiche la plus
-> pauvre**, pas de la plus riche.
+> ⚠️ **LES QUATRE RUBRIQUES D'ANALYSE SONT DÉSORMAIS COMPLÈTES — 80/80.** Mais le résumé
+> éditorial n'est là que 61 fois, la décision attaquée 67, le dispositif 29 et l'issue codée
+> 28. Une maquette dessinée sur une fiche complète laisserait donc encore des trous.
+> **L'interface se conçoit à partir de la fiche la plus pauvre**, pas de la plus riche.
 
 Voici une fiche complète, telle qu'elle est en base (Deuxième Section n° 21) :
 
@@ -108,9 +107,9 @@ Un `<dl>`, comme le bloc décision attaquée / dispositif existant, avec un inti
 section. Chaque rubrique sur sa ligne, l'étiquette en petites capitales monospacées.
 
 **Rien de ce qui est vide ne s'affiche.** Pas d'étiquette orpheline, pas de « non
-renseigné », pas de tiret. Sur les 14 décisions sans règle de droit, le bloc se réduit au
-domaine et au résumé — et si aucune rubrique n'est renseignée, **il n'y a pas de bloc du
-tout**.
+renseigné », pas de tiret. Les quatre rubriques d'analyse sont complètes, mais 19 décisions
+n'ont pas de résumé éditorial et 51 pas de dispositif : leurs lignes ne s'affichent pas. Et
+si aucune rubrique n'était renseignée, **il n'y aurait pas de bloc du tout**.
 
 > ⚠️ **UN BLOC « SOMMAIRE » VIDE EST PIRE QUE PAS DE BLOC.** Il annonce une analyse qui
 > n'existe pas et fait douter le lecteur de ce qu'il ne voit pas.
@@ -181,8 +180,7 @@ la formation, et les aligner avec les juges donnerait à lire une composition fa
 - ~~L'ordre des rubriques ?~~ **TRANCHÉ** : question → règle → motifs.
 - ~~Le résumé éditorial, bloc séparé ou rubrique ?~~ **TRANCHÉ** : cinquième rubrique du
   sommaire.
-- ~~Les 29 décisions sans rubriques ?~~ **15 sont pourvues** depuis le sommaire de la
-  Première Section n° 2 à 16 (66/80 désormais). **Restent 14** — Deuxième Section n° 2 à
-  15, celles dont le sommaire d'origine ne portait aucune rubrique d'analyse. Leur bloc
-  « Sommaire » se réduira au domaine et au résumé. Si un sommaire existe pour elles, il
-  reste à fournir.
+- ~~Les 29 décisions sans rubriques ?~~ **SANS OBJET : les 80 décisions ont leurs quatre
+  rubriques d'analyse** depuis le 15 août. Reste l'inégalité sur le résumé éditorial
+  (61/80), la décision attaquée (67/80) et le dispositif (29/80) — que l'interface traite
+  en n'affichant pas ce qui est vide.

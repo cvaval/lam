@@ -30,6 +30,8 @@ const F_SOMMAIRES = [
   '/Users/cvaval/Downloads/Sommaire_Analytique_Arrets_1964-1965_full.docx',
   // Deuxième Section n° 30 à 47 — gabarit propre et homogène, reçu séparément.
   '/Users/cvaval/Downloads/Sommaire_Analytique_2e_Section_Arrets_30-47.docx',
+  // Deuxième Section n° 2 à 15 — même gabarit que le précédent, reçu le 15 août.
+  '/Users/cvaval/Downloads/Sommaire_Analytique_2e_Section_Arrets_2-15.docx',
 ]
 /**
  * QUATRIÈME GABARIT — Première Section n° 2 à 16.
@@ -194,14 +196,19 @@ async function main() {
   const apply = process.argv.includes('--apply')
   const parFichier = await Promise.all(F_SOMMAIRES.map(lireSommaire))
   parFichier.push(await lireSommaireLigneAligne())
-  // ⚠️ LE PREMIER SOMMAIRE COMPILE PLUSIEURS GÉNÉRATIONS ÉDITORIALES et redonne certaines
-  // fiches deux fois. On dédoublonne sur (section, numéro) en gardant la fiche la plus
-  // COMPLÈTE — celle qui porte le plus de rubriques renseignées.
+  // ⚠️ ON FUSIONNE LES GÉNÉRATIONS, ON N'EN CHOISIT PAS UNE. Les sommaires successifs ne
+  // portent pas les mêmes rubriques : le premier donne un « Résumé », les derniers donnent
+  // règle, question et motifs. Garder « la fiche la plus complète » faisait perdre les
+  // rubriques que l'autre était seule à porter — mesuré, quatorze résumés effacés.
+  // Première valeur rencontrée gagne ; les fichiers sont listés du plus ancien au plus récent
+  // et une rubrique déjà remplie n'est pas remplacée.
   const parCle = new Map<string, Fiche>()
   for (const f of parFichier.flat()) {
     const k = `${f.section}|${f.numero}`
     const a = parCle.get(k)
-    if (!a || Object.keys(f.champs).length > Object.keys(a.champs).length) parCle.set(k, f)
+    if (!a) { parCle.set(k, { ...f, champs: { ...f.champs } }); continue }
+    for (const [c, v] of Object.entries(f.champs)) if (!a.champs[c]?.trim()) a.champs[c] = v
+    if (!a.intitule && f.intitule) a.intitule = f.intitule
   }
   const fiches = [...parCle.values()].sort((a, b) => a.section.localeCompare(b.section) || Number(a.numero) - Number(b.numero))
   console.log(`fiches lues ${parFichier.flat().length} → ${fiches.length} après dédoublonnage (section, numéro)`)
@@ -243,7 +250,7 @@ async function main() {
     // ⚠️ CLÉ (source, SECTION, numéro) — le numéro seul écraserait un autre arrêt.
     const existant = await prisma.document.findFirst({
       where: { type: 'JURISPRUDENCE', source: SOURCE, number: f.numero, chambre: f.section },
-      select: { id: true, bodyOriginal: true },
+      select: { id: true, bodyOriginal: true, summaryFr: true, decisionAttaquee: true, dispositif: true, solution: true, regleDroit: true, questionDroit: true, motifs: true, matiere: true },
     })
     // ⚠️ NE JAMAIS REMPLACER UN TEXTE INTÉGRAL PAR UN REPLI. Le sommaire de la Première
     // Section n° 2 à 16 arrive sans les arrêts — ils sont en base depuis le premier
@@ -251,6 +258,14 @@ async function main() {
     // écrasés par la composition résumé + motifs, et rien ne l'aurait signalé.
     if (!texte && existant && (existant.bodyOriginal?.length ?? 0) > donnees.bodyOriginal.length) {
       donnees.bodyOriginal = existant.bodyOriginal!
+    }
+    // ⚠️ UN SOMMAIRE QUI SE TAIT N'EFFACE RIEN. Écrire `null` parce que la rubrique est
+    // absente du fichier courant revient à faire dire à un recueil ce qu'un autre disait —
+    // mesuré, quatorze résumés perdus au versement des sommaires 30-47 et 2-15.
+    if (existant) {
+      for (const c of ['summaryFr', 'decisionAttaquee', 'dispositif', 'solution', 'regleDroit', 'questionDroit', 'motifs', 'matiere'] as const) {
+        if (donnees[c] == null && existant[c] != null) (donnees as Record<string, unknown>)[c] = existant[c]
+      }
     }
     const doc = existant
       ? await prisma.document.update({ where: { id: existant.id }, data: donnees })
