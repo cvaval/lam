@@ -107,15 +107,25 @@ async function lireArrets(): Promise<Map<string, string>> {
   // Les en-têtes de la SECONDE servent malgré tout de BORNES : sans elles, les 1 900 lignes
   // de cette seconde transcription tombent dans l'arrêt qui la précède — mesuré, 228 455
   // caractères au lieu de 6 000. On les repère donc pour couper, sans en faire des arrêts.
-  // TROIS graphies d'en-tête, deux sens :
-  //   « No.35).- »                      → arrêt (première transcription)
-  //   « No. 44).— 29 juillet 1965 »     → arrêt (première transcription, date en ligne)
-  //   « No 35).— [Mention manuscrite… ] » → SECONDE transcription : borne, pas un arrêt
-  // La distinction tient au CROCHET, pas au tiret : s'en remettre au tiret ferait perdre
-  // les arrêts n° 44 et suivants de la Deuxième Section.
-  const borne = (x: string) => /^N[o°]s?\.?\s*\d{1,3}\s*\)?\.?[-—–]\s*\[.*\]\s*$/.test(x)
+  // SEPT graphies d'en-tête relevées, trois sens. Recensées exhaustivement après trois
+  // surprises successives — chacune avait fait disparaître des arrêts :
+  //   « No.35).- » · « No. 30.- »                     → arrêt
+  //   « No. 44).— 29 juillet 1965 »                   → arrêt (date en ligne)
+  //   « No. 2).- [Comm.] 20 Octobre 1964 »            → arrêt (MATIÈRE + date)
+  //   « No. 11).- [Prise à Partie] 3 Décembre 1964 »  → arrêt (matière + date)
+  //   « No 35).— [Mention manuscrite : …] »           → SECONDE transcription : borne
+  //   « No 16 — Solange LACROIX c. Joseph ROC »       → intertitre de sommaire : à ignorer
+  //
+  // ⚠️ LE DISCRIMINANT EST LE CONTENU DU CROCHET, PAS LE CROCHET. S'en tenir au crochet
+  // classait « [Comm.] » et « [Prise à Partie] » comme seconde transcription : les QUATORZE
+  // arrêts de la Deuxième Section n° 2 à 15 devenaient invisibles, et leurs fiches sont
+  // parties en base avec leur seul sommaire.
+  const borne = (x: string) => /^N[o°]s?\.?\s*\d{1,3}\s*\)?\.?[-—–]\s*\[\s*Mention manuscrite/i.test(x)
+  const intertitre = (x: string) => /^N[o°]s?\.?\s*\d{1,3}\s*[—–]\s*\p{L}.*\sc\.\s/u.test(x)
   const retenu = (x: string) =>
-    borne(x) ? null : /^N[o°]s?\.?\s*(\d{1,3})\s*\)?\.?[-—–]?\s*(?:\d{1,2}\s+\p{L}+\s+\d{4})?\s*$/u.exec(x)
+    borne(x) || intertitre(x)
+      ? null
+      : /^N[o°]s?\.?\s*(\d{1,3})\s*\)?\.?[-—–]?\s*(?:\[[^\]]*\])?\s*(?:\d{1,2}\s+\p{L}+\s+\d{4})?\s*$/u.exec(x)
   const idx: { n: string | null; i: number; s: string }[] = []
   let sect = 'Première Section'
   for (let i = 0; i < l.length; i++) {
