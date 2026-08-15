@@ -61,7 +61,6 @@ const TYPE_SHORT: Record<string, string> = {
   TARIF_DOUANIER: 'Tarif douanier',
   INDEX: 'Index',
 }
-const DEFAULT_COLOR = '#55565A' // brim — repli si un domaine n'a pas de couleur
 const MODE_KEY = 'lv:doctrineMode'
 const TREE_KEY = 'lv:doctrineTree'
 
@@ -439,9 +438,15 @@ export function ThemeBrowser({
     )
   }
 
-  // Domaine de tête (niveau 0) : carte avec pastille colorée (couleur de marque LAM).
+  /**
+   * Domaine de tête (niveau 0).
+   *
+   * ⚠️ PAS DE PASTILLE DE COULEUR. Elle codait une information qu'aucune légende ne
+   * traduisait : sept teintes pour sept domaines, que rien ne reliait à un sens. Le nom du
+   * domaine, lui, se lit. (La couleur reste en base, `Theme.color` : c'est l'affichage
+   * qu'on retire, pas la donnée.)
+   */
   function DomainCard({ node }: { node: ThemeNode }) {
-    const color = node.color || DEFAULT_COLOR
     const open = expanded.has(node.id)
     const hasChildren = node.children.length > 0
     const empty = isEmpty(node)
@@ -456,10 +461,7 @@ export function ThemeBrowser({
             ) : (
               <span className="w-3" />
             )}
-            <button type="button" disabled={empty} onClick={empty ? undefined : () => select(node.id)} className={`flex flex-1 items-center gap-3 py-2.5 pr-2 text-left ${empty ? 'cursor-default' : ''}`}>
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl" style={{ backgroundColor: color + '22' }}>
-                <span className="h-4 w-4 rounded-md" style={{ backgroundColor: color }} />
-              </span>
+            <button type="button" disabled={empty} onClick={empty ? undefined : () => select(node.id)} className={`flex flex-1 items-center gap-3 py-2.5 pl-1 pr-2 text-left ${empty ? 'cursor-default' : ''}`}>
               <span className="min-w-0">
                 <span className="block text-[15px] font-semibold text-ank">{label(node)}</span>
                 <span className="block text-xs text-ank/80">{empty ? 'Aucun texte pour le moment' : countText(node)}</span>
@@ -473,7 +475,7 @@ export function ThemeBrowser({
               {open && hasChildren && (
                 <ul className="mt-1">
                   {node.children.map((c) => (
-                    <SubRow key={c.id} node={c} domainColor={color} depth={1} />
+                    <SubRow key={c.id} node={c} depth={1} />
                   ))}
                 </ul>
               )}
@@ -484,8 +486,9 @@ export function ThemeBrowser({
     )
   }
 
-  // Sous-thème (niveau ≥ 1) : ligne nette avec point de couleur héritée du domaine.
-  function SubRow({ node, domainColor, depth }: { node: ThemeNode; domainColor: string; depth: number }) {
+  // Sous-thème (niveau ≥ 1) : ligne nette. Sans point de couleur non plus — hérité du
+  // domaine, il aurait survécu à la pastille qui lui donnait son sens.
+  function SubRow({ node, depth }: { node: ThemeNode; depth: number }) {
     const open = expanded.has(node.id)
     const isSel = selected === node.id
     const hasChildren = node.children.length > 0
@@ -500,7 +503,6 @@ export function ThemeBrowser({
           ) : (
             <span className="w-6" />
           )}
-          <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: domainColor }} />
           <button type="button" disabled={empty} onClick={empty ? undefined : () => select(node.id)} className={`flex-1 py-1.5 text-left text-sm ${empty ? 'cursor-default text-ank/80' : isSel ? 'font-semibold text-ank' : 'text-grafit hover:text-ank'}`}>
             {label(node)}
             <span className="ml-2 text-xs font-normal text-ank/80">{countText(node)}</span>
@@ -511,7 +513,7 @@ export function ThemeBrowser({
         {open && hasChildren && (
           <ul>
             {node.children.map((c) => (
-              <SubRow key={c.id} node={c} domainColor={domainColor} depth={depth + 1} />
+              <SubRow key={c.id} node={c} depth={depth + 1} />
             ))}
           </ul>
         )}
@@ -651,14 +653,11 @@ export function ThemeBrowser({
 
   return (
     <div className="space-y-5">
-      <header className="flex items-center gap-4">
-        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-chabon/25">
-          <span className="h-5 w-5 rounded-lg bg-chabon" />
-        </span>
-        <div>
-          <h1 className="text-2xl font-bold text-ank">{lt(L.title)}</h1>
-          <p className="mt-0.5 max-w-2xl text-sm text-ank/80">{lt(L.sub)}</p>
-        </div>
+      {/* Même règle qu'en dessous : pas de carré de couleur. Celui-ci ne portait pas même
+          une teinte de domaine — un gris sur gris, qui ne disait rien du tout. */}
+      <header>
+        <h1 className="text-2xl font-bold text-ank">{lt(L.title)}</h1>
+        <p className="mt-0.5 max-w-2xl text-sm text-ank/80">{lt(L.sub)}</p>
       </header>
 
       {/* UN SEUL contrôle (demande cliente 20 juil.) : le menu « Tri » porte à la fois

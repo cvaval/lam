@@ -15,6 +15,12 @@ import { useId, useRef, useState } from 'react'
  *
  * La croix est un `<button type="button">` : dans un formulaire GET, un bouton sans type
  * vaut `submit` et effacer une case lancerait la recherche.
+ *
+ * ⚠️ LES SUGGESTIONS PROPOSENT, ELLES N'IMPOSENT PAS. Un `<datalist>` natif : la liste
+ * s'ouvre et se filtre à la frappe, au clavier comme à la souris, sans que nous ayons à
+ * réécrire la navigation d'une liste déroulante — et une saisie LIBRE reste acceptée. Un
+ * magistrat absent de la liste (recueil non encore versé, graphie inédite) doit rester
+ * cherchable : une liste fermée le rendrait introuvable sans rien expliquer.
  */
 export function ChampRecherche({
   name,
@@ -25,6 +31,7 @@ export function ChampRecherche({
   inputMode,
   pattern,
   options,
+  suggestions,
   clearLabel,
   className = '',
 }: {
@@ -37,6 +44,8 @@ export function ChampRecherche({
   pattern?: string
   /** Présent ⇒ le champ est un menu ; la première entrée vaut « aucun choix ». */
   options?: { value: string; label: string }[]
+  /** Noms proposés à la frappe (saisie libre toujours acceptée). `hint` = repère affiché. */
+  suggestions?: { value: string; hint?: string }[]
   clearLabel: string
   className?: string
 }) {
@@ -98,8 +107,19 @@ export function ChampRecherche({
             maxLength={maxLength}
             inputMode={inputMode}
             pattern={pattern}
+            list={suggestions?.length ? `${id}-suggestions` : undefined}
+            // La liste native s'ouvre à la frappe ; `autoComplete=off` empêche seulement
+            // l'historique du navigateur de la recouvrir.
+            autoComplete="off"
             className={`${base} ${valeur ? 'pr-9' : 'pr-3'}`}
           />
+        )}
+        {!options && suggestions && suggestions.length > 0 && (
+          <datalist id={`${id}-suggestions`}>
+            {suggestions.map((s) => (
+              <option key={s.value} value={s.value} label={s.hint} />
+            ))}
+          </datalist>
         )}
         {valeur && (
           <button

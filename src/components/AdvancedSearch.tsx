@@ -31,6 +31,7 @@ export function AdvancedSearch({
   t,
   allowed,
   domaines = [],
+  magistrats,
   values,
   open,
 }: {
@@ -39,6 +40,8 @@ export function AdvancedSearch({
   allowed: DocType[]
   /** Un domaine de l'arbre, aplati pour le menu : la profondeur devient une indentation. */
   domaines?: { slug: string; label: string; profondeur: number }[]
+  /** Noms proposés à la frappe, ventilés par rôle (le siège n'est pas le parquet). */
+  magistrats?: { siege: { value: string; hint?: string }[]; mp: { value: string; hint?: string }[] }
   values: {
     q: string
     type?: string
@@ -179,6 +182,7 @@ export function AdvancedSearch({
               defaultValue={values.judge ?? ''}
               placeholder={t.search.judgePh}
               maxLength={80}
+              suggestions={magistrats?.siege}
               clearLabel={effacer}
               className="w-full sm:w-52"
             />
@@ -188,6 +192,7 @@ export function AdvancedSearch({
               defaultValue={values.mp ?? ''}
               placeholder={t.search.mpPh}
               maxLength={80}
+              suggestions={magistrats?.mp}
               clearLabel={effacer}
               className="w-full sm:w-52"
             />

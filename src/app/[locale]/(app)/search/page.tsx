@@ -18,6 +18,7 @@ import { can } from '@/lib/rbac'
 import { accessibleTypes, isIndexOnly } from '@/lib/access'
 import { DOC_TYPE_LIST, DOC_TYPE_META } from '@/lib/brand'
 import { TYPE_SLUGS, isIndexCategory, type DocType, type DocStatus } from '@/lib/types'
+import { ROLES_SIEGE } from '@/lib/search/decision'
 
 export default async function SearchPage({
   params,
@@ -237,6 +238,42 @@ export default async function SearchPage({
     }
   }
 
+  // Noms proposés à la frappe dans « Magistrat » et « Ministère public ».
+  //
+  // ⚠️ DEUX LISTES, PAS UNE. Le substitut n'a pas jugé : le proposer sous « Magistrat »
+  // inviterait à une recherche qui ne peut rien rendre, et laisserait croire qu'il a siégé.
+  // Le repère affiché est le NOMBRE DE DÉCISIONS, qui dit à qui l'on a affaire mieux
+  // qu'un nom seul.
+  //
+  // Les listes sont servies avec la page — 22 magistrats aujourd'hui, quelques kilo-octets.
+  // Bornées à 400 : au-delà, il faudra une route qui interroge à la frappe.
+  // Mêmes conditions que le panneau : les critères de décision ne s'affichent que sans
+  // type choisi ou sur la jurisprudence — inutile d'interroger la base ailleurs.
+  const critereDecisionVisible = !selectedType || selectedType === 'JURISPRUDENCE'
+  const magistrats = critereDecisionVisible
+    ? await (async () => {
+        const lignes = await prisma.decisionJudge.groupBy({
+          by: ['judgeId', 'role'],
+          _count: { _all: true },
+        })
+        const fiches = await prisma.judge.findMany({ select: { id: true, displayName: true } })
+        const nomDe = new Map(fiches.map((j) => [j.id, j.displayName]))
+        const cumul = (roles: string[]) => {
+          const par = new Map<string, number>()
+          for (const l of lignes) {
+            if (!roles.includes(l.role ?? '')) continue
+            par.set(l.judgeId, (par.get(l.judgeId) ?? 0) + l._count._all)
+          }
+          return [...par]
+            .map(([id, n]) => ({ value: nomDe.get(id) ?? '', hint: `${n}` }))
+            .filter((x) => x.value)
+            .sort((a, b) => Number(b.hint) - Number(a.hint) || a.value.localeCompare(b.value, 'fr'))
+            .slice(0, 400)
+        }
+        return { siege: cumul([...ROLES_SIEGE]), mp: cumul(['MINISTERE_PUBLIC']) }
+      })()
+    : undefined
+
   const baseParams: SP = {
     q,
     type: canonicalSlug,
@@ -296,6 +333,7 @@ export default async function SearchPage({
         t={t}
         allowed={allowed}
         domaines={domaines}
+        magistrats={magistrats}
         values={{
           q,
           type: canonicalSlug,
