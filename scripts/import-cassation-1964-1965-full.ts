@@ -31,6 +31,16 @@ const F_SOMMAIRES = [
   // Deuxième Section n° 30 à 47 — gabarit propre et homogène, reçu séparément.
   '/Users/cvaval/Downloads/Sommaire_Analytique_2e_Section_Arrets_30-47.docx',
 ]
+/**
+ * QUATRIÈME GABARIT — Première Section n° 2 à 16.
+ *
+ * ⚠️ IL NE MET PAS SES VALEURS SUR LA LIGNE DE L'ÉTIQUETTE. Le libellé occupe sa propre
+ * ligne, la valeur suit sur la suivante ; et les trois rubriques d'analyse sont regroupées
+ * sous un intertitre « Règle de droit · Question · Motifs », chacune introduite par son nom
+ * suivi d'un POINT — « Règle de droit. Tout pourvoyant doit… ». Un analyseur qui cherche
+ * « étiquette : valeur » ne voit rien de ce fichier.
+ */
+const F_SOMMAIRE_1RE_2_16 = '/Users/cvaval/Downloads/Sommaire_Analytique_Arrets_2-16_1964-1965_1.docx'
 const F_ARRETS = '/Users/cvaval/Downloads/Cour_de_Cassation_Arrets_1964-1965_full.docx'
 const SOURCE = 'CASSATION_1964_1965'
 const RECUEIL = 'Cour de Cassation — exercice 1964-1965 (recueil complet)'
@@ -98,6 +108,40 @@ async function lireSommaire(fichier: string): Promise<Fiche[]> {
   return fiches
 }
 
+/** Gabarit « étiquette seule sur sa ligne, valeur en dessous » (Première Section 2-16). */
+async function lireSommaireLigneAligne(): Promise<Fiche[]> {
+  const l = lignes((await mammoth.extractRawText({ buffer: readFileSync(F_SOMMAIRE_1RE_2_16) })).value)
+  const ETIQ: Record<string, string> = {
+    'domaine du droit': 'domaines', 'resume editorial': 'resume', 'decision attaquee': 'attaquee',
+    dispositif: 'solution', 'issue codee': 'issue', composition: 'composition',
+  }
+  const debuts = l.map((x, i) => ({ m: /^ARR[ÊE]T\s+N[O°]s?\.?\s*(\d{1,3})\s*$/i.exec(x), i })).filter((d) => d.m)
+  const fiches: Fiche[] = []
+  for (let k = 0; k < debuts.length; k++) {
+    const { m, i } = debuts[k]
+    const fin = k + 1 < debuts.length ? debuts[k + 1].i : l.length
+    const bloc = l.slice(i + 1, fin).filter(Boolean)
+    const champs: Record<string, string> = {}
+    // Ligne 1 = intitulé, ligne 2 = juridiction — date.
+    const intitule = bloc[0] ?? ''
+    if (bloc[1]) champs.juridiction = bloc[1].split('—')[0].trim()
+    const dte = bloc[1]?.match(/—\s*(.+)$/)?.[1]
+    if (dte) champs.date = dte.trim()
+    for (let j = 2; j < bloc.length; j++) {
+      const e = ETIQ[cleEtiquette(bloc[j])]
+      if (e && bloc[j + 1]) { champs[e] = bloc[j + 1]; j++; continue }
+      // Les trois rubriques d'analyse : « Règle de droit. … », « Question. … », « Motifs. … »
+      const r = /^(R[èe]gle de droit|Question|Motifs)\s*\.\s*(.+)$/i.exec(bloc[j])
+      if (r) {
+        const c = cleEtiquette(r[1])
+        champs[c === 'regle de droit' ? 'regle' : c === 'question' ? 'question' : 'motifs'] = r[2].trim()
+      }
+    }
+    fiches.push({ section: 'Première Section', numero: m![1], intitule, champs, inconnues: [] })
+  }
+  return fiches
+}
+
 async function lireArrets(): Promise<Map<string, string>> {
   const l = lignes((await mammoth.extractRawText({ buffer: readFileSync(F_ARRETS) })).value)
   // ⚠️ DEUX TRANSCRIPTIONS DU MÊME RECUEIL COHABITENT, ET C'EST LA PREMIÈRE QUI FAIT FOI
@@ -149,6 +193,7 @@ async function lireArrets(): Promise<Map<string, string>> {
 async function main() {
   const apply = process.argv.includes('--apply')
   const parFichier = await Promise.all(F_SOMMAIRES.map(lireSommaire))
+  parFichier.push(await lireSommaireLigneAligne())
   // ⚠️ LE PREMIER SOMMAIRE COMPILE PLUSIEURS GÉNÉRATIONS ÉDITORIALES et redonne certaines
   // fiches deux fois. On dédoublonne sur (section, numéro) en gardant la fiche la plus
   // COMPLÈTE — celle qui porte le plus de rubriques renseignées.
@@ -198,8 +243,15 @@ async function main() {
     // ⚠️ CLÉ (source, SECTION, numéro) — le numéro seul écraserait un autre arrêt.
     const existant = await prisma.document.findFirst({
       where: { type: 'JURISPRUDENCE', source: SOURCE, number: f.numero, chambre: f.section },
-      select: { id: true },
+      select: { id: true, bodyOriginal: true },
     })
+    // ⚠️ NE JAMAIS REMPLACER UN TEXTE INTÉGRAL PAR UN REPLI. Le sommaire de la Première
+    // Section n° 2 à 16 arrive sans les arrêts — ils sont en base depuis le premier
+    // versement. Sans cette garde, quinze textes de 3 600 à 12 000 caractères seraient
+    // écrasés par la composition résumé + motifs, et rien ne l'aurait signalé.
+    if (!texte && existant && (existant.bodyOriginal?.length ?? 0) > donnees.bodyOriginal.length) {
+      donnees.bodyOriginal = existant.bodyOriginal!
+    }
     const doc = existant
       ? await prisma.document.update({ where: { id: existant.id }, data: donnees })
       : await prisma.document.create({ data: donnees })
