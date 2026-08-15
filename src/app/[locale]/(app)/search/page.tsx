@@ -194,8 +194,13 @@ export default async function SearchPage({
     for (const r of rows) abrogatedBy.set(r.id, r.abrogatedByNumber!)
   }
 
-  // Le menu des domaines : l'arbre de la Législation annotée, aplati (racines puis
-  // branches), pour que les deux sections nomment les matières de la même façon.
+  // Le menu des domaines : l'arbre de la Législation annotée, aplati, pour que les deux
+  // sections nomment les matières de la même façon.
+  //
+  // ⚠️ DEUX NIVEAUX, PAS PLUS. L'arbre descend jusqu'aux annexes du Code du travail et aux
+  // rubriques des circulaires BRH — 91 entrées, dont un menu ne se parcourt pas. Le
+  // troisième niveau n'est pas perdu pour autant : un domaine ramène TOUT son sous-arbre,
+  // si bien que « Justice » rend aussi les 33 arrêts de procédure civile.
   const arbre = await prisma.theme.findMany({
     where: { active: true },
     select: { id: true, slug: true, labelFr: true, labelEn: true, labelHt: true, parentId: true, position: true },
@@ -207,18 +212,30 @@ export default async function SearchPage({
     if (!enfantsDe.has(k)) enfantsDe.set(k, [])
     enfantsDe.get(k)!.push(t)
   }
+  const NIVEAUX = 2
+  const libelle = (t: (typeof arbre)[number]) =>
+    (locale === 'en' ? t.labelEn : locale === 'ht' ? t.labelHt : t.labelFr) || t.labelFr
   const domaines: { slug: string; label: string; profondeur: number }[] = []
   const aplatir = (parent: string | null, profondeur: number) => {
+    if (profondeur >= NIVEAUX) return
     for (const t of enfantsDe.get(parent) ?? []) {
-      domaines.push({
-        slug: t.slug,
-        label: (locale === 'en' ? t.labelEn : locale === 'ht' ? t.labelHt : t.labelFr) || t.labelFr,
-        profondeur,
-      })
+      domaines.push({ slug: t.slug, label: libelle(t), profondeur })
       aplatir(t.id, profondeur + 1)
     }
   }
   aplatir(null, 0)
+  // ⚠️ AUCUN CRITÈRE NE DOIT AGIR SANS SE MONTRER. Un lien partagé peut porter un domaine
+  // du troisième niveau (« procedure-civile ») : absent du menu, le <select> retomberait
+  // sur « Tous » et le panneau annoncerait un filtre qui n'est pas celui qui s'applique.
+  // On l'ajoute alors, à sa place dans l'arbre.
+  if (domaine && !domaines.some((d) => d.slug === domaine)) {
+    const t = arbre.find((x) => x.slug === domaine)
+    if (t) {
+      const parent = t.parentId ? arbre.find((x) => x.id === t.parentId) : null
+      const i = parent ? domaines.findIndex((d) => d.slug === parent.slug) : -1
+      domaines.splice(i >= 0 ? i + 1 : domaines.length, 0, { slug: t.slug, label: libelle(t), profondeur: 2 })
+    }
+  }
 
   const baseParams: SP = {
     q,
