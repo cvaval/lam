@@ -5,7 +5,8 @@
 Sur la fiche d'une décision, faire apparaître le **sommaire analytique AVANT le texte
 intégral de l'arrêt**, avec ses rubriques :
 
-**domaine du droit · résumé éditorial · question de droit · règle de droit · solution et motifs**
+**domaine du droit · résumé éditorial · décision attaquée · question de droit ·
+règle de droit · solution et motifs · dispositif**
 
 et la **composition de la formation** — les magistrats qui ont rendu la décision.
 
@@ -27,14 +28,14 @@ Le corpus est versé et les colonnes existent. Ce prompt ne porte que sur **l'af
 
 | Rubrique | Champ | Rempli | Longueur moyenne |
 | --- | --- | --- | --- |
-| Domaine du droit | `matiere` | **80/80** | 254 c. |
+| Domaine du droit | `matiere` | **80/80** | 241 c. |
 | Juridiction, date | `juridiction`, `publicationDate` | **80/80** | — |
-| Règle de droit | `regleDroit` | **80/80** | 660 c. |
-| Question de droit | `questionDroit` | **80/80** | 393 c. |
-| Solution et motifs | `motifs` | **80/80** | 517 c. |
-| Décision attaquée | `decisionAttaquee` | 67/80 | 159 c. |
-| Résumé éditorial | `summaryFr` | 61/80 | 608 c. |
-| Dispositif | `dispositif` | 29/80 | 74 c. |
+| Règle de droit | `regleDroit` | **80/80** | 579 c. |
+| Question de droit | `questionDroit` | **80/80** | 329 c. |
+| Solution et motifs | `motifs` | **80/80** | 497 c. |
+| Décision attaquée | `decisionAttaquee` | 67/80 | 207 c. |
+| Résumé éditorial | `summaryFr` | 61/80 | 590 c. |
+| Dispositif | `dispositif` | 29/80 | 114 c. |
 | Issue codée | `solution` | 28/80 | — |
 | Composition | *(aucun champ)* | **0/80** | — |
 
@@ -64,19 +65,33 @@ Le corps de cet arrêt fait 3 586 caractères ; le plus long du corpus en fait 3
 
 ## §2 — L'ordre de lecture
 
-Aujourd'hui, l'ordre est : en-tête → mots-clés → **résumé éditorial** → texte officiel.
-Le sommaire n'existe pas, et le résumé se lit après les métadonnées mais avant le texte.
+Aujourd'hui, l'ordre est : en-tête → `JurisprudenceHeader` (pastilles traitement/portée,
+décision attaquée, dispositif, note de la rédaction) → **mots-clés** → **résumé éditorial**
+→ texte officiel. Le sommaire n'existe pas.
+
+⚠️ Deux blocs que le nouvel ordre ne mentionne pas et qu'il ne faut pas perdre :
+les **mots-clés** (ligne 374) et les **pastilles traitement / portée**, en tête de
+`JurisprudenceHeader`. Les pastilles restent où elles sont — elles qualifient la décision,
+elles ne l'analysent pas. Les mots-clés se placent **après** le sommaire et avant le texte,
+faute de quoi ils s'intercaleraient entre les rubriques et leur source.
 
 L'ordre demandé :
 
 1. **Titre, juridiction, section, date** (existant)
-2. **Sommaire** — le bloc à créer, **cinq rubriques dans cet ordre** :
-   domaine du droit · **résumé éditorial** · question de droit · règle de droit ·
-   solution et motifs
+2. **Sommaire** — le bloc à créer, **sept lignes dans cet ordre** :
+   domaine du droit · **résumé éditorial** · décision attaquée · question de droit ·
+   règle de droit · solution et motifs · dispositif
 3. **Composition** — la formation de jugement
-4. **Décision attaquée · Dispositif** (existant, aujourd'hui dans `JurisprudenceHeader`)
-5. **Texte intégral de l'arrêt**
-6. Notes des lecteurs (existant)
+4. **Texte intégral de l'arrêt**
+5. Notes des lecteurs (existant)
+
+> ⚠️ **DÉCISION ATTAQUÉE ET DISPOSITIF SONT DES RUBRIQUES DU SOMMAIRE, PAS UN BLOC À PART.**
+> Le sommaire de la Première Section n° 2 à 16 les range lui-même parmi les siennes. Les
+> laisser dans un bloc séparé sous le sommaire découperait en deux ce que la source tient
+> pour un seul objet. L'ordre complet du `<dl>` est donc de **sept lignes** :
+> domaine · résumé éditorial · décision attaquée · question · règle · solution et motifs ·
+> dispositif. Le bloc actuel de `JurisprudenceHeader` (décision attaquée + dispositif)
+> disparaît dans le sommaire, comme le bloc « Résumé éditorial ».
 
 **Ordre validé par la rédaction** : question avant règle, et les deux avant les motifs —
 l'ordre du raisonnement, qui est celui de la lecture : ce qui était à trancher, la règle
@@ -114,7 +129,7 @@ si aucune rubrique n'était renseignée, **il n'y aurait pas de bloc du tout**.
 > ⚠️ **UN BLOC « SOMMAIRE » VIDE EST PIRE QUE PAS DE BLOC.** Il annonce une analyse qui
 > n'existe pas et fait douter le lecteur de ce qu'il ne voit pas.
 
-Longueurs à prévoir : la règle de droit fait 660 caractères en moyenne, les motifs 517 —
+Longueurs à prévoir : la règle de droit fait 579 caractères en moyenne, les motifs 497 —
 ce sont des paragraphes, pas des libellés. Le bloc doit rester lisible à ces longueurs sans
 troncature ni « voir plus » : un juriste lit la règle en entier ou ne la lit pas.
 
@@ -143,9 +158,12 @@ la formation, et les aligner avec les juges donnerait à lire une composition fa
 
 - Ne pas déplacer le texte officiel ni changer son rendu : seul l'ordre des blocs qui le
   précèdent est en cause.
-- Ne pas dupliquer le résumé éditorial : il devient la cinquième rubrique du sommaire, et
-  son bloc actuel disparaît. 61 décisions sur 80 en ont un ; les autres n'affichent pas la
-  ligne.
+- Ne rien dupliquer : le **résumé éditorial**, la **décision attaquée** et le **dispositif**
+  deviennent des lignes du sommaire ; leurs blocs actuels disparaissent — le bloc résumé de
+  la page (ligne 486) et le `<dl>` de `JurisprudenceHeader`. Les laisser en place les
+  ferait lire deux fois.
+- Ne pas déplacer les **pastilles traitement / portée** ni la **note de la rédaction** : ce
+  sont des qualifications éditoriales, pas des rubriques d'analyse.
 - Ne pas rendre le sommaire modifiable depuis la fiche : les outils éditoriaux vivent dans
   « Éditer le corpus » et `/admin/document/[id]`.
 - Ne pas introduire de repli automatique — pas de règle de droit déduite du dispositif, pas
@@ -157,20 +175,23 @@ la formation, et les aligner avec les juges donnerait à lire une composition fa
 ## §6 — Tests et vérifications
 
 1. Une décision **sans aucune rubrique** ne rend aucun bloc « Sommaire » — ni cadre, ni
-   intitulé.
-2. Une décision **partiellement renseignée** (domaine seul) rend une seule ligne, sans
-   étiquette vide.
+   intitulé. ⚠️ **Aucune fiche réelle ne permet plus de l'éprouver** : les quatre rubriques
+   d'analyse sont à 80/80. Ce cas se teste donc sur une fiche construite, pas à l'écran —
+   et il doit l'être : le corpus suivant n'aura pas cette chance.
+2. Une décision **partiellement renseignée** rend les lignes remplies et elles seules. Cas
+   réels disponibles : 19 fiches sans résumé, 51 sans dispositif, 13 sans décision attaquée.
 3. Le bloc « Sommaire » précède le texte officiel dans le DOM — vérifié par la position
    relative, pas à l'œil.
 4. La composition ne s'affiche pas tant que le modèle n'est pas livré, et son absence ne
    laisse pas d'espace ni de séparateur.
-5. Le rendu reste correct à **320 px** de large avec une règle de droit de 660 caractères.
+5. Le rendu reste correct à **320 px** de large avec une règle de droit de 579 caractères
+   (la plus longue du corpus en fait davantage : mesurer avant de figer la maquette).
 
 - [ ] `npx tsc --noEmit`, `npm run lint`, `npm test` propres.
 - [ ] `npx tsx scripts/audit-contraste.ts` → **0 échec**.
 - [ ] `npm run build:check` compile (**`build:check`**, pas `build`).
 - [ ] Ouvrir **trois fiches réelles** : une complète (Deuxième Section n° 21), une sans
-      rubriques, une sans dispositif. Aucun trou, aucune étiquette seule.
+      résumé éditorial, une sans dispositif. Aucun trou, aucune étiquette seule.
 - [ ] Imprimer une fiche : le sommaire précède le texte sur le papier aussi.
 
 ---
@@ -178,8 +199,11 @@ la formation, et les aligner avec les juges donnerait à lire une composition fa
 ## §7 — Ce qui reste à la rédaction
 
 - ~~L'ordre des rubriques ?~~ **TRANCHÉ** : question → règle → motifs.
-- ~~Le résumé éditorial, bloc séparé ou rubrique ?~~ **TRANCHÉ** : cinquième rubrique du
-  sommaire.
+- ~~Le résumé éditorial, bloc séparé ou rubrique ?~~ **TRANCHÉ** : rubrique du sommaire.
+- **Décision attaquée et dispositif rejoignent-ils le sommaire ?** L'audit du 15 août dit
+  oui — la source les range parmi ses rubriques — et le prompt les y met. Si la rédaction
+  les veut à part, c'est une ligne à changer, mais le sommaire ne dira alors plus ce que
+  dit le recueil.
 - ~~Les 29 décisions sans rubriques ?~~ **SANS OBJET : les 80 décisions ont leurs quatre
   rubriques d'analyse** depuis le 15 août. Reste l'inégalité sur le résumé éditorial
   (61/80), la décision attaquée (67/80) et le dispositif (29/80) — que l'interface traite
