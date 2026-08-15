@@ -26,7 +26,11 @@ import { audit } from '../src/lib/auth/audit'
 import { deduireSolution } from '../src/lib/jurisprudence/constants'
 import { dateFrVersISO } from '../src/lib/jurisprudence/parse'
 
-const F_SOMMAIRE = '/Users/cvaval/Downloads/Sommaire_Analytique_Arrets_1964-1965_full.docx'
+const F_SOMMAIRES = [
+  '/Users/cvaval/Downloads/Sommaire_Analytique_Arrets_1964-1965_full.docx',
+  // Deuxième Section n° 30 à 47 — gabarit propre et homogène, reçu séparément.
+  '/Users/cvaval/Downloads/Sommaire_Analytique_2e_Section_Arrets_30-47.docx',
+]
 const F_ARRETS = '/Users/cvaval/Downloads/Cour_de_Cassation_Arrets_1964-1965_full.docx'
 const SOURCE = 'CASSATION_1964_1965'
 const RECUEIL = 'Cour de Cassation — exercice 1964-1965 (recueil complet)'
@@ -40,9 +44,14 @@ function cleEtiquette(s: string): string {
 const RUBRIQUES: Record<string, string> = {
   'date de l arret': 'date', date: 'date', 'date du prononce': 'date',
   juridiction: 'juridiction', 'juridiction ayant rendu la decision': 'juridiction',
-  'decision attaquee': 'attaquee',
+  'decision attaquee': 'attaquee', 'decision attaquee objet de la saisine': 'attaquee',
+  // ⚠️ DEUX DATES, ET ELLES DIVERGENT. « Date du prononcé » est celle de l'arrêt ; « Date
+  // portée sur l'extrait » est une mention manuscrite d'archive, que le sommaire signale
+  // lui-même comme discordante (n° 30 : prononcé le 11 mai 1965, extrait daté du
+  // 10 décembre 1964). C'est le PRONONCÉ qui fait la date de la décision.
+  'date portee sur l extrait': 'dateExtrait',
   composition: 'composition', 'composition du siege': 'composition',
-  'domaines du droit': 'domaines', 'domaine s du droit': 'domaines', matiere: 'domaines',
+  'domaines du droit': 'domaines', 'domaine du droit': 'domaines', matiere: 'domaines',
   'regle de droit': 'regle', 'rule of law': 'regle',
   'question de droit': 'question', issue: 'question',
   'solution et motifs': 'motifs', 'holding and reasoning': 'motifs',
@@ -60,8 +69,8 @@ interface Fiche {
 
 function lignes(t: string) { return t.split('\n').map((x) => x.replace(/\s+/g, ' ').trim()) }
 
-async function lireSommaire(): Promise<Fiche[]> {
-  const l = lignes((await mammoth.extractRawText({ buffer: readFileSync(F_SOMMAIRE) })).value)
+async function lireSommaire(fichier: string): Promise<Fiche[]> {
+  const l = lignes((await mammoth.extractRawText({ buffer: readFileSync(fichier) })).value)
   const est = (x: string) => /^(?:Arr[êe]t\s+)?(?:(Deuxi[èe]me|Premi[èe]re)\s+Section,\s*)?N[o°]s?\.?\s*(\d{1,3})\s*[—–-]\s*(.+)$/i.exec(x)
   const debuts = l.map((x, i) => ({ m: est(x), i })).filter((d) => d.m)
   const fiches: Fiche[] = []
@@ -129,7 +138,18 @@ async function lireArrets(): Promise<Map<string, string>> {
 
 async function main() {
   const apply = process.argv.includes('--apply')
-  const fiches = await lireSommaire()
+  const parFichier = await Promise.all(F_SOMMAIRES.map(lireSommaire))
+  // ⚠️ LE PREMIER SOMMAIRE COMPILE PLUSIEURS GÉNÉRATIONS ÉDITORIALES et redonne certaines
+  // fiches deux fois. On dédoublonne sur (section, numéro) en gardant la fiche la plus
+  // COMPLÈTE — celle qui porte le plus de rubriques renseignées.
+  const parCle = new Map<string, Fiche>()
+  for (const f of parFichier.flat()) {
+    const k = `${f.section}|${f.numero}`
+    const a = parCle.get(k)
+    if (!a || Object.keys(f.champs).length > Object.keys(a.champs).length) parCle.set(k, f)
+  }
+  const fiches = [...parCle.values()].sort((a, b) => a.section.localeCompare(b.section) || Number(a.numero) - Number(b.numero))
+  console.log(`fiches lues ${parFichier.flat().length} → ${fiches.length} après dédoublonnage (section, numéro)`)
   const arrets = await lireArrets()
   console.log(`sommaire : ${fiches.length} fiches · arrêts : ${arrets.size} textes\n`)
 
