@@ -18,8 +18,8 @@ Dans la section Jurisprudence, deux choses :
 | | |
 | --- | --- |
 | Modèle | `Document` + les colonnes de jurisprudence (`chambre`, `solution`, `dispositif`, `traitement`, `portee`, `noteRedaction`…) — **aucun champ de juge** |
-| Corpus en base | 15 arrêts, **Première Section n° 2 à 16**, exercice 1964-1965, texte intégral versé |
-| Corpus reçu, non versé | `Sommaire_Analytique_Arrets_1964-1965_full.docx` (178 245 c.) et `Cour_de_Cassation_Arrets_1964-1965_full.docx` (581 234 c.) — **33 décisions** : Première Section n° 35 à 52, Deuxième Section n° 1 et n° 16 à 29 |
+| Corpus en base | **80 décisions versées** (13 août) — Première Section 33, Deuxième Section 47 ; 80/80 avec texte intégral, 51/80 avec les rubriques du sommaire |
+| Rubriques du sommaire | `regleDroit`, `questionDroit`, `motifs` — **colonnes créées et remplies**, cf. `docs/prompt-interface-jurisprudence-annotee.md` |
 | Saisie | `/[locale]/admin/jurisprudence`, onglets « Verser un recueil » et « Éditer le corpus » |
 | API | `/api/admin/jurisprudence` — `PUT` analyse, `POST` verse, `PATCH` appareil éditorial |
 | Lecture | `src/components/JurisprudenceHeader.tsx` sur `/[locale]/doc/[id]` |
@@ -216,10 +216,10 @@ distinctes, et c'est leur séparation qui en fait un outil de recherche :
 
 | Rubrique | Ce qu'elle porte | État actuel |
 | --- | --- | --- |
-| **Règle de droit** | la règle que la décision énonce — l'attendu de principe | **à créer** (`regleDroit`) |
-| **Question de droit** | ce que la Cour avait à trancher | **à créer** (`questionDroit`) |
-| **Solution et motifs** | ce qui est jugé ET pourquoi | **partiellement** : `dispositif` porte le libellé littéral, `solution` l'issue codée — les **motifs** manquent (`motifs`) |
-| **Domaine du droit** | matière et sous-matière | **existe** : `matiere` |
+| **Règle de droit** | la règle que la décision énonce — l'attendu de principe | **créé et rempli** — `regleDroit`, 51/80 |
+| **Question de droit** | ce que la Cour avait à trancher | **créé et rempli** — `questionDroit`, 51/80 |
+| **Solution et motifs** | ce qui est jugé ET pourquoi | **créé et rempli** — `motifs`, 51/80 ; `dispositif` (29/80) et `solution` (28/80) restent distincts |
+| **Domaine du droit** | matière et sous-matière | **existe et complet** : `matiere`, 80/80 |
 
 Les recueils reçus emploient **déjà ces quatre rubriques**, ce qui règle la question des
 libellés — mais sous trois graphies concurrentes (§1) :
@@ -459,6 +459,7 @@ pas un corpus surprenant.
 - ~~Le ministère public et le greffe doivent-ils être cherchables par nom ?~~
   **TRANCHÉ : oui.** Voir §7 — ils sont cherchables comme les juges, mais restent hors du
   décompte de la facette « juge ».
-- Les **33 décisions reçues** (1re Section n° 35-52, 2e Section n° 1 et 16-29) doivent-elles
-  être versées dans le même mouvement, ou après la livraison des champs ? Les verser avant
-  obligerait à ressaisir la composition à la main.
+- ~~Les 33 décisions reçues doivent-elles être versées avant ou après ?~~ **SANS OBJET :
+  les 80 décisions sont versées** depuis le 13 août, texte intégral compris. La composition
+  reste donc à reprendre depuis le champ « Composition » des sommaires (§8) — ce qui ne
+  demande aucune ressaisie, le champ étant déjà structuré.
