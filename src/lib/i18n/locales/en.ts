@@ -127,6 +127,7 @@ export const en: Dictionary = {
     yearTo: 'to year',
     apply: 'Search',
     reset: 'Reset',
+    clearField: 'Clear',
     indexCategories: {
       LOI: 'Laws',
       DECRET: 'Decrees',

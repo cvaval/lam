@@ -131,6 +131,7 @@ export const fr = {
     yearTo: 'à l’année',
     apply: 'Rechercher',
     reset: 'Réinitialiser',
+    clearField: 'Effacer',
     indexCategories: {
       LOI: 'Lois',
       DECRET: 'Décrets',

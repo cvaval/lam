@@ -127,6 +127,7 @@ export const ht: Dictionary = {
     yearTo: 'rive ane',
     apply: 'Chèche',
     reset: 'Reyinisyalize',
+    clearField: 'Efase',
     indexCategories: {
       LOI: 'Lwa',
       DECRET: 'Dekrè',

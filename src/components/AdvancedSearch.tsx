@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import { TYPE_SLUGS, type DocType, type Locale } from '@/lib/types'
 import { DOC_TYPE_LIST } from '@/lib/brand'
-import { fieldCls } from './forms'
+import { ChampRecherche } from './ChampRecherche'
 
 /** Sections où le statut EN_VIGUEUR/ABROGÉ existe réellement dans le corpus
  *  (l'Index et les marques sont en statut « PUBLIE » : proposer le filtre là
@@ -13,10 +13,18 @@ const STATUS_TYPES: readonly DocType[] = ['LEGISLATION', 'DOCTRINE', 'CIRCULAIRE
  * Recherche avancée (§07) : panneau repliable au-dessus des résultats —
  * requête + SECTION (Législation annotée, Le Moniteur, Index, Marques… bornée
  * aux services accordés §03) + PÉRIODE « entre l'année X et Y » + numéro +
- * statut. Formulaire GET pur (aucun JavaScript requis) : les champs deviennent
- * des paramètres d'URL déjà compris par la page de recherche, donc partageables
- * et compatibles avec les puces de filtres existantes. Ouvert via ?adv=1 (lien
- * de la barre de recherche) ou dès qu'un critère avancé est actif.
+ * statut + critères de décision. Formulaire GET : les champs deviennent des
+ * paramètres d'URL déjà compris par la page de recherche, donc partageables et
+ * compatibles avec les puces de filtres existantes. Ouvert via ?adv=1 (lien de la
+ * barre de recherche) ou dès qu'un critère avancé est actif.
+ *
+ * ⚠️ CHAQUE CASE PORTE SA CROIX D'EFFACEMENT (`ChampRecherche`). Un critère qu'on ne sait
+ * pas retirer est un critère qui reste : les recherches revenaient filtrées sans que le
+ * lecteur l'ait voulu.
+ *
+ * ⚠️ LES LARGEURS SUIVENT LE CONTENU, PAS UNE GRILLE UNIFORME. « Agriculture, ressources
+ * naturelles & développement rural » ne tient pas dans la case d'un numéro de circulaire :
+ * chaque champ porte la sienne, et tous repassent en pleine largeur sous 640 px.
  */
 export function AdvancedSearch({
   locale,
@@ -51,7 +59,7 @@ export function AdvancedSearch({
   // Les critères de DÉCISION ne s'affichent que là où ils ont un sens : proposés partout,
   // ils ne rendraient que des pages vides sur les marques ou l'Index du Moniteur.
   const showDecision = !currentType || currentType === 'JURISPRUDENCE'
-  const label = 'text-[11px] font-semibold uppercase tracking-wide text-ank/45'
+  const effacer = t.search.clearField
 
   return (
     <details
@@ -70,124 +78,139 @@ export function AdvancedSearch({
             par page (audit 17 juil.), le panneau ne porte que les critères. */}
         <input type="hidden" name="adv" value="1" />
         {values.q ? <input type="hidden" name="q" value={values.q} /> : null}
+
+        <ChampRecherche
+          name="type"
+          label={t.search.section}
+          defaultValue={values.type ?? ''}
+          clearLabel={effacer}
+          // « Marques de commerce & de fabrique » demande 242 px : la case de 256 px n'en
+          // laissait que 180 une fois la croix et le chevron déduits, et la section la
+          // plus longue s'y lisait coupée.
+          className="w-full sm:w-80"
+          options={[
+            { value: '', label: t.search.allTypes },
+            ...sections.map((m) => ({ value: m.slug, label: m.label[locale] })),
+          ]}
+        />
+
         <div className="flex flex-col gap-1">
-          <label htmlFor="adv-type" className={label}>
-            {t.search.section}
-          </label>
-          <select id="adv-type" name="type" defaultValue={values.type ?? ''} className={fieldCls}>
-            <option value="">{t.search.allTypes}</option>
-            {sections.map((m) => (
-              <option key={m.type} value={m.slug}>
-                {m.label[locale]}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="flex flex-col gap-1">
-          <span className={label}>{t.search.period}</span>
-          <div className="flex items-center gap-1.5">
-            <label htmlFor="adv-from" className="text-xs text-ank/80">
-              {t.search.yearFrom}
-            </label>
-            <div className="w-24">
-              <input
-                id="adv-from"
-                name="yearFrom"
-                defaultValue={values.yearFrom ?? ''}
-                inputMode="numeric"
-                pattern="\d{4}"
-                maxLength={4}
-                placeholder="1990"
-                className={fieldCls}
-              />
-            </div>
-            <label htmlFor="adv-to" className="text-xs text-ank/80">
-              {t.search.yearTo}
-            </label>
-            <div className="w-24">
-              <input
-                id="adv-to"
-                name="yearTo"
-                defaultValue={values.yearTo ?? ''}
-                inputMode="numeric"
-                pattern="\d{4}"
-                maxLength={4}
-                placeholder="2026"
-                className={fieldCls}
-              />
-            </div>
+          <span className="text-[11px] font-semibold uppercase tracking-wide text-ank/80">{t.search.period}</span>
+          <div className="flex flex-wrap items-end gap-1.5">
+            <ChampRecherche
+              name="yearFrom"
+              label={t.search.yearFrom}
+              defaultValue={values.yearFrom ?? ''}
+              placeholder="1990"
+              inputMode="numeric"
+              pattern="\d{4}"
+              maxLength={4}
+              clearLabel={effacer}
+              className="w-32"
+            />
+            <ChampRecherche
+              name="yearTo"
+              label={t.search.yearTo}
+              defaultValue={values.yearTo ?? ''}
+              placeholder="2026"
+              inputMode="numeric"
+              pattern="\d{4}"
+              maxLength={4}
+              clearLabel={effacer}
+              className="w-32"
+            />
           </div>
         </div>
-        <div className="flex w-28 flex-col gap-1">
-          <label htmlFor="adv-num" className={label}>
-            {t.search.numberLabel}
-          </label>
-          <input id="adv-num" name="num" defaultValue={values.num ?? ''} maxLength={20} placeholder={t.search.numberPh} className={fieldCls} />
-        </div>
+
+        <ChampRecherche
+          name="num"
+          label={t.search.numberLabel}
+          defaultValue={values.num ?? ''}
+          placeholder={t.search.numberPh}
+          maxLength={20}
+          clearLabel={effacer}
+          className="w-36"
+        />
+
         {showDecision && (
           <>
             {/* Les PARTIES vivent dans l'intitulé (« Jules CESAR c. Fleurant LALANNE »).
                 Chaque mot doit s'y trouver : « cesar lalanne » ne ramène que les arrêts qui
                 opposent les deux, non ceux qui les citent — ce n'est pas la même question. */}
-            <div className="flex w-52 flex-col gap-1">
-              <label htmlFor="adv-parties" className={label}>
-                {t.search.partiesLabel}
-              </label>
-              <input id="adv-parties" name="parties" defaultValue={values.parties ?? ''} maxLength={80} placeholder={t.search.partiesPh} className={fieldCls} />
-            </div>
-            {/* ⚠️ MÊME NOMENCLATURE QUE LA LÉGISLATION ANNOTÉE, ET UN MENU. En champ
-                libre, « procédure civile » et « Procédure civile (voies de recours) »
-                étaient deux domaines pour un lecteur et deux requêtes pour le moteur ;
-                le menu ne propose que des domaines qui EXISTENT, et un choix de tête
-                (« Droit privé ») ramène tout son sous-arbre. */}
-            <div className="flex w-56 flex-col gap-1">
-              <label htmlFor="adv-domaine" className={label}>
-                {t.search.domaineLabel}
-              </label>
-              <select id="adv-domaine" name="domaine" defaultValue={values.domaine ?? ''} className={fieldCls}>
-                <option value="">{t.common.all}</option>
-                {domaines.map((d) => (
-                  <option key={d.slug} value={d.slug}>
-                    {/* Espaces insécables : un <option> replie les espaces ordinaires et
-                        l'arborescence disparaîtrait. */}
-                    {'\u00A0\u00A0'.repeat(d.profondeur)}
-                    {d.profondeur > 0 ? '· ' : ''}
-                    {d.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <ChampRecherche
+              name="parties"
+              label={t.search.partiesLabel}
+              defaultValue={values.parties ?? ''}
+              placeholder={t.search.partiesPh}
+              maxLength={80}
+              clearLabel={effacer}
+              className="w-full sm:w-60"
+            />
+            {/* ⚠️ MÊME NOMENCLATURE QUE LA LÉGISLATION ANNOTÉE, ET UN MENU. En champ libre,
+                « procédure civile » et « Procédure civile (voies de recours) » étaient deux
+                domaines pour un lecteur et deux requêtes pour le moteur ; le menu ne propose
+                que des domaines qui EXISTENT, et un choix de tête ramène son sous-arbre. */}
+            <ChampRecherche
+              name="domaine"
+              label={t.search.domaineLabel}
+              defaultValue={values.domaine ?? ''}
+              clearLabel={effacer}
+              // Le plancher est MESURÉ, non estimé : le plus long domaine — « Agriculture,
+              // ressources naturelles & développement rural » — demande 383 px de texte,
+              // auxquels s'ajoutent la marge, la croix et le chevron. En dessous de 30 rem
+              // le libellé se coupait, et un domaine tronqué ne se reconnaît pas.
+              className="w-full sm:min-w-[30rem] sm:flex-1"
+              options={[
+                { value: '', label: t.common.all },
+                ...domaines.map((d) => ({
+                  value: d.slug,
+                  // Espaces insécables : un <option> replie les espaces ordinaires et
+                  // l'arborescence disparaîtrait.
+                  label: `${'  '.repeat(d.profondeur)}${d.profondeur > 0 ? '· ' : ''}${d.label}`,
+                })),
+              ]}
+            />
             {/* ⚠️ DEUX CHAMPS, PAS UN. Le substitut du commissaire du gouvernement n'a pas
                 jugé : le ramener sous « magistrat » lui attribuerait des décisions qu'il
                 n'a pas rendues. */}
-            <div className="flex w-44 flex-col gap-1">
-              <label htmlFor="adv-judge" className={label}>
-                {t.search.judgeLabel}
-              </label>
-              <input id="adv-judge" name="judge" defaultValue={values.judge ?? ''} maxLength={80} placeholder={t.search.judgePh} className={fieldCls} />
-            </div>
-            <div className="flex w-44 flex-col gap-1">
-              <label htmlFor="adv-mp" className={label}>
-                {t.search.mpLabel}
-              </label>
-              <input id="adv-mp" name="mp" defaultValue={values.mp ?? ''} maxLength={80} placeholder={t.search.mpPh} className={fieldCls} />
-            </div>
+            <ChampRecherche
+              name="judge"
+              label={t.search.judgeLabel}
+              defaultValue={values.judge ?? ''}
+              placeholder={t.search.judgePh}
+              maxLength={80}
+              clearLabel={effacer}
+              className="w-full sm:w-52"
+            />
+            <ChampRecherche
+              name="mp"
+              label={t.search.mpLabel}
+              defaultValue={values.mp ?? ''}
+              placeholder={t.search.mpPh}
+              maxLength={80}
+              clearLabel={effacer}
+              className="w-full sm:w-52"
+            />
           </>
         )}
+
         {showStatus && (
-          <div className="flex flex-col gap-1">
-            <label htmlFor="adv-status" className={label}>
-              {t.search.status}
-            </label>
-            <select id="adv-status" name="status" defaultValue={values.status ?? ''} className={fieldCls}>
-              <option value="">{t.common.all}</option>
-              <option value="EN_VIGUEUR">{t.statuses.EN_VIGUEUR}</option>
-              <option value="ABROGE">{t.statuses.ABROGE}</option>
-            </select>
-          </div>
+          <ChampRecherche
+            name="status"
+            label={t.search.status}
+            defaultValue={values.status ?? ''}
+            clearLabel={effacer}
+            className="w-full sm:w-48"
+            options={[
+              { value: '', label: t.common.all },
+              { value: 'EN_VIGUEUR', label: t.statuses.EN_VIGUEUR },
+              { value: 'ABROGE', label: t.statuses.ABROGE },
+            ]}
+          />
         )}
-        <div className="flex items-center gap-3">
-          <button type="submit" className="rounded-lg bg-wouj px-4 py-1.5 text-sm font-semibold text-white hover:brightness-95">
+
+        <div className="flex items-center gap-3 pb-0.5">
+          <button type="submit" className="rounded-lg bg-wouj px-4 py-2 text-sm font-semibold text-white hover:brightness-95">
             {t.search.apply}
           </button>
           {/* Réinitialise les CRITÈRES ; la requête appartient à la barre du haut. */}
