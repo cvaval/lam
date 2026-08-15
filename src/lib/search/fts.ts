@@ -161,7 +161,10 @@ export class FtsProvider implements SearchProvider {
         ...motsDe(query.parties).map((m) => ({ titleFr: { contains: m, mode: 'insensitive' as const } })),
       ]
     }
-    if (query.domaine?.trim()) base.matiere = { contains: query.domaine.trim(), mode: 'insensitive' }
+    // Domaine = thème de la Législation annotée, sous-arbre compris. Les ids sont
+    // résolus une seule fois en amont (runSearch), pour que les trois moteurs voient
+    // exactement le même sous-arbre.
+    if (query.domaineIds?.length) base.themes = { some: { themeId: { in: query.domaineIds } } }
     // ⚠️ LE SIÈGE ET LE MINISTÈRE PUBLIC NE SE CONFONDENT PAS. Un substitut n'a pas jugé :
     // le ramener sous « magistrat » lui attribuerait des décisions qu'il n'a pas rendues.
     if (query.judge?.trim()) base.judges = { some: { role: { in: [...ROLES_SIEGE] }, ...nomMagistrat(query.judge) } }
@@ -236,7 +239,7 @@ export class FtsProvider implements SearchProvider {
       noEffDate: query.noEffDate ?? undefined,
       num: query.num ?? undefined,
       parties: query.parties ?? undefined,
-      domaine: query.domaine ?? undefined,
+      domaineIds: query.domaineIds ?? undefined,
       judge: query.judge ?? undefined,
       mp: query.mp ?? undefined,
       judgeId: query.judgeId ?? undefined,

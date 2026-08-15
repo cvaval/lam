@@ -53,7 +53,8 @@ export default async function SearchPage({
   // Critères propres aux DÉCISIONS. Bornés en longueur : ce sont des noms, pas des textes.
   const critere = (v: string | undefined, max = 80) => v?.trim().slice(0, max) || undefined
   const parties = critere(searchParams.parties)
-  const domaine = critere(searchParams.domaine)
+  // Domaine du droit : un SLUG de l'arbre de la Législation annotée, pas du texte libre.
+  const domaine = critere(searchParams.domaine, 60)
   const magistrat = critere(searchParams.judge)
   const ministerePublic = critere(searchParams.mp)
   const judgeId = critere(searchParams.judgeId, 40)
@@ -193,6 +194,32 @@ export default async function SearchPage({
     for (const r of rows) abrogatedBy.set(r.id, r.abrogatedByNumber!)
   }
 
+  // Le menu des domaines : l'arbre de la Législation annotée, aplati (racines puis
+  // branches), pour que les deux sections nomment les matières de la même façon.
+  const arbre = await prisma.theme.findMany({
+    where: { active: true },
+    select: { id: true, slug: true, labelFr: true, labelEn: true, labelHt: true, parentId: true, position: true },
+    orderBy: [{ position: 'asc' }, { labelFr: 'asc' }],
+  })
+  const enfantsDe = new Map<string | null, typeof arbre>()
+  for (const t of arbre) {
+    const k = t.parentId
+    if (!enfantsDe.has(k)) enfantsDe.set(k, [])
+    enfantsDe.get(k)!.push(t)
+  }
+  const domaines: { slug: string; label: string; profondeur: number }[] = []
+  const aplatir = (parent: string | null, profondeur: number) => {
+    for (const t of enfantsDe.get(parent) ?? []) {
+      domaines.push({
+        slug: t.slug,
+        label: (locale === 'en' ? t.labelEn : locale === 'ht' ? t.labelHt : t.labelFr) || t.labelFr,
+        profondeur,
+      })
+      aplatir(t.id, profondeur + 1)
+    }
+  }
+  aplatir(null, 0)
+
   const baseParams: SP = {
     q,
     type: canonicalSlug,
@@ -251,6 +278,7 @@ export default async function SearchPage({
         locale={locale}
         t={t}
         allowed={allowed}
+        domaines={domaines}
         values={{
           q,
           type: canonicalSlug,

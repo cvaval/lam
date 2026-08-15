@@ -26,7 +26,7 @@ async function main() {
     // relation, la réindexation effacerait les champs de magistrats.
     const docs = await prisma.document.findMany({
       where: { type },
-      include: { judges: { include: { judge: true }, orderBy: { position: 'asc' } } },
+      include: { judges: { include: { judge: true }, orderBy: { position: 'asc' } }, themes: { select: { themeId: true } } },
     })
     if (docs.length) {
       const body = docs.flatMap((d) => [{ index: { _index: index, _id: d.id } }, serializeDoc(d)])

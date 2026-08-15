@@ -18,7 +18,7 @@ export async function reindexDocument(documentId: string): Promise<void> {
   // champs de magistrats et la fiche sortirait des recherches par juge à la réindexation.
   const doc = await prisma.document.findUnique({
     where: { id: documentId },
-    include: { judges: { include: { judge: true }, orderBy: { position: 'asc' } } },
+    include: { judges: { include: { judge: true }, orderBy: { position: 'asc' } }, themes: { select: { themeId: true } } },
   })
   if (!doc) return
 
@@ -33,7 +33,7 @@ export async function reindexDocument(documentId: string): Promise<void> {
   const updated = await prisma.document.update({
     where: { id: documentId },
     data: { themeLabels, searchText },
-    include: { judges: { include: { judge: true }, orderBy: { position: 'asc' } } },
+    include: { judges: { include: { judge: true }, orderBy: { position: 'asc' } }, themes: { select: { themeId: true } } },
   })
 
   // Réindexation UNITAIRE : on vide le cache de résultats (le nouveau searchText doit ressortir)

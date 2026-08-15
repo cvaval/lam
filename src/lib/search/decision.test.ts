@@ -98,7 +98,7 @@ describe('les critères de décision existent dans TOUTES les couches', () => {
   for (const [nom, s] of Object.entries(couches)) {
     it(`${nom} filtre parties, domaine, magistrat, ministère public et identifiant`, () => {
       expect(s).toMatch(/parties/)
-      expect(s).toMatch(/domaine/)
+      expect(s).toMatch(/domaineIds/)
       expect(s).toMatch(/\bjudge\b/)
       expect(s).toMatch(/\bmp\b/)
       expect(s).toMatch(/judgeId/)
@@ -116,9 +116,29 @@ describe('les critères de décision existent dans TOUTES les couches', () => {
     // Sans eux, deux recherches différentes partageraient une entrée de cache et la
     // seconde afficherait les résultats de la première.
     const s = src('src/lib/search/index.ts')
-    for (const k of ['parties', 'domaine', 'judge', 'mp', 'judgeId', 'judgeRole']) {
+    for (const k of ['parties', 'domaine', 'domaineIds', 'judge', 'mp', 'judgeId', 'judgeRole']) {
       expect(s).toContain(`${k}: query.${k} ??`)
     }
+  })
+
+  it('le domaine est résolu en SOUS-ARBRE, une seule fois pour les trois moteurs', () => {
+    // ⚠️ CHERCHER « DROIT PRIVÉ » DOIT RAMENER LE DROIT CIVIL. Un thème de tête ne porte
+    // presque aucun document en propre : filtrer sur son seul id rendrait une page vide,
+    // et le lecteur en conclurait qu'il n'y a rien à lire. Résoudre le sous-arbre dans
+    // chaque moteur, à l'inverse, les laisserait diverger au premier oubli.
+    const s = src('src/lib/search/index.ts')
+    expect(s).toContain('sousArbreDuTheme')
+    expect(s).toMatch(/domaineIds: await sousArbreDuTheme/)
+    for (const f of ['src/lib/search/fts.ts', 'src/lib/search/ftsql.ts', 'src/lib/search/opensearch.ts']) {
+      expect(src(f)).not.toContain('sousArbreDuTheme')
+    }
+  })
+
+  it('le domaine ne cherche plus dans la phrase du recueil', () => {
+    // `matiere` reste la formule du rédacteur ; le domaine est le thème. Les confondre
+    // rendait « procédure civile » et « Procédure civile (voies de recours) » distincts.
+    expect(src('src/lib/search/fts.ts')).not.toMatch(/domaine[^I]*matiere/)
+    expect(src('src/lib/search/ftsql.ts')).not.toMatch(/domaine[^I]*matiere/)
   })
 })
 

@@ -63,7 +63,7 @@ export async function GET(req: NextRequest) {
       matiere: sp.get('matiere') || undefined,
       // Critères propres aux décisions — mêmes bornes que la page de recherche.
       parties: sp.get('parties')?.trim().slice(0, 80) || undefined,
-      domaine: sp.get('domaine')?.trim().slice(0, 80) || undefined,
+      domaine: sp.get('domaine')?.trim().slice(0, 60) || undefined,
       judge: sp.get('judge')?.trim().slice(0, 80) || undefined,
       mp: sp.get('mp')?.trim().slice(0, 80) || undefined,
       judgeId: sp.get('judgeId')?.trim().slice(0, 40) || undefined,

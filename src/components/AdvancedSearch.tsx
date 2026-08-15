@@ -22,12 +22,15 @@ export function AdvancedSearch({
   locale,
   t,
   allowed,
+  domaines = [],
   values,
   open,
 }: {
   locale: Locale
   t: Dictionary
   allowed: DocType[]
+  /** Un domaine de l'arbre, aplati pour le menu : la profondeur devient une indentation. */
+  domaines?: { slug: string; label: string; profondeur: number }[]
   values: {
     q: string
     type?: string
@@ -132,11 +135,27 @@ export function AdvancedSearch({
               </label>
               <input id="adv-parties" name="parties" defaultValue={values.parties ?? ''} maxLength={80} placeholder={t.search.partiesPh} className={fieldCls} />
             </div>
-            <div className="flex w-52 flex-col gap-1">
+            {/* ⚠️ MÊME NOMENCLATURE QUE LA LÉGISLATION ANNOTÉE, ET UN MENU. En champ
+                libre, « procédure civile » et « Procédure civile (voies de recours) »
+                étaient deux domaines pour un lecteur et deux requêtes pour le moteur ;
+                le menu ne propose que des domaines qui EXISTENT, et un choix de tête
+                (« Droit privé ») ramène tout son sous-arbre. */}
+            <div className="flex w-56 flex-col gap-1">
               <label htmlFor="adv-domaine" className={label}>
                 {t.search.domaineLabel}
               </label>
-              <input id="adv-domaine" name="domaine" defaultValue={values.domaine ?? ''} maxLength={80} placeholder={t.search.domainePh} className={fieldCls} />
+              <select id="adv-domaine" name="domaine" defaultValue={values.domaine ?? ''} className={fieldCls}>
+                <option value="">{t.common.all}</option>
+                {domaines.map((d) => (
+                  <option key={d.slug} value={d.slug}>
+                    {/* Espaces insécables : un <option> replie les espaces ordinaires et
+                        l'arborescence disparaîtrait. */}
+                    {'\u00A0\u00A0'.repeat(d.profondeur)}
+                    {d.profondeur > 0 ? '· ' : ''}
+                    {d.label}
+                  </option>
+                ))}
+              </select>
             </div>
             {/* ⚠️ DEUX CHAMPS, PAS UN. Le substitut du commissaire du gouvernement n'a pas
                 jugé : le ramener sous « magistrat » lui attribuerait des décisions qu'il

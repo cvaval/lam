@@ -38,8 +38,8 @@ export interface FtsFilters {
   num?: string
   /** Parties à l'instance — chaque mot doit figurer dans l'intitulé. */
   parties?: string
-  /** Domaine du droit — sous-chaîne de `matiere`. */
-  domaine?: string
+  /** Domaine du droit — ids du thème et de ses descendants. */
+  domaineIds?: string[]
   /** Magistrat du SIÈGE (le ministère public en est exclu). */
   judge?: string
   /** Ministère public. */
@@ -98,7 +98,12 @@ function filterConds(filters: FtsFilters): Prisma.Sql[] {
   for (const mot of filters.parties ? motsDe(filters.parties) : []) {
     conds.push(Prisma.sql`d."titleFr" ILIKE ${'%' + mot + '%'}`)
   }
-  if (filters.domaine?.trim()) conds.push(Prisma.sql`d."matiere" ILIKE ${'%' + filters.domaine.trim() + '%'}`)
+  if (filters.domaineIds?.length) {
+    conds.push(Prisma.sql`EXISTS (
+      SELECT 1 FROM "DocumentTheme" dt
+      WHERE dt."documentId" = d.id AND dt."themeId" IN (${Prisma.join(filters.domaineIds)})
+    )`)
+  }
   if (filters.judge?.trim()) conds.push(magistratCond(filters.judge, [...ROLES_SIEGE]))
   if (filters.mp?.trim()) conds.push(magistratCond(filters.mp, ['MINISTERE_PUBLIC']))
   if (filters.judgeId) {

@@ -72,11 +72,18 @@ export interface SearchQuery {
    */
   parties?: string
   /**
-   * DOMAINE DU DROIT — sous-chaîne de `matiere`, à la différence de `matiere` qui exige
-   * l'égalité. Le domaine d'une décision est une phrase (« Procédure civile (voies de
-   * recours — recevabilité du pourvoi) ») : l'égalité stricte n'y trouverait jamais rien.
+   * DOMAINE DU DROIT — **slug d'un thème de la Législation annotée**, sous-arbre compris.
+   *
+   * ⚠️ CE N'EST PAS UNE RECHERCHE DANS `matiere`. La matière d'une décision est la phrase
+   * du recueil (« Procédure civile (voies de recours — recevabilité du pourvoi) ») ; le
+   * domaine est le THÈME de l'arbre. Deux vocabulaires pour une même question laissaient
+   * un lecteur incapable d'obtenir d'un même geste les textes et les arrêts d'une matière.
+   * Les décisions sont donc rattachées à l'arbre (scripts/classer-jurisprudence-themes.ts)
+   * et le filtre porte sur ce rattachement.
    */
   domaine?: string
+  /** Ids du thème demandé ET de ses descendants — résolus en amont des moteurs. */
+  domaineIds?: string[]
   /**
    * MAGISTRAT DU SIÈGE — nom (ou fragment) d'un juge ayant rendu la décision : président,
    * vice-président, faisant fonction, ou juge.

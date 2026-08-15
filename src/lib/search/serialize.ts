@@ -4,7 +4,10 @@ import { extractAnnotationsText } from './normalize'
 import { parseCirculaireRef } from '../brh/gaps'
 
 /** Document éventuellement accompagné de sa formation de jugement. */
-export type DocumentAIndexer = Document & { judges?: (DecisionJudge & { judge?: Judge | null })[] }
+export type DocumentAIndexer = Document & {
+  judges?: (DecisionJudge & { judge?: Judge | null })[]
+  themes?: { themeId: string }[]
+}
 
 /**
  * Clé de tri numérique du numéro de circulaire (Document.number est une chaîne :
@@ -58,6 +61,9 @@ export function serializeDoc(d: DocumentAIndexer) {
         }
       : {}),
     // Minuscules seulement : la parité avec `ILIKE` l'exige (cf. mappings).
+    // ⚠️ `themes` NON CHARGÉ ≠ AUCUN THÈME (même règle que `judges`) : sans la relation,
+    // on n'écrit pas le champ plutôt que d'effacer le classement déjà indexé.
+    ...(d.themes ? { themeIds: d.themes.map((t) => t.themeId) } : {}),
     titleLower: d.titleFr?.toLowerCase() ?? null,
     matiereLower: d.matiere?.toLowerCase() ?? null,
   }

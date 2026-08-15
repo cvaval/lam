@@ -37,6 +37,16 @@ export async function runSearch(query: SearchQuery, userId?: string | null): Pro
   // deux moteurs ne peuvent pas diverger sur la précédence.
   query = { ...query, yearFrom: query.yearFrom ?? query.year, yearTo: query.yearTo ?? query.year }
 
+  // Domaine du droit : le slug demandé est résolu en SOUS-ARBRE, ici et une seule fois.
+  //
+  // ⚠️ CHERCHER « DROIT PRIVÉ » DOIT RAMENER LE DROIT CIVIL. Un thème parent ne porte
+  // presque aucun document en propre — ils vivent dans ses branches. Filtrer sur le seul
+  // id demandé rendrait une page vide sur les six domaines de tête, et le lecteur en
+  // conclurait qu'il n'y a rien à lire.
+  if (query.domaine && !query.domaineIds) {
+    query = { ...query, domaineIds: await sousArbreDuTheme(query.domaine) }
+  }
+
   const key = cacheKey({
     q: query.q.trim().toLowerCase(),
     types: query.types ?? null,
@@ -54,6 +64,7 @@ export async function runSearch(query: SearchQuery, userId?: string | null): Pro
     num: query.num ?? null,
     parties: query.parties ?? null,
     domaine: query.domaine ?? null,
+    domaineIds: query.domaineIds ?? null,
     judge: query.judge ?? null,
     mp: query.mp ?? null,
     judgeId: query.judgeId ?? null,
@@ -85,4 +96,29 @@ export async function runSearch(query: SearchQuery, userId?: string | null): Pro
       .catch(() => {})
   }
   return result
+}
+
+/**
+ * Ids d'un thème et de tous ses descendants, à partir de son slug. Rend un tableau VIDE
+ * si le slug est inconnu — et le filtre, portant sur une liste vide, ne s'applique pas :
+ * mieux vaut ne pas filtrer qu'exclure tout sur une faute de frappe dans une URL.
+ */
+async function sousArbreDuTheme(slug: string): Promise<string[]> {
+  const racine = await prisma.theme.findUnique({ where: { slug }, select: { id: true } })
+  if (!racine) return []
+  const tous = await prisma.theme.findMany({ select: { id: true, parentId: true } })
+  const enfantsDe = new Map<string, string[]>()
+  for (const t of tous) {
+    if (!t.parentId) continue
+    if (!enfantsDe.has(t.parentId)) enfantsDe.set(t.parentId, [])
+    enfantsDe.get(t.parentId)!.push(t.id)
+  }
+  const out: string[] = []
+  const pile = [racine.id]
+  while (pile.length) {
+    const id = pile.pop()!
+    out.push(id)
+    for (const c of enfantsDe.get(id) ?? []) pile.push(c)
+  }
+  return out
 }

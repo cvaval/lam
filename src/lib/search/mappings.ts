@@ -111,6 +111,9 @@ export function documentMapping() {
       // trouverait en local et ne trouverait pas en ligne.
       titleLower: { type: 'keyword' },
       matiereLower: { type: 'keyword' },
+      // Thèmes rattachés, par IDENTIFIANT — le filtre « domaine » porte sur le sous-arbre
+      // résolu en amont, et un libellé ne suffirait pas à le désigner.
+      themeIds: { type: 'keyword' },
     },
   }
 }

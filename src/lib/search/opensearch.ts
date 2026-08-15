@@ -60,9 +60,7 @@ export class OpenSearchProvider implements SearchProvider {
     for (const mot of query.parties ? motsDe(query.parties) : []) {
       filter.push({ wildcard: { titleLower: `*${mot}*` } })
     }
-    // `matiere` est un `keyword` : un match_phrase y exigeait l'égalité EXACTE et ne
-    // rendait jamais rien — le domaine d'une décision est une phrase entière.
-    if (query.domaine?.trim()) filter.push({ wildcard: { matiereLower: `*${query.domaine.trim().toLowerCase()}*` } })
+    if (query.domaineIds?.length) filter.push({ terms: { themeIds: query.domaineIds } })
     // ⚠️ UNE SEULE CLAUSE `nested` PAR CRITÈRE. Le magistrat et son rôle doivent être
     // appariés sur la MÊME participation : deux filtres séparés rendraient les décisions
     // qui contiennent l'un et l'autre sans que ce soit la même personne — mesuré, 36 au
