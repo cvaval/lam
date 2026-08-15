@@ -175,6 +175,10 @@ export class FtsProvider implements SearchProvider {
       }
     }
 
+    // Le tri est déjà arbitré par `runSearch` (repli de « entrée en vigueur » là où la
+    // colonne est vide) : les deux moteurs reçoivent le même.
+    const sort = query.sort
+
     // ── Navigation (sans requête texte) : pagination SQL, ou tri par numéro en mémoire ──
     if (!terms.length) {
       // Tri par NUMÉRO : `number` est une chaîne (« Circulaire n° 131 ») → tri numérique
@@ -184,9 +188,9 @@ export class FtsProvider implements SearchProvider {
       // par date — sinon l'Index (27k lignes) chargerait 5 000 lignes lourdes
       // et afficherait un total plafonné.
       const numSortable = query.types?.length === 1 && query.types[0] === 'CIRCULAIRE_BRH'
-      if (numSortable && (query.sort === 'num-asc' || query.sort === 'num-desc')) {
+      if (numSortable && (sort === 'num-asc' || sort === 'num-desc')) {
         const allDocs = await prisma.document.findMany({ where: base, take: 5000, select: DOC_SELECT })
-        sortByCirculaireNumber(allDocs, query.sort === 'num-desc' ? -1 : 1)
+        sortByCirculaireNumber(allDocs, sort === 'num-desc' ? -1 : 1)
         const pageDocs = allDocs.slice((page - 1) * size, (page - 1) * size + size)
         const hits = pageDocs.map((d) => toDocHit(d, terms, query.locale, 0.5, false))
         await this.enrichSnippets(hits, terms)
@@ -203,9 +207,9 @@ export class FtsProvider implements SearchProvider {
       // recherche texte (ftsql.orderClause) porte ce départage depuis toujours ; il
       // manquait au seul mode NAVIGATION.
       const orderBy: Prisma.DocumentOrderByWithRelationInput[] =
-        query.sort === 'eff'
+        sort === 'eff'
           ? [{ effectiveDate: { sort: 'desc', nulls: 'last' } }, { id: 'asc' }]
-          : query.sort === 'recent'
+          : sort === 'recent'
             ? // Arrivée sur la plateforme, non date de la décision : un arrêt de 1964
               // versé hier est la nouveauté du jour et le plus ancien du corpus.
               [{ createdAt: 'desc' }, { id: 'asc' }]
@@ -255,14 +259,14 @@ export class FtsProvider implements SearchProvider {
     // circulaires BRH, dont l'effectif (~140) tient entièrement dans la profondeur rapportée.
     const numSort =
       query.types?.length === 1 && query.types[0] === 'CIRCULAIRE_BRH' &&
-      (query.sort === 'num-asc' || query.sort === 'num-desc')
+      (sort === 'num-asc' || sort === 'num-desc')
     const order: FtsOrder = numSort
       ? 'relevance'
-      : query.sort === 'eff'
+      : sort === 'eff'
         ? 'eff'
-        : query.sort === 'sig'
+        : sort === 'sig'
           ? 'sig'
-          : query.sort === 'recent'
+          : sort === 'recent'
             ? 'recent'
             : 'relevance'
     const [ftsDocs, exactCompanies] = await Promise.all([
@@ -342,7 +346,7 @@ export class FtsProvider implements SearchProvider {
     // Application du tri demandé sur l'ensemble fusionné (documents + sociétés). SQL a déjà
     // rapporté les bonnes lignes dans le bon ordre ; ce tri final réaligne les fiches Société,
     // qui proviennent d'une autre requête.
-    if (numSort) sortHitsByCirculaireNumber(all, query.sort === 'num-desc' ? -1 : 1)
+    if (numSort) sortHitsByCirculaireNumber(all, sort === 'num-desc' ? -1 : 1)
     else if (order === 'sig') all.sort((a, b) => sortByDate(a, b))
     else if (order === 'eff') all.sort((a, b) => (b.effectiveDate ?? '').localeCompare(a.effectiveDate ?? ''))
 

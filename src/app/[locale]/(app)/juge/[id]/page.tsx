@@ -8,6 +8,8 @@ import { DOC_TYPE_META } from '@/lib/brand'
 import { formatDate } from '@/lib/i18n/format'
 import { ROLES_PRESIDENCE } from '@/lib/search/decision'
 import { BackLink } from '@/components/BackLink'
+import { guard, LIMITS } from '@/lib/security/ratelimit'
+import { RateLimitNotice } from '@/components/RateLimitNotice'
 
 /**
  * Fiche d'un MAGISTRAT : toutes les décisions où son nom figure, VENTILÉES par ce qu'il y
@@ -39,6 +41,14 @@ export default async function JugePage({ params }: { params: { locale: string; i
   // Accès par service (§03) : la jurisprudence n'est pas accordée à tout le monde. Sans
   // cette garde, la fiche d'un magistrat listerait des décisions autrement invisibles.
   if (!canReadService(user, 'JURISPRUDENCE')) redirect(`/${locale}/search?type=index`)
+
+  // ⚠️ ANTI-ASPIRATION (§09) — CETTE PAGE EST UNE LISTE, PAS UNE FICHE. Elle rend jusqu'à
+  // 200 intitulés par ventilation ; la laisser hors du plafond ouvrait une porte plus large
+  // que la fiche d'un document, qui, elle, est bornée depuis toujours. Le plafond de
+  // recherche s'applique : c'est un listage, non une lecture.
+  if (!(await guard({ action: 'search', subject: user.id, ...LIMITS.search }, { actorId: user.id }))) {
+    return <RateLimitNotice t={t} />
+  }
 
   const juge = await prisma.judge.findUnique({
     where: { id: params.id },
@@ -120,8 +130,10 @@ export default async function JugePage({ params }: { params: { locale: string; i
               ))}
             </ul>
             {g.lignes.length > MAX_PAR_GROUPE && (
+              // Ce qui est tu doit se dire : une liste tronquée en silence se lit comme une
+              // liste complète.
               <p className="mt-3 text-xs text-grafit">
-                {g.lignes.length - MAX_PAR_GROUPE} + —{' '}
+                + {g.lignes.length - MAX_PAR_GROUPE} —{' '}
                 <Link
                   href={`/${locale}/search?type=jurisprudence&judgeId=${juge.id}&judgeRole=${g.cle}`}
                   className="text-chabon hover:underline"

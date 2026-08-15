@@ -161,3 +161,38 @@ describe('tri « nouveautés » — l’arrivée sur la plateforme, pas la date 
     expect(src('src/lib/search/serialize.ts')).toContain('createdAt: d.createdAt')
   })
 })
+
+/**
+ * ⚠️ UN TRI SUR UNE COLONNE VIDE N'EST PAS UN TRI. Aucune des 80 décisions ne porte de date
+ * d'entrée en vigueur : la puce proposait un classement qui n'en produisait aucun, et le
+ * paramètre survit au changement d'onglet même une fois la puce retirée.
+ */
+describe('tri « entrée en vigueur » — proposé seulement là où l’axe existe', () => {
+  it('la puce ne paraît pas sur les types sans date d’effet', () => {
+    const s = src('src/components/ContextualFilters.tsx')
+    expect(s).toContain("TYPES_AVEC_DATE_EFFET: readonly DocType[] = ['CIRCULAIRE_BRH', 'LEGISLATION']")
+    expect(s).toContain('{axeEffet && chip(t.search.sortEff')
+  })
+
+  it('le tri RETOMBE sur la date de signature quand la colonne est vide', () => {
+    // Sans ce repli, `?sort=eff` résiduel rendrait un ordre arbitraire ET STABLE — donc
+    // indétectable à la lecture, ce qui est pire qu'un désordre visible.
+    const s = src('src/lib/search/index.ts')
+    expect(s).toContain('axeEffetExiste')
+    expect(s).toMatch(/query\.sort === 'eff' && !\(await axeEffetExiste/)
+    expect(s).toContain('effectiveDate: { not: null }')
+  })
+
+  it('l’arbitrage est rendu EN AMONT, pas dans chaque moteur', () => {
+    // Le premier jet le mettait dans le moteur intégré : le miroir, lui, continuait de
+    // trier sur une colonne vide — mesuré, la même URL rendait deux ordres différents.
+    expect(src('src/lib/search/fts.ts')).not.toContain('effectiveDate: { not: null }')
+    expect(src('src/lib/search/opensearch.ts')).not.toContain('effectiveDate: { not: null }')
+  })
+
+  it('le moteur intégré lit le tri arbitré, jamais la demande brute', () => {
+    const s = src('src/lib/search/fts.ts')
+    const apres = s.slice(s.indexOf('const sort = query.sort') + 'const sort = query.sort'.length)
+    expect(apres.match(/query\.sort/g) ?? []).toEqual([])
+  })
+})

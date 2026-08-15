@@ -44,6 +44,18 @@ export function ChampRecherche({
   const [valeur, setValeur] = useState(defaultValue)
   const champ = useRef<HTMLInputElement | HTMLSelectElement>(null)
 
+  // ⚠️ LE CHAMP DOIT SUIVRE L'URL, ET LA NAVIGATION DOUCE NE LE REMONTE PAS. En cliquant
+  // « Réinitialiser », l'adresse redevenait `?adv=1` et les résultats se dépliaient, mais
+  // les cases continuaient d'afficher « Rousseau » et « HASCO » : le panneau annonçait des
+  // critères qui n'agissaient plus. Next reconcilie le composant sans le remonter, donc
+  // l'état initial n'est pas réappliqué — on le réaligne ici, à chaque fois que la valeur
+  // venue du serveur change.
+  const [ancre, setAncre] = useState(defaultValue)
+  if (ancre !== defaultValue) {
+    setAncre(defaultValue)
+    setValeur(defaultValue)
+  }
+
   const effacer = () => {
     setValeur('')
     // Le foyer revient sur le champ : l'effacement laisse la main là où l'on travaillait.

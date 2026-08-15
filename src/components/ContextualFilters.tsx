@@ -4,6 +4,17 @@ import type { Dictionary } from '@/lib/i18n/dictionaries'
 
 export type SP = Record<string, string | undefined>
 
+/**
+ * Types dont le corpus porte RÉELLEMENT une date d'entrée en vigueur.
+ *
+ * ⚠️ UN TRI SUR UNE COLONNE VIDE N'EST PAS UN TRI. Aucune des 80 décisions, ni des 27 234
+ * entrées de l'Index, ni des 17 lois de finances n'a de date d'effet : la puce « Entrée en
+ * vigueur » y proposait un classement qui n'en produisait aucun, et le lecteur qui la
+ * choisissait recevait un ordre arbitraire en croyant l'avoir demandé. Mesuré le 15 août :
+ * circulaires BRH 53/141, Législation 15/1838, tout le reste 0.
+ */
+const TYPES_AVEC_DATE_EFFET: readonly DocType[] = ['CIRCULAIRE_BRH', 'LEGISLATION']
+
 /** Querystring fusionnée (les valeurs vides sont omises). */
 export function qs(base: SP, patch: SP): string {
   const merged = { ...base, ...patch }
@@ -67,6 +78,7 @@ export function ContextualFilters({
       <path d="M18 9l3-3 3 3M21 6v12" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
+  const axeEffet = !type || TYPES_AVEC_DATE_EFFET.includes(type)
   const sortRow = (
     <div className="flex flex-wrap items-center gap-2">
       <span className="inline-flex items-center gap-1 text-xs text-ank/80">
@@ -74,7 +86,7 @@ export function ContextualFilters({
         {t.search.sortLabel}:
       </span>
       {chip(t.search.sortPub, { sort: 'sig' }, (active.sort ?? 'sig') === 'sig')}
-      {chip(t.search.sortEff, { sort: 'eff' }, active.sort === 'eff')}
+      {axeEffet && chip(t.search.sortEff, { sort: 'eff' }, active.sort === 'eff')}
       {/* ⚠️ « NOUVEAUTÉS » N'EST PAS « RÉCENT ». Un arrêt de 1964 versé hier est la
           nouveauté du jour et le plus ancien du corpus : ce tri porte sur l'arrivée sur
           la plateforme, pas sur la date du texte. */}

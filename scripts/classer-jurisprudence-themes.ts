@@ -113,10 +113,17 @@ async function main() {
     return
   }
 
+  // ⚠️ NE PAS EFFACER CE QUE LE SCRIPT N'A PAS ÉCRIT. Une purge de tous les thèmes de la
+  // décision emporterait le classement qu'un éditeur aurait ajouté à la main — et une
+  // seconde exécution, faite pour être sans effet, détruirait son travail en silence. On
+  // ne retire donc que les thèmes que CES RÈGLES savent produire.
+  const slugsDesRegles = new Set(REGLES.map((r) => r.slug))
+  const idsDesRegles = themes.filter((t) => slugsDesRegles.has(t.slug)).map((t) => t.id)
+
   let ecrits = 0
   for (const p of plan) {
-    // Idempotence : on remplace le classement de CETTE décision, on ne l'empile pas.
-    await prisma.documentTheme.deleteMany({ where: { documentId: p.id, theme: { active: true } } })
+    // Idempotence : on remplace le classement issu des règles, on ne l'empile pas.
+    await prisma.documentTheme.deleteMany({ where: { documentId: p.id, themeId: { in: idsDesRegles } } })
     for (const [i, slug] of p.slugs.entries()) {
       await prisma.documentTheme.create({
         data: {

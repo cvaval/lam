@@ -47,6 +47,18 @@ export async function runSearch(query: SearchQuery, userId?: string | null): Pro
     query = { ...query, domaineIds: await sousArbreDuTheme(query.domaine) }
   }
 
+  // ⚠️ `?sort=eff` SURVIT AU CHANGEMENT D'ONGLET. La puce « Entrée en vigueur » n'est plus
+  // proposée là où la colonne est vide — aucune décision, aucune entrée de l'Index, aucune
+  // loi de finances n'en porte — mais le paramètre reste dans l'URL quand on change de
+  // section. Sans ce repli, trier des décisions « par entrée en vigueur » rendrait un ordre
+  // arbitraire ET STABLE, donc indétectable à la lecture : pire qu'un désordre visible.
+  //
+  // L'arbitrage est rendu ICI, en amont des moteurs, pour que le moteur intégré et le
+  // miroir trient pareil — la même URL doit rendre le même ordre.
+  if (query.sort === 'eff' && !(await axeEffetExiste(query.types))) {
+    query = { ...query, sort: undefined }
+  }
+
   const key = cacheKey({
     q: query.q.trim().toLowerCase(),
     types: query.types ?? null,
@@ -121,4 +133,18 @@ async function sousArbreDuTheme(slug: string): Promise<string[]> {
     for (const c of enfantsDe.get(id) ?? []) pile.push(c)
   }
   return out
+}
+
+/**
+ * L'axe « entrée en vigueur » existe-t-il pour les types demandés ?
+ *
+ * On interroge le TYPE, non le jeu filtré : un filtre qui, par accident, ne retiendrait
+ * aucune ligne datée ne doit pas changer le sens du tri demandé — la question posée est
+ * « cette section connaît-elle cette date ? », pas « ce résultat-ci en contient-il ? ».
+ */
+async function axeEffetExiste(types?: string[]): Promise<boolean> {
+  const n = await prisma.document.count({
+    where: { ...(types?.length ? { type: { in: types } } : {}), effectiveDate: { not: null } },
+  })
+  return n > 0
 }
