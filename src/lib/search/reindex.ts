@@ -14,7 +14,12 @@ import { serializeDoc } from './serialize'
  * (cf. /api/admin/legislation, action setThemes).
  */
 export async function reindexDocument(documentId: string): Promise<void> {
-  const doc = await prisma.document.findUnique({ where: { id: documentId } })
+  // La composition voyage avec le document : sans elle, `serializeDoc` n'écrit pas les
+  // champs de magistrats et la fiche sortirait des recherches par juge à la réindexation.
+  const doc = await prisma.document.findUnique({
+    where: { id: documentId },
+    include: { judges: { include: { judge: true }, orderBy: { position: 'asc' } } },
+  })
   if (!doc) return
 
   const links = await prisma.documentTheme.findMany({
@@ -25,7 +30,11 @@ export async function reindexDocument(documentId: string): Promise<void> {
     [...new Set(links.flatMap((l) => [l.theme.labelFr, l.theme.labelEn, l.theme.labelHt]).filter(Boolean))].join(' ') || null
 
   const searchText = buildSearchText({ ...doc, themeLabels })
-  const updated = await prisma.document.update({ where: { id: documentId }, data: { themeLabels, searchText } })
+  const updated = await prisma.document.update({
+    where: { id: documentId },
+    data: { themeLabels, searchText },
+    include: { judges: { include: { judge: true }, orderBy: { position: 'asc' } } },
+  })
 
   // Réindexation UNITAIRE : on vide le cache de résultats (le nouveau searchText doit ressortir)
   // mais on NE réinitialise PAS le vocabulaire fuzzy global (rebuild ~17 Mo évitable — audit §10).

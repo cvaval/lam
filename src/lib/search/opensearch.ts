@@ -6,6 +6,7 @@ import { multiMatchFields } from './fields'
 import { createOpenSearchClient } from './client'
 import { indexNameForType, COMPANIES_INDEX } from './mappings'
 import { PAGE_SIZE, MAX_PAGE_SIZE } from './types'
+import { motsDe, motsMagistratSql, rolesDe, ROLES_SIEGE } from './decision'
 import type { SearchProvider, SearchQuery, SearchResult, SearchHit } from './types'
 
 /**
@@ -53,6 +54,42 @@ export class OpenSearchProvider implements SearchProvider {
     }
     // Puce « sans date » : must_not exists — le même sens que `publicationDate IS NULL`.
     if (query.noDate) filter.push({ bool: { must_not: { exists: { field: 'publicationDate' } } } })
+    // ── Décisions : parties, domaine, magistrats (parité avec fts.ts et ftsql.ts) ──
+    // ⚠️ LE MIROIR DOIT FILTRER COMME LE MOTEUR DE PRODUCTION. Un critère câblé dans deux
+    // couches sur trois donne un moteur local qui ne reproduit pas les résultats servis.
+    for (const mot of query.parties ? motsDe(query.parties) : []) {
+      filter.push({ wildcard: { titleLower: `*${mot}*` } })
+    }
+    // `matiere` est un `keyword` : un match_phrase y exigeait l'égalité EXACTE et ne
+    // rendait jamais rien — le domaine d'une décision est une phrase entière.
+    if (query.domaine?.trim()) filter.push({ wildcard: { matiereLower: `*${query.domaine.trim().toLowerCase()}*` } })
+    // ⚠️ UNE SEULE CLAUSE `nested` PAR CRITÈRE. Le magistrat et son rôle doivent être
+    // appariés sur la MÊME participation : deux filtres séparés rendraient les décisions
+    // qui contiennent l'un et l'autre sans que ce soit la même personne — mesuré, 36 au
+    // lieu de 5 sur « présidées par Magloire ».
+    const parMagistrat = (clauses: unknown[]) => ({
+      nested: { path: 'judges', query: { bool: { filter: clauses } } },
+    })
+    for (const [critere, roles] of [
+      [query.judge, [...ROLES_SIEGE]],
+      [query.mp, ['MINISTERE_PUBLIC']],
+    ] as const) {
+      if (!critere?.trim()) continue
+      filter.push(
+        parMagistrat([
+          ...motsMagistratSql(critere).map((mot) => ({ wildcard: { 'judges.key': `*${mot}*` } })),
+          { terms: { 'judges.role': roles } },
+        ]),
+      )
+    }
+    if (query.judgeId) {
+      filter.push(
+        parMagistrat([
+          { term: { 'judges.id': query.judgeId } },
+          ...(query.judgeRole ? [{ terms: { 'judges.role': rolesDe(query.judgeRole) } }] : []),
+        ]),
+      )
+    }
     // Axe entrée en vigueur.
     if (query.effYear != null) {
       filter.push({ range: { effectiveDate: { gte: `${query.effYear}-01-01`, lt: `${query.effYear + 1}-01-01` } } })
@@ -125,7 +162,13 @@ export class OpenSearchProvider implements SearchProvider {
     const sort = !query.q.trim()
       ? numSortable && (query.sort === 'num-asc' || query.sort === 'num-desc')
         ? [{ numberSort: { order: query.sort === 'num-asc' ? 'asc' : 'desc', missing: '_last', unmapped_type: 'integer' } }]
-        : [{ [query.sort === 'eff' ? 'effectiveDate' : 'publicationDate']: { order: 'desc', missing: '_last', unmapped_type: 'date' } }]
+        : [
+            {
+              [query.sort === 'eff' ? 'effectiveDate' : query.sort === 'recent' ? 'createdAt' : 'publicationDate']: {
+                order: 'desc', missing: '_last', unmapped_type: 'date',
+              },
+            },
+          ]
       : undefined
 
     const res = await client.search({

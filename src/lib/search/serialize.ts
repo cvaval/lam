@@ -1,7 +1,10 @@
-import type { Document } from '@prisma/client'
+import type { DecisionJudge, Document, Judge } from '@prisma/client'
 import { SEARCH_FIELD_NAMES } from './fields'
 import { extractAnnotationsText } from './normalize'
 import { parseCirculaireRef } from '../brh/gaps'
+
+/** Document éventuellement accompagné de sa formation de jugement. */
+export type DocumentAIndexer = Document & { judges?: (DecisionJudge & { judge?: Judge | null })[] }
 
 /**
  * Clé de tri numérique du numéro de circulaire (Document.number est une chaîne :
@@ -22,7 +25,7 @@ function numberSortKey(number: string | null): number | null {
  *  - scripts/reindex.ts            → réindexation complète (bulk par type)
  *  - api/admin/upload/route.ts     → indexation incrémentale à la publication
  */
-export function serializeDoc(d: Document) {
+export function serializeDoc(d: DocumentAIndexer) {
   // Champs cherchables : dérivés de la source unique (search/fields.ts).
   const searchable = Object.fromEntries(SEARCH_FIELD_NAMES.map((f) => [f, d[f]]))
   // Texte des ANNOTATIONS (jurisprudence, commentaires, législation connexe, anciennes
@@ -43,6 +46,19 @@ export function serializeDoc(d: Document) {
     // Tri en mode navigation (parité moteur intégré) : entrée en vigueur + n° de circulaire.
     effectiveDate: d.effectiveDate,
     numberSort: numberSortKey(d.number),
+    createdAt: d.createdAt,
     imageUrl: d.imageUrl, // rendu par ResultCard (vignette marque)
+    // ⚠️ `judges` NON CHARGÉ ≠ `judges` VIDE. Sans la relation, on n'écrit pas les champs :
+    // les remettre à [] effacerait la composition déjà indexée et ferait disparaître la
+    // décision des recherches par magistrat, sans une ligne d'erreur.
+    ...(d.judges
+      ? {
+          // Une ligne par participation — le magistrat ET son rôle appariés (cf. mappings).
+          judges: d.judges.map((j) => ({ id: j.judgeId, key: j.judge?.matchKey ?? null, role: j.role })),
+        }
+      : {}),
+    // Minuscules seulement : la parité avec `ILIKE` l'exige (cf. mappings).
+    titleLower: d.titleFr?.toLowerCase() ?? null,
+    matiereLower: d.matiere?.toLowerCase() ?? null,
   }
 }

@@ -94,3 +94,43 @@ describe('JurisprudenceComposition', () => {
     expect(ht).toContain('Ministè piblik')
   })
 })
+
+describe('JurisprudenceComposition — les liens vers le magistrat', () => {
+  it('mène de chaque nom à la fiche du magistrat', () => {
+    const html = renderToStaticMarkup(
+      <JurisprudenceComposition
+        membres={[
+          { ...m('1', 'Félix Diambois', 'VICE_PRESIDENT'), judgeId: 'jg1' },
+          { ...m('2', 'Catinat Sansaricq', 'MINISTERE_PUBLIC'), judgeId: 'jg2' },
+        ]}
+        note={null}
+        locale="fr"
+      />,
+    )
+    expect(html).toContain('href="/fr/juge/jg1"')
+    // Le ministère public a sa fiche lui aussi : on le cherche par son nom (critère 4).
+    expect(html).toContain('href="/fr/juge/jg2"')
+  })
+
+  it('N’INVENTE PAS de lien quand le magistrat n’a pas de fiche', () => {
+    // Un lien mort sur un nom propre laisserait croire à une fiche vide plutôt qu'à une
+    // absence de rapprochement.
+    const html = renderToStaticMarkup(
+      <JurisprudenceComposition membres={[m('1', 'Jean DUPONT', 'JUGE')]} note={null} locale="fr" />,
+    )
+    expect(html).toContain('Jean DUPONT')
+    expect(html).not.toContain('<a')
+    expect(html).not.toContain('/juge/')
+  })
+
+  it('respecte la langue du lecteur dans l’adresse', () => {
+    const html = renderToStaticMarkup(
+      <JurisprudenceComposition
+        membres={[{ ...m('1', 'Félix Diambois', 'JUGE'), judgeId: 'jg1' }]}
+        note={null}
+        locale="ht"
+      />,
+    )
+    expect(html).toContain('href="/ht/juge/jg1"')
+  })
+})

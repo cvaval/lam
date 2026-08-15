@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import type { RoleSiege } from '@/lib/jurisprudence/composition'
 
 /**
@@ -10,6 +11,10 @@ import type { RoleSiege } from '@/lib/jurisprudence/composition'
  * ⚠️ LES NOMS SONT CEUX DE CET ARRÊT-LÀ (`nameAsWritten`), pas ceux retenus par la
  * rédaction. « Louis B. VILGRAIN » ici, « Louis VILGRAIN » ailleurs : substituer la fiche
  * du magistrat à la graphie de la décision, c'est réécrire une pièce de procédure.
+ *
+ * ⚠️ UN NOM SANS FICHE N'EST PAS UN LIEN. `judgeId` peut manquer — composition saisie à la
+ * main, magistrat non encore rapproché : le nom s'affiche alors en texte simple. Un lien
+ * mort sur un nom propre laisserait croire à une fiche vide plutôt qu'à une absence.
  *
  * ⚠️ RIEN N'EST DÉDUIT, ET RIEN NE DISPARAÎT. Un rôle absent ne devient pas « juge » par
  * défaut — le magistrat paraît sans qualité. Le taire au motif qu'on ignore sa fonction
@@ -35,6 +40,8 @@ type Libelle = { fr: string; en: string; ht: string }
 
 export interface MembreAffiche {
   id: string
+  /** Fiche du magistrat — absente tant qu'aucun rapprochement n'a été fait. */
+  judgeId?: string | null
   nameAsWritten: string
   role: string | null
   qualite: string | null
@@ -51,6 +58,17 @@ export function JurisprudenceComposition({
   note: string | null
   locale: string
 }) {
+  /** Le nom mène à toutes les décisions du magistrat — présidées, siégées, requises. */
+  const nom = (m: MembreAffiche, gras: boolean) => {
+    const cls = gras ? 'font-medium' : ''
+    return m.judgeId ? (
+      <Link href={`/${locale}/juge/${m.judgeId}`} className={`${cls} underline decoration-liy underline-offset-2 hover:decoration-chabon`}>
+        {m.nameAsWritten}
+      </Link>
+    ) : (
+      <span className={cls}>{m.nameAsWritten}</span>
+    )
+  }
   const lt = (o: Libelle) => (locale === 'en' ? o.en : locale === 'ht' ? o.ht : o.fr)
   // Le rôle nul reste au siège, sans qualité : un magistrat non qualifié doit se lire,
   // pas s'effacer.
@@ -71,7 +89,7 @@ export function JurisprudenceComposition({
               {siege.map((m, i) => (
                 <span key={m.id}>
                   {i > 0 && <span className="text-grafit"> · </span>}
-                  <span className="font-medium">{m.nameAsWritten}</span>
+                  {nom(m, true)}
                   {m.role && ROLES[m.role] && (
                     <span className="text-grafit"> ({lt(ROLES[m.role])})</span>
                   )}
@@ -91,7 +109,7 @@ export function JurisprudenceComposition({
                 {liste.map((m, i) => (
                   <span key={m.id}>
                     {i > 0 && <span className="text-grafit"> · </span>}
-                    {m.nameAsWritten}
+                    {nom(m, false)}
                     {m.qualite && <span className="text-grafit">, {m.qualite.toLowerCase()}</span>}
                   </span>
                 ))}

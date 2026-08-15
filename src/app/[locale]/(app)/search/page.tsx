@@ -49,7 +49,17 @@ export default async function SearchPage({
       : undefined
   const page = Math.max(1, Number(searchParams.page ?? '1') || 1)
   // Tri (navigation) : date de signature (défaut) / entrée en vigueur / numéro ↑↓.
-  const sortParam = (['sig', 'eff', 'num-asc', 'num-desc'] as const).find((s) => s === searchParams.sort)
+  const sortParam = (['sig', 'eff', 'num-asc', 'num-desc', 'recent'] as const).find((s) => s === searchParams.sort)
+  // Critères propres aux DÉCISIONS. Bornés en longueur : ce sont des noms, pas des textes.
+  const critere = (v: string | undefined, max = 80) => v?.trim().slice(0, max) || undefined
+  const parties = critere(searchParams.parties)
+  const domaine = critere(searchParams.domaine)
+  const magistrat = critere(searchParams.judge)
+  const ministerePublic = critere(searchParams.mp)
+  const judgeId = critere(searchParams.judgeId, 40)
+  const judgeRole = (['PRESIDENCE', 'SIEGE', 'MINISTERE_PUBLIC', 'GREFFE'] as const).find(
+    (r) => r === searchParams.judgeRole,
+  )
   // Slug CANONIQUE du type courant : un alias (« brh », « moniteur », « 3 »…)
   // dans l'URL doit redonner l'option correspondante du panneau avancé — sinon
   // le <select> retomberait sur « Tous les types » et perdrait le filtre.
@@ -63,11 +73,14 @@ export default async function SearchPage({
   // Législation, numéro hors BRH) — aucun filtre ne doit agir invisiblement.
   const advOpen =
     searchParams.adv === '1' ||
+    !!parties || !!domaine || !!magistrat || !!ministerePublic ||
     yearFrom != null ||
     yearTo != null ||
     (!!searchParams.status && selectedType !== 'LEGISLATION') ||
     (!!searchParams.num && selectedType !== 'CIRCULAIRE_BRH')
-  const hasAdvancedCriteria = yearFrom != null || yearTo != null || !!searchParams.status || !!searchParams.num
+  const hasAdvancedCriteria =
+    yearFrom != null || yearTo != null || !!searchParams.status || !!searchParams.num ||
+    !!parties || !!domaine || !!magistrat || !!ministerePublic
 
   // Quota mensuel (Sitwayen). `quotaRemaining` reflète la consommation de CETTE
   // requête (le user chargé par requireUser est un instantané pré-recherche —
@@ -104,6 +117,12 @@ export default async function SearchPage({
           yearFrom,
           yearTo,
           num: searchParams.num?.trim().slice(0, 20) || undefined,
+          parties,
+          domaine,
+          judge: magistrat,
+          mp: ministerePublic,
+          judgeId,
+          judgeRole,
           includeCompanies: can(user.role, 'index.companies'),
           sort: sortParam,
           page,
@@ -186,6 +205,12 @@ export default async function SearchPage({
     yearFrom: yearFrom?.toString(),
     yearTo: yearTo?.toString(),
     status: searchParams.status,
+    parties,
+    domaine,
+    judge: magistrat,
+    mp: ministerePublic,
+    judgeId,
+    judgeRole,
   }
   const totalPages = Math.ceil(result.total / PAGE_SIZE)
 
@@ -233,6 +258,10 @@ export default async function SearchPage({
           yearTo: yearTo?.toString(),
           num: searchParams.num,
           status: searchParams.status,
+          parties,
+          domaine,
+          judge: magistrat,
+          mp: ministerePublic,
         }}
         open={advOpen}
       />

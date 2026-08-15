@@ -22,7 +22,12 @@ async function main() {
     const index = indexNameForType(type)
     await client.indices.delete({ index, ignore_unavailable: true }).catch(() => {})
     await client.indices.create({ index, body: { ...indexSettings(), mappings: documentMapping() } })
-    const docs = await prisma.document.findMany({ where: { type } })
+    // La composition d'une décision voyage avec elle (cf. serializeDoc) : sans la
+    // relation, la réindexation effacerait les champs de magistrats.
+    const docs = await prisma.document.findMany({
+      where: { type },
+      include: { judges: { include: { judge: true }, orderBy: { position: 'asc' } } },
+    })
     if (docs.length) {
       const body = docs.flatMap((d) => [{ index: { _index: index, _id: d.id } }, serializeDoc(d)])
       await client.bulk({ refresh: true, body })

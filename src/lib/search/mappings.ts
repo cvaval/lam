@@ -86,6 +86,31 @@ export function documentMapping() {
       // + clé numérique du n° de circulaire (serialize.ts, numberSortKey).
       effectiveDate: { type: 'date' },
       numberSort: { type: 'integer' },
+      // Arrivée sur la plateforme — tri « nouveautés », distinct de la date du texte.
+      createdAt: { type: 'date' },
+      // Composition d'une décision. ⚠️ TYPE `nested`, ET CE N'EST PAS UN RAFFINEMENT.
+      // Trois listes plates — identifiants, clés, rôles — perdent le LIEN entre un
+      // magistrat et ce qu'il a fait : chercher « présidées par Magloire » rendait ses
+      // 36 décisions au lieu de 5, parce que chacune contient bien Magloire ET bien un
+      // président, sans que ce soit le même homme. Seul `nested` apparie les deux sur la
+      // même ligne.
+      judges: {
+        type: 'nested',
+        properties: {
+          id: { type: 'keyword' },
+          key: { type: 'keyword' }, // clé de rapprochement : accents et casse déjà retirés
+          role: { type: 'keyword' },
+        },
+      },
+      // Intitulé et domaine en MINUSCULES — les filtres « parties » et « domaine » y
+      // cherchent des sous-chaînes, ce qu'un champ analysé ne permet pas.
+      //
+      // ⚠️ MINUSCULES SEULEMENT, PAS DE REPLI D'ACCENTS. Les deux autres moteurs utilisent
+      // `ILIKE` / `contains` insensibles à la CASSE mais sensibles aux ACCENTS. Replier les
+      // accents ici rendrait le miroir plus permissif que la production : « procedure »
+      // trouverait en local et ne trouverait pas en ligne.
+      titleLower: { type: 'keyword' },
+      matiereLower: { type: 'keyword' },
     },
   }
 }

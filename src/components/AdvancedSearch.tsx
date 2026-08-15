@@ -28,12 +28,26 @@ export function AdvancedSearch({
   locale: Locale
   t: Dictionary
   allowed: DocType[]
-  values: { q: string; type?: string; yearFrom?: string; yearTo?: string; num?: string; status?: string }
+  values: {
+    q: string
+    type?: string
+    yearFrom?: string
+    yearTo?: string
+    num?: string
+    status?: string
+    parties?: string
+    domaine?: string
+    judge?: string
+    mp?: string
+  }
   open: boolean
 }) {
   const sections = DOC_TYPE_LIST.filter((m) => allowed.includes(m.type))
   const currentType = values.type ? TYPE_SLUGS[values.type] : undefined
   const showStatus = !currentType || STATUS_TYPES.includes(currentType)
+  // Les critères de DÉCISION ne s'affichent que là où ils ont un sens : proposés partout,
+  // ils ne rendraient que des pages vides sur les marques ou l'Index du Moniteur.
+  const showDecision = !currentType || currentType === 'JURISPRUDENCE'
   const label = 'text-[11px] font-semibold uppercase tracking-wide text-ank/45'
 
   return (
@@ -107,6 +121,40 @@ export function AdvancedSearch({
           </label>
           <input id="adv-num" name="num" defaultValue={values.num ?? ''} maxLength={20} placeholder={t.search.numberPh} className={fieldCls} />
         </div>
+        {showDecision && (
+          <>
+            {/* Les PARTIES vivent dans l'intitulé (« Jules CESAR c. Fleurant LALANNE »).
+                Chaque mot doit s'y trouver : « cesar lalanne » ne ramène que les arrêts qui
+                opposent les deux, non ceux qui les citent — ce n'est pas la même question. */}
+            <div className="flex w-52 flex-col gap-1">
+              <label htmlFor="adv-parties" className={label}>
+                {t.search.partiesLabel}
+              </label>
+              <input id="adv-parties" name="parties" defaultValue={values.parties ?? ''} maxLength={80} placeholder={t.search.partiesPh} className={fieldCls} />
+            </div>
+            <div className="flex w-52 flex-col gap-1">
+              <label htmlFor="adv-domaine" className={label}>
+                {t.search.domaineLabel}
+              </label>
+              <input id="adv-domaine" name="domaine" defaultValue={values.domaine ?? ''} maxLength={80} placeholder={t.search.domainePh} className={fieldCls} />
+            </div>
+            {/* ⚠️ DEUX CHAMPS, PAS UN. Le substitut du commissaire du gouvernement n'a pas
+                jugé : le ramener sous « magistrat » lui attribuerait des décisions qu'il
+                n'a pas rendues. */}
+            <div className="flex w-44 flex-col gap-1">
+              <label htmlFor="adv-judge" className={label}>
+                {t.search.judgeLabel}
+              </label>
+              <input id="adv-judge" name="judge" defaultValue={values.judge ?? ''} maxLength={80} placeholder={t.search.judgePh} className={fieldCls} />
+            </div>
+            <div className="flex w-44 flex-col gap-1">
+              <label htmlFor="adv-mp" className={label}>
+                {t.search.mpLabel}
+              </label>
+              <input id="adv-mp" name="mp" defaultValue={values.mp ?? ''} maxLength={80} placeholder={t.search.mpPh} className={fieldCls} />
+            </div>
+          </>
+        )}
         {showStatus && (
           <div className="flex flex-col gap-1">
             <label htmlFor="adv-status" className={label}>

@@ -75,6 +75,10 @@ export function ContextualFilters({
       </span>
       {chip(t.search.sortPub, { sort: 'sig' }, (active.sort ?? 'sig') === 'sig')}
       {chip(t.search.sortEff, { sort: 'eff' }, active.sort === 'eff')}
+      {/* ⚠️ « NOUVEAUTÉS » N'EST PAS « RÉCENT ». Un arrêt de 1964 versé hier est la
+          nouveauté du jour et le plus ancien du corpus : ce tri porte sur l'arrivée sur
+          la plateforme, pas sur la date du texte. */}
+      {chip(t.search.sortRecent, { sort: 'recent' }, active.sort === 'recent')}
     </div>
   )
 
@@ -204,6 +208,7 @@ export function ContextualFilters({
           </span>
           {chip(t.search.sortSig, { sort: 'sig' }, (active.sort ?? 'sig') === 'sig')}
           {chip(t.search.sortEff, { sort: 'eff' }, active.sort === 'eff')}
+          {chip(t.search.sortRecent, { sort: 'recent' }, active.sort === 'recent')}
           {chip(t.search.sortNumAsc, { sort: 'num-asc' }, active.sort === 'num-asc')}
           {chip(t.search.sortNumDesc, { sort: 'num-desc' }, active.sort === 'num-desc')}
         </div>

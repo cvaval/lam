@@ -10,6 +10,7 @@ import { fold, extractAnnotationsText } from './normalize'
 import { SEARCH_FIELD_WEIGHTS, ANNOTATIONS_SEARCH_WEIGHT } from './fields'
 import { pickLocale } from '../i18n/pick'
 import { DOC_TYPE_META } from '../brand'
+import { motsDe, nomMagistrat, rolesDe, ROLES_SIEGE } from './decision'
 import { PAGE_SIZE, MAX_PAGE_SIZE } from './types'
 import type { SearchProvider, SearchQuery, SearchResult, SearchHit } from './types'
 import type { DocType, DocStatus, Locale } from '../types'
@@ -151,6 +152,25 @@ export class FtsProvider implements SearchProvider {
       base.effectiveDate = null
     }
     if (query.num) base.number = { contains: query.num }
+    // ── Décisions : parties, domaine, magistrats ──────────────────────────────────────
+    // Les PARTIES vivent dans l'intitulé. Chaque mot doit s'y trouver — « cesar lalanne »
+    // ne ramène que les arrêts qui opposent les deux, pas ceux qui les citent.
+    if (query.parties?.trim()) {
+      base.AND = [
+        ...(Array.isArray(base.AND) ? base.AND : base.AND ? [base.AND] : []),
+        ...motsDe(query.parties).map((m) => ({ titleFr: { contains: m, mode: 'insensitive' as const } })),
+      ]
+    }
+    if (query.domaine?.trim()) base.matiere = { contains: query.domaine.trim(), mode: 'insensitive' }
+    // ⚠️ LE SIÈGE ET LE MINISTÈRE PUBLIC NE SE CONFONDENT PAS. Un substitut n'a pas jugé :
+    // le ramener sous « magistrat » lui attribuerait des décisions qu'il n'a pas rendues.
+    if (query.judge?.trim()) base.judges = { some: { role: { in: [...ROLES_SIEGE] }, ...nomMagistrat(query.judge) } }
+    if (query.mp?.trim()) base.judges = { some: { role: 'MINISTERE_PUBLIC', ...nomMagistrat(query.mp) } }
+    if (query.judgeId) {
+      base.judges = {
+        some: { judgeId: query.judgeId, ...(query.judgeRole ? { role: { in: rolesDe(query.judgeRole) } } : {}) },
+      }
+    }
 
     // ── Navigation (sans requête texte) : pagination SQL, ou tri par numéro en mémoire ──
     if (!terms.length) {
@@ -182,7 +202,11 @@ export class FtsProvider implements SearchProvider {
       const orderBy: Prisma.DocumentOrderByWithRelationInput[] =
         query.sort === 'eff'
           ? [{ effectiveDate: { sort: 'desc', nulls: 'last' } }, { id: 'asc' }]
-          : [{ publicationDate: { sort: 'desc', nulls: 'last' } }, { id: 'asc' }]
+          : query.sort === 'recent'
+            ? // Arrivée sur la plateforme, non date de la décision : un arrêt de 1964
+              // versé hier est la nouveauté du jour et le plus ancien du corpus.
+              [{ createdAt: 'desc' }, { id: 'asc' }]
+            : [{ publicationDate: { sort: 'desc', nulls: 'last' } }, { id: 'asc' }]
       const [total, docs] = await Promise.all([
         prisma.document.count({ where: base }),
         prisma.document.findMany({ where: base, orderBy, skip: (page - 1) * size, take: size, select: DOC_SELECT }),
@@ -211,6 +235,12 @@ export class FtsProvider implements SearchProvider {
       effYear: query.effYear ?? undefined,
       noEffDate: query.noEffDate ?? undefined,
       num: query.num ?? undefined,
+      parties: query.parties ?? undefined,
+      domaine: query.domaine ?? undefined,
+      judge: query.judge ?? undefined,
+      mp: query.mp ?? undefined,
+      judgeId: query.judgeId ?? undefined,
+      judgeRole: query.judgeRole ?? undefined,
     }
     const depth = Math.min(MAX_DEPTH, Math.max(FTS_DEPTH, page * size + size))
     const ctx = { groups, queryFold }
@@ -223,7 +253,15 @@ export class FtsProvider implements SearchProvider {
     const numSort =
       query.types?.length === 1 && query.types[0] === 'CIRCULAIRE_BRH' &&
       (query.sort === 'num-asc' || query.sort === 'num-desc')
-    const order: FtsOrder = numSort ? 'relevance' : query.sort === 'eff' ? 'eff' : query.sort === 'sig' ? 'sig' : 'relevance'
+    const order: FtsOrder = numSort
+      ? 'relevance'
+      : query.sort === 'eff'
+        ? 'eff'
+        : query.sort === 'sig'
+          ? 'sig'
+          : query.sort === 'recent'
+            ? 'recent'
+            : 'relevance'
     const [ftsDocs, exactCompanies] = await Promise.all([
       plan ? this.fetchDocHitsFts(plan, filters, depth, query.locale, ctx, terms, order) : Promise.resolve(null),
       this.fetchCompanyHits(terms, query, ctx, false, new Set()),

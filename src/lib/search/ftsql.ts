@@ -17,6 +17,7 @@ import { Prisma } from '@prisma/client'
 import { prisma } from '../db'
 import { FULLTEXT_TYPES } from '../access'
 import type { TsQueryPlan } from './tsquery'
+import { motsDe, motsMagistratSql, rolesDe, ROLES_SIEGE, type VentilationRole } from './decision'
 
 export interface FtsFilters {
   types?: string[]
@@ -35,10 +36,24 @@ export interface FtsFilters {
   /** Fiches sans date d'entrée en vigueur. */
   noEffDate?: boolean
   num?: string
+  /** Parties à l'instance — chaque mot doit figurer dans l'intitulé. */
+  parties?: string
+  /** Domaine du droit — sous-chaîne de `matiere`. */
+  domaine?: string
+  /** Magistrat du SIÈGE (le ministère public en est exclu). */
+  judge?: string
+  /** Ministère public. */
+  mp?: string
+  /** Magistrat par identifiant, éventuellement borné à un rôle. */
+  judgeId?: string
+  judgeRole?: VentilationRole
 }
 
-/** Ordre demandé : pertinence (défaut), date de signature, date d'entrée en vigueur. */
-export type FtsOrder = 'relevance' | 'sig' | 'eff'
+/**
+ * Ordre demandé : pertinence (défaut), date de signature, date d'entrée en vigueur, ou
+ * arrivée sur la plateforme.
+ */
+export type FtsOrder = 'relevance' | 'sig' | 'eff' | 'recent'
 
 export interface FtsRow {
   id: string
@@ -76,13 +91,48 @@ function filterConds(filters: FtsFilters): Prisma.Sql[] {
   // groupés (représentés par les fiches Société) — même règle que le moteur historique.
   if (filters.category) conds.push(Prisma.sql`d."category" = ${filters.category}`)
   else conds.push(Prisma.sql`(d."category" IS NULL OR d."category" <> 'SOCIETE')`)
+
+  // ── Décisions : parties, domaine, magistrats ────────────────────────────────────────
+  // Mêmes règles que la navigation Prisma (`fts.ts`) : les deux chemins doivent rendre le
+  // même ensemble, sans quoi ajouter un mot à la requête changerait le jeu filtré.
+  for (const mot of filters.parties ? motsDe(filters.parties) : []) {
+    conds.push(Prisma.sql`d."titleFr" ILIKE ${'%' + mot + '%'}`)
+  }
+  if (filters.domaine?.trim()) conds.push(Prisma.sql`d."matiere" ILIKE ${'%' + filters.domaine.trim() + '%'}`)
+  if (filters.judge?.trim()) conds.push(magistratCond(filters.judge, [...ROLES_SIEGE]))
+  if (filters.mp?.trim()) conds.push(magistratCond(filters.mp, ['MINISTERE_PUBLIC']))
+  if (filters.judgeId) {
+    const roles = filters.judgeRole ? rolesDe(filters.judgeRole) : null
+    conds.push(Prisma.sql`EXISTS (
+      SELECT 1 FROM "DecisionJudge" dj
+      WHERE dj."documentId" = d.id AND dj."judgeId" = ${filters.judgeId}
+      ${roles ? Prisma.sql`AND dj."role" IN (${Prisma.join(roles)})` : Prisma.empty}
+    )`)
+  }
   return conds
+}
+
+/**
+ * ⚠️ LE SIÈGE ET LE MINISTÈRE PUBLIC SONT DEUX ENSEMBLES DISJOINTS. Un substitut n'a pas
+ * jugé : le ramener sous « magistrat » lui attribuerait des décisions qu'il n'a pas
+ * rendues. Le rôle borne donc toujours la jointure.
+ */
+function magistratCond(nom: string, roles: string[]): Prisma.Sql {
+  const mots = motsMagistratSql(nom)
+  return Prisma.sql`EXISTS (
+    SELECT 1 FROM "DecisionJudge" dj JOIN "Judge" j ON j.id = dj."judgeId"
+    WHERE dj."documentId" = d.id
+      AND dj."role" IN (${Prisma.join(roles)})
+      ${mots.length ? Prisma.sql`AND ${Prisma.join(mots.map((m) => Prisma.sql`j."matchKey" LIKE ${'%' + m + '%'}`), ' AND ')}` : Prisma.empty}
+  )`
 }
 
 /** Clause ORDER BY correspondant au tri demandé (la pertinence reste le défaut). */
 function orderClause(order: FtsOrder): Prisma.Sql {
   if (order === 'sig') return Prisma.sql`d."publicationDate" DESC NULLS LAST, d.id`
   if (order === 'eff') return Prisma.sql`d."effectiveDate" DESC NULLS LAST, d.id`
+  // Arrivée sur la plateforme — pas la date de la décision (cf. SearchQuery.sort).
+  if (order === 'recent') return Prisma.sql`d."createdAt" DESC, d.id`
   return Prisma.sql`score DESC, d."publicationDate" DESC NULLS LAST, d.id`
 }
 

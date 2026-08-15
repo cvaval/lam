@@ -80,6 +80,18 @@ const PRESIDENCE: [RegExp, RoleSiege][] = [
  * à la rédaction de confirmer un rapprochement, jamais à cette fonction.
  */
 export function cleMagistrat(nom: string): string {
+  return motsMagistrat(nom).sort().join(' ')
+}
+
+/**
+ * Les mots significatifs d'un nom, normalisés — la matière première de `cleMagistrat`.
+ *
+ * ⚠️ LA RECHERCHE PAR MAGISTRAT DOIT NORMALISER EXACTEMENT COMME LA CLÉ. Chercher
+ * « Noel » alors que la base porte « Ulrick Is. NOËL » ne doit pas échouer sur un accent.
+ * Les deux fonctions partagent donc ce corps : les laisser diverger rendrait des
+ * magistrats introuvables sans que rien ne le signale.
+ */
+export function motsMagistrat(nom: string): string[] {
   return nom
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
@@ -89,9 +101,6 @@ export function cleMagistrat(nom: string): string {
     .replace(/-/g, ' ')
     .split(/\s+/)
     .filter((m) => m.length > 2) // « Is. », « B. », « J. », « Jh. » : initiales écartées
-    .sort()
-    .join(' ')
-    .trim()
 }
 
 /** Un nom de magistrat : deux mots au moins, pas de chiffre, pas une phrase. */

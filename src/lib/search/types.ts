@@ -64,10 +64,45 @@ export interface SearchQuery {
   noEffDate?: boolean
   /** numéro contenu dans Document.number (filtre circulaires BRH par numéro) */
   num?: string
+  /**
+   * PARTIES — recherche dans l'intitulé de la décision (« Jules CESAR c. Fleurant
+   * LALANNE »). Chaque mot doit s'y trouver : « cesar lalanne » ne ramène que les arrêts
+   * qui opposent les deux. Une simple recherche plein texte ramènerait aussi les arrêts
+   * qui les CITENT — ce n'est pas la même question.
+   */
+  parties?: string
+  /**
+   * DOMAINE DU DROIT — sous-chaîne de `matiere`, à la différence de `matiere` qui exige
+   * l'égalité. Le domaine d'une décision est une phrase (« Procédure civile (voies de
+   * recours — recevabilité du pourvoi) ») : l'égalité stricte n'y trouverait jamais rien.
+   */
+  domaine?: string
+  /**
+   * MAGISTRAT DU SIÈGE — nom (ou fragment) d'un juge ayant rendu la décision : président,
+   * vice-président, faisant fonction, ou juge.
+   *
+   * ⚠️ CE FILTRE NE DOIT PAS RAMENER LE MINISTÈRE PUBLIC. Le substitut n'a pas jugé ;
+   * l'inclure ferait porter à un magistrat des décisions qu'il n'a pas rendues. D'où deux
+   * critères distincts, `judge` et `mp`, et non un seul « nom de magistrat ».
+   */
+  judge?: string
+  /** MINISTÈRE PUBLIC — nom du commissaire du gouvernement ou de son substitut. */
+  mp?: string
+  /** Magistrat par IDENTIFIANT (lien depuis la composition d'une fiche) — exact. */
+  judgeId?: string
+  /** Restreint `judgeId` à un rôle : présidence, siège, ministère public, greffe. */
+  judgeRole?: 'PRESIDENCE' | 'SIEGE' | 'MINISTERE_PUBLIC' | 'GREFFE'
   includeCompanies?: boolean
-  /** tri en mode navigation (sans requête texte) : date de signature (défaut),
-   * date d'entrée en vigueur, numéro croissant/décroissant. */
-  sort?: 'sig' | 'eff' | 'num-asc' | 'num-desc'
+  /**
+   * Tri en mode navigation (sans requête texte) : date de signature (défaut), date
+   * d'entrée en vigueur, numéro croissant/décroissant, ou ARRIVÉE SUR LA PLATEFORME.
+   *
+   * ⚠️ « RÉCENT » ET « NOUVEAU » SONT DEUX CHOSES. Un arrêt de 1964 versé hier est le plus
+   * nouveau de la plateforme et le plus ancien du corpus. `recent` trie sur `createdAt`,
+   * `sig` sur la date de la décision : confondre les deux ferait passer un versement pour
+   * une actualité juridique.
+   */
+  sort?: 'sig' | 'eff' | 'num-asc' | 'num-desc' | 'recent'
   page?: number
   size?: number
 }

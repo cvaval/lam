@@ -61,12 +61,25 @@ export async function GET(req: NextRequest) {
       noEffDate: sp.get('effSansDate') === '1' || undefined,
       juridiction: sp.get('juridiction') || undefined,
       matiere: sp.get('matiere') || undefined,
+      // Critères propres aux décisions — mêmes bornes que la page de recherche.
+      parties: sp.get('parties')?.trim().slice(0, 80) || undefined,
+      domaine: sp.get('domaine')?.trim().slice(0, 80) || undefined,
+      judge: sp.get('judge')?.trim().slice(0, 80) || undefined,
+      mp: sp.get('mp')?.trim().slice(0, 80) || undefined,
+      judgeId: sp.get('judgeId')?.trim().slice(0, 40) || undefined,
+      judgeRole:
+        (['PRESIDENCE', 'SIEGE', 'MINISTERE_PUBLIC', 'GREFFE'] as const).find((r) => r === sp.get('judgeRole')) ||
+        undefined,
       fiscalYear: fiscalYearRaw ? Number(fiscalYearRaw) : undefined,
       yearFrom,
       yearTo,
       niceClass: sp.get('niceClass') || undefined,
       category: isIndexCategory(sp.get('category') ?? '') ? sp.get('category')! : undefined,
       includeCompanies: can(user.role, 'index.companies'),
+      // Le tri voyage aussi par l'API : sans lui, une même URL rendait un ordre par la
+      // page et un autre par la route — la seconde ignorait simplement le paramètre.
+      sort:
+        (['sig', 'eff', 'num-asc', 'num-desc', 'recent'] as const).find((x) => x === sp.get('sort')) || undefined,
       // Page bornée et sûre : un ?page non numérique ne doit pas propager NaN jusqu'à Prisma
       // (500 brut / contrat d'erreur rompu — constat d'audit §16).
       page: Math.max(1, Math.trunc(Number(sp.get('page'))) || 1),
