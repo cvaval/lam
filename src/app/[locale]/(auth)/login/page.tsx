@@ -37,14 +37,31 @@ export default async function LoginPage({ params }: { params: { locale: string }
           <h1 className="font-serif text-4xl font-semibold leading-tight text-ank lg:text-5xl">{t.home.title}</h1>
           <p className="mt-5 text-lg leading-relaxed text-grafit">{t.home.subtitle}</p>
 
-          <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {/* ⚠️ RIEN N'EMPÊCHAIT LE TEXTE DE SORTIR DE SA CARTE. Un enfant de flex refuse par
+              défaut de descendre sous la largeur de son contenu (`min-width: auto`) : à
+              trois colonnes, « Marques de commerce & de fabrique » débordait du cadre blanc
+              dès que la fonte rendait un peu plus large — police de repli le temps du
+              chargement, taille de texte forcée par le lecteur, ou zoom du navigateur. Il
+              n'y avait pas de défense, seulement une coïncidence de largeurs.
+
+              Trois verrous : `min-w-0` autorise le retour à la ligne, `shrink-0` protège la
+              pastille de l'écrasement, `break-words` coupe le mot qui ne tiendrait pas.
+
+              ⚠️ MAIS COUPER UN MOT N'EST PAS UNE MISE EN PAGE : c'est le dernier recours.
+              À deux colonnes sous 420 px, la carte tombait à 130 px et « jurisprudence » se
+              brisait en « jurisprud / ence ». Les colonnes suivent donc la place réelle —
+              une seule jusqu'à 420 px, deux ensuite, trois à partir de `md`. `break-words`
+              ne sert plus qu'au cas qu'on n'a pas prévu. */}
+          <ul className="mt-8 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 md:grid-cols-3">
             {DOC_TYPE_LIST.map((m) => (
               <li
                 key={m.type}
-                className="flex items-center gap-2 rounded-xl border border-chabon/10 bg-white px-3 py-2.5 text-sm"
+                className="flex items-start gap-2 rounded-xl border border-chabon/10 bg-white px-3 py-2.5 text-sm"
               >
-                <Pastille type={m.type} />
-                <span className="font-medium text-ank">{m.label[locale].replace(/ haïtien.*$/i, '').replace(/^Index de la /, '')}</span>
+                <Pastille type={m.type} className="mt-0.5 shrink-0" />
+                <span className="min-w-0 break-words font-medium text-ank">
+                  {m.label[locale].replace(/ haïtien.*$/i, '').replace(/^Index de la /, '')}
+                </span>
               </li>
             ))}
           </ul>

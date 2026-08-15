@@ -203,7 +203,10 @@ export const DOC_TYPE_LIST = Object.values(DOC_TYPE_META).sort((a, b) => a.num -
  * fond Pil · bordure #C7C6C1 · texte Chabon · IBM Plex Mono, approche +14 %.
  */
 export const TYPE_CHIP =
-  'inline-flex items-center rounded-md border border-[#C7C6C1] bg-pil px-1.5 py-0.5 ' +
+  // `shrink-0` : la pastille est presque toujours un enfant de flex, à côté d'un intitulé
+  // qui la déborde. Sans lui, c'est ELLE que le navigateur comprime — un code de type
+  // écrasé ne se lit plus, et il n'est pas là pour décorer.
+  'inline-flex shrink-0 items-center rounded-md border border-[#C7C6C1] bg-pil px-1.5 py-0.5 ' +
   'font-mono text-[10px] font-semibold uppercase leading-none tracking-[0.14em] text-chabon'
 
 /** Le sous-ensemble « 6 services de textes intégraux » (sans l'Index). */
