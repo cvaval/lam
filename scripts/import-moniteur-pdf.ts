@@ -57,6 +57,15 @@ const FASCICULES_ECARTES: { fichier: string; raison: string }[] = [
   { fichier: '19920106 No 1.pdf', raison: 'lacune annotée sur le scan : « Manque page 6, 7 et 8 »' },
   { fichier: '19920109 No 2.pdf', raison: 'lacune annotée sur le scan : « Manque page 17 et 18 »' },
   { fichier: '19900430 No 40-A.pdf', raison: 'lacune annotée sur le scan : « Manque page III »' },
+  { fichier: '19890512 No 38-B.pdf', raison: 'lacune annotée : « Manque les pages : II à Xvii ; IX et X ; XXIX et XXX »' },
+  { fichier: '19890615 No 45-B.pdf', raison: 'lacune annotée : « Manque pages II à V »' },
+  {
+    fichier: '19890706 No 51 et 51A.pdf',
+    raison:
+      'DOUBLON — re-scan des n° 51 et 51-A réunis (8 + 16 = 24 pages, l’arithmétique le dit), ' +
+      'quand les deux existent déjà séparément et correctement nommés. Le verser ferait paraître ' +
+      'deux fois le même contenu et transformerait le n° 51 en édition de 32 pages.',
+  },
 ]
 
 /**
@@ -330,12 +339,15 @@ function addEdition(byKey: Map<string, Edition>, e: Edition) {
     // ⚠️ DEUX PDF DU MÊME NUMÉRO NE SONT UNE ÉDITION EN DEUX PARTIES QUE S'ILS PARAISSENT
     // LE MÊME JOUR. Sinon, ce sont deux documents distincts qu'un nom de fichier trompeur
     // rapproche — et les fondre les rend tous deux inconsultables, sans le dire.
-    if (existing.day != null && e.day != null && (existing.day !== e.day || existing.monthIdx !== e.monthIdx)) {
-      fusionsSuspectes.push(
-        `${editionRef(e, 0).replace('LM0-', 'n° ')} : ${existing.files.map((f) => f.split('/').pop()).join(', ')} ` +
-          `(${existing.day}/${existing.monthIdx + 1}) et ${e.files.map((f) => f.split('/').pop()).join(', ')} (${e.day}/${e.monthIdx + 1})`,
-      )
-    }
+    // ⚠️ DANS UN DOSSIER PLAT, TOUTE FUSION EST SUSPECTE. Une édition en plusieurs parties
+    // vient d'un SOUS-DOSSIER (convention 2016-2026) ; ici, deux fichiers qui partagent une
+    // clé sont soit deux jours confondus par un nom trompeur, soit un doublon — comme
+    // « No 51 et 51A », re-scan des n° 51 et 51-A réunis alors que les deux existent déjà.
+    // Le premier cas se voyait aux dates ; le second, du même jour, passait inaperçu.
+    fusionsSuspectes.push(
+      `${editionRef(e, 0).replace('LM0-', 'n° ')} : ${existing.files.map((f) => f.split('/').pop()).join(', ')} ` +
+        `(${existing.day}/${existing.monthIdx + 1}) et ${e.files.map((f) => f.split('/').pop()).join(', ')} (${e.day}/${e.monthIdx + 1})`,
+    )
     existing.files.push(...e.files)
     if (existing.day == null) existing.day = e.day
   } else byKey.set(key, e)
@@ -376,7 +388,8 @@ async function main() {
   if (fusionsSuspectes.length) {
     console.error(`\n⛔ ARRÊT — ${fusionsSuspectes.length} fusion(s) suspecte(s) : même numéro, JOURS DIFFÉRENTS.`)
     for (const f of fusionsSuspectes) console.error(`   ${f}`)
-    console.error('   Une édition en plusieurs parties paraît le même jour. Vérifier les noms de fichiers.')
+    console.error("   Dans un dossier plat, deux fichiers de même numéro sont un doublon ou une erreur de nom :")
+    console.error('   les rectifier (FASCICULES_RECTIFIES) ou en écarter un (FASCICULES_ECARTES).')
     process.exit(1)
   }
   if (ecartes.length) {
