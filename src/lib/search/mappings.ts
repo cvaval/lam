@@ -64,6 +64,14 @@ export function documentMapping() {
       // Texte des annotations (jurisprudence/commentaires/connexe/index) des textes annotés —
       // cherchable (analyseur FR) pour que les mots des ARRÊTS ressortent, hors bodyOriginal.
       annotationsText: txt,
+      // Transcription OCR des fascicules SCANNÉS du Moniteur — elle ne vit dans AUCUNE
+      // colonne cherchable : `bodyOriginal` n'y porte qu'un libellé (« [Fascicule
+      // scanné… ] »), le texte étant délibérément rangé dans `searchText` seul (il sert à
+      // trouver, pas à citer). Le moteur intégré le voyait — `searchTsv` est bâti sur
+      // `searchText` — le miroir, non : 46,8 M de caractères, 1 057 fascicules de
+      // 1987-2000, étaient introuvables sous OpenSearch. « Namphy » ne rendait qu'un seul
+      // résultat en 1987 là où le FTS en trouve 49.
+      ocrText: txt,
       summaryFr: txt,
       summaryEn: txt,
       summaryHt: txt,

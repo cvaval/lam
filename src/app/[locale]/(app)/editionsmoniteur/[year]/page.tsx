@@ -4,15 +4,10 @@ import { requireUser } from '@/lib/auth/guard'
 import { canReadService } from '@/lib/access'
 import { prisma } from '@/lib/db'
 import { LegislationYearView } from '@/components/LegislationYearView'
+import { parseNumeroMoniteur, comparerNumerosMoniteur } from '@/lib/moniteur/numero'
 
 export const dynamic = 'force-dynamic'
 
-// « LM2025-1 » → {num:1}, « LM2025-SP70B » → {special, num:70, suffix:'B'}.
-function parseNum(number: string): { special: boolean; num: number; suffix: string } {
-  const special = /-SP/i.test(number)
-  const m = number.match(/-(?:SP)?(\d+)\s*([A-Za-z]*)$/i)
-  return { special, num: m ? Number(m[1]) : 0, suffix: m && m[2] ? m[2].toUpperCase() : '' }
-}
 
 export default async function LegislationYearPage({ params }: { params: { locale: string; year: string } }) {
   const { locale } = dictFor(params.locale)
@@ -42,7 +37,7 @@ export default async function LegislationYearPage({ params }: { params: { locale
       idx,
       editions: list
         .map((d) => {
-          const p = parseNum(d.number ?? '')
+          const p = parseNumeroMoniteur(d.number ?? '')
           return {
             id: d.id,
             title: d.titleFr,
@@ -53,7 +48,7 @@ export default async function LegislationYearPage({ params }: { params: { locale
             suffix: p.suffix,
           }
         })
-        .sort((a, b) => Number(a.special) - Number(b.special) || a.num - b.num || a.suffix.localeCompare(b.suffix)),
+        .sort(comparerNumerosMoniteur),
     }))
 
   return <LegislationYearView locale={locale} year={year} months={months} />

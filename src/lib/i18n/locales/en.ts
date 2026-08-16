@@ -160,6 +160,7 @@ export const en: Dictionary = {
     citeArticle: 'Cite article',
     copyArticle: 'Copy article',
     otherService: 'Document from another service',
+    scannedEditionSearchable: 'This document is a scanned issue of the official journal “Le Moniteur”. Its full text is indexed and can be found through search; it is not reproduced here — an automatic transcription of microfilm serves to find, not to quote. Only the facsimile is authoritative.',
     scannedEdition: 'This document is a scanned issue of the official journal “Le Moniteur”. The full text is not OCR’d yet — view the original PDF.',
     openPdf: 'View the issue (PDF)',
     pdfNotIncluded: 'PDF viewing is not included in your plan.',

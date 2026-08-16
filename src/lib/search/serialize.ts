@@ -36,10 +36,16 @@ export function serializeDoc(d: DocumentAIndexer) {
   // d'un arrêt ou d'une annotation (Code du travail/civil…). Indexé comme champ à part pour
   // que le multi_match d'OpenSearch le cherche (poids dédié : voir multiMatchFields).
   const annotationsText = extractAnnotationsText(d.annotationsJson) || undefined
+  // ⚠️ RÉSERVÉ AUX FASCICULES SCANNÉS, ET C'EST VOULU. Partout ailleurs `searchText` n'est
+  // que la concaténation des colonnes déjà indexées : le rajouter compterait les titres
+  // deux fois et fausserait le score. Pour le Moniteur scanné, au contraire, il est le SEUL
+  // porteur de l'OCR — `bodyOriginal` n'a qu'un libellé de fascicule.
+  const ocrText = (d.source ?? '').startsWith('MONITEUR_PDF_') ? d.searchText || undefined : undefined
   // Champs d'affichage / de filtrage (non cherchables) ajoutés explicitement.
   return {
     ...searchable,
     annotationsText,
+    ocrText,
     type: d.type,
     status: d.status,
     category: d.category,

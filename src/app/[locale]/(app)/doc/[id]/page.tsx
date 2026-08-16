@@ -267,6 +267,24 @@ export default async function DocPage({
   // Édition scannée du Moniteur : le contenu EST le PDF (le « corps » n'est qu'un libellé de
   // fascicule) → on propose une consultation directe du PDF au lieu d'un texte officiel vide.
   const isScannedEdition = (doc.source ?? '').startsWith('MONITEUR_PDF_') && isBlobUrl(doc.sourcePdfUrl)
+  /**
+   * ⚠️ « PAS ENCORE OCÉRISÉ » EST FAUX POUR LE FONDS ANCIEN. Les 1 057 fascicules de
+   * 1987-2000 portent leur couche texte — 46,8 M de caractères indexés — et la recherche
+   * les trouve. La phrase, écrite pour les années 2016-2026 qui n'avaient rien, disait à
+   * 1 185 lecteurs sur 2 742 le contraire de ce que la plateforme sait faire : on cherche
+   * « Namphy », on tombe sur le fascicule, et la fiche affirme qu'il n'est pas océrisé.
+   *
+   * Le texte reste NON AFFICHÉ, et c'est un choix : un OCR de microfilm sert à TROUVER,
+   * pas à CITER — le fac-similé fait foi. Le seuil est celui du catalogage, 200 c./page.
+   */
+  const pagesFascicule = (() => {
+    try {
+      return Number(JSON.parse(String(doc.metaJson))?.pages) || 1
+    } catch {
+      return 1
+    }
+  })()
+  const texteCherchable = (doc.searchText ?? '').length >= 200 * pagesFascicule
   const canViewPdf = type === 'CIRCULAIRE_BRH' || canSeeSourcePdf(user)
   // Citation juridique copiable : désignation + référence Moniteur / numéro + date.
   const citation =
@@ -472,7 +490,7 @@ export default async function DocPage({
       )}
 
       {doc.status === 'ABROGE' && (
-        <div className="rounded-xl border border-wouj/40 bg-pil px-4 py-2.5 text-sm text-wouj">
+        <div className="rounded-xl border border-liy bg-pil px-4 py-2.5 text-sm text-ank">
           {abrogatedBy ? (
             <>
               {t.doc.abrogatedByPrefix}{' '}
@@ -560,7 +578,9 @@ export default async function DocPage({
         </div>
       ) : isScannedEdition ? (
         <section className="rounded-2xl border border-chabon/10 bg-white p-6 text-center">
-          <p className="mx-auto mb-4 max-w-md text-sm leading-relaxed text-grafit">{t.doc.scannedEdition}</p>
+          <p className="mx-auto mb-4 max-w-md text-sm leading-relaxed text-grafit">
+            {texteCherchable ? t.doc.scannedEditionSearchable : t.doc.scannedEdition}
+          </p>
           {canViewPdf ? (
             <a
               href={`/api/doc/${doc.id}/pdf`}

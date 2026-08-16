@@ -52,11 +52,21 @@ export const COMPANY_FIELD_WEIGHTS: { field: string; weight: number }[] = [
  */
 export const ANNOTATIONS_SEARCH_WEIGHT = 2
 
-/** Format `field^weight` attendu par multi_match d'OpenSearch (docs + annotations + sociétés). */
+/**
+ * Transcription OCR des fascicules scannés du Moniteur. Hors SEARCH_FIELD_WEIGHTS pour la
+ * même raison qu'`annotationsText` : ce n'est pas une colonne cherchable du Document mais
+ * une dérivation (de `searchText`, où l'OCR de microfilm est délibérément rangé — il sert à
+ * TROUVER, pas à CITER, le fac-similé faisant foi). Poids 1, celui du corps brut : un texte
+ * bruité ne doit pas primer sur un titre.
+ */
+export const OCR_SEARCH_WEIGHT = 1
+
+/** Format `field^weight` attendu par multi_match d'OpenSearch (docs + annotations + OCR + sociétés). */
 export function multiMatchFields(): string[] {
   return [
     ...SEARCH_FIELD_WEIGHTS.map(({ field, weight }) => `${field}^${weight}`),
     `annotationsText^${ANNOTATIONS_SEARCH_WEIGHT}`,
+    `ocrText^${OCR_SEARCH_WEIGHT}`,
     ...COMPANY_FIELD_WEIGHTS.map(({ field, weight }) => `${field}^${weight}`),
   ]
 }
