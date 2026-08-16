@@ -185,7 +185,30 @@ Une fiche par fascicule, sur le patron des 1 585 déjà en base :
 
 ---
 
-## §9 — Ce qui vient après
+## §9 — Les fascicules écartés
+
+> ⚠️ **UN FASCICULE INCOMPLET EST PIRE QU'UN FASCICULE ABSENT.** Une fiche en base est une
+> fiche que la recherche rend : un lecteur qui l'ouvre croit tenir le numéro entier, et rien
+> à l'écran ne lui dirait qu'il manque six pages. L'absence, elle, se voit — le numéro ne
+> répond pas, et l'on sait qu'il faut le chercher ailleurs.
+
+`FASCICULES_ECARTES`, en tête de `scripts/import-moniteur-pdf.ts`, porte la liste et **le
+motif de chacun**. Le script l'imprime à chaque exécution : une liste noire muette finirait
+par écarter des fascicules dont plus personne ne saurait la raison. `--exclure "<fragment>"`
+écarte au cas par cas, sans toucher à la liste.
+
+| Fascicule | Motif |
+| --- | --- |
+| `20000234 No 16.pdf` (année 2000) | **numérisation incomplète** — 10 pages pour 16 annoncées (« pages 255 à 270 »), sans manchette, le texte commence en milieu de phrase. La date du nom est fautive (le 34 février) : le fascicule est du **jeudi 24 février 2000**. |
+
+**1991 n'est pas concernée** : les 124 fascicules ont leur manchette et leur pagination.
+Un seul a été examiné de près — le **n° 35** annonce « pages 632 à 644 » pour 11 pages
+réelles, mais la mention désigne un acte à cheval sur les n° 34 et 35, et le fascicule porte
+des pages imprimées au-delà de 644. Il est complet.
+
+---
+
+## §10 — Ce qui vient après
 
 Le dossier parent porte **dix années** — 1991 à 2000, toutes nommées « AAAA par numéro ».
 1991 est le banc d'essai : ce qui est corrigé au §3 servira aux neuf autres. Compter, à vue

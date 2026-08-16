@@ -31,6 +31,28 @@ import { audit } from '../src/lib/auth/audit'
 
 const prisma = new PrismaClient()
 
+/**
+ * Fascicules ÉCARTÉS du versement, avec le motif.
+ *
+ * ⚠️ UN FASCICULE INCOMPLET EST PIRE QU'UN FASCICULE ABSENT. Une fiche en base est une
+ * fiche que la recherche rend : un lecteur qui l'ouvre croit tenir le numéro entier, et
+ * rien à l'écran ne lui dirait qu'il manque six pages. L'absence, elle, se voit — le numéro
+ * ne répond pas, et l'on sait qu'il faut le chercher ailleurs.
+ *
+ * ⚠️ L'EXCLUSION SE DIT, ELLE NE SE DEVINE PAS. Le script imprime ce qu'il écarte et
+ * pourquoi, à chaque exécution : une liste noire muette finirait par écarter des fascicules
+ * dont plus personne ne saurait la raison.
+ */
+const FASCICULES_ECARTES: { fichier: string; raison: string }[] = [
+  {
+    fichier: '20000234 No 16.pdf',
+    raison:
+      'numérisation incomplète — 10 pages présentes pour 16 annoncées (« pages 255 à 270 »), ' +
+      'sans manchette, le texte commence en milieu de phrase. Date du nom de fichier erronée ' +
+      '(le 34 février) ; le fascicule est du jeudi 24 février 2000.',
+  },
+]
+
 const MONTHS: Record<string, number> = {
   JANVIER: 0, 'FÉVRIER': 1, FEVRIER: 1, MARS: 2, AVRIL: 3, MAI: 4, JUIN: 5,
   JUILLET: 6, 'AOÛT': 7, AOUT: 7, SEPTEMBRE: 8, OCTOBRE: 9, NOVEMBRE: 10, 'DÉCEMBRE': 11, DECEMBRE: 11,
@@ -157,6 +179,18 @@ async function pageCount(file: string): Promise<number> {
   }
 }
 
+/** Motif d'exclusion d'un fichier, ou null s'il doit être versé. */
+const ecartes: string[] = []
+function motifExclusion(entry: string, exclusionsCli: string[]): string | null {
+  const nom = entry.normalize('NFC')
+  const connu = FASCICULES_ECARTES.find((x) => x.fichier.normalize('NFC') === nom)
+  if (connu) return connu.raison
+  const cli = exclusionsCli.find((m) => nom.includes(m))
+  return cli ? `écarté par --exclure "${cli}"` : null
+}
+
+let EXCLUSIONS_CLI: string[] = []
+
 /** Lit les PDF posés DIRECTEMENT dans un dossier (nommés « AAAAMMJJ No N.pdf »). */
 function collectFlat(byKey: Map<string, Edition>, dossier: string): number {
   let lus = 0
@@ -164,6 +198,11 @@ function collectFlat(byKey: Map<string, Edition>, dossier: string): number {
     if (!entry.toLowerCase().endsWith('.pdf')) continue
     const entryPath = join(dossier, entry)
     if (statSync(entryPath).isDirectory()) continue
+    const motif = motifExclusion(entry, EXCLUSIONS_CLI)
+    if (motif) {
+      ecartes.push(`${entry} — ${motif}`)
+      continue
+    }
     const parsed = parseEditionName(entry)
     const dt = dateFromName(entry)
     if (!parsed || !dt) {
@@ -217,6 +256,11 @@ function collectEditions(dir: string): Edition[] {
         const sub = readdirSync(entryPath).filter((f) => f.toLowerCase().endsWith('.pdf')).map((f) => realpathSync(join(entryPath, f)))
         addEdition(byKey, { ...parsed, monthIdx, day: dayFromName(sub[0] ?? entry), files: sub })
       } else if (entry.toLowerCase().endsWith('.pdf')) {
+        const motif = motifExclusion(entry, EXCLUSIONS_CLI)
+        if (motif) {
+          ecartes.push(`${entry} — ${motif}`)
+          continue
+        }
         const parsed = parseEditionName(entry)
         if (!parsed) {
           console.warn(`⚠ fichier non reconnu : ${entry}`)
@@ -258,6 +302,8 @@ async function main() {
   const dir = args[args.indexOf('--dir') + 1]
   const year = Number(args[args.indexOf('--year') + 1]) || 2021
   const commit = args.includes('--commit')
+  // `--exclure "<fragment de nom>"`, répétable : écarte un fascicule pour cette exécution.
+  EXCLUSIONS_CLI = args.map((a, i) => (a === '--exclure' ? args[i + 1] : null)).filter((x): x is string => !!x)
   const doPurge = args.includes('--purge-demo')
   if (!dir || args.indexOf('--dir') < 0) {
     console.error('Usage: npx tsx scripts/import-moniteur-pdf.ts --dir "<dossier>" --year 2021 [--commit] [--force] [--purge-demo]')
@@ -266,6 +312,10 @@ async function main() {
   const SOURCE = `MONITEUR_PDF_${year}`
 
   const editions = collectEditions(dir)
+  if (ecartes.length) {
+    console.log(`\n⛔ ${ecartes.length} fascicule(s) ÉCARTÉ(S) — non versés :`)
+    for (const e of ecartes) console.log(`   ${e}`)
+  }
   console.log(`\n${editions.length} éditions détectées pour ${year}.\n`)
 
   // ⚠️ UNE ANNÉE À LA FOIS. Pointé sur un dossier qui en contient plusieurs, le script
