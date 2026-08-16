@@ -32,7 +32,7 @@ export function LegalDoc({ doc, locale, t }: { doc: LegalDocData; locale: Locale
           <ol className="space-y-1 text-sm">
             {toc.map((b) => (
               <li key={b.id}>
-                <a href={`#${b.id}`} className="flex min-h-[44px] items-center rounded-r-md border-l-2 border-liy px-3 text-ank/80 outline-none ring-wouj transition hover:border-wouj hover:bg-white hover:text-wouj focus-visible:ring-2">
+ <a href={`#${b.id}`} className="flex min-h-[44px] items-center rounded-r-md border-l-2 border-liy px-3 text-ank/80 transition hover:border-chabon hover:bg-white hover:text-chabon">
                   {b.s}
                 </a>
               </li>
@@ -77,10 +77,10 @@ export function LegalDoc({ doc, locale, t }: { doc: LegalDocData; locale: Locale
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-4 py-6 text-sm">
           <span className="text-ank/80">© 2026 Lam · {t.brand.baseline}</span>
           <nav className="flex flex-wrap gap-x-5 gap-y-2 text-grafit">
-            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
-            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
-            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
-            <a className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href="mailto:legal@lam.ht">legal@lam.ht</a>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
+            <a className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href="mailto:legal@lam.ht">legal@lam.ht</a>
           </nav>
         </div>
       </footer>

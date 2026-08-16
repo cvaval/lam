@@ -43,7 +43,7 @@ export default function ResetPage({
           ) : (
             <div className="space-y-4">
               <p role="alert" className="flex items-start gap-2 rounded-lg border-l-2 border-wouj bg-pil px-3 py-2 text-sm text-wouj"><span aria-hidden="true">⚠</span><span>{NOTOKEN[locale]}</span></p>
-              <a href={`/${locale}/forgot`} className="inline-flex min-h-[44px] w-full items-center justify-center text-xs text-grafit outline-none ring-wouj transition hover:text-wouj focus-visible:ring-2">
+ <a href={`/${locale}/forgot`} className="inline-flex min-h-[44px] w-full items-center justify-center text-xs text-grafit transition hover:text-chabon">
                 {BACK[locale]}
               </a>
             </div>

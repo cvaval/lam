@@ -34,10 +34,10 @@ export default function PublicationsPage({ params }: { params: { locale: string 
           <article key={p.slug} className="border-b border-liy py-8 first:pt-0 last:border-0">
             <p className="font-mono text-xs uppercase tracking-wide text-ank/80">{en ? p.dateEn : p.date} · {p.author}</p>
             <h2 className="mt-2 font-serif text-2xl font-semibold leading-snug text-ank">
-              <Link href={`/${locale}/publications/${p.slug}`} className="transition hover:text-wouj">{en ? p.titleEn : p.titleFr}</Link>
+              <Link href={`/${locale}/publications/${p.slug}`} className="transition hover:text-chabon">{en ? p.titleEn : p.titleFr}</Link>
             </h2>
             <p className="mt-2 max-w-3xl text-grafit">{en ? p.summaryEn : p.summaryFr}</p>
-            <Link href={`/${locale}/publications/${p.slug}`} className="mt-4 inline-flex min-h-[44px] items-center text-sm font-semibold text-ank outline-none ring-wouj transition hover:text-wouj focus-visible:ring-2">{more} →</Link>
+ <Link href={`/${locale}/publications/${p.slug}`} className="mt-4 inline-flex min-h-[44px] items-center text-sm font-semibold text-ank transition hover:text-chabon">{more} →</Link>
           </article>
         ))}
       </div>
@@ -46,10 +46,10 @@ export default function PublicationsPage({ params }: { params: { locale: string 
         <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-between gap-3 px-4 py-6 text-sm text-ank/80">
           <span>© 2026 Lam · {t.brand.baseline}</span>
           <nav className="flex flex-wrap gap-x-5 gap-y-2">
-            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
-            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
-            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
-            <a className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href="mailto:legal@lam.ht">legal@lam.ht</a>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
+            <a className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href="mailto:legal@lam.ht">legal@lam.ht</a>
           </nav>
         </div>
       </footer>

@@ -31,7 +31,7 @@ const config: Config = {
         ank: C.ank,
         liy: C.liy,
         pil: C.pil,
-        'sitwon-pal': C.sitwonPal,
+        'wouj-pal': C.woujPal,
         // ── Accent fonctionnel, HORS marque : succès uniquement ──
         vet: C.vet,
         // ── Gamme cartographique (AV-02) : carte judiciaire uniquement, jamais un CTA ──

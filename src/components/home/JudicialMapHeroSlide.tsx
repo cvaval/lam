@@ -77,7 +77,7 @@ export function JudicialMapHeroSlide({ locale, t }: { locale: Locale; t: Diction
   return (
     <Link
       href={`/${locale}/juridictions`}
-      className="group block outline-none ring-wouj focus-visible:ring-2"
+ className="group block"
       aria-label={`${h.title} — ${h.cta}`}
     >
       <div className="relative overflow-hidden">

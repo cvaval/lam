@@ -37,7 +37,7 @@ const C = BRAND_COLORS
 const TOKENS: Record<string, string> = {
   chabon: C.chabon, adwaz: C.adwaz, koton: C.koton, blan: C.blan, grafit: C.grafit,
   wouj: C.wouj, sitwon: C.sitwon, ank: C.ank, liy: C.liy, pil: C.pil,
-  'sitwon-pal': C.sitwonPal, vet: C.vet, ble: C.ble, inverse: C.inverse,
+  'wouj-pal': C.woujPal, vet: C.vet, ble: C.ble, inverse: C.inverse,
   white: '#FFFFFF', black: '#000000', transparent: 'transparent', current: 'transparent',
 }
 

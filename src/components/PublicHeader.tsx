@@ -35,7 +35,7 @@ export function PublicHeader({
   return (
     <header className="sticky top-0 z-40 border-b border-liy bg-white/95 backdrop-blur">
       <div className={`mx-auto flex ${width} items-center justify-between px-4 py-4`}>
-        <Link href={`/${locale}`} aria-label="Lam" className="inline-flex min-h-[44px] items-center rounded-lg outline-none ring-wouj transition focus-visible:ring-2">
+ <Link href={`/${locale}`} aria-label="Lam"className="inline-flex min-h-[44px] items-center rounded-lg transition">
           <Logo size={30} />
         </Link>
         <div className="flex items-center gap-2 sm:gap-4">
@@ -43,14 +43,14 @@ export function PublicHeader({
           {back ? (
             <Link
               href={back.href}
-              className="inline-flex min-h-[44px] items-center whitespace-nowrap rounded-full border border-liy px-4 text-sm font-semibold text-ank outline-none ring-wouj transition hover:border-wouj hover:text-wouj focus-visible:ring-2 sm:px-5"
+ className="inline-flex min-h-[44px] items-center whitespace-nowrap rounded-full border border-liy px-4 text-sm font-semibold text-ank transition hover:border-chabon hover:text-chabon sm:px-5"
             >
               ← {back.label}
             </Link>
           ) : (
             <Link
               href={`/${locale}/login`}
-              className="inline-flex min-h-[44px] items-center whitespace-nowrap rounded-full bg-wouj px-4 text-sm font-semibold text-white outline-none ring-wouj ring-offset-2 transition hover:brightness-95 focus-visible:ring-2 sm:px-5"
+ className="inline-flex min-h-[44px] items-center whitespace-nowrap rounded-full bg-wouj px-4 text-sm font-semibold text-white transition hover:brightness-95 sm:px-5"
             >
               {t.nav.login}
             </Link>

@@ -29,7 +29,7 @@ export function LoginForm({ locale, t }: { locale: Locale; t: Dictionary }) {
   // ne pointe l'erreur QUE si elle existe : une référence morte est ignorée par certains
   // lecteurs d'écran et bruyante chez d'autres.
   const champ =
-    'min-h-[44px] w-full rounded-lg border border-liy bg-white px-3.5 py-2.5 text-sm text-ank outline-none ring-wouj transition focus:border-wouj focus-visible:ring-2'
+ 'min-h-[44px] w-full rounded-lg border border-liy bg-white px-3.5 py-2.5 text-sm text-ank transition focus:border-wouj'
   const etiquette = 'mb-1 block text-[11px] font-semibold uppercase tracking-wide text-grafit'
 
   return (
@@ -81,13 +81,13 @@ export function LoginForm({ locale, t }: { locale: Locale; t: Dictionary }) {
       <button
         type="submit"
         disabled={loading}
-        className="min-h-[44px] w-full rounded-lg bg-wouj py-2.5 text-sm font-semibold text-white outline-none ring-wouj ring-offset-2 transition hover:brightness-95 focus-visible:ring-2 disabled:opacity-60"
+ className="min-h-[44px] w-full rounded-lg bg-wouj py-2.5 text-sm font-semibold text-white transition hover:brightness-95 disabled:opacity-60"
       >
         {loading ? t.common.loading : t.home.signinBtn}
       </button>
 
       <div className="text-center">
-        <a href={`/${locale}/forgot`} className="inline-flex min-h-[44px] items-center text-xs text-grafit underline-offset-2 outline-none ring-wouj transition hover:text-wouj hover:underline focus-visible:ring-2">
+ <a href={`/${locale}/forgot`} className="inline-flex min-h-[44px] items-center text-xs text-grafit underline-offset-2 transition hover:text-chabon hover:underline">
           {t.home.forgot}
         </a>
       </div>

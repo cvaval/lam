@@ -66,6 +66,12 @@ const FASCICULES_ECARTES: { fichier: string; raison: string }[] = [
       'quand les deux existent déjà séparément et correctement nommés. Le verser ferait paraître ' +
       'deux fois le même contenu et transformerait le n° 51 en édition de 32 pages.',
   },
+  // 1987 : la lacune est portée en tête de page 1, et elle nomme les PAGES DU RECUEIL
+  // (pagination continue de l'année), non les pages du fascicule.
+  { fichier: '19870416 No 32.pdf', raison: 'lacune annotée : « Manquant 500, 501 et 503 »' },
+  { fichier: '19870423 No 34.pdf', raison: 'lacune annotée : « Manquant 532, 533 et 534 »' },
+  { fichier: '19870903 No 72.pdf', raison: 'lacune annotée : « Manquant 1287, 1288, 1289, 1290, 1291 et 1292 »' },
+  { fichier: '19870910 No 74.pdf', raison: 'lacune annotée : « Manquant 1346, 1347 et 1348 »' },
   {
     fichier: '19881027 No 91-B aaa.pdf',
     raison:

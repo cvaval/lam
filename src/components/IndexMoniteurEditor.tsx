@@ -230,10 +230,10 @@ export function IndexMoniteurEditor({ locale, peutSupprimer }: { locale: Locale;
                 type="button"
                 aria-pressed={editionType === et}
                 onClick={() => setEditionType(et)}
-                className={`min-h-[44px] flex-1 rounded-lg border px-3 text-sm font-semibold outline-none ring-wouj transition focus-visible:ring-2 ${
+ className={`min-h-[44px] flex-1 rounded-lg border px-3 text-sm font-semibold transition ${
                   editionType === et
                     ? 'border-wouj bg-wouj text-white'
-                    : 'border-grafit bg-white text-grafit hover:border-wouj hover:text-wouj'
+                    : 'border-grafit bg-white text-grafit hover:border-chabon hover:text-chabon'
                 }`}
               >
                 {et === 'REGULIERE' ? lt(L.regular) : lt(L.special)}
@@ -262,7 +262,7 @@ export function IndexMoniteurEditor({ locale, peutSupprimer }: { locale: Locale;
             onChange={(e) => setDateISO(e.target.value)}
             aria-invalid={!dateISO || undefined}
             aria-describedby={!dateISO ? 'idx-date-err' : undefined}
-            className={`min-h-[44px] w-full rounded-lg border bg-white px-3 text-sm text-ank outline-none ring-wouj transition focus-visible:ring-2 ${dateISO ? 'border-liy' : 'border-wouj'}`}
+ className={`min-h-[44px] w-full rounded-lg border bg-white px-3 text-sm text-ank transition ${dateISO ? 'border-liy' : 'border-wouj'}`}
           />
           {!dateISO && (
             <p id="idx-date-err" className="mt-1 flex items-center gap-1 text-[11px] font-medium text-wouj">
@@ -318,14 +318,14 @@ export function IndexMoniteurEditor({ locale, peutSupprimer }: { locale: Locale;
             <button
               type="button"
               onClick={reprendrePrecedente}
-              className="inline-flex min-h-[44px] items-center rounded-lg bg-wouj px-4 text-sm font-semibold text-white outline-none ring-wouj ring-offset-2 transition hover:brightness-95 focus-visible:ring-2"
+ className="inline-flex min-h-[44px] items-center rounded-lg bg-wouj px-4 text-sm font-semibold text-white transition hover:brightness-95"
             >
               {lt(L.dupLoad)}
             </button>
             <button
               type="button"
               onClick={conserverSaisie}
-              className="inline-flex min-h-[44px] items-center rounded-lg border border-liy px-4 text-sm font-semibold text-ank outline-none ring-wouj transition hover:border-wouj hover:text-wouj focus-visible:ring-2"
+ className="inline-flex min-h-[44px] items-center rounded-lg border border-liy px-4 text-sm font-semibold text-ank transition hover:border-chabon hover:text-chabon"
             >
               {lt(L.dupKeep)}
             </button>
@@ -375,7 +375,7 @@ export function IndexMoniteurEditor({ locale, peutSupprimer }: { locale: Locale;
           type="button"
           onClick={save}
           disabled={busy || !number || !!blocage || !rows.some((r) => r.text.trim())}
-          className="inline-flex min-h-[44px] items-center rounded-lg bg-wouj px-5 text-sm font-semibold text-white outline-none ring-wouj ring-offset-2 transition hover:brightness-95 focus-visible:ring-2 disabled:opacity-40"
+ className="inline-flex min-h-[44px] items-center rounded-lg bg-wouj px-5 text-sm font-semibold text-white transition hover:brightness-95 disabled:opacity-40"
         >
           {busy ? lt(L.saving) : lt(L.save)}
         </button>

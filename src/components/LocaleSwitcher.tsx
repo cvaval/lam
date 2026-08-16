@@ -37,8 +37,8 @@ export function LocaleSwitcher({ current }: { current: Locale }) {
           aria-pressed={l === current}
           aria-label={LOCALE_NAMES[l]}
           title={LOCALE_NAMES[l]}
-          className={`min-h-[44px] min-w-[44px] rounded-full px-4 outline-none ring-wouj transition focus-visible:ring-2 ${
-            l === current ? 'bg-wouj text-white' : 'text-grafit hover:text-wouj'
+ className={`min-h-[44px] min-w-[44px] rounded-full px-4 transition ${
+            l === current ? 'bg-wouj text-white' : 'text-grafit hover:text-chabon'
           }`}
         >
           {LOCALE_SHORT[l]}

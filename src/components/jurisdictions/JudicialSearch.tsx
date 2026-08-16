@@ -95,7 +95,7 @@ export function JudicialSearch({ locale, t, layersQs }: { locale: Locale; t: Dic
         onKeyDown={onKeyDown}
         onBlur={() => setTimeout(() => setOpen(false), 150)}
         onFocus={() => { if (items.length) setOpen(true) }}
-        className="min-h-[44px] w-full rounded-xl border border-chabon/15 bg-white px-4 py-3 text-sm text-ank outline-none ring-wouj focus:ring-2"
+ className="min-h-[44px] w-full rounded-xl border border-chabon/15 bg-white px-4 py-3 text-sm text-ank focus:ring-2"
       />
       <div aria-live="polite" className="sr-only">{announce}</div>
       {open && (

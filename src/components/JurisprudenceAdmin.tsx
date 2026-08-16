@@ -39,8 +39,8 @@ export function JurisprudenceAdmin({ locale }: { locale: Locale }) {
               onClick={() => setOnglet(o.id)}
               // L'onglet actif porte son fond Sitwon ET un libellé en gras : l'état ne
               // tient jamais à la seule couleur.
-              className={`-mb-px min-h-[44px] rounded-t-lg px-4 text-sm outline-none ring-wouj transition focus-visible:ring-2 ${
-                actif ? 'border-b-2 border-wouj bg-sitwon font-semibold text-chabon' : 'font-medium text-grafit hover:bg-pil'
+ className={`-mb-px min-h-[44px] rounded-t-lg px-4 text-sm transition ${
+                actif ? 'border-b-2 border-wouj bg-pil font-semibold text-chabon' : 'font-medium text-grafit hover:bg-pil'
               }`}
             >
               {locale === 'en' ? o.en : locale === 'ht' ? o.ht : o.fr}

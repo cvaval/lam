@@ -190,18 +190,18 @@ export function DocumentNotes({
           {/* Le libellé accessible porte l'action ; « B » et « I » seuls ne disent rien à un
               lecteur d'écran. */}
           <button type="button" onClick={() => basculer('**')} aria-label={lt(L.gras)} title={lt(L.gras)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-liy bg-white font-bold text-ank outline-none ring-wouj transition hover:bg-pil focus-visible:ring-2">
+ className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-liy bg-white font-bold text-ank transition hover:bg-pil">
             B
           </button>
           <button type="button" onClick={() => basculer('*')} aria-label={lt(L.italique)} title={lt(L.italique)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-liy bg-white font-serif italic text-ank outline-none ring-wouj transition hover:bg-pil focus-visible:ring-2">
+ className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-liy bg-white font-serif italic text-ank transition hover:bg-pil">
             I
           </button>
           <div className="ml-auto flex gap-1" role="tablist" aria-label={lt(L.apercu)}>
             {[false, true].map((v) => (
               <button key={String(v)} type="button" role="tab" aria-selected={apercu === v} onClick={() => setApercu(v)}
-                className={`min-h-[44px] rounded-lg px-3 text-sm outline-none ring-wouj transition focus-visible:ring-2 ${
-                  apercu === v ? 'bg-sitwon font-semibold text-chabon' : 'font-medium text-grafit hover:bg-pil'
+ className={`min-h-[44px] rounded-lg px-3 text-sm transition ${
+                  apercu === v ? 'bg-wouj font-semibold text-white' : 'font-medium text-grafit hover:bg-pil'
                 }`}>
                 {v ? lt(L.apercu) : lt(L.ecrire)}
               </button>
@@ -225,7 +225,7 @@ export function DocumentNotes({
               if (k === 'b') { e.preventDefault(); basculer('**') }
               else if (k === 'i') { e.preventDefault(); basculer('*') }
             }}
-            className="w-full rounded-lg border border-liy bg-white px-3 py-2 text-sm text-ank outline-none ring-wouj transition focus:border-wouj focus-visible:ring-2"
+ className="w-full rounded-lg border border-liy bg-white px-3 py-2 text-sm text-ank transition focus:border-wouj"
           />
         )}
 
@@ -246,7 +246,7 @@ export function DocumentNotes({
             <p className="text-xs text-grafit">{lt(L.anonymeRefuse)}</p>
           )}
           <button type="button" onClick={envoyer} disabled={busy || texte.trim().length < 3}
-            className="inline-flex min-h-[44px] items-center rounded-lg bg-wouj px-5 text-sm font-semibold text-white outline-none ring-wouj ring-offset-2 transition hover:brightness-95 focus-visible:ring-2 disabled:opacity-40">
+ className="inline-flex min-h-[44px] items-center rounded-lg bg-wouj px-5 text-sm font-semibold text-white transition hover:brightness-95 disabled:opacity-40">
             {busy ? '…' : lt(L.envoyer)}
           </button>
         </div>

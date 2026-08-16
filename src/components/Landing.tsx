@@ -34,7 +34,7 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-chabon">{tr('Actualités & analyses', 'News & analysis', 'Aktyalite & analiz')}</p>
             <h2 className="mt-3 font-sans text-display-3 lowercase text-ank">{tr('Les dernières publications de Lam', 'Latest publications from Lam', 'Dènye piblikasyon Lam yo')}</h2>
           </div>
-          <Link href={`/${locale}/publications`} className="inline-flex min-h-[44px] items-center rounded-full border border-liy px-5 text-sm font-semibold text-ank outline-none ring-wouj transition hover:border-wouj hover:text-wouj focus-visible:ring-2">{tr('Voir toutes les publications', 'See all publications', 'Gade tout piblikasyon yo')}</Link>
+ <Link href={`/${locale}/publications`} className="inline-flex min-h-[44px] items-center rounded-full border border-liy px-5 text-sm font-semibold text-ank transition hover:border-chabon hover:text-chabon">{tr('Voir toutes les publications', 'See all publications', 'Gade tout piblikasyon yo')}</Link>
         </div>
         {featured && (
           <Link href={`/${locale}/publications/${featured.slug}`} className="group mt-10 grid overflow-hidden rounded-xl border border-liy bg-koton transition hover:border-chabon/40 md:grid-cols-[0.32fr_1fr]">

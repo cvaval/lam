@@ -73,7 +73,7 @@ export function NotesModeration({ locale }: { locale: string }) {
     } finally { setBusy(false) }
   }
 
-  const bouton = 'inline-flex min-h-[44px] items-center rounded-lg px-4 text-sm font-semibold outline-none ring-wouj ring-offset-2 transition focus-visible:ring-2 disabled:opacity-40'
+ const bouton = 'inline-flex min-h-[44px] items-center rounded-lg px-4 text-sm font-semibold transition disabled:opacity-40'
 
   return (
     <div className="space-y-5">
@@ -89,8 +89,8 @@ export function NotesModeration({ locale }: { locale: string }) {
           const actif = filtre === f.id
           return (
             <button key={f.id} type="button" role="tab" aria-selected={actif} onClick={() => setFiltre(f.id)}
-              className={`-mb-px min-h-[44px] rounded-t-lg px-4 text-sm outline-none ring-wouj transition focus-visible:ring-2 ${
-                actif ? 'border-b-2 border-wouj bg-sitwon font-semibold text-chabon' : 'font-medium text-grafit hover:bg-pil'
+ className={`-mb-px min-h-[44px] rounded-t-lg px-4 text-sm transition ${
+                actif ? 'border-b-2 border-wouj bg-pil font-semibold text-chabon' : 'font-medium text-grafit hover:bg-pil'
               }`}>
               {f.label}
               {f.id === 'EN_ATTENTE' && enAttente > 0 && <span className="ml-1.5">({enAttente})</span>}
@@ -141,7 +141,7 @@ export function NotesModeration({ locale }: { locale: string }) {
                 onChange={(e) => setMotifs((m) => ({ ...m, [n.id]: e.target.value }))}
                 placeholder="Motif communiqué à l’auteur — optionnel, recommandé en cas de refus"
                 aria-label="Motif de modération"
-                className="min-h-[44px] flex-1 rounded-lg border border-liy bg-white px-3 text-sm text-ank outline-none ring-wouj transition focus:border-wouj focus-visible:ring-2"
+ className="min-h-[44px] flex-1 rounded-lg border border-liy bg-white px-3 text-sm text-ank transition focus:border-wouj"
               />
               <button type="button" disabled={busy || n.status === 'PUBLIEE'} onClick={() => moderer(n.id, 'PUBLIEE')}
                 className={`${bouton} bg-wouj text-white hover:brightness-95`}>

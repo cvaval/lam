@@ -1,239 +1,176 @@
-# AVENANT AV-04 — Quota des accents : arbitrage et règle générale
+# AVENANT AV-04 — Rationnement des accents et mise en conformité AV-02
 
 | | |
 |---|---|
 | **Référence** | `LAM-BRAND-2026-08-V3-AV04` |
 | **Charte de rattachement** | Klinik v3.0 — `LAM-BRAND-2026-08-V3` (GELÉE) |
-| **Objet** | Arbitrage des conflits de quota Wouj ; règle générale de rationnement |
+| **Avenants antérieurs** | AV-01 (huit types) · **AV-02 (inversion des accents)** · AV-02bis (trait Wouj du logotype) · AV-03 (bibliothèque d'icônes) |
+| **Objet** | Application de l'AV-02 au code ; règle de rationnement de l'accent Sitwon |
 | **Date** | 16 août 2026 |
-| **Statut** | ⚠️ **À REPRENDRE** — rédigé sous le récit d'origine (Wouj = certificateur). L'avenant AV-02 du concepteur, daté du 11 août et découvert le 16 dans le pack v4, **inverse les deux accents**. Les mesures restent valables, les qualifications sont à refaire. |
+| **Statut** | **VALIDÉ** — appliqué au dépôt · **article 6 ouvert** |
 | **Portée** | 26 écrans — interface publique et back-office |
-| **Antériorité** | Point 3 des « restant à trancher » de la charte v3.0 |
+
+> **Historique.** Une première rédaction de cet avenant, du 16 août au matin, portait le
+> numéro AV-03 et raisonnait sous le récit d'origine — Wouj au certificateur, Sitwon à l'usage.
+> La découverte du dossier `Logo Aug 2026_v4` a révélé que l'AV-02 du concepteur, **daté du
+> 11 août et non transmis**, inversait déjà les deux accents. Les mesures de cette première
+> rédaction restaient exactes ; ses qualifications étaient à l'envers. Le présent document la
+> remplace.
 
 ---
 
-## 1. Constat — le périmètre annoncé était trop étroit
+## 1. Constat de départ
 
-L'avenant devait arbitrer **quatre écrans d'administration**. Le relevé exhaustif en trouve
-**vingt-six sur vingt-six** en dépassement, écrans publics compris.
+Relevé du 16 août, avant correction : **223 occurrences des deux accents sur 47 fichiers**.
 
-Il établit surtout que le dépassement n'est **pas un problème d'écran**. Il vient de trois
-composants partagés et de deux emplois de Wouj contraires à des règles écrites. Arbitrer quatre
-écrans aurait laissé la cause intacte et le conflit serait revenu au premier écran neuf.
+Sous le récit d'origine, 123 d'entre elles paraissaient fautives. Sous l'AV-02, la lecture
+change du tout au tout :
 
-### Mesure au 16 août 2026 — 223 occurrences sur 47 fichiers
+| Motif | Occ. | Sous le récit d'origine | Sous l'AV-02 |
+|---|---:|---|---|
+| `bg-wouj` | 32 | ⛔ interdit — Wouj jamais en fond | ✔ **conforme** — c'est le CTA d'usage |
+| `border-wouj` (nav active) | 44 | ⛔ la nav active se marque en Sitwon | ✔ **conforme** — AV-02 donne à Wouj le soulignement de navigation active |
+| `bg-sitwon` (5) | 5 | ✔ CTA principal | ⛔ **non conforme** — Sitwon n'est plus le CTA |
+| `ring-wouj` | 55 | ⛔ | ⛔ **fautif sous les deux récits** |
+| `hover:text-wouj` | 36 | ⛔ | ⛔ **fautif sous les deux récits** |
 
-| Motif | Occurrences | Fichiers | Au regard de la charte |
-|---|---:|---:|---|
-| `bg-wouj` | **32** | 24 | ⛔ **interdit** — « Wouj jamais en fond » |
-| `ring-wouj` | **55** | 26 | ⛔ contredit `globals.css:44-49`, qui fixe le focus en Chabon 2 px |
-| `hover:text-wouj` | **36** | 14 | ⛔ Wouj en texte, à fin décorative |
-| `border-wouj` | 44 | 22 | ⚠ admis en filet d'état, décoratif sinon |
-| `text-wouj` | 53 | 29 | ✔ admis — erreur, abrogation, alerte |
-| `bg-wouj/5`, `/20` | 2 | 2 | ⚠ teintes de fond, à qualifier |
+Les deux seuls défauts qui survivent à l'inversion sont ceux qui ne relevaient d'aucun des deux
+récits : un **anneau de focus coloré**, alors que `globals.css:44-49` fixe le focus en Chabon et
+énonce que « il ne peut être ni Wouj ni Sitwon » ; et un **survol de lien coloré**, qui n'est ni
+un usage ni une certification.
 
-**Cent vingt-trois occurrences contreviennent à une règle écrite de la charte.**
+---
 
-### Un contrôle de la charte v3.0 était faux
+## 2. Corrections appliquées
 
-Les « contrôles finaux » de la v3.0 déclarent : *« Wouj en fond : **0** (interdit) »*. Il y en a
-**trente-deux**, dont les boutons de soumission de `LoginForm`, `RegisterForm`, `ResetForm`,
-`ForgotForm`, `VerifyForm`, `SearchBox`, `PublicHeader` et huit écrans d'administration.
-
-Le contrôle a probablement porté sur les seuls **aplats décoratifs** et non sur les boutons. Le
-présent avenant le rectifie : il ne s'agit pas d'une dérive postérieure au gel, mais d'un écart
-présent au moment du gel et non détecté.
-
-### Ce que le rationnement recouvrait en réalité
-
-Trois composants partagés posent du Wouj sur presque tout écran, avant même son contenu propre :
-
-| Composant | Emploi | Doctrine v3.0 |
+| # | Correction | Portée |
 |---|---|---|
-| `AdminNav.tsx:65` | `border-l-2 border-wouj` sur l'entrée active | La navigation active se marque en **Sitwon** |
-| `LocaleSwitcher.tsx:41` | `bg-wouj text-white` sur la langue active | Wouj **jamais en fond** ; état actif = Sitwon |
-| `LocaleSwitcher.tsx:41` | `hover:text-wouj` sur les langues inactives | Wouj **jamais en texte** décoratif |
-| `LocaleSwitcher.tsx:40` + 25 autres | `ring-wouj` | Le focus est **Chabon**, et `globals.css` le dit |
+| 1 | Jeton `sitwonPal #FFF3C6` → **`woujPal #FCE1E4`** (AV-02, art. 2) | `brand-colors.ts`, `tailwind.config.ts`, `JudicialMap.tsx`, `audit-contraste.ts` |
+| 2 | Badge « Dokiman verifye » → **fond Wouj, texte Blan** (5,43:1) | `doc/[id]/page.tsx` |
+| 3 | Statut « Abrogé » et « partiellement abrogé » → **pastille fond Sitwon, texte Chabon** (7,08:1) | `AnnotatedText.tsx` |
+| 4 | Onglets actifs : le filet Wouj suffit, le fond redevient Pil | `JurisprudenceAdmin`, `NotesModeration` |
+| 5 | Bascule d'aperçu active → fond Wouj, texte Blan | `DocumentNotes` |
+| 6 | **55 anneaux `ring-wouj` supprimés** avec leur grappe (`outline-none`, `ring-offset-2`, `focus-visible:ring-2`) | 26 fichiers |
+| 7 | **36 `hover:text-wouj`** et 6 `hover:border-wouj` → Chabon | 14 fichiers |
 
-Ces quatre lignes suffisent à mettre **les seize écrans d'administration** en dépassement
-permanent, indépendamment de leur contenu.
+**33 fichiers, 87 lignes.** `tsc` passe, les **295 tests** passent, l'audit de contraste du dépôt
+rend **0 échec sur 137 fichiers**.
 
----
+**Un cas traité à part.** Sur un champ de fichier, le `<input>` est masqué et c'est le `<label>`
+qui est visible : l'anneau `focus-within` y est le **seul** indicateur de focus. Il a été
+conservé et recoloré en Chabon, non supprimé. Retirer la grappe sans distinction aurait rendu ce
+contrôle inaccessible au clavier.
 
-## 2. Arbitrage — les quatre écrans les plus chargés
+### Vérification au clavier
 
-Les quatre écrans d'administration portant le plus d'éléments Wouj **permanents** d'interface,
-hors logotype. Le même arbitrage vaut pour les vingt-deux autres.
+Le retrait des 55 anneaux repose sur le fait que la règle globale prend le relais. **Vérifié à
+l'écran**, tabulation réelle sur le sélecteur de langue — celui-là même qui portait
+`outline-none ring-wouj` : `:focus-visible` s'applique, contour **plein, 2 px, `rgb(65,64,66)`,
+offset 2 px**. C'est exactement Chabon `#414042`. `globals.css` étant déclaré après
+`@tailwind utilities`, sa règle l'emporte sur `outline-none`.
 
-### 2.1 `/admin/jurisprudence` — 7 éléments permanents
+### État après correction
 
-Éditeur de décisions et éditeur de corpus. Les éléments en conflit : badge « texte intégral
-absent » par décision, badge de champs manquants par ligne analysée, bouton de téléversement en
-fond Wouj, bouton d'enregistrement en fond Wouj, filet de navigation, pastille de langue, anneau
-de focus.
+| | avant | après |
+|---|---:|---:|
+| `ring-wouj` | 55 | **0** |
+| `hover:text-wouj` | 36 | **0** |
+| `bg-sitwon` | 5 | **3** |
+| `text-sitwon` | 0 | **0** (interdit) |
+| `wouj-pal` | 0 | 2 |
 
-**Conserve Wouj** : le badge « texte intégral absent ». C'est une **alerte de certification** —
-il dit qu'une décision publiée n'est pas complète, ce qui est exactement l'office du
-certificateur.
-**Basculent** : les deux boutons → **Sitwon en fond, texte Chabon** (CTA principal, doctrine
-v3.0). Le badge de champs manquants → **Grafit**, avec son libellé conservé : c'est une
-information de saisie, non une alerte publiée. Filet de navigation, pastille de langue et anneau
-de focus → traités au §3, ils ne relèvent pas de cet écran.
-
-### 2.2 `/admin/index-moniteur` — 6 éléments permanents
-
-Saisie manuelle d'éditions et de titres. En conflit : détection de doublon, bouton d'ajout,
-bouton d'enregistrement, bandeau de section teinté `bg-wouj/5`, onglet actif en `bg-wouj`, plus
-le socle partagé.
-
-**Conserve Wouj** : la **détection de doublon**. C'est une alerte de certification — publier deux
-fois la même entrée d'index atteint l'intégrité du catalogue.
-**Basculent** : les deux boutons → **Sitwon**. L'onglet actif → **Sitwon en soulignement** (et
-non en fond : Wouj comme Sitwon sont proscrits en fond pour un onglet). Le bandeau `bg-wouj/5` →
-**Pil**, la teinte de surface neutre.
-
-### 2.3 `/admin/notes` — 4 éléments permanents
-
-Modération des notes de lecteurs. En conflit : bouton « refuser » en fond Wouj, compteur de notes
-en attente, bouton de soumission, socle partagé.
-
-**Conserve Wouj** : **aucun élément permanent**. Cet écran n'émet aucune alerte de certification ;
-il administre une file d'attente.
-**Basculent** : « refuser » → **Chabon** (bouton secondaire) avec son libellé, qui dit
-l'action ; le rejet d'une note n'est pas une alerte, c'est une décision de modération. Le
-compteur → **Grafit**. Le bouton de soumission → **Sitwon**.
-Wouj reste disponible sur cet écran pour un **état conditionnel** : l'échec d'une action.
-
-### 2.4 `/admin/users` — 3 éléments permanents
-
-Habilitations et demandes en attente. En conflit : bouton « suspendre », bouton de création,
-socle partagé.
-
-**Conserve Wouj** : **aucun élément permanent**. La pastille de statut « Suspendu », en revanche,
-garde Wouj : c'est un **état**, conditionnel, et il porte son libellé.
-**Basculent** : « suspendre » → **Chabon**, libellé explicite ; « créer » → **Sitwon**.
-
-> **Motif commun aux quatre.** Aucun bouton d'action ne conserve Wouj. Un bouton est un geste
-> d'**usage** ; Wouj est la marque du **certificateur**. Un bouton rouge dit « attention » à
-> chaque écran et, à force, ne dit plus rien — le rationnement n'a pas d'autre raison d'être.
+Les trois Sitwon restants sont les deux pastilles « abrogé » et la pastille « modifiée » — trois
+**statuts de certification**, tous à texte Chabon. C'est exactement l'emploi que l'AV-02 lui
+assigne.
 
 ---
 
-## 3. Correction des trois composants partagés
+## 3. Règle de rationnement
 
-Elle précède les arbitrages d'écran : sans elle, aucun écran ne peut passer sous le quota.
+L'accent rationné n'est plus Wouj, c'est **Sitwon**. Wouj, devenu la couleur de l'usage, est par
+nature fréquent : chaque écran a son bouton principal.
 
-| Composant | Aujourd'hui | Après |
-|---|---|---|
-| `AdminNav.tsx:65` | `border-l-2 border-wouj` | `border-l-2 border-sitwon` — la navigation active se marque en Sitwon |
-| `LocaleSwitcher.tsx:41` | `bg-wouj text-white` | `bg-sitwon text-chabon` — CTA/état actif, fond Sitwon, texte Chabon |
-| `LocaleSwitcher.tsx:41` | `hover:text-wouj` | `hover:text-chabon` — un survol n'est pas un état de certification |
-| 26 fichiers | `ring-wouj` + `focus-visible:ring-2` | **supprimé** — `globals.css` fixe déjà `outline: 2px solid #414042` |
-
-La suppression des 55 `ring-wouj` n'appauvrit rien : elle retire un second traitement de focus qui
-**contredisait** le premier. Le commentaire de `globals.css:44-45` l'énonce déjà — *« Il ne peut
-être ni Wouj ni Sitwon : le focus se déplace partout, les deux accents sont rationnés. »*
-
-Après cette correction, les vingt-six écrans retombent à **zéro Wouj permanent de socle**, et
-chacun retrouve son quota entier pour son contenu propre.
-
----
-
-## 4. Règle générale
-
-> **Article 1 — Emplois admis.** Wouj n'est employé que pour : le **logotype**, le statut
-> **« Abrogé »**, une **erreur**, une **alerte de certification**. Tout autre emploi est un
-> défaut, quel qu'en soit le rendu.
+> **Article 1 — Emplois admis.**
+> **Sitwon** : statut « Abrogé », alerte de certification. Rien d'autre.
+> **Wouj** : CTA principal (fond Wouj, **texte Blan**), badge « Dokiman verifye », surlignage du
+> terme exact, soulignement de navigation active. Plus le logotype, hors quota (AV-02bis).
+> **Wouj Pal** : surlignage étendu, fond de sélection, texte Ank.
 >
-> **Article 2 — Assiette du quota.** Le quota d'**une occurrence par écran** porte sur les
-> éléments **permanents** d'interface : ceux qui sont à l'écran quoi que fasse l'utilisateur. Il
-> se compte en **éléments simultanément visibles**, non en occurrences de code — les branches
-> d'un même ternaire ne comptent qu'une fois.
+> **Article 2 — Quota.** **Une occurrence de Sitwon d'interface par écran.** Le logotype n'entre
+> pas au décompte : son trait Wouj est le sceau historique du certificateur (AV-02bis), et il ne
+> porte pas Sitwon.
 >
-> **Article 3 — Les états échappent au quota.** Un état conditionnel — erreur de saisie,
-> abrogation, échec d'une action — n'entre pas dans le quota, **à la condition** de porter son
-> libellé textuel. Un formulaire dont cinq champs échouent affiche cinq erreurs : masquer les
-> quatre dernières pour tenir un quota esthétique serait un défaut d'utilisabilité. Le
-> rationnement protège l'attention, il n'ampute pas l'information.
+> **Article 3 — Assiette.** Le quota porte sur les éléments **permanents** et se compte en
+> éléments **simultanément visibles**, non en occurrences de code. Trois branches d'un même
+> ternaire ne comptent qu'une fois.
 >
-> **Article 4 — Actions destructives.** Une action destructive ne mérite pas Wouj. Son
-> irréversibilité se dit par son **libellé** et par une **confirmation**, non par sa couleur. Le
-> bouton est **Chabon**. Wouj reste disponible pour le message d'échec.
+> **Article 4 — Les états échappent au quota.** Un état conditionnel — abrogation, erreur, échec
+> — n'entre pas dans le décompte, **à la condition** de porter son libellé. Une liste de
+> quarante articles dont douze sont abrogés affiche douze pastilles : masquer les onze dernières
+> pour tenir un quota serait un défaut d'usage. Le rationnement protège l'attention, il n'ampute
+> pas l'information.
 >
-> **Article 5 — Le logotype est hors quota**, en toutes ses variantes. Une seule est visible à la
-> fois : la barre latérale est `hidden md:flex`, l'en-tête mobile `md:hidden`.
+> **Article 5 — Formes interdites.** Sitwon n'est **jamais** une couleur de texte, **jamais** un
+> fond de page, **jamais** un trait. Sa seule forme lisible est la **pastille remplie à texte
+> Chabon** — mesuré : Sitwon sur Blan donne **1,46:1**, très en deçà des 3:1 exigés d'un élément
+> graphique ; en pastille sous texte Chabon il donne **7,08:1**. Wouj n'est jamais un anneau de
+> focus ni un survol décoratif.
 >
-> **Article 6 — Fond et texte.** Wouj n'est **jamais** un fond, **jamais** une couleur de texte
-> décorative, **jamais** un anneau de focus. Sitwon n'est **jamais** une couleur de texte.
->
-> **Article 7 — La couleur ne porte jamais seule.** Reprise du critère bloquant v3.0 : la
-> luminance Vèt/Wouj est de **1,05:1**. Tout état porte son libellé ou son pictogramme.
+> **Article 6 — La couleur ne porte jamais seule.** Le couple à luminance quasi identique
+> (1,05:1) est désormais **usage (Wouj) / succès (Vèt)**. Tout état porte son libellé ou son
+> pictogramme. Critère **bloquant**.
 
 ### Table de bascule
 
 | Ce que l'élément fait | Couleur |
 |---|---|
-| Alerte de certification, erreur, abrogation | **Wouj**, avec libellé |
-| Succès | **Vèt**, **libellé textuel obligatoire** (1,05:1 avec Wouj) |
-| Action principale (CTA) | **Sitwon en fond, texte Chabon** — jamais Sitwon en texte |
+| Statut « Abrogé », alerte de certification | **Sitwon** en pastille, texte Chabon |
+| Action principale (CTA) | **Wouj** en fond, **texte Blan** |
+| Navigation active, onglet actif | filet **Wouj** ; fond neutre (Pil) |
+| Badge « Dokiman verifye », terme surligné | **Wouj** en fond, texte Blan |
+| Surlignage étendu, fond de sélection | **Wouj Pal**, texte Ank |
+| Succès | **Vèt**, libellé obligatoire |
 | Action secondaire, action destructive | **Chabon**, libellé explicite |
-| Navigation active, onglet actif | **Sitwon**, en soulignement ou filet |
-| Information neutre, compteur, métadonnée | **Grafit** (interface) ou **Ank** (corpus) |
+| Neutre, compteur, métadonnée | **Grafit** (interface) ou **Ank** (corpus) |
 | Focus | **Chabon**, outline 2 px, offset 2 px — jamais autre chose |
 
 ---
 
-## 5. Contrôles vérifiables
+## 4. Contrôles automatisables
 
-À ajouter à la suite de tests, au même titre que les contrôles existants de la charte :
+À ajouter à la suite de tests :
 
-1. `bg-wouj` — **0** hors `public/brand/*.svg` ;
-2. `ring-wouj` — **0** ;
-3. `hover:text-wouj` — **0** ;
-4. `text-sitwon` — **0** (déjà en vigueur) ;
-5. **au plus un élément Wouj permanent par route** : pour chaque page, parcourir la clôture de
-   ses imports et compter les occurrences de Wouj **hors** branche conditionnelle et hors
-   logotype. C'est le seul contrôle qui exige de suivre l'arbre des composants ; c'est aussi
-   celui qui aurait détecté le socle partagé du §3.
+1. `text-sitwon` — **0** (Sitwon n'est jamais un texte) ;
+2. `ring-wouj`, `ring-sitwon` — **0** (le focus est Chabon) ;
+3. `hover:text-wouj`, `hover:border-wouj` — **0** ;
+4. tout `bg-wouj` s'accompagne de `text-white` sur le même élément ;
+5. tout `bg-sitwon` s'accompagne de `text-chabon` ;
+6. **au plus une occurrence de Sitwon permanente par route** — en parcourant la clôture des
+   imports de chaque page et en excluant les branches conditionnelles.
 
-Les quatre premiers sont de simples relevés. Le cinquième est le contrôle réel du quota, et il
-n'existait pas — d'où le conflit.
-
----
-
-## 6. Coût et point soumis à décision
-
-**Correction des composants partagés (§3)** : 4 lignes dans 2 fichiers, plus la suppression de 55
-`ring-wouj` dans 26 fichiers. Aucune régression d'accessibilité — le focus global demeure et
-reste conforme AA. **Recommandé sans réserve.**
-
-**Arbitrages d'écran (§2)** : de l'ordre de 20 lignes sur 8 fichiers.
-
-**⚠️ Point qui excède le mandat du présent avenant.** Les 32 `bg-wouj` sont, pour l'essentiel,
-les **boutons principaux de toute la plateforme** — connexion, inscription, réinitialisation,
-recherche, en-tête public, et huit écrans d'administration. Les porter en Sitwon est conforme à
-la doctrine v3.0 et c'est ce que l'article 6 impose, mais c'est un **changement visuel majeur** :
-le bouton le plus vu de la plateforme passe du rouge au jaune.
-
-Ce n'est pas un arbitrage de quota, c'est une **mise en conformité v3.0** qui aurait dû être
-faite au gel et ne l'a pas été. Il est soumis comme **lot distinct**, à ordonner avant le build
-front-end du prototype v4 — le construire sur des boutons rouges serait bâtir sur un écart connu.
-
-**Mesure qui confirme le diagnostic.** La charte v3.0 déclare avoir porté « 15 CTA en Sitwon
-(3 héros + 12 boutons de soumission) ». Le dépôt en compte **5** (`bg-sitwon`), contre 32
-`bg-wouj`. Le jeton est pourtant bien déclaré — `tailwind.config.ts:29`, `#FDD228` — et
-`text-sitwon` est à 0, conformément à l'interdiction. `sitwon-pal` (`#FFF3C6`), déclaré lui
-aussi, n'est employé **nulle part** : le surlignage étendu et la sélection, prévus par la v3.0,
-n'ont pas été implantés.
-
-La bascule des CTA n'est donc pas une régression postérieure au gel : elle n'a été faite qu'au
-tiers.
+Les cinq premiers sont de simples relevés. Le sixième est le contrôle réel du quota ; il
+n'existait pas, et c'est son absence qui avait laissé passer le socle partagé de trois composants.
 
 ---
 
-*Avenant établi sur relevé exhaustif du dépôt au 16 août 2026 — 26 routes, clôture d'imports
-suivie, 223 occurrences qualifiées — puis contre-épreuve adversariale. Le relevé automatisé
-initial a été partiellement rectifié : deux comptages faux d'un ordre de grandeur sur la carte
-judiciaire, une qualification contradictoire d'une même ligne partagée selon la route, et un SVG
-déclaré absent alors qu'il est le seul du périmètre administratif. Les chiffres agrégés du §1 ont
-été remesurés directement.*
+## 5. Reste ouvert
+
+**Article 6 — où va l'erreur ?** L'AV-02 attribue à Sitwon le statut « Abrogé » et l'alerte de
+certification, à Wouj le CTA, le badge, le surlignage et la navigation active. **Il ne dit pas où
+va l'erreur de saisie.** Cinquante et une occurrences de `text-wouj` subsistent, pour l'essentiel
+des messages d'erreur de formulaire.
+
+Recommandation : **les laisser en Wouj**, pour quatre raisons. L'AV-02 ne les déplace pas ; son
+article 4 range explicitement Wouj au pôle opposé de Vèt, le succès ; le rouge d'erreur est une
+convention que rien ne justifie de rompre ; et la forme distingue les deux emplois — le CTA est
+un **fond** rouge à texte blanc, l'erreur est un **texte** rouge sur fond clair. Ils ne se
+confondent pas.
+
+**À confirmer par le concepteur** avant de figer AV-04.
+
+---
+
+## 6. Sans objet
+
+Le lot soumis à décision par la rédaction précédente — porter les 32 boutons du rouge au jaune —
+**est annulé**. Sous l'AV-02, ces boutons étaient conformes depuis le début.

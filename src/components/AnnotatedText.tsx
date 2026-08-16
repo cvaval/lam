@@ -26,10 +26,10 @@ const LEAD_POINT = /^(\d{1,2}(?:\.\d{1,2})*)\s*\.?\s*-?\s+/
 const STATUS_BADGE: Record<string, { fr: string; cls: string }> = {
   modifié: { fr: 'modifié', cls: 'bg-pil text-chabon' },
   nouveau: { fr: 'nouveau', cls: 'bg-pil text-chabon' },
-  abrogé: { fr: 'abrogé', cls: 'bg-pil text-wouj' },
+  abrogé: { fr: 'abrogé', cls: 'bg-sitwon text-chabon' },
   // Abrogation PARTIELLE (ex. art. 7 du Décret régimes matrimoniaux : seules les dispositions
   // relatives à l'hypothèque légale de la femme mariée tombent — le reste demeure en vigueur).
-  'partiellement abrogé': { fr: 'partiellement abrogé', cls: 'bg-pil text-wouj' },
+  'partiellement abrogé': { fr: 'partiellement abrogé', cls: 'bg-sitwon text-chabon' },
 }
 
 /**

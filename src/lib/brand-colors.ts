@@ -82,8 +82,8 @@ export const BRAND_COLORS = {
   liy: '#D8D7D2',
   /** Pilules · contrôles secondaires */
   pil: '#F2F1EE',
-  /** Seul dérivé admis de Sitwon — passage vérifié étendu, fond de sélection (texte Ank). */
-  sitwonPal: '#FFF3C6',
+  /** Seul dérivé admis (AV-02) — surlignage étendu et fond de sélection, texte Ank (8,41:1, AAA). */
+  woujPal: '#FCE1E4',
   /** Succès — accent fonctionnel. Libellé ou pictogramme OBLIGATOIRE (règle 5). */
   vet: '#347436',
   /**

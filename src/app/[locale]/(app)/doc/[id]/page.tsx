@@ -329,7 +329,7 @@ export default async function DocPage({
           {doc.number && <span className="text-sm font-medium text-ank/80">{doc.number}</span>}
           {doc.status && <StatusChip status={doc.status} label={t.statuses[doc.status as DocStatus]} />}
           {doc.sealed && (
-            <span className="inline-flex items-center gap-1 rounded-full bg-sitwon px-2.5 py-0.5 text-[11px] font-semibold text-chabon">
+            <span className="inline-flex items-center gap-1 rounded-full bg-wouj px-2.5 py-0.5 text-[11px] font-semibold text-white">
               <span aria-hidden>✓</span> {t.doc.verified}
             </span>
           )}
@@ -478,7 +478,7 @@ export default async function DocPage({
               {t.doc.abrogatedByPrefix}{' '}
               <Link
                 href={`/${locale}/doc/${abrogatedBy.id}`}
-                className="font-semibold underline underline-offset-2 hover:text-wouj"
+                className="font-semibold underline underline-offset-2 hover:text-chabon"
               >
                 {abrogatedBy.number}
               </Link>
@@ -705,7 +705,7 @@ export default async function DocPage({
         <div className="no-print flex justify-end">
           <Link
             href={`/${locale}/admin/document/${doc.id}`}
-            className="inline-flex min-h-[44px] items-center rounded-lg border border-liy px-4 text-sm font-semibold text-ank outline-none ring-wouj transition hover:bg-pil focus-visible:ring-2"
+ className="inline-flex min-h-[44px] items-center rounded-lg border border-liy px-4 text-sm font-semibold text-ank transition hover:bg-pil"
           >
             Outils éditoriaux ↗
           </Link>

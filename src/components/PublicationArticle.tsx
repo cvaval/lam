@@ -90,7 +90,7 @@ export function PublicationArticle({
           </div>
         </div>
 
-        <Link href={`/${locale}/publications`} className="mt-10 inline-flex min-h-[44px] items-center font-sans text-sm font-semibold text-ank outline-none ring-wouj transition hover:text-wouj focus-visible:ring-2">
+ <Link href={`/${locale}/publications`} className="mt-10 inline-flex min-h-[44px] items-center font-sans text-sm font-semibold text-ank transition hover:text-chabon">
           ← {isEn ? 'All publications' : 'Toutes les publications'}
         </Link>
         </div>
@@ -100,10 +100,10 @@ export function PublicationArticle({
         <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 px-4 py-6 text-sm text-ank/80">
           <span>© 2026 Lam · {t.brand.baseline}</span>
           <nav className="flex flex-wrap gap-x-5 gap-y-2">
-            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/publications`}>Publications</Link>
-            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
-            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
-            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/publications`}>Publications</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
           </nav>
         </div>
       </footer>

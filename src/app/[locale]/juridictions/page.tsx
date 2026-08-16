@@ -97,7 +97,7 @@ export default async function JuridictionsPage({
       <main className="mx-auto max-w-7xl px-4 pb-16 pt-6">
         <nav aria-label="Fil d’Ariane" className="text-sm text-ank/80">
           <ol className="flex flex-wrap items-center gap-1.5">
-            <li><Link href={`/${locale}`} className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center transition hover:text-wouj hover:underline">{t.judicial.breadcrumbHome}</Link></li>
+            <li><Link href={`/${locale}`} className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center transition hover:text-chabon hover:underline">{t.judicial.breadcrumbHome}</Link></li>
             <li aria-hidden="true">/</li>
             <li aria-current="page" className="font-medium text-ank">{t.judicial.breadcrumbHere}</li>
           </ol>
@@ -135,7 +135,7 @@ export default async function JuridictionsPage({
                 <p className="text-[11px] text-ank/80">
                   <span className="font-medium">{t.judicial.attributionLabel} :</span> {attribution}
                 </p>
-                <a href={reportIssueUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[44px] items-center text-[11px] font-medium text-ank underline underline-offset-2 outline-none ring-wouj transition hover:text-wouj focus-visible:ring-2">
+ <a href={reportIssueUrl} target="_blank"rel="noopener noreferrer"className="inline-flex min-h-[44px] items-center text-[11px] font-medium text-ank underline underline-offset-2 transition hover:text-chabon">
                   {t.judicial.reportIssue}
                 </a>
               </div>
@@ -164,7 +164,7 @@ export default async function JuridictionsPage({
                   key={c.id}
                   href={`/${locale}/juridictions?commune=${c.id}${layersQs}`}
                   aria-current={c.id === record?.commune.id ? 'page' : undefined}
-                  className={`flex min-h-[44px] items-center justify-between gap-2 rounded-lg px-2 text-sm outline-none ring-wouj transition hover:bg-pil focus-visible:ring-2 ${c.id === record?.commune.id ? 'bg-pil font-semibold text-ank' : 'text-ank/80'}`}
+ className={`flex min-h-[44px] items-center justify-between gap-2 rounded-lg px-2 text-sm transition hover:bg-pil ${c.id === record?.commune.id ? 'bg-pil font-semibold text-ank' : 'text-ank/80'}`}
                 >
                   <span>
                     {c.name}
@@ -183,9 +183,9 @@ export default async function JuridictionsPage({
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-6 text-xs text-ank/80">
           <span>© 2026 Lam</span>
           <nav className="flex gap-4">
-            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
-            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
-            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
           </nav>
         </div>
       </footer>

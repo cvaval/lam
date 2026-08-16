@@ -22,7 +22,7 @@ export default async function LoginPage({ params }: { params: { locale: string }
       <section className="flex flex-col justify-between bg-koton px-6 py-6 lg:px-14 lg:py-8">
         <header className="flex items-center justify-between gap-4">
           {/* Logo cliquable → page d'accueil (demande client). */}
-          <Link href={`/${locale}`} aria-label="Accueil Lam" className="inline-flex min-h-[44px] items-center rounded-lg outline-none ring-wouj transition focus-visible:ring-2">
+ <Link href={`/${locale}`} aria-label="Accueil Lam"className="inline-flex min-h-[44px] items-center rounded-lg transition">
             <Logo size={30} />
           </Link>
           <nav className="hidden shrink-0 items-center gap-5 text-sm text-grafit md:flex">
@@ -69,9 +69,9 @@ export default async function LoginPage({ params }: { params: { locale: string }
 
         <footer className="text-xs text-ank/80">
           <nav className="mb-2 flex flex-wrap gap-x-4 gap-y-1">
-            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
-            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
-            <Link className="inline-flex min-h-[44px] items-center transition hover:text-wouj" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
           </nav>
           {`Lam · ${t.brand.baseline} · ${t.common.poweredBy}`}
         </footer>
@@ -92,7 +92,7 @@ export default async function LoginPage({ params }: { params: { locale: string }
             <div className="mt-8 border-t border-liy pt-5 text-center">
               <Link
                 href={`/${locale}/register`}
-                className="inline-flex min-h-[44px] items-center rounded-lg border border-liy px-4 py-2 text-sm font-medium text-ank outline-none ring-wouj transition hover:border-wouj hover:text-wouj focus-visible:ring-2"
+ className="inline-flex min-h-[44px] items-center rounded-lg border border-liy px-4 py-2 text-sm font-medium text-ank transition hover:border-chabon hover:text-chabon"
               >
                 {t.nav.createAccount}
               </Link>

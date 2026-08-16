@@ -52,7 +52,7 @@ export default async function AdminDocumentPage({ params }: { params: { locale: 
         </div>
         <Link
           href={`/${locale}/doc/${doc.id}`}
-          className="inline-flex min-h-[44px] items-center rounded-lg border border-liy px-4 text-sm font-semibold text-ank outline-none ring-wouj transition hover:bg-pil focus-visible:ring-2"
+ className="inline-flex min-h-[44px] items-center rounded-lg border border-liy px-4 text-sm font-semibold text-ank transition hover:bg-pil"
         >
           Voir la fiche ↗
         </Link>

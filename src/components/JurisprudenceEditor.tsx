@@ -126,7 +126,7 @@ export function JurisprudenceEditor({ locale }: { locale: Locale }) {
     } finally { setBusy(false) }
   }
 
-  const champ = 'min-h-[44px] w-full rounded-lg border border-liy bg-white px-3 text-sm text-ank outline-none ring-wouj transition focus:border-wouj focus-visible:ring-2'
+ const champ = 'min-h-[44px] w-full rounded-lg border border-liy bg-white px-3 text-sm text-ank transition focus:border-wouj'
   const etiq = 'mb-1 block text-xs font-semibold uppercase tracking-wide text-grafit'
 
   return (
@@ -156,7 +156,7 @@ export function JurisprudenceEditor({ locale }: { locale: Locale }) {
           </div>
         </div>
         <div className="sm:col-span-2 lg:col-span-4">
-          <label className="inline-flex min-h-[44px] cursor-pointer items-center rounded-lg bg-wouj px-5 text-sm font-semibold text-white outline-none ring-wouj ring-offset-2 transition hover:brightness-95 focus-within:ring-2">
+          <label className="inline-flex min-h-[44px] cursor-pointer items-center rounded-lg bg-wouj px-5 text-sm font-semibold text-white outline-none ring-chabon ring-offset-2 transition hover:brightness-95 focus-within:ring-2">
             <input type="file" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               className="sr-only" disabled={busy}
               onChange={(e) => analyser(e.target.files?.[0])} />
@@ -247,7 +247,7 @@ export function JurisprudenceEditor({ locale }: { locale: Locale }) {
           </p>
         )}
         <button type="button" onClick={enregistrer} disabled={busy || !!blocage}
-          className="inline-flex min-h-[44px] items-center rounded-lg bg-wouj px-5 text-sm font-semibold text-white outline-none ring-wouj ring-offset-2 transition hover:brightness-95 focus-visible:ring-2 disabled:opacity-40">
+ className="inline-flex min-h-[44px] items-center rounded-lg bg-wouj px-5 text-sm font-semibold text-white transition hover:brightness-95 disabled:opacity-40">
           {busy ? '…' : `${lt(L.enregistrer)} (${lignes.length})`}
         </button>
       </div>

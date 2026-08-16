@@ -44,12 +44,13 @@ const COLORS = {
   arrLine: BRAND_COLORS.chabon,
   communeLine: BRAND_COLORS.chabon,
   /**
-   * Sitwon Pal — la charte le désigne nommément comme « fond de sélection ». Depuis
-   * AV-02, la commune choisie doit se lire comme une SURFACE teintée et non comme un
-   * simple liseré, sinon son contour Sitwon se confond avec le triangle Sitwon d'un TPI
-   * posé à l'intérieur. Une aire remplie et un marqueur cerné ne se confondent pas.
+   * Wouj Pal #FCE1E4 — l'avenant AV-02 le crée en remplacement de Sitwon Pal et le
+   * désigne nommément comme « fond de sélection » (texte Ank, 8,41:1, AAA). La commune
+   * choisie doit se lire comme une SURFACE teintée et non comme un simple liseré, sinon
+   * son contour se confond avec le marqueur d'une juridiction posée à l'intérieur. Une
+   * aire remplie et un marqueur cerné ne se confondent pas.
    */
-  selected: BRAND_COLORS.sitwonPal,
+  selected: BRAND_COLORS.woujPal,
 } as const
 
 /** Icône de forme (bordure navy) dessinée hors DOM — retourne l'ImageData. */
@@ -430,7 +431,7 @@ export function JudicialMap({
       role="application"
       aria-label={loadingLabel}
       tabIndex={0}
-      className="h-[46vh] w-full outline-none ring-wouj focus-visible:ring-2 lg:h-[560px]"
+ className="h-[46vh] w-full lg:h-[560px]"
     />
   )
 }

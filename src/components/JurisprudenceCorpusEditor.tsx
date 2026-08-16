@@ -204,9 +204,9 @@ export function JurisprudenceCorpusEditor({ locale }: { locale: Locale }) {
     } finally { setBusy(false) }
   }
 
-  const champ = 'w-full rounded-lg border border-liy bg-white px-3 py-2 text-sm text-ank outline-none ring-wouj transition focus:border-wouj focus-visible:ring-2'
+ const champ = 'w-full rounded-lg border border-liy bg-white px-3 py-2 text-sm text-ank transition focus:border-wouj'
   const etiq = 'mb-1 block text-xs font-semibold uppercase tracking-wide text-grafit'
-  const bouton = 'inline-flex min-h-[44px] items-center rounded-lg bg-wouj px-5 text-sm font-semibold text-white outline-none ring-wouj ring-offset-2 transition hover:brightness-95 focus-visible:ring-2 disabled:opacity-40'
+ const bouton = 'inline-flex min-h-[44px] items-center rounded-lg bg-wouj px-5 text-sm font-semibold text-white transition hover:brightness-95 disabled:opacity-40'
 
   return (
     <div className="space-y-5">
@@ -269,7 +269,7 @@ export function JurisprudenceCorpusEditor({ locale }: { locale: Locale }) {
             <div>
               <div className="mb-1 flex flex-wrap items-center justify-between gap-2">
                 <label htmlFor={`r-${f.id}`} className={etiq}>{lt(L.resume)}</label>
-                <label className="inline-flex min-h-[44px] cursor-pointer items-center rounded-lg border border-liy px-3 text-xs font-semibold text-ank outline-none ring-wouj transition hover:bg-pil focus-within:ring-2">
+                <label className="inline-flex min-h-[44px] cursor-pointer items-center rounded-lg border border-liy px-3 text-xs font-semibold text-ank outline-none ring-chabon transition hover:bg-pil focus-within:ring-2">
                   <input type="file" accept=".docx" className="sr-only" disabled={busy}
                     onChange={(e) => { void televerserChamp(f.id, 'resumeEditorial', e.target.files?.[0]); e.target.value = '' }} />
                   ⬆ {lt(L.televerser)}
@@ -284,7 +284,7 @@ export function JurisprudenceCorpusEditor({ locale }: { locale: Locale }) {
                 <label htmlFor={`t-${f.id}`} className={etiq}>
                   {lt(L.integral)} <span className="font-normal normal-case text-ank/80">— {f.texteIntegral.length.toLocaleString('fr-FR')} car.</span>
                 </label>
-                <label className="inline-flex min-h-[44px] cursor-pointer items-center rounded-lg border border-liy px-3 text-xs font-semibold text-ank outline-none ring-wouj transition hover:bg-pil focus-within:ring-2">
+                <label className="inline-flex min-h-[44px] cursor-pointer items-center rounded-lg border border-liy px-3 text-xs font-semibold text-ank outline-none ring-chabon transition hover:bg-pil focus-within:ring-2">
                   <input type="file" accept=".docx" className="sr-only" disabled={busy}
                     onChange={(e) => { void televerserChamp(f.id, 'texteIntegral', e.target.files?.[0]); e.target.value = '' }} />
                   ⬆ {lt(L.televerser)}

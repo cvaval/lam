@@ -34,7 +34,7 @@ export function ForgotForm({ locale }: { locale: Locale }) {
     return (
       <div className="space-y-4">
         <p className="rounded-lg bg-pil px-3 py-3 text-sm leading-relaxed text-ank/80">{LBL.done[locale]}</p>
-        <a href={`/${locale}/login`} className="inline-flex min-h-[44px] w-full items-center justify-center text-xs text-grafit outline-none ring-wouj transition hover:text-wouj focus-visible:ring-2">
+ <a href={`/${locale}/login`} className="inline-flex min-h-[44px] w-full items-center justify-center text-xs text-grafit transition hover:text-chabon">
           {LBL.back[locale]}
         </a>
       </div>
@@ -54,17 +54,17 @@ export function ForgotForm({ locale }: { locale: Locale }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="vous@cabinet.ht"
-          className="min-h-[44px] w-full rounded-lg border border-liy bg-white px-3.5 text-sm text-ank outline-none ring-wouj transition focus:border-wouj focus-visible:ring-2"
+ className="min-h-[44px] w-full rounded-lg border border-liy bg-white px-3.5 text-sm text-ank transition focus:border-wouj"
         />
       </div>
       <button
         type="submit"
         disabled={loading}
-        className="min-h-[44px] w-full rounded-lg bg-wouj text-sm font-semibold text-white outline-none ring-wouj ring-offset-2 transition hover:brightness-95 focus-visible:ring-2 disabled:opacity-60"
+ className="min-h-[44px] w-full rounded-lg bg-wouj text-sm font-semibold text-white transition hover:brightness-95 disabled:opacity-60"
       >
         {loading ? LBL.sending[locale] : LBL.submit[locale]}
       </button>
-      <a href={`/${locale}/login`} className="inline-flex min-h-[44px] w-full items-center justify-center text-xs text-grafit outline-none ring-wouj transition hover:text-wouj focus-visible:ring-2">
+ <a href={`/${locale}/login`} className="inline-flex min-h-[44px] w-full items-center justify-center text-xs text-grafit transition hover:text-chabon">
         {LBL.back[locale]}
       </a>
     </form>
