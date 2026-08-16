@@ -376,6 +376,18 @@ async function main() {
   console.log(`\n→ ${reg} éditions régulières · ${sp} éditions spéciales · ${rows.reduce((s, r) => s + r.pages, 0)} pages au total`)
   console.log(`→ couche texte exploitable : ${avecTexte.length}/${rows.length} fascicules · ${(rows.reduce((s, r) => s + r.texte.length, 0) / 1e6).toFixed(2)} M caractères`)
 
+  // ⚠️ UN COMPTE NE DIT PAS LESQUELS. Un fascicule sans couche OCR est COMPLET — le
+  // fac-similé se lit — mais il reste introuvable par son contenu : seuls son numéro, son
+  // titre et sa date le désignent. Il se verse quand même, et il se NOMME, pour que la
+  // rédaction sache exactement ce qui attend un océrisage.
+  const sansTexte = rows.filter((r) => r.texte.length <= 200 * Math.max(r.pages, 1))
+  if (sansTexte.length) {
+    console.log(`\n⚠ ${sansTexte.length} fascicule(s) SANS couche texte — versés, mais cherchables par leur seule référence :`)
+    for (const r of sansTexte) {
+      console.log(`   ${r.ref.padEnd(16)} ${String(r.pages).padStart(3)} p. · ${r.texte.length} c.`)
+    }
+  }
+
   // Les références doivent être DISTINCTES : c'est la collision de suffixe qui a laissé
   // 22 numéros dupliqués en 2025. On le voit ici, avant d'écrire.
   const refs = rows.map((r) => r.ref)
