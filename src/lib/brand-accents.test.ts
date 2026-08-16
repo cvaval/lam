@@ -46,10 +46,13 @@ describe('AV-04 — rationnement des accents', () => {
     expect(releve(/\bhover:(text|border)-(wouj|sitwon)\b/)).toEqual([])
   })
 
-  it('tout fond Wouj porte du texte Blan (5,43:1)', () => {
+  it('tout fond Wouj PORTANT DU TEXTE le met en Blan (5,43:1)', () => {
+    // Exemption : un filet ou une puce décorative n'a pas de texte à colorer. Ils se
+    // reconnaissent à leur aria-hidden — cinq cas, tous des barres de titre h-1 w-16.
     const fautifs = releve(/\bbg-wouj\b(?![-/])/).filter((ref) => {
       const [p, n] = ref.split(':')
       const ligne = readFileSync(p, 'utf8').split('\n')[Number(n) - 1]
+      if (/aria-hidden/.test(ligne)) return false
       return !/\btext-(white|inverse)\b/.test(ligne)
     })
     expect(fautifs).toEqual([])
@@ -68,7 +71,12 @@ describe('AV-04 — rationnement des accents', () => {
     expect(releve(/sitwonPal|sitwon-pal/)).toEqual([])
   })
 
-  it('le noir pur reste interdit', () => {
-    expect(releve(/#000000\b|#000\b/)).toEqual([])
+  it('le noir pur reste interdit (hors commentaire énonçant la règle)', () => {
+    const fautifs = releve(/#000000\b|#000\b/).filter((ref) => {
+      const [f, n] = ref.split(':')
+      const ligne = readFileSync(f, 'utf8').split('\n')[Number(n) - 1].trim()
+      return !/^(\*|\/\/|\/\*)/.test(ligne)
+    })
+    expect(fautifs).toEqual([])
   })
 })
