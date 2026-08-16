@@ -17,9 +17,14 @@ import { BRAND_COLORS } from '@/lib/brand-colors'
  * un marqueur jaune sans contour disparaîtrait du fond de carte.
  */
 export const COURT_STYLE: Record<CourtType, { color: string; shape: 'circle' | 'triangle' | 'square' | 'diamond' }> = {
-  PAIX: { color: BRAND_COLORS.wouj, shape: 'circle' },
-  PREMIERE_INSTANCE: { color: BRAND_COLORS.sitwon, shape: 'triangle' },
-  APPEL: { color: BRAND_COLORS.vet, shape: 'square' },
+  // Rotation demandée par la direction (16 août 2026) : les 185 tribunaux de paix passent en
+  // Sitwon et les 5 cours d'appel en Wouj. Le degré le plus NOMBREUX prend la teinte la plus
+  // légère, le plus rare la plus saillante — 185 points rouges saturaient la carte. La forme
+  // reste le porteur primaire du sens (cercle/triangle/carré/losange) : la couleur ne porte
+  // jamais seule, et Vèt/Wouj sont à 1,05:1 de luminance, indiscernables en daltonisme.
+  PAIX: { color: BRAND_COLORS.sitwon, shape: 'circle' },
+  PREMIERE_INSTANCE: { color: BRAND_COLORS.vet, shape: 'triangle' },
+  APPEL: { color: BRAND_COLORS.wouj, shape: 'square' },
   CASSATION: { color: BRAND_COLORS.ble, shape: 'diamond' },
 }
 
