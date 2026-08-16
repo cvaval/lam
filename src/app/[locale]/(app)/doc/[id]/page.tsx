@@ -59,7 +59,9 @@ const HIDE_INLINE_INDEX_SOURCES = new Set([
   'LOI_ECHANGES_ELECTRONIQUES_2017', 'DECRET_ADMINISTRATION_ELECTRONIQUE_2016',
   'DECRET_SIGNATURE_ELECTRONIQUE_2015',
   // Circulaires BRH au lecteur annoté : divisions numérotées « N.- » (pointAnchors).
-  'CIRC_BRH_105_2', 'CIRC_BRH_117_1',
+  // 'AVIS_LD_AGENTS_CHANGE_2020' : Avis + Lignes directrices aux agents de change (14 déc. 2020),
+  // seul texte de la série sans numéro — même appareil (sommaire, index latéral, renvois).
+  'CIRC_BRH_105_2', 'CIRC_BRH_117_1', 'CIRC_BRH_127', 'AVIS_LD_AGENTS_CHANGE_2020',
   // Code de procédure civile : renvois internes « article N » (anti-lien-mort).
   'CODE_PROCEDURE_CIVILE',
 ])
@@ -80,7 +82,9 @@ const ART_REFS_SOURCES = new Set([
   'LOI_ECHANGES_ELECTRONIQUES_2017', 'DECRET_ADMINISTRATION_ELECTRONIQUE_2016',
   'DECRET_SIGNATURE_ELECTRONIQUE_2015',
   // Circulaires BRH au lecteur annoté : divisions numérotées « N.- » (pointAnchors).
-  'CIRC_BRH_105_2', 'CIRC_BRH_117_1',
+  // 'AVIS_LD_AGENTS_CHANGE_2020' : Avis + Lignes directrices aux agents de change (14 déc. 2020),
+  // seul texte de la série sans numéro — même appareil (sommaire, index latéral, renvois).
+  'CIRC_BRH_105_2', 'CIRC_BRH_117_1', 'CIRC_BRH_127', 'AVIS_LD_AGENTS_CHANGE_2020',
   // Code de procédure civile : renvois internes « article N » (anti-lien-mort).
   'CODE_PROCEDURE_CIVILE',
 ])
@@ -90,6 +94,11 @@ const ART_REFS_SOURCES = new Set([
  *  doctrinales sans arrêt à citer. */
 const ANNOTATIONS_VARIANT_SOURCES = new Set([
   'CODE_CIVIL_ANNOTE', 'CODE_COMMERCE_ANNOTE', 'CODE_PROCEDURE_CIVILE',
+  // Circulaire n° 127 et Avis/Lignes directrices aux agents de change : leurs seules
+  // annotations sont ÉDITORIALES (provenance du texte, articulation entre les deux
+  // régimes d'agrément). Sans cette entrée, elles seraient publiées sous le titre
+  // « Jurisprudence » — sur des textes qui n'en ont aucune.
+  'CIRC_BRH_127', 'AVIS_LD_AGENTS_CHANGE_2020',
 ])
 
 export default async function DocPage({

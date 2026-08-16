@@ -72,6 +72,10 @@ const SUPERSEDED_BY_WEB = new Set([
   // sont des téléversements individuels (import-reserves-batch.ts), le PDF est sauté.
   'CirculaireAuxBanques.pdf',
   '121_Circulaire.pdf',
+  // n° 127 : corps OCR RÉPARÉ + lecteur annoté (source dédiée 'CIRC_BRH_127') par
+  // scripts/reparer-circulaire-127.ts. Sans ce saut, le ré-import recréerait un doublon
+  // source='BRH' à côté du document réparé.
+  '127_Circulaire.pdf',
   '126_Circulaire.pdf',
   'Circulaire-129.pdf',
   'Circulaire-129-1-Aux-Institutions-FinancieEres-6-feevrier-2026-Lutte-contre-le-blanchiment-de-capitaux._0001.pdf',
