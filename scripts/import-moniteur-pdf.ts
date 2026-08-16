@@ -66,6 +66,13 @@ const FASCICULES_ECARTES: { fichier: string; raison: string }[] = [
       'quand les deux existent déjà séparément et correctement nommés. Le verser ferait paraître ' +
       'deux fois le même contenu et transformerait le n° 51 en édition de 32 pages.',
   },
+  {
+    fichier: '19881027 No 91-B aaa.pdf',
+    raison:
+      'DOUBLON du n° 91-B — mêmes images aux mêmes dimensions (5288×6720 jbig2 + 4269×1636 jpeg), ' +
+      '2 octets d’écart sur 1,09 Mo : le fichier a été ré-enregistré, et le « aaa » de son nom ne ' +
+      'désigne rien. Le n° 91-B correctement nommé est conservé.',
+  },
 ]
 
 /**
@@ -386,7 +393,7 @@ async function main() {
     for (const r of rectifies) console.log(`   ${r}`)
   }
   if (fusionsSuspectes.length) {
-    console.error(`\n⛔ ARRÊT — ${fusionsSuspectes.length} fusion(s) suspecte(s) : même numéro, JOURS DIFFÉRENTS.`)
+    console.error(`\n⛔ ARRÊT — ${fusionsSuspectes.length} fusion(s) suspecte(s) : deux fichiers pour un même numéro.`)
     for (const f of fusionsSuspectes) console.error(`   ${f}`)
     console.error("   Dans un dossier plat, deux fichiers de même numéro sont un doublon ou une erreur de nom :")
     console.error('   les rectifier (FASCICULES_RECTIFIES) ou en écarter un (FASCICULES_ECARTES).')
