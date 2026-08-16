@@ -84,12 +84,24 @@ function parseEditionName(name: string): { special: boolean; num: number; num2: 
   // faisait disparaître le second : le n° 77 de 1991 n'existait pas, alors que le
   // fascicule était en base sous un autre numéro — et rien ne le signalait.
   //
-  // ⚠️ ET LE LIEN S'ÉCRIT DE DEUX FAÇONS. 1991 écrit « No 76+77 », 1992 « No 105 & 106 » —
-  // le fascicule dit lui-même « Nos 105 et 106, Lundi 21 et Jeudi 24 déc. 1992 ». Un
-  // analyseur qui ne connaîtrait que le « + » perdrait les numéros 106 et 108 de 1992.
+  // ⚠️ ET LE LIEN S'ÉCRIT DE TROIS FAÇONS. 1991 « No 76+77 », 1992-1993 « No 105 & 106 »,
+  // 1994 « No 73 74 » — un simple espace. Les fascicules disent tous la même chose :
+  // « Nos. 73 et 74, Lundi 19 et jeudi 22 septembre ». Un analyseur qui ne connaîtrait que
+  // le « + » aurait perdu six numéros de 1992-1993 et le n° 74 de 1994.
   const m = s.match(/No\.?s?\s*(\d+)\s*(?:[+&]\s*(\d+))?\s*(?:-\s*([A-Za-z])\b)?/i)
   if (!m) return null
-  return { special, num: Number(m[1]), num2: m[2] ? Number(m[2]) : null, suffix: m[3] ? m[3].toUpperCase() : '' }
+  const num = Number(m[1])
+  let num2 = m[2] ? Number(m[2]) : null
+  // ⚠️ L'ESPACE EST UN SÉPARATEUR AMBIGU, ET LA CONSÉCUTIVITÉ EST CE QUI LE DÉSAMBIGUÏSE.
+  // Les dossiers 2016-2026 écrivent « No.44 2Avril 2026 » : le jour SUIT le numéro, séparé
+  // par un espace lui aussi. Lire « 44 2 » comme un double transformerait le n° 44 d'avril
+  // 2026 en « n° 44 et 2 » — un fascicule qui n'a jamais existé. Un fascicule double porte
+  // TOUJOURS deux numéros consécutifs ; on n'accepte donc l'espace qu'à cette condition.
+  if (num2 == null) {
+    const esp = /No\.?s?\s*\d+\s+(\d+)(?![^\s])/i.exec(s)
+    if (esp && Number(esp[1]) === num + 1) num2 = Number(esp[1])
+  }
+  return { special, num, num2, suffix: m[3] ? m[3].toUpperCase() : '' }
 }
 
 function monthFromName(name: string): number | null {
