@@ -58,6 +58,25 @@ const FASCICULES_ECARTES: { fichier: string; raison: string }[] = [
   { fichier: '19920109 No 2.pdf', raison: 'lacune annotée sur le scan : « Manque page 17 et 18 »' },
 ]
 
+/**
+ * Fascicules dont le NOM DE FICHIER ment, et que la première page dément.
+ *
+ * ⚠️ LE DOCUMENT FAIT FOI, PAS SON NOM. « 20000811 No 4 Sup.pdf » porte en manchette
+ * « Supplément du Spécial No. 2 » : lu par son nom, il devenait le n° 4 ordinaire — celui
+ * du 13 janvier — et les deux se fondaient en UNE édition de deux parties, à quatre mois
+ * d'écart. Rien ne l'aurait montré : la fiche eût simplement compté deux PDF.
+ */
+const FASCICULES_RECTIFIES: Record<string, { special: boolean; num: number; suffix: string; motif: string }> = {
+  '20000811 No 2 Sup.pdf': {
+    special: true, num: 2, suffix: '',
+    motif: 'la manchette dit « Spécial No. 2 — Vendredi 11 Août 2000 » (proclamation des résultats définitifs des élections)',
+  },
+  '20000811 No 4 Sup.pdf': {
+    special: true, num: 2, suffix: 'SUP',
+    motif: 'la manchette dit « Supplément du Spécial No. 2 » — le « 4 » du nom de fichier ne correspond à rien',
+  },
+}
+
 const MONTHS: Record<string, number> = {
   JANVIER: 0, 'FÉVRIER': 1, FEVRIER: 1, MARS: 2, AVRIL: 3, MAI: 4, JUIN: 5,
   JUILLET: 6, 'AOÛT': 7, AOUT: 7, SEPTEMBRE: 8, OCTOBRE: 9, NOVEMBRE: 10, 'DÉCEMBRE': 11, DECEMBRE: 11,
@@ -78,6 +97,11 @@ interface Edition {
 /** « Le Moniteur [Spécial] No. 30-A … » → { special, num, suffix }.
  *  NB : noms de fichiers macOS en NFD (« Spe´cial ») → normalisation NFC obligatoire. */
 function parseEditionName(name: string): { special: boolean; num: number; num2: number | null; suffix: string } | null {
+  const rectifie = FASCICULES_RECTIFIES[name.normalize('NFC')]
+  if (rectifie) {
+    rectifies.push(`${name} → ${rectifie.special ? 'SPÉCIALE' : 'régulière'} n° ${rectifie.num}${rectifie.suffix ? `-${rectifie.suffix}` : ''} — ${rectifie.motif}`)
+    return { special: rectifie.special, num: rectifie.num, num2: null, suffix: rectifie.suffix }
+  }
   const s = name.normalize('NFC').replace(/\.pdf$/i, '')
   const special = /sp[ée]cial/i.test(s)
   // ⚠️ « No 76+77 » EST UN SEUL FASCICULE PORTANT DEUX NUMÉROS. Ne lire que le premier
@@ -202,6 +226,8 @@ async function pageCount(file: string): Promise<number> {
 
 /** Motif d'exclusion d'un fichier, ou null s'il doit être versé. */
 const ecartes: string[] = []
+const rectifies: string[] = []
+const fusionsSuspectes: string[] = []
 function motifExclusion(entry: string, exclusionsCli: string[]): string | null {
   const nom = entry.normalize('NFC')
   const connu = FASCICULES_ECARTES.find((x) => x.fichier.normalize('NFC') === nom)
@@ -300,6 +326,15 @@ function addEdition(byKey: Map<string, Edition>, e: Edition) {
   const key = editionKey(e)
   const existing = byKey.get(key)
   if (existing) {
+    // ⚠️ DEUX PDF DU MÊME NUMÉRO NE SONT UNE ÉDITION EN DEUX PARTIES QUE S'ILS PARAISSENT
+    // LE MÊME JOUR. Sinon, ce sont deux documents distincts qu'un nom de fichier trompeur
+    // rapproche — et les fondre les rend tous deux inconsultables, sans le dire.
+    if (existing.day != null && e.day != null && (existing.day !== e.day || existing.monthIdx !== e.monthIdx)) {
+      fusionsSuspectes.push(
+        `${editionRef(e, 0).replace('LM0-', 'n° ')} : ${existing.files.map((f) => f.split('/').pop()).join(', ')} ` +
+          `(${existing.day}/${existing.monthIdx + 1}) et ${e.files.map((f) => f.split('/').pop()).join(', ')} (${e.day}/${e.monthIdx + 1})`,
+      )
+    }
     existing.files.push(...e.files)
     if (existing.day == null) existing.day = e.day
   } else byKey.set(key, e)
@@ -333,6 +368,16 @@ async function main() {
   const SOURCE = `MONITEUR_PDF_${year}`
 
   const editions = collectEditions(dir)
+  if (rectifies.length) {
+    console.log(`\n✎ ${rectifies.length} fascicule(s) RECTIFIÉ(S) — le document dément son nom de fichier :`)
+    for (const r of rectifies) console.log(`   ${r}`)
+  }
+  if (fusionsSuspectes.length) {
+    console.error(`\n⛔ ARRÊT — ${fusionsSuspectes.length} fusion(s) suspecte(s) : même numéro, JOURS DIFFÉRENTS.`)
+    for (const f of fusionsSuspectes) console.error(`   ${f}`)
+    console.error('   Une édition en plusieurs parties paraît le même jour. Vérifier les noms de fichiers.')
+    process.exit(1)
+  }
   if (ecartes.length) {
     console.log(`\n⛔ ${ecartes.length} fascicule(s) ÉCARTÉ(S) — non versés :`)
     for (const e of ecartes) console.log(`   ${e}`)
