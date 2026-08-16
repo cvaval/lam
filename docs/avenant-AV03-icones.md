@@ -1,14 +1,14 @@
-# AVENANT AV-02 — Bibliothèque d'icônes
+# AVENANT AV-03 — Bibliothèque d'icônes
 
 | | |
 |---|---|
-| **Référence** | `LAM-BRAND-2026-08-V3-AV02` |
+| **Référence** | `LAM-BRAND-2026-08-V3-AV03` |
 | **Charte de rattachement** | Klinik v3.0 — `LAM-BRAND-2026-08-V3` (GELÉE) |
 | **Objet** | Arbitrage de la bibliothèque d'icônes ; inventaire par écran ; convention de nommage |
 | **Date** | 16 août 2026 |
 | **Statut** | **VALIDÉ** |
 | **Portée** | Interface publique et back-office — 26 écrans |
-| **Antériorité** | Point 2 des « restant à trancher » de la charte v3.0 |
+| **Antériorité** | Point 2 des « restant à trancher » de la charte v3.0. ⚠️ Renuméroté le 16 août : le numéro AV-02 est occupé par l'avenant du concepteur du 11 août (inversion des accents), découvert dans le pack v4. |
 
 ---
 
@@ -214,7 +214,7 @@ passe, aujourd'hui absent).
 Chacun est à confirmer à l'écran lors de l'intégration : cette liste est dressée sur la
 plateforme **telle qu'elle existe au 16 août 2026**, et non sur le prototype homepage v4, qui n'a
 pas été communiqué. Tout écran nouveau introduit par le prototype relève d'un
-**addendum AV-02*bis***.
+**addendum AV-03*bis***.
 
 ---
 

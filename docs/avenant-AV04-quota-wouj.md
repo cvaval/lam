@@ -1,12 +1,12 @@
-# AVENANT AV-03 — Quota Wouj : arbitrage et règle générale
+# AVENANT AV-04 — Quota des accents : arbitrage et règle générale
 
 | | |
 |---|---|
-| **Référence** | `LAM-BRAND-2026-08-V3-AV03` |
+| **Référence** | `LAM-BRAND-2026-08-V3-AV04` |
 | **Charte de rattachement** | Klinik v3.0 — `LAM-BRAND-2026-08-V3` (GELÉE) |
 | **Objet** | Arbitrage des conflits de quota Wouj ; règle générale de rationnement |
 | **Date** | 16 août 2026 |
-| **Statut** | **VALIDÉ** pour la règle et les arbitrages ; **§6 soumis à décision** |
+| **Statut** | ⚠️ **À REPRENDRE** — rédigé sous le récit d'origine (Wouj = certificateur). L'avenant AV-02 du concepteur, daté du 11 août et découvert le 16 dans le pack v4, **inverse les deux accents**. Les mesures restent valables, les qualifications sont à refaire. |
 | **Portée** | 26 écrans — interface publique et back-office |
 | **Antériorité** | Point 3 des « restant à trancher » de la charte v3.0 |
 
