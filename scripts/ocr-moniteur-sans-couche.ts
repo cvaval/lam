@@ -26,13 +26,21 @@ import { isExhausted } from '../src/lib/ai/provider'
 import { buildSearchText, fold } from '../src/lib/search/normalize'
 
 const prisma = new PrismaClient()
-const RACINE = '/Users/cvaval/Library/CloudStorage/Dropbox/Moniteur/1991-2000'
+const RACINE = '/Users/cvaval/Library/CloudStorage/Dropbox/Moniteur'
+
+/** Le dossier de décennie qui abrite une année : 1990 vit dans « 1981-1990 », 1991 dans
+ *  « 1991-2000 ». Coder la seule décennie 1991-2000 rendait 1990 introuvable — en silence,
+ *  le fascicule étant simplement compté « PDF source introuvable ». */
+function dossierDecennie(year: number): string {
+  const debut = Math.floor((year - 1) / 10) * 10 + 1
+  return `${debut}-${debut + 9}`
+}
 
 /** Le nom du fichier d'origine, consigné dans le corps de la fiche au catalogage. */
 function fichierSource(bodyOriginal: string | null, year: number): string | null {
   const m = /Fichier\s*:\s*(.+?)\]/.exec(bodyOriginal ?? '')
   if (!m) return null
-  const chemin = join(RACINE, `${year} par numéro`, m[1].split(' ; ')[0].trim())
+  const chemin = join(RACINE, dossierDecennie(year), `${year} par numéro`, m[1].split(' ; ')[0].trim())
   return existsSync(chemin) ? chemin : null
 }
 

@@ -56,6 +56,7 @@ const FASCICULES_ECARTES: { fichier: string; raison: string }[] = [
   // pages — et il n'y en a aucun dans toute l'année 1991.
   { fichier: '19920106 No 1.pdf', raison: 'lacune annotée sur le scan : « Manque page 6, 7 et 8 »' },
   { fichier: '19920109 No 2.pdf', raison: 'lacune annotée sur le scan : « Manque page 17 et 18 »' },
+  { fichier: '19900430 No 40-A.pdf', raison: 'lacune annotée sur le scan : « Manque page III »' },
 ]
 
 /**
