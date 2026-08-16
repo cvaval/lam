@@ -51,6 +51,11 @@ const FASCICULES_ECARTES: { fichier: string; raison: string }[] = [
       'sans manchette, le texte commence en milieu de phrase. Date du nom de fichier erronée ' +
       '(le 34 février) ; le fascicule est du jeudi 24 février 2000.',
   },
+  // ⚠️ CES DEUX-LÀ SE DÉNONCENT EUX-MÊMES : l'archiviste a porté la lacune EN TÊTE du
+  // scan, à la main. C'est le signal le plus sûr qui soit — bien plus qu'un décompte de
+  // pages — et il n'y en a aucun dans toute l'année 1991.
+  { fichier: '19920106 No 1.pdf', raison: 'lacune annotée sur le scan : « Manque page 6, 7 et 8 »' },
+  { fichier: '19920109 No 2.pdf', raison: 'lacune annotée sur le scan : « Manque page 17 et 18 »' },
 ]
 
 const MONTHS: Record<string, number> = {
@@ -78,7 +83,11 @@ function parseEditionName(name: string): { special: boolean; num: number; num2: 
   // ⚠️ « No 76+77 » EST UN SEUL FASCICULE PORTANT DEUX NUMÉROS. Ne lire que le premier
   // faisait disparaître le second : le n° 77 de 1991 n'existait pas, alors que le
   // fascicule était en base sous un autre numéro — et rien ne le signalait.
-  const m = s.match(/No\.?\s*(\d+)\s*(?:\+\s*(\d+))?\s*(?:-\s*([A-Za-z])\b)?/i)
+  //
+  // ⚠️ ET LE LIEN S'ÉCRIT DE DEUX FAÇONS. 1991 écrit « No 76+77 », 1992 « No 105 & 106 » —
+  // le fascicule dit lui-même « Nos 105 et 106, Lundi 21 et Jeudi 24 déc. 1992 ». Un
+  // analyseur qui ne connaîtrait que le « + » perdrait les numéros 106 et 108 de 1992.
+  const m = s.match(/No\.?s?\s*(\d+)\s*(?:[+&]\s*(\d+))?\s*(?:-\s*([A-Za-z])\b)?/i)
   if (!m) return null
   return { special, num: Number(m[1]), num2: m[2] ? Number(m[2]) : null, suffix: m[3] ? m[3].toUpperCase() : '' }
 }
