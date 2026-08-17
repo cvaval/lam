@@ -66,7 +66,9 @@ export interface Composition {
 
 /** Rôle de présidence, dans les graphies relevées. */
 const PRESIDENCE: [RegExp, RoleSiege][] = [
-  [/^juge\s*,?\s*(?:faisant fonction|remplissant les fonctions)\s+de\s+pr[ée]sident/i, 'PRESIDENT_FF'],
+  // ⚠️ Le « Juge, » qui précède d'ordinaire est parfois absent — « Frédéric ROBINSON,
+  // faisant fonction de Président » — et le recueil écrit aussi « faisant OFFICE de ».
+  [/^(?:juge\s*,?\s*)?(?:faisant\s+(?:fonction|office)|remplissant les fonctions)\s+de\s+pr[ée]sident/i, 'PRESIDENT_FF'],
   [/^vice-?pr[ée]sident/i, 'VICE_PRESIDENT'],
   [/^pr[ée]sident/i, 'PRESIDENT'],
 ]
@@ -92,7 +94,7 @@ export function cleMagistrat(nom: string): string {
  * magistrats introuvables sans que rien ne le signale.
  */
 export function motsMagistrat(nom: string): string[] {
-  return nom
+  return recoller(nom)
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .toLowerCase()
@@ -102,6 +104,18 @@ export function motsMagistrat(nom: string): string[] {
     .split(/\s+/)
     .filter((m) => m.length > 2) // « Is. », « B. », « J. », « Jh. » : initiales écartées
 }
+
+/**
+ * ⚠️ LA PAGINATION DU RECUEIL COUPE LES NOMS EN DEUX. « Félix DIAM- ( 3 ) BOIS » est
+ * Félix DIAMBOIS, séparé par le numéro de page imprimé au milieu de la ligne. Sans
+ * recollage, il devient un magistrat de plus, portant un seul arrêt.
+ */
+export function recoller(nom: string): string {
+  return nom.replace(/-\s*\(\s*\d+\s*\)\s*/g, '').replace(/\s+/g, ' ').trim()
+}
+
+/** Mots de rôle qui closent une énumération : ils étiquettent, ils ne nomment personne. */
+const ETIQUETTE_DE_ROLE = /^(?:juges?|conseillers?|magistrats?|membres?|soussign[ée]e?s?|pr[ée]sidents?|vice-?pr[ée]sidents?)$/i
 
 /** Un nom de magistrat : deux mots au moins, pas de chiffre, pas une phrase. */
 function ressembleAUnNom(x: string): boolean {
@@ -114,7 +128,9 @@ function ressembleAUnNom(x: string): boolean {
 
 /** Sépare « A, B, C et D » — sans couper « Jh. Marthyl St Julien ». */
 function separerNoms(x: string): string[] {
-  return x
+  // Recollage AVANT le découpage : « Félix DIAM- ( 3 ) BOIS » doit redevenir un nom avant
+  // qu'on lui demande s'il en est un — le numéro de page le faisait rejeter comme chiffré.
+  return recoller(x)
     .split(/\s*[,;]\s*|\s+et\s+/i)
     .map((s) => s.trim().replace(/^(?:et|le|la)\s+/i, '').replace(/[.\s]+$/, ''))
     .filter(Boolean)
@@ -180,10 +196,15 @@ export function lireComposition(ligne: string): Composition {
   const { siege, mp, greffe } = segmenter(brut)
   const ajouter = (nom: string, role: RoleSiege, qualite: string | null, ou: string) => {
     if (!ressembleAUnNom(nom)) {
-      if (nom.trim()) avertissements.push(`${ou} — fragment écarté : « ${nom.trim().slice(0, 70)} »`)
+      // ⚠️ UN MOT DE RÔLE N'EST PAS UN FRAGMENT PERDU. « …, André ROUSSEAU et Max DUPLESSY,
+      // Juges, » laisse « Juges » en dernier segment : il est écarté à juste titre, et le
+      // signaler produisait 97 avertissements identiques sur 82 arrêts — de quoi noyer les
+      // deux qui comptaient. On se tait sur ce qu'on sait écarter.
+      if (nom.trim() && !ETIQUETTE_DE_ROLE.test(nom.trim()))
+        avertissements.push(`${ou} — fragment écarté : « ${nom.trim().slice(0, 70)} »`)
       return
     }
-    membres.push({ nameAsWritten: nom.trim(), role, position: membres.length, qualite })
+    membres.push({ nameAsWritten: recoller(nom).trim(), role, position: membres.length, qualite })
   }
 
   // --- Le siège -----------------------------------------------------------------------
@@ -239,4 +260,53 @@ export function lireComposition(ligne: string): Composition {
   }
 
   return { membres, note: notes.length ? notes.join(' · ') : null, avertissements }
+}
+
+/**
+ * La ligne de composition d'un ARRÊT, tirée de sa formule de clôture.
+ *
+ * Les recueils sans sommaire analytique — celui de l'exercice 1965-1966 — ne portent aucune
+ * ligne « Composition : ». La formation se lit dans l'arrêt lui-même :
+ *
+ *   « Ainsi jugé et prononcé par Nous, Frédéric ROBINSON, Président, Louis B. VILGRAIN,
+ *     Ulrick Is. NOEL, André ROUSSEAU et Max DUPLESSY, Juges, en audience publique du
+ *     Dix-Sept Novembre Mil Neuf Cent Soixante-Cinq, en présence de Monsieur Anthony
+ *     RIVIERE, Substitut du Commissaire du Gouvernement et assistés de Monsieur Clément
+ *     ROMULUS, Commis-Greffier.- »
+ *
+ * Débarrassée de son en-tête et de sa clause d'audience, cette phrase EST le gabarit D, que
+ * `lireComposition` sait déjà lire. On ne réécrit donc pas d'analyseur : on prépare la ligne.
+ *
+ * ⚠️ LA CLAUSE D'AUDIENCE DOIT PARTIR, et pas seulement pour faire propre. Laissée en place,
+ * « en audience publique du Dix-Sept Novembre Mil Neuf Cent Soixante-Cinq » se présente au
+ * découpage des noms comme un segment de plus — une date en toutes lettres ne porte aucun
+ * chiffre qui la trahirait.
+ *
+ * ⚠️ L'INVARIANT EST « PRONONCÉ PAR NOUS », PAS « AINSI JUGÉ » : un arrêt sur 82 ouvre sa
+ * formule sans « Ainsi jugé ». Et l'on retient la DERNIÈRE formule du texte — un arrêt cite
+ * parfois celle de la décision qu'il casse.
+ */
+export function ligneCompositionDeLArret(texte: string): string | null {
+  const t = (texte ?? '').replace(/\s+/g, ' ')
+  // ⚠️ DEUX FORMULES, ET LA SECONDE EST INVERSÉE. La plupart des arrêts écrivent « prononcé
+  // par Nous, <noms>, en audience publique du <date> » ; un autre écrit « rendu en audience
+  // publique du <date>, par Nous, <noms> ». Sans le second ancrage, sa formation est perdue.
+  const ancres = [...t.matchAll(/(?:ainsi\s+(?:jug|d[ée]lib)[ée]r?[ée]e?\s+et\s+)?prononc[ée]e?\s+par\s+nous\s*,?\s*/gi)]
+  const secours = ancres.length ? [] : [...t.matchAll(/\bpar\s+nous\s*,\s*/gi)]
+  const a = (ancres.length ? ancres : secours)[Math.max(0, (ancres.length ? ancres : secours).length - 1)]
+  if (!a) return null
+  // Bornes de fin : les formules de clôture du greffe, qui ne nomment personne.
+  let s = t.slice(a.index + a[0].length).split(/\bIl est ordonn[ée]|\bEn foi de quoi/i)[0]
+  const iAud = s.search(/(?:[àa]|en)\s+l?['’]?\s*audience/i)
+  if (iAud >= 0) {
+    const apres = s.slice(iAud).search(/en\s+pr[ée]sence\s+de|avec\s+l['’]assistance|assist[ée]e?s?\s+de/i)
+    s = apres >= 0 ? `${s.slice(0, iAud)}, ${s.slice(iAud + apres)}` : s.slice(0, iAud)
+  }
+  return s
+    // « par Nous, soussignés, Félix DIAMBOIS, Vice-Président… » : le mot n'est pas un nom,
+    // et placé en tête il se présentait au lecteur comme le président de la formation.
+    .replace(/^soussign[ée]e?s?\s*,?\s*/i, '')
+    .replace(/\s*,\s*,\s*/g, ', ')
+    .replace(/[,;.\s-]+$/, '')
+    .trim() || null
 }

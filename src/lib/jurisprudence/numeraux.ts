@@ -116,17 +116,29 @@ export function dateDeLArret(texte: string): string | null {
   const ancres = [...t.matchAll(/(?:ainsi\s+(?:jug|d[ée]lib)[ée]r?[ée]e?\s+et\s+)?prononc[ée]e?\s+par\s+nous/gi)]
   // La DERNIÈRE : un arrêt peut citer la formule d'une décision antérieure avant de rendre
   // la sienne. La sienne clôt le texte.
-  const depuis = ancres.length ? t.slice(ancres[ancres.length - 1].index) : t
-  const m = new RegExp(
+  if (ancres.length) return dansCeSegment(t.slice(ancres[ancres.length - 1].index), 'premiere')
+  // ⚠️ SANS ANCRE, ON PREND LA DERNIÈRE AUDIENCE DU TEXTE, PAS LA PREMIÈRE. Un arrêt sur 82
+  // (2ᵉ Section n° 5) inverse sa formule — « rendu en audience publique du Jeudi Seize
+  // Décembre …, par Nous, Félix DAIMBOIS, Vice-Président, … » — et n'écrit donc jamais
+  // « prononcé par Nous ». Prendre la première audience y datait l'arrêt du 1er juin, jour
+  // où le Commissaire avait été entendu. Le prononcé, lui, clôt toujours le texte.
+  return dansCeSegment(t, 'derniere')
+}
+
+/** Lit la date dans un segment : première ou dernière mention d'audience qu'il porte. */
+function dansCeSegment(depuis: string, sens: 'premiere' | 'derniere'): string | null {
+  const re = new RegExp(
     // « en audience publique du … », « à l'audience publique et solennelle du … ».
     // ⚠️ Le quantième et le millésime s'écrivent tantôt en lettres, tantôt EN CHIFFRES, et
     // parfois les deux : « du 30 Mai 1966, (Trente Mai Mil Neuf Cent Soixante Six) ». Les deux
     // écritures sont donc acceptées, y compris mêlées — « du 20 Juin Mil Neuf Cent Soixante-Six ».
-    String.raw`audience[^.;]{0,80}?\bdu\s+(\d{1,2}|[\p{L}\s'’-]{3,40}?)\s+(${NOMS_MOIS})\s+(\d{4}|(?:mil|mille)[\p{L}\s'’-]{4,60}?)(?=\s*[,;.(]|\s+en\s+pr[ée]sence|\s+avec\s|\s+et\s+assist)`,
-    'iu',
-  ).exec(replier(depuis))
-  if (!m) return null
-  const j = /^\d+$/.test(m[1]) ? Number(m[1]) : quantiemeEnLettres(m[1])
+    String.raw`audience[^.;]{0,80}?\bdu\s+(\d{1,2}(?:\s*er)?|[\p{L}\s'’-]{3,40}?)\s+(${NOMS_MOIS})\s+(\d{4}|(?:mil|mille)[\p{L}\s'’-]{4,60}?)(?=\s*[,;.(]|\s+en\s+pr[ée]sence|\s+avec\s|\s+et\s+assist)`,
+    'giu',
+  )
+  const tous = [...replier(depuis).matchAll(re)]
+  if (!tous.length) return null
+  const m = sens === 'premiere' ? tous[0] : tous[tous.length - 1]
+  const j = /^\d+\s*(?:er)?$/.test(m[1].trim()) ? parseInt(m[1], 10) : quantiemeEnLettres(m[1])
   const mo = MOIS[replier(m[2])]
   const a = /^\d+$/.test(m[3]) ? Number(m[3]) : anneeEnLettres(m[3])
   if (!j || !mo || !a || j < 1 || j > 31 || a < 1800 || a > 2100) return null
