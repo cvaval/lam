@@ -70,6 +70,39 @@ export const SYNONYMS: Record<string, string[]> = {
   ucref: ['unité centrale de renseignements financiers'],
   ulcc: ['unité de lutte contre la corruption'],
 
+  /**
+   * ── LE MINISTRE S'APPELAIT SECRÉTAIRE D'ÉTAT ──
+   *
+   * ⚠️ SANS CETTE ENTRÉE, « ministre » NE REND PRESQUE RIEN AVANT 1984. Ce n'est pas un
+   * défaut d'océrisation : le Moniteur n'employait pas le mot. Mesuré sur le fonds versé —
+   * 1981 : 6 fascicules sur 81 portent « ministre », 71 portent « secrétaire » ; 1982 :
+   * 2 sur 88 contre 88 ; 1983 : 43 % contre 92 %. À partir de 1984, « ministre » devient
+   * universel (99 %). Le basculement se fait entre 1983 et 1984.
+   *
+   * L'avocat qui cherche un acte ministériel des années 1980 lisait « aucun résultat » sur
+   * 1 695 fascicules, sans que rien lui dise d'essayer l'autre mot.
+   *
+   * ⚠️ TROIS GRAPHIES, ET ELLES SONT TOUTES NÉCESSAIRES — mesurées dans le corpus, non
+   * supposées :
+   *   « secrétaire d'État »   68/81 en 1981, 84/88 en 1982
+   *   « secrétaire d État »   l'OCR perd l'apostrophe : 8 fascicules en 1981, 17 en 1982
+   *   « Secrétairerie »       le DÉPARTEMENT lui-même (Secrétairerie d'État) : 53, 73, 77
+   *
+   * La réciproque est fournie : qui cherche « secrétaire d'État » doit aussi trouver les
+   * textes postérieurs à 1984, qui disent « ministre ».
+   *
+   * ⚠️ « secrétaire » SEUL N'EST PAS UNE EXPANSION : secrétaire de séance, secrétaire
+   * général, secrétaire du tribunal… il est partout, et l'ajouter noierait la requête.
+   * C'est la LOCUTION qui désigne le membre du gouvernement.
+   */
+  ministre: ["secrétaire d'État", 'secretaire d etat', 'secrétairerie'],
+  ministres: ["secrétaire d'État", 'secretaire d etat', 'secrétairerie'],
+  "secrétaire d'état": ['ministre'],
+  'secretaire d etat': ['ministre'],
+  ministère: ['secrétairerie', "secrétairerie d'État"],
+  secrétairerie: ['ministère', 'ministre'],
+  minister: ['ministre', "secrétaire d'État"],
+
   // ── Créole haïtien → français (§02 : le corpus est en français) ──
   lwa: ['loi', 'législation'],
   sikilè: ['circulaire'],
