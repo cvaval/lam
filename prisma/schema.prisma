@@ -8,6 +8,11 @@
 
 generator client {
   provider = "prisma-client-js"
+  // `omit` permet d'EXCLURE une colonne d'une requête sans avoir à énumérer les
+  // soixante autres. Motif : la fiche document rapatriait `searchText` — 1,3 Mo sur le
+  // Code civil — alors qu'elle n'en lit que la LONGUEUR. Énumérer un `select` exhaustif
+  // aurait été fragile : un champ oublié casse la page en silence.
+  previewFeatures = ["omitApi"]
 }
 
 datasource db {
@@ -380,6 +385,11 @@ model Document {
   // Recherche sous-chaîne (LIKE '%terme%') accélérée — index GIN trigramme (extension
   // pg_trgm). Posé en prod via CREATE INDEX CONCURRENTLY (même nom via map:).
   @@index([searchText(ops: raw("gin_trgm_ops"))], type: Gin, map: "Document_searchText_trgm_idx")
+  // Créés le 17 août 2026 en CONCURRENTLY après mesure : la recherche par numéro faisait un
+  // balayage séquentiel de 4 286 ms sur 294 Mo, sur six chemins de code — dont la résolution
+  // des renvois entre circulaires. Ramenée à 0,067 ms.
+  @@index([number])
+  @@index([createdAt])
 }
 
 /// Versions consolidées + historique des modifications (type 1 — §01).
@@ -428,6 +438,7 @@ model Company {
   @@index([name])
   // Recherche sous-chaîne du nom (LIKE '%terme%') — index GIN trigramme (pg_trgm).
   @@index([searchName(ops: raw("gin_trgm_ops"))], type: Gin, map: "Company_searchName_trgm_idx")
+  @@index([nif])
 }
 
 /// Lien société ↔ publication. Une publication peut pointer un document (statuts,
@@ -474,6 +485,7 @@ model SearchLog {
   createdAt    DateTime @default(now())
 
   @@index([createdAt])
+  @@index([userId])
 }
 
 /// Alertes de veille réglementaire (palier Pro ; sectorielles pour Enstitisyon). §03

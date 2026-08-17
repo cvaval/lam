@@ -118,6 +118,10 @@ export default async function DocPage({
 
   const doc = await prisma.document.findUnique({
     where: { id: params.id },
+    // ⚠️ `searchText` est EXCLU : sur le Code civil il pèse 1,3 Mo, et la page n'en lit que
+    // la LONGUEUR (cf. `texteCherchable` plus bas), désormais obtenue par un count SQL.
+    // Le rapatrier doublait presque le poids de la requête pour un seul entier.
+    omit: { searchText: true },
     include: {
       versions: { orderBy: { effectiveDate: 'desc' } },
       citationsFrom: { include: { to: true } },
@@ -284,7 +288,47 @@ export default async function DocPage({
       return 1
     }
   })()
-  const texteCherchable = (doc.searchText ?? '').length >= 200 * pagesFascicule
+  // La longueur du texte cherchable, sans rapatrier le texte : PostgreSQL la calcule et ne
+  // renvoie qu'un entier. Sur le Code civil, 1,3 Mo économisés à chaque affichage de fiche.
+  const [{ n: longueurCherchable }] = await prisma.$queryRaw<{ n: number }[]>`
+    SELECT coalesce(length("searchText"), 0)::int AS n FROM "Document" WHERE id = ${params.id}`
+  /**
+   * COMPORTEMENT DU LECTEUR — DÉDUIT DU DOCUMENT, non d'une liste de sources.
+   *
+   * ⚠️ Ces trois réglages étaient portés par des listes blanches de `doc.source` tenues à la
+   * main dans ce fichier. Conséquence mesurée à l'audit du 16 août 2026 : 123 des 251 documents
+   * annotés du fonds n'y figuraient pas et perdaient donc leur index latéral, leurs renvois
+   * cliquables ou le bon intitulé de leur pliable — sans que rien ne le signale. Et chaque
+   * nouveau code de loi imposait d'éditer un composant d'affichage pour être lu correctement.
+   *
+   * Les trois conditions se lisent en réalité dans l'appareil du document lui-même :
+   *   · l'index inline fait DOUBLON dès que la barre latérale en affiche un ;
+   *   · les renvois « article N » ont un sens dès qu'il existe des ancres d'article ;
+   *   · le pliable s'intitule « Annotations » quand son contenu est éditorial, et
+   *     « Jurisprudence » quand ce sont des décisions.
+   *
+   * Les listes demeurent, mais comme DÉROGATION : elles ne servent plus qu'aux cas où la
+   * déduction se trompe. Aucune n'est requise pour qu'un texte neuf soit bien rendu.
+   */
+  const lecture = {
+    hideInlineIndex:
+      (annotations?.indexEntries.length ?? 0) > 0 || HIDE_INLINE_INDEX_SOURCES.has(doc.source ?? ''),
+    linkArtRefs:
+      Boolean(annotations) || ART_REFS_SOURCES.has(doc.source ?? '') || (doc.source ?? '').startsWith('CC_VANDAL_'),
+    annotationsVariant: (
+      // Des commentaires sans une seule décision : c'est un appareil éditorial, pas de la
+      // jurisprudence. Intituler un tel pliable « Jurisprudence » ment au lecteur — un juriste
+      // qui l'ouvre y cherche des arrêts.
+      Object.keys(annotations?.commentaires ?? {}).length > 0 &&
+      Object.keys(annotations?.jurisprudence ?? {}).length === 0
+        ? 'annotations'
+        : ANNOTATIONS_VARIANT_SOURCES.has(doc.source ?? '')
+          ? 'annotations'
+          : 'juris'
+    ) as 'annotations' | 'juris',
+  }
+
+  const texteCherchable = longueurCherchable >= 200 * pagesFascicule
   /**
    * La transcription AFFICHABLE d'un fascicule scanné : le corps privé de son en-tête de
    * provenance (« [Fascicule scanné … Fichier : …] »), que `verser-texte-moniteur-dans-corps`
@@ -543,7 +587,7 @@ export default async function DocPage({
               {t.doc.editorial}
             </span>
           </div>
-          <p className="text-sm leading-relaxed text-ank/75">{summary}</p>
+          <p className="text-sm leading-relaxed text-ank/80">{summary}</p>
         </section>
       )}
 
@@ -579,11 +623,11 @@ export default async function DocPage({
               hrefFor={hrefFor}
               locale={locale}
               terms={hlTerms}
-              hideInlineIndex={HIDE_INLINE_INDEX_SOURCES.has(doc.source ?? '')}
+              hideInlineIndex={lecture.hideInlineIndex}
               linkCivRefs={doc.source === 'CODE_CIVIL_ANNOTE'}
               ownCode={doc.source === 'CODE_CIVIL_ANNOTE' ? 'civil' : doc.source === 'CODE_PENAL_ANNOTE' ? 'pénal' : undefined}
-              linkArtRefs={ART_REFS_SOURCES.has(doc.source ?? '') || (doc.source ?? '').startsWith('CC_VANDAL_')}
-              annotationsVariant={ANNOTATIONS_VARIANT_SOURCES.has(doc.source ?? '') ? 'annotations' : 'juris'}
+              linkArtRefs={lecture.linkArtRefs}
+              annotationsVariant={lecture.annotationsVariant}
               codeHrefs={codeHrefs}
             />
           </section>
