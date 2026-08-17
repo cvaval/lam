@@ -122,7 +122,7 @@ export default async function DashboardPage({ params }: { params: { locale: stri
               <Link
                 key={d.id}
                 href={`/${locale}/doc/${d.id}`}
-                className="flex items-start gap-3 rounded-xl border border-chabon/10 bg-white px-4 py-3 transition hover:-translate-y-0.5 hover:"
+                className="flex items-start gap-3 rounded-xl border border-chabon/10 bg-white px-4 py-3 transition hover:-translate-y-0.5 hover:border-chabon"
               >
                 <TypeBadge type={d.type as DocType} />
                 <span className="min-w-0 flex-1">

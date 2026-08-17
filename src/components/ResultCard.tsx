@@ -31,7 +31,7 @@ export function ResultCard({
     return (
       <Link
         href={`/${locale}/company/${hit.id}${qs}`}
-        className="block rounded-2xl border border-chabon/10 bg-white p-4 transition hover:-translate-y-0.5 hover:"
+        className="block rounded-2xl border border-chabon/10 bg-white p-4 transition hover:-translate-y-0.5 hover:border-chabon"
       >
         <div className="flex flex-wrap items-center gap-2">
           <span className="rounded-full bg-chabon px-2 py-0.5 text-[11px] font-semibold text-white">
@@ -57,7 +57,7 @@ export function ResultCard({
   return (
     <Link
       href={`/${locale}/doc/${hit.id}${qs}`}
-      className="block rounded-2xl border border-chabon/10 bg-white p-4 transition hover:-translate-y-0.5 hover:"
+      className="block rounded-2xl border border-chabon/10 bg-white p-4 transition hover:-translate-y-0.5 hover:border-chabon"
     >
       <div className="flex items-start gap-3">
         {hit.imageUrl && (

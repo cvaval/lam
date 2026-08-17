@@ -54,7 +54,7 @@ export default async function LegislationPage({ params }: { params: { locale: st
             <Link
               key={y.year}
               href={`/${locale}/editionsmoniteur/${y.year}`}
-              className="group flex flex-col items-center rounded-2xl border border-chabon/10 bg-white px-4 py-6 transition hover:-translate-y-0.5 hover:"
+              className="group flex flex-col items-center rounded-2xl border border-chabon/10 bg-white px-4 py-6 transition hover:-translate-y-0.5 hover:border-chabon"
             >
               <span className="text-3xl font-bold tracking-tight text-ank group-hover:text-chabon">{y.year}</span>
               <span className="mt-1 text-xs text-ank/80">

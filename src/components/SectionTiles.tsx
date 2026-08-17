@@ -174,7 +174,7 @@ export function SectionTiles({
           className={`group relative overflow-hidden rounded-2xl border bg-white p-5 transition ${
             dragType === m.type
               ? 'z-10 scale-[1.02] border-chabon/40 ring-2 ring-chabon/20'
-              : 'border-chabon/10 hover:-translate-y-0.5 hover:'
+              : 'border-chabon/10 hover:-translate-y-0.5 hover:border-chabon'
           }`}
         >
           {/* Filet NEUTRE : le système v1 y codait le type par sa teinte ; Klinik confie

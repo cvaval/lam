@@ -567,7 +567,7 @@ export const ht: Dictionary = {
       featureFuzzy: 'Rechèch ki tolere fot',
       featureByCommune: 'Rezilta pa komin',
       featureVerified: 'Done verifye',
-      note: 'Chwazi pou ouvri paj rechèch la.',
+      note: 'Chwazi pou kòmanse rechèch la.',
     },
     carousel: {
       label: 'Prezantasyon Lam',

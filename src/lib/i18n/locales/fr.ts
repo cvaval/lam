@@ -574,7 +574,7 @@ export const fr = {
       featureFuzzy: 'Recherche tolérante aux fautes',
       featureByCommune: 'Résultats par commune',
       featureVerified: 'Données vérifiées',
-      note: 'Cliquez pour ouvrir la recherche.',
+      note: 'Cliquez pour commencer la recherche.',
     },
     carousel: {
       label: "Présentation de Lam",

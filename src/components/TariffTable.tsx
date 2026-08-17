@@ -173,7 +173,7 @@ export function TariffTable({
                 key={c.code}
                 type="button"
                 onClick={() => { setQ(''); setChapter(c.code) }}
-                className="flex items-start gap-3 rounded-xl border border-chabon/10 bg-white px-3 py-2.5 text-left transition hover:-translate-y-0.5 hover:border-chabon/40 hover:"
+                className="flex items-start gap-3 rounded-xl border border-chabon/10 bg-white px-3 py-2.5 text-left transition hover:-translate-y-0.5 hover:border-chabon/40 hover:border-chabon"
               >
                 <span className="mt-0.5 shrink-0 rounded-md bg-pil px-1.5 py-0.5 font-mono text-xs font-semibold text-chabon">{c.code}</span>
                 <span className="min-w-0">

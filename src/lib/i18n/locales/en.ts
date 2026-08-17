@@ -568,7 +568,7 @@ export const en: Dictionary = {
       featureFuzzy: 'Typo-tolerant search',
       featureByCommune: 'Results by commune',
       featureVerified: 'Verified data',
-      note: 'Select to open the search page.',
+      note: 'Select to start the search.',
     },
     carousel: {
       label: 'Lam introduction',
