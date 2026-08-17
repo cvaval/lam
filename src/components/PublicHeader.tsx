@@ -35,7 +35,7 @@ export function PublicHeader({
   return (
     <header className="sticky top-0 z-40 border-b border-liy bg-white/95 backdrop-blur">
       <div className={`mx-auto flex ${width} items-center justify-between px-4 py-4`}>
- <Link href={`/${locale}`} aria-label="Lam"className="inline-flex min-h-[44px] items-center rounded-lg transition">
+ <Link href={`/${locale}`} aria-label="Lam"className="inline-flex min-h-[44px] items-center rounded-lg transition hover:opacity-80">
           <Logo size={30} />
         </Link>
         <div className="flex items-center gap-2 sm:gap-4">

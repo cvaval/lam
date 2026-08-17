@@ -45,7 +45,7 @@ export default async function AdminLayout({
 
       <div className="flex-1">
         <header className="flex items-center justify-between border-b border-chabon/10 bg-white px-6 py-3 md:justify-end">
-          <Link href={`/${locale}/dashboard`} title={t.nav.dashboard} className="flex items-center gap-2 text-ank md:hidden">
+          <Link href={`/${locale}/dashboard`} title={t.nav.dashboard} className="flex items-center gap-2 text-ank transition hover:opacity-80 md:hidden">
             <FruitMark size={22} />
             <span className="text-xs font-semibold uppercase tracking-wide text-grafit">Admin</span>
           </Link>

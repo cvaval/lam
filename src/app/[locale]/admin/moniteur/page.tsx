@@ -98,7 +98,7 @@ export default async function AdminMoniteurPage({
               </option>
             ))}
           </select>
-          <button type="submit" className="rounded-lg bg-wouj px-3 py-2 text-sm font-semibold text-white">
+          <button type="submit" className="rounded-lg bg-wouj px-3 py-2 text-sm font-semibold text-white transition hover:brightness-95">
             {t.moniteur.show}
           </button>
         </form>
@@ -131,7 +131,7 @@ export default async function AdminMoniteurPage({
           <h2 className="text-sm font-semibold text-ank">
             {t.moniteur.missing} — {year}
           </h2>
-          <Link href={`/${locale}/admin/moniteur/manquants`} className="text-xs font-semibold text-ank underline">
+          <Link href={`/${locale}/admin/moniteur/manquants`} className="text-xs font-semibold text-ank underline transition hover:decoration-2">
             {t.moniteur.missingLink} →
           </Link>
         </div>

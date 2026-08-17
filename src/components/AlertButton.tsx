@@ -24,7 +24,7 @@ export function AlertButton({ q, type, locale, t }: { q: string; type?: DocType;
 
   if (state === 'done') {
     return (
-      <Link href={`/${locale}/account`} className="inline-flex items-center gap-1.5 rounded-full border border-chabon/40 bg-chabon/10 px-3 py-1 text-xs font-medium text-chabon">
+      <Link href={`/${locale}/account`} className="inline-flex items-center gap-1.5 rounded-full border border-chabon/40 bg-chabon/10 px-3 py-1 text-xs font-medium text-chabon transition hover:border-chabon">
         {t.alerts.created}
       </Link>
     )

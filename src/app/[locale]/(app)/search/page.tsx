@@ -420,7 +420,7 @@ export default async function SearchPage({
           {page > 1 && (
             <Link
               href={`/${locale}/search?${qs(searchParams, { page: String(page - 1) })}`}
-              className="rounded-lg border border-chabon/15 bg-white px-3 py-1.5 text-ank"
+              className="rounded-lg border border-chabon/15 bg-white px-3 py-1.5 text-ank transition hover:border-chabon"
             >
               ←
             </Link>
@@ -431,7 +431,7 @@ export default async function SearchPage({
           {page < totalPages && (
             <Link
               href={`/${locale}/search?${qs(searchParams, { page: String(page + 1) })}`}
-              className="rounded-lg border border-chabon/15 bg-white px-3 py-1.5 text-ank"
+              className="rounded-lg border border-chabon/15 bg-white px-3 py-1.5 text-ank transition hover:border-chabon"
             >
               →
             </Link>

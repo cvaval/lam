@@ -23,7 +23,7 @@ export default async function CompanyPage({ params }: { params: { locale: string
     return (
       <div className="mx-auto max-w-xl rounded-2xl border border-chabon/40 bg-pil p-8 text-center">
         <p className="text-sm text-ank/80">{t.paywall.companyLocked}</p>
-        <Link href={`/${locale}/account`} className="mt-3 inline-block rounded-lg bg-chabon px-4 py-2 text-sm font-semibold text-white">
+        <Link href={`/${locale}/account`} className="mt-3 inline-block rounded-lg bg-chabon px-4 py-2 text-sm font-semibold text-white transition hover:brightness-95">
           {t.paywall.cta}
         </Link>
       </div>
@@ -56,7 +56,7 @@ export default async function CompanyPage({ params }: { params: { locale: string
         <div className="space-y-2">
           {company.publications.map((p) => {
             const inner = (
-              <div className="flex items-center justify-between rounded-xl border border-chabon/10 bg-white px-4 py-3">
+              <div className="flex items-center justify-between rounded-xl border border-chabon/10 bg-white px-4 py-3 transition group-hover:border-chabon">
                 <div className="flex items-center gap-2">
                   {p.document && <Pastille type={p.document.type as DocType} />}
                   <div>
@@ -71,7 +71,7 @@ export default async function CompanyPage({ params }: { params: { locale: string
               </div>
             )
             return p.document ? (
-              <Link key={p.id} href={`/${locale}/doc/${p.document.id}`} className="block">
+              <Link key={p.id} href={`/${locale}/doc/${p.document.id}`} className="group block">
                 {inner}
               </Link>
             ) : (

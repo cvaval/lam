@@ -48,7 +48,7 @@ export function TopBar({
   return (
     <header className="no-print sticky top-0 z-30 border-b border-chabon/10 bg-koton/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2.5">
-        <Link href={`/${locale}/dashboard`} className="shrink-0">
+        <Link href={`/${locale}/dashboard`} className="shrink-0 transition hover:opacity-80">
           <Logo size={26} />
         </Link>
         <div className="mx-2 hidden max-w-xl flex-1 sm:block">
@@ -58,7 +58,7 @@ export function TopBar({
           {adminHref && (
             <Link
               href={adminHref}
-              className="hidden rounded-full bg-chabon px-3 py-1.5 text-xs font-semibold text-white md:inline-block"
+              className="hidden rounded-full bg-chabon px-3 py-1.5 text-xs font-semibold text-white transition hover:brightness-95 md:inline-block"
             >
               {adminLabel}
             </Link>

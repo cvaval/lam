@@ -22,7 +22,7 @@ export default async function LoginPage({ params }: { params: { locale: string }
       <section className="flex flex-col justify-between bg-koton px-6 py-6 lg:px-14 lg:py-8">
         <header className="flex items-center justify-between gap-4">
           {/* Logo cliquable → page d'accueil (demande client). */}
- <Link href={`/${locale}`} aria-label="Accueil Lam"className="inline-flex min-h-[44px] items-center rounded-lg transition">
+ <Link href={`/${locale}`} aria-label="Accueil Lam"className="inline-flex min-h-[44px] items-center rounded-lg transition hover:opacity-80">
             <Logo size={30} />
           </Link>
           <nav className="hidden shrink-0 items-center gap-5 text-sm text-grafit md:flex">

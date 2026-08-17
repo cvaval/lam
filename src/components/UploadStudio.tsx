@@ -330,7 +330,7 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
             {done.societes ? ` · ${done.societes} ${t.cms.societeCreated}` : ''}
           </span>
           {done.firstId && (
-            <a href={`/${locale}/doc/${done.firstId}`} className="font-semibold underline">
+            <a href={`/${locale}/doc/${done.firstId}`} className="font-semibold underline transition hover:decoration-2">
               {t.search.open} →
             </a>
           )}
@@ -347,7 +347,7 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
             {gaps.missing.slice(0, 30).join(' · ')}
             {gaps.missing.length > 30 ? ` … (+${gaps.missing.length - 30})` : ''}
           </p>
-          <a href={`/${locale}/admin/moniteur/manquants`} className="mt-1 inline-block text-xs font-semibold underline">
+          <a href={`/${locale}/admin/moniteur/manquants`} className="mt-1 inline-block text-xs font-semibold underline transition hover:decoration-2">
             {t.moniteur.missingLink} →
           </a>
         </div>
@@ -363,7 +363,7 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
             {brhGaps.missing.slice(0, 30).join(' · ')}
             {brhGaps.missing.length > 30 ? ` … (+${brhGaps.missing.length - 30})` : ''}
           </p>
-          <a href={`/${locale}/admin/brh`} className="mt-1 inline-block text-xs font-semibold underline">
+          <a href={`/${locale}/admin/brh`} className="mt-1 inline-block text-xs font-semibold underline transition hover:decoration-2">
             {t.admin.brhNav} →
           </a>
         </div>
