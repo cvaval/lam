@@ -1,11 +1,12 @@
 # Fascicules du Moniteur à repasser à l’océrisation
 
-Relevé du 17 août 2026 — **4 fascicules, 13 pages**. Fonds ancien 1981-2000 :
-**1 596 fascicules, 21 991 pages, 94,4 M de caractères.**
+Relevé du 17 août 2026 — **4 fascicules, 13 pages**, tous en 1985.
 
-> ✅ **Les neuf de 1981 sont faits.** Repassés dans Acrobat 26 le 17 août à midi, ils
-> rendent 7 000 à 7 800 caractères par page — la meilleure densité de tout le fonds.
-> Plus AUCUN fascicule du fonds ancien n’est sans texte.
+> ✅ **Le fonds ancien 1981-2000 est entièrement lisible ET cherchable.**
+> 1 596 fascicules · 21 991 pages · 94,8 M de caractères. Plus AUCUN sans transcription.
+>
+> Les neuf de 1981 (avril) et les dix de 1996-97 ont été repassés dans Acrobat 26 le
+> 17 août et versés.
 
 ## Ce qui reste — 1985, quatre fascicules à pages sautées
 
@@ -30,18 +31,3 @@ existante »**, sinon Acrobat les sautera.
 npx tsx scripts/verser-texte-moniteur-dans-corps.ts --year 1985 --commit
 npx tsx scripts/reindex.ts
 ```
-
-## Un cas à part : les 10 de 1996-1997
-
-Ils sont **cherchables mais non affichables**, et c’est voulu. Leur PDF n’a aucune couche
-texte ; leur contenu a été océrisé par IA en août et vit dans l’index seul, sous forme
-normalisée (minuscules, accents retirés) — illisible à l’écran.
-
-Leur fiche le dit exactement : « son texte intégral est indexé et se retrouve par la
-recherche ; il n’est pas reproduit ici ». **Rien à corriger.** Un passage Acrobat leur
-donnerait en plus le texte affichable — LM1996-58 (24 p.), 59, 60, 58-A, 64-A, 65-A,
-LM1997-40-A, 41, 41-A.
-
-⚠️ Ne PAS relancer `verser-texte-moniteur-dans-corps` sur eux avant de les avoir
-océrisés : le script refuse d’écrire un texte plus pauvre, mais c’est un filet, pas une
-intention.

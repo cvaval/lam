@@ -97,6 +97,15 @@ function assainir(texte: string): string {
     .trim()
 }
 
+/**
+ * ⚠️ ON COMPARE DES MOTS, JAMAIS DES CARACTÈRES. `pdftotext -layout` restitue les colonnes
+ * du journal par des ESPACES : le même texte y pèse 40 % de caractères de plus qu'une
+ * extraction à plat. Comparer les longueurs faisait donc paraître Acrobat plus riche que
+ * l'IA sur les dix fascicules de 1996-97, alors qu'il rendait 2 % de texte en MOINS —
+ * l'écart n'était que du blanc. Le nombre de mots, lui, ne se laisse pas gonfler.
+ */
+const mots = (s: string) => (s.match(/\S+/g) ?? []).length
+
 /** L'en-tête de provenance, débarrassé de sa clause devenue fausse. */
 function entete(ancien: string): string {
   const m = /^\[(.*?)\]/s.exec(ancien)
@@ -176,7 +185,7 @@ async function main() {
       corps: `${entete(ancien)}\n\n${texte}`,
       pages,
       avant: ancien.length,
-      indexe: indexe.length > (d.searchText ?? '').length ? indexe : null,
+      indexe: mots(indexe) > mots(d.searchText ?? '') ? indexe : null,
     })
   }
 
