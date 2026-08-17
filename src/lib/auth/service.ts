@@ -13,6 +13,8 @@ import { downgradeIfPlanExpired } from '../promo'
 import type { Role } from '../types'
 
 const MAX_FAILED = 5
+/** Échecs tous azimuts au-delà desquels on PRÉVIENT sans bloquer (force brute répartie). */
+const ALERTE_TOTAL = 20
 export const LOCK_MINUTES = 15
 
 /**
@@ -21,31 +23,97 @@ export const LOCK_MINUTES = 15
  * notifie par e-mail. Source unique pour les deux chemins d'authentification.
  * Retourne true si le compte vient d'être verrouillé.
  */
+/**
+ * Compte les échecs RÉCENTS d'un compte, et ceux venus de la MÊME ORIGINE.
+ *
+ * Le journal d'audit sert ici de compteur : il est persistant, commun à toutes les
+ * instances, et ces deux chemins y écrivent déjà à chaque échec.
+ */
+async function echecsRecents(userId: string, ip: string | null): Promise<{ origine: number; total: number }> {
+  const fenetre = new Date(Date.now() - LOCK_MINUTES * 60_000)
+  // ⚠ UNE CONNEXION RÉUSSIE EFFACE L'ARDOISE DE SON ORIGINE. Le compteur de colonne était
+  // remis à zéro au succès ; le journal, lui, ne s'efface pas. Sans ce report, l'abonné qui
+  // se trompe trois fois, entre, puis se trompe deux fois de plus se retrouverait verrouillé
+  // — plus sévère qu'avant la correction. On ne compte donc que ce qui suit la réussite.
+  const derniereReussite = ip
+    ? await prisma.auditLog.findFirst({
+        where: { actorId: userId, action: 'LOGIN_OK', ip, createdAt: { gte: fenetre } },
+        orderBy: { createdAt: 'desc' },
+        select: { createdAt: true },
+      })
+    : null
+  const depuis = derniereReussite && derniereReussite.createdAt > fenetre ? derniereReussite.createdAt : fenetre
+  const echecs = { actorId: userId, action: { in: ['LOGIN_FAIL', '2FA_FAIL'] } }
+  const [origine, total] = await Promise.all([
+    ip ? prisma.auditLog.count({ where: { ...echecs, ip, createdAt: { gt: depuis } } }) : Promise.resolve(0),
+    prisma.auditLog.count({ where: { ...echecs, createdAt: { gte: fenetre } } }),
+  ])
+  return { origine, total }
+}
+
+/**
+ * ⚠️ LE VERROU EST PAR ORIGINE, PAS PAR COMPTE — audit du 16 août 2026.
+ *
+ * Le verrouillage était global : cinq essais depuis n'importe où bloquaient l'abonné
+ * quinze minutes. Quiconque connaissait une adresse pouvait donc empêcher son titulaire
+ * de se connecter, indéfiniment, en cinq requêtes toutes les quinze minutes. Un mécanisme
+ * de sécurité devenait une arme contre celui qu'il protégeait — et sur une plateforme
+ * d'avocats, priver un confrère de son fonds documentaire un jour d'audience n'est pas
+ * une gêne théorique.
+ *
+ * Le verrou compte désormais les échecs venus de LA MÊME ADRESSE : un attaquant ne bloque
+ * que lui-même, et le titulaire, qui se connecte d'ailleurs, n'est jamais atteint. La
+ * force brute reste bornée — cinq essais par origine et par quart d'heure, doublés du
+ * frein par IP déjà posé sur la route (12 par minute).
+ *
+ * Ce que ce choix ne couvre pas, et il faut le savoir : une force brute RÉPARTIE sur des
+ * centaines d'adresses n'est plus arrêtée par le verrou. Elle reste bornée par le frein
+ * par IP, et surtout elle est désormais VISIBLE — au-delà de ALERTE_TOTAL échecs tous
+ * azimuts, le titulaire est prévenu et l'événement journalisé. Avertir sans bloquer vaut
+ * mieux que bloquer la victime.
+ *
+ * Sans IP exploitable (proxy mal configuré), on retombe sur le compteur global : mieux
+ * vaut un verrou trop large qu'aucun verrou.
+ */
 async function registerFailedAttempt(
   user: { id: string; email: string; failedLogins: number; lockedUntil: Date | null },
   action: 'LOGIN_FAIL' | '2FA_FAIL',
   ctx: ClientCtx,
   meta?: Record<string, unknown>,
 ): Promise<boolean> {
-  const failed = user.failedLogins + 1
-  const locking = failed >= MAX_FAILED
-  await prisma.user.update({
-    where: { id: user.id },
-    data: {
-      failedLogins: locking ? 0 : failed,
-      lockedUntil: locking ? new Date(Date.now() + LOCK_MINUTES * 60_000) : user.lockedUntil,
-    },
-  })
   await audit({ action, actorId: user.id, ip: ctx.ip, userAgent: ctx.userAgent, meta })
-  if (locking) {
-    await audit({ action: 'LOCKOUT', actorId: user.id, ip: ctx.ip, userAgent: ctx.userAgent })
-    await sendMail(lockoutEmail(user.email, LOCK_MINUTES))
+  const { origine, total } = await echecsRecents(user.id, ctx.ip)
+
+  // Le compteur de colonne reste tenu à jour : il alimente le back-office et sert de
+  // repli quand l'adresse manque. Il ne commande plus le verrou.
+  await prisma.user.update({ where: { id: user.id }, data: { failedLogins: total } })
+
+  const verrouille = ctx.ip ? origine >= MAX_FAILED : total >= MAX_FAILED
+
+  // Notification : au plus une par heure, sinon un attaquant inonderait la boîte du
+  // titulaire — le remède deviendrait la nuisance.
+  if (verrouille || total >= ALERTE_TOTAL) {
+    const dejaPrevenu = await prisma.auditLog.count({
+      where: { actorId: user.id, action: 'LOCKOUT', createdAt: { gte: new Date(Date.now() - 3_600_000) } },
+    })
+    await audit({
+      action: 'LOCKOUT',
+      actorId: user.id,
+      ip: ctx.ip,
+      userAgent: ctx.userAgent,
+      meta: { origine, total, verrouille, reparti: !verrouille },
+    })
+    if (dejaPrevenu === 0) await sendMail(lockoutEmail(user.email, LOCK_MINUTES))
   }
-  return locking
+  return verrouille
 }
 
-function isLocked(user: { lockedUntil: Date | null }): boolean {
-  return Boolean(user.lockedUntil && user.lockedUntil.getTime() > Date.now())
+/** Le compte est-il verrouillé POUR CETTE ORIGINE ? (cf. l'avertissement ci-dessus) */
+async function isLocked(user: { id: string; lockedUntil: Date | null }, ctx: ClientCtx): Promise<boolean> {
+  // Verrou administratif posé à la main en base : il prime et reste global.
+  if (user.lockedUntil && user.lockedUntil.getTime() > Date.now()) return true
+  const { origine, total } = await echecsRecents(user.id, ctx.ip)
+  return ctx.ip ? origine >= MAX_FAILED : total >= MAX_FAILED
 }
 
 export type { ClientCtx } from './request'
@@ -61,7 +129,7 @@ export async function attemptLogin(email: string, password: string, ctx: ClientC
     return { ok: false, error: 'invalidCredentials' }
   }
 
-  if (isLocked(user)) return { ok: false, error: 'locked' }
+  if (await isLocked(user, ctx)) return { ok: false, error: 'locked' }
 
   const valid = await verifyPassword(password, user.passwordHash)
   if (!valid) {
@@ -168,7 +236,7 @@ export async function verifyTwoFactor(code: string, trustDevice: boolean, ctx: C
 
   // Même garde que le mot de passe : un compte verrouillé ne peut pas forcer le
   // code TOTP par essais successifs (la 2FA compte aussi dans le verrouillage).
-  if (isLocked(user)) return { ok: false, error: 'locked' }
+  if (await isLocked(user, ctx)) return { ok: false, error: 'locked' }
 
   const sensitive = isSensitiveRole(user.role as Role)
   const enrolling = !user.totpEnabled
