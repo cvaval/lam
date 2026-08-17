@@ -1,12 +1,33 @@
 # Fascicules du Moniteur à repasser à l’océrisation
 
-Relevé du 17 août 2026 — **4 fascicules de 1985**, 18 pages non reconnues.
+Relevé du 17 août 2026 — **13 fascicules**, 78 pages. Le fonds ancien 1981-2000 est
+entièrement versé (1 695 fascicules) : ce qui suit ne concerne que la RECHERCHE.
 
-> Ils sont **versés et cherchables** : leur texte dépasse largement le seuil de
-> 200 caractères par page. Ce ne sont pas des trous, ce sont des pages sautées à
-> l’intérieur d’un fascicule par ailleurs bien reconnu.
+## 1981 — neuf fascicules sans aucune couche texte
 
-## Le relevé
+Ils sont **versés** : le fac-similé est entier et consultable. Mais leur texte n’existe
+nulle part, donc la recherche ne les trouve que par leur référence.
+
+| Fichier | Référence | Date | Pages |
+| --- | --- | --- | --- |
+| `19810402 No 27.pdf` | LM1981-27 | 2 avril 1981 | 10 |
+| `19810406 No 28.pdf` | LM1981-28 | 6 avril 1981 | 8 |
+| `19810409 No 29.pdf` | LM1981-29 | 9 avril 1981 | 10 |
+| `19810413 No 30.pdf` | LM1981-30 | 13 avril 1981 | 8 |
+| `19810416 No 31.pdf` | LM1981-31 | 16 avril 1981 | 8 |
+| `19810420 No 32.pdf` | LM1981-32 | 20 avril 1981 | 8 |
+| `19810423 No 33.pdf` | LM1981-33 | 23 avril 1981 | 8 |
+| `19810427 No 34.pdf` | LM1981-34 | 27 avril 1981 | 8 |
+| `19810430 No 35.pdf` | LM1981-35 | 30 avril 1981 | 8 |
+
+⚠️ **Ce sont NEUF NUMÉROS CONSÉCUTIFS — tout le mois d’avril 1981.** Leurs pages sont des
+images JBIG2 en niveaux de gris, le format qu’`Adobe Acrobat Pro 11.0.19` — leur
+producteur — ne savait pas traiter. C’est exactement le défaut de 1988, où 47 fascicules
+n’avaient que leur page 1. Le scan est bon ; seule la reconnaissance manque.
+
+## 1985 — quatre fascicules à pages sautées
+
+Bien océrisés dans l’ensemble, mais Acrobat 11 a sauté quelques pages à l’intérieur.
 
 | Fichier | Référence | Pages | Reconnues | Pages sautées |
 | --- | --- | --- | --- | --- |
@@ -15,22 +36,23 @@ Relevé du 17 août 2026 — **4 fascicules de 1985**, 18 pages non reconnues.
 | `19851014 No 73.pdf` | LM1985-73 | 12 | 9 / 12 | 6, 7, 12 |
 | `19851202 No 84.pdf` | LM1985-84 | 30 | 28 / 30 | 21, 27 |
 
-⚠️ Tous portent `Adobe Acrobat Pro 11.0.3` — la version qui ne traitait pas les pages
-JBIG2 en niveaux de gris. C’est le même défaut qu’en 1988, où 47 fascicules n’avaient
-que leur page 1. Ici il ne touche que quelques pages : Acrobat 11 a fait l’essentiel.
+## Comment faire
 
-Portant déjà une couche, ils doivent être repassés avec **« remplacer la reconnaissance
-existante »**, sinon Acrobat les sautera.
+Portant déjà une couche (au moins partielle), ils doivent être repassés avec
+**« remplacer la reconnaissance existante »**, sinon Acrobat les sautera.
 
 ```
+/Users/cvaval/Library/CloudStorage/Dropbox/Moniteur/1981-1990/1981 par numéro/
 /Users/cvaval/Library/CloudStorage/Dropbox/Moniteur/1981-1990/1985 par numéro/
 ```
 
-## Après l’océrisation
+Puis, pour verser le texte retrouvé :
 
 ```bash
+npx tsx scripts/verser-texte-moniteur-dans-corps.ts --year 1981 --commit
 npx tsx scripts/verser-texte-moniteur-dans-corps.ts --year 1985 --commit
+npx tsx scripts/reindex.ts
 ```
 
-Le script ne réécrit que si le PDF apporte plus que la fiche : le relancer sans avoir
-rien océrisé ne fait rien.
+Le script ne réécrit que si le PDF apporte plus que la fiche : le relancer à vide ne
+fait rien, et il ne remplace jamais un texte par un plus pauvre.
