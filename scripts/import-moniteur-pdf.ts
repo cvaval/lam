@@ -477,29 +477,75 @@ async function main() {
   const admin = await prisma.user.findFirst({ where: { role: 'MASTER_ADMIN' }, select: { id: true } })
   if (doPurge) await purgeDemo(admin?.id ?? null)
 
-  // ⚠️ `--commit` REPART DE ZÉRO POUR CETTE SOURCE. Idempotent au premier versement,
-  // destructeur au second : toute correction éditoriale — date rectifiée, titre amendé,
-  // rattachement thématique — serait emportée par un ré-import lancé « pour ne rien
-  // changer ». On ne purge donc une source EXISTANTE que sur demande explicite.
+  /**
+   * ⚠️ TROISIÈME VOIE : COMPLÉTER SANS RIEN DÉTRUIRE.
+   *
+   * Le versement d'une année se faisait jusqu'ici d'un bloc — purge de la source, puis
+   * recréation. C'est juste quand l'année arrive entière et d'un coup. Ce ne l'est plus
+   * quand elle arrive PAR LIVRAISONS : 2026 était en base jusqu'en avril, le dossier de la
+   * cliente allait jusqu'en juillet. Purger pour reverser aurait effacé 216 fiches vivantes
+   * — dates rectifiées, thèmes, favoris — afin d'en réécrire 216 identiques et d'en ajouter
+   * 139. Le résultat aurait paru le même ; le chemin, non.
+   *
+   * `--completer` n'écrit donc QUE les fascicules absents. C'est la référence qui fait foi
+   * pour le doublon, pas le nom de fichier : « No.53-A 20Avril » et « No 53-A avril » sont
+   * un seul fascicule, et un seul.
+   *
+   * ⚠️ ET LA RÉFÉRENCE SE COMPARE NORMALISÉE, TIRETS RETIRÉS. Deux écritures du même
+   * fascicule cohabitent dans le corpus : le suffixe COLLÉ des versements de juin 2026
+   * (« LM2026-SP3A ») et le suffixe DÉTACHÉ que produit `editionRef` aujourd'hui
+   * (« LM2026-SP3-A »). Comparées à la lettre, elles paraissent différentes : le premier
+   * essai a recréé 73 éditions spéciales déjà présentes, sous une seconde référence — des
+   * doublons parfaits que rien à l'écran n'aurait distingués. Ils ont été supprimés ; la
+   * comparaison, elle, ne regarde plus la ponctuation.
+   */
+  const completer = args.includes('--completer')
   const dejaLa = await prisma.document.count({ where: { source: SOURCE } })
-  if (dejaLa && !args.includes('--force')) {
-    console.error(
-      `\n⛔ ARRÊT — ${dejaLa} fiches existent déjà sous ${SOURCE}.\n` +
-        `   Les réécrire effacerait toute correction éditoriale portée depuis le versement.\n` +
-        `   Ajouter --force pour purger et recréer en connaissance de cause.`,
+  const cleFascicule = (ref: string) => ref.toUpperCase().replace(/-/g, '')
+
+  let aCreer = editions.map((e, i) => ({ e, r: rows[i] }))
+  if (completer) {
+    if (args.includes('--force')) {
+      console.error('\n⛔ ARRÊT — --completer et --force s’excluent : l’un ajoute, l’autre purge.')
+      process.exit(1)
+    }
+    const connues = new Set(
+      (await prisma.document.findMany({ where: { source: SOURCE }, select: { number: true } })).map((x) =>
+        cleFascicule(x.number!),
+      ),
     )
-    process.exit(1)
-  }
-  const purged = await prisma.document.deleteMany({ where: { source: SOURCE } })
-  if (purged.count) {
-    await audit({ action: 'DOC_DELETED', actorId: admin?.id ?? null, targetType: 'DOCUMENT', meta: { reason: `ré-import ${SOURCE}`, count: purged.count } })
-    console.log(`Réimport : ${purged.count} fiches ${SOURCE} précédentes supprimées (audit écrit).`)
+    const avant = aCreer.length
+    const present = (x: { e: Edition }) => connues.has(cleFascicule(editionRef(x.e, year)))
+    const sautes = aCreer.filter(present)
+    aCreer = aCreer.filter((x) => !present(x))
+    console.log(`\nComplément : ${dejaLa} fiches déjà en base · ${sautes.length}/${avant} déjà présentes (SAUTÉES) · ${aCreer.length} à créer.`)
+    if (!aCreer.length) {
+      console.log('Rien à ajouter — la base contient déjà tout le dossier.')
+      return
+    }
+  } else {
+    // ⚠️ `--commit` REPART DE ZÉRO POUR CETTE SOURCE. Idempotent au premier versement,
+    // destructeur au second : toute correction éditoriale — date rectifiée, titre amendé,
+    // rattachement thématique — serait emportée par un ré-import lancé « pour ne rien
+    // changer ». On ne purge donc une source EXISTANTE que sur demande explicite.
+    if (dejaLa && !args.includes('--force')) {
+      console.error(
+        `\n⛔ ARRÊT — ${dejaLa} fiches existent déjà sous ${SOURCE}.\n` +
+          `   Les réécrire effacerait toute correction éditoriale portée depuis le versement.\n` +
+          `   Ajouter --completer pour n’ajouter QUE les fascicules absents (recommandé),\n` +
+          `   ou --force pour purger et tout recréer en connaissance de cause.`,
+      )
+      process.exit(1)
+    }
+    const purged = await prisma.document.deleteMany({ where: { source: SOURCE } })
+    if (purged.count) {
+      await audit({ action: 'DOC_DELETED', actorId: admin?.id ?? null, targetType: 'DOCUMENT', meta: { reason: `ré-import ${SOURCE}`, count: purged.count } })
+      console.log(`Réimport : ${purged.count} fiches ${SOURCE} précédentes supprimées (audit écrit).`)
+    }
   }
 
   let created = 0
-  for (let i = 0; i < editions.length; i++) {
-    const e = editions[i]
-    const r = rows[i]
+  for (const { e, r } of aCreer) {
     const ref = editionRef(e, year)
     const label = editionLabel(e, year)
     const moniteurRef = e.special
