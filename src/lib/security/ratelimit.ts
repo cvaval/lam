@@ -99,3 +99,49 @@ export const LIMITS = {
   jurCommune: { limit: 120, windowMs: 60_000 },
   jurMap: { limit: 30, windowMs: 60_000 },
 }
+
+/**
+ * FREIN PERSISTANT — pour les routes où la Map mémoire ci-dessus ne suffit pas.
+ *
+ * ⚠️ Le limiteur en mémoire est INOPÉRANT sur un déploiement serverless : chaque invocation
+ * peut atterrir sur une instance neuve, dont la Map est vide. Il freine un utilisateur qui
+ * insiste sur une instance chaude ; il ne freine pas un script. Le commentaire en tête de ce
+ * fichier le dit depuis l'origine — « en production multi-instances, remplacer par Redis ».
+ *
+ * Sans Redis, `AuditLog` fait un compteur partagé tout à fait convenable pour les routes à
+ * FAIBLE DÉBIT : il est persistant, commun à toutes les instances, indexé sur `action` et
+ * `createdAt`, et ces routes y écrivent déjà. Ce n'est pas un substitut général — n'y recours
+ * pas pour la recherche ou la lecture de documents, où le coût d'une requête par appel serait
+ * absurde. C'est fait pour ce qui doit être rare : créer un compte.
+ */
+export async function guardPersistent({
+  action,
+  ip,
+  limit,
+  windowMs,
+}: {
+  /** Action d'AuditLog à dénombrer — ce que l'on veut RAREFIER, pas la tentative. */
+  action: string
+  ip: string | null | undefined
+  limit: number
+  windowMs: number
+}): Promise<{ ok: boolean; retryAfterS: number }> {
+  // Sans IP exploitable (proxy mal configuré), on ne peut pas compter par origine : on
+  // laisse passer plutôt que de bloquer tout le monde, et la trace d'audit le dira.
+  if (!ip) return { ok: true, retryAfterS: 0 }
+  const { prisma } = await import('../db')
+  const depuis = new Date(Date.now() - windowMs)
+  const n = await prisma.auditLog.count({ where: { action, ip, createdAt: { gte: depuis } } })
+  if (n < limit) return { ok: true, retryAfterS: 0 }
+  return { ok: false, retryAfterS: Math.ceil(windowMs / 1000) }
+}
+
+/**
+ * Inscription — bornes par adresse IP. Généreuses pour un cabinet qui inscrit ses avocats
+ * depuis une même sortie réseau, bloquantes pour un script : ce qu'on empêche, c'est la
+ * création de comptes en masse, et avec elle le hachage bcrypt(11) offert à l'anonyme.
+ */
+export const REGISTER_LIMITS = {
+  heure: { limit: 5, windowMs: 3_600_000 },
+  jour: { limit: 20, windowMs: 86_400_000 },
+}
