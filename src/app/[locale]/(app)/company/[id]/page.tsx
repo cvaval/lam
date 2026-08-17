@@ -22,7 +22,7 @@ export default async function CompanyPage({ params }: { params: { locale: string
   if (!can(user.role, 'index.companies')) {
     return (
       <div className="mx-auto max-w-xl rounded-2xl border border-chabon/40 bg-pil p-8 text-center">
-        <p className="text-sm text-ank/75">{t.paywall.companyLocked}</p>
+        <p className="text-sm text-ank/80">{t.paywall.companyLocked}</p>
         <Link href={`/${locale}/account`} className="mt-3 inline-block rounded-lg bg-chabon px-4 py-2 text-sm font-semibold text-white">
           {t.paywall.cta}
         </Link>

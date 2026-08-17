@@ -4,14 +4,14 @@ import { formatDate } from '@/lib/i18n/format'
 import { prisma } from '@/lib/db'
 
 const ACTION_COLOR: Record<string, string> = {
-  LOGIN_FAIL: 'text-wouj',
-  LOCKOUT: 'text-wouj',
-  '2FA_FAIL': 'text-wouj',
+  LOGIN_FAIL: 'text-chabon',
+  LOCKOUT: 'text-chabon',
+  '2FA_FAIL': 'text-chabon',
   SCRAPING_ALERT: 'text-chabon',
   ACCOUNT_ACTIVATED: 'text-vet',
   DOC_PUBLISHED: 'text-vet',
-  DOC_DELETED: 'text-wouj',
-  EXPORT: 'text-ank/70',
+  DOC_DELETED: 'text-chabon',
+  EXPORT: 'text-ank/80',
 }
 
 export default async function AdminLogsPage({ params }: { params: { locale: string } }) {

@@ -4,7 +4,7 @@ import { fold } from './search/normalize'
 import { accessibleTypes, parseServices } from './access'
 import { sendMail, alertDigestEmail, type AlertDigestItem } from './mail'
 import type { DocType, Role } from './types'
-import { DOC_TYPES } from './types'
+import { DOC_TYPES, corpusForType, isDocType } from './types'
 
 /** Nombre maximal d'alertes par compte (anti-abus). */
 export const MAX_ALERTS = 20
@@ -91,7 +91,13 @@ export async function runAlertsDigest(): Promise<{ alerts: number; emails: numbe
 
   for (const alert of alerts) {
     const allowed = accessibleTypes({ role: alert.user.role as Role, services: parseServices(alert.user.services) })
-    const types = alert.type ? allowed.filter((t) => t === alert.type) : allowed
+    // Une veille porte sur la RUBRIQUE d'où elle a été créée, donc sur tout son corpus :
+    // une alerte « législation annotée » qui ne surveillerait que la doctrine ne se
+    // déclencherait jamais — et rien ne le signalerait, un silence ressemblant à un silence.
+    // Le type vient de la base : il peut être un libellé périmé. On ne l'élargit qu'une
+    // fois reconnu — sinon la veille reste bornée aux seuls services accordés.
+    const corpus = alert.type && isDocType(alert.type) ? corpusForType(alert.type) : null
+    const types = corpus ? allowed.filter((t) => corpus.includes(t)) : allowed
     if (!types.length) continue
     const since = sinceOf(alert)
     const terms = fold(alert.query ?? '')

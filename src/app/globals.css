@@ -2,13 +2,19 @@
    LAM — système chromatique « Klinik » v3.0, CHARTE GELÉE
    Réf. LAM-BRAND-2026-08-V3 · « Le fruit du savoir »
 
-   LE RÉCIT : « Le trait rouge est la marque du certificateur ;
-               le jaune Sitwon est la couleur de l'usage. »
+   LE RÉCIT (inversé par l'AVENANT AV-02 du 11 août 2026) :
+       « Le rouge est la couleur de l'USAGE ;
+         le jaune Sitwon est le trait du CERTIFICATEUR. »
 
-   1. WOUJ #D21034 — rationné à UNE occurrence d'INTERFACE par écran.
-      Le logotype en est EXEMPT. Jamais en fond, jamais en texte courant.
-   2. SITWON #FDD228 — CTA, badge vérifié, surligneur, nav active.
-      Jamais en grande surface, JAMAIS en couleur de texte.
+   1. WOUJ #D21034 — l'USAGE : CTA principal (fond Wouj, TEXTE BLAN), badge
+      « Dokiman verifye », surlignage du terme exact, navigation active.
+      Le logotype garde son trait Wouj, hors quota (AV-02bis).
+   2. SITWON #FDD228 — le CERTIFICATEUR : statut « Abrogé » (pastille fond
+      Sitwon, texte Chabon), alerte de certification. Rationné à UNE occurrence
+      d'interface par écran. JAMAIS un texte, JAMAIS un trait, JAMAIS un fond de
+      page — sur Blan il ne rend que 1,46:1.
+   2 bis. WOUJ PAL #FCE1E4 — surlignage étendu et fond de sélection, texte Ank
+      (8,41:1). Remplace Sitwon Pal #FFF3C6, retiré par l'AV-02.
    3. Tout texte juridique se lit sur Blan ; Koton n'accueille jamais plus
       de deux lignes de texte continu.
    4. Noir pur #000000 interdit — bornes sombres : Chabon et Ank.
@@ -26,19 +32,21 @@ body {
   @apply bg-koton text-ank antialiased;
 }
 
-/* Surlignage — SITWON, la couleur de l'usage. La v2.0 avait dû improviser (fond Pil,
-   trait Wouj) faute d'accent disponible ; la charte v3.0 tranche : le terme EXACT se
-   marque en Sitwon, le passage ÉTENDU (ligne de résultat, citation) en Sitwon Pal,
-   texte Ank. Le rouge n'a plus rien à faire ici — il appartient au certificateur. */
+/* Surlignage — WOUJ, la couleur de l'USAGE (AV-02, art. 1). Chercher est un acte
+   d'usage : le terme EXACT se marque en aplat Wouj à texte Blan (5,43:1), le passage
+   ÉTENDU — ligne de résultat, citation, sélection — en Wouj Pal à texte Ank (8,41:1).
+   ⚠ Sitwon n'a plus rien à faire ici : il appartient au certificateur, et il est
+   rationné à UNE occurrence par écran là où une page de résultats en compte autant
+   que de termes trouvés. */
 mark.hl {
-  background-color: #FDD228;
-  color: #414042;
+  background-color: #D21034;
+  color: #FFFFFF;
   border-radius: 2px;
   padding: 0 2px;
 }
 mark.hl-ext,
 ::selection {
-  background-color: #FFF3C6;
+  background-color: #FCE1E4;
   color: #3F4043;
 }
 

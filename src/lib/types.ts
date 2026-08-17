@@ -68,6 +68,39 @@ export const TYPE_SLUGS: Record<string, DocType> = {
   legislation: 'LEGISLATION', // → editionsmoniteur
 }
 
+/**
+ * Corpus visé par un slug de RUBRIQUE — c'est-à-dire les types qu'elle liste.
+ *
+ * ⚠️ Un slug de rubrique n'est pas un type. « legislationannotee » se résolvait en
+ * l'unique DocType DOCTRINE, alors que la rubrique liste aussi la LEGISLATION : le lien
+ * « Rechercher dans toute la législation annotée » cherchait donc dans 2 documents sur
+ * 3 136 (mesuré le 17 août 2026). La recherche répondait — elle répondait à côté, ce qui
+ * ne se voit pas : une page de résultats presque vide ressemble à une absence de résultats.
+ *
+ * Le corpus est déclaré une seule fois, dans `DOC_TYPE_META` (brand.ts), avec le reste de
+ * l'identité de la rubrique. C'est la même source que celle qui borne l'affichage de la
+ * rubrique : la recherche par rubrique et la rubrique elle-même ne peuvent plus diverger.
+ *
+ * UNE SEULE RÈGLE, sans exception : un type EST sa rubrique — il n'existe qu'une rubrique
+ * par type, et aucun écran n'offre « la doctrine seule ». Le slug, le numéro et le DocType
+ * en clair mènent donc tous au même corpus. Une règle qui ne vaudrait que pour le slug
+ * ferait diverger la page (qui résout le slug avant d'interroger), l'API (qui reçoit le
+ * slug) et les alertes (qui stockent le type) — c'est-à-dire refabriquer, ailleurs, le
+ * défaut qu'on corrige ici.
+ *
+ * Ne borne AUCUN droit : l'appelant intersecte toujours avec les services accordés (§03).
+ */
+export function corpusForType(type: DocType): DocType[] {
+  const corpus = DOC_TYPE_META[type].corpus
+  return corpus ? [...corpus] : [type]
+}
+
+/** Idem, à partir d'un slug d'URL ou d'un numéro de rubrique. */
+export function corpusForSlug(slug: string): DocType[] | undefined {
+  const type = TYPE_SLUGS[slug]
+  return type ? corpusForType(type) : undefined
+}
+
 export function isRole(v: string): v is Role {
   return (ROLES as readonly string[]).includes(v)
 }

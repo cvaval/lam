@@ -69,7 +69,7 @@ export default async function AccountPage({ params }: { params: { locale: string
             const g = grantText(matrix[cap], t)
             return (
               <li key={cap} className="flex items-center justify-between py-2.5 text-sm">
-                <span className="text-ank/75">{t.account.caps[cap]}</span>
+                <span className="text-ank/80">{t.account.caps[cap]}</span>
                 {/* Pictogramme EN PLUS du libellé : la charte interdit toute information
                     portée par la couleur seule, et l'œil balaie ici une colonne entière. */}
                 <span className={g.ok ? 'font-medium text-vet' : 'text-ank/80'}>

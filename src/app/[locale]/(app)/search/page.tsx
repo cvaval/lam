@@ -17,7 +17,7 @@ import { RateLimitNotice } from '@/components/RateLimitNotice'
 import { can } from '@/lib/rbac'
 import { accessibleTypes, isIndexOnly } from '@/lib/access'
 import { DOC_TYPE_LIST, DOC_TYPE_META } from '@/lib/brand'
-import { TYPE_SLUGS, isIndexCategory, type DocType, type DocStatus } from '@/lib/types'
+import { TYPE_SLUGS, corpusForType, isIndexCategory, type DocType, type DocStatus } from '@/lib/types'
 import { ROLES_SIEGE } from '@/lib/search/decision'
 
 export default async function SearchPage({
@@ -48,6 +48,8 @@ export default async function SearchPage({
     : requestedType && allowed.includes(requestedType)
       ? requestedType
       : undefined
+  // Intersection, jamais union : le corpus restreint les services accordés (§03).
+  const rechercheTypes = selectedType ? corpusForType(selectedType).filter((t) => allowed.includes(t)) : allowed
   const page = Math.max(1, Number(searchParams.page ?? '1') || 1)
   // Tri (navigation) : date de signature (défaut) / entrée en vigueur / numéro ↑↓.
   const sortParam = (['sig', 'eff', 'num-asc', 'num-desc', 'recent'] as const).find((s) => s === searchParams.sort)
@@ -101,8 +103,10 @@ export default async function SearchPage({
         {
           q,
           locale,
-          // Sans type choisi : on cherche dans TOUS les types accordés (jamais au-delà).
-          types: selectedType ? [selectedType] : allowed,
+          // `selectedType` est l'identité de la RUBRIQUE (chip actif, filtres, lien retour) ;
+          // la requête, elle, porte sur tout le CORPUS de cette rubrique. Confondre les deux
+          // faisait chercher « toute la législation annotée » dans 2 documents sur 3 136.
+          types: rechercheTypes,
           status: (searchParams.status as DocStatus) || undefined,
           juridiction: searchParams.juridiction,
           matiere: searchParams.matiere,
@@ -359,7 +363,7 @@ export default async function SearchPage({
           <Link
             href={`/${locale}/search?${qs(baseParams, { type: undefined, status: undefined, juridiction: undefined, matiere: undefined, fiscalYear: undefined, niceClass: undefined, category: undefined, num: undefined, year: undefined, sansDate: undefined, effYear: undefined, effSansDate: undefined, yearFrom: undefined, yearTo: undefined })}`}
             className={`rounded-full border px-3 py-1 text-xs font-medium ${
-              !selectedType ? 'border-liy bg-chabon text-white' : 'border-chabon/15 bg-white text-ank/70 hover:border-chabon/40'
+              !selectedType ? 'border-liy bg-chabon text-white' : 'border-chabon/15 bg-white text-ank/80 hover:border-chabon/40'
             }`}
           >
             {t.search.allTypes}
@@ -371,7 +375,7 @@ export default async function SearchPage({
               key={m.type}
               href={`/${locale}/search?${qs(baseParams, { type: m.slug })}`}
               className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium ${
-                selectedType === m.type ? 'border-liy bg-chabon text-white' : 'border-chabon/15 bg-white text-ank/70 hover:border-chabon/40'
+                selectedType === m.type ? 'border-liy bg-chabon text-white' : 'border-chabon/15 bg-white text-ank/80 hover:border-chabon/40'
               }`}
             >
               <Pastille type={m.type as DocType} />

@@ -8,7 +8,7 @@ import { consumeSearchQuota } from '@/lib/quota'
 import { guard, LIMITS } from '@/lib/security/ratelimit'
 import { can } from '@/lib/rbac'
 import { accessibleTypes } from '@/lib/access'
-import { TYPE_SLUGS, isDocType, isIndexCategory, type DocType, type DocStatus } from '@/lib/types'
+import { corpusForSlug, corpusForType, isDocType, isIndexCategory, type DocType, type DocStatus } from '@/lib/types'
 
 export const runtime = 'nodejs'
 
@@ -37,11 +37,14 @@ export async function GET(req: NextRequest) {
   const typeParam = sp.get('type')
   let types: DocType[]
   if (typeParam) {
-    const resolved = TYPE_SLUGS[typeParam] ?? (isDocType(typeParam) ? (typeParam as DocType) : undefined)
-    // Type inconnu ou non accordé → repli sur TOUS les types accordés — même
-    // comportement que la page de recherche (parité page/API), jamais au-delà
-    // de `allowed` (pas de fuite §03).
-    types = resolved && allowed.includes(resolved) ? [resolved] : allowed
+    // Une rubrique ouvre sur tout le corpus qu'elle liste : « legislationannotee » =
+    // législation + doctrine, et non la seule doctrine — 3 136 documents, pas 2.
+    const resolved = corpusForSlug(typeParam) ?? (isDocType(typeParam) ? corpusForType(typeParam as DocType) : undefined)
+    // INTERSECTION, jamais union : le corpus d'une rubrique RESTREINT les types accordés,
+    // il n'en ouvre aucun. Type inconnu ou non accordé → repli sur tous les types
+    // accordés (parité page/API), jamais au-delà de `allowed` (pas de fuite §03).
+    const retenus = resolved?.filter((t) => allowed.includes(t)) ?? []
+    types = retenus.length ? retenus : allowed
   } else {
     types = allowed
   }

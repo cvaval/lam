@@ -81,7 +81,7 @@ export default async function TarifsPage({ params }: { params: { locale: string 
               {levies.map((l, i) => (
                 <tr key={i} className={i % 2 === 1 ? 'bg-[rgba(27,31,61,0.025)]' : ''}>
                   <td className="px-4 py-1.5 font-medium text-ank">{l.levy}</td>
-                  <td className="px-4 py-1.5 text-ank/75">{l.scope}</td>
+                  <td className="px-4 py-1.5 text-ank/80">{l.scope}</td>
                 </tr>
               ))}
             </tbody>
