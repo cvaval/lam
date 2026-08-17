@@ -285,6 +285,18 @@ export default async function DocPage({
     }
   })()
   const texteCherchable = (doc.searchText ?? '').length >= 200 * pagesFascicule
+  /**
+   * La transcription AFFICHABLE d'un fascicule scanné : le corps privé de son en-tête de
+   * provenance (« [Fascicule scanné … Fichier : …] »), que `verser-texte-moniteur-dans-corps`
+   * conserve parce que trois scripts s'en servent pour retrouver le PDF.
+   *
+   * ⚠️ ELLE NE PEUT PAS VENIR DE `searchText` : celui-ci passe par `fold()` — minuscules,
+   * accents retirés — et rendrait « journal officiel de la republique ». Le texte lisible
+   * est relu du PDF et versé dans `bodyOriginal`.
+   */
+  const transcription = isScannedEdition
+    ? (doc.bodyOriginal ?? '').replace(/^\[.*?\]/s, '').trim() || null
+    : null
   const canViewPdf = type === 'CIRCULAIRE_BRH' || canSeeSourcePdf(user)
   // Citation juridique copiable : désignation + référence Moniteur / numéro + date.
   const citation =
@@ -577,21 +589,39 @@ export default async function DocPage({
           </section>
         </div>
       ) : isScannedEdition ? (
-        <section className="rounded-2xl border border-chabon/10 bg-white p-6 text-center">
-          <p className="mx-auto mb-4 max-w-md text-sm leading-relaxed text-grafit">
-            {texteCherchable ? t.doc.scannedEditionSearchable : t.doc.scannedEdition}
+        <section className="rounded-2xl border border-chabon/10 bg-white p-6">
+          <p className={`mx-auto max-w-2xl text-sm leading-relaxed text-grafit ${transcription ? '' : 'mb-4 text-center'}`}>
+            {transcription
+              ? t.doc.scannedEditionTranscribed
+              : texteCherchable
+                ? t.doc.scannedEditionSearchable
+                : t.doc.scannedEdition}
           </p>
-          {canViewPdf ? (
-            <a
-              href={`/api/doc/${doc.id}/pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-chabon px-4 py-2.5 text-sm font-semibold text-white hover:bg-chabon"
-            >
-              ↗ {t.doc.openPdf}
-            </a>
-          ) : (
-            <p className="text-xs text-ank/80">{t.doc.pdfNotIncluded}</p>
+          <div className={`text-center ${transcription ? 'mt-4' : ''}`}>
+            {canViewPdf ? (
+              <a
+                href={`/api/doc/${doc.id}/pdf`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg bg-chabon px-4 py-2.5 text-sm font-semibold text-white hover:bg-chabon"
+              >
+                ↗ {t.doc.openPdf}
+              </a>
+            ) : (
+              <p className="text-xs text-ank/80">{t.doc.pdfNotIncluded}</p>
+            )}
+          </div>
+          {transcription && (
+            <div id={ANCRE_TEXTE} className="mt-6 scroll-mt-4 border-t border-chabon/10 pt-5">
+              <h2 className="mb-3 text-sm font-semibold text-ank">{t.doc.transcriptionHeading}</h2>
+              {/* ⚠️ LA MISE EN COLONNES DU JOURNAL EST SIGNIFIANTE, et `pdftotext -layout` la
+                  restitue par des espaces. Un rendu qui replie les blancs entrelacerait les
+                  deux colonnes du Moniteur ligne à ligne : d'où la chasse fixe, les blancs
+                  conservés, et le défilement propre au bloc plutôt qu'à la page. */}
+              <pre className="max-h-[70vh] overflow-auto whitespace-pre rounded-lg bg-pil p-4 font-mono text-[12px] leading-relaxed text-chabon">
+                {transcription}
+              </pre>
+            </div>
           )}
         </section>
       ) : (

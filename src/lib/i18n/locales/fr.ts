@@ -165,6 +165,8 @@ export const fr = {
     copyArticle: 'Copier l’article',
     otherService: 'Document d’un autre service',
     scannedEditionSearchable: 'Ce document est un fascicule scanné du journal officiel « Le Moniteur ». Son texte intégral est indexé et se retrouve par la recherche ; il n’est pas reproduit ici — la transcription automatique du microfilm sert à trouver, non à citer. Seul le fac-similé fait foi.',
+    scannedEditionTranscribed: 'Transcription automatique du fascicule scanné, reproduite telle quelle : l’océrisation d’un microfilm laisse des coquilles. Elle sert à lire et à chercher — pour citer, se reporter au fac-similé, qui seul fait foi.',
+    transcriptionHeading: 'Transcription du fascicule',
     scannedEdition: 'Ce document est un fascicule scanné du journal officiel « Le Moniteur ». Le texte intégral n’est pas encore océrisé — consultez le PDF original.',
     openPdf: 'Consulter le fascicule (PDF)',
     pdfNotIncluded: 'La consultation du PDF n’est pas incluse dans votre offre.',

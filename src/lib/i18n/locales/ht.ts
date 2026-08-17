@@ -161,6 +161,8 @@ export const ht: Dictionary = {
     copyArticle: 'Kopye atik la',
     otherService: 'Dokiman yon lòt sèvis',
     scannedEditionSearchable: 'Dokiman sa a se yon nimewo eskane jounal ofisyèl « Le Moniteur ». Tout tèks li endekse epi rechèch la jwenn li ; nou pa repwodui l isit — transkripsyon otomatik mikrofilm nan sèvi pou jwenn, pa pou site. Se sèlman fac-similé a ki fè lwa.',
+    scannedEditionTranscribed: 'Transkripsyon otomatik nimewo eskane a, jan li ye: OCR yon mikrofilm kite fot. Li sèvi pou li ak pou chèche — pou site, ale nan fac-similé a, se li menm sèl ki fè lwa.',
+    transcriptionHeading: 'Transkripsyon nimewo a',
     scannedEdition: 'Dokiman sa a se yon nimewo eskane jounal ofisyèl « Le Moniteur ». Tèks konplè a poko nan OCR — gade PDF orijinal la.',
     openPdf: 'Gade nimewo a (PDF)',
     pdfNotIncluded: 'Konsiltasyon PDF la pa nan òf ou a.',
