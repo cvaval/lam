@@ -1,10 +1,14 @@
 /**
  * Import des circulaires de la BRH (PDF océrisés) dans le corpus Lam.
  *
- *   npx tsx scripts/import-brh.ts --dir "<dossier>" [--commit]
+ *   npx tsx scripts/import-brh.ts --dir "<dossier>" [--commit] [--purge]
  *
  * Sans --commit : inventaire seul (table de relecture, aucun écrit en base).
- * Avec --commit : purge les documents source='BRH' puis importe (idempotent).
+ * Avec --commit : RÉCONCILIE (apparie sur numéro + intitulé, met à jour le contenu, crée
+ *   ce qui manque, SIGNALE sans supprimer ce qui n'est plus dans la source). Les thèmes,
+ *   notes, favoris et renvois survivent.
+ * Avec --commit --purge : ancien comportement — supprime tout source='BRH' avant d'importer.
+ *   ⚠️ DÉTRUIT les 84 rattachements thématiques. À n'employer qu'à dessein.
  *
  * Volontairement heuristique + relecture humaine/IA : les titres et dates extraits
  * sont affichés pour validation ; les corrections vivent dans MANUAL_FIXES.
@@ -273,6 +277,7 @@ async function main() {
   const dirIdx = args.indexOf('--dir')
   const dir = dirIdx >= 0 ? args[dirIdx + 1] : process.env.BRH_DIR
   const commit = args.includes('--commit')
+  const purge = args.includes('--purge')
   if (!dir) {
     console.error('Usage: npx tsx scripts/import-brh.ts --dir "<dossier des PDF>" [--commit]')
     process.exit(1)
@@ -361,54 +366,114 @@ async function main() {
   if (skipped.length) console.log('Hors série (non importés) :\n  ' + skipped.join('\n  '))
   if (unrecognized.length) console.log('NON RECONNUS :\n  ' + unrecognized.join('\n  '))
 
-  if (!commit) {
-    console.log('\n(Inventaire seul — relire la table, compléter MANUAL_FIXES, puis relancer avec --commit)')
-    return
-  }
-
-  // ── Écriture ──
-  // Toute suppression de documents (a fortiori scellés) doit laisser une trace dans AuditLog.
-  const toPurge = await prisma.document.findMany({
+  // ── Plan de réconciliation (calculé toujours) puis écriture (si --commit) ──
+  // ────────────────────────────────────────────────────────────────────────────
+  // RÉCONCILIATION — et non purge puis recréation.
+  //
+  // ⚠️ Ce bloc PURGEAIT `source='BRH'` avant de tout recréer, en se disant idempotent.
+  // Il ne l'était pas : recréer un document lui donne un identifiant neuf, et tout ce
+  // qui pendait à l'ancien tombait avec lui. Mesuré le 17 août 2026, à la veille d'être
+  // corrigé : 42 documents et **84 rattachements thématiques** — le classement sur deux
+  // axes (matière et assujetti) établi d'après la taxonomie de la BRH elle-même, plusieurs
+  // jours de travail — étaient détruits à CHAQUE exécution. Et demain, avec eux : les
+  // notes de lecteurs, les mises en favori, les renvois croisés, les annotations.
+  //
+  // On apparie donc sur (numéro, intitulé) — `number` n'est PAS unique, quatre circulaires
+  // portent le même numéro que leur « Note additionnelle » — et l'on met à jour le CONTENU
+  // sans jamais toucher aux relations. Un document absent de la source est SIGNALÉ, non
+  // supprimé : c'est à un humain de décider qu'un texte doit disparaître du fonds.
+  //
+  // `--purge` rétablit l'ancien comportement, à dessein et en le disant.
+  // ────────────────────────────────────────────────────────────────────────────
+  const cle = (n: string | null, t: string | null) => `${n ?? ''}\u0000${t ?? ''}`
+  const existants = await prisma.document.findMany({
     where: { source: 'BRH' },
-    select: { id: true, number: true, sealed: true },
+    select: { id: true, number: true, titleFr: true, _count: { select: { themes: true } } },
   })
-  const purged = await prisma.document.deleteMany({ where: { source: 'BRH' } })
-  console.log(`\nPurge source=BRH : ${purged.count} (tracé AuditLog DOC_DELETED)`)
-  if (purged.count > 0) {
+  const parCle = new Map(existants.map((d) => [cle(d.number, d.titleFr), d]))
+
+  if (purge) {
+    const liens = existants.reduce((a, d) => a + d._count.themes, 0)
+    console.log(`\n⚠️  --purge : suppression de ${existants.length} documents et de ${liens} rattachements thématiques.`)
+    const supprimes = await prisma.document.deleteMany({ where: { source: 'BRH' } })
     await audit(
       {
         action: 'DOC_DELETED',
         targetType: 'DOCUMENT',
         meta: {
           actor: 'script:import-brh',
-          reason: 'purge avant ré-import (--commit)',
+          reason: 'purge EXPLICITE demandée par --purge',
           source: 'BRH',
-          count: purged.count,
-          sealedCount: toPurge.filter((d) => d.sealed).length,
-          ids: toPurge.map((d) => d.id),
-          numbers: toPurge.map((d) => d.number),
+          count: supprimes.count,
+          themeLinksLost: liens,
+          ids: existants.map((d) => d.id),
+          numbers: existants.map((d) => d.number),
         },
       },
       prisma,
     )
+    parCle.clear()
   }
+
+  // Le PLAN est calculé et affiché dans tous les cas ; seule l'écriture dépend de --commit.
+  // Sans cela, on ne peut vérifier l'appariement qu'en écrivant — c'est-à-dire trop tard.
   let created = 0
+  let updated = 0
+  let inchanges = 0
   for (const r of keep) {
-    await prisma.document.create({
-      data: {
-        type: 'CIRCULAIRE_BRH',
-        status: 'EN_VIGUEUR',
-        titleFr: r.title,
-        bodyOriginal: r.body,
-        number: r.number,
-        publicationDate: r.date,
-        matiere: 'Droit bancaire',
-        source: 'BRH',
-        sealed: true,
-        searchText: buildSearchText({ titleFr: r.title, number: r.number, bodyOriginal: r.body, matiere: 'Droit bancaire' }),
-      },
-    })
+    const contenu = {
+      titleFr: r.title,
+      bodyOriginal: r.body,
+      publicationDate: r.date,
+      searchText: buildSearchText({ titleFr: r.title, number: r.number, bodyOriginal: r.body, matiere: 'Droit bancaire' }),
+    }
+    const dejaLa = parCle.get(cle(r.number, r.title))
+    if (dejaLa) {
+      // Mise à jour du CONTENU seulement. On ne touche ni au statut éditorial, ni au
+      // sceau, ni aux thèmes, ni à quoi que ce soit qui ait été posé à la main.
+      const av = await prisma.document.findUnique({ where: { id: dejaLa.id }, select: { bodyOriginal: true, titleFr: true } })
+      if (av?.bodyOriginal === r.body && av?.titleFr === r.title) inchanges++
+      else {
+        if (commit) await prisma.document.update({ where: { id: dejaLa.id }, data: contenu })
+        updated++
+      }
+      parCle.delete(cle(r.number, r.title))
+      continue
+    }
+    if (commit) {
+      await prisma.document.create({
+        data: {
+          type: 'CIRCULAIRE_BRH',
+          status: 'EN_VIGUEUR',
+          number: r.number,
+          matiere: 'Droit bancaire',
+          source: 'BRH',
+          sealed: true,
+          ...contenu,
+        },
+      })
+    }
     created++
+    if (!commit) console.log(`      + ${String(r.number).padEnd(28)} ${String(r.title).slice(0, 66)}`)
+  }
+
+  console.log(`\n${commit ? 'Réconciliation' : 'PLAN (aucune écriture)'} : ${created} à créer · ${updated} à mettre à jour · ${inchanges} inchangés`)
+  if (!commit && created > 5) {
+    console.log(`\n   ⚠️  ${created} créations pour ${keep.length} documents en source : si vous attendiez des mises`)
+    console.log('      à jour, l\'appariement (numéro + intitulé) a changé — vérifiez AVANT de lancer --commit,')
+    console.log('      sinon vous obtiendrez des doublons.')
+  }
+  if (parCle.size > 0) {
+    console.log(`\n⚠️  ${parCle.size} document(s) en base SANS correspondance dans la source — NON supprimés :`)
+    for (const d of parCle.values()) console.log(`      ${String(d.number).padEnd(30)} ${String(d.titleFr).slice(0, 60)}`)
+    console.log('   Les retirer est une décision éditoriale : le faire à la main, ou relancer avec --purge.')
+  }
+
+  if (!commit) {
+    console.log('\n(Simulation — rien n\'a été écrit. Relire le plan et la table, compléter MANUAL_FIXES,')
+    console.log(' puis relancer avec --commit.)')
+    await prisma.$disconnect()
+    return
   }
 
   // ── Versions HTML pérennisées (réserves obligatoires) ──────────────────────────
