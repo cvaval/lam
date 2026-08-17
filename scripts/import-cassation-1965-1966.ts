@@ -94,6 +94,8 @@ const CIVILITE = /^(?:les?\s+|la\s+|l'|du\s+|des\s+|de\s+la\s+|de\s+l'|de\s+|d')
 function nom(s: string): string {
   let t = s
     .replace(/\s+/g, ' ')
+    // Deux-points ou « Attendu » : le nom est fini, la prose de l'arrêt commence.
+    .split(/\s*:\s*|\s+Attendu\b/i)[0]
     .replace(/,?\s*(?:Soci[ée]t[ée]|S\.?A\.?|demand|d[ée]fend|patent|[ée]tabli|domicili|repr[ée]sent|agissant|propri[ée]taire|commer[çc]ant|n[ée]gociant|en\s+sa\s+qualit[ée]).*$/i, '')
   // Parenthèse ouverte non refermée : la fenêtre a coupé le nom, on rend ce qui précède.
   if ((t.match(/\(/g) ?? []).length > (t.match(/\)/g) ?? []).length) t = t.slice(0, t.lastIndexOf('('))
@@ -104,6 +106,9 @@ function nom(s: string): string {
 function estUnNom(s: string | null): boolean {
   if (!s) return false
   const reste = s.replace(CIVILITE, '').trim()
+  // ⚠️ Une particule esseulée en fin de chaîne signe une TRONCATURE : « Charles DE » n'est
+  // pas un nom, c'est un nom coupé. Mieux vaut la désignation neutre qu'un nom amputé.
+  if (/\b(?:de|du|des|d'|la|le|les|et|[àa]|en|par|pour|veuve|vve\.?)$/i.test(reste)) return false
   return reste.length > 2 && /[A-ZÉÈÀÂÎÔÛ][\wÉÈÀÂÎÔÛéèàâîôû'-]{2,}/.test(reste)
 }
 
@@ -122,7 +127,9 @@ function parties(corps: string): { demandeur: string | null; defendeur: string |
   const c = /\bContre[^a-zA-Z]{0,4}(?:\d[o°]\)?\s*)?(?:un |une |le |la |les |l'|sieur |dame |demoiselle |Monsieur |M\. )?(.{3,120}?)(?:,|;|\.)/i.exec(t)
   const dem = d ? nom(d[1]) : null
   let def = c ? nom(c[1]) : null
-  if (def && EST_UNE_DECISION.test(def)) def = null
+  // ⚠️ Test sur TOUTE la chaîne, pas seulement son début : « 1o) un jugement du Tribunal
+  // Civil » laissait passer « o) un jugement… » dès que le préfixe numéroté variait.
+  if (def && (EST_UNE_DECISION.test(def) || /\b(jugements?|arr[êe]ts?|tribunal|cour\s+d|d[ée]cisions?|sentences?|ordonnances?)\b/i.test(def))) def = null
   // Un adversaire qui n'est qu'une civilité (« son épouse », « le sieur ») n'est pas un nom.
   return { demandeur: estUnNom(dem) ? dem : null, defendeur: estUnNom(def) ? def : null }
 }
