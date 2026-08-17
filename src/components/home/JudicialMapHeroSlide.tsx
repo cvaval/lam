@@ -186,7 +186,7 @@ export function JudicialMapHeroSlide({ locale, t }: { locale: Locale; t: Diction
             {/* `text-ank` sur le conteneur : la fiche est blanche à l'intérieur d'une
                 section `text-koton`. Sans cette base, tout texte qui oublierait sa
                 couleur hériterait du crème — invisible sur blanc. */}
-            <div className="hidden rounded-2xl bg-white p-4 text-ank ring-1 ring-chabon/10 lg:absolute lg:right-0 lg:top-4 lg:block lg:w-[17.5rem] xl:w-[19rem]">
+            <div className="hidden rounded-2xl bg-white p-4 text-ank ring-1 ring-chabon/10 lg:absolute lg:right-0 lg:top-4 lg:block lg:w-[14.5rem] xl:w-[15.5rem]">
               <h3 className="font-sans text-xl font-medium text-ank">Port-au-Prince</h3>
               {/* /65 et non /50 : sur blanc, /50 ne donnait que 3,26:1 (AA = 4,5). */}
               <p className="mt-0.5 text-[11px] text-ank/75">Ouest · Arrondissement de Port-au-Prince</p>
