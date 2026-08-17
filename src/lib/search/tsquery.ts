@@ -94,10 +94,24 @@ export function buildTsQuery(raw: string): TsQueryPlan | null {
     if (p.replace(/[^a-z0-9]/g, '').length >= 3) phrases.push(escapeLike(p))
   }
 
+  // ⚠️ LE DÉCOUPAGE SE FAIT SUR TOUT CE QUI N'EST PAS ALPHANUMÉRIQUE, PAS SUR LES SEULS
+  // ESPACES. Le trait d'union, l'apostrophe, la barre oblique et le point SÉPARENT deux
+  // mots — ils ne s'effacent pas au milieu d'un mot.
+  //
+  // Le défaut corrigé ici a coûté cher, et il était invisible : en découpant aux espaces
+  // puis en retirant les caractères non alphanumériques À L'INTÉRIEUR du mot, « Port-au-
+  // Prince » devenait le lexème unique « portauprince » — qui n'existe nulle part. Mesuré
+  // sur le corpus le 16 août 2026 : 4 documents rendus au lieu de 2 445. Le même défaut
+  // frappait toute la toponymie du pays (Croix-des-Bouquets, Petit-Goâve, Anse-à-Veau) et
+  // le vocabulaire courant du droit : procès-verbal, non-lieu, sous-traitance, chef-lieu,
+  // ayant-droit, contre-expertise.
+  //
+  // Une recherche « Port-au-Prince » produit désormais « port:* & prince:* » — « au » étant
+  // un mot vide —, soit exactement ce que produisait déjà la saisie avec des espaces.
   const words = [
     ...new Set(
       fold(q)
-        .split(/\s+/)
+        .split(/[^a-z0-9]+/)
         .map(lexeme)
         .filter((w) => w.length >= 2 && !STOPWORDS.has(w)),
     ),

@@ -19,7 +19,9 @@ import { parseCirculaireRef } from '../brh/gaps'
 
 /** Groupes de synonymes des mots de contenu de la requête (pour la couverture). */
 function buildGroups(q: string): string[][] {
-  const words = fold(q).split(/\s+/).filter((w) => w.length >= 3 && !STOPWORDS.has(w))
+  // Découpage sur tout ce qui n'est pas alphanumérique, comme buildTsQuery : sinon
+  // « procès-verbal » reste un jeton unique et ne rencontre aucun groupe de synonymes.
+  const words = fold(q).split(/[^a-z0-9]+/).filter((w) => w.length >= 3 && !STOPWORDS.has(w))
   const uniq = [...new Set(words)]
   return uniq.map((w) => {
     const set = new Set([w])
@@ -315,7 +317,10 @@ export class FtsProvider implements SearchProvider {
       }
     }
     if (exact.length === 0 && fuzzy.length === 0 && !wantsExact) {
-      const queryWords = fold(query.q).split(/\s+/).filter((w) => w.length >= 4)
+      // Même découpage que buildTsQuery : « Port-au-Prince » donnerait sinon un seul
+      // pseudo-mot de 14 lettres, que la comparaison par trigrammes ne rapprocherait
+      // de rien — le repli orthographique était donc muet sur tout composé.
+      const queryWords = fold(query.q).split(/[^a-z0-9]+/).filter((w) => w.length >= 4)
       const exactSet = new Set(terms)
       const fuzzyTermSet = new Set<string>()
       for (const w of queryWords) {
