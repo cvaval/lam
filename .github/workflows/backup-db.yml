@@ -29,6 +29,7 @@ concurrency:
 
 permissions:
   contents: read
+  issues: write   # pour ouvrir une alerte quand la sauvegarde échoue (voir la dernière étape)
 
 jobs:
   backup:
@@ -85,17 +86,36 @@ jobs:
               bash -euo pipefail -c '
                 rm -f "$OUT"
                 pg_dump "$DB" -Fc --no-owner --no-privileges -f "$OUT"
-                pg_restore --list "$OUT" >/dev/null || { echo "::warning::archive illisible"; exit 1; }
-                if ! pg_restore --list "$OUT" | grep -q "TABLE DATA public Document "; then
+                # ⚠ NE JAMAIS canaliser pg_restore --list DANS grep -q SOUS pipefail.
+                # grep -q sort dès la PREMIÈRE correspondance et ferme le tuyau ; pg_restore
+                # reçoit alors SIGPIPE et rend 141 ; pipefail propage ce 141 au pipeline, et
+                # un dump PARFAITEMENT VALIDE est déclaré incomplet. Ce défaut d une ligne a
+                # fait échouer 21 des 29 sauvegardes entre le 23 juillet et le 16 août 2026,
+                # dont dix jours consécutifs — les dumps étaient bons, le contrôle mentait.
+                # (Le bloc de diagnostic, lui, ne passait pas -q : il imprimait donc la table
+                # Document juste sous le message annonçant son absence. Personne ne l a lu.)
+                # On matérialise le listing, puis on le lit sans tuyau.
+                pg_restore --list "$OUT" > listing.txt || { echo "::warning::archive illisible"; exit 1; }
+                if ! grep -q "TABLE DATA public Document " listing.txt; then
                   echo "::warning::table Document absente du listing — diagnostic :"
                   echo "— taille de l archive : $(du -h "$OUT" | cut -f1)"
                   echo "— entrées TABLE DATA présentes :"
-                  pg_restore --list "$OUT" | grep "TABLE DATA" || echo "  (aucune)"
+                  grep "TABLE DATA" listing.txt || echo "  (aucune)"
                   echo "— 40 premières lignes du listing :"
-                  pg_restore --list "$OUT" | head -40
+                  head -40 listing.txt
+                  rm -f listing.txt
                   exit 1
                 fi
-                echo "Dump OK : $(du -h "$OUT" | cut -f1)"
+                # Contrôle de FOND, pas seulement de forme : une archive peut lister la table
+                # et ne contenir aucune ligne. On exige un plancher de taille.
+                TAILLE=$(stat -c %s "$OUT")
+                if [ "$TAILLE" -lt 5000000 ]; then
+                  echo "::warning::archive de $TAILLE octets — sous le plancher de 5 Mo"
+                  rm -f listing.txt
+                  exit 1
+                fi
+                echo "Dump OK : $(du -h "$OUT" | cut -f1) · $(grep -c "TABLE DATA public" listing.txt) tables publiques"
+                rm -f listing.txt
               '
           }
           if ! dump_once; then
@@ -135,3 +155,45 @@ jobs:
             | while read -r old; do
                 [ -n "$old" ] && aws s3 rm "s3://${R2_BUCKET}/${old}" --endpoint-url "$ENDPOINT" --only-show-errors
               done
+
+      # ─────────────────────────────────────────────────────────────────────────
+      # ALERTE — la cause profonde des 21 échecs silencieux (23 juil. → 16 août 2026)
+      # n'était pas le défaut de shell : c'était que RIEN N'AVERTISSAIT. Le flux
+      # tournait, échouait, et personne ne le savait. Un filet dont la rupture est
+      # muette n'est pas un filet.
+      #
+      # Une alerte est ouverte en ISSUE : visible sans configurer de secret, elle
+      # apparaît dans l'onglet Issues et déclenche la notification GitHub habituelle.
+      # Une seule issue ouverte à la fois — un échec de dix jours ne doit pas produire
+      # dix alertes, mais une seule qu'on ne peut pas manquer.
+      - name: Alerte si la sauvegarde a échoué
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const titre = '⚠️ La sauvegarde de la base a échoué'
+            const { data: ouvertes } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'sauvegarde',
+            })
+            const url = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
+            const corps = [
+              `La sauvegarde quotidienne de la base de production a échoué le ${new Date().toISOString().slice(0, 10)}.`,
+              '',
+              `Journal : ${url}`,
+              '',
+              '**Tant que cette alerte est ouverte, la base n\'est pas sauvegardée.**',
+              'Refermer cette issue une fois la cause corrigée et une exécution manuelle réussie',
+              '(onglet Actions → « Sauvegarde de la base » → « Run workflow »).',
+            ].join('\n')
+            if (ouvertes.length > 0) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: ouvertes[0].number, body: `Nouvel échec.\n\nJournal : ${url}`,
+              })
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title: titre, body: corps, labels: ['sauvegarde'],
+              })
+            }
