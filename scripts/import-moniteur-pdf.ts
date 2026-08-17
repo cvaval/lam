@@ -66,6 +66,29 @@ const FASCICULES_ECARTES: { fichier: string; raison: string }[] = [
       'quand les deux existent déjà séparément et correctement nommés. Le verser ferait paraître ' +
       'deux fois le même contenu et transformerait le n° 51 en édition de 32 pages.',
   },
+  // ─────────────────────────── 1986 ───────────────────────────
+  {
+    fichier: '19860305 No 21.pdf',
+    raison:
+      'CE N’EST PAS UN FASCICULE, C’EST L’ANNÉE RELIÉE — 1 467 pages, 120 Mo. Elle s’ouvre ' +
+      'bien au n° 21 (p. 222 du recueil), mais court jusqu’au n° 104 du 29 décembre : elle ' +
+      'contient 83 numéros qui sont TOUS présents séparément dans le dossier. La verser ' +
+      'ferait du n° 21 une édition de 1 467 pages et indexerait l’année une seconde fois. ' +
+      '⚠️ Le n° 21 est donc PERDU pour 1986 : son texte propre n’existe que dans ce volume, ' +
+      'à en extraire ou à re-numériser.',
+  },
+  // ⚠️ LE SEUIL EST À 20 % DU FASCICULE, ET IL EST ASSUMÉ. 27 fascicules de 1986 portent une
+  // lacune annotée — un quart de l’année. Les écarter tous priverait la lectrice de 21
+  // numéros pour une page absente sur vingt-cinq, quand le scan lui-même le dit en tête.
+  // La règle posée par la cliente visait un fascicule amputé de 6 pages sur 16 (2000 n° 16) :
+  // on écarte donc ce qui perd au moins un cinquième, on verse le reste, et le manque reste
+  // écrit sur le fac-similé que la fiche présente.
+  { fichier: '19860324 No 27.pdf', raison: 'lacune annotée : « Manquants : 302 à 344 » — 43 pages du recueil, plus que le fascicule n’en compte (30)' },
+  { fichier: '19860421 No 35.pdf', raison: 'lacune annotée : « Manquant : 447 » — le fichier ne fait qu’UNE page, c’est un fragment' },
+  { fichier: '19860116 No 4.pdf', raison: 'lacune annotée : « Manquant : 29, 31, 33, 34 » — 4 pages sur 6' },
+  { fichier: '19860127 No 7.pdf', raison: 'lacune annotée : « Manquant : 71 et 72 » — 2 pages sur 4' },
+  { fichier: '19860626 No 51.pdf', raison: 'lacune annotée : « Manquant 724 et 725 » — 2 pages sur 6' },
+  { fichier: '19860109 No 2.pdf', raison: 'lacune annotée : « manquant page 15 » — 1 page sur 4' },
   // 1987 : la lacune est portée en tête de page 1, et elle nomme les PAGES DU RECUEIL
   // (pagination continue de l'année), non les pages du fascicule.
   { fichier: '19870416 No 32.pdf', raison: 'lacune annotée : « Manquant 500, 501 et 503 »' },
