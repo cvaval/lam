@@ -89,7 +89,7 @@ export function JudicialMapHeroSlide({ locale, t }: { locale: Locale; t: Diction
           style={{ background: 'radial-gradient(60% 70% at 70% 45%, rgba(253,210,40,0.13), transparent 70%)' }}
         />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-x-8 gap-y-8 px-4 pb-10 pt-12 lg:min-h-[610px] lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:py-16">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-x-8 gap-y-8 px-4 pb-10 pt-12 lg:min-h-[610px] lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:py-16">
           {/* ── Colonne de texte ─────────────────────────────────────────── */}
           <div className="relative z-10">
             <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-grafit">{h.eyebrow}</p>
@@ -149,7 +149,7 @@ export function JudicialMapHeroSlide({ locale, t }: { locale: Locale; t: Diction
               494 px, pendait de 203 px sous le fond arrondi. Un plancher la contient, et
               la carte se centre dans ce qui reste.
             */}
-            <div className="relative mx-auto w-full max-w-xl lg:mx-0 lg:flex lg:min-h-[32rem] lg:max-w-none lg:items-center lg:pr-[18rem] xl:pr-[19.5rem]">
+            <div className="relative mx-auto w-full max-w-xl lg:mx-0 lg:flex lg:min-h-[32rem] lg:max-w-none lg:items-center lg:pr-[13rem] xl:pr-[14rem]">
               {/*
                 ⚠️ CETTE BOÎTE ÉPOUSE LE SVG, ET RIEN D'AUTRE. L'étiquette est posée en
                 POURCENTAGE (cf. FOCUS_PCT en tête de fichier) : le calcul ne vaut que si
