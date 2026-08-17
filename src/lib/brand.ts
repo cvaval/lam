@@ -84,7 +84,10 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
     // et redirigé (next.config.mjs) — anciens liens/favoris préservés.
     slug: 'editionsmoniteur',
     pastille: 'Lank',
-    code: 'LÉG',
+    // MON, et non LÉG : le code abrège le NOM DE LA RUBRIQUE — « Éditions Le Moniteur ».
+    // « LÉG » désignait la législation en général, ce que cette rubrique n'est pas : elle
+    // porte le journal officiel, fac-similés compris. Décision de la rédaction, 17 août 2026.
+    code: 'MON',
     badge: 'LE MONITEUR',
     label: {
       fr: 'Éditions Le Moniteur',
@@ -155,7 +158,10 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
     // 17 août 2026 sur décision de la rédaction.
     corpus: ['LEGISLATION', 'DOCTRINE'] as const,
     pastille: 'Lagon',
-    code: 'DOC',
+    // LOI, et non DOC : « DOC » disait la doctrine, et cette rubrique n'en est plus une —
+    // elle porte la LOI et son appareil (la jurisprudence et les circulaires en sont sorties
+    // le 17 août). Décision de la rédaction, 17 août 2026.
+    code: 'LOI',
     badge: 'ANNOTÉE',
     label: {
       fr: 'Législation annotée',
