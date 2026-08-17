@@ -657,6 +657,9 @@ export const en: Dictionary = {
     home: 'Back to home',
   },
   common: {
+    erreur: 'Error —',
+    echec: 'Failed —',
+    avertissement: 'Warning —',
     loading: 'Loading…',
     save: 'Save',
     cancel: 'Cancel',

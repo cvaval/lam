@@ -7,6 +7,7 @@
  * montrer. Un membre du personnel, qui a droit à tout, voyait donc tout.
  */
 import { describe, it, expect } from 'vitest'
+import { readFileSync } from 'node:fs'
 import { typesDeLaSection, TYPES_LEGISLATION_ANNOTEE } from './themes'
 
 const staff = { role: 'MASTER_ADMIN', services: [] } as never
@@ -37,5 +38,37 @@ describe('périmètre de la Législation annotée', () => {
   it('la législation et la doctrine sont le cœur de la section', () => {
     expect(TYPES_LEGISLATION_ANNOTEE).toContain('LEGISLATION')
     expect(TYPES_LEGISLATION_ANNOTEE).toContain('DOCTRINE')
+  })
+})
+
+describe('le corpus s’applique au chemin du CLIC, pas seulement aux compteurs', () => {
+  /**
+   * La première correction du 17 août avait aligné les compteurs et les vues à plat, mais
+   * PAS `documentsInTheme` — qui est pourtant la fonction appelée quand on clique un thème,
+   * c'est-à-dire exactement la vue où le défaut avait été signalé. Les arrêts continuaient
+   * de s'afficher, et le badge annonçait désormais MOINS que la liste : la divergence
+   * s'était inversée. Rien ne l'a vu, parce qu'aucun test ne portait sur cette fonction.
+   *
+   * Ce contrôle est structurel — il lit la source — parce que l'alternative exigerait une
+   * base de données. Il vérifie le point précis qui a manqué : que la fonction sache
+   * restreindre au corpus, et que la route de la rubrique le lui demande.
+   */
+  const themes = readFileSync('src/lib/legislation/themes.ts', 'utf8')
+  const route = readFileSync('src/app/api/legislation/theme-docs/route.ts', 'utf8')
+
+  it('documentsInTheme accepte un corpus', () => {
+    expect(themes).toMatch(/corpus\?: readonly DocType\[\]/)
+  })
+
+  it('le corpus RESTREINT l’accès, il ne l’élargit jamais', () => {
+    // L'intersection est la seule forme sûre : un corpus ne doit pas pouvoir ouvrir un type
+    // que l'abonnement refuse. C'est pourquoi on filtre accessibleTypes PAR le corpus,
+    // et non l'inverse.
+    expect(themes).toMatch(/accessibleTypes\(user\)\.filter\(/)
+  })
+
+  it('la route de la rubrique passe le corpus de la Législation annotée', () => {
+    expect(route).toContain('TYPES_LEGISLATION_ANNOTEE')
+    expect(route).toMatch(/documentsInTheme\([^)]*corpus:/s)
   })
 })

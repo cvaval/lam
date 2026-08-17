@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { apiError } from '@/lib/api'
 import { getCurrentUser } from '@/lib/auth/session'
-import { documentsInTheme } from '@/lib/legislation/themes'
+import { documentsInTheme, TYPES_LEGISLATION_ANNOTEE } from '@/lib/legislation/themes'
 import { guard, LIMITS } from '@/lib/security/ratelimit'
 
 export const runtime = 'nodejs'
@@ -15,7 +15,10 @@ export async function GET(req: NextRequest) {
   const themeId = req.nextUrl.searchParams.get('themeId') ?? ''
   if (!themeId) return apiError('invalidFields', 400)
 
-  const docs = await documentsInTheme(themeId, user, { take: 300 })
+  // Cette route SERT la navigation par thèmes de la Législation annotée : elle en applique
+  // donc le corpus. La jurisprudence et les circulaires ont leur rubrique ; les lister ici
+  // les présentait comme des textes de loi (défaut signalé le 17 août 2026).
+  const docs = await documentsInTheme(themeId, user, { take: 300, corpus: TYPES_LEGISLATION_ANNOTEE })
   return NextResponse.json({
     ok: true,
     docs: docs.map((d) => ({ id: d.id, type: d.type, titleFr: d.titleFr, titleEn: d.titleEn, titleHt: d.titleHt, number: d.number, status: d.status, anchor: d.anchor })),

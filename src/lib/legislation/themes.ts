@@ -12,6 +12,7 @@
 import type { Theme } from '@prisma/client'
 import { prisma } from '../db'
 import { accessibleTypes } from '../access'
+import { DOC_TYPE_META } from '../brand'
 import type { DocType, Role } from '../types'
 
 export interface ThemeNode extends Theme {
@@ -69,21 +70,39 @@ export function descendantIds(themeId: string, themes: Theme[]): string[] {
 /**
  * Documents rattachés à un thème (sous-arbre compris), FILTRÉS par accès §03.
  * L'Index est toujours visible ; le staff voit tout (cf. accessibleTypes).
+ *
+ * ⚠️ DEUX BARRIÈRES, et il en faut DEUX. L'accès (§03) protège l'abonnement ; le CORPUS
+ * protège la cohérence de la rubrique. Un thème n'appartient à aucune section — c'est
+ * l'APPELANT qui sait pour quelle rubrique il interroge, d'où `opts.corpus`.
+ *
+ * Défaut du 17 août 2026, et sa rechute le même jour : la première correction avait aligné
+ * les compteurs et les vues à plat de la Législation annotée sur le corpus, mais PAS cette
+ * fonction — qui est pourtant le chemin du CLIC, celui par lequel le défaut avait été
+ * signalé. Les arrêts continuaient donc de s'afficher, et le badge annonçait désormais moins
+ * que la liste : la divergence compte↔liste s'était simplement inversée. Mesuré alors :
+ * 222 des 475 rattachements, soit 47 %, sortaient du corpus déclaré.
+ *
+ * Leçon inscrite ici pour la prochaine fois : corriger une vue ne corrige pas une SECTION.
+ * Recenser tous les chemins qui listent, puis les traiter ensemble.
  */
 export async function documentsInTheme(
   themeId: string,
   user: { role: Role; services: DocType[] },
-  opts: { skip?: number; take?: number } = {},
+  opts: { skip?: number; take?: number; corpus?: readonly DocType[] } = {},
 ) {
   const themes = await listThemes()
   const ids = descendantIds(themeId, themes)
   if (ids.length === 0) return []
   const docs = await prisma.document.findMany({
     where: {
-      // SÉCURITÉ-CRITIQUE (§03) : ce filtre est la seule barrière entre l'API publique
-      // theme-docs et les titres de docs non accordés. Ne JAMAIS le retirer/élargir sans
-      // garder les appelants clients filtrés.
-      type: { in: accessibleTypes(user) },
+      // SÉCURITÉ-CRITIQUE (§03) : l'accès reste la barrière entre l'API publique theme-docs
+      // et les titres de docs non accordés. Ne JAMAIS le retirer ni l'élargir. Le corpus,
+      // lui, ne fait que RESTREINDRE davantage — il ne peut jamais ouvrir.
+      type: {
+        in: opts.corpus
+          ? accessibleTypes(user).filter((t) => (opts.corpus as readonly DocType[]).includes(t))
+          : accessibleTypes(user),
+      },
       themes: { some: { themeId: { in: ids } } },
     },
     select: { id: true, type: true, titleFr: true, titleEn: true, titleHt: true, number: true, status: true, publicationDate: true },
@@ -112,36 +131,29 @@ export async function documentsInTheme(
  * détecte l'atteinte de la borne (docs.length === take) pour signaler la troncature.
  */
 /**
- * CORPUS DE LA SECTION « LÉGISLATION ANNOTÉE ».
+ * Types listés par la section « Législation annotée ».
  *
- * ⚠️ Défaut signalé par la rédaction le 17 août 2026 : des ARRÊTS s'affichaient dans la
- * navigation par thèmes de la Législation annotée — « Agricultural Entreprises S.A. c. dame
- * Nadim Al-Khal » entre le Code civil et le Code de procédure civile. Le filtre ne portait
- * que sur l'ACCÈS de l'utilisateur (§03) : un membre du personnel, qui a droit à tout, voyait
- * donc tout. Or l'accès dit ce qu'on a le droit de lire, jamais ce qu'une section doit montrer.
+ * ⚠️ La liste ne vit plus ici : elle est déclarée avec la section, dans `DOC_TYPE_META`
+ * (src/lib/brand.ts), à côté de son nom, de son slug et de son code. Une seule définition,
+ * au même endroit que tout ce qui identifie la rubrique — c'est ce qui manquait le jour où
+ * des arrêts se sont affichés parmi les codes.
  *
- * La jurisprudence a sa propre rubrique, `/jurisprudence`, avec ses filtres par juridiction et
- * ses sommaires d'arrêts : l'afficher ici la présentait comme un texte de loi parmi d'autres.
- *
- * Mesuré au moment de la correction : 407 textes de LÉGISLATION et 20 de DOCTRINE relèvent de
- * cette section ; 86 décisions et 295 circulaires ont la leur.
- *
- * ⚠️ Les CIRCULAIRES de la BRH en ont été retirées le 17 août 2026, sur décision de la
- * rédaction, par la même raison que la jurisprudence : elles ont leur propre rubrique. Leur
- * classement sur deux axes — matière et assujetti, d'après la taxonomie de la BRH elle-même —
- * n'est pas perdu pour autant : il reste exploitable depuis la recherche, filtrée par type et
- * par thème. C'est le seul chemin qui subsiste, et c'est à savoir avant de toucher à l'un ou
- * à l'autre : la rubrique des circulaires, elle, redirige vers une recherche et n'offre PAS
- * de navigation par thèmes propre.
- *
- * La section ne montre donc que ce dont elle porte le nom : la loi et son appareil.
+ * Repli volontairement ÉTROIT : une section sans corpus déclaré ne liste que son propre
+ * type. On n'affiche jamais par mégarde ce qui relève d'une autre rubrique.
  */
-export const TYPES_LEGISLATION_ANNOTEE = ['LEGISLATION', 'DOCTRINE'] as const
+export const TYPES_LEGISLATION_ANNOTEE: readonly DocType[] =
+  DOC_TYPE_META.DOCTRINE.corpus ?? ['DOCTRINE']
 
-/** Intersection de ce que l'utilisateur PEUT lire et de ce que la section DOIT montrer. */
+/**
+ * Intersection de ce que l'utilisateur PEUT lire (§03) et de ce que la section DOIT montrer.
+ *
+ * Les deux sont nécessaires et aucun ne remplace l'autre : l'accès protège l'abonnement,
+ * le corpus protège la cohérence de la rubrique. Le défaut du 17 août venait d'avoir cru
+ * que le premier suffisait — un membre du personnel, qui a droit à tout, voyait tout.
+ */
 export function typesDeLaSection(user: { role: Role; services: DocType[] }): DocType[] {
   const permis = new Set<string>(accessibleTypes(user))
-  return TYPES_LEGISLATION_ANNOTEE.filter((t) => permis.has(t)) as unknown as DocType[]
+  return TYPES_LEGISLATION_ANNOTEE.filter((t) => permis.has(t))
 }
 
 export async function allThemedDocuments(

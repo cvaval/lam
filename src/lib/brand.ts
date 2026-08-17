@@ -36,6 +36,24 @@ export interface DocTypeMeta {
   feature: Record<Locale, string>
   /** l'Index ne contient que des références aux textes (pas de texte intégral) */
   referenceOnly?: boolean
+  /**
+   * CORPUS DE LA SECTION — les types de documents que cette rubrique LISTE.
+   *
+   * ⚠️ Champ né d'un défaut signalé le 17 août 2026 : des arrêts s'affichaient dans la
+   * navigation par thèmes de la Législation annotée, entre le Code civil et le Code de
+   * procédure civile. La page filtrait sur l'ACCÈS de l'utilisateur — ce qu'il a le droit
+   * de lire — faute de savoir ce que la section devait montrer. Personne n'avait tort :
+   * l'information n'existait nulle part.
+   *
+   * Elle vit désormais ICI, à côté du nom, du slug et du code, et non dispersée dans les
+   * pages. Une section dont le corpus n'est pas déclaré ne liste QUE son propre type —
+   * défaut sûr : on n'affiche jamais par mégarde ce qui relève d'une autre rubrique.
+   *
+   * ⚠️ Le corpus ne se déduit PAS du `type`. « Législation annotée » a pour clé DOCTRINE
+   * mais liste surtout des LEGISLATION : la clé nomme la rubrique, elle ne dit pas ce
+   * qu'elle contient. C'est précisément cette confusion qui a produit le défaut.
+   */
+  corpus?: readonly DocType[]
 }
 
 export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
@@ -103,6 +121,10 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
     // nom affiché « Législation annotée ». L'ancien slug reste accepté en alias
     // (TYPE_SLUGS) et redirigé (next.config.mjs) — anciens liens/favoris préservés.
     slug: 'legislationannotee',
+    // La loi et son appareil, rien d'autre. La jurisprudence et les circulaires ont leur
+    // rubrique : les lister ici les présentait comme des textes de loi. Retirées le
+    // 17 août 2026 sur décision de la rédaction.
+    corpus: ['LEGISLATION', 'DOCTRINE'] as const,
     pastille: 'Lagon',
     code: 'DOC',
     badge: 'ANNOTÉE',
@@ -206,7 +228,7 @@ export const TYPE_CHIP =
   // `shrink-0` : la pastille est presque toujours un enfant de flex, à côté d'un intitulé
   // qui la déborde. Sans lui, c'est ELLE que le navigateur comprime — un code de type
   // écrasé ne se lit plus, et il n'est pas là pour décorer.
-  'inline-flex shrink-0 items-center rounded-md border border-[#C7C6C1] bg-pil px-1.5 py-0.5 ' +
+  'inline-flex shrink-0 items-center rounded-md border border-liy-fonse bg-pil px-1.5 py-0.5 ' +
   'font-mono text-[10px] font-semibold uppercase leading-none tracking-[0.14em] text-chabon'
 
 /** Le sous-ensemble « 6 services de textes intégraux » (sans l'Index). */

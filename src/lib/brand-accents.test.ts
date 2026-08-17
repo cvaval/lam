@@ -22,6 +22,11 @@ function sources(dir = 'src', acc: string[] = []): string[] {
 }
 const FICHIERS = sources().map((p) => ({ p, s: readFileSync(p, 'utf8') }))
 
+/** Feuilles de style et configuration — le balayage du 16 août ne regardait que les classes
+ *  Tailwind des .tsx et avait laissé `mark.hl` en Sitwon dans globals.css : chaque terme
+ *  trouvé d'une page de résultats était surligné en jaune, contre un quota d'un par écran. */
+const STYLES = ['src/app/globals.css', 'tailwind.config.ts'].map((p) => ({ p, s: readFileSync(p, 'utf8') }))
+
 /** Occurrences d'un motif, avec leur fichier et leur ligne — pour que l'échec soit lisible. */
 function releve(rx: RegExp): string[] {
   const out: string[] = []
@@ -78,5 +83,54 @@ describe('AV-04 — rationnement des accents', () => {
       return !/^(\*|\/\/|\/\*)/.test(ligne)
     })
     expect(fautifs).toEqual([])
+  })
+})
+
+describe('AV-02 — le statut « Abrogé » appartient au certificateur', () => {
+  /**
+   * Garde-fou né d'un défaut réel : la correction du 16 août n'avait été portée que dans
+   * AnnotatedText.tsx. Quatre autres rendus du même statut — StatusChip, le bloc « Abrogé
+   * par » de la fiche, AmendmentHistory, ResultCard — étaient restés en Wouj, et aucun des
+   * sept contrôles précédents ne les voyait : ils vérifiaient des motifs, pas un SENS.
+   */
+  it('aucune ligne qui rend une abrogation ne porte Wouj', () => {
+    const fautifs: string[] = []
+    for (const { p, s } of FICHIERS) {
+      s.split('\n').forEach((l, i) => {
+        // Un bouton d'action « Abroger » n'est pas un statut : il est Chabon, et il est
+        // reconnaissable à son <button. On ne teste que ce qui AFFICHE l'état.
+        if (/<button/.test(l)) return
+        if (/\bABROGE\b|abrog/i.test(l) && /\b(text|border|bg)-wouj\b/.test(l)) {
+          fautifs.push(`${p}:${i + 1}`)
+        }
+      })
+    }
+    expect(fautifs).toEqual([])
+  })
+})
+
+describe('AV-02 — les feuilles de style suivent la doctrine, pas seulement les composants', () => {
+  it('le jeton retiré Sitwon Pal #FFF3C6 ne peint plus rien', () => {
+    // Les blocs de commentaire sont neutralisés en préservant les sauts de ligne, pour que
+    // les numéros restent justes : une ligne de continuation d'un /* */ ne commence pas
+    // forcément par une étoile, et la citation d'un jeton retiré dans une note n'est pas
+    // une peinture.
+    const sansCommentaires = (t: string) =>
+      t.replace(/\/\*[\s\S]*?\*\//g, (m) => m.replace(/[^\n]/g, ' ')).replace(/\/\/[^\n]*/g, '')
+    const fautifs = STYLES.flatMap(({ p, s }) =>
+      sansCommentaires(s)
+        .split('\n')
+        .map((l, i) => ({ l, n: i + 1 }))
+        .filter(({ l }) => /#FFF3C6/i.test(l))
+        .map(({ n }) => `${p}:${n}`),
+    )
+    expect(fautifs).toEqual([])
+  })
+
+  it('le surlignage du terme exact est en Wouj, pas en Sitwon (AV-02, art. 1)', () => {
+    const css = STYLES.find((f) => f.p.endsWith('globals.css'))!.s
+    const bloc = /mark\.hl\s*\{([^}]*)\}/.exec(css)?.[1] ?? ''
+    expect(bloc).toMatch(/#D21034/i)
+    expect(bloc).not.toMatch(/#FDD228/i)
   })
 })

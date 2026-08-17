@@ -656,6 +656,9 @@ export const ht: Dictionary = {
     home: 'Retounen akèy',
   },
   common: {
+    erreur: 'Erè —',
+    echec: 'Echèk —',
+    avertissement: 'Atansyon —',
     loading: 'Ap chaje…',
     save: 'Anrejistre',
     cancel: 'Anile',

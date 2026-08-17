@@ -14,6 +14,21 @@ import { loadGaps } from '@/lib/moniteur/gaps'
 import { loadBrhGaps, formatCirculaireRef } from '@/lib/brh/gaps'
 import { joinKeywords, heuristicKeywords } from '@/lib/ai/keywords'
 import { DOC_TYPES, type DocType } from '@/lib/types'
+import { FULLTEXT_TYPES } from '@/lib/access'
+
+/**
+ * TYPES QUE CETTE ROUTE ACCEPTE — ceux que le studio propose, et pas un de plus.
+ *
+ * ⚠️ Le formulaire n'offrait que les sept types à TEXTE INTÉGRAL (`FULLTEXT_TYPE_LIST`),
+ * mais le serveur validait contre `DOC_TYPES`, les huit. L'écart portait sur INDEX, dont
+ * l'éditeur dédié `/admin/index-moniteur` est réservé au MASTER ADMIN — un ÉDITEUR, qui a
+ * `upload.publish`, pouvait donc y verser par la porte générique ce que la porte réservée
+ * lui refusait. Une validation plus large que l'interface est une porte que personne ne voit.
+ *
+ * Règle : ce qu'une route accepte se déduit de ce que l'interface propose, jamais de
+ * l'énumération complète du schéma.
+ */
+const TYPES_TELEVERSABLES = FULLTEXT_TYPES as [DocType, ...DocType[]]
 import type { Document } from '@prisma/client'
 
 export const runtime = 'nodejs'
@@ -40,7 +55,7 @@ const societeSchema = z.object({
 
 const publicationSchema = z.object({
   titleFr: z.string().min(3),
-  type: z.enum(DOC_TYPES),
+  type: z.enum(TYPES_TELEVERSABLES),
   bodyOriginal: z.string().optional(), // sinon : texte partagé de l'édition
   // Nature de l'acte (sommaire) — pilote le rattachement société/marque.
   category: z.enum(['LOI', 'DECRET', 'ARRETE', 'AVIS', 'SOCIETE', 'MARQUE', 'CIRCULAIRE', 'AUTRE']).optional(),
@@ -49,7 +64,7 @@ const publicationSchema = z.object({
 
 const schema = z.object({
   // Mode simple
-  type: z.enum(DOC_TYPES).optional(),
+  type: z.enum(TYPES_TELEVERSABLES).optional(),
   titleFr: z.string().min(3).optional(),
   titleEn: z.string().optional(),
   summaryFr: z.string().optional(),

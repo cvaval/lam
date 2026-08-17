@@ -664,6 +664,11 @@ export const fr = {
     home: 'Retour à l’accueil',
   },
   common: {
+    /** AV-05 ch. 1 — le mot qui ouvre un bloc d'erreur. C'est LUI, non la couleur,
+     *  qui satisfait le critère bloquant : en achromatopsie il subsiste seul. */
+    erreur: 'Erreur —',
+    echec: 'Échec —',
+    avertissement: 'Attention —',
     loading: 'Chargement…',
     save: 'Enregistrer',
     cancel: 'Annuler',
