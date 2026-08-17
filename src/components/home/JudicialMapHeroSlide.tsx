@@ -45,7 +45,12 @@ const FOCUS_PCT = { left: `${(HERO_MAP_FOCUS.x / VB_W) * 100}%`, top: `${(HERO_M
  * décoratif, `aria-hidden`, doublé du NOM du tribunal) — mais la lisibilité, si.
  */
 function CourtGlyph({ tone }: { tone: 'cassation' | 'appel' | 'tpi' | 'paix' }) {
-  const teinte = { cassation: C.ble, appel: C.chabon, tpi: C.chabon, paix: C.blan }[tone]
+  // Suit `COURT_STYLE` (/juridictions) : la première instance passe au Vèt le 17 août, pour
+  // que les deux surfaces codent les ordres pareil. ⚠️ Mesuré ici : à 40 % sur la fiche
+  // blanche, Vèt et Chabon ne rendent que 1,16:1 — la pastille du héros ne DISTINGUE donc
+  // rien à elle seule. C'est sans conséquence et c'est la règle du composant : le NOM du
+  // tribunal est juste à côté, la teinte n'a jamais porté l'information ici.
+  const teinte = { cassation: C.ble, appel: C.chabon, tpi: C.vet, paix: C.blan }[tone]
   return (
     <span
       aria-hidden="true"

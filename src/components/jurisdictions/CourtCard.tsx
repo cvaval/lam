@@ -30,8 +30,23 @@ export const COURT_STYLE: Record<CourtType, { color: string; shape: 'circle' | '
   // réservée à ce qui change : la sélection (Wouj, AV-02 = l'usage) et la seule juridiction
   // qui certifie (Ble, la Cassation). Sitwon disparaît de la carte : il est rationné à une
   // occurrence par écran, et 175 marqueurs n'en font pas une.
+  //
+  // ⚠️ 17 AOÛT — PREMIÈRE INSTANCE ET APPEL ÉTAIENT TOUS DEUX EN CHABON, et se
+  // reprochaient donc exactement ce qui avait condamné Vèt/Wouj : deux ordres qu'à 5,5 px
+  // seule la forme sépare. Le remède demandé — un second neutre pour la première instance —
+  // NE MARCHE PAS, et c'est mesuré, pas supposé : Adwaz/Chabon rend 1,13:1, Ank 1,01:1,
+  // Grafit 1,41:1. Le couple condamné était à 1,05:1. Aucun neutre de la charte ne tient.
+  //
+  // Le Vèt revient donc à la première instance : 1,82:1 contre le Chabon de l'appel,
+  // 4,67:1 sur la terre, 5,68:1 contre le blanc des paix, 2,17:1 contre le Blé de la
+  // Cassation — les quatre contraintes tenues, seul de toute la palette avec le Wouj.
+  //
+  // ⚠️ ET LE PIÈGE DEUTÉRANOPE NE SE ROUVRE PAS, parce que le Wouj n'est plus une couleur
+  // de MARQUEUR : la sélection se rend par un aplat woujPal sur la commune (`COLORS.selected`),
+  // jamais en recolorant le point. C'est la cohabitation Vèt/Wouj SUR DEUX MARQUEURS qui
+  // avait été jugée, pas le Vèt.
   PAIX: { color: BRAND_COLORS.blan, shape: 'circle' },
-  PREMIERE_INSTANCE: { color: BRAND_COLORS.chabon, shape: 'triangle' },
+  PREMIERE_INSTANCE: { color: BRAND_COLORS.vet, shape: 'triangle' },
   APPEL: { color: BRAND_COLORS.chabon, shape: 'square' },
   CASSATION: { color: BRAND_COLORS.ble, shape: 'diamond' },
 }
