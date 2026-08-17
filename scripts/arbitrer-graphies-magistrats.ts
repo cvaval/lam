@@ -31,22 +31,48 @@ const FUSIONS = [
   },
 ]
 
-/** Rapprochements suggérés par la clé mais REFUSÉS par la rédaction : ils restent distincts. */
-const DISTINCTS = [
-  {
-    a: 'Anthony Rivière',
-    b: 'Antony Rivière',
-    motif:
-      "Maintenus séparés sur décision de la rédaction du 17 août 2026. La clé de rapprochement " +
-      'les rapproche, la rédaction ne les confond pas : en l’absence de certitude, deux entrées ' +
-      'valent mieux qu’une fusion fausse, qu’on ne saurait plus défaire.',
-  },
+/**
+ * ARBITRAGES DU 17 AOÛT 2026, après versement du recueil 1965-1966.
+ *
+ * Ce recueil a fait apparaître neuf fiches nouvelles, dont six ne sont que des coquilles
+ * d'océrisation de magistrats déjà fichés : chacune porte une ou deux décisions face à une
+ * fiche principale qui en porte 43 à 86. La rédaction les a reconnues et les réunit.
+ *
+ * ⚠️ Les graphies d'origine RESTENT dans chaque arrêt (`DecisionJudge.nameAsWritten`) :
+ * le recueil n'est jamais réécrit, seul l'affichage est unifié. L'opération est réversible.
+ */
+const FUSIONS_1965_1966 = [
+  { garde: 'Félix Diambois', absorbe: 'Félix DAIMBOIS', nomRetenu: 'Félix Diambois' },
+  { garde: 'Léonce Pierre-Antoine', absorbe: 'Léonce PIERRE-ANOTOINE', nomRetenu: 'Léonce Pierre-Antoine' },
+  { garde: 'Clément Romulus', absorbe: 'Clément Roumulus', nomRetenu: 'Clément Romulus' },
+  { garde: 'Max C. Duplessy', absorbe: 'Max C. DUPLESSYS', nomRetenu: 'Max C. Duplessy' },
+  { garde: 'Max C. Duplessy', absorbe: 'Max C. DUPPLESSY', nomRetenu: 'Max C. Duplessy' },
+  { garde: 'Max C. Duplessy', absorbe: 'Max DUPLESSIS', nomRetenu: 'Max C. Duplessy' },
+  { garde: 'Frédéric Robinson', absorbe: 'Frédérice ROBINSON', nomRetenu: 'Frédéric Robinson' },
+  /**
+   * ⚠️ RENVERSEMENT ASSUMÉ DE LA DÉCISION DU 17 AOÛT AU MATIN. « Anthony Rivière » et
+   * « Antony Rivière » avaient alors été MAINTENUS DISTINCTS, faute de certitude. Le recueil
+   * 1965-1966 a levé le doute : le même substitut sert les deux Sections sur la même période,
+   * et la seconde graphie ne porte que 2 décisions contre 42. La rédaction les réunit le
+   * même jour, en connaissance de la décision qu'elle défait.
+   */
+  { garde: 'Anthony Rivière', absorbe: 'Antony Rivière', nomRetenu: 'Anthony Rivière' },
 ]
+
+/** Rapprochements suggérés par la clé mais REFUSÉS par la rédaction : ils restent distincts. */
+/**
+ * Rapprochements suggérés par la clé mais REFUSÉS par la rédaction : ils restent distincts.
+ *
+ * ⚠️ VIDE À CE JOUR. Le seul cas qui y figurait — Anthony / Antony Rivière — a été tranché
+ * dans l'autre sens le 17 août au soir, après que le recueil 1965-1966 eut levé le doute.
+ * Le laisser ici aurait fait dire au script le contraire de ce qu'il applique.
+ */
+const DISTINCTS: { a: string; b: string; motif: string }[] = []
 
 async function main() {
   console.log(APPLY ? 'ARBITRAGE DES GRAPHIES — écriture\n' : 'ARBITRAGE DES GRAPHIES — simulation\n')
 
-  for (const f of FUSIONS) {
+  for (const f of [...FUSIONS, ...FUSIONS_1965_1966]) {
     const garde = await prisma.judge.findFirst({ where: { displayName: f.garde } })
     const absorbe = await prisma.judge.findFirst({ where: { displayName: f.absorbe } })
     if (!garde) {
