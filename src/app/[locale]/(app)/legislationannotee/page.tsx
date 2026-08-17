@@ -2,9 +2,9 @@ import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { dictFor } from '@/lib/i18n/server'
 import { requireUser } from '@/lib/auth/guard'
-import { canReadService, accessibleTypes } from '@/lib/access'
+import { canReadService } from '@/lib/access'
 import { prisma } from '@/lib/db'
-import { getThemeTree, allThemedDocuments } from '@/lib/legislation/themes'
+import { getThemeTree, allThemedDocuments, typesDeLaSection } from '@/lib/legislation/themes'
 import { ThemeBrowser } from '@/components/ThemeBrowser'
 
 export const dynamic = 'force-dynamic'
@@ -33,12 +33,15 @@ export default async function DoctrinePage({ params }: { params: { locale: strin
     // d'un type non accordé (écart compte↔liste, qui elle est filtrée par documentsInTheme).
     prisma.documentTheme.groupBy({
       by: ['themeId'],
-      where: { document: { type: { in: accessibleTypes(user) } } },
+      // ⚠ MÊME périmètre que la liste (typesDeLaSection), sinon le badge « N textes »
+      // compte des arrêts que la liste n'affiche pas — l'écart compte↔liste que ce fichier
+      // s'était déjà donné pour règle d'éviter.
+      where: { document: { type: { in: typesDeLaSection(user) } } },
       _count: { themeId: true },
     }),
     // Sous-thèmes ayant reçu un document récent (téléversé/thématisé ou modifié) — filtré accès §03.
     prisma.documentTheme.findMany({
-      where: { document: { updatedAt: { gte: cutoff }, type: { in: accessibleTypes(user) } } },
+      where: { document: { updatedAt: { gte: cutoff }, type: { in: typesDeLaSection(user) } } },
       select: { themeId: true },
       distinct: ['themeId'],
     }),

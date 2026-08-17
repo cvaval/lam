@@ -111,13 +111,42 @@ export async function documentsInTheme(
  * rattaché à plusieurs thèmes n'apparaît qu'une fois. Borné par `take` : l'appelant
  * détecte l'atteinte de la borne (docs.length === take) pour signaler la troncature.
  */
+/**
+ * CORPUS DE LA SECTION « LÉGISLATION ANNOTÉE ».
+ *
+ * ⚠️ Défaut signalé par la rédaction le 17 août 2026 : des ARRÊTS s'affichaient dans la
+ * navigation par thèmes de la Législation annotée — « Agricultural Entreprises S.A. c. dame
+ * Nadim Al-Khal » entre le Code civil et le Code de procédure civile. Le filtre ne portait
+ * que sur l'ACCÈS de l'utilisateur (§03) : un membre du personnel, qui a droit à tout, voyait
+ * donc tout. Or l'accès dit ce qu'on a le droit de lire, jamais ce qu'une section doit montrer.
+ *
+ * La jurisprudence a sa propre rubrique, `/jurisprudence`, avec ses filtres par juridiction et
+ * ses sommaires d'arrêts : l'afficher ici la présentait comme un texte de loi parmi d'autres.
+ *
+ * Mesuré au moment de la correction : 407 textes de LÉGISLATION et 20 de DOCTRINE relèvent de
+ * cette section ; 86 décisions et 295 circulaires ont la leur.
+ *
+ * ⚠️ Les circulaires de la BRH sont VOLONTAIREMENT conservées ici : leur classement sur deux
+ * axes a été fait pour qu'on puisse les parcourir par matière, et rien ne les rend étrangères
+ * à la législation annotée. Si la rédaction veut les en retirer aussi, il suffit de les ôter
+ * de cette liste — mais c'est une décision éditoriale, pas un effet de bord.
+ */
+export const TYPES_LEGISLATION_ANNOTEE = ['LEGISLATION', 'DOCTRINE', 'CIRCULAIRE_BRH'] as const
+
+/** Intersection de ce que l'utilisateur PEUT lire et de ce que la section DOIT montrer. */
+export function typesDeLaSection(user: { role: Role; services: DocType[] }): DocType[] {
+  const permis = new Set<string>(accessibleTypes(user))
+  return TYPES_LEGISLATION_ANNOTEE.filter((t) => permis.has(t)) as unknown as DocType[]
+}
+
 export async function allThemedDocuments(
   user: { role: Role; services: DocType[] },
   opts: { take?: number } = {},
 ) {
   return prisma.document.findMany({
     where: {
-      type: { in: accessibleTypes(user) }, // §03 — ne jamais retirer/élargir
+      // §03 (accès) ET périmètre de la section — ne jamais retirer/élargir l'un ni l'autre.
+      type: { in: typesDeLaSection(user) },
       themes: { some: { theme: { active: true } } },
     },
     select: {
