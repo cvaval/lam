@@ -37,7 +37,7 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
  <Link href={`/${locale}/publications`} className="inline-flex min-h-[44px] items-center rounded-full border border-liy px-5 text-sm font-semibold text-ank transition hover:border-chabon hover:text-chabon">{tr('Voir toutes les publications', 'See all publications', 'Gade tout piblikasyon yo')}</Link>
         </div>
         {featured && (
-          <Link href={`/${locale}/publications/${featured.slug}`} className="group mt-10 grid overflow-hidden rounded-xl border border-liy bg-koton transition hover:border-chabon/40 md:grid-cols-[0.32fr_1fr]">
+          <Link href={`/${locale}/publications/${featured.slug}`} className="group mt-10 grid overflow-hidden rounded-xl border border-liy bg-koton transition hover:border-chabon md:grid-cols-[0.32fr_1fr]">
             <span aria-hidden="true" className="flex min-h-48 items-end bg-adwaz p-7 font-mono text-xs uppercase tracking-[0.18em] text-koton/70">
               {tr('Analyse juridique', 'Legal analysis', 'Analiz jiridik')}
             </span>
@@ -62,7 +62,7 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
             { f: 'Index législatif', e: 'Legislative index', h: 'Endèks lejislatif', df: 'Index structuré de la législation haïtienne : lois, décrets, arrêtés et autres actes normatifs.', de: 'A structured index of Haitian legislation: laws, decrees, orders and other normative acts.', dh: 'Endèks estriktire lejislasyon ayisyen an : lwa, dekrè, arete ak lòt zak nòmatif.' },
             { f: 'Circulaires de la BRH', e: 'BRH circulars', h: 'Sikilè BRH yo', df: "Contenu des circulaires de la Banque de la République d'Haïti, avec recherche par numéro et par année.", de: 'The circulars of the Bank of the Republic of Haiti, searchable by number and year.', dh: "Kontni sikilè Bank Repiblik Ayiti a, ak rechèch pa nimewo ak pa ane." },
           ].map((c, i) => (
-            <Link key={i} href={`/${locale}/login`} className="group relative overflow-hidden rounded-xl border border-liy bg-white p-8 transition hover:border-chabon/40">
+            <Link key={i} href={`/${locale}/login`} className="group relative overflow-hidden rounded-xl border border-liy bg-white p-8 transition hover:border-chabon">
               <span aria-hidden="true" className="mb-8 block font-mono text-xs text-grafit">0{i + 1}</span>
               <h3 className="font-sans text-xl font-medium text-ank">{tr(c.f, c.e, c.h)}</h3>
               <p className="mt-2 text-sm leading-relaxed text-grafit">{tr(c.df, c.de, c.dh)}</p>

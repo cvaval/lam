@@ -135,7 +135,17 @@ export function JudicialMapHeroSlide({ locale, t }: { locale: Locale; t: Diction
               deux diapositives partagent une cellule de grille, et une illustration
               de 260 px de haut ici laissait autant de vide sous l'autre. Le contenu
               de la carte n'est pas perdu — le bouton mène à /juridictions. */}
-          <div className="relative hidden rounded-2xl bg-adwaz/10 p-6 sm:block lg:p-8">
+          {/*
+            ⚠️ TOUTE LA DIAPOSITIVE EST UN LIEN, ET RIEN NE LE DISAIT AU SURVOL. Le `<Link>`
+            qui l'enveloppe ne porte que `group block` : le plus grand objet cliquable de
+            l'accueil ne répondait pas au curseur. Le cadre de la carte prend donc le retour,
+            comme les autres surfaces cliquables — filet Chabon au survol.
+
+            Un ANNEAU, pas une bordure : le cadre n'en a pas au repos, et lui en ajouter une
+            au survol décalerait la carte d'un pixel à chaque passage du curseur. L'anneau
+            se pose hors flux et ne pousse rien.
+          */}
+          <div className="relative hidden rounded-2xl bg-adwaz/10 p-6 ring-1 ring-transparent transition group-hover:ring-chabon sm:block lg:p-8">
             {/*
               ⚠️ L'ÎLE TIENT DANS LE CADRE, ENTIÈRE. Elle en sortait par la gauche : une
               marge négative (`-ml-28`) poussait la carte hors de la boîte pour que
