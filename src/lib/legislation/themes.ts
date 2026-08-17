@@ -126,12 +126,17 @@ export async function documentsInTheme(
  * Mesuré au moment de la correction : 407 textes de LÉGISLATION et 20 de DOCTRINE relèvent de
  * cette section ; 86 décisions et 295 circulaires ont la leur.
  *
- * ⚠️ Les circulaires de la BRH sont VOLONTAIREMENT conservées ici : leur classement sur deux
- * axes a été fait pour qu'on puisse les parcourir par matière, et rien ne les rend étrangères
- * à la législation annotée. Si la rédaction veut les en retirer aussi, il suffit de les ôter
- * de cette liste — mais c'est une décision éditoriale, pas un effet de bord.
+ * ⚠️ Les CIRCULAIRES de la BRH en ont été retirées le 17 août 2026, sur décision de la
+ * rédaction, par la même raison que la jurisprudence : elles ont leur propre rubrique. Leur
+ * classement sur deux axes — matière et assujetti, d'après la taxonomie de la BRH elle-même —
+ * n'est pas perdu pour autant : il reste exploitable depuis la recherche, filtrée par type et
+ * par thème. C'est le seul chemin qui subsiste, et c'est à savoir avant de toucher à l'un ou
+ * à l'autre : la rubrique des circulaires, elle, redirige vers une recherche et n'offre PAS
+ * de navigation par thèmes propre.
+ *
+ * La section ne montre donc que ce dont elle porte le nom : la loi et son appareil.
  */
-export const TYPES_LEGISLATION_ANNOTEE = ['LEGISLATION', 'DOCTRINE', 'CIRCULAIRE_BRH'] as const
+export const TYPES_LEGISLATION_ANNOTEE = ['LEGISLATION', 'DOCTRINE'] as const
 
 /** Intersection de ce que l'utilisateur PEUT lire et de ce que la section DOIT montrer. */
 export function typesDeLaSection(user: { role: Role; services: DocType[] }): DocType[] {

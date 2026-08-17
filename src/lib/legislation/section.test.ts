@@ -20,11 +20,17 @@ describe('périmètre de la Législation annotée', () => {
 
   it('le personnel, qui a droit à TOUT, ne voit ici que le corpus de la section', () => {
     // C'est le cœur du défaut : avoir le droit de tout lire ne fait pas tout apparaître ici.
-    expect(typesDeLaSection(staff).sort()).toEqual(['CIRCULAIRE_BRH', 'DOCTRINE', 'LEGISLATION'])
+    expect(typesDeLaSection(staff).sort()).toEqual(['DOCTRINE', 'LEGISLATION'])
+  })
+
+  it('les circulaires de la BRH n’y figurent pas non plus — elles ont leur rubrique', () => {
+    // Retirées le 17 août 2026 sur décision de la rédaction, par la même raison que la
+    // jurisprudence. Leur classement thématique reste atteignable depuis la recherche.
+    expect(TYPES_LEGISLATION_ANNOTEE).not.toContain('CIRCULAIRE_BRH')
   })
 
   it('un abonné ne voit que l’intersection de son accès et du périmètre', () => {
-    // Il a droit à la jurisprudence, mais pas ICI ; et pas aux circulaires, donc pas ici non plus.
+    // Il a droit à la jurisprudence, mais pas ICI : la section ne la porte pas.
     expect(typesDeLaSection(avocat)).toEqual(['LEGISLATION'])
   })
 
