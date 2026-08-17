@@ -132,25 +132,46 @@ export function JudicialMapHeroSlide({ locale, t }: { locale: Locale; t: Diction
               de la carte n'est pas perdu — le bouton mène à /juridictions. */}
           <div className="relative hidden rounded-2xl bg-adwaz/10 p-6 sm:block lg:p-8">
             {/*
-              La carte déborde vers la GAUCHE (marge négative) : Port-au-Prince est
-              au quart sud-est d'Haïti, et la fiche est ancrée à droite — sans ce
-              décalage, le point mis en avant et son étiquette passent SOUS la fiche.
-              Le texte reste au-dessus (z-10) : le débord ne le gêne pas.
+              ⚠️ L'ÎLE TIENT DANS LE CADRE, ENTIÈRE. Elle en sortait par la gauche : une
+              marge négative (`-ml-28`) poussait la carte hors de la boîte pour que
+              Port-au-Prince — au quart sud-est d'Haïti — échappe à la fiche ancrée à
+              droite. Le point était sauvé, mais la Grand'Anse, les Nippes et le Sud
+              débordaient sur le fond de la page, à 64 px du bord arrondi.
+
+              La place se prend donc À DROITE, en réservant la largeur de la fiche, au
+              lieu de se voler à gauche : la carte occupe toute la hauteur disponible et
+              s'arrête là où la fiche commence. Port-au-Prince reste dégagé, et l'île
+              entière est dans le carré.
             */}
-            <div className="relative mx-auto w-full max-w-xl lg:mx-0 lg:-ml-28 lg:max-w-[27rem] xl:-ml-24 xl:max-w-[34rem]">
-              <HeroJudicialMapArt className="h-auto w-full" />
+            {/*
+              La HAUTEUR vient de la FICHE, pas de la carte. La carte réduite ne mesurait
+              plus que 242 px : la boîte se refermait sur elle et la fiche, haute de
+              494 px, pendait de 203 px sous le fond arrondi. Un plancher la contient, et
+              la carte se centre dans ce qui reste.
+            */}
+            <div className="relative mx-auto w-full max-w-xl lg:mx-0 lg:flex lg:min-h-[32rem] lg:max-w-none lg:items-center lg:pr-[18rem] xl:pr-[19.5rem]">
+              {/*
+                ⚠️ CETTE BOÎTE ÉPOUSE LE SVG, ET RIEN D'AUTRE. L'étiquette est posée en
+                POURCENTAGE (cf. FOCUS_PCT en tête de fichier) : le calcul ne vaut que si
+                sa référence a exactement les dimensions du viewBox. Posée sur le
+                conteneur ci-dessus — qui réserve la largeur de la fiche —, elle tombait
+                350 px trop à droite, sous la fiche, loin du point qu'elle nomme.
+              */}
+              <div className="relative w-full">
+                <HeroJudicialMapArt className="h-auto w-full" />
 
-              {/* Pas de légende ici : la lecture des couleurs se fait sur la carte
-                  interactive de /juridictions, où elle sert à filtrer. Dans le héros
-                  elle encombrait la silhouette. */}
+                {/* Pas de légende ici : la lecture des couleurs se fait sur la carte
+                    interactive de /juridictions, où elle sert à filtrer. Dans le héros
+                    elle encombrait la silhouette. */}
 
-              {/* Étiquette de la commune mise en avant — ancrée sur le point réel. */}
-              <span
-                style={FOCUS_PCT}
-                className="absolute hidden -translate-x-[calc(100%+0.9rem)] -translate-y-1/2 whitespace-nowrap rounded-md bg-chabon/90 px-2 py-1 text-[10px] font-medium text-koton/90 ring-1 ring-white/10 sm:inline-block"
-              >
-                Port-au-Prince
-              </span>
+                {/* Étiquette de la commune mise en avant — ancrée sur le point réel. */}
+                <span
+                  style={FOCUS_PCT}
+                  className="absolute hidden -translate-x-[calc(100%+0.9rem)] -translate-y-1/2 whitespace-nowrap rounded-md bg-chabon/90 px-2 py-1 text-[10px] font-medium text-koton/90 ring-1 ring-white/10 sm:inline-block"
+                >
+                  Port-au-Prince
+                </span>
+              </div>
             </div>
 
             {/* Fiche de commune — aperçu du contenu réel de /juridictions. */}
