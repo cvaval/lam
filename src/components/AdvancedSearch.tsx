@@ -76,11 +76,34 @@ export function AdvancedSearch({
         {t.search.advanced}
       </summary>
       <form method="get" action={`/${locale}/search`} className="flex flex-wrap items-end gap-x-5 gap-y-3 px-4 pt-1">
-        {/* Reste ouvert après soumission. La REQUÊTE voyage en champ caché : la
-            barre de recherche du haut est LA barre de la page — une seule barre
-            par page (audit 17 juil.), le panneau ne porte que les critères. */}
+        {/* Reste ouvert après soumission. */}
         <input type="hidden" name="adv" value="1" />
-        {values.q ? <input type="hidden" name="q" value={values.q} /> : null}
+
+        {/*
+          ⚠️ CE CHAMP ÉTAIT CACHÉ, et c'était une erreur. La règle « une seule barre par
+          page » (audit 17 juil.) plaçait la requête dans le bandeau et la faisait voyager
+          ici en `input hidden`. Mais ce panneau s'annonce comme un formulaire complet — il
+          porte son propre bouton « Rechercher » — et n'offrait nulle part où écrire CE QU'ON
+          CHERCHE : on pouvait y saisir une période et un numéro, jamais un nom. Sur l'Index
+          du Moniteur, dont les 27 234 entrées se cherchent d'abord par leur intitulé ou par
+          une raison sociale, le panneau était donc inutilisable seul (signalé par la
+          rédaction le 17 août 2026).
+
+          Ce n'est pas une SECONDE requête : c'est le même paramètre `q`, rendu visible et
+          modifiable. La barre du bandeau reste la barre de la page ; le panneau en montre
+          désormais la valeur au lieu de la transporter en cachette.
+        */}
+        <ChampRecherche
+          name="q"
+          label={currentType === 'INDEX' ? t.search.queryLabelIndex : t.search.queryLabel}
+          defaultValue={values.q}
+          placeholder={currentType === 'INDEX' ? t.search.queryPhIndex : t.search.queryPh}
+          maxLength={300}
+          clearLabel={effacer}
+          // Sa propre ligne : c'est le critère principal, et le seul dont la longueur soit
+          // imprévisible. Les autres champs se rangent en dessous.
+          className="w-full"
+        />
 
         <ChampRecherche
           name="type"
@@ -218,9 +241,12 @@ export function AdvancedSearch({
           <button type="submit" className="rounded-lg bg-wouj px-4 py-2 text-sm font-semibold text-white hover:brightness-95">
             {t.search.apply}
           </button>
-          {/* Réinitialise les CRITÈRES ; la requête appartient à la barre du haut. */}
+          {/* Vide le formulaire ENTIER, requête comprise : depuis que la requête est un champ
+              visible du panneau, la laisser derrière afficherait une case encore remplie
+              juste après avoir cliqué « Réinitialiser ». Pour n'effacer QUE la requête, la
+              case porte sa propre croix. */}
           <Link
-            href={`/${locale}/search?adv=1${values.q ? `&q=${encodeURIComponent(values.q)}` : ''}`}
+            href={`/${locale}/search?adv=1`}
             className="text-xs text-ank/80 hover:text-ank/80 hover:underline"
           >
             {t.search.reset}
