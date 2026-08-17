@@ -7,6 +7,7 @@ import type { Dictionary } from '@/lib/i18n/dictionaries'
 import { postJson } from '@/lib/http'
 import { Labeled, fieldCls as field } from './forms'
 import { StatusChip } from './StatusChip'
+import { ChampErreur } from './ChampErreur'
 
 export interface PromoCodeRow {
   id: string
@@ -111,7 +112,7 @@ export function PromoManager({
             <input name="expiresAt" type="date" className={field} />
           </Labeled>
         </div>
-        {error && <p className="mt-3 text-sm text-wouj">{error}</p>}
+        {error && <ChampErreur prefixe="Erreur —">{error}</ChampErreur>}
         <button type="submit" disabled={busy} className="mt-4 rounded-lg bg-wouj px-4 py-2 text-sm font-semibold text-white disabled:opacity-50">
           {busy ? t.common.loading : t.promo.create}
         </button>

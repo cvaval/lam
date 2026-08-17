@@ -5,6 +5,7 @@ import type { Dictionary } from '@/lib/i18n/dictionaries'
 import { postJson } from '@/lib/http'
 import type { Locale } from '@/lib/types'
 import { hardRedirect } from '@/lib/auth/redirect'
+import { ChampErreur } from './ChampErreur'
 
 export function LoginForm({ locale, t }: { locale: Locale; t: Dictionary }) {
   const [email, setEmail] = useState('')
@@ -70,12 +71,7 @@ export function LoginForm({ locale, t }: { locale: Locale; t: Dictionary }) {
       </div>
 
       {error && (
-        // Le pictogramme double la couleur : la règle 5 interdit l'information portée
-        // par la seule teinte.
-        <p id="login-error" role="alert" className="flex items-start gap-2 rounded-lg border-l-2 border-wouj bg-pil px-3 py-2 text-sm text-wouj">
-          <span aria-hidden="true">⚠</span>
-          <span>{error}</span>
-        </p>
+        <ChampErreur id="login-error" prefixe={t.common.erreur} surface="bg-pil">{error}</ChampErreur>
       )}
 
       <button

@@ -167,7 +167,7 @@ export function ContextualFilters({
             {t.search.numberGo}
           </button>
           {active.num ? (
-            <Link href={`/${locale}/search?${qs(base, { num: undefined })}`} className="text-xs text-ank/40 hover:text-ank/70">
+            <Link href={`/${locale}/search?${qs(base, { num: undefined })}`} className="text-xs text-ank/80 hover:text-ank/80">
               ✕
             </Link>
           ) : null}

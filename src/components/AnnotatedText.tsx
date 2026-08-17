@@ -193,7 +193,7 @@ export function AnnotatedText({
           return (
             <div key={i}>
               {header}
-              <p className="mt-2 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5 rounded-md border border-chabon/30 bg-pil px-3 py-1.5 text-[11.5px] text-ank/75">
+              <p className="mt-2 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5 rounded-md border border-chabon/30 bg-pil px-3 py-1.5 text-[11.5px] text-ank/80">
                 <span className="font-bold uppercase tracking-wide text-chabon">↪ Renvoi{xref.articles.length > 0 ? ' au Code' : ''}&nbsp;:</span>
                 {hasDocs && xref.note && <span className="text-ank/80">{xref.note}</span>}
                 {xref.docs!== undefined && xref.docs.map((d, k) => (

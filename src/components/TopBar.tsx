@@ -98,7 +98,7 @@ export function TopBar({
                 )}
                 <button
                   onClick={logout}
-                  className="mt-1 block w-full rounded-lg px-3 py-2 text-left text-sm text-wouj hover:bg-pil"
+                  className="mt-1 block w-full rounded-lg px-3 py-2 text-left text-sm text-chabon hover:bg-pil"
                 >
                   {t.common.signOut}
                 </button>

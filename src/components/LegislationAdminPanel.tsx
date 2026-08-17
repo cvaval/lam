@@ -101,7 +101,7 @@ export function LegislationAdminPanel({
               {n.labelFr}
             </label>
             {checked.has(n.id) && (
-              <button type="button" onClick={() => setPrimary(n.id)} className={`text-[11px] ${primary === n.id ? 'font-semibold text-chabon' : 'text-ank/80 hover:text-ank/70'}`}>
+              <button type="button" onClick={() => setPrimary(n.id)} className={`text-[11px] ${primary === n.id ? 'font-semibold text-chabon' : 'text-ank/80 hover:text-ank/80'}`}>
                 {primary === n.id ? '★ principal' : 'définir principal'}
               </button>
             )}
@@ -191,7 +191,7 @@ export function LegislationAdminPanel({
           ? 'Classer cette décision par thèmes, ajouter des renvois, ou amender la note d’édition. Le texte de la décision n’est jamais modifié.'
           : 'Classer ce texte par thèmes, ajouter des renvois, ou amender un article. Le texte officiel n’est jamais modifié.'}
       </p>
-      {msg && <p className={`mb-3 rounded-lg px-3 py-2 text-sm ${msg.ok ? 'bg-vet/10 text-ank/80' : 'bg-pil text-wouj'}`}>{msg.text}</p>}
+      {msg && <p className={`mb-3 rounded-lg px-3 py-2 text-sm ${msg.ok ? 'bg-vet/10 text-ank/80' : 'bg-pil text-ank'}`}>{msg.text}</p>}
 
       {/* Thèmes — capacité de curation */}
       {peutCurer && (
@@ -223,7 +223,7 @@ export function LegislationAdminPanel({
                   <span className="text-ank">{r.label}</span>
                   {r.anchor && <span className="font-mono text-[11px] text-ank/80">#{r.anchor}</span>}
                   {r.pending && <span className="text-[11px] text-chabon">(cible non importée)</span>}
-                  <button type="button" disabled={busy} onClick={() => call({ action: 'removeRef', refId: r.refId }, 'Renvoi retiré.')} className="ml-auto text-xs text-wouj hover:underline">
+                  <button type="button" disabled={busy} onClick={() => call({ action: 'removeRef', refId: r.refId }, 'Renvoi retiré.')} className="ml-auto text-xs text-chabon hover:underline">
                     retirer
                   </button>
                 </li>
@@ -280,7 +280,7 @@ export function LegislationAdminPanel({
             <button type="button" disabled={busy || !anchor.trim() || !newBody.trim()} onClick={amend} className="rounded-md bg-chabon px-3 py-1.5 text-xs font-semibold text-koton hover:bg-chabon disabled:opacity-50">
               Enregistrer l’amendement
             </button>
-            <button type="button" disabled={busy || !anchor.trim()} onClick={abrogate} className="rounded-md border border-wouj/40 px-3 py-1.5 text-xs font-semibold text-wouj hover:bg-pil disabled:opacity-50">
+            <button type="button" disabled={busy || !anchor.trim()} onClick={abrogate} className="rounded-md border border-chabon/40 px-3 py-1.5 text-xs font-semibold text-chabon hover:bg-pil disabled:opacity-50">
               Abroger cet article
             </button>
           </div>

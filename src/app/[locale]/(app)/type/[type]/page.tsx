@@ -11,6 +11,8 @@ export default function TypePage({ params }: { params: { locale: string; type: s
   // « Législation annotée » (DOCTRINE) : la tuile ouvre la navigation par thèmes.
   // « doctrine » = ancien slug, conservé pour les liens et favoris existants.
   if (params.type === 'legislationannotee' || params.type === 'doctrine') redirect(`/${locale}/legislationannotee`)
+  // Circulaires BRH : la tuile ouvre la navigation par la taxonomie de la BRH (deux axes).
+  if (params.type === 'circulaires' || params.type === 'brh') redirect(`/${locale}/circulaires`)
   // Tarifs douaniers : la tuile ouvre la table de tarifs (+ lien vers le corpus).
   if (params.type === 'tarifs') redirect(`/${locale}/tarifs`)
   redirect(`/${locale}/search?type=${encodeURIComponent(params.type)}`)

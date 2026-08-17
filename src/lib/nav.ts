@@ -13,6 +13,8 @@ const DEDICATED: Record<string, string> = {
   legislation: 'editionsmoniteur', // ancien slug → nouvelle page
   legislationannotee: 'legislationannotee',
   doctrine: 'legislationannotee', // ancien slug → nouvelle page
+  circulaires: 'circulaires',
+  brh: 'circulaires', // alias historique (TYPE_SLUGS)
   tarifs: 'tarifs',
 }
 

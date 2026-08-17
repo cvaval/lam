@@ -190,7 +190,7 @@ export function SectionTiles({
             onPointerUp={onGripUp}
             onPointerCancel={onGripUp}
             onKeyDown={(e) => onGripKey(e, m.type)}
-            className="absolute right-1.5 top-1.5 z-20 touch-none cursor-grab rounded-md px-1.5 py-1 text-ank/80 transition hover:bg-koton hover:text-ank/70 active:cursor-grabbing"
+            className="absolute right-1.5 top-1.5 z-20 touch-none cursor-grab rounded-md px-1.5 py-1 text-ank/80 transition hover:bg-koton hover:text-ank/80 active:cursor-grabbing"
           >
             <span aria-hidden className="text-base leading-none">⠿</span>
           </button>

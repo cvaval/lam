@@ -4,8 +4,10 @@ import { useState } from 'react'
 import { postJson } from '@/lib/http'
 import type { Locale } from '@/lib/types'
 import { hardRedirect } from '@/lib/auth/redirect'
+import { ChampErreur } from './ChampErreur'
 
 const LBL = {
+  prefixeErreur: { fr: 'Erreur —', en: 'Error —', ht: 'Erè —' },
   password: { fr: 'Nouveau mot de passe', en: 'New password', ht: 'Nouvo modpas' },
   confirm: { fr: 'Confirmer le mot de passe', en: 'Confirm password', ht: 'Konfime modpas' },
   hint: { fr: '8 caractères minimum.', en: 'At least 8 characters.', ht: 'Omwen 8 karaktè.' },
@@ -81,7 +83,7 @@ export function ResetForm({ locale, token }: { locale: Locale; token: string }) 
   }
 
   const input = 'w-full rounded-lg border border-chabon/15 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-liy'
-  const label = 'mb-1 block text-[11px] font-semibold uppercase tracking-wide text-ank/60'
+  const label = 'mb-1 block text-[11px] font-semibold uppercase tracking-wide text-ank/80'
 
   return (
     <form onSubmit={submit} className="space-y-4">
@@ -95,9 +97,9 @@ export function ResetForm({ locale, token }: { locale: Locale; token: string }) 
         <input type="password" required autoComplete="new-password" value={confirm} onChange={(e) => setConfirm(e.target.value)} className={input} />
       </div>
       {error && (
-        <p className="rounded-lg bg-pil px-3 py-2 text-sm text-wouj" role="alert">
+        <ChampErreur prefixe={LBL.prefixeErreur[locale]} surface="bg-pil">
           {error}
-        </p>
+        </ChampErreur>
       )}
       <button
         type="submit"

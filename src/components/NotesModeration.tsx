@@ -100,7 +100,7 @@ export function NotesModeration({ locale }: { locale: string }) {
       </div>
 
       {etat && (
-        <p role="status" className={`rounded-lg border-l-2 px-3 py-2 text-sm ${etat.kind === 'ok' ? 'border-vet bg-pil text-vet' : 'border-wouj bg-pil text-wouj'}`}>
+        <p role="status" className={`rounded-lg border-l-2 px-3 py-2 text-sm ${etat.kind === 'ok' ? 'border-vet bg-pil text-vet' : 'border-wouj bg-pil text-ank'}`}>
           {etat.texte}
         </p>
       )}

@@ -36,8 +36,35 @@
  * revient à `router.push` ou appelle `window.location` directement.
  */
 
-/** Clés de `localStorage` qui portent du contenu propre à l'utilisateur. */
-const CLES_DE_COMPTE = ['lv:searchHistory', 'lv:doctrineMode', 'lv:doctrineTree'] as const
+/**
+ * Clés de SIGNALISATION, à ne jamais purger : elles ne portent rien de l'utilisateur et
+ * servent justement à orchestrer la déconnexion entre onglets.
+ */
+const CLES_DE_SIGNAL = new Set(['lv:logged-out', 'lv:last-activity'])
+
+/**
+ * ⚠️ ON PURGE PAR PRÉFIXE, ET NON PAR LISTE. La liste littérale nommait
+ * `lv:doctrineMode` et `lv:doctrineTree` ; le jour où le navigateur de thèmes a préfixé ses
+ * clés par la rubrique (`lv:legislationannotee:tree`, `lv:circulaires:tree`), ces deux noms
+ * ont cessé d'exister — la purge visait des clés fantômes, et son test restait vert parce
+ * qu'il posait lui-même les anciennes. Une liste à maintenir à la main finit toujours par
+ * décrire le code d'hier.
+ *
+ * ⚠️ ET SUR LES DEUX STOCKAGES. Seul `localStorage` était nettoyé, alors que l'état de
+ * l'arbre — thème ouvert, sous-thèmes dépliés — vit dans `sessionStorage`. Sur un poste
+ * partagé de cabinet, l'avocat suivant retrouvait la navigation du précédent.
+ */
+function purgerStockage(): void {
+  for (const store of [localStorage, sessionStorage]) {
+    const aRetirer: string[] = []
+    for (let i = 0; i < store.length; i++) {
+      const k = store.key(i)
+      if (k?.startsWith('lv:') && !CLES_DE_SIGNAL.has(k)) aRetirer.push(k)
+    }
+    // Retiré APRÈS l'énumération : supprimer pendant décale les index et saute des clés.
+    for (const k of aRetirer) store.removeItem(k)
+  }
+}
 
 export function hardRedirect(path: string, options: { sortie?: boolean } = {}): void {
   // Même origine seulement. Aucun appelant ne passe aujourd'hui autre chose qu'un littéral,
@@ -45,7 +72,7 @@ export function hardRedirect(path: string, options: { sortie?: boolean } = {}): 
   // hors du site.
   const cible = path.startsWith('/') && !path.startsWith('//') ? path : '/'
   try {
-    for (const k of CLES_DE_COMPTE) localStorage.removeItem(k)
+    purgerStockage()
   } catch {
     /* stockage indisponible (navigation privée, quota) : la redirection prime */
   }

@@ -90,7 +90,12 @@ export async function documentsInTheme(
   user: { role: Role; services: DocType[] },
   opts: { skip?: number; take?: number; corpus?: readonly DocType[] } = {},
 ) {
-  const themes = await listThemes()
+  // ⚠️ MÊME PÉRIMÈTRE QUE LES COMPTEURS. Sans `activeOnly`, `descendantIds` traversait les
+  // thèmes ARCHIVÉS : archiver une rubrique la retirait de l'arbre et de son compteur, mais
+  // ses documents restaient listés au clic sur le parent. Le badge annonçait alors moins que
+  // la liste qu'il surmonte — la divergence du 17 août, une troisième fois, par une autre
+  // porte. Aucun thème n'est archivé aujourd'hui : le défaut était à un clic de back-office.
+  const themes = await listThemes({ activeOnly: true })
   const ids = descendantIds(themeId, themes)
   if (ids.length === 0) return []
   const docs = await prisma.document.findMany({
@@ -103,7 +108,9 @@ export async function documentsInTheme(
           ? accessibleTypes(user).filter((t) => (opts.corpus as readonly DocType[]).includes(t))
           : accessibleTypes(user),
       },
-      themes: { some: { themeId: { in: ids } } },
+      // `ids` ne contient déjà que des thèmes actifs ; on l'exige aussi ici pour que le
+      // rattachement lui-même soit lu au même périmètre que `allThemedDocuments`.
+      themes: { some: { themeId: { in: ids }, theme: { active: true } } },
     },
     select: { id: true, type: true, titleFr: true, titleEn: true, titleHt: true, number: true, status: true, publicationDate: true },
     orderBy: [{ publicationDate: 'desc' }, { titleFr: 'asc' }],
@@ -151,19 +158,22 @@ export const TYPES_LEGISLATION_ANNOTEE: readonly DocType[] =
  * le corpus protège la cohérence de la rubrique. Le défaut du 17 août venait d'avoir cru
  * que le premier suffisait — un membre du personnel, qui a droit à tout, voyait tout.
  */
-export function typesDeLaSection(user: { role: Role; services: DocType[] }): DocType[] {
+export function typesDeLaSection(
+  user: { role: Role; services: DocType[] },
+  corpus: readonly DocType[] = TYPES_LEGISLATION_ANNOTEE,
+): DocType[] {
   const permis = new Set<string>(accessibleTypes(user))
-  return TYPES_LEGISLATION_ANNOTEE.filter((t) => permis.has(t))
+  return corpus.filter((t) => permis.has(t))
 }
 
 export async function allThemedDocuments(
   user: { role: Role; services: DocType[] },
-  opts: { take?: number } = {},
+  opts: { take?: number; corpus?: readonly DocType[] } = {},
 ) {
   return prisma.document.findMany({
     where: {
       // §03 (accès) ET périmètre de la section — ne jamais retirer/élargir l'un ni l'autre.
-      type: { in: typesDeLaSection(user) },
+      type: { in: typesDeLaSection(user, opts.corpus) },
       themes: { some: { theme: { active: true } } },
     },
     select: {
@@ -173,6 +183,105 @@ export async function allThemedDocuments(
     orderBy: [{ titleFr: 'asc' }],
     take: opts.take ?? 3000,
   })
+}
+
+/** Sous-arbres enracinés aux slugs donnés, cherchés à N'IMPORTE QUELLE profondeur. */
+export function sousArbres(tree: ThemeNode[], slugs: readonly string[]): ThemeNode[] {
+  const voulu = new Map(slugs.map((s, i) => [s, i]))
+  const trouves: ThemeNode[] = []
+  const walk = (n: ThemeNode) => {
+    if (voulu.has(n.slug)) trouves.push(n)
+    n.children.forEach(walk)
+  }
+  tree.forEach(walk)
+  // L'ordre de DÉCLARATION fait foi : « par matière » avant « par assujetti » est un choix
+  // éditorial, que ni la position en base ni l'ordre de parcours ne doivent pouvoir défaire.
+  return trouves.sort((a, b) => voulu.get(a.slug)! - voulu.get(b.slug)!)
+}
+
+/** Élague les nœuds dont le sous-arbre entier est vide POUR CE CORPUS. */
+function elaguer(nodes: ThemeNode[], sousTotal: Map<string, number>): ThemeNode[] {
+  return nodes
+    .filter((n) => (sousTotal.get(n.id) ?? 0) > 0)
+    .map((n) => ({ ...n, children: elaguer(n.children, sousTotal) }))
+}
+
+export interface NavigationThemes {
+  tree: ThemeNode[]
+  /** Documents rattachés DIRECTEMENT à un thème (hors descendants). */
+  counts: Record<string, number>
+  /** Documents DISTINCTS du sous-arbre — voir le commentaire de `navigationThemes`. */
+  subtotals: Record<string, number>
+  recentThemeIds: string[]
+}
+
+/**
+ * Tout ce qu'une rubrique doit savoir de sa taxonomie, calculé UNE FOIS, sur UN périmètre.
+ *
+ * ⚠️ POURQUOI UNE SEULE FONCTION. Une rubrique liste par trois chemins — le compteur, les
+ * vues à plat, et le clic sur un thème. Le 17 août 2026, trois requêtes séparées portaient
+ * trois périmètres : la correction en a aligné deux et oublié le troisième, celui du clic,
+ * et la divergence compte↔liste s'est simplement inversée. Rassembler les calculs ne rend
+ * pas l'erreur impossible, mais elle devient visible : il n'y a plus qu'un endroit où le
+ * corpus s'applique. (Le clic passe par l'API, qui lit le corpus de la MÊME déclaration.)
+ *
+ * ⚠️ LES SOUS-TOTAUX COMPTENT DES DOCUMENTS, PAS DES RATTACHEMENTS. Sommer les compteurs
+ * des enfants — ce que faisait l'affichage — compte deux fois un document classé sous deux
+ * sous-thèmes. Sur l'axe « par matière » de la BRH, cela annonçait 143 circulaires pour 142
+ * réelles, une seule étant classée sous deux matières. Un chiffre faux d'une unité reste un
+ * chiffre faux : sur un fonds juridique, il se cite.
+ *
+ * Les nœuds vides POUR CE CORPUS sont élagués. Grisés, ils affichaient « Aucun texte pour le
+ * moment » sous des rubriques qui en portaient 285 — l'écran démentait la base.
+ */
+export async function navigationThemes(
+  user: { role: Role; services: DocType[] },
+  opts: { corpus?: readonly DocType[]; racines?: readonly string[]; recentDays?: number } = {},
+): Promise<NavigationThemes> {
+  const types = typesDeLaSection(user, opts.corpus)
+  const cutoff = new Date(Date.now() - (opts.recentDays ?? 14) * 86400_000)
+  const themes = await listThemes({ activeOnly: true })
+
+  // Un seul balayage des rattachements du corpus : il fournit à la fois les compteurs, les
+  // sous-totaux distincts et la fraîcheur. Le volume est celui de la taxonomie (quelques
+  // centaines à quelques milliers de liens), pas celui du fonds.
+  const liens = types.length
+    ? await prisma.documentTheme.findMany({
+        where: { document: { type: { in: types } }, theme: { active: true } },
+        select: { themeId: true, documentId: true, document: { select: { updatedAt: true } } },
+      })
+    : []
+
+  const counts: Record<string, number> = {}
+  const recents = new Set<string>()
+  const docsParTheme = new Map<string, Set<string>>()
+  for (const l of liens) {
+    counts[l.themeId] = (counts[l.themeId] ?? 0) + 1
+    if (l.document.updatedAt >= cutoff) recents.add(l.themeId)
+    let s = docsParTheme.get(l.themeId)
+    if (!s) docsParTheme.set(l.themeId, (s = new Set()))
+    s.add(l.documentId)
+  }
+
+  // Remontée en documents DISTINCTS : on fusionne les ensembles, on ne somme pas les tailles.
+  const subtotals: Record<string, number> = {}
+  const arbreComplet = buildTree(themes)
+  const remonte = (n: ThemeNode): Set<string> => {
+    const s = new Set(docsParTheme.get(n.id) ?? [])
+    for (const c of n.children) for (const id of remonte(c)) s.add(id)
+    subtotals[n.id] = s.size
+    return s
+  }
+  arbreComplet.forEach(remonte)
+
+  const depart = opts.racines?.length ? sousArbres(arbreComplet, opts.racines) : arbreComplet
+  const parId = new Map(Object.entries(subtotals))
+  return {
+    tree: elaguer(depart, parId),
+    counts,
+    subtotals,
+    recentThemeIds: [...recents],
+  }
 }
 
 // ─────────────────────────── Gestion (back-office) ───────────────────────────

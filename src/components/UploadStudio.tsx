@@ -6,6 +6,7 @@ import { Field, fieldCls } from './forms'
 import { postJson, postForm } from '@/lib/http'
 import { type DocType, type Locale } from '@/lib/types'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
+import { ChampErreur } from './ChampErreur'
 
 interface SocieteData {
   denomination: string
@@ -342,7 +343,7 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
           <p className="font-semibold">
             ⚠ {t.cms.gapsWarning} {gaps.year} ({gaps.missing.length})
           </p>
-          <p className="mt-1 font-mono text-xs leading-relaxed text-ank/75">
+          <p className="mt-1 font-mono text-xs leading-relaxed text-ank/80">
             {gaps.missing.slice(0, 30).join(' · ')}
             {gaps.missing.length > 30 ? ` … (+${gaps.missing.length - 30})` : ''}
           </p>
@@ -358,7 +359,7 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
           <p className="font-semibold">
             ⚠ {t.cms.brhGapsWarning} ({brhGaps.missing.length})
           </p>
-          <p className="mt-1 font-mono text-xs leading-relaxed text-ank/75">
+          <p className="mt-1 font-mono text-xs leading-relaxed text-ank/80">
             {brhGaps.missing.slice(0, 30).join(' · ')}
             {brhGaps.missing.length > 30 ? ` … (+${brhGaps.missing.length - 30})` : ''}
           </p>
@@ -397,7 +398,7 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
                 {analysis.detected === 'CIRCULAIRE_BRH' ? t.cms.detectedCirculaire : t.cms.detectedMoniteur}
               </span>
             )}
-            {analysis.aiError && <span className="text-wouj">{t.cms.aiFailed}</span>}
+            {analysis.aiError && <span className="font-medium text-ank">⚠ {t.cms.aiFailed}</span>}
             {!analysis.textLayer && <span className="text-chabon">{t.cms.noTextLayer}</span>}
           </div>
         )}
@@ -751,9 +752,9 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
       )}
 
       {error && (
-        <p role="alert" className="rounded-lg border-l-2 border-wouj bg-white px-3 py-2 text-sm text-wouj">
+        <ChampErreur prefixe={t.common.echec}>
           {error}
-        </p>
+        </ChampErreur>
       )}
       <p className="max-w-xl text-xs text-ank/80">{t.cms.note}</p>
     </div>

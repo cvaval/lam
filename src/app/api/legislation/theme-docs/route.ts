@@ -1,26 +1,13 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { apiError } from '@/lib/api'
-import { getCurrentUser } from '@/lib/auth/session'
-import { documentsInTheme, TYPES_LEGISLATION_ANNOTEE } from '@/lib/legislation/themes'
-import { guard, LIMITS } from '@/lib/security/ratelimit'
-
-export const runtime = 'nodejs'
-
-/** Textes rattachés à un thème (sous-arbre compris), filtrés par accès §03. */
-export async function GET(req: NextRequest) {
-  const user = await getCurrentUser()
-  if (!user) return apiError('unauthorized', 401)
-  // Anti-scraping (§09) : borne le moissonnage de la cartographie titres↔thèmes (constat audit).
-  if (!(await guard({ action: 'doc', subject: user.id, ...LIMITS.doc }, { actorId: user.id }))) return apiError('rate', 429)
-  const themeId = req.nextUrl.searchParams.get('themeId') ?? ''
-  if (!themeId) return apiError('invalidFields', 400)
-
-  // Cette route SERT la navigation par thèmes de la Législation annotée : elle en applique
-  // donc le corpus. La jurisprudence et les circulaires ont leur rubrique ; les lister ici
-  // les présentait comme des textes de loi (défaut signalé le 17 août 2026).
-  const docs = await documentsInTheme(themeId, user, { take: 300, corpus: TYPES_LEGISLATION_ANNOTEE })
-  return NextResponse.json({
-    ok: true,
-    docs: docs.map((d) => ({ id: d.id, type: d.type, titleFr: d.titleFr, titleEn: d.titleEn, titleHt: d.titleHt, number: d.number, status: d.status, anchor: d.anchor })),
-  })
-}
+/**
+ * COMPATIBILITÉ — ancien chemin de la route des textes d'un thème.
+ *
+ * Renommée en /api/themes/docs le 17 août 2026 : « legislation » dans le chemin d'une route
+ * qui sert aussi les circulaires de la BRH est le genre de nom qui égare — exactement le
+ * travers que la correction des rubriques du même jour visait à supprimer.
+ *
+ * Ce fichier n'existe que pour les onglets restés ouverts pendant le déploiement : sans lui,
+ * un clic sur un thème répondrait 404, et le navigateur afficherait « Aucun texte accessible
+ * dans ce thème » — un mensonge, là où il fallait une erreur. Supprimable au déploiement
+ * suivant.
+ */
+export { GET, runtime } from '../../themes/docs/route'

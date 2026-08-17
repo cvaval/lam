@@ -10,8 +10,8 @@
  * NEXT_PUBLIC_MAP_STYLE_URL peut, si Lam approuve un fournisseur, remplacer le
  * style — les origines correspondantes devront alors être listées dans la CSP.
  *
- * Icônes : formes distinctes dessinées sur canvas (cercle/triangle/carré/losange)
- * et couleurs de la gamme AV-02, via `COURT_STYLE` — une seule définition, partagée
+ * Icônes : formes distinctes dessinées sur canvas (cercle/triangle/carré/losange),
+ * différenciées par la VALEUR et non par la teinte (AV-05, ch. 3), via `COURT_STYLE` — une seule définition, partagée
  * avec la légende et les fiches. Des couches `symbol`/`circle`, avec regroupement
  * (cluster) des tribunaux de paix : pas 185 nœuds DOM.
  *
@@ -55,6 +55,10 @@ const COLORS = {
 
 /** Icône de forme (bordure navy) dessinée hors DOM — retourne l'ImageData. */
 function shapeIcon(shape: 'circle' | 'triangle' | 'square' | 'diamond', color: string, size = 26): ImageData {
+  // ⚠ Le canevas est en pixels d'APPAREIL : déclaré en pixelRatio 2, il est rendu à la
+  // moitié de sa taille. Avec l'ancien icon-size 0,55 le tracé sortait à 5,5 px et le
+  // cerne à 0,69 px — sous-pixellaire, donc absent. On dessine désormais à 2× la taille
+  // CSS voulue et on rend à icon-size 1 : la forme et le contour sont réellement délivrés.
   const canvas = document.createElement('canvas')
   canvas.width = size
   canvas.height = size
@@ -63,7 +67,7 @@ function shapeIcon(shape: 'circle' | 'triangle' | 'square' | 'diamond', color: s
   // Contour CONSTITUTIF : Sitwon est à 1,2:1 de Koton — sans lui, le triangle des TPI
   // s'évanouit dans le fond de carte (AV-02).
   ctx.strokeStyle = MARKER_STROKE
-  ctx.lineWidth = 2.5
+  ctx.lineWidth = 4  // 2 px CSS après le pixelRatio 2
   const m = 3
   ctx.beginPath()
   if (shape === 'circle') ctx.arc(size / 2, size / 2, size / 2 - m, 0, Math.PI * 2)
@@ -115,9 +119,9 @@ export function JudicialMap({
   /**
    * DÉNOMBREMENT DES AGRÉGATS DE TRIBUNAUX DE PAIX.
    *
-   * Un disque qui en cache quinze sans le dire n'informe pas : il trompe. Depuis que les
-   * tribunaux de paix sont en Wouj (AV-02), le disque muet est en plus la tache la plus
-   * voyante de la carte — raison de plus pour qu'il dise ce qu'il vaut.
+   * Un disque qui en cache quinze sans le dire n'informe pas : il trompe. Le disque est
+   * désormais Chabon à chiffre Blan (10,31:1) — il était Sitwon à chiffre Chabon, où le
+   * nombre ne rendait que 1,44:1 : il était là sans être lisible.
    *
    * ⚠️ POURQUOI DU DOM ET NON UNE COUCHE `text-field`. Le texte MapLibre exige une source
    * de glyphes PBF déclarée par le style ; ce style n'en a pas, et en héberger imposerait
@@ -218,8 +222,11 @@ export function JudicialMap({
 
     map.on('load', async () => {
       try {
+      // Taille en pixels d'APPAREIL = 2 × la taille CSS voulue (pixelRatio 2).
+      // Le degré le plus rare est le plus grand : la hiérarchie se lit à la taille.
+      const TAILLE: Record<string, number> = { circle: 24, triangle: 32, square: 36, diamond: 44 }
       for (const { shape, color } of Object.values(COURT_STYLE)) {
-        map.addImage(`court-${shape}`, shapeIcon(shape, color), { pixelRatio: 2 })
+        map.addImage(`court-${shape}`, shapeIcon(shape, color, TAILLE[shape]), { pixelRatio: 2 })
       }
 
       map.addSource('departments', { type: 'geojson', data: asset('/maps/hti/hti-adm1-departments.geojson') })
@@ -254,7 +261,9 @@ export function JudicialMap({
         // Sitwon — la sélection est un acte d'usage. Depuis AV-02 les TPI sont eux aussi
         // Sitwon : le trait passe à 3,2 px pour que la limite communale ne se confonde pas
         // avec un marqueur (une frontière épaisse ≠ un triangle cerné de 26 px).
-        paint: { 'line-color': BRAND_COLORS.sitwon, 'line-width': 3.2 },
+        // AV-05 ch. 3 : Sitwon n'est jamais un trait (1,29:1). Le filet devient Chabon
+        // (8,49:1) ; c'est l'AIRE en Wouj Pal qui signale la commune choisie.
+        paint: { 'line-color': BRAND_COLORS.chabon, 'line-width': 2.5 },
       })
 
       // Emprises par commune (survol clavier/centrage) calculées UNE fois du GeoJSON servi.
@@ -293,14 +302,14 @@ export function JudicialMap({
         map.addLayer({
           id: 'paix-clusters', type: 'circle', source: 'courts-paix', filter: ['has', 'point_count'],
           paint: {
-            'circle-color': COURT_STYLE.PAIX.color, 'circle-stroke-color': MARKER_STROKE, 'circle-stroke-width': 2,
+            'circle-color': BRAND_COLORS.chabon, 'circle-stroke-color': BRAND_COLORS.blan, 'circle-stroke-width': 2,
             'circle-radius': ['step', ['get', 'point_count'], 10, 5, 14, 15, 18],
             'circle-opacity': 0.9,
           },
         })
         map.addLayer({
           id: 'paix-points', type: 'symbol', source: 'courts-paix', filter: ['!', ['has', 'point_count']],
-          layout: { 'icon-image': 'court-circle', 'icon-size': 0.55, 'icon-allow-overlap': true },
+          layout: { 'icon-image': 'court-circle', 'icon-size': 1, 'icon-allow-overlap': true },
         })
         for (const [type, icon] of Object.entries(LAYER_ICON)) {
           if (type === 'PAIX') continue
@@ -309,7 +318,6 @@ export function JudicialMap({
             filter: ['==', ['get', 'courtType'], type],
             layout: {
               'icon-image': `court-${icon}`, 'icon-allow-overlap': true,
-              'icon-size': type === 'CASSATION' ? 0.85 : 0.65,
             },
           })
         }

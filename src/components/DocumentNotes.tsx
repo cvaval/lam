@@ -168,8 +168,8 @@ export function DocumentNotes({
                 <span className="font-semibold text-ank">{n.signature}</span>
                 <time dateTime={n.createdAt}>{new Date(n.createdAt).toLocaleDateString(locale === 'en' ? 'en-GB' : 'fr-FR')}</time>
                 {/* L'état porte son LIBELLÉ, jamais une simple couleur ni un point. */}
-                {attente && <span className="rounded-full border border-liy bg-white px-2 py-0.5 font-medium text-wouj">⏳ {lt(L.enAttente)}</span>}
-                {refusee && <span className="rounded-full border border-liy bg-white px-2 py-0.5 font-medium text-wouj">✕ {lt(L.refusee)}</span>}
+                {attente && <span className="rounded-full border border-liy bg-white px-2 py-0.5 font-medium text-chabon">⏳ {lt(L.enAttente)}</span>}
+                {refusee && <span className="rounded-full border border-liy bg-white px-2 py-0.5 font-medium text-chabon">✕ {lt(L.refusee)}</span>}
               </div>
               <NoteBody corps={n.body} className="mt-2 text-sm leading-relaxed text-ank" />
               {refusee && n.moderationNote && (
@@ -252,7 +252,7 @@ export function DocumentNotes({
         </div>
         <p className="mt-2 text-xs text-grafit">{lt(L.moderation)}</p>
         {etat && (
-          <p role="status" className={`mt-2 rounded-lg border-l-2 px-3 py-2 text-sm ${etat.kind === 'ok' ? 'border-vet bg-pil text-vet' : 'border-wouj bg-pil text-wouj'}`}>
+          <p role="status" className={`mt-2 rounded-lg border-l-2 px-3 py-2 text-sm ${etat.kind === 'ok' ? 'border-vet bg-pil text-vet' : 'border-wouj bg-pil text-ank'}`}>
             {etat.texte}
           </p>
         )}

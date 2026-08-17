@@ -205,8 +205,8 @@ export function IndexMoniteurEditor({ locale, peutSupprimer }: { locale: Locale;
   const statusCls =
     status?.kind === 'ok' ? 'bg-vet/10 text-vet border-vet/30'
     : status?.kind === 'warn' ? 'bg-pil text-chabon border-chabon/30'
-    : status?.kind === 'err' ? 'bg-pil text-wouj border-wouj/40'
-    : 'bg-pil text-ank/70 border-chabon/15'
+    : status?.kind === 'err' ? 'bg-pil text-ank border-wouj/40'
+    : 'bg-pil text-ank/80 border-chabon/15'
 
   return (
     <div className="space-y-5">
@@ -251,7 +251,7 @@ export function IndexMoniteurEditor({ locale, peutSupprimer }: { locale: Locale;
         </div>
         <div>
           <label htmlFor="idx-date" className="mb-1 block text-xs font-semibold uppercase tracking-wide text-ank/80">
-            {lt(L.date)} <span className="text-wouj" aria-hidden="true">*</span>
+            {lt(L.date)} <span className="text-grafit" aria-hidden="true">*</span>
             <span className="sr-only"> ({lt(L.dateRequired)})</span>
           </label>
           <input
@@ -265,12 +265,12 @@ export function IndexMoniteurEditor({ locale, peutSupprimer }: { locale: Locale;
  className={`min-h-[44px] w-full rounded-lg border bg-white px-3 text-sm text-ank transition ${dateISO ? 'border-liy' : 'border-wouj'}`}
           />
           {!dateISO && (
-            <p id="idx-date-err" className="mt-1 flex items-center gap-1 text-[11px] font-medium text-wouj">
+            <p id="idx-date-err" className="mt-1 flex items-center gap-1 text-[11px] font-medium text-grafit">
               <span aria-hidden="true">⚠</span> {lt(L.dateRequired)}
             </p>
           )}
           {avertissementAnnee && (
-            <p role="status" className="mt-1 flex items-center gap-1 text-[11px] font-medium text-wouj">
+            <p role="status" className="mt-1 flex items-center gap-1 text-[11px] font-medium text-grafit">
               <span aria-hidden="true">⚠</span> {lt(L.dateYearMismatch)}
             </p>
           )}
@@ -292,7 +292,7 @@ export function IndexMoniteurEditor({ locale, peutSupprimer }: { locale: Locale;
       {doublon && (
         <section role="alert" aria-labelledby="dup-h" className="overflow-hidden rounded-2xl border-2 border-wouj bg-white">
           <div className="border-b border-liy bg-wouj/5 px-5 py-4">
-            <h2 id="dup-h" className="flex items-center gap-2 text-sm font-semibold text-wouj">
+            <h2 id="dup-h" className="flex items-center gap-2 text-sm font-semibold text-ank">
               <span aria-hidden="true">⚠</span>
               {lt(L.dupTitle)} — <span className="font-mono">{doublon.number}</span>
               <span className="font-normal text-grafit">({doublon.entries.length})</span>
@@ -353,7 +353,7 @@ export function IndexMoniteurEditor({ locale, peutSupprimer }: { locale: Locale;
                 placeholder="Titre de la publication…"
                 className={`min-h-[2.5rem] flex-1 resize-y rounded-lg border bg-koton px-3 py-2 text-sm text-ank outline-none focus:border-liy ${row.id ? 'border-chabon/30' : 'border-chabon/15'}`}
               />
-              <button type="button" onClick={() => removeRow(i)} title={lt(L.remove)} className="mt-1.5 shrink-0 rounded-md px-2 py-1 text-xs text-wouj hover:bg-pil">
+              <button type="button" onClick={() => removeRow(i)} title={lt(L.remove)} className="mt-1.5 shrink-0 rounded-md px-2 py-1 text-xs text-chabon hover:bg-pil">
                 ✕
               </button>
             </div>
@@ -367,7 +367,7 @@ export function IndexMoniteurEditor({ locale, peutSupprimer }: { locale: Locale;
       <div className="flex flex-wrap items-center justify-end gap-3">
         {/* Un bouton grisé sans motif laisse l'opérateur deviner : le motif est écrit. */}
         {blocage && (
-          <p className="inline-flex items-center gap-1.5 rounded-lg border-l-2 border-wouj bg-pil px-3 py-1.5 text-xs font-medium text-wouj">
+          <p className="inline-flex items-center gap-1.5 rounded-lg border-l-[3px] border-wouj bg-pil px-3 py-1.5 text-xs font-medium text-ank">
             <span aria-hidden="true">⚠</span> {blocage}
           </p>
         )}

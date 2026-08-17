@@ -57,7 +57,7 @@ export function AmendmentHistory({ items, locale }: { items: AmendItem[]; locale
           <li key={it.anchor} id={`hist-${it.anchor}`} className="scroll-mt-24 rounded-lg border border-chabon/10 p-3">
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-sm font-semibold text-ank">{it.label}</span>
-              {it.abrogated && <span className="rounded-full bg-pil px-1.5 text-[11px] text-wouj">{LBL.abrogated[locale]}</span>}
+              {it.abrogated && <span className="rounded-full bg-sitwon px-1.5 text-[11px] text-chabon">{LBL.abrogated[locale]}</span>}
               <span className="text-xs text-ank/80">{it.statusLine}</span>
               {it.history.length > 0 && (
                 <button type="button" onClick={() => toggle(it.anchor)} className="ml-auto text-xs font-medium text-chabon hover:underline">

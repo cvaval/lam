@@ -162,7 +162,7 @@ export function UsersManager({
                           <button
                             onClick={() => act(u.id, 'suspend')}
                             disabled={!!busy}
-                            className="rounded-lg border border-wouj/40 px-2.5 py-1.5 text-xs font-medium text-wouj hover:bg-pil"
+                            className="rounded-lg border border-chabon/40 px-2.5 py-1.5 text-xs font-medium text-chabon hover:bg-pil"
                           >
                             {t.admin.suspend}
                           </button>

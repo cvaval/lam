@@ -64,7 +64,7 @@ export function AlertsManager({ initial, locale, t }: { initial: AlertDto[]; loc
               type="button"
               onClick={() => remove(a)}
               disabled={busy === a.id}
-              className="rounded-lg border border-wouj/40 bg-white px-2.5 py-1 text-xs text-wouj hover:bg-pil disabled:opacity-60"
+              className="rounded-lg border border-wouj/40 bg-white px-2.5 py-1 text-xs text-chabon hover:bg-pil disabled:opacity-60"
             >
               {t.alerts.delete}
             </button>

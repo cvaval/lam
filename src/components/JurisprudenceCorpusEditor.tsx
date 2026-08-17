@@ -248,7 +248,7 @@ export function JurisprudenceCorpusEditor({ locale }: { locale: Locale }) {
         </div>
       )}
       {etat && (
-        <p role="status" className={`rounded-lg border-l-2 px-3 py-2 text-sm ${etat.kind === 'ok' ? 'border-vet bg-pil text-vet' : 'border-wouj bg-pil text-wouj'}`}>
+        <p role="status" className={`rounded-lg border-l-2 px-3 py-2 text-sm ${etat.kind === 'ok' ? 'border-vet bg-pil text-vet' : 'border-wouj bg-pil text-ank'}`}>
           {etat.texte}
         </p>
       )}
@@ -259,7 +259,7 @@ export function JurisprudenceCorpusEditor({ locale }: { locale: Locale }) {
         <details key={f.id} className="rounded-2xl border border-liy bg-white p-5">
           <summary className="cursor-pointer text-sm font-semibold text-ank">
             n° {f.number ?? '—'} · {f.titleFr}
-            <span className={`ml-2 rounded-full bg-pil px-2 py-0.5 text-[11px] font-medium ${f.texteIntegral ? 'text-grafit' : 'text-wouj'}`}>
+            <span className={`ml-2 rounded-full bg-pil px-2 py-0.5 text-[11px] font-medium ${f.texteIntegral ? 'text-grafit' : 'text-chabon'}`}>
               {f.texteIntegral ? lt(L.present) : `⚠ ${lt(L.absent)}`}
             </span>
             {f.modifiee && <span className="ml-2 rounded-full bg-sitwon px-2 py-0.5 text-[11px] font-semibold text-chabon">modifiée</span>}

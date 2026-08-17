@@ -229,7 +229,7 @@ export function ThemeManager({
             <button onClick={() => act({ action: 'update', id: node.id, active: !node.active }, node.active ? 'Thème archivé.' : 'Thème restauré.')} className="rounded px-1.5 text-xs text-grafit hover:bg-chabon/10">
               {node.active ? 'Archiver' : 'Restaurer'}
             </button>
-            <button onClick={() => remove(node)} className="rounded bg-white px-1.5 text-xs text-wouj hover:bg-pil">Supprimer</button>
+            <button onClick={() => remove(node)} className="rounded bg-white px-1.5 text-xs text-chabon hover:bg-pil">Supprimer</button>
           </span>
         </div>
         {editingId === node.id && renderDraftForm(() => submitEdit(node.id), 'Enregistrer')}
@@ -259,7 +259,7 @@ export function ThemeManager({
       </div>
 
       {msg && (
-        <p className={`mb-3 rounded-lg px-3 py-2 text-sm ${msg.kind === 'ok' ? 'bg-vet/10 text-ank/80' : 'bg-pil text-wouj'}`} role="status">
+        <p className={`mb-3 rounded-lg px-3 py-2 text-sm ${msg.kind === 'ok' ? 'bg-vet/10 text-ank/80' : 'bg-pil text-ank'}`} role="status">
           {msg.text}
         </p>
       )}

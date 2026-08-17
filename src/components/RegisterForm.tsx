@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import { postJson } from '@/lib/http'
+import { ChampErreur } from './ChampErreur'
 
 export function RegisterForm({ t }: { t: Dictionary }) {
   const [done, setDone] = useState(false)
@@ -57,9 +58,7 @@ export function RegisterForm({ t }: { t: Dictionary }) {
  className="min-h-[44px] w-full rounded-lg border border-liy bg-white px-3.5 text-sm text-ank transition focus:border-wouj"
       />
       {error && (
-        <p role="alert" className="rounded-lg border-l-2 border-wouj bg-white px-3 py-2 text-sm text-wouj">
-          {error}
-        </p>
+        <ChampErreur prefixe={t.common.erreur}>{error}</ChampErreur>
       )}
       <button
         type="submit"

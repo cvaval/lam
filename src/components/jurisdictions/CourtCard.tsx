@@ -9,22 +9,30 @@ import { BRAND_COLORS } from '@/lib/brand-colors'
  * filtres de couche, les fiches et la toile MapLibre (`JudicialMap`), qui recopiait
  * ces teintes avant l'avenant AV-02.
  *
- * Gamme cartographique AV-02 : Wouj / Sitwon / Vèt / Ble. La FORME accompagne toujours
- * la couleur — la règle 5 de la charte interdit l'information portée par la teinte seule,
- * et Vèt/Wouj sont à 1,05:1 de luminance, indiscernables en daltonisme rouge-vert.
+ * Gamme AV-05 : la VALEUR (blanc → Chabon) et la FORME portent le degré ; la couleur est
+ * réservée à l'état (Wouj = sélectionné) et à la seule Cassation (Ble). La règle 5 interdit
+ * l'information portée par la teinte seule — ici, la teinte n'en porte aucune.
  *
- * ⚠️ Le contour Chabon est CONSTITUTIF, non décoratif : Sitwon n'est qu'à 1,2:1 de Koton,
- * un marqueur jaune sans contour disparaîtrait du fond de carte.
+ * ⚠️ Le contour Chabon est CONSTITUTIF : le cercle des tribunaux de paix est BLANC, il
+ * n'existe que par son cerne. Voir `shapeIcon` dans JudicialMap — ce cerne était naguère
+ * rendu à 0,69 px, donc absent.
  */
 export const COURT_STYLE: Record<CourtType, { color: string; shape: 'circle' | 'triangle' | 'square' | 'diamond' }> = {
-  // Rotation demandée par la direction (16 août 2026) : les 185 tribunaux de paix passent en
-  // Sitwon et les 5 cours d'appel en Wouj. Le degré le plus NOMBREUX prend la teinte la plus
-  // légère, le plus rare la plus saillante — 185 points rouges saturaient la carte. La forme
-  // reste le porteur primaire du sens (cercle/triangle/carré/losange) : la couleur ne porte
-  // jamais seule, et Vèt/Wouj sont à 1,05:1 de luminance, indiscernables en daltonisme.
-  PAIX: { color: BRAND_COLORS.sitwon, shape: 'circle' },
-  PREMIERE_INSTANCE: { color: BRAND_COLORS.vet, shape: 'triangle' },
-  APPEL: { color: BRAND_COLORS.wouj, shape: 'square' },
+  // AV-05, ch. 3 — LA VALEUR ET LA FORME PORTENT LE DEGRÉ, LA COULEUR PORTE L'ÉTAT.
+  //
+  // La rotation du 16 août au matin (paix en Sitwon, appel en Wouj) allégeait bien la carte,
+  // mais la mesure l'a condamnée : Sitwon sur le fond de carte ne rend que 1,20:1, et le
+  // contour censé le sauver était SOUS-PIXELLAIRE (voir shapeIcon). 175 disques invisibles.
+  // Vèt et Wouj, eux, sont à 1,05:1 de luminance : un deutéranope voyait deux marqueurs
+  // identiques là où seule la forme les séparait — à 5,5 px, elle ne les sépare pas.
+  //
+  // Le degré se lit donc à la VALEUR (du blanc au foncé) et à la FORME ; la couleur est
+  // réservée à ce qui change : la sélection (Wouj, AV-02 = l'usage) et la seule juridiction
+  // qui certifie (Ble, la Cassation). Sitwon disparaît de la carte : il est rationné à une
+  // occurrence par écran, et 175 marqueurs n'en font pas une.
+  PAIX: { color: BRAND_COLORS.blan, shape: 'circle' },
+  PREMIERE_INSTANCE: { color: BRAND_COLORS.chabon, shape: 'triangle' },
+  APPEL: { color: BRAND_COLORS.chabon, shape: 'square' },
   CASSATION: { color: BRAND_COLORS.ble, shape: 'diamond' },
 }
 

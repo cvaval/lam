@@ -58,16 +58,31 @@ describe('hardRedirect', () => {
   const assign = vi.fn()
   const replace = vi.fn()
   const store = new Map<string, string>()
+  const session = new Map<string, string>()
+
+  /**
+   * ⚠️ Une fausse mémoire DOIT porter `length` et `key(i)`. L'ancienne n'avait que
+   * `removeItem`/`setItem` : elle suffisait à une purge qui énumérait des noms en dur, et
+   * elle aurait laissé passer sans un mot une purge par préfixe qui ne retire rien du tout.
+   * Un doublon de l'interface réelle, si approximatif, ne prouve que ce qu'il imite.
+   */
+  const faux = (m: Map<string, string>) => ({
+    get length() {
+      return m.size
+    },
+    key: (i: number) => [...m.keys()][i] ?? null,
+    removeItem: (k: string) => m.delete(k),
+    setItem: (k: string, v: string) => m.set(k, v),
+  })
 
   beforeEach(() => {
     assign.mockClear()
     replace.mockClear()
     store.clear()
+    session.clear()
     ;(globalThis as Record<string, unknown>).window = { location: { assign, replace } }
-    ;(globalThis as Record<string, unknown>).localStorage = {
-      removeItem: (k: string) => store.delete(k),
-      setItem: (k: string, v: string) => store.set(k, v),
-    }
+    ;(globalThis as Record<string, unknown>).localStorage = faux(store)
+    ;(globalThis as Record<string, unknown>).sessionStorage = faux(session)
   })
 
   it('entrée : empile ; sortie : remplace l’entrée d’historique', () => {
@@ -80,11 +95,38 @@ describe('hardRedirect', () => {
   })
 
   it('purge le contenu du compte, épargne les deux signaux', () => {
-    for (const k of ['lv:searchHistory', 'lv:doctrineMode', 'lv:doctrineTree', 'lv:logged-out', 'lv:last-activity'])
+    // ⚠️ LES CLÉS DU CODE D'AUJOURD'HUI, pas celles d'hier. Ce test posait lui-même
+    // « lv:doctrineMode » et « lv:doctrineTree » — deux noms que plus aucune ligne de
+    // l'application n'écrivait depuis que le navigateur de thèmes préfixe ses clés par la
+    // rubrique. Il restait donc vert en vérifiant l'effacement de clés fantômes, pendant que
+    // l'état réel des deux rubriques survivait au changement de compte.
+    for (const k of ['lv:searchHistory', 'lv:legislationannotee:mode', 'lv:logged-out', 'lv:last-activity'])
       store.set(k, 'x')
+    // L'arbre déplié et le thème ouvert vivent dans sessionStorage, qui n'était pas purgé.
+    for (const k of ['lv:legislationannotee:tree', 'lv:circulaires:tree']) session.set(k, 'x')
     hardRedirect('/fr/login', { sortie: true })
-    // L'historique de recherche du compte précédent ne doit pas reparaître chez le suivant.
     expect([...store.keys()].sort()).toEqual(['lv:last-activity', 'lv:logged-out'])
+    expect([...session.keys()]).toEqual([])
+  })
+
+  it('purge par PRÉFIXE : une clé de rubrique inventée demain est déjà couverte', () => {
+    // C'est tout l'objet du changement. Une liste littérale ne connaît que les rubriques
+    // écrites le jour où on l'a rédigée.
+    store.set('lv:rubrique-qui-nexiste-pas-encore:mode', 'x')
+    session.set('lv:rubrique-qui-nexiste-pas-encore:tree', 'x')
+    hardRedirect('/fr/login', { sortie: true })
+    expect([...store.keys()]).toEqual([])
+    expect([...session.keys()]).toEqual([])
+  })
+
+  it('n’efface RIEN qui ne soit pas à nous', () => {
+    // Purger par préfixe ne doit pas devenir purger tout : d'autres outils écrivent dans le
+    // même stockage, et effacer leurs clés serait un dommage silencieux.
+    store.set('consentement-cookies', 'x')
+    session.set('next-router-state', 'x')
+    hardRedirect('/fr/login', { sortie: true })
+    expect([...store.keys()]).toEqual(['consentement-cookies'])
+    expect([...session.keys()]).toEqual(['next-router-state'])
   })
 
   it('refuse de quitter le site', () => {

@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { LOCATION_PRECISIONS, VERIFICATION_STATUSES } from '@/lib/jurisdictions/constants'
+import { ChampErreur } from '../ChampErreur'
 
 interface Row {
   id: string
@@ -126,7 +127,7 @@ export function JudicialAdminTable({ courts }: { courts: Row[] }) {
                 <td className="px-3 py-2 font-mono text-[10px]">{c.latitude != null ? `${c.latitude}, ${c.longitude}` : '—'}</td>
                 <td className="px-3 py-2">{c.locationPrecision}</td>
                 <td className="px-3 py-2">
-                  <span className={c.verificationStatus === 'UNMAPPED' ? 'text-wouj' : c.verificationStatus === 'TO_VERIFY' ? 'text-chabon' : 'text-chabon'}>
+                  <span className={c.verificationStatus === 'UNMAPPED' ? 'text-chabon' : c.verificationStatus === 'TO_VERIFY' ? 'text-chabon' : 'text-chabon'}>
                     {c.verificationStatus}
                   </span>
                   {c.verifiedAt && <span className="ml-1 text-ank/80">({c.verifiedAt})</span>}
@@ -151,7 +152,7 @@ export function JudicialAdminTable({ courts }: { courts: Row[] }) {
           >
             <h3 className="font-serif text-lg font-semibold text-ank">{editing.name}</h3>
             <p className="font-mono text-[10px] text-ank/80">{editing.id}</p>
-            {error && <p role="alert" className="mt-2 rounded-lg bg-pil px-3 py-2 text-xs text-wouj">{error}</p>}
+            {error && <ChampErreur prefixe="Erreur —" surface="bg-pil">{error}</ChampErreur>}
             <div className="mt-3 grid gap-3">
               <label className="text-xs font-medium text-grafit">
                 Adresse (uniquement si vérifiée)

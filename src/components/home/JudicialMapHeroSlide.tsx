@@ -45,7 +45,7 @@ const FOCUS_PCT = { left: `${(HERO_MAP_FOCUS.x / VB_W) * 100}%`, top: `${(HERO_M
  * décoratif, `aria-hidden`, doublé du NOM du tribunal) — mais la lisibilité, si.
  */
 function CourtGlyph({ tone }: { tone: 'cassation' | 'appel' | 'tpi' | 'paix' }) {
-  const teinte = { cassation: C.ble, appel: C.vet, tpi: C.sitwon, paix: C.wouj }[tone]
+  const teinte = { cassation: C.ble, appel: C.chabon, tpi: C.chabon, paix: C.blan }[tone]
   return (
     <span
       aria-hidden="true"
@@ -189,9 +189,9 @@ export function JudicialMapHeroSlide({ locale, t }: { locale: Locale; t: Diction
             <div className="hidden rounded-2xl bg-white p-4 text-ank ring-1 ring-chabon/10 lg:absolute lg:right-0 lg:top-4 lg:block lg:w-[14.5rem] xl:w-[15.5rem]">
               <h3 className="font-sans text-xl font-medium text-ank">Port-au-Prince</h3>
               {/* /65 et non /50 : sur blanc, /50 ne donnait que 3,26:1 (AA = 4,5). */}
-              <p className="mt-0.5 text-[11px] text-ank/75">Ouest · Arrondissement de Port-au-Prince</p>
-              <p className="mt-2.5 inline-flex items-baseline gap-1.5 rounded-md border border-[#C7C6C1] bg-pil px-2.5 py-1">
-                <span className="font-mono text-[9px] uppercase tracking-wider text-ank/75">{j.primaryPostalCode}</span>
+              <p className="mt-0.5 text-[11px] text-ank/80">Ouest · Arrondissement de Port-au-Prince</p>
+              <p className="mt-2.5 inline-flex items-baseline gap-1.5 rounded-md border border-liy-fonse bg-pil px-2.5 py-1">
+                <span className="font-mono text-[9px] uppercase tracking-wider text-ank/80">{j.primaryPostalCode}</span>
                 <span className="font-mono text-xs font-bold text-ank">HT6110</span>
               </p>
               <ul className="mt-3 flex flex-col divide-y divide-chabon/5">
@@ -200,7 +200,7 @@ export function JudicialMapHeroSlide({ locale, t }: { locale: Locale; t: Diction
                     <CourtGlyph tone={c.tone} />
                     <span className="min-w-0">
                       <span className="block text-[12.5px] font-medium leading-tight text-ank">{c.name}</span>
-                      {c.detail && <span className="mt-0.5 block truncate text-[10.5px] text-ank/75">{c.detail}</span>}
+                      {c.detail && <span className="mt-0.5 block truncate text-[10.5px] text-ank/80">{c.detail}</span>}
                     </span>
                   </li>
                 ))}

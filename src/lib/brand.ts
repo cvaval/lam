@@ -54,6 +54,25 @@ export interface DocTypeMeta {
    * qu'elle contient. C'est précisément cette confusion qui a produit le défaut.
    */
   corpus?: readonly DocType[]
+  /**
+   * RACINES DE LA TAXONOMIE — les thèmes par lesquels la navigation de cette rubrique
+   * commence. Non déclaré = l'arbre entier, à partir de ses vraies racines.
+   *
+   * Un thème n'appartient à aucune rubrique : il classe des documents, et ce sont les
+   * DOCUMENTS qui ont un type. Deux rubriques peuvent donc légitimement puiser dans le
+   * même arbre, chacune à sa hauteur. Les deux axes de la BRH (« par matière », « par
+   * assujetti ») vivent ainsi au troisième niveau de l'arbre du droit économique, sous
+   * « Banques & institutions financières » — les prendre pour des racines ne les
+   * trouverait pas, et partir des vraies racines ferait descendre le lecteur de
+   * circulaires à travers toute la taxonomie juridique pour les atteindre.
+   *
+   * ⚠️ Le nœud parent lui-même n'est PAS une racine ici : « Banques & institutions
+   * financières » porte 27 textes de loi en plus de ses circulaires. L'y inclure
+   * rouvrirait, en miroir, le défaut du 17 août — des lois listées sous une rubrique de
+   * circulaires. Le corpus l'empêcherait, mais on ne fait pas reposer une frontière
+   * éditoriale sur un filtre : on ne prend pas le nœud.
+   */
+  racinesThemes?: readonly string[]
 }
 
 export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
@@ -82,6 +101,16 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
     type: 'CIRCULAIRE_BRH',
     num: 2,
     slug: 'circulaires',
+    // Déclaré EXPLICITEMENT, bien que le repli étroit donne déjà le même résultat. Le repli
+    // est un filet, pas une intention : écrit noir sur blanc, le corpus se voit et se
+    // discute. Sans cela, joindre un jour la loi bancaire à la rubrique changerait le
+    // périmètre de toutes ses requêtes sans qu'aucune ligne ne l'annonce.
+    corpus: ['CIRCULAIRE_BRH'] as const,
+    // Taxonomie de la BRH elle-même (recueil, Moniteur Spécial n° 18 du 6 juin 2017) : DEUX
+    // axes de lecture des mêmes 142 circulaires — par matière (15 rubriques) et par
+    // assujetti (6). Ce sont deux entrées, pas deux moitiés : additionner leurs compteurs
+    // compterait chaque circulaire deux fois.
+    racinesThemes: ['brh-matiere', 'brh-assujetti'] as const,
     pastille: 'Solèy',
     code: 'BRH',
     badge: 'BRH',

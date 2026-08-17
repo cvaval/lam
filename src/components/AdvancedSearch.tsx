@@ -221,7 +221,7 @@ export function AdvancedSearch({
           {/* Réinitialise les CRITÈRES ; la requête appartient à la barre du haut. */}
           <Link
             href={`/${locale}/search?adv=1${values.q ? `&q=${encodeURIComponent(values.q)}` : ''}`}
-            className="text-xs text-ank/45 hover:text-ank/70 hover:underline"
+            className="text-xs text-ank/80 hover:text-ank/80 hover:underline"
           >
             {t.search.reset}
           </Link>

@@ -6,6 +6,7 @@ import { ROLES, type Role } from '@/lib/types'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import { postJson } from '@/lib/http'
 import { fieldCls as field } from './forms'
+import { ChampErreur } from './ChampErreur'
 
 const ASSIGNABLE: Role[] = [...ROLES]
 
@@ -99,7 +100,7 @@ export function CreateUserForm({ t }: { t: Dictionary }) {
         <input name="org" placeholder={t.admin.orgField} className={field} />
         <input name="promo" placeholder={`${t.promo.code} (${t.admin.applyPromo})`} className={`${field} sm:col-span-2`} />
       </div>
-      {error && <p className="mt-3 text-sm text-wouj">{error === 'exists' ? t.errors.exists : t.errors.invalidFields}</p>}
+      {error && <ChampErreur prefixe={t.common.erreur}>{error === 'exists' ? t.errors.exists : t.errors.invalidFields}</ChampErreur>}
       <div className="mt-4 flex gap-2">
         <button type="submit" disabled={busy} className="rounded-lg bg-wouj px-4 py-2 text-sm font-semibold text-white disabled:opacity-50">
           {busy ? t.common.loading : t.admin.create}

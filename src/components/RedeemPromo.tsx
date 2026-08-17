@@ -45,7 +45,7 @@ export function RedeemPromo({ t }: { t: Dictionary }) {
           {busy ? t.common.loading : t.promo.redeem}
         </button>
       </form>
-      {msg && <p className={`mt-2 text-sm ${msg.ok ? 'text-vet' : 'text-wouj'}`}>{msg.text}</p>}
+      {msg && <p className={`mt-2 text-sm ${msg.ok ? 'text-vet' : 'text-ank'}`}>{msg.text}</p>}
     </section>
   )
 }

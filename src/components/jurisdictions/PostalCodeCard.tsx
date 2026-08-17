@@ -18,7 +18,7 @@ export function PostalCodeCard({ postal, t }: { postal: CommuneRecord['postal'];
           <h4 className="text-xs font-medium text-ank/80">{j.otherPostalZones}</h4>
           <ul className="mt-1.5 flex flex-wrap gap-1.5">
             {postal.additionalCodes.map((code) => (
-              <li key={code} className="rounded-md bg-pil px-2 py-1 font-mono text-xs text-ank/75">{code}</li>
+              <li key={code} className="rounded-md bg-pil px-2 py-1 font-mono text-xs text-ank/80">{code}</li>
             ))}
           </ul>
         </div>

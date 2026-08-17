@@ -144,7 +144,7 @@ export function JurisprudenceEditor({ locale }: { locale: Locale }) {
             placeholder="Cass. 1re Sect. — exercice 1964-1965" className={champ} />
         </div>
         <div>
-          <label htmlFor="j-source" className={etiq}>{lt(L.source)} <span className="text-wouj" aria-hidden="true">*</span></label>
+          <label htmlFor="j-source" className={etiq}>{lt(L.source)} <span className="text-grafit" aria-hidden="true">*</span></label>
           <input id="j-source" value={source} onChange={(e) => setSource(e.target.value)}
             placeholder="CASSATION_1964_1965" className={champ} />
         </div>
@@ -171,7 +171,7 @@ export function JurisprudenceEditor({ locale }: { locale: Locale }) {
         </ul>
       )}
       {etat && (
-        <p role="status" className={`rounded-lg border-l-2 px-3 py-2 text-sm ${etat.kind === 'ok' ? 'border-vet bg-pil text-vet' : etat.kind === 'err' ? 'border-wouj bg-pil text-wouj' : 'border-liy bg-pil text-grafit'}`}>
+        <p role="status" className={`rounded-lg border-l-2 px-3 py-2 text-sm ${etat.kind === 'ok' ? 'border-vet bg-pil text-vet' : etat.kind === 'err' ? 'border-wouj bg-pil text-ank' : 'border-liy bg-pil text-grafit'}`}>
           {etat.texte}
         </p>
       )}
@@ -182,9 +182,9 @@ export function JurisprudenceEditor({ locale }: { locale: Locale }) {
         return (
           <details key={i} open={l.manquants.length > 0} className="rounded-2xl border border-liy bg-white p-5">
             <summary className="cursor-pointer text-sm font-semibold text-ank">
-              n° {l.numero || '—'} · {l.intitule || <span className="text-wouj">sans intitulé</span>}
+              n° {l.numero || '—'} · {l.intitule || <span className="text-grafit">sans intitulé</span>}
               {l.manquants.length > 0 && (
-                <span className="ml-2 rounded-full bg-pil px-2 py-0.5 text-[11px] font-medium text-wouj">
+                <span className="ml-2 rounded-full bg-pil px-2 py-0.5 text-[11px] font-medium text-grafit">
                   ⚠ {l.manquants.length} {lt(L.manquant)}
                 </span>
               )}
@@ -242,7 +242,7 @@ export function JurisprudenceEditor({ locale }: { locale: Locale }) {
 
       <div className="flex flex-wrap items-center justify-end gap-3">
         {blocage && (
-          <p className="inline-flex items-center gap-1.5 rounded-lg border-l-2 border-wouj bg-pil px-3 py-1.5 text-xs font-medium text-wouj">
+          <p className="inline-flex items-center gap-1.5 rounded-lg border-l-[3px] border-wouj bg-pil px-3 py-1.5 text-xs font-medium text-ank">
             <span aria-hidden="true">⚠</span> {blocage}
           </p>
         )}

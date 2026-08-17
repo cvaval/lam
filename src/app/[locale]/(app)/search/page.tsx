@@ -303,7 +303,7 @@ export default async function SearchPage({
   // en possède une (ex. « Législation annotée » → /legislationannotee, « Éditions Le
   // Moniteur » → /editionsmoniteur).
   const landingSlug = selectedType
-    ? ({ DOCTRINE: 'legislationannotee', LEGISLATION: 'editionsmoniteur', TARIF_DOUANIER: 'tarifs' } as Partial<Record<DocType, string>>)[selectedType]
+    ? ({ DOCTRINE: 'legislationannotee', LEGISLATION: 'editionsmoniteur', CIRCULAIRE_BRH: 'circulaires', TARIF_DOUANIER: 'tarifs' } as Partial<Record<DocType, string>>)[selectedType]
     : undefined
 
   return (

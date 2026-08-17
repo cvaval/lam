@@ -148,7 +148,7 @@ export function MarqueEditor({ locale, peutSupprimer }: { locale: Locale; peutSu
                     disabled={!peutSupprimer}
                     title={peutSupprimer ? lt(L.del) : MOTIF_SUPPRESSION}
                     aria-label={peutSupprimer ? lt(L.del) : `${lt(L.del)} — ${MOTIF_SUPPRESSION}`}
-                    className="shrink-0 rounded-md px-2 py-1 text-xs text-wouj hover:bg-pil disabled:cursor-not-allowed disabled:text-ank/40 disabled:hover:bg-transparent"
+                    className="shrink-0 rounded-md px-2 py-1 text-xs text-chabon hover:bg-pil disabled:cursor-not-allowed disabled:text-ank/40 disabled:hover:bg-transparent"
                   >
                     ✕
                   </button>

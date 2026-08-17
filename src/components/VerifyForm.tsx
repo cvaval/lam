@@ -5,6 +5,7 @@ import type { Dictionary } from '@/lib/i18n/dictionaries'
 import { postJson } from '@/lib/http'
 import type { Locale } from '@/lib/types'
 import { hardRedirect } from '@/lib/auth/redirect'
+import { ChampErreur } from './ChampErreur'
 
 export function VerifyForm({
   locale,
@@ -118,7 +119,7 @@ export function VerifyForm({
               change mais l'ancienne entrée « Lam » reste dans l'application : elle continue
               d'afficher des codes, tous refusés. Sans cette phrase, l'utilisateur retape
               indéfiniment un code condamné — c'est exactement ce qui s'est produit. */}
-          <p className="mb-3 flex items-start gap-1.5 rounded-lg border-l-2 border-wouj bg-white px-3 py-2 text-left text-[11px] font-medium leading-relaxed text-wouj">
+          <p className="mb-3 flex items-start gap-1.5 rounded-lg border-l-[3px] border-wouj bg-white px-3 py-2 text-left text-[11px] font-medium leading-relaxed text-ank">
             <span aria-hidden="true">⚠</span>
             <span>
               {locale === 'en'
@@ -194,9 +195,9 @@ export function VerifyForm({
       )}
 
       {error && (
-        <p className="rounded-lg bg-pil px-3 py-2 text-center text-sm text-wouj" role="alert">
+        <ChampErreur prefixe={t.common.erreur} surface="bg-pil">
           {error}
-        </p>
+        </ChampErreur>
       )}
 
       {/* Appareil de confiance : indisponible pour les rôles sensibles (admin/éditeur),

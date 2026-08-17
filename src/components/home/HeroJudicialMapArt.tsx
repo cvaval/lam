@@ -23,7 +23,7 @@ import { BRAND_COLORS as C } from '@/lib/brand-colors'
 /** Gamme cartographique AV-02, comme sur /juridictions — mêmes ordres, mêmes teintes. */
 const DOT = {
   paix: { fill: C.wouj, r: 6 },
-  tpi: { fill: C.sitwon, r: 6 },
+  tpi: { fill: C.chabon, r: 6 },
   appel: { fill: C.vet, r: 6.5 },
 } as const
 
@@ -100,19 +100,19 @@ export function HeroJudicialMapArt({ className = '' }: { className?: string }) {
       {/* Port-au-Prince mise en avant. Sitwon, comme la commune sélectionnée sur la carte
           interactive : le héros et /juridictions désignent le choix de la même couleur. */}
       <g>
-        <circle cx={HERO_MAP_FOCUS.x} cy={HERO_MAP_FOCUS.y} r="26" fill={C.sitwon} opacity="0.14" />
+        <circle cx={HERO_MAP_FOCUS.x} cy={HERO_MAP_FOCUS.y} r="26" fill={C.wouj} opacity="0.14" />
         <circle
           cx={HERO_MAP_FOCUS.x}
           cy={HERO_MAP_FOCUS.y}
           r="18"
           fill="none"
-          stroke={C.sitwon}
+          stroke={C.wouj}
           strokeWidth="2"
           opacity="0.5"
           className="origin-center animate-ping motion-reduce:animate-none"
           style={{ transformBox: 'fill-box', transformOrigin: 'center' }}
         />
-        <circle cx={HERO_MAP_FOCUS.x} cy={HERO_MAP_FOCUS.y} r="9.5" fill={C.sitwon} stroke={DOT_STROKE} strokeWidth="2" />
+        <circle cx={HERO_MAP_FOCUS.x} cy={HERO_MAP_FOCUS.y} r="9.5" fill={C.wouj} stroke={DOT_STROKE} strokeWidth="2" />
       </g>
     </svg>
   )

@@ -69,7 +69,7 @@ export function ResultCard({
             <TypeBadge type={type} />
             {hit.status && <StatusChip status={hit.status} label={t.statuses[hit.status]} />}
             {hit.status === 'ABROGE' && abrogatedByNumber && (
-              <span className="text-[11px] font-medium text-wouj">
+              <span className="text-[11px] font-medium text-ank/80">
                 {t.search.abrogatedBy} {abrogatedByNumber}
               </span>
             )}

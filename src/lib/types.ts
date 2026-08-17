@@ -95,10 +95,20 @@ export function corpusForType(type: DocType): DocType[] {
   return corpus ? [...corpus] : [type]
 }
 
-/** Idem, à partir d'un slug d'URL ou d'un numéro de rubrique. */
+/**
+ * Idem, à partir d'un slug d'URL ou d'un numéro de rubrique.
+ *
+ * ⚠️ FONCTION TOTALE, ET ELLE DOIT L'ÊTRE : le slug vient de l'URL, donc du client.
+ * `TYPE_SLUGS` est un objet littéral, si bien que `TYPE_SLUGS['__proto__']` rend
+ * `Object.prototype` et `TYPE_SLUGS['constructor']` rend `Object` — deux valeurs vraies qui
+ * passaient la garde, puis faisaient lire `.corpus` sur un `undefined` : 500 déclenchable à
+ * volonté par un simple ?type=__proto__. On n'accepte donc que les clés PROPRES, et on
+ * revérifie que la valeur est bien un type connu.
+ */
 export function corpusForSlug(slug: string): DocType[] | undefined {
+  if (!Object.prototype.hasOwnProperty.call(TYPE_SLUGS, slug)) return undefined
   const type = TYPE_SLUGS[slug]
-  return type ? corpusForType(type) : undefined
+  return typeof type === 'string' && isDocType(type) ? corpusForType(type) : undefined
 }
 
 export function isRole(v: string): v is Role {
