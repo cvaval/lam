@@ -133,9 +133,28 @@ des variantes, pas des versions successives, et la dernière est la plus COURTE.
 Le texte en base est plus riche que la meilleure des sept passes. Un réimport l'écraserait par
 une variante plus pauvre, et rien ne le signalerait.
 
-**Ce qui reste réellement à faire sur 1964-1965** : le **dispositif** des 31 décisions, qu'aucun
-fichier disponible ne fournit. Il devra être rédigé par la rédaction, comme les sommaires du
-recueil 1965-1966.
+### Inventaire complet de l'exercice 1964-1965 — mesuré le 17 août 2026
+
+⚠️ La mesure ci-dessus ne portait que sur les 31 décisions visées par le fichier FULL. Voici
+les **80**, ce qui change la conclusion sur ce qui manque :
+
+| Rubrique | Première Section (33) | Deuxième Section (47) | Total |
+|---|---|---|---|
+| Domaines · Question · Règle · Motifs | 33/33 | 47/47 | **80/80** |
+| Décision attaquée | 33/33 | 34/47 | 67/80 |
+| Résumé éditorial | 15/33 | 46/47 | 61/80 |
+| **Dispositif** | 15/33 | 14/47 | **29/80** |
+
+**AUCUN des sept fichiers de sommaires disponibles ne comble ces trous**, et c'est démontré
+par l'arithmétique : seuls deux d'entre eux portent une rubrique « Solution » —
+`Sommaire_Analytique_Arrets_2-16_1964-1965.docx` (15) et
+`Sommaire_Analytique_Arrets_1964-1965_full.docx` (14). Or les 29 dispositifs en base sont
+exactement Première Section n° 2-16 (15) et Deuxième Section n° 16-29 (14) : les deux fichiers
+sont **entièrement exploités**, il n'y reste rien à prendre.
+
+**Ce qui reste donc à RÉDIGER** — aucun fichier ne l'apporte : 51 dispositifs, 19 résumés
+éditoriaux et 13 décisions attaquées pour 1964-1965 ; et l'analyse complète des 82 arrêts de
+1965-1966.
 
 ### Lot B — téléverser l'exercice 1965-1966
 
