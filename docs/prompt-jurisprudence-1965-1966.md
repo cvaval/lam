@@ -104,17 +104,38 @@ pour ces deux raisons successives.
 
 ## Ce qu'il faut faire
 
-### Lot A — enrichir les dix-huit décisions de 1964-1965
+### Lot A — SANS OBJET : le travail est déjà fait  ✅
 
-Apparier sur **(chambre, number)**, jamais sur le titre : les sept passes en donnent des
-graphies différentes. Remplir les rubriques du sommaire analytique — décision attaquée,
-question de droit, règle de droit, solution et motifs, dispositif, domaines — **sans toucher
-au texte intégral** déjà en base.
+**Audité le 17 août 2026, conclusion : NE PAS EXÉCUTER.** Mesuré en base sur les décisions
+visées — Deuxième Section, n° 3 à 15 et 30 à 47, soit **31** décisions et non 18 :
 
-⚠️ **Garde anti-écrasement, elle existe déjà** : `compositionSommaire()` dans
-`src/lib/jurisprudence/corps.ts` détecte qu'un corps est la simple composition résumé +
-dispositif, c'est-à-dire une fiche *sans* texte intégral. Reverser un sommaire ne doit jamais
-effacer un texte intégral. Vérifie que la garde joue avant d'écrire.
+| Rubrique | En base |
+|---|---|
+| Résumé éditorial · Domaines · Décision attaquée · Question · Règle · Motifs | **31/31** |
+| Dispositif | **0/31** |
+
+Les sommaires de cette série ont été versés en août par
+`Sommaire_Analytique_2e_Section_Arrets_30-47.docx` et `…_2-15.docx`. Le fichier
+`Sommaire_Analytique_2e_Section_Arrets_FULL.docx` n'apporte donc **aucune rubrique manquante** :
+il ne porte pas de dispositif, la seule qui manque.
+
+⚠️ **Et le rejouer DÉGRADERAIT le corpus.** L'hypothèse de ce prompt — « la dernière passe est
+vraisemblablement la plus aboutie » — est FAUSSE, vérifiée sur le n° 30 : les sept passes sont
+des variantes, pas des versions successives, et la dernière est la plus COURTE.
+
+| | règle de droit | analyse | motifs |
+|---|---|---|---|
+| passe 1 | 601 c. | 962 c. | 640 c. |
+| passe 5 | 608 c. | **1 057 c.** | 686 c. |
+| passe 7 (dernière) | **391 c.** | 1 040 c. | 713 c. |
+| **en base aujourd'hui** | **681 c.** | 838 c. | 609 c. |
+
+Le texte en base est plus riche que la meilleure des sept passes. Un réimport l'écraserait par
+une variante plus pauvre, et rien ne le signalerait.
+
+**Ce qui reste réellement à faire sur 1964-1965** : le **dispositif** des 31 décisions, qu'aucun
+fichier disponible ne fournit. Il devra être rédigé par la rédaction, comme les sommaires du
+recueil 1965-1966.
 
 ### Lot B — téléverser l'exercice 1965-1966
 
