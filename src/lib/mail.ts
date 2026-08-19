@@ -50,6 +50,42 @@ export function welcomeEmail(email: string, role: string) {
   }
 }
 
+/**
+ * Une demande d'accès vient d'arriver : prévenir le master admin.
+ *
+ * ⚠️ SANS CET ENVOI, LA FILE EST INVISIBLE. Mesuré le 19 août 2026 : quatre demandes
+ * attendaient depuis 30 à 43 jours sur la production. Elles étaient pourtant bien
+ * affichées sur /admin — mais rien n'y menait, et personne ne va consulter une file dont
+ * il ignore qu'elle existe. C'est le message qui va chercher l'administrateur, pas
+ * l'inverse.
+ */
+export function accountRequestEmail(to: string, demandeur: { email: string; name: string | null; org: string | null }, enAttente: number) {
+  const base = (process.env.NEXT_PUBLIC_APP_URL ?? `https://${BRAND.domain}`).replace(/\/$/, '')
+  return {
+    to,
+    subject: `Demande d'accès Lam — ${demandeur.name ?? demandeur.email}`,
+    text: [
+      `Une nouvelle demande d'accès vient d'être déposée sur ${BRAND.name}.`,
+      ``,
+      `  Nom          : ${demandeur.name ?? '— non renseigné'}`,
+      `  Adresse      : ${demandeur.email}`,
+      `  Organisation : ${demandeur.org ?? '— non déclarée'}`,
+      ``,
+      enAttente > 1
+        ? `${enAttente} demandes sont maintenant en attente d'activation.`
+        : `C'est la seule demande en attente.`,
+      ``,
+      `Activer ou rejeter : ${base}/fr/admin`,
+      ``,
+      `Tant qu'une demande n'est pas traitée, la personne qui l'a déposée voit, à chaque`,
+      `tentative de connexion : « Votre compte est en attente d'activation par un`,
+      `administrateur. »`,
+      ``,
+      `— ${BRAND.name} · ${BRAND.domain}`,
+    ].join('\n'),
+  }
+}
+
 export function lockoutEmail(email: string, minutes: number) {
   return {
     to: email,

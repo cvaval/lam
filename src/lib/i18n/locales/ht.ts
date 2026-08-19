@@ -27,6 +27,7 @@ export const ht: Dictionary = {
     passwordLabel: 'Modpas',
     signinBtn: 'Konekte',
     forgot: 'Bliye modpas ou ?',
+    lostEmail: 'Ou pa sèten ki adrès ou te itilize lè ou te enskri ? Pase pa « Bliye modpas ou » : si gen yon kont, yon mesaj ap ale nan adrès egzak ki anrejistre a.',
     cardNote:
       'Bouton « Kreye yon kont » la mennen sou yon demann aksè — kont lan rete ap tann master admin aktive l.',
   },
@@ -209,6 +210,9 @@ export const ht: Dictionary = {
     kpiUsers: 'Enskri',
     kpiSearches: 'Rechèch jodi a',
     kpiScraping: 'Alèt scraping',
+    kpiPending: 'Demann k ap tann',
+    pendingOldest: 'pi ansyen an gen {n} jou',
+    pendingNone: 'pa gen anyen pou trete',
     pending: 'Kont an atant',
     requestedOn: 'Mande le',
     typeToAssign: 'Tip pou atribye',

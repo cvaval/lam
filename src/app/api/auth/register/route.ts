@@ -7,6 +7,7 @@ import { normalizeEmail } from '@/lib/auth/email'
 import { audit } from '@/lib/auth/audit'
 import { getClientCtx } from '@/lib/auth/request'
 import { guard, guardPersistent, REGISTER_LIMITS } from '@/lib/security/ratelimit'
+import { sendMail, accountRequestEmail } from '@/lib/mail'
 
 export const runtime = 'nodejs'
 
@@ -77,6 +78,29 @@ export async function POST(req: NextRequest) {
       },
     })
     await audit({ action: 'ACCOUNT_REQUESTED', actorId: user.id, targetType: 'USER', targetId: user.id, ip: ctx.ip, userAgent: ctx.userAgent })
+    await prevenirAdministration(user)
   }
   return NextResponse.json({ ok: true })
+}
+
+/**
+ * Prévient le master admin qu'une demande attend. Best-effort, en dehors du chemin de
+ * réponse : un e-mail qui ne part pas ne doit JAMAIS faire échouer une inscription — la
+ * personne aurait un compte à moitié créé et un message d'erreur incompréhensible.
+ *
+ * Destinataires : les master admins actifs, ou `ADMIN_ALERT_TO` (liste séparée par des
+ * virgules) quand on veut router les alertes ailleurs sans toucher aux comptes.
+ */
+async function prevenirAdministration(user: { id: string; email: string; name: string | null; org: string | null }) {
+  try {
+    const surcharge = (process.env.ADMIN_ALERT_TO ?? '').split(',').map((x) => x.trim()).filter(Boolean)
+    const destinataires = surcharge.length
+      ? surcharge
+      : (await prisma.user.findMany({ where: { role: 'MASTER_ADMIN', status: 'ACTIVE' }, select: { email: true } })).map((x) => x.email)
+    if (!destinataires.length) return
+    const enAttente = await prisma.user.count({ where: { status: 'PENDING' } })
+    for (const to of destinataires) await sendMail(accountRequestEmail(to, user, enAttente))
+  } catch {
+    // Silencieux à dessein : l'inscription a réussi, et c'est elle qui compte.
+  }
 }

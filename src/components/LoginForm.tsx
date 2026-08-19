@@ -71,7 +71,16 @@ export function LoginForm({ locale, t }: { locale: Locale; t: Dictionary }) {
       </div>
 
       {error && (
-        <ChampErreur id="login-error" prefixe={t.common.erreur} surface="bg-pil">{error}</ChampErreur>
+        <>
+          <ChampErreur id="login-error" prefixe={t.common.erreur} surface="bg-pil">{error}</ChampErreur>
+          {/* ⚠️ ON NE DIT PAS SI L'ADRESSE EXISTE. Le serveur ne distingue pas « adresse
+              inconnue » de « mot de passe faux », et c'est délibéré : l'écrire ici
+              permettrait à quiconque de tester une adresse pour savoir si tel confrère est
+              inscrit. On oriente donc vers la seule voie qui ne révèle rien — la boîte aux
+              lettres. Mesuré le 17 août 2026 : une utilisatrice a échoué neuf fois en
+              quarante minutes parce qu'elle cherchait son adresse, pas son mot de passe. */}
+          <p className="text-xs leading-relaxed text-grafit">{t.home.lostEmail}</p>
+        </>
       )}
 
       <button

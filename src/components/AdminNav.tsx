@@ -6,7 +6,7 @@ import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale, Role } from '@/lib/types'
 import { can } from '@/lib/rbac'
 
-export function AdminNav({ locale, t, role }: { locale: Locale; t: Dictionary; role: Role }) {
+export function AdminNav({ locale, t, role, enAttente = 0 }: { locale: Locale; t: Dictionary; role: Role; enAttente?: number }) {
   const pathname = usePathname() || ''
   // Deux natures de travail, deux groupes : la CURATION du corpus, ouverte à la rédaction,
   // et la GOUVERNANCE — comptes, facturation, journaux — réservée au master admin.
@@ -34,14 +34,14 @@ export function AdminNav({ locale, t, role }: { locale: Locale; t: Dictionary; r
 
   const gouvernance = estMaster
     ? [
-        { href: `/${locale}/admin`, label: t.admin.overview, exact: true },
+        { href: `/${locale}/admin`, label: t.admin.overview, exact: true, badge: enAttente },
         { href: `/${locale}/admin/users`, label: t.admin.users },
         { href: `/${locale}/admin/promo`, label: t.admin.promoNav },
         { href: `/${locale}/admin/logs`, label: t.admin.logs },
       ]
     : []
 
-  const groupes: { titre: string; items: { href: string; label: string; exact?: boolean }[] }[] = [
+  const groupes: { titre: string; items: { href: string; label: string; exact?: boolean; badge?: number }[] }[] = [
     { titre: 'Corpus', items: curation },
     { titre: 'Administration', items: gouvernance },
   ].filter((g) => g.items.length)
@@ -67,6 +67,17 @@ export function AdminNav({ locale, t, role }: { locale: Locale; t: Dictionary; r
                 }`}
               >
                 {it.label}
+                {/* Pastille de file d'attente : le nombre est écrit, jamais suggéré par la
+                    seule couleur, et l'intitulé accessible dit de quoi il s'agit. */}
+                {it.badge ? (
+                  <span
+                    className="ml-2 inline-flex min-w-[1.25rem] justify-center rounded-full bg-wouj px-1.5 py-0.5 align-middle font-mono text-[10px] font-semibold text-white"
+                    title={t.admin.kpiPending}
+                  >
+                    {it.badge}
+                    <span className="sr-only"> {t.admin.kpiPending}</span>
+                  </span>
+                ) : null}
               </Link>
             )
           })}

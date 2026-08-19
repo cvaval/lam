@@ -30,6 +30,7 @@ export const fr = {
     passwordLabel: 'Mot de passe / Password',
     signinBtn: 'Se connecter',
     forgot: 'Mot de passe oublié ?',
+    lostEmail: "Vous n'êtes pas sûre de l'adresse utilisée à l'inscription ? Passez par « Mot de passe oublié » : si un compte existe, un message part vers l'adresse exacte enregistrée.",
     cardNote:
       "Le bouton « Créer un compte » mène à une demande d'accès — le compte reste en attente d'activation par le master admin.",
   },
@@ -213,6 +214,9 @@ export const fr = {
     kpiUsers: 'Inscrits',
     kpiSearches: "Recherches aujourd'hui",
     kpiScraping: 'Alertes scraping',
+    kpiPending: 'Demandes en attente',
+    pendingOldest: 'la plus ancienne remonte à {n} jours',
+    pendingNone: 'aucune demande à traiter',
     pending: 'Comptes en attente',
     requestedOn: 'Demandé le',
     typeToAssign: 'Type à attribuer',

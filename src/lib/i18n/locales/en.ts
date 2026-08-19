@@ -27,6 +27,7 @@ export const en: Dictionary = {
     passwordLabel: 'Password',
     signinBtn: 'Sign in',
     forgot: 'Forgot password?',
+    lostEmail: 'Not sure which address you registered with? Use “Forgot password”: if an account exists, a message goes to the exact address on file.',
     cardNote:
       'The “Create account” button leads to an access request — the account stays pending activation by the master admin.',
   },
@@ -209,6 +210,9 @@ export const en: Dictionary = {
     kpiUsers: 'Registered',
     kpiSearches: 'Searches today',
     kpiScraping: 'Scraping alerts',
+    kpiPending: 'Pending requests',
+    pendingOldest: 'the oldest has waited {n} days',
+    pendingNone: 'nothing to process',
     pending: 'Pending accounts',
     requestedOn: 'Requested on',
     typeToAssign: 'Type to assign',

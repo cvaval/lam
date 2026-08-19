@@ -5,6 +5,7 @@ import { AdminNav } from '@/components/AdminNav'
 import { LocaleSwitcher } from '@/components/LocaleSwitcher'
 import { dictFor } from '@/lib/i18n/server'
 import { requireCapability } from '@/lib/auth/guard'
+import { prisma } from '@/lib/db'
 
 export const dynamic = 'force-dynamic'
 
@@ -20,6 +21,10 @@ export default async function AdminLayout({
 }) {
   const { locale, t } = dictFor(params.locale)
   const user = await requireCapability(locale, 'upload.publish')
+  // La file d'attente suit l'administrateur d'écran en écran : on ne la découvre pas,
+  // on la voit. Elle ne concerne que le master admin, seul à pouvoir activer un compte.
+  const enAttente =
+    user.role === 'MASTER_ADMIN' ? await prisma.user.count({ where: { status: 'PENDING' } }) : 0
 
   return (
     <div className="flex min-h-screen bg-koton">
@@ -35,7 +40,7 @@ export default async function AdminLayout({
         <p className="mb-6 px-2 text-[10px] font-semibold uppercase tracking-widest text-koton/70">
           {user.role === 'MASTER_ADMIN' ? 'Master Admin' : t.roles.EDITEUR}
         </p>
-        <AdminNav locale={locale} t={t} role={user.role} />
+        <AdminNav locale={locale} t={t} role={user.role} enAttente={enAttente} />
         <div className="mt-auto px-2 pt-6">
           <Link href={`/${locale}/dashboard`} className="text-xs text-white/70 hover:text-white">
             ← {t.nav.dashboard}
