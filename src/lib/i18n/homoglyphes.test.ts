@@ -2,10 +2,14 @@
  * § 8.2 — **AUCUN HOMOGLYPHE DANS LES TROIS CATALOGUES DE LANGUE.**
  *
  * Le défaut trouvé le 20 août 2026 (le héros énumérait alors quatre recours) :
- * `delais.heroSubtitle` du créole valait
- * « … opozisyon, referе — … », où le caractère avant l'espace était **U+0435 CYRILLIC SMALL
- * LETTER IE**, et non « è ». Le mot était donc à la fois mal orthographié (« refere » au lieu
- * de « referè ») et **invisible à toute recherche ou correction portant sur « referè »**.
+ * `delais.heroSubtitle` du créole valait « … opozisyon, referе — … », où le dernier caractère
+ * du mot était **U+0435 CYRILLIC SMALL LETTER IE** et non un « e » latin.
+ *
+ * ⚠️ **L'ORTHOGRAPHE, ELLE, ÉTAIT BONNE** — corrigé par Me Vaval le 20 août : en créole le mot
+ * s'écrit **« refere », SANS accent**. La première rédaction de ce test tenait « referè » pour
+ * la forme correcte et interdisait « refere » : elle aurait fait rejeter l'orthographe juste.
+ * La faute était donc unique, et invisible : un caractère cyrillique au milieu d'un mot latin,
+ * qui échappe à toute recherche portant sur « refere ».
  *
  * Un homoglyphe ne se voit pas à la relecture : c'est exactement le genre de faute qu'un test
  * attrape et qu'un œil ne rattrape jamais. Le § 8.2 rappelle que les noms créoles doivent être
@@ -59,19 +63,20 @@ describe('§ 8.2 — les catalogues de langue ne portent aucun homoglyphe', () =
   }
 
   /**
-   * ⚠️ **Le mot « referè » a QUITTÉ le catalogue avec l'énumération du héros.** Celui-ci ne
-   * nomme plus appel, pourvoi, opposition ni référé : la surface publique n'offre plus le
-   * répertoire, seulement la date de réception de l'acte et le nombre de jours francs. Le
-   * test qui surveillait ce mot précis n'a donc plus d'objet — mais la FAUTE qu'il attrapait,
-   * elle, en a un : on vérifie qu'aucune valeur créole du calculateur ne porte la forme sans
-   * accent, et que les libellés neufs des surfaces publiques ont bien été relus.
+   * Le mot a QUITTÉ le catalogue avec l'énumération du héros : la surface publique ne nomme
+   * plus appel, pourvoi, opposition ni référé, seulement la date de réception de l'acte et le
+   * nombre de jours francs. Reste ce qui garde encore quelque chose : que les libellés créoles
+   * des surfaces publiques ont bien été relus.
+   *
+   * ⚠️ **ON N'INTERDIT PAS « refere ».** C'est l'orthographe créole correcte (Me Vaval,
+   * 20 août 2026). Seul le caractère cyrillique était fautif, et c'est le balayage
+   * d'homoglyphes ci-dessus qui l'attrape — sur TOUS les mots, pas sur celui-là seulement.
    */
-  it('le créole ne réintroduit ni « refere » sans accent, ni un libellé non relu', async () => {
+  it('les libellés créoles des surfaces publiques ont été relus', async () => {
     const { getDictionary } = await import('./dictionaries')
     const ht = getDictionary('ht')
     const valeurs = Object.values(ht.delais).filter((v): v is string => typeof v === 'string')
     expect(valeurs.length).toBeGreaterThan(50)
-    for (const v of valeurs) expect(v, v).not.toMatch(/\brefere\b/)
     expect(ht.delais.publicDateLabel).toBe('Dat ou resevwa zak la')
     expect(ht.delais.publicDaysLabel).toBe('Kantite jou fran')
     // ⚠️ `heroSubtitle` a été retiré le 20 août 2026 (Me Vaval) ; la phrase sert désormais la
