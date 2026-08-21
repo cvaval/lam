@@ -11,6 +11,8 @@
  *     révision qui n'existe plus, et le calcul serait refusé sans que rien ne l'explique.
  */
 import { describe, expect, it } from 'vitest'
+import { readFileSync } from 'fs'
+import { join } from 'path'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { getDictionary } from '@/lib/i18n/dictionaries'
 import { REPERTOIRE, construireEntrees } from '@/lib/delais/repertoire'
@@ -381,5 +383,62 @@ describe('§ 4.7 — le régime est AJOUTÉ à l’option, jamais remplacé', ()
     expect(libelleRegime(franc, getDictionary('fr'))).toBe('Délai franc')
     expect(libelleRegime(franc, getDictionary('en'))).toBe('Clear days')
     expect(libelleRegime(franc, getDictionary('ht'))).toBe('Delè fran')
+  })
+})
+
+/**
+ * ═══════════════════════════════════════════════════════════════════════════════
+ * § 6.5 — **LE TITRE D'UN GROUPE EST DANS SA BOÎTE, ET C'EST LA FEUILLE DE STYLE QUI
+ * L'Y MET.** (21 août 2026.)
+ * ═══════════════════════════════════════════════════════════════════════════════
+ *
+ * Les quatre groupes étaient des `<fieldset>` à `<legend>`. Or un `<legend>` n'est pas placé
+ * par le CSS : le NAVIGATEUR le dessine dans une encoche du bord supérieur, et cette encoche
+ * n'est pas la même partout — Chrome interrompt le trait autour du mot, d'autres moteurs
+ * posent le titre au-dessus d'un cadre resté fermé, et le titre paraît sortir de son encadré.
+ * Mesuré : dans Chrome, `legend.top === fieldset.top` (le titre chevauche le bord).
+ *
+ * Aucune propriété CSS ne rend ce placement déterministe. `float: left; width: 100%` — le
+ * contournement habituel — est doublé ici par les conteneurs `flex` du formulaire, qui
+ * n'entourent pas un flottant mais se serrent à côté : essayé, mesuré, abandonné.
+ *
+ * D'où le choix : `<div role="group" aria-labelledby>`. Le nom accessible est le même, le
+ * titre est un bloc ordinaire, et la boîte se ferme dans tous les moteurs.
+ */
+describe('§ 6.5 — les groupes sont nommés sans dépendre du navigateur', () => {
+  const html = rendu(TROIS_CODES)
+
+  it('plus aucun `<fieldset>` ni `<legend>` — l’encoche du navigateur ne peut pas revenir', () => {
+    expect(html).not.toContain('<fieldset')
+    expect(html).not.toContain('<legend')
+    // …et pas seulement dans le rendu par défaut : les groupes « kilométrage » et
+    // « supplément » ne sont rendus que sur certaines entrées. On lit la source.
+    const source = readFileSync(join(process.cwd(), 'src/components/delais/DelaiForm.tsx'), 'utf8')
+    const sansCommentaires = source.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '')
+    expect(sansCommentaires).not.toContain('<fieldset')
+    expect(sansCommentaires).not.toContain('<legend')
+  })
+
+  it('chaque groupe porte un nom, et ce nom EXISTE dans la page', () => {
+    const groupes = [...html.matchAll(/aria-labelledby="([^"]+)"/g)].map((m) => m[1])
+    expect(groupes.length).toBeGreaterThanOrEqual(3)
+    for (const id of groupes) {
+      expect(html, `aucun élément ne porte id="${id}"`).toContain(`id="${id}"`)
+    }
+    // Les deux groupes visibles d'emblée, nommés par leur intitulé et non par un identifiant.
+    expect(html).toContain('id="delai-grp-code"')
+    expect(html).toContain('>Code<')
+    expect(html).toContain('id="delai-grp-autre"')
+    expect(html).toContain('Autre délai (lu dans un document)')
+  })
+
+  it('les cadres peuvent rétrécir : `min-w-0`, et aucune largeur PLANCHER', () => {
+    // Un `min-w-[…]` ne cède jamais : sous 344 px de colonne, « Nature du délai » sortait du
+    // cadre de 10 px (mesuré dans Chrome). `basis-…` demande la même largeur et la rend.
+    const source = readFileSync(join(process.cwd(), 'src/components/delais/DelaiForm.tsx'), 'utf8')
+    const sansCommentaires = source.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '')
+    expect(sansCommentaires).not.toMatch(/min-w-\[/)
+    const cadres = html.match(/role="group" aria-labelledby="[^"]+" class="min-w-0 rounded-xl /g)
+    expect(cadres?.length, 'les deux cadres visibles portent min-w-0').toBe(2)
   })
 })

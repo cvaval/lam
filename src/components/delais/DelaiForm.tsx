@@ -253,9 +253,28 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
       </div>
 
       {/* 2 — LE CODE, puis L'ENTRÉE. Le code n'est PAS soumis : il ne fait que réduire la
-             liste (aucun `name`). */}
-      <fieldset className="rounded-xl border border-liy bg-white p-4">
-        <legend className="px-1 text-sm font-medium text-ank">{d.codeLabel}</legend>
+             liste (aucun `name`).
+
+             ⚠️ **LE TITRE EST DANS LA BOÎTE, PAS DANS SON BORD** (21 août 2026). Un `<legend>`
+             n'est pas posé par la feuille de style mais par le NAVIGATEUR, dans une encoche du
+             bord supérieur — et l'encoche n'est pas la même partout : Chrome interrompt le
+             trait autour du mot, d'autres moteurs posent le titre AU-DESSUS d'un cadre qui
+             reste fermé, et le titre paraît alors sortir de son encadré. Aucune propriété CSS
+             ne rend ce placement déterministe : `float: left; width: 100%` — le contournement
+             habituel — se fait doubler ici par les conteneurs `flex`, qui n'entourent pas un
+             flottant mais se serrent à côté (essayé, mesuré, abandonné).
+             On renonce donc à `<fieldset>` : un `<div role="group" aria-labelledby>` porte le
+             MÊME nom accessible, et son titre est un bloc ordinaire que la feuille de style
+             place où elle veut. Le groupe reste un groupe pour les lecteurs d'écran ; le
+             `disabled` en cascade du `<fieldset>` n'était pas utilisé.
+
+             ⚠️ Et `min-w-0` sur le cadre : un `<fieldset>` porte d'origine
+             `min-inline-size: min-content`, ce qui l'autorise à déborder de sa colonne quand
+             son contenu ne peut pas rétrécir. Mesuré ici : 155 px et 258 px de min-content pour
+             une colonne de 272 px au plus étroit — ça passe aujourd'hui, ça ne passerait plus
+             au premier libellé un peu long. */}
+      <div role="group" aria-labelledby="delai-grp-code" className="min-w-0 rounded-xl border border-liy bg-white p-4">
+        <p id="delai-grp-code" className="mb-3 text-sm font-medium text-ank">{d.codeLabel}</p>
         {/* ⚠️ **Des BOUTONS, pas des radios.** Trois `<input type="radio">` sans `name` ne
             forment aucun groupe : les flèches ne les parcourent pas et chacun est tabulable
             séparément. Ce filtre ne se soumet pas — il ne fait que réduire la liste —, donc
@@ -346,12 +365,12 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
             )}
           </div>
         )}
-      </fieldset>
+      </div>
 
       {/* 4 — LE(S) KILOMÉTRAGE(S). Deux champs pour les art. 517 et 586. */}
       {entree && entree.nbDistances > 0 && (
-        <fieldset className="rounded-xl border border-liy bg-white p-4">
-          <legend className="px-1 text-sm font-medium text-ank">{d.kmLabel}</legend>
+        <div role="group" aria-labelledby="delai-grp-km" className="min-w-0 rounded-xl border border-liy bg-white p-4">
+          <p id="delai-grp-km" className="mb-3 text-sm font-medium text-ank">{d.kmLabel}</p>
           {entree.distanceAideFr && <p className="text-xs leading-relaxed text-grafit">{entree.distanceAideFr}</p>}
           {entree.nbDistances === 2 && entree.distanceDoubleFr && (
             <p className="mt-1 text-xs leading-relaxed text-grafit">{entree.distanceDoubleFr}</p>
@@ -384,13 +403,13 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
           <p id="delai-km-aide" className="mt-2 text-xs text-grafit">
             {d.kmHint} {d.kmYouEnter}
           </p>
-        </fieldset>
+        </div>
       )}
 
       {/* 5 — LA QUESTION DE SUITE (art. 74, § 4.5). */}
       {entree?.supplement && (
-        <fieldset className="rounded-xl border border-liy bg-white p-4">
-          <legend className="px-1 text-sm font-medium text-ank">{d.supplementLegend}</legend>
+        <div role="group" aria-labelledby="delai-grp-sup" className="min-w-0 rounded-xl border border-liy bg-white p-4">
+          <p id="delai-grp-sup" className="mb-3 text-sm font-medium text-ank">{d.supplementLegend}</p>
           <p className="text-sm text-ank">{entree.supplement.questionFr}</p>
           <div className="mt-2 flex flex-col gap-1.5">
             {entree.supplement.options.map((o) => (
@@ -411,7 +430,7 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
               </label>
             ))}
           </div>
-        </fieldset>
+        </div>
       )}
 
       {/* 6 — « AUTRE » (§ 4.12) : le nombre de jours, la nature du délai, et LE MODE DE
@@ -422,8 +441,8 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
              soumis. Ce n'est pas la garde qui compte — `calculPublic()` refuse un `f`
              fabriqué à la main —, mais c'en est la moitié visible. */}
       {estAutre && (
-        <fieldset className="rounded-xl border border-liy bg-white p-4">
-          <legend className="px-1 text-sm font-medium text-ank">{d.otherLegend}</legend>
+        <div role="group" aria-labelledby="delai-grp-autre" className="min-w-0 rounded-xl border border-liy bg-white p-4">
+          <p id="delai-grp-autre" className="mb-3 text-sm font-medium text-ank">{d.otherLegend}</p>
           <div className="flex flex-wrap gap-4">
             <div>
               <label htmlFor="delai-n" className="block text-xs font-medium text-ank">{d.otherDaysLabel}</label>
@@ -440,7 +459,10 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
                 className="mt-1 min-h-[44px] w-28 rounded-lg border border-liy bg-white px-3 font-mono text-sm text-ank"
               />
             </div>
-            <div className="min-w-[14rem] flex-1">
+            {/* ⚠️ `basis-56` et non `min-w-[14rem]` : une largeur PLANCHER ne cède jamais, et sous
+                344 px de colonne le champ sortait du cadre de 10 px (mesuré). Une largeur de
+                BASE demande les mêmes 14 rem et les rend quand la place manque. */}
+            <div className="min-w-0 flex-1 basis-56">
               <label htmlFor="delai-src" className="block text-xs font-medium text-ank">{d.otherSourceLabel}</label>
               <input
                 id="delai-src"
@@ -503,7 +525,7 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
           {franc === 'ne-sais-pas' && (
             <p className="mt-2 text-xs leading-relaxed text-ank">{d.countingLegacyUnknown}</p>
           )}
-        </fieldset>
+        </div>
       )}
 
       {/* 7 — CALCULER. Le bouton dit ce qui manque ; il ne se contente pas de griser. */}
