@@ -32,8 +32,11 @@ export const ht: Dictionary = {
     title: 'Kalkilatè jou fran',
     // La note VISIBLE du portail — voir fr.ts : elle énonce la règle de prudence (la tête
     // d'affiche est la plus précoce et ne proroge pas) au lieu d'inventorier ce que la page rend.
+    // ⚠️ Voir fr.ts : la note rangeait la prorogation de l'art. 991 parmi les lectures à
+    // ajouter, alors qu'elle est DÉJÀ comptée sur 279 des 393 fiches (C. pr. civ. et
+    // C. trav.) et en réserve sur les 114 du Code civil seulement.
     intro:
-      'Antre delè ou a, oswa chwazi atik la ; bay dat kote delè a kòmanse. Dat ki parèt la se pi bonè a : aji pi ta pase jou sa a se yon bagay ki si anba tout lekti tèks la. Lekti ki ranvwaye echeyans lan — pwolongasyon atik 991 la ladan yo — nonmen akote, ak fondman yo ; yo ranvwaye delè a sèlman si jij la chwazi yo.',
+      'Antre delè ou a, oswa chwazi atik la ; bay dat kote delè a kòmanse. Dat ki parèt la se pi bonè a : aji pi ta pase jou sa a se yon bagay ki si anba tout lekti tèks la. Pou yon delè Kòd pwosedi sivil la oswa Kòd travay la, pwolongasyon atik 991 la DEJA KONTE nan dat sa a — pa mete yon jou anplis sou li. Pou yon delè Kòd sivil la, ki pa gen okenn kloz pwolongasyon pa li, li rete yon lekti ki nonmen akote dat la, ak fondman li, tankou lòt lekti ki ranvwaye echeyans lan : sa yo ranvwaye delè a sèlman si jij la chwazi yo.',
     frameworkNote:
       'Zouti sa a aplike atik 987 Kòd pwosedi sivil la, atik 511 Kòd travay la, ak dwa komen an pou Kòd sivil la. Li pa konnen arete chomaj yo.',
     disclaimer:

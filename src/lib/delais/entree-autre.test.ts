@@ -92,6 +92,28 @@ describe('§ 4.12 — un délai « Autre » ne se voit pas opposer le Code du tr
   })
 
   /**
+   * ⚠️ **CE SUBSTITUT ÉTAIT EN FRANÇAIS DANS LES TROIS LANGUES** (20 août 2026). Il était écrit
+   * en dur dans `corrigerFondementAutre` — la même faute, d'un cran plus bas, que celle qu'il
+   * corrigeait : un texte de la plateforme qui ne suit pas la langue demandée. Il vit
+   * maintenant dans `phrases(locale).lectureRegimeFrancAutre`, avec le reste du raisonnement.
+   */
+  it('… et il sort dans la LANGUE demandée, pas en français sur /en et /ht', async () => {
+    const attendu = { fr: 'Vérifiez', en: 'Check', ht: 'Verifye' } as const
+    for (const l of ['fr', 'en', 'ht'] as const) {
+      const r = await calcul(REQUETE.replace('locale=fr', `locale=${l}`), 'connecte')
+      if (r.resultat.statut !== 'CALCUL') throw new Error('attendu CALCUL')
+      const lecture = r.resultat.lectures.find((x) => x.cle === 'REGIME_FRANC')!
+      expect(lecture.fondement, l).toContain(attendu[l])
+      expect(lecture.fondement, l).not.toContain('511')
+    }
+    const en = await calcul(REQUETE.replace('locale=fr', 'locale=en'), 'connecte')
+    if (en.resultat.statut !== 'CALCUL') throw new Error('attendu CALCUL')
+    expect(en.resultat.lectures.find((x) => x.cle === 'REGIME_FRANC')!.fondement).not.toContain(
+      'Vérifiez dans votre texte',
+    )
+  })
+
+  /**
    * ⚠️ Les deux clés mortes partaient dans le JSON de la route. Elles n'y sont plus, et
    * l'annotation `: LectureNommee` du `.map` empêche désormais d'en réintroduire.
    */

@@ -29,8 +29,11 @@ export const en: Dictionary = {
     title: 'Clear-day calculator',
     // La note VISIBLE du portail — voir fr.ts : elle énonce la règle de prudence (la tête
     // d'affiche est la plus précoce et ne proroge pas) au lieu d'inventorier ce que la page rend.
+    // ⚠️ Voir fr.ts : la note rangeait la prorogation de l'art. 991 parmi les lectures à
+    // ajouter, alors qu'elle est DÉJÀ comptée sur 279 des 393 fiches (C. pr. civ. et
+    // C. trav.) et en réserve sur les 114 du Code civil seulement.
     intro:
-      'Enter your period, or pick the article; give the starting point. The date shown is the earliest one: acting no later than that day is safe under every reading of the text. The readings that push the deadline back — the extension under article 991 among them — are named beside it, with their basis; they lengthen the period only if the court adopts them.',
+      'Enter your period, or pick the article; give the starting point. The date shown is the earliest one: acting no later than that day is safe under every reading of the text. For a period under the Code of Civil Procedure or the Labour Code, the extension under article 991 is ALREADY COUNTED in that date — do not add another day to it. For a period under the Civil Code, which carries no extension clause of its own, it remains a reading named beside the date, with its basis, like the other readings that push the deadline back: those lengthen the period only if the court adopts them.',
     frameworkNote:
       'This tool applies article 987 of the Code of Civil Procedure, article 511 of the Labour Code, and the general law for the Civil Code. It does not know about executive holiday orders.',
     disclaimer:

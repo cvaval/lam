@@ -28,7 +28,29 @@ import { CALENDRIER_COURANT } from '@/lib/delais/feries'
 import { PROROGATION_FRANC_PUR } from '@/lib/delais/franc-pur'
 import { mentionsJour } from '@/lib/delais/mention-jour'
 import { ARTICLE_PROROGATION_PAR_CODE } from '@/lib/delais/regimes'
+import { REPERTOIRE, construireEntrees } from '@/lib/delais/repertoire'
+import { calculer } from '@/lib/delais/calcul'
 import { phraseMention } from './DelaiDatePublique'
+
+/**
+ * La prorogation joue-t-elle DANS LA TÊTE D'AFFICHE pour ce code ? On le demande au moteur —
+ * un délai de 30 jours dont l'échéance tombe un dimanche : la date bouge, ou elle ne bouge pas.
+ * Départ mercredi 4 juin 2026 + 30 jours francs → dimanche 5 juillet 2026.
+ */
+function cfgTeteProroge(code: 'CPC' | 'TRAVAIL' | 'CIVIL'): boolean {
+  const modele = construireEntrees(REPERTOIRE).find(
+    (e) => e.slug === 'cpc-354-appel-parties-demeurant-haiti',
+  )!
+  const r = calculer({
+    depart: { y: 2026, m: 6, d: 4 },
+    entree: { ...modele, code, prorogation991: code === 'CIVIL' ? 'INCERTAIN' : 'OUI' },
+    versionCalendrier: 1,
+    entreesCalendrier: CALENDRIER_COURANT,
+    locale: 'fr',
+  })
+  if (r.statut !== 'CALCUL') throw new Error('calcul attendu')
+  return r.joursEcartes.length > 0
+}
 
 const RACINE = process.cwd()
 const SRC = join(RACINE, 'src')
@@ -379,7 +401,49 @@ describe('§ 1 — la note ne promet pas ce que la surface ne fait pas', () => {
       expect(getDictionary(l).delais.metaDescription, l).toContain('991')
     }
     expect(getDictionary('fr').delais.metaDescription).toContain('sont montrées à côté')
-    expect(getDictionary('fr').delais.intro).toContain('sont nommées à côté')
+  })
+
+  /**
+   * ═══════════════════════════════════════════════════════════════════════════════
+   * ⚠️ **LA NOTE DU PORTAIL DÉCRIVAIT L'OUTIL À L'ENVERS** (20 août 2026).
+   * ═══════════════════════════════════════════════════════════════════════════════
+   *
+   * Elle rangeait la prorogation de l'art. 991 parmi les lectures « nommées à côté » — donc
+   * parmi celles qu'il faudrait AJOUTER à la date affichée. C'est l'inverse sur **279 fiches
+   * des 393** : les 232 du C. pr. civ. et les 47 du C. trav. portent `prorogation991: 'OUI'`,
+   * et `cfgTete.prorogation` la pose donc dans la tête d'affiche. Elle n'est en réserve que
+   * pour les **114 du Code civil**, qui n'a pas de clause de prorogation à lui. La phrase
+   * invitait à compter un jour déjà compté.
+   *
+   * Les deux comptes sont RECALCULÉS ici, pas recopiés : le jour où une fiche change de code
+   * ou de régime, c'est ce test qui doit rougir, pas la note.
+   */
+  it('la prorogation de l’art. 991 est acquise sur 279 fiches, en réserve sur 114', () => {
+    const parProrogation = { OUI: 0, INCERTAIN: 0, NON: 0 }
+    for (const e of construireEntrees(REPERTOIRE)) parProrogation[e.prorogation991] += 1
+    expect(parProrogation).toEqual({ OUI: 279, INCERTAIN: 114, NON: 0 })
+    // … et « acquise » veut bien dire APPLIQUÉE À LA DATE AFFICHÉE, pas nommée à côté.
+    expect(cfgTeteProroge('CPC')).toBe(true)
+    expect(cfgTeteProroge('TRAVAIL')).toBe(true)
+    expect(cfgTeteProroge('CIVIL')).toBe(false)
+  })
+
+  it('la note du portail dit que la prorogation est DÉJÀ comptée, et distingue le Code civil', () => {
+    const attendu: Record<'fr' | 'en' | 'ht', [RegExp, RegExp]> = {
+      fr: [/DÉJÀ COMPTÉE/, /Code civil/],
+      en: [/ALREADY COUNTED/, /Civil Code/],
+      ht: [/DEJA KONTE/, /Kòd sivil/],
+    }
+    for (const l of ['fr', 'en', 'ht'] as const) {
+      const intro = getDictionary(l).delais.intro
+      const [deja, civil] = attendu[l]
+      expect(intro, l).toMatch(deja)
+      expect(intro, l).toMatch(civil)
+      expect(intro, l).toContain('991')
+    }
+    // ⚠️ La formule qui rangeait 991 du mauvais côté ne doit pas revenir par une recopie.
+    expect(getDictionary('fr').delais.intro).not.toContain('dont la prorogation de l’article 991')
+    expect(getDictionary('en').delais.intro).not.toContain('the extension under article 991 among them')
   })
 })
 

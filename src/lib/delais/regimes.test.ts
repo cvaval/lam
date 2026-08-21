@@ -85,12 +85,29 @@ describe('Les SIX entrées CIVIL/FRANC, vérifiées une par une en base le 19 ao
     }
   })
 
+  /**
+   * ⚠️ **CE CONSTAT EST AFFICHÉ SOUS LA DATE, SUR LA FICHE PUBLIÉE** (correctif du 20 août
+   * 2026). Il finissait par « L'entrée est donc marquée `regimeIncertain: true` … À faire
+   * trancher par la rédaction (§ 13, point 5). » : un nom de champ et un renvoi à une
+   * spécification interne, donnés à lire à une avocate. Le fond n'a pas bougé — c'est sa
+   * qualité —, la forme si.
+   */
   it('UNE n’en a AUCUNE : « Loi, art. 10 », transcription du divorce', () => {
     const sans = CITATIONS_CIVIL_FRANC['Loi, art. 10']
     expect(sans.citation).toBeNull()
-    expect(sans.constat).toContain('AUCUNE CITATION')
+    // Ce que la plateforme SAIT — le texte lu, mot pour mot, et ce qu'il ne dit pas.
     expect(sans.constat).toContain('dans les délais prévus par la loi')
-    expect(sans.constat).toContain('regimeIncertain')
+    expect(sans.constat).toContain('aucun texte du corpus ne le dit')
+    // Ce qu'elle NE TRANCHE PAS, et la date qu'elle retient en attendant.
+    expect(sans.constat).toContain('ne tranche donc pas')
+    expect(sans.constat).toContain('la date la plus précoce')
+    // Ce qui revient à l'avocate.
+    expect(sans.constat).toContain('Vérifiez le texte dont vous tenez ces trois jours')
+    // Et rien du brouillon.
+    expect(sans.constat).not.toContain('regimeIncertain')
+    expect(sans.constat).not.toContain('§ 13')
+    expect(sans.constat).not.toContain('`')
+    expect(sans.constat).not.toMatch(/à faire trancher par la rédaction/i)
   })
 })
 

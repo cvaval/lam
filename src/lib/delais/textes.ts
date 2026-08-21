@@ -277,14 +277,25 @@ export const CITATIONS_CIVIL_FRANC: Record<string, CitationRegime> = {
       'n° 51 du 20 juin 1968).',
     docId: 'cms8dwred0021qt1v7m35suhu',
     luLe: LU_LE,
+    /**
+     * ⚠️ **CE TEXTE EST LU PAR UNE AVOCATE, PAS PAR LA RÉDACTION** (correctif du 20 août 2026).
+     * Il finissait par « L'entrée est donc marquée `regimeIncertain: true` … À faire trancher
+     * par la rédaction (§ 13, point 5). » : un nom de champ technique et le renvoi à un
+     * paragraphe d'une spécification interne, affichés sous la date, sur la fiche publiée. Le
+     * fond était honnête ; la forme donnait à lire un brouillon. Il dit maintenant les trois
+     * mêmes choses — ce que la plateforme sait, ce qu'elle ne sait pas, ce qu'il reste à
+     * vérifier — dans les mots du métier.
+     */
     constat:
-      'AUCUNE CITATION. Le texte lu en base dit : « Art. 10.- La transcription est faite à la ' +
-      'diligence de la partie la plus diligente, dans les délais prévus par la loi. » — ni ' +
-      '« trois jours », ni « francs ». Le mot « franc » ne paraît que QUATRE fois dans tout le ' +
-      'Code civil (art. 229 « franche », art. 770 et 1298 au sens de « francs et quittes »), et ' +
-      'aucune des lois du divorce versées au corpus ne le porte. L’entrée est donc marquée ' +
-      '`regimeIncertain: true` : tête d’affiche en régime ORDINAIRE, régime franc en lecture ' +
-      'nommée. À faire trancher par la rédaction (§ 13, point 5).',
+      'Le répertoire donne ce délai pour franc ; aucun texte du corpus ne le dit. L’article 10 ' +
+      'porte seulement : « La transcription est faite à la diligence de la partie la plus ' +
+      'diligente, dans les délais prévus par la loi. » — ni « trois jours », ni « francs ». Le ' +
+      'mot « franc » ne paraît que quatre fois dans tout le Code civil (art. 229, « franche » ; ' +
+      'art. 770 et 1298, au sens de « francs et quittes »), et aucune des lois du divorce ' +
+      'versées au corpus ne le porte. La plateforme ne tranche donc pas la qualification : elle ' +
+      'retient la date la plus précoce — celle du régime ordinaire, où le jour de l’échéance ' +
+      'compte — et nomme la date franche à côté, un jour plus tard. Vérifiez le texte dont vous ' +
+      'tenez ces trois jours : c’est lui qui dira laquelle des deux dates vous engage.',
   },
 }
 

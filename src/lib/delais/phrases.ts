@@ -23,6 +23,8 @@
  * et les sept jours de `format.ts` (§ 8.2). À faire relire avant de le figer.
  */
 import type { Locale } from './format'
+import type { CodeDelai } from './regimes'
+import { FONDEMENT_REGIME_PAR_CODE } from './regimes'
 
 /** Une table de phrases : la même forme dans les trois langues, contrôlée par le type. */
 type Table = {
@@ -72,6 +74,21 @@ type Table = {
   etapeDepart: (pointDepart: string, date: string) => string
   etapeJourDepart: (fondement: string) => string
   fondementDroitCommunCivil: string
+  /**
+   * § 8.2 — LE FONDEMENT DU RÉGIME CIVIL, TRADUIT. **Ce n'est pas une citation : c'est une
+   * phrase de la plateforme**, et la règle 1 ci-dessus ne la protège donc pas.
+   *
+   * `FONDEMENT_REGIME_PAR_CODE` porte, pour `CPC` et `TRAVAIL`, la lettre de l'art. 987 et de
+   * l'art. 511 : elle reste en français dans les trois langues, comme toute citation. Sa
+   * troisième entrée, `CIVIL`, ne cite rien — le Code civil n'a pas d'article de computation à
+   * citer — et énonce un constat de la rédaction. Servie telle quelle sur `/en` et `/ht`, elle
+   * ouvrait le raisonnement par deux phrases de français en clair (« Aucune règle générale de
+   * computation au Code civil… The qualification of this period is not settled: … »).
+   *
+   * La version française **est** l'entrée de la table, importée, non recopiée : une seule
+   * vérité française, deux traductions.
+   */
+  fondementRegimeCivil: string
   etapeDuree: (a: {
     jours: number
     franc: boolean
@@ -149,7 +166,16 @@ type Table = {
   a5bis: string
   a3: string
   a6Phrase1: (date: string, libelle: string) => string
-  a6Phrase3: (a: { annee: number; date: string; source: string }) => string
+  /**
+   * ⚠️ **`source` ET `citation` VIENNENT DE `CHOMAGE_PAR_ARRETE_PAR_CODE`, PAS DE L'ARTICLE
+   * QUI PROROGE** (correctif du 20 août 2026). Cette phrase citait la lettre de l'art. 991
+   * **al. 4** sous la référence de l'**al. 3**, dans les trois langues — et l'al. 3 ne vise
+   * que « un dimanche ou un jour de fête légale ». C'était une référence fausse sur un écran
+   * d'où elle part dans une assignation. La citation SUIT le code de la fiche : en matière de
+   * travail, c'est l'art. 511 al. 2 qui porte le cas, et ses mots ne sont pas ceux du Code de
+   * procédure civile.
+   */
+  a6Phrase3: (a: { annee: number; date: string; source: string; citation: string }) => string
   a6Cascade: (motifs: string) => string
   a6Phrase4: (borne: string) => string
   /** § 4.13, exigence 4 — le LIBELLÉ du lien de recherche ; l'URL est construite à l'écran. */
@@ -163,9 +189,37 @@ type Table = {
    * de la tête ne nomme rien. Motif complet en tête de `lectures.ts`.
    */
   lectures: Record<
-    'REGIME_FRANC' | 'PROROGATION_991' | 'DEMI_JOURNEE' | 'CUMUL',
+    'PROROGATION_991' | 'DEMI_JOURNEE' | 'CUMUL',
     { libelle: string; fondement: string }
   >
+  /**
+   * ⚠️ **`REGIME_FRANC` A QUITTÉ LA TABLE FIXE LE 20 AOÛT 2026 : SON FONDEMENT DÉPEND DU
+   * CODE DE LA FICHE.** Elle y portait, en dur et dans les trois langues, « C. trav.,
+   * art. 511 » — le fondement des six délais douteux du Code du travail. Elle s'ouvre pourtant
+   * aussi sur la **transcription du jugement de divorce**, un délai du CODE CIVIL : l'écran
+   * opposait donc à une avocate un texte sans rapport avec sa fiche. La date restait juste ;
+   * le fondement affiché, non.
+   *
+   * `fondementDuCode` est `FONDEMENT_REGIME_PAR_CODE[code]` — la table qui existe déjà, et la
+   * seule : on ne recopie pas une citation d'article dans un gabarit de phrase.
+   *
+   * Le LIBELLÉ se dédouble lui aussi : « si ce délai est un délai de procédure » ne veut rien
+   * dire d'un délai du Code civil, où la question n'est pas la nature du délai mais l'absence
+   * de toute règle générale de computation.
+   */
+  lectureRegimeFranc: (a: { code: CodeDelai; fondementDuCode: string }) => {
+    libelle: string
+    fondement: string
+  }
+  /**
+   * § 4.12 — LA MÊME LECTURE, SUR UN NOMBRE SAISI À LA MAIN (genre « Autre »). Aucun code ne
+   * la fonde : le nombre vient d'un acte, d'une circulaire, d'un document douanier. On ne cite
+   * donc aucun article — on dit ce qu'il y a à vérifier.
+   *
+   * ⚠️ Elle était EN DUR EN FRANÇAIS dans `corrigerFondementAutre` (`lecture-publique.ts`),
+   * et sortait telle quelle sur `/en` et `/ht`.
+   */
+  lectureRegimeFrancAutre: { libelle: string; fondement: string }
 
   // ── Motifs de prorogation du texte lui-même ─────────────────────────────────
   dimanche: string
@@ -182,7 +236,6 @@ const CIT_512 =
   '« Aucune signification ni exécution ne pourra être faite avant huit heures du matin et ' +
   'après cinq heures du soir, non plus les dimanches et les jours fériés chômés. »'
 const CIT_512_NULLITE = 'Toute signification ou exécution faite au mépris du présent article est nulle.'
-const CIT_991_AL3_CAS3 = '« lorsque, au dernier jour, le chômage est prescrit par arrêté »'
 const CIT_229 =
   '« fera citer le défendeur à comparaître dans le délai de huitaine franche, outre le délai de distance »'
 const CIT_275 = '« à l’occasion des Fêtes Nationales et des Fêtes Légales »'
@@ -190,7 +243,6 @@ const CIT_991_AL3 = '« un dimanche ou un jour de fête légale »'
 const CIT_511 =
   '« Les délais légaux sont prorogés d’un jour si le dernier jour est un dimanche ou un jour ' +
   'férié légal ou prescrit par Arrêté Présidentiel. »'
-const CIT_511_PROC = '« Tous les délais DE PROCÉDURE prévus au Code du Travail sont francs. »'
 
 const FR: Table = {
   dateInvalide: 'Cette date n’existe pas. Vérifiez le jour et le mois.',
@@ -261,6 +313,7 @@ const FR: Table = {
   fondementDroitCommunCivil:
     'règle de droit commun ; le Code civil ne comporte pas de règle générale de computation, ' +
     'et l’art. 987 C. pr. civ. ne vise que les délais du Code de procédure civile',
+  fondementRegimeCivil: FONDEMENT_REGIME_PAR_CODE.CIVIL,
   etapeDuree: (a) => {
     const s = a.jours > 1 ? 's' : ''
     return (
@@ -394,21 +447,32 @@ const FR: Table = {
   a6Phrase1: (d, l) => `Le ${d} est un jour à surveiller : ${l}.`,
   a6Phrase3: (a) =>
     `Si un arrêté a été pris pour ${a.annee}, le délai est prorogé d’un jour et la date limite ` +
-    `devient le ${a.date} (${a.source}, troisième cas : ${CIT_991_AL3_CAS3}). La plateforme ne ` +
-    'le sait pas : elle ne proroge pas, et cette date-là n’est pas la sienne.',
+    `devient le ${a.date} (${a.source} : ${a.citation}). La plateforme ne le sait pas : elle ne ` +
+    'proroge pas, et cette date-là n’est pas la sienne.',
   a6Cascade: (m) =>
     ` Ce jour étant lui-même ${m}, le report se poursuivrait au-delà — la prorogation joue ` +
     'jusqu’au premier jour qui n’est ni un dimanche, ni une fête légale, ni une fête nationale.',
   a6Phrase4: (b) => `Vérifiez le Moniteur de l’année. ${b}`,
   a6Recherche: (q) => `Rechercher « ${q} » dans le corpus`,
 
+  lectureRegimeFranc: (a) => ({
+    libelle:
+      a.code === 'CIVIL'
+        ? 'Si ce délai est un délai franc'
+        : 'Si ce délai est un délai de procédure, il est franc',
+    fondement:
+      `${a.fondementDuCode} La qualification de ce délai n’est pas acquise : la tête d’affiche ` +
+      'est calculée en régime ORDINAIRE, la plus précoce, donc la plus sûre.',
+  }),
+  lectureRegimeFrancAutre: {
+    libelle: 'Si ce délai est un délai franc',
+    fondement:
+      'Ce nombre de jours vient de votre document, non du répertoire : aucun article du corpus ' +
+      'ne le qualifie. Vérifiez dans votre texte si ce délai est franc : les deux lectures ' +
+      'diffèrent d’un jour. La tête d’affiche retient la plus précoce, donc la plus sûre.',
+  },
+
   lectures: {
-    REGIME_FRANC: {
-      libelle: 'Si ce délai est un délai de procédure, il est franc',
-      fondement:
-        `C. trav., art. 511 — ${CIT_511_PROC} La qualification de ce délai n’est pas acquise : ` +
-        'la tête d’affiche est calculée en régime ORDINAIRE, la plus précoce, donc la plus sûre.',
-    },
     PROROGATION_991: {
       libelle: 'Si l’article 991 C. pr. civ. s’applique à ce délai',
       fondement:
@@ -486,6 +550,9 @@ const EN: Table = {
   fondementDroitCommunCivil:
     'general law; the Civil Code has no general rule of computation, and art. 987 C. pr. civ. ' +
     'covers only periods under the Code of Civil Procedure',
+  fondementRegimeCivil:
+    'The Civil Code lays down no general rule of computation. Under the general law, the day ' +
+    'of expiry counts.',
   etapeDuree: (a) => {
     const s = a.jours > 1 ? 's' : ''
     return (
@@ -614,21 +681,33 @@ const EN: Table = {
   a6Phrase1: (d, l) => `${d} is a day to watch: ${l}.`,
   a6Phrase3: (a) =>
     `If an order was made for ${a.annee}, the period is extended by one day and the deadline ` +
-    `becomes ${a.date} (${a.source}, third case: ${CIT_991_AL3_CAS3}). The platform does not ` +
-    'know: it does not extend, and that date is not its own.',
+    `becomes ${a.date} (${a.source}: ${a.citation}). The platform does not know: it does not ` +
+    'extend, and that date is not its own.',
   a6Cascade: (m) =>
     ` That day being itself ${m}, the extension would carry on — it runs to the first day ` +
     'that is neither a Sunday, nor a legal holiday, nor a national holiday.',
   a6Phrase4: (b) => `Check the Moniteur for that year. ${b}`,
   a6Recherche: (q) => `Search “${q}” in the corpus`,
 
+  lectureRegimeFranc: (a) => ({
+    libelle:
+      a.code === 'CIVIL'
+        ? 'If this period runs in clear days'
+        : 'If this period is a procedural one, it runs in clear days',
+    fondement:
+      `${a.fondementDuCode} The qualification of this period is not settled: the headline date ` +
+      'is computed on the ORDINARY regime, the earliest, therefore the safest.',
+  }),
+  lectureRegimeFrancAutre: {
+    libelle: 'If this period runs in clear days',
+    fondement:
+      'This number of days comes from your own document, not from the répertoire: no article ' +
+      'in the corpus qualifies it. Check in your text whether the period runs in clear days — ' +
+      'the two readings differ by one day. The headline date keeps the earlier one, therefore ' +
+      'the safer one.',
+  },
+
   lectures: {
-    REGIME_FRANC: {
-      libelle: 'If this period is a procedural one, it runs in clear days',
-      fondement:
-        `C. trav., art. 511 — ${CIT_511_PROC} The qualification of this period is not settled: ` +
-        'the headline date is computed on the ORDINARY regime, the earliest, therefore the safest.',
-    },
     PROROGATION_991: {
       libelle: 'If article 991 C. pr. civ. applies to this period',
       fondement:
@@ -704,6 +783,8 @@ const HT: Table = {
   fondementDroitCommunCivil:
     'règ dwa komen ; Kòd sivil la pa gen règ jeneral pou konte, epi atik 987 C. pr. civ. la vize ' +
     'sèlman delè Kòd pwosedi sivil la',
+  fondementRegimeCivil:
+    'Kòd sivil la pa gen okenn règ jeneral pou konte. Nan dwa komen, jou echeyans la konte.',
   etapeDuree: (a) =>
     `Delè : ${a.jours} jou${a.franc ? ' fran' : ''} ` +
     `(« ${a.dureeTexte} »${a.reference ? `, ${a.reference}` : ''}). ` +
@@ -827,21 +908,30 @@ const HT: Table = {
   a6Phrase1: (d, l) => `${d} se yon jou pou siveye : ${l}.`,
   a6Phrase3: (a) =>
     `Si yo te pran yon arete pou ${a.annee}, delè a pwolonje yon jou epi dat limit la vin ` +
-    `${a.date} (${a.source}, twazyèm ka : ${CIT_991_AL3_CAS3}). Platfòm nan pa konnen sa : li pa ` +
-    'pwolonje, epi dat sa a se pa dat pa li.',
+    `${a.date} (${a.source} : ${a.citation}). Platfòm nan pa konnen sa : li pa pwolonje, epi ` +
+    'dat sa a se pa dat pa li.',
   a6Cascade: (m) =>
     ` Kòm jou sa a se ${m} li menm, ranvwa a t ap kontinye — pwolongasyon an ale jouk premye ` +
     'jou ki pa ni yon dimanch, ni yon fèt legal, ni yon fèt nasyonal.',
   a6Phrase4: (b) => `Verifye Moniteur ane a. ${b}`,
   a6Recherche: (q) => `Chèche « ${q} » nan koutim nan`,
 
+  lectureRegimeFranc: (a) => ({
+    libelle:
+      a.code === 'CIVIL' ? 'Si delè sa a se yon delè fran' : 'Si delè sa a se yon delè pwosedi, li fran',
+    fondement:
+      `${a.fondementDuCode} Kalifikasyon delè sa a pa asire : dat prensipal la kalkile nan ` +
+      'rejim ÒDINÈ, sa ki pi bonè a, donk sa ki pi si a.',
+  }),
+  lectureRegimeFrancAutre: {
+    libelle: 'Si delè sa a se yon delè fran',
+    fondement:
+      'Kantite jou sa a soti nan dokiman pa ou, li pa soti nan repètwa a : pa gen okenn atik ' +
+      'nan koutim nan ki kalifye l. Verifye nan tèks ou a si delè a fran — de lekti yo gen yon ' +
+      'jou diferans. Dat prensipal la kenbe sa ki pi bonè a, donk sa ki pi si a.',
+  },
+
   lectures: {
-    REGIME_FRANC: {
-      libelle: 'Si delè sa a se yon delè pwosedi, li fran',
-      fondement:
-        `C. trav., art. 511 — ${CIT_511_PROC} Kalifikasyon delè sa a pa asire : dat prensipal la ` +
-        'kalkile nan rejim ÒDINÈ, sa ki pi bonè a, donk sa ki pi si a.',
-    },
     PROROGATION_991: {
       libelle: 'Si atik 991 C. pr. civ. aplike pou delè sa a',
       fondement:

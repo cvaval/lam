@@ -1667,13 +1667,18 @@ describe('§ 0 — les deux surfaces, la même date ou la réserve', () => {
     const index = readFileSync(join(process.cwd(), 'src/lib/delais/index.ts'), 'utf8')
     expect(index).not.toContain('LECTURES_NOMMEES')
     // Le seul porteur des libellés, dans les trois langues, reste `phrases.ts`.
+    //
+    // ⚠️ **`REGIME_FRANC` A QUITTÉ LA TABLE FIXE LE 20 AOÛT 2026, ET CE N'EST PAS UNE SECONDE
+    // VÉRITÉ DE PLUS** : son fondement dépend du CODE de la fiche (elle citait « C. trav.,
+    // art. 511 » sur un délai du Code civil). Il est rendu par `lectureRegimeFranc(code)`, qui
+    // vit dans le MÊME fichier et lit `FONDEMENT_REGIME_PAR_CODE` — la table qui existait déjà.
     for (const l of ['fr', 'en', 'ht'] as const) {
       expect(Object.keys(phrases(l).lectures).sort()).toEqual([
         'CUMUL',
         'DEMI_JOURNEE',
         'PROROGATION_991',
-        'REGIME_FRANC',
       ])
+      expect(typeof phrases(l).lectureRegimeFranc).toBe('function')
     }
   })
 

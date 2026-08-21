@@ -510,11 +510,16 @@ function resoudreRegime(l: LigneRepertoire): {
     return {
       regime,
       regimeIncertain: true,
+      // ⚠️ Rédigé POUR UNE AVOCATE, comme les `constat` de `CITATIONS_CIVIL_FRANC` : ni nom de
+      // champ, ni renvoi à une spécification interne. Voir la note du 20 août 2026 sur
+      // l'entrée « Loi, art. 10 » (`textes.ts`).
       regimeFondement:
         verifiee?.constat ??
-        'Aucune citation de l’article n’a pu être produite pour ce délai déclaré franc : ' +
-          'la tête d’affiche est calculée en régime ORDINAIRE et le régime franc devient une ' +
-          'lecture nommée. À faire trancher par la rédaction.',
+        'Le répertoire donne ce délai pour franc, et aucun texte du corpus ne le dit. La ' +
+          'plateforme ne tranche pas la qualification : elle retient la date la plus précoce — ' +
+          'celle du régime ordinaire, où le jour de l’échéance compte — et nomme la date ' +
+          'franche à côté, un jour plus tard. Vérifiez le texte dont vous tenez ce délai : ' +
+          'c’est lui qui dira laquelle des deux dates vous engage.',
     }
   }
 
@@ -522,11 +527,21 @@ function resoudreRegime(l: LigneRepertoire): {
     return {
       regime,
       regimeIncertain: true,
+      /**
+       * ⚠️ **RÉDIGÉ POUR UNE AVOCATE** (correctif du 20 août 2026). Ces six fiches finissaient
+       * par « À faire trancher par la rédaction (§ 13, point 4) » — un renvoi à une
+       * spécification interne, sous la date, sur une fiche publiée. Et la citation était
+       * ALTÉRÉE : « Tous les délais DE PROCÉDURE… » n'est pas la phrase de l'article, qui écrit
+       * « de procédure » en bas de casse. L'insistance est désormais dans la phrase de la
+       * plateforme, où elle est chez elle ; la citation est rendue mot pour mot.
+       */
       regimeFondement:
-        'C. trav., art. 511 — « Tous les délais DE PROCÉDURE prévus au Code du Travail sont ' +
-        'francs. » Ce délai ne paraît pas être un délai de procédure : la qualification n’est ' +
-        'pas acquise. Tête d’affiche en régime ORDINAIRE (la plus précoce), régime franc en ' +
-        'lecture nommée. À faire trancher par la rédaction (§ 13, point 4).',
+        'C. trav., art. 511 — « Tous les délais de procédure prévus au Code du Travail sont ' +
+        'francs. » L’article ne rend francs que les délais DE PROCÉDURE, et celui-ci n’en ' +
+        'paraît pas un. La plateforme ne tranche pas cette qualification : elle retient la date ' +
+        'la plus précoce — celle du régime ordinaire, où le jour de l’échéance compte — et ' +
+        'nomme la date franche à côté, un jour plus tard. Si vous tenez ce délai pour un délai ' +
+        'de procédure, c’est la seconde qui vous engage.',
     }
   }
 

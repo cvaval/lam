@@ -33,7 +33,12 @@ import type { CleLecture, Configuration, GenreMotif } from './lectures'
 import { CASCADE_MAX, entreeProroge, genreEntree } from './lectures'
 import { phrases } from './phrases'
 import type { CodeDelai, Prorogation991, Regime } from './regimes'
-import { ARTICLE_PROROGATION_PAR_CODE, francEnTeteDaffiche } from './regimes'
+import {
+  ARTICLE_PROROGATION_PAR_CODE,
+  CHOMAGE_PAR_ARRETE_PAR_CODE,
+  FONDEMENT_REGIME_PAR_CODE,
+  francEnTeteDaffiche,
+} from './regimes'
 import { REGLES_LECTURE, VERSION_REGLES_COURANTE, reglesLecture } from './regles-lecture'
 import { TEXTES } from './textes'
 
@@ -996,7 +1001,33 @@ export function calculer(p: ParamsCalcul): Resultat {
     }
     if (comparer(d, tete.date) === 0) return
     deroules.set(cle, deroule)
-    lectures.push({ cle, ...ph.lectures[cle], date: d })
+    /**
+     * ⚠️ **`REGIME_FRANC` NE SE LIT PAS DANS LA TABLE FIXE : SON FONDEMENT SUIT LE CODE DE LA
+     * FICHE** (correctif du 20 août 2026). Elle y portait « C. trav., art. 511 » en dur — le
+     * fondement des six délais douteux du Code du travail — et s'ouvrait pourtant aussi sur la
+     * transcription du jugement de divorce, un délai du CODE CIVIL. L'écran opposait à une
+     * avocate un texte sans rapport avec sa fiche. Le fondement vient de
+     * `FONDEMENT_REGIME_PAR_CODE`, la table qui existe déjà : aucune seconde vérité.
+     */
+    const texte =
+      cle === 'REGIME_FRANC'
+        ? ph.lectureRegimeFranc({
+            code: entree.code,
+            /**
+             * ⚠️ `CIVIL` PASSE PAR LA TRADUCTION, les deux autres non — et la différence n'est
+             * pas un oubli. `FONDEMENT_REGIME_PAR_CODE.CPC` et `.TRAVAIL` sont la LETTRE de
+             * l'art. 987 et de l'art. 511 : une citation ne se traduit pas (§ 8.2, règle 1).
+             * `.CIVIL` ne cite rien — il n'y a pas d'article de computation au Code civil — et
+             * énonce un constat de la rédaction, qui doit donc suivre la langue de l'écran.
+             * Servi tel quel, il ouvrait le raisonnement de la fiche du divorce par du français
+             * en clair sur `/en` et `/ht`. C'est le même partage qu'à l'étape « jour-depart »
+             * ci-dessous, qui prend déjà `p.fondementDroitCommunCivil` pour ce seul code.
+             */
+            fondementDuCode:
+              entree.code === 'CIVIL' ? ph.fondementRegimeCivil : FONDEMENT_REGIME_PAR_CODE[entree.code],
+          })
+        : ph.lectures[cle]
+    lectures.push({ cle, ...texte, date: d })
   }
 
   // ⚠️ **PLUS DE `ajouter('R1' | 'R1_T', …)` NI DE `ajouter('R3', …)` DEPUIS LE 20 AOÛT 2026
@@ -1585,10 +1616,16 @@ function construireA6(
   const conditionnelle = addDays(date, 1)
   const phrase1 = p.a6Phrase1(dateEnToutesLettres(date, locale), libelle(e, locale))
   const phrase2 = observationsTexte(e, locale)
+  // ⚠️ **PAS `sourceProrogation(code)` ICI.** Cette phrase-ci parle du CHÔMAGE PRESCRIT PAR
+  // ARRÊTÉ, qui est à l'art. 991 **al. 4** — l'al. 3, que `sourceProrogation` rend, ne vise que
+  // « un dimanche ou un jour de fête légale ». La phrase citait donc l'al. 4 sous la référence
+  // de l'al. 3, plusieurs fois par an. Voir `CHOMAGE_PAR_ARRETE_PAR_CODE` (`regimes.ts`).
+  const arrete = CHOMAGE_PAR_ARRETE_PAR_CODE[code]
   let phrase3 = p.a6Phrase3({
     annee: date.y,
     date: dateEnToutesLettres(conditionnelle, locale),
-    source: sourceProrogation(code),
+    source: arrete.article,
+    citation: arrete.citation,
   })
   // Cascade — on l'ÉCRIT, on ne la calcule pas au deuxième niveau sur un fondement déjà
   // conditionnel (§ 4.13).

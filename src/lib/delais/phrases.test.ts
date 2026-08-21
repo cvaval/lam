@@ -16,6 +16,7 @@ import { CALENDRIER_V1 } from './feries'
 import { REPERTOIRE, construireEntrees } from './repertoire'
 import { calculer } from './calcul'
 import { phrases } from './phrases'
+import { CHOMAGE_PAR_ARRETE_PAR_CODE, FONDEMENT_REGIME_PAR_CODE } from './regimes'
 import type { Locale } from './format'
 
 const ENTREES = construireEntrees(REPERTOIRE)
@@ -123,19 +124,13 @@ describe('§ 8.2 — les trois langues du raisonnement', () => {
    */
   it('les lectures nommées portent leur libellé et leur fondement traduits', () => {
     const p = phrases('en')
-    expect(Object.keys(p.lectures).sort()).toEqual([
-      'CUMUL',
-      'DEMI_JOURNEE',
-      'PROROGATION_991',
-      'REGIME_FRANC',
-    ])
+    // ⚠️ `REGIME_FRANC` a QUITTÉ cette table le 20 août 2026 : son fondement dépend du code de
+    // la fiche, et une table fixe ne peut pas le porter. Voir `lectureRegimeFranc` ci-dessous.
+    expect(Object.keys(p.lectures).sort()).toEqual(['CUMUL', 'DEMI_JOURNEE', 'PROROGATION_991'])
     expect(p.lectures.PROROGATION_991.libelle).toBe('If article 991 C. pr. civ. applies to this period')
     expect(phrases('ht').lectures.PROROGATION_991.libelle).toBe(
       'Si atik 991 C. pr. civ. aplike pou delè sa a',
     )
-    // Le fondement cite l'article : la citation reste française.
-    expect(phrases('fr').lectures.REGIME_FRANC.fondement).toContain('DE PROCÉDURE')
-    expect(p.lectures.REGIME_FRANC.fondement).toContain('DE PROCÉDURE')
   })
 
   /**
@@ -215,5 +210,199 @@ describe('§ 4.13 — « voir les lectures nommées » ne s’écrit que s’il 
     // Les crochets typographiques inertes ont disparu du texte.
     expect(a6.texte).not.toContain('[Rechercher')
     expect(phrases('en').a6Recherche('carnaval')).toBe('Search “carnaval” in the corpus')
+  })
+})
+
+/**
+ * ═══════════════════════════════════════════════════════════════════════════════
+ * § 4.13 — **L'ARRÊTÉ DE CHÔMAGE EST À L'ALINÉA 4.** (20 août 2026.)
+ * ═══════════════════════════════════════════════════════════════════════════════
+ *
+ * L'art. 991 C. pr. civ., relu en base alinéa par alinéa, en a QUATRE : l'al. 3 proroge « si le
+ * dernier est un dimanche ou un jour de fête légale », et c'est l'**al. 4**, et lui seul, qui
+ * ajoute « Il en est de même lorsque, au dernier jour, le chômage est prescrit par arrêté du
+ * Président de la République. » L'avertissement A6 servait la phrase de l'al. 4 sous la
+ * référence de l'al. 3 — à chaque échéance tombant sur les Cendres, le Jeudi Saint,
+ * l'Ascension, le 7 février ou le 24 octobre, sur l'écran d'où une avocate recopie une
+ * référence dans une assignation.
+ */
+describe('§ 4.13 — A6 cite l’alinéa qui porte le chômage par arrêté, et pas un autre', () => {
+  it('la table de régime nomme l’al. 4 pour le C. pr. civ., l’al. 2 pour le C. trav.', () => {
+    expect(CHOMAGE_PAR_ARRETE_PAR_CODE.CPC.article).toBe('C. pr. civ., art. 991 al. 4')
+    expect(CHOMAGE_PAR_ARRETE_PAR_CODE.CIVIL.article).toBe('C. pr. civ., art. 991 al. 4')
+    // ⚠️ Le Code du travail ne coupe PAS : son al. 2 porte les trois cas d'un seul tenant.
+    expect(CHOMAGE_PAR_ARRETE_PAR_CODE.TRAVAIL.article).toBe('C. trav., art. 511 al. 2')
+  })
+
+  it('chaque citation est celle de SON code, mot pour mot — jamais celle de l’autre', () => {
+    expect(CHOMAGE_PAR_ARRETE_PAR_CODE.CPC.citation).toBe(
+      '« Il en est de même lorsque, au dernier jour, le chômage est prescrit par arrêté du Président de la République. »',
+    )
+    expect(CHOMAGE_PAR_ARRETE_PAR_CODE.TRAVAIL.citation).toContain('ou prescrit par Arrêté Présidentiel')
+    expect(CHOMAGE_PAR_ARRETE_PAR_CODE.TRAVAIL.citation).not.toContain('Il en est de même')
+  })
+
+  /** Le défaut, tel qu'il s'affichait : « art. 991 al. 3 … le chômage est prescrit par arrêté ». */
+  it('AUCUNE des trois langues n’attache la phrase de l’arrêté à l’al. 3', () => {
+    for (const l of ['fr', 'en', 'ht'] as const) {
+      const cpc = phrases(l).a6Phrase3({
+        annee: 2027,
+        date: 'X',
+        source: CHOMAGE_PAR_ARRETE_PAR_CODE.CPC.article,
+        citation: CHOMAGE_PAR_ARRETE_PAR_CODE.CPC.citation,
+      })
+      expect(cpc, l).toContain('art. 991 al. 4')
+      expect(cpc, l).not.toContain('al. 3')
+      expect(cpc, l).toContain('le chômage est prescrit par arrêté du Président de la République')
+      // La numérotation inventée (« troisième cas ») ne revient pas non plus : aucun texte ne
+      // numérote ce cas-là, et l'arrêt Brown and Root le compte pour le SECOND.
+      expect(cpc.toLowerCase(), l).not.toContain('troisième cas')
+      expect(cpc.toLowerCase(), l).not.toContain('third case')
+      expect(cpc.toLowerCase(), l).not.toContain('twazyèm ka')
+    }
+  })
+
+  /** Le chemin réel : le moteur, sur un jour à surveiller, en matière civile puis de travail. */
+  it('le moteur écrit l’al. 4 dans A6 — et l’art. 511 al. 2 sur une fiche de travail', () => {
+    const surveille = (entree: typeof ART_354) => {
+      const r = calculer({
+        depart: { y: 2027, m: 1, d: 9 },
+        entree,
+        versionCalendrier: 1,
+        entreesCalendrier: CALENDRIER_V1,
+        locale: 'fr',
+      })
+      if (r.statut !== 'CALCUL') throw new Error('calcul attendu')
+      return r.avertissements.find((a) => a.cle === 'A6')!.texte
+    }
+    const cpc = surveille(ART_354)
+    expect(cpc).toContain('C. pr. civ., art. 991 al. 4')
+    expect(cpc).toContain('le chômage est prescrit par arrêté du Président de la République')
+
+    const travail = surveille({ ...ART_354, code: 'TRAVAIL' as const })
+    expect(travail).toContain('C. trav., art. 511 al. 2')
+    expect(travail).toContain('ou prescrit par Arrêté Présidentiel')
+    // Et surtout : les mots du Code de procédure civile ne partent pas sur une fiche de travail.
+    expect(travail).not.toContain('Il en est de même')
+  })
+})
+
+/**
+ * ═══════════════════════════════════════════════════════════════════════════════
+ * § 4.6 — **UN DÉLAI DU CODE CIVIL NE SE FONDE PAS SUR LE CODE DU TRAVAIL.** (20 août 2026.)
+ * ═══════════════════════════════════════════════════════════════════════════════
+ *
+ * La lecture nommée `REGIME_FRANC` citait « C. trav., art. 511 » quel que soit le code de la
+ * fiche. Elle s'ouvre pourtant sur la **transcription du jugement de divorce** — un délai du
+ * CODE CIVIL, la seule des six entrées civiles déclarées franches dont le corpus ne porte
+ * aucune phrase. La date restait juste ; le fondement affiché, non.
+ */
+describe('§ 4.6 — la lecture REGIME_FRANC se fonde sur le code de la fiche', () => {
+  const lecture = (code: 'CPC' | 'TRAVAIL' | 'CIVIL', l: Locale = 'fr') =>
+    phrases(l).lectureRegimeFranc({ code, fondementDuCode: FONDEMENT_REGIME_PAR_CODE[code] })
+
+  it('le fondement vient de FONDEMENT_REGIME_PAR_CODE — pas d’une seconde copie', () => {
+    for (const code of ['CPC', 'TRAVAIL', 'CIVIL'] as const) {
+      for (const l of ['fr', 'en', 'ht'] as const) {
+        expect(lecture(code, l).fondement, `${code}/${l}`).toContain(FONDEMENT_REGIME_PAR_CODE[code])
+      }
+    }
+  })
+
+  it('une fiche du CODE CIVIL n’invoque plus l’art. 511 du Code du travail', () => {
+    for (const l of ['fr', 'en', 'ht'] as const) {
+      expect(lecture('CIVIL', l).fondement, l).not.toContain('511')
+      expect(lecture('CIVIL', l).fondement, l).not.toContain('Code du Travail')
+      expect(lecture('CIVIL', l).libelle, l).not.toMatch(/procédur|procedural|pwosedi/i)
+    }
+    // Et les fiches de travail, elles, le gardent : c'est bien leur article.
+    expect(lecture('TRAVAIL').fondement).toContain('C. trav., art. 511')
+    expect(lecture('CPC').fondement).toContain('C. pr. civ., art. 987')
+  })
+
+  /**
+   * Le chemin réel : la transcription du divorce, seule entrée CIVIL du répertoire à ouvrir
+   * cette lecture. ⚠️ La DATE ne doit pas bouger — c'est le fondement qui était faux.
+   */
+  it('sur la transcription du jugement de divorce, l’écran cite le Code civil', () => {
+    const divorce = ENTREES.find((e) => e.code === 'CIVIL' && e.regimeIncertain)!
+    const r = calculer({
+      depart: { y: 2026, m: 6, d: 4 },
+      entree: divorce,
+      versionCalendrier: 1,
+      entreesCalendrier: CALENDRIER_V1,
+      locale: 'fr',
+    })
+    if (r.statut !== 'CALCUL') throw new Error('calcul attendu')
+    const franc = r.lectures.find((x) => x.cle === 'REGIME_FRANC')!
+    expect(franc.fondement).toContain('Code civil')
+    expect(franc.fondement).not.toContain('Code du Travail')
+    expect(franc.fondement).not.toContain('511')
+  })
+
+  /**
+   * ⚠️ **LA MÊME FAUTE, D'UN CRAN PLUS BAS : LE FONDEMENT CIVIL EST DE LA PROSE, PAS UNE
+   * CITATION.** (21 août 2026.) Le correctif ci-dessus a fait suivre au fondement le code de la
+   * fiche — mais en injectant `FONDEMENT_REGIME_PAR_CODE[code]`, qui pour `CIVIL` n'est PAS la
+   * lettre d'un article : c'est un constat de la rédaction, et il n'existait qu'en français. La
+   * fiche du divorce ouvrait donc son raisonnement, sur `/en` et `/ht`, par « Aucune règle
+   * générale de computation au Code civil… » suivi de la suite en anglais ou en créole.
+   *
+   * Les deux autres codes gardent leur français : c'est la LETTRE de l'art. 987 et de l'art.
+   * 511, et une citation ne se traduit pas (§ 8.2, règle 1). Le partage est là, et ce test le
+   * tient dans les deux sens — sans quoi « traduire » finirait par traduire les articles.
+   */
+  it('le constat civil est traduit, la lettre des articles ne l’est pas', () => {
+    const divorce = ENTREES.find((e) => e.code === 'CIVIL' && e.regimeIncertain)!
+    const fondementSurEcran = (locale: Locale) => {
+      const r = calculer({
+        depart: { y: 2026, m: 6, d: 4 },
+        entree: divorce,
+        versionCalendrier: 1,
+        entreesCalendrier: CALENDRIER_V1,
+        locale,
+      })
+      if (r.statut !== 'CALCUL') throw new Error('calcul attendu')
+      return r.lectures.find((x) => x.cle === 'REGIME_FRANC')!.fondement
+    }
+
+    // 1 · La version française EST la table — importée, jamais recopiée.
+    expect(phrases('fr').fondementRegimeCivil).toBe(FONDEMENT_REGIME_PAR_CODE.CIVIL)
+
+    // 2 · Sur l'écran, chaque langue porte SA phrase, et pas celle des deux autres.
+    for (const l of ['fr', 'en', 'ht'] as const) {
+      expect(fondementSurEcran(l), l).toContain(phrases(l).fondementRegimeCivil)
+    }
+    for (const l of ['en', 'ht'] as const) {
+      expect(fondementSurEcran(l), l).not.toContain(FONDEMENT_REGIME_PAR_CODE.CIVIL)
+      expect(fondementSurEcran(l), l).not.toContain('Aucune règle générale')
+      expect(fondementSurEcran(l), l).not.toContain('jour de l’échéance compte')
+    }
+
+    // 3 · Les trois disent la même chose : le jour de l'échéance compte.
+    expect(phrases('en').fondementRegimeCivil).toMatch(/day of expiry counts/i)
+    expect(phrases('ht').fondementRegimeCivil).toMatch(/jou echeyans la konte/i)
+
+    // 4 · ET LE PARTAGE TIENT DANS L'AUTRE SENS : la lettre des articles reste en français.
+    for (const l of ['en', 'ht'] as const) {
+      const cpc = phrases(l).lectureRegimeFranc({
+        code: 'CPC',
+        fondementDuCode: FONDEMENT_REGIME_PAR_CODE.CPC,
+      })
+      expect(cpc.fondement, l).toContain('Tous les délais prévus au Code de procédure civile')
+    }
+  })
+
+  /** § 4.12 — le genre « Autre » n'a pas de code : il ne cite AUCUN article, dans les 3 langues. */
+  it('le nombre saisi à la main renvoie à VOTRE texte, et il est traduit', () => {
+    for (const l of ['fr', 'en', 'ht'] as const) {
+      const a = phrases(l).lectureRegimeFrancAutre
+      expect(a.fondement.length, l).toBeGreaterThan(80)
+      expect(a.fondement, l).not.toContain('511')
+      expect(a.fondement, l).not.toContain('987')
+    }
+    expect(phrases('fr').lectureRegimeFrancAutre.fondement).toContain('Vérifiez')
+    expect(phrases('en').lectureRegimeFrancAutre.fondement).toContain('Check')
+    expect(phrases('ht').lectureRegimeFrancAutre.fondement).toContain('Verifye')
   })
 })

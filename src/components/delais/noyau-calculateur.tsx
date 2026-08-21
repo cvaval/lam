@@ -10,7 +10,7 @@ import {
   etatPublicDelais,
   lireParamsCalcul,
 } from '@/lib/delais/lecture-publique'
-import type { AccesDelais, CodeMenu } from '@/lib/delais/lecture-publique'
+import type { AccesDelais, CodeMenu, VersionsCourantes } from '@/lib/delais/lecture-publique'
 import type { CivilDate, Resultat } from '@/lib/delais'
 import type { MentionJour, ReportPublic } from '@/lib/delais/mention-jour'
 import { LIMITS, guard } from '@/lib/security/ratelimit'
@@ -279,13 +279,33 @@ export async function lireCalculateur({
    * fenêtres existent —, en deux `findFirst` indexés.
    */
   let codes: CodeMenu[] = []
+  /**
+   * § 09 — **LES DEUX NUMÉROS DE VERSION SONT LUS ICI, ET UNE SEULE FOIS.** Les deux branches
+   * ci-dessous les rendent déjà ; `calculPublic` les relisait ensuite à l'identique, sur la
+   * même requête HTTP. Mesuré sur la base de production le 20 août 2026 : **6 requêtes** pour
+   * un calcul public, dont deux purs doublons — **4** depuis qu'on les lui passe. Voir
+   * `VersionsCourantes` (`lecture-publique.ts`) pour ce que ce paramètre n'est PAS.
+   */
+  let versions: VersionsCourantes | null = null
   if (connecte) {
     const repertoire = await chargerRepertoirePublic(null)
     if (!repertoire.ok) return { pret: false, ecran: indisponible(t, repertoire.code) }
     codes = repertoire.codes
+    // ⚠️ `chargerRepertoirePublic` ne REFUSE pas une base non initialisée : ses deux numéros
+    // peuvent être `null`. On ne passe alors rien, et `calculPublic` lit la base comme avant —
+    // il est le seul à savoir prononcer `delaisNonInitialises`.
+    versions =
+      repertoire.versionCalendrier != null && repertoire.versionFenetres != null
+        ? {
+            ok: true,
+            versionCalendrier: repertoire.versionCalendrier,
+            versionFenetres: repertoire.versionFenetres,
+          }
+        : null
   } else {
     const etat = await etatPublicDelais()
     if (!etat.ok) return { pret: false, ecran: indisponible(t, etat.code) }
+    versions = etat
   }
 
   const base = surfaceDepuisAction(action)
@@ -327,7 +347,7 @@ export async function lireCalculateur({
     if (!lus.ok) {
       erreur = lus.code
     } else {
-      const sortie = await calculPublic(lus.valeur, acces)
+      const sortie = await calculPublic(lus.valeur, acces, versions)
       if (sortie.ok) calcul = sortie
       else erreur = sortie.code
     }

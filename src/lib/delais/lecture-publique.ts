@@ -52,6 +52,7 @@ import {
 } from './permalien'
 import type { ReponseFranc, SurfaceDelais } from './permalien'
 import { signatureValide, signerQuery } from './permalien-signature'
+import { phrases } from './phrases'
 import { VERSION_REGLES_COURANTE, reglesLecture } from './regles-lecture'
 import {
   chargerCalendrier,
@@ -471,16 +472,36 @@ export async function chargerRepertoirePublic(
  * besoin de savoir si la base est prête, parce qu'un formulaire qui accepte la saisie puis
  * casse à la soumission se lit comme du travail perdu, pas comme une indisponibilité (§ 5.1).
  */
-export async function etatPublicDelais(): Promise<{ ok: true } | EchecPublic> {
+export async function etatPublicDelais(): Promise<VersionsCourantes | EchecPublic> {
   try {
     const [c, w] = await Promise.all([versionCalendrierCourante(), versionFenetresCourante()])
     if (c == null || w == null) return echec('delaisNonInitialises', 503)
-    return { ok: true }
+    // ⚠️ **ON REND LES DEUX NUMÉROS, ON NE LES JETTE PLUS.** Ils étaient lus ici puis relus à
+    // l'identique par `calculPublic`, deux requêtes plus loin : voir `VersionsCourantes`.
+    return { ok: true, versionCalendrier: c, versionFenetres: w }
   } catch (e) {
     if (estSchemaAbsent(e)) return echec('delaisSchemaAbsent', 503)
     throw e
   }
 }
+
+/**
+ * § 09 — **LES DEUX NUMÉROS DE VERSION, LUS UNE FOIS ET PASSÉS DE LA MAIN À LA MAIN.**
+ *
+ * La PAGE lit d'abord l'état du calculateur (`etatPublicDelais`, ou `chargerRepertoirePublic`
+ * dans l'espace connecté) : elle doit savoir si la base est prête avant d'afficher un
+ * formulaire. Ces deux lectures rendent déjà le calendrier courant et les fenêtres courantes.
+ * `calculPublic` les relisait ensuite, à l'identique, sur la même requête HTTP — **deux
+ * `findFirst` pour de purs doublons**, mesurés sur la base de production le 20 août 2026 :
+ * 6 requêtes pour un calcul public, 9 pour un calcul du portail. Elles tombent à 4 et à 7.
+ *
+ * ⚠️ **CE N'EST PAS UN CACHE, ET SURTOUT PAS UN DÉFAUT.** Le paramètre ne sert QUE là où
+ * `calculPublic` retombait sur « la version courante » — c'est-à-dire quand la requête n'en
+ * nomme aucune. Un permalien qui porte `c=` ou `w=` continue de faire foi : `q.c ?? …` reste
+ * en tête, et une version inconnue reste un 404 franc. Une route qui appelle `calculPublic`
+ * sans avoir rien lu (l'API publique) n'a rien à passer, et lit la base comme avant.
+ */
+export type VersionsCourantes = { ok: true; versionCalendrier: number; versionFenetres: number }
 
 // ---------------------------------------------------------------------------
 // Le calcul
@@ -695,15 +716,22 @@ function entreeAutre(
 }
 
 /**
- * § 4.12 — la lecture nommée « REGIME_FRANC » du moteur cite l'art. 511 du Code du travail,
- * qui est le fondement des six délais douteux du C. trav. — **pas** celui d'un nombre lu dans
- * un document fiscal ou douanier. Sur le seul genre « Autre », on substitue donc le fondement
- * honnête.
+ * § 4.12 — la lecture nommée « REGIME_FRANC » se fonde sur le CODE de la fiche. Le genre
+ * « Autre » n'en a pas de vrai : son nombre de jours est lu dans un acte, une circulaire, un
+ * document douanier, et aucun article du corpus ne le qualifie. On substitue donc le fondement
+ * honnête — celui qui renvoie l'utilisatrice à SON texte.
  *
- * ⚠️ Décision à faire trancher : l'alternative propre serait de paramétrer les libellés de
- * `phrases(locale).lectures` dans le moteur. Le moteur est gelé et testé ; on ne l'a pas
- * touché. (La table `LECTURES_NOMMEES` que cette note citait a été supprimée le 20 août 2026 :
- * elle doublait `phrases.lectures` en français seul, sans consommateur.)
+ * ⚠️ **LA DÉCISION EN SUSPENS A ÉTÉ PRISE LE 20 AOÛT 2026 (SOIR).** Cette note demandait « à
+ * faire trancher : l'alternative propre serait de paramétrer les libellés de
+ * `phrases(locale).lectures` dans le moteur ». C'est fait : `lectureRegimeFranc(code)` rend
+ * désormais le fondement du code de la fiche (`FONDEMENT_REGIME_PAR_CODE`), et cette
+ * substitution-ci ne couvre plus que le cas où il n'y a PAS de code — le nombre saisi à la
+ * main. (La table `LECTURES_NOMMEES` que la note citait a été supprimée le même jour : elle
+ * doublait `phrases.lectures` en français seul, sans consommateur.)
+ *
+ * ⚠️ **ET ELLE EST TRADUITE.** Ses deux phrases étaient EN DUR EN FRANÇAIS et sortaient telles
+ * quelles sur `/en` et `/ht` — la même faute d'un cran plus bas que celle qu'elle corrigeait.
+ * Elles vivent maintenant dans `phrases(locale).lectureRegimeFrancAutre`, avec le reste.
  *
  * ═══════════════════════════════════════════════════════════════════════════════
  * ⚠️ **CETTE FONCTION A ÉTÉ INERTE, ET LE TYPECHECK NE L'A PAS VUE.**
@@ -724,20 +752,13 @@ function entreeAutre(
  * qu'il rendait était une citation fausse, et la stabilité d'un permalien ne protège pas une
  * erreur de texte (§ 6.3).
  */
-function corrigerFondementAutre(resultat: Resultat): Resultat {
+function corrigerFondementAutre(resultat: Resultat, locale: Locale): Resultat {
   if (resultat.statut !== 'CALCUL') return resultat
+  const substitut = phrases(locale).lectureRegimeFrancAutre
   return {
     ...resultat,
     lectures: resultat.lectures.map((l): LectureNommee =>
-      l.cle === 'REGIME_FRANC'
-        ? {
-            ...l,
-            libelle: 'Si ce délai est un délai franc',
-            fondement:
-              'Vérifiez dans votre texte si ce délai est franc : les deux lectures diffèrent ' +
-              'd’un jour. La tête d’affiche retient la plus précoce, donc la plus sûre.',
-          }
-        : l,
+      l.cle === 'REGIME_FRANC' ? { ...l, ...substitut } : l,
     ),
   }
 }
@@ -972,6 +993,12 @@ export async function calculPublic(
   q: ParamsCalcul,
   /** ⚠️ Jamais lu dans l'URL — voir `AccesDelais`. Par défaut on échoue fermé. */
   acces: AccesDelais = 'public',
+  /**
+   * § 09 — les versions courantes que l'appelant vient de lire, s'il en a lu. Voir
+   * `VersionsCourantes` : elles ne servent qu'à ne PAS relire ce qui vient de l'être, jamais à
+   * écraser un `c=` ou un `w=` porté par la requête.
+   */
+  dejaLues?: VersionsCourantes | null,
 ): Promise<SuccesCalcul | EchecPublic> {
   const estAutre = q.e === SLUG_AUTRE
   const estPublic = acces === 'public'
@@ -1049,8 +1076,8 @@ export async function calculPublic(
   }
 
   try {
-    const versionC = q.c ?? (await versionCalendrierCourante())
-    const versionW = q.w ?? (await versionFenetresCourante())
+    const versionC = q.c ?? dejaLues?.versionCalendrier ?? (await versionCalendrierCourante())
+    const versionW = q.w ?? dejaLues?.versionFenetres ?? (await versionFenetresCourante())
     if (versionC == null || versionW == null) return echec('delaisNonInitialises', 503)
 
     /**
@@ -1154,7 +1181,7 @@ export async function calculPublic(
      * **La date, elle, n'est jamais retouchée** — le report de l'art. 991 est fait par le
      * moteur, pas ici. Voir `franc-pur.ts`.
      */
-    const calcule = estAutre ? corrigerFondementAutre(brut) : brut
+    const calcule = estAutre ? corrigerFondementAutre(brut, q.locale) : brut
     const resultat = estPublic ? restreindreAuFrancPur(calcule, q.locale) : calcule
 
     /**

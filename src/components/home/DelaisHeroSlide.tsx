@@ -85,6 +85,15 @@ export function DelaisHeroSlide({
              */}
             {d.francRule}
           </p>
+          {/**
+           * ⚠️ **LA RÉSERVE, ET ELLE MANQUAIT ICI SEULEMENT** (20 août 2026). `/{locale}/delais`
+           * et le portail portent `disclaimer` en pied ; le héros, qui est la page la plus vue
+           * du site et la seule visible de tous dès la mise en ligne, affichait la date NUE.
+           * La MÊME clé que les deux autres surfaces : une réserve ne se reformule pas par
+           * écran. Texte fin, sous la règle de droit — pas un encadré, pas une couleur
+           * d'alerte : la charte réserve le Sitwon à une source attestée (§ 8.1).
+           */}
+          <p className="mt-3 text-[11px] leading-relaxed text-grafit">{d.disclaimer}</p>
         </div>
 
         <div className="flex min-w-0 flex-col gap-4">

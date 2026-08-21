@@ -89,8 +89,18 @@ export const fr = {
      * manuelle plutôt que sur le répertoire ? Cette note SUIVRA la réponse — si le répertoire
      * redevient le défaut, la première proposition redevient « Choisissez l’article ».
      */
+    /**
+     * ⚠️ **ELLE DÉCRIVAIT L'OUTIL À L'ENVERS** (correctif du 20 août 2026). Elle rangeait la
+     * prorogation de l'article 991 parmi les lectures « nommées à côté », donc parmi celles
+     * qu'il faudrait AJOUTER à la date affichée. C'est l'inverse pour **279 des 393 fiches** —
+     * les 232 du Code de procédure civile et les 47 du Code du travail, où l'article la rend
+     * acquise (`prorogation991: 'OUI'`, compté en base le 20 août 2026) : la date affichée la
+     * comprend déjà, et la phrase invitait à compter un jour deux fois. Elle n'est en réserve
+     * que pour les **114 fiches du Code civil**, qui n'a pas de clause de prorogation à lui.
+     * La note distingue donc les deux cas, et nomme le second comme réserve.
+     */
     intro:
-      'Saisissez votre délai, ou choisissez l’article ; donnez le point de départ. La date affichée est la plus précoce : agir au plus tard ce jour-là est sûr sous toutes les lectures du texte. Celles qui reportent l’échéance — dont la prorogation de l’article 991 — sont nommées à côté, avec leur fondement ; elles n’allongent le délai que si le juge les retient.',
+      'Saisissez votre délai, ou choisissez l’article ; donnez le point de départ. La date affichée est la plus précoce : agir au plus tard ce jour-là est sûr sous toutes les lectures du texte. Sur un délai du Code de procédure civile ou du Code du travail, la prorogation de l’article 991 est DÉJÀ COMPTÉE dans cette date — n’y ajoutez pas un jour de plus. Sur un délai du Code civil, qui ne comporte aucune clause de prorogation, elle reste une lecture nommée à côté de la date, avec son fondement, comme les autres lectures qui reportent l’échéance : celles-là n’allongent le délai que si le juge les retient.',
     frameworkNote:
       'Cet outil applique l’article 987 du Code de procédure civile, l’article 511 du Code du travail, et le droit commun pour le Code civil. Il ne connaît pas les arrêtés de chômage.',
     disclaimer:

@@ -92,13 +92,56 @@ export const ARTICLE_PROROGATION_PAR_CODE: Record<CodeDelai, string> = {
   CIVIL: 'C. pr. civ., art. 991 al. 3',
 }
 
+/**
+ * LES DEUX CLAUSES DE PROROGATION, MOT POUR MOT. Déclarées une seule fois : `al. 2` du Code
+ * du travail sert DEUX fois ci-dessous (la prorogation ordinaire et le chômage par arrêté,
+ * que cet alinéa-là ne sépare pas), et un second exemplaire serait le défaut 16 c.
+ *
+ * ⚠️ Relues en base le 20 août 2026 — `Document`, sources `CODE_PROCEDURE_CIVILE` et
+ * `CODE_TRAVAIL_ANNOTE` —, alinéa par alinéa, et recopiées à l'identique.
+ */
+const CIT_991_AL3 =
+  '« Les délais légaux seront prorogés d’un jour, si le dernier est un dimanche ou un jour de fête légale. »'
+const CIT_991_AL4 =
+  '« Il en est de même lorsque, au dernier jour, le chômage est prescrit par arrêté du Président de la République. »'
+const CIT_511_AL2 =
+  '« Les délais légaux sont prorogés d’un jour si le dernier jour est un dimanche ou un jour férié légal ou prescrit par Arrêté Présidentiel. »'
+
 /** Fondements par défaut de la prorogation (§ 4.7, dernier alinéa). */
 export const FONDEMENT_PROROGATION_PAR_CODE: Record<CodeDelai, string> = {
-  CPC: 'C. pr. civ., art. 991 al. 3 — « Les délais légaux seront prorogés d’un jour, si le dernier est un dimanche ou un jour de fête légale. »',
-  TRAVAIL:
-    'C. trav., art. 511 al. 2 — « Les délais légaux sont prorogés d’un jour si le dernier jour est un dimanche ou un jour férié légal ou prescrit par Arrêté Présidentiel. »',
+  CPC: `C. pr. civ., art. 991 al. 3 — ${CIT_991_AL3}`,
+  TRAVAIL: `C. trav., art. 511 al. 2 — ${CIT_511_AL2}`,
   CIVIL:
     'INCERTAIN : le Code civil ne comporte aucune clause de prorogation, et l’art. 991 est dans le Code de procédure civile. La tête d’affiche est calculée SANS prorogation.',
+}
+
+/**
+ * § 4.13 — **LE CHÔMAGE PRESCRIT PAR ARRÊTÉ EST À L'ALINÉA 4, ET CE N'EST PAS L'ALINÉA QUI
+ * PROROGE AU-DESSUS.** Deux tables, parce que ce sont deux textes.
+ *
+ * L'art. 991 C. pr. civ., relu en base le 20 août 2026, a QUATRE alinéas : l'al. 1 vise
+ * l'exécution provisoire sur minute, l'al. 2 les heures et jours de signification, l'al. 3
+ * proroge « si le dernier est un dimanche ou un jour de fête légale », et c'est l'**al. 4**,
+ * et lui seul, qui ajoute le chômage prescrit par arrêté. L'avertissement A6 citait la phrase
+ * de l'al. 4 sous la référence de l'al. 3 : à chaque échéance tombant sur les Cendres, le
+ * Jeudi Saint, l'Ascension, le 7 février ou le 24 octobre — plusieurs fois par an, sur l'écran
+ * d'où la référence part dans une assignation.
+ *
+ * ⚠️ **LE CODE DU TRAVAIL, LUI, NE COUPE PAS.** Son art. 511 al. 2 porte les trois cas dans
+ * une seule phrase (« … un dimanche ou un jour férié légal **ou prescrit par Arrêté
+ * Présidentiel** ») : la référence y est la même que celle de la prorogation ordinaire, et la
+ * citation aussi. Servir la phrase du Code de procédure civile sur une fiche de travail aurait
+ * été remplacer une citation fausse par une autre.
+ */
+export const CHOMAGE_PAR_ARRETE_PAR_CODE: Record<
+  CodeDelai,
+  { article: string; citation: string }
+> = {
+  CPC: { article: 'C. pr. civ., art. 991 al. 4', citation: CIT_991_AL4 },
+  TRAVAIL: { article: 'C. trav., art. 511 al. 2', citation: CIT_511_AL2 },
+  // Même motif que `ARTICLE_PROROGATION_PAR_CODE.CIVIL` : le Code civil n'a pas de clause à
+  // lui, et l'entrée synthétique publique emprunte celle du droit commun de la procédure.
+  CIVIL: { article: 'C. pr. civ., art. 991 al. 4', citation: CIT_991_AL4 },
 }
 
 /** Marqueurs d'une formule QUI PARLE DE l'article, au lieu de le citer. */

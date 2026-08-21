@@ -383,6 +383,40 @@ describe('le héros DIT ce qu’il calcule, et ce qui manque', () => {
     }
   })
 
+  /**
+   * ═══════════════════════════════════════════════════════════════════════════════
+   * ⚠️ **LA RÉSERVE, ET ELLE MANQUAIT ICI SEULEMENT** (20 août 2026).
+   * ═══════════════════════════════════════════════════════════════════════════════
+   *
+   * `/{locale}/delais` et `/{locale}/outils/delais` portent `disclaimer` en pied depuis le
+   * premier jour. Le héros, lui — la page la plus vue du site, et la seule que TOUT visiteur
+   * voie dès la mise en ligne —, affichait la date NUE. Une date de forclusion sans un mot
+   * sur ce qu'elle n'est pas.
+   */
+  it('la réserve est écrite sous la date, ici comme sur les deux autres surfaces', () => {
+    for (const html of [vide, calcule]) {
+      expect(html).toContain('Information documentaire, non officielle')
+      expect(html).toContain('ne remplace ni la lecture du texte ni l’avis d’un praticien')
+    }
+  })
+
+  it('… c’est la MÊME clé que les deux autres surfaces, et elle ne s’écrit qu’une fois', () => {
+    for (const html of [vide, calcule]) {
+      expect(html).toContain(t.delais.disclaimer)
+      expect(html.split(t.delais.disclaimer).length - 1).toBe(1)
+    }
+  })
+
+  it('… et dans les trois langues : aucune surface publique ne rend une date sans réserve', async () => {
+    const { LOCALES } = await import('@/lib/types')
+    for (const l of LOCALES) {
+      const tl = getDictionary(l)
+      const html = renderToStaticMarkup(<DelaisHeroSlide locale={l} t={tl} saisie={null} />)
+      expect(tl.delais.disclaimer.length, l).toBeGreaterThan(60)
+      expect(html, l).toContain(tl.delais.disclaimer)
+    }
+  })
+
   it('le sous-titre a été RETIRÉ, et la note « avec ses réserves » avec lui', () => {
     expect(vide).not.toContain('le raisonnement qui fonde la date')
     expect(vide).not.toContain('avec ses réserves')

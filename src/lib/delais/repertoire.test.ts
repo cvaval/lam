@@ -396,3 +396,86 @@ describe('Les douze contrôles bloquants du § 5.3', () => {
     expect(anomalies.some((a) => a.includes('cpc-test-averifier'))).toBe(true)
   })
 })
+
+/**
+ * ═══════════════════════════════════════════════════════════════════════════════
+ * **CE QUE L'AVOCATE LIT N'EST PAS UN BROUILLON.** (20 août 2026.)
+ * ═══════════════════════════════════════════════════════════════════════════════
+ *
+ * Sept fiches — la transcription du jugement de divorce (Code civil) et les six délais du
+ * Code du travail dont la qualification n'est pas acquise — portaient, DANS LE TEXTE AFFICHÉ
+ * sous la date, une note de travail : « L'entrée est donc marquée `regimeIncertain: true` …
+ * À faire trancher par la rédaction (§ 13, point 4/5). » Le fond était honnête, et c'est sa
+ * qualité ; la forme donnait à lire un nom de champ technique et le renvoi à un paragraphe
+ * d'une spécification interne.
+ *
+ * ⚠️ **CES SEPT LIGNES SONT AUSSI EN BASE DE PRODUCTION** (vérifié le 20 août 2026 :
+ * `regimeIncertain: true`, 7 entrées, statut `visible`). Corriger la graine corrige la SOURCE ;
+ * les sept lignes déjà versées demandent une mise à jour décidée par la rédaction — la graine
+ * refuse d'écraser une table peuplée (§ 5.2).
+ */
+describe('les fondements affichés sont écrits pour une avocate, pas pour la rédaction', () => {
+  /** Tout ce qu'une fiche publiée ne doit jamais montrer. */
+  const JARGON: [string, RegExp][] = [
+    ['un nom de champ du modèle', /regimeIncertain|prorogation991|teteAffiche|motifRefus/],
+    ['un identifiant entre accents graves', /`/],
+    ['un renvoi à la spécification', /§\s*\d/],
+    ['une consigne interne', /à faire trancher par la rédaction/i],
+  ]
+
+  it('aucun des 393 fondements de régime ne porte de jargon de code', () => {
+    for (const e of ENTREES) {
+      for (const [quoi, motif] of JARGON) {
+        expect(e.regimeFondement, `${e.slug} — ${quoi}`).not.toMatch(motif)
+      }
+    }
+  })
+
+  it('… ni aucun des 393 fondements de prorogation, ni aucun motif de refus', () => {
+    for (const e of ENTREES) {
+      for (const [quoi, motif] of JARGON) {
+        expect(e.prorogationFondement, `${e.slug} — ${quoi}`).not.toMatch(motif)
+        if (e.motifRefusFr) expect(e.motifRefusFr, `${e.slug} — ${quoi}`).not.toMatch(motif)
+      }
+    }
+  })
+
+  /** Les SEPT, nommément : elles disent ce qu'on sait, ce qu'on ignore, et ce qui reste à faire. */
+  it('les sept fiches au régime douteux disent les trois choses, dans les mots du métier', () => {
+    const douteuses = ENTREES.filter((e) => e.regimeIncertain)
+    expect(douteuses).toHaveLength(7)
+    expect(douteuses.filter((e) => e.code === 'TRAVAIL')).toHaveLength(6)
+    expect(douteuses.filter((e) => e.code === 'CIVIL')).toHaveLength(1)
+    for (const e of douteuses) {
+      // 1. ce que la plateforme A FAIT : elle a retenu la date la plus précoce ;
+      expect(e.regimeFondement, e.slug).toContain('la date la plus précoce')
+      // 2. ce qu'elle NE TRANCHE PAS ;
+      expect(e.regimeFondement, e.slug).toMatch(/ne tranche (pas|donc pas)/)
+      // 3. ce qui revient à l'avocate — la seconde date, et à quelle condition.
+      expect(e.regimeFondement, e.slug).toMatch(/vous engage/)
+    }
+  })
+
+  /**
+   * La citation de l'art. 511 était ALTÉRÉE (« Tous les délais DE PROCÉDURE… ») : l'article
+   * écrit « de procédure » en bas de casse, relu en base. Une plateforme ne publie pas une
+   * version d'un texte qui n'a jamais paru — l'insistance appartient à sa propre phrase.
+   */
+  it('la citation de l’art. 511 est rendue mot pour mot, l’insistance reste hors guillemets', () => {
+    const travail = ENTREES.filter((e) => e.regimeIncertain && e.code === 'TRAVAIL')
+    for (const e of travail) {
+      expect(e.regimeFondement, e.slug).toContain(
+        '« Tous les délais de procédure prévus au Code du Travail sont francs. »',
+      )
+      expect(e.regimeFondement, e.slug).not.toContain('« Tous les délais DE PROCÉDURE')
+      expect(e.regimeFondement, e.slug).toContain('délais DE PROCÉDURE')
+    }
+  })
+
+  /** ⚠️ Le garde-fou du § 4.7 doit tenir malgré la réécriture : pas de citation fabriquée. */
+  it('la réécriture ne fait pas passer la fiche civile pour citée', () => {
+    const divorce = ENTREES.find((e) => e.regimeIncertain && e.code === 'CIVIL')!
+    expect(citationDeFranc(divorce.regimeFondement).citation).toBeNull()
+    expect(controler(ENTREES).filter((a) => a.includes(divorce.slug))).toHaveLength(0)
+  })
+})

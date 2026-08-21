@@ -1207,3 +1207,71 @@ describe('§ 6.4 — le permalien de la surface connectée y reste', () => {
     expect(html).not.toContain('/fr/outils/delais')
   })
 })
+
+/**
+ * ═══════════════════════════════════════════════════════════════════════════════
+ * § 09 — **DEUX REQUÊTES SUR SIX ÉTAIENT DE PURS DOUBLONS.** (20 août 2026.)
+ * ═══════════════════════════════════════════════════════════════════════════════
+ *
+ * La page lit d'abord l'état du calculateur — `etatPublicDelais()` en public,
+ * `chargerRepertoirePublic()` dans l'espace connecté : elle doit savoir si la base est prête
+ * avant d'afficher un formulaire. Les deux rendent déjà le calendrier courant et les fenêtres
+ * courantes. `calculPublic()` les relisait ensuite À L'IDENTIQUE, sur la même requête HTTP.
+ *
+ * Mesuré sur la base de PRODUCTION le 20 août 2026 (journal SQL de Prisma) :
+ *
+ *   · surface publique, un calcul   : **6 requêtes → 4**
+ *   · portail, un calcul sur entrée : **9 requêtes → 7**
+ *
+ * ⚠️ **Le frein de débit en mémoire est INOPÉRANT en serverless** (`ratelimit.ts` le dit, et
+ * `noyau-calculateur.tsx` le répète) : sur Vercel, chaque invocation part avec sa propre `Map`.
+ * Le coût par requête anonyme est donc le seul frein réel qui reste — d'où ce test, qui le
+ * FIXE. Le réparer vraiment demande un magasin partagé ; c'est un autre chantier.
+ */
+describe('§ 09 — le nombre d’allers-retours à la base, par requête publique', () => {
+  const compte = () =>
+    prisma.delaiEntry.findMany.mock.calls.length +
+    prisma.delaiEntry.findUnique.mock.calls.length +
+    prisma.delaiEntryRevision.findUnique.mock.calls.length +
+    prisma.delaiFerie.findMany.mock.calls.length +
+    prisma.delaiFerie.findFirst.mock.calls.length +
+    prisma.delaiFenetreSignification.findMany.mock.calls.length +
+    prisma.delaiFenetreSignification.findFirst.mock.calls.length
+
+  it('la surface publique : QUATRE requêtes pour un calcul, et pas six', async () => {
+    await page({ d: '2026-06-04', n: '15' })
+    expect(compte()).toBe(4)
+    // La version courante est lue UNE fois, pas deux : c'est là qu'étaient les doublons.
+    expect(prisma.delaiFerie.findFirst).toHaveBeenCalledTimes(1)
+    expect(prisma.delaiFenetreSignification.findFirst).toHaveBeenCalledTimes(1)
+  })
+
+  it('le portail : SEPT requêtes pour un calcul sur une entrée, et pas neuf', async () => {
+    await pageConnectee({ d: '2026-06-04', e: SLUG })
+    expect(compte()).toBe(7)
+    expect(prisma.delaiFerie.findFirst).toHaveBeenCalledTimes(1)
+    expect(prisma.delaiFenetreSignification.findFirst).toHaveBeenCalledTimes(1)
+  })
+
+  /** Sans calcul, la page ne lit que de quoi savoir si la base est prête. */
+  it('la page publique sans saisie : DEUX requêtes, et aucun calendrier chargé', async () => {
+    await page({})
+    expect(compte()).toBe(2)
+    expect(prisma.delaiFerie.findMany).not.toHaveBeenCalled()
+  })
+
+  /**
+   * ⚠️ **CE N'EST PAS UN CACHE.** Un permalien qui NOMME une version continue de faire foi :
+   * `q.c` / `q.w` passent avant tout, et le nombre de requêtes tombe même à trois — la version
+   * courante n'a plus à être lue du tout pour le calcul.
+   */
+  it('un permalien qui nomme sa version n’est jamais écrasé par la version courante', async () => {
+    prisma.delaiFerie.findFirst.mockResolvedValue({ versionCalendrier: 2 })
+    const html = await page({ d: '2026-06-04', n: '15', c: '1', w: '1' })
+    // Le calendrier demandé est bien le 1, pas le 2 que porte « la version courante ».
+    expect(prisma.delaiFerie.findMany).toHaveBeenCalledWith(
+      expect.objectContaining({ where: { versionCalendrier: 1 } }),
+    )
+    expect(html).toContain('Date limite')
+  })
+})
