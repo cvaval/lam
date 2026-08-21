@@ -3,6 +3,8 @@ import { Logo } from '@/components/Logo'
 import { PublicHeader } from '@/components/PublicHeader'
 import { CookieBanner } from '@/components/CookieBanner'
 import { JudicialMapHeroSlide } from '@/components/home/JudicialMapHeroSlide'
+import { DelaisHeroSlide } from '@/components/home/DelaisHeroSlide'
+import type { SaisieHeros } from '@/components/delais/noyau-calculateur'
 import { PUBLICATIONS } from '@/lib/publications'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale } from '@/lib/types'
@@ -13,7 +15,24 @@ import type { Locale } from '@/lib/types'
  * confiance, publications, pied de page légal + bandeau cookies. Tous les liens
  * pointent vers des routes réelles du portail (login, register, légal, publications).
  */
-export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
+export function Landing({
+  locale,
+  t,
+  delais,
+}: {
+  locale: Locale
+  t: Dictionary
+  /**
+   * § 6.1 — ce que la PAGE a calculé pour le héros des délais, quand la visiteuse a soumis
+   * les deux champs. Il traverse en simple objet : c'est ce qui permet à `Landing` et à
+   * `DelaisHeroSlide` de rester SYNCHRONES alors que le héros affiche désormais une date.
+   */
+  delais?: SaisieHeros | null
+}) {
+  // L'accueil ne lit pas la base lui-même. La bande des délais n'a plus de menu du répertoire
+  // à peupler, et son calcul — depuis qu'elle en fait un — est fait par la page, en amont :
+  // cette fonction ne contient aucun `await`, et son `async` d'autrefois en faisait une
+  // frontière asynchrone que le commentaire démentait dans le même bloc.
   const tr = (fr: string, en: string, ht: string) => (locale === 'en' ? en : locale === 'ht' ? ht : fr)
   const featured = PUBLICATIONS[0]
 
@@ -21,9 +40,15 @@ export function Landing({ locale, t }: { locale: Locale; t: Dictionary }) {
     <div className="bg-koton text-ank">
       <PublicHeader locale={locale} t={t} />
 
-      {/* Hero — carte judiciaire uniquement. */}
+      {/* Héros — carte judiciaire, puis la BANDE du calculateur de délais.
+          Pas de rotation : le § 6.1 la déconseille expressément, le dépôt n'a aucun composant
+          de carrousel, et une avance automatique sur un outil de calcul de délais ferait
+          disparaître le formulaire sous les doigts de l'utilisatrice. La bande CALCULE
+          désormais sur place et affiche la date (Me Vaval, 20 août 2026) : son `GET` revient
+          sur l'accueil, il ne navigue plus vers /delais. */}
       <section className="overflow-x-clip border-b border-liy bg-koton">
         <JudicialMapHeroSlide locale={locale} t={t} />
+        <DelaisHeroSlide locale={locale} t={t} saisie={delais} />
       </section>
 
       {/* Publications */}

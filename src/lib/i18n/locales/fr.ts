@@ -1,4 +1,5 @@
 import { BRAND } from '../../brand'
+import { JOURS, MOIS } from '../../delais/format'
 
 /**
  * Dictionnaire FRANÇAIS — forme canonique du catalogue i18n (§02).
@@ -6,6 +7,545 @@ import { BRAND } from '../../brand'
  * sont typés contre lui : une clé manquante = erreur de compilation.
  */
 export const fr = {
+  /**
+   * § 8.2 — Les noms de jours et de mois du CALCULATEUR DE DÉLAIS (défaut 17 a).
+   * Ils viennent de `src/lib/delais/format.ts`, qui reste la SEULE copie : le noyau de
+   * calcul doit pouvoir dater l'avertissement A6 en toutes lettres sans dépendre de ce
+   * catalogue (§ 4.1). Une clé i18n doit exister dans les TROIS locales, sinon le
+   * typecheck casse — d'où l'ajout simultané ici, dans `en.ts` et dans `ht.ts`.
+   * ⚠️ Les noms créoles n'ont pas été relus par la rédaction : à faire avant de les figer.
+   */
+  delais: {
+    jours: JOURS.fr,
+    mois: MOIS.fr,
+
+    // ─── Identité et navigation ────────────────────────────────────────────────
+    navLabel: 'Calculateur de délais',
+    metaTitle: 'Calculateur de jours francs — Lam',
+    /**
+     * LA NOTE DU PORTAIL — elle dit ce que l’outil FAIT (Me Vaval, 20 août 2026).
+     *
+     * ⚠️ L’ancienne rédaction annonçait « prorogation de l’article 991 » dans la même
+     * énumération que le décompte et la distance : elle PROMETTAIT donc la prorogation, alors
+     * que la règle de prudence est l’inverse — **la date affichée est la plus PRÉCOCE, elle ne
+     * proroge pas**, et la prorogation se lit à côté, nommée, avec son fondement
+     * (`teteAffiche` = « LA date. La plus précoce des lectures concurrentes. », `calcul.ts`).
+     * Une note qui promet un report que la date de tête n’applique pas fait manquer un délai.
+     */
+    metaDescription:
+      'Calculez une date limite en droit haïtien : jours francs ou jours calendaires, délai de distance. La date affichée est la plus précoce — celle qui reste bonne quelle que soit la lecture du texte. Les lectures qui la reportent, dont la prorogation de l’article 991, sont montrées à côté, chacune avec son fondement.',
+    /**
+     * LA MÊME NOTE, POUR LA SURFACE PUBLIQUE — et elle DOIT être distincte.
+     *
+     * ⚠️ `metaDescription` était partagée par les deux pages. Réécrite pour le portail, elle
+     * annoncerait publiquement des « lectures montrées à côté » qui n’y existent plus : depuis
+     * `franc-pur.ts`, `/[locale]/delais` ne rend PAS de lecture nommée, PAS de « lecture la plus
+     * large », PAS de jour praticable. C’est la même exigence que celle qui a fait retirer
+     * `publicFrancOnlyNote` : une page ne promet pas ce qu’elle ne fait pas.
+     *
+     * ⚠️ **CE COMMENTAIRE DISAIT « SANS PROROGATION » JUSQU’AU 20 AOÛT 2026 AU SOIR — et c’était
+     * l’inverse du code livré.** La surface publique PROROGE depuis la seconde décision du jour :
+     * report de l’art. 991 al. 3, en cascade, sur le dimanche et les 16 entrées PERMANENT du
+     * calendrier. Trois autres en-têtes portaient la même phrase périmée (`lecture-publique.ts`,
+     * `surfaces-delais.test.ts`, et les commentaires jumeaux d’`en.ts` et de `ht.ts`) ; dans un
+     * dépôt où les commentaires tiennent lieu de spécification, la prochaine session aurait
+     * « rétabli » le franc pur en croyant obéir.
+     *
+     * ⚠️ Le LIBELLÉ, lui, ne change pas, et le test qui lui interdit de promettre « 991 » reste
+     * juste : ce qui est proscrit, c’est la promesse invérifiable dans une note de page. Le
+     * report se dit AU MOMENT OÙ IL A LIEU, en petits caractères sous la date (`publicDeferred`).
+     */
+    metaDescriptionPublique:
+      'Calculez une date limite en droit haïtien : donnez la date de réception de l’acte et le nombre de jours francs qu’il indique. La plateforme compte ces jours et rend la date.',
+    breadcrumbHome: 'Accueil',
+    breadcrumbHere: 'Calculateur de délais',
+    title: 'Calculateur de jours francs',
+    /**
+     * LA NOTE VISIBLE DU PORTAIL, sous le titre — celle que l’avocate lit vraiment, quand
+     * `metaDescription` ne sort que dans un résultat de recherche. Elle dit désormais la même
+     * chose, et c’est la demande de Me Vaval du 20 août 2026.
+     *
+     * ⚠️ L’ancienne rédaction ÉNUMÉRAIT ce que la page rend (« la date la plus sûre, les
+     * étapes, les jours écartés, les lectures concurrentes ») sans jamais dire **ce que la
+     * date garantit ni ce qu’une lecture nommée signifie**. Sur un écran qui affiche jusqu’à
+     * quatre dates — tête d’affiche, lecture nommée, lecture la plus large, jour praticable —,
+     * un inventaire laisse choisir la plus tardive, et le recours est forclos. La note énonce
+     * donc la règle de prudence : **la tête d’affiche est la plus PRÉCOCE et ne proroge pas**
+     * (`teteAffiche` = « LA date. La plus précoce des lectures concurrentes. »), et une lecture
+     * nommée n’allonge le délai que si le juge la retient.
+     *
+     * ⚠️ **LA PREMIÈRE PROPOSITION A ÉTÉ RÉÉCRITE LE 20 AOÛT 2026.** Elle disait « Choisissez
+     * l’article, donnez le point de départ. » — une consigne que l’écran ne présente plus :
+     * l’option vide « Choisissez un article… » a été retirée, `<option value={SLUG_AUTRE}>`
+     * est désormais la PREMIÈRE du menu et l’état initial vaut `valeurs.e || SLUG_AUTRE`
+     * (`DelaiForm.tsx`). Le portail s’ouvre donc sur « Autre — saisir le nombre de jours », où
+     * il n’y a aucun article à choisir. Le dépôt avait identifié le risque de l’autre côté —
+     * c’est la raison d’être de `publicIntro` — et la même phrase était devenue bancale sur le
+     * portail lui-même. La note couvre maintenant les DEUX chemins, dans l’ordre où le menu
+     * les offre. La suite (« La date affichée est la plus précoce… ») est exacte et n’a pas
+     * bougé.
+     *
+     * ⚠️ **ARBITRAGE OUVERT, à Me Vaval** : le portail doit-il vraiment s’ouvrir sur la saisie
+     * manuelle plutôt que sur le répertoire ? Cette note SUIVRA la réponse — si le répertoire
+     * redevient le défaut, la première proposition redevient « Choisissez l’article ».
+     */
+    intro:
+      'Saisissez votre délai, ou choisissez l’article ; donnez le point de départ. La date affichée est la plus précoce : agir au plus tard ce jour-là est sûr sous toutes les lectures du texte. Celles qui reportent l’échéance — dont la prorogation de l’article 991 — sont nommées à côté, avec leur fondement ; elles n’allongent le délai que si le juge les retient.',
+    frameworkNote:
+      'Cet outil applique l’article 987 du Code de procédure civile, l’article 511 du Code du travail, et le droit commun pour le Code civil. Il ne connaît pas les arrêtés de chômage.',
+    disclaimer:
+      'Information documentaire, non officielle. Le calcul ne remplace ni la lecture du texte ni l’avis d’un praticien : en cas de divergence, les publications officielles font foi.',
+
+    // ─── Héros de l’accueil (§ 6.1) — il navigue, il ne calcule pas ────────────
+    // ⚠️ Le SOUS-TITRE du héros a été RETIRÉ par Me Vaval (20 août 2026) : « La date de
+    // réception de l’acte, le nombre de jours francs qu’il indique — et le raisonnement qui
+    // fonde la date. » La phrase survit sous `toolsSubtitle`, où elle sert la tuile du
+    // tableau de bord connecté ; le héros, lui, n’a plus qu’un titre et la règle de droit.
+    heroKicker: 'Nouveau',
+    heroTitle: 'Quand expire votre délai ?',
+    heroSubmit: 'Calculer',
+
+    // ─── LES SURFACES PUBLIQUES : DEUX CHAMPS, ET DEUX SEULEMENT ──────────────
+    // Le héros et /[locale]/delais ne demandent que la date de réception et le nombre de
+    // jours francs. Le répertoire — ses entrées, leurs libellés, leurs fondements — vit dans
+    // l’espace connecté, et la route qui le sert exige une session.
+    publicDateLabel: 'Date de réception de l’acte',
+    publicDaysLabel: 'Nombre de jour(s) francs',
+    publicDaysHint: 'Le nombre de jours indiqué dans l’acte.',
+    // ⚠️ `publicIntro` a été RETIRÉ le 20 août 2026, avec le raisonnement lui-même : « le
+    // portail public doit uniquement afficher la date » (Me Vaval). La phrase promettait
+    // « le raisonnement qui la fonde » — elle est devenue fausse le jour où la surface
+    // publique a cessé de le rendre. Ne pas la réintroduire : la page porte son titre, ses
+    // deux champs, la date, et la règle de droit.
+    /**
+     * LA RÈGLE DE DROIT DES DEUX SURFACES PUBLIQUES, dans les mots de Me Vaval (20 août 2026).
+     *
+     * ⚠️ Elle remplace TROIS clés retirées ce jour-là : `heroNoResultNote` (« Le résultat
+     * s’affiche sur la page du calculateur, avec ses réserves. » — « cette note concerne le
+     * navigateur complet »), `heroFrancOnlyNote` et `publicFrancOnlyNote`. Cette dernière
+     * ajoutait « Si le dernier jour tombe un dimanche ou une fête légale, il est prorogé d’un
+     * jour (art. 991) » : c’est devenu FAUX sur la surface publique, qui ne proroge plus.
+     * Une seule clé pour les deux surfaces — elles portent les mêmes champs, elles doivent en
+     * dire la même chose, et une phrase de droit ne se recopie pas en deux exemplaires.
+     */
+    francRule:
+      'Conformément au Code de procédure civile haïtien et au Code du travail, le délai franc ne compte ni le jour de la réception, ni le jour de l’échéance.',
+    // ⚠️ « Il manque : Date de réception de l’acte · Nombre de jour(s) francs » a été jugé
+    // pédant par Me Vaval : une consigne, pas un constat. Le PORTAIL garde son « Il manque : »
+    // et sa liste (`submitMissingPrefix`), qui peut y énumérer un kilométrage et une question
+    // de suite. Publiquement il n’y a que deux champs : on nomme le premier qui manque.
+    missingDate: 'Indiquer la date de réception de l’acte',
+    missingDays: 'Indiquer le nombre de jour(s) francs',
+
+    /**
+     * ─── LA SEULE MENTION GARDÉE SOUS LA DATE (Me Vaval, 20 août 2026) ──────────
+     *
+     * « Si la date calculée tombe un jour férié, le résultat l’affichera en petits
+     * caractères. » Du TEXTE FIN, sous la date : pas d’encadré, pas de couleur d’alerte, pas
+     * de pastille — la charte réserve le Sitwon à une source attestée (§ 8.1), et une mention
+     * de jour n’en est pas une.
+     *
+     * ⚠️ **QUATRE GABARITS, PARCE QUE LE CALENDRIER PORTE QUATRE GENRES DE LIGNES.** Les
+     * confondre sous « jour de fête légale » ferait dire à la plateforme ce qu’aucun texte ne
+     * dit : les 4 entrées `REDACTION` ne sont instituées par aucun texte du corpus (c’est ce
+     * que l’avertissement A4 énonce dans le portail), et les 5 `A_SURVEILLER` sont un chômage
+     * ponctuel par arrêté, jamais une fête permanente (§ 4.13). Voir `mention-jour.ts`.
+     *
+     * ⚠️ **Aucun de ces gabarits n’annonce un report** : ils QUALIFIENT un jour, ils ne
+     * déplacent pas la date. C’est `publicDeferred`, plus bas, qui dit le report — et ces
+     * gabarits-là servent alors à décrire les jours FRANCHIS, un par un.
+     */
+    publicDayHoliday: 'Le {date} est un jour de fête légale ({nom}).',
+    /**
+     * ⚠️ **CE GABARIT NE PORTAIT AUCUNE RÉSERVE, ET C’EST LE PLUS LOURD DES TROIS.** Il nommait
+     * le jour et se taisait sur le fondement, pendant que la ligne du report imputait le décalage
+     * au seul art. 991 al. 3 — lequel ne vise que « un dimanche ou un jour de fête légale ».
+     *
+     * Les trois textes sont en base et ils distinguent DEUX catégories : Const. 1987, art. 275.1
+     * énumère les cinq fêtes NATIONALES ; l’art. 275.2 dit « Les Fêtes Légales sont déterminées
+     * par la Loi » ; et le décret du 23 mai 1989 s’intitule « déterminant, EN DEHORS DES FÊTES
+     * NATIONALES, les Fêtes Légales ». La réserve R1 le disait noir sur blanc, et 25 des
+     * 56 divergences mesurées avec le portail le MATIN du 20 août 2026 venaient de ces cinq
+     * jours-là. ⚠️ Chiffre HISTORIQUE : depuis le soir, les fêtes nationales prorogent des deux
+     * côtés et n'expliquent plus aucune divergence — la mesure du jour est dans
+     * `franc-pur.test.ts`, § 0, et non dans un commentaire.
+     *
+     * ⚠️ **LA QUESTION A ÉTÉ TRANCHÉE LE 20 AOÛT 2026 (SOIR) : Me Vaval a répondu OUI.** Les
+     * cinq fêtes nationales prorogent la tête d’affiche, des DEUX côtés — R1 a été retirée, et
+     * la règle est portée par la version 2 des règles de lecture (`regles-lecture.ts`). La
+     * ligne, elle, RESTE : nommer le fondement du chômage (la Constitution) et rappeler ce que
+     * l’art. 991 al. 3 vise n’est pas une réserve, c’est ce qui permet à la lectrice de vérifier
+     * une date que la lettre de l’article ne donne pas à elle seule.
+     */
+    publicDayNational:
+      'Le {date} est un jour de fête nationale ({nom}), chômé au titre de la Constitution de 1987, art. 275.1 ; l’art. 991 al. 3 C. pr. civ. ne vise, lui, que le dimanche et la fête légale.',
+    /**
+     * ⚠️ **CETTE MENTION N'EST PLUS ATTEIGNABLE QUE SOUS LE CALENDRIER DE LA VERSION 1**
+     * (20 août 2026). Le décret du 11 décembre 2024 institue les quatre jours qui la
+     * déclenchaient ; la version 2 ne porte plus aucune entrée `REDACTION`. Elle reste parce
+     * qu'un permalien `c=1` doit se rejouer à l'identique — et la phrase ne dit plus « sur
+     * instruction de la rédaction » : elle NOMME la version qui la produit.
+     */
+    publicDayEditorial:
+      'Le {date} est porté au calendrier comme fête légale ({nom}) sans texte instituant : ce calendrier (version 1) est antérieur au décret du 11 décembre 2024.',
+    publicDayWatch:
+      'Le {date} est un jour à surveiller ({nom}) : il est souvent chômé par arrêté.',
+    /**
+     * § 4.10 — ⚠️ **LA SEULE DEMI-JOURNÉE DU CALENDRIER, ET LA SEULE MENTION QUI PARLE D'UNE
+     * HEURE.** Me Vaval, 20 août 2026, au vu du décret : « Le Lundi Gras cesse de proroger et
+     * redevient un jour ouvrable, avec la mention en petits caractères que l'après-midi est
+     * chômé. »
+     *
+     * Le décret du 11 décembre 2024 ne chôme le Lundi Gras qu'« à partir de midi » (art. 2,
+     * 1°) : la matinée reste ouvrable, l'acte peut y être signifié, et la date limite ne se
+     * reporte donc PAS sur ce jour — lui accorder un jour entier la retarderait, et une date
+     * plus tardive que celle que le texte autorise est un risque de forclusion (§ 0, règle 4).
+     * Reste que la fenêtre s'y ferme à midi : le taire laisserait croire à une journée entière.
+     *
+     * ⚠️ **`publicDayHoliday` NE PEUT PAS SERVIR ICI**, et c'est le motif de la clé : il dit
+     * « est un jour de fête légale », ce qui est vrai mais laisse attendre le report que les
+     * quatre autres gabarits annoncent. Deux affirmations contradictoires dans une seule page.
+     *
+     * ⚠️ **CE GABARIT CITE LE DÉCRET DE 2024** : il n'est donc posé que sur les entrées que ce
+     * décret institue (`mention-jour.ts`, `estDemiJourneeOuvrable`). Le 2 novembre de la
+     * version 1 du calendrier, demi-journée lui aussi mais sur les décrets de 1982 et 1985,
+     * garde sa mention de fête légale.
+     */
+    publicDayHalfDay:
+      'Le {date} est chômé à partir de midi ({nom} — décret du 11 décembre 2024, art. 2, 1°). Un acte à signifier doit l’être avant midi.',
+    /**
+     * ⚠️ **LE DIMANCHE EST UN AJOUT À L’INSTRUCTION, PAS UNE DÉDUCTION.** Me Vaval n’a nommé
+     * que les jours fériés ; le dimanche est ajouté parce qu’il est aussi impraticable qu’une
+     * fête pour signifier, et que taire l’un en disant l’autre serait incohérent. Il lui a été
+     * signalé comme un ajout : s’il est retiré, c’est cette clé et la ligne `estDimanche` de
+     * `mention-jour.ts` qui partent, rien d’autre.
+     *
+     * ⚠️ **CE GABARIT SE RÉPÉTAIT, DANS LES TROIS LANGUES.** Il recevait la date en toutes
+     * lettres, qui porte DÉJÀ le nom du jour : « Le dimanche 5 juillet 2026 est un dimanche. » ;
+     * « Sunday 5 July 2026 is a Sunday. » ; « dimanch 5 jiyè 2026 se yon dimanch. » Sur une page
+     * dont la cliente a exigé qu’elle n’affiche que la date, une ligne tautologique se lit comme
+     * un bogue. Deux correctifs, et ils vont ensemble : la date arrive ici SANS jour de semaine
+     * (`dateSansJourSemaine`, `DelaiDatePublique`), et le verbe devient « tombe un ». Les quatre
+     * autres gabarits gardent la date en toutes lettres : eux apportent une information neuve
+     * (le nom de la fête, l’autorité), la répétition n’y coûte rien et le jour de semaine y sert.
+     */
+    publicDaySunday: 'Le {date} tombe un dimanche.',
+
+    /**
+     * ─── LA LIGNE DU REPORT (Me Vaval, 20 août 2026, SECONDE décision du jour) ───
+     *
+     * « Attention, la date limite est tombée un dimanche, il faut la proroger au prochain
+     * jour ouvrable, donc le lundi 6 juillet. » Le calcul public proroge désormais — mais un
+     * report muet est incompréhensible : la personne a saisi 31 jours, elle compte sur ses
+     * doigts, et elle trouve un jour de moins que l'écran.
+     *
+     * ⚠️ **Elle vient APRÈS les lignes qui qualifient les jours franchis**, et elle est la
+     * seule clé neuve : les gabarits `publicDay…` ci-dessus disent ce qu'est chaque jour
+     * sauté (y compris « aucun texte du corpus ne l'institue » pour les quatre jours de la
+     * rédaction, qui déplacent pourtant la date), et celle-ci conclut sur la date d'arrivée.
+     * Deux lignes fines plutôt qu'une phrase composée : un gabarit combinatoire demanderait,
+     * dans les trois langues, une phrase par combinaison de genres.
+     *
+     * ⚠️ `{source}` est l'article que le MOTEUR a cité sur le motif — « C. pr. civ., art. 991
+     * al. 3 », ou l'art. 511 al. 2 en matière de travail. Jamais une constante d'écran.
+     *
+     * ⚠️ **« DROIT COMMUN DE LA COMPUTATION », ET NON « L’ARTICLE APPLICABLE À VOTRE DÉLAI ».**
+     * L’entrée synthétique publique est déclarée `code: 'CIVIL'`, et la table
+     * `ARTICLE_PROROGATION_PAR_CODE` y fait correspondre l’art. 991 al. 3. Une personne qui
+     * saisit à la main un délai de procédure du Code du TRAVAIL — dont la clause de prorogation
+     * est l’art. 511 al. 2 C. trav., que la plateforme cite correctement sur les 47 entrées
+     * TRAVAIL du portail — lisait donc une référence au Code de procédure civile. La date, elle,
+     * est juste : les deux clauses ont le même contenu utile. Mais la surface publique NE DEMANDE
+     * PAS la matière (`src` est refusé, § 4.12) : elle ne peut pas savoir, et le reste du dépôt
+     * s’interdit d’affirmer ce qu’il n’a pas vérifié. Le gabarit présente donc l’article pour ce
+     * qu’il est ici — le droit commun de la computation — au lieu de le donner pour la clause
+     * applicable au délai de l’utilisatrice. ⚠️ **Ne pas “réparer” en ajoutant un champ
+     * “matière” à la surface publique : la cliente l’a explicitement retiré.**
+     */
+    publicDeferred: 'Le délai est prorogé au {date} — droit commun de la computation, {source}.',
+    /**
+     * ─── LA CASCADE, DITE COMME UNE LECTURE (et non comme la lettre) ─────────────
+     *
+     * ⚠️ **L’ÉCRAN IMPUTAIT DEUX JOURS DE REPORT À UN ARTICLE QUI EN DONNE UN.** `publicDeferred`
+     * cite l’art. 991 al. 3, dont la lettre proroge « d’UN jour » ; sur `?d=2025-10-01&n=30` la
+     * page écrivait « Le délai est prorogé au lundi 3 novembre 2025 (C. pr. civ., art. 991
+     * al. 3) » après un report de DEUX jours. 39 résultats sur 1 825 franchissent deux jours ou
+     * plus. La plateforme le savait : la réserve R3 écrivait « L’art. 991 al. 3 proroge “d’un
+     * jour”. […] La lettre ne le dit pas. » — mais cela vivait dans un commentaire de source et
+     * un test unitaire, qui ne sont pas une documentation pour la personne qui lit la date.
+     *
+     * ⚠️ **R3 A ÉTÉ RETIRÉE LE 20 AOÛT 2026 (SOIR) : Me Vaval a répondu OUI à la cascade**, et
+     * la règle vaut maintenant pour les deux surfaces. Cette ligne-ci n’en devient que plus
+     * nécessaire : c’est le seul endroit où la personne qui lit la date apprend que le report
+     * répété est une lecture de l’article, et non sa lettre.
+     *
+     * Rendue UNIQUEMENT quand le report a franchi plus d’un jour : sur un report d’un seul jour,
+     * il n’y a pas de cascade, et la phrase serait du bruit sous une date que la personne a
+     * demandée. C’est aussi l’endroit où loge, enfin visible, ce que `FONDEMENT_PROROGATION_
+     * PUBLIQUE` (`franc-pur.ts`) énonçait sans qu’aucun écran ne le rende.
+     */
+    publicDeferredCascade:
+      'L’art. 991 al. 3 proroge d’un jour ; la plateforme répète le report jusqu’au premier jour qui n’est ni un dimanche ni un jour chômé de son calendrier. Le samedi n’est pas un jour de report.',
+    /**
+     * ─── LA DATE DE L’AUTRE SURFACE (§ 0) ────────────────────────────────────────
+     *
+     * ⚠️ **DEUX ÉCRANS DE LA MÊME PLATEFORME RENDAIENT DEUX DATES, ET LE PUBLIC ÉTAIT TOUJOURS
+     * LE PLUS TARDIF.** Mesuré sur les 1 826 départs de 2025 à 2029, à durée et régime
+     * identiques, le MATIN du 20 août 2026 : 56 divergences sous le calendrier de la version 1,
+     * 53 sous celui de la version 2, jamais dans l’autre sens. ⚠️ Chiffres HISTORIQUES : la
+     * mesure du jour est **0 sous le calendrier courant, 16 sous celui de la version 1**, et
+     * elle est faite par `franc-pur.test.ts` (§ 0), qui rougit quand elle change.
+     *
+     * ⚠️ **ME VAVAL A TRANCHÉ LE 20 AOÛT 2026 (SOIR), ET C’EST LE PORTAIL QUI A ÉTÉ ÉLARGI** :
+     * les fêtes nationales prorogent, la prorogation cascade. Sous le calendrier courant, les
+     * deux surfaces rendent la MÊME date — l’écart est de zéro, et cette ligne ne paraît plus.
+     *
+     * ⚠️ **ELLE RESTE POUR UN SEUL CAS, ET IL EST RÉEL** : un permalien `c=1` rejoue le
+     * calendrier de la version 1, où quatre jours (Lundi Gras, 14 août, 20 septembre,
+     * 1er novembre) n’étaient institués par aucun texte du corpus. Le portail les refuse alors
+     * en tête d’affiche, la page publique les proroge, et la publique redevient la plus
+     * tardive. « Une date juste, sans ses réserves, est plus dangereuse qu’une absence de
+     * calculateur » (§ 0) : la page NOMME donc la date étroite au lieu de la taire.
+     *
+     * ⚠️ **LA PHRASE A CHANGÉ AVEC SON OBJET.** Elle disait « sous la lecture stricte de
+     * l’art. 991 al. 3 — un seul jour de report » : c’était vrai tant que le portail prorogeait
+     * d’un jour, et c’est faux depuis que la cascade est la règle des deux côtés. Ce que la
+     * ligne oppose désormais, c’est un CALENDRIER, pas une lecture de l’article.
+     */
+    publicStrictReading:
+      'Ce calcul rejoue le calendrier de la version 1, antérieur au décret du 11 décembre 2024 : sans les jours qu’aucun texte n’instituait alors, le délai expirait le {date}. C’est la date que rend le calculateur du portail, et la plus prudente des deux.',
+    /**
+     * ─── LA VERSION DES RÈGLES DE LECTURE (§ 4.6) ────────────────────────────────
+     *
+     * ⚠️ **AJOUTÉE LE 20 AOÛT 2026 (SOIR) — défaut 10 de la troisième recette.** L'argument (c)
+     * de `regles-lecture.ts` justifie la coordonnée `rl` par le pied de page : « une date rendue
+     * sous une règle périmée le dit ». C'était vrai du PORTAIL (`DelaiResult`, `footerRules`) et
+     * faux de la surface publique, qui rend `DelaiDatePublique` — sans pied, sans permalien,
+     * sans mention de version. Vérifié : `/fr/delais?d=2029-12-01&n=30&c=2&w=1&rl=1` affichait
+     * « mardi 1er janvier 2030 » là où la règle courante donne « jeudi 3 janvier 2030 » — DEUX
+     * jours d'écart, et pas un mot à l'écran.
+     *
+     * La ligne ne paraît QUE sur une version périmée : sous la version courante, un calcul n'a
+     * rien à dire de sa règle. `lectureStricte` ne rattrapait rien — elle compare les deux
+     * surfaces SOUS LA MÊME version de règles.
+     */
+    publicRulesVersion:
+      'Ce calcul est rendu sous les règles de lecture version {version} ; la version en vigueur est la {courante}, et elle peut donner une autre date.',
+    publicRulesVersionLink: 'Refaire le calcul avec la règle actuelle',
+
+    // ─── Colonne de saisie (§ 6.2) ─────────────────────────────────────────────
+    startLabelDefault: 'Point de départ du délai',
+    // ⚠️ La phrase ÉNONÇAIT un ordre avant de dire qu'elle n'en énonçait pas : « Jour, mois,
+    // année — l'ordre affiché suit votre navigateur. » Sur un poste dont le champ natif rend
+    // `aaaa-mm-jj`, la première moitié — la seule que l'œil retient — nomme l'ordre INVERSE ;
+    // sur un poste en anglais américain (`mm/dd/yyyy`), un troisième encore. Me Vaval a coupé
+    // ce qui restait de l'énumération (20 août 2026) : ne pas la réintroduire — le champ est
+    // natif, il montre déjà ses trois segments, et les NOMMER ne servait qu'à les ordonner.
+    startFormatHint: 'Indiquer la date ; l’ordre affiché est celui de votre navigateur.',
+    significationNote:
+      'L’article 996 fait courir les délais des recours de la signification. La Cour de cassation a écarté la réception effective des pièces (9 juillet 1963) au profit de la signification au Parquet (20 février 1963) — 1re Sect. n° 13, 28 mars 1966.',
+    codeLabel: 'Code',
+    codeCPC: 'Procédure civile',
+    codeTRAVAIL: 'Travail',
+    codeCIVIL: 'Civil',
+    entryLabel: 'Entrée du répertoire',
+    // ⚠️ `entryPlaceholder` (« Choisissez un article… ») a été RETIRÉ le 20 août 2026 : la
+    // saisie manuelle est désormais la PREMIÈRE option du menu et sa valeur par défaut
+    // (`entryOther`), et une option vide au-dessus d’elle la reléguait au second rang tout en
+    // faisant du menu un champ « non renseigné » de plus à réclamer.
+    entryFilterLabel: 'Filtrer la liste',
+    entryFilterPlaceholder: 'Numéro d’article ou mot de l’objet…',
+    entryGroupTableau: 'Tableau {n}',
+    entryNotCalculable: 'Ne produit pas de date',
+    entryResultsCount: '{n} entrées',
+    regimeLabel: 'Régime',
+    regimeFranc: 'Délai franc',
+    regimeOrdinaire: 'Délai ordinaire',
+    regimeIncertain: 'Régime incertain — voir la lecture nommée',
+    regimeAVerifier: 'Régime à vérifier — la rédaction n’a pas qualifié ce délai',
+    prorogationLabel: 'Prorogation',
+    kmLabel: 'Kilométrage',
+    kmLabelFirst: 'Premier kilométrage',
+    kmLabelSecond: 'Second kilométrage',
+    kmHint: 'Distance en kilomètres, nombre entier.',
+    kmYouEnter: 'Vous la saisissez ; la plateforme ne la calcule pas.',
+    supplementLegend: 'Question de suite',
+    otherLegend: 'Autre délai (lu dans un document)',
+    otherDaysLabel: 'Nombre de jours',
+    otherSourceLabel: 'Nature du délai',
+    otherSourceHint: 'Reproduite dans le résultat et à l’impression.',
+
+    /**
+     * ─── LE COMMUTATEUR DE DÉCOMPTE (Me Vaval, 20 août 2026) ────────────────────
+     *
+     * ⚠️ **Il remplace la question « Ce délai est-il franc ? » et ses TROIS réponses**
+     * (`otherFrancLabel`, `otherFrancYes`, `otherFrancNo`, `otherFrancUnknown`,
+     * `otherFrancUnknownNote`, retirées des trois langues). Ce n’est pas le même acte : on ne
+     * demande plus à l’utilisatrice de QUALIFIER son délai — une question de droit qu’elle
+     * peut ne pas savoir trancher —, on lui demande COMMENT elle veut qu’on compte. D’où deux
+     * positions et non trois : « je ne sais pas » n’est pas une réponse à « que voulez-vous ? ».
+     *
+     * ⚠️ **Chaque position porte son libellé ET sa règle**, et l’état est marqué par le bouton
+     * radio natif : la charte interdit qu’une couleur dise seule l’état (Wouj et Vèt sont à
+     * 1,05:1). Retirez toute la couleur de ce bloc, il dit exactement la même chose.
+     *
+     * ⚠️ **Aucune position n’est cochée d’avance.** Un jour d’écart, et le recours est forclos :
+     * la plateforme ne choisit pas à la place de l’utilisatrice. La ligne « Il manque : » le dit.
+     */
+    countingLegend: 'Comment compter les jours ?',
+    countingClear: 'Jours francs',
+    countingClearRule:
+      'Ni le jour de départ ni le jour de l’échéance ne comptent : départ + nombre de jours + 1.',
+    countingCalendar: 'Jours calendaires',
+    countingCalendarRule:
+      'Le jour de départ ne compte pas, le jour de l’échéance compte : départ + nombre de jours.',
+    /**
+     * Un permalien d’avant le commutateur porte `f=ne-sais-pas`. Il se REJOUE à l’identique —
+     * c’est la règle du § 6.3 —, mais le commutateur n’a alors aucune position : on l’écrit,
+     * plutôt que d’afficher un commutateur muet ou de trancher rétroactivement.
+     */
+    countingLegacyUnknown:
+      'Ce calcul a été fait sous l’ancienne réponse « Je ne sais pas » : les deux décomptes sont rendus côte à côte, le plus précoce en tête. Choisissez une position pour recalculer.',
+    /**
+     * § 4.7 — sur une entrée du répertoire, le décompte VIENT DU TEXTE. Le commutateur n’est
+     * pas seulement caché : le champ n’est pas rendu, et le serveur refuse un `f` fabriqué à
+     * la main (`errRegimeImpose`). La phrase dit pourquoi il n’y a rien à choisir.
+     */
+    countingFixedByText:
+      'Sur une entrée du répertoire, le décompte n’est pas un choix : il vient du texte (art. 987 C. pr. civ., art. 511 C. trav., ou droit commun).',
+    submit: 'Calculer',
+    submitMissingPrefix: 'Il manque :',
+    reset: 'Effacer',
+
+    // ─── Résultat (§ 6.3) — tout déplié, rien de repliable ─────────────────────
+    resultTitle: 'Date limite',
+    stepsTitle: 'Le raisonnement, pas à pas',
+    skippedTitle: 'Jours écartés',
+    skippedDate: 'Jour',
+    skippedReason: 'Motif',
+    skippedSource: 'Source',
+    readingsTitle: 'Lectures concurrentes du texte',
+    readingsDate: 'Date',
+    readingsBasis: 'Fondement',
+    widestReading: 'Lecture la plus large',
+    warningsTitle: 'Avertissements',
+    textsTitle: 'Textes appliqués',
+    practicableTitle: 'Dernier jour où l’acte peut matériellement être fait',
+    windowsTitle: 'Fenêtres de signification',
+    windowsNullity: 'Sanction : nullité',
+    footerCalendar: 'Calendrier des fêtes : version {n}',
+    /**
+     * § 4.6 — **CE QUE LA DATE DOIT À UNE LECTURE, ET NON AU SEUL CALENDRIER.** Les règles de
+     * lecture (les fêtes nationales prorogent-elles ? la prorogation cascade-t-elle ?) ont
+     * changé le 20 août 2026 : elles sont donc versionnées et portées par le permalien, et le
+     * pied de page les nomme — un calcul cité doit dire sous quelle règle il a été rendu.
+     */
+    footerRules: 'Règles de lecture : version {n}',
+    footerWindows: 'Fenêtres de signification : version {n}',
+    footerEntry: 'Entrée : {code} art. {article}, révision {r}',
+    permalinkLabel: 'Lien permanent de ce calcul',
+    copyReasoning: 'Copier le raisonnement',
+    copied: 'Copié ✓',
+    copyFallbackHint: 'Copie automatique refusée : sélectionnez le texte ci-dessous.',
+    print: 'Imprimer',
+
+    // ─── Refus et saisie incomplète (§ 4.4) ────────────────────────────────────
+    refusalTitle: 'Cet article ne permet pas de calculer une date',
+    refusalReason: 'Motif',
+    incompleteTitle: 'Il manque une réponse pour calculer',
+    incompleteMissing: 'Ce qui manque',
+
+    // ─── Erreurs, avec leur libellé écrit ─────────────────────────────────────
+    errDateImpossible: 'Cette date n’existe pas. Vérifiez le jour et le mois.',
+    errBeforeBound:
+      'La liste des fêtes légales applicable avant le 22 juin 1989 n’est pas établie dans ce corpus : le calculateur ne sert pas les dossiers antérieurs à cette date.',
+    errFarFuture:
+      'Cette date est à plus de dix ans : vérifiez l’année. Le calcul reste possible.',
+    errKilometrage: 'Le kilométrage doit être un nombre entier de kilomètres, positif.',
+    errUnknownEntry: 'Cette entrée du répertoire n’existe pas.',
+    errUnknownRevision:
+      'Cette révision de l’entrée n’existe pas. Le lien a peut-être été modifié à la main.',
+    errUnknownCalendar: 'Cette version du calendrier des fêtes n’existe pas.',
+    /**
+     * § 4.6 — la version des RÈGLES DE LECTURE (`rl`), refusée comme celle du calendrier :
+     * une version inconnue ne se rabat JAMAIS sur celle du jour, sinon l’adresse promettrait
+     * une date et en rendrait une autre.
+     */
+    errUnknownRules: 'Cette version des règles de lecture n’existe pas.',
+    errUnknownWindows: 'Cette version des fenêtres de signification n’existe pas.',
+    errOtherIncomplete:
+      'Un délai « autre » demande trois choses : le nombre de jours, la nature du délai, et le mode de décompte — jours francs ou jours calendaires.',
+    /**
+     * ⚠️ « Rends-le impossible, pas seulement caché » (Me Vaval). `?e=cpc-354-…&f=non` était
+     * ACCEPTÉ et le paramètre abandonné en silence : l’adresse portait un mode de décompte que
+     * le calcul n’avait pas appliqué. Refus explicite, comme pour `src` en public et pour un
+     * kilométrage surnuméraire.
+     */
+    errRegimeImpose:
+      'Le mode de décompte ne se choisit pas sur une entrée du répertoire : il vient du texte. Retirez ce paramètre de l’adresse, ou choisissez « Autre — saisir le nombre de jours ».',
+    errRate: 'Trop de calculs en peu de temps — patientez quelques instants.',
+    errNotReady:
+      'Le calculateur de délais n’est pas encore ouvert : son répertoire n’a pas été versé en base.',
+    errRepertoireReserve:
+      'Le répertoire des délais est réservé aux titulaires d’un compte. Sur cette page, le calcul se fait sur un nombre de jours francs saisi.',
+    errFrancSeulement:
+      'Cette page ne calcule que des délais francs. Un délai ordinaire se calcule depuis le répertoire, dans l’espace connecté.',
+
+    // ─── Bandeaux d’un permalien rouvert (§ 7.3) ──────────────────────────────
+    bannerRuleChangedTitle: 'La règle a changé depuis ce calcul.',
+    bannerRuleChangedBody:
+      'L’entrée art. {article} est passée de la révision {de} à la révision {vers} le {date}. Ce résultat est celui de la règle en vigueur au moment du calcul.',
+    bannerRecompute: 'Refaire le calcul avec la règle actuelle',
+    bannerWithdrawnTitle: 'Cette entrée a été retirée du répertoire le {date}.',
+    bannerWithdrawnReason: 'Motif : {motif}',
+    bannerWithdrawnKept:
+      'Ce calcul est conservé tel qu’il a été rendu ; la plateforme ne propose plus cette entrée.',
+
+    // ─── Renvois au corpus ────────────────────────────────────────────────────
+    searchCorpus: 'Rechercher « {q} » dans le corpus',
+    searchCorpusLoginRequired: 'Rechercher dans le corpus (connexion requise)',
+    openCode: 'Ouvrir le texte du Code',
+
+    // ─── État vide (§ 6.2) ────────────────────────────────────────────────────
+    emptyTitle: 'Comment ce calculateur compte',
+    emptyGermeilTitle: 'Exemple travaillé — Cass. 1re Sect. n° 45, 7 juillet 1965 (Germeil)',
+    emptyGermeilBody:
+      'Signification le jeudi 17 mai 1962, 30 jours francs, 267 km de distance : 267 ÷ 40 = 6 jours (le reste de 27 km, inférieur à 30, n’est pas compté). Dernier jour utile : le samedi 23 juin 1962 — un samedi, qui n’est pas prorogé.',
+    emptyGermeilHistorical:
+      'Exemple historique : la borne du calculateur interdit de le rejouer dans l’outil.',
+
+    // ─── Ajouts des surfaces visibles (§ 6.2, § 6.3) ──────────────────────────
+    /** Le Sitwon atteste la SOURCE d'une fête, jamais la date calculée (§ 8.1). */
+    sourceVerified: 'Source vérifiée',
+    /** Les entrées `autorite: REDACTION` — la mention est ÉCRITE, jamais une couleur (A4). */
+    sourceNoText: 'Sans source textuelle',
+    skippedNone: 'Aucun jour écarté.',
+    readingsNone: 'Aucune lecture concurrente ne donne une date différente.',
+    certaintySure: 'interdiction certaine',
+    certaintyConditional: 'interdiction conditionnelle',
+    entryDurationLabel: 'Durée telle qu’écrite',
+    entryStartLabel: 'Point de départ',
+    entrySanctionLabel: 'Sanction',
+    entryOther: 'Autre — saisir le nombre de jours',
+    entryFilterNone: 'Aucune entrée ne correspond à ce filtre.',
+    windowsCivil: 'Matière civile',
+    windowsWork: 'Matière du travail',
+    windowsHours: 'de {a} h à {b} h',
+    errWithdrawn:
+      'Cette entrée a été retirée du répertoire : la plateforme ne la propose plus pour un nouveau calcul.',
+    errInvalid: 'Cette demande n’est pas lisible. Reprenez la saisie ci-contre.',
+    errUnreadable:
+      'Une donnée du calculateur n’a pas pu être relue. Le calcul est refusé plutôt qu’approximé ; signalez-le à la rédaction.',
+    toolsTitle: 'Outils',
+    /**
+     * Le sous-titre de la TUILE du tableau de bord connecté. Anciennement `heroSubtitle` : la
+     * phrase servait aux deux endroits, et Me Vaval a retiré le sous-titre du HÉROS le 20 août
+     * 2026. La clé est renommée pour ne plus nommer une surface qu’elle ne sert plus ; le
+     * texte, lui, est inchangé — la tuile n’était pas dans la demande.
+     */
+    toolsSubtitle:
+      'La date de réception de l’acte, le nombre de jours francs qu’il indique — et le raisonnement qui fonde la date.',
+  },
   brand: { baseline: BRAND.baseline.fr },
   nav: {
     features: 'Fonctionnalités',
@@ -646,6 +1186,192 @@ export const fr = {
     disclaimer: "Information documentaire, non officielle : en cas de divergence, les publications officielles font foi. Les positions indicatives ne valent pas adresse du tribunal.",
     resultsRegion: 'Résultats et fiche de la commune',
     openInMaps: "Itinéraire (adresse vérifiée)",
+  },
+  // Back-office du calculateur de délais (§ 7) — trois verbes, trois comportements.
+  delaisAdmin: {
+    nav: 'Calculateur de délais',
+    title: 'Calculateur de délais',
+    subtitle:
+      'Répertoire des délais, calendrier des fêtes et fenêtres de signification. Ajouter, masquer, supprimer : trois verbes, trois comportements.',
+    tabRepertoire: 'Répertoire',
+    tabCalendrier: 'Calendrier des fêtes',
+    tabFenetres: 'Fenêtres de signification',
+    schemaMissingTitle: 'Les tables du calculateur n’existent pas encore en base.',
+    schemaMissingBody:
+      'Le schéma est écrit (modèles DelaiEntry, DelaiEntryRevision, DelaiFerie, DelaiFenetreSignification) mais sa migration n’a pas été passée : c’est une décision humaine. Cet écran restera vide tant qu’elle ne l’aura pas été.',
+    neverWritten: 'Aucune écriture n’a été tentée.',
+
+    // Répertoire
+    repertoireTitle: 'Répertoire des délais',
+    repertoireHint:
+      'Une ligne = une ligne d’un des trois répertoires. Une entrée masquée quitte le menu mais reste en base : les calculs déjà rendus restent lisibles.',
+    filterCode: 'Code',
+    filterStatut: 'Statut',
+    filterAll: 'Tous',
+    searchPlaceholder: 'Article, objet, slug…',
+    colArticle: 'Article',
+    colObjet: 'Objet',
+    colDuree: 'Durée (mot à mot)',
+    colKind: 'Genre',
+    colRegime: 'Régime',
+    colStatut: 'Statut',
+    colRevision: 'Rév.',
+    colActions: 'Actions',
+    statutVisible: 'Visible',
+    statutMasque: 'Masquée',
+    statutSupprime: 'Supprimée',
+    notCalculable: 'Ne calcule pas',
+    add: 'Ajouter une entrée',
+    edit: 'Modifier',
+    hide: 'Masquer',
+    restore: 'Réafficher',
+    remove: 'Supprimer',
+    removeMasterOnly: 'Suppression réservée au Master Admin',
+    /** § 7.3 — défaire une suppression est un verbe À PART, du même prix que la suppression. */
+    undelete: 'Rétablir la suppression',
+    undeleteMasterOnly: 'Rétablissement réservé au Master Admin',
+    confirmUndeleteTitle: 'Rétablir cette entrée supprimée',
+    confirmUndeleteNote:
+      'Cette entrée avait été retirée du répertoire. La rétablir la remet au menu du calculateur public : dites pourquoi, et recopiez le numéro d’article.',
+    /** § 8.2 — les traductions non relues, en tête du back-office. */
+    translationsPendingTitle: 'Traductions à relire',
+    translationsPendingBody:
+      '{n} entrées portent encore `traductionRelue: false` : sur /en et /ht, elles s’affichent en français.',
+    translationsPendingNone: 'Toutes les entrées ont une traduction relue.',
+    cancel: 'Annuler',
+    save: 'Enregistrer',
+    saved: 'Enregistré ✓',
+    none: 'Aucune entrée.',
+    loading: 'Chargement…',
+
+    // Motifs et confirmations
+    motifLabel: 'Motif',
+    motifHint: 'Affiché aux utilisateurs sur les calculs déjà rendus. Une phrase, lisible par un tiers.',
+    confirmDeleteTitle: 'Supprimer cette entrée du répertoire',
+    confirmDeleteTyped: 'Recopiez le numéro d’article pour confirmer : {valeur}',
+    confirmDeleteNote:
+      'La suppression n’est jamais physique : la ligne reste en base et les calculs déjà rendus restent reproductibles. L’entrée quitte le menu, et le calculateur refuse tout nouveau calcul avec elle.',
+    confirmDeleteKeyTyped: 'Recopiez la clé pour confirmer : {valeur}',
+
+    // Aperçu obligatoire
+    previewTitle: 'Aperçu obligatoire',
+    previewHint:
+      'Ce que cette entrée rendrait sur la date d’exemple du lundi 2 mars 2026. On ne publie pas une règle de calcul sans avoir vu ce qu’elle rend.',
+    previewCompute: 'Calculer l’aperçu',
+    previewNone: 'Aucun aperçu calculé.',
+    previewImpossible:
+      'L’aperçu n’a pas pu être calculé sur les données réelles — il n’est PAS calculé sur d’autres.',
+    previewRefusal: 'Cette entrée refuserait de calculer',
+    previewIncomplete: 'Cette entrée demanderait une réponse de plus',
+    previewSeen: 'J’ai lu l’aperçu',
+    previewRequired: 'Calculez et lisez l’aperçu avant d’enregistrer.',
+
+    // Verdicts
+    blockingTitle: 'Enregistrement refusé —',
+    warningsTitle: 'À lire —',
+
+    // Champs du formulaire d’entrée
+    fieldCode: 'Code',
+    fieldArticle: 'Article',
+    fieldArticleContexte: 'Section porteuse (obligatoire si le numéro a un homonyme)',
+    fieldArticleOccurrence: 'Rang de l’en-tête dans le Code',
+    fieldTableau: 'Tableau',
+    fieldTableauTitre: 'Titre de la section d’origine',
+    fieldOrdre: 'Rang dans le tableau',
+    fieldObjetFr: 'Objet (français)',
+    fieldObjetEn: 'Objet (anglais)',
+    fieldObjetHt: 'Objet (créole)',
+    fieldTraductionRelue: 'Traductions relues',
+    fieldDureeTexte: 'Durée, mot à mot du répertoire',
+    fieldDureeFondement: 'Article qui énonce la durée, s’il est autre',
+    fieldKind: 'Genre',
+    fieldJours: 'Jours',
+    fieldNbDistances: 'Kilométrages à saisir',
+    fieldDistanceAide: 'Aide : les deux points à mesurer',
+    fieldDistanceDouble: 'Aide : la double distance',
+    fieldSupplement: 'Question de suite (JSON, art. 74)',
+    fieldAvisDistance: 'Avis de distance non calculée',
+    fieldCitationArticle: 'Citation de l’article (obligatoire pour A5)',
+    fieldRegime: 'Régime',
+    fieldRegimeIncertain: 'Régime incertain (tête d’affiche en ordinaire, franc en lecture nommée)',
+    fieldRegimeFondement: 'Fondement du régime — jamais vide',
+    fieldProrogation: 'Prorogation de l’art. 991',
+    fieldProrogationFondement: 'Fondement de la prorogation',
+    fieldMotifRefusFr: 'Motif de refus (français)',
+    fieldMotifRefusEn: 'Motif de refus (anglais)',
+    fieldMotifRefusHt: 'Motif de refus (créole)',
+    fieldPointDepartFr: 'Point de départ (français)',
+    fieldPointDepartEn: 'Point de départ (anglais)',
+    fieldPointDepartHt: 'Point de départ (créole)',
+    fieldSanctionFr: 'Sanction (français)',
+    fieldSanctionEn: 'Sanction (anglais)',
+    fieldSanctionHt: 'Sanction (créole)',
+    slugDerived: 'Le slug est dérivé de l’article et ne change jamais après création.',
+
+    // Calendrier
+    calendarTitle: 'Calendrier des fêtes',
+    calendarVersion: 'Version {n}',
+    calendarNewVersionNote:
+      'Toute modification crée une nouvelle version du calendrier : les permaliens qui pointent l’ancienne continuent de la rendre à l’identique.',
+    calendarCorpusNote:
+      'Le dernier texte déterminant les fêtes légales est le Décret du 11 décembre 2024 (Le Moniteur, Spécial n° 66-A) : il en énumère onze à son article 2.',
+    calendarCorpusNoteDetail:
+      'Il succède au Décret du 23 mai 1989, dont il reprend les sept fêtes et auquel il en ajoute quatre : Lundi Gras (à partir de midi), 14 août, 20 septembre, 1er novembre. Le corpus porte par ailleurs 182 arrêtés de chômage indexés : ce sont des chômages ponctuels, pas des déterminations de fêtes légales.',
+    /** L'entrée sans texte instituant. ⚠️ La réserve R6 a été retirée le 20 août 2026 : depuis le décret du 11 décembre 2024, une entrée de cette sorte est l'exception, et elle ne nomme plus aucune lecture. */
+    calendarNoTextNote:
+      'Cette entrée ne proroge pas la date en tête d’affiche : aucun texte du corpus ne l’institue. Elle n’apparaît que dans la lecture la plus large.',
+    tablePermanentTitle: 'Jours permanents',
+    tablePermanentHeader: 'Ces jours prorogent le délai quand la date limite y tombe.',
+    tableWatchTitle: 'Jours à surveiller',
+    tableWatchHeader:
+      'Ces jours ne prorogent pas. Ils déclenchent un avertissement sur le résultat quand la date limite y tombe.',
+    colCle: 'Clé',
+    colLibelle: 'Libellé',
+    colTypeEntree: 'Type',
+    colCategorie: 'Catégorie',
+    colAutorite: 'Autorité',
+    colJournee: 'Journée',
+    colMobile: 'Mobile / fixe',
+    colSource: 'Source',
+    colAppliqueDepuis: 'Appliqué depuis',
+    colObservationsN: 'Arrêtés relevés',
+    colObservationsTexte: 'Texte des observations',
+    colObservationsBorne: 'Borne de l’Index',
+    colRecherche: 'Requête corpus',
+    fieldMobile: 'Fête mobile (décalage pascal)',
+    fieldOffsetPaques: 'Décalage par rapport à Pâques',
+    fieldMois: 'Mois',
+    fieldJour: 'Jour',
+    fieldSource: 'Source — jamais vide',
+    fieldSourceDocId: 'Document du corpus (identifiant)',
+    fieldAppliqueDepuis: 'Appliqué depuis (AAAA-MM-JJ)',
+    fieldObservationsN: 'Nombre d’arrêtés relevés',
+    observationsCountHint: 'Ce nombre doit être recompté sur le corpus, pas estimé.',
+    fieldObservationsTexte: 'Texte des observations (repris dans l’avertissement)',
+    fieldObservationsBorne: 'Borne de l’Index du Moniteur',
+    fieldRecherche: 'Requête à passer à la recherche',
+    switchToPermanentWarning:
+      'Faire proroger un jour jusque-là seulement surveillé exige un texte versé au corpus et une autorité autre qu’« observation ».',
+    journeeEntiere: 'Journée entière',
+    journeeApresMidi: 'Demi-journée (après-midi)',
+    mobileOui: 'Mobile',
+    mobileNon: 'Fixe',
+
+    // Fenêtres
+    windowsTitle: 'Fenêtres de signification',
+    windowsNote:
+      'Ces valeurs sont celles que les codes écrivent. Ne les modifiez que sur un texte modificatif, en changeant la source dans le même enregistrement.',
+    colMatiere: 'Matière',
+    colHeureDebut: 'De',
+    colHeureFin: 'À',
+    colNullite: 'Nullité',
+    windowsVersion: 'Version {n}',
+    matiereCIVILE: 'Civile',
+    matiereTRAVAIL: 'Travail',
+
+    // Journal
+    historyTitle: 'Historique des modifications',
+    historyEmpty: 'Aucune entrée.',
   },
   juridictions: { CASSATION: 'Cassation', APPEL: 'Appel', PREMIERE_INSTANCE: 'Première instance' },
   alerts: {

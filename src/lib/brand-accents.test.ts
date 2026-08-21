@@ -47,6 +47,28 @@ describe('AV-04 — rationnement des accents', () => {
     expect(releve(/\bring-(wouj|sitwon)\b/)).toEqual([])
   })
 
+  /**
+   * ⚠️ **LE FOCUS EST CELUI DE LA MAISON — sa TEINTE comme sa FORME.** `globals.css` pose
+   * `*:focus-visible { outline: 2px solid #414042; outline-offset: 2px }`, et l'AV-04 (art. 2,
+   * correction 6) a retiré 55 anneaux `ring-wouj` avec toute leur grappe. Le contrôle
+   * précédent n'interdit que les anneaux COLORÉS : les onze champs du calculateur portaient
+   * `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-chabon`, dont la
+   * spécificité (0,2,0) l'emporte sur `*:focus-visible` (0,1,0). La teinte restait conforme,
+   * la forme non : le liseré décalé de 2 px devenait un anneau collé à la bordure, et le
+   * marqueur de focus changeait d'allure au milieu de la page — en tabulant du fil d'Ariane
+   * vers le formulaire. Un indicateur de focus qui change de forme est un indicateur qu'on
+   * cesse de suivre.
+   */
+  it('personne n’éteint le liseré de focus de globals.css', () => {
+    const fautifs = releve(/focus-visible:outline-none/).filter((ref) => {
+      const [f, n] = ref.split(':')
+      const ligne = readFileSync(f, 'utf8').split('\n')[Number(n) - 1].trim()
+      // Un commentaire qui ÉNONCE la règle n'éteint rien.
+      return !/^(\*|\/\/|\/\*)/.test(ligne)
+    })
+    expect(fautifs).toEqual([])
+  })
+
   it('aucun accent en survol décoratif — un survol n’est ni un usage ni une certification', () => {
     expect(releve(/\bhover:(text|border)-(wouj|sitwon)\b/)).toEqual([])
   })

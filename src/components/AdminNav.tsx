@@ -25,6 +25,7 @@ export function AdminNav({ locale, t, role, enAttente = 0 }: { locale: Locale; t
         { href: `/${locale}/admin/brh`, label: t.admin.brhNav },
         { href: `/${locale}/admin/tarifs`, label: t.admin.tarifsNav },
         { href: `/${locale}/admin/juridictions`, label: t.admin.juridictionsNav },
+        { href: `/${locale}/admin/delais`, label: t.delaisAdmin.nav },
         { href: `/${locale}/admin/themes`, label: t.admin.themesNav },
         { href: `/${locale}/admin/jurisprudence`, label: 'Jurisprudence' },
         { href: `/${locale}/admin/notes`, label: 'Notes des lecteurs' },

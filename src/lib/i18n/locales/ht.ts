@@ -1,8 +1,249 @@
 import { BRAND } from '../../brand'
+import { JOURS, MOIS } from '../../delais/format'
 import type { Dictionary } from '../dictionaries'
 
 /** Dictionnaire KREYÒL — typé contre la forme canonique FR. */
 export const ht: Dictionary = {
+  /**
+   * § 8.2 — voir le commentaire de `fr.ts`. Source unique : `src/lib/delais/format.ts`.
+   * ⚠️ NON RELU par la rédaction : les douze mois et les sept jours, un par un.
+   */
+  delais: {
+    jours: JOURS.ht,
+    mois: MOIS.ht,
+
+    navLabel: 'Kalkilatè delè',
+    metaTitle: 'Kalkilatè jou fran — Lam',
+    // La note du PORTAIL — elle dit ce que l'outil FAIT. Voir fr.ts : l'ancienne rédaction
+    // promettait la prorogation, alors que la date affichée est la plus PRÉCOCE et ne proroge
+    // pas ; la prorogation se lit à côté, nommée, avec son fondement.
+    metaDescription:
+      'Kalkile yon dat limit nan dwa ayisyen : jou fran oswa jou kalandriye, delè distans. Dat ki parèt la se pi bonè a — sa ki rete bon kèlkeswa jan yo li tèks la. Lekti ki ranvwaye l yo, ladan yo pwolongasyon atik 991 la, parèt akote, chak ak fondman li.',
+    // La même note, pour la surface PUBLIQUE, qui ne rend ni lecture nommée, ni « lecture la
+    // plus large », ni jour praticable. Voir fr.ts : une page ne promet pas ce qu'elle ne fait
+    // pas. ⚠️ Ce commentaire disait « ni prorogation » jusqu'au 20 août 2026 au soir : c'était
+    // l'INVERSE du code livré — la surface publique proroge (art. 991 al. 3, en cascade, sur le
+    // dimanche et les 16 entrées PERMANENT). Le libellé, lui, ne change pas : ce qui est proscrit
+    // est la PROMESSE dans une note, pas le report dit au moment où il a lieu.
+    metaDescriptionPublique:
+      'Kalkile yon dat limit nan dwa ayisyen : bay dat ou resevwa zak la ak kantite jou fran li endike. Platfòm nan konte jou sa yo epi li bay dat la.',
+    breadcrumbHome: 'Akèy',
+    breadcrumbHere: 'Kalkilatè delè',
+    title: 'Kalkilatè jou fran',
+    // La note VISIBLE du portail — voir fr.ts : elle énonce la règle de prudence (la tête
+    // d'affiche est la plus précoce et ne proroge pas) au lieu d'inventorier ce que la page rend.
+    intro:
+      'Antre delè ou a, oswa chwazi atik la ; bay dat kote delè a kòmanse. Dat ki parèt la se pi bonè a : aji pi ta pase jou sa a se yon bagay ki si anba tout lekti tèks la. Lekti ki ranvwaye echeyans lan — pwolongasyon atik 991 la ladan yo — nonmen akote, ak fondman yo ; yo ranvwaye delè a sèlman si jij la chwazi yo.',
+    frameworkNote:
+      'Zouti sa a aplike atik 987 Kòd pwosedi sivil la, atik 511 Kòd travay la, ak dwa komen an pou Kòd sivil la. Li pa konnen arete chomaj yo.',
+    disclaimer:
+      'Enfòmasyon dokimantè, li pa ofisyèl. Kalkil la pa ranplase ni lekti tèks la ni avi yon pratisyen : si gen diferans, piblikasyon ofisyèl yo fè fwa.',
+
+    // ⚠️ Voir fr.ts : le sous-titre du héros a été retiré le 20 août 2026 ; la phrase survit
+    // sous `toolsSubtitle`, pour la tuile du tableau de bord connecté.
+    heroKicker: 'Nouvo',
+    heroTitle: 'Kilè delè ou a ekspire ?',
+    heroSubmit: 'Kalkile',
+
+    publicDateLabel: 'Dat ou resevwa zak la',
+    publicDaysLabel: 'Kantite jou fran',
+    publicDaysHint: 'Kantite jou ki make nan zak la.',
+    // ⚠️ `publicIntro` retiré le 20 août 2026 avec le raisonnement lui-même — voir fr.ts :
+    // « le portail public doit uniquement afficher la date ».
+    // La règle de droit des deux surfaces publiques — une seule clé, voir fr.ts. Elle remplace
+    // `heroNoResultNote`, `heroFrancOnlyNote` et `publicFrancOnlyNote` (dont la seconde phrase,
+    // sur la prorogation de l’art. 991, est devenue fausse en public).
+    francRule:
+      'Dapre Kòd pwosedi sivil ayisyen an ak Kòd travay la, yon delè fran pa konte ni jou ou resevwa zak la, ni jou li rive alèchèyans.',
+    missingDate: 'Endike dat ou resevwa zak la',
+    missingDays: 'Endike kantite jou fran',
+
+    // La seule mention gardée sous la date — voir fr.ts pour les quatre genres du calendrier
+    // et pour l'ajout du dimanche, qui est un ajout à l'instruction et non une déduction.
+    // ⚠️ Créole NON relu par la rédaction, comme les libellés du calendrier : à faire relire.
+    publicDayHoliday: '{date} se yon jou fèt legal ({nom}).',
+    // ⚠️ Voir fr.ts : ce gabarit ne portait AUCUNE réserve. Const. 1987, art. 275.1 énumère les
+    // fêtes NATIONALES ; l'art. 275.2 renvoie les fêtes LÉGALES à la loi, et l'art. 991 al. 3 ne
+    // vise que les secondes. ⚠️ Créole NON relu par la rédaction : à faire relire.
+    publicDayNational:
+      '{date} se yon jou fèt nasyonal ({nom}), chome dapre Konstitisyon 1987 la, atik 275.1 ; atik 991 al. 3 C. pr. civ. la, li menm, vize sèlman dimanch ak fèt legal.',
+    publicDayEditorial:
+      '{date} pote nan kalandriye a kòm fèt legal ({nom}) san okenn tèks ki etabli l : kalandriye sa a (vèsyon 1) anvan dekrè 11 desanm 2024 la.',
+    publicDayWatch:
+      '{date} se yon jou pou siveye ({nom}) : yo konn chome l pa arete.',
+    // § 4.10 — voir fr.ts : la seule demi-journée du calendrier, et la seule mention qui parle
+    // d'une heure. Le décret du 11 décembre 2024 ne chôme le Lundi Gras qu'« à partir de midi ».
+    publicDayHalfDay:
+      '{date} chome apati midi ({nom} — dekrè 11 desanm 2024, art. 2, 1°). Yon zak pou siyifye dwe siyifye anvan midi.',
+    // ⚠️ Voir fr.ts : « dimanch 5 jiyè 2026 se yon dimanch. » La date arrive désormais SANS le
+    // jour de la semaine, et le verbe devient « tonbe yon ».
+    publicDaySunday: '{date} tonbe yon dimanch.',
+    // La ligne du report — voir fr.ts. ⚠️ Créole NON relu par la rédaction, comme les
+    // libellés du calendrier : à faire relire.
+    // ⚠️ « Dwa komen pou konte » : la surface publique ne demande pas la matière, elle ne peut
+    // donc pas affirmer quel article régit LE délai de l'utilisatrice (voir fr.ts).
+    publicDeferred: 'Delè a pwolonje jiska {date} — dwa komen pou konte delè, {source}.',
+    // La cascade, dite comme une LECTURE — voir fr.ts.
+    publicDeferredCascade:
+      'Atik 991 al. 3 pwolonje yon sèl jou ; platfòm nan repete ranvwa a jouk premye jou ki pa ni yon dimanch ni yon jou chome nan kalandriye li. Samdi se pa yon jou ranvwa.',
+    // La date de l'AUTRE surface — voir fr.ts. Chiffres du jour, mesurés par
+    // `franc-pur.test.ts` (§ 0) : 0 divergence sous le calendrier courant, 16 sous la
+    // version 1.
+    publicStrictReading:
+      'Kalkil sa a rejwe kalandriye vèsyon 1 an, ki anvan dekrè 11 desanm 2024 la : san jou ke okenn tèks pa t enstitiye lè sa a, delè a te fini {date}. Se dat sa a kalkilatè pòtay la bay, epi se pi pridan nan de yo.',
+    // La version des RÈGLES DE LECTURE — voir fr.ts.
+    publicRulesVersion:
+      'Kalkil sa a bay anba règ lekti vèsyon {version} ; vèsyon ki anvigè a se {courante}, epi li ka bay yon lòt dat.',
+    publicRulesVersionLink: 'Refè kalkil la ak règ aktyèl la',
+
+    startLabelDefault: 'Kote delè a kòmanse',
+    // Voir le commentaire de fr.ts : Me Vaval a coupé l'énumération le 20 août 2026 — ne pas
+    // la réintroduire, le champ natif montre déjà ses trois segments.
+    startFormatHint: 'Endike dat la ; lòd ki afiche a se lòd navigatè ou a.',
+    significationNote:
+      'Atik 996 fè delè rekou yo kouri depi siyifikasyon an. Kou Kasasyon an te mete sou kote resepsyon efektif pyès yo (9 jiyè 1963) pou l chwazi siyifikasyon nan Pake a (20 fevriye 1963) — 1ye Seksyon n° 13, 28 mas 1966.',
+    codeLabel: 'Kòd',
+    codeCPC: 'Pwosedi sivil',
+    codeTRAVAIL: 'Travay',
+    codeCIVIL: 'Sivil',
+    entryLabel: 'Antre nan repètwa a',
+    // `entryPlaceholder` retiré le 20 août 2026 — voir fr.ts : la saisie manuelle est la
+    // PREMIÈRE option du menu et sa valeur par défaut.
+    entryFilterLabel: 'Filtre lis la',
+    entryFilterPlaceholder: 'Nimewo atik oswa yon mo nan objè a…',
+    entryGroupTableau: 'Tablo {n}',
+    entryNotCalculable: 'Li pa bay yon dat',
+    entryResultsCount: '{n} antre',
+    regimeLabel: 'Rejim',
+    regimeFranc: 'Delè fran',
+    regimeOrdinaire: 'Delè òdinè',
+    regimeIncertain: 'Rejim ensèten — gade lekti ki nonmen an',
+    regimeAVerifier: 'Rejim pou verifye — redaksyon an pa kalifye delè sa a',
+    prorogationLabel: 'Pwolongasyon',
+    kmLabel: 'Distans',
+    kmLabelFirst: 'Premye distans',
+    kmLabelSecond: 'Dezyèm distans',
+    kmHint: 'Distans an kilomèt, yon nonm antye.',
+    kmYouEnter: 'Se ou menm ki antre l ; platfòm nan pa kalkile l.',
+    supplementLegend: 'Kesyon konplemantè',
+    otherLegend: 'Lòt delè (li nan yon dokiman)',
+    otherDaysLabel: 'Kantite jou',
+    otherSourceLabel: 'Ki kalite delè',
+    otherSourceHint: 'Li repwodui nan rezilta a ak nan enprime a.',
+
+    // ─── LE COMMUTATEUR DE DÉCOMPTE — voir fr.ts pour la règle et pour ce qu'il remplace.
+    // Deux positions, chacune portant son libellé ET sa règle ; l'état est marqué par le
+    // bouton radio natif, jamais par la seule couleur ; aucune position cochée d'avance.
+    countingLegend: 'Kijan pou konte jou yo ?',
+    countingClear: 'Jou fran',
+    countingClearRule:
+      'Ni jou depa a ni jou alèchèyans lan pa konte : depa + kantite jou + 1.',
+    countingCalendar: 'Jou kalandriye',
+    countingCalendarRule:
+      'Jou depa a pa konte, men jou alèchèyans lan konte : depa + kantite jou.',
+    countingLegacyUnknown:
+      'Kalkil sa a te fèt anba ansyen repons « Mwen pa konnen » : de fason konte yo parèt kòtakòt, pi bonè a devan. Chwazi yon pozisyon pou rekalkile.',
+    countingFixedByText:
+      'Sou yon antre nan repètwa a, fason pou konte a se pa yon chwa : li soti nan tèks la (atik 987 C. pr. civ., atik 511 C. trav., oswa dwa komen).',
+    submit: 'Kalkile',
+    submitMissingPrefix: 'Sa ki manke :',
+    reset: 'Efase',
+
+    resultTitle: 'Dat limit',
+    stepsTitle: 'Rezònman an, etap pa etap',
+    skippedTitle: 'Jou yo mete sou kote',
+    skippedDate: 'Jou',
+    skippedReason: 'Motif',
+    skippedSource: 'Sous',
+    readingsTitle: 'Lekti konkiran tèks la',
+    readingsDate: 'Dat',
+    readingsBasis: 'Fondman',
+    widestReading: 'Lekti ki pi laj la',
+    warningsTitle: 'Avètisman',
+    textsTitle: 'Tèks yo aplike',
+    practicableTitle: 'Dènye jou kote aksyon an ka fèt reyèlman',
+    windowsTitle: 'Fenèt siyifikasyon',
+    windowsNullity: 'Sanksyon : nilite',
+    footerCalendar: 'Kalandriye fèt yo : vèsyon {n}',
+    footerRules: 'Règ lekti yo : vèsyon {n}',
+    footerWindows: 'Fenèt siyifikasyon : vèsyon {n}',
+    footerEntry: 'Antre : {code} atik {article}, revizyon {r}',
+    permalinkLabel: 'Lyen pèmanan kalkil sa a',
+    copyReasoning: 'Kopye rezònman an',
+    copied: 'Kopye ✓',
+    copyFallbackHint: 'Kopi otomatik refize : chwazi tèks anba a.',
+    print: 'Enprime',
+
+    refusalTitle: 'Atik sa a pa pèmèt kalkile yon dat',
+    refusalReason: 'Motif',
+    incompleteTitle: 'Gen yon repons ki manke pou kalkile',
+    incompleteMissing: 'Sa ki manke',
+
+    errDateImpossible: 'Dat sa a pa egziste. Verifye jou a ak mwa a.',
+    errBeforeBound:
+      'Lis fèt legal ki aplikab anvan 22 jen 1989 pa etabli nan koperasyon sa a : kalkilatè a pa sèvi dosye ki anvan dat sa a.',
+    errFarFuture: 'Dat sa a se plis pase dis lane : verifye ane a. Kalkil la toujou posib.',
+    errKilometrage: 'Distans lan dwe yon nonm antye kilomèt, pozitif.',
+    errUnknownEntry: 'Antre sa a nan repètwa a pa egziste.',
+    errUnknownRevision: 'Revizyon sa a nan antre a pa egziste. Petèt yo chanje lyen an alamen.',
+    errUnknownCalendar: 'Vèsyon sa a nan kalandriye fèt yo pa egziste.',
+    errUnknownRules: 'Vèsyon sa a nan règ lekti yo pa egziste.',
+    errUnknownWindows: 'Vèsyon sa a nan fenèt siyifikasyon yo pa egziste.',
+    errOtherIncomplete:
+      'Yon « lòt » delè mande twa bagay : kantite jou, ki kalite delè, ak fason pou konte a — jou fran oswa jou kalandriye.',
+    // « Rends-le impossible, pas seulement caché » — voir fr.ts.
+    errRegimeImpose:
+      'Fason pou konte a pa chwazi sou yon antre nan repètwa a : li soti nan tèks la. Retire paramèt sa a nan adrès la, oswa chwazi « Lòt — mete kantite jou a ».',
+    errRate: 'Twòp kalkil nan yon ti tan — tanpri tann yon ti moman.',
+    errNotReady: 'Kalkilatè delè a poko louvri : repètwa li a poko antre nan baz done a.',
+    errRepertoireReserve:
+      'Repètwa delè yo rezève pou moun ki gen yon kont. Sou paj sa a, kalkil la fèt sou yon kantite jou fran ou antre.',
+    errFrancSeulement:
+      'Paj sa a kalkile sèlman delè fran. Yon delè òdinè kalkile nan repètwa a, lè ou konekte.',
+
+    bannerRuleChangedTitle: 'Règ la chanje depi kalkil sa a.',
+    bannerRuleChangedBody:
+      'Antre atik {article} pase soti nan revizyon {de} rive nan revizyon {vers} nan dat {date}. Rezilta sa a se sa règ ki te anvigè lè kalkil la te fèt la bay.',
+    bannerRecompute: 'Refè kalkil la ak règ aktyèl la',
+    bannerWithdrawnTitle: 'Yo retire antre sa a nan repètwa a nan dat {date}.',
+    bannerWithdrawnReason: 'Motif : {motif}',
+    bannerWithdrawnKept:
+      'Kalkil sa a konsève jan yo te bay li a ; platfòm nan pa pwopoze antre sa a ankò.',
+
+    searchCorpus: 'Chèche « {q} » nan koperasyon an',
+    searchCorpusLoginRequired: 'Chèche nan koperasyon an (koneksyon obligatwa)',
+    openCode: 'Ouvri tèks Kòd la',
+
+    emptyTitle: 'Kijan kalkilatè sa a konte',
+    emptyGermeilTitle: 'Egzanp travay — Kas. 1ye Seksyon n° 45, 7 jiyè 1965 (Germeil)',
+    emptyGermeilBody:
+      'Siyifikasyon jedi 17 me 1962, 30 jou fran, 267 km distans : 267 ÷ 40 = 6 jou (rès 27 km lan, ki anba 30, pa konte). Dènye jou itil : samdi 23 jen 1962 — yon samdi, ki pa pwolonje.',
+    emptyGermeilHistorical: 'Egzanp istorik : limit kalkilatè a anpeche rejwe l nan zouti a.',
+
+    sourceVerified: 'Sous verifye',
+    sourceNoText: 'San sous nan tèks',
+    skippedNone: 'Pa gen jou ki mete sou kote.',
+    readingsNone: 'Pa gen lòt lekti ki bay yon dat diferan.',
+    certaintySure: 'entèdiksyon sèten',
+    certaintyConditional: 'entèdiksyon kondisyonèl',
+    entryDurationLabel: 'Dire jan yo ekri l',
+    entryStartLabel: 'Pwen depa',
+    entrySanctionLabel: 'Sanksyon',
+    entryOther: 'Lòt — mete kantite jou a',
+    entryFilterNone: 'Pa gen antre ki koresponn ak filtè sa a.',
+    windowsCivil: 'Matyè sivil',
+    windowsWork: 'Matyè travay',
+    windowsHours: 'depi {a} è rive {b} è',
+    errWithdrawn:
+      'Yo retire antre sa a nan repètwa a : platfòm nan pa pwopoze l ankò pou yon nouvo kalkil.',
+    errInvalid: 'Demann sa a pa lizib. Rekòmanse sezi enfòmasyon yo.',
+    errUnreadable:
+      'Gen yon done nan kalkilatè a ki pa t ka li. Kalkil la refize olye pou l apwoksimatif ; siyale sa bay redaksyon an.',
+    toolsTitle: 'Zouti',
+    /** Anciennement `heroSubtitle` — voir fr.ts. Texte inchangé : il sert la tuile connectée. */
+    toolsSubtitle:
+      'Dat ou resevwa zak la, kantite jou fran li endike — ak rezònman ki fonde dat la.',
+  },
   brand: { baseline: BRAND.baseline.ht },
   nav: {
     features: 'Fonksyonalite',
@@ -638,6 +879,180 @@ export const ht: Dictionary = {
     disclaimer: 'Enfòmasyon dokimantè, ki pa ofisyèl: si gen divèjans, se piblikasyon ofisyèl yo ki fè lwa. Pozisyon endikatif yo pa vle di adrès tribinal la.',
     resultsRegion: 'Rezilta ak fich komin nan',
     openInMaps: 'Itinerè (adrès verifye)',
+  },
+  delaisAdmin: {
+    nav: 'Kalkilatè delè',
+    title: 'Kalkilatè delè',
+    subtitle:
+      'Repètwa delè yo, kalandriye fèt yo ak fenèt siyifikasyon yo. Ajoute, kache, siprime : twa vèb, twa konpòtman.',
+    tabRepertoire: 'Repètwa',
+    tabCalendrier: 'Kalandriye fèt yo',
+    tabFenetres: 'Fenèt siyifikasyon',
+    schemaMissingTitle: 'Tab kalkilatè a poko egziste nan baz done a.',
+    schemaMissingBody:
+      'Chema a ekri (modèl DelaiEntry, DelaiEntryRevision, DelaiFerie, DelaiFenetreSignification) men migrasyon li poko pase : se yon desizyon moun. Ekran sa a ap rete vid toutotan sa pa fèt.',
+    neverWritten: 'Pa gen okenn ekriti ki eseye fèt.',
+
+    repertoireTitle: 'Repètwa delè yo',
+    repertoireHint:
+      'Yon liy = yon liy nan youn nan twa repètwa yo. Yon antre ki kache kite meni an men li rete nan baz la : kalkil ki deja bay yo rete lizib.',
+    filterCode: 'Kòd',
+    filterStatut: 'Estati',
+    filterAll: 'Tout',
+    searchPlaceholder: 'Atik, objè, slug…',
+    colArticle: 'Atik',
+    colObjet: 'Objè',
+    colDuree: 'Dire (mo pou mo)',
+    colKind: 'Kalite',
+    colRegime: 'Rejim',
+    colStatut: 'Estati',
+    colRevision: 'Rev.',
+    colActions: 'Aksyon',
+    statutVisible: 'Vizib',
+    statutMasque: 'Kache',
+    statutSupprime: 'Siprime',
+    notCalculable: 'Li pa kalkile',
+    add: 'Ajoute yon antre',
+    edit: 'Modifye',
+    hide: 'Kache',
+    restore: 'Montre ankò',
+    remove: 'Siprime',
+    removeMasterOnly: 'Sipresyon rezève pou Master Admin',
+    undelete: 'Retabli sipresyon an',
+    undeleteMasterOnly: 'Retablisman rezève pou Master Admin',
+    confirmUndeleteTitle: 'Retabli antre sa a yo te siprime a',
+    confirmUndeleteNote:
+      'Yo te retire antre sa a nan repètwa a. Si w retabli l, li tounen nan meni kalkilatè piblik la : di poukisa, epi retape nimewo atik la.',
+    translationsPendingTitle: 'Tradiksyon pou reli',
+    translationsPendingBody:
+      '{n} antre gen toujou `traductionRelue: false` : sou /en ak /ht, yo parèt an franse.',
+    translationsPendingNone: 'Tout antre yo gen yon tradiksyon ki reli.',
+    cancel: 'Anile',
+    save: 'Anrejistre',
+    saved: 'Anrejistre ✓',
+    none: 'Pa gen antre.',
+    loading: 'Chajman…',
+
+    motifLabel: 'Motif',
+    motifHint: 'Yo montre l bay itilizatè yo sou kalkil ki deja bay yo. Yon fraz, yon lòt moun ka li l.',
+    confirmDeleteTitle: 'Siprime antre sa a nan repètwa a',
+    confirmDeleteTyped: 'Retape nimewo atik la pou konfime : {valeur}',
+    confirmDeleteNote:
+      'Sipresyon an pa janm fizik : liy lan rete nan baz la e kalkil ki deja bay yo ka rejwe. Antre a kite meni an, e kalkilatè a refize tout nouvo kalkil avè l.',
+    confirmDeleteKeyTyped: 'Retape kle a pou konfime : {valeur}',
+
+    previewTitle: 'Apèsi obligatwa',
+    previewHint:
+      'Sa antre sa a ta bay sou dat egzanp lendi 2 mas 2026. Yo pa pibliye yon règ kalkil san yo pa wè sa l bay.',
+    previewCompute: 'Kalkile apèsi a',
+    previewNone: 'Pa gen apèsi ki kalkile.',
+    previewImpossible:
+      'Apèsi a pa t kapab kalkile sou vrè done yo — li PA kalkile sou lòt done.',
+    previewRefusal: 'Antre sa a ta refize kalkile',
+    previewIncomplete: 'Antre sa a ta mande yon repons anplis',
+    previewSeen: 'Mwen li apèsi a',
+    previewRequired: 'Kalkile epi li apèsi a anvan ou anrejistre.',
+
+    blockingTitle: 'Anrejistreman refize —',
+    warningsTitle: 'Pou li —',
+
+    fieldCode: 'Kòd',
+    fieldArticle: 'Atik',
+    fieldArticleContexte: 'Seksyon ki pote l (obligatwa si nimewo a gen yon omonim)',
+    fieldArticleOccurrence: 'Ran antèt la nan Kòd la',
+    fieldTableau: 'Tablo',
+    fieldTableauTitre: 'Tit seksyon orijinal la',
+    fieldOrdre: 'Ran nan tablo a',
+    fieldObjetFr: 'Objè (franse)',
+    fieldObjetEn: 'Objè (anglè)',
+    fieldObjetHt: 'Objè (kreyòl)',
+    fieldTraductionRelue: 'Tradiksyon yo relè',
+    fieldDureeTexte: 'Dire a, mo pou mo jan repètwa a di l',
+    fieldDureeFondement: 'Atik ki bay dire a, si se yon lòt',
+    fieldKind: 'Kalite',
+    fieldJours: 'Jou',
+    fieldNbDistances: 'Distans pou antre',
+    fieldDistanceAide: 'Èd : de pwen pou mezire yo',
+    fieldDistanceDouble: 'Èd : doub distans lan',
+    fieldSupplement: 'Kesyon konplemantè (JSON, atik 74)',
+    fieldAvisDistance: 'Avi distans ki pa kalkile',
+    fieldCitationArticle: 'Sitasyon atik la (obligatwa pou A5)',
+    fieldRegime: 'Rejim',
+    fieldRegimeIncertain: 'Rejim ensèten (tèt afich an òdinè, fran kòm lekti ki nonmen)',
+    fieldRegimeFondement: 'Fondman rejim nan — pa janm vid',
+    fieldProrogation: 'Pwolongasyon atik 991',
+    fieldProrogationFondement: 'Fondman pwolongasyon an',
+    fieldMotifRefusFr: 'Motif refi (franse)',
+    fieldMotifRefusEn: 'Motif refi (anglè)',
+    fieldMotifRefusHt: 'Motif refi (kreyòl)',
+    fieldPointDepartFr: 'Pwen depa (franse)',
+    fieldPointDepartEn: 'Pwen depa (anglè)',
+    fieldPointDepartHt: 'Pwen depa (kreyòl)',
+    fieldSanctionFr: 'Sanksyon (franse)',
+    fieldSanctionEn: 'Sanksyon (anglè)',
+    fieldSanctionHt: 'Sanksyon (kreyòl)',
+    slugDerived: 'Slug la sòti nan atik la e li pa janm chanje apre kreyasyon.',
+
+    calendarTitle: 'Kalandriye fèt yo',
+    calendarVersion: 'Vèsyon {n}',
+    calendarNewVersionNote:
+      'Chak chanjman kreye yon nouvo vèsyon kalandriye a : lyen pèmanan ki vize ansyen an kontinye bay menm bagay la.',
+    calendarCorpusNote:
+      'Dènye tèks ki detèmine fèt legal yo se Dekrè 11 desanm 2024 la (Le Moniteur, Espesyal n° 66-A) : atik 2 li bay onz ladan yo.',
+    calendarCorpusNoteDetail:
+      'Li vin apre Dekrè 23 me 1989 la, li kenbe sèt fèt li yo epi li ajoute kat : Lendi Gra (apati midi), 14 out, 20 septanm, 1ye novanm. Koperasyon an gen tou 182 arete chomaj endekse : se chomaj ponktyèl, se pa detèminasyon fèt legal.',
+    calendarNoTextNote:
+      'Antre sa a pa pwolonje dat ki an tèt afich la : okenn tèks nan kòpis la pa etabli l. Li parèt sèlman nan lekti ki pi laj la.',
+    tablePermanentTitle: 'Jou pèmanan',
+    tablePermanentHeader: 'Jou sa yo pwolonje delè a lè dat limit la tonbe sou yo.',
+    tableWatchTitle: 'Jou pou siveye',
+    tableWatchHeader:
+      'Jou sa yo pa pwolonje anyen. Yo deklanche yon avètisman sou rezilta a lè dat limit la tonbe sou yo.',
+    colCle: 'Kle',
+    colLibelle: 'Etikèt',
+    colTypeEntree: 'Tip',
+    colCategorie: 'Kategori',
+    colAutorite: 'Otorite',
+    colJournee: 'Jounen',
+    colMobile: 'Mobil / fiks',
+    colSource: 'Sous',
+    colAppliqueDepuis: 'Aplike depi',
+    colObservationsN: 'Arete konte',
+    colObservationsTexte: 'Tèks obsèvasyon yo',
+    colObservationsBorne: 'Limit Endèks la',
+    colRecherche: 'Rechèch koperasyon',
+    fieldMobile: 'Fèt mobil (dekalaj Pak)',
+    fieldOffsetPaques: 'Dekalaj parapò ak Pak',
+    fieldMois: 'Mwa',
+    fieldJour: 'Jou',
+    fieldSource: 'Sous — pa janm vid',
+    fieldSourceDocId: 'Dokiman koperasyon an (idantifyan)',
+    fieldAppliqueDepuis: 'Aplike depi (AAAA-MM-JJ)',
+    fieldObservationsN: 'Kantite arete konte',
+    observationsCountHint: 'Nimewo sa a dwe rekonte sou koperasyon an, pa estime.',
+    fieldObservationsTexte: 'Tèks obsèvasyon yo (yo repran l nan avètisman an)',
+    fieldObservationsBorne: 'Limit Endèks Moniteur la',
+    fieldRecherche: 'Rechèch pou voye bay motè a',
+    switchToPermanentWarning:
+      'Pou yon jou yo t ap sèlman siveye vin pwolonje delè, fòk gen yon tèks nan koperasyon an ak yon otorite ki pa « obsèvasyon ».',
+    journeeEntiere: 'Tout jounen',
+    journeeApresMidi: 'Demi jounen (apremidi)',
+    mobileOui: 'Mobil',
+    mobileNon: 'Fiks',
+
+    windowsTitle: 'Fenèt siyifikasyon',
+    windowsNote:
+      'Valè sa yo se sa kòd yo ekri. Pa chanje yo eksepte sou yon tèks modifikatif, epi chanje sous la nan menm anrejistreman an.',
+    colMatiere: 'Matyè',
+    colHeureDebut: 'Depi',
+    colHeureFin: 'Rive',
+    colNullite: 'Nilite',
+    windowsVersion: 'Vèsyon {n}',
+    matiereCIVILE: 'Sivil',
+    matiereTRAVAIL: 'Travay',
+
+    historyTitle: 'Istorik chanjman yo',
+    historyEmpty: 'Pa gen antre.',
   },
   juridictions: { CASSATION: 'Kasasyon', APPEL: 'Apèl', PREMIERE_INSTANCE: 'Premye enstans' },
   alerts: {

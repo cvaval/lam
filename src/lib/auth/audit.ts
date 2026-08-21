@@ -41,6 +41,19 @@ export type AuditAction =
   // Carte judiciaire : import du référentiel + modifications administratives
   | 'JUDICIAL_IMPORT'
   | 'JUDICIAL_UPDATED'
+  // Calculateur de délais (§ 7) : répertoire, calendrier des fêtes, fenêtres de
+  // signification. MASQUER et SUPPRIMER sont deux actions distinctes parce que ce sont
+  // deux décisions distinctes — la première est réversible, la seconde est réservée au
+  // master admin. Les confondre au journal rendrait l'une indiscernable de l'autre.
+  | 'DELAI_ENTRY_CREATED'
+  | 'DELAI_ENTRY_UPDATED'
+  | 'DELAI_ENTRY_HIDDEN'
+  | 'DELAI_ENTRY_RESTORED'
+  | 'DELAI_ENTRY_DELETED'
+  /** § 7.3 — DÉFAIRE une suppression : master admin seul, distinct de « réafficher ». */
+  | 'DELAI_ENTRY_UNDELETED'
+  | 'DELAI_CALENDAR_UPDATED'
+  | 'DELAI_FENETRES_UPDATED'
 
 export async function audit(
   opts: {

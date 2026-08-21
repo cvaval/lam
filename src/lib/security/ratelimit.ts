@@ -98,6 +98,17 @@ export const LIMITS = {
   jurSearch: { limit: 90, windowMs: 60_000 },
   jurCommune: { limit: 120, windowMs: 60_000 },
   jurMap: { limit: 30, windowMs: 60_000 },
+  // Calculateur de délais, PUBLIC (par IP — aucune session, aucun quota) : le calcul est
+  // recalculé à chaque frappe de kilométrage côté client, d'où un seuil large. La route
+  // n'écrit rien ; ce que l'on borne est le travail de base, pas l'usage.
+  //
+  // ⚠️ `delaisRepertoire` a été RETIRÉ avec la route qu'il bornait. `/api/delais/repertoire`
+  // n'avait aucun consommateur dans le dépôt — les deux écrans appellent
+  // `chargerRepertoirePublic()` directement — et laissait en ligne un point d'entrée qui
+  // déversait les 393 entrées avec leurs fondements en un appel, 30 fois par minute et par
+  // compte. Une surface que rien n'exerce est une surface dont la régression passe inaperçue :
+  // le répertoire n'a plus qu'un seul accès, et il est en processus.
+  delaisCalcul: { limit: 90, windowMs: 60_000 },
 }
 
 /**

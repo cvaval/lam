@@ -1,0 +1,264 @@
+10 tableau(x)
+
+── TABLEAU 1 · 5 lignes
+   | Art. | Objet du délai | Durée | Point de départ | Sanction / observations
+   | 987 | Tous les délais du Code | Délais francs (ni jour de départ ni jour d'échéance) ; augmentation d'un jour par 40 km ; fractions ≥ 30 km = 1 jour de plus | — | Règle générale de computation
+   | 991 (al. in fine) | Prorogation des délais légaux | Prorogation d'un jour si le dernier jour est un dimanche, un jour de fête légale ou un jour de chômage prescrit par arrêté présidentiel | — | Aucune signification ni exécution avant 6 h ni après 18 h, ni les dimanches et fêtes, sauf permission du juge en cas de péril en la demeure
+   | 996 | Point de départ des recours | La signification de la décision fait courir les délais de recours contre les deux parties | Signification | —
+   | 992 | Mandat du défenseur sur exécution | Un an | Prononcé du jugement définitif | Au-delà, nouveau pouvoir requis
+
+── TABLEAU 2 · 20 lignes
+   | Art. | Objet du délai | Durée | Point de départ | Sanction / observations
+   | 10 | Citation à comparaître (défendeur au siège du tribunal de paix) | 1 jour | Jour de la citation | Réassignation ordonnée ; frais de la première citation à la charge du demandeur
+   | 10 | Citation (section rurale ou quartier de la commune du siège) | 3 jours | Jour de la citation | Idem
+   | 10 | Citation (autre commune du même département) | 5 jours | Jour de la citation | Idem
+   | 10 | Citation (commune d'un autre département) | 15 jours | Jour de la citation | Idem
+   | 10-2° | Citation (île adjacente, tribunal du même département) | 8 jours | Jour de la citation | Idem
+   | 10-2° | Citation (île adjacente, tribunal d'un autre département) | 15 jours | Jour de la citation | Idem
+   | 10-4° | Citation (défendeur établi à l'étranger) | Délais de l'art. 74 | Jour de la citation | Idem
+   | 11 | Abréviation des délais en cas d'urgence | Réduction par cédule, même le jour et à l'heure indiqués | Ordonnance du juge | —
+   | 14 | Emprisonnement disciplinaire (manque de respect après avertissement) | 24 heures au plus | Ordre du juge de paix | —
+   | 15 | Emprisonnement (insulte ou irrévérence grave) | 3 jours au plus | Procès-verbal du juge | —
+   | 17 | Jugement de la cause | Sur-le-champ ou 3 jours au plus tard | Remise des pièces | —
+   | 22 | Mise en cause du garant | Délai suffisant fixé par le juge, en raison de la distance | Première comparution | Passé le délai : jugement immédiat de l'action principale (art. 23)
+   | 25 | Saisine du tribunal civil sur demande incidente | Délai fixé par le juge | Sursis prononcé | Passé le délai, il est procédé sur la demande principale
+   | 27 | Preuve que l'incident (faux, dénégation d'écriture) a été porté devant le juge compétent | 8 jours | Acte du juge de paix | Passé le délai, la cause est jugée au fond
+   | 39 | Actions possessoires (complainte, dénonciation de nouvel œuvre, réintégrande) | Dans l'année du trouble ; possession annale préalable (1 an au moins) | Jour du trouble | Irrecevabilité
+   | 48 | Jugement définitif après interlocutoire | 4 mois au plus tard | Jour du jugement interlocutoire | Péremption de droit de l'instance ; jugement annulable ; responsabilité du juge
+   | 52 | Opposition au jugement par défaut | 3 jours | Signification par huissier | Irrecevabilité (sous réserve de l'art. 53)
+   | 53 | Prorogation du délai d'opposition | Temps que le juge estime convenable | Adjudication du défaut | Relevé de la rigueur du délai en cas d'absence, maladie grave ou force majeure
+   | 59 | Suspension de l'exécution des jugements non exécutoires par provision | 3 jours | Prononcé du jugement | —
+
+── TABLEAU 3 · 59 lignes
+   | Art. | Objet du délai | Durée | Point de départ | Sanction / observations
+   | 73 | Ajournement ordinaire (domiciliés en Haïti) | Huitaine franche | Exploit d'ajournement | Bref délai possible sur ordonnance du doyen en cas de célérité
+   | 74 | Ajournement (Antilles ou continent américain) | 30 jours francs | Exploit d'ajournement | Délais augmentables en cas de guerre
+   | 74 | Ajournement (au-delà de l'un ou l'autre océan) | 45 jours francs | Exploit d'ajournement | Idem
+   | 75 | Assignation en Haïti à personne domiciliée à l'étranger | Délais ordinaires | Assignation | Le tribunal peut prolonger
+   | 77 | Constitution de défenseur par le défendeur | Dans le délai de l'ajournement | Ajournement | Procédures et jugements valables contre le défenseur révoqué non remplacé
+   | 78 | Réitération par acte de la constitution faite à l'audience (bref délai) | 24 heures | Constitution à l'audience | Jugement levé aux frais du défenseur
+   | 79 | Demande de communication de pièces | 5 jours | Expiration du délai de constitution d'avocat, ou emploi/signification des pièces | Irrecevabilité ; il est passé outre
+   | 81 | Communication des pièces | Délai fixé par le récépissé ou le jugement ; à défaut 3 jours | Récépissé ou jugement | Contrainte par corps et 3 gourdes de dommages-intérêts par jour de retard (art. 82)
+   | 84 | Signification des défenses par le défendeur | Huitaine | Constitution d'avocat ou expiration du délai d'ajournement | Défaut requis 8 jours après l'expiration ; réplique dans la huitaine suivante
+   | 85 | Signification de tous les moyens de défense | Dans les délais de l'art. 84 | Idem | Statuer au fond par le même jugement ; jugement non susceptible d'opposition
+   | 104 | Faire inventaire (héritier assigné comme tel) | 3 mois | Ouverture de la succession | Délai convenable accordé si l'inventaire n'a pu être fait
+   | 104 | Délibérer | 40 jours | Expiration des 3 mois ou parachèvement de l'inventaire | —
+   | 105 | Appel en garantie | Huitaine + 1 jour par 40 km | Jour de la demande originaire | Délai unique réglé sur le garant le plus éloigné
+   | 106 | Appel en sous-garantie | Même délai que l'art. 105 | Demande en garantie formée contre le garant | —
+   | 107 | Appel en garantie du défendeur assigné pendant les délais pour faire inventaire et délibérer | Report | Expiration des délais pour inventorier et délibérer | —
+   | 126 | Déclaration d'user ou non de la pièce arguée de faux | 8 jours | Sommation | —
+   | 129 | Remise au greffe de la pièce arguée de faux | 3 jours | Signification du jugement admettant l'inscription | Rejet de la pièce (art. 130)
+   | 129 | Signification de l'acte de remise | 3 jours suivants | Remise au greffe | Idem
+   | 135 | Procès-verbal de l'état de la pièce | 3 jours | Signification de l'acte de remise | —
+   | 139 | Signification des moyens de faux | 8 jours | Procès-verbal d'état de la pièce | Déchéance de l'inscription de faux
+   | 140 | Réponse aux moyens de faux | 8 jours | Signification des moyens | Rejet de la pièce
+   | 141 | Poursuite de l'audience sur les moyens de faux | 3 jours après les réponses | Réponses du défendeur | —
+   | 151-153 | Sursis à l'exécution (suppression, lacération, radiation de pièces) | Durée du délai de recours (appel, requête civile, cassation) | Jugement | —
+   | 162 | Assignation en reconnaissance d'écriture | 3 jours francs | Assignation | —
+   | 167 | Communication de la pièce au greffe | 3 jours | Dépôt de la pièce | —
+   | 171 | Envoi au greffe des pièces de comparaison non déplaçables | Délai déterminé par le juge | Ordonnance | —
+   | 192 | Commencement de l'enquête (même lieu ou dans les 20 km) | Huitaine | Signification à défenseur, ou à personne/domicile ; ou expiration de la huitaine suspensive | À peine de nullité
+   | 193 | Commencement de l'enquête à plus grande distance | Délai fixé par le jugement | Jugement | —
+   | 195 | Assignation des témoins (dans les 20 km) | 1 jour franc au moins ; + 1 jour par 40 km au-delà | Audition | Nullité des dépositions
+   | 196 | Notification à la partie des noms des témoins | 3 jours au moins | Audition | À peine de nullité
+   | 201 | Délai accordé au témoin empêché | Délai suffisant, sans excéder celui fixé pour l'enquête | Jour indiqué | —
+   | 213 | Parachèvement de l'enquête | Quinzaine (sauf délai plus long fixé par le jugement) | Audition des premiers témoins | Nullité des dépositions postérieures
+   | 214 | Prorogation du délai de l'enquête | À l'appréciation du tribunal | Demande d'une partie | —
+   | 233 | Poursuite de l'audience après descente sur les lieux | 3 jours | Signification du procès-verbal | —
+   | 239 | Nomination des experts par les parties | 3 jours | Signification du jugement | Experts nommés d'office
+   | 244 | Récusation d'un expert | 3 jours | Nomination | Forclusion ; l'expert prête serment
+   | 254 | Assignation des experts retardataires | 3 jours francs | Assignation | Condamnation, même par corps, à déposer le rapport
+   | 261 | Remise des pièces après mise sur le bureau | 24 heures | Jugement ordonnant le dépôt | La cause est jugée sur les pièces de l'autre partie
+   | 263-266 | Délai de grâce pour l'exécution des jugements | Fixé et motivé par le jugement | Jour du jugement (contradictoire) ou de la signification (défaut) | Déchéance en cas de faillite, contumace, départ sans caution, diminution des sûretés (art. 265)
+   | 268 | Sursis à la contrainte par corps | Temps fixé par le tribunal | Jugement | Exécution sans nouveau jugement à l'expiration
+   | 279 | Signature de la minute du jugement | 24 heures au plus tard | Prononcé | —
+   | 283 | Dépôt au greffe de l'original de la signification des qualités | 24 heures | Signification | —
+   | 291 | Réassignation sur défaut profit-joint | Délai fixé par le jugement | Jugement | —
+   | 293 | Suspension de l'exécution des jugements par défaut | Huitaine franche | Signification à défenseur ou à personne/domicile réel | Exécution anticipée possible en cas d'urgence ou de péril en la demeure
+   | 294 | Signification des jugements par défaut (partie sans défenseur) | 6 mois | Obtention du jugement | Jugement réputé non avenu
+   | 295 | Opposition (partie ayant défenseur) | Huitaine | Signification à défenseur | Irrecevabilité
+   | 296 | Opposition (partie sans défenseur) | 30 jours francs | Signification à personne du défaillant | Irrecevabilité
+   | 296 | Opposition lorsque la signification n'a pu être faite à personne | Recevable tant que le jugement n'a pas été exécuté au su du défaillant pendant les 30 jours | Publication de l'extrait du jugement dans un journal | —
+   | 298 | Présentation des moyens après opposition sur procès-verbal d'exécution | Huitaine franche + délais de distance | Déclaration d'opposition | À peine de déchéance
+   | 305 | Nouvelle assignation en cas de changement d'état ou de décès du demandeur | Huitaine franche | Assignation | —
+   | 309 | Reprise d'instance | Délais restant à courir | Jugement de reprise | Aucun nouveau délai
+   | 317 | Jugement du désaveu | Délai fixe fixé par le tribunal | Jugement | À défaut, il sera fait droit
+   | 322 | Désaveu contre un jugement passé en force de chose jugée | Huitaine | Jour où le jugement est réputé exécuté (art. 297) | Irrecevabilité
+   | 325 | Signification du jugement et assignation en règlement de juges | 30 jours francs | Jour du jugement ou de l'arrêt | Déchéance de plein droit du règlement de juges (art. 326)
+   | 331 | Déclaration des juges sur la demande de renvoi pour parenté ou alliance | Délai fixé par le jugement | Communication | —
+   | 336 | Péremption d'instance | 2 ans (+ 6 mois s'il y a lieu à reprise d'instance ou constitution de nouveau défenseur) | Dernier acte de poursuite | Extinction de l'instance
+   | 344 | Jugement des matières sommaires | Après les délais de l'art. 84 | Signification des défenses | —
+   | 347 | Assignation des témoins en matière sommaire | 1 jour au moins | Audition | —
+
+── TABLEAU 4 · 15 lignes
+   | Art. | Objet du délai | Durée | Point de départ | Sanction / observations
+   | 354 | Appel (parties demeurant en Haïti) | 30 jours francs | Signification à personne ou domicile ; pour les jugements par défaut, jour où l'opposition n'est plus recevable | À peine de déchéance
+   | 354 | Appel (parties demeurant hors d'Haïti) | 30 jours francs + délais de l'art. 74 | Idem | Idem
+   | 355 | Cours du délai contre le mineur non émancipé | Court seulement à compter de la signification au tuteur et au subrogé-tuteur | Signification | —
+   | 356 | Appel contre celui qui a signifié le jugement | 30 jours francs | Jour de sa propre signification | —
+   | 358 | Suspension du délai d'appel par le décès d'une partie | Reprise après quinzaine | Nouvelle signification aux héritiers | Report à l'expiration des délais pour faire inventaire et délibérer
+   | 360 | Jugement rendu sur fausse pièce ou pièce retenue | Le délai ne court que du jour de la reconnaissance du faux ou du recouvrement de la pièce | Reconnaissance ou recouvrement | Preuve écrite requise
+   | 361-362 | Délai d'attente avant appel (jugement non exécutoire par provision) | Huitaine | Date du jugement | Appel prématuré irrecevable ; exécution suspendue dans la huitaine
+   | 363 | Appel des ordonnances de référé | Recevable dès l'ordonnance ; irrecevable après la quinzaine franche | Signification de l'ordonnance | Irrecevabilité
+   | 364 | Appel d'un jugement préparatoire | Après le jugement définitif, conjointement avec l'appel de celui-ci | Signification du jugement définitif | —
+   | 368 | Appel des jugements susceptibles d'opposition | Non recevable pendant la durée du délai d'opposition | — | Irrecevabilité
+   | 374 | Signification des griefs par l'appelant | Huitaine | Constitution d'avocat par l'intimé | Défaut requis 8 jours après l'expiration
+   | 374 | Réponse de l'intimé / réplique de l'appelant | Huitaine, puis huitaine suivante | Signification précédente | Défaut
+   | 375 | Dépôt des dossiers au greffe pour communication au Ministère public | 24 heures | Audience | —
+   | 376 | Réquisitoire écrit du Ministère public | Quinzaine | Communication du dossier | Prise à partie de l'officier du Parquet responsable du retard
+
+── TABLEAU 5 · 17 lignes
+   | Art. | Objet du délai | Durée | Point de départ | Sanction / observations
+   | 394 | Requête civile (majeurs) | 25 jours | Signification à personne ou domicile du jugement attaqué | Irrecevabilité
+   | 395 | Requête civile (mineurs) | 25 jours | Signification faite depuis la majorité | Idem
+   | 396 | Requête civile (absent en service de l'État) | 25 jours + 6 mois | Signification | Idem
+   | 397 | Requête civile (personnes demeurant hors du territoire) | 25 jours + délais de l'art. 74 | Signification | Idem
+   | 398 | Décès de la partie condamnée pendant le délai | Reprise du reliquat après signification aux héritiers | Expiration des délais pour faire inventaire et délibérer | —
+   | 399-400 | Faux, dol, pièces nouvelles, contrariété de jugements | Le délai court de la reconnaissance du faux ou du dol, de la découverte des pièces, ou de la signification du dernier jugement | — | Preuve écrite requise
+   | 417 | Pourvoi en cassation (demeurant en Haïti) | 30 jours | Signification de la décision à personne ou domicile | Déchéance
+   | 417 | Pourvoi (personnes habitant l'étranger) | 30 jours + délais de l'art. 74 | Signification au Parquet | Déchéance
+   | 417 | Pourvoi en affaires urgentes (référés, exécution provisoire, réception de caution, nullités d'emprisonnement) | 8 jours (décision de première instance) ; 15 jours (décision d'appel) | Signification | Déchéance
+   | 424 | Signification des moyens du demandeur en cassation | Huitaine + 1 jour par 40 km | Déclaration de pourvoi | À peine de nullité de la déclaration
+   | 424 | Assignation du défendeur à fournir ses défenses | 30 jours (Haïti) ; 45 jours (Antilles / continent américain) ; 60 jours (au-delà des océans) | Signification des moyens | Idem
+   | 425 | Dépôt de la production du demandeur au greffe de la Cour de cassation | 20 jours + 1 jour par 40 km | Signification de ses moyens | À peine de déchéance
+   | 426 | Affaires urgentes : défenses du défendeur | 15 jours francs | Assignation | —
+   | 426 | Affaires urgentes : production du demandeur | Huitaine franche + délai de distance | Signification de ses moyens | À peine de déchéance
+   | 427 | Signification des réponses du défendeur et remise des pièces | Dans les délais qui lui sont accordés + 1 jour par 40 km | Assignation | Déchéance contre le défendeur
+   | 433 | Transmission de l'arrêt de cassation au Secrétaire d'État de la Justice | Huitaine | Prononcé de l'arrêt | Amende de 25 gourdes contre le greffier
+
+── TABLEAU 6 · 16 lignes
+   | Art. | Objet du délai | Durée | Point de départ | Sanction / observations
+   | 441 | Récusation du juge commis (descente, enquête, autre opération) | 3 jours | Jugement contradictoire ; expiration de la huitaine suspensive ; ou jugement sur opposition | Forclusion
+   | 443 | Déclaration du juge de paix récusé | 2 jours | Acte de récusation | —
+   | 444 | Transmission de l'acte de récusation au Ministère public | 3 jours | Réponse du juge ou expiration de son délai | —
+   | 444 | Jugement de la récusation d'un juge de paix | Huitaine | Réception des pièces | Jugé en dernier ressort
+   | 447-448 | Remise de l'expédition de l'acte de récusation au chef de juridiction | 24 heures | Acte de récusation | —
+   | 448 | Explication du juge récusé | Délai fixé par le jugement | Communication | —
+   | 457 | Renvoi pour suspicion légitime : requête signifiée aux parties adverses | Huitaine | Déclaration de récusation faite au greffe | À peine de déchéance
+   | 457 | Dépôt de la requête au greffe de la Cour de cassation | Huitaine + délai de distance | Signification de la requête | À peine de déchéance
+   | 459 | Pourvoi en cassation contre le jugement sur récusation | 8 jours | Date du jugement ou de l'arrêt | À peine de déchéance
+   | 460 | Envoi des pièces au greffe de la Cour de cassation | 3 jours | Déclaration de pourvoi | —
+   | 461-462 | Communication du dossier au Ministère public / expédition des pièces à la juridiction de renvoi | Sans délai | Réception | —
+   | 466 | Réquisitions constitutives du déni de justice (juges de paix) | De 3 en 3 jours au moins | Première réquisition | Poursuite en prise à partie après les deux réquisitions
+   | 466 | Réquisitions (autres juges) | De huitaine en huitaine au moins | Première réquisition | Idem
+   | 470 | Signification de la requête en prise à partie | 2 mois | Admission de la requête | —
+   | 470 | Défenses des juges pris à partie | 2 mois | Signification de la requête | —
+
+── TABLEAU 7 · 78 lignes
+   | Art. | Objet du délai | Durée | Point de départ | Sanction / observations
+   | 475 | Fixation du montant de la caution ; acceptation ou contestation | Assignation à bref délai ; délai fixé par la décision | Décision ordonnant l'exécution provisoire | Caution réputée acceptée à défaut de contestation (art. 477)
+   | 482 | Remise des pièces par le défendeur (liquidation des dommages-intérêts) | Quinzaine | Communication reçue | Peines de l'art. 82
+   | 482 | Offre de la somme pour dommages-intérêts | 8 jours | Expiration du délai précédent | Condamnation au montant de la déclaration
+   | 484 | Liquidation des frais et dépens (mémoire signifié et remis au greffier) | 15 jours francs | Prononcé de la décision | À peine de déchéance
+   | 484 | Opposition à la taxe | 3 jours + délai de distance | Signification du mémoire | —
+   | 488-492 | Reddition de compte | Délai fixé par le jugement | Jugement | Contrainte par saisie et vente, voire par corps
+   | 494 | Rétablissement des pièces communiquées sur récépissé | Délai fixé par le juge | Communication | 3 gourdes au moins de dommages-intérêts par jour de retard
+   | 516 | Dénonciation de la saisie-arrêt au saisi | 24 heures + délai de distance | Saisie-arrêt | —
+   | 517 | Assignation en validité (tribunal de paix) | 3 jours + 1 jour par 40 km | Dénonciation de la saisie-arrêt | Nullité de plein droit de la saisie (art. 519)
+   | 517 | Assignation en validité (tribunal civil) | 8 jours + 1 jour par 40 km | Dénonciation de la saisie-arrêt | Idem
+   | 518 | Dénonciation de la demande en validité au tiers saisi | Même délai + distances | Demande en validité | Idem
+   | 537 | Commandement préalable à la saisie-exécution | 1 jour franc au moins | Commandement | —
+   | 556 | Notification de la saisie faite hors du domicile et en l'absence du saisi | Dans le jour + 1 jour par 40 km | Saisie | Les frais de garde et le délai de vente ne courent qu'à compter de la notification
+   | 559 | Décharge du gardien en cas d'empêchement de la vente | 1 mois | Saisie | —
+   | 565 | Sommation au premier saisissant de vendre | Huitaine | Récolement | Le procès-verbal de récolement vaut opposition sur les deniers
+   | 567 | Intervalle entre la signification de la saisie et la vente | 8 jours francs au moins | Signification de la saisie au débiteur | —
+   | 568 | Vente reportée à un autre jour | 1 jour d'intervalle + 1 jour par 40 km | Nouvelle convocation | —
+   | 581 | Commandement préalable à la saisie de rente | 1 jour au moins | Commandement | —
+   | 584 | Saisie entre les mains de personnes ne demeurant pas en Haïti | Délais de l'art. 74 | Signification | —
+   | 586 | Dénonciation de la saisie de rente à la partie saisie | 3 jours + 1 jour par 40 km (double distance) | Saisie | À peine de nullité de la saisie
+   | 588 | Remise du cahier des charges au greffe | Quinzaine | Dénonciation à la partie saisie | —
+   | 589-590 | Remise et placardage de l'extrait du cahier des charges | Huitaine avant | Remise du cahier des charges au greffe | —
+   | 593 | Seconde publication | Huitaine après la première | Première publication | —
+   | 595 | Nouveaux placards et annonces | 3 jours au moins avant | Adjudication définitive | —
+   | 601 | Accord sur la distribution par contribution | Huitaine | Signification au tiers saisi ou dernière séance du procès-verbal de vente | À défaut, consignation par l'huissier
+   | 602 | Consignation du produit de la vente à la Caisse des dépôts | 2 jours suivants + distances | Expiration du délai de l'art. 601 | —
+   | 608 | Communication et contredits sur l'état de distribution | Quinzaine | Dénonciation de la clôture du procès-verbal | Forclusion sans nouvelle sommation ni jugement (art. 609)
+   | 613 | Appel du jugement de contribution | 10 jours | Signification à défenseur | —
+   | 615 | Délivrance des mandements aux créanciers | Huitaine après | Clôture du procès-verbal | —
+   | 617 | Cessation des intérêts en cas d'appel | Quinzaine après | Signification du jugement sur l'appel | —
+   | 618 | Visa de l'original du commandement | 24 heures | Commandement | —
+   | 619 | Saisie immobilière après commandement | 30 jours au plus tôt ; réitération obligatoire au-delà de 60 jours | Commandement | —
+   | 622 | Dénonciation de la saisie immobilière au saisi | 15 jours + 1 jour par 40 km | Clôture du procès-verbal de saisie | À peine de nullité (art. 658)
+   | 622 | Visa de l'original de la dénonciation par le juge de paix | 24 heures | Signification | Idem
+   | 622 | Transcription de la saisie et de la dénonciation au bureau des hypothèques | 15 jours au plus tard | Dénonciation | Idem
+   | 632 | Dépôt du cahier des charges au greffe | 20 jours au plus tard | Transcription | À peine de nullité
+   | 633-634 | Sommation au saisi et aux créanciers inscrits de prendre communication | 8 jours au plus tard + 1 jour par 40 km | Dépôt au greffe | À peine de nullité
+   | 635 | Mention en marge de la transcription | 8 jours | Dernier exploit de notification | À peine de nullité
+   | 635 | Péremption de la saisie immobilière transcrite | 2 ans | Transcription | La saisie cesse de plein droit de produire effet à défaut d'adjudication
+   | 636 | Publication et lecture du cahier des charges | 30 jours au plus tôt, 40 jours au plus tard | Dépôt du cahier des charges | À peine de nullité
+   | 636 | Insertion des dires et observations | 3 jours au plus tard avant | Publication | Irrecevabilité
+   | 637 | Adjudication | 30 jours au moins, 60 jours au plus | Publication du cahier des charges | —
+   | 638 | Insertion de l'extrait dans un journal | 40 jours au plus tôt, 20 jours au plus tard avant | Adjudication | À peine de nullité
+   | 646 | Remise de l'adjudication pour causes graves | Pas moins de 15 ni plus de 40 jours | Jugement de remise | Décision non susceptible de recours
+   | 647 | Annonce de l'adjudication reportée | 8 jours au moins à l'avance | Nouvelle adjudication | —
+   | 650 | Déclaration de command par le dernier enchérisseur | 3 jours | Adjudication | Réputé adjudicataire en son nom
+   | 651 | Surenchère du sixième | 8 jours | Adjudication | Forclusion
+   | 652 | Dénonciation de la surenchère | 3 jours | Surenchère | Avenir pour l'audience suivant l'expiration de la quinzaine
+   | 656 | Justification par l'adjudicataire du paiement des frais et conditions | 20 jours | Adjudication | Contrainte par la voie de la folle enchère
+   | 658 | Formalités et délais des art. 618 à 649 | Délais francs, à peine de nullité | — | Nullité seulement si l'irrégularité a causé un préjudice
+   | 669 | Moyens de nullité contre la procédure antérieure à la publication | 3 jours au moins avant l'audience | Audience de publication | À peine de déchéance
+   | 670 | Moyens de nullité contre la procédure postérieure à la publication | 5 jours au moins avant l'audience | Audience d'adjudication | À peine de déchéance
+   | 675 | Signification du placard de folle enchère | 5 jours au moins avant | Adjudication | À peine de nullité (art. 680)
+   | 684 | Mention du jugement de conversion en marge de la transcription | Huitaine | Jugement de conversion | —
+   | 685 | Règlement amiable sur la distribution du prix | 1 mois | Signification du jugement d'adjudication | Ouverture de la procédure d'ordre
+   | 686 | Réquisition de nomination du juge-commissaire | Huitaine (saisissant), puis tout créancier diligent | Expiration du mois de l'art. 685 | —
+   | 690 | Production des titres par les créanciers | 1 mois | Sommation de produire | Déchéance des créanciers non produisants (art. 695)
+   | 691 | Contredits sur l'état de collocation | 1 mois | Dénonciation de l'état de collocation | Forclusion (art. 692) ; frais à la charge du produisant tardif (art. 693)
+   | 696 | Choix d'un défenseur commun par les créanciers postérieurs | Huitaine après l'expiration du mois pour contredire | Expiration du délai de contredit | Représentation par le dernier créancier colloqué
+   | 700 / 705 | Clôture définitive de l'ordre et délivrance des bordereaux | Huitaine après l'expiration du délai d'appel ou la signification de l'arrêt | Expiration du délai d'appel ou signification | —
+   | 704 | Dénonciation de l'ordonnance de clôture | 3 jours | Ordonnance de clôture | —
+   | 704 | Opposition à l'ordonnance de clôture, puis mise au rôle | Huitaine, puis huitaine suivante | Dénonciation ; opposition | À peine de nullité
+   | 709 | Provocation de l'ordre en cas d'aliénation volontaire | 30 jours | Expiration des délais des art. 1952 et 1961 C. civ. | —
+   | 714 | Sommation par l'adjudicataire consignataire | 8 jours | Expiration du délai pour produire (art. 690) | —
+   | 717 | Voie parée : délai de grâce au débiteur | Aucun délai ne peut être accordé (prêt versé à la vue du notaire ; hypothèque consentie à une banque ou maison d'import-export) | — | Prohibition légale
+   | 720 | Voie parée : dépôt du cahier des charges et apposition du placard | 30 jours francs au moins, 365 jours francs au plus | Commandement | À peine de nullité de l'adjudication
+   | 721 | Voie parée : adjudication | 8 jours francs après | Dépôt du cahier des charges et publication du placard | À peine de nullité
+   | 722 | Voie parée : surenchère du sixième | 3 jours | Adjudication | —
+   | 722 | Voie parée : nouvelles enchères après surenchère | 3 jours francs après | Dénonciation de la surenchère | —
+   | 729 | Mise à exécution de la contrainte par corps | 1 jour franc | Signification du jugement avec commandement | —
+   | 733 | Réitération du commandement | Après une année entière | Commandement précédent | Nouveau commandement obligatoire
+   | 744 / 752-753 | Demandes relatives à l'écrou, à la consignation et à l'élargissement | Bref délai, sur permission du juge | Requête | Jugées sans instruction écrite, à la première audience
+   | 746 | Nouvelle arrestation après emprisonnement annulé | 1 jour au moins après la sortie | Sortie du débiteur | —
+   | 756 | Référé : délai ordinaire d'assignation | 1 jour franc + délai de distance | Assignation | Abréviation possible à l'heure indiquée, même les jours de fête
+   | 757 | Prononcé de l'ordonnance de référé | 24 heures au plus tard | Audition de la cause | Sanctions prévues par la loi
+   | 759 | Réitération de l'opposition à ordonnance exécutée sur minute | 24 heures ; assignation à 1 jour franc | Opposition sur le procès-verbal d'exécution | —
+   | 762 | Rétablissement de la minute au greffe par l'huissier | 24 heures | Exécution | —
+
+── TABLEAU 8 · 12 lignes
+   | Art. | Objet du délai | Durée | Point de départ | Sanction / observations
+   | 772 | Saisie-gagerie pour loyers et fermages | 1 jour après le commandement (ou à l'instant sur permission) | Commandement | —
+   | 785 / 792 | Nullités en matière de surenchère sur aliénation volontaire | Proposées avant le jugement, à peine de déchéance | — | Déchéance
+   | 788 | Inscription du privilège du vendeur ou du copartageant | 1 mois | Acte de vente ou de partage | Opposable nonobstant les inscriptions prises dans ce délai
+   | 789-791 | Placards, insertions et sommations d'assister à l'adjudication | 20 jours au moins, 40 jours au plus avant | Adjudication | À peine de nullité
+   | 793 | Assignation du dépositaire refusant expédition d'un acte | Bref délai, sur permission du doyen | Requête | Condamnation, même par corps
+   | 811 | Appel du jugement en matière d'expédition ou de réformation d'acte | 10 jours (augmentés conformément à l'art. 354) | Signification à personne ou domicile | —
+   | 821 | Remise au greffier de l'extrait de la demande en séparation de biens | 3 jours | Demande | Sanctions de l'art. 824
+   | 824 | Jugement sur la demande en séparation de biens | Pas avant le terme d'un mois | Accomplissement des formalités de publicité | Amende de 50 à 500 gourdes ; prise à partie ; dommages-intérêts
+   | 827-828 | Exposition de l'extrait du jugement de séparation | 1 an | Insertion au tableau | Tierce-opposition des créanciers du mari irrecevable après ce délai
+   | 832 | Notification de la nomination du tuteur | 3 jours + 1 jour par 40 km | Délibération du conseil de famille | —
+   | 837 | Poursuite de l'homologation de la délibération | Délai fixé par la délibération ; à défaut, quinzaine | Délibération | Poursuite par un membre de l'assemblée aux frais du tuteur
+
+── TABLEAU 9 · 12 lignes
+   | Art. | Objet du délai | Durée | Point de départ | Sanction / observations
+   | 870 | Appel des tiers propriétaires de paquets cachetés | Délai fixé par le juge | Ordonnance | Ouverture en leur absence
+   | 878 | Levée des scellés et confection de l'inventaire | 3 jours après l'inhumation ou après l'apposition | Inhumation ou apposition | À peine de nullité et de dommages-intérêts, sauf urgence
+   | 911 | Apposition des placards (aliénation d'immeubles de mineurs) | De huitaine en huitaine ; 8 jours au moins et 15 jours au plus avant | Adjudication | —
+   | 912 | Insertion au journal et deuxième apposition | 8 jours au moins avant | Adjudication | —
+   | 914 | Notification au subrogé-tuteur des jour et heure de l'adjudication | 15 jours d'avance | Adjudication | Il est procédé en son absence
+   | 915 | Remise de l'adjudication faute d'enchères atteignant la mise à prix | Pas moindre de quinzaine ; nouveaux placards 8 jours au moins avant | Jugement de remise | —
+   | 917 | Surenchère du sixième | 8 jours | Adjudication | Dénonciation dans les formes et délais des art. 652 et 653
+   | 925 | Sommation aux colicitants de prendre communication du cahier des charges | Huitaine | Dépôt du cahier des charges | —
+   | 926 | Appel du jugement sur les difficultés du cahier des charges | Après les 10 jours | Signification à avocat, ou à personne ou domicile | —
+   | 946 | Présentation de caution par l'héritier bénéficiaire | 3 jours + 1 jour par 40 km | Sommation | —
+   | 952 | Vacance de la succession | Expiration des délais pour faire inventaire et pour délibérer | Ouverture de la succession | Succession confiée au curateur aux successions vacantes
+
+── TABLEAU 10 · 8 lignes
+   | Art. | Objet du délai | Durée | Point de départ | Sanction / observations
+   | 959-5 | Durée de la mission des arbitres (à défaut de délai conventionnel) | 6 mois | Acceptation par le dernier des arbitres | Prorogation possible par accord des parties ou par le doyen
+   | 959-6 | Ordonnance du doyen sur difficultés de constitution du tribunal arbitral | Séance tenante ou 24 heures au plus | Saisine comme en matière de référé | Ordonnance non susceptible de recours (sauf cas de l'art. 957-3 al. 2)
+   | 961-6 | Incident de faux ou vérification d'écritures | Le délai d'arbitrage reprend son cours au jour du jugement sur l'incident | Jugement sur l'incident | Sursis à statuer
+   | 969 | Appel et recours en annulation contre la sentence arbitrale | 30 jours francs | Signification de la sentence revêtue de l'exequatur | Irrecevabilité ; le délai est suspensif
+   | 970-1 | Recours contre l'ordonnance refusant l'exequatur | 30 jours francs | Signification de l'ordonnance | Irrecevabilité
+   | 977 | Recours contre la décision du juge (sentences rendues à l'étranger) | 30 jours francs | Signification de la décision | Irrecevabilité
+   | 978-1 | Recours en annulation (arbitrage international) | 30 jours francs | Signification de la sentence déclarée exécutoire | Irrecevabilité ; effet suspensif (art. 979)
+

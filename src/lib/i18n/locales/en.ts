@@ -1,8 +1,249 @@
 import { BRAND } from '../../brand'
+import { JOURS, MOIS } from '../../delais/format'
 import type { Dictionary } from '../dictionaries'
 
 /** Dictionnaire ANGLAIS — typé contre la forme canonique FR. */
 export const en: Dictionary = {
+  /** § 8.2 — voir le commentaire de `fr.ts`. Source unique : `src/lib/delais/format.ts`. */
+  delais: {
+    jours: JOURS.en,
+    mois: MOIS.en,
+
+    navLabel: 'Deadline calculator',
+    metaTitle: 'Clear-day calculator — Lam',
+    // La note du PORTAIL — elle dit ce que l'outil FAIT. Voir fr.ts : l'ancienne rédaction
+    // promettait la prorogation, alors que la date affichée est la plus PRÉCOCE et ne proroge
+    // pas ; la prorogation se lit à côté, nommée, avec son fondement.
+    metaDescription:
+      'Compute a deadline under Haitian law: clear days or calendar days, distance allowance. The date shown is the earliest one — the one that holds whichever way the text is read. The readings that push it back, including the extension under article 991, are shown beside it, each with its basis.',
+    // La même note, pour la surface PUBLIQUE, qui ne rend ni lecture nommée, ni « lecture la
+    // plus large », ni jour praticable. Voir fr.ts : une page ne promet pas ce qu'elle ne fait
+    // pas. ⚠️ Ce commentaire disait « ni prorogation » jusqu'au 20 août 2026 au soir : c'était
+    // l'INVERSE du code livré — la surface publique proroge (art. 991 al. 3, en cascade, sur le
+    // dimanche et les 16 entrées PERMANENT). Le libellé, lui, ne change pas : ce qui est proscrit
+    // est la PROMESSE dans une note, pas le report dit au moment où il a lieu.
+    metaDescriptionPublique:
+      'Compute a deadline under Haitian law: give the date the document was received and the number of clear days it states. The platform counts those days and returns the date.',
+    breadcrumbHome: 'Home',
+    breadcrumbHere: 'Deadline calculator',
+    title: 'Clear-day calculator',
+    // La note VISIBLE du portail — voir fr.ts : elle énonce la règle de prudence (la tête
+    // d'affiche est la plus précoce et ne proroge pas) au lieu d'inventorier ce que la page rend.
+    intro:
+      'Enter your period, or pick the article; give the starting point. The date shown is the earliest one: acting no later than that day is safe under every reading of the text. The readings that push the deadline back — the extension under article 991 among them — are named beside it, with their basis; they lengthen the period only if the court adopts them.',
+    frameworkNote:
+      'This tool applies article 987 of the Code of Civil Procedure, article 511 of the Labour Code, and the general law for the Civil Code. It does not know about executive holiday orders.',
+    disclaimer:
+      'Documentary information, not official. The computation replaces neither the text nor a practitioner’s advice: where they differ, official publications prevail.',
+
+    // ⚠️ Voir fr.ts : le sous-titre du héros a été retiré le 20 août 2026 ; la phrase survit
+    // sous `toolsSubtitle`, pour la tuile du tableau de bord connecté.
+    heroKicker: 'New',
+    heroTitle: 'When does your deadline expire?',
+    heroSubmit: 'Compute',
+
+    publicDateLabel: 'Date the document was received',
+    publicDaysLabel: 'Number of clear day(s)',
+    publicDaysHint: 'The number of days stated in the document.',
+    // ⚠️ `publicIntro` retiré le 20 août 2026 avec le raisonnement lui-même — voir fr.ts :
+    // « le portail public doit uniquement afficher la date ».
+    // La règle de droit des deux surfaces publiques — une seule clé, voir fr.ts. Elle remplace
+    // `heroNoResultNote`, `heroFrancOnlyNote` et `publicFrancOnlyNote` (dont la seconde phrase,
+    // sur la prorogation de l’art. 991, est devenue fausse en public).
+    francRule:
+      'Under the Haitian Code of Civil Procedure and Labor Code, a clear-day period counts neither the day of receipt nor the day it falls due.',
+    missingDate: 'Enter the deed reception date',
+    missingDays: 'Enter the number of clear day(s)',
+
+    // La seule mention gardée sous la date — voir fr.ts pour les quatre genres du calendrier
+    // et pour l'ajout du dimanche, qui est un ajout à l'instruction et non une déduction.
+    publicDayHoliday: '{date} is a legal holiday ({nom}).',
+    // ⚠️ Voir fr.ts : ce gabarit ne portait AUCUNE réserve. La Constitution de 1987 distingue les
+    // fêtes NATIONALES (art. 275.1, énumérées) des fêtes LÉGALES (art. 275.2, « déterminées par
+    // la Loi »), et l'art. 991 al. 3 ne vise que les secondes. 25 des 56 divergences avec le
+    // portail venaient de ces cinq jours-là au MATIN du 20 août 2026 ; depuis le soir, elles
+    // n'en expliquent plus aucune (voir fr.ts et `franc-pur.test.ts`, § 0).
+    publicDayNational:
+      '{date} is a national holiday ({nom}), non-working under the 1987 Constitution, art. 275.1; art. 991 §3 C. pr. civ., for its part, covers only Sundays and legal holidays.',
+    publicDayEditorial:
+      '{date} is carried in the calendar as a legal holiday ({nom}) with no establishing text: this calendar (version 1) predates the decree of 11 December 2024.',
+    publicDayWatch:
+      '{date} is a day to watch ({nom}): it is often declared non-working by executive order.',
+    // § 4.10 — voir fr.ts : la seule demi-journée du calendrier, et la seule mention qui parle
+    // d'une heure. Le décret du 11 décembre 2024 ne chôme le Lundi Gras qu'« à partir de midi ».
+    publicDayHalfDay:
+      '{date} is a holiday from noon onwards ({nom} — decree of 11 December 2024, art. 2, 1°). A document to be served must be served before noon.',
+    // ⚠️ Voir fr.ts : « Sunday 5 July 2026 is a Sunday. » La date arrive désormais SANS le jour
+    // de la semaine, et le verbe devient « falls on ».
+    publicDaySunday: '{date} falls on a Sunday.',
+    // La ligne du report — voir fr.ts : elle conclut les lignes qui qualifient les jours
+    // franchis, et `{source}` est l'article cité par le moteur, jamais une constante d'écran.
+    // ⚠️ « General law of computation » : la surface publique ne demande pas la matière, elle ne
+    // peut donc pas affirmer quel article régit LE délai de l'utilisatrice (voir fr.ts).
+    publicDeferred: 'The period is extended to {date} — general law of computation, {source}.',
+    // La cascade, dite comme une LECTURE — voir fr.ts : l'art. 991 al. 3 proroge « d'un jour »,
+    // et l'écran imputait deux jours de report à un article qui en donne un.
+    publicDeferredCascade:
+      'Art. 991 §3 extends by one day; the platform repeats the extension until the first day that is neither a Sunday nor a non-working day in its calendar. Saturday is not a day of extension.',
+    // La date de l'AUTRE surface — voir fr.ts. Chiffres du jour, mesurés par
+    // `franc-pur.test.ts` (§ 0) : 0 divergence sous le calendrier courant, 16 sous la
+    // version 1, que rejoue un permalien `c=1`.
+    publicStrictReading:
+      'This computation replays version 1 of the calendar, which predates the decree of 11 December 2024: without the days no text then instituted, the period expired on {date}. That is the date the portal’s calculator returns, and the more cautious of the two.',
+    // La version des RÈGLES DE LECTURE — voir fr.ts : la surface publique n'avait ni pied de
+    // page ni permalien, donc aucun moyen de dire qu'un lien `rl=1` rendait une date périmée.
+    publicRulesVersion:
+      'This computation is returned under reading rules version {version}; the version in force is {courante}, and it may give a different date.',
+    publicRulesVersionLink: 'Recompute under the current rule',
+
+    startLabelDefault: 'Starting point of the period',
+    // Voir le commentaire de fr.ts : Me Vaval a coupé l'énumération le 20 août 2026 — ne pas
+    // la réintroduire, le champ natif montre déjà ses trois segments.
+    startFormatHint: 'Enter the date; the order shown is your browser’s.',
+    significationNote:
+      'Article 996 runs appeal periods from service of process. The Court of Cassation set aside actual receipt of the documents (9 July 1963) in favour of service on the Public Prosecutor (20 February 1963) — 1st Section no. 13, 28 March 1966.',
+    codeLabel: 'Code',
+    codeCPC: 'Civil procedure',
+    codeTRAVAIL: 'Labour',
+    codeCIVIL: 'Civil',
+    entryLabel: 'Directory entry',
+    // `entryPlaceholder` retiré le 20 août 2026 — voir fr.ts : la saisie manuelle est la
+    // PREMIÈRE option du menu et sa valeur par défaut.
+    entryFilterLabel: 'Filter the list',
+    entryFilterPlaceholder: 'Article number or a word from the subject…',
+    entryGroupTableau: 'Table {n}',
+    entryNotCalculable: 'Does not produce a date',
+    entryResultsCount: '{n} entries',
+    regimeLabel: 'Regime',
+    regimeFranc: 'Clear days',
+    regimeOrdinaire: 'Ordinary days',
+    regimeIncertain: 'Uncertain regime — see the named reading',
+    regimeAVerifier: 'Regime to be verified — the editors have not classified this period',
+    prorogationLabel: 'Extension',
+    kmLabel: 'Distance',
+    kmLabelFirst: 'First distance',
+    kmLabelSecond: 'Second distance',
+    kmHint: 'Distance in kilometres, whole number.',
+    kmYouEnter: 'You enter it; the platform does not compute it.',
+    supplementLegend: 'Follow-up question',
+    otherLegend: 'Other period (read in a document)',
+    otherDaysLabel: 'Number of days',
+    otherSourceLabel: 'Nature of the period',
+    otherSourceHint: 'Reproduced in the result and in print.',
+
+    // ─── LE COMMUTATEUR DE DÉCOMPTE — voir fr.ts pour la règle et pour ce qu'il remplace.
+    // Deux positions, chacune portant son libellé ET sa règle ; l'état est marqué par le
+    // bouton radio natif, jamais par la seule couleur ; aucune position cochée d'avance.
+    countingLegend: 'How should the days be counted?',
+    countingClear: 'Clear days',
+    countingClearRule:
+      'Neither the starting day nor the day it falls due is counted: start + number of days + 1.',
+    countingCalendar: 'Calendar days',
+    countingCalendarRule:
+      'The starting day is not counted; the day it falls due is: start + number of days.',
+    countingLegacyUnknown:
+      'This computation was made under the former answer “I don’t know”: both counts are shown side by side, the earliest first. Pick a position to recompute.',
+    countingFixedByText:
+      'On a directory entry the count is not a choice: it comes from the text (art. 987 C. pr. civ., art. 511 C. trav., or the general law).',
+    submit: 'Compute',
+    submitMissingPrefix: 'Still missing:',
+    reset: 'Clear',
+
+    resultTitle: 'Deadline',
+    stepsTitle: 'The reasoning, step by step',
+    skippedTitle: 'Days set aside',
+    skippedDate: 'Day',
+    skippedReason: 'Reason',
+    skippedSource: 'Source',
+    readingsTitle: 'Competing readings of the text',
+    readingsDate: 'Date',
+    readingsBasis: 'Basis',
+    widestReading: 'Widest reading',
+    warningsTitle: 'Warnings',
+    textsTitle: 'Texts applied',
+    practicableTitle: 'Last day on which the act can actually be done',
+    windowsTitle: 'Service windows',
+    windowsNullity: 'Sanction: nullity',
+    footerCalendar: 'Holiday calendar: version {n}',
+    footerRules: 'Reading rules: version {n}',
+    footerWindows: 'Service windows: version {n}',
+    footerEntry: 'Entry: {code} art. {article}, revision {r}',
+    permalinkLabel: 'Permanent link to this computation',
+    copyReasoning: 'Copy the reasoning',
+    copied: 'Copied ✓',
+    copyFallbackHint: 'Automatic copy refused: select the text below.',
+    print: 'Print',
+
+    refusalTitle: 'This article does not allow a date to be computed',
+    refusalReason: 'Reason',
+    incompleteTitle: 'An answer is missing before computing',
+    incompleteMissing: 'What is missing',
+
+    errDateImpossible: 'This date does not exist. Check the day and the month.',
+    errBeforeBound:
+      'The list of legal holidays applicable before 22 June 1989 is not established in this corpus: the calculator does not serve matters earlier than that date.',
+    errFarFuture: 'This date is more than ten years away: check the year. The computation still works.',
+    errKilometrage: 'The distance must be a whole, positive number of kilometres.',
+    errUnknownEntry: 'This directory entry does not exist.',
+    errUnknownRevision: 'This revision of the entry does not exist. The link may have been edited by hand.',
+    errUnknownCalendar: 'This version of the holiday calendar does not exist.',
+    errUnknownRules: 'This version of the reading rules does not exist.',
+    errUnknownWindows: 'This version of the service windows does not exist.',
+    errOtherIncomplete:
+      'An “other” period needs three things: the number of days, the nature of the period, and the counting rule — clear days or calendar days.',
+    // « Rends-le impossible, pas seulement caché » — voir fr.ts.
+    errRegimeImpose:
+      'The counting rule is not chosen on a directory entry: it comes from the text. Remove that parameter from the address, or pick “Other — enter the number of days”.',
+    errRate: 'Too many computations in a short time — please wait a moment.',
+    errNotReady: 'The deadline calculator is not open yet: its directory has not been loaded into the database.',
+    errRepertoireReserve:
+      'The directory of periods is reserved for account holders. On this page, the computation runs on a number of clear days you enter.',
+    errFrancSeulement:
+      'This page computes clear-day periods only. An ordinary period is computed from the directory, once signed in.',
+
+    bannerRuleChangedTitle: 'The rule has changed since this computation.',
+    bannerRuleChangedBody:
+      'Entry art. {article} moved from revision {de} to revision {vers} on {date}. This result is the one produced by the rule in force at the time of the computation.',
+    bannerRecompute: 'Recompute with the current rule',
+    bannerWithdrawnTitle: 'This entry was withdrawn from the directory on {date}.',
+    bannerWithdrawnReason: 'Reason: {motif}',
+    bannerWithdrawnKept:
+      'This computation is kept exactly as it was produced; the platform no longer offers this entry.',
+
+    searchCorpus: 'Search “{q}” in the corpus',
+    searchCorpusLoginRequired: 'Search the corpus (sign-in required)',
+    openCode: 'Open the text of the Code',
+
+    emptyTitle: 'How this calculator counts',
+    emptyGermeilTitle: 'Worked example — Cass. 1st Section no. 45, 7 July 1965 (Germeil)',
+    emptyGermeilBody:
+      'Service on Thursday 17 May 1962, 30 clear days, 267 km of distance: 267 ÷ 40 = 6 days (the remaining 27 km, being under 30, is not counted). Last usable day: Saturday 23 June 1962 — a Saturday, which is not extended.',
+    emptyGermeilHistorical: 'Historical example: the calculator’s cut-off prevents replaying it in the tool.',
+
+    sourceVerified: 'Verified source',
+    sourceNoText: 'No textual source',
+    skippedNone: 'No day was set aside.',
+    readingsNone: 'No competing reading gives a different date.',
+    certaintySure: 'certain prohibition',
+    certaintyConditional: 'conditional prohibition',
+    entryDurationLabel: 'Duration as written',
+    entryStartLabel: 'Starting point',
+    entrySanctionLabel: 'Sanction',
+    entryOther: 'Other — enter the number of days',
+    entryFilterNone: 'No entry matches this filter.',
+    windowsCivil: 'Civil matters',
+    windowsWork: 'Labour matters',
+    windowsHours: 'from {a}:00 to {b}:00',
+    errWithdrawn:
+      'This entry has been withdrawn from the directory: the platform no longer offers it for a new calculation.',
+    errInvalid: 'This request cannot be read. Please re-enter the details.',
+    errUnreadable:
+      'One of the calculator’s records could not be read. The calculation is refused rather than approximated; please report it to the editors.',
+    toolsTitle: 'Tools',
+    /** Anciennement `heroSubtitle` — voir fr.ts. Texte inchangé : il sert la tuile connectée. */
+    toolsSubtitle:
+      'The date the document was received, the number of clear days it states — and the reasoning behind the date.',
+  },
   brand: { baseline: BRAND.baseline.en },
   nav: {
     features: 'Features',
@@ -639,6 +880,180 @@ export const en: Dictionary = {
     disclaimer: 'Documentary, unofficial information: in case of discrepancy, official publications prevail. Indicative positions are not court addresses.',
     resultsRegion: 'Results and commune record',
     openInMaps: 'Directions (verified address)',
+  },
+  delaisAdmin: {
+    nav: 'Deadline calculator',
+    title: 'Deadline calculator',
+    subtitle:
+      'Directory of periods, holiday calendar and service windows. Add, hide, delete: three verbs, three behaviours.',
+    tabRepertoire: 'Directory',
+    tabCalendrier: 'Holiday calendar',
+    tabFenetres: 'Service windows',
+    schemaMissingTitle: 'The calculator tables do not exist in the database yet.',
+    schemaMissingBody:
+      'The schema is written (models DelaiEntry, DelaiEntryRevision, DelaiFerie, DelaiFenetreSignification) but its migration has not been run: that is a human decision. This screen stays empty until it is.',
+    neverWritten: 'No write was attempted.',
+
+    repertoireTitle: 'Directory of periods',
+    repertoireHint:
+      'One row = one line of one of the three directories. A hidden entry leaves the menu but stays in the database: computations already produced remain readable.',
+    filterCode: 'Code',
+    filterStatut: 'Status',
+    filterAll: 'All',
+    searchPlaceholder: 'Article, subject, slug…',
+    colArticle: 'Article',
+    colObjet: 'Subject',
+    colDuree: 'Duration (verbatim)',
+    colKind: 'Kind',
+    colRegime: 'Regime',
+    colStatut: 'Status',
+    colRevision: 'Rev.',
+    colActions: 'Actions',
+    statutVisible: 'Visible',
+    statutMasque: 'Hidden',
+    statutSupprime: 'Deleted',
+    notCalculable: 'Does not compute',
+    add: 'Add an entry',
+    edit: 'Edit',
+    hide: 'Hide',
+    restore: 'Show again',
+    remove: 'Delete',
+    removeMasterOnly: 'Deletion reserved to the Master Admin',
+    undelete: 'Undo the deletion',
+    undeleteMasterOnly: 'Restoring reserved to the Master Admin',
+    confirmUndeleteTitle: 'Restore this deleted entry',
+    confirmUndeleteNote:
+      'This entry had been withdrawn from the directory. Restoring it puts it back on the public calculator’s menu: say why, and retype the article number.',
+    translationsPendingTitle: 'Translations to proofread',
+    translationsPendingBody:
+      '{n} entries still carry `traductionRelue: false`: on /en and /ht they display in French.',
+    translationsPendingNone: 'Every entry has a proofread translation.',
+    cancel: 'Cancel',
+    save: 'Save',
+    saved: 'Saved ✓',
+    none: 'No entry.',
+    loading: 'Loading…',
+
+    motifLabel: 'Reason',
+    motifHint: 'Shown to users on computations already produced. One sentence, readable by a third party.',
+    confirmDeleteTitle: 'Delete this entry from the directory',
+    confirmDeleteTyped: 'Type the article number to confirm: {valeur}',
+    confirmDeleteNote:
+      'Deletion is never physical: the row stays in the database and computations already produced remain reproducible. The entry leaves the menu, and the calculator refuses any new computation with it.',
+    confirmDeleteKeyTyped: 'Type the key to confirm: {valeur}',
+
+    previewTitle: 'Mandatory preview',
+    previewHint:
+      'What this entry would produce on the example date of Monday 2 March 2026. A computation rule is not published without seeing what it returns.',
+    previewCompute: 'Compute the preview',
+    previewNone: 'No preview computed.',
+    previewImpossible:
+      'The preview could not be computed on the real data — it is NOT computed on anything else.',
+    previewRefusal: 'This entry would refuse to compute',
+    previewIncomplete: 'This entry would ask for one more answer',
+    previewSeen: 'I have read the preview',
+    previewRequired: 'Compute and read the preview before saving.',
+
+    blockingTitle: 'Save refused —',
+    warningsTitle: 'Please read —',
+
+    fieldCode: 'Code',
+    fieldArticle: 'Article',
+    fieldArticleContexte: 'Bearing section (mandatory if the number has a homonym)',
+    fieldArticleOccurrence: 'Rank of the heading in the Code',
+    fieldTableau: 'Table',
+    fieldTableauTitre: 'Title of the original section',
+    fieldOrdre: 'Rank within the table',
+    fieldObjetFr: 'Subject (French)',
+    fieldObjetEn: 'Subject (English)',
+    fieldObjetHt: 'Subject (Creole)',
+    fieldTraductionRelue: 'Translations reviewed',
+    fieldDureeTexte: 'Duration, verbatim from the directory',
+    fieldDureeFondement: 'Article stating the duration, where it is another one',
+    fieldKind: 'Kind',
+    fieldJours: 'Days',
+    fieldNbDistances: 'Distances to enter',
+    fieldDistanceAide: 'Help: the two points to measure',
+    fieldDistanceDouble: 'Help: the double distance',
+    fieldSupplement: 'Follow-up question (JSON, art. 74)',
+    fieldAvisDistance: 'Notice of uncomputed distance',
+    fieldCitationArticle: 'Quotation from the article (mandatory for A5)',
+    fieldRegime: 'Regime',
+    fieldRegimeIncertain: 'Uncertain regime (headline in ordinary days, clear days as a named reading)',
+    fieldRegimeFondement: 'Basis of the regime — never empty',
+    fieldProrogation: 'Extension under art. 991',
+    fieldProrogationFondement: 'Basis of the extension',
+    fieldMotifRefusFr: 'Refusal reason (French)',
+    fieldMotifRefusEn: 'Refusal reason (English)',
+    fieldMotifRefusHt: 'Refusal reason (Creole)',
+    fieldPointDepartFr: 'Starting point (French)',
+    fieldPointDepartEn: 'Starting point (English)',
+    fieldPointDepartHt: 'Starting point (Creole)',
+    fieldSanctionFr: 'Sanction (French)',
+    fieldSanctionEn: 'Sanction (English)',
+    fieldSanctionHt: 'Sanction (Creole)',
+    slugDerived: 'The slug is derived from the article and never changes after creation.',
+
+    calendarTitle: 'Holiday calendar',
+    calendarVersion: 'Version {n}',
+    calendarNewVersionNote:
+      'Every change creates a new calendar version: permalinks pointing at the previous one keep rendering it unchanged.',
+    calendarCorpusNote:
+      'The latest text determining legal holidays is the Decree of 11 December 2024 (Le Moniteur, Special no. 66-A): its article 2 lists eleven of them.',
+    calendarCorpusNoteDetail:
+      'It succeeds the Decree of 23 May 1989, whose seven holidays it carries over, adding four: Lundi Gras (from noon), 14 August, 20 September, 1 November. The corpus also carries 182 indexed holiday orders: those are one-off closures, not determinations of legal holidays.',
+    calendarNoTextNote:
+      'This entry does not extend the headline date: no text in the corpus establishes it. It appears only in the broadest reading.',
+    tablePermanentTitle: 'Permanent days',
+    tablePermanentHeader: 'These days extend the period when the deadline falls on them.',
+    tableWatchTitle: 'Days to watch',
+    tableWatchHeader:
+      'These days do not extend anything. They trigger a warning on the result when the deadline falls on them.',
+    colCle: 'Key',
+    colLibelle: 'Label',
+    colTypeEntree: 'Type',
+    colCategorie: 'Category',
+    colAutorite: 'Authority',
+    colJournee: 'Day',
+    colMobile: 'Movable / fixed',
+    colSource: 'Source',
+    colAppliqueDepuis: 'Applies since',
+    colObservationsN: 'Orders counted',
+    colObservationsTexte: 'Observations text',
+    colObservationsBorne: 'Index cut-off',
+    colRecherche: 'Corpus query',
+    fieldMobile: 'Movable feast (Easter offset)',
+    fieldOffsetPaques: 'Offset from Easter',
+    fieldMois: 'Month',
+    fieldJour: 'Day',
+    fieldSource: 'Source — never empty',
+    fieldSourceDocId: 'Corpus document (identifier)',
+    fieldAppliqueDepuis: 'Applies since (YYYY-MM-DD)',
+    fieldObservationsN: 'Number of orders counted',
+    observationsCountHint: 'This number must be recounted on the corpus, not estimated.',
+    fieldObservationsTexte: 'Observations text (reused in the warning)',
+    fieldObservationsBorne: 'Cut-off of the Moniteur Index',
+    fieldRecherche: 'Query to pass to search',
+    switchToPermanentWarning:
+      'Making a merely watched day extend periods requires a text loaded into the corpus and an authority other than “observation”.',
+    journeeEntiere: 'Whole day',
+    journeeApresMidi: 'Half day (afternoon)',
+    mobileOui: 'Movable',
+    mobileNon: 'Fixed',
+
+    windowsTitle: 'Service windows',
+    windowsNote:
+      'These values are the ones the codes write. Change them only on an amending text, updating the source in the same record.',
+    colMatiere: 'Matter',
+    colHeureDebut: 'From',
+    colHeureFin: 'To',
+    colNullite: 'Nullity',
+    windowsVersion: 'Version {n}',
+    matiereCIVILE: 'Civil',
+    matiereTRAVAIL: 'Labour',
+
+    historyTitle: 'Change history',
+    historyEmpty: 'No entry.',
   },
   juridictions: { CASSATION: 'Cassation', APPEL: 'Appeal', PREMIERE_INSTANCE: 'First instance' },
   alerts: {

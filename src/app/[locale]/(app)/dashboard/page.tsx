@@ -98,6 +98,24 @@ export default async function DashboardPage({ params }: { params: { locale: stri
         />
       </section>
 
+      {/* Outils — hors des tuiles de corpus : `User.sectionOrder` / `orderTypes` ne
+          concernent que les TYPES de documents, et le calculateur n'en est pas un (§ 6.4). */}
+      <section>
+        <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-ank/80">{t.delais.toolsTitle}</h2>
+        <Link
+          href={`/${locale}/outils/delais`}
+          className="flex items-start gap-3 rounded-xl border border-chabon/10 bg-white px-4 py-3 transition hover:border-chabon"
+        >
+          <span className="mt-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-grafit">DÉL</span>
+          <span className="min-w-0">
+            <span className="block text-sm font-medium text-ank">{t.delais.navLabel}</span>
+            {/* Anciennement `heroSubtitle` : le héros a perdu son sous-titre le 20 août 2026,
+                la tuile garde la phrase — d'où la clé renommée. */}
+            <span className="mt-0.5 block text-xs leading-relaxed text-ank/80">{t.delais.toolsSubtitle}</span>
+          </span>
+        </Link>
+      </section>
+
       {/* Nouveauté — données importées ces 15 derniers jours */}
       {newCount > 0 && (
         <section>

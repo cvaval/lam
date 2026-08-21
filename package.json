@@ -12,6 +12,7 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:tz": "TZ=Pacific/Kiritimati vitest run && TZ=Pacific/Midway vitest run && TZ=America/Port-au-Prince vitest run",
     "test:2fa": "tsx scripts/smoke-2fa.ts",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",

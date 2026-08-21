@@ -863,3 +863,220 @@ model DecisionJudge {
   @@unique([documentId, judgeId])
   @@index([judgeId])
 }
+
+// ===========================================================================
+// CALCULATEUR DE DÉLAIS (§ 5.1 du cahier des charges du 19 août 2026)
+//
+// ⚠️ Le passage de ces modèles en production est une DÉCISION HUMAINE. La migration est
+// écrite et montrée ; elle n'est PAS appliquée. Aucun `prisma db push`, aucun
+// `migrate deploy` contre la base de production sans instruction explicite.
+// ===========================================================================
+
+/// Entrée du répertoire des délais — alimente le menu déroulant du calculateur.
+/// Donnée éditoriale, distincte des Document. Une ligne = une ligne d'un des trois
+/// répertoires fournis par la rédaction (393 lignes : 232 C. pr. civ., 114 C. civ., 47 C. trav.).
+/// 123 produisent une date ; 270 un refus motivé.
+model DelaiEntry {
+  id                   String    @id @default(cuid())
+  /// RÈGLE OBLIGATOIRE au § 5.2 bis. Gravé dans chaque permalien : il ne change JAMAIS
+  /// après création. Ex. « cpc-354-appel-parties-demeurant-hors-haiti ».
+  slug                 String    @unique
+  /// CPC | TRAVAIL | CIVIL
+  code                 String
+  /// TRANCHÉ (défaut 16 c du cahier de recette) : le LIBELLÉ LONG — « Code de procédure
+  /// civile », « Code du travail », « Code civil ». C'est un libellé, pas une référence :
+  /// il titre l'entrée à l'écran. L'ABRÉVIATION (« C. pr. civ. ») ne se stocke pas, elle se
+  /// dérive de `code` par `ABREGE_CODE` — la garder aussi en base ferait DEUX vérités pour
+  /// une seule donnée. La graine écrivait `l.abbr` alors que ce commentaire disait l'inverse
+  /// et que les fixtures du back-office portaient le libellé long : c'est ce désaccord-là
+  /// qui est tranché ici.
+  codeLibelle          String
+  /// « 354 », « 10-2° », « Art. 229 (L. 5 mai 1949) »
+  article              String
+  /// § 4.5 bis — rang de l'en-tête « Article N. » dans le corps du Code (1 = le premier).
+  /// Le Code du travail porte 207 numéros en DOUBLE : l'édition annotée y reproduit des lois
+  /// connexes qui ont leur propre numérotation. `art-172` y désigne TROIS articles.
+  articleOccurrence    Int       @default(1)
+  /// § 4.5 bis — en-tête de section porteur, VERBATIM. OBLIGATOIRE si le numéro a un homonyme :
+  /// devient l'ancre et le libellé. Une référence « C. trav., art. 172 » nue est ambiguë.
+  articleContexte      String?
+  /// Rang DANS le tableau ; dérivé (§ 5.2 ter).
+  ordre                Int       @default(0)
+  /// Regroupement du répertoire d'origine ; DÉRIVÉ des trois sources (§ 5.2 ter).
+  tableau              Int
+  /// Titre de la section d'origine (CIVIL/TRAVAIL) ; null pour le C. pr. civ., dont les
+  /// 10 tableaux ne sont que numérotés — n'en invente pas.
+  tableauTitreFr       String?
+  objetFr              String
+  objetEn              String
+  objetHt              String
+  /// false → l'interface retombe sur le français. ~780 libellés juridiques ne sont pas relus.
+  traductionRelue      Boolean   @default(false)
+  /// MOT À MOT du répertoire : « 30 jours francs + délais de l'art. 74 ». Jamais traduit.
+  dureeTexte           String
+  /// § 4.5 — RENSEIGNÉ SEULEMENT quand l'article ne chiffre PAS lui-même sa durée : il dit
+  /// alors quel article l'énonce, et le cite. L'art. 356 ne fixe que le point de départ de
+  /// l'appel ; ses trente jours sont ceux de l'art. 354 (défaut 3). Affiché à l'étape de la
+  /// durée : sans lui, la page attribuait trente jours à un article qui n'en porte aucun.
+  dureeFondementFr     String?
+  /// JOURS | JOURS_PLUS_DISTANCE_KM | JOURS_DISTANCE_NON_CHIFFREE | HEURES | MOIS | ANNEES | INDETERMINE
+  kind                 String
+  /// Seulement si `kind` commence par JOURS ; 0 admis si `supplementJson` obligatoire.
+  jours                Int?
+  /// Nombre de kilométrages à saisir : 2 pour les art. 517 et 586 (§ 2.12).
+  nbDistances          Int       @default(0)
+  /// Aide propre à l'article, si DEUX distances (art. 517, 586).
+  distanceDoubleFr     String?
+  /// Les deux points à mesurer (art. 424, 425…).
+  distanceAideFr       String?
+  /// Question de suite (art. 74) — § 4.5. Trois réponses, pas une.
+  supplementJson       String?
+  /// A5 | A5_BIS — l'augmentation que la plateforme NE CALCULE PAS (§ 4.9).
+  avisDistance         String?
+  /// § 4.9 — la PHRASE DE L'ARTICLE qui fonde A5, relue en base. Le gabarit impose
+  /// « un jour par cinq lieues ([citation de l'article]) » : sans elle, la plateforme
+  /// affirmait une règle en lieues sans produire le texte qui la fonde (défaut 9). Le seed
+  /// refuse `--apply` si une entrée A5 n'a pas de citation contenant « lieue ».
+  citationArticle      String?
+  /// § 4.5 — trace de la surcharge de l'article 74 réellement appliquée à cette ligne
+  /// (6 lignes sur 393). Écrite pour que le compte rendu de la graine soit rejouable et que
+  /// l'écran d'édition sache POURQUOI une ligne « indéterminée » du répertoire porte un
+  /// nombre de jours (défaut 14 b).
+  surchargeAppliquee   String?
+  /// FRANC | ORDINAIRE | A_VERIFIER — les TROIS valeurs du catalogue (§ 4.7).
+  /// Interdit absolu : convertir A_VERIFIER en silence.
+  regime               String
+  /// true → tête d'affiche en ORDINAIRE + lecture nommée FRANC. Porté par les 6 délais
+  /// douteux du Code du travail ET par toute entrée CIVIL/FRANC sans citation d'article.
+  regimeIncertain      Boolean   @default(false)
+  /// JAMAIS VIDE. Pour tout CIVIL/FRANC : la PHRASE DE L'ARTICLE, citée — pas une formule
+  /// sur l'article (§ 4.7, garde-fou 1 corrigé).
+  regimeFondement      String
+  /// OUI | NON | INCERTAIN
+  prorogation991       String
+  prorogationFondement String
+  /// OBLIGATOIRE dès que `kind` ne calcule pas.
+  motifRefusFr         String?
+  motifRefusEn         String?
+  motifRefusHt         String?
+  /// Devient le LIBELLÉ du champ date : 162 libellés distincts pour le seul C. pr. civ.
+  pointDepartFr        String
+  pointDepartEn        String
+  pointDepartHt        String
+  sanctionFr           String?
+  sanctionEn           String?
+  sanctionHt           String?
+  /// visible | masque | supprime — la suppression n'est JAMAIS physique (§ 7.3).
+  statut               String    @default("visible")
+  /// OBLIGATOIRE quand statut ≠ visible ; affiché aux utilisateurs sur les permaliens.
+  masqueMotif          String?
+  masqueAt             DateTime?
+  /// Incrémentée à CHAQUE modification de fond. Masquer n'en est PAS une.
+  revision             Int       @default(1)
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  revisions DelaiEntryRevision[]
+
+  @@index([statut])
+  @@index([code, tableau, ordre])
+  @@index([article])
+}
+
+/// Copie GELÉE d'une entrée à chaque révision. Sans elle, un calcul imprimé, cité dans une
+/// écriture ou envoyé par courriel ne serait plus reproductible après la moindre édition
+/// du répertoire. Table en AJOUT SEUL : jamais de update, jamais de delete.
+model DelaiEntryRevision {
+  id          String     @id @default(cuid())
+  entryId     String
+  entry       DelaiEntry @relation(fields: [entryId], references: [id])
+  revision    Int
+  /// L'entrée entière, telle qu'elle était.
+  payloadJson String
+  actorId     String?
+  createdAt   DateTime   @default(now())
+
+  @@unique([entryId, revision])
+}
+
+/// Une entrée du calendrier de computation, avec SA SOURCE. DEUX types d'entrée, et ils ne
+/// font pas la même chose : PERMANENT proroge, A_SURVEILLER n'a AUCUN effet sur le calcul et
+/// ne produit qu'un avertissement (§ 4.13). Le champ `typeEntree` est le verrou de cette
+/// distinction : il n'y a pas d'autre façon de savoir, en lisant une ligne, si elle proroge.
+/// `versionCalendrier` fige un jeu complet : un permalien pointe une version, jamais « le
+/// calendrier courant » — sinon une édition du calendrier changerait rétroactivement un
+/// calcul déjà rendu et déjà cité.
+model DelaiFerie {
+  id                  String   @id @default(cuid())
+  versionCalendrier   Int
+  /// « mardi-gras », « 17-octobre », « mercredi-des-cendres »
+  cle                 String
+  /// PERMANENT | A_SURVEILLER — § 4.13
+  typeEntree          String   @default("PERMANENT")
+  libelleFr           String
+  libelleEn           String
+  libelleHt           String
+  /// FETE_LEGALE | FETE_NATIONALE | CHOMAGE_PAR_ARRETE
+  categorie           String
+  /// TEXTE | REDACTION | OBSERVATION
+  autorite            String
+  /// JOURNEE_ENTIERE | DEMI_JOURNEE_APRES_MIDI — ne change PAS le calcul en v1 (§ 4.10).
+  journee             String   @default("JOURNEE_ENTIERE")
+  noteJourneeFr       String?
+  noteJourneeEn       String?
+  noteJourneeHt       String?
+  /// false → l'affichage retombe sur le français. Les textes d'avertissement (A6) ne sont
+  /// PAS relus en anglais ni en créole : mieux vaut une phrase lisible qu'une traduction
+  /// que personne n'a relue.
+  traductionRelue     Boolean  @default(false)
+  mobile              Boolean  @default(false)
+  /// Si mobile : -48, -47, -46, -3, -2, +39, +60. Aucun autre décalage n'est admis.
+  offsetPaques        Int?
+  mois                Int?
+  jour                Int?
+  /// JAMAIS VIDE. C'est la règle qui empêche que la liste redevienne une opinion.
+  source              String
+  sourceDocId         String?
+  /// « 1989-06-22 » (CivilDate ISO, jamais un DateTime : le fuseau tuerait la borne).
+  appliqueDepuis      String
+  // --- réservé aux entrées A_SURVEILLER (§ 4.13) ; NULL et interdits sur PERMANENT ---
+  /// Nb d'arrêtés relevés au corpus, RECOMPTÉ, jamais arrondi.
+  observationsN       Int?
+  observationsTexteFr String?
+  observationsTexteEn String?
+  observationsTexteHt String?
+  /// « l'Index du Moniteur s'arrête au 20 juin 2023 » — sans cette phrase, un écran qui ne
+  /// trouve rien laisse croire qu'il n'y a rien.
+  observationsBorneFr String?
+  observationsBorneEn String?
+  observationsBorneHt String?
+  /// Requête passée à /search depuis l'avertissement, ex. « carnaval ».
+  rechercheCorpusQ    String?
+  createdAt           DateTime @default(now())
+
+  @@unique([versionCalendrier, cle])
+  @@index([versionCalendrier])
+  @@index([versionCalendrier, typeEntree])
+}
+
+/// Fenêtre horaire pendant laquelle une signification ou une exécution peut être faite.
+/// Elle NE BORNE PAS le délai, qui se compte en jours entiers et ignore les heures.
+/// Versionnée comme le calendrier, pour la même raison : un permalien doit rendre à
+/// l'identique la phrase qu'il a rendue.
+model DelaiFenetreSignification {
+  id              String   @id @default(cuid())
+  versionFenetres Int
+  /// CIVILE | TRAVAIL
+  matiere         String
+  heureDebut      Int
+  heureFin        Int
+  /// « C. pr. civ., art. 991 » / « C. trav., art. 512 »
+  source          String
+  sourceDocId     String?
+  /// true pour le travail : la sanction y est expresse.
+  nullite         Boolean  @default(false)
+  nulliteTexteFr  String?
+  createdAt       DateTime @default(now())
+
+  @@unique([versionFenetres, matiere])
+}
