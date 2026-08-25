@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import type { Locale } from '@/lib/types'
 import {
-  SOLUTIONS, TRAITEMENTS, PORTEES, GLYPHE_TRAITEMENT, GLYPHE_PORTEE,
+  SOLUTIONS, LIBELLE_SOLUTION, TRAITEMENTS, PORTEES, GLYPHE_TRAITEMENT, GLYPHE_PORTEE,
   type Solution, type Traitement, type Portee,
 } from '@/lib/jurisprudence/constants'
 
@@ -203,10 +203,10 @@ export function JurisprudenceEditor({ locale }: { locale: Locale }) {
               <div className="sm:col-span-2 lg:col-span-4"><label className={etiq}>Décision attaquée</label><textarea value={l.decisionAttaquee} onChange={(e) => maj(i, 'decisionAttaquee', e.target.value)} rows={2} className={`${champ} py-2`} /></div>
               <div className="sm:col-span-2 lg:col-span-3"><label className={etiq}>Dispositif (littéral)</label><input value={l.dispositif} onChange={(e) => maj(i, 'dispositif', e.target.value)} className={champ} /></div>
               <div>
-                <label className={etiq}>Issue</label>
+                <label className={etiq}>Sens de l’arrêt</label>
                 <select value={l.solution} onChange={(e) => maj(i, 'solution', e.target.value)} className={champ}>
-                  <option value="">— non déterminée —</option>
-                  {SOLUTIONS.map((s) => <option key={s} value={s}>{s.replace(/_/g, ' ').toLowerCase()}</option>)}
+                  <option value="">— non déterminé —</option>
+                  {SOLUTIONS.map((s) => <option key={s} value={s}>{LIBELLE_SOLUTION[s]}</option>)}
                 </select>
               </div>
               <div className="sm:col-span-2 lg:col-span-4"><label className={etiq}>Résumé</label><textarea value={l.resume} onChange={(e) => maj(i, 'resume', e.target.value)} rows={4} className={`${champ} py-2`} /></div>
