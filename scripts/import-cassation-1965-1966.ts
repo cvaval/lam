@@ -94,8 +94,13 @@ const CIVILITE = /^(?:les?\s+|la\s+|l'|du\s+|des\s+|de\s+la\s+|de\s+l'|de\s+|d')
 function nom(s: string): string {
   let t = s
     .replace(/\s+/g, ' ')
-    // Deux-points ou « Attendu » : le nom est fini, la prose de l'arrêt commence.
-    .split(/\s*:\s*|\s+Attendu\b/i)[0]
+    // ⚠️ UN NOM DE PARTIE NE PORTE NI VERBE CONJUGUÉ NI DATE. Deux-points, « Attendu »,
+    // mais aussi « fut », « est », « sera » : au-delà, c'est la prose de l'arrêt. Sans cette
+    // coupe, deux intitulés sur 82 sortaient ainsi — « Pourvoi de sieur Euluptio DENIS fut
+    // cassé », « … c. tiré est bien du 26 Avril 1961 et non du 26 Avril 1962 » — et se
+    // seraient cités tels quels.
+    .split(/\s*:\s*|\s+(?:Attendu|fut|est|sont|sera|[ée]tait|ont|avait|n'est|a\s+[ée]t[ée])\b/i)[0]
+    .split(/\s+(?:du|le|en)\s+\d{1,2}\s+[A-Za-zéûôà]+\s+\d{4}/i)[0]
     .replace(/,?\s*(?:Soci[ée]t[ée]|S\.?A\.?|demand|d[ée]fend|patent|[ée]tabli|domicili|repr[ée]sent|agissant|propri[ée]taire|commer[çc]ant|n[ée]gociant|en\s+sa\s+qualit[ée]).*$/i, '')
   // Parenthèse ouverte non refermée : la fenêtre a coupé le nom, on rend ce qui précède.
   if ((t.match(/\(/g) ?? []).length > (t.match(/\)/g) ?? []).length) t = t.slice(0, t.lastIndexOf('('))

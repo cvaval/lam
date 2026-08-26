@@ -284,7 +284,17 @@ function motifExclusion(entry: string, exclusionsCli: string[]): string | null {
 
 let EXCLUSIONS_CLI: string[] = []
 
-/** Lit les PDF posés DIRECTEMENT dans un dossier (nommés « AAAAMMJJ No N.pdf »). */
+/**
+ * Lit les PDF posés DIRECTEMENT dans un dossier.
+ *
+ * ⚠️ DEUX CONVENTIONS DE NOM COHABITENT, ET IL FAUT LES DEUX. L'archive nomme
+ * « 19870216 No 14.pdf » — la date en préfixe AAAAMMJJ. Les livraisons de la cliente
+ * nomment « Le Moniteur Spécial No.39 Jeudi 13 Août 2026.pdf » — la date en toutes
+ * lettres. Le lecteur de SOUS-dossiers savait lire la seconde ; celui-ci, non : quatre
+ * éditions spéciales d'août 2026 posées à plat étaient refusées d'un « fichier daté non
+ * reconnu », alors que les mêmes noms, rangés dans un sous-dossier, passaient sans un mot.
+ * On tente donc le préfixe, puis le mois écrit.
+ */
 function collectFlat(byKey: Map<string, Edition>, dossier: string): number {
   let lus = 0
   for (const entry of readdirSync(dossier)) {
@@ -297,12 +307,19 @@ function collectFlat(byKey: Map<string, Edition>, dossier: string): number {
       continue
     }
     const parsed = parseEditionName(entry)
+    // Préfixe AAAAMMJJ (archive) d'abord ; à défaut, le mois écrit (livraison).
     const dt = dateFromName(entry)
-    if (!parsed || !dt) {
+    const moisEcrit = dt ? null : monthFromName(entry)
+    if (!parsed || (!dt && moisEcrit == null)) {
       console.warn(`⚠ fichier daté non reconnu : ${entry}`)
       continue
     }
-    addEdition(byKey, { ...parsed, monthIdx: dt.monthIdx, day: dt.day, files: [realpathSync(entryPath)] })
+    addEdition(byKey, {
+      ...parsed,
+      monthIdx: dt ? dt.monthIdx : moisEcrit!,
+      day: dt ? dt.day : dayFromName(entry),
+      files: [realpathSync(entryPath)],
+    })
     lus++
   }
   return lus

@@ -1,8 +1,8 @@
 /**
- * Rend son suffixe à chaque fascicule de 2025 écrasé sur la référence de son voisin.
+ * Rend son suffixe à chaque fascicule écrasé sur la référence de son voisin.
  *
- *   npx tsx scripts/reparer-suffixes-2025.ts            (à blanc)
- *   npx tsx scripts/reparer-suffixes-2025.ts --commit   (écrit)
+ *   npx tsx scripts/reparer-suffixes.ts --year 2026            (à blanc)
+ *   npx tsx scripts/reparer-suffixes.ts --year 2026 --commit   (écrit)
  *
  * ⚠️ CE NE SONT PAS DES DOUBLONS. `LM2025-147` porte SEPT fascicules distincts — les n° 147,
  * 147-A à 147-F —, tous catalogués sous la même référence et sous le même intitulé
@@ -21,7 +21,12 @@
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
-const SOURCE = 'MONITEUR_PDF_2025'
+
+// ⚠️ LE DÉFAUT N'EST PAS PROPRE À 2025. Toute année versée AVANT le correctif `04fd98f`
+// porte des références sans suffixe ; 2026 en garde 73 collées (SP3A) contre 34 à tiret,
+// et c'est cette cohabitation qui a fait recréer 73 éditions spéciales en double le 17 août.
+const YEAR = process.argv.includes('--year') ? Number(process.argv[process.argv.indexOf('--year') + 1]) : 2025
+const SOURCE = `MONITEUR_PDF_${YEAR}`
 
 /** « Le Moniteur No.147-D Novembre 2025.pdf » → « 147-D ». */
 function numeroDuFichier(nom: string): { num: number; suffixe: string } | null {
@@ -43,17 +48,24 @@ async function main() {
 
   for (const d of docs) {
     const m = /Fichier\s*:\s*(.+?)\]/.exec(d.bodyOriginal ?? '')
-    if (!m) continue
-    const nom = m[1].split(' ; ')[0].trim()
-    const lu = numeroDuFichier(nom)
+    // ⚠️ À DÉFAUT DE NOM DE FICHIER, LA RÉFÉRENCE ELLE-MÊME. Les fascicules océrisés par IA
+    // ont vu leur corps ENTIÈREMENT réécrit par `ocr-fascicules.ts` : l'en-tête de provenance
+    // a disparu avec le reste, et huit références de 2025 restaient donc collées faute de
+    // source à relire. « LM2025-SP1A » dit pourtant sans ambiguïté « n° 1, suffixe A ».
+    const lu = m
+      ? numeroDuFichier(m[1].split(' ; ')[0].trim())
+      : (() => {
+          const r = /^LM\d{4}-(?:SP)?(\d+)([A-Z])$/.exec(d.number ?? '')
+          return r ? { num: Number(r[1]), suffixe: r[2] } : null
+        })()
     if (!lu) {
-      illisibles.push(nom)
+      if (m) illisibles.push(m[1].split(' ; ')[0].trim())
       continue
     }
     if (!lu.suffixe) continue // pas de suffixe à rendre
 
     const speciale = d.editionType === 'SPECIALE'
-    const attendu = `LM2025-${speciale ? 'SP' : ''}${lu.num}-${lu.suffixe}`
+    const attendu = `LM${YEAR}-${speciale ? 'SP' : ''}${lu.num}-${lu.suffixe}`
     if (d.number === attendu) continue
 
     // L'intitulé et la référence Moniteur portent le numéro : ils suivent.
@@ -68,7 +80,7 @@ async function main() {
     corrections.push({ id: d.id, de: d.number!, vers: attendu, titre, ref })
   }
 
-  console.log(`${docs.length} fiches 2025 examinées · ${corrections.length} à corriger`)
+  console.log(`${docs.length} fiches ${YEAR} examinées · ${corrections.length} à corriger`)
   if (illisibles.length) console.log(`⚠ ${illisibles.length} nom(s) de fichier illisible(s) : ${illisibles.slice(0, 3).join(', ')}`)
 
   // ⚠️ CONTRÔLE AVANT ÉCRITURE : la correction ne doit pas créer une NOUVELLE collision.
