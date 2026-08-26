@@ -247,7 +247,13 @@ model Document {
   // ── JURISPRUDENCE — toutes NULLABLES : migration purement additive ──
   chambre          String? // « Première Section », « 2e Chambre »… vide hors Cassation
   decisionAttaquee String? // arrêt ou jugement frappé de pourvoi, texte du recueil
-  solution         String? // REJET | CASSATION_AVEC_RENVOI | CASSATION_SANS_RENVOI | DECHEANCE | IRRECEVABILITE
+  // SENS DE L'ARRÊT — « qu'a fait la Cour ? », et non « comment le pourvoi a-t-il fini ? » :
+  // beaucoup d'arrêts ne tranchent aucun pourvoi (prise à partie, dessaisissement) ou n'en
+  // sont qu'à une étape (avant dire droit). La clé reste `solution`, terme des recueils ;
+  // le libellé affiché vit dans LIBELLE_SOLUTION (lib/jurisprudence/constants).
+  // REJET | CASSATION_AVEC_RENVOI | CASSATION_SANS_RENVOI | DECHEANCE | IRRECEVABILITE
+  // | NULLITE | NON_ADMISSION | NON_LIEU_A_STATUER | AVANT_DIRE_DROIT | RENVOI_JURIDICTION
+  solution         String?
   dispositif       String? // libellé LITTÉRAL de la solution, reproduit du recueil
   recueilRef       String? // « Cass. 1re Sect. — exercice 1964-1965 » : regroupe un volume
   exerciceDebut    Int? // un exercice judiciaire couvre DEUX millésimes : 1964…
