@@ -1,0 +1,307 @@
+{
+  "_lisezMoi": "Reprise des articles 128 et 149 du Décret du 29 septembre 2005 relatif à l’Impôt sur le Revenu (cms43ptub00008lo8tv3y25kk). Le passage du 25 août 2026 à 11 h 04 avait laissé au corps trois blocs d’appareil, au motif qu’aucune pièce ne bornait les articles au-delà de l’article 126. Le présent fichier reprend la question sur pièces et prépare le retrait. Il ne contient aucune écriture : c’est une préparation, à exécuter par le script d’import, lancé par Me Vaval.",
+  "produit_le": "2026-08-25T07:41:36-04:00",
+  "document": "cms43ptub00008lo8tv3y25kk",
+  "aucune_ecriture_en_base": true,
+  "corps": {
+    "avant": {
+      "lignes": 743,
+      "caracteres": 160940,
+      "md5": "da6b03f3df2032c1dc265ae0cca79315",
+      "etat": "corps en production après le passage du 25 août 2026 à 11 h 04"
+    },
+    "apres": {
+      "lignes": 733,
+      "caracteres": 159592,
+      "md5": "aa95ab719ff0217ae77f65d63bc8fe79"
+    },
+    "garde": "Les numéros de ligne ci-dessous se rapportent au corps d’empreinte md5 da6b03f3df2032c1dc265ae0cca79315. Si le corps en base porte une autre empreinte, les numéros ne désignent plus les mêmes lignes et le retrait doit être recalculé, jamais appliqué tel quel."
+  },
+  "pieces": {
+    "transcription_2020": {
+      "chemin": "/Users/cvaval/Library/CloudStorage/Dropbox/Lam Veritab/lam-veritab/scripts/data/decret-ir-2005/piece-transcription-2020-191-articles.txt",
+      "role": "transcription complète du texte de 2005, 191 articles ; seul témoin du texte d’origine au-delà de l’article 126",
+      "autorite": "provenance inconnue ; calibrée contre le Journal officiel sur les 128 articles communs — médiane de similarité 0,9752, 127 articles sur 128 au-dessus de 0,90 (confrontation-191.json)"
+    },
+    "loi_de_finances_2010_2011": {
+      "document": "cmqcmxq0k00081342ebse7j3d",
+      "designation": "Loi de finances de l’exercice 2010-2011 (LF2010-2011), Moniteur Spécial n° 1 du vendredi 14 janvier 2011",
+      "role": "texte source de l’encadré « Budget 2010-2011 » — au corpus, consultable"
+    },
+    "loi_sfd_1982": {
+      "document": "cmrtiwjvz000due7e312y6gnd",
+      "designation": "Loi du 30 août 1982 sur les sociétés financières de développement",
+      "role": "texte source de la phrase « Les apports de tous actionnaires… » — au corpus, consultable"
+    },
+    "decret_bel_1984": {
+      "document": "cmrtiwiwm000cue7emgzq074p",
+      "designation": "Décret du 4 juillet 1984 organisant les Banques d’Épargne et de Logement",
+      "role": "l’un des deux textes que la note N.B. de l’article 149 décrit (son article 35)"
+    },
+    "loi_banques_2012": {
+      "document": "cms18kwzl0002pt2kbk9kv39y",
+      "designation": "Loi du 14 mai 2012 sur les banques et autres institutions financières",
+      "role": "l’autre texte que la note N.B. décrit (son article 185) — postérieur de sept ans au décret"
+    }
+  },
+  "methode": {
+    "unite": "le mot",
+    "algorithme": "difflib.SequenceMatcher(None, A, B, autojunk=False)",
+    "normalisation": "apostrophes unifiées, accents retirés, casse repliée ; la ponctuation n’entre pas dans les mots",
+    "comparaison": "l’article entier contre l’article entier, jamais un préfixe",
+    "retrait": "UNION DE NUMÉROS DE LIGNE. Aucune recherche-remplacement : le filet de cadre et le marqueur « → » paraissent ailleurs au corps."
+  },
+  "preuve": [
+    {
+      "article": "128",
+      "confrontation": {
+        "corps": {
+          "mots": 505,
+          "lignes": "520-537"
+        },
+        "transcription_2020": {
+          "mots": 326,
+          "lignes": "713-722"
+        },
+        "similarite": 0.775,
+        "ecarts_hors_bloc": [
+          "les lettres d’énumération a) à h), que la transcription ne porte pas",
+          "« versement » / « versements »",
+          "« reconnus » / « reconnues », « immatriculés » / « immatriculées »",
+          "« (DGI) » ajouté par la transcription — sigle qu’elle développe 93 fois là où le Journal officiel ne le fait jamais"
+        ],
+        "ecart_de_fond": "un seul segment, continu, de 172 mots : de « → Les apports de tous actionnaires » jusqu’à la fin de l’article. Les deux textes s’achèvent au même endroit, « … le cas échéant. »"
+      },
+      "blocs": [
+        {
+          "id": "lf-sfd-128",
+          "lignes": [
+            529,
+            530
+          ],
+          "ce_que_porte_le_corps": "→ Les apports de tous actionnaires ou obligataires dans la Société financière de développement seront déductibles du montant de\nleurs revenus imposables pendant cinq ans à compter de la date du versement y relatif. (Article 23 de la Loi du 30 août 1982 sur les SFD), ------------------------------------------------------------------------------- ’",
+          "ce_que_porte_la_transcription": "rien : l’article 128 s’achève à « … le cas échéant. »",
+          "hypothese_a_ecarter": "alinéa inséré par une loi de finances postérieure, donc droit en vigueur",
+          "discrimination": [
+            "La source que l’éditeur indique lui-même, la Loi du 30 août 1982, est ANTÉRIEURE de vingt-trois ans au décret : aucun texte postérieur ne peut avoir inséré une disposition de 1982 dans un décret de 2005.",
+            "Cette loi figure au corpus (cmrtiwjvz000due7e312y6gnd) et son article 23 se lit : « Les actions seront exonérées du droit de timbre et de la taxe sur action. Les apports de tous actionnaires et obligataires seront déductibles du montant imposable de leurs revenus pendant cinq ans à compter de la date du versement y relatif. ». La phrase du corps n’en est pas la reprise exacte — similarité de 0,83 au mot : « ou » pour « et », six mots ajoutés (« dans la Société financière de développement »), « du montant de leurs revenus imposables » pour « du montant imposable de leurs revenus ». C’est une citation retravaillée, non un dispositif.",
+            "Le bloc se termine par un filet de tirets, dispositif d’imprimerie du livre, non de l’acte.",
+            "Il se distingue des deux alinéas de consolidation laissés au corps aux articles 19 et 29 : ceux-là ne portent aucun numéro d’article, modifient l’article qui les héberge et sont donnés comme venant d’une loi de finances POSTÉRIEURE. Celui-ci désigne l’article d’une autre loi, plus ancienne que son hôte."
+          ],
+          "conclusion": "PROUVÉ — appareil de l’édition Paillant. Le bloc sort du dispositif et va en commentaires."
+        },
+        {
+          "id": "budget-128 (avec filet-4, porté par la ligne 530)",
+          "lignes": [
+            531,
+            532,
+            533,
+            534,
+            535,
+            536,
+            537
+          ],
+          "ce_que_porte_le_corps": "Budget 2010-2011\n(Moniteur Spécial #1 du 14 janvier 2011)\nDans le but de faciliter la reconstruction des immeubles détruits par le séisme du 12 Janvier 2010 et de permettre à la population de se reloger, des mesures d’allègement fiscaux sont adoptées. Elles concernent :\n- Les dons faits au cours des exercices 2009 - 2010 et 2010 - 2011 aux fondations, institutions de charité, aux organismes de secours, à toutes les institutions à portée sociale, éducative et sanitaire, reconnus et immatriculés à la Direction Générale des Impôts,\nqui sont déductibles jusqu’à concurrence de 40% du revenu brut\nimposable après les déductions mentionnées aux alinéas a, b, c,\nd, e, f et g de l’article 128 du Décret du 29 Septembre 2005 sur l’impôt sur le Revenu.",
+          "ce_que_porte_la_transcription": "rien",
+          "hypothese_a_ecarter": "alinéa inséré par la loi de finances 2010-2011, donc droit en vigueur — l’hypothèse était sérieuse : le texte reproduit EXISTE et il est postérieur au décret",
+          "discrimination": [
+            "Le texte reproduit est l’article 2, vi) de la Loi de finances de l’exercice 2010-2011, qui figure au corpus (cmqcmxq0k00081342ebse7j3d) : « Article 2.- Les mesures d'allégement fiscal et douanier suivantes sont adoptées durant l'exercice 2010-2011 : » puis « vi. Les dons faits au cours des exercices fiscaux 2009-2010 et 2010-2011 aux fondations, institutions de charité, organismes de secours, institutions à portée sociale, éducative et sanitaire, reconnus et immatriculés à la Direction Générale des Impôts au 30 septembre 2010, sont déductibles jusqu'à concurrence de 40% du revenu brut imposable après les déductions mentionnées aux alinéas a, b, c, d, e, f et g, le cas échéant, de l'article 128 du Décret du 29 septembre 2005 portant sur l'impôt sur le Revenu. ».",
+            "Cette loi ne modifie pas l’article 128 : elle le cite de l’extérieur, sous le titre entier de son décret (« de l’article 128 du Décret du 29 septembre 2005 portant sur l’impôt sur le Revenu »), pour désigner la base de calcul. Un texte qui amende un article écrit DANS l’article ; celui-ci le nomme.",
+            "La mesure est bornée à un exercice : « adoptées durant l’exercice 2010-2011 », « les dons faits au cours des exercices fiscaux 2009-2010 et 2010-2011 ».",
+            "La phrase d’introduction de l’encadré — « Dans le but de faciliter la reconstruction des immeubles détruits par le séisme du 12 Janvier 2010 … Elles concernent : », trente mots — ne figure NULLE PART dans la loi de finances : « reconstruction des immeubles » 0 occurrence, « se reloger » 0, « allègement fiscaux » 0, « Elles concernent » 0. Elle est de l’éditeur.",
+            "La reproduction est de surcroît incomplète : la loi réserve la déduction aux institutions immatriculées « au 30 septembre 2010 » et l’encadré laisse tomber cette condition ; il déplace aussi « le cas échéant ». Laisser l’encadré au dispositif reviendrait à présenter comme la loi une version amputée d’une condition, alors que le texte exact est consultable ailleurs sur la plateforme.",
+            "Le même encadré, avec la même phrase d’introduction inventée, figurait trois fois au corps : sous les articles 17, 21 et 128. Les deux premiers ont été retirés le 25 août 2026 à 11 h 04, prouvés par le Journal officiel qui borne ces articles. L’item v) de ce même article 2 de la loi de finances est précisément celui que l’éditeur avait encadré sous l’article 17."
+          ],
+          "conclusion": "PROUVÉ — appareil de l’édition Paillant. Le bloc sort du dispositif et va en commentaires, où la mesure reste lisible, datée et rattachée à sa loi."
+        }
+      ]
+    },
+    {
+      "article": "149",
+      "confrontation": {
+        "corps": {
+          "mots": 234,
+          "lignes": "605-615"
+        },
+        "transcription_2020": {
+          "mots": 191,
+          "lignes": "821-842"
+        },
+        "similarite": 0.8988,
+        "ecarts_hors_bloc": [
+          "l’écriture des tranches du barème : « Gdes 240.000,00 — » au corps, « 240,000.00 » dans la transcription ; séparateurs de milliers et de décimales, mention « Gdes » répétée"
+        ],
+        "ecart_de_fond": "un seul segment, continu, de 39 mots : la note N.B. La transcription passe directement de « 30% » à « B - Personnes morales »"
+      },
+      "blocs": [
+        {
+          "id": "nb-149",
+          "lignes": [
+            613
+          ],
+          "ce_que_porte_le_corps": "→ N.B. : Les articles 35 et 185 des lois sur les Banques d’épargne et de Logement, sur les Banques et autres Institutions Financières prévoient un traitement privilégié des intérêts hypothécaires payés sur le financement de la résidence principale.",
+          "ce_que_porte_la_transcription": "rien : le barème A est immédiatement suivi de « B - Personnes morales »",
+          "hypothese_a_ecarter": "alinéa inséré par une loi postérieure, donc droit en vigueur",
+          "discrimination": [
+            "La note n’édicte rien : elle rapporte ce que d’AUTRES textes « prévoient ». Elle ne touche à aucune tranche du barème et s’intercale entre le barème A et le barème B.",
+            "L’un des deux textes qu’elle décrit lui est postérieur : l’article 185 cité est celui de la Loi du 14 mai 2012 sur les banques et autres institutions financières (cms18kwzl0002pt2kbk9kv39y) : « Article 185.- Les intérêts sur prêts hypothécaires pour la construction, l’acquisition ou la restauration d’immeuble à usage résidentiel sont déductibles de l’impôt sur le revenu payé par les bénéficiaires desdits prêts, ce, dans la proportion de 100 pour 100 s’il s’agit du financement de la résidence principale du bénéficiaire et 50 pour 100 s’il s’agit du financement d’une résidence secondaire dudit bénéficiaire. ». Une note du décret de 2005 ne peut pas décrire une loi de 2012.",
+            "L’article 35 cité est celui du Décret du 4 juillet 1984 organisant les Banques d’Épargne et de Logement (cmrtiwiwm000cue7emgzq074p) : « Article 35.- Les intérêts sur prêts hypothécaires pour la construction, l'acquisition ou la restauration d'immeubles à usage résidentiel seront déductibles de l'impôt sur le revenu payé par les bénéficiaires desdits prêts, ce, dans la proportion de 100 pour 100 s'il s'agit du financement de la résidence principale du bénéficiaire. ».",
+            "La note se terminait par « Réf. pages 386 et 446 », renvoi vers les pages du volume Paillant. Le § 7.8 avait reconnu ce fragment comme manifestement éditorial et il a été retiré le 25 août à 11 h 04. Une phrase dont la fin est de l’éditeur est de l’éditeur.",
+            "Elle appartient à une famille de six : « → N.B. » sous les articles 15, 92, 109, 113, 123 et 149. Les cinq premiers tombent dans la plage que le Journal officiel borne ; tous les cinq ont été retirés. Depuis ce passage, « → N.B. » ne paraît plus qu’une fois au corps, ici."
+          ],
+          "conclusion": "PROUVÉ — appareil de l’édition Paillant. La note sort du dispositif et va en commentaires."
+        }
+      ]
+    }
+  ],
+  "retrait": {
+    "principe": "union de numéros de ligne sur le corps d’empreinte md5 da6b03f3df2032c1dc265ae0cca79315",
+    "lignes_entieres": [
+      529,
+      530,
+      531,
+      532,
+      533,
+      534,
+      535,
+      536,
+      537,
+      613
+    ],
+    "lignes_tronquees": [],
+    "commentaire_sur_la_ligne_530": "La ligne 530 porte la fin de la phrase SFD ET le filet de cadre (filet-4). Elle part entière : il n’y a rien du décret sur cette ligne. Aucune troncature n’est nécessaire.",
+    "lignes_retirees_verbatim": {
+      "529": "→ Les apports de tous actionnaires ou obligataires dans la Société financière de développement seront déductibles du montant de",
+      "530": "leurs revenus imposables pendant cinq ans à compter de la date du versement y relatif. (Article 23 de la Loi du 30 août 1982 sur les SFD), ------------------------------------------------------------------------------- ’",
+      "531": "Budget 2010-2011",
+      "532": "(Moniteur Spécial #1 du 14 janvier 2011)",
+      "533": "Dans le but de faciliter la reconstruction des immeubles détruits par le séisme du 12 Janvier 2010 et de permettre à la population de se reloger, des mesures d’allègement fiscaux sont adoptées. Elles concernent :",
+      "534": "- Les dons faits au cours des exercices 2009 - 2010 et 2010 - 2011 aux fondations, institutions de charité, aux organismes de secours, à toutes les institutions à portée sociale, éducative et sanitaire, reconnus et immatriculés à la Direction Générale des Impôts,",
+      "535": "qui sont déductibles jusqu’à concurrence de 40% du revenu brut",
+      "536": "imposable après les déductions mentionnées aux alinéas a, b, c,",
+      "537": "d, e, f et g de l’article 128 du Décret du 29 Septembre 2005 sur l’impôt sur le Revenu.",
+      "613": "→ N.B. : Les articles 35 et 185 des lois sur les Banques d’épargne et de Logement, sur les Banques et autres Institutions Financières prévoient un traitement privilégié des intérêts hypothécaires payés sur le financement de la résidence principale."
+    },
+    "caracteres_retires": 1348,
+    "md5_attendu_apres": "aa95ab719ff0217ae77f65d63bc8fe79"
+  },
+  "commentaires": {
+    "regle": "Les clés sont LUES du résultat de segmentAnnotated(corps en base, toc en base) — elles ne sont pas écrites à la main. Elles ont été relevées le 25 août 2026 sur le corps d’empreinte md5 da6b03f3df2032c1dc265ae0cca79315 et ne changent pas du fait du retrait : aucune ligne retirée n’est un en-tête de section.",
+    "forme": "la base attend string[] ; ces entrées sont des chaînes, pas des objets",
+    "ajouts": {
+      "sec-16|art-128": [
+        "Phrase reprise d’une autre loi par l’édition Joseph Paillant (Code Fiscal d’Haïti, 2018) sous le présent article, retirée du dispositif : elle n’appartient pas au décret. L’éditeur en donne lui-même la source, l’article 23 de la Loi du 30 août 1982 sur les sociétés financières de développement — un texte antérieur de vingt-trois ans au décret, qu’aucune loi postérieure n’a pu insérer ici. Cette loi figure au corpus de la plateforme et son article 23 s’achève ainsi : « Les actions seront exonérées du droit de timbre et de la taxe sur action. Les apports de tous actionnaires et obligataires seront déductibles du montant imposable de leurs revenus pendant cinq ans à compter de la date du versement y relatif. » La rédaction portée au corps du décret s’en écarte sur trois points : « ou obligataires » pour « et obligataires », « dans la Société financière de développement » ajouté, et « du montant de leurs revenus imposables » pour « du montant imposable de leurs revenus ». Le filet de cadre qui la fermait part avec elle. Texte retiré : « → Les apports de tous actionnaires ou obligataires dans la Société financière de développement seront déductibles du montant de ⏎ leurs revenus imposables pendant cinq ans à compter de la date du versement y relatif. (Article 23 de la Loi du 30 août 1982 sur les SFD), ------------------------------------------------------------------------------- ’ »",
+        "Encadré de l’édition Joseph Paillant (Code Fiscal d’Haïti, 2018) — « Budget 2010-2011 » —, retiré du dispositif : il reproduit une mesure de loi de finances qui n’appartient pas au décret. Cette mesure est l’article 2, vi) de la Loi de finances de l’exercice 2010-2011 (Moniteur Spécial n° 1 du 14 janvier 2011), laquelle figure au corpus de la plateforme et peut y être consultée. Elle ne modifie pas l’article 128 : elle le cite, sous le titre entier de son décret, pour désigner la base après laquelle la déduction se calcule, et elle est bornée dans le temps — « Article 2.- Les mesures d'allégement fiscal et douanier suivantes sont adoptées durant l'exercice 2010-2011 : », « vi. Les dons faits au cours des exercices fiscaux 2009-2010 et 2010-2011 aux fondations, institutions de charité, organismes de secours, institutions à portée sociale, éducative et sanitaire, reconnus et immatriculés à la Direction Générale des Impôts au 30 septembre 2010, sont déductibles jusqu'à concurrence de 40% du revenu brut imposable après les déductions mentionnées aux alinéas a, b, c, d, e, f et g, le cas échéant, de l'article 128 du Décret du 29 septembre 2005 portant sur l'impôt sur le Revenu. ». La phrase d’introduction imprimée dans l’encadré, « Dans le but de faciliter la reconstruction des immeubles détruits par le séisme du 12 Janvier 2010 et de permettre à la population de se reloger, des mesures d’allègement fiscaux sont adoptées. Elles concernent : », ne figure pas dans la loi de finances. La reproduction est en outre incomplète : la loi réserve la déduction aux institutions reconnues et immatriculées à la Direction Générale des Impôts « au 30 septembre 2010 », condition que l’encadré ne porte pas. Les deux autres encadrés du même budget, sous les articles 17 et 21, ont été retirés le 25 août 2026. Texte retiré : « Budget 2010-2011 ⏎ (Moniteur Spécial #1 du 14 janvier 2011) ⏎ Dans le but de faciliter la reconstruction des immeubles détruits par le séisme du 12 Janvier 2010 et de permettre à la population de se reloger, des mesures d’allègement fiscaux sont adoptées. Elles concernent : ⏎ - Les dons faits au cours des exercices 2009 - 2010 et 2010 - 2011 aux fondations, institutions de charité, aux organismes de secours, à toutes les institutions à portée sociale, éducative et sanitaire, reconnus et immatriculés à la Direction Générale des Impôts, ⏎ qui sont déductibles jusqu’à concurrence de 40% du revenu brut ⏎ imposable après les déductions mentionnées aux alinéas a, b, c, ⏎ d, e, f et g de l’article 128 du Décret du 29 Septembre 2005 sur l’impôt sur le Revenu. »"
+      ],
+      "sec-19|art-149": [
+        "Note de lecture de l’édition Joseph Paillant (Code Fiscal d’Haïti, 2018), retirée du dispositif : elle n’appartient pas au décret. Elle n’édicte rien — elle indique au lecteur ce que d’autres textes prévoient — et l’un de ces textes est postérieur au décret : l’article 185 qu’elle cite est celui de la Loi du 14 mai 2012 sur les banques et autres institutions financières, soit près de sept ans après le 29 septembre 2005. L’article 35 est celui du Décret du 4 juillet 1984 organisant les Banques d’Épargne et de Logement. Les deux textes figurent au corpus de la plateforme : « Article 35.- Les intérêts sur prêts hypothécaires pour la construction, l'acquisition ou la restauration d'immeubles à usage résidentiel seront déductibles de l'impôt sur le revenu payé par les bénéficiaires desdits prêts, ce, dans la proportion de 100 pour 100 s'il s'agit du financement de la résidence principale du bénéficiaire. » et « Article 185.- Les intérêts sur prêts hypothécaires pour la construction, l’acquisition ou la restauration d’immeuble à usage résidentiel sont déductibles de l’impôt sur le revenu payé par les bénéficiaires desdits prêts, ce, dans la proportion de 100 pour 100 s’il s’agit du financement de la résidence principale du bénéficiaire et 50 pour 100 s’il s’agit du financement d’une résidence secondaire dudit bénéficiaire. » Le renvoi de pagination qui fermait la note, « Réf. pages 386 et 446 », avait été retiré le 25 août 2026 ; la note suit. Texte retiré : « → N.B. : Les articles 35 et 185 des lois sur les Banques d’épargne et de Logement, sur les Banques et autres Institutions Financières prévoient un traitement privilégié des intérêts hypothécaires payés sur le financement de la résidence principale. »"
+      ]
+    },
+    "rectification": {
+      "cle": "sec-19|art-149",
+      "motif": "L’entrée écrite le 25 août à 11 h 04 se termine par « La note de lecture dans laquelle il figurait est laissée en place. » Si la note part, cette phrase devient fausse. Elle doit être reprise dans le même mouvement, sans quoi le document se contredirait.",
+      "avant": "Renvoi de pagination de l’édition Joseph Paillant (Code Fiscal d’Haïti, 2018) vers son propre ouvrage papier, retiré du dispositif : la plateforme n’héberge pas cet ouvrage et le renvoi n’y mène nulle part. La note de lecture dans laquelle il figurait est laissée en place. Texte retiré : « Réf. pages 386 et 446 »",
+      "apres": "Renvoi de pagination de l’édition Joseph Paillant (Code Fiscal d’Haïti, 2018) vers son propre ouvrage papier, retiré du dispositif : la plateforme n’héberge pas cet ouvrage et le renvoi n’y mène nulle part. La note de lecture dans laquelle il figurait a été retirée à son tour. Texte retiré : « Réf. pages 386 et 446 »"
+    },
+    "etat_attendu": {
+      "avant": {
+        "cles": 22,
+        "entrees": 28
+      },
+      "apres": {
+        "cles": 23,
+        "entrees": 31
+      }
+    }
+  },
+  "verifications": {
+    "faites_le_25_aout_2026_sur_le_corps_propose": [
+      {
+        "controle": "recollage : les 733 lignes gardées et les 10 retirées reforment exactement le corps actuel",
+        "resultat": "oui"
+      },
+      {
+        "controle": "têtes d’article",
+        "resultat": "191 avant, 191 après"
+      },
+      {
+        "controle": "blocs de segmentAnnotated",
+        "resultat": "249 avant, 249 après ; 56 sections, 191 articles, ancres identiques"
+      },
+      {
+        "controle": "clés de jurisKey modifiées par le retrait",
+        "resultat": "0 sur 191"
+      },
+      {
+        "controle": "clés de commentaires orphelines après retrait",
+        "resultat": "0 sur 22"
+      },
+      {
+        "controle": "ancres du toc et du navToc sans cible",
+        "resultat": "0 sur 56"
+      },
+      {
+        "controle": "crossRefs (sec-1, sec-56) sans cible",
+        "resultat": "0"
+      },
+      {
+        "controle": "labels sans bloc",
+        "resultat": "0 sur 191"
+      },
+      {
+        "controle": "renvois d’index morts",
+        "resultat": "0 ; couverture 191 sur 191"
+      },
+      {
+        "controle": "sentinelles « Article 128.- », « Article 149.- », « Section II : Décès », « A. Personnes physiques », « B. Personnes morales », « le cas échéant. »",
+        "resultat": "toutes présentes"
+      },
+      {
+        "controle": "interdits subsistants dans le corps ENTIER après retrait",
+        "resultat": "« Budget 20xx-20xx » 0 · filet de dix tirets ou plus 0 · « Réf. page(s) » 0 · « Moniteur Spécial #1 du 14 janvier 2011 » 0"
+      },
+      {
+        "controle": "marqueur « → » restant",
+        "resultat": "1 — l’alinéa de crédit-bail de l’article 29, laissé au corps à dessein (alinéa de consolidation, article 7 de la loi de finances 2013-2014)"
+      }
+    ],
+    "a_refaire_par_le_script": [
+      "les douze vérifications du § 11 de scripts/import-decret-ir-2005-sommaire.ts, sur le corps résultant",
+      "l’oracle de l’index de la cliente : il ne couvre pas les articles 127 à 189 et ne mesurera rien ici — c’est attendu, non un silence à interpréter"
+    ]
+  },
+  "consequences_a_arbitrer": [
+    {
+      "objet": "l’entrée d’index « Séisme du 12 janvier 2010 (déduction majorée des dons, Budget 2010-2011) » → article 128",
+      "constat": "Ce sujet n’existe que par l’encadré. Après retrait, aucun mot de son intitulé ne se trouve plus dans l’article 128, et « séisme » disparaît du corps entier. Le renvoi n’est pas mort au sens technique — l’article 128 existe toujours — mais il promet au lecteur un contenu que l’article ne porte plus.",
+      "deja_vrai_en_production": "L’entrée voisine « Séisme du 12 janvier 2010 (mesures d’allègement fiscal, Budget 2010-2011) » → articles 17 et 21 est dans cette situation depuis le passage de 11 h 04. La question se pose pour les deux entrées et leurs trois renvois, pas pour l’article 128 seul.",
+      "ce_qui_ne_se_perd_pas": "buildSearchText (src/lib/search/normalize.ts) verse les commentaires dans le texte cherchable : le mot « séisme » et la mesure resteront trouvés par la recherche, sous la note de l’article.",
+      "options": [
+        "laisser les deux entrées telles quelles : le lecteur qui suit l’index arrive à l’article et trouve la mesure dans la note",
+        "reformuler les intitulés pour dire que la mesure est en note",
+        "retirer les deux entrées de l’index, l’encadré n’étant pas du décret"
+      ],
+      "decision": "à Me Vaval — le présent fichier ne tranche pas et ne modifie aucune entrée d’index."
+    },
+    {
+      "objet": "les gardes bornées du § 11.10 du script d’import",
+      "constat": "Deux des cinq interdits — « encadré de loi de finances » et « filet de cadre » — n’y sont cherchés que dans la plage 1-126, précisément parce que l’encadré de l’article 128 restait au corps. Sur le corps proposé, tous deux tombent à 0 sur le corps entier.",
+      "consequence": "La borne peut être levée pour ces deux interdits, ce qui rendrait la garde sensible à une réapparition au-delà de l’article 126.",
+      "decision": "à Me Vaval."
+    },
+    {
+      "objet": "un renvoi de la fiche vers les deux lois sources",
+      "constat": "La Loi de finances 2010-2011 et la Loi du 30 août 1982 sont toutes deux au corpus. Les entrées de commentaires les nomment en clair ; elles ne portent pas de lien, la base attendant des chaînes pour ce champ.",
+      "decision": "à Me Vaval, si un renvoi cliquable est souhaité — ce serait un autre champ que celui-ci."
+    }
+  ],
+  "constats": [
+    "Le motif retenu à 11 h 04 — « aucune pièce faisant foi ne borne ces articles » — n’est plus exact. La transcription de 2020 borne les 191 articles, et deux pièces du corpus lui-même, la Loi de finances 2010-2011 et la Loi du 30 août 1982, tranchent la question sans qu’il soit besoin de lui faire crédit.",
+    "La discrimination demandée entre appareil de l’éditeur et alinéa inséré par une loi postérieure s’est jouée sur l’encadré « Budget 2010-2011 », le seul des trois blocs dont le texte source soit à la fois réel et postérieur au décret. Ce qui l’a tranché n’est pas l’absence du bloc dans la transcription : c’est la loi de finances elle-même, qui cite l’article 128 de l’extérieur au lieu de l’amender, et qui ne contient pas la phrase d’introduction imprimée dans l’encadré.",
+    "L’encadré n’est pas une reproduction fidèle de la loi de finances : il omet la condition d’immatriculation « au 30 septembre 2010 ». Le laisser au dispositif ne préservait pas du droit en vigueur — cela publiait une version amputée d’un texte que la plateforme héberge par ailleurs correctement.",
+    "confrontation-191.json classe les articles 128 et 149 en catégorie « a » (consolidation postérieure). Cette étiquette vient d’une règle par défaut appliquée à des écarts d’orthographe et de notation — « versement / versements », « reconnus / reconnues », séparateurs de milliers du barème — au motif qu’aucun arbitre n’est disponible au-delà de l’article 126. Le même fichier classe les deux blocs eux-mêmes en catégorie « c » (appareil). L’étiquette d’article ne doit pas être lue comme un constat qu’une loi de finances a modifié ces articles.",
+    "Le retrait rend l’entrée de commentaires écrite à 11 h 04 sous l’article 149 partiellement fausse : elle annonce que la note de lecture reste en place. Sa rectification fait partie du retrait, elle n’en est pas la suite.",
+    "Aucune ligne retirée n’est un en-tête de section : les 191 clés de jurisKey sont inchangées, et le piège du § 6 — les annotations orphelines — ne se déclenche pas ici.",
+    "Le marqueur « → » ne peut pas servir de critère de retrait : il ouvre aussi l’alinéa de crédit-bail de l’article 29, qui est du dispositif consolidé et reste au corps. Le retrait se fait par numéros de ligne, jamais par motif."
+  ]
+}

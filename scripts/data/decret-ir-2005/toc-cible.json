@@ -1,0 +1,1191 @@
+{
+  "_lisezMoi": "TÂCHE 2 — sommaire cible, ancres neuves et re-clé des annotations du décret IR 2005 (document cms43ptub00008lo8tv3y25kk). Produit par simulation contre la VRAIE segmentAnnotated (src/lib/legislation/annotated.ts). AUCUNE écriture en base. Le toc suppose le corps CIBLE décrit par corpsAttendu ci-dessous (préambule § 7.1 en tête + ligne 185 fondue, § 7.3).",
+  "corpsAttendu": {
+    "premiereLigne": "DÉCRET",
+    "preambuleNbLignes": 27,
+    "ligneTronqueeAvant": [
+      "Sous Section IV : Impôt sur le revenu sur la base forfaitaire :",
+      "Régime simplifié pour les petites entreprises."
+    ],
+    "ligneTronqueeApres": "Sous Section IV : Impôt sur le revenu sur la base forfaitaire : Régime simplifié pour les petites entreprises",
+    "lignesAvant": 749,
+    "lignesApres": 775,
+    "caracteresAvant": 163065,
+    "caracteresApres": 165427,
+    "md5Depart": "78be764c29e46db69e7b93379502d2c1",
+    "md5": "3acc4fdcd6f6b15b3f35ccfd98f13563",
+    "_md5": "md5Depart = empreinte du corps EN BASE au 25 août 2026 (première assertion du script d’import) ; md5 = empreinte du corps APRÈS les seules étapes § 7.1 (préambule) et § 7.3 (ligne 185 fondue) — c’est l’état, et le seul, sous lequel le tableau « toc » ci-dessous s’apparie. Les étapes suivantes (§ 7.8 appareil, § 7.5 débris, § 7.9 tableau) modifient le corps SANS toucher aucune ligne d’en-tête : le toc reste valable, mais l’empreinte change.",
+    "decalage": {
+      "lignes_1_a_184": "+27",
+      "lignes_185_et_186": "fondues en une seule, qui devient la 212",
+      "lignes_187_et_au-dela": "+26",
+      "_pourquoi": "DEUX décalages, pas un. Avant la ligne 185, seules les 27 lignes du préambule sont insérées : +27. La fusion 185+186 retire ensuite une ligne, d’où +26 à partir de la 187. Un offset unique décalerait d’une ligne les neuf blocs d’appareil situés avant la 185 (l. 51, 52, 68-73, 78, 92-100, 128, 154)."
+    }
+  },
+  "jurisKeysArticles": {
+    "art-8": {
+      "actuelle": "sec-5|art-8",
+      "apres": "sec-5|art-8",
+      "change": false
+    },
+    "art-15": {
+      "actuelle": "sec-6|art-15",
+      "apres": "sec-6|art-15",
+      "change": false
+    },
+    "art-17": {
+      "actuelle": "sec-8|art-17",
+      "apres": "sec-34|art-17",
+      "change": true
+    },
+    "art-19": {
+      "actuelle": "sec-8|art-19",
+      "apres": "sec-35|art-19",
+      "change": true
+    },
+    "art-20": {
+      "actuelle": "sec-9|art-20",
+      "apres": "sec-36|art-20",
+      "change": true
+    },
+    "art-21": {
+      "actuelle": "sec-9|art-21",
+      "apres": "sec-37|art-21",
+      "change": true
+    },
+    "art-24": {
+      "actuelle": "sec-9|art-24",
+      "apres": "sec-37|art-24",
+      "change": true
+    },
+    "art-29": {
+      "actuelle": "sec-9|art-29",
+      "apres": "sec-37|art-29",
+      "change": true
+    },
+    "art-33": {
+      "actuelle": "sec-9|art-33",
+      "apres": "sec-39|art-33",
+      "change": true
+    },
+    "art-35": {
+      "actuelle": "sec-9|art-35",
+      "apres": "sec-39|art-35",
+      "change": true
+    },
+    "art-42": {
+      "actuelle": "sec-9|art-42",
+      "apres": "sec-39|art-42",
+      "change": true
+    },
+    "art-43": {
+      "actuelle": "sec-9|art-43",
+      "apres": "sec-40|art-43",
+      "change": true
+    },
+    "art-45": {
+      "actuelle": "sec-9|art-45",
+      "apres": "sec-40|art-45",
+      "change": true
+    },
+    "art-49": {
+      "actuelle": "sec-9|art-49",
+      "apres": "sec-40|art-49",
+      "change": true
+    },
+    "art-54": {
+      "actuelle": "sec-9|art-54",
+      "apres": "sec-40|art-54",
+      "change": true
+    },
+    "art-57": {
+      "actuelle": "sec-9|art-57",
+      "apres": "sec-40|art-57",
+      "change": true
+    },
+    "art-76": {
+      "actuelle": "sec-10|art-76",
+      "apres": "sec-55|art-76",
+      "change": true
+    },
+    "art-81": {
+      "actuelle": "sec-10|art-81",
+      "apres": "sec-55|art-81",
+      "change": true
+    },
+    "art-86": {
+      "actuelle": "sec-10|art-86",
+      "apres": "sec-55|art-86",
+      "change": true
+    },
+    "art-92": {
+      "actuelle": "sec-11|art-92",
+      "apres": "sec-46|art-92",
+      "change": true
+    },
+    "art-95": {
+      "actuelle": "sec-11|art-95",
+      "apres": "sec-46|art-95",
+      "change": true
+    },
+    "art-96": {
+      "actuelle": "sec-11|art-96",
+      "apres": "sec-46|art-96",
+      "change": true
+    },
+    "art-99": {
+      "actuelle": "sec-13|art-99",
+      "apres": "sec-47|art-99",
+      "change": true
+    },
+    "art-104": {
+      "actuelle": "sec-13|art-104",
+      "apres": "sec-49|art-104",
+      "change": true
+    },
+    "art-109": {
+      "actuelle": "sec-13|art-109",
+      "apres": "sec-49|art-109",
+      "change": true
+    },
+    "art-113": {
+      "actuelle": "sec-14|art-113",
+      "apres": "sec-52|art-113",
+      "change": true
+    },
+    "art-116": {
+      "actuelle": "sec-14|art-116",
+      "apres": "sec-52|art-116",
+      "change": true
+    },
+    "art-118": {
+      "actuelle": "sec-14|art-118",
+      "apres": "sec-52|art-118",
+      "change": true
+    },
+    "art-123": {
+      "actuelle": "sec-14|art-123",
+      "apres": "sec-52|art-123",
+      "change": true
+    },
+    "art-126": {
+      "actuelle": "sec-14|art-126",
+      "apres": "sec-52|art-126",
+      "change": true
+    },
+    "art-128": {
+      "actuelle": "sec-16|art-128",
+      "apres": "sec-16|art-128",
+      "change": false
+    },
+    "art-149": {
+      "actuelle": "sec-19|art-149",
+      "apres": "sec-19|art-149",
+      "change": false
+    }
+  },
+  "ancresNeuvesParAncre": {
+    "sec-56": {
+      "role": "préambule",
+      "ligneCorpsCible": 1,
+      "libelle": "DÉCRET"
+    },
+    "sec-33": {
+      "role": "sous-section",
+      "ligneCorpsCible": 82,
+      "libelle": "Sous Section I : Définition"
+    },
+    "sec-34": {
+      "role": "sous-section",
+      "ligneCorpsCible": 88,
+      "libelle": "Sous Section II : Détermination de la base d’imposition"
+    },
+    "sec-35": {
+      "role": "sous-section",
+      "ligneCorpsCible": 102,
+      "libelle": "Sous Section III : Modalités d’imposition"
+    },
+    "sec-36": {
+      "role": "sous-section",
+      "ligneCorpsCible": 107,
+      "libelle": "Sous Section I : Définition"
+    },
+    "sec-37": {
+      "role": "sous-section",
+      "ligneCorpsCible": 121,
+      "libelle": "Sous Section II : Détermination de la base d’imposition"
+    },
+    "sec-38": {
+      "role": "sous-section",
+      "ligneCorpsCible": 199,
+      "libelle": "Sous Section III : Modalités d’imposition"
+    },
+    "sec-39": {
+      "role": "sous-section",
+      "ligneCorpsCible": 212,
+      "libelle": "Sous Section IV : Impôt sur le revenu sur la base forfaitaire : Régime simplifié pour les petites entreprises"
+    },
+    "sec-40": {
+      "role": "sous-section",
+      "ligneCorpsCible": 236,
+      "libelle": "Sous Section V : Impôt sur la base du bénéfice réel"
+    },
+    "sec-41": {
+      "role": "sous-section",
+      "ligneCorpsCible": 318,
+      "libelle": "Sous Section VI : Acompte Provisionnel"
+    },
+    "sec-42": {
+      "role": "sous-section",
+      "ligneCorpsCible": 321,
+      "libelle": "Sous Section I : Définition"
+    },
+    "sec-43": {
+      "role": "sous-section",
+      "ligneCorpsCible": 329,
+      "libelle": "Sous Section II : Détermination de la base d’imposition"
+    },
+    "sec-44": {
+      "role": "sous-section",
+      "ligneCorpsCible": 344,
+      "libelle": "Sous Section III : Modalités d’imposition"
+    },
+    "sec-53": {
+      "role": "lettre",
+      "ligneCorpsCible": 348,
+      "libelle": "a) Régime Simplifié pour Certaines Activités professionnelles"
+    },
+    "sec-54": {
+      "role": "lettre",
+      "ligneCorpsCible": 352,
+      "libelle": "b) Régime du Bénéfice Réel"
+    },
+    "sec-55": {
+      "role": "lettre",
+      "ligneCorpsCible": 354,
+      "libelle": "c) Acompte Provisionnel"
+    },
+    "sec-45": {
+      "role": "sous-section",
+      "ligneCorpsCible": 374,
+      "libelle": "Sous Section I : Définition des Revenus Imposables"
+    },
+    "sec-46": {
+      "role": "sous-section",
+      "ligneCorpsCible": 377,
+      "libelle": "Sous Section II : Détermination de la base imposable"
+    },
+    "sec-47": {
+      "role": "sous-section",
+      "ligneCorpsCible": 439,
+      "libelle": "Sous Section I : Définition"
+    },
+    "sec-48": {
+      "role": "sous-section",
+      "ligneCorpsCible": 444,
+      "libelle": "Sous Section II : Détermination de la base imposable"
+    },
+    "sec-49": {
+      "role": "sous-section",
+      "ligneCorpsCible": 454,
+      "libelle": "Sous Section III : Modalités d’imposition"
+    },
+    "sec-50": {
+      "role": "sous-section",
+      "ligneCorpsCible": 489,
+      "libelle": "Sous Section I : Définition"
+    },
+    "sec-51": {
+      "role": "sous-section",
+      "ligneCorpsCible": 497,
+      "libelle": "Sous Section II : Détermination de la base d’imposition"
+    },
+    "sec-52": {
+      "role": "sous-section",
+      "ligneCorpsCible": 506,
+      "libelle": "Sous Section III : Modalités d’imposition"
+    }
+  },
+  "toc": [
+    {
+      "level": 1,
+      "label": "DÉCRET",
+      "anchor": "sec-56",
+      "kind": "code"
+    },
+    {
+      "level": 1,
+      "label": "TITRE I",
+      "anchor": "sec-1",
+      "kind": "code"
+    },
+    {
+      "level": 2,
+      "label": "Chapitre I : Dispositions Générales",
+      "anchor": "sec-2",
+      "kind": "code"
+    },
+    {
+      "level": 1,
+      "label": "TITRE II — Impôt sur le Revenu des Personnes Physiques",
+      "anchor": "sec-3",
+      "kind": "code"
+    },
+    {
+      "level": 2,
+      "label": "Chapitre I",
+      "anchor": "sec-4",
+      "kind": "code"
+    },
+    {
+      "level": 3,
+      "label": "Section I. Personnes Imposables",
+      "anchor": "sec-5",
+      "kind": "code"
+    },
+    {
+      "level": 3,
+      "label": "Section II : Revenus Imposables",
+      "anchor": "sec-6",
+      "kind": "code"
+    },
+    {
+      "level": 2,
+      "label": "Chapitre II : Des Catégories de Revenus",
+      "anchor": "sec-7",
+      "kind": "code"
+    },
+    {
+      "level": 3,
+      "label": "Section I. Revenus Fonciers",
+      "anchor": "sec-8",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section I : Définition",
+      "anchor": "sec-33",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section II : Détermination de la base d’imposition",
+      "anchor": "sec-34",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section III : Modalités d’imposition",
+      "anchor": "sec-35",
+      "kind": "code"
+    },
+    {
+      "level": 3,
+      "label": "Section II : Bénéfices Industriels et Commerciaux",
+      "anchor": "sec-9",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section I : Définition",
+      "anchor": "sec-36",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section II : Détermination de la base d’imposition",
+      "anchor": "sec-37",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section III : Modalités d’imposition",
+      "anchor": "sec-38",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section IV : Impôt sur le revenu sur la base forfaitaire : Régime simplifié pour les petites entreprises",
+      "anchor": "sec-39",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section V : Impôt sur la base du bénéfice réel",
+      "anchor": "sec-40",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section VI : Acompte Provisionnel",
+      "anchor": "sec-41",
+      "kind": "code"
+    },
+    {
+      "level": 3,
+      "label": "Section III : Bénéfices des Professions Non Commerciales",
+      "anchor": "sec-10",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section I : Définition",
+      "anchor": "sec-42",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section II : Détermination de la base d’imposition",
+      "anchor": "sec-43",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section III : Modalités d’imposition",
+      "anchor": "sec-44",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "a) Régime Simplifié pour Certaines Activités professionnelles",
+      "anchor": "sec-53",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "b) Régime du Bénéfice Réel",
+      "anchor": "sec-54",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "c) Acompte Provisionnel",
+      "anchor": "sec-55",
+      "kind": "code"
+    },
+    {
+      "level": 3,
+      "label": "Section IV : Traitements et Salaires",
+      "anchor": "sec-11",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section I : Définition des Revenus Imposables",
+      "anchor": "sec-45",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section II : Détermination de la base imposable",
+      "anchor": "sec-46",
+      "kind": "code"
+    },
+    {
+      "level": 3,
+      "label": "Section V : Rémunérations Allouées aux gérants et associés",
+      "anchor": "sec-12",
+      "kind": "code"
+    },
+    {
+      "level": 3,
+      "label": "Section VI : Plus-Value Immobilière et Mobilière",
+      "anchor": "sec-13",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section I : Définition",
+      "anchor": "sec-47",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section II : Détermination de la base imposable",
+      "anchor": "sec-48",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section III : Modalités d’imposition",
+      "anchor": "sec-49",
+      "kind": "code"
+    },
+    {
+      "level": 3,
+      "label": "Section VII : Revenus des Capitaux Mobiliers",
+      "anchor": "sec-14",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section I : Définition",
+      "anchor": "sec-50",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section II : Détermination de la base d’imposition",
+      "anchor": "sec-51",
+      "kind": "code"
+    },
+    {
+      "level": 4,
+      "label": "Sous Section III : Modalités d’imposition",
+      "anchor": "sec-52",
+      "kind": "code"
+    },
+    {
+      "level": 2,
+      "label": "Chapitre III : Déclaration Définitive des Contribuables",
+      "anchor": "sec-15",
+      "kind": "code"
+    },
+    {
+      "level": 3,
+      "label": "Section I - Dispositions Générales",
+      "anchor": "sec-16",
+      "kind": "code"
+    },
+    {
+      "level": 3,
+      "label": "Section II : Décès et cession ou cessation d’activités",
+      "anchor": "sec-17",
+      "kind": "code"
+    },
+    {
+      "level": 3,
+      "label": "Section III : Taxation d’Office",
+      "anchor": "sec-18",
+      "kind": "code"
+    },
+    {
+      "level": 3,
+      "label": "Section IV : Tarif de l’impôt sur le revenu",
+      "anchor": "sec-19",
+      "kind": "code"
+    },
+    {
+      "level": 1,
+      "label": "TITRE III — Impôt sur le Revenu des Personnes Morales",
+      "anchor": "sec-20",
+      "kind": "code"
+    },
+    {
+      "level": 2,
+      "label": "Chapitre I : Impôt sur les Sociétés",
+      "anchor": "sec-21",
+      "kind": "code"
+    },
+    {
+      "level": 2,
+      "label": "Chapitre II : Les Compagnies d’ Assurance",
+      "anchor": "sec-22",
+      "kind": "code"
+    },
+    {
+      "level": 3,
+      "label": "Section I : Les Compagnies d’Assurance",
+      "anchor": "sec-23",
+      "kind": "code"
+    },
+    {
+      "level": 3,
+      "label": "Section II : Les Lignes de Navigation Maritime et Aérienne",
+      "anchor": "sec-24",
+      "kind": "code"
+    },
+    {
+      "level": 1,
+      "label": "TITRE IV — Dispositions Communes à L’Impôt sur le Revenu des Personnes Physiques et à l’impôt sur les Sociétés",
+      "anchor": "sec-25",
+      "kind": "code"
+    },
+    {
+      "level": 2,
+      "label": "Chapitre I : Procédures Administratives",
+      "anchor": "sec-26",
+      "kind": "code"
+    },
+    {
+      "level": 3,
+      "label": "Section I : Dispositions générales",
+      "anchor": "sec-27",
+      "kind": "code"
+    },
+    {
+      "level": 3,
+      "label": "Section II : De la Prescription",
+      "anchor": "sec-28",
+      "kind": "code"
+    },
+    {
+      "level": 3,
+      "label": "Section III : De la Comptabilité Informatisée",
+      "anchor": "sec-29",
+      "kind": "code"
+    },
+    {
+      "level": 2,
+      "label": "Chapitre II : Dispositions Transitoires",
+      "anchor": "sec-30",
+      "kind": "code"
+    },
+    {
+      "level": 2,
+      "label": "Chapitre III : Disposition Spéciale",
+      "anchor": "sec-31",
+      "kind": "code"
+    },
+    {
+      "level": 2,
+      "label": "Chapitre IV : Disposition Finale",
+      "anchor": "sec-32",
+      "kind": "code"
+    }
+  ],
+  "navToc": [
+    {
+      "label": "Préambule",
+      "anchor": "sec-56",
+      "children": []
+    },
+    {
+      "label": "TITRE I",
+      "anchor": "sec-1",
+      "children": [
+        {
+          "label": "Chapitre I : Dispositions Générales",
+          "anchor": "sec-2",
+          "children": []
+        }
+      ]
+    },
+    {
+      "label": "TITRE II — Impôt sur le Revenu des Personnes Physiques",
+      "anchor": "sec-3",
+      "children": [
+        {
+          "label": "Chapitre I",
+          "anchor": "sec-4",
+          "children": [
+            {
+              "label": "Section I. Personnes Imposables",
+              "anchor": "sec-5"
+            },
+            {
+              "label": "Section II : Revenus Imposables",
+              "anchor": "sec-6"
+            }
+          ]
+        },
+        {
+          "label": "Chapitre II : Des Catégories de Revenus",
+          "anchor": "sec-7",
+          "children": [
+            {
+              "label": "Section I. Revenus Fonciers",
+              "anchor": "sec-8",
+              "children": [
+                {
+                  "label": "Sous-section I — Définition",
+                  "anchor": "sec-33"
+                },
+                {
+                  "label": "Sous-section II — Détermination de la base d’imposition",
+                  "anchor": "sec-34"
+                },
+                {
+                  "label": "Sous-section III — Modalités d’imposition",
+                  "anchor": "sec-35"
+                }
+              ]
+            },
+            {
+              "label": "Section II : Bénéfices Industriels et Commerciaux",
+              "anchor": "sec-9",
+              "children": [
+                {
+                  "label": "Sous-section I — Définition",
+                  "anchor": "sec-36"
+                },
+                {
+                  "label": "Sous-section II — Détermination de la base d’imposition",
+                  "anchor": "sec-37"
+                },
+                {
+                  "label": "Sous-section III — Modalités d’imposition",
+                  "anchor": "sec-38"
+                },
+                {
+                  "label": "Sous-section IV — Impôt sur le revenu sur la base forfaitaire : régime simplifié pour les petites entreprises",
+                  "anchor": "sec-39"
+                },
+                {
+                  "label": "Sous-section V — Impôt sur la base du bénéfice réel",
+                  "anchor": "sec-40"
+                },
+                {
+                  "label": "Sous-section VI — Acompte provisionnel",
+                  "anchor": "sec-41"
+                }
+              ]
+            },
+            {
+              "label": "Section III : Bénéfices des Professions Non Commerciales",
+              "anchor": "sec-10",
+              "children": [
+                {
+                  "label": "Sous-section I — Définition",
+                  "anchor": "sec-42"
+                },
+                {
+                  "label": "Sous-section II — Détermination de la base d’imposition",
+                  "anchor": "sec-43"
+                },
+                {
+                  "label": "Sous-section III — Modalités d’imposition",
+                  "anchor": "sec-44",
+                  "children": [
+                    {
+                      "label": "A) Régime simplifié pour certaines activités professionnelles",
+                      "anchor": "sec-53"
+                    },
+                    {
+                      "label": "B) Régime du bénéfice réel",
+                      "anchor": "sec-54"
+                    },
+                    {
+                      "label": "C) Acompte provisionnel",
+                      "anchor": "sec-55"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Section IV : Traitements et Salaires",
+              "anchor": "sec-11",
+              "children": [
+                {
+                  "label": "Sous-section I — Définition des revenus imposables",
+                  "anchor": "sec-45"
+                },
+                {
+                  "label": "Sous-section II — Détermination de la base imposable",
+                  "anchor": "sec-46"
+                }
+              ]
+            },
+            {
+              "label": "Section V : Rémunérations Allouées aux gérants et associés",
+              "anchor": "sec-12"
+            },
+            {
+              "label": "Section VI : Plus-Value Immobilière et Mobilière",
+              "anchor": "sec-13",
+              "children": [
+                {
+                  "label": "Sous-section I — Définition",
+                  "anchor": "sec-47"
+                },
+                {
+                  "label": "Sous-section II — Détermination de la base imposable",
+                  "anchor": "sec-48"
+                },
+                {
+                  "label": "Sous-section III — Modalités d’imposition",
+                  "anchor": "sec-49"
+                }
+              ]
+            },
+            {
+              "label": "Section VII : Revenus des Capitaux Mobiliers",
+              "anchor": "sec-14",
+              "children": [
+                {
+                  "label": "Sous-section I — Définition",
+                  "anchor": "sec-50"
+                },
+                {
+                  "label": "Sous-section II — Détermination de la base d’imposition",
+                  "anchor": "sec-51"
+                },
+                {
+                  "label": "Sous-section III — Modalités d’imposition",
+                  "anchor": "sec-52"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Chapitre III : Déclaration Définitive des Contribuables",
+          "anchor": "sec-15",
+          "children": [
+            {
+              "label": "Section I - Dispositions Générales",
+              "anchor": "sec-16"
+            },
+            {
+              "label": "Section II : Décès et cession ou cessation d’activités",
+              "anchor": "sec-17"
+            },
+            {
+              "label": "Section III : Taxation d’Office",
+              "anchor": "sec-18"
+            },
+            {
+              "label": "Section IV : Tarif de l’impôt sur le revenu",
+              "anchor": "sec-19"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "TITRE III — Impôt sur le Revenu des Personnes Morales",
+      "anchor": "sec-20",
+      "children": [
+        {
+          "label": "Chapitre I : Impôt sur les Sociétés",
+          "anchor": "sec-21",
+          "children": []
+        },
+        {
+          "label": "Chapitre II : Les Compagnies d’ Assurance",
+          "anchor": "sec-22",
+          "children": [
+            {
+              "label": "Section I : Les Compagnies d’Assurance",
+              "anchor": "sec-23"
+            },
+            {
+              "label": "Section II : Les Lignes de Navigation Maritime et Aérienne",
+              "anchor": "sec-24"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "TITRE IV — Dispositions Communes à L’Impôt sur le Revenu des Personnes Physiques et à l’impôt sur les Sociétés",
+      "anchor": "sec-25",
+      "children": [
+        {
+          "label": "Chapitre I : Procédures Administratives",
+          "anchor": "sec-26",
+          "children": [
+            {
+              "label": "Section I : Dispositions générales",
+              "anchor": "sec-27"
+            },
+            {
+              "label": "Section II : De la Prescription",
+              "anchor": "sec-28"
+            },
+            {
+              "label": "Section III : De la Comptabilité Informatisée",
+              "anchor": "sec-29"
+            }
+          ]
+        },
+        {
+          "label": "Chapitre II : Dispositions Transitoires",
+          "anchor": "sec-30",
+          "children": []
+        },
+        {
+          "label": "Chapitre III : Disposition Spéciale",
+          "anchor": "sec-31",
+          "children": []
+        },
+        {
+          "label": "Chapitre IV : Disposition Finale",
+          "anchor": "sec-32",
+          "children": []
+        }
+      ]
+    }
+  ],
+  "recle": [
+    {
+      "avant": "sec-5|art-8",
+      "apres": "sec-5|art-8",
+      "change": false,
+      "nbEntrees": 1
+    },
+    {
+      "avant": "sec-9|art-33",
+      "apres": "sec-39|art-33",
+      "change": true,
+      "nbEntrees": 1
+    },
+    {
+      "avant": "sec-9|art-43",
+      "apres": "sec-40|art-43",
+      "change": true,
+      "nbEntrees": 1
+    },
+    {
+      "avant": "sec-9|art-45",
+      "apres": "sec-40|art-45",
+      "change": true,
+      "nbEntrees": 1
+    },
+    {
+      "avant": "sec-9|art-49",
+      "apres": "sec-40|art-49",
+      "change": true,
+      "nbEntrees": 3
+    },
+    {
+      "avant": "sec-10|art-81",
+      "apres": "sec-55|art-81",
+      "change": true,
+      "nbEntrees": 1
+    }
+  ],
+  "mesures": {
+    "baseline": {
+      "secs": 32,
+      "tocLength": 32,
+      "joinEgalCorps": true,
+      "ancresArticle": 191,
+      "clesCommentairesAtteintes": "6/6",
+      "collisionSecArt": 0
+    },
+    "cible": {
+      "secs": 56,
+      "tocLength": 56,
+      "joinEgalCorps": true,
+      "ancresArticle": 191,
+      "ancresArticleDistinctes": 191,
+      "clesCommentairesAtteintes": "6/6",
+      "collisionSecArt": 0,
+      "ancresTocDistinctes": "56/56",
+      "crossRefsSec1DansToc": true,
+      "niveaux": {
+        "1": 5,
+        "2": 10,
+        "3": 18,
+        "4": 23
+      },
+      "ancresNavTocToutesDansToc": true,
+      "labelsSansBlocAncre": 0,
+      "blocsAncresSansLabel": 0
+    },
+    "oraclePlagesSommaireCliente": {
+      "controlees": 33,
+      "concordantes": 30,
+      "ecarts": [
+        {
+          "anchor": "sec-44",
+          "sommaire": "73–87",
+          "corps": "73–73",
+          "label": "Sous Section III : Modalités d’imposition"
+        },
+        {
+          "anchor": "sec-55",
+          "sommaire": "76–76",
+          "corps": "76–87",
+          "label": "c) Acompte Provisionnel"
+        },
+        {
+          "anchor": "sec-46",
+          "sommaire": "90–91",
+          "corps": "90–96",
+          "label": "Sous Section II : Détermination de la base imposable"
+        }
+      ],
+      "_note": "Plage = SOUS-ARBRE de l’en-tête (du 1er article qui le suit au dernier avant le prochain en-tête de niveau ≤ au sien), sémantique du sommaire de la cliente. Les 3 écarts sont structurels et attendus, pas des défauts : sec-44 et sec-55 parce que la rubrique « Obligations déclaratives, Livre-Journal et sanctions (77 à 87) » du sommaire cliente n’a AUCUN en-tête dans le corps et n’est donc pas inscrite (§ 4.1, interdit n° 4) — les articles 77 à 87 tombent sous la lettre C) ; sec-46 parce que la « Sous Section III — Modalités d’imposition » (92-96) n’est PAS rétablie (décision de Me Vaval du 25 août) — les articles 92 à 96 restent sous la sous-section II. C’est précisément ce que la note à porter sous l’article 92 (§ 7.3) explique au lecteur."
+    },
+    "contreEpreuveEntreesEnFinDeTableau": {
+      "secs": 32,
+      "tocLength": 56,
+      "joinEgalCorps": true,
+      "clesCommentairesAtteintes": "6/6",
+      "verdict": "secs s’effondre à 32 pour 56 entrées déclarées : l’assertion § 11.1 part"
+    }
+  },
+  "avertissements": [
+    "ANCRES — les 20 sous-sections prennent sec-33…sec-52 dans l’ordre du corps, les 3 lettres A)/B)/C) sec-53…sec-55, le préambule sec-56. Aucune des ancres sec-1…sec-32 n’est renumérotée (crossRefs.anchor = « sec-1 » préservé).",
+    "DIVERGENCE MESURÉE avec la table du § 6 du prompt : elle prédit sec-9|art-81 → sec-44|art-81 ; la simulation donne sec-55|art-81. La table du § 6 n’avait inséré QUE les 20 sous-sections ; avec les 3 lettres, l’en-tête le plus proche au-dessus de l’article 81 est « c) Acompte Provisionnel » (sec-55) et non la sous-section III (sec-44). Les 5 autres lignes concordent. C’est l’illustration exacte de l’interdit n° 7 : la clé se LIT du résultat, elle ne se recopie pas.",
+    "CONTRAT DE CORPS — ce toc n’est valable que sur le corps décrit par « corpsAttendu » : première ligne « DÉCRET » (¶13 du J.O.), et lignes 185+186 fondues en une seule sans le point final que le J.O. ne porte pas. Si l’étape § 7.1 verse un préambule dont la 1ʳᵉ ligne diffère, ou si la ligne 185 est écrite autrement, l’entrée correspondante ne s’apparie plus et secs tombe.",
+    "PRÉAMBULE — le libellé du toc est « DÉCRET », la ligne que le J.O. porte réellement ; on ne fabrique pas une ligne « PRÉAMBULE » dans le corps (§ 7.1). Conséquence connue : AnnotatedText.tsx l. 141 ne cherche un « preambleAnchor » que sur un libellé /^pr[ée]ambule$/i — il ne sera donc pas trouvé. Sans effet ici : ce mécanisme ne sert qu’à afficher oldVersions[\"preambule\"], et ce document n’a pas d’oldVersions. Le navToc, lui, lit « Préambule ».",
+    "INDEX — sec-56 est l’ancre à donner aux 4 entrées « Préambule » du sommaire cliente (§ 4.2/§ 7.1). Elles ne doivent PAS passer par ctRefs (#art-Préambule est un lien mort).",
+    "LETTRES A)/B)/C) — vérifiées présentes dans le corps aux lignes 322, 326 et 328 (numérotation actuelle), en bas de casse et casse de titre (« a) Régime Simplifié pour Certaines Activités professionnelles »), et non en capitales comme au J.O. Le toc les porte au niveau 4 comme les sous-sections (§ 7.4) — le niveau 5 n’existe pas dans AnnotatedText et retomberait sur le rendu du niveau 2, plus voyant. Le navToc, lui, les niche SOUS la sous-section III, comme le sommaire de la cliente (ilvl 2 sous ilvl 1).",
+    "AFFICHAGE — AnnotatedText rend le niveau 4 en CAPITALES (« SOUS SECTION I : DÉFINITION ») et TreeNode n’ouvre par défaut que la profondeur 0 : les 23 entrées de NIVEAU 4 (20 sous-sections + 3 lettres) arriveront repliées dans la barre latérale ; la 24ᵉ entrée neuve, le préambule, est de niveau 1 et reste visible. Ni faux ni bloquant (§ 7.4).",
+    "NON FAIT ICI, et volontairement : la sous-section III « Modalités d’imposition » (92-96) n’est pas rétablie (décision de Me Vaval du 25 août) ; la rubrique « Obligations déclaratives, Livre-Journal et sanctions » du sommaire cliente n’est pas inscrite (aucun en-tête dans le corps)."
+  ],
+  "entreesNeuves": [
+    {
+      "anchor": "sec-56",
+      "level": 1,
+      "role": "préambule",
+      "ligneCorpsCible": 1,
+      "label": "DÉCRET"
+    },
+    {
+      "anchor": "sec-33",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 82,
+      "label": "Sous Section I : Définition"
+    },
+    {
+      "anchor": "sec-34",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 88,
+      "label": "Sous Section II : Détermination de la base d’imposition"
+    },
+    {
+      "anchor": "sec-35",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 102,
+      "label": "Sous Section III : Modalités d’imposition"
+    },
+    {
+      "anchor": "sec-36",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 107,
+      "label": "Sous Section I : Définition"
+    },
+    {
+      "anchor": "sec-37",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 121,
+      "label": "Sous Section II : Détermination de la base d’imposition"
+    },
+    {
+      "anchor": "sec-38",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 199,
+      "label": "Sous Section III : Modalités d’imposition"
+    },
+    {
+      "anchor": "sec-39",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 212,
+      "label": "Sous Section IV : Impôt sur le revenu sur la base forfaitaire : Régime simplifié pour les petites entreprises"
+    },
+    {
+      "anchor": "sec-40",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 236,
+      "label": "Sous Section V : Impôt sur la base du bénéfice réel"
+    },
+    {
+      "anchor": "sec-41",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 318,
+      "label": "Sous Section VI : Acompte Provisionnel"
+    },
+    {
+      "anchor": "sec-42",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 321,
+      "label": "Sous Section I : Définition"
+    },
+    {
+      "anchor": "sec-43",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 329,
+      "label": "Sous Section II : Détermination de la base d’imposition"
+    },
+    {
+      "anchor": "sec-44",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 344,
+      "label": "Sous Section III : Modalités d’imposition"
+    },
+    {
+      "anchor": "sec-53",
+      "level": 4,
+      "role": "lettre",
+      "ligneCorpsCible": 348,
+      "label": "a) Régime Simplifié pour Certaines Activités professionnelles"
+    },
+    {
+      "anchor": "sec-54",
+      "level": 4,
+      "role": "lettre",
+      "ligneCorpsCible": 352,
+      "label": "b) Régime du Bénéfice Réel"
+    },
+    {
+      "anchor": "sec-55",
+      "level": 4,
+      "role": "lettre",
+      "ligneCorpsCible": 354,
+      "label": "c) Acompte Provisionnel"
+    },
+    {
+      "anchor": "sec-45",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 374,
+      "label": "Sous Section I : Définition des Revenus Imposables"
+    },
+    {
+      "anchor": "sec-46",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 377,
+      "label": "Sous Section II : Détermination de la base imposable"
+    },
+    {
+      "anchor": "sec-47",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 439,
+      "label": "Sous Section I : Définition"
+    },
+    {
+      "anchor": "sec-48",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 444,
+      "label": "Sous Section II : Détermination de la base imposable"
+    },
+    {
+      "anchor": "sec-49",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 454,
+      "label": "Sous Section III : Modalités d’imposition"
+    },
+    {
+      "anchor": "sec-50",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 489,
+      "label": "Sous Section I : Définition"
+    },
+    {
+      "anchor": "sec-51",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 497,
+      "label": "Sous Section II : Détermination de la base d’imposition"
+    },
+    {
+      "anchor": "sec-52",
+      "level": 4,
+      "role": "sous-section",
+      "ligneCorpsCible": 506,
+      "label": "Sous Section III : Modalités d’imposition"
+    }
+  ]
+}

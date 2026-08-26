@@ -1,0 +1,951 @@
+{
+  "_lisezMoi": "ORACLE § 8 — index des mots-clés de la cliente (Index_Mots_Cles_Decret_2005_Impot_sur_le_Revenu.docx, 71 ¶), établi à la main sur le J.O. authentique et JAMAIS dérivé de la base. Sert de pièce de contrôle indépendante : il ne remplace ni ne complète l’index en base (369 sujets), interdit n° 2. Découpage : mot-clé = tête de ligne, queue = « — art. … » (séparateur espace + U+2014 + espace).",
+  "_produitPar": "scripts/data/decret-ir-2005/oracle_index.py",
+  "source": "piece-index-cliente.txt (Index_Mots_Cles_Decret_2005_Impot_sur_le_Revenu.docx, 71 ¶, extraction extraire_docx.py)",
+  "_commentMesurer": "Pour chacun des 500 renvois : le radical du mot-clé doit se trouver dans le texte de l’article cité, dans le corps CORRIGÉ. Trois lectures — juste avant / faux après = on a cassé quelque chose (bloquant) ; faux avant / juste après = coquille réparée ; faux des deux côtés = à examiner à la main (consolidation légitime ou défaut résiduel). L’oracle ne couvre PAS les articles 127 à 189 : aucune mesure de couverture n’y est possible.",
+  "_reserves": [
+    "63-1 et 63-2 ne sont jamais cités : l’index les rabat sur « 63 ». Preuve : « Secret professionnel / secret bancaire — art. 63, 83 », alors que le mot « secret » est absent de l’article 63 et présent dans le 63-1.",
+    "11 articles de la plage 1-126 ne sont cités par aucune entrée : 2, 6, 11, 12, 14, 18, 25, 40, 61, 102, 121.",
+    "4 entrées renvoient au « Préambule ». Ce n’est pas un numéro d’article : porté tel quel dans des ctRefs il produit « #art-Préambule », lien mort. Le canal correct est l’ancre de l’entrée de sommaire du préambule (voir toc-cible.json).",
+    "Une plage du SOMMAIRE (pas de l’index) est fausse : « Sous-section V — … (articles 43 à 67) » annonce 25 articles là où le corps en porte 27, parce que le sommaire ignore 63-1 et 63-2. Écart attendu, pas un défaut."
+  ],
+  "mesures": {
+    "entrees": 52,
+    "renvois": 500,
+    "numeros_distincts": 115,
+    "maximum_cite": 126,
+    "renvois_hors_1_126": 0,
+    "entrees_renvoyant_au_preambule": 4,
+    "articles_de_1_a_126_non_cites": [
+      2,
+      6,
+      11,
+      12,
+      14,
+      18,
+      25,
+      40,
+      61,
+      102,
+      121
+    ]
+  },
+  "entrees": [
+    {
+      "ligne": 5,
+      "sujet": "Achalandage",
+      "queue": "art. 29",
+      "refs": [
+        29
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 6,
+      "sujet": "Acompte provisionnel",
+      "queue": "art. 47, 67, 68, 75, 76",
+      "refs": [
+        47,
+        67,
+        68,
+        75,
+        76
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 7,
+      "sujet": "Actions, obligations et autres valeurs mobilières",
+      "queue": "art. 20, 30, 65, 109, 110, 112, 118",
+      "refs": [
+        20,
+        30,
+        65,
+        109,
+        110,
+        112,
+        118
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 8,
+      "sujet": "Amende",
+      "queue": "art. 7, 10, 19, 30, 37, 39, 45, 46, 48, 49, 50, 51, 52, 56, 57, 58, 59, 63, 79, 84, 85, 86, 92, 94, 95, 96, 105, 107, 109, 125",
+      "refs": [
+        7,
+        10,
+        19,
+        30,
+        37,
+        39,
+        45,
+        46,
+        48,
+        49,
+        50,
+        51,
+        52,
+        56,
+        57,
+        58,
+        59,
+        63,
+        79,
+        84,
+        85,
+        86,
+        92,
+        94,
+        95,
+        96,
+        105,
+        107,
+        109,
+        125
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 9,
+      "sujet": "Amortissement",
+      "queue": "art. 17, 24, 27, 30, 44, 72, 118",
+      "refs": [
+        17,
+        24,
+        27,
+        30,
+        44,
+        72,
+        118
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 10,
+      "sujet": "Année fiscale / exercice financier",
+      "queue": "art. 7, 19, 20, 21, 22, 23, 24, 27, 34, 36, 37, 38, 41, 42, 46, 53, 54, 55, 58, 65, 68, 69, 70, 71, 72, 74, 75, 76, 87, 92, 93, 94, 117, 118, 122",
+      "refs": [
+        7,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        27,
+        34,
+        36,
+        37,
+        38,
+        41,
+        42,
+        46,
+        53,
+        54,
+        55,
+        58,
+        65,
+        68,
+        69,
+        70,
+        71,
+        72,
+        74,
+        75,
+        76,
+        87,
+        92,
+        93,
+        94,
+        117,
+        118,
+        122
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 11,
+      "sujet": "Associés",
+      "queue": "art. 7, 13, 23, 30, 63, 65, 91, 96, 110, 111, 112, 118",
+      "refs": [
+        7,
+        13,
+        23,
+        30,
+        63,
+        65,
+        91,
+        96,
+        110,
+        111,
+        112,
+        118
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 13,
+      "sujet": "Bail / loyers",
+      "queue": "art. 7, 19, 24, 37, 72",
+      "refs": [
+        7,
+        19,
+        24,
+        37,
+        72
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 14,
+      "sujet": "Banque de la République d'Haïti (BRH)",
+      "queue": "Préambule ; art. 24, 63",
+      "refs": [
+        24,
+        63
+      ],
+      "preambule": true
+    },
+    {
+      "ligne": 15,
+      "sujet": "Base d'imposition / base imposable",
+      "queue": "art. 16, 20, 69, 89, 92, 99, 110",
+      "refs": [
+        16,
+        20,
+        69,
+        89,
+        92,
+        99,
+        110
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 16,
+      "sujet": "Bénéfice réel (régime du)",
+      "queue": "art. 31, 42, 43, 68, 73, 74, 76, 96, 108",
+      "refs": [
+        31,
+        42,
+        43,
+        68,
+        73,
+        74,
+        76,
+        96,
+        108
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 17,
+      "sujet": "Bénéfices des professions non commerciales",
+      "queue": "art. 13, 60, 68, 69, 70, 71, 73, 75, 77, 79, 81",
+      "refs": [
+        13,
+        60,
+        68,
+        69,
+        70,
+        71,
+        73,
+        75,
+        77,
+        79,
+        81
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 18,
+      "sujet": "Bénéfices industriels et commerciaux",
+      "queue": "art. 13, 19, 20, 31, 53, 55, 64, 72, 98, 123",
+      "refs": [
+        13,
+        19,
+        20,
+        31,
+        53,
+        55,
+        64,
+        72,
+        98,
+        123
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 19,
+      "sujet": "Bordereau (de versement, complémentaire)",
+      "queue": "art. 42, 48, 49, 59, 64, 65, 77, 78, 79, 86",
+      "refs": [
+        42,
+        48,
+        49,
+        59,
+        64,
+        65,
+        77,
+        78,
+        79,
+        86
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 21,
+      "sujet": "Certificat d'accomplissement fiscal",
+      "queue": "art. 80, 81",
+      "refs": [
+        80,
+        81
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 22,
+      "sujet": "Chiffre d'affaires",
+      "queue": "art. 33, 34, 35, 39, 43, 49, 52, 57",
+      "refs": [
+        33,
+        34,
+        35,
+        39,
+        43,
+        49,
+        52,
+        57
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 23,
+      "sujet": "Créances douteuses ou irrécouvrables",
+      "queue": "art. 24",
+      "refs": [
+        24
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 25,
+      "sujet": "Déclaration définitive d'impôt",
+      "queue": "art. 19, 47, 53, 73, 75, 79, 94, 95, 96",
+      "refs": [
+        19,
+        47,
+        53,
+        73,
+        75,
+        79,
+        94,
+        95,
+        96
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 26,
+      "sujet": "Dépréciation (réserve pour)",
+      "queue": "art. 24, 28, 29, 30",
+      "refs": [
+        24,
+        28,
+        29,
+        30
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 27,
+      "sujet": "Direction Générale des Impôts (DGI)",
+      "queue": "Préambule ; art. 7, 8, 19, 24, 32, 39, 41, 42, 44, 47, 49, 50, 51, 52, 54, 55, 57, 63, 65, 67, 68, 74, 76, 80, 82, 83, 85, 91, 92, 94, 96, 105, 106, 107, 108, 109, 114, 115, 125, 126",
+      "refs": [
+        7,
+        8,
+        19,
+        24,
+        32,
+        39,
+        41,
+        42,
+        44,
+        47,
+        49,
+        50,
+        51,
+        52,
+        54,
+        55,
+        57,
+        63,
+        65,
+        67,
+        68,
+        74,
+        76,
+        80,
+        82,
+        83,
+        85,
+        91,
+        92,
+        94,
+        96,
+        105,
+        106,
+        107,
+        108,
+        109,
+        114,
+        115,
+        125,
+        126
+      ],
+      "preambule": true
+    },
+    {
+      "ligne": 28,
+      "sujet": "Dividendes",
+      "queue": "art. 7, 27, 91, 110, 113, 117, 119",
+      "refs": [
+        7,
+        27,
+        91,
+        110,
+        113,
+        117,
+        119
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 29,
+      "sujet": "Domicile fiscal / résidence",
+      "queue": "art. 4, 5, 8, 74, 92, 94",
+      "refs": [
+        4,
+        5,
+        8,
+        74,
+        92,
+        94
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 30,
+      "sujet": "Dons et libéralités",
+      "queue": "art. 15, 24",
+      "refs": [
+        15,
+        24
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 32,
+      "sujet": "États financiers",
+      "queue": "art. 21, 22, 23, 24, 27, 31, 44, 45, 46, 47, 48, 49, 50, 51, 53, 54, 56, 58, 62, 65, 111",
+      "refs": [
+        21,
+        22,
+        23,
+        24,
+        27,
+        31,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        53,
+        54,
+        56,
+        58,
+        62,
+        65,
+        111
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 33,
+      "sujet": "Étranger (revenus de source étrangère, non-résidents)",
+      "queue": "art. 4, 5, 30, 51, 74, 94, 117",
+      "refs": [
+        4,
+        5,
+        30,
+        51,
+        74,
+        94,
+        117
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 34,
+      "sujet": "Exonération / exemption",
+      "queue": "art. 8, 15, 46, 53, 91, 94, 118, 123",
+      "refs": [
+        8,
+        15,
+        46,
+        53,
+        91,
+        94,
+        118,
+        123
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 36,
+      "sujet": "Fonctionnaires et employés publics",
+      "queue": "Préambule ; art. 67, 91, 93",
+      "refs": [
+        67,
+        91,
+        93
+      ],
+      "preambule": true
+    },
+    {
+      "ligne": 37,
+      "sujet": "Forfait / régime forfaitaire",
+      "queue": "art. 7, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 41, 42, 45, 71, 89, 91, 97",
+      "refs": [
+        7,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        41,
+        42,
+        45,
+        71,
+        89,
+        91,
+        97
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 38,
+      "sujet": "Frais de développement, d'études et de recherche",
+      "queue": "art. 29",
+      "refs": [
+        29
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 40,
+      "sujet": "Gérants",
+      "queue": "art. 13, 32, 63, 65, 96",
+      "refs": [
+        13,
+        32,
+        63,
+        65,
+        96
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 42,
+      "sujet": "Hôtellerie (matériel d')",
+      "queue": "art. 29",
+      "refs": [
+        29
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 44,
+      "sujet": "Inspection Fiscale (MEF)",
+      "queue": "art. 39, 52, 55, 57, 63, 67, 82, 83, 91, 107",
+      "refs": [
+        39,
+        52,
+        55,
+        57,
+        63,
+        67,
+        82,
+        83,
+        91,
+        107
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 45,
+      "sujet": "Intérêts",
+      "queue": "art. 5, 7, 17, 24, 26, 36, 47, 68, 71, 72, 74, 76, 91, 94, 95, 101, 110, 114, 118, 122, 123, 124, 125",
+      "refs": [
+        5,
+        7,
+        17,
+        24,
+        26,
+        36,
+        47,
+        68,
+        71,
+        72,
+        74,
+        76,
+        91,
+        94,
+        95,
+        101,
+        110,
+        114,
+        118,
+        122,
+        123,
+        124,
+        125
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 47,
+      "sujet": "Livre-Journal",
+      "queue": "art. 82, 83",
+      "refs": [
+        82,
+        83
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 48,
+      "sujet": "Logiciel / matériel informatique",
+      "queue": "art. 29",
+      "refs": [
+        29
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 50,
+      "sujet": "Majoration d'impôt",
+      "queue": "art. 38, 48, 66, 86, 87, 94, 125",
+      "refs": [
+        38,
+        48,
+        66,
+        86,
+        87,
+        94,
+        125
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 52,
+      "sujet": "Patente",
+      "queue": "art. 17, 30, 49",
+      "refs": [
+        17,
+        30,
+        49
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 53,
+      "sujet": "Personnes morales",
+      "queue": "art. 1, 47, 63, 112",
+      "refs": [
+        1,
+        47,
+        63,
+        112
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 54,
+      "sujet": "Personnes physiques",
+      "queue": "art. 1, 3, 4, 7, 8, 9, 15, 20, 24, 47, 63, 64, 75, 91, 92, 93, 95, 97, 99, 110, 123, 125",
+      "refs": [
+        1,
+        3,
+        4,
+        7,
+        8,
+        9,
+        15,
+        20,
+        24,
+        47,
+        63,
+        64,
+        75,
+        91,
+        92,
+        93,
+        95,
+        97,
+        99,
+        110,
+        123,
+        125
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 55,
+      "sujet": "Plus-value (immobilière et mobilière)",
+      "queue": "art. 13, 24, 30, 98, 99, 100, 101, 103, 104, 105, 108, 109",
+      "refs": [
+        13,
+        24,
+        30,
+        98,
+        99,
+        100,
+        101,
+        103,
+        104,
+        105,
+        108,
+        109
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 56,
+      "sujet": "Prescription",
+      "queue": "art. 8, 39, 56, 63, 79, 103",
+      "refs": [
+        8,
+        39,
+        56,
+        63,
+        79,
+        103
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 57,
+      "sujet": "Provisions",
+      "queue": "art. 23, 24, 44, 118",
+      "refs": [
+        23,
+        24,
+        44,
+        118
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 59,
+      "sujet": "Redressement fiscal",
+      "queue": "art. 48, 49, 66, 87, 106, 107, 118",
+      "refs": [
+        48,
+        49,
+        66,
+        87,
+        106,
+        107,
+        118
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 60,
+      "sujet": "Retenue à la source",
+      "queue": "art. 15, 24, 74, 92, 94, 95, 96, 103, 108, 120, 122, 125",
+      "refs": [
+        15,
+        24,
+        74,
+        92,
+        94,
+        95,
+        96,
+        103,
+        108,
+        120,
+        122,
+        125
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 61,
+      "sujet": "Revenus des capitaux mobiliers",
+      "queue": "art. 13, 109, 110, 118, 123",
+      "refs": [
+        13,
+        109,
+        110,
+        118,
+        123
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 62,
+      "sujet": "Revenus fonciers",
+      "queue": "art. 13, 15, 16, 17, 19",
+      "refs": [
+        13,
+        15,
+        16,
+        17,
+        19
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 64,
+      "sujet": "Salaires et traitements",
+      "queue": "art. 7, 13, 24, 30, 37, 39, 56, 69, 87, 88, 90, 91, 92, 93, 94, 95, 97, 120",
+      "refs": [
+        7,
+        13,
+        24,
+        30,
+        37,
+        39,
+        56,
+        69,
+        87,
+        88,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        97,
+        120
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 65,
+      "sujet": "Sanctions",
+      "queue": "art. 10, 19, 49, 50, 52, 57, 64, 75, 76, 84, 86, 87, 92, 94, 95, 107, 114, 125",
+      "refs": [
+        10,
+        19,
+        49,
+        50,
+        52,
+        57,
+        64,
+        75,
+        76,
+        84,
+        86,
+        87,
+        92,
+        94,
+        95,
+        107,
+        114,
+        125
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 66,
+      "sujet": "Secret professionnel / secret bancaire",
+      "queue": "art. 63, 83",
+      "refs": [
+        63,
+        83
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 67,
+      "sujet": "Sociétés",
+      "queue": "Préambule ; art. 1, 13, 15, 20, 24, 47, 49, 51, 74, 89, 91, 97, 104, 108, 110, 111, 112, 113, 114, 116, 117, 118, 119, 120",
+      "refs": [
+        1,
+        13,
+        15,
+        20,
+        24,
+        47,
+        49,
+        51,
+        74,
+        89,
+        91,
+        97,
+        104,
+        108,
+        110,
+        111,
+        112,
+        113,
+        114,
+        116,
+        117,
+        118,
+        119,
+        120
+      ],
+      "preambule": true
+    },
+    {
+      "ligne": 69,
+      "sujet": "Taux d'imposition / barème",
+      "queue": "art. 8, 17, 24, 35, 44, 47, 64, 65, 75, 92, 94, 95, 96, 103, 109, 111, 114, 115, 116, 117",
+      "refs": [
+        8,
+        17,
+        24,
+        35,
+        44,
+        47,
+        64,
+        65,
+        75,
+        92,
+        94,
+        95,
+        96,
+        103,
+        109,
+        111,
+        114,
+        115,
+        116,
+        117
+      ],
+      "preambule": false
+    },
+    {
+      "ligne": 71,
+      "sujet": "Valeur locative",
+      "queue": "art. 74",
+      "refs": [
+        74
+      ],
+      "preambule": false
+    }
+  ]
+}

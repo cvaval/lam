@@ -1,0 +1,445 @@
+{
+  "_": "TÂCHE 3 — Le décret du 29 septembre 1986 et les incohérences dormantes. Relevé de LECTURE SEULE sur la base de production, 25 août 2026. AUCUNE écriture n'a été faite : ni update, ni create, ni --apply. Ce fichier est une PROPOSITION à valider par Me Vaval.",
+  "genereLe": "2026-08-25",
+  "methode": "Lectures Prisma sur .env (base de production) + confrontation aux pièces de scripts/data/decret-ir-2005/ (J.O. Moniteur Spécial n° 10, couche texte du fac-similé, transcription 2020 des 191 articles) + lecture de prisma/schema.prisma et de src/components/**.",
+
+  "etat": {
+    "fiche1986": {
+      "id": "cmrtixuf400061267rrhh6a36",
+      "type": "LEGISLATION",
+      "source": "CC_VANDAL_VII-D-1",
+      "number": "Décret du 29 septembre 1986",
+      "titleFr": "Décret du 29 septembre 1986 relatif à l'impôt sur le revenu, modifié par celui du 27 septembre 1988",
+      "titleEn": null,
+      "titleHt": null,
+      "status": "EN_VIGUEUR",
+      "abrogatedByNumber": null,
+      "moniteurRef": "Le Moniteur n° 79 du 29 septembre 1986",
+      "publicationDate": "1986-09-29",
+      "adoptionDate": null,
+      "effectiveDate": null,
+      "matiere": "commercial",
+      "metaJson": "{\"vandalId\":\"VII-D-1\",\"partie\":\"VII\",\"rubrique\":\"D\"}",
+      "sealed": false,
+      "createdAt": "2026-07-20T17:54:24.448Z",
+      "updatedAt": "2026-07-28T02:31:24.041Z",
+      "corps": {
+        "caracteres": 112312,
+        "lignes": 607,
+        "md5": "ce0f4a3cf3208159191bd8f416cb2de7",
+        "tetesDArticle": 173,
+        "premierArticle": "Article 1.- Il est établi un impôt sur le revenu des personnes physiques et morales…",
+        "dernierArticle": "Article 173.- Pour l'impôt sur le revenu des personnes physiques et l'impôt sur le revenu des personnes morales, le droit de contrôle et de vérification…",
+        "remarque": "Le corps est encadré, en première et en dernière ligne, par la ligne de points de l'édition Vandal. Aucun préambule, aucune formule de promulgation, aucune signature : ce n'est pas le J.O., c'est le texte de l'édition Vandal."
+      },
+      "cequellePorte": "Un texte CONSOLIDÉ, et pas seulement le décret de 1986 : le corps porte inline les modifications du décret du 27 septembre 1988 (8 articles marqués « (D. 27 sept. 1988) » : 53, 86, 87, 89 — alinéas — et articles 38, 42, 47, 149, 150) ET celles de la loi du 5 février 1995 (articles 35, 36 et 82, marqués « (L. 5 février 1995) »). Abroger cette fiche revient donc à retirer d'un coup les trois textes visés par le considérant de 2005.",
+      "annotationsJson": {
+        "caracteres": 8093,
+        "md5": "cf54b3b7a38cc673023d429cf558572f",
+        "annotationAuthor": "Édition Vandal",
+        "navToc": "1 groupe",
+        "toc": 21,
+        "labels": 173,
+        "status": {
+          "nbEntrees": 8,
+          "valeur": "« modifié » pour art-35, art-36, art-38, art-42, art-47, art-82, art-149, art-150",
+          "remarque": "AUCUNE ancre ne porte « abrogé ». Le vocabulaire de ce champ est une LISTE FERMÉE de quatre valeurs (voir schema/affichage ci-dessous)."
+        },
+        "indexEntries": 0,
+        "crossRefs": 0,
+        "connexes": 0,
+        "jurisprudence": {},
+        "commentaires": {},
+        "oldVersions": {}
+      },
+      "themes": [
+        { "libelle": "Fiscalité / impôts (DGI)", "principal": false },
+        { "libelle": "Droit commercial", "principal": true },
+        { "libelle": "Fiscalité", "principal": false }
+      ],
+      "renvoisSortants": [],
+      "renvoisEntrants": [
+        {
+          "crossRefId": "cmrtugdua001vwe52r3ir6edn",
+          "fromId": "cmrtnrxhu0000hg04ggz2lw0f",
+          "from": "Code de commerce (CODE_COMMERCE_ANNOTE)",
+          "kind": "VOIR",
+          "note": "Index Vandal",
+          "position": 33
+        }
+      ],
+      "documentVersion": 0,
+      "articleVersion": 0,
+      "citationsLegacy": { "from": 0, "to": 0 }
+    },
+
+    "fiche2005": {
+      "id": "cms43ptub00008lo8tv3y25kk",
+      "source": "DECRET_IMPOT_REVENU_2005",
+      "status": "EN_VIGUEUR",
+      "corps": { "caracteres": 160940, "lignes": 743, "md5": "da6b03f3df2032c1dc265ae0cca79315" },
+      "renvoisSortants": [
+        {
+          "crossRefId": "cmt8k5tot00022bc770vh0tyj",
+          "toId": "0e86f9e7-bd37-4bad-91eb-392ddafe7cb8",
+          "toType": "INDEX",
+          "toNumber": "LM2005-SP10",
+          "kind": "VOIR",
+          "position": 0,
+          "toLabel": "Décret modifiant celui du 29 septembre 1986 relatif à l'Impôt sur le Revenu"
+        }
+      ],
+      "renvoisEntrants": [],
+      "remarqueDeFond": "L'intitulé de PUBLICATION au sommaire du Moniteur Spécial n° 10 est « Décret MODIFIANT celui du 29 septembre 1986 relatif à l'Impôt sur le Revenu ». Le J.O. présente donc le texte de 2005 comme modificatif, tandis que son propre considérant annonce une abrogation. Cette divergence est mesurée, pas interprétée."
+    },
+
+    "champsDeStatut": {
+      "_": "Ce qui existe RÉELLEMENT au schéma pour dire qu'un texte est abrogé (prisma/schema.prisma), et comment l'écran le rend (src/components/**, src/app/[locale]/(app)/doc/[id]/page.tsx).",
+      "Document.status": {
+        "type": "String, défaut « PUBLIE »",
+        "vocabulaire": ["EN_VIGUEUR", "ABROGE", "MODIFIE", "PUBLIE"],
+        "rendu": "StatusChip (src/components/StatusChip.tsx) — « Abrogé » est le SEUL statut à fond Sitwon/texte Chabon (AV-02, statut de certification) ; les trois autres sont sur Pil. Affiché sur la fiche (doc/[id]/page.tsx l. 404), dans ResultCard (l. 70) et dans ThemeBrowser (l. 524, seulement si ≠ EN_VIGUEUR).",
+        "effetSurLaRecherche": "AUCUN filtrage par défaut : src/lib/search/ftsql.ts n'ajoute d\"status\" = … que si l'utilisateur choisit le filtre. Passer à ABROGE ne fait donc pas disparaître le texte des résultats ; il l'y montre étiqueté."
+      },
+      "Document.abrogatedByNumber": {
+        "type": "String?, nullable",
+        "role": "Le NUMÉRO du texte qui abroge celui-ci. Seul champ du modèle qui nomme l'abrogeant.",
+        "rendu": "Bandeau sur la fiche, uniquement si status === 'ABROGE' (doc/[id]/page.tsx l. 548-566)."
+      },
+      "champDeDateDAbrogation": {
+        "existe": false,
+        "detail": "AUCUN champ « abrogationDate » ni équivalent n'existe sur Document. Les trois dates du modèle — publicationDate, adoptionDate, effectiveDate — décrivent le texte lui-même, pas sa disparition. Ne pas en détourner une : effectiveDate du décret de 1986 est vide, et la remplir avec 2005-10-05 dirait le contraire de ce qu'elle signifie."
+      },
+      "DocumentVersion.status + effectiveDate": "Statut d'une VERSION consolidée (0 ligne pour 1986).",
+      "ArticleVersion.status": {
+        "vocabulaire": ["EN_VIGUEUR", "MODIFIE", "ABROGE"],
+        "champsUtiles": ["effectiveDate", "amendedByDocId", "amendedByNumber", "note"],
+        "etat1986": "0 ligne. Mécanique disponible mais non employée ici."
+      },
+      "annotationsJson.status": {
+        "forme": "Record<ancre, string> — ex. { \"art-35\": \"modifié\" }",
+        "vocabulaireFERME": ["modifié", "nouveau", "abrogé", "partiellement abrogé"],
+        "sourceDeLaListe": "src/components/AnnotatedText.tsx, const STATUS_BADGE (l. 26-33). Toute autre valeur ne produit AUCUNE pastille — elle disparaît en silence.",
+        "portee": "Article par article, pas document par document. Ne peut donc pas dire « ce texte est abrogé »."
+      },
+      "CrossRef.kind = 'ABROGE'": {
+        "vocabulaire": ["CITE", "COMMENTE", "MODIFIE", "ABROGE", "APPLIQUE", "VOIR"],
+        "sourceDuVocabulaire": "Commentaire du champ dans prisma/schema.prisma l. 628 ET const KINDS de src/components/LegislationAdminPanel.tsx l. 27 — les deux listes coïncident.",
+        "verificationDemandee": "« connexe » N'EST PAS un kind de CrossRef. Le 'connexe' du verrou à sens unique appartient à src/lib/legislation/annotated.ts (TocEntry.kind, l. 27 et 244), c'est-à-dire au sommaire d'un texte annoté — mécanique sans rapport. Rien à craindre ici.",
+        "etatDuCorpus": { "CITE": 2, "VOIR": 60, "ABROGE": 1 }
+      },
+      "metaJson": "JSON libre. Rien, dans src/, n'y lit une abrogation. Ne pas y loger le statut."
+    },
+
+    "defautsDAffichageMESURES": [
+      {
+        "constat": "Le bandeau d'abrogation ne sait résoudre le texte abrogeant QUE parmi les circulaires de la BRH.",
+        "preuve": "src/app/[locale]/(app)/doc/[id]/page.tsx l. 180-191 : prisma.document.findMany({ where: { type: 'CIRCULAIRE_BRH', number: doc.abrogatedByNumber } }).",
+        "consequence": "Pour un texte de LÉGISLATION, abrogatedByNumber tombe dans la branche de repli (l. 561-562) et s'affiche en TEXTE BRUT, sans lien vers la fiche de 2005."
+      },
+      {
+        "constat": "Le libellé français du bandeau est accordé au FÉMININ, pour « la Circulaire ».",
+        "preuve": "src/lib/i18n/locales/fr.ts l. 736 : abrogatedByPrefix = 'Ce texte est abrogé par la'. Et l. 643 : abrogatedBy = 'abrogée par' (carte de résultat).",
+        "consequence": "Avec abrogatedByNumber = « Décret du 29 septembre 2005 », la fiche afficherait : « Ce texte est abrogé par la Décret du 29 septembre 2005. »",
+        "recommandation": "Ne PAS renseigner abrogatedByNumber tant que ces deux points ne sont pas corrigés : le bandeau générique (t.doc.abrogatedBanner, « Ce texte est abrogé. Consultez la version en vigueur. ») sort propre, et le renvoi ABROGE porte le lien."
+      },
+      {
+        "constat": "Le kind d'un CrossRef s'affiche BRUT, en majuscules, non traduit.",
+        "preuve": "doc/[id]/page.tsx l. 731 « {r.kind} → » et l. 754 « ← {b.kind} ».",
+        "consequence": "Le renvoi proposé se lira « ABROGE → Décret du 29 septembre 1986… » sur la fiche de 2005 et « ← ABROGE Décret du 29 septembre 2005… » sur celle de 1986. C'est lisible, mais ce n'est pas rédigé."
+      }
+    ]
+  },
+
+  "abrogation": {
+    "clauseCitee": {
+      "texte": "Considérant qu'il y a lieu d'abroger le Décret du 29 septembre 1986, le Décret du 27 septembre 1988 et la Loi du 5 février 1995;",
+      "nature": "CONSIDÉRANT — un motif énoncé au préambule, avant le mot DÉCRÈTE. Ce n'est pas une disposition.",
+      "emplacement": "Préambule, 2e considérant, juste avant « Sur le rapport du Ministre de l'Economie et des Finances ».",
+      "provenance": [
+        { "piece": "base de production, corps du décret de 2005", "reference": "ligne 24 sur 743" },
+        { "piece": "piece-jo-2005-moniteur-sp10.txt", "reference": "ligne 37" },
+        { "piece": "piece-jo-2005-facsimile-couche-texte.txt", "reference": "lignes 74-75 (« Considérant qu' i1 y a lieu d'abroger… » — l'OCR lit « i1 » pour « il »)" },
+        { "piece": "piece-transcription-2020-191-articles.txt", "reference": "ligne 26" }
+      ],
+      "concordance": "Les TROIS pièces indépendantes donnent le même considérant, mot pour mot. La clause est établie."
+    },
+
+    "leDispositifAbroge-t-il": {
+      "reponse": "NON — aucun article du décret de 2005 ne nomme le décret du 29 septembre 1986, ni celui du 27 septembre 1988.",
+      "methode": "Balayage /abrog/i sur les 743 lignes du corps en production ET sur les 1 037 lignes de la transcription 2020 des 191 articles. Deux occurrences seulement dans le corps (lignes 24 et 743), trois dans la transcription (lignes 26, 1015, 1018).",
+      "articlesTrouves": [
+        {
+          "article": "Article 188",
+          "texte": "La loi du 5 Février 1995 instituant un acompte provisionnel et les dispositions relatives à l'acompte provisionnel contenues dans la loi des finances 2002-2003 sont et demeurent rapportées.",
+          "emplacement": "Chapitre III : Disposition Spéciale — ligne 741 du corps en production ; ligne 1015 de la transcription",
+          "portee": "SEUL article du décret qui nomme un texte antérieur pour le retirer. Il ne vise NI le décret de 1986, NI celui de 1988. Le verbe employé est « rapportées », pas « abrogées »."
+        },
+        {
+          "article": "Article 189",
+          "texte": "Le présent décret abroge toutes lois ou dispositions de lois, tous décrets-lois ou dispositions de décrets-lois, tous décrets ou dispositions de décrets qui lui sont contraires et sera publié et exécuté à la diligence du Ministre de l'Economie et des Finances.",
+          "emplacement": "Chapitre IV : Disposition Finale — ligne 743 du corps, dernière ligne ; ligne 1018 de la transcription",
+          "portee": "Clause BALAI. Elle abroge par l'effet de la contrariété, sans nommer personne. Elle n'établit pas à elle seule qu'un texte déterminé tombe : c'est une qualification qui reste à faire."
+        }
+      ],
+      "consequence": "L'abrogation du décret de 1986 repose sur DEUX appuis convergents mais indirects : (1) un considérant qui la NOMME sans la prononcer ; (2) un article 189 qui la PRONONCE sans la nommer. Aucun article ne fait les deux. S'y ajoute un troisième élément de fait, mesurable : le décret de 2005 réécrit la même matière du même article 1er au même dernier chapitre, en 189 articles là où 1986 en comptait 173 — il n'y a pas de place pour deux impôts sur le revenu concurrents."
+    }
+  },
+
+  "textesVisesParLeMemePreambule": {
+    "decretDu27Septembre1988": {
+      "auCorpus": "PAS DE FICHE AUTONOME.",
+      "traceUnique": {
+        "type": "INDEX",
+        "id": "62f7a988-6821-4898-be40-a96e7df4106c",
+        "number": "LM1988-86B",
+        "publicationDate": "1988-10-03",
+        "titre": "Décret modifiant certaines dispositions du Décret du 29 septembre 1986 relatif à l'Impôt sur le Revenu pour les adapter à la conjoncture économique actuelle"
+      },
+      "statut": "PUBLIE (statut de toutes les entrées de l'Index du Moniteur — il ne dit rien de la vigueur du texte).",
+      "ouSonContenuVit": "Inline dans la fiche de 1986 : 8 emplacements marqués « (D. 27 sept. 1988) ». Il n'y a donc RIEN à faire basculer pour lui : le retirer, c'est retirer la fiche de 1986."
+    },
+    "loiDu5Fevrier1995": {
+      "constatDecisif": "Il y a DEUX lois distinctes du 5 février 1995, publiées le même jour au même Moniteur. Mesuré sur l'Index du Moniteur : le numéro LM1995-19 (6 mars 1995) porte quatre lois, dont, séparément : « Loi modifiant les articles 35, 36 et 82 du Décret du 29 septembre 1986 relatif à l'Impôt sur le Revenu » (id d7a7c2a1-5a70-4b1d-87ca-50c114127bc4) et « Loi établissant un acompte de 2% à calculer sur la valeur en douane de toutes les importations à caractère commercial » (id f707d689-e539-47a0-a5ef-e6a2baab34d3).",
+      "celleDuConsiderant": {
+        "identification": "La ligne « Vu » du préambule de 2005 (ligne 15) la désigne : « Vu la Loi du 5 février 1995 modifiant les articles 35, 36 et 82 du Décret du 29 septembre 1986 relatif à l'Impôt sur le Revenu ». C'est donc la loi modificative, celle de l'entrée d'index d7a7c2a1.",
+        "auCorpus": "PAS DE FICHE AUTONOME. Son contenu vit inline dans la fiche de 1986 (articles 35, 36 et 82, marqués « (L. 5 février 1995) », et signalés « modifié » dans annotationsJson.status).",
+        "rienABasculer": true
+      },
+      "celleDeLArticle188": {
+        "ficheProbable": {
+          "id": "cmrtixx2300081267p74gapx4",
+          "source": "CC_VANDAL_VII-D-3",
+          "status": "EN_VIGUEUR",
+          "number": "Loi du 5 février 1995",
+          "titleFr": "Loi du 5 février 1995 établissant un acompte de 2% sur la valeur en douane des importations à caractère commercial de marchandises ou de biens, imputable au montant de l'impôt sur le revenu.",
+          "moniteurRef": "Le Moniteur n° 19 du 6 mars 1995",
+          "corps": "1 038 c., 5 articles : art. 1er établit l'acompte de 2%, art. 2 le rend « imputable au montant de l'impôt sur le revenu à payer »."
+        },
+        "appui": "ARTICLE 188 — un dispositif, pas un considérant. C'est l'appui le PLUS SOLIDE de tout ce dossier.",
+        "reserve": "L'article 188 dit « acompte provisionnel » ; le titre de la loi dit « acompte de 2% … imputable au montant de l'impôt sur le revenu ». C'est la seule loi du 5 février 1995 du corpus qui institue un acompte imputable sur l'IR, et aucune autre loi de cette date ne parle d'acompte au sommaire de LM1995-19. L'identification est donc très probable — elle n'est pas littérale. À trancher par Me Vaval."
+      },
+      "homonymeANePASToucher": {
+        "id": "cmrtixbpk0006bzc5kil9byiw",
+        "source": "CC_VANDAL_V-F",
+        "titleFr": "Loi du 5 février 1995 abrogeant le décret du 29 août 1989 qui fixait un taux d'ajustement de 30% de la valeur en douane des biens et services importés… modifiant également les articles 21, 22, 25, 32, 34, 35, 98, 120-13, 145, 176, 181, 216, 232, 459 [du Code douanier]",
+        "pourquoi": "Même date, même Moniteur (LM1995-19, entrée 530a64d8, « Loi portant modifications de certains articles du Code Douanier en vigueur »), matière ENTIÈREMENT DIFFÉRENTE. Un balayage par date la fait remonter comme cible du considérant de 2005 : c'est un FAUX POSITIF. Ne rien changer sur cette fiche."
+      }
+    }
+  },
+
+  "renvois": {
+    "precedentDuCorpus": {
+      "crossRefId": "cmt1x4g7s0007m0c3nabuo7ce",
+      "from": "Décret du 11 décembre 2024 déterminant les Fêtes Légales (DECRET_FETES_LEGALES_2024)",
+      "toId": "952ddd40-196d-4666-9745-9b7699d851e1 (INDEX du Moniteur)",
+      "kind": "ABROGE",
+      "noteExistante": "Emporté par la clause d'abrogation générale de l'article 4 du présent décret : le décret du 23 mai 1989, visé au préambule, déterminait les mêmes fêtes légales et lui est donc contraire. L'article 4 ne le nomme pas — la qualification est éditoriale.",
+      "enseignement": "C'est EXACTEMENT le cas de figure d'aujourd'hui : clause balai + texte visé au préambule + qualification assumée comme éditoriale dans la note. C'est le seul CrossRef 'ABROGE' du corpus, et c'est le patron à suivre. Le sens retenu est : DU TEXTE NOUVEAU VERS LE TEXTE ANCIEN."
+    },
+    "sensEtMecanique": "Un seul CrossRef suffit par couple : backlinks() (src/lib/legislation/refs.ts) fabrique le rétrolien à partir de toId. Une paire réciproque afficherait DEUX lignes sur chaque fiche. Ne pas la créer.",
+    "aCreer": [
+      {
+        "n": 1,
+        "priorite": "principale",
+        "fromId": "cms43ptub00008lo8tv3y25kk",
+        "from": "Décret du 29 septembre 2005 relatif à l'Impôt sur le Revenu",
+        "toId": "cmrtixuf400061267rrhh6a36",
+        "to": "Décret du 29 septembre 1986 relatif à l'impôt sur le revenu, modifié par celui du 27 septembre 1988",
+        "kind": "ABROGE",
+        "toType": null,
+        "toNumber": null,
+        "toAnchor": null,
+        "toLabel": "Décret du 29 septembre 1986 relatif à l'impôt sur le revenu, modifié par celui du 27 septembre 1988",
+        "source": "EDITORIAL",
+        "position": 1,
+        "note": "Le préambule du présent décret énonce : « Considérant qu'il y a lieu d'abroger le Décret du 29 septembre 1986, le Décret du 27 septembre 1988 et la Loi du 5 février 1995 ». Aucun article ne nomme ces textes : l'article 189 abroge « toutes lois ou dispositions de lois […] qui lui sont contraires », sans les désigner. Le décret de 1986 réglait la même matière, du même article 1er au même objet ; la qualification est éditoriale.",
+        "effetALEcran": "Sur la fiche de 2005 : « ABROGE → Décret du 29 septembre 1986… ». Sur la fiche de 1986, par rétrolien : « ← ABROGE Décret du 29 septembre 2005 relatif à l'Impôt sur le Revenu ». C'est ce renvoi, et non le bandeau, qui portera le lien cliquable (cf. defautsDAffichageMESURES)."
+      },
+      {
+        "n": 2,
+        "priorite": "principale",
+        "fromId": "cms43ptub00008lo8tv3y25kk",
+        "toId": "62f7a988-6821-4898-be40-a96e7df4106c",
+        "to": "Index du Moniteur LM1988-86B — « Décret modifiant certaines dispositions du Décret du 29 septembre 1986 relatif à l'Impôt sur le Revenu… »",
+        "kind": "ABROGE",
+        "toType": null,
+        "toNumber": null,
+        "toLabel": "Décret du 27 septembre 1988 modifiant celui du 29 septembre 1986 relatif à l'Impôt sur le Revenu (Le Moniteur n° 86-B du 3 octobre 1988)",
+        "source": "EDITORIAL",
+        "position": 2,
+        "note": "Visé au préambule du présent décret parmi les textes qu'« il y a lieu d'abroger ». Le décret du 27 septembre 1988 n'a pas de fiche autonome au corpus : ses dispositions sont portées inline par la fiche du décret du 29 septembre 1986, où huit emplacements les signalent « (D. 27 sept. 1988) ». Le renvoi pointe donc son entrée au sommaire du Moniteur. La qualification est éditoriale.",
+        "justification": "Le précédent des Fêtes Légales pointe déjà un CrossRef ABROGE vers une entrée d'INDEX : la mécanique est éprouvée."
+      },
+      {
+        "n": 3,
+        "priorite": "principale",
+        "fromId": "cms43ptub00008lo8tv3y25kk",
+        "toId": "d7a7c2a1-5a70-4b1d-87ca-50c114127bc4",
+        "to": "Index du Moniteur LM1995-19 — « Loi modifiant les articles 35, 36 et 82 du Décret du 29 septembre 1986 relatif à l'Impôt sur le Revenu »",
+        "kind": "ABROGE",
+        "toLabel": "Loi du 5 février 1995 modifiant les articles 35, 36 et 82 du Décret du 29 septembre 1986 relatif à l'Impôt sur le Revenu (Le Moniteur n° 19 du 6 mars 1995)",
+        "source": "EDITORIAL",
+        "position": 3,
+        "note": "Troisième texte visé par le considérant. Il n'a pas de fiche autonome : ses trois articles vivent inline dans la fiche du décret de 1986, marqués « (L. 5 février 1995) ». Ne pas le confondre avec l'autre loi du 5 février 1995, publiée au même Moniteur, qui modifie le Code douanier. La qualification est éditoriale."
+      },
+      {
+        "n": 4,
+        "priorite": "principale — appui le plus solide, seul fondé sur un DISPOSITIF",
+        "fromId": "cms43ptub00008lo8tv3y25kk",
+        "toId": "cmrtixx2300081267p74gapx4",
+        "to": "Loi du 5 février 1995 établissant un acompte de 2% … imputable au montant de l'impôt sur le revenu (CC_VANDAL_VII-D-3)",
+        "kind": "ABROGE",
+        "toLabel": "Loi du 5 février 1995 établissant un acompte de 2% sur la valeur en douane des importations, imputable à l'impôt sur le revenu",
+        "source": "EDITORIAL",
+        "position": 4,
+        "note": "Article 188 du présent décret : « La loi du 5 Février 1995 instituant un acompte provisionnel et les dispositions relatives à l'acompte provisionnel contenues dans la loi des finances 2002-2003 sont et demeurent rapportées. » Le décret nomme ici le texte retiré dans son dispositif, et non au préambule. L'identification repose sur l'objet : c'est la seule loi du 5 février 1995 instituant un acompte imputable sur l'impôt sur le revenu.",
+        "reserve": "Si Me Vaval juge l'identification insuffisamment littérale (« acompte provisionnel » / « acompte de 2% »), rétrograder ce renvoi en kind 'CITE' et laisser le statut inchangé."
+      },
+      {
+        "n": 5,
+        "priorite": "facultative — confort de lecture",
+        "fromId": "cmrtixuf400061267rrhh6a36",
+        "toId": "0fde0ad6-9588-48ef-98c3-8089a102df23",
+        "to": "Index du Moniteur LM1986-79 — « Décret relatif à l'Impôt sur le Revenu » (28 septembre 1986)",
+        "kind": "VOIR",
+        "toLabel": "Entrée du texte au sommaire du Moniteur n° 79",
+        "source": "EDITORIAL",
+        "position": 0,
+        "note": "Symétrique du renvoi posé ce matin sur la fiche de 2005 (crossRef cmt8k5tot00022bc770vh0tyj → LM2005-SP10). ⚠️ L'entrée d'index est datée du 28 septembre 1986 alors que la fiche porte moniteurRef « Le Moniteur n° 79 du 29 septembre 1986 » : vérifier sur le fac-similé avant de poser ce renvoi."
+      }
+    ],
+    "aNePASCreer": [
+      "Un CrossRef réciproque 1986 → 2005 : le rétrolien le fabrique déjà (backlinks() lit toId). Le créer doublerait la ligne sur les deux fiches.",
+      "Un CrossRef vers cmrtixbpk0006bzc5kil9byiw (Loi du 5 février 1995, Code douanier) : homonyme de date, matière étrangère."
+    ]
+  },
+
+  "changementDeStatutPropose": {
+    "avertissement": "Changer le statut d'un texte est un acte éditorial lourd, et l'appui principal ici est un CONSIDÉRANT. La proposition ci-dessous est faite pour être discutée, pas appliquée d'office. Aucune écriture n'a été faite.",
+    "optionRecommandee": {
+      "nom": "Option A — statuer, en disant sur quoi l'on s'appuie",
+      "documentId": "cmrtixuf400061267rrhh6a36",
+      "champ": "status",
+      "valeurActuelle": "EN_VIGUEUR",
+      "valeurProposee": "ABROGE",
+      "champsANEPASEcrire": {
+        "abrogatedByNumber": "LAISSER À null. Renseigné, il s'afficherait « Ce texte est abrogé par la Décret du 29 septembre 2005. » — sans lien, et avec une faute d'accord (cf. defautsDAffichageMESURES). Le bandeau générique « Ce texte est abrogé. Consultez la version en vigueur. » sort correctement, et le renvoi n° 1 porte le lien.",
+        "effectiveDate": "NE PAS l'utiliser comme date d'abrogation : elle désigne l'entrée en vigueur du texte lui-même.",
+        "annotationsJson.status": "NE PAS repasser les 8 ancres « modifié » en « abrogé » : elles disent quel article a été amendé en 1988/1995, ce qui reste vrai. Le statut de l'ensemble se dit au niveau du document."
+      },
+      "champAEcrireEnPlus": {
+        "champ": "summaryFr",
+        "raison": "C'est le seul endroit où la NUANCE peut être écrite en toutes lettres, et le corpus a déjà un précédent exact.",
+        "precedent": {
+          "id": "cms6bhh0t000411j6ahh6g65o",
+          "source": "DECRET_SIGNATURE_ELECTRONIQUE_2015",
+          "status": "ABROGE",
+          "abrogatedByNumber": null,
+          "summaryFrExistant": "SUPPLANTÉ par la loi du 14 février 2017 sur la signature électronique, qui reprend la même matière et abroge les dispositions contraires (art. 17). …",
+          "remarque": "C'est le SEUL document de type LEGISLATION en statut ABROGE de tout le corpus (25 ABROGE au total, les 24 autres sont des circulaires BRH). Il a été mis à ABROGE sur la seule foi d'une clause balai — et la nuance a été portée par le résumé."
+        },
+        "formulationLaPlusPrudente": "SUPPLANTÉ par le Décret du 29 septembre 2005 relatif à l'Impôt sur le Revenu, qui refond la même matière en 189 articles. Le préambule du décret de 2005 énonce « qu'il y a lieu d'abroger le Décret du 29 septembre 1986, le Décret du 27 septembre 1988 et la Loi du 5 février 1995 » ; c'est un considérant, non une disposition. Aucun article du décret de 2005 ne nomme le décret de 1986 : son article 189 abroge « toutes lois ou dispositions de lois […] qui lui sont contraires », sans le désigner. Le présent texte porte, inline, les modifications du décret du 27 septembre 1988 et de la loi du 5 février 1995. — Texte de l'édition Vandal du Code de commerce, partie VII (Réglementation fiscale)."
+      }
+    },
+    "optionDeRepli": {
+      "nom": "Option B — ne rien changer au statut, poser les renvois seuls",
+      "detail": "Créer les CrossRef n° 1 à 4 et laisser status = EN_VIGUEUR. La fiche de 1986 afficherait alors « ← ABROGE Décret du 29 septembre 2005… » tout en portant la pastille « En vigueur ».",
+      "verdict": "DÉCONSEILLÉ. Cela ne supprime pas la contradiction, cela la déplace : les deux affirmations se retrouveraient sur la même fiche, à quelques centimètres l'une de l'autre. Si le considérant ne suffit pas à statuer, il ne suffit pas non plus à poser un renvoi 'ABROGE' — il faudrait alors le kind 'CITE' et une note."
+    },
+    "optionEcartee": {
+      "nom": "Option C — status = 'MODIFIE'",
+      "raison": "Défendable sur le seul intitulé de publication du J.O. (« Décret MODIFIANT celui du 29 septembre 1986 »), mais le décret de 2005 ne modifie pas des articles du texte de 1986 : il en réécrit l'intégralité sous une numérotation propre (189 articles contre 173). 'MODIFIE' ferait croire à un texte de 1986 encore lisible dans une version amendée, qui n'existe pas."
+    },
+    "cequiResteUneQuestion": [
+      "Le considérant suffit-il à faire tomber le décret de 1986 ? La réponse est de droit, pas de mesure. La plateforme ne peut que dire sur quoi elle s'appuie — d'où l'obligation d'écrire le résumé en même temps que le statut, jamais après.",
+      "L'intitulé de publication au Moniteur Spécial n° 10 dit « modifiant », le considérant du même texte dit « abroger ». La divergence est dans le J.O. lui-même : elle ne se résout pas, elle se signale.",
+      "L'article 188 vise-t-il bien la loi du 5 février 1995 de la fiche CC_VANDAL_VII-D-3 ? « acompte provisionnel » contre « acompte de 2% imputable à l'impôt sur le revenu » : très probable, non littéral.",
+      "Si l'option A est retenue pour 1986, faut-il la retenir aussi pour la fiche CC_VANDAL_VII-D-3 (loi du 5 février 1995, acompte) ? Son appui est MEILLEUR (article 188, un dispositif). La cohérence voudrait qu'elle bascule d'abord, ou en même temps.",
+      "Le décret du 9 octobre 1986 sur la rectification fiscale (cmrtixw1o00071267igp8s4b9, CC_VANDAL_VII-D-2) n'est visé ni au préambule ni au dispositif de 2005. Non mesuré, non proposé — mais c'est la fiche voisine dans la même rubrique fiscale, et la question mérite d'être posée à part."
+    ]
+  },
+
+  "autresDormants": {
+    "methode": "Trois balayages sur la base de production. (1) Titre du document contenant « abrog » et statut ≠ ABROGE. (2) CrossRef kind='ABROGE' dont la cible n'est pas ABROGE. (3) Balayage de TOUS les corps de LEGISLATION + LOI_FINANCES (3 690 documents, dont 269 hors fascicules OCR du Moniteur) à la recherche de « abrog… <décret|loi|arrêté|décret-loi> du <date> », négations « n'abroge pas » exclues, puis confrontation de la désignation trouvée aux désignations datées du corpus (139 distinctes, tirées du numéro ET du titre).",
+    "chiffres": {
+      "corpusHorsIndexMarquesJurisprudence": 3834,
+      "parStatut": { "EN_VIGUEUR": 3808, "ABROGE": 25, "PUBLIE": 1 },
+      "ABROGE_dont": "24 circulaires BRH + 1 seul texte de LEGISLATION (le décret du 9 décembre 2015 sur la signature électronique).",
+      "crossRefParKind": { "CITE": 2, "VOIR": 60, "ABROGE": 1 },
+      "clausesDAbrogationNommeesTrouvees": 72,
+      "dontLaCibleExisteAuCorpus": "3 couples réels après retrait des faux positifs (OCR de fascicules, « n'abroge pas », lignes « Vu le Décret… » avalées par la fenêtre de lecture)."
+    },
+    "listeDesDormants": [
+      {
+        "n": 1,
+        "cible": { "id": "cmrtixuf400061267rrhh6a36", "source": "CC_VANDAL_VII-D-1", "statut": "EN_VIGUEUR", "titre": "Décret du 29 septembre 1986 relatif à l'impôt sur le revenu, modifié par celui du 27 septembre 1988" },
+        "abrogePar": { "id": "cms43ptub00008lo8tv3y25kk", "titre": "Décret du 29 septembre 2005 relatif à l'Impôt sur le Revenu" },
+        "appui": "CONSIDÉRANT + clause balai de l'article 189. Aucun article ne le nomme.",
+        "objetDeCeFichier": true
+      },
+      {
+        "n": 2,
+        "cible": { "id": "cmrtixx2300081267p74gapx4", "source": "CC_VANDAL_VII-D-3", "statut": "EN_VIGUEUR", "titre": "Loi du 5 février 1995 établissant un acompte de 2% sur la valeur en douane des importations…, imputable au montant de l'impôt sur le revenu." },
+        "abrogePar": { "id": "cms43ptub00008lo8tv3y25kk", "titre": "Décret du 29 septembre 2005 relatif à l'Impôt sur le Revenu" },
+        "appui": "ARTICLE 188 — un dispositif, qui NOMME le texte : « sont et demeurent rapportées ».",
+        "remarque": "Appui plus fort que celui du décret de 1986. Identification de la loi à confirmer (voir textesVisesParLeMemePreambule.loiDu5Fevrier1995)."
+      },
+      {
+        "n": 3,
+        "cible": { "id": "cmrtinshw0004ot7lpvt5ll1g", "source": "CC_VANDAL_I-B-2", "statut": "EN_VIGUEUR", "titre": "Décret du Gouvernement Militaire en date du 31 janvier 1989 déterminant les conditions d'exercice de la profession d'agent de change.", "moniteurRef": "Le Moniteur n° 17-A du 27 février 1989", "corps": "3 851 c." },
+        "abrogePar": { "id": "cmsqyfecr0000kg2hgx6eh1sv", "source": "DECRET_INTERMEDIAIRES_CHANGE_2020", "statut": "EN_VIGUEUR", "titre": "Décret du 25 novembre 2020 (intermédiaires de change)", "moniteurRef": "Le Moniteur, 175ᵉ Année, Spécial n° 41 du 30 novembre 2020" },
+        "appui": "ARTICLE 57, ligne 415 du corps, VERBATIM : « Le présent Décret abroge le Décret du 31 janvier 1989 déterminant les conditions d'exercice de la profession d'agent de change ainsi que les articles 75 et suivants du Code de Commerce portant sur les agents de change et courtiers. »",
+        "verdict": "DORMANT LE PLUS NET DE TOUT LE CORPUS : abrogation NOMMÉE, dans un DISPOSITIF, cible identifiée sans ambiguïté, aucun considérant à interpréter. Aucun CrossRef ne relie les deux fiches. Il ne demande aucune décision éditoriale — seulement d'être enregistré.",
+        "aFaire": "status → 'ABROGE' sur cmrtinshw0004ot7lpvt5ll1g ; CrossRef cmsqyfecr0000kg2hgx6eh1sv → cmrtinshw0004ot7lpvt5ll1g, kind 'ABROGE', note citant l'article 57."
+      },
+      {
+        "n": "3 bis",
+        "cible": { "id": "cmrtnrxhu0000hg04ggz2lw0f", "source": "CODE_COMMERCE_ANNOTE", "titre": "Code de commerce — articles 75 et suivants, Titre V « Des agents de change et courtiers »" },
+        "abrogePar": "Même article 57 du décret du 25 novembre 2020.",
+        "etatMesure": "annotationsJson.status du Code de commerce compte 182 entrées et emploie déjà « abrogé » 18 fois (art-1, 2, 3, 4, 5, 6, 7, 8, 16, 74, 154, 167, 280, 285, 361, 362, 639, 669). L'ancre art-75 n'y figure PAS ; art-76 à art-80 y figurent en « modifié ». Le Titre V court de l'article 75 à l'article 90 (le Titre VI s'ouvre à l'article 91).",
+        "verdict": "Abrogation d'ARTICLES, pas d'un document : la mécanique est annotationsJson.status (ou ArticleVersion), pas Document.status.",
+        "questionOuverte": "« les articles 75 et suivants » n'a pas de borne haute. 75-90 (tout le Titre V) est la lecture naturelle, mais c'est une lecture. À trancher."
+      },
+      {
+        "n": 4,
+        "cible": { "id": "cmrtiwvt80000sa3z2kc7krwl", "source": "CC_VANDAL_IV-A-1", "statut": "EN_VIGUEUR", "titre": "Loi du 3 août 1955 sur la constitution et le fonctionnement des sociétés anonymes, modifiée par le décret du 28 août 1960, celui du 16 octobre 1967 et du 11 novembre 1968" },
+        "abrogePar": { "id": "cmrtiwwuo0001sa3zovs1xgz4", "source": "CC_VANDAL_IV-A-2", "statut": "EN_VIGUEUR", "titre": "Décret du 28 août 1960 régissant la constitution et le fonctionnement des sociétés anonymes" },
+        "appui": "Note de l'édition Vandal en tête du décret de 1960, citant son article 55 : « Le présent décret abroge toutes lois, décrets-lois ou dispositions de lois ou de décrets-lois qui lui sont contraires, NOTAMMENT le décret-loi du 22 décembre 1944 et la loi du 3 août 1955 … ».",
+        "contradictionInterne": "⚠️ L'édition Vandal se contredit elle-même : le titre de la fiche de 1955 dit qu'elle est « MODIFIÉE par le décret du 28 août 1960 », tandis que la note du décret de 1960 cite un article 55 qui l'ABROGE nommément. Les deux affirmations sont dans le même corpus, à deux fiches d'écart.",
+        "verdict": "NE PAS TRANCHER SANS LE J.O. La clause n'est connue que par une note d'éditeur, pas par le texte de l'article 55 lui-même ; et « notamment » rattache la désignation à une clause balai. Le décret-loi du 22 décembre 1944 n'est pas au corpus (une seule entrée d'INDEX le mentionne, à propos de l'article 742 du Code civil).",
+        "aFaire": "Retrouver l'article 55 du décret du 28 août 1960 au Moniteur avant toute écriture."
+      }
+    ],
+    "fauxPositifsEcartes": [
+      "Loi sur les banques et autres institutions financières (2012) — « La présente loi N'ABROGE PAS la loi du 30 août 1982 régissant les sociétés financières de développement… ». Négation ; la Loi du 30 août 1982 (cmrtiwjvz000due7e312y6gnd) reste EN_VIGUEUR à bon droit.",
+      "Fascicules OCR du Moniteur (source MONITEUR_PDF_*) — 3 421 documents dont la couche texte mêle sommaire et corps ; toutes les correspondances y sont des lignes « Vu le Décret du … » avalées par la fenêtre de lecture, ou des césures d'OCR (« abrogée la Loi du 3 scpLcmbrc 1969 »). Écartés en bloc du balayage.",
+      "Décret du 22 mai 1843 (contrainte par corps), Décret du 30 juillet 1986 (tribunaux des Gonaïves et de Saint-Marc), Décret du 5 avril 1979 (CFPB), Décret du 17 mai 1995 (taux d'intérêt), Loi du 5 février 1995 (Code douanier) — leurs titres annoncent une abrogation, mais AUCUN des textes abrogés n'est au corpus : rien à basculer.",
+      "Doublons de matière (fiche Vandal ancienne + fiche consolidée récente d'un même impôt : timbre, patente, CFPB, enregistrement). Ce sont des DOUBLES, pas des abrogations — le classement en dormants serait abusif. Constat signalé à part."
+    ],
+    "constatDeMethode": "Le corpus ne compte que 25 documents en statut ABROGE, dont 24 circulaires de la BRH. Toute la chaîne d'abrogation de la LÉGISLATION tient donc, à ce jour, à un seul texte (le décret de 2015 sur la signature électronique) et à un seul CrossRef 'ABROGE' (les Fêtes Légales, vers une entrée d'index). Ce n'est pas que le corpus soit sain : c'est que la question n'y a presque jamais été posée."
+  },
+
+  "doublonsDeMatiereANePasConfondreAvecDesAbrogations": {
+    "_": "Signalés parce qu'ils produisent le même effet à l'écran — deux textes du même impôt, tous deux « En vigueur » — mais ils relèvent d'une autre décision (masquer, fusionner, hiérarchiser), pas d'une abrogation. Aucune mesure ne dit ici qu'un texte en abroge un autre.",
+    "timbre": ["cmrtixqwk00031267nkfgrpm6 (CC_VANDAL_VII-B-1)", "cmrtixrtm00041267b7ryqr7d (CC_VANDAL_VII-B-2)", "cms8dxlao0035qt1vy69dt1ax (CPC_APPENDICE_V_6_2)", "cms442pmz00008e3gecnevdfu (DECRET_TIMBRE_1978_CONSOLIDE)"],
+    "patente": ["cmrtixyzt000a1267r2hq3j5n (CC_VANDAL_VII-E)", "cms8dxhmr0031qt1v2nm3dr47 (CPC_APPENDICE_V_3_1)", "cms44buwc0000l3ru6aypo0vd (LOI_PATENTE_1996_CONSOLIDE)"],
+    "cfpb": ["cms8dxgqs0030qt1vyxo0cqog (CPC_APPENDICE_V_2_2)", "cms4san2s0001dcuiweb6dput (DECRET_CFPB_1979_CONSOLIDE)"],
+    "enregistrement": ["cms8dxii40032qt1vpjc44whi (CPC_APPENDICE_V_4_1)", "cms4smmsc000092ro2c4gjpam (DECRET_ENREGISTREMENT_1977)"]
+  },
+
+  "constats": [
+    "L'abrogation du décret de 1986 n'est PAS prononcée par un article. Elle est annoncée par un considérant (« qu'il y a lieu d'abroger ») et rendue possible par une clause balai (art. 189, « toutes […] qui lui sont contraires »). Aucun des deux ne fait à lui seul ce que la fiche affirmerait.",
+    "Un seul article du décret de 2005 retire nommément un texte : l'article 188, et il vise la loi du 5 février 1995 sur l'acompte — pas le décret de 1986, pas celui de 1988. C'est l'appui le plus solide du dossier, et il ne porte pas sur la fiche que la contradiction rend visible.",
+    "Le décret du 27 septembre 1988 et la loi du 5 février 1995 modificative n'ont AUCUNE fiche autonome : ils vivent inline dans la fiche de 1986 (8 emplacements « (D. 27 sept. 1988) », articles 35/36/82 « (L. 5 février 1995) »). Un seul basculement de statut règle les trois textes du considérant.",
+    "Il existe DEUX lois du 5 février 1995, publiées au même Moniteur n° 19 : mesuré sur l'Index (LM1995-19 porte quatre lois). Un balayage par date confond la loi douanière (CC_VANDAL_V-F) avec la loi fiscale : c'est un faux positif à écarter explicitement.",
+    "Aucun champ de DATE d'abrogation n'existe sur Document. Seuls status et abrogatedByNumber portent l'information ; les trois dates du modèle décrivent le texte, pas sa disparition. Ne pas détourner effectiveDate.",
+    "Le bandeau d'abrogation ne résout le texte abrogeant QUE parmi les circulaires BRH (doc/[id]/page.tsx l. 183). Pour un texte de législation, abrogatedByNumber s'affiche en texte brut — et le libellé français « Ce texte est abrogé par la » donnerait « par la Décret ». Laisser abrogatedByNumber à null et confier le lien au CrossRef.",
+    "annotationsJson.status a un vocabulaire FERMÉ de quatre valeurs (modifié, nouveau, abrogé, partiellement abrogé). Toute autre valeur ne produit aucune pastille et disparaît sans erreur.",
+    "« connexe » n'est PAS un kind de CrossRef — vérifié avant emploi. Le verrou à sens unique de ce nom appartient au sommaire des textes annotés (annotated.ts, TocEntry.kind). Les kinds de CrossRef sont CITE | COMMENTE | MODIFIE | ABROGE | APPLIQUE | VOIR, confirmés par le schéma ET par LegislationAdminPanel.",
+    "Le corpus a déjà les deux précédents nécessaires : un texte de LÉGISLATION passé à ABROGE sur la seule foi d'une clause balai, avec la nuance écrite dans summaryFr (décret de 2015, signature électronique) ; et un CrossRef kind='ABROGE' dont la note dit en toutes lettres « l'article ne le nomme pas — la qualification est éditoriale » (Fêtes Légales 2024). Suivre ces deux patrons, ce n'est pas innover.",
+    "Le dormant le plus net du corpus n'est pas celui de 1986 : c'est le décret du 31 janvier 1989 sur les agents de change, abrogé NOMMÉMENT par l'article 57 du décret du 25 novembre 2020, les deux fiches EN_VIGUEUR et sans aucun renvoi entre elles. Il ne demande aucune décision éditoriale, seulement d'être enregistré.",
+    "Sur 3 834 documents hors Index/Marques/Jurisprudence, 25 seulement portent le statut ABROGE, dont 24 circulaires BRH. La chaîne d'abrogation de la législation est quasi vierge — non parce que le corpus est sain, mais parce que la question n'y a presque jamais été posée.",
+    "Le J.O. lui-même se contredit : le sommaire du Moniteur Spécial n° 10 intitule le texte de 2005 « Décret MODIFIANT celui du 29 septembre 1986 », quand son considérant annonce de l'ABROGER. Cette divergence ne se résout pas par une mesure ; elle doit être signalée au lecteur, pas arbitrée en silence."
+  ]
+}
