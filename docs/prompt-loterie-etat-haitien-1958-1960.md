@@ -103,16 +103,22 @@ La loi organique porte **quatre dates**, et chacune est citée quelque part :
 | Sanctionnée | **24 mars 1958** |
 | Publiée au Moniteur n° 47 | **14 avril 1958** ← c'est la date que cite la loi de septembre |
 
-> ⚠️ **LES DEUX SOURCES NE S'ACCORDENT PAS.** Les trois décrets de 2026 visent « la Loi
-> organique du **21 mars 1958** » ; la loi de septembre 1958 dit dix fois « la loi du
-> **14 Avril 1958** ». Ni l'une ni l'autre n'a tort : l'une nomme le vote, l'autre la
-> parution.
+> ✅ **TRANCHÉ : LA DATE EST LE 24 MARS 1958.** Décision de la rédaction, 27 août — conforme
+> à la règle du corpus : `adoptionDate` porte la **dernière entité d'adoption**, la sanction
+> présidentielle quand elle existe, jamais la publication.
 >
-> **La règle du corpus tranche** : `adoptionDate` = la dernière entité d'adoption — ici la
-> **sanction du 24 mars 1958** —, jamais la publication. Et `publicationDate` = **14 avril
-> 1958**. Le titre, lui, doit porter une date que le lecteur reconnaîtra : mentionner les
-> deux graphies dans le corps de la fiche, faute de quoi une recherche « loi du 21 mars
-> 1958 » ne rendra rien.
+> | Champ | Valeur |
+> | --- | --- |
+> | Le texte s'appelle | **Loi du 24 mars 1958** portant organisation de la Loterie de l'État Haïtien |
+> | `adoptionDate` | **1958-03-24** (sanction) |
+> | `publicationDate` | 1958-04-14 (Moniteur n° 47) |
+>
+> ⚠️ **MAIS LES DEUX AUTRES GRAPHIES DOIVENT RESTER TROUVABLES.** Aucune des sources
+> existantes n'emploie le 24 mars : les trois décrets de 2026 visent « la Loi organique du
+> **21 mars 1958** » (vote au Sénat), et la loi de septembre 1958 dit **dix fois** « la loi
+> du **14 Avril 1958** » (parution). Un lecteur venu de l'un ou de l'autre doit atteindre la
+> fiche — porter les trois dates dans le corps, et prévoir que le rapprochement des visas
+> de 2026 se fasse sur le TEXTE visé, non sur sa date.
 
 ---
 
@@ -169,6 +175,7 @@ datés. `ArticleVersion` porte les trois états — `EN_VIGUEUR`, `MODIFIE`, `AB
 | Champ | Loi organique | Loi de septembre | Arrêté 1960 |
 | --- | --- | --- | --- |
 | `source` | `LOI_LOTERIE_LEH_1958` | `LOI_LOTERIE_LEH_REFORME_1958` | `ARRETE_LEH_PERSONNEL_1960` |
+| `adoptionDate` | **1958-03-24** (sanction) | 1958-09-02 (Sénat) | 1960-03-08 |
 | `publicationDate` | 1958-04-14 | 1958-09-04 | 1960-03-28 |
 | `moniteurRef` | Le Moniteur, 113ᵉ Année, n° 47, lundi 14 avril 1958 | …, n° 101, jeudi 4 septembre 1958 | …, 115ᵉ Année, n° 30, lundi 28 mars 1960 |
 | `status` | `EN_VIGUEUR` | `EN_VIGUEUR` | `EN_VIGUEUR` |
@@ -206,8 +213,8 @@ la rédaction**.
    l'article entier.
 6. Les articles 17 et 29 sont **visibles et barrés**, non supprimés.
 7. Les trois références portent le titre complet et sont distinctes.
-8. La fiche de la loi organique mentionne ses **quatre dates**, pour que « 21 mars » comme
-   « 14 avril » la retrouvent.
+8. La loi organique est datée du **24 mars 1958** (`adoptionDate`), et ses trois autres
+   dates figurent au corps : « 21 mars » et « 14 avril » doivent la retrouver.
 9. Le Décret Balance des Communes n'est **pas** classé sous les jeux (§1).
 10. `npm test` vert, contrôle visuel fait.
 
