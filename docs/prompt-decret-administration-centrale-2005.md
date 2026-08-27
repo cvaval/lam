@@ -248,7 +248,70 @@ Trois décisions appartiennent à la rédaction :
 1. **La référence du décret de 2016** — l'homonymie du §3 ;
 2. **Le sort des trois autres textes** du Moniteur n° 21 (RPCV, organes de la Présidence,
    arrêté ACRA), absents du fichier : Index du Moniteur, ou rien ?
-3. **Le degré de consolidation** — afficher le texte de 2005 tel que paru, avec 2016 en
-   pliable (méthode du Code civil), ou afficher la version consolidée avec l'ancienne
-   rédaction en pliable (méthode retenue pour la loi de 2017 sur la signature électronique).
-   Les deux existent dans le corpus ; elles ne se mélangent pas.
+~~3. Le degré de consolidation~~ — **TRANCHÉ le 26 août 2026, et pour TOUT LE CORPUS** :
+   voir §11.
+
+---
+
+## §11 — LA RÈGLE DU CORPUS : la version en vigueur prévaut, l'ancienne se replie
+
+**Décision de la rédaction, 26 août 2026. Elle ne vaut pas que pour ce décret : elle vaut
+pour tout le corpus.**
+
+> Un lecteur qui ouvre un article doit lire **le droit applicable aujourd'hui**, sans avoir
+> à reconstituer la version en vigueur à partir d'un texte d'origine et d'une pile
+> d'amendements. L'ancienne rédaction ne disparaît pas pour autant : elle se replie.
+
+Concrètement, pour ce versement :
+
+- le corps affiché du décret de 2005 porte, pour les six articles réécrits, **la rédaction
+  de 2016** ;
+- l'ancienne rédaction est en **pliable**, datée et sourcée (« Décret du 6 janvier 2016 ») ;
+- les cinq articles abrogés restent **visibles, réduits et barrés**, leur texte d'origine
+  au pliable ;
+- les quatre articles ajoutés s'insèrent à leur rang, signalés comme ajoutés en 2016.
+
+### ✔ Le moteur fait DÉJÀ exactement cela
+
+`applyAmendments` (`src/lib/legislation/segment.ts`) remplace le corps de chaque article
+amendé par sa version `EN_VIGUEUR` et réduit un article abrogé à une ligne ; l'ancienne
+rédaction reste lisible par `AmendmentHistory`. `bodyOriginal` demeure canonique en base :
+c'est une transformation d'AFFICHAGE, rien n'est détruit.
+
+Les trois statuts d'`ArticleVersion` portent la règle, et ils sont peuplés :
+
+| Statut | Rôle | En base |
+| --- | --- | --- |
+| `EN_VIGUEUR` | la rédaction qui s'affiche | 138 |
+| `MODIFIE` | l'ancienne, au pliable | 132 |
+| `ABROGE` | réduite, barrée, datée | 77 |
+
+Trois textes l'emploient : **Code civil** (318 versions, 189 articles), **Code de commerce**
+(15/14), **Code pénal** (14/12).
+
+### ⚠️ DEUX TEXTES DU CORPUS NE LA SUIVENT PAS — ils consolident SANS conserver l'ancien
+
+| Source | Passages concernés |
+| --- | --- |
+| `LOI_PATENTE_1996_CONSOLIDE` | **5** |
+| `DECRET_CFPB_1979_CONSOLIDE` | **1** |
+
+Ils portent l'amendement **en clair dans le corps**, sous la forme d'une note éditoriale :
+
+> « — Article 4 Loi de Finances 2015-2016 : le troisième paragraphe de l'article 6 de la loi
+> du 10 juin 1996 relative à la Patente **se lit désormais comme suit** : … »
+
+La nouvelle rédaction prévaut donc bien, et sa source est nommée — la moitié de la règle est
+tenue. Mais **l'ancienne rédaction n'est nulle part** : ni pliable, ni encadré, ni base. Elle
+n'a pas été conservée au versement.
+
+⚠️ **Les mettre en conformité suppose de retrouver les rédactions d'origine** dans les
+Moniteurs de 1979, 1981 et 1996 — ce n'est pas une migration de données, c'est un travail
+éditorial. À décider séparément ; six passages en tout.
+
+### Ce qui n'est PAS une entorse à la règle
+
+Un texte **amendant** n'a pas d'`ArticleVersion` : l'effet vit sur le texte **amendé**. Le
+décret sur les sûretés, celui sur les régimes matrimoniaux, la loi de 2017 sur la signature
+électronique n'en portent aucune — et c'est juste : leurs amendements sont sur le Code civil,
+qui en compte 318. Ne pas les compter comme des manquements.
