@@ -1,0 +1,72 @@
+{
+  "_lisezMoi": [
+    "Loi CEC 2002 — LOT PROPOSÉ des renvois ENTRANTS (§ 7.8, question § 13.9 : dans ce lot ou séparément ?).",
+    "CONSIGNÉ le 27 août 2026 d'après maj2026-releve-renvois-tache2.json (mesure en base du même jour).",
+    "AUCUNE ÉCRITURE n'a été faite ni préparée en script : ce fichier est un état des lieux pour décision.",
+    "Chaque corps cité ci-dessous cite la loi sous « 26 juin 2002 » (dernier vote, Chambre des Députés) — jamais « 10 juillet 2002 ».",
+    "Tout renvoi qui serait posé porterait toLabel = titre ACTUEL de la fiche (« Loi du 10 juillet 2002… ») : si le § 13.1 renommait la fiche, les toLabel et les notes se réécrivent ensemble.",
+    "Résolution par source uniquement (leçon PDP 2018), kind CITE pour un visa ou une base légale (§ 6.4)."
+  ],
+  "fiche": { "id": "cms8jhhz700004szrkm41yahg", "source": "LOI_CEC_2002" },
+  "dejaPose": {
+    "commentaire": "Seul renvoi entrant existant — posé le 27 août, INTACT, ne pas doubler.",
+    "crossRefId": "cmtb0xie00002mpyierp9bxs2",
+    "from": { "source": "DECRET_SURETES", "id": "cmrspgd9h0000yn8emki3dtw6" },
+    "kind": "CITE"
+  },
+  "proposes_visas_legislation": [
+    {
+      "from": { "source": "LOI_BANQUES_2012", "id": "cms18kwzl0002pt2kbk9kv39y", "titre": "Loi sur les banques et autres institutions financières" },
+      "citation": "Vu la loi du 26 juin 2002 portant sur la constitution, l’organisation, le contrôle et la surveillance d…",
+      "kindPropose": "CITE",
+      "remarque": "Visa du préambule."
+    },
+    {
+      "from": { "source": "MONITEUR_MANUAL", "id": "cmqn6blts0000k2a9bfq68qzi", "titre": "Le Moniteur — Édition spéciale n° 4 — Juillet 2012 — Loi portant sur les banques et autres institutions financières" },
+      "citation": "Vu la loi du 26 juin 2002 portant sur la constitution, l'organisation, le contrôle et la surveillance d…",
+      "kindPropose": "CITE",
+      "remarque": "DOUBLON de la loi banques 2012 (deux fiches portent le même visa). À SIGNALER, pas deux renvois identiques sans décision (§ 7.8) : choisir de poser depuis l'une, l'autre, ou les deux — avec une note qui nomme le doublon."
+    },
+    {
+      "from": { "source": "DECRET_INTERMEDIAIRES_CHANGE_2020", "id": "cmsqyfecr0000kg2hgx6eh1sv", "titre": "Décret sur les intermédiaires de change" },
+      "citation": "Vu la Loi du 26 juin 2002 portant sur la constitution, l’organisation, le contrôle et la surveillance d…",
+      "kindPropose": "CITE",
+      "remarque": "Visa du préambule. Le même préambule vise aussi « la Loi du 17 août 1979 créant et organisant la Banque de la République d'Haïti (BRH) » — désignation qui fond en une les deux lois Vandal II-A/II-B-1 ; sans rapport avec le présent lot, relevé en passant."
+    },
+    {
+      "from": { "source": "DECRET_BLANCHIMENT_2023", "id": "cmsr2gxtv0000pgnqhgrr8q1y", "titre": "Décret sanctionnant le blanchiment de capitaux, le financement du terrorisme et le financement de la prolifération des armes de destruction massive" },
+      "citation": "Vu la Loi du 26 juin 2002 portant sur la constitution, l'organisation, le contrôle et la surveillance d…",
+      "kindPropose": "CITE",
+      "remarque": "Visa du préambule."
+    }
+  ],
+  "proposes_circulaires_normes_BRH": {
+    "commentaire": "14 documents CIRCULAIRE_BRH citent la loi dans leur base légale (« Conformément à/aux articles … de la loi du 26 juin 2002 »). À traiter selon la politique de renvois des circulaires — la section BRH n'a pas aujourd'hui de pratique de CrossRef vers la législation, c'est un choix de doctrine d'édition à poser une fois pour toutes (§ 13.9).",
+    "documents": [
+      { "source": "BRH-CEC", "id": "cmql45oly0000107f1rzxnujd", "titre": "Norme relative à la gestion des liquidités des coopératives d'épargne et de crédit (CEC)", "occurrences": 4 },
+      { "source": "BRH-CEC", "id": "cmql45rbm0001107f19un1fkd", "titre": "Norme relative à la gestion des placements des coopératives d'épargne et de crédit (CEC)", "occurrences": 4 },
+      { "source": "BRH-CEC", "id": "cmql45ui80002107fbj4xgwv5", "titre": "Norme relative à la gestion des risques de crédit des CEC", "occurrences": 4 },
+      { "source": "BRH-CEC", "id": "cmql45z9x0003107ffm0305ln", "titre": "Norme relative à la capitalisation des CEC", "occurrences": 3 },
+      { "source": "BRH-CEC", "id": "cmql463zi0004107f550qy4ao", "titre": "Norme relative au contrôle interne des CEC", "occurrences": 3 },
+      { "source": "BRH-CEC", "id": "cmql466je0005107fm7k4a3pe", "titre": "Vérification externe des coopératives d'épargne et de crédit", "occurrences": 1 },
+      { "source": "BRH-CEC", "id": "cmql4cjjz0006107fxreuv4q4", "titre": "Norme relative à la transmission des états financiers, rapports d'activités et statistiques générales des CEC", "occurrences": 2 },
+      { "source": "BRH-CEC", "id": "cmql4cmlg0007107fzptgxtqp", "titre": "Norme relative à l'ouverture de succursales ou points de service des CEC", "occurrences": 3 },
+      { "source": "BRH-CEC", "id": "cmql4cpb20008107frtip257i", "titre": "Charte comptable des CEC", "occurrences": 3 },
+      { "source": "BRH-CEC", "id": "cmql4cs1s0009107f2jf55mnw", "titre": "Gouvernance des coopératives d'épargne et de crédit (CEC)", "occurrences": 2 },
+      { "source": "BRH", "id": "cmqbnm0dm000ssmfzou5qxwj0", "titre": "Circulaire BRH n° 113 — Supervision des coopératives d'épargne et de crédit", "occurrences": 1 },
+      { "source": "BRH-WEB", "id": "cmqbnm0ek001gsmfzqf4tbikg", "titre": "Circulaire BRH n° 131 — Protection des consommateurs de produits et services financiers", "occurrences": 1 },
+      { "source": "BRH-WEB", "id": "cmqomokzm000k11mf2312nqp1", "titre": "Circulaire BRH n° 103-1 — Règles applicables aux chèques émis en…", "occurrences": 1 },
+      { "source": "CIRC_BRH_105_2", "id": "cms7lgd8l0000wtgzu7y3j8mt", "titre": "Circulaire BRH n° 105-2 — Transmission au Bureau d'Information sur le Crédit (BIC) des informations sur les crédits octroyés", "occurrences": 1 }
+    ]
+  },
+  "propose_par_designation_sans_date": {
+    "from": { "source": "DECRET_IMF_2020", "id": "cms5d6tp200002695mv8c5bdb", "titre": "Décret portant organisation et fonctionnement des Institutions de Microfinance (IMF)" },
+    "citation": "…sans préjudice des dispositions de la Loi sur les banques et autres institutions financières et de celle sur les coopératives d’épargne et de crédit.",
+    "kindPropose": "CITE",
+    "remarque": "Citation PAR DÉSIGNATION, sans date (article 1er du décret) — pas un visa. L'identification est sûre (une seule loi du corpus porte cet objet) mais le geste diffère des visas : à trancher avec le lot."
+  },
+  "exclusions_mesurees": [
+    "LOI_UCREF_2017 : ne cite PAS la loi (corps sans « 2002 » ni « coopérative » ; seule mention voisine « Association des Caisses populaires ») — aucun renvoi (§ 12.11).",
+    "Les 6 corps qui portent « 9 juillet 2002 » (Code des douanes ×2, lois de finances ×4) citent la Loi du 9 juillet 2002 sur les zones franches — une AUTRE loi. Aucun renvoi (§ 12.11)."
+  ]
+}

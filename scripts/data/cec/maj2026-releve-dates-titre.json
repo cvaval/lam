@@ -1,0 +1,140 @@
+{
+  "releve": "Loi CEC 2002 — dates, titre, fac-similé, renvois (tâche 3)",
+  "dateReleve": "2026-08-27",
+  "methode": "Lecture seule : requêtes Prisma (findMany/groupBy) sur la base de production, extraction regex des blocs de dates dans bodyOriginal, inspection visuelle du fac-similé (pages 1-3, 14-15, 644, 657-658). Aucune écriture. Scripts jetables scripts/_tmp-cec-releve{,2,3,4}.ts, supprimés après exécution.",
+
+  "fiche": {
+    "id": "cms8jhhz700004szrkm41yahg",
+    "source": "LOI_CEC_2002",
+    "type": "LEGISLATION",
+    "status": "EN_VIGUEUR",
+    "number": "Loi du 10 juillet 2002",
+    "titleFr": "Loi du 10 juillet 2002 sur les coopératives d’épargne et de crédit",
+    "titleEn": "Law of 10 July 2002 on savings and credit cooperatives",
+    "titleHt": "Lwa 10 jiyè 2002 sou koperativ epay ak kredi",
+    "moniteurRef": "Le Moniteur n° 54 du mercredi 10 juillet 2002 — numéro extraordinaire",
+    "publicationDate": "2002-07-10",
+    "adoptionDate": null,
+    "effectiveDate": null,
+    "sourcePdfUrl": null
+  },
+
+  "dates": {
+    "surPiece": {
+      "senat": "jeudi 20 juin 2002 (« Donnée au Sénat de la République », p. 31 du fac-similé ; transcription l. 626)",
+      "chambreDesDeputes": "mercredi 26 juin 2002 (« Donnée à la Chambre des Députés », p. 31 du fac-similé ; transcription l. 634)",
+      "promulgationPresidentielle": "9 juillet 2002 — « LE PRÉSIDENT DE LA RÉPUBLIQUE ORDONNE QUE LA LOI CI-DESSUS… Donné au Palais National, à Port-au-Prince, le 9 juillet 2002, An 199ème de l'Indépendance » — signé Jean-Bertrand ARISTIDE (p. 32 du fac-similé ; transcription l. 644-647). OUI, une promulgation présidentielle datée existe dans la transcription ET sur le fac-similé.",
+      "publicationMoniteur": "mercredi 10 juillet 2002, Le Moniteur 157ème Année n° 54, NUMÉRO EXTRAORDINAIRE (couverture du fac-similé ; entrée INDEX en base : LM2002-54)"
+    },
+    "conventionCorpusMesuree": {
+      "adoptionDateNonNull": "7 documents dans TOUTE la base, tous type LEGISLATION, tous des DÉCRETS. AUCUNE loi du corpus n'a d'adoptionDate — la convention pour les LOIS est donc non mesurée en base.",
+      "les7": [
+        { "source": "DECRET_SURETES", "adoption": "2020-04-09", "palaisAuCorps": "9 avril 2020" },
+        { "source": "DECRET_IMPOT_REVENU_2005", "adoption": "2005-09-29", "palaisAuCorps": "(bloc non extrait par regex ; la date est celle du titre « Décret du 29 septembre 2005 »)" },
+        { "source": "DECRET_INTERMEDIAIRES_CHANGE_2020", "adoption": "2020-11-25", "palaisAuCorps": "25 novembre 2020" },
+        { "source": "DECRET_AFFICHAGE_PRIX_2020", "adoption": "2020-11-25", "palaisAuCorps": "25 novembre 2020" },
+        { "source": "DECRET_BLANCHIMENT_2023", "adoption": "2023-04-30", "palaisAuCorps": "30 avril 2023" },
+        { "source": "DECRET_MAISONS_TRANSFERT_2020", "adoption": "2020-06-05", "palaisAuCorps": "5 Juin 2020" },
+        { "source": "DECRET_FETES_LEGALES_2024", "adoption": "2024-12-11", "palaisAuCorps": "11 décembre 2024" }
+      ],
+      "regle": "Dans chaque cas vérifiable, adoptionDate = la date « Donné au Palais National » du corps. Le commentaire du schéma Prisma définit d'ailleurs le champ par cette formule (« Date d'ADOPTION du texte — Donné au Palais National, le 25 novembre 2020 »)."
+    },
+    "consequencePourCEC": "Suivant la seule convention mesurée (et la définition du champ dans le schéma), adoptionDate = 2002-07-09 (promulgation au Palais National). AMBIGUÏTÉ à documenter dans le prompt : pour une loi, l'« adoption » parlementaire (dernier vote : Chambre, 26 juin 2002) n'est pas la promulgation (9 juillet) ; le corpus n'offre aucun précédent de loi pour trancher, mais le champ est défini par la formule « Donné au Palais National ».",
+    "effectiveDate": "Rien à y mettre : le corps ne fixe aucune date d'entrée en vigueur propre (l'art. 146 raisonne « à partir de la date d'entrée en vigueur » et « dans les trois (3) mois suivant la promulgation » sans fixer de date). Laisser NULL."
+  },
+
+  "titre": {
+    "question": "« Loi du 10 juillet 2002 » (publication, titre actuel) vs « Loi du 26 juin 2002 » (usage de citation — la cliente ET les visas du corpus). § 13, PAS à trancher par le prompt.",
+    "conventionCorpusMesuree": {
+      "corpusDeMesure": "Les lois type LEGISLATION titrées « Loi du X » dont le corps contient un bloc parlementaire (« Chambre des Députés ») : 7 fiches en base, dont la CEC.",
+      "resultats": [
+        { "source": "CC_VANDAL_IV-D-1", "titre": "Loi du 13 juillet 1956 (assurances)", "senat": "13 juillet 1956", "chambre": "(non extraite)", "palais": "18 juillet 1956", "publication": "Moniteur 23 août 1956", "titreEgale": "vote du Sénat" },
+        { "source": "LOI_SIGNATURE_ELECTRONIQUE_2017", "titre": "Loi du 14 février 2017", "chambre": "04 septembre 2014", "senat": "14 février 2017", "palais": "17 mars 2017", "publication": "11 avril 2017", "titreEgale": "DERNIER vote (Sénat)" },
+        { "source": "LOI_ECHANGES_ELECTRONIQUES_2017", "titre": "Loi du 14 février 2017", "chambre": "04 septembre 2014", "senat": "(non extraite)", "publication": "11 avril 2017", "titreEgale": "vraisemblablement dernier vote (même J.O. que la jumelle)" },
+        { "source": "CPC_APPENDICE_I_A_7_1", "titre": "Loi du 27 novembre 2007 (Statut Magistrature)", "senat": "2 août 2007", "chambre": "27 novembre 2007", "palais": "17 décembre 2007", "publication": "20 décembre 2007", "titreEgale": "DERNIER vote (Chambre)" },
+        { "source": "CPC_APPENDICE_I_A_7_2", "titre": "Loi du 15 novembre 2007 (École Magistrature)", "senat": "5 septembre 2007", "chambre": "15 novembre 2007", "palais": "17 décembre 2007", "publication": "20 décembre 2007", "titreEgale": "DERNIER vote (Chambre)" },
+        { "source": "CPC_APPENDICE_I_A_7_3", "titre": "Loi du 13 novembre 2007 (CSPJ)", "chambre": "4 septembre 2007", "senat": "13 novembre 2007", "palais": "17 décembre 2007", "publication": "20 décembre 2007", "titreEgale": "DERNIER vote (Sénat)" }
+      ],
+      "regle": "Les 6 autres lois sont TOUTES titrées par la date du dernier vote parlementaire — jamais par la promulgation, jamais par la publication. La fiche CEC est la SEULE titrée par sa date de publication. Sous la convention du corpus, elle s'appellerait « Loi du 26 juin 2002 » (dernier vote : Chambre des Députés) — exactement le nom de la cliente et celui des visas du corpus.",
+      "usageDeCitationMesure": "« 26 juin 2002 » apparaît dans le corps de 19 documents (DECRET_SURETES, LOI_BANQUES_2012 + son double MONITEUR_MANUAL éd. spéciale n° 4, DECRET_INTERMEDIAIRES_CHANGE_2020, DECRET_BLANCHIMENT_2023, et 14 circulaires/normes BRH dont les 10 normes BRH-CEC, la circ. 113, la 131, la 103-1, la 105-2). « 10 juillet 2002 » : ZÉRO occurrence hors de la fiche elle-même. « 9 juillet 2002 » : 6 faux positifs (tous visent la Loi du 9 juillet 2002 sur les zones franches — une AUTRE loi)."
+    },
+    "effetsDunRenommage_sansTrancher": [
+      "Document.number = « Loi du 10 juillet 2002 » — à changer en même temps que titleFr, sinon incohérence interne.",
+      "titleEn (« Law of 10 July 2002… ») et titleHt (« Lwa 10 jiyè 2002… ») portent la même date — trois titres à changer, pas un.",
+      "Le CrossRef entrant posé le 26 août (DECRET_SURETES → CEC, kind CITE) a toLabel = « Loi du 10 juillet 2002 sur les coopératives d’épargne et de crédit » ET une note qui explique « …quand la présente fiche la titre par sa date de publication » : les deux textes seraient à réécrire pour rester vrais.",
+      "moniteurRef et publicationDate ne bougent pas (faits de publication, indépendants du titre).",
+      "Liens internes et favoris : par id (cms8jhhz7…) — insensibles au titre. URLs par id également.",
+      "Recherche plein-texte : le tsvector se recalcule au UPDATE (trigger) ; une recherche « 10 juillet 2002 » cesserait de remonter la fiche par le titre, une recherche « 26 juin 2002 » se mettrait à la trouver — et s'alignerait alors sur les 19 corps qui la citent ainsi.",
+      "L'entrée INDEX du Moniteur (« Loi portant sur la constitution… », LM2002-54) est un document distinct, non affecté.",
+      "Non mesuré : d'éventuelles veilles/alertes enregistrées par des utilisateurs sur le libellé actuel."
+    ]
+  },
+
+  "facsimile": {
+    "existe": true,
+    "maisIncomplet": true,
+    "copies": [
+      {
+        "chemin": "/Users/cvaval/Library/CloudStorage/Dropbox/Moniteur/Loi sur les cooperatives Epargne et credit.pdf",
+        "detail": "PDF autonome, 15 pages, 600 Ko (le candidat naturel pour sourcePdfUrl, comme le fac-similé du Décret IMF)"
+      },
+      {
+        "chemin": "/Users/cvaval/Library/CloudStorage/Dropbox/Moniteur/Lois_18_20/2002.pdf",
+        "detail": "volume annuel des numéros ordinaires 2002 (658 p.) — le n° 54 occupe les pages PDF 644-658, MÊMES planches (même tampon, mêmes marques)"
+      },
+      {
+        "chemin": "/Users/cvaval/Library/CloudStorage/Dropbox/Moniteur/Patrick Tardieu/Moniteur 1915-x/2002.pdf",
+        "detail": "autre numérisation du même volume (39 Mo, md5 différent, couche OCR meilleure) — n° 54 idem aux pages PDF 644-658, mêmes 15 planches"
+      }
+    ],
+    "couverture": {
+      "entete": "Le Moniteur, 157ème Année, No. 54, Port-au-Prince, Mercredi 10 juillet 2002 — NUMERO EXTRAORDINAIRE ; sommaire = la seule loi CEC ; tampon « UNIVERSITE QUISQUEYA BIBLIOTHEQUE » ; colophon Presses Nationales d'Haïti, ISSN 1683-2930",
+      "pagesImprimeesPresentes": "1-11, 14, 15, 31, 32 (15 des 32 pages du fascicule)",
+      "pagesImprimeesMANQUANTES": "12-13 et 16-30 (17 pages) — les trois copies partagent la MÊME lacune",
+      "articlesVerifiablesSurScan": "préambule complet (6 Vu + 3 considérants), art. 1 à ~40 (pp. 1-11), art. 55 à ~58 (pp. 14-15), art. 147 à 151 + les DEUX blocs de dates (pp. 31-32)",
+      "articlesNONverifiablesSurScan": "~41-54 et ~59-146 — la transcription de la cliente (151 têtes, complète) ne peut PAS être contrôlée sur ces articles avec ce scan"
+    },
+    "arbitrePourLaTache1": "OUI, pleinement : la couverture (10 juillet 2002), le bloc Sénat (20 juin), le bloc Chambre (26 juin) et la promulgation au Palais National (9 juillet 2002, Aristide) sont tous sur les pages présentes.",
+    "aucunFasciculeEnBase": "Pas de source MONITEUR_PDF_2002 (couverture des fascicules en base : 1981-2000, puis 2016, 2019, 2021, 2024-2026). sourcePdfUrl de la fiche = NULL : attacher le PDF autonome suivrait le précédent du Décret IMF, en documentant la lacune.",
+    "ecartsScanVsTranscription_reperes": [
+      "p. 32 : « Faubert GUSTVAE » (sic du J.O., la transcription écrit GUSTAVE) ; « Lesly GOUTIER » (la transcription écrit GAUTIER) ; « Par les présentes » (la transcription écrit « Par la présente »)",
+      "p. 1 : le 6e Vu porte « libéralisation des taux d'intérêt » (la transcription écrit « libération ») — le scan est l'arbitre"
+    ]
+  },
+
+  "renvois": {
+    "entrants": {
+      "count": 1,
+      "detail": "DECRET_SURETES (cmrspgd9h0000yn8emki3dtw6) → CEC, kind CITE, source EDITORIAL, id cmtb0xie00002mpyierp9bxs2 — posé le 26 août, toLabel au titre « 10 juillet », note expliquant les deux dates. Aucun renvoi par désignation (toId NULL) ne vise la loi (toLabel « 26 juin 2002 » / « 10 juillet 2002 » / « épargne et de crédit » : 0)."
+    },
+    "sortants": { "count": 0, "detail": "Aucun CrossRef au départ de la fiche : ses 6 visas ne sont pas matérialisés." },
+    "sesVisas": [
+      { "visa": "Constitution (art. 1, 111-1, 144, 245, 246)", "cible": "PRÉSENTE : CONSTITUTION_1987 « Constitution de 1987 », LEGISLATION, EN_VIGUEUR" },
+      { "visa": "Loi du 17 août 1979 créant la BRH", "cible": "PRÉSENTE mais DOUBLE : CC_VANDAL_II-A (« remplaçant la Banque Nationale… par la BRH ») et CC_VANDAL_II-B-1 (« organisant la BRH ») portent la même date — le visa dit « créant » : identifier la bonne fiche avant de poser le renvoi (II-C, même date, concerne la BNC)" },
+      { "visa": "Décret du 31 mars 1981 créant le CNC", "cible": "ABSENTE du corpus en texte intégral (rien hors entrées INDEX)" },
+      { "visa": "Décret du 2 avril 1981 réglementant l'organisation des coopératives", "cible": "ABSENTE (les seuls « 2 avril 1981 » en LEGISLATION sont des décrets d'état civil de l'appendice CPC)" },
+      { "visa": "Décret du 27 mars 1985 modifiant les art. 9 et 17 de la loi du 17 août 1979", "cible": "ABSENTE en texte intégral (une entrée INDEX du Moniteur seulement)" },
+      { "visa": "Décret du 17 mai 1995 (taux d'intérêt)", "cible": "PRÉSENTE : CC_VANDAL_II-M « Décret du 17 mai 1995 supprimant le plafond des taux d'intérêt conventionnel… », EN_VIGUEUR" }
+    ],
+    "textesDuCorpusQuiLaCitent": {
+      "par26juin2002_19docs": {
+        "legislation": [
+          "DECRET_SURETES (visa — seul renvoi déjà matérialisé)",
+          "LOI_BANQUES_2012 (visa « Vu la loi du 26 juin 2002 portant sur la constitution… »)",
+          "MONITEUR_MANUAL — Le Moniteur éd. spéciale n° 4, juillet 2012 (double de la loi banques)",
+          "DECRET_INTERMEDIAIRES_CHANGE_2020 (visa)",
+          "DECRET_BLANCHIMENT_2023 (visa)"
+        ],
+        "circulairesBRH": "14 documents : les 10 normes BRH-CEC (liquidités, placements, risques de crédit, capitalisation, contrôle interne, vérification externe, états financiers, succursales, charte comptable, gouvernance), la circ. 113 (supervision des CEC), la 131, la 103-1, la 105-2"
+      },
+      "par10juillet2002": "AUCUN corps du corpus (0 document)",
+      "parDesignationSansDate": "DECRET_IMF_2020 : « …dans le respect des dispositions de la Loi portant réglementation des coopératives d’épargne et de crédit… » (aucune date) — candidat renvoi par désignation"
+    },
+    "correctionAuxPremisses": "« l'UCREF 2017 la vise » est FAUX, mesuré : le corps de LOI_UCREF_2017 ne contient ni « 2002 » ni « coopérative » ; sa seule mention voisine est « un représentant de l'Association des Caisses populaires » (composition d'un comité). Ne pas poser de renvoi UCREF → CEC.",
+    "ceQuiManque": [
+      "Renvois sortants : les 2 visas résolubles (Constitution de 1987 ; Décret du 17 mai 1995 = CC_VANDAL_II-M) + la loi BRH de 1979 après identification de la bonne fiche Vandal ; les 3 visas insolubles (CNC 1981, coopératives 1981, décret 1985) restent des renvois par désignation (toId NULL) ou des mentions en note.",
+      "Renvois entrants : LOI_BANQUES_2012, DECRET_INTERMEDIAIRES_CHANGE_2020, DECRET_BLANCHIMENT_2023 (visas) et, par désignation, DECRET_IMF_2020 ; les normes BRH-CEC citent la loi dans leur base légale — à traiter selon la politique de renvois des circulaires.",
+      "⚠️ chaque renvoi posé doit rester cohérent avec le choix de titre du § 13 (les corps citants écrivent tous « 26 juin 2002 » ; le toLabel du renvoi sûretés écrit « 10 juillet 2002 »)."
+    ]
+  }
+}

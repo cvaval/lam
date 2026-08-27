@@ -1,0 +1,91 @@
+{
+  "date": "2026-08-27",
+  "documentBase": {
+    "id": "cms8jhhz700004szrkm41yahg",
+    "source": "LOI_CEC_2002",
+    "titre": "Loi du 10 juillet 2002 sur les coopératives d’épargne et de crédit",
+    "toc": 48,
+    "labels": 151,
+    "indexEntries": 250,
+    "sourcePdfUrl": null
+  },
+  "pieces": {
+    "sommaire": "~/Downloads/Sommaire_Loi_CEC_2002.docx (56 ¶)",
+    "index": "~/Downloads/Index_mots_cles_Loi_CEC_2002.docx (92 ¶)",
+    "transcription": "~/Downloads/Loi_du_26_juin_2002_sur_les_CEC_1.docx (684 ¶, 151 têtes)",
+    "pdfHorsListe": "~/Downloads/lois_cec.pdf — 37 p., reproduction du J.O. n° extraordinaire AVEC couche texte ; PAS dans la liste des 3 pièces mais décisif pour arbitrer les sic ; candidat fac-similé (sourcePdfUrl NULL en base)"
+  },
+  "sommaire": {
+    "xml": "AUCUN style de paragraphe, AUCUNE numérotation Word : hiérarchie portée par le GRAS (lignes TITRE + titre/SOMMAIRE/2 lignes finales en gras ; CHAPITRE et SECTION non gras, niveau déductible du seul préfixe textuel) ; libellé séparé de la plage par une TABULATION",
+    "structure": "56 ¶ = 3 lignes d’en-tête + 48 rubriques (7 TITRE + 16 CHAPITRE + 25 SECTION, correspondance 1:1 avec le toc 48 de la base, même ordre) + 3 sous-rubriques A)/B)/C) de l’article 6 + 2 lignes de bloc final (dates d’adoption, promulgation)",
+    "plages": {
+      "verdict": "48/48 plages EXACTES contre le corps en base (mesure : bornes min/max des têtes d’article entre en-têtes de même niveau ou supérieur)",
+      "plagesFausses": [],
+      "rubriquesSansEnTeteAuCorps": "aucune ; A)/B)/C) existent au corps (L30/L33/L41) mais pas au toc (pas de niveau 4)"
+    },
+    "ceQuIlAjoute": [
+      "Les plages d’articles par rubrique (Articles N à M) — la base n’en porte AUCUNE ; toutes vérifiées justes",
+      "Les libellés COMPLETS des 3 TITRES tronqués du toc en base (sec-4 TITRE II, sec-27 TITRE III, sec-43 TITRE V : le toc n’a gardé que la 1re des 2 lignes du corps)",
+      "3 sous-rubriques A)/B)/C) de l’article 6 (niveau 4 absent du toc, présent au corps)",
+      "2 entrées de bloc final (dates parlementaires, promulgation) — déjà au corps en base, simple signalement"
+    ],
+    "anomalies": [
+      "« CHAPITRE II — DE L’AUTORISATION DE FONCTIONNEMENT DES CEC » : le J.O. (pdf p. 6) porte bien CHAPITRE II (2e CHAPITRE II du TITRE II, sic — séquence I, II, II, V) et la transcription cliente aussi ; la BASE porte « CHAPITRE III » (normalisation silencieuse et incohérente : CHAPITRE V est resté V sans IV). DIVERGENCE À ARBITRER sur pièce, pas une faute du sommaire",
+      "Normalisations silencieuses du sommaire contre la lettre du J.O./base : « FONDS DE RÉSERVE » (J.O. et base : RESERVES), « C) SIGLES » (J.O. et base : SIGLE), TITRE III réécrit « TENUE DES LIVRES ET REGISTRES, SURVEILLANCE ET CONTRÔLE DES CEC » (J.O. et base : « TENUE DES LIVRES / REGISTRES, SURVEILLANCE ET DU CONTROLE DES CEC ») → le sommaire n’est PAS verbatim : oracle de STRUCTURE, jamais de lettre",
+      "Accents restitués sur les capitales (PRÉLIMINAIRES, RÉGLEMENTATION…) là où le corps J.O./base est sans accent — même prudence"
+    ]
+  },
+  "index": {
+    "xml": "terme = run en GRAS, renvois non gras après TABULATION ; en-têtes de lettre = 1 capitale en gras ; plages en tiret demi-cadratin – ; aucun style, aucune hiérarchie à 2 niveaux (index PLAT, contrairement aux 250 en base structurés « sujet — sous-rubrique »)",
+    "comptes": {
+      "paragraphes": 92,
+      "sujets": 68,
+      "enTetesDeLettre": 20,
+      "renvoisLitteraux": 444,
+      "renvoisDeveloppes": 600
+    },
+    "couverture": {
+      "client": "150/151 articles (manque seulement art. 151 — abrogation)",
+      "base": "151/151 par les 250 sujets"
+    },
+    "fiabilite": {
+      "echantillon": "TOTALITÉ des 68 sujets / 600 renvois développés testés (radical à frontière de mot dans l’article cité, corps EN BASE), puis adjudication manuelle des 9 échecs bruts",
+      "verdict": "592/600 justes (98,7 %)",
+      "renvoisFaux": [
+        "Fusion → art. 24 (le mot au corps est « conFUSION » ; aucun rapport avec la fusion, arts 129-130)",
+        "Registres et livres → arts 17, 21, 29 (autorisation / affichage / siège : ni registre ni enregistrement)"
+      ],
+      "renvoisDiscutables": [
+        "Registres et livres → arts 16, 19, 20, 107 : conflation avec « Enregistrement (au CNC) », entrée pourtant distincte du même index",
+        "Zone géographique d’intervention → art. 49 : conceptuel (le corps dit « aire d’activité de la CEC »)"
+      ],
+      "fauxEchecsAdjudiquesJustes": [
+        "Autorisation de fonctionnement → 24, 106 (« autorisée(s) à fonctionner »)",
+        "Comité de crédit → 43 (« comité de surveillance et de crédit », nom joint)",
+        "Comité de surveillance → 41 (« comité surveillance », sic du corps)"
+      ]
+    },
+    "role": "ORACLE de contrôle des 250 en base, jamais remplacement (68 plats contre 250 fins ; base couvre 151/151)",
+    "sujetsAbsentsDeLaBaseEtJustes": [
+      "Épargne → arts 1, 6, 10, 23, 138, 142 (aucun des 250 sujets ne contient « épargne »)",
+      "Supervision → arts 10, 19, 134 (aucun des 250 ne contient « supervis »)"
+    ],
+    "attrapesOracleSurLes250": [
+      "Zone géographique d’intervention (base : 25, 27, 36) : art. 146 en plus, vérifié (« zone d’intervention » au corps)",
+      "Famille Amende (base : 142, 143, 145) : art. 144 en plus, vérifié (« des amendes prévues à l’article 146 »)",
+      "Trop-perçus (base : …67) : art. 77 en plus, vérifié (« l’état des trop-perçus »)",
+      "Liquidation (base : 22, 93, 136-138, 141) : art. 146 en plus, vérifié (« la liquidation de la CEC »)"
+    ],
+    "concordance": "Procès-verbal : client 16, 42, 52, 69, 79, 112, 137, 144 = base « Procès-verbaux » à l’identique"
+  },
+  "transcriptionCorpsNote": "la transcription cliente RECTIFIE silencieusement des sic du J.O. : art. 144 « amendes prévues à l’article 145 » là où J.O. (pdf p. 34) ET base portent « l’article 146 » (sic du J.O., 145 étant l’article des amendes) ; « peuvent exiger » vs « peut » — pièce de contrôle, jamais source de remplacement",
+  "apportsReelsPourP4": [
+    "1. Plages d’articles des 48 rubriques (sommaire) — absentes de la base, 48/48 vérifiées justes : à porter au toc (affichage « Articles N à M ») ou en assertions de contrôle",
+    "2. Libellés complets des 3 TITRES tronqués du toc (sec-4, sec-27, sec-43) — recoller la 2e ligne du corps EN LETTRE J.O. (« …SURVEILLANCE ET DU CONTROLE DES CEC »), pas la version normalisée de la cliente",
+    "3. Arbitrage CHAPITRE II/III du TITRE II : J.O. + 2 pièces clientes = CHAPITRE II (sic), base = CHAPITRE III — trancher sur pièce (rendre le sic avec note, ou documenter la rectification) ; question ÉDITORIALE, pas mécanique",
+    "4. 2 sujets d’index absents et justes : « Épargne » et « Supervision » — seuls ajouts candidats aux 250",
+    "5. 4 renvois complémentaires attrapés par l’oracle (Zone +146, Amende +144, Trop-perçus +77, Liquidation +146) — mineurs, base sélective par sous-rubrique : à l’appréciation de l’éditeur",
+    "6. Sous-rubriques A)/B)/C) de l’art. 6 en niveau 4 du toc (optionnel ; corps dit « C) SIGLE » singulier)",
+    "7. lois_cec.pdf (hors les 3 pièces) : fac-similé candidat (sourcePdfUrl NULL) et pièce d’arbitrage des sic"
+  ]
+}

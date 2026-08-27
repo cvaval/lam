@@ -1,0 +1,319 @@
+{
+  "b1": {
+    "id": "cmrtiw94r0001ue7edw6au9ca",
+    "nTetes": 66,
+    "art9": "Article 9.- Les attributions du Gouverneur de la BRH sont les suivantes :\n1°) Représenter la BRH en justice tant en demandant qu’en défendant ;\n2°) Convoquer les réunions du conseil d’administration et en fixer l’ordre du jour ;\n3°) Signer au nom de la BRH tous traités et conventions.",
+    "art17": "Article 17.- Le Directeur Général assume la direction et l’administration des affaires de la BRH, il exerce tous les pouvoirs que le conseil lui délègue.\nIl applique les lois, décrets, règlements relatifs à la BRH ainsi que les résolutions du conseil d’administration.\nIl prend toute mesure d’exécution et toute mesure conservatoire qu’il juge utiles.\nIl signe les comptes-rendus d’exercice, les bilans et les comptes de profits et pertes de la BRH.\nIl présente au conseil d’administration au moins une fois par an le compte-rendu des opérations de la BRH et le rapport sur l’évolution économique et monétaire du pays.\nDans les conditions prévues par le statut du personnel, il recrute, nomme à leur poste, fait avancer en grade, révoque et destitue les agents de la BRH, tant au siège social que dans les succursales, agences ou guichets. Il désigne les représentants de la BRH au sein d’autres institutions.\nIl peut donner délégation de signature à des agents de la BRH."
+  }
+}
+[
+  {
+    "source": "ARRETE_PDP_2018",
+    "titleFr": "Arrêté du 30 avril 2018 fixant les règles relatives à la protection des données ",
+    "n": 1,
+    "ctx": "ion américaine des Droits de l'Homme ou Pacte de San José ratifiée le 17 août 1979 ; ⏎ Vu le pacte international relatif aux droits civils et politiques ratifié le 23 novembre 1990 ; ⏎ Vu le pacte interna"
+  },
+  {
+    "source": "BRH-WEB",
+    "titleFr": "Lettre-Circulaire BRH n° 06 — Exoneration du calcul de reserves",
+    "n": 1,
+    "ctx": "aine en particulier ; ⏎  ⏎ Considérant que selon l'article 2 de la loi du 17 août 1979, la BRH a pour objet de promouvoir dans le domaine de la monnaie, du crédit et des changes les conditions les plus fa"
+  },
+  {
+    "source": "BRH-WEB",
+    "titleFr": "Circulaire BRH n° 121 — Fournisseurs de services de paiement électronique",
+    "n": 1,
+    "ctx": "S DE PAIEMENT ELECTRONIQUE ⏎  ⏎  ⏎  ⏎ Conformément à l'article 2 de la loi du 17 août 1979 créant la Banque de la République d'Haïti (BRH), aux articles 6, 72 et suivants de la loi du 14 mai 2012 portant sur "
+  },
+  {
+    "source": "BRH-WEB",
+    "titleFr": "Circulaire BRH n° 98 — Transfert de fonds internationaux",
+    "n": 1,
+    "ctx": "des services de paiement. ⏎  ⏎ Conformément aux dispositions de la loi du 17 août 1979 créant la Banque de la République d'Haïti, du décret du 14 novembre 1980 règlementant les activités bancaires et du d"
+  },
+  {
+    "source": "CC_VANDAL_II-H-1",
+    "titleFr": "Décret du 14 novembre 1980 réglementant le fonctionnement des banques et des act",
+    "n": 3,
+    "ctx": "ifs de chaque coefficient. ⏎ En vertu des articles 29 à 32 de la loi du 17 août 1979 créant la Banque de la République d'Haïti (BRH), celle-ci a compétence pour réglementer l'activité des banques. A cet"
+  },
+  {
+    "source": "DECRET_BLANCHIMENT_2023",
+    "titleFr": "Décret sanctionnant le blanchiment de capitaux, le financement du terrorisme et ",
+    "n": 2,
+    "ctx": "ositions de la Loi du 24 février 1919 sur le notariat ; ⏎  ⏎ Vu la Loi du 17 août 1979 créant la Banque de la République d'Haïti ; ⏎  ⏎ Vu le Décret du 29 mars 1979 réglementant sur de nouvelles bases l'exerc"
+  },
+  {
+    "source": "DECRET_IMF_2020",
+    "titleFr": "Décret portant organisation et fonctionnement des Institutions de Microfinance (",
+    "n": 2,
+    "ctx": "ies d’assurance modifiée par le Décret du 20 mars 1981 ; ⏎ Vu la Loi du 17 août 1979 créant la Banque de la République d’Haïti ; ⏎ Vu la Loi du 21 février 2001 relative au blanchiment des avoirs provenant"
+  },
+  {
+    "source": "DECRET_IMPOT_REVENU_2005",
+    "titleFr": "Décret du 29 septembre 2005 relatif à l’Impôt sur le Revenu",
+    "n": 1,
+    "ctx": "ettes ainsi que les Comptes spéciaux qui s’y rattachent; ⏎ Vu la Loi du 17 août 1979 remplaçant la Banque Nationale de la République d’Haïti par deux Institutions Autonomes : la Banque de la République "
+  },
+  {
+    "source": "DECRET_INTERMEDIAIRES_CHANGE_2020",
+    "titleFr": "Décret sur les intermédiaires de change",
+    "n": 2,
+    "ctx": "devant régir les Sociétés Anonymes mixtes de capitaux ; ⏎  ⏎ Vu la Loi du 17 août 1979 créant et organisant la Banque de la République d’Haïti (BRH) ; ⏎  ⏎ Vu la Loi du 26 juin 2002 portant sur la constitutio"
+  },
+  {
+    "source": "DECRET_MAISONS_TRANSFERT_2020",
+    "titleFr": "Décret modifiant certaines dispositions du Décret du 6 juillet 1989 sur les mais",
+    "n": 2,
+    "ctx": " Constitution, notamment ses articles 136, 159 et 245 ; ⏎  ⏎ Vu la Loi du 17 août 1979 créant et organisant la Banque de la République d’Haïti ; ⏎  ⏎ Vu la Loi du 14 mai 2012 sur les banques et autres institu"
+  },
+  {
+    "source": "DECRET_MINIER_2026",
+    "titleFr": "Décret régissant les activités minières",
+    "n": 1,
+    "ctx": "latif à la Contribution Foncière des Propriétés Bâties ; ⏎ Vu la Loi du 17 août 1979 remplaçant la Banque de la République d’Haïti (BNRH) par deux institutions autonomes : la Banque de la République d’H"
+  },
+  {
+    "source": "DECRET_SURETES",
+    "titleFr": "Décret réformant le Droit des Sûretés",
+    "n": 1,
+    "ctx": " ⏎ Vu la Loi du 13 septembre 1952 sur le Magasin Général ; ⏎ Vu la Loi du 17 août 1979 organisant la Banque de la République d’Haïti ; ⏎ Vu la Loi du 30 août 1982 sur les sociétés financières de développeme"
+  },
+  {
+    "source": "LOI_BANQUES_2012",
+    "titleFr": "Loi sur les banques et autres institutions financières",
+    "n": 2,
+    "ctx": " devant régir les sociétés anonymes mixtes de capitaux ; ⏎ Vu la loi du 17 août 1979 créant et organisant la Banque de la République d’Haïti (BRH) ; ⏎ Vu le décret du 14 novembre 1980 réglementant le fonc"
+  },
+  {
+    "source": "LOI_CEC_2002",
+    "titleFr": "Loi du 10 juillet 2002 sur les coopératives d’épargne et de crédit",
+    "n": 2,
+    "ctx": "les articles 1, 111-1, 144, 245, 246 de la Constitution, ⏎ Vu la loi du 17 août 1979 créant la Banque de la République d’Haïti, ⏎ Vu le décret du 31 mars 1981 créant un organisme autonome dénommé Conseil "
+  },
+  {
+    "source": "LOI_UCREF_2017",
+    "titleFr": "Loi portant organisation et fonctionnement de l'Unité Centrale de Renseignements",
+    "n": 2,
+    "ctx": "rticles 111, 111-1, 136, 234 et 236 ; ⏎ Vu le Code Pénal ; ⏎ Vu la Loi du 17 août 1979 créant et organisant la Banque de la République d'Haïti ; ⏎ Vu le Décret du 30 mars 1984 organisant le ministère de la "
+  },
+  {
+    "source": "LOIS_FINANCES",
+    "titleFr": "Loi de finances de l'exercice 2020-2021",
+    "n": 1,
+    "ctx": "di 5 Octobre 2020 ⏎ BUDGET GÉNÉRAL DE L’EXERCICE 2020-2021 ⏎ Vu la Loi du 17 août 1979 remplaçant la Banque Nationale de la République d’Haïti (BNRH) par deux (2) Institutions ⏎ autonomes : la Banque de la "
+  },
+  {
+    "source": "LOIS_FINANCES",
+    "titleFr": "Loi de finances de l'exercice 2023-2024",
+    "n": 1,
+    "ctx": " mars 1985, du 31 août 1988 et du 28 septembre 1990 ; ⏎ • \tVu la Loi du 17 août 1979 remplaçant la Banque Nationale de la République d’Haïti (BNRH) par deux (2) Institutions ⏎ autonomes : la Banque de la "
+  },
+  {
+    "source": "LOIS_FINANCES",
+    "titleFr": "Loi de finances de l'exercice 2005-2006",
+    "n": 1,
+    "ctx": "ettes ainsi que les Comptes Spéciaux qui s'y rattachent; ⏎ Vu la Loi du 17 août 1979 remplaçant la Banque Nationale de la République d'Ha'fti (BNRH) par deux. (2) Institutions ⏎ autonomes : La Banque de l"
+  },
+  {
+    "source": "LOIS_FINANCES",
+    "titleFr": "Loi de finances rectificative de l'exercice 2017-2018",
+    "n": 1,
+    "ctx": "u 6 mars 1985, du 31août1988 et du 28 septembre 1990; ⏎ • \tVu la loi du 17 août 1979 remplaçant la Banque Nationale de la République d'Haïti (BNRH) par deux (2) ⏎ Institutions autonomes : la Banque de la "
+  },
+  {
+    "source": "LOIS_FINANCES",
+    "titleFr": "Loi de finances de l'exercice 2017-2018",
+    "n": 1,
+    "ctx": "du 6 mars 1985, du 31 août 1988 et du 28 septembre 1990; ⏎ Vu la loi du 17 août 1979 remplaçant la Banque Nationale de la République d'Haïti (BNRH) par deux (2) Institutions ⏎ autonomes: La Banque de la R"
+  },
+  {
+    "source": "LOIS_FINANCES",
+    "titleFr": "Loi de finances de l'exercice 2025-2026",
+    "n": 1,
+    "ctx": "u 6 mars 1985, du 31août1988 et du 28 septembre 1990; ⏎ • \tVu la Loi du 17 août 1979 remplaçant la Banque Nationale de la République d'Haïti (BNRH) par deux (2) Insti- ⏎ tutions autonomes : la Banque de l"
+  },
+  {
+    "source": "LOIS_FINANCES",
+    "titleFr": "Loi de finances de l'exercice 2021-2022",
+    "n": 1,
+    "ctx": "6 mars 1985, du 31 août 1988 et du 28 septembre 1990; ⏎ • \tVu la Loi du 17 août 1979 remplaçant la Banque Nationale de la République d’Haïti (BNRH) par deux (2) Institutions ⏎ autonomes : la Banque de la "
+  },
+  {
+    "source": "LOIS_FINANCES",
+    "titleFr": "Loi de finances rectificative de l'exercice 2023-2024",
+    "n": 1,
+    "ctx": " mars 1985, du 31 août 1988 et du 28 septembre 1990 ; ⏎ • \tVu la Loi du 17 août 1979 remplaçant la Banque Nationale de la République d’Haïti (BNRH) par deux (2) ⏎ Institutions autonomes : la Banque de la "
+  },
+  {
+    "source": "LOIS_FINANCES",
+    "titleFr": "Loi de finances de l'exercice 2007-2008",
+    "n": 1,
+    "ctx": "E MONITEUR>> \tSpécial No. JO - Vendredi 23 Novembre 2007 ⏎ Vu la loi du 17 août 1979 remplaçant la Banque Nationale de la République d'Haîti (BNRH) par deux (2) Institutions ⏎ autonomes: La Banque de la R"
+  },
+  {
+    "source": "LOIS_FINANCES",
+    "titleFr": "Loi de finances de l'exercice 2010-2011",
+    "n": 1,
+    "ctx": "ive à la Dette Publique Interne et Externe de l'Etat; ⏎ • \tVu la Loi du 17 août 1979 remplaçant la Banque Nationale de la République d'Haïti (BNRH) par deux (2) ⏎ Institutions autonomesD: La Banque de la "
+  },
+  {
+    "source": "LOIS_FINANCES",
+    "titleFr": "Loi de finances de l'exercice 2009-2010 — Tome I",
+    "n": 1,
+    "ctx": "ive à la Dette Publique Interne et Externe de l'Etat; ⏎ • \tVu la Loi du 17 août 1979 remplaçant la Banque Nationale de la République d'Haïti (BNRH) par deux (2) ⏎ Institutions autonomesD: La Banque de la "
+  },
+  {
+    "source": "LOIS_FINANCES",
+    "titleFr": "Loi de finances de l'exercice 2008-2009",
+    "n": 1,
+    "ctx": "<LE MONITEUR>> \tSpécial No. 5 - Vendredi 19 Juin 2009 ⏎ • \tVu la Loi du 17 août 1979 remplaçant la Banque Nationale de la République d'Haïti (BNRH) par deux (2) ⏎ Institutions autonomes : La Banque de la "
+  },
+  {
+    "source": "MONITEUR",
+    "titleFr": "Décret modifiant les articles 9 et 17 de la Loi du 17 août 1979 créant la Banque",
+    "n": 1,
+    "ctx": "Décret modifiant les articles 9 et 17 de la Loi du 17 août 1979 créant la Banque de la République d'Haïti (BRH)"
+  },
+  {
+    "source": "MONITEUR",
+    "titleFr": "Décret modifiant les articles 1, 3 et 4 (?) de la Loi du 17 août 1979, créant la",
+    "n": 1,
+    "ctx": "Décret modifiant les articles 1, 3 et 4 (?) de la Loi du 17 août 1979, créant la Banque Nationale de Crédit (BNC)"
+  },
+  {
+    "source": "MONITEUR_MANUAL",
+    "titleFr": "Le Moniteur — Édition spéciale n° 4 — Juillet 2012 — Loi portant sur les banques",
+    "n": 2,
+    "ctx": "vant régir les ⏎  ⏎ sociétés anonymes mixtes de capitaux; ⏎  ⏎  ⏎  ⏎ Vu la loi du 17 août 1979 créant et organisant la Banque de la République d'Haïti ⏎  ⏎ (BRH); ⏎  ⏎  ⏎  ⏎ Vu le décret du 14 novembre 1980 réglementant le f"
+  },
+  {
+    "source": "MONITEUR_PDF_1983",
+    "titleFr": "Le Moniteur n° 87 — Décembre 1983",
+    "n": 1,
+    "ctx": "n de la Banque de la République d'l-'ait qui en ⏎          Vu la Loi du 17 août 1979 créant la Banque Natio-      fixera les plafonds. ⏎ -nale de Crédit; ⏎                                                   "
+  },
+  {
+    "source": "MONITEUR_PDF_1983",
+    "titleFr": "Le Moniteur n° 26 — Avril 1983",
+    "n": 2,
+    "ctx": " des Actionnaires                                        Vu la Loi du 17 août 1979 relT'!'laçant la BNRH par ⏎                                                                      deux nouvelles Institu"
+  },
+  {
+    "source": "MONITEUR_PDF_1983",
+    "titleFr": "Le Moniteur n° 68 — Septembre 1983",
+    "n": 1,
+    "ctx": "                                 Les Secrétaires: ⏎        Vu la Loi du 17 août 1979 créant la Banque de la ⏎ République d'Haïti (BRH) faisant fonction de la Banque           Jean Th. LINDOR              "
+  },
+  {
+    "source": "MONITEUR_PDF_1984",
+    "titleFr": "Le Moniteur n° 14 — Février 1984",
+    "n": 1,
+    "ctx": "                                                         Vu la Loi du 17 août 1979 créant la Banque de la ⏎                                                                 République d'Haiti, ci-après d"
+  },
+  {
+    "source": "MONITEUR_PDF_1984",
+    "titleFr": "Le Moniteur n° 9 — Février 1984",
+    "n": 2,
+    "ctx": "                              DENOMINATION - OBJET ⏎  ⏎      Vu la Loi du 17 août 1979 créant la Banque de la                      Article 1.- Il est créé, par la présente, sous la super· ⏎ épublique d'Haït"
+  },
+  {
+    "source": "MONITEUR_PDF_1985",
+    "titleFr": "Le Moniteur n° 43 — Juin 1985",
+    "n": 3,
+    "ctx": "                             Jean-Marie CHAt·WINE ⏎        Vu !a Loi du 17 août 1979.• créant la Banque de la ⏎ République d'Haïti (BRH) faisant fonction de Banque Cen- ⏎ trale de la République d'Haïti. ⏎  ⏎   "
+  },
+  {
+    "source": "MONITEUR_PDF_1988",
+    "titleFr": "Le Moniteur n° 71-A — Août 1988",
+    "n": 1,
+    "ctx": "                                                         Vu la Loi du 17 août 1979 créant ⏎                                                                                                               "
+  },
+  {
+    "source": "MONITEUR_PDF_1989",
+    "titleFr": "Le Moniteur n° 62 — Août 1989",
+    "n": 1,
+    "ctx": "                      _le rôle de guichet; ⏎              Vu la Lq_i du 17 août 1979 créant et structurant la ⏎    Banque de la République d'Haiti;                                 2o) d'aider à identifier"
+  },
+  {
+    "source": "MONITEUR_PDF_1990",
+    "titleFr": "Le Moniteur n° 96-A — Novembre 1990",
+    "n": 1,
+    "ctx": "cles 136, 224, 225 et 226 de la Constitution; ⏎  ⏎           Vu la Loi dp 17 août 1979 créant la Banque de la République d'Haîti (B.R.HI.); ⏎  ⏎  ⏎           Considérant qu'il importe, à l'occasion de la commér"
+  },
+  {
+    "source": "MONITEUR_PDF_1990",
+    "titleFr": "Le Moniteur n° 30 — Mars 1990",
+    "n": 2,
+    "ctx": " Ja société anonyme           conformément à l'article 6 de Ja Loi du 17 août 1979. ⏎       dénommée: -,:Meubles et Bois. S.A.:» ⏎       • Airétê approuvant Ja modification apportée aux statuts de la ⏎     "
+  },
+  {
+    "source": "MONITEUR_PDF_1990",
+    "titleFr": "Le Moniteur n° 68-A — Août 1990",
+    "n": 3,
+    "ctx": "  Vu les articles 136 et 142 de la Constitution; ⏎         Vu la Loi du 17 août 1979 créant la Banque de la ⏎ République d'Haïti (B.R.H.);                                              Vu le Décret du 13 m"
+  },
+  {
+    "source": "MONITEUR_PDF_1990",
+    "titleFr": "Le Moniteur n° 95-A — Novembre 1990",
+    "n": 1,
+    "ctx": "les 136, 224, 225 et 226 de la Constitution; ⏎  ⏎            Vu la Loi du 17 août 1979 créant la Banque de la République d'Haïti (B.R.R); ⏎  ⏎           Considérart qu'il importe, à l'occasion de la commérati"
+  },
+  {
+    "source": "MONITEUR_PDF_1990",
+    "titleFr": "Le Moniteur n° 93-A — Octobre 1990",
+    "n": 4,
+    "ctx": "                                              ·- ⏎         Vu la Loi du 17 août 1979 créant 1~ Banque de-la Réppblique d'H;aïti (B.R.H.); ⏎  ⏎         Vu la Loi du 6 septembre 1982 définissant !'Admin:s1,ra"
+  },
+  {
+    "source": "MONITEUR_PDF_1991",
+    "titleFr": "Le Moniteur n° 94-A — Décembre 1991",
+    "n": 1,
+    "ctx": "u les articles 136 et 142 de la Constitution; ⏎  ⏎           Vu la Loi du 17 août 1979 créant la Banque de la République d'Haïti (BRH); ⏎  ⏎           Vu le Décret du 13 mars 1987 sur l'Organisation du Minist"
+  },
+  {
+    "source": "MONITEUR_PDF_1991",
+    "titleFr": "Le Moniteur n° 28-A — Avril 1991",
+    "n": 2,
+    "ctx": "Publique en général et dans la magistrature; ⏎  ⏎            Vu la Loi du 17 août 1979 créant la Banque de la République d'Haïti (B.R.H.); ⏎  ⏎            Considérant qu'il y a lieu de reconstituer le Conseil"
+  },
+  {
+    "source": "MONITEUR_PDF_1991",
+    "titleFr": "Le Moniteur n° 100-A — Décembre 1991",
+    "n": 1,
+    "ctx": "u les articles 136 et 142 de la Consti.tution; ⏎  ⏎          Vu la Loi du 17 août 1979 créant la Banque de la République d'Harti (BRH); ⏎  ⏎          Vu le Décret du 13 mars 1987 sur l'O.-ganisation du Minist"
+  },
+  {
+    "source": "MONITEUR_PDF_1994",
+    "titleFr": "Le Moniteur n° 99 — Décembre 1994",
+    "n": 1,
+    "ctx": "IDENT ⏎  ⏎  Vu les articles 136 et 142 de la Constitution; ⏎  ⏎  Vu la loi du 17 août 1979 créant la Banque de la République d'Haïti (BRH); ⏎  ⏎  Vu le Décret du 13 mars 1987 sur l'organisation du ministères des "
+  },
+  {
+    "source": "MONITEUR_PDF_1996",
+    "titleFr": "Le Moniteur n° 9 — Janvier 1996",
+    "n": 1,
+    "ctx": "T ⏎     Vu les articles.136 et 142 de la Constitution; ⏎     Vu la Loi du 17 août 1979 créant la ;Banque de la République d'Haïp; ⏎    Vu le Décret du 13 mars 1987 sur l' organi~atiôn du Ministère de l 'Eco"
+  },
+  {
+    "source": "MONITEUR_PDF_1998",
+    "titleFr": "Le Moniteur n° 29 — Avril 1998",
+    "n": 2,
+    "ctx": "s du Ministère de l'Economie et des Finances; ⏎  ⏎           Vu la loi du 17 août 1979 créant la Banque de la République d'Haïti; ⏎  ⏎           Vu la loi.du 17 août 1979 créant la Banque Nationale de Crédit;"
+  },
+  {
+    "source": "MONITEUR_PDF_1999",
+    "titleFr": "Le Moniteur n° 19 — Mars 1999",
+    "n": 2,
+    "ctx": "tures du Ministre de !'Economie et des Finances; ⏎  ⏎        Vu la loi du 17 août 1979 créant la Banque de la République d'Haïti; ⏎  ⏎  ⏎ 318                                                  <<LE MONITEUR>>    "
+  },
+  {
+    "source": "MONITEUR_PDF_2016",
+    "titleFr": "Le Moniteur n° 4 — Janvier 2016",
+    "n": 1,
+    "ctx": "du 26 décembre 1978 sur l'immigration et l'émigration ; ⏎  ⏎ Vu la Loi du 17 août 1979 remplaçant la Banque Nationale de la République d'Haïti (BNRH) par deux (2) institutions autonomes : la Banque de la "
+  }
+]
+CC_VANDAL_II-A ← [{"id":"cmrtugbky000vwe521nx6e4mg","fromId":"cmrtnrxhu0000hg04ggz2lw0f","kind":"VOIR","toLabel":"Loi du 17 août 1979 remplaçant la Banque Nationale de la République d'Haïti par la Banque de la République d'Haïti et la Banque Nationale de Crédit"}]
+CC_VANDAL_II-B-1 ← [{"id":"cmtb02jcc001210ean10rbu18","fromId":"cmrspgd9h0000yn8emki3dtw6","kind":"CITE","toLabel":"Loi du 17 août 1979 organisant la Banque de la République d'Haïti"},{"id":"cmrtugbop000xwe52p6mvhqzz","fromId":"cmrtnrxhu0000hg04ggz2lw0f","kind":"VOIR","toLabel":"Loi du 17 août 1979 organisant la Banque de la République d'Haïti"}]
+CC_VANDAL_II-C ← [{"id":"cmrtugbuy000zwe528e5eik84","fromId":"cmrtnrxhu0000hg04ggz2lw0f","kind":"VOIR","toLabel":"Loi du 17 août 1979 sur la Banque Nationale de Crédit, modifiée par le Décret du 31 octobre 1983"}]

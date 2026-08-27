@@ -1,0 +1,2719 @@
+{
+ "articles": [
+  {
+   "article": 1,
+   "ratio_mots": 0.9697,
+   "ratio_strict": 0.9697,
+   "mots_base": 33,
+   "mots_cli": 33,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "d'Epargne",
+     "cli": "d'Épargne",
+     "ctx_avant": "et la surveillance des Coopératives"
+    }
+   ]
+  },
+  {
+   "article": 2,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 58,
+   "mots_cli": 58,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 3,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 78,
+   "mots_cli": 78,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 4,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 37,
+   "mots_cli": 37,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 5,
+   "ratio_mots": 0.944,
+   "ratio_strict": 0.72,
+   "mots_base": 61,
+   "mots_cli": 64,
+   "n_ecarts": 5,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "4",
+     "ctx_avant": "3 Participation économique des membres"
+    },
+    {
+     "op": "replace",
+     "base": "4",
+     "cli": "5",
+     "ctx_avant": "et Indépendance de la Coopérative"
+    },
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "et",
+     "ctx_avant": "la Coopérative 4 Éducation Formation"
+    },
+    {
+     "op": "replace",
+     "base": "5",
+     "cli": "6",
+     "ctx_avant": "Sociétaires et du grand public"
+    },
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "7",
+     "ctx_avant": "5 Coopération entre les Coopératives"
+    }
+   ]
+  },
+  {
+   "article": 6,
+   "ratio_mots": 0.9725,
+   "ratio_strict": 0.956,
+   "mots_base": 362,
+   "mots_cli": 366,
+   "n_ecarts": 12,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "Coopératives",
+     "cli": "Coopérative",
+     "ctx_avant": "par A DÉFINITIONS PARTICULIÈRES 1"
+    },
+    {
+     "op": "delete",
+     "base": "économiques",
+     "cli": "",
+     "ctx_avant": "Rôle que jouent certains agents"
+    },
+    {
+     "op": "replace",
+     "base": "des",
+     "cli": "les",
+     "ctx_avant": "personne que si elle remplit"
+    },
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "les",
+     "ctx_avant": "Fonds sont considérés comme tels"
+    },
+    {
+     "op": "replace",
+     "base": "dépôt",
+     "cli": "dépôts",
+     "ctx_avant": "recueille notamment sous forme de"
+    },
+    {
+     "op": "replace",
+     "base": "dépôt",
+     "cli": "de dépôts",
+     "ctx_avant": "sous forme de dépôt d'épargne"
+    },
+    {
+     "op": "replace",
+     "base": "par",
+     "cli": "pour",
+     "ctx_avant": "propre compte mais à charge"
+    },
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "ou",
+     "ctx_avant": "autre institution ou d'un sociétaire"
+    },
+    {
+     "op": "replace",
+     "base": "Succursales",
+     "cli": "Succursale",
+     "ctx_avant": "un cautionnement ou une garantie"
+    },
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "SIGLES",
+     "ctx_avant": "gestion ou d'une infraction C"
+    },
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "Signification",
+     "ctx_avant": "ou d'une infraction C SIGLE"
+    },
+    {
+     "op": "replace",
+     "base": "d'Epargne",
+     "cli": "d'Épargne",
+     "ctx_avant": "National des Coopératives CEC Coopérative"
+    }
+   ]
+  },
+  {
+   "article": 7,
+   "ratio_mots": 0.9714,
+   "ratio_strict": 0.9714,
+   "mots_base": 35,
+   "mots_cli": 35,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "lui",
+     "cli": "leur",
+     "ctx_avant": "dispositions législatives et réglementaires qui"
+    }
+   ]
+  },
+  {
+   "article": 8,
+   "ratio_mots": 0.9778,
+   "ratio_strict": 0.9778,
+   "mots_base": 22,
+   "mots_cli": 23,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "de",
+     "ctx_avant": "est chargé de formuler et"
+    }
+   ]
+  },
+  {
+   "article": 9,
+   "ratio_mots": 0.9773,
+   "ratio_strict": 0.9773,
+   "mots_base": 133,
+   "mots_cli": 131,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "leurs objets",
+     "cli": "leur objet",
+     "ctx_avant": "affiliées favoriser la réalisation de"
+    },
+    {
+     "op": "delete",
+     "base": "d'elles auprès",
+     "cli": "",
+     "ctx_avant": "par un organe créé auprès"
+    }
+   ]
+  },
+  {
+   "article": 10,
+   "ratio_mots": 0.9612,
+   "ratio_strict": 0.9612,
+   "mots_base": 64,
+   "mots_cli": 65,
+   "n_ecarts": 3,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "et",
+     "ctx_avant": "direction est chargée de superviser"
+    },
+    {
+     "op": "replace",
+     "base": "des",
+     "cli": "les",
+     "ctx_avant": "de contrôler les CEC et"
+    },
+    {
+     "op": "replace",
+     "base": "coopérative",
+     "cli": "coopératives",
+     "ctx_avant": "CEC et des fédérations de"
+    }
+   ]
+  },
+  {
+   "article": 11,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 52,
+   "mots_cli": 52,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 12,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 18,
+   "mots_cli": 18,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 13,
+   "ratio_mots": 0.9444,
+   "ratio_strict": 0.9444,
+   "mots_base": 35,
+   "mots_cli": 37,
+   "n_ecarts": 3,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "qu'il",
+     "cli": "qu'elle",
+     "ctx_avant": "soit par un vérificateur indépendant"
+    },
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "les",
+     "ctx_avant": "activités de toute entité dont"
+    },
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "ou",
+     "ctx_avant": "de toute entité dont opérations"
+    }
+   ]
+  },
+  {
+   "article": 14,
+   "ratio_mots": 0.9857,
+   "ratio_strict": 0.9857,
+   "mots_base": 140,
+   "mots_cli": 140,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "type",
+     "cli": "types",
+     "ctx_avant": "des opérations de crédit les"
+    },
+    {
+     "op": "replace",
+     "base": "montant",
+     "cli": "montants",
+     "ctx_avant": "de crédit les type et"
+    }
+   ]
+  },
+  {
+   "article": 15,
+   "ratio_mots": 0.9705,
+   "ratio_strict": 0.9705,
+   "mots_base": 118,
+   "mots_cli": 119,
+   "n_ecarts": 3,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "la",
+     "ctx_avant": "de gestion visant à assurer"
+    },
+    {
+     "op": "replace",
+     "base": "leur ressource",
+     "cli": "leurs ressources",
+     "ctx_avant": "aisément mobilisable une partie de"
+    },
+    {
+     "op": "replace",
+     "base": "risques",
+     "cli": "risque",
+     "ctx_avant": "des règles de division de"
+    }
+   ]
+  },
+  {
+   "article": 16,
+   "ratio_mots": 1.0,
+   "ratio_strict": 0.9011,
+   "mots_base": 91,
+   "mots_cli": 91,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 17,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 31,
+   "mots_cli": 31,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 18,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 57,
+   "mots_cli": 57,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 19,
+   "ratio_mots": 0.9792,
+   "ratio_strict": 0.9792,
+   "mots_base": 336,
+   "mots_cli": 338,
+   "n_ecarts": 7,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "où",
+     "cli": "du",
+     "ctx_avant": "Générale des Impôts du lieu"
+    },
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "de",
+     "ctx_avant": "Impôts du lieu où siège"
+    },
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "gourdes",
+     "ctx_avant": "soit douze mille cinq cents"
+    },
+    {
+     "op": "replace",
+     "base": "vingt cinq",
+     "cli": "vingt-cinq",
+     "ctx_avant": "capital social minimum sera de"
+    },
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "G",
+     "ctx_avant": "mille deux cent cinquante gourdes"
+    },
+    {
+     "op": "replace",
+     "base": "aux alinéas",
+     "cli": "à l'alinéa",
+     "ctx_avant": "la BRH Les montants indiqués"
+    },
+    {
+     "op": "replace",
+     "base": "général",
+     "cli": "générale",
+     "ctx_avant": "secteur et de l'activité économique"
+    }
+   ]
+  },
+  {
+   "article": 20,
+   "ratio_mots": 0.9773,
+   "ratio_strict": 0.9091,
+   "mots_base": 44,
+   "mots_cli": 44,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "fonctionnent",
+     "cli": "fonctionnement",
+     "ctx_avant": "d'enregistrement et son autorisation de"
+    }
+   ]
+  },
+  {
+   "article": 21,
+   "ratio_mots": 0.9697,
+   "ratio_strict": 0.9697,
+   "mots_base": 33,
+   "mots_cli": 33,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "services",
+     "cli": "service",
+     "ctx_avant": "que dans ses points de"
+    }
+   ]
+  },
+  {
+   "article": 22,
+   "ratio_mots": 0.9935,
+   "ratio_strict": 0.987,
+   "mots_base": 153,
+   "mots_cli": 155,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "de fonctionnement",
+     "ctx_avant": "fait usage de son autorisation"
+    }
+   ]
+  },
+  {
+   "article": 23,
+   "ratio_mots": 0.9519,
+   "ratio_strict": 0.9519,
+   "mots_base": 94,
+   "mots_cli": 93,
+   "n_ecarts": 4,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "COOPERATIVE D'EPARGNE",
+     "cli": "COOPÉRATIVE D'ÉPARGNE",
+     "ctx_avant": "la dénomination de CAISSE POPULAIRE"
+    },
+    {
+     "op": "replace",
+     "base": "CREDIT",
+     "cli": "CRÉDIT",
+     "ctx_avant": "POPULAIRE COOPERATIVE D'EPARGNE ET DE"
+    },
+    {
+     "op": "delete",
+     "base": "autres",
+     "cli": "",
+     "ctx_avant": "ET DE CREDIT ou toutes"
+    },
+    {
+     "op": "replace",
+     "base": "ses",
+     "cli": "ces",
+     "ctx_avant": "nom l'une ou l'autre de"
+    }
+   ]
+  },
+  {
+   "article": 24,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 102,
+   "mots_cli": 102,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 25,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 96,
+   "mots_cli": 96,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 26,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 55,
+   "mots_cli": 55,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 27,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 24,
+   "mots_cli": 24,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 28,
+   "ratio_mots": 0.9851,
+   "ratio_strict": 0.9851,
+   "mots_base": 67,
+   "mots_cli": 67,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "de",
+     "cli": "à",
+     "ctx_avant": "conseil d'administration après avis préalable"
+    }
+   ]
+  },
+  {
+   "article": 29,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 47,
+   "mots_cli": 47,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 30,
+   "ratio_mots": 0.9792,
+   "ratio_strict": 0.9792,
+   "mots_base": 48,
+   "mots_cli": 48,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "statuer",
+     "cli": "porter",
+     "ctx_avant": "de la BRH qui doit"
+    }
+   ]
+  },
+  {
+   "article": 31,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 13,
+   "mots_cli": 13,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 32,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 22,
+   "mots_cli": 22,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 33,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 99,
+   "mots_cli": 99,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 34,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 48,
+   "mots_cli": 48,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 35,
+   "ratio_mots": 0.9655,
+   "ratio_strict": 0.9655,
+   "mots_base": 87,
+   "mots_cli": 87,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "minimale",
+     "cli": "nominale",
+     "ctx_avant": "entièrement libérées comportent une échéance"
+    },
+    {
+     "op": "replace",
+     "base": "productifs d'intérêt",
+     "cli": "productives d'intérêts",
+     "ctx_avant": "de dix 10 ans sont"
+    }
+   ]
+  },
+  {
+   "article": 36,
+   "ratio_mots": 0.9926,
+   "ratio_strict": 0.9926,
+   "mots_base": 136,
+   "mots_cli": 136,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "de",
+     "ctx_avant": "Une CEC peut être composée"
+    },
+    {
+     "op": "delete",
+     "base": "droit",
+     "cli": "",
+     "ctx_avant": "assemblées toutefois il n'a pas"
+    }
+   ]
+  },
+  {
+   "article": 37,
+   "ratio_mots": 0.9524,
+   "ratio_strict": 0.9524,
+   "mots_base": 63,
+   "mots_cli": 63,
+   "n_ecarts": 3,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "A",
+     "cli": "À",
+     "ctx_avant": ""
+    },
+    {
+     "op": "replace",
+     "base": "des",
+     "cli": "ses",
+     "ctx_avant": "à un sociétaire ou à"
+    },
+    {
+     "op": "replace",
+     "base": "augmentées",
+     "cli": "augmentée",
+     "ctx_avant": "valeur nominale de ces parts"
+    }
+   ]
+  },
+  {
+   "article": 38,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 38,
+   "mots_cli": 38,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 39,
+   "ratio_mots": 0.9787,
+   "ratio_strict": 0.9702,
+   "mots_base": 118,
+   "mots_cli": 117,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "qualité",
+     "cli": "qualités",
+     "ctx_avant": "la CEC les nom prénom"
+    },
+    {
+     "op": "replace",
+     "base": "plus value",
+     "cli": "plus-value",
+     "ctx_avant": "intérêts ne peut avoir de"
+    }
+   ]
+  },
+  {
+   "article": 40,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 25,
+   "mots_cli": 25,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 41,
+   "ratio_mots": 0.9844,
+   "ratio_strict": 0.9844,
+   "mots_base": 64,
+   "mots_cli": 64,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "de",
+     "ctx_avant": "conseil d'administration par le comité"
+    },
+    {
+     "op": "delete",
+     "base": "la",
+     "cli": "",
+     "ctx_avant": "le comité surveillance ou sur"
+    }
+   ]
+  },
+  {
+   "article": 42,
+   "ratio_mots": 0.9909,
+   "ratio_strict": 0.9909,
+   "mots_base": 110,
+   "mots_cli": 110,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "généralement",
+     "cli": "générales",
+     "ctx_avant": "présents Les délibérations des assemblées"
+    }
+   ]
+  },
+  {
+   "article": 43,
+   "ratio_mots": 0.987,
+   "ratio_strict": 0.987,
+   "mots_base": 76,
+   "mots_cli": 78,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "du comité",
+     "ctx_avant": "du comité de surveillance et"
+    }
+   ]
+  },
+  {
+   "article": 44,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 37,
+   "mots_cli": 37,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 45,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 10,
+   "mots_cli": 10,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 46,
+   "ratio_mots": 0.9506,
+   "ratio_strict": 0.9506,
+   "mots_base": 82,
+   "mots_cli": 80,
+   "n_ecarts": 3,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "dans l'intérêt de",
+     "cli": "envers",
+     "ctx_avant": "agir avec honnêteté et loyauté"
+    },
+    {
+     "op": "replace",
+     "base": "A",
+     "cli": "À",
+     "ctx_avant": "CEC et respecter ses objets"
+    },
+    {
+     "op": "replace",
+     "base": "conflits",
+     "cli": "conflit",
+     "ctx_avant": "placer dans une situation de"
+    }
+   ]
+  },
+  {
+   "article": 47,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 43,
+   "mots_cli": 43,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 48,
+   "ratio_mots": 0.9501,
+   "ratio_strict": 0.9501,
+   "mots_base": 211,
+   "mots_cli": 210,
+   "n_ecarts": 11,
+   "ecarts": [
+    {
+     "op": "delete",
+     "base": "d",
+     "cli": "",
+     "ctx_avant": "ou de tout établissement concurrent"
+    },
+    {
+     "op": "replace",
+     "base": "e",
+     "cli": "d",
+     "ctx_avant": "partiellement le même objet social"
+    },
+    {
+     "op": "replace",
+     "base": "f",
+     "cli": "e",
+     "ctx_avant": "e d'un failli non réhabilité"
+    },
+    {
+     "op": "replace",
+     "base": "sceau",
+     "cli": "sceaux",
+     "ctx_avant": "de billets de banque de"
+    },
+    {
+     "op": "replace",
+     "base": "l'Etat",
+     "cli": "l'État",
+     "ctx_avant": "banqueroute atteinte au crédit de"
+    },
+    {
+     "op": "replace",
+     "base": "g",
+     "cli": "f",
+     "ctx_avant": "émission de chèque sans provision"
+    },
+    {
+     "op": "replace",
+     "base": "h",
+     "cli": "g",
+     "ctx_avant": "faits cités à l'alinéa précédent"
+    },
+    {
+     "op": "replace",
+     "base": "passé",
+     "cli": "passée",
+     "ctx_avant": "par une juridiction étrangère et"
+    },
+    {
+     "op": "replace",
+     "base": "faite",
+     "cli": "faits",
+     "ctx_avant": "de chose jugée pour les"
+    },
+    {
+     "op": "replace",
+     "base": "d",
+     "cli": "e",
+     "ctx_avant": "les faite cités à l'alinéa"
+    },
+    {
+     "op": "replace",
+     "base": "i",
+     "cli": "h",
+     "ctx_avant": "d ou des faits analogues"
+    }
+   ]
+  },
+  {
+   "article": 49,
+   "ratio_mots": 0.9921,
+   "ratio_strict": 0.9921,
+   "mots_base": 127,
+   "mots_cli": 127,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "d'activité",
+     "cli": "d'activités",
+     "ctx_avant": "dans les limites de l'aire"
+    }
+   ]
+  },
+  {
+   "article": 50,
+   "ratio_mots": 0.9714,
+   "ratio_strict": 0.9714,
+   "mots_base": 140,
+   "mots_cli": 140,
+   "n_ecarts": 4,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "A",
+     "cli": "À",
+     "ctx_avant": "par l'assemblée générale des sociétaires"
+    },
+    {
+     "op": "replace",
+     "base": "d",
+     "cli": "e",
+     "ctx_avant": "la fédération selon le cas"
+    },
+    {
+     "op": "replace",
+     "base": "e",
+     "cli": "f",
+     "ctx_avant": "sociale et coopérative des sociétaires"
+    },
+    {
+     "op": "replace",
+     "base": "f",
+     "cli": "g",
+     "ctx_avant": "les décisions de l'assemblée générale"
+    }
+   ]
+  },
+  {
+   "article": 51,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 31,
+   "mots_cli": 31,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 52,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 85,
+   "mots_cli": 85,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 53,
+   "ratio_mots": 0.9867,
+   "ratio_strict": 0.96,
+   "mots_base": 37,
+   "mots_cli": 38,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "tant",
+     "ctx_avant": "représente la CEC en justice"
+    }
+   ]
+  },
+  {
+   "article": 54,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 12,
+   "mots_cli": 12,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 55,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 102,
+   "mots_cli": 102,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 56,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 30,
+   "mots_cli": 30,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 57,
+   "ratio_mots": 0.7273,
+   "ratio_strict": 0.7273,
+   "mots_base": 55,
+   "mots_cli": 33,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "a pour responsabilité de gérer le crédit",
+     "cli": "agit",
+     "ctx_avant": "personnes Le comité de crédit"
+    },
+    {
+     "op": "delete",
+     "base": "Le comité de crédit est tenu de faire rapport de ses activités à l'assemblée générale annuelle",
+     "cli": "",
+     "ctx_avant": "adoptées par le conseil d'administration"
+    }
+   ]
+  },
+  {
+   "article": 58,
+   "ratio_mots": 1.0,
+   "ratio_strict": 0.94,
+   "mots_base": 50,
+   "mots_cli": 50,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 59,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 57,
+   "mots_cli": 57,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 60,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 48,
+   "mots_cli": 48,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 61,
+   "ratio_mots": 0.9783,
+   "ratio_strict": 0.9783,
+   "mots_base": 46,
+   "mots_cli": 46,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "remboursement",
+     "cli": "financement",
+     "ctx_avant": "termes de décaissement et de"
+    }
+   ]
+  },
+  {
+   "article": 62,
+   "ratio_mots": 0.9894,
+   "ratio_strict": 0.9894,
+   "mots_base": 94,
+   "mots_cli": 94,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "dans",
+     "cli": "sans",
+     "ctx_avant": "directement pour injecter des fonds"
+    }
+   ]
+  },
+  {
+   "article": 63,
+   "ratio_mots": 0.9798,
+   "ratio_strict": 0.9798,
+   "mots_base": 99,
+   "mots_cli": 99,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "ne peut",
+     "ctx_avant": "est insaisissable et incessible et"
+    },
+    {
+     "op": "delete",
+     "base": "ne peut",
+     "cli": "",
+     "ctx_avant": "incessible et en aucun cas"
+    }
+   ]
+  },
+  {
+   "article": 64,
+   "ratio_mots": 0.9682,
+   "ratio_strict": 0.9682,
+   "mots_base": 78,
+   "mots_cli": 79,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "affecter",
+     "cli": "être affecté",
+     "ctx_avant": "ou communautaires Il ne peut"
+    },
+    {
+     "op": "replace",
+     "base": "A",
+     "cli": "À",
+     "ctx_avant": "3 ans de leur affectation"
+    }
+   ]
+  },
+  {
+   "article": 65,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 37,
+   "mots_cli": 37,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 66,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 51,
+   "mots_cli": 51,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 67,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 13,
+   "mots_cli": 13,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 68,
+   "ratio_mots": 0.9818,
+   "ratio_strict": 0.9818,
+   "mots_base": 55,
+   "mots_cli": 55,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "du",
+     "cli": "un",
+     "ctx_avant": "fonction lui permet de consentir"
+    }
+   ]
+  },
+  {
+   "article": 69,
+   "ratio_mots": 0.9888,
+   "ratio_strict": 0.9888,
+   "mots_base": 89,
+   "mots_cli": 89,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "d'intérêts",
+     "cli": "d'intérêt",
+     "ctx_avant": "intérêt Mention de la déclaration"
+    }
+   ]
+  },
+  {
+   "article": 70,
+   "ratio_mots": 0.96,
+   "ratio_strict": 0.96,
+   "mots_base": 38,
+   "mots_cli": 37,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "de ses",
+     "cli": "des",
+     "ctx_avant": "consent dans le cours normal"
+    }
+   ]
+  },
+  {
+   "article": 71,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 40,
+   "mots_cli": 40,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 72,
+   "ratio_mots": 0.9571,
+   "ratio_strict": 0.9571,
+   "mots_base": 71,
+   "mots_cli": 69,
+   "n_ecarts": 3,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "l'enfant mineur",
+     "cli": "celui",
+     "ctx_avant": "conjoint son enfant mineur ou"
+    },
+    {
+     "op": "replace",
+     "base": "personne",
+     "cli": "personnes",
+     "ctx_avant": "associé ou la société de"
+    },
+    {
+     "op": "delete",
+     "base": "par",
+     "cli": "",
+     "ctx_avant": "est contrôlée par lui ou"
+    }
+   ]
+  },
+  {
+   "article": 73,
+   "ratio_mots": 0.9273,
+   "ratio_strict": 0.9273,
+   "mots_base": 58,
+   "mots_cli": 52,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "delete",
+     "base": "FCP affiliée ou de la",
+     "cli": "",
+     "ctx_avant": "et l'accord final de la"
+    },
+    {
+     "op": "replace",
+     "base": "non affiliation",
+     "cli": "non-affiliation",
+     "ctx_avant": "la BRH en cas de"
+    }
+   ]
+  },
+  {
+   "article": 74,
+   "ratio_mots": 0.9259,
+   "ratio_strict": 0.9259,
+   "mots_base": 27,
+   "mots_cli": 27,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "au terme",
+     "cli": "aux termes",
+     "ctx_avant": "Les CEC sont habilitées"
+    }
+   ]
+  },
+  {
+   "article": 75,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 14,
+   "mots_cli": 14,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 76,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 18,
+   "mots_cli": 18,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 77,
+   "ratio_mots": 0.9831,
+   "ratio_strict": 0.9831,
+   "mots_base": 118,
+   "mots_cli": 118,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "A",
+     "cli": "À",
+     "ctx_avant": ""
+    },
+    {
+     "op": "replace",
+     "base": "occupation",
+     "cli": "occupations",
+     "ctx_avant": "CEC 2 les noms et"
+    }
+   ]
+  },
+  {
+   "article": 78,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 90,
+   "mots_cli": 90,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 79,
+   "ratio_mots": 0.9975,
+   "ratio_strict": 0.9975,
+   "mots_base": 200,
+   "mots_cli": 201,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "et",
+     "ctx_avant": "CEC avec mention du début"
+    }
+   ]
+  },
+  {
+   "article": 80,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 28,
+   "mots_cli": 28,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 81,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 68,
+   "mots_cli": 68,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 82,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 29,
+   "mots_cli": 29,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 83,
+   "ratio_mots": 0.9589,
+   "ratio_strict": 0.9589,
+   "mots_base": 36,
+   "mots_cli": 37,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "en",
+     "ctx_avant": "à la BRH quand elle"
+    },
+    {
+     "op": "replace",
+     "base": "nécessaire",
+     "cli": "nécessaires",
+     "ctx_avant": "livres et documents qu'elle juge"
+    }
+   ]
+  },
+  {
+   "article": 84,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 65,
+   "mots_cli": 65,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 85,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 42,
+   "mots_cli": 42,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 86,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 24,
+   "mots_cli": 24,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 87,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 72,
+   "mots_cli": 72,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 88,
+   "ratio_mots": 0.9808,
+   "ratio_strict": 0.9808,
+   "mots_base": 104,
+   "mots_cli": 104,
+   "n_ecarts": 3,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "tenir",
+     "ctx_avant": "CEC et la FCP doivent"
+    },
+    {
+     "op": "delete",
+     "base": "et",
+     "cli": "",
+     "ctx_avant": "loi ou qu'un préjudice quelconque"
+    },
+    {
+     "op": "replace",
+     "base": "d'adopter",
+     "cli": "d'apporter",
+     "ctx_avant": "comité de surveillance en vue"
+    }
+   ]
+  },
+  {
+   "article": 89,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 74,
+   "mots_cli": 74,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 90,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 22,
+   "mots_cli": 22,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 91,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 38,
+   "mots_cli": 38,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 92,
+   "ratio_mots": 0.9677,
+   "ratio_strict": 0.9677,
+   "mots_base": 46,
+   "mots_cli": 47,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "dépôt",
+     "cli": "dépôts",
+     "ctx_avant": "plus solliciter ou recevoir de"
+    },
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "en",
+     "ctx_avant": "de dépôt tant qu'elle est"
+    }
+   ]
+  },
+  {
+   "article": 93,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 19,
+   "mots_cli": 19,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 94,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 25,
+   "mots_cli": 25,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 95,
+   "ratio_mots": 0.9756,
+   "ratio_strict": 0.9756,
+   "mots_base": 41,
+   "mots_cli": 41,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "A",
+     "cli": "À",
+     "ctx_avant": ""
+    }
+   ]
+  },
+  {
+   "article": 96,
+   "ratio_mots": 0.9929,
+   "ratio_strict": 0.9929,
+   "mots_base": 70,
+   "mots_cli": 71,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "un",
+     "ctx_avant": "loi Il ne peut être"
+    }
+   ]
+  },
+  {
+   "article": 97,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 32,
+   "mots_cli": 32,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 98,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 56,
+   "mots_cli": 56,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 99,
+   "ratio_mots": 0.839,
+   "ratio_strict": 0.839,
+   "mots_base": 119,
+   "mots_cli": 86,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "delete",
+     "base": "doit également fournir dans son rapport des explications suffisantes en ce qui a trait à toute restriction que comporte son opinion Il doit transmettre copie de son rapport à la BRH Le vérificateur",
+     "cli": "",
+     "ctx_avant": "de la BRH Le vérificateur"
+    }
+   ]
+  },
+  {
+   "article": 100,
+   "ratio_mots": 0.9756,
+   "ratio_strict": 0.9756,
+   "mots_base": 20,
+   "mots_cli": 21,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "le",
+     "ctx_avant": "Le vérificateur a"
+    }
+   ]
+  },
+  {
+   "article": 101,
+   "ratio_mots": 0.9867,
+   "ratio_strict": 0.9867,
+   "mots_base": 37,
+   "mots_cli": 38,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "et",
+     "ctx_avant": "doit immédiatement en aviser celui-ci"
+    }
+   ]
+  },
+  {
+   "article": 102,
+   "ratio_mots": 0.9872,
+   "ratio_strict": 0.9872,
+   "mots_base": 78,
+   "mots_cli": 78,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "et",
+     "ctx_avant": "laquelle la CEC est affiliée"
+    },
+    {
+     "op": "delete",
+     "base": "à",
+     "cli": "",
+     "ctx_avant": "est affiliée le cas échéant"
+    }
+   ]
+  },
+  {
+   "article": 103,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 40,
+   "mots_cli": 40,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 104,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 54,
+   "mots_cli": 54,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 105,
+   "ratio_mots": 0.9268,
+   "ratio_strict": 0.9268,
+   "mots_base": 20,
+   "mots_cli": 21,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "ne",
+     "ctx_avant": "Une CEC"
+    },
+    {
+     "op": "replace",
+     "base": "à",
+     "cli": "qu'à",
+     "ctx_avant": "Une CEC peut être affiliée"
+    }
+   ]
+  },
+  {
+   "article": 106,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 20,
+   "mots_cli": 20,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 107,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 32,
+   "mots_cli": 32,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 108,
+   "ratio_mots": 0.9953,
+   "ratio_strict": 0.9953,
+   "mots_base": 105,
+   "mots_cli": 106,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "le",
+     "ctx_avant": "nombre de parts prévu par"
+    }
+   ]
+  },
+  {
+   "article": 109,
+   "ratio_mots": 0.9871,
+   "ratio_strict": 0.9871,
+   "mots_base": 117,
+   "mots_cli": 116,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "Avis",
+     "cli": "L'avis",
+     "ctx_avant": "c la CEC est dissoute"
+    },
+    {
+     "op": "delete",
+     "base": "autre",
+     "cli": "",
+     "ctx_avant": "désaffilier et adhérer à une"
+    }
+   ]
+  },
+  {
+   "article": 110,
+   "ratio_mots": 0.9583,
+   "ratio_strict": 0.9583,
+   "mots_base": 72,
+   "mots_cli": 72,
+   "n_ecarts": 3,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "non",
+     "cli": "nom",
+     "ctx_avant": "son conseil d'administration mentionnant le"
+    },
+    {
+     "op": "replace",
+     "base": "autorisée",
+     "cli": "autorisé",
+     "ctx_avant": "du représentant de la CEC"
+    },
+    {
+     "op": "replace",
+     "base": "au",
+     "cli": "aux",
+     "ctx_avant": "la demande et être ratifiée"
+    }
+   ]
+  },
+  {
+   "article": 111,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 27,
+   "mots_cli": 27,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 112,
+   "ratio_mots": 0.9897,
+   "ratio_strict": 0.9897,
+   "mots_base": 97,
+   "mots_cli": 97,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "affiliés",
+     "cli": "affiliées",
+     "ctx_avant": "des CEC qui y sont"
+    }
+   ]
+  },
+  {
+   "article": 113,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 41,
+   "mots_cli": 41,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 114,
+   "ratio_mots": 0.9712,
+   "ratio_strict": 0.9712,
+   "mots_base": 140,
+   "mots_cli": 138,
+   "n_ecarts": 3,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "et",
+     "cli": "ni",
+     "ctx_avant": "être inférieur à cinq 5"
+    },
+    {
+     "op": "replace",
+     "base": "quatre-vingt dix",
+     "cli": "quatre-vingt-dix",
+     "ctx_avant": "CEC affiliée depuis moins de"
+    },
+    {
+     "op": "replace",
+     "base": "par des",
+     "cli": "de",
+     "ctx_avant": "doit être composé en majorité"
+    }
+   ]
+  },
+  {
+   "article": 115,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 187,
+   "mots_cli": 187,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 116,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 91,
+   "mots_cli": 91,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 117,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 159,
+   "mots_cli": 159,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 118,
+   "ratio_mots": 1.0,
+   "ratio_strict": 0.9524,
+   "mots_base": 63,
+   "mots_cli": 63,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 119,
+   "ratio_mots": 1.0,
+   "ratio_strict": 0.952,
+   "mots_base": 125,
+   "mots_cli": 125,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 120,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 59,
+   "mots_cli": 59,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 121,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 156,
+   "mots_cli": 156,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 122,
+   "ratio_mots": 1.0,
+   "ratio_strict": 0.8462,
+   "mots_base": 26,
+   "mots_cli": 26,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 123,
+   "ratio_mots": 1.0,
+   "ratio_strict": 0.7778,
+   "mots_base": 18,
+   "mots_cli": 18,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 124,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 26,
+   "mots_cli": 26,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 125,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 32,
+   "mots_cli": 32,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 126,
+   "ratio_mots": 0.9815,
+   "ratio_strict": 0.9815,
+   "mots_base": 54,
+   "mots_cli": 54,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "A",
+     "cli": "À",
+     "ctx_avant": "comptes par un vérificateur indépendant"
+    }
+   ]
+  },
+  {
+   "article": 127,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 46,
+   "mots_cli": 46,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 128,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 13,
+   "mots_cli": 13,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 129,
+   "ratio_mots": 0.9938,
+   "ratio_strict": 0.9877,
+   "mots_base": 162,
+   "mots_cli": 162,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "conversions",
+     "cli": "conversion",
+     "ctx_avant": "ainsi que leurs modes de"
+    }
+   ]
+  },
+  {
+   "article": 130,
+   "ratio_mots": 0.9388,
+   "ratio_strict": 0.9388,
+   "mots_base": 49,
+   "mots_cli": 49,
+   "n_ecarts": 3,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "A",
+     "cli": "À",
+     "ctx_avant": ""
+    },
+    {
+     "op": "replace",
+     "base": "fusionnées",
+     "cli": "fusionné",
+     "ctx_avant": "fusion les CEC qui ont"
+    },
+    {
+     "op": "replace",
+     "base": "reprises",
+     "cli": "reprise",
+     "ctx_avant": "parties peuvent être continuées sans"
+    }
+   ]
+  },
+  {
+   "article": 131,
+   "ratio_mots": 0.9829,
+   "ratio_strict": 0.9829,
+   "mots_base": 117,
+   "mots_cli": 117,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "leurs fonctions",
+     "cli": "leur fonction",
+     "ctx_avant": "être en mesure d'exercer normalement"
+    }
+   ]
+  },
+  {
+   "article": 132,
+   "ratio_mots": 0.9829,
+   "ratio_strict": 0.9829,
+   "mots_base": 87,
+   "mots_cli": 88,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "à la",
+     "ctx_avant": "de la CEC dessaisie et"
+    },
+    {
+     "op": "delete",
+     "base": "deux",
+     "cli": "",
+     "ctx_avant": "l'actif Un exemplaire de ces"
+    }
+   ]
+  },
+  {
+   "article": 133,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 48,
+   "mots_cli": 48,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 134,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 119,
+   "mots_cli": 119,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 135,
+   "ratio_mots": 0.9714,
+   "ratio_strict": 0.9714,
+   "mots_base": 35,
+   "mots_cli": 35,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "de",
+     "cli": "du",
+     "ctx_avant": "à compter de la date"
+    }
+   ]
+  },
+  {
+   "article": 136,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 33,
+   "mots_cli": 33,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 137,
+   "ratio_mots": 0.9914,
+   "ratio_strict": 0.9914,
+   "mots_base": 174,
+   "mots_cli": 173,
+   "n_ecarts": 3,
+   "ecarts": [
+    {
+     "op": "delete",
+     "base": "et",
+     "cli": "",
+     "ctx_avant": "à la BRH au CNC"
+    },
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "la",
+     "ctx_avant": "journaux à fort tirage à"
+    },
+    {
+     "op": "delete",
+     "base": "en",
+     "cli": "",
+     "ctx_avant": "liquidation dans ses travaux et"
+    }
+   ]
+  },
+  {
+   "article": 138,
+   "ratio_mots": 0.9901,
+   "ratio_strict": 0.9307,
+   "mots_base": 50,
+   "mots_cli": 51,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "insert",
+     "base": "",
+     "cli": "du",
+     "ctx_avant": "la BRH sur le compte"
+    }
+   ]
+  },
+  {
+   "article": 139,
+   "ratio_mots": 0.9818,
+   "ratio_strict": 0.9273,
+   "mots_base": 164,
+   "mots_cli": 166,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "au",
+     "cli": "à un",
+     "ctx_avant": "ou plusieurs de ces sanctions"
+    },
+    {
+     "op": "replace",
+     "base": "au",
+     "cli": "à un",
+     "ctx_avant": "ou plusieurs de ces sanctions"
+    }
+   ]
+  },
+  {
+   "article": 140,
+   "ratio_mots": 1.0,
+   "ratio_strict": 0.9506,
+   "mots_base": 81,
+   "mots_cli": 81,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 141,
+   "ratio_mots": 1.0,
+   "ratio_strict": 0.9831,
+   "mots_base": 59,
+   "mots_cli": 59,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 142,
+   "ratio_mots": 0.9617,
+   "ratio_strict": 0.8766,
+   "mots_base": 118,
+   "mots_cli": 117,
+   "n_ecarts": 3,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "COOPERATIVE D'EPARGNE",
+     "cli": "COOPÉRATIVE D'ÉPARGNE",
+     "ctx_avant": "la dénomination de CAISSE POPULAIRE"
+    },
+    {
+     "op": "replace",
+     "base": "CREDIT",
+     "cli": "CRÉDIT",
+     "ctx_avant": "POPULAIRE COOPERATIVE D'EPARGNE ET DE"
+    },
+    {
+     "op": "replace",
+     "base": "non paiement",
+     "cli": "non-paiement",
+     "ctx_avant": "les fondateurs En cas de"
+    }
+   ]
+  },
+  {
+   "article": 143,
+   "ratio_mots": 0.9902,
+   "ratio_strict": 0.9608,
+   "mots_base": 102,
+   "mots_cli": 102,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "justifiables",
+     "cli": "justiciables",
+     "ctx_avant": "comptables bilans et rapports sont"
+    }
+   ]
+  },
+  {
+   "article": 144,
+   "ratio_mots": 0.9823,
+   "ratio_strict": 0.9558,
+   "mots_base": 113,
+   "mots_cli": 113,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "peut",
+     "cli": "peuvent",
+     "ctx_avant": "effectuées par cette personne et"
+    },
+    {
+     "op": "replace",
+     "base": "146",
+     "cli": "145",
+     "ctx_avant": "des amendes prévues à l'article"
+    }
+   ]
+  },
+  {
+   "article": 145,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 53,
+   "mots_cli": 53,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 146,
+   "ratio_mots": 0.9859,
+   "ratio_strict": 0.9521,
+   "mots_base": 178,
+   "mots_cli": 177,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "Etat",
+     "cli": "état",
+     "ctx_avant": "2 Bilan à date 3"
+    },
+    {
+     "op": "replace",
+     "base": "non communication",
+     "cli": "non-communication",
+     "ctx_avant": "ou par le CNC La"
+    }
+   ]
+  },
+  {
+   "article": 147,
+   "ratio_mots": 0.92,
+   "ratio_strict": 0.88,
+   "mots_base": 25,
+   "mots_cli": 25,
+   "n_ecarts": 2,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "leurs",
+     "cli": "ses",
+     "ctx_avant": "est tenue de s'acquitter de"
+    },
+    {
+     "op": "replace",
+     "base": "leurs",
+     "cli": "ses",
+     "ctx_avant": "s'acquitter de leurs engagements envers"
+    }
+   ]
+  },
+  {
+   "article": 148,
+   "ratio_mots": 1.0,
+   "ratio_strict": 1.0,
+   "mots_base": 21,
+   "mots_cli": 21,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 149,
+   "ratio_mots": 1.0,
+   "ratio_strict": 0.9643,
+   "mots_base": 28,
+   "mots_cli": 28,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 150,
+   "ratio_mots": 1.0,
+   "ratio_strict": 0.9778,
+   "mots_base": 45,
+   "mots_cli": 45,
+   "n_ecarts": 0,
+   "ecarts": []
+  },
+  {
+   "article": 151,
+   "ratio_mots": 0.9828,
+   "ratio_strict": 0.8621,
+   "mots_base": 58,
+   "mots_cli": 58,
+   "n_ecarts": 1,
+   "ecarts": [
+    {
+     "op": "replace",
+     "base": "l'Economie",
+     "cli": "l'Économie",
+     "ctx_avant": "de la Coopération Externe de"
+    }
+   ]
+  }
+ ],
+ "preambule": {
+  "ratio": 0.9573,
+  "ecarts": [
+   {
+    "op": "insert",
+    "base": "",
+    "cli": "NUMÉRO EXTRAORDINAIRE LIBERTÉ ÉGALITÉ FRATERNITÉ RÉPUBLIQUE D'HAÏTI CORPS LÉGISLATIF"
+   },
+   {
+    "op": "replace",
+    "base": "COOPERATIVES D'EPARGNE",
+    "cli": "COOPÉRATIVES D'ÉPARGNE"
+   },
+   {
+    "op": "replace",
+    "base": "CREDIT",
+    "cli": "CRÉDIT"
+   },
+   {
+    "op": "replace",
+    "base": "Loi",
+    "cli": "loi"
+   },
+   {
+    "op": "replace",
+    "base": "libéralisation",
+    "cli": "libération"
+   },
+   {
+    "op": "insert",
+    "base": "",
+    "cli": "y"
+   },
+   {
+    "op": "replace",
+    "base": "l'Economie",
+    "cli": "l'Économie"
+   },
+   {
+    "op": "replace",
+    "base": "Et",
+    "cli": "et"
+   }
+  ],
+  "base_lignes": [
+   "LOI SUR LES COOPERATIVES D’EPARGNE ET DE CREDIT",
+   "Vu les articles 1, 111-1, 144, 245, 246 de la Constitution,",
+   "Vu la loi du 17 août 1979 créant la Banque de la République d’Haïti,",
+   "Vu le décret du 31 mars 1981 créant un organisme autonome dénommé Conseil National des Coopératives (CNC);",
+   "Vu le décret du 2 avril 1981 réglementant l’organisation des coopératives et les différentes formes d’association, ayant la société coopérative pour base;",
+   "Vu le décret du 27 mars 1985 modifiant les articles 9 et 17 de la Loi du 17 août 1979 créant la Banque de la République d’Haïti,",
+   "Vu le décret du 17 mai 1995 sur la libéralisation des taux d’intérêt ;",
+   "Considérant que les coopératives d’épargne et de crédit communément appelées caisses populaires participent au développement économique et social du pays,",
+   "Considérant qu’il a lieu de renforcer le contrôle des activités des coopératives d’épargne et de crédit en vue de veiller à la sécurité des intérêts des déposants de ce secteur,",
+   "Considérant qu’il faut donner à la BRH et au CNC un instrument juridique leur permettant d’encadrer, de superviser et de contrôler les coopératives d’épargne et de crédit,",
+   "Sur le rapport des Ministres de la Planification et de la Coopération Externe, de l’Economie et des Finances et après délibération en Conseil des Ministres,",
+   "Le Pouvoir Exécutif a proposé. Et le Corps Législatif a voté la loi suivante :"
+  ],
+  "cli_lignes": [
+   "NUMÉRO EXTRAORDINAIRE",
+   "LIBERTÉ – ÉGALITÉ – FRATERNITÉ",
+   "RÉPUBLIQUE D'HAÏTI",
+   "CORPS LÉGISLATIF",
+   "LOI SUR LES COOPÉRATIVES D'ÉPARGNE ET DE CRÉDIT",
+   "Vu les articles 1, 111-1, 144, 245, 246 de la Constitution ;",
+   "Vu la loi du 17 août 1979 créant la Banque de la République d'Haïti ;",
+   "Vu le décret du 31 mars 1981 créant un organisme autonome dénommé Conseil National des Coopératives (CNC) ;",
+   "Vu le décret du 2 avril 1981 réglementant l'organisation des coopératives et les différentes formes d'association ayant la société coopérative pour base ;",
+   "Vu le décret du 27 mars 1985 modifiant les articles 9 et 17 de la loi du 17 août 1979 créant la Banque de la République d'Haïti ;",
+   "Vu le décret du 17 mai 1995 sur la libération des taux d'intérêt ;",
+   "Considérant que les coopératives d'épargne et de crédit, communément appelées caisses populaires, participent au développement économique et social du pays ;",
+   "Considérant qu'il y a lieu de renforcer le contrôle des activités des coopératives d'épargne et de crédit en vue de veiller à la sécurité des intérêts des déposants de ce secteur ;",
+   "Considérant qu'il faut donner à la BRH et au CNC un instrument juridique leur permettant d'encadrer, de superviser et de contrôler les coopératives d'épargne et de crédit ;",
+   "Sur le rapport des Ministres de la Planification et de la Coopération Externe, de l'Économie et des Finances, et après délibération en Conseil des Ministres,",
+   "Le Pouvoir Exécutif a proposé et le Corps Législatif a voté la loi suivante :"
+  ]
+ },
+ "bloc_parlementaire": {
+  "ratio": 0.9712,
+  "ecarts": [
+   {
+    "op": "replace",
+    "base": "l'indépendance S",
+    "cli": "l'Indépendance"
+   },
+   {
+    "op": "replace",
+    "base": "l'indépendance",
+    "cli": "l'Indépendance"
+   },
+   {
+    "op": "replace",
+    "base": "HERIVEAUX",
+    "cli": "HÉRIVEAUX"
+   },
+   {
+    "op": "replace",
+    "base": "les présentes",
+    "cli": "la présente"
+   },
+   {
+    "op": "delete",
+    "base": "S",
+    "cli": ""
+   },
+   {
+    "op": "replace",
+    "base": "l'Economie",
+    "cli": "l'Économie"
+   },
+   {
+    "op": "replace",
+    "base": "Le",
+    "cli": "le"
+   },
+   {
+    "op": "replace",
+    "base": "GOUTIER",
+    "cli": "GAUTIER"
+   },
+   {
+    "op": "replace",
+    "base": "St Preux",
+    "cli": "ST PREUX"
+   },
+   {
+    "op": "replace",
+    "base": "Sans",
+    "cli": "sans"
+   },
+   {
+    "op": "replace",
+    "base": "Etrangères",
+    "cli": "Étrangères"
+   },
+   {
+    "op": "replace",
+    "base": "Le",
+    "cli": "le"
+   },
+   {
+    "op": "replace",
+    "base": "l'Education",
+    "cli": "l'Éducation"
+   },
+   {
+    "op": "replace",
+    "base": "Le",
+    "cli": "le"
+   },
+   {
+    "op": "replace",
+    "base": "vivant",
+    "cli": "Vivant"
+   },
+   {
+    "op": "replace",
+    "base": "l'Etranger",
+    "cli": "l'Étranger"
+   }
+  ],
+  "base_lignes": [
+   "Donnée au Sénat de la République le jeudi 20 juin 2002, An 199ème de l’indépendance",
+   "(S) : Jean-Marie Fourel CÉLESTIN",
+   "Président ;",
+   "Dr Louis Gérald GILLES",
+   "Premier Secrétaire ;",
+   "Pour Youseline A. BELL",
+   "Deuxième Secrétaire,",
+   "Dr Louis Gérald GILLES.",
+   "Donnée à la Chambre des Députés le mercredi 26 juin 2002, An 199ème de l’indépendance",
+   "Dr Rudy HERIVEAUX",
+   "Président ;",
+   "Berry JOSEPH",
+   "Premier Secrétaire ;",
+   "André Jeune JOSEPH",
+   "Deuxième Secrétaire.",
+   "AU NOM DE LA RÉPUBLIQUE",
+   "Par les présentes,",
+   "LE PRÉSIDENT DE LA RÉPUBLIQUE ORDONNE QUE LA LOI CI-DESSUS DU CORPS LÉGISLATIF SOIT REVÊTUE DU SCEAU DE LA RÉPUBLIQUE, IMPRIMÉE, PUBLIÉE ET EXÉCUTÉE.",
+   "Donné au Palais National, à Port-au-Prince, le 9 juillet 2002, An 199ème de l’Indépendance",
+   "(S) : Par le Président : Jean-Bertrand ARISTIDE",
+   "Le Premier Ministre : Yvon NEPTUNE",
+   "Le Ministre de l’Intérieur et des Collectivités Territoriales : Jocelerme PRIVERT",
+   "Le Ministre de l’Economie et des Finances : Faubert GUSTAVE",
+   "Pour Le Ministre de la Santé Publique et de la Population : Yvon NEPTUNE",
+   "Le Ministre de la Culture et de la Communication : Lilas DESQUIRON",
+   "Le Ministre à la Condition Féminine et aux Droits de la Femme : Ginette RIVIÈRE LUBIN",
+   "Le Ministre de la Planification et de la Coopération Externe : Paul DURET",
+   "Le Ministre du Commerce et de l’Industrie : Lesly GOUTIER",
+   "Le Ministre du Tourisme : Martine DEVERSON",
+   "Le Ministre des Affaires Sociales : Eudes St Preux CRAAN",
+   "Le Ministre Sans Portefeuille chargé d’aménager le cadre propice pour la poursuite des négociations avec l’opposition : Marc Louis BAZIN",
+   "Le Ministre de la Justice et de la Sécurité Publique : Jean-Baptiste BROWN",
+   "Le Ministre des Affaires Etrangères et des Cultes : Joseph Philippe ANTONIO",
+   "Le Ministre des Travaux Publics, Transports et Communications : Harry CLINTON",
+   "Pour Le Ministre de l’Education Nationale, de la Jeunesse et des Sports : Martine DEVERSON",
+   "Pour Le Ministre des Haïtiens vivant à l’Etranger : Martine DEVERSON",
+   "Le Ministre de l’Environnement : Webster PIERRE",
+   "Le Ministre de l’Agriculture, des Ressources Naturelles et du Développement Rural : Sébastien HILAIRE"
+  ],
+  "cli_lignes": [
+   "Donnée au Sénat de la République, le jeudi 20 juin 2002, An 199ème de l'Indépendance.",
+   "Jean-Marie Fourel CÉLESTIN",
+   "Président",
+   "Dr Louis Gérald GILLES",
+   "Premier Secrétaire",
+   "Pour Youseline A. BELL, Deuxième Secrétaire :",
+   "Dr Louis Gérald GILLES",
+   "Donnée à la Chambre des Députés, le mercredi 26 juin 2002, An 199ème de l'Indépendance.",
+   "Dr Rudy HÉRIVEAUX",
+   "Président",
+   "Berry JOSEPH",
+   "Premier Secrétaire",
+   "André Jeune JOSEPH",
+   "Deuxième Secrétaire",
+   "AU NOM DE LA RÉPUBLIQUE",
+   "Par la présente,",
+   "LE PRÉSIDENT DE LA RÉPUBLIQUE ORDONNE QUE LA LOI CI-DESSUS DU CORPS LÉGISLATIF SOIT REVÊTUE DU SCEAU DE LA RÉPUBLIQUE, IMPRIMÉE, PUBLIÉE ET EXÉCUTÉE.",
+   "Donné au Palais National, à Port-au-Prince, le 9 juillet 2002, An 199ème de l'Indépendance.",
+   "Par le Président :",
+   "Jean-Bertrand ARISTIDE",
+   "Le Premier Ministre :",
+   "Yvon NEPTUNE",
+   "Le Ministre de l'Intérieur et des Collectivités Territoriales :",
+   "Jocelerme PRIVERT",
+   "Le Ministre de l'Économie et des Finances :",
+   "Faubert GUSTAVE",
+   "Pour le Ministre de la Santé Publique et de la Population :",
+   "Yvon NEPTUNE",
+   "Le Ministre de la Culture et de la Communication :",
+   "Lilas DESQUIRON",
+   "Le Ministre à la Condition Féminine et aux Droits de la Femme :",
+   "Ginette RIVIÈRE LUBIN",
+   "Le Ministre de la Planification et de la Coopération Externe :",
+   "Paul DURET",
+   "Le Ministre du Commerce et de l'Industrie :",
+   "Lesly GAUTIER",
+   "Le Ministre du Tourisme :",
+   "Martine DEVERSON",
+   "Le Ministre des Affaires Sociales :",
+   "Eudes ST PREUX CRAAN",
+   "Le Ministre sans Portefeuille chargé d'aménager le cadre propice pour la poursuite des négociations avec l'opposition :",
+   "Marc Louis BAZIN",
+   "Le Ministre de la Justice et de la Sécurité Publique :",
+   "Jean-Baptiste BROWN",
+   "Le Ministre des Affaires Étrangères et des Cultes :",
+   "Joseph Philippe ANTONIO",
+   "Le Ministre des Travaux Publics, Transports et Communications :",
+   "Harry CLINTON",
+   "Pour le Ministre de l'Éducation Nationale, de la Jeunesse et des Sports :",
+   "Martine DEVERSON",
+   "Pour le Ministre des Haïtiens Vivant à l'Étranger :",
+   "Martine DEVERSON",
+   "Le Ministre de l'Environnement :",
+   "Webster PIERRE",
+   "Le Ministre de l'Agriculture, des Ressources Naturelles et du Développement Rural :",
+   "Sébastien HILAIRE"
+  ]
+ },
+ "headings_base": [
+  "[apres art. None] TITRE I — DISPOSITIONS PRELIMINAIRES",
+  "[apres art. None] CHAPITRE I — OBJET DE LA LOI",
+  "[apres art. 5] CHAPITRE II — DEFINITIONS PARTICULIERES, GENERALES ET SIGLES",
+  "[apres art. 6] TITRE II — DES ORGANES DE REGLEMENTATION, DE SUPERVISION ET DE CONTROLE DES CEC",
+  "[apres art. 6] CHAPITRE I — ROLE DE LA BRH, DU CNC ET DE LA FCP",
+  "[apres art. 9] CHAPITRE II — DU CONTROLE ET DE LA SUPERVISION DES CEC",
+  "[apres art. 9] SECTION 1. DISPOSITIONS GÉNÉRALES",
+  "[apres art. 15] CHAPITRE III — DE L’AUTORISATION DE FONCTIONNEMENT DES CEC",
+  "[apres art. 22] SECTION 1.- DÉNOMINATION",
+  "[apres art. 24] SECTION 2.- ACTE CONSTITUTIF",
+  "[apres art. 26] SECTION 3.- SIÈGE SOCIAL",
+  "[apres art. 30] SECTION 4.- FONDS PROPRES",
+  "[apres art. 35] SECTION 5. - QUALITÉ DES MEMBRES",
+  "[apres art. 39] SECTION 6.- ASSEMBLÉE GÉNÉRALE",
+  "[apres art. 43] SECTION 7- DIRIGEANTS",
+  "[apres art. 49] SECTION 8. CONSEIL D’ADMINISTRATION",
+  "[apres art. 53] SECTION 9. - COMITE DE SURVEILLANCE ET DE CRÉDIT",
+  "[apres art. 57] SECTION 10- AVANTAGES FISCAUX ET DOUANIERS",
+  "[apres art. 58] CHAPITRE V — FONCTIONNEMENT",
+  "[apres art. 58] SECTION 1.- GARANTIES",
+  "[apres art. 59] SECTION 2.- FONDS DE SOUTIEN AUX COOPÉRATIVES",
+  "[apres art. 62] SECTION 3.- FONDS DE RÉSERVES",
+  "[apres art. 63] SECTION 4.- FONDS À DES FINS SOCIALES",
+  "[apres art. 64] SECTION 5.- TROP-PERCUS OU EXCEDENTS",
+  "[apres art. 67] SECTION 6.- PRATIQUES DE GESTION SAINE",
+  "[apres art. 73] SECTION 7.- DONS, LEGS ET LIBÉRALITÉS",
+  "[apres art. 75] TITRE III — DIVULGATION FINANCIERE, TENUE DES LIVRES REGISTRES, SURVEILLANCE ET DU CONTROLE DES CEC",
+  "[apres art. 75] CHAPITRE I — DIVULGATION FINANCIERE",
+  "[apres art. 78] CHAPITRE II — TENUE DES LIVRES ET REGISTRES",
+  "[apres art. 81] CHAPITRE III — SURVEILLANCE ET CONTROLE DES CEC",
+  "[apres art. 93] CHAPITRE IV — VERIFICATION ET CONCOURS EXCEPTIONNELS",
+  "[apres art. 93] SECTION 1.- VERIFICATION",
+  "[apres art. 103] SECTION 2.- CONCOURS EXCEPTIONNELS",
+  "[apres art. 104] TITRE IV — DE LA FEDERATION ET DE L’AFFILIATION DES CEC",
+  "[apres art. 104] CHAPITRE I — DISPOSITIONS GENERALES",
+  "[apres art. 111] CHAPITRE II — ASSEMBLEES DE MEMBRES ET CONSEIL D’ADMINISTRATION",
+  "[apres art. 111] SECTION 1.- ASSEMBLEES DES MEMBRES",
+  "[apres art. 113] SECTION 2.- CONSEIL D’ADMINISTRATION",
+  "[apres art. 114] CHAPITRE II — FONCTIONNEMENT – POUVOIRS D’INSPECTION",
+  "[apres art. 114] SECTION 1.- FONCTIONNEMENT",
+  "[apres art. 115] SECTION 2.- POUVOIR D’INSPECTION",
+  "[apres art. 125] SECTION 3.- VERIFICATION",
+  "[apres art. 128] TITRE V — DE LA FUSION, DU DESSAISISSEMENT, DE LA LIQUIDATION ET DE LA DISSOLUTION",
+  "[apres art. 128] CHAPITRE I — FUSION",
+  "[apres art. 130] CHAPITRE II — DESSAISISSEMENT",
+  "[apres art. 136] CHAPITRE III — LIQUIDATION, DISSOLUTION",
+  "[apres art. 138] TITRE VI — DES INFRACTIONS ET SANCTIONS",
+  "[apres art. 145] TITRE VII — DISPOSITIONS TRANSITOIRES ET FINALES"
+ ],
+ "headings_cli": [
+  "[apres art. None] TITRE I — DISPOSITIONS PRÉLIMINAIRES",
+  "[apres art. None] CHAPITRE I — OBJET DE LA LOI",
+  "[apres art. 5] CHAPITRE II — DÉFINITIONS PARTICULIÈRES, GÉNÉRALES ET SIGLES",
+  "[apres art. 6] TITRE II — DES ORGANES DE RÉGLEMENTATION, DE SUPERVISION ET DE CONTRÔLE DES CEC",
+  "[apres art. 6] CHAPITRE I — RÔLE DE LA BRH, DU CNC ET DE LA FCP",
+  "[apres art. 9] CHAPITRE II — DU CONTRÔLE ET DE LA SUPERVISION DES CEC",
+  "[apres art. 9] SECTION 1 — DISPOSITIONS GÉNÉRALES",
+  "[apres art. 15] CHAPITRE II — DE L'AUTORISATION DE FONCTIONNEMENT DES CEC",
+  "[apres art. 22] SECTION 1 — DÉNOMINATION",
+  "[apres art. 24] SECTION 2 — ACTE CONSTITUTIF",
+  "[apres art. 26] SECTION 3 — SIÈGE SOCIAL",
+  "[apres art. 30] SECTION 4 — FONDS PROPRES",
+  "[apres art. 35] SECTION 5 — QUALITÉ DES MEMBRES",
+  "[apres art. 39] SECTION 6 — ASSEMBLÉE GÉNÉRALE",
+  "[apres art. 43] SECTION 7 — DIRIGEANTS",
+  "[apres art. 49] SECTION 8 — CONSEIL D'ADMINISTRATION",
+  "[apres art. 53] SECTION 9 — COMITÉ DE SURVEILLANCE ET DE CRÉDIT",
+  "[apres art. 57] SECTION 10 — AVANTAGES FISCAUX ET DOUANIERS",
+  "[apres art. 58] CHAPITRE V — FONCTIONNEMENT",
+  "[apres art. 58] SECTION 1 — GARANTIES",
+  "[apres art. 59] SECTION 2 — FONDS DE SOUTIEN AUX COOPÉRATIVES",
+  "[apres art. 62] SECTION 3 — FONDS DE RÉSERVE",
+  "[apres art. 63] SECTION 4 — FONDS À DES FINS SOCIALES",
+  "[apres art. 64] SECTION 5 — TROP-PERÇUS OU EXCÉDENTS",
+  "[apres art. 67] SECTION 6 — PRATIQUES DE GESTION SAINE",
+  "[apres art. 73] SECTION 7 — DONS, LEGS ET LIBÉRALITÉS",
+  "[apres art. 75] TITRE III — DIVULGATION FINANCIÈRE, TENUE DES LIVRES ET REGISTRES, SURVEILLANCE ET CONTRÔLE DES CEC",
+  "[apres art. 75] CHAPITRE I — DIVULGATION FINANCIÈRE",
+  "[apres art. 78] CHAPITRE II — TENUE DES LIVRES ET REGISTRES",
+  "[apres art. 81] CHAPITRE III — SURVEILLANCE ET CONTRÔLE DES CEC",
+  "[apres art. 93] CHAPITRE IV — VÉRIFICATION ET CONCOURS EXCEPTIONNELS",
+  "[apres art. 93] SECTION 1 — VÉRIFICATION",
+  "[apres art. 103] SECTION 2 — CONCOURS EXCEPTIONNELS",
+  "[apres art. 104] TITRE IV — DE LA FÉDÉRATION ET DE L'AFFILIATION DES CEC",
+  "[apres art. 104] CHAPITRE I — DISPOSITIONS GÉNÉRALES",
+  "[apres art. 111] CHAPITRE II — ASSEMBLÉES DE MEMBRES ET CONSEIL D'ADMINISTRATION",
+  "[apres art. 111] SECTION 1 — ASSEMBLÉES DES MEMBRES",
+  "[apres art. 113] SECTION 2 — CONSEIL D'ADMINISTRATION",
+  "[apres art. 114] CHAPITRE II — FONCTIONNEMENT – POUVOIRS D'INSPECTION",
+  "[apres art. 114] SECTION 1 — FONCTIONNEMENT",
+  "[apres art. 115] SECTION 2 — POUVOIR D'INSPECTION",
+  "[apres art. 125] SECTION 3 — VÉRIFICATION",
+  "[apres art. 128] TITRE V — DE LA FUSION, DU DESSAISISSEMENT, DE LA LIQUIDATION ET DE LA DISSOLUTION",
+  "[apres art. 128] CHAPITRE I — FUSION",
+  "[apres art. 130] CHAPITRE II — DESSAISISSEMENT",
+  "[apres art. 136] CHAPITRE III — LIQUIDATION, DISSOLUTION",
+  "[apres art. 138] TITRE VI — DES INFRACTIONS ET SANCTIONS",
+  "[apres art. 145] TITRE VII — DISPOSITIONS TRANSITOIRES ET FINALES"
+ ]
+}

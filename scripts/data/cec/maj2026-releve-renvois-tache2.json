@@ -1,0 +1,358 @@
+{
+  "cec": {
+    "count": 1,
+    "id": "cms8jhhz700004szrkm41yahg",
+    "number": "Loi du 10 juillet 2002 sur les coopératives d’épargne et de crédit",
+    "titleFr": "Loi du 10 juillet 2002 sur les coopératives d’épargne et de crédit",
+    "md5Body": "67a109181877e5e2b06c13c583992c9d",
+    "sourcePdfUrl": null,
+    "sourceFileUrl": null,
+    "visas": [
+      "Vu les articles 1, 111-1, 144, 245, 246 de la Constitution,",
+      "Vu la loi du 17 août 1979 créant la Banque de la République d’Haïti,",
+      "Vu le décret du 31 mars 1981 créant un organisme autonome dénommé Conseil National des Coopératives (CNC);",
+      "Vu le décret du 2 avril 1981 réglementant l’organisation des coopératives et les différentes formes d’association, ayant la société coopérative pour base;",
+      "Vu le décret du 27 mars 1985 modifiant les articles 9 et 17 de la Loi du 17 août 1979 créant la Banque de la République d’Haïti,",
+      "Vu le décret du 17 mai 1995 sur la libéralisation des taux d’intérêt ;"
+    ]
+  },
+  "cibles": {
+    "CONSTITUTION_1987": [
+      {
+        "id": "cmr1it23a0000b4r0l6r1xp5l",
+        "type": "LEGISLATION",
+        "status": "EN_VIGUEUR",
+        "number": "Constitution du 29 mars 1987",
+        "titleFr": "Constitution de 1987",
+        "publicationDate": "1987-03-29T00:00:00.000Z",
+        "adoptionDate": null,
+        "moniteurRef": "Le Moniteur N° 96 du 19 juin 2012",
+        "bodyLen": 119112,
+        "tete": "Préambule\nLe Peuple Haïtien proclame la présente Constitution :\nPour garantir ses droits inaliénables et imprescriptibles à la vie, à la liberté et à la poursuite du bonheur ; conformément à son Acte d’Indépendance de 1804 et à la Déclaration Universelle des Droits de l’Homme de 1948.\nPour constituer une nation haïtienne socialement juste, économiquement libre et politiquement indépendante.\nPour rétablir un État stable et fort, capable de protéger les valeurs, les traditions, la souveraineté, l’indépendance et la vision nationale.\nPour implanter la démocratie qui implique le pluralisme idéologique et l’alternance politique et affirmer les droits inviolables du Peuple Haïtien.\nPour fortifier ",
+        "queue": "eil Supérieur du Pouvoir Judiciaire le seront pour neuf (9) ans, les deuxièmes pour six (6) ans et les trois autres pour trois (3) ans.\nArticle nouveau introduit par la Loi constitutionnelle du 9 mai 2011 ; sans version antérieure dans la Constitution de 1987.\nDispositions Finales\nArticle 296\nTous les Codes de Lois ou Manuels de justice, tous les Décrets-Lois et tous les Décrets et Arrêtés actuellement en vigueur sont maintenus en tout ce qui n'est pas contraire à la présente Constitution.\nArticle 297\nL’article 297 de la Constitution de 1987 est abrogé.\nArticle 298\nLa présente Constitution doit être publiée dans la quinzaine de sa ratification par voie référendaire. Elle entre en vigueur dès sa publication AU MONITEUR, Journal Officiel de la République.\nDonné au Palais Législatif, à Port-au-Prince, siège de l'Assemblée Nationale Constituante, le 10 Mars 1987, An 184ème de l'Indépendance.",
+        "creant": 0,
+        "remplacant": 0,
+        "organisant": 0,
+        "banqueNationale": 0,
+        "brh": 0,
+        "dateBlocs": [
+          "Donné au Palais Législatif, à Port-au-Prince, siège de l'Assemblée Nationale Constituante, le 10 Mars 1987, An 184ème de l'Indépendance."
+        ],
+        "tetesArticles": 525
+      }
+    ],
+    "CC_VANDAL_II-M": [
+      {
+        "id": "cmrtiwna3000hue7eew1lauci",
+        "type": "LEGISLATION",
+        "status": "EN_VIGUEUR",
+        "number": "Décret du 17 mai 1995 supprimant le plafond des taux d'intérêt conventionnel et abrogeant les décrets des 1er décembre 1976, 8 avril 1980 et 2 avril 1981",
+        "titleFr": "Décret du 17 mai 1995 supprimant le plafond des taux d'intérêt conventionnel et abrogeant les décrets des 1er décembre 1976, 8 avril 1980 et 2 avril 1981",
+        "publicationDate": "1995-05-17T00:00:00.000Z",
+        "adoptionDate": null,
+        "moniteurRef": null,
+        "bodyLen": 2761,
+        "tete": "Moniteur No 50 du 29 juin 1995\nArticle 1.- Toutes les dispositions légales établissant un plafond pour les taux d'intérêt conventionnels en quelque matière que ce soit sont et demeurent abrogés.\nN.B.- Ces nouvelles dispositions abrogent les textes suivants:\n1°) Loi du 4 mars 1936 modifiée par les décrets des 10 avril 1970, 31 octobre 1979 et 8 avril 1980 sur le taux d'intérêt. (Moniteur No 21 du 9 mars 1936)\nArticle 1 (D 8 avr 1980).- Le taux d'intérêt conventionnel en matière civile commerciale est fixé à 20%, ce taux comprenant le produit net maximum que tout capital prêté peut fournir au prêteur, soit par la voie de prêt, d'escompte ou de toute autre manière. Néanmoins, lorsque l'intérêt ",
+        "queue": "sent décret.\nArticle 4.- Tout individu déclaré coupable du délit d'usure sera passible d'une amende de deux cents gourdes à cinq cents gourdes, ou d'un emprisonnement de un mois à trois mois, et, en cas de récidive, des deux peines à la fois.\n2°) Décret du 8 avril 1980 sur le taux d'intérêt. (Moniteur No 32 du 21 avril 1980)\nArticle 2.- La Banque de la République d'Haïti, usant de ses prérogatives de banque centrale, est seule autorisée en accord avec la Secrétairerie d'Etat des Finances et des Affaires Economiques à fixer les taux d'intérêts applicables aux prêts bancaires et à les modifier suivant la conjoncture économique sans que le taux maximum ne puisse dépasser 22%.\nElle pourra également établir les tarifs relatifs aux opérations bancaires.\n3°) Décret du 1er décembre 1976 sur le taux d'intérêt du crédit agricole.\nArticle 1.- Le taux d'intérêt agricole est désormais fixé à 9% l'an.",
+        "creant": 0,
+        "remplacant": 0,
+        "organisant": 0,
+        "banqueNationale": 0,
+        "brh": 1,
+        "dateBlocs": [],
+        "tetesArticles": 7
+      }
+    ],
+    "CC_VANDAL_II-A": [
+      {
+        "id": "cmrtiw88a0000ue7eobi0m4g1",
+        "type": "LEGISLATION",
+        "status": "EN_VIGUEUR",
+        "number": "Loi du 17 août 1979 remplaçant la Banque Nationale de la République d'Haïti par la Banque de la République d'Haïti et la Banque Nationale de Crédit",
+        "titleFr": "Loi du 17 août 1979 remplaçant la Banque Nationale de la République d'Haïti par la Banque de la République d'Haïti et la Banque Nationale de Crédit",
+        "publicationDate": "1979-08-17T00:00:00.000Z",
+        "adoptionDate": null,
+        "moniteurRef": null,
+        "bodyLen": 839,
+        "tete": "Moniteur No 72 du 11 septembre 1979\nArticle 1er.- Dès parution de la présente loi, la Banque Nationale de la République d’Haïti (BNRH) est remplacée par deux institutions autonomes : la Banque de la République d’Haïti (BRH) faisant fonction de banque centrale et la Banque Nationale de Crédit (BNC) faisant fonction de banque commerciale.\nArticle 2.- Ces deux institutions fonctionneront suivant leur loi organique propre.\nArticle 3.- Dans le souci évident de ne pas perturber les affaires, les conseils d’administration de ces deux institutions sont autorisés, pendant une période transitoire, qui ne devra pas dépasser six (6) mois, à poursuivre les opérations en cours, à prendre toute mesure cons",
+        "queue": "Moniteur No 72 du 11 septembre 1979\nArticle 1er.- Dès parution de la présente loi, la Banque Nationale de la République d’Haïti (BNRH) est remplacée par deux institutions autonomes : la Banque de la République d’Haïti (BRH) faisant fonction de banque centrale et la Banque Nationale de Crédit (BNC) faisant fonction de banque commerciale.\nArticle 2.- Ces deux institutions fonctionneront suivant leur loi organique propre.\nArticle 3.- Dans le souci évident de ne pas perturber les affaires, les conseils d’administration de ces deux institutions sont autorisés, pendant une période transitoire, qui ne devra pas dépasser six (6) mois, à poursuivre les opérations en cours, à prendre toute mesure conservatoire jugée nécessaire et susceptible d’assurer la bonne marche des opérations du secteur bancaire.\nB.- Banque de la République d’Haïti",
+        "creant": 0,
+        "remplacant": 0,
+        "organisant": 0,
+        "banqueNationale": 2,
+        "brh": 2,
+        "dateBlocs": [],
+        "tetesArticles": 3
+      }
+    ],
+    "CC_VANDAL_II-B-1": [
+      {
+        "id": "cmrtiw94r0001ue7edw6au9ca",
+        "type": "LEGISLATION",
+        "status": "EN_VIGUEUR",
+        "number": "Loi du 17 août 1979 organisant la Banque de la République d'Haïti",
+        "titleFr": "Loi du 17 août 1979 organisant la Banque de la République d'Haïti",
+        "publicationDate": "1979-08-17T00:00:00.000Z",
+        "adoptionDate": null,
+        "moniteurRef": null,
+        "bodyLen": 29582,
+        "tete": "Moniteur No 72 du 11 septembre 1979\nChapitre premier — Dénomination – Objet\nArticle 1er.- Il est créé, par la présente, un organisme public autonome jouissant de la personnalité juridique et de l’autonomie financière dénommé : « BANQUE DE LA RÉPUBLIQUE D’HAÏTI », ci-après désigné « BRH ».\nArticle 2.- La BRH est une banque centrale et, à ce titre, a pour objet de :\n1°) Promouvoir dans le domaine de la monnaie, du crédit et des changes, les conditions les plus favorables au développement de l’économie nationale.\n2°) Encourager le développement et l’utilisation la plus complète et la plus efficace des ressources productives du pays.\n3°) Adapter les moyens de paiement et la politique de crédit a",
+        "queue": "rticle 64.- La BRH est dispensée, au cours de toutes procédures judiciaires, de fournir caution et avance dans tous les cas où la loi prévoit cette obligation à la charge des parties. Elle est exonérée de tous frais judiciaires au profit de l’État.\nArticle 65.- L’État assure la sécurité et la protection des établissements de la BRH et fournit gratuitement à celle-ci les escortes nécessaires à la sécurité des transferts de fonds ou de valeur.\nArticle 66.- Dès la publication de la présente loi, le conseil d’administration prendra toutes les dispositions nécessaires pour l’organisation et le fonctionnement des différents départements de la BRH.\nDans un délai maximum de trois (3) mois à partir de la publication de la présente loi, le conseil d’administration de la BRH prendra toutes les dispositions nécessaires en vue de la mise en place des nouvelles structures telles que prévues plus haut.",
+        "creant": 0,
+        "remplacant": 1,
+        "organisant": 0,
+        "banqueNationale": 0,
+        "brh": 0,
+        "dateBlocs": [],
+        "tetesArticles": 66
+      }
+    ],
+    "CC_VANDAL_II-C": [
+      {
+        "id": "cmrtiwclw0005ue7eswri13vx",
+        "type": "LEGISLATION",
+        "status": "EN_VIGUEUR",
+        "number": "Loi du 17 août 1979 sur la Banque Nationale de Crédit, modifiée par le Décret du 31 octobre 1983",
+        "titleFr": "Loi du 17 août 1979 sur la Banque Nationale de Crédit, modifiée par le Décret du 31 octobre 1983",
+        "publicationDate": "1979-08-17T00:00:00.000Z",
+        "adoptionDate": null,
+        "moniteurRef": null,
+        "bodyLen": 12057,
+        "tete": "Moniteur No 72 du 11 septembre 1979 (modif. in Moniteur No 87 du 15 décembre 1983)\nArticle 1er (D. 31 octobre 1983).- Il est créé un organisme public jouissant de la personnalité juridique dénommé : « Banque Nationale de Crédit », ci-après désigné « BNC ». Dès la promulgation du présent décret, la BNC est placée sous la tutelle de la Banque de la République d’Haïti.\nArticle 2.- La BNC a pour mission générale d’effectuer toutes les opérations de banque conformément aux dispositions de la présente loi et de toute législation sur les institutions financières, c’est-à-dire :\n1°) Recevoir des dépôts du public et des autres institutions financières ;\n2°) Effectuer : a) Des opérations de crédit en ",
+        "queue": " propres. De même, elle bénéficie de l’exemption des droits à l’occasion de ses importations y compris matériels, équipements, lubrifiants, carburants.\nArticle 24.- La BNC est dispensée, au cours de toute procédure judiciaire, de fournir caution et avance dans tous les cas où la loi prévoit cette obligation à la charge des parties. Elle est exonérée de tous frais judiciaires au profit de l’État.\nChapitre VI — Disposition transitoire\nArticle 25.- Dès la publication de la présente loi, le conseil d’administration prendra toutes les dispositions nécessaires pour l’organisation et le fonctionnement de la BNC.\nDans un délai maximum de six (6) mois à partir de la promulgation de la présente loi, le conseil d’administration de la BNC prendra toutes les dispositions nécessaires en vue de la mise en place des nouvelles structures telles que prévues à l’article 19 de cette loi.\nD.- Magasin Général",
+        "creant": 0,
+        "remplacant": 1,
+        "organisant": 0,
+        "banqueNationale": 1,
+        "brh": 2,
+        "dateBlocs": [],
+        "tetesArticles": 25
+      }
+    ]
+  },
+  "crossRefsEntrants": [
+    {
+      "id": "cmtb0xie00002mpyierp9bxs2",
+      "fromId": "cmrspgd9h0000yn8emki3dtw6",
+      "kind": "CITE",
+      "toLabel": "Loi du 10 juillet 2002 sur les coopératives d’épargne et de crédit",
+      "note": "Visé au préambule : « Vu la Loi du 26 juin 2002 sur les coopératives d’épargne et de crédit communément appelées : « Caisses populaires »… ». Le décret cite la loi par sa date d’adoption à la Chambre des Députés — son texte porte « Donnée à la Chambre des Députés le mercredi 26 juin 2002 » — quand la présente fiche la titre par sa date de publication au Moniteur (n° 54 du 10 juillet 2002). Même loi, citée par deux de ses dates.",
+      "source": "EDITORIAL",
+      "createdAt": "2026-08-27T04:29:49.272Z"
+    }
+  ],
+  "crossRefsSortants": [],
+  "citants": [
+    {
+      "id": "cmrspgd9h0000yn8emki3dtw6",
+      "source": "DECRET_SURETES",
+      "type": "LEGISLATION",
+      "titleFr": "Décret réformant le Droit des Sûretés",
+      "occurrences": 1,
+      "contextes": [
+        " février 2001 portant sur le blanchiment des avoirs provenant du trafic illicite de la drogue et d’autres infractions graves ; ⏎ Vu la Loi du 26 juin 2002 sur les coopératives d’épargne et de crédit communément appelées : « Caisses "
+      ]
+    },
+    {
+      "id": "cmqbnm0ek001gsmfzqf4tbikg",
+      "source": "BRH-WEB",
+      "type": "CIRCULAIRE_BRH",
+      "titleFr": "Circulaire BRH n° 131 — Protection des consommateurs de produits et services financiers",
+      "occurrences": 1,
+      "contextes": [
+        "4 à 56 du décret du 5 juin 2020 portant organisation et fonctionnement des institutions de microfinance, aux articles 12 et 15 de la loi du 26 juin 2002 sur les coopératives d'épargne et de crédit, et à la circulaire 121 sur les s"
+      ]
+    },
+    {
+      "id": "cmqbnm0dm000ssmfzou5qxwj0",
+      "source": "BRH",
+      "type": "CIRCULAIRE_BRH",
+      "titleFr": "Circulaire BRH n° 113 — Supervision des coopératives d'épargne et de crédit",
+      "occurrences": 1,
+      "contextes": [
+        "t aux articles 83 et 161 de la loi du 14 mai 2012 portant sur les banques et autres ⏎ institutions financières et à l'article 14 de la loi du 26 juin 2002 relative aux coopératives d'épargne et ⏎ de crédit, la BRH édicte la présente c"
+      ]
+    },
+    {
+      "id": "cms18kwzl0002pt2kbk9kv39y",
+      "source": "LOI_BANQUES_2012",
+      "type": "LEGISLATION",
+      "titleFr": "Loi sur les banques et autres institutions financières",
+      "occurrences": 1,
+      "contextes": [
+        " 21 février 2001 relative au blanchiment des avoirs provenant du trafic illicite de la drogue et d’autres infractions graves ; ⏎ Vu la loi du 26 juin 2002 portant sur la constitution, l’organisation, le contrôle et la surveillance d"
+      ]
+    },
+    {
+      "id": "cmql463zi0004107f550qy4ao",
+      "source": "BRH-CEC",
+      "type": "CIRCULAIRE_BRH",
+      "titleFr": "Norme relative au contrôle interne des CEC",
+      "occurrences": 3,
+      "contextes": [
+        "Banque de la République d’Haïti (BRH) \t37 ⏎ NORME RELATIVE AU CONTRÔLE INTERNE ⏎ DES CEC ⏎ Conformément aux articles 7 et 12 \tde la loi du 26 juin 2002 sur les Coopératives d’Épargne de ⏎ Crédit (CEC), les dispositions suivantes re",
+        "présente circulaire, la BRH appliquera une sanction ⏎ administrative à l’encontre de la CEC conformément aux articles 139 et 140 de la loi du 26 juin 2002. ⏎ Les sanctions administratives imposées par la BRH doivent être traitées lors",
+        "sées par la BRH doivent être traitées lors de l’assemblée générale ⏎ annuelle de la CEC, ce conformément à l’article 43 alinéa g de la loi du 26 juin 2002. ⏎ 14 \tMise en vigueur de la présente circulaire ⏎ Les dispositions de la présent"
+      ]
+    },
+    {
+      "id": "cmqn6blts0000k2a9bfq68qzi",
+      "source": "MONITEUR_MANUAL",
+      "type": "LEGISLATION",
+      "titleFr": "Le Moniteur — Édition spéciale n° 4 — Juillet 2012 — Loi portant sur les banques et autres institutions financières",
+      "occurrences": 1,
+      "contextes": [
+        " 21 février 2001 relative au blanchiment des avoirs provenant du trafic illicite de la drogue et d'autres infractions graves; ⏎  ⏎ Vu la loi du 26 juin 2002 portant sur la constitution, l'organisation, le contrôle et la surveillance d"
+      ]
+    },
+    {
+      "id": "cmql45rbm0001107f19un1fkd",
+      "source": "BRH-CEC",
+      "type": "CIRCULAIRE_BRH",
+      "titleFr": "Norme relative à la gestion des placements des coopératives d'épargne et de crédit (CEC)",
+      "occurrences": 4,
+      "contextes": [
+        " (BRH) \t7 ⏎ NORME RELATIVE À LA GESTION DES PLACEMENTS ⏎ DES COOPERATIVES D’ÉPARGNE ET DE CRÉDIT (CEC) ⏎ Conformément à l’article 14 de la loi du 26 juin 2002 sur les Coopératives d’Épargne et de Crédit, ⏎ les CEC doivent respecter les di",
+        " BRH se réserve ⏎ le droit d’appliquer des sanctions administratives à l’encontre de la CEC conformément aux articles ⏎ 139 et 140 de la loi du 26 juin 2002. ⏎ Dépassement de la norme ⏎ Au cas où une CEC dépasserait les limites de placeme",
+        " BRH se réserve ⏎ le droit d’appliquer des sanctions administratives à l’encontre de la CEC conformément aux articles ⏎ 139 et 140 de la loi du 26 juin 2002. ⏎ !\t\"\t! ⏎ !\"#A% ⏎ &'\"A(#(\t&)*+)\t*,)\t-.,&\t/+.\")0),# ⏎  ⏎  ⏎  ⏎ Banque de la République d’Ha"
+      ]
+    },
+    {
+      "id": "cmql45ui80002107fbj4xgwv5",
+      "source": "BRH-CEC",
+      "type": "CIRCULAIRE_BRH",
+      "titleFr": "Norme relative à la gestion des risques de crédit des CEC",
+      "occurrences": 4,
+      "contextes": [
+        "E RELATIVE À LA GESTION DES RISQUES DE CRÉDIT ⏎ DES COOPERATIVES D’ÉPARGNE ET DE CRÉDIT (CEC) ⏎ Conformément aux articles 14 et 15 de la loi du 26 juin 2002 sur les Coopératives d’Épargne et de ⏎ Crédit (CEC), les CEC doivent respecter ",
+        " BRH peut, après ⏎ inspection, appliquer une sanction administrative à l’encontre de la CEC conformément aux articles 139 et ⏎ 140 de la loi du 26 juin 2002 ⏎ b) Non soumission de rapport ou retard ⏎ En cas de non soumission ou de retard ",
+        "crédit, la BRH se réserve le droit de prendre des sanctions administratives contre la CEC conformément aux ⏎ articles 139 et 140 de la loi du 26 juin 2002. ⏎ Les sanctions administratives imposées par la BRH doivent être traitées lors"
+      ]
+    },
+    {
+      "id": "cmql4cmlg0007107fzptgxtqp",
+      "source": "BRH-CEC",
+      "type": "CIRCULAIRE_BRH",
+      "titleFr": "Norme relative à l’ouverture de succursales ou points de service des CEC",
+      "occurrences": 3,
+      "contextes": [
+        "’OUVERTURE DE SUCCURSALES OU DE POINTS DE SERVICES ⏎ DES CAISSES D’ÉPARGNE ET DE CRÉDIT (CEC) ⏎ Conformément aux articles 29 et 30 de la loi du 26 juin 2002 sur les coopératives d’épargne et de crédit, ⏎ celles ci doivent respecter les ",
+        "orisation la BRH, celle- ci ⏎ se réserve le droit d’appliquer des sanctions administratives conformément aux articles 139 et 140 de la loi du ⏎ 26 juin 2002. ⏎ Les sanctions administratives imposées par la BRH doivent être traitées lors",
+        "sées par la BRH doivent être traitées lors de l’assemblée générale annuelle ⏎ de la CEC, ce conformément à l’article 43 alinéa g de la loi du 26 juin 2002. ⏎ Mise en vigueur de la présente circulaire ⏎ Les dispositions de la présente ci"
+      ]
+    },
+    {
+      "id": "cmql4cjjz0006107fxreuv4q4",
+      "source": "BRH-CEC",
+      "type": "CIRCULAIRE_BRH",
+      "titleFr": "Norme relative à la transmission des états financiers, rapports d'activités et statistiques générales des CEC",
+      "occurrences": 2,
+      "contextes": [
+        "ARGNE ET DE CRÉDIT ET ⏎ AUX FEDERATIONS DE COOPÉRATIVES D'ÉPARGNE ET DE CRÉDIT ⏎  ⏎ Pour l'application des articles 76, 77, 78 et 83 de la loi du 26 juin 2002 sur les Coopératives d'Épargne et de Crédit (CEC) et les Fédérations des Cais",
+        "ques générales. ⏎  ⏎ Les fédérations sont également tenues de transmettre à la BRH, conformément aux dispositions de l'article 122 de la Loi du 26 juin 2002, un rapport sur les inspections réalisées au cours du dernier exercice ainsi "
+      ]
+    },
+    {
+      "id": "cmql466je0005107fm7k4a3pe",
+      "source": "BRH-CEC",
+      "type": "CIRCULAIRE_BRH",
+      "titleFr": "Vérification externe des coopératives d'épargne et de crédit",
+      "occurrences": 1,
+      "contextes": [
+        "ue de la République d’Haïti (BRH) \t42 ⏎ NORME RELATIVE A LA VÉRIFICATION EXTERNE DES CEC ⏎ Conformément à l’article 94 et suivants de la loi du 26 juin 2002 sur les Coopératives d’Épargne de ⏎ Crédit (CEC), les CEC et les vérificateurs "
+      ]
+    },
+    {
+      "id": "cmqomokzm000k11mf2312nqp1",
+      "source": "BRH-WEB",
+      "type": "CIRCULAIRE_BRH",
+      "titleFr": "Circulaire BRH n° 103-1 — Regles applicables aux cheques emis en",
+      "occurrences": 1,
+      "contextes": [
+        "ions visées à l'article 4 de la loi du 14 mai 2012 portant sur les banques et autres institutions financières, à l'article 111 de la loi du 26 juin 2002 sur les coopératives d'épargne et de crédit et aux articles 215 et suivants d"
+      ]
+    },
+    {
+      "id": "cmql4cpb20008107frtip257i",
+      "source": "BRH-CEC",
+      "type": "CIRCULAIRE_BRH",
+      "titleFr": "Charte comptable des CEC",
+      "occurrences": 3,
+      "contextes": [
+        "CIRCULAIRE No. 9-1 ⏎ AUX COOPERATIVES D’EPARGNE ET DE CREDIT ⏎ Conformément à l’article 12 de la loi du 26 juin 2002 portant sur la constitution, l’organisation, ⏎ le contrôle et la surveillance d",
+        "r ⏎ au redressement requis par la BRH, une CEC est assujettie à une sanction administrative ⏎ conformément aux articles 139 et 140 de la loi du 26 juin 2002. ⏎ Les sanctions administratives imposées par la BRH doivent être traités lors ",
+        "osées par la BRH doivent être traités lors de ⏎ l’assemblée générale annuelle de la CEC, ce conformément à l’article 43 alinéa g de la loi ⏎ du 26 juin 2002. ⏎ 5. Entrée en vigueur ⏎ Les dispositions de la présente circulaire remplacent c"
+      ]
+    },
+    {
+      "id": "cmql45oly0000107f1rzxnujd",
+      "source": "BRH-CEC",
+      "type": "CIRCULAIRE_BRH",
+      "titleFr": "Norme relative à la gestion des liquidités des coopératives d'épargne et de crédit (CEC)",
+      "occurrences": 4,
+      "contextes": [
+        " (BRH) \t2 ⏎ NORME RELATIVE À LA GESTION DES LIQUIDITÉS ⏎ DES COOPERATIVES D’ÉPARGNE ET DE CRÉDIT (CEC) ⏎ Conformément à l’article 15 de la loi du 26 juin 2002 sur les Coopératives d’Épargne et de Crédit, ⏎ les CEC doivent respecter les di",
+        " BRH ⏎ peut, après inspection, appliquer une sanction administrative à l’encontre de la CEC conformément aux ⏎ articles 139 et 140 de la loi du 26 juin 2002. ⏎ b) Non soumission de rapport ou retard ⏎ En cas de non soumission ou de retard",
+        "idités, la BRH se réserve le droit de prendre des sanctions administratives contre la CEC ⏎ conformément aux articles 139 et 140 de la loi du 26 juin 2002. ⏎ Les sanctions administratives imposées par la BRH doivent être traitées lors"
+      ]
+    },
+    {
+      "id": "cmql4cs1s0009107f2jf55mnw",
+      "source": "BRH-CEC",
+      "type": "CIRCULAIRE_BRH",
+      "titleFr": "Gouvernance des coopératives d'épargne et de crédit (CEC)",
+      "occurrences": 2,
+      "contextes": [
+        " la République d'Haïti ⏎ CIRCULAIRE ⏎ No 10 ⏎ AUX COOPERATIVES D'EPARGNE ET DE CREDIT (CEC) ⏎ En conformité avec les articles 12 et 15 de la Loi du 26 juin 2002 portant sur les Coopératives ⏎ d'Epargne et de Crédit (CEC), celles-ci sont ten",
+        "de ⏎ la CEC dans les 90 jours qui précèdent la réalisation de l'assemblée générale ⏎ Sous réserve des restrictions de l'article 48 de la Loi du 26 juin 2002, le comité est ainsi constitué . ⏎ 1 membre du conseil administration ⏎  ⏎  ⏎  ⏎ 3 ⏎ 1 me"
+      ]
+    },
+    {
+      "id": "cmql45z9x0003107ffm0305ln",
+      "source": "BRH-CEC",
+      "type": "CIRCULAIRE_BRH",
+      "titleFr": "Norme relative à la capitalisation des CEC",
+      "occurrences": 3,
+      "contextes": [
+        "Banque de la République d’Haïti (BRH) \t33 ⏎ NORME RELATIVE A LA CAPITALISATION DES CEC ⏎ Conformément à l’article 15 de la loi du 26 juin 2002 sur les Coopératives d’Épargne et de Crédit ⏎ (CEC), les CEC sont tenues de res",
+        " BRH peut, après inspection, ⏎ appliquer une sanction administrative à l’encontre de la CEC conformément aux articles 139 et 140 de la ⏎ loi du 26 juin 2002 ⏎ Les sanctions administratives imposées par la BRH doivent être traitées lors ",
+        "sées par la BRH doivent être traitées lors de l’assemblée générale ⏎ annuelle de la CEC, ce conformément à l’article 43 alinéa g de la loi du 26 juin 2002. ⏎ 7. \tMise en vigueur de la présente circulaire ⏎ Les dispositions de la présent"
+      ]
+    },
+    {
+      "id": "cms7lgd8l0000wtgzu7y3j8mt",
+      "source": "CIRC_BRH_105_2",
+      "type": "CIRCULAIRE_BRH",
+      "titleFr": "Circulaire BRH n° 105-2 — Transmission au Bureau d'Information sur le Crédit (BIC) des informations sur les crédits octroyés",
+      "occurrences": 1,
+      "contextes": [
+        "u décret du 5 juin 2020 portant sur l’organisation et le fonctionnement des Institutions de Microfinance (IMF), à l’article 12 de la loi du 26 juin 2002 portant sur la constitution, l’organisation, le contrôle et la surveillance d"
+      ]
+    },
+    {
+      "id": "cmsqyfecr0000kg2hgx6eh1sv",
+      "source": "DECRET_INTERMEDIAIRES_CHANGE_2020",
+      "type": "LEGISLATION",
+      "titleFr": "Décret sur les intermédiaires de change",
+      "occurrences": 1,
+      "contextes": [
+        "étés Anonymes mixtes de capitaux ; ⏎  ⏎ Vu la Loi du 17 août 1979 créant et organisant la Banque de la République d’Haïti (BRH) ; ⏎  ⏎ Vu la Loi du 26 juin 2002 portant sur la constitution, l’organisation, le contrôle et la surveillance d"
+      ]
+    },
+    {
+      "id": "cmsr2gxtv0000pgnqhgrr8q1y",
+      "source": "DECRET_BLANCHIMENT_2023",
+      "type": "LEGISLATION",
+      "titleFr": "Décret sanctionnant le blanchiment de capitaux, le financement du terrorisme et le financement de la prolifération des armes de destruction massive",
+      "occurrences": 1,
+      "contextes": [
+        "utres infractions graves ; ⏎  ⏎ Vu la Loi du 7 août 2001 relative au contrôle et à la répression du trafic illicite de la drogue; ⏎  ⏎ Vu la Loi du 26 juin 2002 portant sur la constitution, l'organisation, le contrôle et la surveillance d"
+      ]
+    }
+  ],
+  "imf": {
+    "id": "cms5d6tp200002695mv8c5bdb",
+    "titleFr": "Décret portant organisation et fonctionnement des Institutions de Microfinance (IMF)",
+    "contexte": "s de Microfinance » (I.M.F.), qui réalisent à titre de profession habituelle des opérations de microfinance et de microcrédit, sans préjudice des dispositions de la Loi sur les banques et autres institutions financières et de celle sur les coopératives d’épargne et de crédit. ⏎ Le présent Décret s’applique également aux sociétés de banque lorsqu’elles réalisen"
+  }
+}

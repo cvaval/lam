@@ -1,0 +1,46 @@
+{
+ "_protocole": "Oracle § 8 — 600 renvois développés de l’index cliente rejoués par maj2026-oracle-index.ts (radicaux à frontière de mot, accents pliés, équivalences par terme) sur le corps segmenté. Les échecs bruts ci-dessous sont la BASELINE : après le lot, le MÊME script doit rendre exactement cet ensemble — un échec nouveau est une régression bloquante (§ 11.8).",
+ "mesureLe": "2026-08-27T13:58:28.063Z",
+ "md5BodyOriginal": "67a109181877e5e2b06c13c583992c9d",
+ "etatCorps": "intact (avant § 7.4)",
+ "totalTermes": 68,
+ "totalPaires": 600,
+ "echecs": [
+  {
+   "term": "Fusion",
+   "art": 24
+  },
+  {
+   "term": "Registres et livres",
+   "art": 16
+  },
+  {
+   "term": "Registres et livres",
+   "art": 17
+  },
+  {
+   "term": "Registres et livres",
+   "art": 19
+  },
+  {
+   "term": "Registres et livres",
+   "art": 20
+  },
+  {
+   "term": "Registres et livres",
+   "art": 21
+  },
+  {
+   "term": "Registres et livres",
+   "art": 29
+  },
+  {
+   "term": "Registres et livres",
+   "art": 107
+  },
+  {
+   "term": "Zone géographique d'intervention",
+   "art": 49
+  }
+ ]
+}

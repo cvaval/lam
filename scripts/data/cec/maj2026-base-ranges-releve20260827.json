@@ -1,0 +1,290 @@
+[
+ {
+  "level": 1,
+  "label": "TITRE I — DISPOSITIONS PRELIMINAIRES",
+  "from": 1,
+  "to": 6
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE I — OBJET DE LA LOI",
+  "from": 1,
+  "to": 5
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE II — DEFINITIONS PARTICULIERES, GENERALES ET SIGLES",
+  "from": 6,
+  "to": 6
+ },
+ {
+  "level": 1,
+  "label": "TITRE II — DES ORGANES DE REGLEMENTATION,",
+  "from": 7,
+  "to": 75
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE I — ROLE DE LA BRH, DU CNC ET DE LA FCP",
+  "from": 7,
+  "to": 9
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE II — DU CONTROLE ET DE LA SUPERVISION DES CEC",
+  "from": 10,
+  "to": 15
+ },
+ {
+  "level": 3,
+  "label": "SECTION 1. DISPOSITIONS GÉNÉRALES",
+  "from": 10,
+  "to": 15
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE III — DE L’AUTORISATION DE FONCTIONNEMENT DES CEC",
+  "from": 16,
+  "to": 58
+ },
+ {
+  "level": 3,
+  "label": "SECTION 1.- DÉNOMINATION",
+  "from": 23,
+  "to": 24
+ },
+ {
+  "level": 3,
+  "label": "SECTION 2.- ACTE CONSTITUTIF",
+  "from": 25,
+  "to": 26
+ },
+ {
+  "level": 3,
+  "label": "SECTION 3.- SIÈGE SOCIAL",
+  "from": 27,
+  "to": 30
+ },
+ {
+  "level": 3,
+  "label": "SECTION 4.- FONDS PROPRES",
+  "from": 31,
+  "to": 35
+ },
+ {
+  "level": 3,
+  "label": "SECTION 5. - QUALITÉ DES MEMBRES",
+  "from": 36,
+  "to": 39
+ },
+ {
+  "level": 3,
+  "label": "SECTION 6.- ASSEMBLÉE GÉNÉRALE",
+  "from": 40,
+  "to": 43
+ },
+ {
+  "level": 3,
+  "label": "SECTION 7- DIRIGEANTS",
+  "from": 44,
+  "to": 49
+ },
+ {
+  "level": 3,
+  "label": "SECTION 8. CONSEIL D’ADMINISTRATION",
+  "from": 50,
+  "to": 53
+ },
+ {
+  "level": 3,
+  "label": "SECTION 9. - COMITE DE SURVEILLANCE ET DE CRÉDIT",
+  "from": 54,
+  "to": 57
+ },
+ {
+  "level": 3,
+  "label": "SECTION 10- AVANTAGES FISCAUX ET DOUANIERS",
+  "from": 58,
+  "to": 58
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE V — FONCTIONNEMENT",
+  "from": 59,
+  "to": 75
+ },
+ {
+  "level": 3,
+  "label": "SECTION 1.- GARANTIES",
+  "from": 59,
+  "to": 59
+ },
+ {
+  "level": 3,
+  "label": "SECTION 2.- FONDS DE SOUTIEN AUX COOPÉRATIVES",
+  "from": 60,
+  "to": 62
+ },
+ {
+  "level": 3,
+  "label": "SECTION 3.- FONDS DE RÉSERVES",
+  "from": 63,
+  "to": 63
+ },
+ {
+  "level": 3,
+  "label": "SECTION 4.- FONDS À DES FINS SOCIALES",
+  "from": 64,
+  "to": 64
+ },
+ {
+  "level": 3,
+  "label": "SECTION 5.- TROP-PERCUS OU EXCEDENTS",
+  "from": 65,
+  "to": 67
+ },
+ {
+  "level": 3,
+  "label": "SECTION 6.- PRATIQUES DE GESTION SAINE",
+  "from": 68,
+  "to": 73
+ },
+ {
+  "level": 3,
+  "label": "SECTION 7.- DONS, LEGS ET LIBÉRALITÉS",
+  "from": 74,
+  "to": 75
+ },
+ {
+  "level": 1,
+  "label": "TITRE III — DIVULGATION FINANCIERE, TENUE DES LIVRES",
+  "from": 76,
+  "to": 104
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE I — DIVULGATION FINANCIERE",
+  "from": 76,
+  "to": 78
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE II — TENUE DES LIVRES ET REGISTRES",
+  "from": 79,
+  "to": 81
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE III — SURVEILLANCE ET CONTROLE DES CEC",
+  "from": 82,
+  "to": 93
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE IV — VERIFICATION ET CONCOURS EXCEPTIONNELS",
+  "from": 94,
+  "to": 104
+ },
+ {
+  "level": 3,
+  "label": "SECTION 1.- VERIFICATION",
+  "from": 94,
+  "to": 103
+ },
+ {
+  "level": 3,
+  "label": "SECTION 2.- CONCOURS EXCEPTIONNELS",
+  "from": 104,
+  "to": 104
+ },
+ {
+  "level": 1,
+  "label": "TITRE IV — DE LA FEDERATION ET DE L’AFFILIATION DES CEC",
+  "from": 105,
+  "to": 128
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE I — DISPOSITIONS GENERALES",
+  "from": 105,
+  "to": 111
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE II — ASSEMBLEES DE MEMBRES ET CONSEIL D’ADMINISTRATION",
+  "from": 112,
+  "to": 114
+ },
+ {
+  "level": 3,
+  "label": "SECTION 1.- ASSEMBLEES DES MEMBRES",
+  "from": 112,
+  "to": 113
+ },
+ {
+  "level": 3,
+  "label": "SECTION 2.- CONSEIL D’ADMINISTRATION",
+  "from": 114,
+  "to": 114
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE II — FONCTIONNEMENT – POUVOIRS D’INSPECTION",
+  "from": 115,
+  "to": 128
+ },
+ {
+  "level": 3,
+  "label": "SECTION 1.- FONCTIONNEMENT",
+  "from": 115,
+  "to": 115
+ },
+ {
+  "level": 3,
+  "label": "SECTION 2.- POUVOIR D’INSPECTION",
+  "from": 116,
+  "to": 125
+ },
+ {
+  "level": 3,
+  "label": "SECTION 3.- VERIFICATION",
+  "from": 126,
+  "to": 128
+ },
+ {
+  "level": 1,
+  "label": "TITRE V — DE LA FUSION, DU DESSAISISSEMENT,",
+  "from": 129,
+  "to": 138
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE I — FUSION",
+  "from": 129,
+  "to": 130
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE II — DESSAISISSEMENT",
+  "from": 131,
+  "to": 136
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE III — LIQUIDATION, DISSOLUTION",
+  "from": 137,
+  "to": 138
+ },
+ {
+  "level": 1,
+  "label": "TITRE VI — DES INFRACTIONS ET SANCTIONS",
+  "from": 139,
+  "to": 145
+ },
+ {
+  "level": 1,
+  "label": "TITRE VII — DISPOSITIONS TRANSITOIRES ET FINALES",
+  "from": 146,
+  "to": 151
+ }
+]

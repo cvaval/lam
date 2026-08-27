@@ -1,0 +1,17 @@
+{
+  "_source": "Index de la cliente (Index_mots_cles_Loi_CEC_2002.docx, 68 sujets) — les DEUX seuls sujets sans aucun écho dans les sujets structurés de la base (feuille de route du 27 août 2026, § 4.2 et § 7.5). Renvois vérifiés au corps en base un à un le 27 août 2026, radical à frontière de mot, accents pliés (arts 23 et 142 : « COOPERATIVE D’EPARGNE » en capitales NON accentuées).",
+  "_format": "Au format des entrées existantes de la base : { subject, ctRefs } — ctRefs en CHAÎNES (convention mesurée sur la totalité des entrées), ordre numérique croissant. Insertion à la position de la collation française (Intl.Collator('fr') — convention mesurée : la liste en base est triée sous cette collation, zéro inversion), calculée à l'exécution par maj2026-lot-corps.ts, jamais codée en dur.",
+  "_verification": "maj2026-lot-corps.ts re-vérifie chaque renvoi à l'exécution : le radical, à frontière de mot dans le texte plié de l'article segmenté, doit être présent — sinon refus d'écrire.",
+  "ajouts": [
+    {
+      "subject": "Épargne",
+      "ctRefs": ["1", "6", "10", "23", "138", "142"],
+      "radical": "epargn"
+    },
+    {
+      "subject": "Supervision",
+      "ctRefs": ["10", "19", "134"],
+      "radical": "supervis"
+    }
+  ]
+}

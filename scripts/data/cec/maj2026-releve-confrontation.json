@@ -1,0 +1,194 @@
+{
+ "meta": {
+  "date": "2026-08-27",
+  "objet": "Confrontation transcription cliente <-> corps en base, Loi CEC du 10 juillet 2002 (Moniteur n° 54 extraordinaire)",
+  "document_base": {
+   "id": "cms8jhhz700004szrkm41yahg",
+   "source": "LOI_CEC_2002",
+   "provenance_corps": "scripts/data/cec/bodyOriginal.txt <- ~/Downloads/Loi_CEC_10_juillet_2002_collationne_1.docx (parse_cec.py)"
+  },
+  "piece_cliente": "Loi_du_26_juin_2002_sur_les_CEC_1.txt (684 ¶ / 75 914 o)",
+  "methode": "comparaison AU MOT, difflib.SequenceMatcher autojunk=False, apostrophes normalisées (base U+2019 ×586, cliente U+0027 ×586, 0 tabulation des deux côtés), casse pliée pour le ratio + diff strict conservé",
+  "arbitre": {
+   "facsimile": "/Users/cvaval/Library/CloudStorage/Dropbox/Moniteur/Lois_18_20/2002.pdf, pages PDF 644-658 = Le Moniteur n° 54 du mercredi 10 juillet 2002 (tampon Bibliothèque Université Quisqueya)",
+   "pages_presentes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    14,
+    15,
+    31,
+    32
+   ],
+   "pages_absentes": "12-13 (arts ~44-54) et 16-30 (arts ~65-146) — le scan du numéro est PARTIEL",
+   "note": "2002-Special.pdf ne contient que la série « Spécial » (n° 1 du 20 juin 2002, traité Chaguaramas) — pas la loi CEC"
+  }
+ },
+ "couverture": {
+  "articles_apparies": "151/151 des deux côtés, aucun manquant, aucun excédent",
+  "mediane_ratio_mots": 1.0,
+  "seuils": {
+   "=1.0": 79,
+   ">=0.99": 90,
+   ">=0.98": 111,
+   ">=0.95": 142,
+   ">=0.90": 149,
+   "<0.90": 2
+  },
+  "articles_identiques_au_mot": 79,
+  "articles_avec_ecarts": 72,
+  "ecarts_totaux_articles": 154,
+  "pires": [
+   [
+    57,
+    0.7273
+   ],
+   [
+    99,
+    0.839
+   ],
+   [
+    147,
+    0.92
+   ],
+   [
+    74,
+    0.9259
+   ],
+   [
+    105,
+    0.9268
+   ]
+  ]
+ },
+ "arbitrage_facsimile": {
+  "ecarts_arbitres_sur_piece": 73,
+  "verdict": "73/73 en faveur de la BASE : chaque écart arbitré est soit une coquille de la cliente (nominale, financement, sans, porter, II pour III…), soit une normalisation cliente silencieuse d'un sic du Journal Officiel que la base conserve",
+  "sics_du_JO_conserves_par_la_base": [
+   "Considérant qu'il a lieu (sans « y »)",
+   "qui lui sont applicables (pour les CEC et les fédérations)",
+   "dont opérations activités s'apparenteraient",
+   "les type et montant des sûretés",
+   "assurer sécurité des dépôts",
+   "composée deux catégories de membres",
+   "par le comité surveillance",
+   "des assemblées généralement ordinaires",
+   "autorisation de fonctionnent",
+   "aux alinéas 7 du présent article",
+   "l'activité économique général",
+   "Toute CEC … de leurs engagements envers leurs sociétaires",
+   "capitales non accentuées (Epargne, Economie, Etat, A moins, A défaut, A cet effet)"
+  ],
+  "verdicts_par_article": {
+   "1": "accents sur capitales : J.O. « d'Epargne » — base fidèle, cliente accentue",
+   "5": "J.O. p.3 : CINQ principes numérotés 1)-5) ; la cliente les redécoupe en 7 et insère « et » — base fidèle au J.O.",
+   "6": "J.O. p.3-4 : « 1. Coopératives », « agents économiques », « remplit des conditions », « comme tels, sommes » (sans « les »), « dépôt d'épargne, dépôt à terme », « à charge par elle », « un aval, un cautionnement », « Succursales », « C) SIGLE » sans en-têtes de colonnes — base fidèle sur les 12 écarts ; la cliente ajoute l'appareil de tableau « SIGLES/Signification »",
+   "7": "J.O. : « qui lui sont applicables » (sic) — base fidèle, cliente corrige en « leur »",
+   "8": "J.O. : « formuler et promouvoir » — la cliente ajoute « de »",
+   "9": "J.O. : « leurs objets » ; « auprès d'elles, auprès des instances » — omission cliente par saut du même au même",
+   "10": "J.O. : « de superviser, de contrôler les CEC et des fédérations de coopérative » (sic) — base fidèle sur les 3 écarts",
+   "13": "J.O. : « qu'il mandate » (sic) ; « dont opérations activités s'apparenteraient » (sic, mots manquants au J.O.) — base fidèle, cliente réécrit",
+   "14": "J.O. : « les type et montant des sûretés requises » (sic) — base fidèle",
+   "15": "J.O. : « assurer sécurité des dépôts » (sic), « une partie de leur ressource », « division de risques » — base fidèle sur les 3",
+   "19": "J.O. p.6-7 : « du lieu où siège », « soit douze mille cinq cents (G 12,500.00) » sans « gourdes », « vingt cinq mille » sans trait d'union, « (6,250.00) » sans G, « aux alinéas 7 » (sic), « économique général » (sic) — base fidèle sur les 7 écarts",
+   "20": "J.O. : « autorisation de fonctionnent sont transmis » (sic, vérifié à 300 dpi) — base fidèle, cliente corrige",
+   "21": "J.O. : « points de services » — base fidèle",
+   "22": "J.O. : « usage de son autorisation dans un délai » — la cliente ajoute « de fonctionnement »",
+   "23": "J.O. : « COOPERATIVE D'EPARGNE ET DE CREDIT » sans accents, « ou toutes autres appellations » (cliente omet « autres »), « l'une ou l'autre de ses expressions » (sic « ses ») — base fidèle sur les 4",
+   "28": "J.O. : « après avis préalable de la BRH et au CNC » — base fidèle",
+   "30": "J.O. : « qui doit statuer sur la performance financière » — cliente écrit « porter », coquille",
+   "35": "J.O. p.10 : « échéance minimale » (cliente : « nominale », coquille) ; « sont productifs d'intérêt » (sic accord) — base fidèle",
+   "36": "J.O. : « composée deux catégories » (sic, sans « de ») ; « il n'a pas droit de vote » — base fidèle",
+   "37": "J.O. : « A moins que » sans accent, « ou à des héritiers », « augmentées » — base fidèle sur les 3",
+   "39": "J.O. : « les nom, prénom, qualité et domicile », « plus value » sans trait d'union — base fidèle",
+   "41": "J.O. : « par le comité surveillance » (sic) « ou sur la demande motivée » — base fidèle sur les 2",
+   "42": "J.O. : « des assemblées généralement ordinaires ou extraordinaires » (sic) — base fidèle, cliente corrige en « générales »",
+   "43": "J.O. : « du comité de surveillance et de crédit » — la cliente ajoute « du comité »",
+   "57": "J.O. p.14 : « a pour responsabilité de gérer le crédit conformément aux politiques et procédures définies en matière de crédit et adoptées… » + « Le comité de crédit est tenu de faire rapport de ses activités à l'assemblée générale annuelle. » — LA CLIENTE PARAPHRASE (« agit ») ET AMPUTE LA PHRASE FINALE ; base fidèle mot pour mot (écart le plus grave : ratio 0,727)",
+   "61": "J.O. p.15 : « en termes de décaissement et de remboursement » — cliente : « financement », coquille",
+   "62": "J.O. : « injecter des fonds dans une fédération » — cliente : « sans », coquille grave (contresens)",
+   "63": "J.O. : « et en aucun cas ne peut être partagé » — la cliente déplace « ne peut » ; base fidèle",
+   "64": "J.O. : « Il ne peut affecter à ce fonds », « A défaut de quoi » sans accent — base fidèle",
+   "147": "J.O. p.31 : « Toute CEC est tenue de s'acquitter de leurs engagements envers leurs sociétaires » (sic accord) — base fidèle, cliente normalise en « ses/ses »",
+   "151": "J.O. : « de l'Economie et des Finances » capitale non accentuée — base fidèle"
+  },
+  "nuance_honnete": "un seul endroit mesuré où la BASE s'écarte elle aussi du fac-similé : p.32 le J.O. imprime « Faubert GUSTVAE » (et un « Four » douteux pour « Pour ») ; les DEUX transcriptions écrivent « GUSTAVE »/« Pour » — hors des 178 écarts puisqu'elles s'accordent"
+ },
+ "preuve_interne": {
+  "99": "page absente du scan ; preuve interne : les deux alinéas encadrant le passage omis commencent par « Le vérificateur » — saut du même au même de la CLIENTE (33 mots perdus : explications sur restrictions d'opinion + copie du rapport à la BRH)",
+  "73": "page absente ; preuve interne : « l'accord final de la FCP affiliée ou de la BRH en cas de non affiliation » — sans « FCP affiliée ou de la », la phrase cliente laisse le cas affilié sans approbateur ; saut « de la … de la » de la CLIENTE"
+ },
+ "non_arbitrable_discutable": {
+  "144": "« amendes prévues à l'article 146 » (base) contre « 145 » (cliente) — page absente ; en substance les amendes sont à l'art. 145 : soit sic du J.O. conservé par la base, soit coquille de base. SEUL écart où la leçon cliente est en substance la bonne ; à trancher sur les pages 16-30 si retrouvées",
+  "110": "« le non du représentant … dûment autorisée » (base) : français fautif — sic J.O. probable (motif constant) mais invérifiable, page absente"
+ },
+ "classement": {
+  "coquille_de_la_base": {
+   "avérées": 0,
+   "commentaire": "0 sur 96 écarts arbitrés pièce en main (73 articles + 7 préambule + 16 bloc parlementaire) ; 2 réserves non prouvées sur pages absentes (arts 144 « article 146 » et 110 « le non ») où la leçon de base est la moins grammaticale — sics J.O. probables au vu du motif constant"
+  },
+  "coquille_omission_ajout_cliente": {
+   "avérées_facsimile_ou_interne": 75,
+   "detail": "73 sur fac-similé + 2 par preuve interne (99, 73) ; incluent 3 pertes de substance : art. 57 paraphrasé et amputé de sa phrase finale, art. 99 amputé de 33 mots (rapport du vérificateur), art. 73 amputé de « la FCP affiliée ou de » ; coquilles de lecture : libération (préambule), nominale (35), financement (61), sans (62), porter (30), GAUTIER, CHAPITRE II pour III, ces (23), qu'elle (13), pour (6)…"
+  },
+  "normalisation_cliente": {
+   "commentaire": "sous-ensemble des écarts clientes : accents ajoutés sur capitales, traits d'union modernes (vingt-cinq, plus-value, non-affiliation), renumérotation des 5 principes en 7 (art. 5), re-lettrage des listes (48, 50), corrections silencieuses des sics du J.O. — la cliente édite, la base transcrit"
+  },
+  "appareil": {
+   "nombre": 3,
+   "detail": [
+    "bandeau du J.O. (NUMERO EXTRAORDINAIRE / LIBERTÉ EGALITÉ FRATERNITÉ / REPUBLIQUE D'HAÏTI / CORPS LEGISLATIF) : présent au fac-similé et chez la cliente, exclu du corps de base par choix de périmètre (APPARAT de parse_cec.py)",
+    "en-têtes de tableau « SIGLES / Signification » ajoutés par la cliente à l'art. 6-C (le J.O. n'en a pas)",
+    "marqueurs « (S) : » du J.O. omis par la cliente au bloc parlementaire"
+   ]
+  },
+  "extraction": {
+   "nombre": 0,
+   "commentaire": "aucun artefact d'extraction : 0 tabulation, conventions d'apostrophe cohérentes et normalisées avant comparaison"
+  },
+  "inexplique_non_arbitrable": {
+   "ecarts_articles_non_arbitrables": 81,
+   "ventilation": "2 tranchés par preuve interne contre la cliente (arts 99 et 73, comptés plus haut) + 2 discutables (art 144 « article 146 », art 110 « le non ») + 77 présumés pro-base",
+   "detail_presumes": "77 écarts des pages absentes (12-13 : arts 46/48/49/50/53 ; 16-30 : arts 68-146), tous du même motif que les 73 arbitrés (morphologie, accents de capitales, mots-outils, traits d'union, re-lettrage des listes 48/50) — présomption forte pro-base, non prouvée pièce en main",
+   "en_tetes": "2 écarts d'en-têtes non arbitrables en sus (intitulé du TITRE III, accents de capitales des divisions des pages absentes)"
+  }
+ },
+ "preambule": {
+  "ratio_mots": 0.9573,
+  "concordance_fond": "OUI — mêmes 6 visas (Constitution 1/111-1/144/245/246 ; loi 17 août 1979 ; décrets 31 mars 1981, 2 avril 1981, 27 mars 1985, 17 mai 1995), mêmes 3 considérants, même « Sur le rapport des Ministres… », même formule « Le Pouvoir Exécutif a proposé. Et le Corps Législatif a voté »",
+  "ecarts": "8, tous arbitrés sur la p.1-2 du fac-similé : 1 de périmètre (bandeau, voir appareil) + 7 pro-base dont 1 vraie coquille cliente (« libération » pour « libéralisation des taux d'intérêt ») et « qu'il a lieu » (sic J.O., la cliente insère « y »)"
+ },
+ "bloc_parlementaire": {
+  "ratio_mots": 0.9712,
+  "concordance_fond": "OUI — Donnée au Sénat le jeudi 20 juin 2002 et à la Chambre le mercredi 26 juin 2002 (An 199ème), mêmes signataires (Fourel CÉLESTIN, GILLES, pour BELL ; HERIVEAUX, Berry JOSEPH, André Jeune JOSEPH), promulgation « Donné au Palais National le 9 juillet 2002 » Jean-Bertrand ARISTIDE + gouvernement NEPTUNE — LES DEUX DATES PARLEMENTAIRES SONT CONFIRMÉES SUR LE FAC-SIMILÉ p.31",
+  "ecarts": "16, tous arbitrés p.31-32 pro-base : « Par les présentes » (cliente : « la présente »), GOUTIER (cliente : GAUTIER), HERIVEAUX sans accent, « l'indépendance » minuscule aux deux chambres / majuscule à la promulgation (la base respecte la distinction du J.O.), capitales non accentuées, « Sans Portefeuille », « St Preux », « vivant », « Pour Le » ; la cliente omet les « (S) : »"
+ },
+ "en_tetes_divisions": {
+  "structure": "48/48 des deux côtés ; les deux conservent les anomalies du J.O. (pas de Chapitre IV au Titre II, DEUX Chapitre II au Titre IV)",
+  "ecarts_reels": 4,
+  "arbitres": [
+   "après art. 15 : J.O. p.6 = CHAPITRE III (la cliente écrit II — coquille, elle crée un doublon) ",
+   "après art. 62 : J.O. p.15 = FONDS DE RÉSERVES pluriel (cliente : singulier)"
+  ],
+  "non_arbitrables": [
+   "après art. 75 : TITRE III « TENUE DES LIVRES REGISTRES, SURVEILLANCE ET DU CONTROLE » (base, sic probable) vs version normalisée cliente — p.16 absente",
+   "accents de capitales sur divisions des pages absentes"
+  ]
+ },
+ "a_verifier_si_pages_16_30_retrouvees": [
+  "art. 144 : « article 146 » ou « 145 » (les amendes sont à l'art. 145)",
+  "art. 110 : « le non du représentant … autorisée »",
+  "art. 48 : lettrage a)-i) avec « d) ayant totalement… » et renvoi « à l'alinéa (d) » (base) contre a)-h) et « (e) » (cliente) — noter que la base porte AUSSI un double « d) » à l'art. 50, cohérent avec les doublons typographiques avérés du J.O.",
+  "art. 88 : « adopter » ou « apporter » les correctifs",
+  "art. 105 : « peut être affiliée à une seule » ou « ne peut être affiliée qu'à une seule »",
+  "intitulé du TITRE III"
+ ]
+}
