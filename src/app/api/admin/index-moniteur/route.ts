@@ -32,9 +32,19 @@ function editionNumber(annee: number, numero: string, special: boolean): string 
   const n = m ? `${m[1]}${m[2] ? `-${m[2].toUpperCase()}` : ''}` : brut
   return special ? `LM${annee}-SP${n}` : `LM${annee}-${n}`
 }
+/**
+ * « Jeudi 13 août 2026 » — SEUL LE JOUR DE LA SEMAINE PREND LA MAJUSCULE.
+ *
+ * ⚠️ ON SUIT LA PRATIQUE RÉCENTE, PAS LA MAJORITÉ. Le corpus historique écrit « Jeudi 15
+ * Octobre 1981 » — 22 372 entrées, héritées de l'import d'origine. Mais toutes celles
+ * versées depuis 2020 écrivent le mois en minuscule : 272 sur 272 en 2020, 179 sur 180 en
+ * 2022, 76 sur 76 en 2023. C'est aussi la typographie française. Cette fonction capitalisait
+ * CHAQUE mot et produisait donc l'ancienne forme : le back-office et les versements par
+ * script écrivaient deux dates différentes pour un même fascicule.
+ */
 function frDateLabel(d: Date): string {
   const s = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(d)
-  return s.replace(/(^|[\s-])(\p{L})/gu, (_, sep, c) => sep + (c as string).toUpperCase())
+  return s.charAt(0).toUpperCase() + s.slice(1)
 }
 
 async function deindex(id: string, type: string) {

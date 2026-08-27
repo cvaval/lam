@@ -38,3 +38,32 @@ describe('référence d’édition saisie au back-office', () => {
     expect(editionNumber(2026, '76+77', false)).toBe('LM2026-76+77')
   })
 })
+
+/**
+ * Copie de `frDateLabel` — même raison que ci-dessus : la route n'exporte rien.
+ */
+function frDateLabel(d: Date): string {
+  const s = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(d)
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}
+
+describe('date d’une entrée d’Index', () => {
+  /**
+   * ⚠️ LE MOIS RESTE EN MINUSCULE. Le corpus historique écrit « Jeudi 15 Octobre 1981 »
+   * (22 372 entrées), mais tout ce qui est versé depuis 2020 écrit « jeudi 15 octobre » —
+   * 272 sur 272 en 2020, 76 sur 76 en 2023 — et c'est la typographie française. Le
+   * back-office capitalisait chaque mot : deux dates différentes pour un même fascicule
+   * selon qu'on passait par l'écran ou par un script.
+   */
+  it('seul le jour de la semaine prend la majuscule', () => {
+    expect(frDateLabel(new Date('2026-08-13T00:00:00Z'))).toBe('Jeudi 13 août 2026')
+    expect(frDateLabel(new Date('2026-08-21T00:00:00Z'))).toBe('Vendredi 21 août 2026')
+    expect(frDateLabel(new Date('2026-01-05T00:00:00Z'))).toBe('Lundi 5 janvier 2026')
+    expect(frDateLabel(new Date('2026-12-24T00:00:00Z'))).toBe('Jeudi 24 décembre 2026')
+  })
+
+  it('la forme produite est celle des quatre entrées d’août 2026', () => {
+    const ref = `Le Moniteur · LM2026-SP43-A · ${frDateLabel(new Date('2026-08-21T00:00:00Z'))}`
+    expect(ref).toBe('Le Moniteur · LM2026-SP43-A · Vendredi 21 août 2026')
+  })
+})
