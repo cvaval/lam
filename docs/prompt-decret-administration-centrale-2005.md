@@ -243,11 +243,14 @@ de la Fonction Publique** — un texte distinct, non fourni. Le noter, ne pas l'
 
 ## §10 — Ce que ce prompt ne tranche pas
 
-Trois décisions appartiennent à la rédaction :
+**Une seule** décision appartient encore à la rédaction :
 
 1. **La référence du décret de 2016** — l'homonymie du §3 ;
-2. **Le sort des trois autres textes** du Moniteur n° 21 (RPCV, organes de la Présidence,
-   arrêté ACRA), absents du fichier : Index du Moniteur, ou rien ?
+~~2. Le sort des trois autres textes du Moniteur n° 21~~ — **SANS OBJET, vérifié le 26 août** :
+   les quatre textes du n° 21 sont **déjà à l'Index du Moniteur**, y compris les trois
+   absents du fichier (RPCV, organes de la Présidence, arrêté ACRA). Rien à ajouter.
+   ⚠️ Ils y étaient datés du **1er janvier 2016** au lieu du 1er février — corrigé le
+   26 août (`scripts/corriger-date-index-lm2016-21.ts`). Voir §12.
 ~~3. Le degré de consolidation~~ — **TRANCHÉ le 26 août 2026, et pour TOUT LE CORPUS** :
    voir §11.
 
@@ -315,3 +318,29 @@ Un texte **amendant** n'a pas d'`ArticleVersion` : l'effet vit sur le texte **am
 décret sur les sûretés, celui sur les régimes matrimoniaux, la loi de 2017 sur la signature
 électronique n'en portent aucune — et c'est juste : leurs amendements sont sur le Code civil,
 qui en compte 318. Ne pas les compter comme des manquements.
+
+---
+
+## §12 — ⚠️ 187 fascicules de l'Index portent une date fausse
+
+Trouvé en vérifiant le sort des trois textes du n° 21 : leurs quatre entrées étaient datées
+du **1er janvier 2016**, quand la manchette dit « Lundi 1er Février 2016 ». Le voisinage le
+démontrait sans ouvrir le fascicule — le n° 20 est du 28 janvier, le n° 22 du 2 février : un
+n° 21 au 1er janvier serait paru quatre semaines AVANT son prédécesseur.
+
+Le 1er janvier est le **repli de l'import d'origine** quand la date n'a pas pu être lue.
+
+| | |
+| --- | --- |
+| Fascicules indexés | 8 306 |
+| Datés du 1er janvier | **208** |
+| **Contredits par leur propre prédécesseur** | **187** |
+
+Les 187 sont démontrablement faux : le fascicule qui les précède porte une date postérieure.
+Les 21 restants peuvent être d'authentiques parutions du 1er janvier — à vérifier une à une,
+pas à corriger en bloc.
+
+Le n° 21 de 2016 est corrigé. **Les 186 autres ne le sont pas** : chacun demande qu'on relève
+sa date à la source, ou qu'on l'interpole entre ses voisins. Le script du n° 21 refuse
+d'écrire si la date choisie ne s'insère pas entre le fascicule précédent et le suivant — le
+même garde-fou servirait à un traitement de masse.
