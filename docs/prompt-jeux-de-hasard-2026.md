@@ -239,17 +239,34 @@ et un lecteur du régime d'imposition doit atteindre l'autorité qui délivre le
 
 ---
 
-## §11 bis — ⚠️ LE FICHIER NE S'ARRÊTE PAS AU DÉCRET
+## §11 bis — ✅ L'APPAREIL ÉDITORIAL A ÉTÉ RETIRÉ DES TROIS FICHIERS
 
-Le `.docx` du 43-B contient, APRÈS les signatures ministérielles, les **avis tarifaires des
-Presses Nationales** — tarifs de publication au Moniteur, tarif de l'abonnement annuel 2026,
-coupon, ISSN, tirage. Quatre-vingt-huit lignes qui ne sont pas du décret.
+Les `.docx` ne s'arrêtaient pas au décret : après les signatures ministérielles venaient les
+**avis tarifaires des Presses Nationales** — tarifs de publication au Moniteur, abonnement
+annuel 2026, coupon, ISSN, dépôt légal, tirage. Versées telles quelles, ces lignes feraient
+croire que le décret fiscalise les marques de fabrique à 1 000 Gourdes.
 
-> ⚠️ Le corps doit s'arrêter à la dernière signature. Versées telles quelles, ces lignes
-> feraient croire que le décret fiscalise les marques de fabrique à 1 000 Gourdes.
+**LES TROIS EN PORTAIENT**, à des degrés très différents — c'est pourquoi il fallait les
+vérifier un par un plutôt que de supposer :
 
-Vérifier les deux autres fichiers de la même façon : la fin d'un fascicule spécial porte
-souvent cet appareil éditorial.
+| Fichier | Blocs retirés | dont tableaux | Lignes |
+| --- | --- | --- | --- |
+| Spécial 43 (ANJHA) | 15 | 1 | 302 → 266 |
+| Spécial 43-A | 4 | 0 | 362 → 358 |
+| Spécial 43-B | 19 | **2** | 180 → **92** |
+
+Nettoyés le 26 août. Contrôlé après coupe :
+
+- **33 / 75 / 23 articles intacts** — aucun n'a été emporté ;
+- le bloc de signatures est **complet**, jusqu'au dernier ministre (Vijonet DEMERO) ;
+- plus aucune trace d'appareil (`AVIS RELATIF`, `ISSN`, `Tirage`, `Presses Nationales`) ;
+- les trois fichiers restent des `.docx` **valides et ouvrables**.
+
+⚠️ **La mise en page a été préservée à dessein** : le `<w:sectPr>` final, qui porte le format
+de la page, est conservé — le couper produirait un document que Word rouvre en le
+réparant.
+
+Les originaux sont sauvegardés dans `~/Downloads/_originaux-avant-nettoyage/`.
 
 ---
 
@@ -264,7 +281,7 @@ souvent cet appareil éditorial.
 7. Un renvoi relie chaque texte à son **fascicule** en Éditions Le Moniteur.
 8. **Aucun** `CrossRef` de type `ABROGE` : les clauses sont des balais (§7).
 9. La transcription des trois fascicules en Éditions est **inchangée**.
-10. Le corps s'arrête à la dernière signature — **aucun avis tarifaire** dans le texte (§11 bis).
+10. Le corps s'arrête à la dernière signature — fait en amont, les fichiers sont nettoyés (§11 bis).
 11. `npm test` vert, et le contrôle visuel fait sur les trois fiches.
 
 ---
