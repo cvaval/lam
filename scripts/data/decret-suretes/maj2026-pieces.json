@@ -1,0 +1,169 @@
+{
+  "_lisezMoi": "Inventaire des pièces de la mise à jour 2026 du dossier Décret sûretés 2020 (§§ 7.0, 7.2, 7.10 du prompt du 26 août 2026). Écrit le 26 août 2026 par la tâche 3 (pièces). Toutes les empreintes ci-dessous ont été MESURÉES en séance, aucune recopiée. Aucune écriture en base ni sur le Blob n'a eu lieu — ce fichier prépare les scripts, il ne remplace pas leurs propres gardes : chaque script re-mesure avant d'écrire.",
+  "ecritLe": "2026-08-26",
+
+  "archivage_7_0": {
+    "dossier": "scripts/data/decret-suretes/pieces-2026-08/",
+    "regle": "noms neufs piece-… ; rien d'existant écrasé ; les générations écartées du formulaire (…Inscription.docx du 25 août, …remplissable.pdf, …remplissable_1.pdf) ne sont PAS copiées (§ 2)",
+    "pieces": [
+      {
+        "role": "le .docx du Moniteur — celui qui a servi le 20 juillet (§ 2)",
+        "original": "/Users/cvaval/Downloads/Officiel_Decret_Reformant_le_Droit_des_Suretes_2020-04-09.docx",
+        "copie": "scripts/data/decret-suretes/pieces-2026-08/piece-officiel-decret-suretes-2020-04-09.docx",
+        "octets": 28629,
+        "md5": "00b7ba1d48efd3a7d75ea6664a968a7f"
+      },
+      {
+        "role": "Formulaire RSM-001, version canonique Word du 26 août (§ 2, § 7.10)",
+        "original": "/Users/cvaval/Downloads/Formulaire_RSM-001_Bordereau_Inscription_1.docx",
+        "copie": "scripts/data/decret-suretes/pieces-2026-08/piece-formulaire-rsm001-bordereau-inscription-1.docx",
+        "octets": 179077,
+        "md5": "f56ab2a87638e5c560c1a56fa2fcce4a"
+      },
+      {
+        "role": "Formulaire RSM-001, version canonique PDF remplissable du 26 août (§ 2, § 7.10)",
+        "original": "/Users/cvaval/Downloads/Formulaire_RSM-001_Bordereau_Inscription_remplissable_2.pdf",
+        "copie": "scripts/data/decret-suretes/pieces-2026-08/piece-formulaire-rsm001-bordereau-inscription-remplissable-2.pdf",
+        "octets": 184860,
+        "md5": "6c4dc078a52361f4cf96562c2499a327"
+      },
+      {
+        "role": "texte extrait du .docx du Moniteur (351 lignes : manchette LE MONITEUR… → signatures MOÏSE/JOUTHE, conforme au § 3.2)",
+        "original": "scratchpad de séance (éphémère) : …/scratchpad/suretes/decret.txt",
+        "copie": "scripts/data/decret-suretes/pieces-2026-08/piece-decret-texte-extrait-351p.txt",
+        "octets": 53917,
+        "lignes": 351,
+        "md5": "9aa1dcc79c48dba7db277d707a0669bd"
+      }
+    ],
+    "controle": {
+      "md5CopiesIdentiquesAuxOriginaux": true,
+      "backupBeforeSuretesIntact": {
+        "fichier": "scripts/data/decret-suretes/backup-before-suretes.json",
+        "md5AvantEtApresArchivage": "700265a74a0108971e0073f55be044b7",
+        "octets": 1741742
+      },
+      "etatAnterieurDuDossier": {
+        "annotations.json": "18dd990d5e3d2ae2c26d0c6456635b93",
+        "bodyOriginal.txt": "5deb0115f943ce5688e472ea9f89a7df",
+        "parse_ds.py": "84cfca89058c0a670d17293f2d1e3654"
+      }
+    }
+  },
+
+  "facsimile_7_2": {
+    "piece": "/Users/cvaval/Library/CloudStorage/Dropbox/Moniteur/MONITEURS 2020 InComplet/LES MONITEURS MAI 2020/Le Moniteur Spécial No. 7 Mai 2020.pdf",
+    "octets": 7289690,
+    "md5": "1a6b5a176fc4d2a33a085b2a82cf6096",
+    "pages": 24,
+    "coucheTexte": "AUCUNE — scan pur : extract_text() rend 0 caractère pages 1 et 24 ; page 1 = un seul XObject image (/Im1). Tout arbitrage se fait À L'IMAGE (§ 8.2).",
+    "verificationImage": {
+      "page1": "couverture « Le Moniteur — 175e Année, Spécial N° 7, Jeudi 14 Mai 2020 », SOMMAIRE « DÉCRET RÉFORMANT LE DROIT DES SÛRETÉS » (unique texte du fascicule), NUMÉRO SPÉCIAL, début des visas — rendu en séance, conforme au § 2 ter",
+        "page24": "« AVIS AUX CABINETS D'AVOCATS ET DE NOTAIRES » (renvoi au MCI des dossiers pour erreurs matérielles), signé Ronald SAINT JEAN, achevé d'imprimer Presses Nationales — rendu en séance, conforme au § 2 ter"
+    },
+    "copieEcartee": "« Decret portant Reforme du Droit des Suretes (9 avril 2020).pdf » (1 639 462 o, 20 pages, OCR dégradé) — NE PAS attacher, NE PAS archiver (§ 2 bis, interdit n° 7)",
+    "patronRelu": {
+      "modeles": [
+        "scripts/_attach-imf-pdf.ts (Décret IMF 2020 — premier fac-similé de la plateforme, 30 l.)",
+        "scripts/attacher-facsimile-ir-2005.ts (le patron complet du 25 août — gardes, simulation, état antérieur, audit recompté)"
+      ],
+      "mecanique": [
+        "store Vercel Blob PRIVÉ « lam-pdfs » — jamais servi directement, lecture par la route authentifiée /api/doc/[id]/pdf (session + canReadService + canSeeSourcePdf hors circulaires BRH)",
+        "chemin DÉTERMINISTE source-pdf/legislation/<docId>.pdf + allowOverwrite + addRandomSuffix:false → rejouer le script ne crée pas de second objet",
+        "multipart: true (7 Mo)",
+        "⚠️ jeton : BLOB_READ_WRITE_TOKEN lu de .env et posé EXPLICITEMENT dans process.env AU DÉBUT de main() — sans lui le SDK retombe sur le jeton OIDC (lecture OK, écriture en 500 au put). src/lib/storage/blob.ts lit le jeton À L'APPEL (rwToken()), pas au chargement du module.",
+        "l'upload est HORS transaction (requête réseau) ; blob orphelin sans conséquence car chemin déterministe",
+        "champ écrit : Document.sourcePdfUrl ; champ NON écrit : sourceFileUrl (archive du .docx d'origine — autre décision)"
+      ]
+    },
+    "ceQueLeScriptDevraFaire": [
+      "1. simulation par défaut, --apply lancé par Me Vaval seule (§ 10.1-10.2)",
+      "2. jeton BLOB_READ_WRITE_TOKEN posé explicitement depuis .env, throw s'il manque",
+      "3. garde d'unicité : exactement 1 document source='DECRET_SURETES', id == cmrspgd9h0000yn8emki3dtw6, relire titleFr avant d'écrire (§ 6.1, § 10.6) — JAMAIS de résolution par date (deux décrets du 9 avril 2020 au corpus) ni par titre",
+      "4. empreinte md5 du bodyOriginal en PREMIÈRE assertion (leçon maison)",
+      "5. gardes sur la pièce : octets == 7289690, md5 == 1a6b5a176fc4d2a33a085b2a82cf6096, en-tête %PDF, 24 pages comptées — tout autre fichier sous ce nom = throw",
+      "6. idempotence : si sourcePdfUrl non NULL et non-Blob → throw (ne pas écraser sans lire) ; relevé du 26 août : sourcePdfUrl NULL",
+      "7. état antérieur (sourcePdfUrl, annotationsJson, empreintes) dans un fichier horodaté de scripts/data/decret-suretes/ AVANT toute écriture",
+      "8. upload HORS transaction vers source-pdf/legislation/cmrspgd9h0000yn8emki3dtw6.pdf (multipart) ; puis $transaction({timeout:120000, maxWait:30000}) : document.update(sourcePdfUrl) + audit(DOC_PUBLISHED, empreintes seulement)",
+      "9. HORS transaction : await reindexDocument(docId) — c'est lui qui appelle clearSearchCache()",
+      "10. après transaction : recompter auditLog (audit() avale ses erreurs — catch vide) et RELIRE sourcePdfUrl/bodyOriginal (md5 inchangé) ; le dire dans le rapport",
+      "11. contrôle final § 7.2 : sourcePdfUrl non NULL, le PDF servi fait 7 289 690 octets, la fiche l'affiche comme celle du Décret IMF"
+    ],
+    "noteDePortee": "CONTRAIREMENT à l'IR 2005 (fac-similé amputé aux arts 1-126, deux notes de portée obligatoires), le fascicule Spécial N° 7 est COMPLET : décret p. 1-23 (signatures ministérielles p. 23), p. 23 bas avis PN datant les Spéciaux 2020 (§ 13.7), p. 24 avis aux cabinets. AUCUNE note de couverture n'est requise ; une note de provenance éventuelle est un choix éditorial de la séance principale, pas une obligation du patron.",
+    "rienTeleverse": true
+  },
+
+  "formulaire_7_10": {
+    "decision": "Me Vaval, 26 août 2026 : « C'est la même forme qui est utilisée pour le décret réformant le droit des sûretés. Il doit être traité comme un formulaire qu'on peut télécharger. » — formulaire téléchargeable sur la fiche du décret, DEUX formats ; JAMAIS une annexe du texte, JAMAIS inséré au corps (interdit n° 8).",
+    "verificationDesDeuxFormats": {
+      "docx": {
+        "fichier": "piece-formulaire-rsm001-bordereau-inscription-1.docx",
+        "md5": "f56ab2a87638e5c560c1a56fa2fcce4a",
+        "paragraphesTotal": 145,
+        "detail": "50 ¶ de corps + 95 ¶ en cellules (8 tableaux, 28 cellules) = 145 ; 145 balises <w:p> dans document.xml — CONFORME à l'attendu « 145 ¶ »",
+        "metadonnees": "auteur « Reproduction — DGI / Direction du Registre des Sûretés Mobilières », créé/modifié 2026-08-27T02:16:53Z — reproduction Word, pas l'original DGI",
+        "enTete": "« (Loi No. : CL 2008-007 du 13 Février 2009) » présent — référence à citer TELLE QU'IMPRIMÉE (§ 13.3)"
+      },
+      "pdf": {
+        "fichier": "piece-formulaire-rsm001-bordereau-inscription-remplissable-2.pdf",
+        "md5": "6c4dc078a52361f4cf96562c2499a327",
+        "pages": 2,
+        "formatPage": "612 × 1008 pt",
+        "champs": { "total": 98, "Tx": 67, "Btn": 31 },
+        "annotationsWidgets": { "page1": 70, "page2": 28 },
+        "conforme": "98 champs (67 /Tx + 31 /Btn) — CONFORME à la garde du § 7.10"
+      }
+    },
+    "essaiFiligraneSurCopies": {
+      "emplacement": "scratchpad de séance (éphémère) : …/scratchpad/suretes/test-filigrane/ — AUCUN original touché, copies vérifiées par md5 avant essai",
+      "standardMaisonRelu": {
+        "word": "src/lib/annexes/generate.ts (annexes BRH) : public/brand/Lam_Watermark.png (2400×1067 RGBA, ~10 % d'opacité pré-appliquée) en ImageRun FLOTTANT dans l'en-tête — 380×169 px, centré sur la PAGE (H et V), behindDocument, wrap NONE ; pied de page = mention légale 2 lignes + BRAND.seal · email du téléchargeur · date · n° de page",
+        "pdfExport": "src/lib/pdf/seal.ts (export corpus) construit un PDF NEUF avec pdf-lib — inapplicable tel quel à un PDF remplissable existant ; il n'existait AUCUN standard maison de filigranage d'un PDF à champs avant cet essai"
+      },
+      "docx": {
+        "methode": "copie ouverte avec python-docx ; image ajoutée dans l'en-tête de section puis wp:inline converti en wp:anchor behindDoc=1, positionH/V relativeFrom=page align=center, wrapNone, 380×169 px — mêmes attributs d'ancrage que le patron annexes/generate.ts",
+        "resultat": {
+          "paragraphesAvant": 145,
+          "paragraphesApres": 145,
+          "texteDuCorpsIdentique": true,
+          "header1XmlCree": "wp:anchor behindDoc=1 présent, ancrage page/center vérifié dans le XML",
+          "octets": 265237
+        },
+        "limite": "rendu VISUEL non vérifié (pas de LibreOffice/Word sur cette machine) — la structure OOXML est conforme au patron et python-docx relit le fichier, mais l'apparence à l'écran reste à contrôler avant livraison"
+      },
+      "pdf": {
+        "methode": "page de filigrane 612×1008 construite avec le PNG Lam réduit (760×338, 29 431 o) centré à 285 pt de large (proportions du standard Word) ; pypdf PdfWriter(clone_from=reader) — clone intégral, AcroForm compris — puis page.merge_page(filigrane, over=False) sur chacune des 2 pages : filigrane SOUS le contenu",
+        "gardeExecutee": {
+          "avant": { "total": 98, "Tx": 67, "Btn": 31 },
+          "apres": { "total": 98, "Tx": 67, "Btn": 31 },
+          "nomsDeChampsIdentiques": true,
+          "pages": 2,
+          "annotationsWidgets": "70 + 28 = 98, inchangées"
+        },
+        "renduVisuel": "page 1 rendue en séance : formulaire intact (en-tête DGI, 4 sections, cases, zones bleues), filigrane Lam discret visible au centre entre les champs",
+        "poids": "185 Ko → 1 227 125 o avec PNG réduit (10,4 Mo avec le PNG pleine taille — TOUJOURS réduire l'image avant insertion) ; optimisation supplémentaire possible (compress_content_streams), non indispensable"
+      }
+    },
+    "verdict": "FILIGRANE POSSIBLE SUR LES DEUX FORMATS. PDF : le filigranage par pypdf clone_from + merge_page(over=False) PRÉSERVE les 98 champs (67 /Tx + 31 /Btn, noms identiques) — garde get_fields() exécutée avant/après en séance. La règle du § 7.10 reste IMPÉRATIVE dans le script de production : rejouer pypdf.PdfReader(f).get_fields() == 98 (67 /Tx, 31 /Btn) APRÈS tout traitement, quel que soit l'outil ; s'il en rend moins, le traitement a détruit le formulaire → livrer l'original tel quel. Word : filigrane appliqué sans toucher au corps (145 ¶, texte identique) ; rendu visuel à contrôler faute de LibreOffice ici.",
+    "ceQueLeScriptDevraFaire": [
+      "1. partir des DEUX canoniques archivées (md5 f56ab2a8… et 6c4dc078…) — jamais des générations écartées",
+      "2. .docx : filigrane Lam du standard annexes (ancre behindDoc centrée page, 380×169 px, public/brand/Lam_Watermark.png) ; asserter 145 ¶ et texte du corps identique avant/après",
+      "3. PDF : filigrane sous le contenu avec image RÉDUITE ; garde bloquante get_fields() == 98 (67 /Tx, 31 /Btn) + noms identiques, sinon livrer l'original (§ 7.10, interdit n° 8)",
+      "4. rattachement à la fiche du décret (résolue par source='DECRET_SURETES' uniquement) comme DOCUMENT PRATIQUE TÉLÉCHARGEABLE, patron annexes maison, route authentifiée — le corps du décret reste byte-identique (contrôle § 7.10)",
+      "5. encadré éditorial : les cinq points (a)-(e) ci-dessous, tels quels — rien de non prouvé",
+      "6. simulation par défaut ; --apply par Me Vaval seule ; upload Blob avec BLOB_READ_WRITE_TOKEN explicite si les fichiers vont au Blob"
+    ],
+    "encadreEditorial": {
+      "a": "formulaire administratif DGI/MEF — le formulaire en usage pour les inscriptions au Registre des Sûretés Mobilières, non annexé au texte du décret",
+      "b": "deux formats, Word et PDF remplissable",
+      "c": "reproduction, non l'original DGI",
+      "d": "l'en-tête du formulaire vise « Loi No. : CL 2008-007 du 13 Février 2009 » [réf. telle qu'imprimée sur le bordereau]",
+      "e": "l'arrêté du Premier Ministre prévu au nouvel art. 1839 n'est pas au corpus",
+      "regle": "la référence « CL 2008-007 » se cite TELLE QU'IMPRIMÉE, sans l'identifier à la Loi du 27 novembre 2008 — correspondance plausible mais NON vérifiée sur le J.O. de 2009 (§ 13.3)"
+    },
+    "pointsOuvertsPourLaSeancePrincipale": [
+      "le pied de page du standard annexes tatoue l'identité du TÉLÉCHARGEUR (downloaderEmail) — mécanique par-téléchargement de /api/doc/[id]/annexes ; un fichier filigrané STATIQUE ne peut pas la porter : servir à la volée (patron annexes) ou statique sans tatouage nominatif, c'est un choix d'implémentation à trancher, pas tranché ici",
+      "le rendu visuel du .docx filigrané reste à contrôler sur un poste avec Word/LibreOffice avant toute livraison"
+    ]
+  }
+}

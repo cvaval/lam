@@ -1,0 +1,40 @@
+{
+  "_lisezMoi": "État de la fiche AVANT scripts/attacher-pieces-suretes.ts --apply. Ni le corps ni annotationsJson ne sont touchés ; seuls sourcePdfUrl et metaJson changent.",
+  "ecritLe": "2026-08-27T04:07:07.893Z",
+  "id": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "md5BodyOriginal": "94b8b6ac0bac0b13885af0819e6ea524",
+  "etatDuCorps": "état après scripts/maj-decret-suretes-2020.ts (tête de l’art. 600 restaurée — prouvé par substitution inverse)",
+  "md5AnnotationsJson": "c419bf0583c58a31104930745f876bf0",
+  "sourcePdfUrl": null,
+  "sourceFileUrl": null,
+  "metaJson": null,
+  "facsimile": {
+    "chemin": "/Users/cvaval/Library/CloudStorage/Dropbox/Moniteur/MONITEURS 2020 InComplet/LES MONITEURS MAI 2020/Le Moniteur Spécial No. 7 Mai 2020.pdf",
+    "octets": 7289690,
+    "pages": 24,
+    "md5": "1a6b5a176fc4d2a33a085b2a82cf6096",
+    "blob": "source-pdf/legislation/cmrspgd9h0000yn8emki3dtw6.pdf"
+  },
+  "formulaire": {
+    "docx": {
+      "canonique": "/Users/cvaval/Library/CloudStorage/Dropbox/Lam Veritab/lam-veritab/scripts/data/decret-suretes/pieces-2026-08/piece-formulaire-rsm001-bordereau-inscription-1.docx",
+      "md5": "f56ab2a87638e5c560c1a56fa2fcce4a",
+      "livre": "filigrané",
+      "md5Livre": "b8425a94447aa10172120032a2bff58f",
+      "blob": "formulaires/legislation/cmrspgd9h0000yn8emki3dtw6/rsm-001-bordereau-inscription.docx"
+    },
+    "pdf": {
+      "canonique": "/Users/cvaval/Library/CloudStorage/Dropbox/Lam Veritab/lam-veritab/scripts/data/decret-suretes/pieces-2026-08/piece-formulaire-rsm001-bordereau-inscription-remplissable-2.pdf",
+      "md5": "6c4dc078a52361f4cf96562c2499a327",
+      "livre": "filigrané",
+      "md5Livre": "8158b7c7feced231b464a3526d8ded3f",
+      "champs": {
+        "total": 98,
+        "tx": 67,
+        "btn": 31
+      },
+      "blob": "formulaires/legislation/cmrspgd9h0000yn8emki3dtw6/rsm-001-bordereau-inscription-remplissable.pdf"
+    }
+  }
+}
