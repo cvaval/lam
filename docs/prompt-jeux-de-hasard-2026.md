@@ -11,11 +11,16 @@ Huit fichiers dans `~/Downloads/` :
 | --- | --- | --- | --- |
 | **Spécial 43** — ANJHA | `Le_Moniteur_Special_No_43_21_aout_2026_ANJHA.docx` | `Sommaire_Decret_ANJHA_11_aout_2026.docx` | `Index_Mots_Cles_Decret_ANJHA.docx` |
 | **Spécial 43-A** — réglementation | `Le_Moniteur_Special_43-A_Decret_Jeux_de_Hasard.docx` | `Sommaire_Decret_Jeux_de_Hasard_43-A.docx` | `Index_Mots-Cles_Decret_Jeux_de_Hasard_43-A.docx` |
-| **Spécial 43-B** — imposition | `Le_Moniteur_Special_43-B_21_aout_2026.docx` | `Sommaire_Decret_11_aout_2026_Jeux_de_hasard.docx` | ⚠️ **AUCUN** |
+| **Spécial 43-B** — imposition | `Le_Moniteur_Special_43-B_21_aout_2026.docx` | `Sommaire_Decret_11_aout_2026_Jeux_de_hasard.docx` | ✅ `Index_Mots_Cles_Decret_Jeux_de_Hasard_43-B.docx` |
 
-> ⚠️ **HUIT FICHIERS, PAS NEUF : le décret 43-B n'a pas d'index.** Ce n'est pas un oubli de
-> lecture — il n'y en a pas dans la livraison. Le signaler à la rédaction ; ne pas en
-> fabriquer un d'office.
+> ⚠️ **LE NEUVIÈME FICHIER N'EXISTAIT PAS : il a été ÉTABLI le 26 août**, sur demande de la
+> rédaction. Le décret 43-B était livré sans index de mots-clés, quand ses deux frères en
+> avaient un. Relevé article par article sur le texte : **50 entrées, 17 lettres-vedettes**.
+>
+> ✔ **Couverture vérifiée : 23 articles sur 23 cités, aucun renvoi mort.** Les montants sont
+> rappelés entre parenthèses là où ils caractérisent la rubrique — « Amende : art. 4.4
+> (20 000 G) ; art. 4.5 (500 000 G) ; art. 10 (1 000 000 G) ». « Préambule » vise les visas
+> et les considérants, comme dans l'index du 43-A.
 
 ---
 
@@ -193,11 +198,31 @@ Vérifié : ni « jeux », ni « hasard », ni « loterie » n'existent dans la 
 Racines disponibles : `Droit économique & des affaires`, `Droit fiscal & douanier`,
 `Droit public & administratif`, `Social`.
 
-**Proposition** — un thème « Jeux de hasard et d'argent » sous `Droit économique & des
-affaires`, où vivent déjà `Fiscalité` (29 textes) et les activités réglementées ; le décret
-d'imposition (43-B) portant EN PLUS `Droit fiscal & douanier › Fiscalité / impôts (DGI)`
-(18 textes). **À valider par la rédaction avant création** : un thème se crée par son
-libellé, et l'arbre est une frontière éditoriale.
+✅ **LA BRANCHE EST OUVERTE** (26 août, `scripts/theme-jeux-de-hasard.ts`) — seizième
+enfant du Droit économique & des affaires, après ses quinze aînés :
+
+```
+Droit économique & des affaires
+└── Jeux de hasard et d'argent
+    ├── Autorité de régulation (ANJHA)              → décret 43
+    ├── Réglementation, licences & exploitation     → décret 43-A
+    ├── Fiscalité des jeux                          → décret 43-B
+    └── Loterie de l'État & casinos                 → textes de 1958 et 1960, à verser
+```
+
+⚠️ **QUATRE SOUS-THÈMES, ET C'EST LA MATIÈRE QUI LES DICTE.** L'arbre reste plat là où le
+volume ne justifie rien — Assurances (2 textes), Tourisme (1), Droit minier (1) sont des
+feuilles ; les circulaires de la BRH se divisent sur deux axes parce qu'elles sont 142. Ici,
+les trois décrets de 2026 SONT trois matières distinctes — qui régule, ce qui est permis, ce
+qui est dû —, et les textes de 1958 et 1960 forment un quatrième massif, antérieur.
+
+⚠️ **« Fiscalité des jeux » n'est pas un doublon de « Fiscalité »** (29 textes, même niveau) :
+l'un est la matière générale, l'autre la fiscalité PROPRE aux jeux. Le rattachement étant
+M:N, le décret 43-B peut porter les deux — et en outre `Droit fiscal & douanier ›
+Fiscalité / impôts (DGI)` (18 textes).
+
+Les libellés existent dans les trois langues. **Aucun document n'y est encore rattaché** :
+les trois décrets ne sont pas versés en Législation annotée.
 
 ---
 
@@ -214,6 +239,20 @@ et un lecteur du régime d'imposition doit atteindre l'autorité qui délivre le
 
 ---
 
+## §11 bis — ⚠️ LE FICHIER NE S'ARRÊTE PAS AU DÉCRET
+
+Le `.docx` du 43-B contient, APRÈS les signatures ministérielles, les **avis tarifaires des
+Presses Nationales** — tarifs de publication au Moniteur, tarif de l'abonnement annuel 2026,
+coupon, ISSN, tirage. Quatre-vingt-huit lignes qui ne sont pas du décret.
+
+> ⚠️ Le corps doit s'arrêter à la dernière signature. Versées telles quelles, ces lignes
+> feraient croire que le décret fiscalise les marques de fabrique à 1 000 Gourdes.
+
+Vérifier les deux autres fichiers de la même façon : la fin d'un fascicule spécial porte
+souvent cet appareil éditorial.
+
+---
+
 ## §12 — Contrôles avant de déclarer le travail fini
 
 1. **33 + 75 + 23 = 131 articles** en base, dont **23 décimaux** — recompter par forme.
@@ -225,15 +264,16 @@ et un lecteur du régime d'imposition doit atteindre l'autorité qui délivre le
 7. Un renvoi relie chaque texte à son **fascicule** en Éditions Le Moniteur.
 8. **Aucun** `CrossRef` de type `ABROGE` : les clauses sont des balais (§7).
 9. La transcription des trois fascicules en Éditions est **inchangée**.
-10. `npm test` vert, et le contrôle visuel fait sur les trois fiches.
+10. Le corps s'arrête à la dernière signature — **aucun avis tarifaire** dans le texte (§11 bis).
+11. `npm test` vert, et le contrôle visuel fait sur les trois fiches.
 
 ---
 
 ## §13 — Ce que ce prompt ne tranche pas
 
-1. **Le thème** — création de « Jeux de hasard et d'argent » et son rattachement (§10).
+~~1. Le thème~~ — **FAIT le 26 août** : la branche « Jeux de hasard et d'argent » est ouverte
+   sous Droit économique & des affaires, avec quatre sous-thèmes (§10).
 2. **Le sommaire analytique de 43-B** — table des matières ou colonne « objet » (§4).
 3. **Les renvois d'index au point d'énumération** — ancre d'article ou ancre de point (§5).
-4. **L'index manquant du 43-B** — en commander un, ou verser le décret sans (§ en-tête).
 5. **Les deux textes fondateurs absents** — Loterie de l'État (1958), casinos (1960) : à
    verser pour que les visas cessent d'être des renvois morts (§6).
