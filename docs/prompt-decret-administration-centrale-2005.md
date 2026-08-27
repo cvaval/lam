@@ -82,10 +82,17 @@ Moniteur** (n° 20 le 29 janvier, n° 21 le 1ᵉʳ février). L'existant porte d
 `number`, l'intitulé exact que le nouveau prendrait naturellement — et il est déjà rattaché
 aux deux mêmes thèmes.
 
-> ⚠️ **NE PAS RÉUTILISER `number: 'Décret du 6 janvier 2016'`.** Deux textes sous une même
-> référence, c'est le défaut qui a mis 51 fascicules de 2025 sous l'identité de leur voisin.
-> Distinguer par l'objet : `Décret du 6 janvier 2016 (amendement — Administration Centrale)`,
-> ou par le Moniteur : `LM2016-21`. **Décision de la rédaction à prendre avant d'écrire.**
+> ✅ **TRANCHÉ le 26 août : LA RÉFÉRENCE EST LE TITRE COMPLET**, à moins d'indication
+> contraire. Les deux décrets ont des titres distincts : l'homonymie se dissout d'elle-même.
+>
+> | | |
+> | --- | --- |
+> | L'existant | `Décret du 6 janvier 2016 reconnaissant le droit de tout administré à s'adresser à l'administration publique par des moyens électroniques` |
+> | **Celui-ci** | `Décret du 6 janvier 2016 portant amendement du Décret du 17 mai 2005 portant organisation de l'Administration Centrale de l'État` |
+>
+> La règle vaut pour tout le corpus et a été appliquée : **110 textes** ont retrouvé leur
+> titre complet le 26 août (`scripts/reference-titre-complet.ts`). Onze conventions
+> internationales portaient jusque-là la seule référence « Convention ».
 
 ⚠️ Vérifier aussi qu'aucun des deux décrets n'est déjà versé sous une autre source : le
 thème `administration-centrale` existe et porte déjà ce document.
@@ -243,9 +250,9 @@ de la Fonction Publique** — un texte distinct, non fourni. Le noter, ne pas l'
 
 ## §10 — Ce que ce prompt ne tranche pas
 
-**Une seule** décision appartient encore à la rédaction :
+**Aucune décision ne reste en suspens.** Pour mémoire, les trois qui se posaient :
 
-1. **La référence du décret de 2016** — l'homonymie du §3 ;
+~~1. La référence du décret de 2016~~ — **tranchée** : le titre complet (§3).
 ~~2. Le sort des trois autres textes du Moniteur n° 21~~ — **SANS OBJET, vérifié le 26 août** :
    les quatre textes du n° 21 sont **déjà à l'Index du Moniteur**, y compris les trois
    absents du fichier (RPCV, organes de la Présidence, arrêté ACRA). Rien à ajouter.
