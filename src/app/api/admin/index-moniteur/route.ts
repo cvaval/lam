@@ -22,7 +22,14 @@ export const runtime = 'nodejs'
  * (le moteur de recherche et le regroupement par édition en dépendent).
  */
 function editionNumber(annee: number, numero: string, special: boolean): string {
-  const n = numero.trim().replace(/^SP/i, '').replace(/\s+/g, '')
+  const brut = numero.trim().replace(/^SP/i, '').replace(/\s+/g, '')
+  // ⚠️ LE SUFFIXE SE NORMALISE, IL NE SE RECOPIE PAS. La saisie décidait de la ponctuation :
+  // « 43-A » donnait LM2026-SP43-A, « 43A » donnait LM2026-SP43A — deux graphies du MÊME
+  // fascicule. C'est cette cohabitation qui a fait recréer 73 éditions spéciales en double
+  // le 17 août, et qui a demandé de renuméroter 130 références à la main. Un opérateur
+  // pressé ne doit pas pouvoir la rouvrir : « 43a », « 43 A », « 43-a » donnent tous 43-A.
+  const m = /^(\d+)-?([A-Za-z])?$/.exec(brut)
+  const n = m ? `${m[1]}${m[2] ? `-${m[2].toUpperCase()}` : ''}` : brut
   return special ? `LM${annee}-SP${n}` : `LM${annee}-${n}`
 }
 function frDateLabel(d: Date): string {
