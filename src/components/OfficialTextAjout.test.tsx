@@ -49,6 +49,18 @@ describe('pastille « Ajout — … »', () => {
   })
 
   /**
+   * ⚠️ SITWON EST RATIONNÉ À UNE OCCURRENCE PAR ÉCRAN (charte Klinik v3, avenant AV-02) et
+   * appartient au CERTIFICATEUR — statut « Abrogé », alerte de certification. Un décret
+   * modificatif insère quatre articles d'un coup : la pastille reste NEUTRE.
+   */
+  it('la pastille n’emprunte AUCUN accent de marque', () => {
+    const html = rendu({ text: CORPS, addedAnchors: AJOUT })
+    expect(html).not.toMatch(/bg-sitwon|bg-wouj|text-sitwon|text-wouj/)
+    expect(html).toContain('border-liy-fonse')
+    expect(html).toContain('bg-pil')
+  })
+
+  /**
    * ⚠️ « ✎ modifié » renvoie à l'historique (#hist-art-N) — un article ajouté n'en a pas.
    * Le marqueur y mènerait à une ancre morte, et affirmerait une ancienne rédaction qui
    * n'a jamais existé.
@@ -59,6 +71,18 @@ describe('pastille « Ajout — … »', () => {
     const apres231 = html.slice(html.indexOf('id="art-23-1"'))
     expect(apres231).not.toContain('✎ modifié')
     expect(apres231).toContain('Ajout —')
+  })
+
+  /**
+   * ⚠️ Placée en fin de paragraphe, la pastille atterrissait quinze lignes sous la tête de
+   * l'article 23.1 — parfois seule sur sa ligne. Elle s'adresse à qui PARCOURT les têtes.
+   */
+  it('la pastille suit le NUMÉRO de l’article, pas la fin du paragraphe', () => {
+    const html = rendu({ text: CORPS, addedAnchors: AJOUT })
+    const i = html.indexOf('Ajout —')
+    expect(html.slice(0, i)).toContain('Article 23.1.-')
+    expect(html.slice(0, i)).not.toContain('Le Secrétariat Général comprend')
+    expect(html.slice(i)).toContain('Le Secrétariat Général comprend')
   })
 
   it('sans ajout déclaré, le rendu est inchangé', () => {

@@ -158,17 +158,45 @@ export function OfficialText({
    * — l'amendement à l'Administration Centrale et celui sur l'administration électronique,
    * publiés dans deux Moniteurs consécutifs. La date seule ne désigne donc RIEN : le titre
    * complet est dans l'infobulle, et la destination lève l'ambiguïté pour de bon.
+   *
+   * ⚠️ ET ELLE EST NEUTRE — PAS EN SITWON. Sitwon est le trait du CERTIFICATEUR (statut
+   * « Abrogé », alerte de certification), RATIONNÉ à une occurrence d'interface par écran
+   * (charte Klinik v3, avenant AV-02). Un décret modificatif en insère quatre d'un coup, sur
+   * une page qui affiche déjà cinq articles abrogés : l'accent y perdrait tout son sens.
+   * La pastille emprunte donc le vocabulaire NEUTRE des pastilles de type — filet Liy fonsé,
+   * fond Pil, texte Chabon (`TYPE_CHIP`).
    */
+  // Tête d'article, pour glisser la pastille JUSTE APRÈS le numéro : « Article 23.1.- ».
+  const TETE_ART = /^((?:Article|Art)\.?\s+\S{1,12}?\s*\.?\s*[—–-]\s*)/
+
+  /**
+   * Le corps d'un article, pastille d'ajout comprise.
+   *
+   * ⚠️ LA PASTILLE SE PLACE APRÈS LE NUMÉRO, PAS EN FIN DE PARAGRAPHE. Mise à la suite du
+   * texte — comme le discret « ✎ modifié » —, elle atterrissait quinze lignes plus bas, à la
+   * fin d'une énumération, parfois seule sur sa ligne : le lecteur qui parcourt les têtes
+   * d'articles ne la voyait pas, et c'est précisément à lui qu'elle s'adresse.
+   */
+  function articleBody(textValue: string, id: string | undefined) {
+    const chip = addMark(id)
+    if (!chip) return render(textValue)
+    const m = TETE_ART.exec(textValue)
+    if (!m) return [render(textValue), chip]
+    return [<span key="t">{render(m[1])}</span>, chip, <span key="r"> {render(textValue.slice(m[1].length))}</span>]
+  }
+
   function addMark(id: string | undefined) {
     const a = id ? addedAnchors?.get(id) : undefined
     if (!a) return null
-    const cls = 'ml-2 inline-block rounded-full bg-sitwon px-2 py-0.5 align-middle text-[11px] font-semibold text-chabon no-underline'
+    const cls =
+      'ml-2 inline-block rounded-md border border-liy-fonse bg-pil px-1.5 py-0.5 align-middle ' +
+      'text-[11px] font-semibold leading-none text-chabon no-underline'
     return a.href ? (
-      <Link href={a.href} className={`${cls} hover:underline`} title={a.title}>
+      <Link key="ajout" href={a.href} className={`${cls} hover:border-chabon hover:underline`} title={a.title}>
         {a.label}
       </Link>
     ) : (
-      <span className={cls} title={a.title}>
+      <span key="ajout" className={cls} title={a.title}>
         {a.label}
       </span>
     )
@@ -377,9 +405,8 @@ export function OfficialText({
         const id = headingAnchor(b.text)
         return (
           <p key={key} id={id} className="scroll-mt-24 pt-1.5 font-semibold text-ank">
-            {render(b.text)}
+            {articleBody(b.text, id)}
             {amendMark(id)}
-            {addMark(id)}
           </p>
         )
       }
@@ -388,9 +415,8 @@ export function OfficialText({
       const pid = headingAnchor(b.text)
       return (
         <p key={key} id={pid} className={pid ? 'scroll-mt-24' : undefined}>
-          {render(b.text)}
+          {articleBody(b.text, pid)}
           {amendMark(pid)}
-          {addMark(pid)}
         </p>
       )
     })
