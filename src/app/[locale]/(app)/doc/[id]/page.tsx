@@ -70,6 +70,10 @@ const HIDE_INLINE_INDEX_SOURCES = new Set([
   'LOI_LOTERIE_LEH_1958', 'LOI_LOTERIE_LEH_REFORME_1958', 'DECRET_CASINOS_1960',
   'ARRETE_LEH_PERSONNEL_1960', 'DECRET_ANJHA_2026', 'DECRET_JEUX_HASARD_2026',
   'DECRET_JEUX_IMPOSITION_2026',
+  // Administration Centrale de l'État — le décret de 2005 et son amendement de 2016. Trois
+  // conventions de numérotation dans le seul texte de 2005 : entière, décimale, et cinq
+  // articles À TIRET (163-1 à 163-3, 169-1, 169-2).
+  'DECRET_ADMIN_CENTRALE_2005', 'DECRET_ADMIN_CENTRALE_AMEND_2016',
 ])
 const ART_REFS_SOURCES = new Set([
   // Le Code civil renvoie en toutes lettres à ses propres articles (« conformément à
@@ -99,6 +103,10 @@ const ART_REFS_SOURCES = new Set([
   'LOI_LOTERIE_LEH_1958', 'LOI_LOTERIE_LEH_REFORME_1958', 'DECRET_CASINOS_1960',
   'ARRETE_LEH_PERSONNEL_1960', 'DECRET_ANJHA_2026', 'DECRET_JEUX_HASARD_2026',
   'DECRET_JEUX_IMPOSITION_2026',
+  // Administration Centrale de l'État — le décret de 2005 et son amendement de 2016. Trois
+  // conventions de numérotation dans le seul texte de 2005 : entière, décimale, et cinq
+  // articles À TIRET (163-1 à 163-3, 169-1, 169-2).
+  'DECRET_ADMIN_CENTRALE_2005', 'DECRET_ADMIN_CENTRALE_AMEND_2016',
 ])
 /** Pliable intitulé « Annotations » plutôt que « Jurisprudence » : le bloc ne porte pas que
  *  des arrêts. Code civil et Code de commerce y joignent les commentaires de l'auteur ; le
