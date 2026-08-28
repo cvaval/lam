@@ -64,6 +64,12 @@ const HIDE_INLINE_INDEX_SOURCES = new Set([
   'CIRC_BRH_105_2', 'CIRC_BRH_117_1', 'CIRC_BRH_127', 'AVIS_LD_AGENTS_CHANGE_2020',
   // Code de procédure civile : renvois internes « article N » (anti-lien-mort).
   'CODE_PROCEDURE_CIVILE',
+  // Jeux de hasard et d'argent — sept textes de 1958 à 2026. Le corpus se lit d'un bloc :
+  // la loi organique de 1958 et le décret des casinos de 1960 portent leurs amendements et
+  // leurs abrogations en pliable, les trois décrets de 2026 renvoient à ce qu'ils remplacent.
+  'LOI_LOTERIE_LEH_1958', 'LOI_LOTERIE_LEH_REFORME_1958', 'DECRET_CASINOS_1960',
+  'ARRETE_LEH_PERSONNEL_1960', 'DECRET_ANJHA_2026', 'DECRET_JEUX_HASARD_2026',
+  'DECRET_JEUX_IMPOSITION_2026',
 ])
 const ART_REFS_SOURCES = new Set([
   // Le Code civil renvoie en toutes lettres à ses propres articles (« conformément à
@@ -87,6 +93,12 @@ const ART_REFS_SOURCES = new Set([
   'CIRC_BRH_105_2', 'CIRC_BRH_117_1', 'CIRC_BRH_127', 'AVIS_LD_AGENTS_CHANGE_2020',
   // Code de procédure civile : renvois internes « article N » (anti-lien-mort).
   'CODE_PROCEDURE_CIVILE',
+  // Jeux de hasard et d'argent — sept textes de 1958 à 2026. Le corpus se lit d'un bloc :
+  // la loi organique de 1958 et le décret des casinos de 1960 portent leurs amendements et
+  // leurs abrogations en pliable, les trois décrets de 2026 renvoient à ce qu'ils remplacent.
+  'LOI_LOTERIE_LEH_1958', 'LOI_LOTERIE_LEH_REFORME_1958', 'DECRET_CASINOS_1960',
+  'ARRETE_LEH_PERSONNEL_1960', 'DECRET_ANJHA_2026', 'DECRET_JEUX_HASARD_2026',
+  'DECRET_JEUX_IMPOSITION_2026',
 ])
 /** Pliable intitulé « Annotations » plutôt que « Jurisprudence » : le bloc ne porte pas que
  *  des arrêts. Code civil et Code de commerce y joignent les commentaires de l'auteur ; le
