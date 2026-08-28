@@ -7,7 +7,19 @@ const overlay = (anchor: string, body: string): ArticleOverlay => ({
   label: null,
   inForce: { body } as any,
   history: [],
+  added: null,
   amended: true,
+  abrogated: false,
+})
+
+/** Article INSÉRÉ par un texte modificatif : sa rédaction est déjà dans le corps. */
+const ajout = (anchor: string, par: string): ArticleOverlay => ({
+  anchor,
+  label: null,
+  inForce: null,
+  history: [],
+  added: { body: '', amendedByNumber: par } as any,
+  amended: false,
   abrogated: false,
 })
 
@@ -30,6 +42,17 @@ describe('applyAmendments', () => {
   })
   it('sans amendement, renvoie le corps inchangé', () => {
     expect(applyAmendments(body, new Map())).toBe(body)
+  })
+
+  /**
+   * ⚠️ LE PIÈGE DE LA PASTILLE. Un article ajouté porte une ligne d'overlay pour NOMMER
+   * l'acte qui l'a inséré — pas pour remplacer quoi que ce soit. Sans la garde, l'overlay
+   * (inForce vide, abrogated faux) retombait sur le cas général ; à la moindre évolution du
+   * repli, il réduirait l'article à son seul libellé.
+   */
+  it('un article seulement AJOUTÉ laisse le corps intact', () => {
+    const map = new Map<string, ArticleOverlay>([['art-2', ajout('art-2', 'D. du 6 janvier 2016')]])
+    expect(applyAmendments(body, map)).toBe(body)
   })
 })
 

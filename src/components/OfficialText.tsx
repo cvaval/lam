@@ -65,6 +65,7 @@ export function OfficialText({
   locale = 'fr',
   terms,
   amendedAnchors,
+  addedAnchors,
   noAnchors = false,
   civRefs = false,
   artRefs,
@@ -81,6 +82,10 @@ export function OfficialText({
   terms?: string[]
   /** ancres d'articles amendés → marqueur « ✎ modifié » renvoyant vers l'historique. */
   amendedAnchors?: Set<string>
+  /** Ancres d'articles INSÉRÉS par un texte modificatif → pastille « Ajout — … » qui nomme
+   *  l'acte et y renvoie. Un article ajouté n'a pas d'ancienne version : il ne porte donc
+   *  jamais « ✎ modifié », et rien à déplier. */
+  addedAnchors?: Map<string, { label: string; title: string; href?: string }>
   /** supprime l'émission d'ancres #art-N (ex. articles d'annexe à numérotation propre,
    *  pour ne pas dupliquer les id des articles du Code). */
   noAnchors?: boolean
@@ -142,6 +147,30 @@ export function OfficialText({
       <a href={`#hist-${id}`} className="ml-1.5 align-super text-[10px] font-semibold text-chabon no-underline hover:underline" title="Article amendé — voir l'historique">
         ✎ modifié
       </a>
+    )
+  }
+
+  /**
+   * Pastille « Ajout — Décret du 6 janvier 2016 » sur un article INSÉRÉ par un texte
+   * modificatif. Elle dit ce que le corps ne dit plus : l'article n'était pas là à l'origine.
+   *
+   * ⚠️ ELLE EST UN LIEN, ET C'EST NÉCESSAIRE. Deux décrets ont été signés le 6 janvier 2016
+   * — l'amendement à l'Administration Centrale et celui sur l'administration électronique,
+   * publiés dans deux Moniteurs consécutifs. La date seule ne désigne donc RIEN : le titre
+   * complet est dans l'infobulle, et la destination lève l'ambiguïté pour de bon.
+   */
+  function addMark(id: string | undefined) {
+    const a = id ? addedAnchors?.get(id) : undefined
+    if (!a) return null
+    const cls = 'ml-2 inline-block rounded-full bg-sitwon px-2 py-0.5 align-middle text-[11px] font-semibold text-chabon no-underline'
+    return a.href ? (
+      <Link href={a.href} className={`${cls} hover:underline`} title={a.title}>
+        {a.label}
+      </Link>
+    ) : (
+      <span className={cls} title={a.title}>
+        {a.label}
+      </span>
     )
   }
 
@@ -350,6 +379,7 @@ export function OfficialText({
           <p key={key} id={id} className="scroll-mt-24 pt-1.5 font-semibold text-ank">
             {render(b.text)}
             {amendMark(id)}
+            {addMark(id)}
           </p>
         )
       }
@@ -360,6 +390,7 @@ export function OfficialText({
         <p key={key} id={pid} className={pid ? 'scroll-mt-24' : undefined}>
           {render(b.text)}
           {amendMark(pid)}
+          {addMark(pid)}
         </p>
       )
     })

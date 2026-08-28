@@ -9,14 +9,23 @@
  * ⚠️ UN ARTICLE AJOUTÉ NE PEUT PAS ÊTRE UN OVERLAY. `applyAmendments` REMPLACE le segment
  * d'une ancre existante ; il n'insère rien. Les articles 23.1, 23.2, 23.3 et 29.2 n'existent
  * pas dans le texte de 2005 : posés en `ArticleVersion`, ils ne s'afficheraient nulle part,
- * en silence. Ils entrent donc dans le CORPS, à leur rang, marqués de leur source — comme
- * les 57 articles neufs que le décret des sûretés a insérés au Code civil.
+ * en silence. Ils entrent donc dans le CORPS, à leur rang — comme les 57 articles neufs que
+ * le décret des sûretés a insérés au Code civil.
+ *
+ * ⚠️ ET LEUR PROVENANCE NE S'ÉCRIT PAS DANS LE CORPS. La marquer « Article 23.1.- (D. du
+ * 6 janvier 2016) … » prêterait au décret une mention qu'il n'imprime pas (§02). Elle est
+ * portée par une ligne `AJOUTE` (addArticle) que le lecteur rend en PASTILLE, cliquable
+ * vers l'acte modificatif. Les codes consolidés d'Haïti, eux, IMPRIMENT cette parenthèse —
+ * Code pénal, Code d'instruction criminelle, CFPB : celles-là sont du texte officiel.
  *
  * ⚠️ ET 29.1 EXISTE DÉJÀ dans le texte de 2005 : le 29.2 s'y enchaîne, il ne le remplace pas.
+ *
+ * Le script est REJOUABLE : chaque écriture vérifie d'abord si elle a déjà eu lieu.
  */
 import { PrismaClient } from '@prisma/client'
 import { buildSearchText, fold } from '../src/lib/search/normalize'
 import { articleAnchorFromHeading } from '../src/lib/doc/anchors'
+import { addArticle } from '../src/lib/legislation/amendments'
 import { audit } from '../src/lib/auth/audit'
 
 const prisma = new PrismaClient()
@@ -31,6 +40,10 @@ const AJOUTES = [
   { num: '29.2', apres: '29.1' },
 ]
 const ABROGES = ['110', '111', '112', '114', '115']
+
+/** Désignation courte (pastille) et marqueur qui a pu être écrit dans le corps par erreur. */
+const ACTE_COURT = 'Décret du 6 janvier 2016'
+const MARQUEUR = /^(Article\s+[\d.]+\s*\.?-\s*)\((?:D\.|Décret) du 6 janvier 2016\)\s*/
 
 /** Le bloc d'un article dans un corps, de sa tête à la tête suivante. */
 function bloc(body: string, num: string): { d: number; f: number; texte: string } | null {
@@ -75,15 +88,28 @@ async function main() {
 
   console.log('DÉCRET DU 6 JANVIER 2016 — quinze interventions\n')
 
-  // ── 1. Les AJOUTS entrent dans le corps, à leur rang ─────────────────────────────────
+  // ── 1. Les AJOUTS entrent dans le corps, à leur rang — SANS marqueur de provenance ───
   const inseres: string[] = []
+  const demarques: string[] = []
   for (const a of AJOUTES) {
-    if (bloc(corps, a.num)) { console.log(`   = art. ${a.num} déjà présent`); continue }
+    const present = bloc(corps, a.num)
+    if (present) {
+      // Rejeu : l'article est là. Reste à lui ôter la parenthèse de provenance si une
+      // version antérieure de ce script la lui avait écrite — c'est la pastille qui la porte.
+      const L = corps.split('\n')
+      if (MARQUEUR.test(L[present.d].trim())) {
+        L[present.d] = L[present.d].replace(MARQUEUR, '$1')
+        corps = L.join('\n')
+        demarques.push(a.num)
+        console.log(`   ⌫ art. ${a.num.padEnd(5)} parenthèse « (D. du 6 janvier 2016) » retirée du corps`)
+      } else console.log(`   = art. ${a.num} déjà présent`)
+      continue
+    }
     const t = redaction(body2016, a.num)
     const ancrage = bloc(corps, a.apres)
     if (!t || !ancrage) { console.log(`   ⚠ art. ${a.num} : ${!t ? 'rédaction' : 'point d’insertion'} introuvable`); continue }
     const L = corps.split('\n')
-    L.splice(ancrage.f, 0, `Article ${a.num}.- (D. du 6 janvier 2016) ${t.replace(new RegExp(`^Article\\s+${a.num.replace('.', '\\.')}\\s*\\.?-\\s*`), '')}`)
+    L.splice(ancrage.f, 0, `Article ${a.num}.- ${t.replace(new RegExp(`^Article\\s+${a.num.replace('.', '\\.')}\\s*\\.?-\\s*`), '')}`)
     corps = L.join('\n')
     inseres.push(a.num)
     console.log(`   + art. ${a.num.padEnd(5)} inséré après l’article ${a.apres}`)
@@ -109,30 +135,67 @@ async function main() {
     console.log(`   ✗ art. ${n.padEnd(5)} abrogé`)
   }
 
-  console.log(`\n   ${inseres.length} insérés · ${versions.filter((v) => v.status === 'MODIFIE').length} réécrits · ${versions.filter((v) => v.status === 'ABROGE').length} abrogés`)
+  console.log(`\n   ${inseres.length} insérés · ${demarques.length} démarqués · ${versions.filter((v) => v.status === 'MODIFIE').length} réécrits · ${versions.filter((v) => v.status === 'ABROGE').length} abrogés`)
   const apres = corps.split('\n').filter((l) => TETE.test(l.trim())).length
   console.log(`   articles du corps : ${(d2005.bodyOriginal ?? '').split('\n').filter((l) => TETE.test(l.trim())).length} → ${apres}`)
 
   if (!commit) { console.log('\n(à blanc — ajouter --commit pour écrire)'); await prisma.$disconnect(); return }
-  if (await prisma.articleVersion.count({ where: { documentId: d2005.id } })) {
-    console.error('\n⛔ ARRÊT — des versions existent déjà.'); process.exit(1)
+
+  if (corps !== d2005.bodyOriginal) {
+    await prisma.document.update({
+      where: { id: d2005.id },
+      data: {
+        bodyOriginal: corps,
+        searchText: [buildSearchText({ titleFr: d2005.titleFr, number: d2005.number, moniteurRef: d2005.moniteurRef }), fold(corps)].filter(Boolean).join(' '),
+      },
+    })
   }
-  await prisma.document.update({
-    where: { id: d2005.id },
-    data: {
-      bodyOriginal: corps,
-      searchText: [buildSearchText({ titleFr: d2005.titleFr, number: d2005.number, moniteurRef: d2005.moniteurRef }), fold(corps)].filter(Boolean).join(' '),
-    },
-  })
-  for (const v of versions) await prisma.articleVersion.create({ data: v })
-  await prisma.crossRef.createMany({ data: [
+
+  // Réécritures et abrogations : une seule fois, quel que soit le nombre de rejeux.
+  let posees = 0
+  for (const v of versions) {
+    const deja = await prisma.articleVersion.count({ where: { documentId: v.documentId, anchor: v.anchor, status: v.status } })
+    if (deja) continue
+    await prisma.articleVersion.create({ data: v })
+    posees++
+  }
+
+  // ── 3. La PASTILLE des articles ajoutés ──────────────────────────────────────────────
+  // Elle nomme l'acte et y renvoie. ⚠️ Le titre COMPLET est indispensable : DEUX décrets
+  // ont été signés le 6 janvier 2016 — celui-ci et celui sur l'administration électronique,
+  // publiés dans deux Moniteurs consécutifs. « Décret du 6 janvier 2016 » seul ne désigne rien.
+  let pastilles = 0
+  for (const a of AJOUTES) {
+    const b = bloc(corps, a.num)
+    if (!b) continue
+    const pose = await addArticle({
+      documentId: d2005.id,
+      anchor: ancre(a.num),
+      label: `Article ${a.num}`,
+      body: b.texte,
+      amendedByDocId: d2016.id,
+      amendedByNumber: ACTE_COURT,
+      effectiveDate: d2016.publicationDate ?? null,
+      note: `Article ajouté par : ${d2016.titleFr}`,
+    })
+    if (pose) { pastilles++; console.log(`   ● art. ${a.num.padEnd(5)} pastille « Ajout — ${ACTE_COURT} »`) }
+  }
+
+  const renvois = [
     { fromId: d2016.id, toId: d2005.id, toLabel: d2005.titleFr, kind: 'MODIFIE', source: 'EDITORIAL', position: 0,
       note: "Réécrit les articles 23, 64, 71, 72, 108 et 113 ; ajoute les articles 23.1, 23.2, 23.3 et 29.2 ; abroge les articles 110 à 112 et 114 à 115." },
     { fromId: d2005.id, toId: d2016.id, toLabel: d2016.titleFr, kind: 'VOIR', source: 'EDITORIAL', position: 0,
-      note: 'Amendé par le Décret du 6 janvier 2016.' },
-  ] })
-  await audit({ action: 'DOC_PUBLISHED', targetType: 'DOCUMENT', meta: { via: 'amendements-administration-centrale', inseres: inseres.length, versions: versions.length } })
-  console.log(`\n✅ ${inseres.length} articles insérés, ${versions.length} versions, 2 renvois.`)
+      note: `Amendé par : ${d2016.titleFr}` },
+  ]
+  let liens = 0
+  for (const r of renvois) {
+    if (await prisma.crossRef.count({ where: { fromId: r.fromId, toId: r.toId, kind: r.kind } })) continue
+    await prisma.crossRef.create({ data: r })
+    liens++
+  }
+
+  await audit({ action: 'DOC_PUBLISHED', targetType: 'DOCUMENT', meta: { via: 'amendements-administration-centrale', inseres: inseres.length, demarques: demarques.length, versions: posees, pastilles } })
+  console.log(`\n✅ ${inseres.length} insérés · ${demarques.length} démarqués · ${posees} versions · ${pastilles} pastilles · ${liens} renvois.`)
   await prisma.$disconnect()
 }
 

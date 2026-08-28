@@ -28,7 +28,7 @@ import { expandQuery } from '@/lib/search/synonyms'
 import { parseEditionHeader } from '@/lib/doc/edition-meta'
 import { pickLocale } from '@/lib/i18n/pick'
 import { DOC_TYPE_META } from '@/lib/brand'
-import type { DocType, DocStatus } from '@/lib/types'
+import type { DocType, DocStatus, Locale } from '@/lib/types'
 import { outgoingRefs, backlinks } from '@/lib/legislation/refs'
 import { getAmendments } from '@/lib/legislation/amendments'
 import { applyAmendments } from '@/lib/legislation/segment'
@@ -232,8 +232,39 @@ export default async function DocPage({
   const normHead = (s: string) => s.replace(/\s+/g, ' ').trim()
   const tocLabels = annotations ? new Set(annotations.toc.map((e) => normHead(e.label))) : null
   const effectiveBody = applyAmendments(body, amendments, tocLabels ? (line) => tocLabels.has(normHead(line)) : undefined)
-  const amendedAnchors = amendments.size ? new Set(amendments.keys()) : undefined
-  const amendItems: AmendItem[] = [...amendments.values()].map((ov) => {
+  // ⚠️ UN ARTICLE SEULEMENT AJOUTÉ N'EST PAS UN ARTICLE AMENDÉ. Il ne porte donc ni le
+  // marqueur « ✎ modifié », ni de ligne dans l'historique : il n'a pas d'ancienne version —
+  // il n'existait pas. Il porte une PASTILLE, qui nomme l'acte qui l'a inséré et y renvoie.
+  const amendedAnchors = amendments.size
+    ? new Set([...amendments.values()].filter((ov) => ov.amended).map((ov) => ov.anchor))
+    : undefined
+  const ajouts = [...amendments.values()].filter((ov) => ov.added)
+  // Le titre COMPLET de l'acte modificatif : deux décrets peuvent porter la même date.
+  const actes = ajouts.length
+    ? await prisma.document.findMany({
+        where: { id: { in: [...new Set(ajouts.map((ov) => ov.added!.amendedByDocId).filter(Boolean) as string[])] } },
+        select: { id: true, titleFr: true },
+      })
+    : []
+  const parActe = new Map(actes.map((a) => [a.id, a]))
+  const AJOUT_LBL: Record<Locale, string> = { fr: 'Ajout', en: 'Added', ht: 'Ajoute' }
+  const addedAnchors = ajouts.length
+    ? new Map(
+        ajouts.map((ov) => {
+          const v = ov.added!
+          const acte = v.amendedByDocId ? parActe.get(v.amendedByDocId) : null
+          return [
+            ov.anchor,
+            {
+              label: `${AJOUT_LBL[locale]} — ${v.amendedByNumber ?? acte?.titleFr ?? '?'}`,
+              title: v.note ?? (acte ? `Article ajouté par : ${acte.titleFr}` : 'Article ajouté'),
+              href: acte ? `/${locale}/doc/${acte.id}` : undefined,
+            },
+          ]
+        }),
+      )
+    : undefined
+  const amendItems: AmendItem[] = [...amendments.values()].filter((ov) => ov.amended).map((ov) => {
     const ab = ov.history.find((v) => v.status === 'ABROGE')
     const statusLine = ov.abrogated
       ? `Abrogé${ab?.effectiveDate ? ' le ' + formatDate(locale, ab.effectiveDate) : ''}${ab?.amendedByNumber ? ' — ' + ab.amendedByNumber : ''}`
@@ -714,7 +745,7 @@ export default async function DocPage({
             </details>
           )}
           <div className="relative">
-            <OfficialText text={effectiveBody} hrefFor={hrefFor} rich={richBlocks} locale={locale} terms={hlTerms} amendedAnchors={amendedAnchors} />
+            <OfficialText text={effectiveBody} hrefFor={hrefFor} rich={richBlocks} locale={locale} terms={hlTerms} amendedAnchors={amendedAnchors} addedAnchors={addedAnchors} />
           </div>
         </section>
       )}

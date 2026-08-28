@@ -10,6 +10,12 @@
 import type { ArticleVersion } from '@prisma/client'
 import { prisma } from '../db'
 
+/**
+ * Statut d'un article INSÉRÉ par un texte modificatif. `ArticleVersion.status` est une
+ * colonne de texte libre, pas une énumération SQL : la valeur s'ajoute sans migration.
+ */
+export const AJOUTE = 'AJOUTE'
+
 interface AmendInput {
   documentId: string
   anchor: string // "art-95-bis" (src/lib/doc/anchors.ts)
@@ -98,6 +104,55 @@ export async function abrogateArticle(input: {
   })
 }
 
+/**
+ * Enregistre un article INSÉRÉ dans le corps par un texte modificatif — la ligne qui fait
+ * naître la pastille « Ajout — … » du lecteur, et qui nomme l'acte d'où l'article vient.
+ *
+ * ⚠️ CE N'EST PAS UN OVERLAY, ET ÇA NE PEUT PAS L'ÊTRE. `applyAmendments` REMPLACE le
+ * segment d'une ancre EXISTANTE ; il n'insère rien. Le texte de l'article ajouté doit donc
+ * déjà être entré dans `bodyOriginal`, à son rang. La ligne écrite ici ne fait que DIRE
+ * d'où il vient : elle ne le fait pas apparaître. Posée seule, elle laisse une pastille sur
+ * un article que personne ne voit.
+ *
+ * ⚠️ ET LA PROVENANCE NE S'ÉCRIT PAS DANS LE CORPS. Marquer la tête « Article 23.1.- (D. du
+ * 6 janvier 2016) … » prêterait au décret une mention qu'il n'imprime pas (§02). Les codes
+ * consolidés d'Haïti, eux, IMPRIMENT cette parenthèse — Code pénal, Code d'instruction
+ * criminelle, CFPB : celles-là appartiennent au texte officiel et ne se touchent pas.
+ */
+export async function addArticle(input: {
+  documentId: string
+  anchor: string
+  label?: string | null
+  /** Rédaction de l'article ajouté — la MÊME que celle entrée dans `bodyOriginal`. */
+  body: string
+  amendedByDocId?: string | null
+  /** Désignation courte de l'acte, affichée dans la pastille (« Décret du 6 janvier 2016 »). */
+  amendedByNumber?: string | null
+  effectiveDate?: Date | null
+  /** Phrase complète pour l'infobulle — TITRE COMPLET de l'acte modificatif. */
+  note?: string | null
+}): Promise<boolean> {
+  const { documentId, anchor } = input
+  const existing = await prisma.articleVersion.findMany({ where: { documentId, anchor }, select: { id: true } })
+  if (existing.length) return false
+  await prisma.articleVersion.create({
+    data: {
+      documentId,
+      anchor,
+      label: input.label ?? null,
+      body: input.body,
+      status: AJOUTE,
+      effectiveDate: input.effectiveDate ?? null,
+      amendedByDocId: input.amendedByDocId ?? null,
+      amendedByNumber: input.amendedByNumber ?? null,
+      note: input.note ?? null,
+      origin: 'MANUAL',
+      seq: 0,
+    },
+  })
+  return true
+}
+
 export interface ArticleOverlay {
   anchor: string
   label: string | null
@@ -105,6 +160,10 @@ export interface ArticleOverlay {
   inForce: ArticleVersion | null
   /** Versions antérieures (MODIFIE) + éventuelle version abrogée, ordre chronologique. */
   history: ArticleVersion[]
+  /** Article INSÉRÉ par un texte modificatif : porte une pastille, n'a AUCUNE ancienne
+   *  version à déplier — il n'existait pas avant. */
+  added: ArticleVersion | null
+  /** Vraiment amendé : réécrit ou abrogé. Un article seulement AJOUTÉ ne l'est pas. */
   amended: boolean
   abrogated: boolean
 }
@@ -126,13 +185,18 @@ export async function getAmendments(documentId: string): Promise<Map<string, Art
   const out = new Map<string, ArticleOverlay>()
   for (const [anchor, versions] of byAnchor) {
     const inForce = versions.find((v) => v.status === 'EN_VIGUEUR') ?? null
-    const history = versions.filter((v) => v.status !== 'EN_VIGUEUR')
+    const added = versions.find((v) => v.status === AJOUTE) ?? null
+    // ⚠️ LA LIGNE D'AJOUT N'EST PAS UNE ANCIENNE VERSION. Laissée dans `history`, elle
+    // s'afficherait sous « Voir l'ancienne version » — en donnant pour rédaction abandonnée
+    // le texte même que le lecteur a sous les yeux.
+    const history = versions.filter((v) => v.status !== 'EN_VIGUEUR' && v.status !== AJOUTE)
     out.set(anchor, {
       anchor,
       label: versions[0]?.label ?? null,
       inForce,
+      added,
       history,
-      amended: true,
+      amended: versions.some((v) => v.status !== AJOUTE),
       abrogated: !inForce && versions.some((v) => v.status === 'ABROGE'),
     })
   }

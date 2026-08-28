@@ -60,6 +60,10 @@ export function applyAmendments(body: string, amendments: Map<string, ArticleOve
       if (s.anchor != null) seen.add(s.anchor)
       const ov = first ? amendments.get(s.anchor!) : undefined
       if (!s.anchor || !ov) return s.lines.join('\n')
+      // ⚠️ UN ARTICLE SEULEMENT AJOUTÉ NE SE REMPLACE PAS. Sa rédaction est DÉJÀ dans le
+      // corps, à son rang : la ligne d'overlay ne sert qu'à porter la pastille « Ajout — … »
+      // du lecteur. Le segment sort tel quel.
+      if (ov.added && !ov.inForce && !ov.abrogated) return s.lines.join('\n')
       const label = ov.label ?? labelFromAnchor(s.anchor)
       if (ov.abrogated) {
         const by = ov.history.find((v) => v.status === 'ABROGE')?.amendedByNumber
