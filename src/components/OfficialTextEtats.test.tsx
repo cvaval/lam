@@ -110,3 +110,37 @@ describe('les trois pastilles d’état', () => {
     expect(rendu({ text: CORPS })).toBe(rendu({ text: CORPS, articleMarks: new Map() }))
   })
 })
+
+/**
+ * ⚠️ LE MOTIF DE TÊTE D'ARTICLE — éprouvé sur les quatre conventions du corpus.
+ *
+ * Il coupait les numéros à tiret en deux : « Art. 1774- [Ajout] 1 Une sûreté est… ». Les 57
+ * articles insérés au Code civil par le décret des sûretés et les trois du décret des régimes
+ * matrimoniaux étaient tous dans ce cas — défaut invisible aux tests comme à la base, vu à
+ * l'écran seulement.
+ */
+describe('placement de la pastille sur les quatre formes de tête', () => {
+  const CAS: [string, string][] = [
+    ['Article 23.1.- Le Secrétariat Général comprend le Bureau.', 'Article 23.1.-'],
+    ['Art. 1774-1 Une sûreté est l’affectation au bénéfice d’un créancier.', 'Art. 1774-1'],
+    ['Article 110.- [Abrogé — Décret du 6 janvier 2016]', 'Article 110.-'],
+    ['Art. 1294 (D. du 13 mai 2020) Les créanciers de la communauté.', 'Art. 1294 (D. du 13 mai 2020)'],
+    ['Art. 55 (D. du 14 novembre 1988, art. 1) Les déclarations de naissance.', 'Art. 55 (D. du 14 novembre 1988, art. 1)'],
+    ['Art. 3 Aucune loi ne peut être abrogée ni suspendue que par une autre loi.', 'Art. 3'],
+  ]
+  for (const [ligne, tete] of CAS) {
+    it(`« ${tete} »`, () => {
+      const anchor = /Art\w*\.?\s+(\d+(?:[.-]\d+)*)/.exec(ligne)![1].replace('.', '-')
+      const h = renderToStaticMarkup(
+        <OfficialText
+          text={ligne}
+          articleMarks={new Map([[`art-${anchor}`, { kind: 'modifie', label: 'Modifié', title: 't', href: '#h' }]])}
+        />,
+      )
+      const i = h.indexOf('Modifié')
+      const avant = h.slice(0, i).replace(/<[^>]+>/g, '')
+      // La pastille suit la tête ENTIÈRE, et rien de plus.
+      expect(avant.trim()).toBe(tete)
+    })
+  }
+})

@@ -205,8 +205,21 @@ export function OfficialText({
     return m ? chipEtat(m, 'etat') : null
   }
 
-  // Tête d'article, pour glisser la pastille JUSTE APRÈS le numéro : « Article 23.1.- ».
-  const TETE_ART = /^((?:Article|Art)\.?\s+\S{1,12}?\s*\.?\s*[—–-]\s*)/
+  /**
+   * Tête d'article, pour glisser la pastille JUSTE APRÈS le numéro.
+   *
+   * ⚠️ ELLE COUPAIT LES NUMÉROS À TIRET EN DEUX. Le motif d'hier cherchait un tiret après le
+   * numéro : sur « Art. 1774-1 » il s'arrêtait au tiret INTERNE, et le lecteur lisait
+   * « Art. 1774- [Ajout — …] 1 Une sûreté est… ». Les 57 articles des sûretés et les trois des
+   * régimes matrimoniaux étaient tous dans ce cas. Le numéro se prend donc en ENTIER.
+   *
+   * ⚠️ ET TOUTES LES TÊTES NE PORTENT PAS DE SÉPARATEUR. Le Code civil écrit « Art. 3 Aucune
+   * loi ne peut être abrogée », et « Art. 55 (D. du 14 novembre 1988, art. 1) Les déclarations
+   * de naissance… » quand l'éditeur nomme l'acte. Sans ces deux formes, la pastille de ces
+   * articles-là repartait en fin de paragraphe.
+   */
+  const TETE_ART =
+    /^((?:Article|Art)\.?\s+\d+(?:er|ᵉʳ)?(?:[.-]\d+)*(?:\s+(?:bis|ter|quater|quinquies))?(?:\s*\.?\s*[—–-])?(?:\s*\([^)]{0,70}\))?\.?)\s*/
 
   /**
    * Le corps d'un article, pastille d'état comprise.

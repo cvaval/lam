@@ -265,7 +265,12 @@ export default async function DocPage({
   const ACTE_COURT = /^((?:Décret-Loi|Décret|Loi|Arrêté|Avis)(?:\s+N[o°º][^\s,]*)?\s+du\s+\d{1,2}(?:er)?\s+\p{L}+\s+\d{4})/u
   const court = (v: { amendedByNumber: string | null }, acte?: { titleFr: string }) => {
     const t = v.amendedByNumber || acte?.titleFr || ''
-    return ACTE_COURT.exec(t)?.[1] ?? (t.length > 46 ? `${t.slice(0, 44)}…` : t)
+    // ⚠️ TOUS LES ACTES NE SE NOMMENT PAS PAR LEUR DATE. « Décret réformant le Droit des
+    // Sûretés (Le Moniteur, Spécial n° 7 du 14 mai 2020) » ne commence pas par « Décret du » :
+    // sans ce second recours, la pastille affichait « Décret réformant le Droit des Sû… ».
+    // On retire alors la référence au Moniteur, qui est entre parenthèses à la fin.
+    const sansRef = t.replace(/\s*\((?:Le Moniteur|Moniteur)[^)]*\)\s*$/, '').trim()
+    return ACTE_COURT.exec(t)?.[1] ?? (sansRef.length > 52 ? `${sansRef.slice(0, 50)}…` : sansRef)
   }
   const LBL = {
     ajout: { fr: 'Ajout', en: 'Added', ht: 'Ajoute' },
