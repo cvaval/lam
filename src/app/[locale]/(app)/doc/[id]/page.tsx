@@ -18,7 +18,7 @@ import { JurisprudenceComposition } from '@/components/JurisprudenceComposition'
 import { DocumentNotes, type NoteAffichee } from '@/components/DocumentNotes'
 import { signature, peutEtreAnonyme } from '@/lib/notes/rules'
 import { BackLink } from '@/components/BackLink'
-import { OfficialText } from '@/components/OfficialText'
+import { OfficialText, type ArticleMark } from '@/components/OfficialText'
 import { splitKeywords } from '@/lib/ai/keywords'
 import { parseCirculaireRef } from '@/lib/brh/gaps'
 import type { CircRef } from '@/lib/doc/crossref'
@@ -232,33 +232,80 @@ export default async function DocPage({
   const normHead = (s: string) => s.replace(/\s+/g, ' ').trim()
   const tocLabels = annotations ? new Set(annotations.toc.map((e) => normHead(e.label))) : null
   const effectiveBody = applyAmendments(body, amendments, tocLabels ? (line) => tocLabels.has(normHead(line)) : undefined)
-  // ⚠️ UN ARTICLE SEULEMENT AJOUTÉ N'EST PAS UN ARTICLE AMENDÉ. Il ne porte donc ni le
-  // marqueur « ✎ modifié », ni de ligne dans l'historique : il n'a pas d'ancienne version —
-  // il n'existait pas. Il porte une PASTILLE, qui nomme l'acte qui l'a inséré et y renvoie.
-  const amendedAnchors = amendments.size
-    ? new Set([...amendments.values()].filter((ov) => ov.amended).map((ov) => ov.anchor))
-    : undefined
-  const ajouts = [...amendments.values()].filter((ov) => ov.added)
-  // Le titre COMPLET de l'acte modificatif : deux décrets peuvent porter la même date.
-  const actes = ajouts.length
+  // ── LES TROIS PASTILLES D'ÉTAT ────────────────────────────────────────────────────────
+  //
+  // ⚠️ UN ARTICLE SEULEMENT AJOUTÉ N'EST PAS UN ARTICLE AMENDÉ. Il n'a pas d'ancienne
+  // version — il n'existait pas : ni marqueur de modification, ni ligne dans l'historique.
+  //
+  // ⚠️ ET UN ARTICLE ABROGÉ N'EST PAS UN ARTICLE MODIFIÉ. Le marqueur unique d'hier posait
+  // « ✎ modifié » sur « Article 110.- [Abrogé] » — il contredisait la ligne qu'il suivait.
+  const marques = [...amendments.values()].filter((ov) => ov.added || ov.amended)
+  // Le titre COMPLET de l'acte : deux textes peuvent partager une date (deux décrets ont été
+  // signés le 6 janvier 2016). La pastille n'en montre que la désignation courte ; le titre
+  // entier est dans l'infobulle, et la destination lève l'ambiguïté pour de bon.
+  const actes = marques.length
     ? await prisma.document.findMany({
-        where: { id: { in: [...new Set(ajouts.map((ov) => ov.added!.amendedByDocId).filter(Boolean) as string[])] } },
+        where: {
+          id: {
+            in: [
+              ...new Set(
+                marques
+                  .map((ov) => (ov.added ?? ov.inForce ?? ov.history.find((v) => v.status === 'ABROGE'))?.amendedByDocId)
+                  .filter(Boolean) as string[],
+              ),
+            ],
+          },
+        },
         select: { id: true, titleFr: true },
       })
     : []
   const parActe = new Map(actes.map((a) => [a.id, a]))
-  const AJOUT_LBL: Record<Locale, string> = { fr: 'Ajout', en: 'Added', ht: 'Ajoute' }
-  const addedAnchors = ajouts.length
+  // « Décret du 11 août 2026 portant règlementation… (Le Moniteur…) » → « Décret du 11 août
+  // 2026 ». La désignation longue reste dans le corps et dans l'infobulle.
+  const ACTE_COURT = /^((?:Décret-Loi|Décret|Loi|Arrêté|Avis)(?:\s+N[o°º][^\s,]*)?\s+du\s+\d{1,2}(?:er)?\s+\p{L}+\s+\d{4})/u
+  const court = (v: { amendedByNumber: string | null }, acte?: { titleFr: string }) => {
+    const t = v.amendedByNumber || acte?.titleFr || ''
+    return ACTE_COURT.exec(t)?.[1] ?? (t.length > 46 ? `${t.slice(0, 44)}…` : t)
+  }
+  const LBL = {
+    ajout: { fr: 'Ajout', en: 'Added', ht: 'Ajoute' },
+    modifie: { fr: 'Modifié', en: 'Amended', ht: 'Modifye' },
+    abroge: { fr: 'Texte abrogé', en: 'Repealed text', ht: 'Tèks abwoje' },
+    parAjout: { fr: 'Article ajouté par', en: 'Article added by', ht: 'Atik ajoute pa' },
+    parModif: { fr: "Article amendé par", en: 'Article amended by', ht: 'Atik modifye pa' },
+    parAbrog: { fr: 'Article abrogé par', en: 'Article repealed by', ht: 'Atik abwoje pa' },
+    voirAnc: { fr: "voir l’ancienne rédaction", en: 'see the previous wording', ht: 'wè ansyen vèsyon an' },
+    voirAbr: { fr: 'voir le texte abrogé', en: 'see the repealed text', ht: 'wè tèks ki abwoje a' },
+  } as const
+  const articleMarks: Map<string, ArticleMark> | undefined = marques.length
     ? new Map(
-        ajouts.map((ov) => {
-          const v = ov.added!
-          const acte = v.amendedByDocId ? parActe.get(v.amendedByDocId) : null
+        marques.map((ov): [string, ArticleMark] => {
+          const abr = ov.history.find((v) => v.status === 'ABROGE')
+          const v = ov.added ?? (ov.abrogated ? abr : ov.inForce) ?? null
+          const acte = v?.amendedByDocId ? parActe.get(v.amendedByDocId) : undefined
+          const nom = v?.amendedByNumber || acte?.titleFr || ''
+          if (ov.added) {
+            return [
+              ov.anchor,
+              {
+                kind: 'ajout' as const,
+                label: `${LBL.ajout[locale]} — ${court(v!, acte)}`,
+                title: v!.note ?? `${LBL.parAjout[locale]} : ${nom}`,
+                // Un ajout renvoie à l'ACTE ; à défaut de fiche, à l'historique.
+                href: acte ? `/${locale}/doc/${acte.id}` : `#hist-${ov.anchor}`,
+              },
+            ]
+          }
+          const abroge = ov.abrogated
           return [
             ov.anchor,
             {
-              label: `${AJOUT_LBL[locale]} — ${v.amendedByNumber ?? acte?.titleFr ?? '?'}`,
-              title: v.note ?? (acte ? `Article ajouté par : ${acte.titleFr}` : 'Article ajouté'),
-              href: acte ? `/${locale}/doc/${acte.id}` : undefined,
+              kind: abroge ? ('abroge' as const) : ('modifie' as const),
+              label: abroge ? LBL.abroge[locale] : LBL.modifie[locale],
+              title: `${abroge ? LBL.parAbrog[locale] : LBL.parModif[locale]} : ${nom || '—'} — ${
+                abroge ? LBL.voirAbr[locale] : LBL.voirAnc[locale]
+              }`,
+              href: `#hist-${ov.anchor}`,
             },
           ]
         }),
@@ -745,7 +792,7 @@ export default async function DocPage({
             </details>
           )}
           <div className="relative">
-            <OfficialText text={effectiveBody} hrefFor={hrefFor} rich={richBlocks} locale={locale} terms={hlTerms} amendedAnchors={amendedAnchors} addedAnchors={addedAnchors} />
+            <OfficialText text={effectiveBody} hrefFor={hrefFor} rich={richBlocks} locale={locale} terms={hlTerms} articleMarks={articleMarks} />
           </div>
         </section>
       )}

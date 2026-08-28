@@ -47,6 +47,23 @@ function isNumericCell(s: string): boolean {
 }
 
 /**
+ * Pastille d'état d'un article — un seul des trois cas à la fois.
+ *
+ *   `modifie` « Modifié »           → #hist-art-N, l'ancienne rédaction
+ *   `abroge`  « Texte abrogé »      → #hist-art-N, le texte qui a été abrogé
+ *   `ajout`   « Ajout — <acte> »    → la fiche de l'acte qui a inséré l'article
+ */
+export interface ArticleMark {
+  kind: 'modifie' | 'abroge' | 'ajout'
+  /** Libellé visible, court : la pastille vit dans une ligne de prose. */
+  label: string
+  /** Infobulle : le TITRE COMPLET de l'acte — deux textes peuvent partager une date. */
+  title: string
+  /** `#hist-art-N` (ancre interne) ou le chemin d'un document. */
+  href: string
+}
+
+/**
  * Rendu structuré du texte officiel : puces, numérotations (marqueur original
  * conservé, jamais renuméroté), paragraphes recousus et intertitres — mise en
  * forme d'AFFICHAGE uniquement, bodyOriginal reste brut en base (§02).
@@ -64,8 +81,7 @@ export function OfficialText({
   rich = [],
   locale = 'fr',
   terms,
-  amendedAnchors,
-  addedAnchors,
+  articleMarks,
   noAnchors = false,
   civRefs = false,
   artRefs,
@@ -80,12 +96,9 @@ export function OfficialText({
   locale?: Locale
   /** termes recherchés à surligner (folés) — propagés depuis ?q= au clic d'un résultat */
   terms?: string[]
-  /** ancres d'articles amendés → marqueur « ✎ modifié » renvoyant vers l'historique. */
-  amendedAnchors?: Set<string>
-  /** Ancres d'articles INSÉRÉS par un texte modificatif → pastille « Ajout — … » qui nomme
-   *  l'acte et y renvoie. Un article ajouté n'a pas d'ancienne version : il ne porte donc
-   *  jamais « ✎ modifié », et rien à déplier. */
-  addedAnchors?: Map<string, { label: string; title: string; href?: string }>
+  /** Pastille d'état par ancre d'article : réécrit, abrogé, ou ajouté. Une seule par
+   *  article — les trois états s'excluent. Cf. `ArticleMark`. */
+  articleMarks?: Map<string, ArticleMark>
   /** supprime l'émission d'ancres #art-N (ex. articles d'annexe à numérotation propre,
    *  pour ne pas dupliquer les id des articles du Code). */
   noAnchors?: boolean
@@ -140,66 +153,75 @@ export function OfficialText({
     return id
   }
 
-  // Marqueur « ✎ modifié » sur un article amendé → lien vers son historique (#hist-art-N).
-  function amendMark(id: string | undefined) {
-    if (!id || !amendedAnchors?.has(id)) return null
-    return (
-      <a href={`#hist-${id}`} className="ml-1.5 align-super text-[10px] font-semibold text-chabon no-underline hover:underline" title="Article amendé — voir l'historique">
-        ✎ modifié
+  /**
+   * ── LES TROIS PASTILLES D'ÉTAT ────────────────────────────────────────────────────────
+   *
+   * Un texte modificatif peut faire trois choses à un article : le RÉÉCRIRE, l'ABROGER, ou en
+   * AJOUTER un qui n'existait pas. Chaque état porte son libellé, et chaque libellé mène
+   * quelque part — à l'ancienne rédaction, au texte abrogé, ou à l'acte qui a inséré l'article.
+   *
+   * ⚠️ « ✎ MODIFIÉ » SE POSAIT AUSSI SUR LES ARTICLES ABROGÉS. On lisait « Article 110.-
+   * [Abrogé] ✎ modifié » : le marqueur contredisait la ligne qu'il suivait. 95 articles sur
+   * six textes étaient dans ce cas — Code civil (60), Code de commerce (13), décret Casinos
+   * de 1960 (9), Administration Centrale (5), loi Loterie de 1958 (4), Code pénal (4).
+   *
+   * ⚠️ ET L'ABROGÉ NE RÉPÈTE PAS SON ÉTAT. Le corps affiche déjà « [Abrogé — <acte>] » :
+   * la pastille y offre donc l'ACTION qui manque — lire le texte qui a été abrogé — au lieu
+   * de redire ce qui est écrit une ligne plus haut. Le réécrit, lui, n'annonce rien dans le
+   * corps : sa pastille doit porter l'état.
+   *
+   * ⚠️ AUCUNE N'EMPRUNTE D'ACCENT DE MARQUE. Sitwon est le trait du CERTIFICATEUR, RATIONNÉ à
+   * une occurrence d'interface par écran (charte Klinik v3, avenant AV-02) — et le Code civil
+   * afficherait à lui seul 60 articles abrogés. Toutes reprennent donc le vocabulaire NEUTRE
+   * des pastilles de type : filet Liy fonsé, fond Pil, texte Chabon.
+   */
+  const CHIP_ETAT =
+    'ml-2 inline-flex items-center whitespace-nowrap rounded-md border border-liy-fonse bg-pil ' +
+    'px-2 py-0.5 align-middle text-[11px] font-semibold leading-[1.45] text-chabon no-underline ' +
+    // ⚠️ CIBLE TACTILE. La pastille mesure 11 px de texte : à 17 px de haut, elle se manque au
+    // doigt. Le pseudo-élément étend la zone cliquable à ~40 px SANS toucher au rythme des
+    // lignes — un `py` suffisant, lui, écarterait les lignes de tout le corpus.
+    'relative after:absolute after:inset-x-0 after:-inset-y-[11px] after:content-[""] ' +
+    'hover:border-chabon hover:underline ' +
+    // ⚠️ ET ELLE SE PREND AU CLAVIER. Aucun des marqueurs n'avait d'anneau de focus : à la
+    // tabulation, le lecteur ne voyait pas où il était.
+    'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-chabon'
+
+  function chipEtat(m: ArticleMark, key: string) {
+    const inner = <>{m.label}</>
+    return m.href.startsWith('#') ? (
+      <a key={key} href={m.href} className={CHIP_ETAT} title={m.title}>
+        {inner}
       </a>
+    ) : (
+      <Link key={key} href={m.href} className={CHIP_ETAT} title={m.title}>
+        {inner}
+      </Link>
     )
   }
 
-  /**
-   * Pastille « Ajout — Décret du 6 janvier 2016 » sur un article INSÉRÉ par un texte
-   * modificatif. Elle dit ce que le corps ne dit plus : l'article n'était pas là à l'origine.
-   *
-   * ⚠️ ELLE EST UN LIEN, ET C'EST NÉCESSAIRE. Deux décrets ont été signés le 6 janvier 2016
-   * — l'amendement à l'Administration Centrale et celui sur l'administration électronique,
-   * publiés dans deux Moniteurs consécutifs. La date seule ne désigne donc RIEN : le titre
-   * complet est dans l'infobulle, et la destination lève l'ambiguïté pour de bon.
-   *
-   * ⚠️ ET ELLE EST NEUTRE — PAS EN SITWON. Sitwon est le trait du CERTIFICATEUR (statut
-   * « Abrogé », alerte de certification), RATIONNÉ à une occurrence d'interface par écran
-   * (charte Klinik v3, avenant AV-02). Un décret modificatif en insère quatre d'un coup, sur
-   * une page qui affiche déjà cinq articles abrogés : l'accent y perdrait tout son sens.
-   * La pastille emprunte donc le vocabulaire NEUTRE des pastilles de type — filet Liy fonsé,
-   * fond Pil, texte Chabon (`TYPE_CHIP`).
-   */
+  function etatMark(id: string | undefined) {
+    const m = id ? articleMarks?.get(id) : undefined
+    return m ? chipEtat(m, 'etat') : null
+  }
+
   // Tête d'article, pour glisser la pastille JUSTE APRÈS le numéro : « Article 23.1.- ».
   const TETE_ART = /^((?:Article|Art)\.?\s+\S{1,12}?\s*\.?\s*[—–-]\s*)/
 
   /**
-   * Le corps d'un article, pastille d'ajout comprise.
+   * Le corps d'un article, pastille d'état comprise.
    *
    * ⚠️ LA PASTILLE SE PLACE APRÈS LE NUMÉRO, PAS EN FIN DE PARAGRAPHE. Mise à la suite du
-   * texte — comme le discret « ✎ modifié » —, elle atterrissait quinze lignes plus bas, à la
-   * fin d'une énumération, parfois seule sur sa ligne : le lecteur qui parcourt les têtes
-   * d'articles ne la voyait pas, et c'est précisément à lui qu'elle s'adresse.
+   * texte — comme l'était le discret « ✎ modifié » —, elle atterrissait quinze lignes plus
+   * bas, à la fin d'une énumération, parfois seule sur sa ligne : le lecteur qui parcourt les
+   * têtes d'articles ne la voyait pas, et c'est précisément à lui qu'elle s'adresse.
    */
   function articleBody(textValue: string, id: string | undefined) {
-    const chip = addMark(id)
+    const chip = etatMark(id)
     if (!chip) return render(textValue)
     const m = TETE_ART.exec(textValue)
     if (!m) return [render(textValue), chip]
     return [<span key="t">{render(m[1])}</span>, chip, <span key="r"> {render(textValue.slice(m[1].length))}</span>]
-  }
-
-  function addMark(id: string | undefined) {
-    const a = id ? addedAnchors?.get(id) : undefined
-    if (!a) return null
-    const cls =
-      'ml-2 inline-block rounded-md border border-liy-fonse bg-pil px-1.5 py-0.5 align-middle ' +
-      'text-[11px] font-semibold leading-none text-chabon no-underline'
-    return a.href ? (
-      <Link key="ajout" href={a.href} className={`${cls} hover:border-chabon hover:underline`} title={a.title}>
-        {a.label}
-      </Link>
-    ) : (
-      <span key="ajout" className={cls} title={a.title}>
-        {a.label}
-      </span>
-    )
   }
 
   // Terminaison de la chaîne de rendu : les renvois « l'article N » d'abord (si le document
@@ -406,7 +428,6 @@ export function OfficialText({
         return (
           <p key={key} id={id} className="scroll-mt-24 pt-1.5 font-semibold text-ank">
             {articleBody(b.text, id)}
-            {amendMark(id)}
           </p>
         )
       }
@@ -416,7 +437,6 @@ export function OfficialText({
       return (
         <p key={key} id={pid} className={pid ? 'scroll-mt-24' : undefined}>
           {articleBody(b.text, pid)}
-          {amendMark(pid)}
         </p>
       )
     })

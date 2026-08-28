@@ -57,7 +57,15 @@ export function AmendmentHistory({ items, locale }: { items: AmendItem[]; locale
           <li key={it.anchor} id={`hist-${it.anchor}`} className="scroll-mt-24 rounded-lg border border-chabon/10 p-3">
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-sm font-semibold text-ank">{it.label}</span>
-              {it.abrogated && <span className="rounded-full bg-sitwon px-1.5 text-[11px] text-chabon">{LBL.abrogated[locale]}</span>}
+              {/* ⚠️ PAS DE SITWON ICI NON PLUS. L'accent du certificateur est rationné à UNE
+                  occurrence d'interface par écran (charte Klinik v3, avenant AV-02) — et le
+                  Code civil aligne 60 articles abrogés dans cette seule liste. Même
+                  vocabulaire neutre que les pastilles d'état du lecteur. */}
+              {it.abrogated && (
+                <span className="inline-flex items-center whitespace-nowrap rounded-md border border-liy-fonse bg-pil px-2 py-0.5 text-[11px] font-semibold leading-[1.45] text-chabon">
+                  {LBL.abrogated[locale]}
+                </span>
+              )}
               <span className="text-xs text-ank/80">{it.statusLine}</span>
               {it.history.length > 0 && (
                 <button type="button" onClick={() => toggle(it.anchor)} className="ml-auto text-xs font-medium text-chabon hover:underline">
