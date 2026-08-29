@@ -1,0 +1,952 @@
+[
+{
+"subject": "Abrogation (dispositions contraires)",
+"ctRefs": [
+39
+]
+},
+{
+"subject": "Acte authentique notarié (statuts en français ou en créole)",
+"ctRefs": [
+8
+]
+},
+{
+"subject": "Acte de reconnaissance du pays d'origine (ONG étrangère, légalisé par un Consulat)",
+"ctRefs": [
+8
+]
+},
+{
+"subject": "Activités incompatibles (politiques, commerciales)",
+"ctRefs": [
+1,
+29
+]
+},
+{
+"subject": "Administration Communale (permis de la zone d'intervention)",
+"ctRefs": [
+8
+]
+},
+{
+"subject": "Agence d'exécution d'un gouvernement étranger (autorisation spéciale du MPCE)",
+"ctRefs": [
+5
+]
+},
+{
+"subject": "Agences Externes de Coopération (non assimilables à des ONG)",
+"ctRefs": [
+7,
+35
+]
+},
+{
+"subject": "Agence bilatérale ou multilatérale",
+"ctRefs": [
+8,
+35
+]
+},
+{
+"subject": "Aide privée (statistiques, correspondance)",
+"ctRefs": [
+16
+]
+},
+{
+"subject": "Apolitique",
+"ctRefs": [
+1
+]
+},
+{
+"subject": "Archives centrales",
+"ctRefs": [
+16
+]
+},
+{
+"subject": "Assemblée Générale (changement de dénomination)",
+"ctRefs": [
+37
+]
+},
+{
+"subject": "Associations et fédérations d'ONG",
+"ctRefs": [
+4,
+5
+]
+},
+{
+"subject": "Avis de crédit (dépôt des devises, trimestriel)",
+"ctRefs": [
+28
+]
+},
+{
+"subject": "Banque établie en Haïti",
+"ctRefs": [
+8,
+28,
+28
+]
+},
+{
+"subject": "Biens immobiliers (acquisition)",
+"ctRefs": [
+25
+]
+},
+{
+"subject": "Biens meubles et effets personnels (rapatriement)",
+"ctRefs": [
+27
+]
+},
+{
+"subject": "Bilan des activités des ONG (annuel, UCAONG)",
+"ctRefs": [
+16
+]
+},
+{
+"subject": "Bilan financier consolidé (comptable agréé)",
+"ctRefs": [
+28
+]
+},
+{
+"subject": "Budget d'Investissement Public (financement partiel)",
+"ctRefs": [
+26
+]
+},
+{
+"subject": "Budget d'investissement de l'ONG (15 mai – 31 août)",
+"ctRefs": [
+28
+]
+},
+{
+"subject": "Buts poursuivis (statuts)",
+"ctRefs": [
+11,
+37
+]
+},
+{
+"subject": "Cas fortuit / force majeure",
+"ctRefs": [
+29
+]
+},
+{
+"subject": "Changement de dénomination",
+"ctRefs": [
+37,
+38
+]
+},
+{
+"subject": "Changement dans les organes de direction",
+"ctRefs": [
+28
+]
+},
+{
+"subject": "Communiqué (Journal Officiel)",
+"ctRefs": [
+6,
+29,
+30
+]
+},
+{
+"subject": "Comptable agréé",
+"ctRefs": [
+28
+]
+},
+{
+"subject": "Compte bancaire",
+"ctRefs": [
+28
+]
+},
+{
+"subject": "Conciliation (conflits entre ONG)",
+"ctRefs": [
+22
+]
+},
+{
+"subject": "Conflits entre ONG",
+"ctRefs": [
+22
+]
+},
+{
+"subject": "Confiscation des dons (organisation non reconnue)",
+"ctRefs": [
+35
+]
+},
+{
+"subject": "Conseil de Direction",
+"ctRefs": [
+8,
+12
+]
+},
+{
+"subject": "Conseil Départemental de Coordination et de Supervision des Activités des ONG",
+"ctRefs": [
+13,
+17,
+18,
+19,
+20,
+21,
+22,
+28,
+36
+]
+},
+{
+"subject": "Conseil Départemental de Coordination et de Supervision des Activités des ONG — composition",
+"ctRefs": [
+20
+]
+},
+{
+"subject": "Conseil Départemental de Coordination et de Supervision des Activités des ONG — mission",
+"ctRefs": [
+17
+]
+},
+{
+"subject": "Conseil Départemental de Coordination et de Supervision des Activités des ONG — attributions",
+"ctRefs": [
+18
+]
+},
+{
+"subject": "Conseil Départemental de Coordination et de Supervision des Activités des ONG — fonctionnement, quorum, vote",
+"ctRefs": [
+21
+]
+},
+{
+"subject": "Conseil Départemental de Coordination et de Supervision des Activités des ONG — mise en place (3 mois)",
+"ctRefs": [
+36
+]
+},
+{
+"subject": "Conseil National des Coopératives (CNC)",
+"ctRefs": [
+5
+]
+},
+{
+"subject": "Contrôle, suivi et évaluation",
+"ctRefs": [
+16,
+18,
+28
+]
+},
+{
+"subject": "Coopératives (autorisation expresse du CNC)",
+"ctRefs": [
+5
+]
+},
+{
+"subject": "Coordination verticale / horizontale",
+"ctRefs": [
+17
+]
+},
+{
+"subject": "Définition de l'ONG",
+"ctRefs": [
+1
+]
+},
+{
+"subject": "Délai de reconnaissance (3 mois)",
+"ctRefs": [
+10
+]
+},
+{
+"subject": "Dénomination",
+"ctRefs": [
+11,
+37,
+38
+]
+},
+{
+"subject": "Devises",
+"ctRefs": [
+28
+]
+},
+{
+"subject": "Dispositions finales",
+"ctRefs": [
+37,
+38,
+39
+]
+},
+{
+"subject": "Dispositions transitoires",
+"ctRefs": [
+34,
+35,
+36
+]
+},
+{
+"subject": "Dissolution",
+"ctRefs": [
+11,
+31
+]
+},
+{
+"subject": "Dons",
+"ctRefs": [
+23,
+35
+]
+},
+{
+"subject": "Droits de douane (vente de biens lors du rapatriement)",
+"ctRefs": [
+27
+]
+},
+{
+"subject": "Durée de l'organisation (statuts)",
+"ctRefs": [
+11
+]
+},
+{
+"subject": "Effets personnels des étrangers",
+"ctRefs": [
+23,
+27
+]
+},
+{
+"subject": "Employés assujettis à l'impôt (liste, NIF)",
+"ctRefs": [
+28
+]
+},
+{
+"subject": "Exercice fiscal",
+"ctRefs": [
+16,
+28,
+28
+]
+},
+{
+"subject": "Exonération d'impôts",
+"ctRefs": [
+23
+]
+},
+{
+"subject": "Financement partiel (Budget d'Investissement Public)",
+"ctRefs": [
+26
+]
+},
+{
+"subject": "Fondateurs (membres)",
+"ctRefs": [
+11
+]
+},
+{
+"subject": "Force majeure",
+"ctRefs": [
+29
+]
+},
+{
+"subject": "Formulaire d'engagements (MPCE)",
+"ctRefs": [
+8
+]
+},
+{
+"subject": "Franchise douanière",
+"ctRefs": [
+16,
+23,
+24,
+27
+]
+},
+{
+"subject": "Franchise douanière — demande (2 semaines avant l'arrivée)",
+"ctRefs": [
+24
+]
+},
+{
+"subject": "Franchise douanière — annulation en cas de non-conformité",
+"ctRefs": [
+24
+]
+},
+{
+"subject": "Garantie bancaire (référence, ≥ 50 000 gourdes)",
+"ctRefs": [
+8
+]
+},
+{
+"subject": "Gouvernement étranger",
+"ctRefs": [
+5
+]
+},
+{
+"subject": "Impôts",
+"ctRefs": [
+23,
+28
+]
+},
+{
+"subject": "Interdiction d'opérer (organisations non régularisées)",
+"ctRefs": [
+34
+]
+},
+{
+"subject": "Interruption des activités",
+"ctRefs": [
+28,
+29
+]
+},
+{
+"subject": "Journal Officiel / Moniteur",
+"ctRefs": [
+6,
+30,
+32
+]
+},
+{
+"subject": "Lettre de garantie (deux ONG reconnues ou agence bilatérale/multilatérale)",
+"ctRefs": [
+8
+]
+},
+{
+"subject": "Liaison ministérielle (fonctionnaire désigné auprès de l'UCAONG)",
+"ctRefs": [
+14
+]
+},
+{
+"subject": "Liquidation du patrimoine",
+"ctRefs": [
+31
+]
+},
+{
+"subject": "Liste des ONG (tenue à jour)",
+"ctRefs": [
+16,
+18
+]
+},
+{
+"subject": "Livres comptables",
+"ctRefs": [
+28
+]
+},
+{
+"subject": "Lois haïtiennes (conformité)",
+"ctRefs": [
+28
+]
+},
+{
+"subject": "Ministère de l'Intérieur et de la Défense Nationale",
+"ctRefs": [
+6,
+20,
+34,
+39
+]
+},
+{
+"subject": "Ministère des Affaires Étrangères et des Cultes",
+"ctRefs": [
+6,
+39
+]
+},
+{
+"subject": "Ministère de la Planification et de la Coopération Externe (MPCE)",
+"ctRefs": [
+5,
+6,
+8,
+13,
+14,
+15,
+16,
+18,
+19,
+20,
+21,
+24,
+28,
+32,
+34,
+36,
+37,
+39
+]
+},
+{
+"subject": "Ministère de la Planification et de la Coopération Externe (MPCE) — organisme responsable de la coordination et supervision",
+"ctRefs": [
+13
+]
+},
+{
+"subject": "Ministère de la Planification et de la Coopération Externe (MPCE) — Représentation Départementale",
+"ctRefs": [
+19,
+20,
+21
+]
+},
+{
+"subject": "Ministères sectoriels (co-responsabilité de la supervision)",
+"ctRefs": [
+14,
+20,
+39
+]
+},
+{
+"subject": "Nationalité haïtienne (tiers du Conseil de Direction des ONG étrangères)",
+"ctRefs": [
+12
+]
+},
+{
+"subject": "NIF (numéro d'identification fiscale)",
+"ctRefs": [
+28
+]
+},
+{
+"subject": "Nom de l'organisation (affichage extérieur obligatoire)",
+"ctRefs": [
+28
+]
+},
+{
+"subject": "Notification",
+"ctRefs": [
+10,
+28
+]
+},
+{
+"subject": "Obligations des ONG",
+"ctRefs": [
+28
+]
+},
+{
+"subject": "Obligations vis-à-vis des tiers (changement de nom)",
+"ctRefs": [
+38
+]
+},
+{
+"subject": "ONG étrangère",
+"ctRefs": [
+2,
+8,
+12
+]
+},
+{
+"subject": "ONG nationale",
+"ctRefs": [
+2
+]
+},
+{
+"subject": "Organisation non reconnue",
+"ctRefs": [
+34,
+35
+]
+},
+{
+"subject": "Patrimoine",
+"ctRefs": [
+31
+]
+},
+{
+"subject": "Peine afflictive et infamante (inéligibilité du personnel)",
+"ctRefs": [
+33
+]
+},
+{
+"subject": "Permis de l'Administration Communale",
+"ctRefs": [
+8
+]
+},
+{
+"subject": "Permis de séjour",
+"ctRefs": [
+28
+]
+},
+{
+"subject": "Personnalité civile",
+"ctRefs": [
+3
+]
+},
+{
+"subject": "Personnel étranger",
+"ctRefs": [
+23,
+25,
+27,
+28
+]
+},
+{
+"subject": "Plan de Développement National",
+"ctRefs": [
+16,
+17,
+18
+]
+},
+{
+"subject": "Pouvoirs des administrateurs (statuts)",
+"ctRefs": [
+11
+]
+},
+{
+"subject": "Prérogatives des ONG",
+"ctRefs": [
+23,
+24,
+25,
+26,
+27
+]
+},
+{
+"subject": "Procès-verbal",
+"ctRefs": [
+18,
+21,
+37
+]
+},
+{
+"subject": "Programmes et projets",
+"ctRefs": [
+4,
+8,
+14,
+16,
+17,
+18,
+25,
+28,
+29,
+32
+]
+},
+{
+"subject": "Propriété immobilière des étrangers (restrictions)",
+"ctRefs": [
+25
+]
+},
+{
+"subject": "Quorum (deux tiers)",
+"ctRefs": [
+21
+]
+},
+{
+"subject": "Rapatriement des membres étrangers",
+"ctRefs": [
+27
+]
+},
+{
+"subject": "Rapport d'exécution (au plus tard le 30 novembre)",
+"ctRefs": [
+28
+]
+},
+{
+"subject": "Rapport motivé de l'UCAONG",
+"ctRefs": [
+30,
+32
+]
+},
+{
+"subject": "Rapports trimestriels (Conseil Départemental → MPCE)",
+"ctRefs": [
+18
+]
+},
+{
+"subject": "Rapporteurs (réunions du Conseil Départemental)",
+"ctRefs": [
+21
+]
+},
+{
+"subject": "Reconnaissance",
+"ctRefs": [
+4,
+6,
+8,
+9,
+10,
+11,
+29,
+30,
+31,
+34,
+37
+]
+},
+{
+"subject": "Reconnaissance — compétence conjointe (trois ministères)",
+"ctRefs": [
+6
+]
+},
+{
+"subject": "Reconnaissance — formalités",
+"ctRefs": [
+8
+]
+},
+{
+"subject": "Reconnaissance — reçu formel",
+"ctRefs": [
+9
+]
+},
+{
+"subject": "Reconnaissance — délai (3 mois)",
+"ctRefs": [
+10
+]
+},
+{
+"subject": "Reconnaissance — nouvelle reconnaissance (changement de buts)",
+"ctRefs": [
+37
+]
+},
+{
+"subject": "Reçu formel (liste des pièces déposées)",
+"ctRefs": [
+9
+]
+},
+{
+"subject": "Regroupement d'ONG",
+"ctRefs": [
+4
+]
+},
+{
+"subject": "Représentants des ONG (sept, mandat de deux ans)",
+"ctRefs": [
+20
+]
+},
+{
+"subject": "Retrait de la reconnaissance",
+"ctRefs": [
+29,
+30,
+31
+]
+},
+{
+"subject": "Réunions",
+"ctRefs": [
+16,
+18,
+21
+]
+},
+{
+"subject": "Sanctions",
+"ctRefs": [
+24,
+29,
+30,
+31,
+32,
+33
+]
+},
+{
+"subject": "Sans but lucratif",
+"ctRefs": [
+1
+]
+},
+{
+"subject": "Secrétariat Exécutif et Technique",
+"ctRefs": [
+19,
+22
+]
+},
+{
+"subject": "Secteur public (représentation au Conseil)",
+"ctRefs": [
+21
+]
+},
+{
+"subject": "Siège social",
+"ctRefs": [
+2,
+11
+]
+},
+{
+"subject": "Statuts",
+"ctRefs": [
+6,
+8,
+11,
+16,
+29
+]
+},
+{
+"subject": "Statuts — mentions obligatoires",
+"ctRefs": [
+11
+]
+},
+{
+"subject": "Supervision",
+"ctRefs": [
+13,
+14,
+16,
+17,
+18
+]
+},
+{
+"subject": "Suspension temporaire ou définitive",
+"ctRefs": [
+32
+]
+},
+{
+"subject": "Tiers (obligations envers les)",
+"ctRefs": [
+38
+]
+},
+{
+"subject": "Transfert de fonds (produit de vente, rapatriement)",
+"ctRefs": [
+27
+]
+},
+{
+"subject": "UCAONG (Unité de Coordination des Activités des ONG)",
+"ctRefs": [
+13,
+14,
+15,
+16,
+28,
+30,
+32
+]
+},
+{
+"subject": "UCAONG (Unité de Coordination des Activités des ONG) — rattachement au MPCE",
+"ctRefs": [
+15
+]
+},
+{
+"subject": "UCAONG (Unité de Coordination des Activités des ONG) — attributions",
+"ctRefs": [
+16
+]
+},
+{
+"subject": "Vérification douanière",
+"ctRefs": [
+24
+]
+},
+{
+"subject": "Voix prépondérante (Président du Conseil)",
+"ctRefs": [
+21
+]
+},
+{
+"subject": "Vote majoritaire (Assemblée Générale)",
+"ctRefs": [
+37
+]
+},
+{
+"subject": "Zone d'intervention",
+"ctRefs": [
+8,
+8,
+16,
+28
+]
+}
+]
