@@ -21,7 +21,21 @@ const MONTHS: Record<string, number> = {
   juillet: 6, aout: 7, septembre: 8, octobre: 9, novembre: 10, decembre: 11,
 }
 
-function parseFrenchDate(raw: string | undefined, fallbackYear: number): Date {
+/**
+ * ⚠️ NE JAMAIS RABATTRE UN QUANTIÈME. Cette fonction a longtemps écrit
+ * `Math.min(day || 1, 28)` — écrit, semble-t-il, pour éviter un 30 février. Le garde-fou
+ * était muet et il a rabattu TOUS les vrais 29, 30 et 31 : mesuré le 28 août 2026 sur les
+ * 27 238 entrées de l'Index, **2 137 dates fausses**, et pas une seule entrée datée après
+ * le 28 d'un mois dans toute la base. Un fascicule du 31 décembre devenait un fascicule du
+ * 28 décembre, sans trace.
+ *
+ * Une date impossible se REFUSE (repli sur le 1er janvier de l'année, comme les autres
+ * échecs), elle ne se déplace pas : déplacer fabrique une donnée fausse d'apparence valide.
+ * Le contrôle est un aller-retour — on reconstruit la date, puis on vérifie que l'année, le
+ * mois et le quantième ressortis sont bien ceux qu'on a lus. `Date.UTC(2012, 1, 30)` rend le
+ * 1er mars : l'aller-retour le rattrape.
+ */
+export function parseFrenchDate(raw: string | undefined, fallbackYear: number): Date {
   const fb = new Date(Date.UTC(fallbackYear, 0, 1))
   if (!raw) return fb
   const m = fold(raw).match(/(\d{1,2})\s+([a-z]+)\s+(\d{4})/)
@@ -29,9 +43,11 @@ function parseFrenchDate(raw: string | undefined, fallbackYear: number): Date {
   const day = Number(m[1])
   const month = MONTHS[m[2]]
   const year = Number(m[3])
-  if (month == null || !year) return fb
-  const d = new Date(Date.UTC(year, month, Math.min(day || 1, 28)))
-  return isNaN(d.getTime()) ? fb : d
+  if (month == null || !year || !day) return fb
+  const d = new Date(Date.UTC(year, month, day))
+  if (isNaN(d.getTime())) return fb
+  if (d.getUTCFullYear() !== year || d.getUTCMonth() !== month || d.getUTCDate() !== day) return fb
+  return d
 }
 
 // Sous-catégorie (conservée en métadonnées) + nature de publication société.
