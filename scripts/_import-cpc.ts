@@ -79,19 +79,22 @@ async function main() {
   if (entiers.length !== 997) throw new Error(`articles entiers : ${entiers.length}/997 — annulé`)
   console.log(`✓ contrôles : ${secs} divisions · ${anchors.size} articles (997 entiers + ${anchors.size - 997} décimaux) · index ${Object.keys(idx).length} entrées, 0 mort · 0 renvoi français`)
 
-  // ── Thème « Procédure civile », créé sous Justice s'il n'existe pas ──
-  const justice = await prisma.theme.findFirst({ where: { slug: 'justice' } })
-  if (!justice) throw new Error('thème justice introuvable')
+  // ── Thème « Procédure civile », créé sous DROIT CIVIL s'il n'existe pas ──
+  // ⚠️ Il naissait sous « justice », en Droit public. Me Vaval l'a fait passer sous Droit civil le
+  // 28 août 2026 (« la procédure civile doit aller sous droit civil »), et le thème « justice » a
+  // été SUPPRIMÉ le même jour. Rétablir l'ancien parent recréerait un thème mort.
+  const droitCivil = await prisma.theme.findFirst({ where: { slug: 'droit-civil' } })
+  if (!droitCivil) throw new Error('thème droit-civil introuvable')
   let pc = await prisma.theme.findFirst({ where: { slug: 'procedure-civile' } })
   if (!pc) {
-    const max = await prisma.theme.aggregate({ where: { parentId: justice.id }, _max: { position: true } })
+    const max = await prisma.theme.aggregate({ where: { parentId: droitCivil.id }, _max: { position: true } })
     pc = await prisma.theme.create({
       data: {
-        slug: 'procedure-civile', parentId: justice.id, position: (max._max.position ?? 0) + 1,
+        slug: 'procedure-civile', parentId: droitCivil.id, position: (max._max.position ?? 0) + 1,
         labelFr: 'Procédure civile', labelEn: 'Civil procedure', labelHt: 'Pwosedi sivil',
       },
     })
-    console.log(`✓ thème créé : Justice → « ${pc.labelFr} »`)
+    console.log(`✓ thème créé : Droit civil → « ${pc.labelFr} »`)
   } else console.log(`✓ thème existant : « ${pc.labelFr} »`)
   const dc = await prisma.theme.findFirst({ where: { slug: 'droit-civil' } })
   if (!dc) throw new Error('thème droit-civil introuvable')

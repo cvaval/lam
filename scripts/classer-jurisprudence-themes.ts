@@ -34,7 +34,10 @@ const REGLES: { motif: RegExp; slug: string; pourquoi: string }[] = [
   { motif: /droit du travail|tribunal de travail|contrat de travail/i, slug: 'droit-du-travail', pourquoi: 'droit du travail' },
   { motif: /proc[ée]dure p[ée]nale/i, slug: 'procedure-penale', pourquoi: 'procédure pénale' },
   { motif: /droit p[ée]nal|infraction|d[ée]lit p[ée]nal/i, slug: 'penal-general', pourquoi: 'droit pénal' },
-  { motif: /organisation judiciaire|responsabilit[ée] des magistrats|prise à partie/i, slug: 'justice', pourquoi: 'organisation judiciaire' },
+  // ⚠️ Le thème « justice » a été SUPPRIMÉ le 28 août 2026 (Me Vaval) : ses deux arrêts de prise à partie
+  // et les sept textes d'organisation judiciaire vivent tous sous « procedure-civile », passée
+  // sous Droit civil. La matière ne change pas ; seule sa place dans l'arbre a changé.
+  { motif: /organisation judiciaire|responsabilit[ée] des magistrats|prise à partie/i, slug: 'procedure-civile', pourquoi: 'organisation judiciaire' },
   { motif: /proc[ée]dure civile|voies? de recours|voies? d.ex[ée]cution/i, slug: 'procedure-civile', pourquoi: 'procédure civile' },
   { motif: /droit commercial|commer[çc]ant|soci[ée]t[ée] commerciale|faillite/i, slug: 'droit-commercial', pourquoi: 'droit commercial' },
   { motif: /droit rural|bail à cheptel|agricole/i, slug: 'agriculture-rural', pourquoi: 'droit rural' },

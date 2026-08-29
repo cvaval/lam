@@ -89,7 +89,6 @@ const TAXONOMY: Node[] = [
     en: 'Public & administrative law',
     ht: 'Dwa piblik & administratif',
     children: [
-      { slug: 'justice', fr: 'Justice', en: 'Justice', ht: 'Jistis' },
       { slug: 'elections', fr: 'Élections', en: 'Elections', ht: 'Eleksyon' },
       { slug: 'finances-publiques-controle', fr: 'Finances publiques & contrôle', en: 'Public finances & audit', ht: 'Finans piblik & kontwòl' },
       { slug: 'administration-centrale', fr: "Administration centrale de l'État", en: 'Central state administration', ht: 'Administrasyon santral Leta' },
@@ -106,6 +105,17 @@ const TAXONOMY: Node[] = [
       { slug: 'penal-general', fr: 'Droit pénal général', en: 'General criminal law', ht: 'Dwa penal jeneral' },
       { slug: 'procedure-penale', fr: 'Procédure pénale', en: 'Criminal procedure', ht: 'Pwosedi penal' },
     ],
+  },
+  // ⚠️ RACINE, pas un sous-thème de Justice. Le 28 août 2026, Me Vaval a écarté le placement sous
+  // Justice (« Non, créer comme un titre 1, comme le Droit privé ») et fait SUPPRIMER le thème
+  // « justice », devenu vide : ses huit textes de notariat sont ici, ses deux arrêts de prise à
+  // partie sont passés sous « procedure-civile ». Le créole s'écrit sans accent (« Notarya »).
+  {
+    slug: 'notariat',
+    fr: 'Notariat',
+    en: 'Notarial practice',
+    ht: 'Notarya',
+    children: [],
   },
 ]
 

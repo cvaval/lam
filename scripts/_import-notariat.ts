@@ -180,7 +180,7 @@ async function publier(meta: Meta, body: string, ann: Annotations & Record<strin
   for (const t of themes) {
     if (!(await prisma.documentTheme.findFirst({ where: { documentId: doc.id, themeId: t.id } })))
       await prisma.documentTheme.create({
-        data: { documentId: doc.id, themeId: t.id, isPrimary: t.slug === 'justice', assignedBy: 'IMPORT' },
+        data: { documentId: doc.id, themeId: t.id, isPrimary: t.slug === 'notariat', assignedBy: 'IMPORT' },
       })
   }
   await reindexDocument(doc.id)
@@ -189,8 +189,11 @@ async function publier(meta: Meta, body: string, ann: Annotations & Record<strin
 }
 
 async function main() {
-  const themes = await prisma.theme.findMany({ where: { slug: { in: ['justice', 'droit-civil'] } }, select: { id: true, slug: true } })
-  if (themes.length !== 2) throw new Error('thèmes justice / droit-civil introuvables')
+  // ⚠️ Le 28 août 2026, Me Vaval a fait du Notariat une RACINE de l'arbre (« créer comme un titre 1,
+  // comme le Droit privé »), et le thème « justice » a été SUPPRIMÉ. Les huit textes portent
+  // désormais « notariat » en primaire, et gardent leur double rattachement à « droit-civil ».
+  const themes = await prisma.theme.findMany({ where: { slug: { in: ['notariat', 'droit-civil'] } }, select: { id: true, slug: true } })
+  if (themes.length !== 2) throw new Error('thèmes notariat / droit-civil introuvables — créer « notariat » en racine (Notariat / Notarial practice / Notarya)')
 
   // ── Décret-loi du 27 novembre 1969 ──
   const body69 = readFileSync(`${D69}/bodyOriginal.txt`, 'utf8').trimEnd()
