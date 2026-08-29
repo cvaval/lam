@@ -1,0 +1,80 @@
+[
+{
+"level": 1,
+"label": "DE L'ARBITRAGE",
+"anchor": "sec-1",
+"kind": "code"
+},
+{
+"level": 2,
+"label": "DE LA CONVENTION D'ARBITRAGE",
+"anchor": "sec-2",
+"kind": "code"
+},
+{
+"level": 3,
+"label": "Section I : De la faculté de compromettre",
+"anchor": "sec-3",
+"kind": "code"
+},
+{
+"level": 3,
+"label": "Section II : De la clause compromissoire",
+"anchor": "sec-4",
+"kind": "code"
+},
+{
+"level": 3,
+"label": "Section III : Du compromis",
+"anchor": "sec-5",
+"kind": "code"
+},
+{
+"level": 3,
+"label": "Section IV : Des règles communes aux conventions d'arbitrage",
+"anchor": "sec-6",
+"kind": "code"
+},
+{
+"level": 2,
+"label": "DE L'INSTANCE ARBITRALE",
+"anchor": "sec-7",
+"kind": "code"
+},
+{
+"level": 2,
+"label": "DE LA SENTENCE ARBITRALE",
+"anchor": "sec-8",
+"kind": "code"
+},
+{
+"level": 2,
+"label": "DES VOIES DE RECOURS",
+"anchor": "sec-9",
+"kind": "code"
+},
+{
+"level": 2,
+"label": "DE L'ARBITRAGE INTERNATIONAL",
+"anchor": "sec-10",
+"kind": "code"
+},
+{
+"level": 2,
+"label": "DE LA RECONNAISSANCE – DE L'EXÉCUTION FORCÉE ET DES VOIES DE RECOURS À L'ÉGARD DES SENTENCES ARBITRALES RENDUES À L'ÉTRANGER EN MATIÈRE D'ARBITRAGE INTERNATIONAL",
+"anchor": "sec-11",
+"kind": "code"
+},
+{
+"level": 3,
+"label": "Section I : De la reconnaissance et de l'exécution forcée des sentences arbitrales rendues à l'étranger ou en matière d'arbitrage international.",
+"anchor": "sec-12",
+"kind": "code"
+},
+{
+"level": 3,
+"label": "Section II : Des voies de recours contre les sentences arbitrales rendues à l'étranger ou en matière d'arbitrage international.",
+"anchor": "sec-13",
+"kind": "code"
+}
+]
