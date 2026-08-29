@@ -1,0 +1,225 @@
+{
+ "id": "13",
+ "slug": "arr-alleges-travaux-2017",
+ "titre_provisoire": "Arrêté sanctionnant pour sortir leur plein et entier effet le Manuel de procédures allégées pour la passation des marchés de travaux et le Dossier d'Appel d'Offres allégé pour la passation des marchés de travaux",
+ "source": {
+  "fichier": "piece-13-arrete-2017-08-30-allege-travaux.txt",
+  "md5_txt": "54fbf48423fe4990d84a62059b140f9a",
+  "lignes_fichier": 2701
+ },
+ "decoupe": {
+  "segments": [
+   [
+    12,
+    2693
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     5
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps"
+   },
+   {
+    "plage": [
+     6,
+     10
+    ],
+    "motif": "SOMMAIRE du fascicule"
+   },
+   {
+    "plage": [
+     11,
+     11
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif"
+   },
+   {
+    "plage": [
+     2694,
+     2701
+    ],
+    "motif": "colophon des Presses Nationales d'Haïti (achevé d'imprimer, ISSN, dépôt légal, adresse, téléphones, tirage) : appareil de fascicule, jamais du dispositif — table-decoupe.md, § « Les zones d'appareil d'éditeur, à écarter du corps au § 8.4 »"
+   }
+  ],
+  "note": "Colophon retiré du corps (l. 2694-2700) : appareil de fascicule (§ 8.4).",
+  "retraits": [
+   {
+    "ligne_source": 506,
+    "motif": "Nota (transcription) de l'éditeur",
+    "texte": "Nota (transcription) : la numérotation « 21 » figure deux fois dans le document source (Copie à la CNMP et Publication des résultats) ; cette anomalie de la source est préservée telle quelle."
+   },
+   {
+    "ligne_source": 510,
+    "motif": "Nota (transcription) de l'éditeur",
+    "texte": "Nota (transcription) : l'annexe B du document source est un diagramme de Gantt (calendrier graphique sur 50 jours). Il est reconstitué ci-dessous sous forme tabulaire, en préservant les numéros d'étapes et les durées lisibles dans la source, y compris la répétition du numéro « 11 »."
+   },
+   {
+    "ligne_source": 760,
+    "motif": "Nota (transcription) de l'éditeur",
+    "texte": "Nota (transcription) : le premier tableau d'identification ci-dessous précède, dans la source, le « Tableau 2 : Procédure » ; son intitulé n'apparaît pas sur la page transcrite."
+   },
+   {
+    "ligne_source": 1217,
+    "motif": "Nota (transcription) de l'éditeur",
+    "texte": "Nota (transcription) : dans le sommaire du document source, les mentions « SECTION II : LES CONDITIONS DE CONTRAT » et « SECTION III : LE DOSSIER TECHNIQUE » apparaissent accolées respectivement aux points 4 et 8 ; elles sont restituées ici comme intitulés de sections, conformément à la structure effective du dossier."
+   },
+   {
+    "ligne_source": 1295,
+    "motif": "Nota (transcription) de l'éditeur",
+    "texte": "Nota (transcription) : la table des matières du document source passe de la section C à la section E, sans section D ; cette anomalie de numérotation de la source est préservée."
+   }
+  ],
+  "insertions": []
+ },
+ "jointures_entetes": [
+  {
+   "ligne_source": 89,
+   "lignes_jointes": 11,
+   "libelle": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MANUEL DE PROCÉDURES ALLÉGÉES — POUR LA PASSATION DES MARCHÉS — DE TRAVAUX"
+  },
+  {
+   "ligne_source": 729,
+   "lignes_jointes": 11,
+   "libelle": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — RAPPORT D'ÉVALUATION STANDARD — APPEL D'OFFRES ALLÉGÉ — POUR MARCHÉS DE TRAVAUX"
+  },
+  {
+   "ligne_source": 1186,
+   "lignes_jointes": 11,
+   "libelle": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — DOSSIER D'APPEL D'OFFRES ALLÉGÉ — POUR LA PASSATION — DES MARCHÉS DE TRAVAUX"
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MANUEL DE PROCÉDURES ALLÉGÉES — POUR LA PASSATION DES MARCHÉS — DE TRAVAUX",
+   "anchor": "sec-1",
+   "kind": "connexe",
+   "ligne_source": 89
+  },
+  {
+   "level": 1,
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — RAPPORT D'ÉVALUATION STANDARD — APPEL D'OFFRES ALLÉGÉ — POUR MARCHÉS DE TRAVAUX",
+   "anchor": "sec-2",
+   "kind": "connexe",
+   "ligne_source": 729
+  },
+  {
+   "level": 1,
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — DOSSIER D'APPEL D'OFFRES ALLÉGÉ — POUR LA PASSATION — DES MARCHÉS DE TRAVAUX",
+   "anchor": "sec-3",
+   "kind": "connexe",
+   "ligne_source": 1186
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2"
+ },
+ "navToc": [
+  {
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MANUEL DE PROCÉDURES ALLÉGÉES — POUR LA PASSATION DES MARCHÉS — DE TRAVAUX",
+   "anchor": "sec-1",
+   "children": []
+  },
+  {
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — RAPPORT D'ÉVALUATION STANDARD — APPEL D'OFFRES ALLÉGÉ — POUR MARCHÉS DE TRAVAUX",
+   "anchor": "sec-2",
+   "children": []
+  },
+  {
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — DOSSIER D'APPEL D'OFFRES ALLÉGÉ — POUR LA PASSATION — DES MARCHÉS DE TRAVAUX",
+   "anchor": "sec-3",
+   "children": []
+  }
+ ],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 2647,
+  "toc": 3,
+  "labels": 2,
+  "ancres_emises": 2,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 9,
+  "navToc_groupes": 3
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [
+  {
+   "ligne_corps": 1356,
+   "ancre": "art-1",
+   "tete": "Art. 1",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1364,
+   "ancre": "art-2",
+   "tete": "Art. 2",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1368,
+   "ancre": "art-4",
+   "tete": "Art. 4",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1380,
+   "ancre": "art-7",
+   "tete": "Art. 7",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1389,
+   "ancre": "art-13",
+   "tete": "Art. 13",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 2470,
+   "ancre": "art-1",
+   "tete": "Article 1. OBJET DU CONTRAT",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 2473,
+   "ancre": "art-2",
+   "tete": "Article 2. PIÈCES CONSTITUTIVES",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 2482,
+   "ancre": "art-3",
+   "tete": "Article 3. MONTANT DU CONTRAT",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 2486,
+   "ancre": "art-4",
+   "tete": "Article 4. DÉLAI D'EXÉCUTION",
+   "motif": "doublon"
+  }
+ ],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": null,
+ "md5_corps": "33c84974b73fd951a8940a63a47fb999",
+ "apostrophes": {
+  "droites": 1219,
+  "courbes": 0
+ },
+ "exposants_unicode": {},
+ "reserves": {
+  "intitule_non_restitue": "l'intitulé n'a PAS été restitué au corps : le sommaire du fascicule ne l'imprime pas sur une ligne, mais en LISTE — une ligne d'annonce (« ARRÊTÉ SANCTIONNANT POUR SORTIR LEUR PLEIN ET ENTIER EFFET : ») suivie d'items tirés, un par pièce sanctionnée. Le restituer supposerait de RECOLLER plusieurs lignes, c'est-à-dire de composer un intitulé — ce que la règle interdit (il se restitue mot pour mot, il ne se compose pas). L'objet de l'acte se lit à son dispositif, article 1er."
+ }
+}

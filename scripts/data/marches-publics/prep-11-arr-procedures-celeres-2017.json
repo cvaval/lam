@@ -1,0 +1,313 @@
+{
+ "id": "11",
+ "slug": "arr-procedures-celeres-2017",
+ "titre_provisoire": "Arrêté sanctionnant pour sortir leur plein et entier effet le Manuel de procédures célères pour la passation des marchés publics en état d'urgence déclaré, le Document-type de préqualification d'entreprises et le Modèle de marché pour intervention en situation d'état d'urgence déclaré",
+ "source": {
+  "fichier": "piece-11-arrete-2017-08-30-procedures-celeres.txt",
+  "md5_txt": "e5d682561c0174d932f6737cf077df47",
+  "lignes_fichier": 1367
+ },
+ "decoupe": {
+  "segments": [
+   [
+    13,
+    1363
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     5
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps"
+   },
+   {
+    "plage": [
+     6,
+     11
+    ],
+    "motif": "SOMMAIRE du fascicule"
+   },
+   {
+    "plage": [
+     12,
+     12
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif"
+   },
+   {
+    "plage": [
+     1364,
+     1367
+    ],
+    "motif": "colophon des Presses Nationales d'Haïti (achevé d'imprimer, ISSN, dépôt légal, adresse, téléphones, tirage) : appareil de fascicule, jamais du dispositif — table-decoupe.md, § « Les zones d'appareil d'éditeur, à écarter du corps au § 8.4 »"
+   }
+  ],
+  "note": "Colophon retiré du corps (l. 1364-1366) : appareil de fascicule (§ 8.4).",
+  "retraits": [],
+  "insertions": []
+ },
+ "jointures_entetes": [
+  {
+   "ligne_source": 105,
+   "lignes_jointes": 5,
+   "libelle": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MANUEL DE PROCÉDURES CÉLÈRES — POUR LA PASSATION DES MARCHÉS PUBLICS — EN ÉTAT D'URGENCE DÉCLARÉ"
+  },
+  {
+   "ligne_source": 192,
+   "lignes_jointes": 5,
+   "libelle": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — DOCUMENT-TYPE DE PRÉQUALIFICATION — D'ENTREPRISES EN VUE DE TRAVAUX D'INTERVENTION — SOUS UN ÉTAT D'URGENCE DÉCLARÉ"
+  },
+  {
+   "ligne_source": 814,
+   "lignes_jointes": 5,
+   "libelle": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MODÈLE DE MARCHÉ — POUR INTERVENTION EN SITUATION D'ÉTAT D'URGENCE — DÉCLARÉ"
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MANUEL DE PROCÉDURES CÉLÈRES — POUR LA PASSATION DES MARCHÉS PUBLICS — EN ÉTAT D'URGENCE DÉCLARÉ",
+   "anchor": "sec-1",
+   "kind": "connexe",
+   "ligne_source": 105
+  },
+  {
+   "level": 1,
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — DOCUMENT-TYPE DE PRÉQUALIFICATION — D'ENTREPRISES EN VUE DE TRAVAUX D'INTERVENTION — SOUS UN ÉTAT D'URGENCE DÉCLARÉ",
+   "anchor": "sec-2",
+   "kind": "connexe",
+   "ligne_source": 192
+  },
+  {
+   "level": 1,
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MODÈLE DE MARCHÉ — POUR INTERVENTION EN SITUATION D'ÉTAT D'URGENCE — DÉCLARÉ",
+   "anchor": "sec-3",
+   "kind": "connexe",
+   "ligne_source": 814
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2"
+ },
+ "navToc": [
+  {
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MANUEL DE PROCÉDURES CÉLÈRES — POUR LA PASSATION DES MARCHÉS PUBLICS — EN ÉTAT D'URGENCE DÉCLARÉ",
+   "anchor": "sec-1",
+   "children": []
+  },
+  {
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — DOCUMENT-TYPE DE PRÉQUALIFICATION — D'ENTREPRISES EN VUE DE TRAVAUX D'INTERVENTION — SOUS UN ÉTAT D'URGENCE DÉCLARÉ",
+   "anchor": "sec-2",
+   "children": []
+  },
+  {
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MODÈLE DE MARCHÉ — POUR INTERVENTION EN SITUATION D'ÉTAT D'URGENCE — DÉCLARÉ",
+   "anchor": "sec-3",
+   "children": []
+  }
+ ],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 1339,
+  "toc": 3,
+  "labels": 2,
+  "ancres_emises": 2,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 28,
+  "navToc_groupes": 3
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [
+  {
+   "ligne_corps": 1217,
+   "ancre": "art-1",
+   "tete": "Article 1 : Objet du contrat",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1222,
+   "ancre": "art-2",
+   "tete": "Article 2 : Type de contrat",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1225,
+   "ancre": "art-3",
+   "tete": "Article 3 : Montant du contrat",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1228,
+   "ancre": "art-4",
+   "tete": "Article 4 : Démarrage des travaux et Délai d'Exécution - Durée du contrat",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1233,
+   "ancre": "art-5",
+   "tete": "Article 5 : Documents contractuels",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1243,
+   "ancre": "art-6",
+   "tete": "Article 6 : Obligations de l'Entrepreneur",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1247,
+   "ancre": "art-7",
+   "tete": "Article 7 : Obligations du Maître d'Ouvrage",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1251,
+   "ancre": "art-8",
+   "tete": "Article 8 : Modalités de Paiement",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1258,
+   "ancre": "art-9",
+   "tete": "Article 9 : Retenue de garantie",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1260,
+   "ancre": "art-10",
+   "tete": "Article 10 : Réception provisoire",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1264,
+   "ancre": "art-11",
+   "tete": "Article 11 : Délai de Garantie et Réception Définitive",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1268,
+   "ancre": "art-12",
+   "tete": "Article 12 : Sous-traitance (optionnel au Maître d'Ouvrage)",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1271,
+   "ancre": "art-13",
+   "tete": "Article 13 : Supervision et Contrôle des travaux",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1275,
+   "ancre": "art-14",
+   "tete": "Article 14 : Ordres de service",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1277,
+   "ancre": "art-15",
+   "tete": "Article 15 : Installations de chantier",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1279,
+   "ancre": "art-16",
+   "tete": "Article 16 : Visites et réunions de chantier",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1281,
+   "ancre": "art-17",
+   "tete": "Article 17 : Domiciliation bancaire",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1286,
+   "ancre": "art-18",
+   "tete": "Article 18 : Actualisation et révision",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1288,
+   "ancre": "art-19",
+   "tete": "Article 19 : Pénalités de retard",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1290,
+   "ancre": "art-20",
+   "tete": "Article 20 : Intérêts moratoires",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1293,
+   "ancre": "art-21",
+   "tete": "Article 21 : Modification de la consistance des travaux",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1296,
+   "ancre": "art-22",
+   "tete": "Article 22 : Déchéance de l'Entrepreneur",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1298,
+   "ancre": "art-23",
+   "tete": "Article 23 : Résiliation",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1305,
+   "ancre": "art-24",
+   "tete": "Article 24 : Personnel d'encadrement",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1307,
+   "ancre": "art-25",
+   "tete": "Article 25 : Hygiène, Sécurité, et protection de l'environnement",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1309,
+   "ancre": "art-26",
+   "tete": "Article 26 : Intempéries - Forces majeures",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1314,
+   "ancre": "art-27",
+   "tete": "Article 27 : Responsabilité",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1316,
+   "ancre": "art-28",
+   "tete": "Article 28 : Contestations et litiges",
+   "motif": "annexe (kind connexe)"
+  }
+ ],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": null,
+ "md5_corps": "73ac842493fceb49264bbcc8e693c26a",
+ "apostrophes": {
+  "droites": 700,
+  "courbes": 0
+ },
+ "exposants_unicode": {},
+ "reserves": {
+  "intitule_non_restitue": "l'intitulé n'a PAS été restitué au corps : le sommaire du fascicule ne l'imprime pas sur une ligne, mais en LISTE — une ligne d'annonce (« ARRÊTÉ SANCTIONNANT POUR SORTIR LEUR PLEIN ET ENTIER EFFET : ») suivie d'items tirés, un par pièce sanctionnée. Le restituer supposerait de RECOLLER plusieurs lignes, c'est-à-dire de composer un intitulé — ce que la règle interdit (il se restitue mot pour mot, il ne se compose pas). L'objet de l'acte se lit à son dispositif, article 1er."
+ }
+}

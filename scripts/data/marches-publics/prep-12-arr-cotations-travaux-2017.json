@@ -1,0 +1,319 @@
+{
+ "id": "12",
+ "slug": "arr-cotations-travaux-2017",
+ "titre_provisoire": "Arrêté sanctionnant pour sortir leur plein et entier effet le Manuel de procédures de demande de cotations pour les contrats de travaux et le Dossier de demande de cotations pour l'exécution de contrats de travaux",
+ "source": {
+  "fichier": "piece-12-arrete-2017-08-30-cotations-travaux.txt",
+  "md5_txt": "6bf69bdfaa8311f48843ab8bb418b5f5",
+  "lignes_fichier": 1681
+ },
+ "decoupe": {
+  "segments": [
+   [
+    19,
+    1672
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     11
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps"
+   },
+   {
+    "plage": [
+     12,
+     17
+    ],
+    "motif": "SOMMAIRE du fascicule"
+   },
+   {
+    "plage": [
+     18,
+     18
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif"
+   },
+   {
+    "plage": [
+     1673,
+     1681
+    ],
+    "motif": "colophon des Presses Nationales d'Haïti (achevé d'imprimer, ISSN, dépôt légal, adresse, téléphones, tirage) : appareil de fascicule, jamais du dispositif — table-decoupe.md, § « Les zones d'appareil d'éditeur, à écarter du corps au § 8.4 »"
+   }
+  ],
+  "note": "Colophon retiré du corps (l. 1673-1680) : appareil de fascicule (§ 8.4).",
+  "retraits": [
+   {
+    "ligne_source": 395,
+    "motif": "[Note de transcription] de l'éditeur (diagramme de Gantt restitué en tableau)",
+    "texte": "[Note de transcription : dans l’original, cette annexe se présente sous la forme d’un diagramme de Gantt sur 30 jours calendaires ; le tableau ci-dessous en restitue le contenu textuel (activités et durées).]"
+   }
+  ],
+  "insertions": []
+ },
+ "jointures_entetes": [
+  {
+   "ligne_source": 93,
+   "lignes_jointes": 5,
+   "libelle": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MANUEL DE PROCÉDURES — DE DEMANDE DE COTATIONS — POUR LES CONTRATS DE TRAVAUX"
+  },
+  {
+   "ligne_source": 566,
+   "lignes_jointes": 5,
+   "libelle": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — RAPPORT D’ÉVALUATION STANDARD — SUITE À UNE DEMANDE DE COTATIONS — POUR LA PASSATION D’UN CONTRAT DE TRAVAUX"
+  },
+  {
+   "ligne_source": 807,
+   "lignes_jointes": 4,
+   "libelle": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — DOSSIER DE DEMANDE DE COTATIONS — POUR L’EXÉCUTION DE CONTRATS DE TRAVAUX"
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MANUEL DE PROCÉDURES — DE DEMANDE DE COTATIONS — POUR LES CONTRATS DE TRAVAUX",
+   "anchor": "sec-1",
+   "kind": "connexe",
+   "ligne_source": 93
+  },
+  {
+   "level": 1,
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — RAPPORT D’ÉVALUATION STANDARD — SUITE À UNE DEMANDE DE COTATIONS — POUR LA PASSATION D’UN CONTRAT DE TRAVAUX",
+   "anchor": "sec-2",
+   "kind": "connexe",
+   "ligne_source": 566
+  },
+  {
+   "level": 1,
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — DOSSIER DE DEMANDE DE COTATIONS — POUR L’EXÉCUTION DE CONTRATS DE TRAVAUX",
+   "anchor": "sec-3",
+   "kind": "connexe",
+   "ligne_source": 807
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2"
+ },
+ "navToc": [
+  {
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MANUEL DE PROCÉDURES — DE DEMANDE DE COTATIONS — POUR LES CONTRATS DE TRAVAUX",
+   "anchor": "sec-1",
+   "children": []
+  },
+  {
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — RAPPORT D’ÉVALUATION STANDARD — SUITE À UNE DEMANDE DE COTATIONS — POUR LA PASSATION D’UN CONTRAT DE TRAVAUX",
+   "anchor": "sec-2",
+   "children": []
+  },
+  {
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — DOSSIER DE DEMANDE DE COTATIONS — POUR L’EXÉCUTION DE CONTRATS DE TRAVAUX",
+   "anchor": "sec-3",
+   "children": []
+  }
+ ],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 1642,
+  "toc": 3,
+  "labels": 2,
+  "ancres_emises": 2,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 28,
+  "navToc_groupes": 3
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [
+  {
+   "ligne_corps": 1405,
+   "ancre": "art-1",
+   "tete": "Article 1 : Objet du contrat",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1410,
+   "ancre": "art-2",
+   "tete": "Article 2 : Type de contrat",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1413,
+   "ancre": "art-3",
+   "tete": "Article 3 : Montant du contrat",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1419,
+   "ancre": "art-4",
+   "tete": "Article 4 : Démarrage des travaux et Délai d’Exécution - Durée du contrat",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1424,
+   "ancre": "art-5",
+   "tete": "Article 5 : Documents contractuels",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1430,
+   "ancre": "art-6",
+   "tete": "Article 6 : Obligations de l’Entrepreneur",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1434,
+   "ancre": "art-7",
+   "tete": "Article 7 : Obligations du Maître d’Ouvrage",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1438,
+   "ancre": "art-8",
+   "tete": "Article 8 : Modalités de Paiement",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1445,
+   "ancre": "art-9",
+   "tete": "Article 9 : Retenue de garantie",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1447,
+   "ancre": "art-10",
+   "tete": "Article 10 : Réception provisoire",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1451,
+   "ancre": "art-11",
+   "tete": "Article 11 : Délai de Garantie et Réception Définitive",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1455,
+   "ancre": "art-12",
+   "tete": "Article 12 : Sous-traitance",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1458,
+   "ancre": "art-13",
+   "tete": "Article 13 : Supervision et Contrôle des travaux",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1462,
+   "ancre": "art-14",
+   "tete": "Article 14 : Ordres de service",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1464,
+   "ancre": "art-15",
+   "tete": "Article 15 : Installations de chantier",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1466,
+   "ancre": "art-16",
+   "tete": "Article 16 : Visites et réunions de chantier",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1468,
+   "ancre": "art-17",
+   "tete": "Article 17 : Domiciliation bancaire",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1473,
+   "ancre": "art-18",
+   "tete": "Article 18 : Actualisation et révision",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1475,
+   "ancre": "art-19",
+   "tete": "Article 19 : Pénalités de retard",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1477,
+   "ancre": "art-20",
+   "tete": "Article 20 : Intérêts moratoires",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1480,
+   "ancre": "art-21",
+   "tete": "Article 21 : Modification de la consistance des travaux",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1483,
+   "ancre": "art-22",
+   "tete": "Article 22 : Déchéance de l’Entrepreneur",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1485,
+   "ancre": "art-23",
+   "tete": "Article 23 : Résiliation",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1492,
+   "ancre": "art-24",
+   "tete": "Article 24 : Personnel d’encadrement",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1494,
+   "ancre": "art-25",
+   "tete": "Article 25 : Hygiène, Sécurité, et protection de l’environnement",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1496,
+   "ancre": "art-26",
+   "tete": "Article 26 : Intempéries - Forces majeures",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1499,
+   "ancre": "art-27",
+   "tete": "Article 27 : Responsabilité",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1501,
+   "ancre": "art-28",
+   "tete": "Article 28 : Contestations et litiges",
+   "motif": "annexe (kind connexe)"
+  }
+ ],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": null,
+ "md5_corps": "e0dd14da45eba41ad736a2633ffc35e8",
+ "apostrophes": {
+  "droites": 0,
+  "courbes": 750
+ },
+ "exposants_unicode": {},
+ "reserves": {
+  "intitule_non_restitue": "l'intitulé n'a PAS été restitué au corps : le sommaire du fascicule ne l'imprime pas sur une ligne, mais en LISTE — une ligne d'annonce (« ARRÊTÉ SANCTIONNANT POUR SORTIR LEUR PLEIN ET ENTIER EFFET : ») suivie d'items tirés, un par pièce sanctionnée. Le restituer supposerait de RECOLLER plusieurs lignes, c'est-à-dire de composer un intitulé — ce que la règle interdit (il se restitue mot pour mot, il ne se compose pas). L'objet de l'acte se lit à son dispositif, article 1er."
+ }
+}

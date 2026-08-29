@@ -1,0 +1,100 @@
+{
+ "id": "17",
+ "slug": "arr-nomination-cnmp-2019",
+ "titre_provisoire": "Arrêté nommant les membres de la Commission Nationale des Marchés Publics (CNMP)",
+ "source": {
+  "fichier": "piece-17-arrete-2019-12-26-nomination-cnmp.txt",
+  "md5_txt": "c605a2ec5a346d5eec49bbf7411a04f1",
+  "lignes_fichier": 61
+ },
+ "decoupe": {
+  "segments": [
+   [
+    28,
+    60
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     9
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps"
+   },
+   {
+    "plage": [
+     10,
+     15
+    ],
+    "motif": "SOMMAIRE du fascicule : il nomme les « Extraits du Registre des Marques de Fabrique et de Commerce », non transcrits ⚠️ DEPUIS LE 28 AOÛT (seconde décision de Me Vaval, « ajouter les titres au début ») : la plage reste hors du corps — puce, rubrique de classement, mentions de reproduction et actes voisins n'y entrent pas — mais l'INTITULÉ DE CET ACTE en est RESTITUÉ au corps, ligne par ligne, par `decoupe.insertions`, qui en déclare l'origine et le motif et le prouve verbatim."
+   },
+   {
+    "plage": [
+     16,
+     23
+    ],
+    "motif": "AVIS commercial des Presses Nationales d'Haïti (tarif de l'abonnement annuel 2020) : appareil de fascicule, hors corpus"
+   },
+   {
+    "plage": [
+     24,
+     27
+    ],
+    "motif": "en-tête courant de page du fascicule (« 2 · << LE MONITEUR >> · N° 221 – Lundi 30 Décembre 2019 »)"
+   }
+  ],
+  "note": "hors-corpus retiré : SOMMAIRE du fascicule (l. 10-15 — il nomme les « Extraits du Registre des Marques », non transcrits), l'AVIS commercial des Presses Nationales (l. 16-22) et les repères de page (l. 23-27).",
+  "retraits": [],
+  "insertions": [
+   {
+    "ligne_source": 13,
+    "texte_source": "Arrêté nommant les membres de la Commission Nationale des Marchés Publics (CNMP).",
+    "texte": "Arrêté nommant les membres de la Commission Nationale des Marchés Publics (CNMP).",
+    "transformation": null,
+    "position": {
+     "avant_ligne_source": 34
+    },
+    "motif": "RESTITUTION DE L'INTITULÉ (décision de Me Vaval du 28 août 2026, « ajouter les titres au début »). Le corps de cet acte n'ouvre PAS sur son objet : le Journal officiel y imprime le mot d'acte puis le signataire, et l'intitulé nulle part ailleurs qu'au SOMMAIRE du même fascicule. L'intitulé n'est donc pas fabriqué : il est LU mot pour mot à la ligne déclarée de la pièce, dont le md5 est asserté avant toute lecture. Ligne 13 du SOMMAIRE. UNE SEULE MENTION LAISSÉE DEHORS — ce n'est PAS un `decoupe.retraits` (ce texte n'en déclare aucun) : la puce « •  » de tête. La l. 15 du même sommaire annonce les « Extraits du Registre des Marques de Fabrique et de Commerce », qui sont HORS CORPUS et restent dehors. PLACE : immédiatement après le mot d'acte et AVANT le signataire — c'est ainsi que les textes du lot qui portent DÉJÀ leur intitulé au corps l'impriment dans cinq cas sur huit (n° 19, 20, 21, 22, 24 ; les n° 02, 03 et 04 le placent après le signataire), et c'est aussi l'ordre du sommaire lui-même, qui annonce « ARRÊTÉ » / « DÉCRET » puis l'objet."
+   }
+  ]
+ },
+ "jointures_entetes": [],
+ "toc": [],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2",
+  "art-3": "Article 3",
+  "art-4": "Article 4"
+ },
+ "navToc": [],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 34,
+  "toc": 0,
+  "labels": 4,
+  "ancres_emises": 4,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 0,
+  "navToc_groupes": 0
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": null,
+ "md5_corps": "70e50884c6077187b1bf39f4b8a94908",
+ "apostrophes": {
+  "droites": 4,
+  "courbes": 0
+ },
+ "exposants_unicode": {}
+}

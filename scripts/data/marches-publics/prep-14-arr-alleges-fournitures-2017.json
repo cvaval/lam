@@ -1,0 +1,363 @@
+{
+ "id": "14",
+ "slug": "arr-alleges-fournitures-2017",
+ "titre_provisoire": "Arrêté sanctionnant pour sortir leur plein et entier effet le Manuel de procédures allégées pour la passation des marchés de fournitures et le Dossier d'Appel d'Offres allégé pour la passation des marchés de fournitures",
+ "source": {
+  "fichier": "piece-14-arrete-2017-08-30-allege-fournitures.txt",
+  "md5_txt": "0446cac75a3726136b19073adacfb287",
+  "lignes_fichier": 1974
+ },
+ "decoupe": {
+  "segments": [
+   [
+    34,
+    1966
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     9
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps — PREMIER des DEUX bandeaux que porte cette pièce (couverture)"
+   },
+   {
+    "plage": [
+     10,
+     18
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif : couverture du Manuel et du DAO ANNEXÉS"
+   },
+   {
+    "plage": [
+     19,
+     26
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps — SECOND bandeau, réimprimé en tête de l'acte"
+   },
+   {
+    "plage": [
+     27,
+     32
+    ],
+    "motif": "SOMMAIRE du fascicule"
+   },
+   {
+    "plage": [
+     33,
+     33
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif"
+   },
+   {
+    "plage": [
+     1967,
+     1974
+    ],
+    "motif": "colophon des Presses Nationales d'Haïti (achevé d'imprimer, ISSN, dépôt légal, adresse, téléphones, tirage) : appareil de fascicule, jamais du dispositif — table-decoupe.md, § « Les zones d'appareil d'éditeur, à écarter du corps au § 8.4 »"
+   }
+  ],
+  "note": "Colophon retiré du corps (l. 1967-1973) : appareil de fascicule (§ 8.4).",
+  "retraits": [
+   {
+    "ligne_source": 536,
+    "motif": "[Note de transcription] de l'éditeur (diagramme de Gantt)",
+    "texte": "[Note de transcription : dans l'original, cette annexe se présente sous la forme d'un diagramme de Gantt étalant les étapes ci-dessus sur une grille de 50 jours calendaires ; la flèche « 50 jours calendaires » couvre l'ensemble de la procédure de passation. Le contenu textuel et les durées sont intégralement repris dans le tableau ci-dessus.]"
+   }
+  ],
+  "insertions": []
+ },
+ "jointures_entetes": [
+  {
+   "ligne_source": 108,
+   "lignes_jointes": 6,
+   "libelle": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MANUEL DE PROCÉDURES ALLÉGÉES — POUR LA PASSATION — DES MARCHÉS DE FOURNITURES"
+  },
+  {
+   "ligne_source": 690,
+   "lignes_jointes": 6,
+   "libelle": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — RAPPORT D'ÉVALUATION STANDARD — D'APPEL D'OFFRES ALLÉGÉ POUR MARCHÉS — DE FOURNITURES"
+  },
+  {
+   "ligne_source": 1081,
+   "lignes_jointes": 6,
+   "libelle": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — DOSSIER D'APPEL D'OFFRES ALLÉGÉ — POUR LA — PASSATION DES MARCHÉS DE FOURNITURES"
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MANUEL DE PROCÉDURES ALLÉGÉES — POUR LA PASSATION — DES MARCHÉS DE FOURNITURES",
+   "anchor": "sec-1",
+   "kind": "connexe",
+   "ligne_source": 108
+  },
+  {
+   "level": 1,
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — RAPPORT D'ÉVALUATION STANDARD — D'APPEL D'OFFRES ALLÉGÉ POUR MARCHÉS — DE FOURNITURES",
+   "anchor": "sec-2",
+   "kind": "connexe",
+   "ligne_source": 690
+  },
+  {
+   "level": 1,
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — DOSSIER D'APPEL D'OFFRES ALLÉGÉ — POUR LA — PASSATION DES MARCHÉS DE FOURNITURES",
+   "anchor": "sec-3",
+   "kind": "connexe",
+   "ligne_source": 1081
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2"
+ },
+ "navToc": [
+  {
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MANUEL DE PROCÉDURES ALLÉGÉES — POUR LA PASSATION — DES MARCHÉS DE FOURNITURES",
+   "anchor": "sec-1",
+   "children": []
+  },
+  {
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — RAPPORT D'ÉVALUATION STANDARD — D'APPEL D'OFFRES ALLÉGÉ POUR MARCHÉS — DE FOURNITURES",
+   "anchor": "sec-2",
+   "children": []
+  },
+  {
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — DOSSIER D'APPEL D'OFFRES ALLÉGÉ — POUR LA — PASSATION DES MARCHÉS DE FOURNITURES",
+   "anchor": "sec-3",
+   "children": []
+  }
+ ],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 1917,
+  "toc": 3,
+  "labels": 2,
+  "ancres_emises": 2,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 33,
+  "navToc_groupes": 3
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [
+  {
+   "ligne_corps": 1291,
+   "ancre": "art-1",
+   "tete": "Art. 1",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1300,
+   "ancre": "art-2",
+   "tete": "Art. 2",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1306,
+   "ancre": "art-4",
+   "tete": "Art. 4",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1323,
+   "ancre": "art-5",
+   "tete": "Art. 5",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1326,
+   "ancre": "art-6",
+   "tete": "Art. 6",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1329,
+   "ancre": "art-9",
+   "tete": "Art. 9",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1338,
+   "ancre": "art-10",
+   "tete": "Art. 10",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1342,
+   "ancre": "art-15",
+   "tete": "Art. 15",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1350,
+   "ancre": "art-19",
+   "tete": "Art. 19",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1357,
+   "ancre": "art-24",
+   "tete": "Art. 24",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1359,
+   "ancre": "art-27",
+   "tete": "Art. 27",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1756,
+   "ancre": "art-1",
+   "tete": "Article 1 : Identification des parties",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1765,
+   "ancre": "art-2",
+   "tete": "Article 2 : Objet et durée du marché",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1767,
+   "ancre": "art-3",
+   "tete": "Article 3 : Documents contractuels",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1775,
+   "ancre": "art-4",
+   "tete": "Article 4 : Délai de livraison",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1777,
+   "ancre": "art-5",
+   "tete": "Article 5 : Conditions de livraison",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1779,
+   "ancre": "art-6",
+   "tete": "Article 6 : Vérification et réception des fournitures",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1781,
+   "ancre": "art-7",
+   "tete": "Article 7 : Garantie des fournitures",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1783,
+   "ancre": "art-8",
+   "tete": "Article 8 : Garantie de Bonne Exécution",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1785,
+   "ancre": "art-9",
+   "tete": "Article 9 : Prix unitaires",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1787,
+   "ancre": "art-10",
+   "tete": "Article 10 : Impôts et taxes",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1789,
+   "ancre": "art-11",
+   "tete": "Article 11 : Monnaies et taux de change",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1791,
+   "ancre": "art-12",
+   "tete": "Article 12 : Avance de démarrage",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1793,
+   "ancre": "art-13",
+   "tete": "Article 13 : Acomptes",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1795,
+   "ancre": "art-14",
+   "tete": "Article 14 : Modalités de paiement",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1805,
+   "ancre": "art-15",
+   "tete": "Article 15 : Pénalités de retard",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1807,
+   "ancre": "art-16",
+   "tete": "Article 16 : Résiliation",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1811,
+   "ancre": "art-17",
+   "tete": "Article 17 : Règlement des différends",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1813,
+   "ancre": "art-18",
+   "tete": "Article 18 : Entrée en vigueur",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1824,
+   "ancre": "art-1",
+   "tete": "Article 1.- L'Autorité Contractante confie au Fournisseur, qui l'accepte, la fou",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1825,
+   "ancre": "art-2",
+   "tete": "Article 2.- Le montant du marché est arrêté à la somme de ______________________",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1826,
+   "ancre": "art-3",
+   "tete": "Article 3.- Le délai d'exécution du marché est de ______________ jours calendair",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1827,
+   "ancre": "art-4",
+   "tete": "Article 4.- Les documents contractuels énumérés au CCAP font partie intégrante d",
+   "motif": "doublon"
+  }
+ ],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": null,
+ "md5_corps": "d5712e49ddc7caf201df2faa7abf15f5",
+ "apostrophes": {
+  "droites": 1006,
+  "courbes": 0
+ },
+ "exposants_unicode": {},
+ "reserves": {
+  "intitule_non_restitue": "l'intitulé n'a PAS été restitué au corps : le sommaire du fascicule ne l'imprime pas sur une ligne, mais en LISTE — une ligne d'annonce (« ARRÊTÉ SANCTIONNANT POUR SORTIR LEUR PLEIN ET ENTIER EFFET : ») suivie d'items tirés, un par pièce sanctionnée. Le restituer supposerait de RECOLLER plusieurs lignes, c'est-à-dire de composer un intitulé — ce que la règle interdit (il se restitue mot pour mot, il ne se compose pas). L'objet de l'acte se lit à son dispositif, article 1er."
+ }
+}

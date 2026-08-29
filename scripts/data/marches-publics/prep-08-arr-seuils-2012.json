@@ -1,0 +1,117 @@
+{
+ "id": "08",
+ "slug": "arr-seuils-2012",
+ "titre_provisoire": "Arrêté fixant les seuils de passation des marchés publics et les seuils d'intervention de la Commission Nationale des Marchés Publics",
+ "source": {
+  "fichier": "piece-08-arrete-2012-05-25-seuils.txt",
+  "md5_txt": "a61683dee86940ecb9c852ff525ff006",
+  "lignes_fichier": 97
+ },
+ "decoupe": {
+  "segments": [
+   [
+    12,
+    93
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     4
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps"
+   },
+   {
+    "plage": [
+     5,
+     9
+    ],
+    "motif": "SOMMAIRE du fascicule : il annonce l'acte, puis porte « (Reproduction pour erreurs matérielles) » et « Voir Le Moniteur No. 93 du Jeudi 14 Juin 2012. » — deux mentions déjà portées verbatim par la fiche (moniteurRef et note de fiche). ⚠️ SEUL ENDROIT DE LA PIÈCE où le J.O. imprime l'intitulé de cet arrêté : l'acte n'en porte pas d'en-tête ⚠️ DEPUIS LE 28 AOÛT (seconde décision de Me Vaval, « ajouter les titres au début ») : la plage reste hors du corps — puce, rubrique de classement, mentions de reproduction et actes voisins n'y entrent pas — mais l'INTITULÉ DE CET ACTE en est RESTITUÉ au corps, ligne par ligne, par `decoupe.insertions`, qui en déclare l'origine et le motif et le prouve verbatim."
+   },
+   {
+    "plage": [
+     10,
+     11
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif"
+   },
+   {
+    "plage": [
+     94,
+     97
+    ],
+    "motif": "colophon des Presses Nationales d'Haïti (adresse rue Hammerton Killick, boîte postale, dépôt légal, ISSN) : appareil de fascicule, jamais du dispositif (§ 8.4). Ce colophon-ci n'ouvre PAS sur « Achevé d'imprimer » — c'est pourquoi le motif RE_COLO de outils/decouper.py ne l'avait pas relevé dans table-decoupe.md"
+   }
+  ],
+  "note": "Colophon des Presses Nationales retiré du corps (l. 94-96) : appareil de fascicule (§ 8.4).",
+  "retraits": [],
+  "insertions": [
+   {
+    "ligne_source": 6,
+    "texte_source": "Arrêté fixant les seuils de passation des marchés publics",
+    "texte": "Arrêté fixant les seuils de passation des marchés publics",
+    "transformation": null,
+    "position": {
+     "avant_ligne_source": 15
+    },
+    "motif": "RESTITUTION DE L'INTITULÉ (décision de Me Vaval du 28 août 2026, « ajouter les titres au début »). Le corps de cet acte n'ouvre PAS sur son objet : le Journal officiel y imprime le mot d'acte puis le signataire, et l'intitulé nulle part ailleurs qu'au SOMMAIRE du même fascicule. L'intitulé n'est donc pas fabriqué : il est LU mot pour mot à la ligne déclarée de la pièce, dont le md5 est asserté avant toute lecture. Ligne 6 du SOMMAIRE, reprise ENTIÈRE. L'intitulé occupe deux lignes (l. 6 et 7), chacune déclarée et prouvée séparément ; les l. 8 et 9 du sommaire (« (Reproduction pour erreurs matérielles) », renvoi au n° 93) NE SONT PAS de l'intitulé et restent hors du corps — la note de fiche les porte. PLACE : immédiatement après le mot d'acte et AVANT le signataire — c'est ainsi que les textes du lot qui portent DÉJÀ leur intitulé au corps l'impriment dans cinq cas sur huit (n° 19, 20, 21, 22, 24 ; les n° 02, 03 et 04 le placent après le signataire). ⚠️ MESURÉ : le sommaire de CETTE pièce, lui, n'imprime PAS de ligne d'acte séparée avant l'objet — l'argument tiré de « l'ordre du sommaire » ne vaut que pour les pièces des n° 16, 17, 18 et 23, dont le sommaire porte bien une ligne « ARRÊTÉ » seule avant l'intitulé."
+   },
+   {
+    "ligne_source": 7,
+    "texte_source": "et les seuils d'intervention de la Commission Nationale des Marchés Publics.",
+    "texte": "et les seuils d'intervention de la Commission Nationale des Marchés Publics.",
+    "transformation": null,
+    "position": {
+     "avant_ligne_source": 15
+    },
+    "motif": "RESTITUTION DE L'INTITULÉ (décision de Me Vaval du 28 août 2026, « ajouter les titres au début »). Le corps de cet acte n'ouvre PAS sur son objet : le Journal officiel y imprime le mot d'acte puis le signataire, et l'intitulé nulle part ailleurs qu'au SOMMAIRE du même fascicule. L'intitulé n'est donc pas fabriqué : il est LU mot pour mot à la ligne déclarée de la pièce, dont le md5 est asserté avant toute lecture. Ligne 7 du SOMMAIRE, reprise ENTIÈRE, point final compris — seconde ligne de l'intitulé. PLACE : immédiatement après le mot d'acte et AVANT le signataire — c'est ainsi que les textes du lot qui portent DÉJÀ leur intitulé au corps l'impriment dans cinq cas sur huit (n° 19, 20, 21, 22, 24 ; les n° 02, 03 et 04 le placent après le signataire). ⚠️ MESURÉ : le sommaire de CETTE pièce, lui, n'imprime PAS de ligne d'acte séparée avant l'objet — l'argument tiré de « l'ordre du sommaire » ne vaut que pour les pièces des n° 16, 17, 18 et 23, dont le sommaire porte bien une ligne « ARRÊTÉ » seule avant l'intitulé."
+   }
+  ]
+ },
+ "jointures_entetes": [],
+ "toc": [],
+ "labels": {
+  "art-1": "Article 1",
+  "art-2": "Article 2",
+  "art-3": "Article 3",
+  "art-4": "Article 4",
+  "art-4-1": "Article 4-1",
+  "art-4-2": "Article 4-2",
+  "art-5": "Article 5",
+  "art-6": "Article 6",
+  "art-6-1": "Article 6-1",
+  "art-7": "Article 7",
+  "art-8": "Article 8"
+ },
+ "navToc": [],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 84,
+  "toc": 0,
+  "labels": 11,
+  "ancres_emises": 11,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 0,
+  "navToc_groupes": 0
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": null,
+ "md5_corps": "f0770f0a858907fab6b27f68ebca663f",
+ "apostrophes": {
+  "droites": 34,
+  "courbes": 0
+ },
+ "exposants_unicode": {}
+}

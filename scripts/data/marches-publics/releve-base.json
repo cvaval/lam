@@ -1,0 +1,122 @@
+{
+  "date": "2026-08-27",
+  "tache": "TÂCHE 3 — thème, entrées INDEX, fac-similés (tout mesuré en base prod LECTURE SEULE + Dropbox/Moniteur)",
+
+  "theme": {
+    "aCreer": {
+      "slug": "marches-publics",
+      "labelFr": "Marchés publics",
+      "labelEn_suggestion": "Public procurement",
+      "labelHt_suggestion": "Machè piblik",
+      "parent": { "slug": "droit-public", "id": "cmr04tema0019vi81oqqvntub", "labelFr": "Droit public & administratif" },
+      "position": 6,
+      "verifie": "aucun thème marches-publics n'existe (seul brh-marche-financier contient « march » ; 96 thèmes en base)"
+    },
+    "enfantsActuelsDroitPublic": [
+      { "slug": "justice", "position": 0 },
+      { "slug": "elections", "position": 1 },
+      { "slug": "finances-publiques-controle", "position": 2 },
+      { "slug": "administration-centrale", "position": 3 },
+      { "slug": "affaires-etrangeres", "position": 4 },
+      { "slug": "interieur-collectivites", "position": 5 }
+    ],
+    "patron": {
+      "reference": "scripts/_import-decret-minier.ts lignes 42-55 (Droit minier sous economique) et scripts/_import-loi-banques (section bancaire)",
+      "gabarit": "findFirst parent par slug → findFirst enfant par slug → sinon prisma.theme.create({ slug, parentId, position: maxPos._max.position+1, labelFr/En/Ht }) ; puis documentTheme.create({ documentId, themeId, isPrimary: true, assignedBy: 'IMPORT' }) si absent ; puis reindexDocument(doc.id) HORS transaction",
+      "libCanonique": "src/lib/legislation/themes.ts:305 createTheme({slug, labelFr, labelEn?, labelHt?, parentId?}) — position calculée automatiquement (max+1), refuse slug existant (ThemeError slugExists) ; slug IMMUABLE ensuite (updateTheme ne le modifie pas)"
+    },
+    "pieges": [
+      "DocumentTheme_one_primary : index UNIQUE PARTIEL en base (prisma/sql/legislation-themes-indexes.sql) — UN SEUL isPrimary=true par document ; toute copie du doc dans un second thème doit être isPrimary:false",
+      "La mémoire « theme.create n'accepte que les libellés » (CEC) vise la voie admin ; en script on passe slug + les TROIS libellés explicitement, comme le décret minier — interprétation exacte du piège admin NON re-vérifiée ici",
+      "« ordre des rubriques du spécifique au général » concerne l'ordre des thèmes SUR UN DOCUMENT (rubrique gardée en tête), pas la position des frères dans l'arbre — position 6 = fin de liste, comme le décret minier",
+      "reindexDocument() après chaque écriture DocumentTheme (schema.prisma:343), et HORS transaction (leçon mémoire)",
+      "Le thème vide est ÉLAGUÉ de la navigation (navigationThemes → elaguer) : il n'apparaîtra qu'une fois des documents LEGISLATION/DOCTRINE rattachés — créer le thème sans docs ne montre rien, c'est normal"
+    ],
+    "docTypeMeta": "AUCUNE modification : les textes seront type LEGISLATION → rubrique « Législation annotée » (DOC_TYPE_META.DOCTRINE, slug legislationannotee, corpus ['LEGISLATION','DOCTRINE'], PAS de racinesThemes → arbre entier élagué). Un thème n'est PAS un type (src/lib/brand.ts:60-67) ; aucune nouvelle section d'affichage n'est en jeu."
+  },
+
+  "indexEntrees24": {
+    "requete": "type='INDEX' AND titleFr ILIKE '%marchés publics%' OR '%marches publics%' → 24 lignes exactement (le singulier « marché public » ajoute 3 arrêtés d'utilité publique 1986/2003 = places de marché, hors sujet)",
+    "fauxAmis": [
+      { "number": "LM1974-79", "id": "6bf3cb30-6184-4c51-a731-0bd703387d5f", "titre": "Décret supprimant… droits communaux perçus par tickets dans tous les Marchés Publics…", "note": "marchés PHYSIQUES (places de marché), pas la commande publique — NE PAS rattacher" },
+      { "number": "LM1996-15", "id": "e0766d20-4432-494c-bbda-b047fcfc8ef8", "titre": "Arrêté Communal portant organisation des marchés publics de la Commune de Port-au-Prince", "note": "très vraisemblablement marchés physiques communaux — à écarter sauf lecture contraire du fascicule" }
+    ],
+    "correspondancesLot": [
+      { "number": "LM2005-12", "id": "b1e56210-f220-4020-88af-ef66a6f3b2f9", "titre": "Décret fixant la réglementation des marchés publics de services, de fournitures et de travaux", "fichierLot": "Decret_14_fevrier_2005_Marches_Publics_Transcription-docx", "note": "décret DONNÉ le 3 décembre 2004 (ligne 392 de la transcription ; l'art. 99 de la loi 2009 le nomme « Décret du 3 décembre 2004 ») — adoptionDate=2004-12-03, publication 2005-02-14" },
+      { "number": "LM2009-SP10", "id": "64853e3f-661a-4762-823e-739fd9e3c9ae", "titre": "Arrêté précisant les modalités d'application de la loi… et aux conventions de concession d'ouvrage de service public", "fichierLot": "Arrete_26_octobre_2009_modalites_application_Loi_Marches_Pub (387 têtes)" },
+      { "number": "LM2009-SP10", "id": "46abae37-ecb1-4c97-b4de-6f386c2f9867", "titre": "Arrêté déterminant les modalités d'organisation et de fonctionnement de la CNMP", "fichierLot": "les TROIS transcriptions du 26 octobre 2009 (fa178c8d34, 952a9c370e, 2466f6637d) visent CE MÊME arrêté ; « 4 novembre » du nom de fichier = date de publication du SP10" },
+      { "number": "LM2009-SP10", "id": "917f68d6-c0ae-4f04-866c-2455a90f563e", "titre": "Arrêté sanctionnant le manuel de procédures pour la passation des marchés publics et des CCOSP", "fichierLot": "Le_Moniteur_Special_No10_2009_Arrete_Manuel_Procedures_CNMP" },
+      { "number": "LM2011-SP3", "id": "3301d76b-e3ff-4d33-b8c9-ab00e55247fd", "titre": "CNMP - Tome I : DAO standard travaux + CCAG travaux", "fichierLot": "Arrete_CNMP_DAO_Standard_Travaux_13_mai_2011 (probable)" },
+      { "number": "LM2011-SP3", "id": "0176998c-516c-460d-ad11-cc5197a10b0d", "titre": "CNMP - Tome II : DAO deux étapes concessions + CCAG concessions + CCAG prestations…", "fichierLot": "Moniteur_Special_No3_13_mai_2011_Arrete_CCAG_Transcription (à trancher : 3 fichiers du lot pour 4 tomes à l'Index)" },
+      { "number": "LM2011-SP3", "id": "8c001e65-9ea5-42e7-aff2-b80a43b01aef", "titre": "CNMP - Tome III : demandes types propositions consultants + DAO informatique/bureautique", "fichierLot": "Le_Moniteur_Special_No3_13_mai_2011_Arrete_DAO_Informatique (probable)" },
+      { "number": "LM2011-SP3", "id": "4aee16f7-ba5e-41ef-aced-03a4cade0ecd", "titre": "CNMP - Tome IV : DAO prestation de services + DAO fournitures + CCAG fournitures/services/informatique", "fichierLot": "SANS fichier du lot identifié — vérifier sur pièces lequel des 3 fichiers couvre quel tome" },
+      { "number": "LM2012-93", "id": "2a17113f-b7d6-44b3-8450-7544e4992861", "titre": "Arrêté seuils de passation + seuils d'intervention CNMP (v. reproduction LM2012-104)", "fichierLot": "Arrete_seuils_marches_publics_2012" },
+      { "number": "LM2012-104", "id": "882aa807-a151-4b80-81ac-1a8d3e08d487", "titre": "Même arrêté - Reproduction pour erreur matérielle (<= LM2012-93)", "fichierLot": "même fichier — la référence de publication à retenir est LM2012-104 (chaîne d'erratum, fac-similé vérifié)" },
+      { "number": "LM2013-3", "id": "51ebf720-983c-4af4-89a1-2f630f3a473c", "titre": "Arrêté sanctionnant… la Charte d'Éthique applicable aux acteurs des marchés publics et des CCOSP", "fichierLot": "Le_Moniteur_No3_9_janvier_2013_Charte_Ethique" },
+      { "number": "LM2020-SP1", "id": "59d710a7-d6c1-4cce-8584-5716ddf8a0b3", "titre": "Arrêté soumettant les marchés publics de défense ou de sécurité nationale au respect des principes de passation", "fichierLot": "Arrete_12_fevrier_2020_Marches_publics_defense_securite_nati" },
+      { "number": "LM2021-SP8", "id": "cc554d13-3edb-49f5-a556-e80e9cd7b24a", "titre": "Arrêté modifiant les articles 227 et 227-1 de l'Arrêté du 26 octobre 2009…", "fichierLot": "un des trois contenus distincts du Spécial n° 8 (ff16667a79 / cc799360bd / a85cae5e01)" },
+      { "number": "LM2021-SP8", "id": "c46706b5-bcbe-4a4f-9e0e-4d6febbd9821", "titre": "Arrêté fixant la composition des CMMP et CSMP…", "fichierLot": "un des trois contenus distincts du Spécial n° 8" }
+    ],
+    "sansFichierAuLot": [
+      { "number": "LM2006-117", "id": "1c83fb54-ff96-4d6b-bf6a-d7dd27417285", "titre": "Arrêté révisant les seuils de passation des marchés publics", "note": "arrêté DU 4 DÉCEMBRE 2006 (nommé ainsi par l'art. 99 de la loi 2009 qui l'ABROGE), publié 19 déc. 2006 — régime 2005" },
+      { "number": "LM2009-60", "id": "b673e39b-7c6c-411a-8069-c8148ad50d43", "titre": "LOI fixant les règles générales de passation, d'exécution et de règlement des Marchés Publics… (v. reproduction LM2009-78)", "note": "LA LOI-MÈRE du 10 juin 2009 — ABSENTE des fichiers de la cliente, texte intégral DISPONIBLE (v. facsimiles.loiMere2009)" },
+      { "number": "LM2009-78", "id": "9cef10a8-673f-43d3-b44d-303282e9a135", "titre": "Même LOI - Reproduction pour erreur matérielle (<= LM2009-60)", "note": "la référence de publication à retenir" },
+      { "number": "LM2009-95", "id": "b12067a4-efd7-4ab9-af9f-4649992e4dfe", "titre": "Arrêté fixant les seuils de passation… et les seuils d'intervention de la CNMP suivant la nature des marchés", "note": "premier arrêté de seuils sous la loi 2009 (9 sept. 2009) — ni fichier ni fac-similé trouvés" },
+      { "number": "LM2011-52", "id": "90b57a60-3186-4b78-b135-d7aea40de387", "titre": "Arrêté nommant les membres de la CNMP pour trois (3) ans", "note": "nomination — rattachement INDEX seulement, pas un texte de corpus" },
+      { "number": "LM2013-SP1", "id": "4e834aae-13a3-4f47-868e-595d579ccf91", "titre": "Arrêté sanctionnant… documents standards relatifs à l'évaluation des offres et au suivi de l'exécution", "note": "même date que la Charte (9 janv. 2013), PAS dans le lot — lacune de corpus possible à signaler à la cliente" },
+      { "number": "LM2014-179", "id": "5ddd781f-ccaa-4f51-84ab-20c17cc85ff2", "titre": "Arrêté nommant les membres de la CNMP", "note": "nomination" },
+      { "number": "LM2015-210", "id": "75fdc532-86f9-42c3-a0ac-2f6cd8edb538", "titre": "Arrêté nommant les membres de la CNMP", "note": "nomination" }
+    ],
+    "connexesHorsDes24": [
+      { "number": "LM1989-91", "titre": "Décret définissant sur une base rationnelle les normes et les conditions de passation de marchés par les Pouvoirs Publics", "note": "ancêtre historique (1989)" },
+      { "number": "LM2017-143", "titre": "Arrêté fixant les règles de procédures de passation de certains marchés… défense ou sécurité nationale", "note": "ARRÊTÉ DU 30 AOÛT 2017, publié 4 sept. 2017 — RÉVISÉ par l'arrêté du 9 janvier 2019 du lot ; ABSENT du lot ET aucun fac-similé trouvé : 2e trou structurel après la loi-mère" },
+      { "number": "LM2019-SP3", "titre": "Arrêté portant révision de l'arrêté du 30 août 2017… (publié 16 janv. 2019)", "note": "= le fichier du lot Arrete_9_janvier_2019 (tête vérifiée : Spécial N° 3, mercredi 16 janvier 2019)" }
+    ],
+    "lacunesIndex": "le miroir INDEX n'a AUCUNE entrée pour : LM2017-SP25/26/28/31/35/42 (les spéciaux 2017 sautent de SP17 à SP27), LM2019-221 (s'arrête à LM2019-220 dans la série 22x), LM2021-SP52, l'arrêté seuils LM2022-SP15, la Circulaire 010 de déc. 2023 (le miroir 2022-2024 mesuré s'arrête au 20 juin 2023 sur cette plage). Les rattachements CrossRef de ces textes n'auront PAS d'entrée INDEX cible — number+type pointera dans le vide : prévoir renvoi par désignation seulement."
+  },
+
+  "facsimiles": {
+    "dossierCle": "/Users/cvaval/Library/CloudStorage/Dropbox/Moniteur/CNMP (28 PDF racine + copies numérotées 1-31 dans CNMP/Droit public/) — scans du Moniteur malgré les noms « site web » : 4 vérifiés visuellement, tous avec bandeau Le Moniteur",
+    "verifiesVisuellement": [
+      { "ref": "LM2005-12 (lundi 14 février 2005)", "pdf": "CNMP/decret-fixant-la-reglementation-des-marches-publics-…-abroge.pdf", "pages": 24, "arbitreDe": "Decret_14_fevrier_2005" },
+      { "ref": "LM2012-104 (vendredi 29 juin 2012, REPRODUCTION pour erreurs matérielles, voir n° 93 du 14 juin)", "pdf": "CNMP/Arrete fixant les seuils de passation des marches publics-Juin 2012.pdf", "pages": 4, "arbitreDe": "Arrete_seuils_marches_publics_2012" },
+      { "ref": "LM2017-SP26 (vendredi 15 septembre 2017 — sommaire : manuel procédures célères + document-type préqualification + modèle de marché d'urgence)", "pdf": "CNMP/arrete-…-manuel-de-proc-celeres-…-etat-durgence-declare.pdf", "pages": 40, "arbitreDe": "Le_Moniteur_Special_No26_15-09-2017" },
+      { "ref": "LM2020-SP1 (mercredi 12 février 2020)", "pdf": "CNMP/arrete-soumettant-les-marches-publics-de-defense-….pdf", "pages": 8, "arbitreDe": "Arrete_12_fevrier_2020" },
+      { "ref": "LM2021-SP8 (jeudi 4 février 2021) — FASCICULE ENTIER, sommaire lisible", "pdf": "CNMP/arrete-modifiant-les-articles-227-et-227.pdf (20 p) ; copie 2682 KB en CNMP/Droit public/27. ; MEILLEURE numérisation : MONITEURS 2021 Complet/LES MONITEURS FÉVRIER 2021/Le Moniteur Spécial No. 8 Février 2021.pdf (20 p, 4992 KB)", "pages": 20, "arbitreDe": "les QUATRE fichiers No8_4_fevrier_2021" },
+      { "ref": "LM2022-SP15 (vendredi 10 juin 2022)", "pdf": "CNMP/arrete-fixant-les-seuils-…-dintervention-des-marches-publics.pdf (8 p) + MONITEURS 2022/LES MONITEURS JUIN 2022/Le Moniteur Spécial No. 15 Juin 2022.pdf (8 p)", "pages": 8, "arbitreDe": "Arrete_10_juin_2022_Seuils" }
+    ],
+    "loiMere2009": {
+      "trouvaille": "/Users/cvaval/Library/CloudStorage/Dropbox/Moniteur/Moniteur/2009_Moniteurs.pdf — compilation 2 120 pages, AVEC COUCHE TEXTE OCR, contenant LM2009-60 (vendredi 12 juin 2009, NUMÉRO EXTRAORDINAIRE, texte intégral de la loi, LOI No CL 06 2009-009) ET LM2009-78 (mardi 28 juillet 2009, reproduction pour erreur matérielle, texte intégral aussi)",
+      "reperesTexteExtrait": "texte déjà extrait dans scratchpad/2009_moniteurs.txt : n° 78 → lignes ~62376-64240 ; n° 60 → lignes ~128620+ ; art. 97 (transitoire), art. 99 (ABROGE nommément : Loi du 16 sept. 1953 sur l'adjudication, Décret du 3 décembre 2004 [= le décret publié le 14 févr. 2005], Arrêté du 4 décembre 2006 seuils) ; votes : Sénat jeudi 4 juin 2009, Chambre mercredi 10 juin 2009",
+      "absentDeLaCompilation": "ni LM2009-95 (sept. 2009) ni le Spécial n° 10 (4 nov. 2009) n'y figurent"
+    },
+    "presentsNonVerifies": [
+      { "ref": "LM2009-SP10 — modalités d'application", "pdf": "CNMP/Arrete precisant les modalites d'application de la Loi ….PDF", "pages": 54, "note": "à confronter aux 387 têtes du fichier ef0705bf51 (annexes/CCOSP ?)" },
+      { "ref": "LM2009-SP10 — organisation/fonctionnement CNMP", "pdf": "CNMP/ArreteDeterminantModalitesOrganisationFonctionnementCNMP.pdf (19 p) ET CNMP/arrete-determinant-les-modalites-dorganisation-….pdf (22 p)", "note": "DEUX scans — arbitre des 3 transcriptions rivales du 26 oct. 2009" },
+      { "ref": "LM2009-SP10 — manuel de procédures", "pdf": "CNMP/Arrete sanctionnant le manuel …CCOSP.PDF (61 p) ET version web 22 p", "note": "deux numérisations" },
+      { "ref": "LM2011-SP3 — arrêtés de sanction des tomes", "pdf": "CNMP/…dossier d'appel d'offres.PDF (4 p), …(2).PDF (5 p), …(Informatique TOME III).PDF (5 p)", "note": "3 PDF pour 4 tomes à l'Index — les tomes eux-mêmes (centaines de pages) ne sont PAS scannés ; cohérent avec les 3 fichiers-fragments 2 têtes du lot" },
+      { "ref": "LM2013-3 — Charte d'Éthique", "pdf": "CNMP/Charte d'Ethique.PDF", "pages": 17, "note": "en dossier d'année, janvier 2013 n'a PAS de n° 3 régulier mais un « Extraordinaire No.3 » sans couche texte, identité non vérifiée" },
+      { "ref": "LM2019-SP3 (arrêté 9 janv. 2019 défense)", "pdf": "CNMP/ARRETE-DU-9-JANVIER-2019-REVISANT-CELUI-DU-30-AOUT-2017-….pdf (8 p) + MONITEURS 2019 Complet/2019 Numéros spéciaux/20190116 Spécial No 3.pdf (8 p, 10,7 MB)" },
+      { "ref": "LM2019-221 (30 déc. 2019, arrêté NOMMANT les membres CNMP — sommaire lu dans la transcription du lot)", "pdf": "MONITEURS 2019 Complet/LES MONITEURS DECEMBRE 2019/Le Moniteur No. 221 Décembre 2019.pdf (4 p) + CNMP/Arrêté nommant les membres … (2019).pdf (2 p)", "note": "le fichier-lot 2,4 Ko = fragment cohérent : simple nomination" },
+      { "ref": "LM2021-SP52 (mardi 9 nov. 2021 — sommaire lot : Décret bénéficiaires effectifs + arrêté)", "pdf": "MONITEURS 2021 Complet/LES MONITEURS NOVEMBRE 2021/Le Moniteur Special No. 52 Novembre 2021.pdf (12 p) + CNMP/decret-etablissant-lobligation-…-beneficiaires-effectifs-….pdf (12 p)", "note": "décret DU 21 OCTOBRE 2021 d'après la Circulaire 010" },
+      { "ref": "Circulaire 010 (4 déc. 2023, Premier Ministre)", "pdf": "CNMP/circulaire_010.pdf (8 p)", "note": "circulaire du PM, pas un fascicule du Moniteur a priori — vérifier la nature du PDF avant de parler de fac-similé" },
+      { "ref": "série 2017 restante", "pdf": "CNMP/ : demande de prix fournitures (40 p), manuel+dossier demande de cotations travaux (52 p), manuel+dossier demande de proposition consultants (68 p), manuel proc allégées + dossier TRAVAUX (76 p), manuel proc allégées + dossier FOURNITURES (76 p), manuel-de-procedures-allegees-…-fournitures (44 p)", "note": "6 PDF candidats pour SP25/SP28/SP31/SP35/SP42 — appariement fichier↔fascicule à faire page 1 par page 1 (seul SP26 vérifié)" }
+    ],
+    "introuvables": [
+      "LM2006-117 (arrêté 4 déc. 2006 seuils — abrogé par la loi 2009)",
+      "LM2009-95 (arrêté seuils 9 sept. 2009)",
+      "LM2017-143 (arrêté 30 août 2017 défense/sécurité — pourtant RÉVISÉ par l'arrêté du 9 janv. 2019 du lot : trou structurel n° 2)",
+      "LM2013-SP1 (documents standards évaluation/suivi)",
+      "LM2014-179 et LM2015-210 (nominations CNMP)",
+      "les spéciaux 2017 dans les dossiers d'année (MONITEURS 2017 = oct-déc réguliers seulement ; Le Moniteur/MONITEURS 2017 idem)"
+    ]
+  },
+
+  "constatsStructurels": [
+    "LA LOI-MÈRE DU 10 JUIN 2009 EST RÉCUPÉRABLE : texte intégral OCR dans Moniteur/2009_Moniteurs.pdf (n° 60 ET n° 78) — le risque structurel n° 1 du chantier a une issue sans attendre la cliente",
+    "Le sommaire du Spécial n° 8 du 4 février 2021 (fac-similé vérifié) ne porte que DEUX arrêtés marchés publics (227/227-1 et CMMP/CSMP) + 4 nominations + circulaire 009 : le troisième contenu distinct de 34 têtes du lot doit être autre chose — à identifier contre le fascicule 20 p",
+    "Chaînes d'erratum : la loi 2009 (60→78) et l'arrêté seuils 2012 (93→104) ont chacun DEUX entrées INDEX ; le rattachement doit viser les deux, la référence de publication affichée étant la reproduction",
+    "Art. 99 de la loi 2009 (lu sur pièce) : abroge NOMMÉMENT la Loi du 16 septembre 1953 sur l'adjudication, le Décret du 3 décembre 2004 (= « décret du 14 février 2005 », sa date de publication) et l'Arrêté du 4 décembre 2006 (seuils) ; art. 97 : survie transitoire pour les marchés déjà approuvés + 3 mois",
+    "Le décret 2005 est donné au Palais National le 3 décembre 2004 : adoptionDate = 2004-12-03 (règle du 27 août), publicationDate = 2005-02-14, référence LM2005-12"
+  ]
+}

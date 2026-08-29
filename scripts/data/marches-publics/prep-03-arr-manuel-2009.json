@@ -1,0 +1,390 @@
+{
+ "id": "03",
+ "slug": "arr-manuel-2009",
+ "titre_provisoire": "Arrêté sanctionnant le Manuel de Procédures pour la passation des Marchés Publics et des Conventions de Concession d'Ouvrage de Service Public",
+ "source": {
+  "fichier": "piece-03-arrete-2009-10-26-manuel-procedures.txt",
+  "md5_txt": "4a3e6739f69ab0bc983153f1e4024c68",
+  "lignes_fichier": 992
+ },
+ "decoupe": {
+  "segments": [
+   [
+    15,
+    991
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     5
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps"
+   },
+   {
+    "plage": [
+     6,
+     7
+    ],
+    "motif": "SOMMAIRE du fascicule"
+   },
+   {
+    "plage": [
+     8,
+     14
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif. La l. 9-12 y imprime l'intitulé de l'arrêté ; l'acte le RÉIMPRIME à la l. 20-22, qui reste au corps"
+   }
+  ],
+  "note": "Conjecture d'éditeur retirée en fin de la ligne 807 de la pièce (retrait inline déclaré) : § 11.11.",
+  "retraits": [
+   {
+    "ligne_source": 807,
+    "motif": "CONJECTURE d'éditeur enchâssée en fin de phrase du dispositif (« il s'agit vraisemblablement du § 3.1.2.12 ») : § 11.11 — une mention d'éditeur va en note, jamais au dispositif. Le renvoi « § 2.8 » du J.O. est conservé tel quel ; la conjecture est portée à la note de la fiche (D2, contrôle du 28 août)",
+    "texte": "En cas d’avis favorable, la CNMP valide l’attribution du marché et invite, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, l’autorité contractante à réaliser les actions énumérées au § 2.8 ci-dessous [sic — renvoi tel que figurant dans le texte source ; il s’agit vraisemblablement du § 3.1.2.12].",
+    "fragment": " [sic — renvoi tel que figurant dans le texte source ; il s’agit vraisemblablement du § 3.1.2.12]"
+   }
+  ],
+  "insertions": []
+ },
+ "jointures_entetes": [
+  {
+   "ligne_source": 87,
+   "lignes_jointes": 4,
+   "libelle": "MANUEL DE PROCÉDURES — POUR LA PASSATION DES MARCHÉS PUBLICS — ET DES CONVENTIONS DE CONCESSION D’OUVRAGE — DE SERVICE PUBLIC"
+  },
+  {
+   "ligne_source": 158,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE I — PROCÉDURES GÉNÉRALES DE PASSATION DES MARCHÉS PUBLICS"
+  },
+  {
+   "ligne_source": 545,
+   "lignes_jointes": 3,
+   "libelle": "CHAPITRE II — PROCÉDURES EXCEPTIONNELLES DE PASSATION DES MARCHÉS PUBLICS"
+  },
+  {
+   "ligne_source": 678,
+   "lignes_jointes": 3,
+   "libelle": "CHAPITRE III — PROCÉDURES SPÉCIFIQUES DE PASSATION DES MARCHÉS PUBLICS"
+  },
+  {
+   "ligne_source": 976,
+   "lignes_jointes": 3,
+   "libelle": "CHAPITRE IV — PROCÉDURES SPÉCIALES APPLICABLES AUX CONVENTIONS DE CONCESSION D’OUVRAGE DE SERVICE PUBLIC"
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "MANUEL DE PROCÉDURES — POUR LA PASSATION DES MARCHÉS PUBLICS — ET DES CONVENTIONS DE CONCESSION D’OUVRAGE — DE SERVICE PUBLIC",
+   "anchor": "sec-1",
+   "kind": "connexe",
+   "ligne_source": 87
+  },
+  {
+   "level": 2,
+   "label": "INTRODUCTION",
+   "anchor": "sec-2",
+   "kind": "connexe",
+   "ligne_source": 93
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE I — PROCÉDURES GÉNÉRALES DE PASSATION DES MARCHÉS PUBLICS",
+   "anchor": "sec-3",
+   "kind": "connexe",
+   "ligne_source": 158
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Marchés sur appel d’offres ouvert",
+   "anchor": "sec-4",
+   "kind": "connexe",
+   "ligne_source": 164
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Marchés sur appel d’offres ouvert précédé d’une pré-qualification",
+   "anchor": "sec-5",
+   "kind": "connexe",
+   "ligne_source": 261
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 1 - Pré-qualification des candidats",
+   "anchor": "sec-6",
+   "kind": "connexe",
+   "ligne_source": 263
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 2 - Appel d’offres consécutif à la pré-qualification des candidats",
+   "anchor": "sec-7",
+   "kind": "connexe",
+   "ligne_source": 315
+  },
+  {
+   "level": 3,
+   "label": "Section 3 - Marchés sur appel d’offres en deux étapes",
+   "anchor": "sec-8",
+   "kind": "connexe",
+   "ligne_source": 403
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 1 - Première étape de l’appel d’offres",
+   "anchor": "sec-9",
+   "kind": "connexe",
+   "ligne_source": 407
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 2 - Deuxième étape de l’appel d’offres",
+   "anchor": "sec-10",
+   "kind": "connexe",
+   "ligne_source": 461
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 3 - Appel d’offres en deux étapes précédé d’une pré-qualification",
+   "anchor": "sec-11",
+   "kind": "connexe",
+   "ligne_source": 543
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — PROCÉDURES EXCEPTIONNELLES DE PASSATION DES MARCHÉS PUBLICS",
+   "anchor": "sec-12",
+   "kind": "connexe",
+   "ligne_source": 545
+  },
+  {
+   "level": 3,
+   "label": "Section 1 : Marchés sur appel d’offres restreint sans pré-qualification",
+   "anchor": "sec-13",
+   "kind": "connexe",
+   "ligne_source": 551
+  },
+  {
+   "level": 3,
+   "label": "Section 2 : Marchés de gré à gré ou par entente directe",
+   "anchor": "sec-14",
+   "kind": "connexe",
+   "ligne_source": 645
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — PROCÉDURES SPÉCIFIQUES DE PASSATION DES MARCHÉS PUBLICS",
+   "anchor": "sec-15",
+   "kind": "connexe",
+   "ligne_source": 678
+  },
+  {
+   "level": 3,
+   "label": "Section 1 : Procédures relatives aux marchés de prestations intellectuelles",
+   "anchor": "sec-16",
+   "kind": "connexe",
+   "ligne_source": 684
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 1 : Appel à manifestations d’intérêt (AMI)",
+   "anchor": "sec-17",
+   "kind": "connexe",
+   "ligne_source": 688
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 2 - Demande de propositions (DP)",
+   "anchor": "sec-18",
+   "kind": "connexe",
+   "ligne_source": 733
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Procédures spécifiques aux marchés à commandes et aux marchés de clientèle",
+   "anchor": "sec-19",
+   "kind": "connexe",
+   "ligne_source": 835
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 1 - Appel d’offres ouvert de prix unitaires",
+   "anchor": "sec-20",
+   "kind": "connexe",
+   "ligne_source": 841
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 2 - Appel d’offres ouvert de prix unitaires précédé d’une pré-qualification",
+   "anchor": "sec-21",
+   "kind": "connexe",
+   "ligne_source": 909
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE IV — PROCÉDURES SPÉCIALES APPLICABLES AUX CONVENTIONS DE CONCESSION D’OUVRAGE DE SERVICE PUBLIC",
+   "anchor": "sec-22",
+   "kind": "connexe",
+   "ligne_source": 976
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Procédures générales",
+   "anchor": "sec-23",
+   "kind": "connexe",
+   "ligne_source": 980
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Procédure exceptionnelle",
+   "anchor": "sec-24",
+   "kind": "connexe",
+   "ligne_source": 987
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1",
+  "art-2": "Article 2",
+  "art-3": "Article 3"
+ },
+ "navToc": [
+  {
+   "label": "MANUEL DE PROCÉDURES — POUR LA PASSATION DES MARCHÉS PUBLICS — ET DES CONVENTIONS DE CONCESSION D’OUVRAGE — DE SERVICE PUBLIC",
+   "anchor": "sec-1",
+   "children": [
+    {
+     "label": "INTRODUCTION",
+     "anchor": "sec-2"
+    },
+    {
+     "label": "CHAPITRE I — PROCÉDURES GÉNÉRALES DE PASSATION DES MARCHÉS PUBLICS",
+     "anchor": "sec-3",
+     "children": [
+      {
+       "label": "Section 1 - Marchés sur appel d’offres ouvert",
+       "anchor": "sec-4"
+      },
+      {
+       "label": "Section 2 - Marchés sur appel d’offres ouvert précédé d’une pré-qualification",
+       "anchor": "sec-5"
+      },
+      {
+       "label": "Sous-section 1 - Pré-qualification des candidats",
+       "anchor": "sec-6"
+      },
+      {
+       "label": "Sous-section 2 - Appel d’offres consécutif à la pré-qualification des candidats",
+       "anchor": "sec-7"
+      },
+      {
+       "label": "Section 3 - Marchés sur appel d’offres en deux étapes",
+       "anchor": "sec-8"
+      },
+      {
+       "label": "Sous-section 1 - Première étape de l’appel d’offres",
+       "anchor": "sec-9"
+      },
+      {
+       "label": "Sous-section 2 - Deuxième étape de l’appel d’offres",
+       "anchor": "sec-10"
+      },
+      {
+       "label": "Sous-section 3 - Appel d’offres en deux étapes précédé d’une pré-qualification",
+       "anchor": "sec-11"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE II — PROCÉDURES EXCEPTIONNELLES DE PASSATION DES MARCHÉS PUBLICS",
+     "anchor": "sec-12",
+     "children": [
+      {
+       "label": "Section 1 : Marchés sur appel d’offres restreint sans pré-qualification",
+       "anchor": "sec-13"
+      },
+      {
+       "label": "Section 2 : Marchés de gré à gré ou par entente directe",
+       "anchor": "sec-14"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE III — PROCÉDURES SPÉCIFIQUES DE PASSATION DES MARCHÉS PUBLICS",
+     "anchor": "sec-15",
+     "children": [
+      {
+       "label": "Section 1 : Procédures relatives aux marchés de prestations intellectuelles",
+       "anchor": "sec-16"
+      },
+      {
+       "label": "Sous-section 1 : Appel à manifestations d’intérêt (AMI)",
+       "anchor": "sec-17"
+      },
+      {
+       "label": "Sous-section 2 - Demande de propositions (DP)",
+       "anchor": "sec-18"
+      },
+      {
+       "label": "Section 2 - Procédures spécifiques aux marchés à commandes et aux marchés de clientèle",
+       "anchor": "sec-19"
+      },
+      {
+       "label": "Sous-section 1 - Appel d’offres ouvert de prix unitaires",
+       "anchor": "sec-20"
+      },
+      {
+       "label": "Sous-section 2 - Appel d’offres ouvert de prix unitaires précédé d’une pré-qualification",
+       "anchor": "sec-21"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE IV — PROCÉDURES SPÉCIALES APPLICABLES AUX CONVENTIONS DE CONCESSION D’OUVRAGE DE SERVICE PUBLIC",
+     "anchor": "sec-22",
+     "children": [
+      {
+       "label": "Section 1 - Procédures générales",
+       "anchor": "sec-23"
+      },
+      {
+       "label": "Section 2 - Procédure exceptionnelle",
+       "anchor": "sec-24"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 967,
+  "toc": 24,
+  "labels": 3,
+  "ancres_emises": 3,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 0,
+  "navToc_groupes": 1
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": null,
+ "md5_corps": "436cb75261c81931726a3e95090e1f7b",
+ "apostrophes": {
+  "droites": 0,
+  "courbes": 2030
+ },
+ "exposants_unicode": {}
+}

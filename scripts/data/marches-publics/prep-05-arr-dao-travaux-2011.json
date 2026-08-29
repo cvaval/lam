@@ -1,0 +1,91 @@
+{
+ "id": "05",
+ "slug": "arr-dao-travaux-2011",
+ "titre_provisoire": "Arrêté sanctionnant pour sortir son plein et entier effet le Dossier d'Appel d'Offres standard pour la réalisation de travaux (Tome I)",
+ "source": {
+  "fichier": "piece-05-arrete-2011-05-10-dao-travaux-tome1.txt",
+  "md5_txt": "d6ba8efeb507646bf39afabc15178c5b",
+  "lignes_fichier": 100
+ },
+ "decoupe": {
+  "segments": [
+   [
+    24,
+    99
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     12
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps"
+   },
+   {
+    "plage": [
+     13,
+     16
+    ],
+    "motif": "SOMMAIRE du fascicule : il annonce DEUX arrêtés, dont le CCAG qui n'est pas celui-ci. ⚠️ SEUL ENDROIT DE LA PIÈCE où le J.O. imprime l'intitulé de cet arrêté-ci : l'acte n'en porte pas d'en-tête. L'intitulé de fiche se lit donc à la PIÈCE, plus au corps ⚠️ DEPUIS LE 28 AOÛT (seconde décision de Me Vaval, « ajouter les titres au début ») : la plage reste hors du corps — puce, rubrique de classement, mentions de reproduction et actes voisins n'y entrent pas — mais l'INTITULÉ DE CET ACTE en est RESTITUÉ au corps, ligne par ligne, par `decoupe.insertions`, qui en déclare l'origine et le motif et le prouve verbatim."
+   },
+   {
+    "plage": [
+     17,
+     23
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif : couverture du TOME I, c'est-à-dire du Dossier d'Appel d'Offres ANNEXÉ, qui n'est pas transcrit"
+   }
+  ],
+  "note": null,
+  "retraits": [],
+  "insertions": [
+   {
+    "ligne_source": 14,
+    "texte_source": "Arrêté sanctionnant pour sortir son plein et entier effet le Dossier d'Appel d'Offres standard pour la Réalisation de Travaux.",
+    "texte": "Arrêté sanctionnant pour sortir son plein et entier effet le Dossier d'Appel d'Offres standard pour la Réalisation de Travaux.",
+    "transformation": null,
+    "position": {
+     "avant_ligne_source": 27
+    },
+    "motif": "RESTITUTION DE L'INTITULÉ (décision de Me Vaval du 28 août 2026, « ajouter les titres au début »). Le corps de cet acte n'ouvre PAS sur son objet : le Journal officiel y imprime le mot d'acte puis le signataire, et l'intitulé nulle part ailleurs qu'au SOMMAIRE du même fascicule. L'intitulé n'est donc pas fabriqué : il est LU mot pour mot à la ligne déclarée de la pièce, dont le md5 est asserté avant toute lecture. Ligne 14 du SOMMAIRE (le fascicule en annonce deux ; l'autre est le CCAG travaux, hors corpus). TROIS MENTIONS LAISSÉES HORS DE LA CHAÎNE RESTITUÉE — ce ne sont PAS des `decoupe.retraits` (ce texte n'en déclare aucun) : la ligne de sommaire n'entre jamais au corps, seule y entre la sous-chaîne déclarée ci-dessus. Toutes typographiques ou de classement, aucune sur l'objet : la puce « •  » de tête ; la RUBRIQUE de classement du J.O. « COMMISSION NATIONALE DES MARCHÉS PUBLICS (CNMP).- », qui range l'acte sous son organisme et ne fait pas partie de l'intitulé ; la mention finale « Textes y annexés. », qui vise l'annexe — laquelle n'est pas transcrite, la note de fiche le dit. PLACE : immédiatement après le mot d'acte et AVANT le signataire — c'est ainsi que les textes du lot qui portent DÉJÀ leur intitulé au corps l'impriment dans cinq cas sur huit (n° 19, 20, 21, 22, 24 ; les n° 02, 03 et 04 le placent après le signataire). ⚠️ MESURÉ : le sommaire de CETTE pièce, lui, n'imprime PAS de ligne d'acte séparée avant l'objet — l'argument tiré de « l'ordre du sommaire » ne vaut que pour les pièces des n° 16, 17, 18 et 23, dont le sommaire porte bien une ligne « ARRÊTÉ » seule avant l'intitulé."
+   }
+  ]
+ },
+ "jointures_entetes": [],
+ "toc": [],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2"
+ },
+ "navToc": [],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 77,
+  "toc": 0,
+  "labels": 2,
+  "ancres_emises": 2,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 0,
+  "navToc_groupes": 0
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": null,
+ "md5_corps": "359ed69f0a219e3a3c1c489d041f2b53",
+ "apostrophes": {
+  "droites": 34,
+  "courbes": 0
+ },
+ "exposants_unicode": {}
+}

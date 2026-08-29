@@ -1,0 +1,461 @@
+{
+  "meta": {
+    "etabli_le": "2026-08-27",
+    "methode": "Lecture des dispositifs (articles finaux, clauses de modification) et des visas des 28 fichiers extraits ; chaque arête porte sa clause citée mot pour mot. Vérification en base de production (SELECT uniquement) des candidats « loi du 10 juin 2009 ».",
+    "regles_appliquees": [
+      "Le kind d'un CrossRef AFFIRME : considérant => CITE ; article du dispositif => MODIFIE/ABROGE.",
+      "adoptionDate = dernière entité d'adoption (« Donné au Palais National... »), jamais la publication.",
+      "Référence = titre complet.",
+      "Citations jamais normalisées (« 227.1 » à point conservé face au « 227-1 » à trait d'union du texte de base)."
+    ]
+  },
+
+  "textes_du_lot": [
+    {
+      "id": "decret-2004-12-03",
+      "titre": "Décret fixant la réglementation des marchés publics de services, de fournitures et de travaux",
+      "adoption": "2004-12-03 (Donné au Palais National, le 3 décembre 2004, An 201ème)",
+      "publication": "Le Moniteur, 160ème Année, No. 12, lundi 14 février 2005",
+      "fichiers": ["Decret_14_fevrier_2005_Marches_Publics_Transcription-docx.txt"],
+      "piege_identification": "Le nom de fichier de la cliente (« Décret du 14 février 2005 ») porte la date du MONITEUR ; le décret est daté du 3 décembre 2004. C'est sous ce nom (« Décret du 3 décembre 2004 ») que les trois arrêtés du 26 octobre 2009 le citent.",
+      "articles": "117 articles (12 chapitres)",
+      "clause_abrogation_propre": "Article 117.- Le présent Décret abroge toutes Lois ou dispositions de Lois, tous Décrets-Lois ou dispositions de Décrets-Lois, tous Décrets ou dispositions de Décrets qui lui est contraire... (générique ; vise notamment, sans le nommer au dispositif, le Décret du 23 octobre 1989 relatif aux normes et conditions de Passation des Marchés, présent dans ses visas)",
+      "statut_propose": "ABROGE (effets cessés par l'article 97 de la Loi du 10 juin 2009 — clause rapportée par les trois arrêtés du 26 octobre 2009, la loi elle-même étant absente du lot et de la base)"
+    },
+    {
+      "id": "arrete-2009-10-26-orgfonct-cnmp",
+      "titre": "Arrêté déterminant les modalités d'organisation et de fonctionnement de la Commission Nationale des Marchés Publics (CNMP)",
+      "adoption": "2009-10-26",
+      "publication": "Le Moniteur, 164ème Année, Spécial No. 10, mercredi 4 novembre 2009",
+      "fichiers": [
+        "Arrete_26_octobre_2009_Organisation_CNMP-docx.txt (361 l.)",
+        "Arrete_26_octobre_2009_Organisation_Fonctionnement_CNMP-docx.txt (371 l., note de transcription la plus riche : « Articles 30.- » sic, art. 15.1/15-1, art. 40-1)",
+        "Arrete_CNMP_Organisation_Fonctionnement_Le_Moniteur_4_novemb.txt (349 l.)"
+      ],
+      "nota": "TROIS transcriptions du MÊME arrêté (art. 1er et art. 50-52 identiques dans les trois) — en garder UNE (recommandé : la 371 l.), les deux autres servent de contrôle.",
+      "articles": "52 articles (+ intercalaires 6-1, 7-1, 13-1, 15.1, 33-1...)",
+      "entree_en_vigueur": "Article 51.- Le présent Arrêté entre en vigueur à la date de cessation des effets des dispositions du Décret du 3 décembre 2004..., telle que prévue par l'article 97 de la Loi du 10 juin 2009...",
+      "statut_propose": "EN_VIGUEUR (complété — non modifié textuellement — par l'Arrêté du 9 décembre 2020 fixant la composition des CMMP/CSMP)"
+    },
+    {
+      "id": "arrete-2009-10-26-modalites-application",
+      "titre": "Arrêté précisant les modalités d'application de la Loi fixant les règles générales relatives aux Marchés Publics et aux Conventions de Concession d'Ouvrage de Service Public",
+      "adoption": "2009-10-26",
+      "publication": "Le Moniteur, 164ème Année, Spécial No. 10, mercredi 4 novembre 2009",
+      "fichiers": ["Arrete_26_octobre_2009_modalites_application_Loi_Marches_Pub.txt (889 l., 242 articles numérotés avec nombreux intercalaires — pas d'annexe CCAG embarquée : les 387 « têtes » sont la structure interne Titres/Chapitres/Sections)"],
+      "articles": "242 articles (Titre IX, art. 240-242) + intercalaires (227-1 à 227-4, 237-1...)",
+      "entree_en_vigueur": "Article 241.- ... entre en vigueur à la date de cessation des effets des dispositions du Décret du 3 décembre 2004..., telle que prévue par l'article 97 de la Loi du 10 juin 2009...",
+      "statut_propose": "EN_VIGUEUR avec pastille MODIFIE sur les articles 227 et 227-1 (Arrêté du 9 décembre 2020)"
+    },
+    {
+      "id": "arrete-2009-10-26-manuel-procedures",
+      "titre": "Arrêté sanctionnant le Manuel de Procédures pour la passation des Marchés Publics et des Conventions de Concession d'Ouvrage de Service Public",
+      "adoption": "2009-10-26",
+      "publication": "Le Moniteur, 164ème Année, Spécial No. 10, mercredi 4 novembre 2009",
+      "fichiers": ["Le_Moniteur_Special_No10_2009_Arrete_Manuel_Procedures_CNMP-.txt (987 l. : arrêté de 3 articles + Manuel annexé)"],
+      "entree_en_vigueur": "Article 2.- ... entre en vigueur à la date de cessation des effets des dispositions du Décret du 3 décembre 2004..., telle que prévue par l'article 97 de la Loi du 10 juin 2009...",
+      "statut_propose": "EN_VIGUEUR",
+      "nota": "Le Spécial No. 10 du 4 novembre 2009 porte donc TROIS arrêtés du 26 octobre 2009 (org/fonct CNMP, modalités d'application, manuel de procédures)."
+    },
+    {
+      "id": "arretes-2011-05-10-documents-standard",
+      "titre": "Arrêtés du 10 mai 2011 sanctionnant les documents standard (DAO, CCAG, demandes types) — SÉRIE DE DIX arrêtés, énumérés aux visas de l'Arrêté du 21 décembre 2012",
+      "adoption": "2011-05-10",
+      "publication": "Le Moniteur, 166ème Année, Spécial No. 3, vendredi 13 mai 2011",
+      "fichiers": [
+        "Arrete_CNMP_DAO_Standard_Travaux_13_mai_2011-docx.txt — arrêté sanctionnant le DAO standard pour la réalisation de travaux (Tome I) : ARRÊTÉ SEUL, annexe (le DAO lui-même) ABSENTE",
+        "Le_Moniteur_Special_No3_13_mai_2011_Arrete_DAO_Informatique_.txt — arrêté sanctionnant le dossier de demandes types de propositions pour des services de consultants et modèles de contrats (couverture Tome III) : ARRÊTÉ SEUL, annexe ABSENTE",
+        "Moniteur_Special_No3_13_mai_2011_Arrete_CCAG_Transcription-d.txt — dispositif de l'arrêté sanctionnant le CCAG applicables aux marchés publics de fournitures, de services, d'informatique et de bureautique : FRAGMENT (page 2 du Moniteur absente : visas et premiers considérants manquants)"
+      ],
+      "les_dix_arretes_selon_visas_charte_2012": [
+        "DAO standard réalisation de travaux",
+        "CCAG marchés publics de travaux",
+        "DAO standard acquisition de fournitures",
+        "DAO standard acquisition d'équipements informatiques et de bureautique",
+        "CCAG marchés publics de fournitures, de services, d'informatique et de bureautique",
+        "CCAG marchés publics de prestations intellectuelles",
+        "Dossier de demandes types de propositions pour services de consultants et modèles de contrats",
+        "DAO standard prestation de service",
+        "Dossier type d'appel d'offres en deux étapes relatif aux conventions de concession d'ouvrage de service public",
+        "CCAG conventions de concession d'ouvrage de service public"
+      ],
+      "statut_propose": "EN_VIGUEUR (pour les 3 présents) — mais fragments : verser en signalant l'absence des annexes, ou différer (décision cliente)"
+    },
+    {
+      "id": "arrete-2012-05-25-seuils",
+      "titre": "Arrêté fixant les seuils de passation des marchés publics et les seuils d'intervention de la Commission Nationale des Marchés Publics",
+      "adoption": "2012-05-25",
+      "publication": "Transcription du lot : Le Moniteur, 167ème Année, No. 104, vendredi 29 juin 2012, « NUMÉRO EXTRAORDINAIRE / REPRODUCTION » ; l'INDEX en base porte l'original au 14 juin 2012 et une « Reproduction pour erreur matérielle » au 28 juin 2012 (écart d'un jour avec l'en-tête du fichier — à contrôler sur scan)",
+      "fichiers": ["Arrete_seuils_marches_publics_2012-docx.txt (8 articles + 4-1, 4-2, 6-1)"],
+      "clause_abrogation_propre": "AUCUNE — l'article 8 n'est qu'une clause d'exécution ; l'Arrêté du 5 septembre 2009 (visé) n'est remplacé qu'en fait",
+      "statut_propose": "À TRANCHER PAR L'ÉDITEUR : remplacé en fait depuis le 1er octobre 2022 par l'Arrêté du 1er juin 2022 (qui révise à la fois seuils de passation et seuils de contrôle a priori, pour toutes les catégories), mais JAMAIS abrogé nommément. Recommandation : EN_VIGUEUR + note d'édition « remplacé en fait », ou ABROGE assumé éditorialement — pas de pastille tant que l'éditeur ne s'est pas prononcé."
+    },
+    {
+      "id": "arrete-2012-12-21-charte-ethique",
+      "titre": "Arrêté sanctionnant pour sortir son plein et entier effet la Charte d'Éthique applicable aux acteurs des marchés publics et des conventions de concession d'ouvrage de service public",
+      "adoption": "2012-12-21",
+      "publication": "Le Moniteur, 168ème Année, No. 3, mercredi 9 janvier 2013 (NUMÉRO EXTRAORDINAIRE)",
+      "fichiers": ["Le_Moniteur_No3_9_janvier_2013_Charte_Ethique-docx.txt (arrêté 2 articles + Charte 22 articles + modèle de lettre d'engagement)"],
+      "hors_perimetre_dans_fichier": "Le fascicule contient aussi un arrêté d'utilité publique (Delmas) et deux résolutions du Conseil des Ministres du 21 décembre 2012 — hors corpus marchés publics.",
+      "statut_propose": "EN_VIGUEUR"
+    },
+    {
+      "id": "arrete-2017-08-30-demande-prix-fournitures",
+      "titre": "Arrêté sanctionnant le « Manuel de procédures de demande de prix pour acquisition de fournitures » et le « Dossier de demande de prix pour acquisition de fournitures »",
+      "adoption": "2017-08-30",
+      "publication": "Le Moniteur, 172e Année, Spécial N° 25, jeudi 14 septembre 2017",
+      "fichiers": ["LeMoniteur_Special25_2017-09-14_Arrete_Demande_de_Prix_Fourn.txt"],
+      "statut_propose": "EN_VIGUEUR"
+    },
+    {
+      "id": "arrete-2017-08-30-procedures-celeres",
+      "titre": "Arrêté sanctionnant le « Manuel de procédures célères pour la passation des marchés publics en état d'urgence déclaré », le « Document-type de préqualification d'entreprises en vue de travaux sous un état d'urgence déclaré » et le « Modèle de marché pour intervention en situation d'état d'urgence déclaré »",
+      "adoption": "2017-08-30",
+      "publication": "Le Moniteur, 172e Année, Spécial N° 26, vendredi 15 septembre 2017",
+      "fichiers": ["Le_Moniteur_Special_No26_15-09-2017_Arrete_Procedures_Celere.txt"],
+      "statut_propose": "EN_VIGUEUR"
+    },
+    {
+      "id": "arrete-2017-08-30-demande-cotations-travaux",
+      "titre": "Arrêté sanctionnant le « Manuel de procédures de demande de cotations pour les contrats de travaux » et le « Dossier de demande de cotations pour l'exécution de contrats de travaux »",
+      "adoption": "2017-08-30",
+      "publication": "Le Moniteur, 172e Année, Spécial No 28, mercredi 20 septembre 2017",
+      "fichiers": ["Le_Moniteur_Special_No28_2017-09-20_Arrete_Manuel_et_Dossier.txt"],
+      "statut_propose": "EN_VIGUEUR"
+    },
+    {
+      "id": "arrete-2017-08-30-allegees-travaux",
+      "titre": "Arrêté sanctionnant le « Manuel de procédures allégées pour la passation des marchés de travaux » et le « Dossier d'Appel d'Offres allégé pour la passation des marchés de travaux »",
+      "adoption": "2017-08-30",
+      "publication": "Le Moniteur, 172e Année, Spécial N° 31, mardi 26 septembre 2017",
+      "fichiers": ["Le_Moniteur_Special_No31_26-09-2017_Arrete_AO_allege_travaux.txt"],
+      "statut_propose": "EN_VIGUEUR"
+    },
+    {
+      "id": "arrete-2017-08-30-allegees-fournitures",
+      "titre": "Arrêté sanctionnant le « Manuel de procédures allégées pour la passation des marchés de fournitures » et le « Dossier d'Appel d'Offres allégé pour la passation des marchés de fournitures »",
+      "adoption": "2017-08-30",
+      "publication": "Le Moniteur, 172e Année, Spécial N° 35, vendredi 6 octobre 2017",
+      "fichiers": [
+        "Le_Moniteur_Special_35_6_octobre_2017_Arrete_Manuel_DAO_Alle.txt (1933 l. — transcription la plus complète)",
+        "Le-Moniteur-Special-No-35-6-octobre-2017-Manuel-de-procedure.txt (1203 l. — TRONQUÉE : s'interrompt à la clause 14 des IGS, sections II-III du DAO absentes, d'après sa propre note de transcription)"
+      ],
+      "nota": "DEUX transcriptions du MÊME fascicule et du MÊME arrêté (dispositifs identiques) — garder la version 1933 l., la tronquée en contrôle.",
+      "statut_propose": "EN_VIGUEUR"
+    },
+    {
+      "id": "arrete-2017-08-30-allegees-consultants",
+      "titre": "Arrêté sanctionnant le « Manuel de procédures allégées pour la sélection de consultants » et le « Dossier allégé de demande de propositions pour services de consultants »",
+      "adoption": "2017-08-30",
+      "publication": "Le Moniteur, 172e Année, Spécial N° 42, mardi 5 décembre 2017",
+      "fichiers": ["Le_Moniteur_Special_42_2017_Arrete_Manuel_Dossier_Allege_Con.txt"],
+      "statut_propose": "EN_VIGUEUR"
+    },
+    {
+      "id": "arrete-2019-01-09-defense",
+      "titre": "Arrêté portant révision de l'arrêté du 30 août 2017 fixant les règles de procédures de passation de certains marchés de travaux, de fournitures, de prestations intellectuelles et de services dans les domaines de défense ou de sécurité nationale",
+      "adoption": "2019-01-09",
+      "publication": "Le Moniteur, 174e Année, Spécial N° 3, mercredi 16 janvier 2019",
+      "fichiers": ["Arrete_9_janvier_2019_Marches_Defense_Securite_Nationale-doc.txt (15 articles + intercalaires 7.1-7.3.3)"],
+      "statut_propose": "ABROGE — remplacé nommément par l'Arrêté du 12 février 2020 (art. 15) ; abrogatedByNumber => Arrêté du 12 février 2020"
+    },
+    {
+      "id": "arrete-2019-12-26-nomination-cnmp",
+      "titre": "Arrêté nommant les membres de la Commission Nationale des Marchés Publics (CNMP)",
+      "adoption": "2019-12-26 (Donné à la Primature — Premier Ministre a.i., vu et approuvé par le Président)",
+      "publication": "Le Moniteur, 174e Année, N° 221, lundi 30 décembre 2019",
+      "fichiers": ["Arrete_CNMP_Le_Moniteur_No221_30dec2019-docx.txt (COMPLET — 4 articles ; pas un fragment : acte individuel court)"],
+      "nota": "Acte de nomination (5 membres, 3 ans). Mandat échu fin 2022 mais aucun texte du lot ne l'abroge. Le fascicule contient aussi des extraits du registre des marques — hors corpus.",
+      "statut_propose": "À TRANCHER : verser comme acte individuel (statut PUBLIE + note « mandat de trois ans ») ou écarter du corpus normatif — décision cliente"
+    },
+    {
+      "id": "arrete-2020-02-12-defense",
+      "titre": "Arrêté soumettant les marchés publics de défense ou de sécurité nationale au respect des principes de passation des marchés",
+      "adoption": "2020-02-12",
+      "publication": "Le Moniteur, 175e Année, Spécial N° 1, mercredi 12 février 2020",
+      "fichiers": ["Arrete_12_fevrier_2020_Marches_publics_defense_securite_nati.txt (16 articles + intercalaires)"],
+      "statut_propose": "EN_VIGUEUR avec pastille MODIFIE sur l'article 2 (définition annulée et remplacée par le Décret du 21 octobre 2021, art. 16.1 al. 2)"
+    },
+    {
+      "id": "arrete-2020-12-09-modif-227",
+      "titre": "Arrêté modifiant les articles 227 et 227.1 de l'Arrêté du 26 octobre 2009 précisant les modalités d'application de la Loi du 10 juin 2009 fixant les règles générales relatives aux marchés publics et aux conventions de concession d'ouvrage de service public",
+      "adoption": "2020-12-09",
+      "publication": "Le Moniteur, 176e Année, Spécial N° 8, jeudi 4 février 2021",
+      "fichiers": ["Le_Moniteur_Special_No8_4_fevrier_2021-docx.txt / _1 / _2 (trois transcriptions du même fascicule ; _3 = doublon à l'octet de _2, md5 7e76737d)"],
+      "nota": "Graphie « 227.1 » (point) dans l'arrêté modificatif contre « 227-1 » (trait d'union) dans l'arrêté de base — conserver chaque graphie à sa place, résoudre l'ancre sur art. 227-1.",
+      "statut_propose": "EN_VIGUEUR (texte modificatif)"
+    },
+    {
+      "id": "arrete-2020-12-09-composition-cmmp-csmp",
+      "titre": "Arrêté fixant la composition des Commissions Ministérielles des Marchés Publics (CMMP) et des Commissions Spécialisées des Marchés Publics (CSMP) ainsi que les critères de choix et tâches spécifiques de leurs membres",
+      "adoption": "2020-12-09",
+      "publication": "Le Moniteur, 176e Année, Spécial N° 8, jeudi 4 février 2021",
+      "fichiers": ["mêmes fichiers Spécial N° 8 (deuxième arrêté du fascicule)"],
+      "nota": "Le fascicule Spécial N° 8 contient en outre des arrêtés de nomination (BNC, BNDA, CNAL, commissions municipales) et la Circulaire n° 009 (Carte d'Identification Nationale) — HORS corpus marchés publics.",
+      "statut_propose": "EN_VIGUEUR (complète l'Arrêté du 26 octobre 2009 org/fonct CNMP, sans le modifier textuellement — le complément est énoncé en considérant)"
+    },
+    {
+      "id": "decret-2021-10-21-beneficiaires-effectifs",
+      "titre": "Décret établissant l'obligation de présenter des informations permettant d'identifier les Bénéficiaires effectifs des Marchés publics et des Concessions",
+      "adoption": "2021-10-21",
+      "publication": "Le Moniteur, 176e Année, Spécial N° 52, mardi 9 novembre 2021",
+      "fichiers": ["Le_Moniteur_Special_52_9_novembre_2021-docx.txt (premier texte du fascicule ; 17 articles + intercalaires 2.1-2.3, 13.1-13.2, 15.1-15.2, 16.1)"],
+      "statut_propose": "EN_VIGUEUR"
+    },
+    {
+      "id": "arrete-2021-10-21-seuils-sous-cnmp",
+      "titre": "Arrêté fixant les seuils de passation des Marchés publics en dessous des seuils d'intervention de la Commission nationale des Marchés publics",
+      "adoption": "2021-10-21",
+      "publication": "Le Moniteur, 176e Année, Spécial N° 52, mardi 9 novembre 2021",
+      "fichiers": ["Le_Moniteur_Special_52_9_novembre_2021-docx.txt (second texte du fascicule ; 8 articles + 2-1, 3-1 à 3-3)"],
+      "statut_propose": "À TRANCHER PAR L'ÉDITEUR : appliqué jusqu'au 30 septembre 2022 (Arrêté du 1er juin 2022, art. 7-1), remplacé en fait depuis le 1er octobre 2022 — jamais abrogé nommément. Même traitement que l'Arrêté du 25 mai 2012."
+    },
+    {
+      "id": "arrete-2022-06-01-seuils",
+      "titre": "Arrêté fixant les seuils de passation des marchés publics et les seuils d'intervention de la Commission Nationale des Marchés Publics (CNMP)",
+      "adoption": "2022-06-01 (Donné au Palais National, le 1er juin 2022 — le nom de fichier « 10 juin 2022 » porte la date de PUBLICATION)",
+      "publication": "Le Moniteur, 177ᵉ Année, Spécial N° 15, vendredi 10 juin 2022",
+      "fichiers": ["Arrete_10_juin_2022_Seuils_Marches_Publics_CNMP-docx.txt (10 articles + 3-1/3-2, 4-1 à 4-6, 7-1)"],
+      "statut_propose": "EN_VIGUEUR (régime des seuils en vigueur depuis le 1er octobre 2022 ; entre le 10 juin et le 30 septembre 2022, régime transitoire de ses art. 7-1 et 8)"
+    },
+    {
+      "id": "circulaire-010-2023-12-04",
+      "titre": "Circulaire 010 relative aux procédures de passation et d'exécution des marchés publics",
+      "adoption": "2023-12-04 (Port-au-Prince — Dr Ariel Henry, Premier Ministre)",
+      "publication": "Document administratif de la Primature (pas un fascicule du Moniteur dans le lot)",
+      "fichiers": ["Circulaire_010_-_4_decembre_2023_-_Marches_publics-docx.txt (structure en paragraphes-instructions, sans articles — d'où les « 0 têtes »)"],
+      "statut_propose": "EN_VIGUEUR (instruction ; ne modifie aucun texte — uniquement des renvois CITE)"
+    }
+  ],
+
+  "textes_absents_references": [
+    {
+      "id": "loi-2009-06-10",
+      "titre_cite_par_les_visas": "Loi du 10 juin 2009 fixant les règles générales relatives aux marchés publics et aux conventions de concession d'ouvrage de service public",
+      "titre_index_moniteur": "Loi fixant les règles générales de passation, d'exécution et de règlement des Marchés Publics dont la valeur estimée est égale ou supérieure aux seuils de passation des marchés (v. => Reproduction pour erreur matérielle dans LM2009-78 du mardi 28 juillet 2009)",
+      "publication": "Le Moniteur LM2009-60, vendredi 12 juin 2009 ; reproduction pour erreur matérielle : LM2009-78, mardi 28 juillet 2009 (d'après l'entrée INDEX en base)",
+      "role": "LOI-MÈRE du corpus : tous les textes du lot (sauf le décret 2004) en dérivent",
+      "en_base": "UNE entrée INDEX (id b673e39b-7c6c-411a-8069-c8148ad50d43) — titre seulement, aucun texte intégral, aucun fac-similé (aucune édition MONITEUR_PDF_2009 en base)"
+    },
+    {
+      "id": "arrete-2009-09-05-seuils",
+      "titre": "Arrêté du 5 septembre 2009 fixant les seuils de passation des Marchés Publics et les seuils d'intervention de la Commission Nationale des Marchés Publics suivant la nature des marchés",
+      "publication": "entrée INDEX en base au 9 septembre 2009 (id b12067a4)",
+      "role": "Premier arrêté de seuils sous la loi de 2009 ; visé par les trois arrêtés du 26 octobre 2009, les arrêtés du 10 mai 2011 et l'arrêté du 25 mai 2012 ; remplacé EN FAIT par celui-ci (qui ne contient aucune clause d'abrogation)"
+    },
+    {
+      "id": "arrete-2017-08-30-defense",
+      "titre": "Arrêté du 30 août 2017 fixant les règles de procédures de passation de certains marchés de travaux, de fournitures, de prestations intellectuelles et de services dans les domaines de défense ou de sécurité nationale",
+      "role": "Septième frère de la série du 30 août 2017 ; révisé par l'arrêté du 9 janvier 2019, lui-même remplacé par celui du 12 février 2020 — chaîne morte, mais son absence laisse la racine de la branche défense sans texte"
+    },
+    {
+      "id": "circulaire-008-2022-09-05",
+      "titre": "Circulaire N° 008 du Premier Ministre en date du 5 septembre 2022",
+      "role": "Citée deux fois par la Circulaire 010 (paragraphes 4 à 6, paragraphe 6)"
+    },
+    {
+      "id": "decret-1989-10-23",
+      "titre": "Décret du 23 octobre 1989 relatif aux normes et conditions de Passation des Marchés par les pouvoirs publics",
+      "role": "Régime antérieur au décret de 2004 (présent aux visas de celui-ci) — hors périmètre probable"
+    },
+    {
+      "id": "arretes-2011-05-10-manquants",
+      "titre": "Sept des dix arrêtés du 10 mai 2011 (et TOUTES les annexes des dix : les DAO/CCAG eux-mêmes)",
+      "role": "Énumérés aux visas de l'arrêté du 21 décembre 2012 ; le lot n'a que trois dispositifs sans annexes"
+    }
+  ],
+
+  "aretes": [
+    {
+      "de": "loi-2009-06-10",
+      "vers": "decret-2004-12-03",
+      "type": "ABROGE (cessation des effets, art. 97 de la loi)",
+      "preuve": "indirecte — la loi est absente ; clause rapportée à l'identique par trois arrêtés",
+      "clause_citee": "« Le présent Arrêté entre en vigueur à la date de cessation des effets des dispositions du Décret du 3 décembre 2004 fixant la réglementation des marchés publics de services, de fournitures et de travaux, telle que prévue par l'article 97 de la Loi du 10 juin 2009 fixant les règles générales relatives aux marchés publics et aux conventions de concession d'ouvrage de service public. » (Arrêté org/fonct CNMP, art. 51 ; Arrêté modalités d'application, art. 241 ; Arrêté manuel de procédures, art. 2)"
+    },
+    {
+      "de": "arrete-2020-12-09-modif-227",
+      "vers": "arrete-2009-10-26-modalites-application",
+      "type": "MODIFIE (articles 227 et 227-1 réécrits)",
+      "clause_citee": "« Article 2.- Les modifications apportées à l'Arrêté sont les suivantes : L'article 227 est modifié comme suit : “Article 227.- Le Comité de Règlement des Différends est composé de cinq (5) membres : …” L'article 227.1 est modifié comme suit : “Article 227.1.- Les membres du Comité de Règlement des Différends sont désignés par les institutions et personnes concernées à la diligence de la Commission Nationale des Marchés Publics”. “Une lettre du Premier Ministre consacre la désignation des membres du Comité”. »"
+    },
+    {
+      "de": "arrete-2020-12-09-composition-cmmp-csmp",
+      "vers": "arrete-2009-10-26-orgfonct-cnmp",
+      "type": "CITE (complément énoncé en considérant — PAS de modification textuelle)",
+      "clause_citee": "« Considérant qu'il n'a pas été retrouvé, dans l'Arrêté du 26 octobre 2009 déterminant les modalités d'organisation et de fonctionnement de la Commission Nationale des Marchés Publics (CNMP), des dispositions relatives aux critères de choix des membres desdites Commissions ; Considérant qu'il y a lieu de combler ce vide et de compléter l'Arrêté du 26 octobre 2009 susvisé... »"
+    },
+    {
+      "de": "arrete-2019-01-09-defense",
+      "vers": "arrete-2017-08-30-defense",
+      "type": "MODIFIE (révision — cible ABSENTE du lot)",
+      "clause_citee": "« Article 1er.- Le présent arrêté porte révision de l'arrêté du 30 août 2017 fixant les règles de procédures de passation de certains marchés de travaux, de fournitures, de prestations intellectuelles et de services dans les domaines de défense ou de sécurité nationale. »"
+    },
+    {
+      "de": "arrete-2020-02-12-defense",
+      "vers": "arrete-2019-01-09-defense",
+      "type": "ABROGE (remplacement intégral, nominatif)",
+      "clause_citee": "« Article 15.- Le présent arrêté remplace l'arrêté du 9 janvier 2019 portant révision de celui du 30 août 2017 fixant les règles de procédure de passation de certains marchés de travaux, de fournitures, de prestations intellectuelles et de services dans les domaines de défense ou de sécurité nationale. »"
+    },
+    {
+      "de": "decret-2021-10-21-beneficiaires-effectifs",
+      "vers": "arrete-2020-02-12-defense",
+      "type": "MODIFIE (la définition de l'article 2 est annulée et remplacée)",
+      "clause_citee": "« Cette définition des Marchés de défense ou de sécurité nationale annule et remplace la définition contenue dans l'article 2 de l'Arrêté du 12 février 2020 soumettant les marchés publics de défense ou de sécurité nationale au respect des principes de passation de marchés. » (art. 16.1, al. 2 — dispositif)"
+    },
+    {
+      "de": "arrete-2021-10-21-seuils-sous-cnmp",
+      "vers": "arrete-2012-05-25-seuils",
+      "type": "CITE (confirmation partielle expresse : les seuils d'intervention CNMP de 2012 sont maintenus ; les seuils de passation 2021 s'y adossent)",
+      "clause_citee": "« Article 6.- Les dispositions de l'Arrêté du 25 mai 2012 précité relatives aux seuils d'intervention de la CNMP restent et demeurent inchangées. »"
+    },
+    {
+      "de": "arrete-2022-06-01-seuils",
+      "vers": "arrete-2021-10-21-seuils-sous-cnmp",
+      "type": "REMPLACEMENT IMPLICITE (dispositif transitoire daté ; aucune abrogation nominative) — kind CrossRef proposé : CITE + note, ABROGE seulement sur décision d'éditeur",
+      "clause_citee": "« Article 7-1.- Les marchés publics sont soumis aux seuils fixés par l'Arrêté du 21 octobre 2021 fixant les seuils de passation des marchés publics et les seuils d'intervention de la Commission Nationale des Marchés Publics jusqu'au 30 septembre 2022. » (NB : ce visa intitule l'arrêté de 2021 avec le titre de celui de 2012 — sic, à conserver tel quel) + « Article 7.- Les articles 3, 3-1, 3-2, 4, 4-1, 4-2, 4-3, 4-4, 4-5, 4-6, 5, 6 du présent Arrêté entrent en vigueur le 01 octobre 2022. »"
+    },
+    {
+      "de": "arrete-2022-06-01-seuils",
+      "vers": "arrete-2012-05-25-seuils",
+      "type": "REMPLACEMENT IMPLICITE (révision des seuils de contrôle a priori énoncée en considérant + occupation complète du champ) — kind proposé : CITE + note",
+      "clause_citee": "« Considérant la nécessité de réviser à la baisse les seuils de contrôle a priori de la CNMP fixés par l'Arrêté du 25 mai 2012 et repris dans l'Arrêté du 21 octobre 2021 précités... » + art. 10 générique : « Le présent Arrêté rapporte tout Arrêté ou toute disposition d'Arrêté qui lui est contraire. »"
+    },
+    {
+      "de": "arrete-2021-10-21-seuils-sous-cnmp",
+      "vers": "arretes-2017-08-30 (série)",
+      "type": "CITE (adossement : les procédures 2017 reçoivent leurs tranches de montants)",
+      "clause_citee": "« Vu les Arrêtés du 30 août 2017 portant respectivement sur les procédures de demande de prix, de demande de cotations et sur les procédures allégées pour la passation des Marchés publics en dessous des seuils d'intervention de la CNMP ; » + « Considérant que l'Arrêté du 25 mai 2012 en vigueur n'a de provisions ni pour les procédures, ni pour les documents-types rendus officiels et opposables à tous les acteurs par les Arrêtés du 30 août 2017 ; »"
+    },
+    {
+      "de": "arrete-2012-05-25-seuils",
+      "vers": "arrete-2009-09-05-seuils",
+      "type": "REMPLACEMENT IMPLICITE (visa sans clause d'abrogation : l'arrêté de 2012 n'a AUCUNE clause abrogatoire)",
+      "clause_citee": "« Vu l'Arrêté du 5 septembre 2009 fixant les seuils de passation des marchés publics ; » (visa) — art. 8 : « Le présent arrêté sera imprimé, publié et exécuté... » (aucune abrogation)"
+    },
+    {
+      "de": "arrete-2019-01-09-defense",
+      "vers": "arretes-2011-05-10-documents-standard",
+      "type": "CITE (usage des documents standard)",
+      "clause_citee": "« Article 14.- Pour passer les marchés soumis au présent arrêté, la Personne responsable du marché pourra faire usage en les adaptant au besoin, des documents standards, pris par arrêté en Conseil des Ministres le 10 mai 2011, publiés dans le journal officiel « Le Moniteur », Spécial No. 3 du vendredi 13 mai 2011. » (clause reprise à l'identique à l'art. 14 de l'arrêté du 12 février 2020)"
+    },
+    {
+      "de": "arrete-2012-12-21-charte-ethique",
+      "vers": "arretes-2011-05-10-documents-standard",
+      "type": "CITE (visas — énumération faisant foi des DIX arrêtés du 10 mai 2011)",
+      "clause_citee": "« Vu l'arrêté du 10 mai 2011 sanctionnant le dossier d'appel d'offres standard pour la réalisation de travaux ; ... Vu l'arrêté du 10 mai 2011 sanctionnant le Cahier des Clauses Administratives Générales (CCAG) applicables aux conventions de concession d'ouvrage de service public ; » (dix visas successifs)"
+    },
+    {
+      "de": "arrete-2009-10-26-modalites-application",
+      "vers": "arretes-2011-05-10-documents-standard + arrete-2012-12-21-charte-ethique",
+      "type": "CITE (disposition transitoire annonçant ces textes)",
+      "clause_citee": "« Article 240.- En attendant la publication des Arrêtés fixant les dossiers standard d'appel d'offres, les cahiers des clauses administratives générales, les cahiers des clauses administratives particulières, les documents normalisés... et la charte d'éthique applicable dans le domaine des marchés publics, le Premier Ministre y suppléera sur proposition de la Commission Nationale des Marchés Publics ou, le cas échéant, autorisera une dérogation. »"
+    },
+    {
+      "de": "circulaire-010-2023-12-04",
+      "vers": "loi-2009-06-10 / arrete-2009-10-26-modalites-application / arrete-2020-12-09-composition-cmmp-csmp / decret-2021-10-21-beneficiaires-effectifs / circulaire-008-2022-09-05",
+      "type": "CITE (instruction d'application, aucune modification)",
+      "clause_citee": "« En référence à la Loi du 10 juin 2009..., à la Loi du 4 mai 2016..., au Décret du 21 octobre 2021 établissant l'obligation de présenter des informations permettant d'identifier les Bénéficiaires effectifs des marchés publics et des concessions et aux divers arrêtés réglementant le système national de passation et de gestion des marchés publics... » ; renvois précis : art. 5-2, 46, 47 et Chapitre III du Titre III de l'Arrêté du 26 octobre 2009 ; art. 4 et 6 de l'Arrêté du 9 décembre 2020 ; art. 2, 3, 6 et 15 du Décret du 21 octobre 2021 ; paragraphes 4 à 6 et 6 de la Circulaire N°. 008 du 5 septembre 2022"
+    },
+    {
+      "de": "arrete-2017-08-30 (les six du lot)",
+      "vers": "loi-2009-06-10",
+      "type": "CITE (fondement : art. 27 / 27.1 de la loi)",
+      "clause_citee": "« Considérant que l'article 27.1 de la loi du 10 juin 2009... établit que l'autorité contractante peut recourir, en dessous des seuils de passation de marchés, à des procédures de consultation de fournisseurs ou de sollicitation de prix dans le respect des principes imposés par ladite loi ; » (Spéciaux 25, 28, 31, 35 ; le Spécial 42 se fonde sur l'art. 27 et les art. 35 à 35-4 ; le Spécial 26 sur l'état d'urgence)"
+    },
+    {
+      "de": "textes-du-lot (tous sauf decret-2004-12-03)",
+      "vers": "loi-2009-06-10",
+      "type": "CITE (fondements multiples)",
+      "clause_citee": "articles de la loi invoqués à travers le lot : 2, 3, 4, 5, 5-1, 6, 7, 10, 12, 14, 15, 22, 23, 27, 27-1, 29-1, 30, 33-1, 34-1, 34-3, 35 à 35-4, 42, 60, 62, 62-1 à 62-4, 64, 66, 80, 91 à 94, 95-5, 96, 97, 98 — la loi compte donc au moins 98 articles"
+    }
+  ],
+
+  "plan_pastilles_et_replis": {
+    "principe": "Version en vigueur = celle qui s'affiche ; l'ancienne rédaction se replie (oldVersions + ArticleVersion) ; pastille de statut sur l'article amendé ; CrossRef dont le kind est justifié arête par arête.",
+    "entrent_EN_VIGUEUR_sans_pastille": [
+      "arrete-2009-10-26-orgfonct-cnmp", "arrete-2009-10-26-manuel-procedures",
+      "arretes-2011-05-10 (les 3 fragments, si versés)", "arrete-2012-12-21-charte-ethique",
+      "les six arrêtés du 30 août 2017", "arrete-2020-12-09-modif-227",
+      "arrete-2020-12-09-composition-cmmp-csmp", "decret-2021-10-21-beneficiaires-effectifs",
+      "arrete-2022-06-01-seuils", "circulaire-010-2023-12-04"
+    ],
+    "entrent_ABROGE_d_emblee": [
+      {
+        "texte": "decret-2004-12-03",
+        "par": "Loi du 10 juin 2009, art. 97 (clause rapportée par les arrêtés du 26 octobre 2009)",
+        "mise_en_oeuvre": "status ABROGE ; abrogatedByNumber => « Loi du 10 juin 2009 » (la cible étant absente de la base, le renvoi restera un libellé sans lien tant que la loi n'est pas versée — anti-lien-mort)"
+      },
+      {
+        "texte": "arrete-2019-01-09-defense",
+        "par": "Arrêté du 12 février 2020, art. 15 (« remplace »)",
+        "mise_en_oeuvre": "status ABROGE ; abrogatedByNumber => « Arrêté du 12 février 2020 » (cible PRÉSENTE dans le lot : lien résolu)"
+      }
+    ],
+    "articles_amendes_pastille_plus_repli": [
+      {
+        "document": "arrete-2009-10-26-modalites-application",
+        "articles": ["227", "227-1"],
+        "pastille": "Modifié par l'Arrêté du 9 décembre 2020 (Moniteur Spécial N° 8 du 4 février 2021)",
+        "version_affichee": "rédaction 2020 (citée au dispositif de l'arrêté modificatif, guillemets conservés)",
+        "repli_oldVersions": "rédaction de 2009 d'origine : « Article 227.- Le Comité de Règlement des Différends est composé de cinq membres : ... » et « Article 227-1.- Les membres du Comité de Règlement des Différends sont désignés par les institutions et personnes concernées à la diligence de la Commission Nationale des Marchés Publics. »",
+        "crossref": "kind=MODIFIE, source=arrete-2020-12-09-modif-227 (dispositif, art. 2)"
+      },
+      {
+        "document": "arrete-2020-02-12-defense",
+        "articles": ["2"],
+        "pastille": "Modifié (définition annulée et remplacée) par le Décret du 21 octobre 2021, art. 16.1, al. 2",
+        "version_affichee": "définition de l'art. 16.1 du Décret du 21 octobre 2021 : « Les Marchés de défense ou de sécurité nationale font référence aux Marchés de livraison des biens et services, et aux immobilisations qui doivent être fournis aux forces de défense ou de sécurité nationale, y compris l'Armée, les Forces de police, ou qui sont désignés et certifiés par écrit à la Commission nationale des Marchés publics par le(s) Ministre(s) chargé(s) de la Sécurité nationale comme nécessaires à la préservation de la sécurité nationale de la République d'Haïti. »",
+        "repli_oldVersions": "rédaction 2020 de l'art. 2 (définition + liste des 11 catégories — NB : seule la DÉFINITION est remplacée ; la liste « Sont considérés comme... » n'est pas visée par la clause : question d'étendue à trancher — la clause ne remplace que « la définition contenue dans l'article 2 »)",
+        "crossref": "kind=MODIFIE, source=decret-2021-10-21-beneficiaires-effectifs (dispositif, art. 16.1)"
+      }
+    ],
+    "statuts_a_trancher_par_editeur": [
+      {
+        "texte": "arrete-2012-05-25-seuils",
+        "situation": "confirmé partiellement en 2021 (art. 6 de l'arrêté du 21 octobre 2021), puis champ entièrement réoccupé par l'arrêté du 1er juin 2022 à compter du 1er octobre 2022 ; aucune abrogation nominative",
+        "options": "EN_VIGUEUR + note d'édition « seuils remplacés en fait depuis le 1er octobre 2022 par l'Arrêté du 1er juin 2022 » (recommandé, prudent) OU ABROGE assumé"
+      },
+      {
+        "texte": "arrete-2021-10-21-seuils-sous-cnmp",
+        "situation": "art. 7-1 de l'arrêté du 1er juin 2022 borne son application au 30 septembre 2022",
+        "options": "mêmes options ; la borne temporelle est, elle, au dispositif — une note s'appuyant sur l'art. 7-1 cité est solide"
+      },
+      {
+        "texte": "arrete-2019-12-26-nomination-cnmp",
+        "situation": "acte individuel (nomination, 3 ans)",
+        "options": "verser en PUBLIE avec note, ou écarter du corpus normatif"
+      }
+    ],
+    "transcriptions_a_choisir": {
+      "arrete-2009-10-26-orgfonct-cnmp": "garder Arrete_26_octobre_2009_Organisation_Fonctionnement_CNMP-docx.txt (371 l., note de transcription la plus documentée), les deux autres en contrôle",
+      "arrete-2017-08-30-allegees-fournitures": "garder Le_Moniteur_Special_35_6_octobre_2017_Arrete_Manuel_DAO_Alle.txt (1933 l.), la transcription tronquée (1203 l.) en contrôle",
+      "special-no8-2021": "garder Le_Moniteur_Special_No8_4_fevrier_2021_1-docx.txt (555 l., note de transcription), les autres en contrôle ; _3 est un doublon à l'octet de _2 (md5 7e76737d2efb705a2da02616df555048) — écarter"
+    },
+    "renvois_inline_vers_la_loi_absente": "Des dizaines de renvois « article N de la Loi du 10 juin 2009 » parsèment tous les textes : tant que la loi n'est pas versée, les laisser en TEXTE (anti-lien-mort), jamais en lien ; prévoir leur activation le jour où la loi entre."
+  },
+
+  "dossier_loi_2009": {
+    "intitule_visas": "Loi du 10 juin 2009 fixant les règles générales relatives aux marchés publics et aux conventions de concession d'ouvrage de service public (forme constante dans TOUS les visas du lot, casse variable)",
+    "intitule_index_moniteur": "Loi fixant les règles générales de passation, d'exécution et de règlement des Marchés Publics dont la valeur estimée est égale ou supérieure aux seuils de passation des marchés",
+    "publication": "LM2009-60 du vendredi 12 juin 2009 ; « Reproduction pour erreur matérielle » dans LM2009-78 du mardi 28 juillet 2009 (entrée INDEX en base)",
+    "candidats_en_base": "Ma requête élargie (titleFr ~ '10 juin 2009' OU 'passation des march%') rend 8 lignes, TOUTES de type INDEX / source MONITEUR (59 à 260 caractères : de simples titres) : la loi (b673e39b), l'arrêté seuils du 5 septembre 2009 (b12067a4, pub. 9 sept. 2009), un arrêté de 2006 révisant les seuils (régime du décret de 2004), les deux entrées de l'arrêté seuils 2012 (original 14 juin + reproduction 28 juin), l'arrêté défense du 12 février 2020, l'arrêté manuel de procédures (4 nov. 2009) et l'arrêté modificatif 227/227-1 (4 févr. 2021). AUCUN texte intégral, aucun document LEGISLATION/DOCTRINE, aucun fac-similé 2009 (les éditions MONITEUR_PDF couvrent 1981-2000, 2016, 2019, 2021, 2024-2026 : pas 2009).",
+    "structure_connue_par_citations": "au moins 98 articles (art. 98 cité comme fondement de l'arrêté modalités d'application) ; articles cités dans le lot : 2, 3, 4, 5, 5-1, 6, 7, 10, 12, 14, 15, 22, 23, 27, 27-1, 29-1, 30, 33-1, 34-1, 34-3, 35 à 35-4, 42, 60, 62, 62-1 à 62-4, 64, 66, 80, 91 à 94, 95-5, 96, 97, 98",
+    "consequence_si_versement_sans_la_loi": "Le corpus aurait un appareil réglementaire complet dont la clef de voûte manque : (1) tous les renvois inline vers la loi restent inactifs ; (2) l'abrogation du décret de 2004 s'affiche sans texte abrogateur consultable ; (3) les fondements de chaque arrêté (art. 15, 27-1, 30, 42, 62, 64, 96, 97, 98...) sont inconsultables ; (4) la recherche « marchés publics » ne remonte jamais la norme première. Le versement reste néanmoins possible et utile : les arrêtés sont autoportants en lecture.",
+    "options_pour_me_vaval_sans_trancher": [
+      "A. Différer le versement le temps de se procurer la loi (LM2009-60 + reproduction LM2009-78 ; le site de la CNMP — www.cnmp.gouv.ht, cité par la Circulaire 010 — la publie, le scan Moniteur restant la pièce de contrôle).",
+      "B. Verser le lot maintenant avec, sur chaque fiche, une note « Loi du 10 juin 2009 : texte en cours d'acquisition », renvois en clair non cliquables.",
+      "C. Verser et créer d'emblée une fiche-portail minimale pour la loi (titre complet + références Moniteur, sans corps) — au prix d'une fiche vide, contraire aux habitudes du corpus."
+    ]
+  },
+
+  "constats_complementaires": [
+    "Le Spécial N° 52 du 9 novembre 2021 contient DEUX textes datés du 21 octobre 2021 : le Décret (bénéficiaires effectifs) ET un Arrêté de seuils sous-CNMP — deux documents distincts à créer.",
+    "Le Spécial N° 8 du 4 février 2021 contient DEUX arrêtés marchés publics datés du 9 décembre 2020 (modificatif 227/227-1 ; composition CMMP/CSMP) + des textes hors périmètre (BNC, BNDA, CNAL, commissions municipales, Circulaire 009 CIN).",
+    "Les six arrêtés « procédures » de 2017 sont tous signés le 30 août 2017 et ne s'amendent pas entre eux : ce sont des frères, publiés dans six fascicules différents (Spéciaux 25, 26, 28, 31, 35, 42).",
+    "L'arrêté du 25 mai 2012 n'a AUCUNE clause d'abrogation : l'arrêté du 5 septembre 2009 n'a été remplacé qu'en fait.",
+    "Écart d'un jour entre l'entrée INDEX de la reproduction 2012 (28 juin) et l'en-tête de la transcription (vendredi 29 juin 2012) — à contrôler sur le scan avant de fixer publicationDate.",
+    "L'art. 7-1 de l'arrêté du 1er juin 2022 désigne l'arrêté du 21 octobre 2021 sous le TITRE de celui de 2012 (« ...et les seuils d'intervention de la CNMP ») — coquille du texte officiel, à conserver telle quelle (citations jamais normalisées).",
+    "La clause du Décret du 21 octobre 2021 ne remplace que « la définition contenue dans l'article 2 » de l'arrêté défense 2020 : l'étendue exacte (la liste des 11 catégories est-elle emportée ?) est une question d'interprétation à soumettre à l'éditeur."
+  ]
+}

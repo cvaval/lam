@@ -1,0 +1,251 @@
+{
+  "date_releve": "2026-08-27",
+  "methode": "Lecture intégrale des 28 extractions (un ¶ par ligne). Familles tranchées par comparaison AU MOT (difflib.SequenceMatcher, autojunk=False), apostrophes/tirets/exposants normalisés pour la seule comparaison. Dates d'adoption = bloc « Donné … » (règle de la dernière entité). Piège vérifié : tête « Articles 30.- » au pluriel (sic) dans l'arrêté CNMP — présent dans les 3 transcriptions.",
+  "liste_canonique": [
+    {
+      "n": 1,
+      "titre_officiel": "Décret fixant la réglementation des marchés publics de services, de fournitures et de travaux",
+      "adoption": "Donné au Palais National le 3 décembre 2004, An 201ème (Boniface Alexandre, Président provisoire)",
+      "adoptionDate": "2004-12-03",
+      "moniteur": "160ème Année, No. 12, lundi 14 février 2005",
+      "articles": "117 articles (1–117) + 1 décimal (19.1) = 118 têtes ; clause d'abrogation générale des dispositions contraires à l'art. 117",
+      "fichier_retenu": "Decret_14_fevrier_2005_Marches_Publics_Transcription-docx.txt",
+      "statut_attendu": "ANCIEN RÉGIME. Sa cessation d'effets est prévue par l'art. 97 de la Loi du 10 juin 2009 (preuve indirecte sur pièces : art. 241 de l'arrêté modalités 2009 et art. 2 de l'arrêté Manuel 2009 y adossent leur entrée en vigueur). Le texte même de l'art. 97 de la loi n'est dans aucun fichier."
+    },
+    {
+      "n": 2,
+      "titre_officiel": "Arrêté précisant les modalités d'application de la Loi fixant les règles générales relatives aux marchés publics et aux conventions de concession d'ouvrage de service public",
+      "adoptionDate": "2009-10-26",
+      "moniteur": "164ème Année, Spécial No. 10, mercredi 4 novembre 2009 (1er texte du fascicule)",
+      "articles": "242 articles de base (1–242, aucune lacune) + 145 décimaux (4-1 … 238-4) = 387 têtes ; TITRES I–IX ; AUCUNE annexe, AUCUN CCAG embarqué — le « CCOSP » du nom de fichier désigne les conventions de concession d'ouvrage de service public du titre",
+      "fichier_retenu": "Arrete_26_octobre_2009_modalites_application_Loi_Marches_Pub.txt",
+      "statut_attendu": "EN VIGUEUR, AMENDÉ : articles 227 et 227.1 réécrits par l'Arrêté du 9 décembre 2020 (texte n° 19) → pastille Modifié + oldVersions sur 227/227.1. Art. 241 : entrée en vigueur à la cessation des effets du Décret du 3 décembre 2004 (art. 97 de la Loi)."
+    },
+    {
+      "n": 3,
+      "titre_officiel": "Arrêté sanctionnant le Manuel de Procédures pour la Passation des Marchés Publics et des Conventions de Concession d'Ouvrage de Service Public",
+      "adoptionDate": "2009-10-26",
+      "moniteur": "164ème Année, Spécial No. 10, mercredi 4 novembre 2009 (2e texte du fascicule)",
+      "articles": "3 articles + le Manuel annexé (Introduction, notions de base 1–9, CHAPITRES I–IV)",
+      "fichier_retenu": "Le_Moniteur_Special_No10_2009_Arrete_Manuel_Procedures_CNMP-.txt",
+      "reserve": "Fin abrupte : le fichier s'achève au point 2 de la section 4.2.1 (gré à gré des concessions), phrase close par un point mais SANS colophon des Presses Nationales — la complétude de la toute fin du chapitre IV n'est pas certifiable sur pièces."
+    },
+    {
+      "n": 4,
+      "titre_officiel": "Arrêté [déterminant les modalités d'organisation et de fonctionnement de la Commission Nationale des Marchés Publics (CNMP)] — art. 1er : « Le présent Arrêté a pour objet de déterminer les modalités d'organisation et de fonctionnement de la Commission Nationale des Marchés Publics (CNMP) »",
+      "adoptionDate": "2009-10-26",
+      "moniteur": "164ème Année, Spécial No. 10, mercredi 4 novembre 2009 (3e texte du fascicule)",
+      "articles": "52 articles de base (1er–52, COMPLET : l'art. 30 existe sous la tête « Articles 30.- » au pluriel, sic du J.O., dans les 3 transcriptions) + 12 décimaux (6-1, 7-1, 13-1, 15.1, 25-1, 32-1, 33-1, 33-2, 33-3, 40-1, 40-2, 42-1) = 64 têtes",
+      "fichier_retenu": "Arrete_26_octobre_2009_Organisation_CNMP-docx.txt",
+      "famille": "3 transcriptions du MÊME arrêté (voir verdicts_familles)"
+    },
+    {
+      "n": 5,
+      "titre_officiel": "Arrêté sanctionnant pour sortir son plein et entier effet le Dossier d'Appel d'Offres standard pour la Réalisation de Travaux (Tome I)",
+      "adoptionDate": "2011-05-10",
+      "moniteur": "166ème Année, Spécial No. 3, vendredi 13 mai 2011",
+      "articles": "2 articles ; signatures complètes",
+      "fichier_retenu": "Arrete_CNMP_DAO_Standard_Travaux_13_mai_2011-docx.txt",
+      "reserve": "L'annexe sanctionnée (le DAO standard travaux lui-même) N'EST PAS transcrite — seul l'arrêté-chapeau est présent."
+    },
+    {
+      "n": 6,
+      "titre_officiel": "Arrêté sanctionnant pour sortir son plein et entier effet le dossier de demandes types de propositions pour des services de consultants et modèles de contrats (page de titre : Tome III, avec le DAO standard équipements informatiques et de bureautique)",
+      "adoptionDate": "2011-05-10",
+      "moniteur": "166ème Année, Spécial No. 3, vendredi 13 mai 2011",
+      "articles": "2 articles ; signatures complètes ; note de transcription (anomalies de la page de titre du J.O. signalées)",
+      "fichier_retenu": "Le_Moniteur_Special_No3_13_mai_2011_Arrete_DAO_Informatique_.txt",
+      "reserve": "Le nom de fichier dit « DAO Informatique » mais le dispositif sanctionne les demandes types de propositions consultants + modèles de contrats. L'annexe n'est pas transcrite."
+    },
+    {
+      "n": 7,
+      "titre_officiel": "Arrêté sanctionnant pour sortir son plein et entier effet le Cahier des Clauses Administratives Générales (CCAG) applicables aux marchés publics de fournitures, de services, d'informatique et de bureautique",
+      "adoptionDate": "2011-05-10",
+      "moniteur": "166ème Année, Spécial No. 3, vendredi 13 mai 2011 (couverture + pages 3–5)",
+      "articles": "2 articles (dispositif complet) ; signatures complètes « (Signé) »",
+      "fichier_retenu": "Moniteur_Special_No3_13_mai_2011_Arrete_CCAG_Transcription-d.txt",
+      "reserve": "FRAGMENT AVÉRÉ ET DOCUMENTÉ : la page 2 du Moniteur est absente du scan source — manquent l'en-tête de l'arrêté, les visas et les premiers considérants (la transcription reprend au milieu des considérants). L'annexe (le CCAG lui-même) n'est pas transcrite. Le nom de fichier évoque le « DAO prestation de services » (Tome IV, 1er texte du sommaire) mais le dispositif transcrit est bien celui du CCAG (3e texte)."
+    },
+    {
+      "n": 8,
+      "titre_officiel": "Arrêté fixant les seuils de passation des marchés publics et les seuils d'intervention de la Commission Nationale des Marchés Publics",
+      "adoptionDate": "2012-05-25",
+      "moniteur": "Le Moniteur No. 93 du jeudi 14 juin 2012 ; transcription faite sur la REPRODUCTION pour erreurs matérielles : 167ème Année, No. 104, vendredi 29 juin 2012 (numéro extraordinaire)",
+      "articles": "8 articles de base (1–8) + 3 décimaux (4-1, 4-2, 6-1) = 11 têtes ; pas de clause d'abrogation expresse",
+      "fichier_retenu": "Arrete_seuils_marches_publics_2012-docx.txt",
+      "statut_attendu": "Chaîne des seuils : l'Arrêté du 21 octobre 2021 (n° 22) garde expressément « inchangées » ses dispositions relatives aux seuils d'intervention (art. 6) mais rapporte les contraires ; l'Arrêté du 1er juin 2022 (n° 23) rapporte tout ce qui lui est contraire à compter du 1er octobre 2022 → à cette date le régime 2012 est entièrement remplacé."
+    },
+    {
+      "n": 9,
+      "titre_officiel": "Arrêté sanctionnant pour sortir son plein et entier effet la Charte d'Éthique applicable aux acteurs des marchés publics et des conventions de concession d'ouvrage de service public",
+      "adoptionDate": "2012-12-21",
+      "moniteur": "168ème Année, No. 3, mercredi 9 janvier 2013 (numéro extraordinaire)",
+      "articles": "Arrêté-chapeau : 2 articles ; CHARTE annexée : 22 articles (1er–22) + 5.1 et 5.2, en 3 chapitres, suivie d'un modèle de lettre d'engagement éthique",
+      "fichier_retenu": "Le_Moniteur_No3_9_janvier_2013_Charte_Ethique-docx.txt",
+      "reserve": "Le fichier transcrit AUSSI, en tête, l'Arrêté du 21 décembre 2012 déclarant d'utilité publique un terrain à Delmas (6 articles) — HORS CORPUS marchés publics, à ne pas verser. Les 2 résolutions du Conseil des Ministres annoncées au sommaire ne sont pas transcrites."
+    },
+    {
+      "n": 10,
+      "titre_officiel": "Arrêté sanctionnant pour sortir leur plein et entier effet le « Manuel de procédures de demande de prix pour acquisition de fournitures » et le « Dossier de demande de prix pour acquisition de fournitures »",
+      "adoptionDate": "2017-08-30",
+      "moniteur": "172e Année, Spécial N° 25, jeudi 14 septembre 2017",
+      "articles": "2 articles + annexes (Manuel ; Document-type de rapport d'évaluation ; Dossier de demande de prix ; modèle de contrat) ; colophon final présent",
+      "fichier_retenu": "LeMoniteur_Special25_2017-09-14_Arrete_Demande_de_Prix_Fourn.txt"
+    },
+    {
+      "n": 11,
+      "titre_officiel": "Arrêté sanctionnant pour sortir leur plein et entier effet le « Manuel de procédures célères pour la passation des marchés publics en état d'urgence déclaré », le « Document-type de préqualification d'entreprises en vue de travaux sous un état d'urgence déclaré » et le « Modèle de marché pour intervention en situation d'état d'urgence déclaré »",
+      "adoptionDate": "2017-08-30",
+      "moniteur": "172e Année, Spécial N° 26, vendredi 15 septembre 2017",
+      "articles": "2 articles + annexes (Manuel célère ; dossier de préqualification ; modèle de marché avec ses propres articles) ; colophon final présent",
+      "fichier_retenu": "Le_Moniteur_Special_No26_15-09-2017_Arrete_Procedures_Celere.txt"
+    },
+    {
+      "n": 12,
+      "titre_officiel": "Arrêté sanctionnant pour sortir leur plein et entier effet le « Manuel de procédures de demande de cotations pour les contrats de travaux » et le « Dossier de demande de cotations pour l'exécution de contrats de travaux »",
+      "adoptionDate": "2017-08-30",
+      "moniteur": "172e Année, Spécial No 28, mercredi 20 septembre 2017",
+      "articles": "2 articles + annexes ; colophon final présent",
+      "fichier_retenu": "Le_Moniteur_Special_No28_2017-09-20_Arrete_Manuel_et_Dossier.txt"
+    },
+    {
+      "n": 13,
+      "titre_officiel": "Arrêté sanctionnant pour sortir leur plein et entier effet le « Manuel de procédures allégées pour la passation des marchés de travaux » et le « Dossier d'Appel d'Offres allégé pour la passation des marchés de travaux »",
+      "adoptionDate": "2017-08-30",
+      "moniteur": "172e Année, Spécial N° 31, mardi 26 septembre 2017",
+      "articles": "2 articles + annexes (Manuel ; rapport-type d'évaluation ; DAO allégé en sections) ; colophon final présent",
+      "fichier_retenu": "Le_Moniteur_Special_No31_26-09-2017_Arrete_AO_allege_travaux.txt"
+    },
+    {
+      "n": 14,
+      "titre_officiel": "Arrêté sanctionnant pour sortir leur plein et entier effet le « Manuel de procédures allégées pour la passation des marchés de fournitures » et le « Dossier d'Appel d'Offres allégé pour la passation des marchés de fournitures »",
+      "adoptionDate": "2017-08-30",
+      "moniteur": "172e Année, Spécial No 35, vendredi 6 octobre 2017",
+      "articles": "2 articles + annexes complètes (Manuel + DAO allégé, y compris renvoi exprès au CCAG du Spécial No 3 du 13 mai 2011) ; colophon final présent",
+      "fichier_retenu": "Le_Moniteur_Special_35_6_octobre_2017_Arrete_Manuel_DAO_Alle.txt",
+      "famille": "2 fichiers du MÊME fascicule ; l'autre est une version ABRÉGÉE (voir verdicts_familles)"
+    },
+    {
+      "n": 15,
+      "titre_officiel": "Arrêté sanctionnant pour sortir leur plein et entier effet le « Manuel de procédures allégées pour la sélection de consultants » et le « Dossier allégé de demande de propositions pour services de consultants »",
+      "adoptionDate": "2017-08-30",
+      "moniteur": "172e Année, Spécial N° 42, mardi 5 décembre 2017",
+      "articles": "2 articles + annexes (Manuel ; modèle de contrat ; dossier allégé de demande de propositions) ; colophon final présent",
+      "fichier_retenu": "Le_Moniteur_Special_42_2017_Arrete_Manuel_Dossier_Allege_Con.txt"
+    },
+    {
+      "n": 16,
+      "titre_officiel": "Arrêté portant révision de l'arrêté du 30 août 2017 fixant les règles de procédures de passation de certains marchés de travaux, de fournitures, de prestations intellectuelles et de services dans les domaines de défense ou de sécurité nationale",
+      "adoptionDate": "2019-01-09",
+      "moniteur": "174e Année, Spécial N° 3, mercredi 16 janvier 2019",
+      "articles": "15 articles de base + 8 décimaux sous l'art. 7 (7.1, 7.2, 7.2.1, 7.2.2, 7.3, 7.3.1, 7.3.2, 7.3.3) = 23 têtes ; art. 15 abroge les dispositions contraires",
+      "fichier_retenu": "Arrete_9_janvier_2019_Marches_Defense_Securite_Nationale-doc.txt",
+      "statut_attendu": "REMPLACÉ : l'art. 15 de l'Arrêté du 12 février 2020 (n° 18) le « remplace » expressément → pastille Remplacé/Abrogé, repli intégral. Il révisait lui-même un Arrêté du 30 août 2017 défense/sécurité ABSENT des fichiers."
+    },
+    {
+      "n": 17,
+      "titre_officiel": "Arrêté nommant les membres de la Commission Nationale des Marchés Publics (CNMP) [Premier Ministre a.i. Jean-Michel Lapin, vu et approuvé par le Président Jovenel Moïse]",
+      "adoptionDate": "2019-12-26",
+      "moniteur": "174e Année, N° 221, lundi 30 décembre 2019 (numéro ordinaire)",
+      "articles": "4 articles — TEXTE ENTIER, pas un fragment (donné à la Primature le 26 décembre 2019 ; les Extraits du Registre des Marques du même numéro ne sont pas transcrits, ce qui explique la petite taille)",
+      "fichier_retenu": "Arrete_CNMP_Le_Moniteur_No221_30dec2019-docx.txt",
+      "reserve": "Acte de NOMINATION individuel (mandat de 3 ans), pas un texte normatif : opportunité du versement en Législation annotée à trancher avec la cliente."
+    },
+    {
+      "n": 18,
+      "titre_officiel": "Arrêté soumettant les marchés publics de défense ou de sécurité nationale au respect des principes de passation des marchés (sommaire) — cité par le Décret du 21 octobre 2021 comme « Arrêté du 12 février 2020 établissant les principes guidant l'attribution des Marchés publics de défense ou de sécurité nationale et décrivant les types de contrats considérés comme relevant de la défense ou de la sécurité nationale »",
+      "adoptionDate": "2020-02-12",
+      "moniteur": "175e Année, Spécial N° 1, mercredi 12 février 2020",
+      "articles": "16 articles de base + 8 décimaux sous l'art. 7 = 24 têtes ; art. 14 renvoie aux documents standards du 10 mai 2011 ; art. 15 REMPLACE l'arrêté du 9 janvier 2019",
+      "fichier_retenu": "Arrete_12_fevrier_2020_Marches_publics_defense_securite_nati.txt",
+      "note": "Dispositif à 96 % identique au 2019 (ratio mots 0,9607) : réédition corrigée avec un cas ajouté (« marchés publics de l'électricité » en 11°/12°) et l'objet reformulé."
+    },
+    {
+      "n": 19,
+      "titre_officiel": "Arrêté modifiant les articles 227 et 227.1 de l'Arrêté du 26 octobre 2009 précisant les modalités d'application de la Loi du 10 juin 2009 fixant les règles générales relatives aux marchés publics et aux conventions de concession d'ouvrage de service public",
+      "adoptionDate": "2020-12-09",
+      "moniteur": "176e Année, Spécial N° 8, jeudi 4 février 2021 (1er texte du fascicule)",
+      "articles": "3 articles ; l'art. 2 porte les nouvelles rédactions des art. 227 et 227.1 (composition et désignation du Comité de Règlement des Différends)",
+      "fichier_retenu": "Le_Moniteur_Special_No8_4_fevrier_2021_2-docx.txt",
+      "statut_attendu": "C'est LE texte modificateur du corpus : CrossRef MODIFIE vers le n° 2 (art. 227, 227.1) ; sur le n° 2, pastille + oldVersions/ArticleVersion pour 227 et 227.1."
+    },
+    {
+      "n": 20,
+      "titre_officiel": "Arrêté fixant la composition des Commissions Ministérielles des Marchés Publics (CMMP) et des Commissions Spécialisées des Marchés Publics (CSMP) ainsi que les critères de choix et tâches spécifiques de leurs membres",
+      "adoptionDate": "2020-12-09",
+      "moniteur": "176e Année, Spécial N° 8, jeudi 4 février 2021 (2e texte du fascicule)",
+      "articles": "10 articles (1er–10) en 3 chapitres",
+      "fichier_retenu": "Le_Moniteur_Special_No8_4_fevrier_2021_2-docx.txt"
+    },
+    {
+      "n": 21,
+      "titre_officiel": "Décret établissant l'obligation de présenter des informations permettant d'identifier les Bénéficiaires effectifs des Marchés publics et des Concessions",
+      "adoptionDate": "2021-10-21",
+      "moniteur": "176e Année, Spécial N° 52, mardi 9 novembre 2021 (1er texte du fascicule)",
+      "articles": "17 articles de base + 12 décimaux (2.1–2.3, 4.1, 5.1, 7.1, 11.1, 13.1, 13.2, 15.1, 15.2, 16.1) = 29 têtes ; art. 17 abroge les dispositions contraires ; pris en CONSEIL DES MINISTRES (vacance présidentielle), donné à Port-au-Prince (pas au Palais National)",
+      "fichier_retenu": "Le_Moniteur_Special_52_9_novembre_2021-docx.txt"
+    },
+    {
+      "n": 22,
+      "titre_officiel": "Arrêté fixant les seuils de passation des Marchés publics en dessous des seuils d'intervention de la Commission Nationale des Marchés Publics",
+      "adoptionDate": "2021-10-21",
+      "moniteur": "176e Année, Spécial N° 52, mardi 9 novembre 2021 (2e texte du fascicule)",
+      "articles": "8 articles de base + 4 décimaux (2-1, 3-1, 3-2, 3-3) = 12 têtes ; art. 6 : les seuils d'intervention de l'Arrêté du 25 mai 2012 « restent et demeurent inchangées » ; art. 8 rapporte les dispositions contraires",
+      "fichier_retenu": "Le_Moniteur_Special_52_9_novembre_2021-docx.txt",
+      "note": "C'est le seul arrêté seuils du 21 octobre 2021 sur pièces. L'Arrêté du 1er juin 2022 (art. 7-1) cite un « Arrêté du 21 octobre 2021 fixant les seuils de passation des marchés publics ET les seuils d'intervention » — intitulé divergent : soit citation approximative de celui-ci, soit un second arrêté du même jour ABSENT des fichiers. Non tranché sur pièces."
+    },
+    {
+      "n": 23,
+      "titre_officiel": "Arrêté fixant les seuils de passation des marchés publics et les seuils d'intervention de la Commission Nationale des Marchés Publics (CNMP)",
+      "adoptionDate": "2022-06-01",
+      "moniteur": "177e Année, Spécial N° 15, vendredi 10 juin 2022",
+      "articles": "10 articles de base + 9 décimaux (3-1, 3-2, 4-1 à 4-6, 7-1) = 19 têtes ; art. 7 : entrée en vigueur des seuils au 1er octobre 2022 ; art. 7-1 : régime transitoire sous l'arrêté du 21 octobre 2021 jusqu'au 30 septembre 2022 ; art. 10 rapporte tout arrêté contraire",
+      "fichier_retenu": "Arrete_10_juin_2022_Seuils_Marches_Publics_CNMP-docx.txt",
+      "statut_attendu": "Régime des seuils EN VIGUEUR (depuis le 1er octobre 2022) ; emporte remplacement des arrêtés 2012 et 2021."
+    },
+    {
+      "n": 24,
+      "titre_officiel": "Circulaire 010 relative aux procédures de passation et d'exécution des marchés publics (Le Premier Ministre à tous les ordonnateurs de l'Administration Publique Nationale)",
+      "adoptionDate": "2023-12-04",
+      "moniteur": "AUCUNE référence Moniteur dans la pièce (papier à en-tête de la Primature ; signée Dr Ariel Henry, Port-au-Prince, 4 décembre 2023)",
+      "articles": "0 article — prose en directives énumérées ; COMPLÈTE (formule finale + signature présentes)",
+      "fichier_retenu": "Circulaire_010_-_4_decembre_2023_-_Marches_publics-docx.txt",
+      "note": "Cite la Circulaire N° 008 du 5 septembre 2022 (ABSENTE des fichiers), le Décret du 21 octobre 2021 (n° 21), l'Arrêté du 9 décembre 2020 CMMP/CSMP (n° 20), l'arrêté modalités 2009 (n° 2)."
+    }
+  ],
+  "verdicts_familles": {
+    "cnmp_26_oct_2009_x3": {
+      "verdict": "MÊME ARRÊTÉ (3e texte du Spécial No. 10 du 4 novembre 2009) en 3 transcriptions quasi identiques : dispositifs de 5 259 mots chacun, ratios 0,9996–0,9998 (autojunk=False), 2 seuls mots divergents.",
+      "retenu": "Arrete_26_octobre_2009_Organisation_CNMP-docx.txt",
+      "pourquoi": "Porte les DEUX leçons majoritaires (« prévu » art. 3-16°, accord logique avec « comité » singulier ; « rémunérés » art. 5, accord avec « membres ») là où chacun des deux autres porte une leçon minoritaire ; année du fascicule correcte (« 164ème » — la transcription Organisation_Fonctionnement écrit « 64ème ») ; bloc de signatures complet et tabulé Fonction/Signataire ; note interne « reproduit le troisième Arrêté du Numéro Spécial No. 10 ».",
+      "ecartes": ["Arrete_26_octobre_2009_Organisation_Fonctionnement_CNMP-docx.txt (« 64ème Année », « rémunéré » minoritaire ; sa note de transcription — pages 115 à 132 du fascicule — reste une bonne source documentaire)", "Arrete_CNMP_Organisation_Fonctionnement_Le_Moniteur_4_novemb.txt (« prévus » minoritaire et agrammaticale)"]
+    },
+    "special_no8_2021_x4": {
+      "verdict": "PAS trois arrêtés distincts : TROIS TRANSCRIPTIONS DU FASCICULE ENTIER (Spécial N° 8 du 4 février 2021, 9 blocs « Donné » chacun : les 2 arrêtés marchés publics du 9 décembre 2020 + nominations BNC/BNDA/CNAL + 4 commissions municipales + circulaire 009 CIN). _3 est le doublon octet à octet de _2 (md5 identiques aussi sur les extractions). Sur le segment des 2 arrêtés marchés publics : base vs _1 ratio 0,9974, base vs _2 ratio 0,9976, _1 vs _2 ratio 0,9998 (1 seul signe de ponctuation d'écart).",
+      "retenu": "Le_Moniteur_Special_No8_4_fevrier_2021_2-docx.txt",
+      "pourquoi": "_1 et _2 s'accordent contre la base sur les deux vraies variantes de lecture du segment marchés publics (« SÉVÈRE » vs « SEVERE », « Ghislaine » vs « Giselhaine » — Marie Ghislaine Mompremier, orthographe attestée par le bloc de signatures) ; entre _1 et _2, _2 est typographiquement sain (« 1er », « No ») là où _1 emploie des exposants Unicode (« 1eʳ », « Nº », « 176ᵉ ») hostiles au parsing et porte une mention « [lecture incertaine] » dans les nominations.",
+      "ecartes": ["Le_Moniteur_Special_No8_4_fevrier_2021-docx.txt (2 leçons minoritaires)", "Le_Moniteur_Special_No8_4_fevrier_2021_1-docx.txt (exposants Unicode)", "Le_Moniteur_Special_No8_4_fevrier_2021_3-docx.txt (doublon à l'octet de _2)"],
+      "attention": "Seuls les 2 arrêtés marchés publics du fascicule entrent au corpus ; les nominations et la circulaire 009 (CIN) sont hors sujet."
+    },
+    "special_35_2017_x2": {
+      "verdict": "MÊME FASCICULE en 2 transcriptions (les deux contiennent l'arrêté du 30 août 2017 + Manuel + DAO allégé fournitures) — PAS un couple arrêté/manuel séparés. Le fichier « Le-Moniteur-…-Manuel-de-procedure » (11 123 mots) ABRÈGE l'annexe DAO : il omet ~2 462 mots d'évaluation des offres, ~1 012 mots (dont le renvoi exprès au CCAG du Spécial No 3 du 13 mai 2011), ~790 mots de bordereaux, plus les formulaires de garantie et conditions de contrat ; le fichier « Le_Moniteur_Special_35_…_Arrete_Manuel_DAO_Alle » (16 364 mots) les porte intégralement, jusqu'au colophon.",
+      "retenu": "Le_Moniteur_Special_35_6_octobre_2017_Arrete_Manuel_DAO_Alle.txt",
+      "ecartes": ["Le-Moniteur-Special-No-35-6-octobre-2017-Manuel-de-procedure.txt (version abrégée ; ses notes de transcription finales — restitution des signatures, diagramme de l'annexe B — restent utiles en documentation)"]
+    }
+  },
+  "fragments_et_courts": {
+    "Arrete_CNMP_DAO_Standard_Travaux_13_mai_2011": "ENTIER pour l'arrêté (2 art. + signatures complètes) ; l'annexe sanctionnée (DAO standard travaux, Tome I) n'est pas transcrite.",
+    "Le_Moniteur_Special_No3_13_mai_2011_Arrete_DAO_Informatique_": "ENTIER pour l'arrêté (2 art. + signatures + note de transcription) ; annexe non transcrite.",
+    "Moniteur_Special_No3_13_mai_2011_Arrete_CCAG_Transcription-d": "FRAGMENT documenté : page 2 du Moniteur absente du scan → en-tête, visas et premiers considérants MANQUANTS ; dispositif (2 art.) et signatures complets ; annexe (CCAG) non transcrite.",
+    "Arrete_CNMP_Le_Moniteur_No221_30dec2019": "ENTIER : arrêté de nomination de 4 articles, donné à la Primature le 26 décembre 2019 ; la petite taille vient de ce que le reste du numéro (Extraits du Registre des Marques) n'est pas transcrit."
+  },
+  "textes_cites_absents": [
+    "LA LOI-MÈRE : Loi du 10 juin 2009 fixant les règles générales relatives aux marchés publics et aux conventions de concession d'ouvrage de service public — dans AUCUN des 28 fichiers (citée jusqu'à 28 fois dans le seul arrêté modalités) ; tout le corpus s'y adosse (art. 96, 97, 5, 6, 7, 10, 12, 14, 15, 27, 30, 34-3, 42, 42-3, 60, 62 à 62-4, 66 cités sur pièces). RISQUE STRUCTUREL CONFIRMÉ.",
+    "Arrêté du 5 septembre 2009 fixant les seuils (cité dans les visas 2009 et 2011)",
+    "Arrêté du 30 août 2017 défense/sécurité nationale (révisé par l'arrêté du 9 janvier 2019)",
+    "Arrêté du 21 octobre 2021 « seuils de passation ET seuils d'intervention » tel que cité par l'art. 7-1 de l'arrêté du 1er juin 2022 — si distinct de celui du Spécial 52 (intitulés divergents, non tranché)",
+    "Circulaire N° 008 du Premier Ministre du 5 septembre 2022 (citée par la Circulaire 010)",
+    "Annexes des trois arrêtés du 10 mai 2011 (DAO standard travaux Tome I ; demandes types consultants Tome III ; CCAG fournitures/services/informatique/bureautique) et les AUTRES arrêtés du Spécial No 3 du 13 mai 2011 annoncés aux sommaires (DAO prestation de services Tome IV ; DAO acquisition de fournitures ; CCAG travaux)",
+    "Résolutions n° 1 et 2 du Conseil des Ministres du 21 décembre 2012 (annoncées au sommaire du No 3 du 9 janvier 2013, non transcrites, hors sujet probable)"
+  ]
+}

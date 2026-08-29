@@ -1,0 +1,327 @@
+{
+ "rubriques_table_cliente": 53,
+ "entetes_lus_du_corps": 53,
+ "discordances": [],
+ "table_cliente_porte_des_plages_d_articles": false,
+ "note": "la table des matières fournie ne comporte QU'UNE colonne « Rubrique » (mesuré sur word/document.xml : 1 tableau, 54 lignes, 1 cellule par ligne) : aucune plage d'articles n'y figure. Les plages ci-dessous sont DÉRIVÉES DU CORPS et valent assertion réversible.",
+ "plages": [
+  {
+   "rubrique": "TITRE I — DISPOSITIONS GÉNÉRALES",
+   "articles": null,
+   "jusqu_a": null,
+   "nombre": 0
+  },
+  {
+   "rubrique": "CHAPITRE I — OBJET ET CHAMP D'APPLICATION",
+   "articles": "Article 1",
+   "jusqu_a": "Article 3",
+   "nombre": 3
+  },
+  {
+   "rubrique": "CHAPITRE II — TERMINOLOGIE",
+   "articles": "Article 4",
+   "jusqu_a": "Article 4",
+   "nombre": 1
+  },
+  {
+   "rubrique": "TITRE II — STRUCTURES INTERVENANT DANS LA PASSATION DES MARCHÉS PUBLICS",
+   "articles": null,
+   "jusqu_a": null,
+   "nombre": 0
+  },
+  {
+   "rubrique": "CHAPITRE I — ORGANES CHARGÉS DE LA PASSATION DES MARCHÉS PUBLICS",
+   "articles": null,
+   "jusqu_a": null,
+   "nombre": 0
+  },
+  {
+   "rubrique": "Section 1 — Autorités Contractantes",
+   "articles": "Article 5",
+   "jusqu_a": "Article 5-2",
+   "nombre": 3
+  },
+  {
+   "rubrique": "Section 2 — Commissions Ministérielles et Commissions Spécialisées des Marchés Publics",
+   "articles": "Article 6",
+   "jusqu_a": "Article 7",
+   "nombre": 2
+  },
+  {
+   "rubrique": "Section 3 — Comité d'ouverture des plis et d'évaluation des offres",
+   "articles": "Article 8",
+   "jusqu_a": "Article 8-2",
+   "nombre": 3
+  },
+  {
+   "rubrique": "CHAPITRE II — ORGANES DE RÉGULATION, DE CONTRÔLE ET D'APPROBATION DES MARCHÉS PUBLICS",
+   "articles": null,
+   "jusqu_a": null,
+   "nombre": 0
+  },
+  {
+   "rubrique": "Section 1 — Commission Nationale des Marchés Publics",
+   "articles": "Article 9",
+   "jusqu_a": "Article 15",
+   "nombre": 7
+  },
+  {
+   "rubrique": "Section 2 — Commissions Départementales des Marchés Publics",
+   "articles": "Article 16",
+   "jusqu_a": "Article 17",
+   "nombre": 4
+  },
+  {
+   "rubrique": "Section 3 — Autorités d'approbation",
+   "articles": "Article 18",
+   "jusqu_a": "Article 18",
+   "nombre": 1
+  },
+  {
+   "rubrique": "TITRE III — PASSATION DES MARCHÉS PUBLICS",
+   "articles": null,
+   "jusqu_a": null,
+   "nombre": 0
+  },
+  {
+   "rubrique": "CHAPITRE I — CONDITIONS D'ACCÈS",
+   "articles": null,
+   "jusqu_a": null,
+   "nombre": 0
+  },
+  {
+   "rubrique": "Section 1 — Capacités des Candidats",
+   "articles": "Article 19",
+   "jusqu_a": "Article 21-1",
+   "nombre": 6
+  },
+  {
+   "rubrique": "Section 2 — Incapacités et incompatibilités",
+   "articles": "Article 22",
+   "jusqu_a": "Article 23",
+   "nombre": 2
+  },
+  {
+   "rubrique": "Section 3 — Groupements et Sous-traitance",
+   "articles": "Article 24",
+   "jusqu_a": "Article 26",
+   "nombre": 12
+  },
+  {
+   "rubrique": "CHAPITRE II — PROCÉDURES DE PASSATION DES MARCHÉS PUBLICS",
+   "articles": null,
+   "jusqu_a": null,
+   "nombre": 0
+  },
+  {
+   "rubrique": "Section 1 — Différentes procédures",
+   "articles": "Article 27",
+   "jusqu_a": "Article 27-1",
+   "nombre": 2
+  },
+  {
+   "rubrique": "Section 2 — Procédures générales",
+   "articles": "Article 28",
+   "jusqu_a": "Article 32-1",
+   "nombre": 8
+  },
+  {
+   "rubrique": "Section 3 — Procédures exceptionnelles",
+   "articles": "Article 33",
+   "jusqu_a": "Article 34-3",
+   "nombre": 6
+  },
+  {
+   "rubrique": "Section 4 — Procédures spécifiques",
+   "articles": "Article 35",
+   "jusqu_a": "Article 38",
+   "nombre": 8
+  },
+  {
+   "rubrique": "CHAPITRE III — FORME ET PUBLICITÉ DE LA COMMANDE PUBLIQUE",
+   "articles": null,
+   "jusqu_a": null,
+   "nombre": 0
+  },
+  {
+   "rubrique": "Section 1 — Règles en matière de publication",
+   "articles": "Article 39",
+   "jusqu_a": "Article 40-1",
+   "nombre": 3
+  },
+  {
+   "rubrique": "Section 2 — Dossier d'appel d'offres",
+   "articles": "Article 41",
+   "jusqu_a": "Article 47",
+   "nombre": 14
+  },
+  {
+   "rubrique": "CHAPITRE IV — DÉLAIS DE RÉCEPTION DES OFFRES",
+   "articles": "Article 48",
+   "jusqu_a": "Article 49",
+   "nombre": 2
+  },
+  {
+   "rubrique": "CHAPITRE V — CONTENU, PRÉSENTATION, OUVERTURE ET ÉVALUATION DES OFFRES",
+   "articles": null,
+   "jusqu_a": null,
+   "nombre": 0
+  },
+  {
+   "rubrique": "Section 1 — Contenu et Présentation des offres",
+   "articles": "Article 50",
+   "jusqu_a": "Article 52",
+   "nombre": 3
+  },
+  {
+   "rubrique": "Section 2 — Ouverture des Plis",
+   "articles": "Article 53",
+   "jusqu_a": "Article 54",
+   "nombre": 2
+  },
+  {
+   "rubrique": "Section 3 — Évaluation et Attribution des Marchés Publics",
+   "articles": "Article 55",
+   "jusqu_a": "Article 61",
+   "nombre": 8
+  },
+  {
+   "rubrique": "CHAPITRE VI — VALIDATION DE LA PROCÉDURE, SIGNATURE, APPROBATION ET ENTRÉE EN VIGUEUR DU MARCHÉ",
+   "articles": "Article 62",
+   "jusqu_a": "Article 66",
+   "nombre": 12
+  },
+  {
+   "rubrique": "CHAPITRE VII — RÉGIME SPÉCIAL DE PASSATION DES CONVENTIONS DE CONCESSION D'OUVRAGE DE SERVICE PUBLIC",
+   "articles": null,
+   "jusqu_a": null,
+   "nombre": 0
+  },
+  {
+   "rubrique": "Section 1 — Principes directeurs",
+   "articles": "Article 67",
+   "jusqu_a": "Article 67",
+   "nombre": 1
+  },
+  {
+   "rubrique": "Section 2 — Organes compétents",
+   "articles": "Article 68",
+   "jusqu_a": "Article 68",
+   "nombre": 1
+  },
+  {
+   "rubrique": "Section 3 — Procédure de passation",
+   "articles": "Article 69",
+   "jusqu_a": "Article 74",
+   "nombre": 9
+  },
+  {
+   "rubrique": "TITRE IV — EXÉCUTION ET RÈGLEMENT DES MARCHÉS PUBLICS",
+   "articles": null,
+   "jusqu_a": null,
+   "nombre": 0
+  },
+  {
+   "rubrique": "CHAPITRE I — CONDITIONS DU MARCHÉ",
+   "articles": null,
+   "jusqu_a": null,
+   "nombre": 0
+  },
+  {
+   "rubrique": "Section 1 — Pièces constitutives et Prix du marché",
+   "articles": "Article 75",
+   "jusqu_a": "Article 76-2",
+   "nombre": 4
+  },
+  {
+   "rubrique": "Section 2 — Garanties et Nantissement",
+   "articles": "Article 77",
+   "jusqu_a": "Article 79-2",
+   "nombre": 8
+  },
+  {
+   "rubrique": "CHAPITRE II — CHANGEMENT EN COURS D'EXÉCUTION DU MARCHÉ",
+   "articles": "Article 80",
+   "jusqu_a": "Article 81-1",
+   "nombre": 5
+  },
+  {
+   "rubrique": "CHAPITRE III — RÈGLEMENT DES MARCHÉS PUBLICS",
+   "articles": null,
+   "jusqu_a": null,
+   "nombre": 0
+  },
+  {
+   "rubrique": "Section 1 — Modes de paiement",
+   "articles": "Article 82",
+   "jusqu_a": "Article 84-4",
+   "nombre": 8
+  },
+  {
+   "rubrique": "Section 2 — Régime des paiements et intérêts moratoires",
+   "articles": "Article 85",
+   "jusqu_a": "Article 86",
+   "nombre": 3
+  },
+  {
+   "rubrique": "CHAPITRE IV — FORCE MAJEURE, RÉSILIATION ET AJOURNEMENT DES MARCHÉS PUBLICS",
+   "articles": "Article 87",
+   "jusqu_a": "Article 89-2",
+   "nombre": 9
+  },
+  {
+   "rubrique": "TITRE V — DISCIPLINE ET RECOURS",
+   "articles": null,
+   "jusqu_a": null,
+   "nombre": 0
+  },
+  {
+   "rubrique": "CHAPITRE I — PRATIQUES FRAUDULEUSES, FAUTES ET SANCTIONS",
+   "articles": null,
+   "jusqu_a": null,
+   "nombre": 0
+  },
+  {
+   "rubrique": "Section 1 — Interdiction des pratiques frauduleuses",
+   "articles": "Article 90",
+   "jusqu_a": "Article 90",
+   "nombre": 1
+  },
+  {
+   "rubrique": "Section 2 — Fautes des soumissionnaires et titulaires de marché, et Sanctions",
+   "articles": "Article 91",
+   "jusqu_a": "Article 92",
+   "nombre": 6
+  },
+  {
+   "rubrique": "Section 3 — Fautes des agents de l'autorité contractante et sanctions",
+   "articles": "Article 93",
+   "jusqu_a": "Article 94",
+   "nombre": 2
+  },
+  {
+   "rubrique": "CHAPITRE II — RECOURS",
+   "articles": "Article 95",
+   "jusqu_a": "Article 95-5",
+   "nombre": 6
+  },
+  {
+   "rubrique": "TITRE VI — DISPOSITIONS TRANSITOIRES ET FINALES",
+   "articles": null,
+   "jusqu_a": null,
+   "nombre": 0
+  },
+  {
+   "rubrique": "CHAPITRE I — DISPOSITIONS TRANSITOIRES",
+   "articles": "Article 96",
+   "jusqu_a": "Article 97",
+   "nombre": 2
+  },
+  {
+   "rubrique": "CHAPITRE II — DISPOSITIONS FINALES",
+   "articles": "Article 98",
+   "jusqu_a": "Article 99",
+   "nombre": 2
+  }
+ ]
+}

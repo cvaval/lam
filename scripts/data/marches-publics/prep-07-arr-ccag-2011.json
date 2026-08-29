@@ -1,0 +1,136 @@
+{
+ "id": "07",
+ "slug": "arr-ccag-2011",
+ "titre_provisoire": "Arrêté sanctionnant pour sortir son plein et entier effet le Cahier des Clauses Administratives Générales (CCAG) applicables aux marchés publics de fournitures, de services et d'équipements informatiques et de bureautique",
+ "source": {
+  "fichier": "piece-07-arrete-2011-05-10-ccag.txt",
+  "md5_txt": "4f98caf23074e91ba728da5b57418acf",
+  "lignes_fichier": 94
+ },
+ "decoupe": {
+  "segments": [
+   [
+    28,
+    93
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     3
+    ],
+    "motif": "devise et qualité de la République imprimées en tête de la COUVERTURE du fascicule, AU-DESSUS du bandeau du Moniteur (l. 4-7) : c'est le fascicule, pas l'acte. L'en-tête propre de l'arrêté — devise, « ARRÊTÉ », visas, premiers considérants — manque au scan : la page 2 du Moniteur est absente du fichier source (note de transcription, l. 23)"
+   },
+   {
+    "plage": [
+     4,
+     7
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps"
+   },
+   {
+    "plage": [
+     8,
+     12
+    ],
+    "motif": "SOMMAIRE du fascicule : il annonce TROIS arrêtés du 10 mai 2011, dont deux ne sont pas celui-ci ⚠️ DEPUIS LE 28 AOÛT (seconde décision de Me Vaval, « ajouter les titres au début ») : la plage reste hors du corps — puce, rubrique de classement, mentions de reproduction et actes voisins n'y entrent pas — mais l'INTITULÉ DE CET ACTE en est RESTITUÉ au corps, ligne par ligne, par `decoupe.insertions`, qui en déclare l'origine et le motif et le prouve verbatim."
+   },
+   {
+    "plage": [
+     13,
+     19
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif : couverture du TOME IV (« DOSSIER D'APPEL D'OFFRES STANDARD POUR LA PRESTATION DE SERVICES »), qui n'est PAS l'acte reproduit — le dispositif des pages 3 à 5 est celui du CCAG (note de transcription, l. 24)"
+   },
+   {
+    "plage": [
+     20,
+     27
+    ],
+    "motif": "bloc NOTE DE TRANSCRIPTION de l'éditeur (table-decoupe.md, l. 20) — appareil, § 11.11"
+   }
+  ],
+  "note": null,
+  "retraits": [
+   {
+    "ligne_source": 21,
+    "motif": "NOTE DE TRANSCRIPTION (bloc de l'éditeur)",
+    "texte": "NOTE DE TRANSCRIPTION"
+   },
+   {
+    "ligne_source": 22,
+    "motif": "NOTE DE TRANSCRIPTION",
+    "texte": "Le présent document est la transcription fidèle du fichier PDF source (numérisation, 4 pages), correspondant à la couverture et aux pages 3 à 5 du Moniteur, 166ème Année, Spécial No. 3, du vendredi 13 mai 2011. Les erreurs machinales issues de la reconnaissance optique de caractères (OCR) ont été silencieusement corrigées ; les anomalies propres à la source sont signalées ci-dessous :"
+   },
+   {
+    "ligne_source": 23,
+    "motif": "NOTE DE TRANSCRIPTION",
+    "texte": "1. La page 2 du Moniteur est absente du fichier source. Le texte de l’arrêté débute en conséquence au milieu des considérants : l’en-tête de l’arrêté, les visas et les premiers considérants ne figurent pas dans le document numérisé."
+   },
+   {
+    "ligne_source": 24,
+    "motif": "NOTE DE TRANSCRIPTION",
+    "texte": "2. Le dispositif reproduit aux pages 3 à 5 est celui de l’arrêté sanctionnant le Cahier des clauses administratives générales (CCAG) — troisième texte annoncé au sommaire — et non celui du Dossier d’appel d’offres standard pour la prestation de services mentionné dans le nom du fichier."
+   },
+   {
+    "ligne_source": 25,
+    "motif": "NOTE DE TRANSCRIPTION",
+    "texte": "3. Les signatures manuscrites sont rendues par la mention « (Signé) » suivie du nom dactylographié figurant dans la source."
+   },
+   {
+    "ligne_source": 27,
+    "motif": "ligne vide du bloc de note",
+    "texte": ""
+   }
+  ],
+  "insertions": [
+   {
+    "ligne_source": 11,
+    "texte_source": "ARRÊTÉ SANCTIONNANT POUR SORTIR SON PLEIN ET ENTIER EFFET LE CAHIER DES CLAUSES ADMINISTRATIVES GÉNÉRALES (CCAG) APPLICABLES AUX MARCHÉS PUBLICS DE FOURNITURES, DE SERVICES, D'INFORMATIQUE ET DE BUREAUTIQUE.",
+    "texte": "Arrêté sanctionnant pour sortir son plein et entier effet le Cahier des clauses administratives générales (CCAG) applicables aux marchés publics de fournitures, de services, d'informatique et de bureautique.",
+    "transformation": "ABAISSEMENT DE CASSE — décision de Me Vaval du 28 août 2026 (soir) : « ayez les majuscules comme pour le traitement des autres et non en all caps ». Le Journal officiel compose CETTE ligne de sommaire en CAPITALES ; six des dix lignes restituées du lot sont composées en casse de phrase, et c'est cette composition-là qui fait règle. LA CASSE N'EST PAS SAISIE À LA MAIN : elle est DÉRIVÉE du `titleFr` de la fiche, lettre par lettre — les lettres de la ligne de sommaire et celles du titre sont les mêmes, dans le même ordre, et chaque lettre prend la casse que le titre lui donne. Rien d'autre n'est touché : les accents, les apostrophes, les espaces et la ponctuation restent ceux de la PIÈCE (le point final que le titre ne porte pas est conservé ; l'apostrophe reste celle du J.O., droite ou courbe). `ecartHorsCasse()` le revérifie caractère par caractère à chaque dérivation, et refuse tout écart qui ne soit pas un écart de casse.",
+    "position": {
+     "avant_ligne_source": 28
+    },
+    "motif": "RESTITUTION DE L'INTITULÉ (décision de Me Vaval du 28 août 2026, « ajouter les titres au début »). Le corps de cet acte n'ouvre PAS sur son objet : le Journal officiel y imprime le mot d'acte puis le signataire, et l'intitulé nulle part ailleurs qu'au SOMMAIRE du même fascicule. L'intitulé n'est donc pas fabriqué : il est LU mot pour mot à la ligne déclarée de la pièce, dont le md5 est asserté avant toute lecture. Ligne 11 du SOMMAIRE (le fascicule en annonce trois ; les deux autres ne sont pas cet acte). Deux mentions laissées hors de la chaîne restituée — ce ne sont PAS des `decoupe.retraits` : les six retraits déclarés de ce texte portent tous sur le bloc NOTE DE TRANSCRIPTION de l'éditeur (l. 21-25 et 27), non sur la ligne de sommaire. Laissées dehors : la RUBRIQUE de classement du J.O. « COMMISSION NATIONALE DES MARCHÉS PUBLICS (CNMP). » et la mention finale « TEXTES Y ANNEXÉS. » — l'annexe n'est pas transcrite. ⚠️ PLACE PARTICULIÈRE, ET LA LACUNE N'EST PAS MASQUÉE : ce texte est un FRAGMENT (la page 2 du Moniteur manque au scan), il n'a NI en-tête, NI mot d'acte, NI signataire, et son corps s'ouvre sur la mention d'éditeur « [Début de l'extrait — le texte reprend au milieu des considérants, page 3 du Moniteur] ». L'intitulé est posé AU-DESSUS de cette mention, jamais en dessous : ainsi la mention continue de dire vrai — tout ce qui la suit est l'extrait survivant de la page 3, ce qui la précède vient du sommaire du fascicule."
+   }
+  ]
+ },
+ "jointures_entetes": [],
+ "toc": [],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2"
+ },
+ "navToc": [],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 67,
+  "toc": 0,
+  "labels": 2,
+  "ancres_emises": 2,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 0,
+  "navToc_groupes": 0
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": "fragment : page 2 du Moniteur absente du scan source ; la ligne 26 « [Début de l'extrait…] » est un marqueur d'éditeur CONSERVÉ au corps (il borne le fragment) — à trancher par Me Vaval.",
+ "sans_appareil": null,
+ "md5_corps": "d612ce1be3ee5058bc676c84e7bbb4e3",
+ "apostrophes": {
+  "droites": 0,
+  "courbes": 16
+ },
+ "exposants_unicode": {}
+}

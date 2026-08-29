@@ -1,0 +1,369 @@
+{
+ "meta": {
+  "genere_le": "2026-08-27T23:51:51-04:00",
+  "produit_par": "scripts/data/marches-publics/graphe-construire.py",
+  "regles": [
+   "Le kind d'un CrossRef AFFIRME : considérant → CITE ; clause du dispositif → MODIFIE / ABROGE.",
+   "Chaque arête porte sa clause EXTRAITE du corps (jamais retapée), avec fichier, ligne et md5.",
+   "Aucune citation normalisée : les sics du J.O. sont des sentinelles.",
+   "Toute cible absente du corpus est un renvoi EN CLAIR (toLabel), jamais un lien.",
+   "Aucune écriture en base : ce fichier est une DONNÉE, consommée par le script d'apply."
+  ],
+  "empreintes_des_corps_lus": {
+   "00": "1831c4ed72a4",
+   "01": "d89f22316950",
+   "02": "b58975a6e49e",
+   "03": "ed415c6b4982",
+   "04": "b54d9993a14f",
+   "05": "abf88e445881",
+   "06": "88030ff42c90",
+   "07": "e42f3eaa166c",
+   "08": "652e1a47d2bb",
+   "09": "19d60338b6b0",
+   "10": "55634e78dafe",
+   "11": "22ab931b6add",
+   "12": "600c4ac8c403",
+   "13": "66e0dbdc8722",
+   "14": "591d341346e6",
+   "15": "68211862bd44",
+   "16": "95f044cff268",
+   "17": "12fa571b48db",
+   "18": "26bfc63ae17c",
+   "19": "b8c0c433fe07",
+   "20": "03835eb73056",
+   "21": "f8f2679eecad",
+   "22": "0e40361ad643",
+   "23": "444bc1005b5d",
+   "24": "bc9bfb75609a"
+  }
+ },
+ "index": {
+  "methode": "DEUX TEMPS, jamais un seul. (1) `number` + `type: 'INDEX'` restreint aux entrées du FASCICULE — ce couple n'est PAS unique, un fascicule portant une entrée par titre du sommaire. (2) parmi elles, l'entrée est désignée par son `id`, re-contrôlé en relisant son `titleFr`. Le titre DÉPARTAGE, il n'est jamais la clé. La `source` seule est un discriminant NUL (`source = 'MONITEUR'` porte le miroir entier). Avant écriture : la résolution FINALE doit désigner EXACTEMENT UNE ligne.",
+  "cardinaux_mesures": {
+   "note": "mesurés en base de production le 27 août 2026, SELECT seul — la garde porte sur l'entrée retenue, pas sur ce cardinal",
+   "LM2005-12": 1,
+   "LM2009-SP10": 3,
+   "LM2011-SP3": 4,
+   "LM2012-93": 8,
+   "LM2012-104": 1,
+   "LM2013-3": 4,
+   "LM2013-SP1": 1,
+   "LM2017-143": 3,
+   "LM2019-SP3": 1,
+   "LM2020-SP1": 1,
+   "LM2021-SP8": 7,
+   "LM2009-60": 1,
+   "LM2009-78": 1,
+   "LM2009-95": 5,
+   "LM2006-117": 6,
+   "LM2011-52": 8,
+   "LM2014-179": 5,
+   "LM2015-210": 4,
+   "LM2019-221": 0,
+   "LM2021-SP52": 0,
+   "LM2022-SP15": 0,
+   "LM2017-SP25": 0,
+   "LM2017-SP26": 0,
+   "LM2017-SP28": 0,
+   "LM2017-SP31": 0,
+   "LM2017-SP35": 0,
+   "LM2017-SP42": 0
+  },
+  "lacune_2017_ciblee": "Le miroir porte bien des Spéciaux 2017 — LM2017-SP1 à SP17, puis SP27, SP29, SP30 — mais AUCUN des six qui portent les arrêtés du 30 août 2017 (SP25, SP26, SP28, SP31, SP35, SP42). La lacune est ciblée, pas une troncature de série.",
+  "rattachements": [
+   {
+    "texte": "00",
+    "source": "MARCHES_LOI_2009",
+    "chaine_erratum": true,
+    "entrees": [
+     {
+      "number": "LM2009-60",
+      "id": "b673e39b-7c6c-411a-8069-c8148ad50d43",
+      "titleFr_attendu_debute_par": "Loi fixant les règles générales de passation, d'exécution et de règlement des Marchés Publics",
+      "role": "publication d’origine"
+     },
+     {
+      "number": "LM2009-78",
+      "id": "9cef10a8-673f-43d3-b44d-303282e9a135",
+      "titleFr_attendu_debute_par": "Loi fixant les règles générales relatives aux Marchés Publics et aux Conventions de concession",
+      "role": "REPRODUCTION — référence affichée"
+     }
+    ]
+   },
+   {
+    "texte": "01",
+    "source": "MARCHES_DECRET_2004",
+    "entrees": [
+     {
+      "number": "LM2005-12",
+      "id": "b1e56210-f220-4020-88af-ef66a6f3b2f9",
+      "titleFr_attendu_debute_par": "Décret fixant la réglementation des marchés publics de services",
+      "role": "publication"
+     }
+    ]
+   },
+   {
+    "texte": "02",
+    "source": "MARCHES_ARR_MODALITES_2009",
+    "entrees": [
+     {
+      "number": "LM2009-SP10",
+      "id": "64853e3f-661a-4762-823e-739fd9e3c9ae",
+      "titleFr_attendu_debute_par": "Arrêté précisant les modalités d'application de la loi",
+      "role": "publication (1er texte du fascicule)"
+     }
+    ]
+   },
+   {
+    "texte": "03",
+    "source": "MARCHES_ARR_MANUEL_2009",
+    "entrees": [
+     {
+      "number": "LM2009-SP10",
+      "id": "917f68d6-c0ae-4f04-866c-2455a90f563e",
+      "titleFr_attendu_debute_par": "Arrêté sanctionnant le manuel de procédures",
+      "role": "publication (2e texte du fascicule)"
+     }
+    ]
+   },
+   {
+    "texte": "04",
+    "source": "MARCHES_ARR_ORG_CNMP_2009",
+    "entrees": [
+     {
+      "number": "LM2009-SP10",
+      "id": "46abae37-ecb1-4c97-b4de-6f386c2f9867",
+      "titleFr_attendu_debute_par": "Arrêté déterminant les modalités d'organisation et de fonctionnement",
+      "role": "publication (3e texte du fascicule)"
+     }
+    ]
+   },
+   {
+    "texte": "05",
+    "source": "MARCHES_ARR_DAO_TRAVAUX_2011",
+    "appariement": "MESURÉ",
+    "entrees": [
+     {
+      "number": "LM2011-SP3",
+      "id": "3301d76b-e3ff-4d33-b8c9-ab00e55247fd",
+      "titleFr_attendu_debute_par": "Commission Nationale des Marchés Publics (CNMP) - Tome I",
+      "role": "Tome I, item 1"
+     }
+    ],
+    "preuve": "le dispositif du texte n° 5 sanctionne « le dossier d'appel d'offres standard pour la réalisation de travaux » ; l'entrée Tome I annonce « 1) Dossier d'appel d'offres standard pour la réalisation de travaux ». La couverture du fascicule transcrit porte « TOME I »."
+   },
+   {
+    "texte": "06",
+    "source": "MARCHES_ARR_DTP_CONSULTANTS_2011",
+    "appariement": "MESURÉ",
+    "entrees": [
+     {
+      "number": "LM2011-SP3",
+      "id": "8c001e65-9ea5-42e7-aff2-b80a43b01aef",
+      "titleFr_attendu_debute_par": "Commission Nationale des Marchés Publics (CNMP) - Tome III",
+      "role": "Tome III, item 1"
+     }
+    ],
+    "preuve": "le dispositif du texte n° 6 sanctionne « le dossier de demandes types de propositions pour des services de consultants et modèles de contrats » ; l'entrée Tome III annonce « 1) Demande types de propositions pour des services de consultants et modèles de contrats ». Couverture : « TOME III »."
+   },
+   {
+    "texte": "07",
+    "source": "MARCHES_ARR_CCAG_2011",
+    "appariement": "MESURÉ — CORRIGE LE RELEVÉ",
+    "entrees": [
+     {
+      "number": "LM2011-SP3",
+      "id": "4aee16f7-ba5e-41ef-aced-03a4cade0ecd",
+      "titleFr_attendu_debute_par": "Commission Nationale des Marchés Publics (CNMP) - Tome IV",
+      "role": "Tome IV, item 3"
+     }
+    ],
+    "preuve": "le dispositif du texte n° 7 sanctionne « le Cahier des clauses administratives générales (CCAG) applicables aux marchés publics de fournitures, de services, d'informatique et de bureautique » ; c'est l'item 3 de l'entrée Tome IV. Le relevé du 27 août proposait le Tome II : ERREUR — le Tome II porte les CCAG des concessions et des prestations intellectuelles, non celui des fournitures. La couverture du fichier porte « TOME IV » (et son nom de fichier annonce un DAO prestation de services, § 9.2)."
+   },
+   {
+    "texte": "08",
+    "source": "MARCHES_ARR_SEUILS_2012",
+    "chaine_erratum": true,
+    "entrees": [
+     {
+      "number": "LM2012-93",
+      "id": "2a17113f-b7d6-44b3-8450-7544e4992861",
+      "titleFr_attendu_debute_par": "Arrêté fixant les seuils de passation des marchés publics et les seuils",
+      "role": "publication d’origine (14 juin 2012)"
+     },
+     {
+      "number": "LM2012-104",
+      "id": "882aa807-a151-4b80-81ac-1a8d3e08d487",
+      "titleFr_attendu_debute_par": "Arrêté fixant les seuils de passation des marchés publics et les seuils",
+      "role": "REPRODUCTION — source de la transcription, référence affichée"
+     }
+    ],
+    "reserve": "⚠️ La `publicationDate` de l'entrée LM2012-104 vaut 2012-06-28 en base, alors que le fac-similé porte « Vendredi 29 Juin 2012 » ET que le titre de l'entrée LM2012-93 renvoie lui-même à « LM2012-104 du vendredi 29 juin 2012 ». Le miroir se contredit. La correction de l'entrée est une ÉCRITURE : décision de Me Vaval (§ 13.7). Le rattachement, lui, ne dépend pas de ce point."
+   },
+   {
+    "texte": "09",
+    "source": "MARCHES_ARR_CHARTE_2012",
+    "entrees": [
+     {
+      "number": "LM2013-3",
+      "id": "51ebf720-983c-4af4-89a1-2f630f3a473c",
+      "titleFr_attendu_debute_par": "Arrêté sanctionnant pour sortir son plein et entier effet la Charte d'Éthique",
+      "role": "publication"
+     }
+    ],
+    "reserve": "le fascicule porte 4 entrées INDEX, dont l'arrêté d'utilité publique de Delmas — le hors-corpus découpé en tête du fichier (§ 8.3). Ne rattacher que la première."
+   },
+   {
+    "texte": "16",
+    "source": "MARCHES_ARR_DEFENSE_2019",
+    "entrees": [
+     {
+      "number": "LM2019-SP3",
+      "id": "271b0f4a-f612-4339-b0b9-334374d20056",
+      "titleFr_attendu_debute_par": "Arrêté portant révision de l'arrêté du 30 août 2017",
+      "role": "publication"
+     }
+    ],
+    "reserve": "id NON présent au relevé du 27 août (le relevé rangeait LM2019-SP3 en « connexe » sans son id) — mesuré ici : une seule ligne INDEX pour ce numéro."
+   },
+   {
+    "texte": "18",
+    "source": "MARCHES_ARR_DEFENSE_2020",
+    "entrees": [
+     {
+      "number": "LM2020-SP1",
+      "id": "59d710a7-d6c1-4cce-8584-5716ddf8a0b3",
+      "titleFr_attendu_debute_par": "Arrêté soumettant les marchés publics de défense",
+      "role": "publication"
+     }
+    ]
+   },
+   {
+    "texte": "19",
+    "source": "MARCHES_ARR_MODIF_227_2020",
+    "entrees": [
+     {
+      "number": "LM2021-SP8",
+      "id": "cc554d13-3edb-49f5-a556-e80e9cd7b24a",
+      "titleFr_attendu_debute_par": "Arrêté modifiant les articles 227 et 227-1",
+      "role": "publication (1er texte marchés publics du fascicule)"
+     }
+    ],
+    "reserve": "⚠️ l'entrée INDEX écrit « 227-1 » (trait d'union) là où l'arrêté écrit « 227.1 » (point) : ce n'est pas une objection, le titre départage sur le reste."
+   },
+   {
+    "texte": "20",
+    "source": "MARCHES_ARR_COMPOSITION_CMMP_2020",
+    "entrees": [
+     {
+      "number": "LM2021-SP8",
+      "id": "c46706b5-bcbe-4a4f-9e0e-4d6febbd9821",
+      "titleFr_attendu_debute_par": "Arrêté fixant la composition des Commissions Ministérielles",
+      "role": "publication (2e texte marchés publics du fascicule)"
+     }
+    ],
+    "reserve": "le titre de l'entrée porte « et des des Commissions Spécialisées » — doublon sic du miroir INDEX ; ne pas le « corriger » au passage."
+   }
+  ],
+  "sans_entree_INDEX": [
+   {
+    "textes": [
+     "10",
+     "11",
+     "12",
+     "13",
+     "14",
+     "15"
+    ],
+    "numeros": "LM2017-SP25 / SP26 / SP28 / SP31 / SP35 / SP42",
+    "constat": "le miroir saute de SP17 à SP27 — AUCUNE entrée"
+   },
+   {
+    "textes": [
+     "17"
+    ],
+    "numeros": "LM2019-221",
+    "constat": "la série 22x s’arrête à LM2019-220 — 0 ligne mesurée"
+   },
+   {
+    "textes": [
+     "21",
+     "22"
+    ],
+    "numeros": "LM2021-SP52",
+    "constat": "0 ligne mesurée"
+   },
+   {
+    "textes": [
+     "23"
+    ],
+    "numeros": "LM2022-SP15",
+    "constat": "0 ligne mesurée"
+   },
+   {
+    "textes": [
+     "24"
+    ],
+    "numeros": "—",
+    "constat": "Circulaire 010 : sans référence Moniteur (papier Primature) ; rien à rattacher"
+   }
+  ],
+  "reserve_sur_les_tomes_2011": "⚠️ Les quatre entrées « Tome » ne sont pas des entrées d'ACTE : chacune énumère PLUSIEURS arrêtés du même 10 mai 2011 (Tome I : 2 · Tome II : 3 · Tome III : 2 · Tome IV : 3 — soit les dix de la série, ceux-là mêmes que la Charte de 2012 énumère à ses visas). Le lot n'en porte que trois : chacun est rattaché à l'entrée qui l'ANNONCE, mais l'entrée reste plus large que le document. À dire en note de fiche, pas à masquer.",
+  "regle_absolue": "Aucun rattachement fabriqué pour ces textes. Et JAMAIS de CrossRef par désignation (toType + toNumber) sur un numéro de fascicule : un numéro du Moniteur désigne un FASCICULE, pas un acte — LM2012-93 porte 8 lignes INDEX, LM2017-143 en porte 3 dont une naturalisation. `resolveCrossRefs` choisirait « le meilleur » candidat au hasard des statuts et des dates (src/lib/legislation/refs.ts, pickBest). Renvoi en clair : toId, toType, toNumber tous nuls, la désignation dans toLabel.",
+  "faux_amis_exclus": [
+   {
+    "number": "LM1974-79",
+    "id": "6bf3cb30-6184-4c51-a731-0bd703387d5f",
+    "motif": "droits communaux perçus par tickets — marchés PHYSIQUES"
+   },
+   {
+    "number": "LM1996-15",
+    "id": "e0766d20-4432-494c-bbda-b047fcfc8ef8",
+    "motif": "arrêté communal de Port-au-Prince — marchés PHYSIQUES"
+   }
+  ],
+  "entrees_INDEX_sans_texte_au_corpus": [
+   {
+    "number": "LM2006-117",
+    "id": "1c83fb54-ff96-4d6b-bf6a-d7dd27417285",
+    "quoi": "Arrêté du 4 décembre 2006, abrogé par l’article 99 de la Loi"
+   },
+   {
+    "number": "LM2009-95",
+    "id": "b12067a4-efd7-4ab9-af9f-4649992e4dfe",
+    "quoi": "Arrêté du 5 septembre 2009 (seuils)"
+   },
+   {
+    "number": "LM2013-SP1",
+    "id": "4e834aae-13a3-4f47-868e-595d579ccf91",
+    "quoi": "documents standards évaluation/suivi"
+   },
+   {
+    "number": "LM2017-143",
+    "id": "19e1413c-f2b4-44b4-895a-68b9a8803681",
+    "quoi": "Arrêté du 30 août 2017 défense — racine de la branche"
+   },
+   {
+    "number": "LM2011-52",
+    "id": "90b57a60-3186-4b78-b135-d7aea40de387",
+    "quoi": "nomination CNMP 2011"
+   },
+   {
+    "number": "LM2014-179",
+    "id": "5ddd781f-ccaa-4f51-84ab-20c17cc85ff2",
+    "quoi": "nomination CNMP 2014"
+   },
+   {
+    "number": "LM2015-210",
+    "id": "75fdc532-86f9-42c3-a0ac-2f6cd8edb538",
+    "quoi": "nomination CNMP 2015"
+   },
+   {
+    "number": "LM2011-SP3",
+    "id": "0176998c-516c-460d-ad11-cc5197a10b0d",
+    "quoi": "Tome II — AUCUN fichier du lot ne le couvre (mesuré)"
+   }
+  ],
+  "note": "Ces entrées restent des ENTRÉES D'INDEX : elles ne sont pas des textes du corpus et ne reçoivent aucun CrossRef. Elles sont nommées en clair dans les notes."
+ }
+}

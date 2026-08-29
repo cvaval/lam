@@ -1,0 +1,549 @@
+{
+ "loi_mere": {
+  "rubriques_table_cliente": 53,
+  "entetes_lus_du_corps": 53,
+  "discordances": [],
+  "table_cliente_porte_des_plages_d_articles": false,
+  "note": "la table des matières fournie ne comporte QU'UNE colonne « Rubrique » (mesuré sur word/document.xml : 1 tableau, 54 lignes, 1 cellule par ligne) : aucune plage d'articles n'y figure. Les plages ci-dessous sont DÉRIVÉES DU CORPS et valent assertion réversible."
+ },
+ "hors_corpus": {
+  "sentinelles_testees": 12,
+  "occurrences": 0
+ },
+ "sics": [
+  {
+   "texte": "04",
+   "fragment": "Articles 30.-",
+   "occurrences": 1,
+   "note": "pluriel sic du J.O. (§ 9.1) — ancré art-30"
+  },
+  {
+   "texte": "19",
+   "fragment": "227.1",
+   "occurrences": 5,
+   "note": "graphie à POINT du modificatif (§ 9.3)"
+  },
+  {
+   "texte": "02",
+   "fragment": "227-1",
+   "occurrences": 1,
+   "note": "graphie à TRAIT D'UNION du texte de base (§ 9.3)"
+  },
+  {
+   "texte": "01",
+   "fragment": "Article 19.1-",
+   "occurrences": 1,
+   "note": "décimale à point du décret de 2004"
+  },
+  {
+   "texte": "04",
+   "fragment": "Article 15.1",
+   "occurrences": 1,
+   "note": "décimale à point, seule de l'arrêté org/fonct"
+  },
+  {
+   "texte": "09",
+   "fragment": "Article 5.1",
+   "occurrences": 1,
+   "note": "décimale à point de la Charte annexée"
+  },
+  {
+   "texte": "21",
+   "fragment": "Article 16.1.-",
+   "occurrences": 1,
+   "note": "décimale à point du décret de 2021"
+  },
+  {
+   "texte": "23",
+   "fragment": "l’Arrêté du 21 octobre 2021 fixant les seuils de passation des marchés publics et les seuils d’intervention de la Commission Nationale des Marchés Publics",
+   "occurrences": 1,
+   "note": "art. 7-1 : intitulé DIVERGENT de celui du Spécial 52 (§ 6, énigme non tranchée) — jamais normalisé"
+  },
+  {
+   "texte": "23",
+   "fragment": "l’Arrêté du 21 octobre 2021 fixant les seuils de passation des marchés publics en dessous des seuils d’intervention de la CNMP",
+   "occurrences": 1,
+   "note": "visa du même arrêté, intitulé EXACT — la divergence est interne au texte n° 23"
+  },
+  {
+   "texte": "00",
+   "fragment": "notamment la Loi du 16 septembre 1953 sur l'adjudication, le Décret du 3 décembre 2004 fixant la réglementation des Marchés Publics",
+   "occurrences": 1,
+   "note": "art. 99 : la clause d'abrogation NOMMÉE, fondement des trois arêtes ABROGE (§ 5) — apostrophes DROITES dans ce corps"
+  },
+  {
+   "texte": "00",
+   "fragment": "Donnée à la Chambre des Députés à Port-au-Prince, le mercredi 10 juin 2009",
+   "occurrences": 1,
+   "note": "bloc « Donné » de la Chambre — le « 10 juin 2009 » du nom d'usage"
+  },
+  {
+   "texte": "00",
+   "fragment": "Donnée au Palais National, à Port-au-Prince, le 12 juin 2009",
+   "occurrences": 1,
+   "note": "promulgation présidentielle du 12 juin — NON retenue comme adoptionDate (décision expresse de Me Vaval, § 5)"
+  },
+  {
+   "texte": "00",
+   "fragment": "(Reproduction pour erreurs matérielles)",
+   "occurrences": 1,
+   "note": "la pièce est la reproduction n° 78 ; le renvoi au n° 60 reste mentionné, non tranché"
+  }
+ ],
+ "typographie": [
+  {
+   "texte": "00",
+   "slug": "loi-mere-2009",
+   "apostrophe_droite": 942,
+   "apostrophe_courbe": 0,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 179,
+   "nbsp": 0
+  },
+  {
+   "texte": "01",
+   "slug": "decret-2004",
+   "apostrophe_droite": 598,
+   "apostrophe_courbe": 0,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 118,
+   "nbsp": 0
+  },
+  {
+   "texte": "02",
+   "slug": "arr-modalites-2009",
+   "apostrophe_droite": 0,
+   "apostrophe_courbe": 1464,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 572,
+   "nbsp": 0
+  },
+  {
+   "texte": "03",
+   "slug": "arr-manuel-2009",
+   "apostrophe_droite": 0,
+   "apostrophe_courbe": 2034,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 336,
+   "nbsp": 0
+  },
+  {
+   "texte": "04",
+   "slug": "arr-org-cnmp-2009",
+   "apostrophe_droite": 222,
+   "apostrophe_courbe": 0,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 207,
+   "nbsp": 177
+  },
+  {
+   "texte": "05",
+   "slug": "arr-dao-travaux-2011",
+   "apostrophe_droite": 39,
+   "apostrophe_courbe": 0,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 0,
+   "nbsp": 0
+  },
+  {
+   "texte": "06",
+   "slug": "arr-dtp-consultants-2011",
+   "apostrophe_droite": 0,
+   "apostrophe_courbe": 29,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 0,
+   "nbsp": 12
+  },
+  {
+   "texte": "07",
+   "slug": "arr-ccag-2011",
+   "apostrophe_droite": 6,
+   "apostrophe_courbe": 20,
+   "mixte": true,
+   "exposants_unicode": {},
+   "tabulations": 0,
+   "nbsp": 0
+  },
+  {
+   "texte": "08",
+   "slug": "arr-seuils-2012",
+   "apostrophe_droite": 38,
+   "apostrophe_courbe": 0,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 14,
+   "nbsp": 0
+  },
+  {
+   "texte": "09",
+   "slug": "arr-charte-ethique-2012",
+   "apostrophe_droite": 0,
+   "apostrophe_courbe": 313,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 85,
+   "nbsp": 0
+  },
+  {
+   "texte": "10",
+   "slug": "arr-demande-prix-fournitures-2017",
+   "apostrophe_droite": 496,
+   "apostrophe_courbe": 0,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 0,
+   "nbsp": 0
+  },
+  {
+   "texte": "11",
+   "slug": "arr-procedures-celeres-2017",
+   "apostrophe_droite": 710,
+   "apostrophe_courbe": 0,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 0,
+   "nbsp": 0
+  },
+  {
+   "texte": "12",
+   "slug": "arr-cotations-travaux-2017",
+   "apostrophe_droite": 0,
+   "apostrophe_courbe": 756,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 179,
+   "nbsp": 261
+  },
+  {
+   "texte": "13",
+   "slug": "arr-alleges-travaux-2017",
+   "apostrophe_droite": 1226,
+   "apostrophe_courbe": 0,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 3,
+   "nbsp": 0
+  },
+  {
+   "texte": "14",
+   "slug": "arr-alleges-fournitures-2017",
+   "apostrophe_droite": 1015,
+   "apostrophe_courbe": 0,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 188,
+   "nbsp": 0
+  },
+  {
+   "texte": "15",
+   "slug": "arr-alleges-consultants-2017",
+   "apostrophe_droite": 0,
+   "apostrophe_courbe": 876,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 0,
+   "nbsp": 0
+  },
+  {
+   "texte": "16",
+   "slug": "arr-defense-2019",
+   "apostrophe_droite": 0,
+   "apostrophe_courbe": 151,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 70,
+   "nbsp": 0
+  },
+  {
+   "texte": "17",
+   "slug": "arr-nomination-cnmp-2019",
+   "apostrophe_droite": 5,
+   "apostrophe_courbe": 0,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 0,
+   "nbsp": 0
+  },
+  {
+   "texte": "18",
+   "slug": "arr-defense-2020",
+   "apostrophe_droite": 146,
+   "apostrophe_courbe": 0,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 72,
+   "nbsp": 0
+  },
+  {
+   "texte": "19",
+   "slug": "arr-modif-227-2020",
+   "apostrophe_droite": 0,
+   "apostrophe_courbe": 49,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 9,
+   "nbsp": 0
+  },
+  {
+   "texte": "20",
+   "slug": "arr-composition-cmmp-2020",
+   "apostrophe_droite": 0,
+   "apostrophe_courbe": 71,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 35,
+   "nbsp": 0
+  },
+  {
+   "texte": "21",
+   "slug": "decret-beneficiaires-effectifs-2021",
+   "apostrophe_droite": 109,
+   "apostrophe_courbe": 0,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 29,
+   "nbsp": 0
+  },
+  {
+   "texte": "22",
+   "slug": "arr-seuils-sous-intervention-2021",
+   "apostrophe_droite": 111,
+   "apostrophe_courbe": 0,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 12,
+   "nbsp": 0
+  },
+  {
+   "texte": "23",
+   "slug": "arr-seuils-2022",
+   "apostrophe_droite": 0,
+   "apostrophe_courbe": 119,
+   "mixte": false,
+   "exposants_unicode": {
+    "ᵉ": 1
+   },
+   "tabulations": 0,
+   "nbsp": 48
+  },
+  {
+   "texte": "24",
+   "slug": "circulaire-010-2023",
+   "apostrophe_droite": 0,
+   "apostrophe_courbe": 184,
+   "mixte": false,
+   "exposants_unicode": {},
+   "tabulations": 0,
+   "nbsp": 0
+  }
+ ],
+ "verbatim": [
+  {
+   "texte": "00",
+   "lignes_corps": 491,
+   "lignes_segmentees": 491,
+   "retraits": 0,
+   "absorbees_par_jointure": 0,
+   "tabulations": 179
+  },
+  {
+   "texte": "01",
+   "lignes_corps": 419,
+   "lignes_segmentees": 431,
+   "retraits": 0,
+   "absorbees_par_jointure": 12,
+   "tabulations": 118
+  },
+  {
+   "texte": "02",
+   "lignes_corps": 856,
+   "lignes_segmentees": 891,
+   "retraits": 0,
+   "absorbees_par_jointure": 35,
+   "tabulations": 572
+  },
+  {
+   "texte": "03",
+   "lignes_corps": 981,
+   "lignes_segmentees": 991,
+   "retraits": 0,
+   "absorbees_par_jointure": 10,
+   "tabulations": 336
+  },
+  {
+   "texte": "04",
+   "lignes_corps": 356,
+   "lignes_segmentees": 364,
+   "retraits": 2,
+   "absorbees_par_jointure": 6,
+   "tabulations": 207
+  },
+  {
+   "texte": "05",
+   "lignes_corps": 99,
+   "lignes_segmentees": 99,
+   "retraits": 0,
+   "absorbees_par_jointure": 0,
+   "tabulations": 0
+  },
+  {
+   "texte": "06",
+   "lignes_corps": 101,
+   "lignes_segmentees": 101,
+   "retraits": 0,
+   "absorbees_par_jointure": 0,
+   "tabulations": 0
+  },
+  {
+   "texte": "07",
+   "lignes_corps": 85,
+   "lignes_segmentees": 85,
+   "retraits": 0,
+   "absorbees_par_jointure": 0,
+   "tabulations": 0
+  },
+  {
+   "texte": "08",
+   "lignes_corps": 96,
+   "lignes_segmentees": 96,
+   "retraits": 0,
+   "absorbees_par_jointure": 0,
+   "tabulations": 14
+  },
+  {
+   "texte": "09",
+   "lignes_corps": 228,
+   "lignes_segmentees": 239,
+   "retraits": 0,
+   "absorbees_par_jointure": 11,
+   "tabulations": 85
+  },
+  {
+   "texte": "10",
+   "lignes_corps": 1386,
+   "lignes_segmentees": 1400,
+   "retraits": 4,
+   "absorbees_par_jointure": 10,
+   "tabulations": 0
+  },
+  {
+   "texte": "11",
+   "lignes_corps": 1354,
+   "lignes_segmentees": 1366,
+   "retraits": 0,
+   "absorbees_par_jointure": 12,
+   "tabulations": 0
+  },
+  {
+   "texte": "12",
+   "lignes_corps": 1668,
+   "lignes_segmentees": 1680,
+   "retraits": 1,
+   "absorbees_par_jointure": 11,
+   "tabulations": 179
+  },
+  {
+   "texte": "13",
+   "lignes_corps": 2665,
+   "lignes_segmentees": 2700,
+   "retraits": 5,
+   "absorbees_par_jointure": 30,
+   "tabulations": 3
+  },
+  {
+   "texte": "14",
+   "lignes_corps": 1957,
+   "lignes_segmentees": 1973,
+   "retraits": 1,
+   "absorbees_par_jointure": 15,
+   "tabulations": 188
+  },
+  {
+   "texte": "15",
+   "lignes_corps": 1554,
+   "lignes_segmentees": 1561,
+   "retraits": 0,
+   "absorbees_par_jointure": 7,
+   "tabulations": 0
+  },
+  {
+   "texte": "16",
+   "lignes_corps": 176,
+   "lignes_segmentees": 176,
+   "retraits": 0,
+   "absorbees_par_jointure": 0,
+   "tabulations": 70
+  },
+  {
+   "texte": "17",
+   "lignes_corps": 42,
+   "lignes_segmentees": 42,
+   "retraits": 0,
+   "absorbees_par_jointure": 0,
+   "tabulations": 0
+  },
+  {
+   "texte": "18",
+   "lignes_corps": 152,
+   "lignes_segmentees": 152,
+   "retraits": 0,
+   "absorbees_par_jointure": 0,
+   "tabulations": 72
+  },
+  {
+   "texte": "19",
+   "lignes_corps": 82,
+   "lignes_segmentees": 82,
+   "retraits": 0,
+   "absorbees_par_jointure": 0,
+   "tabulations": 9
+  },
+  {
+   "texte": "20",
+   "lignes_corps": 112,
+   "lignes_segmentees": 118,
+   "retraits": 0,
+   "absorbees_par_jointure": 6,
+   "tabulations": 35
+  },
+  {
+   "texte": "21",
+   "lignes_corps": 120,
+   "lignes_segmentees": 126,
+   "retraits": 0,
+   "absorbees_par_jointure": 6,
+   "tabulations": 29
+  },
+  {
+   "texte": "22",
+   "lignes_corps": 137,
+   "lignes_segmentees": 137,
+   "retraits": 0,
+   "absorbees_par_jointure": 0,
+   "tabulations": 12
+  },
+  {
+   "texte": "23",
+   "lignes_corps": 186,
+   "lignes_segmentees": 186,
+   "retraits": 0,
+   "absorbees_par_jointure": 0,
+   "tabulations": 0
+  },
+  {
+   "texte": "24",
+   "lignes_corps": 44,
+   "lignes_segmentees": 44,
+   "retraits": 0,
+   "absorbees_par_jointure": 0,
+   "tabulations": 0
+  }
+ ]
+}

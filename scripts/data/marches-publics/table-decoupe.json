@@ -1,0 +1,802 @@
+{
+ "genere_le": "2026-08-28T02:09:27",
+ "regle": "§ 8.3 — DÉCOUPE HORS-CORPUS.\n\nRègle appliquée (celle du § 8.3, CORRIGÉE du piège de l'annexe) :\n  un document = EN-TÊTE DE L'ACTE + visas/considérants + dispositif + bloc « Donné »\n  + signatures + L'ANNEXE QUE SON DISPOSITIF SANCTIONNE, jusqu'à l'EN-TÊTE DE L'ACTE\n  SUIVANT ou au colophon.\nLa frontière est donc l'EN-TÊTE DE L'ACTE, JAMAIS le bloc « Donné » : couper sur\n« Donné » orphelinerait l'annexe sanctionnée, qui est transcrite APRÈS lui.\n\nMarqueur d'en-tête d'acte MESURÉ dans les fascicules du lot : la ligne de devise\n« LIBERTÉ … ÉGALITÉ … FRATERNITÉ ». Mesure de contrôle : dans les trois fichiers\nmulti-actes, le nombre de marqueurs égale exactement le nombre de blocs « Donné ».",
+ "fichiers": [
+  {
+   "piece": "piece-00-loi-2009-corps.txt",
+   "lignes": 492,
+   "entetes_acte": [],
+   "blocs_donne": [
+    470,
+    474,
+    483
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": null,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "00",
+     "l_debut": 0,
+     "l_fin_exclue": 492,
+     "lignes": 492,
+     "blocs_donne": 3,
+     "blocs_donne_attendus": 3,
+     "tetes_article": 179,
+     "mentionne_annexe": false,
+     "entete_acte_present": false
+    }
+   ]
+  },
+  {
+   "piece": "piece-00-loi-2009-table-matieres.txt",
+   "lignes": 58,
+   "entetes_acte": [],
+   "blocs_donne": [],
+   "note_transcription_ligne": null,
+   "colophon_ligne": null,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "00-tdm",
+     "l_debut": 0,
+     "l_fin_exclue": 58,
+     "lignes": 58,
+     "blocs_donne": 0,
+     "blocs_donne_attendus": 0,
+     "tetes_article": 0,
+     "mentionne_annexe": false,
+     "entete_acte_present": false
+    }
+   ]
+  },
+  {
+   "piece": "piece-01-decret-2004-12-03-reglementation.txt",
+   "lignes": 432,
+   "entetes_acte": [
+    7
+   ],
+   "blocs_donne": [
+    391
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": 428,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "01",
+     "l_debut": 0,
+     "l_fin_exclue": 432,
+     "lignes": 432,
+     "blocs_donne": 1,
+     "blocs_donne_attendus": 1,
+     "tetes_article": 118,
+     "mentionne_annexe": false,
+     "entete_acte_present": true
+    }
+   ]
+  },
+  {
+   "piece": "piece-02-arrete-2009-10-26-modalites.txt",
+   "lignes": 892,
+   "entetes_acte": [
+    19
+   ],
+   "blocs_donne": [
+    844
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": null,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "02",
+     "l_debut": 0,
+     "l_fin_exclue": 892,
+     "lignes": 892,
+     "blocs_donne": 1,
+     "blocs_donne_attendus": 1,
+     "tetes_article": 387,
+     "mentionne_annexe": true,
+     "entete_acte_present": true
+    }
+   ]
+  },
+  {
+   "piece": "piece-03-arrete-2009-10-26-manuel-procedures.txt",
+   "lignes": 992,
+   "entetes_acte": [
+    14
+   ],
+   "blocs_donne": [
+    39
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": null,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "03",
+     "l_debut": 0,
+     "l_fin_exclue": 992,
+     "lignes": 992,
+     "blocs_donne": 1,
+     "blocs_donne_attendus": 1,
+     "tetes_article": 3,
+     "mentionne_annexe": false,
+     "entete_acte_present": true
+    }
+   ]
+  },
+  {
+   "piece": "piece-04-arrete-2009-10-26-organisation-cnmp.txt",
+   "lignes": 365,
+   "entetes_acte": [
+    29
+   ],
+   "blocs_donne": [
+    296
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": 361,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "04",
+     "l_debut": 0,
+     "l_fin_exclue": 365,
+     "lignes": 365,
+     "blocs_donne": 1,
+     "blocs_donne_attendus": 1,
+     "tetes_article": 64,
+     "mentionne_annexe": false,
+     "entete_acte_present": true
+    }
+   ]
+  },
+  {
+   "piece": "piece-05-arrete-2011-05-10-dao-travaux-tome1.txt",
+   "lignes": 100,
+   "entetes_acte": [
+    23
+   ],
+   "blocs_donne": [
+    42
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": null,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "05",
+     "l_debut": 0,
+     "l_fin_exclue": 100,
+     "lignes": 100,
+     "blocs_donne": 1,
+     "blocs_donne_attendus": 1,
+     "tetes_article": 2,
+     "mentionne_annexe": true,
+     "entete_acte_present": true
+    }
+   ]
+  },
+  {
+   "piece": "piece-06-arrete-2011-05-10-consultants-tome3.txt",
+   "lignes": 104,
+   "entetes_acte": [
+    25
+   ],
+   "blocs_donne": [
+    42
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": null,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "06",
+     "l_debut": 0,
+     "l_fin_exclue": 104,
+     "lignes": 104,
+     "blocs_donne": 1,
+     "blocs_donne_attendus": 1,
+     "tetes_article": 2,
+     "mentionne_annexe": false,
+     "entete_acte_present": true
+    }
+   ]
+  },
+  {
+   "piece": "piece-07-arrete-2011-05-10-ccag.txt",
+   "lignes": 94,
+   "entetes_acte": [],
+   "blocs_donne": [
+    34
+   ],
+   "note_transcription_ligne": 20,
+   "colophon_ligne": null,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "07",
+     "l_debut": 0,
+     "l_fin_exclue": 94,
+     "lignes": 94,
+     "blocs_donne": 1,
+     "blocs_donne_attendus": 1,
+     "tetes_article": 2,
+     "mentionne_annexe": true,
+     "entete_acte_present": false
+    }
+   ]
+  },
+  {
+   "piece": "piece-08-arrete-2012-05-25-seuils.txt",
+   "lignes": 97,
+   "entetes_acte": [],
+   "blocs_donne": [
+    88
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": 93,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "08",
+     "l_debut": 0,
+     "l_fin_exclue": 97,
+     "lignes": 97,
+     "blocs_donne": 1,
+     "blocs_donne_attendus": 1,
+     "tetes_article": 11,
+     "mentionne_annexe": false,
+     "entete_acte_present": false
+    }
+   ]
+  },
+  {
+   "piece": "piece-09-arrete-2012-12-21-charte-ethique.txt",
+   "lignes": 306,
+   "entetes_acte": [
+    13,
+    71
+   ],
+   "blocs_donne": [
+    47,
+    105
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": null,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "hors-corpus",
+     "texte_no": null,
+     "titre_lu_du_corps": "Arrêté déclarant d'utilité publique un terrain situé à l'Avenue Maïs Gâté, Section communale de St-Martin, Commune de Delmas",
+     "l_debut": 13,
+     "l_fin_exclue": 71,
+     "lignes": 58,
+     "blocs_donne": 1,
+     "tetes_article": 6,
+     "mentionne_annexe": false
+    },
+    {
+     "rang": 2,
+     "role": "corpus",
+     "texte_no": "09",
+     "titre_lu_du_corps": "Arrêté du 21 décembre 2012 sanctionnant la Charte d'Éthique applicable aux acteurs des marchés publics et des conventions de concession d'ouvrage de service public",
+     "l_debut": 71,
+     "l_fin_exclue": 306,
+     "lignes": 235,
+     "blocs_donne": 1,
+     "tetes_article": 26,
+     "mentionne_annexe": true,
+     "fichier": "texte-09-arrete-2012-12-21-charte-ethique.txt",
+     "md5_segment": "f876c42bde636a5e8a562eec39d26d34"
+    }
+   ],
+   "zone_liminaire_fascicule": [
+    0,
+    13
+   ],
+   "zone_queue": [
+    306,
+    306
+   ]
+  },
+  {
+   "piece": "piece-10-arrete-2017-08-30-demande-prix-fournitures.txt",
+   "lignes": 1401,
+   "entetes_acte": [
+    13
+   ],
+   "blocs_donne": [
+    42
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": 1396,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "10",
+     "l_debut": 0,
+     "l_fin_exclue": 1401,
+     "lignes": 1401,
+     "blocs_donne": 1,
+     "blocs_donne_attendus": 1,
+     "tetes_article": 17,
+     "mentionne_annexe": true,
+     "entete_acte_present": true
+    }
+   ]
+  },
+  {
+   "piece": "piece-11-arrete-2017-08-30-procedures-celeres.txt",
+   "lignes": 1367,
+   "entetes_acte": [
+    12
+   ],
+   "blocs_donne": [
+    40
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": 1363,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "11",
+     "l_debut": 0,
+     "l_fin_exclue": 1367,
+     "lignes": 1367,
+     "blocs_donne": 1,
+     "blocs_donne_attendus": 1,
+     "tetes_article": 30,
+     "mentionne_annexe": true,
+     "entete_acte_present": true
+    }
+   ]
+  },
+  {
+   "piece": "piece-12-arrete-2017-08-30-cotations-travaux.txt",
+   "lignes": 1681,
+   "entetes_acte": [],
+   "blocs_donne": [
+    48
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": 1672,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "12",
+     "l_debut": 0,
+     "l_fin_exclue": 1681,
+     "lignes": 1681,
+     "blocs_donne": 1,
+     "blocs_donne_attendus": 1,
+     "tetes_article": 30,
+     "mentionne_annexe": true,
+     "entete_acte_present": false
+    }
+   ]
+  },
+  {
+   "piece": "piece-13-arrete-2017-08-30-allege-travaux.txt",
+   "lignes": 2701,
+   "entetes_acte": [
+    11
+   ],
+   "blocs_donne": [
+    38
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": 2693,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "13",
+     "l_debut": 0,
+     "l_fin_exclue": 2701,
+     "lignes": 2701,
+     "blocs_donne": 1,
+     "blocs_donne_attendus": 1,
+     "tetes_article": 6,
+     "mentionne_annexe": true,
+     "entete_acte_present": true
+    }
+   ]
+  },
+  {
+   "piece": "piece-14-arrete-2017-08-30-allege-fournitures.txt",
+   "lignes": 1974,
+   "entetes_acte": [],
+   "blocs_donne": [
+    63
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": 1966,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "14",
+     "l_debut": 0,
+     "l_fin_exclue": 1974,
+     "lignes": 1974,
+     "blocs_donne": 1,
+     "blocs_donne_attendus": 1,
+     "tetes_article": 24,
+     "mentionne_annexe": true,
+     "entete_acte_present": false
+    }
+   ]
+  },
+  {
+   "piece": "piece-15-arrete-2017-08-30-allege-consultants.txt",
+   "lignes": 1562,
+   "entetes_acte": [
+    18
+   ],
+   "blocs_donne": [
+    46
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": 1553,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "15",
+     "l_debut": 0,
+     "l_fin_exclue": 1562,
+     "lignes": 1562,
+     "blocs_donne": 1,
+     "blocs_donne_attendus": 1,
+     "tetes_article": 22,
+     "mentionne_annexe": true,
+     "entete_acte_present": true
+    }
+   ]
+  },
+  {
+   "piece": "piece-16-arrete-2019-01-09-defense.txt",
+   "lignes": 177,
+   "entetes_acte": [],
+   "blocs_donne": [
+    114
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": 165,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "16",
+     "l_debut": 0,
+     "l_fin_exclue": 177,
+     "lignes": 177,
+     "blocs_donne": 1,
+     "blocs_donne_attendus": 1,
+     "tetes_article": 23,
+     "mentionne_annexe": false,
+     "entete_acte_present": false
+    }
+   ]
+  },
+  {
+   "piece": "piece-17-arrete-2019-12-26-nomination-cnmp.txt",
+   "lignes": 61,
+   "entetes_acte": [],
+   "blocs_donne": [
+    53
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": null,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "17",
+     "l_debut": 0,
+     "l_fin_exclue": 61,
+     "lignes": 61,
+     "blocs_donne": 1,
+     "blocs_donne_attendus": 1,
+     "tetes_article": 4,
+     "mentionne_annexe": false,
+     "entete_acte_present": false
+    }
+   ]
+  },
+  {
+   "piece": "piece-18-arrete-2020-02-12-defense.txt",
+   "lignes": 153,
+   "entetes_acte": [],
+   "blocs_donne": [
+    99
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": 149,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "18",
+     "l_debut": 0,
+     "l_fin_exclue": 153,
+     "lignes": 153,
+     "blocs_donne": 1,
+     "blocs_donne_attendus": 1,
+     "tetes_article": 24,
+     "mentionne_annexe": false,
+     "entete_acte_present": false
+    }
+   ]
+  },
+  {
+   "piece": "piece-19-20-fascicule-sp8-2021-02-04.txt",
+   "lignes": 497,
+   "entetes_acte": [
+    17,
+    97,
+    213,
+    246,
+    280,
+    307,
+    337,
+    366,
+    395
+   ],
+   "blocs_donne": [
+    50,
+    166,
+    236,
+    270,
+    297,
+    327,
+    356,
+    385,
+    414
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": 492,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "19",
+     "titre_lu_du_corps": "Arrêté du 9 décembre 2020 modifiant les Articles 227 et 227.1 de l'Arrêté du 26 octobre 2009 précisant les modalités d'application de la Loi du 10 juin 2009",
+     "l_debut": 17,
+     "l_fin_exclue": 97,
+     "lignes": 80,
+     "blocs_donne": 1,
+     "tetes_article": 3,
+     "mentionne_annexe": false,
+     "fichier": "texte-19-fascicule-sp8-2021-02-04.txt",
+     "md5_segment": "af56021709d17232fd5a3345be8d4ca7"
+    },
+    {
+     "rang": 2,
+     "role": "corpus",
+     "texte_no": "20",
+     "titre_lu_du_corps": "Arrêté du 9 décembre 2020 fixant la composition des Commissions Ministérielles des Marchés Publics (CMMP) et des Commissions Spécialisées des Marchés Publics (CSMP)",
+     "l_debut": 97,
+     "l_fin_exclue": 213,
+     "lignes": 116,
+     "blocs_donne": 1,
+     "tetes_article": 10,
+     "mentionne_annexe": false,
+     "fichier": "texte-20-fascicule-sp8-2021-02-04.txt",
+     "md5_segment": "ed20d70e87cdcdbb64c1a9b7cd1957e3"
+    },
+    {
+     "rang": 3,
+     "role": "hors-corpus",
+     "texte_no": null,
+     "titre_lu_du_corps": "Arrêté nommant le Conseil d'Administration a.i. de la Banque Nationale de Crédit (BNC)",
+     "l_debut": 213,
+     "l_fin_exclue": 246,
+     "lignes": 33,
+     "blocs_donne": 1,
+     "tetes_article": 3,
+     "mentionne_annexe": false
+    },
+    {
+     "rang": 4,
+     "role": "hors-corpus",
+     "texte_no": null,
+     "titre_lu_du_corps": "Arrêté nommant le Conseil d'Administration de la Banque Nationale de Développement Agricole (BNDA)",
+     "l_debut": 246,
+     "l_fin_exclue": 280,
+     "lignes": 34,
+     "blocs_donne": 1,
+     "tetes_article": 3,
+     "mentionne_annexe": false
+    },
+    {
+     "rang": 5,
+     "role": "hors-corpus",
+     "texte_no": null,
+     "titre_lu_du_corps": "Arrêté nommant la citoyenne Judy BAZILE, Directrice Générale du Conseil National d'Assistance Légale (CNAL)",
+     "l_debut": 280,
+     "l_fin_exclue": 307,
+     "lignes": 27,
+     "blocs_donne": 1,
+     "tetes_article": 3,
+     "mentionne_annexe": false
+    },
+    {
+     "rang": 6,
+     "role": "hors-corpus",
+     "texte_no": null,
+     "titre_lu_du_corps": "Arrêté — Commission Municipale de Grand-Bassin (Terrier-Rouge)",
+     "l_debut": 307,
+     "l_fin_exclue": 337,
+     "lignes": 30,
+     "blocs_donne": 1,
+     "tetes_article": 3,
+     "mentionne_annexe": false
+    },
+    {
+     "rang": 7,
+     "role": "hors-corpus",
+     "texte_no": null,
+     "titre_lu_du_corps": "Arrêté — Commission Municipale de Pointe-à-Raquette",
+     "l_debut": 337,
+     "l_fin_exclue": 366,
+     "lignes": 29,
+     "blocs_donne": 1,
+     "tetes_article": 3,
+     "mentionne_annexe": false
+    },
+    {
+     "rang": 8,
+     "role": "hors-corpus",
+     "texte_no": null,
+     "titre_lu_du_corps": "Arrêté — Commission Municipale de St Raphaël",
+     "l_debut": 366,
+     "l_fin_exclue": 395,
+     "lignes": 29,
+     "blocs_donne": 1,
+     "tetes_article": 3,
+     "mentionne_annexe": false
+    },
+    {
+     "rang": 9,
+     "role": "hors-corpus",
+     "texte_no": null,
+     "titre_lu_du_corps": "Arrêté — Commission Municipale de Verrettes",
+     "l_debut": 395,
+     "l_fin_exclue": 424,
+     "lignes": 29,
+     "blocs_donne": 1,
+     "tetes_article": 3,
+     "mentionne_annexe": false
+    }
+   ],
+   "zone_liminaire_fascicule": [
+    0,
+    17
+   ],
+   "zone_queue": [
+    424,
+    497
+   ]
+  },
+  {
+   "piece": "piece-21-22-fascicule-sp52-2021-11-09.txt",
+   "lignes": 259,
+   "entetes_acte": [
+    14,
+    128
+   ],
+   "blocs_donne": [
+    86,
+    202
+   ],
+   "note_transcription_ligne": 253,
+   "colophon_ligne": 243,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "21",
+     "titre_lu_du_corps": "Décret du 21 octobre 2021 établissant l'obligation de présenter des informations permettant d'identifier les Bénéficiaires effectifs des Marchés publics et des Concessions",
+     "l_debut": 14,
+     "l_fin_exclue": 128,
+     "lignes": 114,
+     "blocs_donne": 1,
+     "tetes_article": 29,
+     "mentionne_annexe": false,
+     "fichier": "texte-21-fascicule-sp52-2021-11-09.txt",
+     "md5_segment": "00e98c48947de5d50fba3cd2dfa366a0"
+    },
+    {
+     "rang": 2,
+     "role": "corpus",
+     "texte_no": "22",
+     "titre_lu_du_corps": "Arrêté du 21 octobre 2021 fixant les seuils de passation des marchés publics en dessous des seuils d'intervention de la CNMP",
+     "l_debut": 128,
+     "l_fin_exclue": 243,
+     "lignes": 115,
+     "blocs_donne": 1,
+     "tetes_article": 12,
+     "mentionne_annexe": false,
+     "fichier": "texte-22-fascicule-sp52-2021-11-09.txt",
+     "md5_segment": "b87d626caeee2ef48574e3a4db456083"
+    }
+   ],
+   "zone_liminaire_fascicule": [
+    0,
+    14
+   ],
+   "zone_queue": [
+    243,
+    259
+   ]
+  },
+  {
+   "piece": "piece-23-arrete-2022-06-01-seuils.txt",
+   "lignes": 187,
+   "entetes_acte": [],
+   "blocs_donne": [
+    139
+   ],
+   "note_transcription_ligne": null,
+   "colophon_ligne": 179,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "23",
+     "l_debut": 0,
+     "l_fin_exclue": 187,
+     "lignes": 187,
+     "blocs_donne": 1,
+     "blocs_donne_attendus": 1,
+     "tetes_article": 19,
+     "mentionne_annexe": false,
+     "entete_acte_present": false
+    }
+   ]
+  },
+  {
+   "piece": "piece-24-circulaire-010-2023-12-04.txt",
+   "lignes": 45,
+   "entetes_acte": [],
+   "blocs_donne": [],
+   "note_transcription_ligne": null,
+   "colophon_ligne": null,
+   "segments": [
+    {
+     "rang": 1,
+     "role": "corpus",
+     "texte_no": "24",
+     "l_debut": 0,
+     "l_fin_exclue": 45,
+     "lignes": 45,
+     "blocs_donne": 0,
+     "blocs_donne_attendus": 0,
+     "tetes_article": 0,
+     "mentionne_annexe": true,
+     "entete_acte_present": false
+    }
+   ]
+  }
+ ],
+ "alertes": []
+}

@@ -1,0 +1,473 @@
+{
+ "id": "09",
+ "slug": "arr-charte-ethique-2012",
+ "titre_provisoire": "Arrêté sanctionnant pour sortir son plein et entier effet la Charte d'Éthique applicable aux acteurs des marchés publics et des conventions de concession d'ouvrage de service public",
+ "source": {
+  "fichier": "piece-09-arrete-2012-12-21-charte-ethique.txt",
+  "md5_txt": "3b17a36aa7e3e0d8fc83f1c9e59f3592",
+  "lignes_fichier": 306
+ },
+ "decoupe": {
+  "segments": [
+   [
+    72,
+    305
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     5
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps"
+   },
+   {
+    "plage": [
+     6,
+     12
+    ],
+    "motif": "SOMMAIRE du fascicule : il nomme l'arrêté d'utilité publique de Delmas et deux Résolutions du Conseil des Ministres, non versés (§ 8.3, table de découpe rang 1) ⚠️ DEPUIS LE 28 AOÛT (seconde décision de Me Vaval, « ajouter les titres au début » ; la Charte d'éthique tranchée le même jour au soir : « oui ») : la plage reste hors du corps — puce, actes voisins et rubriques n'y entrent pas — mais l'INTITULÉ DE CET ACTE (l. 9) en est RESTITUÉ au corps par `decoupe.insertions`, qui en déclare l'origine et le motif et le prouve verbatim. Sa CASSE n'est pas touchée : le J.O. compose cette ligne en casse de phrase."
+   },
+   {
+    "plage": [
+     13,
+     13
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif"
+   },
+   {
+    "plage": [
+     14,
+     71
+    ],
+    "motif": "l'ARRÊTÉ déclarant d'utilité publique un terrain de l'Avenue Maïs Gâté (Commune de Delmas), premier acte du n° 3 du 9 janvier 2013, en entier : HORS CORPUS — il n'a rien à voir avec les marchés publics"
+   }
+  ],
+  "note": "hors-corpus retiré : SOMMAIRE du fascicule (l. 6-13, il nomme l'arrêté Delmas et deux Résolutions non versés) et l'ARRÊTÉ d'utilité publique de Delmas en entier (l. 14-70).",
+  "retraits": [],
+  "insertions": [
+   {
+    "ligne_source": 9,
+    "texte_source": "Arrêté sanctionnant pour sortir son plein et entier effet la Charte d’Éthique applicable aux acteurs des marchés publics et des conventions de concession d’ouvrage de service public.",
+    "texte": "Arrêté sanctionnant pour sortir son plein et entier effet la Charte d’Éthique applicable aux acteurs des marchés publics et des conventions de concession d’ouvrage de service public.",
+    "transformation": null,
+    "position": {
+     "avant_ligne_source": 75
+    },
+    "motif": "RESTITUTION DE L'INTITULÉ (décision de Me Vaval du 28 août 2026, « ajouter les titres au début » ; la Charte d'éthique tranchée le même jour au soir : « oui »). Le corps de cet acte n'ouvre PAS sur son objet : le Journal officiel y imprime le mot d'acte (« ARRÊTÉ », l. 74) puis le signataire (l. 75), et l'intitulé nulle part ailleurs qu'au SOMMAIRE du même fascicule. L'intitulé n'est donc pas fabriqué : il est LU mot pour mot à la ligne déclarée de la pièce, dont le md5 est asserté avant toute lecture. Ligne 9 du SOMMAIRE du n° 3 du 9 janvier 2013, qui en annonce quatre actes ; les trois autres (l'arrêté d'utilité publique de Delmas et deux Résolutions du Conseil des Ministres) sont HORS CORPUS et restent dehors. UNE SEULE MENTION LAISSÉE DEHORS — ce n'est PAS un `decoupe.retraits` (ce texte n'en déclare aucun) : la puce de tête « •\\t » (U+2022 puis une TABULATION, non deux espaces comme aux n° 16 et 17). Le reste est repris mot pour mot, point final compris. CASSE : aucune transformation — le J.O. compose CETTE ligne en casse de phrase, et elle est, à l'octet près, le `titleFr` de la fiche suivi de son point final. PLACE : immédiatement après le mot d'acte et AVANT le signataire — comme aux n° 05, 16, 17, 18 et 23. ⚠️ MESURÉ : le sommaire de CETTE pièce, comme ceux des n° 01, 05 et 08, n'imprime PAS de ligne « ARRÊTÉ » seule avant l'objet — l'argument tiré de « l'ordre du sommaire » ne vaut ici que par la place au CORPS."
+   }
+  ]
+ },
+ "jointures_entetes": [
+  {
+   "ligne_source": 160,
+   "lignes_jointes": 3,
+   "libelle": "CHARTE D’ÉTHIQUE — APPLICABLE AUX ACTEURS DES MARCHÉS PUBLICS ET DES CONVENTIONS — DE CONCESSION D’OUVRAGE DE SERVICE PUBLIC"
+  },
+  {
+   "ligne_source": 173,
+   "lignes_jointes": 4,
+   "libelle": "CHAPITRE 1er — CONDUITE À TENIR POUR ASSURER LA TRANSPARENCE DES MARCHÉS PUBLICS ET DES CONVENTIONS DE CONCESSION D’OUVRAGE DE SERVICE PUBLIC"
+  },
+  {
+   "ligne_source": 231,
+   "lignes_jointes": 3,
+   "libelle": "CHAPITRE II — EFFICACITÉ DES PROCÉDURES DE MARCHÉS PUBLICS ET DE CONVENTIONS DE CONCESSION D’OUVRAGE DE SERVICE PUBLIC"
+  },
+  {
+   "ligne_source": 248,
+   "lignes_jointes": 5,
+   "libelle": "CHAPITRE III — CONTRÔLE EFFICIENT ET EFFICACE DE LA PASSATION ET DE L’EXÉCUTION DES MARCHÉS PUBLICS ET DES CONVENTIONS DE CONCESSION D’OUVRAGE DE SERVICE PUBLIC - SANCTIONS"
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "CHARTE D’ÉTHIQUE — APPLICABLE AUX ACTEURS DES MARCHÉS PUBLICS ET DES CONVENTIONS — DE CONCESSION D’OUVRAGE DE SERVICE PUBLIC",
+   "anchor": "sec-1",
+   "kind": "connexe",
+   "ligne_source": 160
+  },
+  {
+   "level": 2,
+   "label": "PRÉAMBULE",
+   "anchor": "sec-2",
+   "kind": "connexe",
+   "ligne_source": 164
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE 1er — CONDUITE À TENIR POUR ASSURER LA TRANSPARENCE DES MARCHÉS PUBLICS ET DES CONVENTIONS DE CONCESSION D’OUVRAGE DE SERVICE PUBLIC",
+   "anchor": "sec-3",
+   "kind": "connexe",
+   "ligne_source": 173
+  },
+  {
+   "level": 3,
+   "label": "Section 1re.- Mise en place de canaux d’information performants",
+   "anchor": "sec-4",
+   "kind": "connexe",
+   "ligne_source": 178
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 1re.- Obligations de l’autorité contractante",
+   "anchor": "sec-5",
+   "kind": "connexe",
+   "ligne_source": 179
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 2.- Obligations du soumissionnaire",
+   "anchor": "sec-6",
+   "kind": "connexe",
+   "ligne_source": 197
+  },
+  {
+   "level": 3,
+   "label": "Section 2.- Bannissement des entraves à la concurrence",
+   "anchor": "sec-7",
+   "kind": "connexe",
+   "ligne_source": 204
+  },
+  {
+   "level": 3,
+   "label": "Section 3.- Développement d’une culture d’intégrité",
+   "anchor": "sec-8",
+   "kind": "connexe",
+   "ligne_source": 216
+  },
+  {
+   "level": 3,
+   "label": "Section 4.- Exercice du droit de recours",
+   "anchor": "sec-9",
+   "kind": "connexe",
+   "ligne_source": 224
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — EFFICACITÉ DES PROCÉDURES DE MARCHÉS PUBLICS ET DE CONVENTIONS DE CONCESSION D’OUVRAGE DE SERVICE PUBLIC",
+   "anchor": "sec-10",
+   "kind": "connexe",
+   "ligne_source": 231
+  },
+  {
+   "level": 3,
+   "label": "Section 1re.- Obligations de l’autorité contractante",
+   "anchor": "sec-11",
+   "kind": "connexe",
+   "ligne_source": 235
+  },
+  {
+   "level": 3,
+   "label": "Section 2.- Obligations de l’entrepreneur, du fournisseur et du prestataire de services",
+   "anchor": "sec-12",
+   "kind": "connexe",
+   "ligne_source": 242
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — CONTRÔLE EFFICIENT ET EFFICACE DE LA PASSATION ET DE L’EXÉCUTION DES MARCHÉS PUBLICS ET DES CONVENTIONS DE CONCESSION D’OUVRAGE DE SERVICE PUBLIC - SANCTIONS",
+   "anchor": "sec-13",
+   "kind": "connexe",
+   "ligne_source": 248
+  },
+  {
+   "level": 3,
+   "label": "Section 1re.- Contrôle exercé par l’autorité contractante",
+   "anchor": "sec-14",
+   "kind": "connexe",
+   "ligne_source": 254
+  },
+  {
+   "level": 3,
+   "label": "Section 2.- Sanctions administratives applicables aux soumissionnaires et titulaires de marchés publics et de conventions de concession d’ouvrage de service public et aux agents de l’autorité contractante",
+   "anchor": "sec-15",
+   "kind": "connexe",
+   "ligne_source": 263
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 1re.- Sanctions administratives applicables aux soumissionnaires et titulaires de marchés publics et de conventions de concession d’ouvrage de service public",
+   "anchor": "sec-16",
+   "kind": "connexe",
+   "ligne_source": 264
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 2.- Sanctions administratives applicables aux agents de l’autorité contractante",
+   "anchor": "sec-17",
+   "kind": "connexe",
+   "ligne_source": 278
+  },
+  {
+   "level": 1,
+   "label": "ANNEXE",
+   "anchor": "sec-18",
+   "kind": "connexe",
+   "ligne_source": 289
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2"
+ },
+ "navToc": [
+  {
+   "label": "CHARTE D’ÉTHIQUE — APPLICABLE AUX ACTEURS DES MARCHÉS PUBLICS ET DES CONVENTIONS — DE CONCESSION D’OUVRAGE DE SERVICE PUBLIC",
+   "anchor": "sec-1",
+   "children": [
+    {
+     "label": "PRÉAMBULE",
+     "anchor": "sec-2"
+    },
+    {
+     "label": "CHAPITRE 1er — CONDUITE À TENIR POUR ASSURER LA TRANSPARENCE DES MARCHÉS PUBLICS ET DES CONVENTIONS DE CONCESSION D’OUVRAGE DE SERVICE PUBLIC",
+     "anchor": "sec-3",
+     "children": [
+      {
+       "label": "Section 1re.- Mise en place de canaux d’information performants",
+       "anchor": "sec-4"
+      },
+      {
+       "label": "Sous-section 1re.- Obligations de l’autorité contractante",
+       "anchor": "sec-5"
+      },
+      {
+       "label": "Sous-section 2.- Obligations du soumissionnaire",
+       "anchor": "sec-6"
+      },
+      {
+       "label": "Section 2.- Bannissement des entraves à la concurrence",
+       "anchor": "sec-7"
+      },
+      {
+       "label": "Section 3.- Développement d’une culture d’intégrité",
+       "anchor": "sec-8"
+      },
+      {
+       "label": "Section 4.- Exercice du droit de recours",
+       "anchor": "sec-9"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE II — EFFICACITÉ DES PROCÉDURES DE MARCHÉS PUBLICS ET DE CONVENTIONS DE CONCESSION D’OUVRAGE DE SERVICE PUBLIC",
+     "anchor": "sec-10",
+     "children": [
+      {
+       "label": "Section 1re.- Obligations de l’autorité contractante",
+       "anchor": "sec-11"
+      },
+      {
+       "label": "Section 2.- Obligations de l’entrepreneur, du fournisseur et du prestataire de services",
+       "anchor": "sec-12"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE III — CONTRÔLE EFFICIENT ET EFFICACE DE LA PASSATION ET DE L’EXÉCUTION DES MARCHÉS PUBLICS ET DES CONVENTIONS DE CONCESSION D’OUVRAGE DE SERVICE PUBLIC - SANCTIONS",
+     "anchor": "sec-13",
+     "children": [
+      {
+       "label": "Section 1re.- Contrôle exercé par l’autorité contractante",
+       "anchor": "sec-14"
+      },
+      {
+       "label": "Section 2.- Sanctions administratives applicables aux soumissionnaires et titulaires de marchés publics et de conventions de concession d’ouvrage de service public et aux agents de l’autorité contractante",
+       "anchor": "sec-15"
+      },
+      {
+       "label": "Sous-section 1re.- Sanctions administratives applicables aux soumissionnaires et titulaires de marchés publics et de conventions de concession d’ouvrage de service public",
+       "anchor": "sec-16"
+      },
+      {
+       "label": "Sous-section 2.- Sanctions administratives applicables aux agents de l’autorité contractante",
+       "anchor": "sec-17"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "ANNEXE",
+   "anchor": "sec-18",
+   "children": []
+  }
+ ],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 224,
+  "toc": 18,
+  "labels": 2,
+  "ancres_emises": 2,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 24,
+  "navToc_groupes": 2
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [
+  {
+   "ligne_corps": 109,
+   "ancre": "art-1",
+   "tete": "Article 1er.-\tL’autorité contractante est tenue de rendre l’information facileme",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 110,
+   "ancre": "art-2",
+   "tete": "Article 2.-\tL’autorité contractante doit veiller à ce que les documents d’appel ",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 111,
+   "ancre": "art-3",
+   "tete": "Article 3.-\tL’autorité contractante doit :",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 127,
+   "ancre": "art-4",
+   "tete": "Article 4.-\tLe soumissionnaire a pour obligations de :",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 134,
+   "ancre": "art-5",
+   "tete": "Article 5.-\tL’autorité contractante doit définir de façon complète et neutre les",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 135,
+   "ancre": "art-5-1",
+   "tete": "Article 5.1.-\tUn besoin est entièrement défini quand il est précisément décrit p",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 136,
+   "ancre": "art-5-2",
+   "tete": "Article 5.2.-\tUn besoin est défini de façon neutre lorsqu’il :",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 139,
+   "ancre": "art-6",
+   "tete": "Article 6.-\tL’autorité contractante est tenue de respecter le principe de concur",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 144,
+   "ancre": "art-7",
+   "tete": "Article 7.-\tLe soumissionnaire ne doit pas empêcher l’accomplissement de la conc",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 146,
+   "ancre": "art-8",
+   "tete": "Article 8.-\tLa personne responsable du marché est tenue de veiller au développem",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 147,
+   "ancre": "art-9",
+   "tete": "Article 9.-\tLes agents relevant de l’État, des collectivités territoriales, des ",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 148,
+   "ancre": "art-10",
+   "tete": "Article 10.-\tLes agents relevant de l’État, des collectivités territoriales, des",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 149,
+   "ancre": "art-11",
+   "tete": "Article 11.-\tLes agents relevant de l’État, des collectivités territoriales, des",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 152,
+   "ancre": "art-12",
+   "tete": "Article 12.-\tLes soumissionnaires ne doivent pas influencer ou tenter d’influenc",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 154,
+   "ancre": "art-13",
+   "tete": "Article 13.-\tL’autorité contractante, le soumissionnaire ou le titulaire de marc",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 163,
+   "ancre": "art-14",
+   "tete": "Article 14.-\tEn vue de parvenir à l’efficacité des procédures des marchés public",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 170,
+   "ancre": "art-15",
+   "tete": "Article 15.-\tL’entrepreneur, le fournisseur et le prestataire de services, titul",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 178,
+   "ancre": "art-16",
+   "tete": "Article 16.-\tEn sus du contrôle exercé par la Commission Nationale des Marchés P",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 188,
+   "ancre": "art-17",
+   "tete": "Article 17.-\tSans préjudice des sanctions civiles et pénales, l’autorité contrac",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 192,
+   "ancre": "art-18",
+   "tete": "Article 18.-\tSans préjudice des sanctions civiles et pénales, l’autorité contrac",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 197,
+   "ancre": "art-19",
+   "tete": "Article 19.-\tSans préjudice des sanctions civiles et pénales, l’autorité contrac",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 200,
+   "ancre": "art-20",
+   "tete": "Article 20.-\tEn complément de l’une ou l’autre des sanctions prévues à l’article",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 202,
+   "ancre": "art-21",
+   "tete": "Article 21.-\tL’autorité contractante doit appliquer à l’encontre des agents publ",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 210,
+   "ancre": "art-22",
+   "tete": "Article 22.-\tEn complément de l’une des sanctions disciplinaires, l’autorité con",
+   "motif": "annexe (kind connexe)"
+  }
+ ],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": null,
+ "md5_corps": "70debc3c29d20468975bfe17770c39e8",
+ "apostrophes": {
+  "droites": 0,
+  "courbes": 312
+ },
+ "exposants_unicode": {}
+}

@@ -1,0 +1,1907 @@
+{
+ "id": "02",
+ "slug": "arr-modalites-2009",
+ "titre_provisoire": "Arrêté précisant les modalités d'application de la Loi fixant les règles générales relatives aux Marchés Publics et aux Conventions de Concession d'Ouvrage de Service Public",
+ "source": {
+  "fichier": "piece-02-arrete-2009-10-26-modalites.txt",
+  "md5_txt": "f8568d17d27d29cd407ef8025d489a3d",
+  "lignes_fichier": 892
+ },
+ "decoupe": {
+  "segments": [
+   [
+    20,
+    891
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     10
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps"
+   },
+   {
+    "plage": [
+     11,
+     13
+    ],
+    "motif": "SOMMAIRE du fascicule"
+   },
+   {
+    "plage": [
+     14,
+     19
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif. La l. 16-17 y imprime l'intitulé de l'arrêté en tête de couverture ; l'acte le RÉIMPRIME à la l. 28, qui reste au corps"
+   }
+  ],
+  "note": null,
+  "retraits": [],
+  "insertions": []
+ },
+ "jointures_entetes": [
+  {
+   "ligne_source": 48,
+   "lignes_jointes": 2,
+   "libelle": "TITRE I — OBJET ET PRINCIPES"
+  },
+  {
+   "ligne_source": 54,
+   "lignes_jointes": 2,
+   "libelle": "TITRE II — PRÉPARATION DES MARCHÉS PUBLICS"
+  },
+  {
+   "ligne_source": 56,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE I — DÉTERMINATION DES BESOINS ET FINANCEMENT"
+  },
+  {
+   "ligne_source": 67,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE II — COORDINATION ET DESCRIPTION DES BESOINS"
+  },
+  {
+   "ligne_source": 80,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE III — DOCUMENTS CONSTITUTIFS, CONTENU ET DURÉE DES MARCHÉS"
+  },
+  {
+   "ligne_source": 115,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE IV — PRIX DES MARCHÉS"
+  },
+  {
+   "ligne_source": 135,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE V — AVENANTS"
+  },
+  {
+   "ligne_source": 151,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE VI — MARCHÉS FRACTIONNÉS"
+  },
+  {
+   "ligne_source": 169,
+   "lignes_jointes": 2,
+   "libelle": "TITRE III — PASSATION DES MARCHÉS PUBLICS"
+  },
+  {
+   "ligne_source": 171,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE I — ORGANES DE LA COMMANDE PUBLIQUE"
+  },
+  {
+   "ligne_source": 237,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE II — CANDIDATS AUX MARCHÉS"
+  },
+  {
+   "ligne_source": 282,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE III — FACILITATION D’ACCÈS DES PETITES ET MOYENNES ENTREPRISES HAÏTIENNES À LA COMMANDE PUBLIQUE"
+  },
+  {
+   "ligne_source": 332,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE IV — RÈGLES GÉNÉRALES APPLICABLES AUX PROCÉDURES DE PASSATION"
+  },
+  {
+   "ligne_source": 375,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE V — APPELS D’OFFRES"
+  },
+  {
+   "ligne_source": 464,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE VI — MARCHÉ DE GRÉ À GRÉ OU PAR ENTENTE DIRECTE"
+  },
+  {
+   "ligne_source": 475,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE VII — PROCÉDURES SPÉCIFIQUES"
+  },
+  {
+   "ligne_source": 518,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE VIII — ACHÈVEMENT DE LA PROCÉDURE DE PASSATION DES MARCHÉS PUBLICS"
+  },
+  {
+   "ligne_source": 542,
+   "lignes_jointes": 2,
+   "libelle": "TITRE IV — CONDITIONS D’EXÉCUTION DES MARCHÉS PUBLICS"
+  },
+  {
+   "ligne_source": 544,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE I — MODALITÉS DE RÈGLEMENT DES MARCHÉS"
+  },
+  {
+   "ligne_source": 602,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE II — DES GARANTIES EXIGÉES DES CANDIDATS ET DES TITULAIRES DE MARCHÉS"
+  },
+  {
+   "ligne_source": 649,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE III — NANTISSEMENT DES MARCHÉS"
+  },
+  {
+   "ligne_source": 670,
+   "lignes_jointes": 2,
+   "libelle": "TITRE V — AJOURNEMENT, RÉSILIATION DES MARCHÉS PUBLICS, SANCTIONS ET PRIMES"
+  },
+  {
+   "ligne_source": 672,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE I — AJOURNEMENT ET RÉSILIATION DES MARCHÉS"
+  },
+  {
+   "ligne_source": 699,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE II — SANCTIONS ET PRIMES"
+  },
+  {
+   "ligne_source": 717,
+   "lignes_jointes": 2,
+   "libelle": "TITRE VI — RÉGULATION ET CONTRÔLE DES MARCHÉS PUBLICS"
+  },
+  {
+   "ligne_source": 722,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE I — CONTRÔLE A PRIORI DE LA PASSATION DES MARCHÉS PUBLICS"
+  },
+  {
+   "ligne_source": 742,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE II — CONTRÔLE INTERNE ET A POSTERIORI"
+  },
+  {
+   "ligne_source": 747,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE III — CONTRÔLE EXTERNE ET A POSTERIORI"
+  },
+  {
+   "ligne_source": 758,
+   "lignes_jointes": 2,
+   "libelle": "TITRE VII — SANCTIONS APPLICABLES POUR NON-RESPECT DE LA RÉGLEMENTATION DES MARCHÉS PUBLICS"
+  },
+  {
+   "ligne_source": 760,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE I — RESPONSABILITÉ DES FONCTIONNAIRES ET AUTRES AGENTS DU SECTEUR PUBLIC"
+  },
+  {
+   "ligne_source": 764,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE II — SANCTIONS DES FAUTES COMMISES PAR LES SOUMISSIONNAIRES OU TITULAIRES DE MARCHÉS PUBLICS"
+  },
+  {
+   "ligne_source": 768,
+   "lignes_jointes": 2,
+   "libelle": "TITRE VIII — COMITÉ DE RÈGLEMENT DES DIFFÉRENDS ET MODALITÉS DE RECOURS"
+  },
+  {
+   "ligne_source": 770,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE I — COMITÉ DE RÈGLEMENT DES DIFFÉRENDS"
+  },
+  {
+   "ligne_source": 813,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE II — MODALITÉS DE RECOURS"
+  },
+  {
+   "ligne_source": 840,
+   "lignes_jointes": 2,
+   "libelle": "TITRE IX — DISPOSITIONS TRANSITOIRES ET FINALES"
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "TITRE I — OBJET ET PRINCIPES",
+   "anchor": "sec-1",
+   "kind": "code",
+   "ligne_source": 48
+  },
+  {
+   "level": 1,
+   "label": "TITRE II — PRÉPARATION DES MARCHÉS PUBLICS",
+   "anchor": "sec-2",
+   "kind": "code",
+   "ligne_source": 54
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE I — DÉTERMINATION DES BESOINS ET FINANCEMENT",
+   "anchor": "sec-3",
+   "kind": "code",
+   "ligne_source": 56
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Détermination des besoins à satisfaire",
+   "anchor": "sec-4",
+   "kind": "code",
+   "ligne_source": 58
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Existence de crédits budgétaires et plan annuel de passation de marchés",
+   "anchor": "sec-5",
+   "kind": "code",
+   "ligne_source": 62
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — COORDINATION ET DESCRIPTION DES BESOINS",
+   "anchor": "sec-6",
+   "kind": "code",
+   "ligne_source": 67
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Coordination et groupement de commandes",
+   "anchor": "sec-7",
+   "kind": "code",
+   "ligne_source": 69
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Description de fournitures, services et travaux",
+   "anchor": "sec-8",
+   "kind": "code",
+   "ligne_source": 74
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — DOCUMENTS CONSTITUTIFS, CONTENU ET DURÉE DES MARCHÉS",
+   "anchor": "sec-9",
+   "kind": "code",
+   "ligne_source": 80
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Pièces constitutives",
+   "anchor": "sec-10",
+   "kind": "code",
+   "ligne_source": 82
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Mentions obligatoires",
+   "anchor": "sec-11",
+   "kind": "code",
+   "ligne_source": 93
+  },
+  {
+   "level": 3,
+   "label": "Section 3 - Durée des marchés",
+   "anchor": "sec-12",
+   "kind": "code",
+   "ligne_source": 112
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE IV — PRIX DES MARCHÉS",
+   "anchor": "sec-13",
+   "kind": "code",
+   "ligne_source": 115
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Contenu et caractère général des prix",
+   "anchor": "sec-14",
+   "kind": "code",
+   "ligne_source": 117
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Modes de détermination du prix",
+   "anchor": "sec-15",
+   "kind": "code",
+   "ligne_source": 121
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 1 - Prix forfaitaire ou unitaire et sur dépenses contrôlées",
+   "anchor": "sec-16",
+   "kind": "code",
+   "ligne_source": 122
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 2 - Prix fermes et prix révisables",
+   "anchor": "sec-17",
+   "kind": "code",
+   "ligne_source": 127
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE V — AVENANTS",
+   "anchor": "sec-18",
+   "kind": "code",
+   "ligne_source": 135
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Formes et conditions des avenants",
+   "anchor": "sec-19",
+   "kind": "code",
+   "ligne_source": 137
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Limites aux avenants",
+   "anchor": "sec-20",
+   "kind": "code",
+   "ligne_source": 146
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE VI — MARCHÉS FRACTIONNÉS",
+   "anchor": "sec-21",
+   "kind": "code",
+   "ligne_source": 151
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Marché à commandes",
+   "anchor": "sec-22",
+   "kind": "code",
+   "ligne_source": 153
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Marché de clientèle",
+   "anchor": "sec-23",
+   "kind": "code",
+   "ligne_source": 157
+  },
+  {
+   "level": 3,
+   "label": "Section 3 - Marché à tranches",
+   "anchor": "sec-24",
+   "kind": "code",
+   "ligne_source": 159
+  },
+  {
+   "level": 3,
+   "label": "Section 4 - Durée des marchés à commandes et de clientèle",
+   "anchor": "sec-25",
+   "kind": "code",
+   "ligne_source": 163
+  },
+  {
+   "level": 3,
+   "label": "Section 5 - Procédures de passation des marchés fractionnés",
+   "anchor": "sec-26",
+   "kind": "code",
+   "ligne_source": 166
+  },
+  {
+   "level": 1,
+   "label": "TITRE III — PASSATION DES MARCHÉS PUBLICS",
+   "anchor": "sec-27",
+   "kind": "code",
+   "ligne_source": 169
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE I — ORGANES DE LA COMMANDE PUBLIQUE",
+   "anchor": "sec-28",
+   "kind": "code",
+   "ligne_source": 171
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Personne responsable du marché",
+   "anchor": "sec-29",
+   "kind": "code",
+   "ligne_source": 173
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Autorités chargées de l’approbation des marchés",
+   "anchor": "sec-30",
+   "kind": "code",
+   "ligne_source": 190
+  },
+  {
+   "level": 3,
+   "label": "Section 3 - Délégation de maîtrise d’ouvrage ou de réalisation de projet",
+   "anchor": "sec-31",
+   "kind": "code",
+   "ligne_source": 198
+  },
+  {
+   "level": 3,
+   "label": "Section 4 - Comités d’ouverture des plis et d’évaluation des offres",
+   "anchor": "sec-32",
+   "kind": "code",
+   "ligne_source": 218
+  },
+  {
+   "level": 3,
+   "label": "Section 5 - Commission Nationale des Marchés Publics",
+   "anchor": "sec-33",
+   "kind": "code",
+   "ligne_source": 234
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — CANDIDATS AUX MARCHÉS",
+   "anchor": "sec-34",
+   "kind": "code",
+   "ligne_source": 237
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Conditions d’accès",
+   "anchor": "sec-35",
+   "kind": "code",
+   "ligne_source": 239
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 1 - Existence juridique et Capacités des candidats",
+   "anchor": "sec-36",
+   "kind": "code",
+   "ligne_source": 240
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 2 - Incompatibilités et Incapacités",
+   "anchor": "sec-37",
+   "kind": "code",
+   "ligne_source": 249
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Renseignements et justifications à fournir",
+   "anchor": "sec-38",
+   "kind": "code",
+   "ligne_source": 271
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — FACILITATION D’ACCÈS DES PETITES ET MOYENNES ENTREPRISES HAÏTIENNES À LA COMMANDE PUBLIQUE",
+   "anchor": "sec-39",
+   "kind": "code",
+   "ligne_source": 282
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Groupements d’entreprises ou co-traitance",
+   "anchor": "sec-40",
+   "kind": "code",
+   "ligne_source": 284
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Sous-traitance",
+   "anchor": "sec-41",
+   "kind": "code",
+   "ligne_source": 294
+  },
+  {
+   "level": 3,
+   "label": "Section 3 - Régimes préférentiels",
+   "anchor": "sec-42",
+   "kind": "code",
+   "ligne_source": 306
+  },
+  {
+   "level": 3,
+   "label": "Section 4 - Allotissement et lots réservés",
+   "anchor": "sec-43",
+   "kind": "code",
+   "ligne_source": 322
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE IV — RÈGLES GÉNÉRALES APPLICABLES AUX PROCÉDURES DE PASSATION",
+   "anchor": "sec-44",
+   "kind": "code",
+   "ligne_source": 332
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Seuils et champs d’application des procédures",
+   "anchor": "sec-45",
+   "kind": "code",
+   "ligne_source": 334
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Règles applicables aux publicités et aux communications",
+   "anchor": "sec-46",
+   "kind": "code",
+   "ligne_source": 342
+  },
+  {
+   "level": 3,
+   "label": "Section 3 - Dossier d’appel d’offres et dossier de pré-qualification",
+   "anchor": "sec-47",
+   "kind": "code",
+   "ligne_source": 351
+  },
+  {
+   "level": 3,
+   "label": "Section 4 - Critères d’évaluation des offres",
+   "anchor": "sec-48",
+   "kind": "code",
+   "ligne_source": 362
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE V — APPELS D’OFFRES",
+   "anchor": "sec-49",
+   "kind": "code",
+   "ligne_source": 375
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Types d’appels d’offres",
+   "anchor": "sec-50",
+   "kind": "code",
+   "ligne_source": 377
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Règles communes aux appels d’offres",
+   "anchor": "sec-51",
+   "kind": "code",
+   "ligne_source": 384
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 1 - Présentation des offres",
+   "anchor": "sec-52",
+   "kind": "code",
+   "ligne_source": 385
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 2 - Délais et modes de présentation des offres et des candidatures",
+   "anchor": "sec-53",
+   "kind": "code",
+   "ligne_source": 389
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 3 - Appels d’offres infructueux et appels d’offres sans suite",
+   "anchor": "sec-54",
+   "kind": "code",
+   "ligne_source": 397
+  },
+  {
+   "level": 3,
+   "label": "Section 3 - Appel d’offres ouvert",
+   "anchor": "sec-55",
+   "kind": "code",
+   "ligne_source": 402
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 1 - Avis d’appel d’offres",
+   "anchor": "sec-56",
+   "kind": "code",
+   "ligne_source": 403
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 2 - Ouverture des plis",
+   "anchor": "sec-57",
+   "kind": "code",
+   "ligne_source": 414
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 3 - Recevabilité, analyse, évaluation et comparaison des offres",
+   "anchor": "sec-58",
+   "kind": "code",
+   "ligne_source": 421
+  },
+  {
+   "level": 3,
+   "label": "Section 4 - Appel d’offres ouvert avec pré-qualification",
+   "anchor": "sec-59",
+   "kind": "code",
+   "ligne_source": 428
+  },
+  {
+   "level": 3,
+   "label": "Section 5 - Appel d’offres ouvert en deux étapes",
+   "anchor": "sec-60",
+   "kind": "code",
+   "ligne_source": 444
+  },
+  {
+   "level": 3,
+   "label": "Section 6 - Appel d’offres restreint",
+   "anchor": "sec-61",
+   "kind": "code",
+   "ligne_source": 452
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE VI — MARCHÉ DE GRÉ À GRÉ OU PAR ENTENTE DIRECTE",
+   "anchor": "sec-62",
+   "kind": "code",
+   "ligne_source": 464
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE VII — PROCÉDURES SPÉCIFIQUES",
+   "anchor": "sec-63",
+   "kind": "code",
+   "ligne_source": 475
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Dispositions spécifiques aux marchés de prestations intellectuelles",
+   "anchor": "sec-64",
+   "kind": "code",
+   "ligne_source": 477
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Consultation de fournisseurs",
+   "anchor": "sec-65",
+   "kind": "code",
+   "ligne_source": 491
+  },
+  {
+   "level": 3,
+   "label": "Section 3 - Dispositions spécifiques aux conventions de concession d’ouvrage de service public",
+   "anchor": "sec-66",
+   "kind": "code",
+   "ligne_source": 501
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE VIII — ACHÈVEMENT DE LA PROCÉDURE DE PASSATION DES MARCHÉS PUBLICS",
+   "anchor": "sec-67",
+   "kind": "code",
+   "ligne_source": 518
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Décision d’attribution et signature du marché",
+   "anchor": "sec-68",
+   "kind": "code",
+   "ligne_source": 520
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Notification du marché validé",
+   "anchor": "sec-69",
+   "kind": "code",
+   "ligne_source": 535
+  },
+  {
+   "level": 3,
+   "label": "Section 3 - Publicité de l’attribution du marché validé",
+   "anchor": "sec-70",
+   "kind": "code",
+   "ligne_source": 539
+  },
+  {
+   "level": 1,
+   "label": "TITRE IV — CONDITIONS D’EXÉCUTION DES MARCHÉS PUBLICS",
+   "anchor": "sec-71",
+   "kind": "code",
+   "ligne_source": 542
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE I — MODALITÉS DE RÈGLEMENT DES MARCHÉS",
+   "anchor": "sec-72",
+   "kind": "code",
+   "ligne_source": 544
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Avances",
+   "anchor": "sec-73",
+   "kind": "code",
+   "ligne_source": 549
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Acomptes",
+   "anchor": "sec-74",
+   "kind": "code",
+   "ligne_source": 562
+  },
+  {
+   "level": 3,
+   "label": "Section 3 - Règlement pour solde",
+   "anchor": "sec-75",
+   "kind": "code",
+   "ligne_source": 571
+  },
+  {
+   "level": 3,
+   "label": "Section 4 - Régime des paiements",
+   "anchor": "sec-76",
+   "kind": "code",
+   "ligne_source": 574
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — DES GARANTIES EXIGÉES DES CANDIDATS ET DES TITULAIRES DE MARCHÉS",
+   "anchor": "sec-77",
+   "kind": "code",
+   "ligne_source": 602
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Garantie de soumission",
+   "anchor": "sec-78",
+   "kind": "code",
+   "ligne_source": 604
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Garantie de bonne exécution et retenue de garantie",
+   "anchor": "sec-79",
+   "kind": "code",
+   "ligne_source": 612
+  },
+  {
+   "level": 3,
+   "label": "Section 3 - Régime des garanties",
+   "anchor": "sec-80",
+   "kind": "code",
+   "ligne_source": 621
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — NANTISSEMENT DES MARCHÉS",
+   "anchor": "sec-81",
+   "kind": "code",
+   "ligne_source": 649
+  },
+  {
+   "level": 1,
+   "label": "TITRE V — AJOURNEMENT, RÉSILIATION DES MARCHÉS PUBLICS, SANCTIONS ET PRIMES",
+   "anchor": "sec-82",
+   "kind": "code",
+   "ligne_source": 670
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE I — AJOURNEMENT ET RÉSILIATION DES MARCHÉS",
+   "anchor": "sec-83",
+   "kind": "code",
+   "ligne_source": 672
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Ajournement des marchés",
+   "anchor": "sec-84",
+   "kind": "code",
+   "ligne_source": 674
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Résiliation des marchés",
+   "anchor": "sec-85",
+   "kind": "code",
+   "ligne_source": 677
+  },
+  {
+   "level": 3,
+   "label": "Section 3 - Conséquences de l’ajournement et de la résiliation",
+   "anchor": "sec-86",
+   "kind": "code",
+   "ligne_source": 694
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — SANCTIONS ET PRIMES",
+   "anchor": "sec-87",
+   "kind": "code",
+   "ligne_source": 699
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Pénalités de retard",
+   "anchor": "sec-88",
+   "kind": "code",
+   "ligne_source": 701
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Substitution d’entreprise",
+   "anchor": "sec-89",
+   "kind": "code",
+   "ligne_source": 708
+  },
+  {
+   "level": 3,
+   "label": "Section 3 - Primes",
+   "anchor": "sec-90",
+   "kind": "code",
+   "ligne_source": 712
+  },
+  {
+   "level": 1,
+   "label": "TITRE VI — RÉGULATION ET CONTRÔLE DES MARCHÉS PUBLICS",
+   "anchor": "sec-91",
+   "kind": "code",
+   "ligne_source": 717
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE I — CONTRÔLE A PRIORI DE LA PASSATION DES MARCHÉS PUBLICS",
+   "anchor": "sec-92",
+   "kind": "code",
+   "ligne_source": 722
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — CONTRÔLE INTERNE ET A POSTERIORI",
+   "anchor": "sec-93",
+   "kind": "code",
+   "ligne_source": 742
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE III — CONTRÔLE EXTERNE ET A POSTERIORI",
+   "anchor": "sec-94",
+   "kind": "code",
+   "ligne_source": 747
+  },
+  {
+   "level": 1,
+   "label": "TITRE VII — SANCTIONS APPLICABLES POUR NON-RESPECT DE LA RÉGLEMENTATION DES MARCHÉS PUBLICS",
+   "anchor": "sec-95",
+   "kind": "code",
+   "ligne_source": 758
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE I — RESPONSABILITÉ DES FONCTIONNAIRES ET AUTRES AGENTS DU SECTEUR PUBLIC",
+   "anchor": "sec-96",
+   "kind": "code",
+   "ligne_source": 760
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — SANCTIONS DES FAUTES COMMISES PAR LES SOUMISSIONNAIRES OU TITULAIRES DE MARCHÉS PUBLICS",
+   "anchor": "sec-97",
+   "kind": "code",
+   "ligne_source": 764
+  },
+  {
+   "level": 1,
+   "label": "TITRE VIII — COMITÉ DE RÈGLEMENT DES DIFFÉRENDS ET MODALITÉS DE RECOURS",
+   "anchor": "sec-98",
+   "kind": "code",
+   "ligne_source": 768
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE I — COMITÉ DE RÈGLEMENT DES DIFFÉRENDS",
+   "anchor": "sec-99",
+   "kind": "code",
+   "ligne_source": 770
+  },
+  {
+   "level": 3,
+   "label": "Section 1 - Nature, Mission, Composition, Désignation du Comité de Règlement des Différends",
+   "anchor": "sec-100",
+   "kind": "code",
+   "ligne_source": 772
+  },
+  {
+   "level": 3,
+   "label": "Section 2 - Attributions du Comité de Règlement des Différends",
+   "anchor": "sec-101",
+   "kind": "code",
+   "ligne_source": 787
+  },
+  {
+   "level": 3,
+   "label": "Section 3 - Des incompatibilités",
+   "anchor": "sec-102",
+   "kind": "code",
+   "ligne_source": 810
+  },
+  {
+   "level": 2,
+   "label": "CHAPITRE II — MODALITÉS DE RECOURS",
+   "anchor": "sec-103",
+   "kind": "code",
+   "ligne_source": 813
+  },
+  {
+   "level": 3,
+   "label": "Section 1 : Recours en matière d’attribution des marchés",
+   "anchor": "sec-104",
+   "kind": "code",
+   "ligne_source": 815
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 1 : Recours gracieux devant la personne responsable du marché",
+   "anchor": "sec-105",
+   "kind": "code",
+   "ligne_source": 816
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 2 : Recours amiable devant le Comité de Règlement des Différends",
+   "anchor": "sec-106",
+   "kind": "code",
+   "ligne_source": 820
+  },
+  {
+   "level": 3,
+   "label": "Section 2 : Recours en matière d’exécution des marchés",
+   "anchor": "sec-107",
+   "kind": "code",
+   "ligne_source": 829
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 2.1 - Règlement amiable",
+   "anchor": "sec-108",
+   "kind": "code",
+   "ligne_source": 830
+  },
+  {
+   "level": 4,
+   "label": "Sous-section 2.2 - Recours contentieux",
+   "anchor": "sec-109",
+   "kind": "code",
+   "ligne_source": 837
+  },
+  {
+   "level": 1,
+   "label": "TITRE IX — DISPOSITIONS TRANSITOIRES ET FINALES",
+   "anchor": "sec-110",
+   "kind": "code",
+   "ligne_source": 840
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1",
+  "art-2": "Article 2",
+  "art-3": "Article 3",
+  "art-4": "Article 4",
+  "art-4-1": "Article 4-1",
+  "art-4-2": "Article 4-2",
+  "art-5": "Article 5",
+  "art-5-1": "Article 5-1",
+  "art-5-2": "Article 5-2",
+  "art-5-3": "Article 5-3",
+  "art-6": "Article 6",
+  "art-7": "Article 7",
+  "art-8": "Article 8",
+  "art-9": "Article 9",
+  "art-9-1": "Article 9-1",
+  "art-10": "Article 10",
+  "art-11": "Article 11",
+  "art-11-1": "Article 11-1",
+  "art-11-2": "Article 11-2",
+  "art-11-3": "Article 11-3",
+  "art-11-4": "Article 11-4",
+  "art-12": "Article 12",
+  "art-13": "Article 13",
+  "art-14": "Article 14",
+  "art-14-1": "Article 14-1",
+  "art-15": "Article 15",
+  "art-15-1": "Article 15-1",
+  "art-16": "Article 16",
+  "art-16-1": "Article 16-1",
+  "art-16-2": "Article 16-2",
+  "art-16-3": "Article 16-3",
+  "art-17": "Article 17",
+  "art-17-1": "Article 17-1",
+  "art-17-2": "Article 17-2",
+  "art-17-3": "Article 17-3",
+  "art-18": "Article 18",
+  "art-18-1": "Article 18-1",
+  "art-19": "Article 19",
+  "art-20": "Article 20",
+  "art-20-1": "Article 20-1",
+  "art-20-2": "Article 20-2",
+  "art-20-3": "Article 20-3",
+  "art-21": "Article 21",
+  "art-21-1": "Article 21-1",
+  "art-22": "Article 22",
+  "art-23": "Article 23",
+  "art-23-1": "Article 23-1",
+  "art-23-2": "Article 23-2",
+  "art-24": "Article 24",
+  "art-25": "Article 25",
+  "art-25-1": "Article 25-1",
+  "art-25-2": "Article 25-2",
+  "art-26": "Article 26",
+  "art-26-1": "Article 26-1",
+  "art-27": "Article 27",
+  "art-28": "Article 28",
+  "art-28-1": "Article 28-1",
+  "art-28-2": "Article 28-2",
+  "art-28-3": "Article 28-3",
+  "art-28-4": "Article 28-4",
+  "art-28-5": "Article 28-5",
+  "art-28-6": "Article 28-6",
+  "art-29": "Article 29",
+  "art-30": "Article 30",
+  "art-30-1": "Article 30-1",
+  "art-31": "Article 31",
+  "art-31-1": "Article 31-1",
+  "art-32": "Article 32",
+  "art-32-1": "Article 32-1",
+  "art-32-2": "Article 32-2",
+  "art-33": "Article 33",
+  "art-34": "Article 34",
+  "art-35": "Article 35",
+  "art-36": "Article 36",
+  "art-36-1": "Article 36-1",
+  "art-37": "Article 37",
+  "art-37-1": "Article 37-1",
+  "art-38": "Article 38",
+  "art-39": "Article 39",
+  "art-40": "Article 40",
+  "art-41": "Article 41",
+  "art-42": "Article 42",
+  "art-43": "Article 43",
+  "art-43-1": "Article 43-1",
+  "art-44": "Article 44",
+  "art-44-1": "Article 44-1",
+  "art-45": "Article 45",
+  "art-46": "Article 46",
+  "art-47": "Article 47",
+  "art-48": "Article 48",
+  "art-49": "Article 49",
+  "art-50": "Article 50",
+  "art-51": "Article 51",
+  "art-51-1": "Article 51-1",
+  "art-51-2": "Article 51-2",
+  "art-51-3": "Article 51-3",
+  "art-51-4": "Article 51-4",
+  "art-52": "Article 52",
+  "art-52-1": "Article 52-1",
+  "art-53": "Article 53",
+  "art-54": "Article 54",
+  "art-55": "Article 55",
+  "art-55-1": "Article 55-1",
+  "art-56": "Article 56",
+  "art-56-1": "Article 56-1",
+  "art-56-2": "Article 56-2",
+  "art-57": "Article 57",
+  "art-58": "Article 58",
+  "art-59": "Article 59",
+  "art-60": "Article 60",
+  "art-61": "Article 61",
+  "art-61-1": "Article 61-1",
+  "art-62": "Article 62",
+  "art-62-1": "Article 62-1",
+  "art-62-2": "Article 62-2",
+  "art-63": "Article 63",
+  "art-63-1": "Article 63-1",
+  "art-63-2": "Article 63-2",
+  "art-64": "Article 64",
+  "art-65": "Article 65",
+  "art-65-1": "Article 65-1",
+  "art-65-2": "Article 65-2",
+  "art-65-3": "Article 65-3",
+  "art-65-4": "Article 65-4",
+  "art-65-5": "Article 65-5",
+  "art-66": "Article 66",
+  "art-66-1": "Article 66-1",
+  "art-67": "Article 67",
+  "art-68": "Article 68",
+  "art-68-1": "Article 68-1",
+  "art-69": "Article 69",
+  "art-70": "Article 70",
+  "art-71": "Article 71",
+  "art-72": "Article 72",
+  "art-72-1": "Article 72-1",
+  "art-73": "Article 73",
+  "art-74": "Article 74",
+  "art-74-1": "Article 74-1",
+  "art-75": "Article 75",
+  "art-75-1": "Article 75-1",
+  "art-76": "Article 76",
+  "art-76-1": "Article 76-1",
+  "art-77": "Article 77",
+  "art-77-1": "Article 77-1",
+  "art-78": "Article 78",
+  "art-78-1": "Article 78-1",
+  "art-79": "Article 79",
+  "art-80": "Article 80",
+  "art-81": "Article 81",
+  "art-82": "Article 82",
+  "art-83": "Article 83",
+  "art-84": "Article 84",
+  "art-85": "Article 85",
+  "art-86": "Article 86",
+  "art-87": "Article 87",
+  "art-87-1": "Article 87-1",
+  "art-88": "Article 88",
+  "art-89": "Article 89",
+  "art-89-1": "Article 89-1",
+  "art-89-2": "Article 89-2",
+  "art-90": "Article 90",
+  "art-90-1": "Article 90-1",
+  "art-90-2": "Article 90-2",
+  "art-91": "Article 91",
+  "art-91-1": "Article 91-1",
+  "art-92": "Article 92",
+  "art-93": "Article 93",
+  "art-93-1": "Article 93-1",
+  "art-93-2": "Article 93-2",
+  "art-94": "Article 94",
+  "art-94-1": "Article 94-1",
+  "art-95": "Article 95",
+  "art-96": "Article 96",
+  "art-96-1": "Article 96-1",
+  "art-96-2": "Article 96-2",
+  "art-96-3": "Article 96-3",
+  "art-97": "Article 97",
+  "art-97-1": "Article 97-1",
+  "art-98": "Article 98",
+  "art-99": "Article 99",
+  "art-100": "Article 100",
+  "art-101": "Article 101",
+  "art-101-1": "Article 101-1",
+  "art-101-2": "Article 101-2",
+  "art-101-3": "Article 101-3",
+  "art-102": "Article 102",
+  "art-103": "Article 103",
+  "art-103-1": "Article 103-1",
+  "art-103-2": "Article 103-2",
+  "art-103-3": "Article 103-3",
+  "art-103-4": "Article 103-4",
+  "art-104": "Article 104",
+  "art-105": "Article 105",
+  "art-105-1": "Article 105-1",
+  "art-105-2": "Article 105-2",
+  "art-106": "Article 106",
+  "art-107": "Article 107",
+  "art-108": "Article 108",
+  "art-109": "Article 109",
+  "art-110": "Article 110",
+  "art-111": "Article 111",
+  "art-112": "Article 112",
+  "art-112-1": "Article 112-1",
+  "art-113": "Article 113",
+  "art-113-1": "Article 113-1",
+  "art-114": "Article 114",
+  "art-115": "Article 115",
+  "art-116": "Article 116",
+  "art-117": "Article 117",
+  "art-118": "Article 118",
+  "art-118-1": "Article 118-1",
+  "art-119": "Article 119",
+  "art-119-1": "Article 119-1",
+  "art-120": "Article 120",
+  "art-120-1": "Article 120-1",
+  "art-121": "Article 121",
+  "art-122": "Article 122",
+  "art-123": "Article 123",
+  "art-124": "Article 124",
+  "art-124-1": "Article 124-1",
+  "art-125": "Article 125",
+  "art-125-1": "Article 125-1",
+  "art-126": "Article 126",
+  "art-126-1": "Article 126-1",
+  "art-126-2": "Article 126-2",
+  "art-127": "Article 127",
+  "art-127-1": "Article 127-1",
+  "art-127-2": "Article 127-2",
+  "art-128": "Article 128",
+  "art-129": "Article 129",
+  "art-129-1": "Article 129-1",
+  "art-129-2": "Article 129-2",
+  "art-130": "Article 130",
+  "art-130-1": "Article 130-1",
+  "art-130-2": "Article 130-2",
+  "art-130-3": "Article 130-3",
+  "art-131": "Article 131",
+  "art-132": "Article 132",
+  "art-132-1": "Article 132-1",
+  "art-132-2": "Article 132-2",
+  "art-133": "Article 133",
+  "art-134": "Article 134",
+  "art-134-1": "Article 134-1",
+  "art-134-2": "Article 134-2",
+  "art-135": "Article 135",
+  "art-136": "Article 136",
+  "art-136-1": "Article 136-1",
+  "art-136-2": "Article 136-2",
+  "art-136-3": "Article 136-3",
+  "art-137": "Article 137",
+  "art-138": "Article 138",
+  "art-139": "Article 139",
+  "art-139-1": "Article 139-1",
+  "art-140": "Article 140",
+  "art-141": "Article 141",
+  "art-142": "Article 142",
+  "art-143": "Article 143",
+  "art-143-1": "Article 143-1",
+  "art-144": "Article 144",
+  "art-144-1": "Article 144-1",
+  "art-145": "Article 145",
+  "art-145-1": "Article 145-1",
+  "art-145-2": "Article 145-2",
+  "art-146": "Article 146",
+  "art-147": "Article 147",
+  "art-148": "Article 148",
+  "art-148-1": "Article 148-1",
+  "art-149": "Article 149",
+  "art-150": "Article 150",
+  "art-151": "Article 151",
+  "art-152": "Article 152",
+  "art-152-1": "Article 152-1",
+  "art-153": "Article 153",
+  "art-154": "Article 154",
+  "art-154-1": "Article 154-1",
+  "art-155": "Article 155",
+  "art-156": "Article 156",
+  "art-157": "Article 157",
+  "art-158": "Article 158",
+  "art-159": "Article 159",
+  "art-160": "Article 160",
+  "art-161": "Article 161",
+  "art-162": "Article 162",
+  "art-163": "Article 163",
+  "art-164": "Article 164",
+  "art-165": "Article 165",
+  "art-166": "Article 166",
+  "art-167": "Article 167",
+  "art-168": "Article 168",
+  "art-169": "Article 169",
+  "art-170": "Article 170",
+  "art-171": "Article 171",
+  "art-172": "Article 172",
+  "art-173": "Article 173",
+  "art-174": "Article 174",
+  "art-175": "Article 175",
+  "art-176": "Article 176",
+  "art-177": "Article 177",
+  "art-178": "Article 178",
+  "art-179": "Article 179",
+  "art-180": "Article 180",
+  "art-181": "Article 181",
+  "art-182": "Article 182",
+  "art-183": "Article 183",
+  "art-184": "Article 184",
+  "art-185": "Article 185",
+  "art-186": "Article 186",
+  "art-187": "Article 187",
+  "art-188": "Article 188",
+  "art-189": "Article 189",
+  "art-190": "Article 190",
+  "art-191": "Article 191",
+  "art-192": "Article 192",
+  "art-192-1": "Article 192-1",
+  "art-193": "Article 193",
+  "art-194": "Article 194",
+  "art-195": "Article 195",
+  "art-196": "Article 196",
+  "art-197": "Article 197",
+  "art-198": "Article 198",
+  "art-199": "Article 199",
+  "art-199-1": "Article 199-1",
+  "art-200": "Article 200",
+  "art-201": "Article 201",
+  "art-202": "Article 202",
+  "art-203": "Article 203",
+  "art-204": "Article 204",
+  "art-205": "Article 205",
+  "art-206": "Article 206",
+  "art-207": "Article 207",
+  "art-208": "Article 208",
+  "art-208-1": "Article 208-1",
+  "art-208-2": "Article 208-2",
+  "art-209": "Article 209",
+  "art-210": "Article 210",
+  "art-211": "Article 211",
+  "art-212": "Article 212",
+  "art-212-1": "Article 212-1",
+  "art-212-2": "Article 212-2",
+  "art-213": "Article 213",
+  "art-214": "Article 214",
+  "art-214-1": "Article 214-1",
+  "art-214-2": "Article 214-2",
+  "art-214-3": "Article 214-3",
+  "art-215": "Article 215",
+  "art-216": "Article 216",
+  "art-217": "Article 217",
+  "art-218": "Article 218",
+  "art-219": "Article 219",
+  "art-220": "Article 220",
+  "art-220-1": "Article 220-1",
+  "art-221": "Article 221",
+  "art-222": "Article 222",
+  "art-223": "Article 223",
+  "art-224": "Article 224",
+  "art-225": "Article 225",
+  "art-226": "Article 226",
+  "art-227": "Article 227",
+  "art-227-1": "Article 227-1",
+  "art-227-2": "Article 227-2",
+  "art-227-3": "Article 227-3",
+  "art-227-4": "Article 227-4",
+  "art-228": "Article 228",
+  "art-228-1": "Article 228-1",
+  "art-229": "Article 229",
+  "art-230": "Article 230",
+  "art-230-1": "Article 230-1",
+  "art-231": "Article 231",
+  "art-231-1": "Article 231-1",
+  "art-231-2": "Article 231-2",
+  "art-232": "Article 232",
+  "art-233": "Article 233",
+  "art-234": "Article 234",
+  "art-235": "Article 235",
+  "art-236": "Article 236",
+  "art-237": "Article 237",
+  "art-237-1": "Article 237-1",
+  "art-237-2": "Article 237-2",
+  "art-238": "Article 238",
+  "art-238-1": "Article 238-1",
+  "art-238-2": "Article 238-2",
+  "art-238-3": "Article 238-3",
+  "art-238-4": "Article 238-4",
+  "art-239": "Article 239",
+  "art-240": "Article 240",
+  "art-241": "Article 241",
+  "art-242": "Article 242"
+ },
+ "navToc": [
+  {
+   "label": "TITRE I — OBJET ET PRINCIPES",
+   "anchor": "sec-1",
+   "children": []
+  },
+  {
+   "label": "TITRE II — PRÉPARATION DES MARCHÉS PUBLICS",
+   "anchor": "sec-2",
+   "children": [
+    {
+     "label": "CHAPITRE I — DÉTERMINATION DES BESOINS ET FINANCEMENT",
+     "anchor": "sec-3",
+     "children": [
+      {
+       "label": "Section 1 - Détermination des besoins à satisfaire",
+       "anchor": "sec-4"
+      },
+      {
+       "label": "Section 2 - Existence de crédits budgétaires et plan annuel de passation de marchés",
+       "anchor": "sec-5"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE II — COORDINATION ET DESCRIPTION DES BESOINS",
+     "anchor": "sec-6",
+     "children": [
+      {
+       "label": "Section 1 - Coordination et groupement de commandes",
+       "anchor": "sec-7"
+      },
+      {
+       "label": "Section 2 - Description de fournitures, services et travaux",
+       "anchor": "sec-8"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE III — DOCUMENTS CONSTITUTIFS, CONTENU ET DURÉE DES MARCHÉS",
+     "anchor": "sec-9",
+     "children": [
+      {
+       "label": "Section 1 - Pièces constitutives",
+       "anchor": "sec-10"
+      },
+      {
+       "label": "Section 2 - Mentions obligatoires",
+       "anchor": "sec-11"
+      },
+      {
+       "label": "Section 3 - Durée des marchés",
+       "anchor": "sec-12"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE IV — PRIX DES MARCHÉS",
+     "anchor": "sec-13",
+     "children": [
+      {
+       "label": "Section 1 - Contenu et caractère général des prix",
+       "anchor": "sec-14"
+      },
+      {
+       "label": "Section 2 - Modes de détermination du prix",
+       "anchor": "sec-15"
+      },
+      {
+       "label": "Sous-section 1 - Prix forfaitaire ou unitaire et sur dépenses contrôlées",
+       "anchor": "sec-16"
+      },
+      {
+       "label": "Sous-section 2 - Prix fermes et prix révisables",
+       "anchor": "sec-17"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE V — AVENANTS",
+     "anchor": "sec-18",
+     "children": [
+      {
+       "label": "Section 1 - Formes et conditions des avenants",
+       "anchor": "sec-19"
+      },
+      {
+       "label": "Section 2 - Limites aux avenants",
+       "anchor": "sec-20"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE VI — MARCHÉS FRACTIONNÉS",
+     "anchor": "sec-21",
+     "children": [
+      {
+       "label": "Section 1 - Marché à commandes",
+       "anchor": "sec-22"
+      },
+      {
+       "label": "Section 2 - Marché de clientèle",
+       "anchor": "sec-23"
+      },
+      {
+       "label": "Section 3 - Marché à tranches",
+       "anchor": "sec-24"
+      },
+      {
+       "label": "Section 4 - Durée des marchés à commandes et de clientèle",
+       "anchor": "sec-25"
+      },
+      {
+       "label": "Section 5 - Procédures de passation des marchés fractionnés",
+       "anchor": "sec-26"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "TITRE III — PASSATION DES MARCHÉS PUBLICS",
+   "anchor": "sec-27",
+   "children": [
+    {
+     "label": "CHAPITRE I — ORGANES DE LA COMMANDE PUBLIQUE",
+     "anchor": "sec-28",
+     "children": [
+      {
+       "label": "Section 1 - Personne responsable du marché",
+       "anchor": "sec-29"
+      },
+      {
+       "label": "Section 2 - Autorités chargées de l’approbation des marchés",
+       "anchor": "sec-30"
+      },
+      {
+       "label": "Section 3 - Délégation de maîtrise d’ouvrage ou de réalisation de projet",
+       "anchor": "sec-31"
+      },
+      {
+       "label": "Section 4 - Comités d’ouverture des plis et d’évaluation des offres",
+       "anchor": "sec-32"
+      },
+      {
+       "label": "Section 5 - Commission Nationale des Marchés Publics",
+       "anchor": "sec-33"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE II — CANDIDATS AUX MARCHÉS",
+     "anchor": "sec-34",
+     "children": [
+      {
+       "label": "Section 1 - Conditions d’accès",
+       "anchor": "sec-35"
+      },
+      {
+       "label": "Sous-section 1 - Existence juridique et Capacités des candidats",
+       "anchor": "sec-36"
+      },
+      {
+       "label": "Sous-section 2 - Incompatibilités et Incapacités",
+       "anchor": "sec-37"
+      },
+      {
+       "label": "Section 2 - Renseignements et justifications à fournir",
+       "anchor": "sec-38"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE III — FACILITATION D’ACCÈS DES PETITES ET MOYENNES ENTREPRISES HAÏTIENNES À LA COMMANDE PUBLIQUE",
+     "anchor": "sec-39",
+     "children": [
+      {
+       "label": "Section 1 - Groupements d’entreprises ou co-traitance",
+       "anchor": "sec-40"
+      },
+      {
+       "label": "Section 2 - Sous-traitance",
+       "anchor": "sec-41"
+      },
+      {
+       "label": "Section 3 - Régimes préférentiels",
+       "anchor": "sec-42"
+      },
+      {
+       "label": "Section 4 - Allotissement et lots réservés",
+       "anchor": "sec-43"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE IV — RÈGLES GÉNÉRALES APPLICABLES AUX PROCÉDURES DE PASSATION",
+     "anchor": "sec-44",
+     "children": [
+      {
+       "label": "Section 1 - Seuils et champs d’application des procédures",
+       "anchor": "sec-45"
+      },
+      {
+       "label": "Section 2 - Règles applicables aux publicités et aux communications",
+       "anchor": "sec-46"
+      },
+      {
+       "label": "Section 3 - Dossier d’appel d’offres et dossier de pré-qualification",
+       "anchor": "sec-47"
+      },
+      {
+       "label": "Section 4 - Critères d’évaluation des offres",
+       "anchor": "sec-48"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE V — APPELS D’OFFRES",
+     "anchor": "sec-49",
+     "children": [
+      {
+       "label": "Section 1 - Types d’appels d’offres",
+       "anchor": "sec-50"
+      },
+      {
+       "label": "Section 2 - Règles communes aux appels d’offres",
+       "anchor": "sec-51"
+      },
+      {
+       "label": "Sous-section 1 - Présentation des offres",
+       "anchor": "sec-52"
+      },
+      {
+       "label": "Sous-section 2 - Délais et modes de présentation des offres et des candidatures",
+       "anchor": "sec-53"
+      },
+      {
+       "label": "Sous-section 3 - Appels d’offres infructueux et appels d’offres sans suite",
+       "anchor": "sec-54"
+      },
+      {
+       "label": "Section 3 - Appel d’offres ouvert",
+       "anchor": "sec-55"
+      },
+      {
+       "label": "Sous-section 1 - Avis d’appel d’offres",
+       "anchor": "sec-56"
+      },
+      {
+       "label": "Sous-section 2 - Ouverture des plis",
+       "anchor": "sec-57"
+      },
+      {
+       "label": "Sous-section 3 - Recevabilité, analyse, évaluation et comparaison des offres",
+       "anchor": "sec-58"
+      },
+      {
+       "label": "Section 4 - Appel d’offres ouvert avec pré-qualification",
+       "anchor": "sec-59"
+      },
+      {
+       "label": "Section 5 - Appel d’offres ouvert en deux étapes",
+       "anchor": "sec-60"
+      },
+      {
+       "label": "Section 6 - Appel d’offres restreint",
+       "anchor": "sec-61"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE VI — MARCHÉ DE GRÉ À GRÉ OU PAR ENTENTE DIRECTE",
+     "anchor": "sec-62"
+    },
+    {
+     "label": "CHAPITRE VII — PROCÉDURES SPÉCIFIQUES",
+     "anchor": "sec-63",
+     "children": [
+      {
+       "label": "Section 1 - Dispositions spécifiques aux marchés de prestations intellectuelles",
+       "anchor": "sec-64"
+      },
+      {
+       "label": "Section 2 - Consultation de fournisseurs",
+       "anchor": "sec-65"
+      },
+      {
+       "label": "Section 3 - Dispositions spécifiques aux conventions de concession d’ouvrage de service public",
+       "anchor": "sec-66"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE VIII — ACHÈVEMENT DE LA PROCÉDURE DE PASSATION DES MARCHÉS PUBLICS",
+     "anchor": "sec-67",
+     "children": [
+      {
+       "label": "Section 1 - Décision d’attribution et signature du marché",
+       "anchor": "sec-68"
+      },
+      {
+       "label": "Section 2 - Notification du marché validé",
+       "anchor": "sec-69"
+      },
+      {
+       "label": "Section 3 - Publicité de l’attribution du marché validé",
+       "anchor": "sec-70"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "TITRE IV — CONDITIONS D’EXÉCUTION DES MARCHÉS PUBLICS",
+   "anchor": "sec-71",
+   "children": [
+    {
+     "label": "CHAPITRE I — MODALITÉS DE RÈGLEMENT DES MARCHÉS",
+     "anchor": "sec-72",
+     "children": [
+      {
+       "label": "Section 1 - Avances",
+       "anchor": "sec-73"
+      },
+      {
+       "label": "Section 2 - Acomptes",
+       "anchor": "sec-74"
+      },
+      {
+       "label": "Section 3 - Règlement pour solde",
+       "anchor": "sec-75"
+      },
+      {
+       "label": "Section 4 - Régime des paiements",
+       "anchor": "sec-76"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE II — DES GARANTIES EXIGÉES DES CANDIDATS ET DES TITULAIRES DE MARCHÉS",
+     "anchor": "sec-77",
+     "children": [
+      {
+       "label": "Section 1 - Garantie de soumission",
+       "anchor": "sec-78"
+      },
+      {
+       "label": "Section 2 - Garantie de bonne exécution et retenue de garantie",
+       "anchor": "sec-79"
+      },
+      {
+       "label": "Section 3 - Régime des garanties",
+       "anchor": "sec-80"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE III — NANTISSEMENT DES MARCHÉS",
+     "anchor": "sec-81"
+    }
+   ]
+  },
+  {
+   "label": "TITRE V — AJOURNEMENT, RÉSILIATION DES MARCHÉS PUBLICS, SANCTIONS ET PRIMES",
+   "anchor": "sec-82",
+   "children": [
+    {
+     "label": "CHAPITRE I — AJOURNEMENT ET RÉSILIATION DES MARCHÉS",
+     "anchor": "sec-83",
+     "children": [
+      {
+       "label": "Section 1 - Ajournement des marchés",
+       "anchor": "sec-84"
+      },
+      {
+       "label": "Section 2 - Résiliation des marchés",
+       "anchor": "sec-85"
+      },
+      {
+       "label": "Section 3 - Conséquences de l’ajournement et de la résiliation",
+       "anchor": "sec-86"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE II — SANCTIONS ET PRIMES",
+     "anchor": "sec-87",
+     "children": [
+      {
+       "label": "Section 1 - Pénalités de retard",
+       "anchor": "sec-88"
+      },
+      {
+       "label": "Section 2 - Substitution d’entreprise",
+       "anchor": "sec-89"
+      },
+      {
+       "label": "Section 3 - Primes",
+       "anchor": "sec-90"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "TITRE VI — RÉGULATION ET CONTRÔLE DES MARCHÉS PUBLICS",
+   "anchor": "sec-91",
+   "children": [
+    {
+     "label": "CHAPITRE I — CONTRÔLE A PRIORI DE LA PASSATION DES MARCHÉS PUBLICS",
+     "anchor": "sec-92"
+    },
+    {
+     "label": "CHAPITRE II — CONTRÔLE INTERNE ET A POSTERIORI",
+     "anchor": "sec-93"
+    },
+    {
+     "label": "CHAPITRE III — CONTRÔLE EXTERNE ET A POSTERIORI",
+     "anchor": "sec-94"
+    }
+   ]
+  },
+  {
+   "label": "TITRE VII — SANCTIONS APPLICABLES POUR NON-RESPECT DE LA RÉGLEMENTATION DES MARCHÉS PUBLICS",
+   "anchor": "sec-95",
+   "children": [
+    {
+     "label": "CHAPITRE I — RESPONSABILITÉ DES FONCTIONNAIRES ET AUTRES AGENTS DU SECTEUR PUBLIC",
+     "anchor": "sec-96"
+    },
+    {
+     "label": "CHAPITRE II — SANCTIONS DES FAUTES COMMISES PAR LES SOUMISSIONNAIRES OU TITULAIRES DE MARCHÉS PUBLICS",
+     "anchor": "sec-97"
+    }
+   ]
+  },
+  {
+   "label": "TITRE VIII — COMITÉ DE RÈGLEMENT DES DIFFÉRENDS ET MODALITÉS DE RECOURS",
+   "anchor": "sec-98",
+   "children": [
+    {
+     "label": "CHAPITRE I — COMITÉ DE RÈGLEMENT DES DIFFÉRENDS",
+     "anchor": "sec-99",
+     "children": [
+      {
+       "label": "Section 1 - Nature, Mission, Composition, Désignation du Comité de Règlement des Différends",
+       "anchor": "sec-100"
+      },
+      {
+       "label": "Section 2 - Attributions du Comité de Règlement des Différends",
+       "anchor": "sec-101"
+      },
+      {
+       "label": "Section 3 - Des incompatibilités",
+       "anchor": "sec-102"
+      }
+     ]
+    },
+    {
+     "label": "CHAPITRE II — MODALITÉS DE RECOURS",
+     "anchor": "sec-103",
+     "children": [
+      {
+       "label": "Section 1 : Recours en matière d’attribution des marchés",
+       "anchor": "sec-104"
+      },
+      {
+       "label": "Sous-section 1 : Recours gracieux devant la personne responsable du marché",
+       "anchor": "sec-105"
+      },
+      {
+       "label": "Sous-section 2 : Recours amiable devant le Comité de Règlement des Différends",
+       "anchor": "sec-106"
+      },
+      {
+       "label": "Section 2 : Recours en matière d’exécution des marchés",
+       "anchor": "sec-107"
+      },
+      {
+       "label": "Sous-section 2.1 - Règlement amiable",
+       "anchor": "sec-108"
+      },
+      {
+       "label": "Sous-section 2.2 - Recours contentieux",
+       "anchor": "sec-109"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "TITRE IX — DISPOSITIONS TRANSITOIRES ET FINALES",
+   "anchor": "sec-110",
+   "children": []
+  }
+ ],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 837,
+  "toc": 110,
+  "labels": 387,
+  "ancres_emises": 387,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 0,
+  "navToc_groupes": 9
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": null,
+ "md5_corps": "506feb61a4e3a83a5b4030d8dcbbece5",
+ "apostrophes": {
+  "droites": 0,
+  "courbes": 1459
+ },
+ "exposants_unicode": {}
+}

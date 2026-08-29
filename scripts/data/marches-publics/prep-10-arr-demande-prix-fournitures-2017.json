@@ -1,0 +1,239 @@
+{
+ "id": "10",
+ "slug": "arr-demande-prix-fournitures-2017",
+ "titre_provisoire": "Arrêté sanctionnant pour sortir leur plein et entier effet le Manuel de procédures de demande de prix pour acquisition de fournitures et le Dossier de demande de prix pour acquisition de fournitures",
+ "source": {
+  "fichier": "piece-10-arrete-2017-08-30-demande-prix-fournitures.txt",
+  "md5_txt": "b623623562df03f392280d0e7d19a9b7",
+  "lignes_fichier": 1401
+ },
+ "decoupe": {
+  "segments": [
+   [
+    14,
+    1396
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     6
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps"
+   },
+   {
+    "plage": [
+     7,
+     12
+    ],
+    "motif": "SOMMAIRE du fascicule"
+   },
+   {
+    "plage": [
+     13,
+     13
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif"
+   },
+   {
+    "plage": [
+     1397,
+     1401
+    ],
+    "motif": "colophon des Presses Nationales d'Haïti (achevé d'imprimer, ISSN, dépôt légal, adresse, téléphones, tirage) : appareil de fascicule, jamais du dispositif — table-decoupe.md, § « Les zones d'appareil d'éditeur, à écarter du corps au § 8.4 »"
+   }
+  ],
+  "note": "Colophon retiré du corps (l. 1397-1400) : appareil de fascicule (§ 8.4).",
+  "retraits": [
+   {
+    "ligne_source": 163,
+    "motif": "[Note de transcription] de l'éditeur",
+    "texte": "[Note de transcription : le passage « pour créer une contrainte limitant inutilement la compétition » est reproduit tel quel de la source ; le sens attendu serait vraisemblablement « pour ne pas créer une contrainte limitant inutilement la compétition ». Anomalie de la source préservée.]"
+   },
+   {
+    "ligne_source": 257,
+    "motif": "[Note de transcription] de l'éditeur",
+    "texte": "[Note de transcription : « un délai du deux jours » : tournure reproduite telle quelle de la source (lire vraisemblablement « un délai de deux jours »).]"
+   },
+   {
+    "ligne_source": 322,
+    "motif": "[Note de transcription] de l'éditeur",
+    "texte": "[Note de transcription : les deux tableaux originaux comportent, à droite, un diagramme de type Gantt (colonnes des jours 1 à 24, puis 1 à 32) avec cases ombrées. Seules les colonnes « Calendrier » et « Durée (jours) » sont reconstituées ci-dessous ; la trame graphique du calendrier n'est pas reproductible fidèlement en tableau textuel.]"
+   },
+   {
+    "ligne_source": 1276,
+    "motif": "[Note de transcription] de l'éditeur",
+    "texte": "[Note de transcription : la dernière phrase de l'Article 11 est reproduite telle quelle de la source ; un verbe y manque manifestement (lire vraisemblablement « ne doivent en aucun cas dépasser trente (30) pour cent »). Anomalie de la source préservée.]"
+   }
+  ],
+  "insertions": []
+ },
+ "jointures_entetes": [
+  {
+   "ligne_source": 88,
+   "lignes_jointes": 8,
+   "libelle": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MANUEL DE PROCÉDURES — DE DEMANDE DE PRIX POUR — ACQUISITION DE FOURNITURES"
+  },
+  {
+   "ligne_source": 887,
+   "lignes_jointes": 4,
+   "libelle": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — DOSSIER DE DEMANDE DE PRIX — POUR ACQUISITION DE FOURNITURES"
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MANUEL DE PROCÉDURES — DE DEMANDE DE PRIX POUR — ACQUISITION DE FOURNITURES",
+   "anchor": "sec-1",
+   "kind": "connexe",
+   "ligne_source": 88
+  },
+  {
+   "level": 1,
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — DOSSIER DE DEMANDE DE PRIX — POUR ACQUISITION DE FOURNITURES",
+   "anchor": "sec-2",
+   "kind": "connexe",
+   "ligne_source": 887
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2"
+ },
+ "navToc": [
+  {
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MANUEL DE PROCÉDURES — DE DEMANDE DE PRIX POUR — ACQUISITION DE FOURNITURES",
+   "anchor": "sec-1",
+   "children": []
+  },
+  {
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — DOSSIER DE DEMANDE DE PRIX — POUR ACQUISITION DE FOURNITURES",
+   "anchor": "sec-2",
+   "children": []
+  }
+ ],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 1369,
+  "toc": 2,
+  "labels": 2,
+  "ancres_emises": 2,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 15,
+  "navToc_groupes": 2
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [
+  {
+   "ligne_corps": 1218,
+   "ancre": "art-1",
+   "tete": "Article 1 : Objet du contrat",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1223,
+   "ancre": "art-2",
+   "tete": "Article 2 : Type de contrat",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1226,
+   "ancre": "art-3",
+   "tete": "Article 3 : Montant du contrat",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1231,
+   "ancre": "art-4",
+   "tete": "Article 4 : Délai de livraison",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1234,
+   "ancre": "art-5",
+   "tete": "Article 5 : Documents contractuels",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1240,
+   "ancre": "art-6",
+   "tete": "Article 6 : Garantie",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1246,
+   "ancre": "art-7",
+   "tete": "Article 7 : Retard de livraison",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1249,
+   "ancre": "art-8",
+   "tete": "Article 8 : Pénalités",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1251,
+   "ancre": "art-9",
+   "tete": "Article 9 : Réception des fournitures",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1254,
+   "ancre": "art-10",
+   "tete": "Article 10 : Modalités de paiement",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1261,
+   "ancre": "art-11",
+   "tete": "Article 11 : Modification des quantités",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1263,
+   "ancre": "art-12",
+   "tete": "Article 12 : Force Majeure",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1265,
+   "ancre": "art-13",
+   "tete": "Article 13 : Durée de validité du Contrat",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1267,
+   "ancre": "art-14",
+   "tete": "Article 14 : Litiges",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1269,
+   "ancre": "art-15",
+   "tete": "Article 15 : Avis et Requêtes",
+   "motif": "annexe (kind connexe)"
+  }
+ ],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": null,
+ "md5_corps": "5007943efff7b750daedaf3533121139",
+ "apostrophes": {
+  "droites": 492,
+  "courbes": 0
+ },
+ "exposants_unicode": {},
+ "reserves": {
+  "intitule_non_restitue": "l'intitulé n'a PAS été restitué au corps : le sommaire du fascicule ne l'imprime pas sur une ligne, mais en LISTE — une ligne d'annonce (« ARRÊTÉ SANCTIONNANT POUR SORTIR LEUR PLEIN ET ENTIER EFFET : ») suivie d'items tirés, un par pièce sanctionnée. Le restituer supposerait de RECOLLER plusieurs lignes, c'est-à-dire de composer un intitulé — ce que la règle interdit (il se restitue mot pour mot, il ne se compose pas). L'objet de l'acte se lit à son dispositif, article 1er."
+ }
+}

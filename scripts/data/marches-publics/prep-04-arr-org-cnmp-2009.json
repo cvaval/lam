@@ -1,0 +1,436 @@
+{
+ "id": "04",
+ "slug": "arr-org-cnmp-2009",
+ "titre_provisoire": "Arrêté déterminant les modalités d'organisation et de fonctionnement de la Commission Nationale des Marchés Publics (CNMP)",
+ "source": {
+  "fichier": "piece-04-arrete-2009-10-26-organisation-cnmp.txt",
+  "md5_txt": "36e11a7afd0742c6c718684912709404",
+  "lignes_fichier": 365
+ },
+ "decoupe": {
+  "segments": [
+   [
+    30,
+    361
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     6
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps"
+   },
+   {
+    "plage": [
+     7,
+     8
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif"
+   },
+   {
+    "plage": [
+     9,
+     15
+    ],
+    "motif": "SOMMAIRE du fascicule : il annonce les TROIS arrêtés du Spécial n° 10, dont deux ne sont pas celui-ci (ils sont versés aux documents n° 02 et n° 03)"
+   },
+   {
+    "plage": [
+     16,
+     21
+    ],
+    "motif": "note de l'éditeur de la transcription (« Le présent document reproduit le troisième Arrêté du Numéro Spécial No. 10. ») : appareil, § 11.11 — elle reste par ailleurs déclarée au retrait l. 16"
+   },
+   {
+    "plage": [
+     22,
+     29
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif. La l. 22-27 y imprime l'intitulé de l'arrêté ; l'acte le RÉIMPRIME à la l. 36-39, qui reste au corps"
+   },
+   {
+    "plage": [
+     362,
+     365
+    ],
+    "motif": "colophon des Presses Nationales d'Haïti (adresse rue Hammerton Killick, boîte postale, dépôt légal, ISSN) : appareil de fascicule, jamais du dispositif (§ 8.4). Ce colophon-ci n'ouvre PAS sur « Achevé d'imprimer » — c'est pourquoi le motif RE_COLO de outils/decouper.py ne l'avait pas relevé dans table-decoupe.md. La mention d'éditeur « [lecture incertaine sur l'original] », enchâssée dans l'adresse, part avec lui (D2)"
+   }
+  ],
+  "note": "Colophon des Presses Nationales retiré du corps (l. 362-364) : appareil de fascicule (§ 8.4) ; la mention d'éditeur « [lecture incertaine sur l'original] » qu'il portait part avec lui.",
+  "retraits": [
+   {
+    "ligne_source": 16,
+    "motif": "note de l'éditeur : « Le présent document reproduit le troisième Arrêté du Numéro Spécial No. 10. »",
+    "texte": "Le présent document reproduit le troisième Arrêté du Numéro Spécial No. 10."
+   },
+   {
+    "ligne_source": 361,
+    "motif": "note de l'éditeur sur les signatures « pr. » (mention N.B. absente du J.O.)",
+    "texte": "N.B. — Les signatures précédées de la mention « pr. » (pour) ont été apposées par délégation ; le nom du signataire effectif figure en seconde ligne, conformément au document source."
+   }
+  ],
+  "insertions": []
+ },
+ "jointures_entetes": [
+  {
+   "ligne_source": 52,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE I — DISPOSITIONS GÉNÉRALES"
+  },
+  {
+   "ligne_source": 57,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE II — MISSION ET ATTRIBUTIONS DE LA COMMISSION NATIONALE DES MARCHÉS PUBLICS"
+  },
+  {
+   "ligne_source": 78,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE III — MEMBRES DE LA COMMISSION NATIONALE DES MARCHÉS PUBLICS"
+  },
+  {
+   "ligne_source": 157,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE IV — STRUCTURES TECHNIQUES ET ADMINISTRATIVES DE LA COMMISSION NATIONALE DES MARCHÉS PUBLICS"
+  },
+  {
+   "ligne_source": 227,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE V — COMMISSIONS DÉPARTEMENTALES DES MARCHÉS PUBLICS"
+  },
+  {
+   "ligne_source": 292,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE VI — DISPOSITIONS FINALES"
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "CHAPITRE I — DISPOSITIONS GÉNÉRALES",
+   "anchor": "sec-1",
+   "kind": "code",
+   "ligne_source": 52
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE II — MISSION ET ATTRIBUTIONS DE LA COMMISSION NATIONALE DES MARCHÉS PUBLICS",
+   "anchor": "sec-2",
+   "kind": "code",
+   "ligne_source": 57
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE III — MEMBRES DE LA COMMISSION NATIONALE DES MARCHÉS PUBLICS",
+   "anchor": "sec-3",
+   "kind": "code",
+   "ligne_source": 78
+  },
+  {
+   "level": 2,
+   "label": "Section 1 - Mode de sélection, Nomination et Mandat des membres",
+   "anchor": "sec-4",
+   "kind": "code",
+   "ligne_source": 80
+  },
+  {
+   "level": 2,
+   "label": "Section 2 - Attributions des membres de la Commission Nationale des Marchés Publics",
+   "anchor": "sec-5",
+   "kind": "code",
+   "ligne_source": 94
+  },
+  {
+   "level": 2,
+   "label": "Section 3 - Attributions du Coordonnateur de la Commission Nationale des Marchés Publics",
+   "anchor": "sec-6",
+   "kind": "code",
+   "ligne_source": 120
+  },
+  {
+   "level": 2,
+   "label": "Section 4 - Droits et Obligations des membres de la Commission Nationale des Marchés Publics",
+   "anchor": "sec-7",
+   "kind": "code",
+   "ligne_source": 136
+  },
+  {
+   "level": 2,
+   "label": "Section 5 - Incompatibilités",
+   "anchor": "sec-8",
+   "kind": "code",
+   "ligne_source": 150
+  },
+  {
+   "level": 2,
+   "label": "Section 6 - Évaluation",
+   "anchor": "sec-9",
+   "kind": "code",
+   "ligne_source": 153
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE IV — STRUCTURES TECHNIQUES ET ADMINISTRATIVES DE LA COMMISSION NATIONALE DES MARCHÉS PUBLICS",
+   "anchor": "sec-10",
+   "kind": "code",
+   "ligne_source": 157
+  },
+  {
+   "level": 2,
+   "label": "Section 1 - Secrétariat Technique",
+   "anchor": "sec-11",
+   "kind": "code",
+   "ligne_source": 159
+  },
+  {
+   "level": 2,
+   "label": "Section 2 - Direction Administrative et Financière",
+   "anchor": "sec-12",
+   "kind": "code",
+   "ligne_source": 186
+  },
+  {
+   "level": 2,
+   "label": "Section 3. Direction de Coordination des Commissions Départementales des Marchés Publics",
+   "anchor": "sec-13",
+   "kind": "code",
+   "ligne_source": 201
+  },
+  {
+   "level": 2,
+   "label": "Section 4 - Ressources humaines et financières",
+   "anchor": "sec-14",
+   "kind": "code",
+   "ligne_source": 218
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE V — COMMISSIONS DÉPARTEMENTALES DES MARCHÉS PUBLICS",
+   "anchor": "sec-15",
+   "kind": "code",
+   "ligne_source": 227
+  },
+  {
+   "level": 2,
+   "label": "Section 1 - Nature et Composition des Commissions Départementales des Marchés Publics",
+   "anchor": "sec-16",
+   "kind": "code",
+   "ligne_source": 229
+  },
+  {
+   "level": 2,
+   "label": "Section 2 - Mode de recrutement, Nomination et Prestation de serment des Commissions Départementales des Marchés Publics",
+   "anchor": "sec-17",
+   "kind": "code",
+   "ligne_source": 234
+  },
+  {
+   "level": 2,
+   "label": "Section 3 - Attributions des Commissions Départementales des Marchés Publics et de leurs membres",
+   "anchor": "sec-18",
+   "kind": "code",
+   "ligne_source": 244
+  },
+  {
+   "level": 2,
+   "label": "Section 4 - Droits et Obligations des membres et du personnel des Commissions Départementales des Marchés Publics",
+   "anchor": "sec-19",
+   "kind": "code",
+   "ligne_source": 288
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE VI — DISPOSITIONS FINALES",
+   "anchor": "sec-20",
+   "kind": "code",
+   "ligne_source": 292
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2",
+  "art-3": "Article 3",
+  "art-4": "Article 4",
+  "art-5": "Article 5",
+  "art-6": "Article 6",
+  "art-6-1": "Article 6-1",
+  "art-7": "Article 7",
+  "art-7-1": "Article 7-1",
+  "art-8": "Article 8",
+  "art-9": "Article 9",
+  "art-10": "Article 10",
+  "art-11": "Article 11",
+  "art-12": "Article 12",
+  "art-13": "Article 13",
+  "art-13-1": "Article 13-1",
+  "art-14": "Article 14",
+  "art-15": "Article 15",
+  "art-15-1": "Article 15.1",
+  "art-16": "Article 16",
+  "art-17": "Article 17",
+  "art-18": "Article 18",
+  "art-19": "Article 19",
+  "art-20": "Article 20",
+  "art-21": "Article 21",
+  "art-22": "Article 22",
+  "art-23": "Article 23",
+  "art-24": "Article 24",
+  "art-25": "Article 25",
+  "art-25-1": "Article 25-1",
+  "art-26": "Article 26",
+  "art-27": "Article 27",
+  "art-28": "Article 28",
+  "art-29": "Article 29",
+  "art-30": "Articles 30",
+  "art-31": "Article 31",
+  "art-32": "Article 32",
+  "art-32-1": "Article 32-1",
+  "art-33": "Article 33",
+  "art-33-1": "Article 33-1",
+  "art-33-2": "Article 33-2",
+  "art-33-3": "Article 33-3",
+  "art-34": "Article 34",
+  "art-35": "Article 35",
+  "art-36": "Article 36",
+  "art-37": "Article 37",
+  "art-38": "Article 38",
+  "art-39": "Article 39",
+  "art-40": "Article 40",
+  "art-40-1": "Article 40-1",
+  "art-40-2": "Article 40-2",
+  "art-41": "Article 41",
+  "art-42": "Article 42",
+  "art-42-1": "Article 42-1",
+  "art-43": "Article 43",
+  "art-44": "Article 44",
+  "art-45": "Article 45",
+  "art-46": "Article 46",
+  "art-47": "Article 47",
+  "art-48": "Article 48",
+  "art-49": "Article 49",
+  "art-50": "Article 50",
+  "art-51": "Article 51",
+  "art-52": "Article 52"
+ },
+ "navToc": [
+  {
+   "label": "CHAPITRE I — DISPOSITIONS GÉNÉRALES",
+   "anchor": "sec-1",
+   "children": []
+  },
+  {
+   "label": "CHAPITRE II — MISSION ET ATTRIBUTIONS DE LA COMMISSION NATIONALE DES MARCHÉS PUBLICS",
+   "anchor": "sec-2",
+   "children": []
+  },
+  {
+   "label": "CHAPITRE III — MEMBRES DE LA COMMISSION NATIONALE DES MARCHÉS PUBLICS",
+   "anchor": "sec-3",
+   "children": [
+    {
+     "label": "Section 1 - Mode de sélection, Nomination et Mandat des membres",
+     "anchor": "sec-4"
+    },
+    {
+     "label": "Section 2 - Attributions des membres de la Commission Nationale des Marchés Publics",
+     "anchor": "sec-5"
+    },
+    {
+     "label": "Section 3 - Attributions du Coordonnateur de la Commission Nationale des Marchés Publics",
+     "anchor": "sec-6"
+    },
+    {
+     "label": "Section 4 - Droits et Obligations des membres de la Commission Nationale des Marchés Publics",
+     "anchor": "sec-7"
+    },
+    {
+     "label": "Section 5 - Incompatibilités",
+     "anchor": "sec-8"
+    },
+    {
+     "label": "Section 6 - Évaluation",
+     "anchor": "sec-9"
+    }
+   ]
+  },
+  {
+   "label": "CHAPITRE IV — STRUCTURES TECHNIQUES ET ADMINISTRATIVES DE LA COMMISSION NATIONALE DES MARCHÉS PUBLICS",
+   "anchor": "sec-10",
+   "children": [
+    {
+     "label": "Section 1 - Secrétariat Technique",
+     "anchor": "sec-11"
+    },
+    {
+     "label": "Section 2 - Direction Administrative et Financière",
+     "anchor": "sec-12"
+    },
+    {
+     "label": "Section 3. Direction de Coordination des Commissions Départementales des Marchés Publics",
+     "anchor": "sec-13"
+    },
+    {
+     "label": "Section 4 - Ressources humaines et financières",
+     "anchor": "sec-14"
+    }
+   ]
+  },
+  {
+   "label": "CHAPITRE V — COMMISSIONS DÉPARTEMENTALES DES MARCHÉS PUBLICS",
+   "anchor": "sec-15",
+   "children": [
+    {
+     "label": "Section 1 - Nature et Composition des Commissions Départementales des Marchés Publics",
+     "anchor": "sec-16"
+    },
+    {
+     "label": "Section 2 - Mode de recrutement, Nomination et Prestation de serment des Commissions Départementales des Marchés Publics",
+     "anchor": "sec-17"
+    },
+    {
+     "label": "Section 3 - Attributions des Commissions Départementales des Marchés Publics et de leurs membres",
+     "anchor": "sec-18"
+    },
+    {
+     "label": "Section 4 - Droits et Obligations des membres et du personnel des Commissions Départementales des Marchés Publics",
+     "anchor": "sec-19"
+    }
+   ]
+  },
+  {
+   "label": "CHAPITRE VI — DISPOSITIONS FINALES",
+   "anchor": "sec-20",
+   "children": []
+  }
+ ],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 325,
+  "toc": 20,
+  "labels": 64,
+  "ancres_emises": 64,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 0,
+  "navToc_groupes": 6
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": null,
+ "md5_corps": "4b8b9544bf01f90441f8e177cd5daa8d",
+ "apostrophes": {
+  "droites": 213,
+  "courbes": 0
+ },
+ "exposants_unicode": {}
+}

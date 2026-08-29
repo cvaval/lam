@@ -1,0 +1,988 @@
+LE MONITEUR
+JOURNAL OFFICIEL DE LA RÉPUBLIQUE D’HAÏTI
+Paraissant le Lundi et le Jeudi
+Directeur Général : Willems Édouard
+164ème Année - Spécial No. 10  PORT-AU-PRINCE  Mercredi 4 Novembre 2009
+SOMMAIRE
+• Arrêté sanctionnant le Manuel de Procédures pour la Passation des Marchés Publics et des Conventions de Concession d’Ouvrage de Service Public.
+NUMÉRO SPÉCIAL
+ARRÊTÉ
+SANCTIONNANT LE MANUEL DE PROCÉDURES
+POUR LA PASSATION DES MARCHÉS PUBLICS ET DES CONVENTIONS
+DE CONCESSION D’OUVRAGE DE SERVICE PUBLIC
+
+LIBERTÉ   ÉGALITÉ   FRATERNITÉ
+RÉPUBLIQUE D’HAÏTI
+ARRÊTÉ
+RENÉ PRÉVAL
+PRÉSIDENT
+ARRÊTÉ SANCTIONNANT LE MANUEL DE PROCÉDURES
+POUR LA PASSATION DES MARCHÉS PUBLICS ET DES CONVENTIONS
+DE CONCESSION D’OUVRAGE DE SERVICE PUBLIC
+Vu la Constitution de la République, notamment les articles 133, 136, 154, 155, 159, 200, 200-1, 200-2 et 200-4 ;
+Vu le Décret du 16 février 2005 portant préparation et exécution des Lois de Finances ;
+Vu le Décret du 17 mai 2005 portant organisation de l’Administration Centrale de l’État ;
+Vu le Décret du 17 mai 2005 portant révision du Statut Général de la Fonction Publique ;
+Vu le Décret du 23 novembre 2005 établissant l’organisation et le fonctionnement de la Cour Supérieure des Comptes et du Contentieux Administratif ;
+Vu la Loi du 10 Juin 2009 fixant les règles générales relatives aux Marchés Publics et aux Conventions de Concession d’Ouvrage de Service Public ;
+Vu l’Arrêté du 16 février 2005 portant réglementation de la Comptabilité Publique ;
+Vu l’Arrêté du 5 septembre 2009 fixant les seuils de passation des marchés publics et les seuils d’intervention de la Commission Nationale des Marchés Publics selon la nature des marchés ;
+Vu l’Arrêté du 26 octobre 2009 déterminant les modalités d’organisation et de fonctionnement de la Commission Nationale des Marchés Publics ;
+Vu l’Arrêté du 26 octobre 2009 précisant les modalités d’application de la Loi fixant les règles générales relatives aux Marchés Publics et aux Conventions de Concession d’Ouvrage de Service Public ;
+Considérant que la Loi du 10 juin 2009 fixant les règles générales relatives aux Marchés Publics et aux Conventions de Concession d’Ouvrage de Service Public prévoit en son article 64 un manuel de procédures devant indiquer la marche à suivre par les acteurs de la commande publique pour la passation des Marchés Publics et des Conventions de Concession d’ouvrage de Service Public ;
+Considérant qu’il y a lieu de sanctionner le Manuel de Procédures pour la passation de Marchés Publics et les Conventions de Concession d’Ouvrage de Service Public élaboré à cet effet ;
+Sur le rapport du Premier Ministre et après délibération en Conseil des Ministres,
+ARRÊTE
+Article 1.-	Le Manuel de Procédures pour la passation des Marchés Publics et des Conventions de Concession d’ouvrage de Service Public est et demeure sanctionné pour sortir son plein et entier effet.
+Article 2.-	Le présent Arrêté entre en vigueur à la date de cessation des effets des dispositions du Décret du 3 décembre 2004 fixant la réglementation des marchés publics de services, de fournitures et de travaux, telle que prévue par l’article 97 de la Loi du 10 juin 2009 fixant les règles générales relatives aux Marchés Publics et aux Conventions de Concession d’Ouvrage de Service Public.
+Article 3.-	Le présent Arrêté sera publié et exécuté à la diligence du Premier Ministre et du Ministre de l’Économie et des Finances.
+Donné au Palais National, à Port-au-Prince, le 26 octobre 2009, An 206ème de l’Indépendance
+Par :
+Le Président
+René PRÉVAL
+La Première Ministre
+Michèle DUVIVIER PIERRE-LOUIS
+Le Ministre de l’Économie et des Finances
+Daniel DORSAINVIL
+Le Ministre de l’Intérieur et des Collectivités Territoriales
+Paul Antoine BIEN-AIMÉ
+Le Ministre des Affaires Étrangères et des Cultes
+Alrich NICOLAS
+Le Ministre de la Planification et de la Coopération Externe
+Jean-Max BELLERIVE (pr Paul Antoine BIEN-AIMÉ)
+Le Ministre des Travaux Publics, Transports et Communications
+Jacques GABRIEL
+Le Ministre de l’Agriculture, des Ressources Naturelles et du Développement Rural
+Joanas GUÉ (pr Jean Marie Claude GERMAIN)
+Le Ministre de l’Éducation Nationale et de la Formation Professionnelle
+Joël DESROSIERS JEAN-PIERRE
+Le Ministre de la Santé Publique et de la Population
+Alex LARSEN (pr Jacques GABRIEL)
+Le Ministre de la Justice et de la Sécurité Publique
+Jean Joseph EXUMÉ
+La Ministre du Commerce et de l’Industrie
+Marie-Josée GARNIER (pr Patrick DELATOUR)
+La Ministre des Affaires Sociales et du Travail
+Gabrielle PREVILON BEAUDIN
+La Ministre à la Condition Féminine et aux Droits des Femmes
+Marie Laurence JOCELYN LASSÈGUE
+Le Ministre du Tourisme
+Patrick DELATOUR
+Le Ministre de l’Environnement
+Jean Marie Claude GERMAIN
+Le Ministre des Haïtiens Vivant à l’Étranger
+Charles MANIGAT
+Le Ministre de la Jeunesse, des Sports et de l’Action Civique
+Évans LESCOUFLAIR
+Le Ministre de la Culture et de la Communication
+Olsen JEAN-JULIEN
+Le Ministre Délégué auprès du Premier Ministre Chargé des Relations avec le Parlement
+Joseph JASMIN
+
+RÉPUBLIQUE D’HAÏTI
+COMMISSION NATIONALE DES MARCHÉS PUBLICS
+(CNMP)
+MANUEL DE PROCÉDURES
+POUR LA PASSATION DES MARCHÉS PUBLICS
+ET DES CONVENTIONS DE CONCESSION D’OUVRAGE
+DE SERVICE PUBLIC
+
+INTRODUCTION
+À côté des règles de fond auxquelles elle est soumise, la passation des marchés publics doit suivre différentes procédures dont les acteurs de la commande publique doivent tenir compte lors de la préparation des dossiers de marchés.
+Ces procédures qui sont énoncées dans la Loi du 10 juin 2009 fixant les règles générales de passation des marchés publics et de concession d’ouvrage de service public et dans l’Arrêté d’application de ladite Loi méritent d’être reprises et explicitées dans un document d’ensemble dénommé « Manuel de Procédures pour la passation des marchés publics ».
+Il convient de rappeler ici certaines notions essentielles avant de présenter les procédures diverses de passation des marchés publics.
+I. Rappel des notions de base nécessaires à l’application des procédures
+1. Marché public
+Un marché public est un contrat écrit, conclu à titre onéreux par une autorité contractante avec un entrepreneur, un fournisseur ou un prestataire de services pour répondre à ses besoins en matière de travaux, de fournitures ou de services. Les marchés publics sont des contrats administratifs.
+L’autorité contractante doit être une personne morale de droit public ou une personne morale de droit privé indiquée à l’article 4 alinéa 6 de la Loi du 10 juin 2009 fixant les règles générales relatives aux marchés publics et aux conventions de concession d’ouvrage de service public.
+Un entrepreneur, un fournisseur ou un prestataire de services est une personne morale de droit privé et exceptionnellement de droit public (article 44 de l’arrêté d’application de la Loi du 10 juin 2009).
+2. Nature ou Types de marchés publics
+Les marchés publics sont de quatre (4) types :
+1.	Les marchés de travaux ;
+2.	Les marchés de fournitures ;
+3.	Les marchés de services ;
+4.	Les marchés de prestations intellectuelles.
+Les conventions de concession d’ouvrage de service public sont assimilables aux marchés publics.
+3. Seuils de passation des marchés publics
+Les marchés publics sont passés en fonction des seuils prévus par Arrêté.
+En dessous des seuils fixés par Arrêté, les autorités contractantes peuvent recourir, suivant le cas, soit à des procédures de consultation de fournisseurs ou de sollicitation de prix, soit à des achats sur simple mémoire ou facture.
+4. Acteurs des marchés publics
+Les acteurs intervenant dans la passation des marchés publics et des conventions de concession d’ouvrage de service public sont : Personne responsable de marché-Autorité contractante, Maître d’œuvre, Commission ministérielle ou spécialisée des marchés publics, Entrepreneur ou fournisseur, Comité d’ouverture des plis et d’évaluation des offres, Autorité d’approbation, Cour Supérieure des Comptes et du Contentieux Administratif (CSCCA), Commission Nationale des Marchés Publics (CNMP) et Commissions Départementales des Marchés Publics (CDMP).
+5. Validité des marchés publics
+Pour être valides, les marchés publics doivent, avant tout commencement d’exécution, être passés et signés par les parties contractantes, approuvés par l’autorité d’approbation compétente, visés par la Cour Supérieure des Comptes et du Contentieux Administratif, validés par la Commission Nationale des Marchés Publics et notifiés au titulaire par l’autorité contractante.
+5.1. Approbation des marchés publics
+L’approbation est un acte par lequel une autorité centrale, déconcentrée ou techniquement décentralisée confirme la disponibilité de crédit pour l’exécution d’un marché.
+5.2. Validation de la procédure et validation finale des marchés publics
+La validation de la procédure est un acte par lequel la Commission Nationale des Marchés Publics ou la Commission Départementale des Marchés Publics certifie conforme la procédure utilisée pour la passation d’un marché. Suite à la validation de la procédure, le marché est signé puis approuvé par l’autorité administrative compétente. Il est alors soumis de nouveau à la CNMP pour validation finale. La validation finale est obligatoire avant l’exécution du marché.
+6. Contenu d’un dossier soumis à l’approbation de marchés publics
+Le dossier d’approbation du marché doit comprendre :
+1.	une fiche d’inventaire qui récapitule la nature et le nombre des pièces constitutives du dossier d’approbation ;
+2.	un rapport de présentation qui précise l’objet du marché ou de l’avenant, son financement, son régime fiscal et douanier, son mode de passation et l’échéancier indicatif des paiements prévisionnels ;
+3.	le marché ou l’avenant signé par les parties contractantes et éventuellement visé par le Ministre de tutelle ou les Ministres concernés sur l’autorité contractante ou sur l’objet du marché ou de l’avenant (au moins cinq (5) exemplaires) ;
+4.	toute pièce justifiant l’existence du financement et, le cas échéant, la justification des dérogations au régime fiscal et/ou douanier de droit commun ;
+5.	dans le cas d’un avenant, une copie du marché initial et des éventuels avenants antérieurs ;
+6.	dans le cas d’un marché passé sur appel d’offres ouvert, les procès-verbaux d’ouverture des plis et d’évaluation des offres (originaux ou copies certifiées conformes) ;
+7.	dans le cas d’un marché passé sur appel d’offres restreint, outre les procès-verbaux d’ouverture des plis et d’évaluation des offres, l’autorisation de la CNMP de recourir à la procédure dérogatoire ;
+8.	dans le cas d’un marché passé de gré à gré, l’autorisation de la CNMP de recourir à la procédure dérogatoire ;
+9.	les éventuelles correspondances échangées avec le soumissionnaire retenu, concernant principalement la mise au point du marché et les conditions établies pour une prolongation du délai de validité de son offre ;
+10.	dans le cas d’un marché ou d’un avenant passé par une collectivité territoriale, un organisme autonome (si la Loi le prévoit), la délibération du Conseil autorisant la passation du marché, comportant l’indication du montant prévisionnel de la dépense ;
+11.	dans le cas d’un marché ou d’un avenant financé en tout ou partie sur ressources extérieures, emprunts ou dons, la preuve de la conformité du marché ou de l’avenant avec les conditions éventuelles des emprunts ou des dons.
+7. Contenu d’un dossier soumis à la validation
+Outre les pièces mentionnées au point précédent, le dossier soumis à la validation doit contenir l’acte d’approbation.
+8. Fractionnement des dépenses
+Le fractionnement des dépenses pour éviter de recourir aux procédures de passation des marchés est strictement interdit par l’article 5-1 de la Loi du 10 juin 2009 fixant les règles générales relatives aux marchés publics et aux conventions de concession d’ouvrage de service public. Il constitue au regard de cette Loi une faute passible de sanctions telles que prévues par la Constitution, les Lois et les règlements.
+Cependant, l’autorité contractante peut recourir à des marchés fractionnés consistant en marchés à commandes et en marchés de clientèle.
+9. Plan de passation des marchés
+9.1. Obligation de préparation d’un plan de passation des marchés publics
+En vue de l’acquisition des fournitures, de la prestation de services et de l’exécution des travaux ou des prestations intellectuelles nécessaires à la mise en œuvre du plan d’action de l’exercice budgétaire, l’autorité contractante a l’obligation d’élaborer un plan de passation des marchés avant le démarrage des activités de passation des marchés.
+9.2. Éléments à prendre en compte lors de la préparation du plan de passation des marchés
+Le plan de passation des marchés doit cadrer avec le budget des activités de l’autorité contractante concernée et les programmes détaillés de mise en œuvre qui sont à l’origine de ce budget.
+Les informations essentielles requises dans un Plan de Passation des Marchés sont :
+1.	La description du marché avec une référence d’identification unique sous le format requis ;
+2.	La valeur estimée du marché en cohérence avec le budget estimatif détaillé ;
+3.	Les modes de passation de marché prévus ;
+4.	La durée de réalisation de chaque activité ;
+5.	La prise en compte des liens entre les différentes activités de passation des marchés. Ainsi, certains marchés doivent être précédés par un autre marché qui définit les devis quantitatifs (travaux et services), les spécifications techniques (fournitures, travaux et services) ou les termes de référence (prestations intellectuelles) ;
+6.	Toutes autres informations contenues dans le formulaire fourni par la CNMP.
+10. Quorum pour la délibération du comité d’ouverture et d’évaluation des offres
+Le comité d’ouverture et d’évaluation des offres doit, pour délibérer, réunir plus de la moitié de ses membres.
+II. Présentation sommaire des procédures de passation des marchés publics
+Les marchés publics peuvent être passés suivant différentes procédures, ainsi qu’il est ci-après indiqué sommairement et sera développé dans les pages qui suivent :
+1.	Procédures générales de passation des marchés publics ;
+2.	Procédures exceptionnelles de passation des marchés publics ;
+3.	Procédures spécifiques de passation des marchés publics ;
+4.	Procédures spéciales applicables aux conventions de concession d’ouvrage de service public.
+CHAPITRE I
+PROCÉDURES GÉNÉRALES DE PASSATION DES MARCHÉS PUBLICS
+Les procédures générales de passation des marchés publics sont les suivantes :
+1.1.	L’appel d’offres ouvert (Cf. Article 29.1 de la Loi du 10 juin 2009) ;
+1.2.	L’appel d’offres ouvert précédé d’une pré-qualification (Cf. Article 31 de la Loi) ;
+1.3.	L’appel d’offres en deux étapes précédé d’une pré-qualification ou non (Cf. Articles 29 et 32 de la Loi).
+Section 1 - Marchés sur appel d’offres ouvert
+1.1.1. Tâches à accomplir par l’autorité contractante
+L’autorité contractante :
+1.	doit s’assurer, avant le lancement de tout appel d’offres ouvert, de l’existence et de la disponibilité des crédits nécessaires à la prise en charge des acquisitions ou réalisations projetées ;
+2.	prépare un projet de dossier d’appel d’offres (DAO) comprenant, entre autres pièces, l’avis d’appel d’offres, les instructions aux soumissionnaires (IS), le cahier des clauses administratives générales (CCAG), le cahier des clauses administratives particulières (CCAP), le cahier des clauses techniques générales (CCTG), le cahier des clauses techniques particulières (CCTP), le descriptif des fournitures, services ou travaux ainsi que les modèles de contrat, de soumission et de garanties [Se reporter aux dossiers standards d’appels d’offres] ;
+L’avis d’appel d’offres doit essentiellement comporter :
+1.	l’objet du marché ;
+2.	la source de financement ;
+3.	le lieu et la date où l’on peut prendre connaissance des cahiers des charges ou les modalités d’obtention de ces documents ;
+4.	le lieu et la date limite de réception des offres ;
+5.	la période pendant laquelle les soumissionnaires restent engagés par leurs offres ;
+6.	les justifications à produire concernant les qualités et capacités exigées des candidats ;
+7.	le montant de la garantie de soumission à constituer, le cas échéant.
+3.	adresse, pour avis conforme, à la Commission Nationale des Marchés Publics (CNMP) le projet de dossier d’appel d’offres avec toutes ses composantes suscitées ;
+En cas de financement extérieur, la CNMP donne son avis conforme sur le projet de dossier d’appel d’offres après sa transmission à l’organisme de financement pour avis de non-objection.
+4.	forme le comité d’ouverture des plis et d’évaluation des offres sept (7) jours ouvrables avant la séance publique d’ouverture des plis.
+1.1.2. Examen du projet de dossier par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le projet de dossier d’appel d’offres (DAO) et vérifie sa conformité avec la réglementation en vigueur. Elle dispose d’un délai maximum de huit (8) jours ouvrables pour donner son avis conforme, à partir de la date de réception du document. En cas de dépassement de ce délai, l’autorisation du lancement de l’appel d’offres est réputée acquise.
+En cas d’avis favorable, la CNMP autorise, par lettre avec accusé de réception et/ou par courrier électronique, ou tout autre moyen de communication rapide, l’autorité contractante à procéder à la publication et à la diffusion de l’avis d’appel d’offres dans les médias nationaux et/ou internationaux.
+En cas d’avis défavorable, la CNMP recommande, par lettre avec accusé de réception et par courrier électronique, ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au document dans un délai maximum de trois (3) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités.
+1.1.3. Publication de l’avis d’appel d’offres
+Après l’autorisation de la CNMP, l’autorité contractante publie l’avis d’appel d’offres dans un quotidien national à grand tirage et/ou dans un journal local pendant au moins quatre (4) jours non consécutifs, à la radio et, si nécessaire, par voie d’affichage.
+Pour les appels d’offres de portée internationale, l’avis d’appel d’offres est également inséré dans une publication à large diffusion internationale.
+Cet avis fait parallèlement l’objet d’une publicité par voie électronique sur le site web de l’autorité contractante et dans le Journal Électronique des Marchés Publics domicilié sur le site web de la Commission Nationale des Marchés Publics, à la demande de l’autorité contractante.
+1.1.4. Délai de réception des offres
+En application de l’article 48 de la Loi du 10 juin 2009 et de l’article 83 de l’Arrêté d’application de ladite Loi, le délai de réception des offres des soumissionnaires ne peut être inférieur à trente (30) jours calendaires pour les appels d’offres nationaux (AON) à compter de la date de publication de l’avis d’appel d’offres dans un quotidien national à grand tirage et/ou dans un journal local et à quarante-cinq (45) jours calendaires pour les appels d’offres internationaux (AOI) dans un quotidien national à grand tirage et dans un journal international de large diffusion.
+En cas d’urgence dûment motivée, le délai prévu pour l’appel d’offres national peut être ramené à quinze (15) jours calendaires.
+1.1.5. Ouverture des plis et évaluation des offres
+1.1.5.1. Tâches du comité d’ouverture des plis et d’évaluation des offres
+Le comité d’ouverture des plis et d’évaluation des offres placé auprès de l’autorité contractante et siégeant sous l’autorité de son Président :
+1.	vérifie d’abord les date et heure de la réception de chaque pli. Les plis remis avec retard ne sont pas acceptés et sont retournés à leurs expéditeurs sans être ouverts ;
+2.	vérifie sommairement si le minimum requis de deux (2) plis est atteint. Dans le cas contraire, l’appel d’offres doit être relancé dans un délai de quinze (15) jours, sauf autorisation de la CNMP pour poursuivre la procédure. Les représentants des soumissionnaires, assistant à cette séance, signent un registre attestant leur présence ;
+3.	procède, dans un premier temps, à l’ouverture de chaque enveloppe extérieure et vérifie uniquement la présence des pièces exigées par le dossier d’appel d’offres, telle la garantie de soumission, le quitus fiscal, lesquelles pièces servent entre autres à déterminer la qualification du soumissionnaire ;
+4.	procède, dans un deuxième temps, à l’ouverture de l’enveloppe intérieure contenant les offres techniques et financières proprement dites et, après avoir lu, à haute voix, l’offre de chaque soumissionnaire, établit un tableau récapitulant les principales caractéristiques des différentes offres et, particulièrement les montants, délais, variantes et rabais éventuels ;
+Nota : Pour les marchés d’études ou de prestations intellectuelles, l’offre technique et l’offre financière font l’objet de deux enveloppes intérieures séparées ; seule l’enveloppe contenant l’offre technique peut alors être ouverte, l’enveloppe contenant l’offre financière devant alors être ouverte ultérieurement, lors d’une nouvelle séance publique, au cas où, après analyse et évaluation, l’offre technique est retenue par le comité d’ouverture des plis et d’évaluation des offres (Cf. : chapitre 3, procédures spécifiques).
+5.	établit un procès-verbal de la séance d’ouverture des plis devant être signé séance tenante par tous les membres présents du comité et les représentants des soumissionnaires ;
+6.	désigne un sous-comité technique d’étude et d’évaluation des offres.
+1.1.5.2. Tâches du sous-comité technique d’étude et d’évaluation des offres
+Le sous-comité technique et d’évaluation des offres :
+1.	procède, à huis clos et dans la plus grande confidentialité, à l’examen préliminaire ainsi qu’à l’évaluation comparative des offres ;
+Lorsqu’une offre n’est pas conforme aux exigences du dossier d’appel d’offres (notamment en cas d’absence ou de non-validité à caractère éliminatoire de certaines des pièces comme la garantie de soumission), elle est rejetée immédiatement et ne peut être, par la suite, rendue conforme au dossier de consultation ni par correction, ni par ajouts des documents manquants.
+L’évaluation des offres tient compte, outre des prix, de critères précis et quantifiés (énumérés à l’intention des soumissionnaires dans le dossier d’appel d’offres) en fonction de l’objet du marché, et devant être exprimés en termes monétaires, sauf pour les marchés de prestations intellectuelles pour lesquels le facteur « qualité » est prédominant.
+2.	peut, pour faciliter l’examen, l’évaluation et la comparaison des propositions, demander éventuellement aux soumissionnaires des éclaircissements relatifs à leur offre, y compris le sous-détail de leurs prix unitaires ;
+Une telle démarche et la réponse qui y est apportée sont formulées par écrit. Mais à l’exception de la confirmation de la rectification des erreurs de calcul pouvant être découvertes par le sous-comité technique au cours de la vérification du bordereau des quantités et des prix unitaires, aucune modification du prix ou du contenu de l’offre ne peut être demandée, ni offerte, ni recevable.
+Une offre comportant une variante, par rapport à l’objet du marché tel qu’il a été défini, ne peut être prise en considération par le sous-comité technique que dans la mesure où une telle éventualité a été expressément autorisée dans le dossier d’appel d’offres et qu’à la condition que le soumissionnaire ait proposé également une offre de base et que cette dernière soit la mieux-disante.
+Les rabais éventuels accordés par le soumissionnaire sont appliqués au montant de sa proposition financière, éventuellement corrigée par le sous-comité technique, avant la comparaison des offres. Dans le cas où le dossier d’appel d’offres demande aux soumissionnaires de proposer des rabais, une offre sans proposition de rabais est considérée comme ayant accordé un rabais nul et n’est donc pas éliminée.
+Aucune information relative à l’examen, aux éclaircissements, à l’évaluation et à la comparaison des offres, ainsi qu’aux recommandations relatives à l’attribution provisoire du marché, ne peut être, sous peine d’exclusion temporaire de la commande publique prévue par la Loi, divulguée aux soumissionnaires ni à toute personne étrangère à la procédure d’analyse et d’évaluation, après l’ouverture des plis et jusqu’à l’annonce de l’attribution définitive du marché au soumissionnaire retenu.
+3.	élabore un rapport d’analyse faisant apparaître un classement des offres par application des seuls critères définis le plus précisément possible aux instructions aux soumissionnaires ;
+4.	transmet ce rapport d’analyse à tous les membres du comité pour examen et amendements éventuels.
+Toutes ces actions relevant de la compétence du sous-comité technique doivent être effectuées, à compter de la date limite de dépôt des offres/ouverture des plis, dans un délai de :
+cinq (5) jours ouvrables, s’il s’agit de fournitures ;
+six (6) jours ouvrables, s’il s’agit de services et de petits ou moyens travaux ;
+dix (10) jours ouvrables, s’il s’agit de grands travaux, d’équipements techniques ou d’études soumises à la procédure de la double enveloppe intérieure - contenant l’une, la proposition technique, l’autre, la proposition financière (voir Nota au § 1.1.5.1 ci-dessus) et de l’analyse ou l’évaluation des offres en deux phases.
+1.1.5.3. Délibération du comité d’ouverture des plis et d’évaluation des offres
+Le comité d’ouverture des plis et d’évaluation des offres :
+1.	vérifie que les conditions de quorum sont remplies pour pouvoir délibérer ;
+2.	statue éventuellement sur les éléments restés en suspens à l’ouverture des plis ;
+3.	dispose d’un délai maximum de deux (2) jours ouvrables, à compter de la date de transmission du rapport d’analyse, pour procéder à l’attribution provisoire du marché ;
+Il doit attribuer le marché sur la base des conclusions du sous-comité technique éventuellement amendées, au soumissionnaire jugé qualifié pour exécuter le marché de façon satisfaisante après vérification de ses capacités techniques et financières, et dont l’offre est jugée la mieux-disante au regard des critères prévus au DAO.
+4.	rédige un procès-verbal d’attribution provisoire du marché.
+Le procès-verbal d’attribution provisoire du marché doit être rédigé et signé séance tenante par tous les membres du comité d’ouverture des plis et d’évaluation des offres.
+Toute tentative effectuée par un soumissionnaire pour influencer les membres du comité au cours de la procédure d’examen, d’évaluation et de comparaison des offres, et dans leur décision relative à l’attribution provisoire du marché, conduit à son exclusion temporaire de la commande publique [Se reporter aux dossiers standards d’appel d’offres].
+1.1.6. Transmission du rapport d’évaluation des offres à la CNMP
+L’autorité contractante transmet à la CNMP, pour validation, une copie de chacune des soumissions reçues, le procès-verbal d’ouverture des plis, le rapport d’évaluation des offres et le procès-verbal d’attribution provisoire du marché dans un délai maximum de deux (2) jours ouvrables à partir de la date de signature du procès-verbal d’attribution provisoire du marché.
+1.1.7. Analyse du rapport d’évaluation par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le rapport d’évaluation, le procès-verbal d’ouverture des plis ainsi que le procès-verbal d’attribution provisoire du marché et vérifie leur conformité avec les dispositions du dossier d’appel d’offres. Elle dispose d’un délai de dix (10) jours ouvrables pour émettre un avis, à partir de la date de réception des documents.
+La CNMP peut, sous réserve de notification à l’autorité compétente avec motif à l’appui avant l’expiration du délai, prendre un délai supplémentaire d’un maximum de dix (10) jours ouvrables pour émettre son avis, les motifs évoqués par la CNMP devant fondamentalement porter sur la complexité du marché.
+En aucun cas, la durée totale de l’étude du dossier ne peut excéder vingt (20) jours ouvrables.
+En l’absence d’une décision dans le délai de vingt (20) jours, l’attribution du marché est considérée comme validée, et l’autorité contractante est alors habilitée à informer le soumissionnaire retenu qu’il est attributaire du marché.
+En cas d’avis favorable, la CNMP valide l’attribution du marché et invite, par lettre avec accusé de réception et/ou par courrier électronique, ou tout autre moyen de communication rapide, l’autorité contractante à réaliser les actions énumérées au § 1.1.9 ci-dessous.
+En cas d’avis défavorable, la CNMP recommande, par lettre avec accusé de réception et/ou par courrier électronique, ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au rapport d’évaluation des offres et au procès-verbal d’attribution provisoire du marché dans un délai maximum de trois (3) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités.
+La Commission Nationale des Marchés Publics (CNMP) valide le rapport et le procès-verbal amendés, rendant définitive l’attribution du marché, dans un délai de trois (3) jours ouvrables à compter de la réception de ces documents. Ceux-ci doivent lui être transmis par l’autorité contractante dans un délai maximum de deux (2) jours ouvrables suivant la fin du délai de trois (3) jours ouvrables visé au paragraphe précédent.
+En cas d’appel d’offres infructueux ou de rejet du rapport d’évaluation des offres et du procès-verbal d’attribution provisoire du marché, la CNMP peut recommander la reprise du processus d’appel d’offres après modification du DAO. En cas de financement extérieur, l’autorité contractante doit, avant de solliciter l’avis de validation de la CNMP, transmettre le procès-verbal d’attribution du marché, accompagné du procès-verbal d’ouverture des plis et du rapport d’évaluation comparative des offres, à l’organisme de financement, pour avis de non-objection.
+1.1.8. Notification et approbation du projet de marché
+L’autorité contractante doit :
+1.	notifier l’attribution du marché au soumissionnaire retenu dans un délai maximum de deux (2) jours ouvrables à partir de la date de réception de l’avis de validation par la CNMP du rapport d’analyse et du procès-verbal d’attribution du marché ;
+2.	informer dans le même délai, par lettre avec accusé de réception, tous les autres soumissionnaires du rejet de leurs offres et leur restituer leur garantie de soumission ;
+3.	préparer le projet de marché (devant comprendre les pièces et documents énumérés au § 6 de l’introduction du présent manuel) destiné à la signature des parties contractantes ;
+4.	transmettre le marché signé par les parties contractantes à l’autorité d’approbation compétente ;
+5.	transmettre à la CNMP le marché approuvé, pour validation, dans un délai maximum de dix (10) jours ouvrables à partir de la date de réception de l’avis de validation du rapport d’analyse et du procès-verbal d’attribution du marché.
+Ce délai de dix (10) jours doit permettre à l’autorité contractante de :
+1.	mettre au point le contrat de marché (4 jours ouvrables) ;
+2.	recueillir la signature du soumissionnaire retenu pour l’exécution du marché (2 jours ouvrables) ;
+3.	signer le marché (1 jour ouvrable) ;
+4.	obtenir l’approbation du marché par l’autorité compétente (3 jours ouvrables).
+1.1.9. Demande d’avis, validation et transmission du marché
+La Commission Nationale des Marchés Publics (CNMP) :
+1.	peut demander, par lettre avec accusé de réception et/ou par courrier électronique, ou tout autre moyen de communication rapide à compter du jour de la réception du dossier de validation, en motivant sa requête, à l’autorité contractante, la production des pièces manquantes audit dossier dans un délai de deux (2) jours calendaires et dont l’absence peut empêcher la validation du marché ;
+2.	transmet le marché approuvé à la Cour Supérieure des Comptes et du Contentieux Administratif (CSCCA) pour avis dans un délai de deux (2) jours ouvrables à partir de la date de réception du marché approuvé si le dossier est complet ou, dans le cas contraire, à partir de la date de réception des pièces manquantes ;
+3.	valide le marché approuvé après avis favorable de la CSCCA intervenu dans un délai de cinq (5) jours ouvrables à compter de la date de réception de la transmission du marché approuvé ou, en cas d’avis défavorable de la Cour, retourne le marché approuvé à la personne responsable du marché avec les remarques et commentaires de la CSCCA ;
+4.	transmet le marché validé à la personne responsable du marché pour exécution, dans un délai de trois (3) jours ouvrables à partir de la date de réception de l’avis favorable de la Cour Supérieure des Comptes et du Contentieux Administratif.
+1.1.10. Notification et publication de l’avis d’attribution du marché
+L’autorité contractante :
+1.	notifie le marché validé au soumissionnaire retenu dans un délai maximum de quatre (4) jours ouvrables pour exécution suivant la date de réception dudit marché ;
+Le marché entre en vigueur dès sa notification au titulaire ou à une date ultérieure si le marché le prévoit.
+L’entrée en vigueur du marché marque le début des obligations juridiques d’exécution et, sauf dispositions contraires du marché, le début des délais de réalisation.
+2.	publie un avis d’attribution définitive du marché dans les huit (8) jours ouvrables de l’entrée en vigueur du marché, dans un quotidien national à grand tirage ou, le cas échéant, dans un journal local, sur son site web et sollicite de la CNMP la publication de cet avis dans son Journal Électronique des Marchés Publics.
+Section 2 - Marchés sur appel d’offres ouvert précédé d’une pré-qualification
+L’appel d’offres ouvert peut être précédé d’une pré-qualification dans les cas de travaux importants ou complexes ou, exceptionnellement, de fourniture de matériels devant être fabriqués sur commande, ou de services spécialisés.
+Sous-section 1 - Pré-qualification des candidats
+La pré-qualification des candidats s’effectue exclusivement en fonction de leur aptitude à exécuter le marché de façon satisfaisante et selon les critères suivants :
+1.	références concernant des marchés analogues ;
+2.	moyens matériels et humains dont les candidats disposent pour exécuter le marché ;
+3.	capacité financière dont font preuve les candidats.
+1.2.1.1. Tâches à accomplir par l’autorité contractante
+L’autorité contractante :
+1.	prépare un projet de dossier de pré-qualification sur la base duquel les candidats, intéressés par l’opération envisagée, pourront faire acte de candidature ;
+2.	adresse, pour avis conforme, à la Commission Nationale des Marchés Publics (CNMP), le projet de dossier de pré-qualification comprenant, entre autres pièces, l’avis d’appel public à candidatures et les instructions aux candidats [Se reporter aux dossiers standards d’appels d’offres] ;
+En cas de financement extérieur, la CNMP donne son avis conforme sur le projet de dossier de pré-qualification après sa transmission à l’organisme de financement pour avis de non-objection.
+3.	forme le comité d’ouverture des plis et d’évaluation des offres sept (7) jours ouvrables avant la séance publique d’ouverture des plis par un acte administratif.
+1.2.1.2. Examen du dossier de pré-qualification par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le projet de dossier de pré-qualification et vérifie sa conformité avec la réglementation en vigueur. Elle dispose d’un délai maximum de cinq (5) jours ouvrables pour donner son avis conforme, à partir de la date de réception du document. En cas de dépassement de ce délai, l’autorisation du lancement de l’appel public à candidatures est réputée acquise.
+En cas d’avis favorable, la CNMP autorise, par lettre avec accusé de réception et/ou par courrier électronique, ou tout autre moyen de communication rapide, l’autorité contractante à procéder à la publication et à la diffusion de l’avis d’appel public à candidatures dans les médias nationaux et/ou internationaux.
+En cas d’avis défavorable, la CNMP recommande, par lettre avec accusé de réception et/ou par courrier électronique, ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au document dans un délai maximum de trois (3) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités.
+1.2.1.3. Publication et diffusion de l’avis d’appel public à candidatures de pré-qualification
+Après l’autorisation de la CNMP, l’autorité contractante publie l’avis d’appel public à candidatures de pré-qualification dans un quotidien national à grand tirage et/ou dans un journal local pendant au moins quatre (4) jours non consécutifs, à la radio et, si nécessaire, par voie d’affichage.
+Pour les appels d’offres de pré-qualification de portée internationale, l’avis d’appel public à la concurrence est également inséré dans une publication à large diffusion internationale.
+Cet avis fait parallèlement l’objet d’une publicité par voie électronique sur le site web de l’autorité contractante et dans le Journal Électronique des Marchés Publics domicilié sur le site web de la Commission Nationale des Marchés Publics, à la demande de l’autorité contractante.
+1.2.1.4. Délai de réception des candidatures
+En application de l’article 48 de la Loi du 10 juin 2009 et de l’article 83 de l’Arrêté d’application de ladite Loi, le délai de réception des offres des soumissionnaires ne peut être inférieur à trente (30) jours calendaires pour les appels publics à candidatures de pré-qualification nationaux à compter de la date de publication de l’avis d’appel public à candidatures de pré-qualification dans un quotidien national et/ou dans un journal local et à quarante-cinq (45) jours calendaires pour les appels publics à candidatures de pré-qualification internationaux dans un quotidien national et dans un journal international à large diffusion.
+1.2.1.5. Ouverture des plis et évaluation des offres
+1.2.1.5.1. Tâches du comité d’ouverture des plis et d’évaluation des offres
+Le comité d’ouverture des plis et d’évaluation des offres placé auprès de l’autorité contractante/maître d’ouvrage ou du maître d’ouvrage délégué et siégeant sous l’autorité de son Président :
+1.	procède, en présence des candidats ou de leurs représentants, à l’ouverture des enveloppes, aux date et heure fixées pour leur dépôt, si le minimum requis de six (6) plis est atteint. Dans le cas contraire, l’appel public à candidatures doit être relancé dans un délai de quinze (15) jours, sauf autorisation de la CNMP pour poursuivre la procédure. Les représentants des candidats, assistant à cette séance, signent un registre attestant leur présence ;
+2.	annonce les nom et objet social des candidats ;
+3.	établit un procès-verbal de la séance d’ouverture des plis devant être signé séance tenante par tous les membres présents du comité et les représentants des soumissionnaires ; ces derniers pouvant formuler des réserves avant de signer ;
+4.	désigne un sous-comité technique d’étude et d’évaluation des candidatures.
+1.2.1.5.2. Tâches du sous-comité technique d’étude et d’évaluation des candidatures
+Le sous-comité technique d’étude et d’évaluation des candidatures :
+1.	procède, à huis clos et dans la plus grande confidentialité, à l’analyse, à l’évaluation des candidatures et à l’établissement d’un rapport proposant une liste de candidats admis à présenter des offres dans le cadre de la consultation organisée dans une deuxième phase ;
+2.	transmet le rapport d’évaluation à tous les membres du comité pour examen et amendements éventuels.
+Toutes ces actions relevant de la compétence du sous-comité technique doivent être effectuées dans un délai maximum de deux (2) jours ouvrables à partir de la date limite de dépôt des candidatures/ouverture des plis.
+1.2.1.5.3. Délibération du comité d’ouverture des plis et d’évaluation des offres
+Le comité d’ouverture des plis et d’évaluation des offres :
+1.	vérifie que les conditions de quorum sont remplies pour pouvoir délibérer ;
+2.	dispose d’un délai maximum de deux (2) jours ouvrables à partir de la date de réception du rapport pour arrêter la liste provisoire des candidats pré-qualifiés ;
+Il doit arrêter cette liste sur la base des conclusions, éventuellement amendées, du sous-comité technique.
+3.	rédige un procès-verbal listant provisoirement les entreprises pré-qualifiées pour la consultation subséquente. Le procès-verbal précité doit être rédigé et signé séance tenante par tous les membres du comité d’ouverture des plis et d’évaluation des offres.
+1.2.1.6. Transmission du rapport d’évaluation des offres à la CNMP
+L’autorité contractante transmet à la CNMP, pour validation, une copie de chaque dossier de candidatures des soumissionnaires, le procès-verbal d’ouverture des plis, le rapport d’évaluation des candidatures et le procès-verbal listant provisoirement les entreprises pré-qualifiées dans un délai maximum de deux (2) jours ouvrables à partir de la date de signature de ce dernier document par les membres du comité d’ouverture des plis et d’évaluation des offres.
+1.2.1.7. Analyse du rapport d’évaluation des candidatures par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le rapport d’évaluation des candidatures du comité d’ouverture des plis et d’évaluation des offres ainsi que le procès-verbal listant provisoirement les entreprises pré-qualifiées et vérifie leur conformité avec les dispositions du dossier d’appel public à candidatures. Elle dispose d’un délai maximum de trois (3) jours ouvrables pour émettre un avis, à partir de la date de réception du document. En l’absence de cet avis dans le délai imparti, la liste provisoire des entreprises pré-qualifiées est considérée comme validée.
+La CNMP, en cas d’avis favorable, informe, par lettre avec accusé de réception et/ou par courrier électronique, ou tout autre moyen de communication rapide, l’autorité contractante qu’elle valide la liste des entreprises pré-qualifiées.
+La CNMP, en cas d’avis défavorable, recommande, par lettre avec accusé de réception et/ou par courrier électronique, ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au rapport d’évaluation des candidatures et au procès-verbal listant les entreprises pré-qualifiées dans un délai maximum de trois (3) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités.
+La Commission Nationale des Marchés Publics (CNMP) valide le rapport et le procès-verbal amendés, rendant définitive la liste des entreprises pré-qualifiées, dans un délai de trois (3) jours ouvrables à compter de la date de réception de ces documents. Ceux-ci doivent lui être transmis par l’autorité contractante dans un délai maximum de deux (2) jours ouvrables qui suit la fin du délai visé au paragraphe précédent.
+En cas d’appel public à candidatures de pré-qualification infructueux ou de rejet du rapport d’évaluation des candidatures et du procès-verbal listant les entreprises pré-qualifiées, la CNMP peut recommander la reprise du processus d’appel public à candidatures après modification du dossier d’appel d’offres de pré-qualification.
+En cas de financement extérieur, l’autorité contractante doit, avant de solliciter l’avis de validation à la CNMP, transmettre le procès-verbal listant les entreprises pré-qualifiées, accompagné du rapport d’évaluation des candidatures et de la liste des entreprises pré-qualifiées, à l’organisme de financement, pour avis de non-objection.
+1.2.1.8. Notification et publication de la liste validée des entreprises pré-qualifiées
+L’autorité contractante :
+1.	notifie par lettre avec accusé de réception la liste des candidats pré-qualifiés validée aux candidats retenus et non retenus dans un délai maximum de deux (2) jours ouvrables après la date de réception de l’avis de validation de la CNMP ;
+2.	publie, dans le même délai, la liste des candidats pré-qualifiés validée par la CNMP dans un quotidien national à grand tirage ou, le cas échéant, dans un journal local, sur son site web et sollicite de la CNMP la publication de cet avis dans son Journal Électronique des Marchés Publics.
+Sous-section 2 - Appel d’offres consécutif à la pré-qualification des candidats
+1.2.2.1. Tâches à accomplir par l’autorité contractante
+L’autorité contractante :
+1.	doit s’assurer, avant l’organisation de toute consultation des candidats pré-qualifiés, de l’existence et de la disponibilité des crédits nécessaires à la prise en charge des acquisitions ou réalisations projetées ;
+2.	adresse, pour avis conforme, à la CNMP, un projet de dossier d’appel d’offres (accompagné du procès-verbal du comité d’ouverture des plis et d’évaluation des offres arrêtant la liste des candidats pré-qualifiés) comprenant, entre autres pièces, le projet de lettre d’invitation à soumissionner, les instructions aux soumissionnaires, les différents cahiers des charges, le descriptif des fournitures, services ou travaux, ainsi que les modèles de contrat, de soumission et de garanties, dans un délai maximum de cinq (5) jours ouvrables à partir de la date de réception de l’avis de validation par la CNMP du rapport et du procès-verbal précités ;
+En cas de financement extérieur, la CNMP donne son avis conforme sur le projet de dossier d’appel d’offres après sa transmission à l’organisme de financement pour avis de non-objection.
+3.	forme le comité d’ouverture des plis et d’évaluation des offres sept (7) jours ouvrables avant la séance publique d’ouverture des plis.
+1.2.2.2. Examen du projet de dossier d’appel d’offres par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le projet de dossier d’appel d’offres et vérifie sa conformité avec la réglementation en vigueur. Elle dispose d’un délai maximum de huit (8) jours ouvrables pour donner son avis conforme, à partir de la date de réception du projet. En cas de dépassement de ce délai, l’autorisation du lancement de l’appel d’offres est réputée acquise.
+En cas d’avis favorable, la CNMP autorise, par lettre avec accusé de réception et/ou par courrier électronique, ou tout autre moyen de communication rapide, l’autorité contractante à inviter les candidats pré-qualifiés à retirer le dossier de consultation.
+En cas d’avis défavorable, la CNMP recommande, par lettre avec accusé de réception et/ou par courrier électronique, ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au document dans un délai maximum de trois (3) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités.
+1.2.2.3. Notification de la lettre d’invitation à soumissionner
+L’autorité contractante adresse une lettre d’invitation à soumissionner à l’ensemble des candidats pré-qualifiés en précisant l’adresse du service administratif où retirer le dossier de consultation dans un délai maximum de deux (2) jours ouvrables à partir de la date de réception de l’avis favorable de la CNMP ou de la fin du délai précédent pour la finalisation du document précité.
+1.2.2.4. Délai de réception des offres
+En application de l’article 48 de la Loi du 10 juin 2009 et de l’article 83 de l’Arrêté d’application de ladite Loi, le délai de réception des offres des soumissionnaires ne peut être inférieur à trente (30) jours calendaires pour les appels d’offres nationaux et à quarante-cinq (45) jours calendaires pour les appels d’offres internationaux à compter de la date de notification de la lettre d’invitation à soumissionner à l’adresse indiquée au lieu où siège l’autorité contractante.
+En cas d’urgence dûment motivée, le délai prévu pour l’appel d’offres national peut être ramené à quinze (15) jours calendaires.
+1.2.2.5. Ouverture des plis et évaluation des offres
+1.2.2.5.1. Tâches du comité d’ouverture des plis et d’évaluation des offres
+Le comité d’ouverture des plis et d’évaluation des offres placé auprès de l’autorité contractante/maître d’ouvrage ou du maître d’ouvrage délégué et siégeant sous l’autorité de son Président :
+1.	s’assure que tous les candidats pré-qualifiés ont été invités de façon équitable à soumissionner dans le délai fixé. Dans le cas contraire, l’invitation est relancée ;
+2.	vérifie d’abord les date et heure de la réception de chaque pli. Les plis remis avec retard ne sont pas acceptés et sont retournés à leurs expéditeurs sans être ouverts ;
+3.	vérifie sommairement si le minimum requis de deux (2) plis est atteint. Dans le cas contraire, l’appel d’offres doit être relancé dans un délai de quinze (15) jours, sauf autorisation de la CNMP pour poursuivre la procédure. Les représentants des soumissionnaires, assistant à cette séance, signent un registre attestant leur présence ;
+4.	procède, dans un premier temps, à l’ouverture de chaque enveloppe extérieure et vérifie uniquement la présence des pièces exigées par le dossier d’appel d’offres, telle la garantie de soumission ;
+5.	procède, dans un deuxième temps, à l’ouverture de l’enveloppe intérieure (contenant l’offre proprement dite) et, après avoir lu, à haute voix, l’offre de chaque soumissionnaire, établit un tableau récapitulant les principales caractéristiques des différentes offres et, particulièrement les montants, délais, variantes et rabais éventuels ;
+Nota : Pour les marchés d’études ou de prestations intellectuelles, l’offre technique et l’offre financière font l’objet de deux enveloppes intérieures séparées ; seule l’enveloppe contenant l’offre technique peut alors être ouverte, l’enveloppe contenant l’offre financière devant alors être ouverte ultérieurement, lors d’une nouvelle séance publique, au cas où, après analyse et évaluation, l’offre technique est retenue par le comité d’ouverture des plis et d’évaluation des offres.
+6.	établit un procès-verbal de la séance d’ouverture des plis devant être signé séance tenante par tous les membres présents du comité et les représentants des soumissionnaires ;
+7.	désigne un sous-comité technique d’étude et d’évaluation des offres.
+1.2.2.5.2. Tâches du sous-comité technique d’étude et d’évaluation des offres
+Le sous-comité technique d’étude et d’évaluation des offres :
+1.	procède, à huis clos et dans la plus grande confidentialité, à l’examen préliminaire ainsi qu’à l’évaluation comparative des offres ;
+Lorsqu’une offre n’est pas conforme aux exigences du dossier d’appel d’offres (absence ou non-validité de certaines pièces comme la garantie de soumission), elle est rejetée immédiatement et ne peut être, par la suite, rendue conforme au dossier de consultation ni par correction, ni par ajouts des documents manquants.
+L’évaluation des offres tient compte, outre des prix, de critères précis et quantifiés (énumérés à l’intention des soumissionnaires dans le dossier d’appel d’offres) en fonction de l’objet du marché, et devant être exprimés en termes monétaires, sauf pour les prestations intellectuelles pour lesquelles le facteur « qualité » est prédominant.
+2.	peut demander éventuellement aux soumissionnaires des éclaircissements relatifs à leur offre, y compris, le cas échéant, le sous-détail de leurs prix unitaires, pour faciliter l’examen, l’évaluation et la comparaison des propositions ;
+Une telle démarche et la réponse qui est apportée sont formulées par écrit. Mais à l’exception de la confirmation de la rectification des erreurs de calcul pouvant être découvertes par le sous-comité technique au cours de la vérification du bordereau des quantités et des prix unitaires, aucune modification du prix ou du contenu de l’offre ne peut être demandée, ni offerte, ni recevable.
+Une offre comportant une variante par rapport à l’objet du marché tel qu’il a été défini ne peut être prise en considération par le sous-comité technique que dans la mesure où une telle éventualité a été expressément autorisée dans le dossier de consultation et qu’à la condition que le soumissionnaire ait également proposé une offre de base.
+Les rabais éventuels accordés par le soumissionnaire sont appliqués au montant de sa proposition financière, éventuellement corrigée par le sous-comité technique avant la comparaison des offres. Dans le cas où le dossier d’appel d’offres demande aux soumissionnaires de proposer des rabais, une offre sans proposition de rabais est considérée comme ayant accordé un rabais nul et n’est donc pas éliminée.
+Aucune information relative à l’examen, aux éclaircissements, à l’évaluation et à la comparaison des offres, ainsi qu’aux recommandations relatives à l’attribution provisoire du marché, ne peut être, sous peine d’exclusion temporaire de la commande publique prévue par la Loi, divulguée aux soumissionnaires ni à toute personne étrangère à la procédure d’analyse et d’évaluation, après l’ouverture des plis et jusqu’à l’annonce de l’attribution définitive du marché au soumissionnaire retenu.
+3.	élabore un rapport d’analyse faisant apparaître un classement des offres par application des seuls critères définis le plus précisément possible aux instructions aux soumissionnaires ;
+4.	transmet ce rapport d’analyse à tous les membres du comité pour examen et amendements éventuels.
+Toutes ces actions relevant de la compétence du sous-comité technique doivent être effectuées, à compter de la date limite de dépôt des offres/ouverture des plis, dans un délai de :
+cinq (5) jours ouvrables, s’il s’agit de fournitures ;
+six (6) jours ouvrables, s’il s’agit de services et de petits ou moyens travaux ;
+dix (10) jours ouvrables, s’il s’agit de grands travaux, d’équipements techniques ou d’études soumises à la procédure de la double enveloppe intérieure - contenant l’une, la proposition technique, l’autre, la proposition financière (Cf. : Nota au § 1.2.2.5.1 ci-dessus) et de l’analyse ou l’évaluation des offres en deux phases.
+1.2.2.5.3. Délibération du comité d’ouverture des plis et d’évaluation des offres
+Le comité d’ouverture des plis et d’évaluation des offres :
+1.	vérifie que les conditions de quorum sont remplies pour pouvoir délibérer ;
+2.	statue éventuellement sur les éléments restés en suspens à l’ouverture des plis ;
+3.	dispose d’un délai maximum de deux (2) jours ouvrables pour procéder à l’attribution provisoire du marché.
+Il doit attribuer le marché sur la base des conclusions, éventuellement amendées, du sous-comité technique au soumissionnaire jugé qualifié pour exécuter le marché de façon satisfaisante après vérification de ses capacités techniques et financières, et dont l’offre est jugée la mieux-disante au regard des critères prévus au DAO.
+4.	rédige un procès-verbal d’attribution provisoire du marché.
+Le procès-verbal d’attribution provisoire du marché doit être rédigé et signé séance tenante par tous les membres du comité d’ouverture des plis et d’évaluation des offres.
+Toute tentative effectuée par un soumissionnaire pour influencer les membres du comité au cours de la procédure d’examen, d’évaluation et de comparaison des offres, et dans leur décision relative à l’attribution provisoire du marché, conduit à son exclusion temporaire de la commande publique [Se reporter aux dossiers standards d’appel d’offres].
+1.2.2.6. Transmission du rapport d’évaluation des offres à la CNMP
+L’autorité contractante transmet à la CNMP, pour validation, une copie de chacune des soumissions reçues, le procès-verbal d’ouverture des plis, le rapport d’évaluation des offres et le procès-verbal d’attribution provisoire du marché dans un délai maximum de deux (2) jours ouvrables à partir de la date de signature du procès-verbal d’attribution provisoire du marché.
+1.2.2.7. Analyse du rapport d’évaluation par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le rapport d’analyse, le procès-verbal d’ouverture des plis, le rapport d’évaluation des offres ainsi que le procès-verbal d’attribution provisoire du marché et vérifie leur conformité avec les dispositions du dossier d’appel d’offres. Elle dispose d’un délai de dix (10) jours ouvrables pour émettre un avis, à partir de la date de réception des documents.
+La CNMP peut, sous réserve de notification à l’autorité compétente avec motif à l’appui avant l’expiration du délai, prendre un délai supplémentaire d’un maximum de dix (10) jours ouvrables pour émettre son avis ; les motifs évoqués par la CNMP devant fondamentalement porter sur la complexité du marché.
+En aucun cas, la durée totale de l’étude du dossier ne peut excéder vingt (20) jours ouvrables.
+En l’absence de cet avis dans le délai de vingt (20) jours, l’attribution du marché est considérée comme validée, et l’autorité contractante est alors habilitée à informer le soumissionnaire retenu qu’il est attributaire du marché.
+En cas d’avis favorable, la CNMP valide l’attribution du marché et invite, par lettre avec accusé de réception et/ou par courrier électronique, ou tout autre moyen de communication rapide, l’autorité contractante à réaliser les actions énumérées au § 1.2.2.8 ci-dessous.
+En cas d’avis défavorable, la CNMP recommande, par lettre avec accusé de réception et/ou courrier électronique ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au rapport d’évaluation des offres et au procès-verbal d’attribution provisoire du marché dans un délai maximum de trois (3) jours ouvrables à partir de la date de la réception de la lettre et/ou du courrier électronique précités.
+La Commission Nationale des Marchés Publics (CNMP) valide le rapport et le procès-verbal amendés, rendant définitive l’attribution du marché, dans un délai de trois (3) jours ouvrables à compter de la réception de ces documents. Ceux-ci doivent lui être transmis par l’autorité contractante dans un délai maximum de deux (2) jours ouvrables suivant la fin du délai de trois (3) jours ouvrables visé au paragraphe précédent.
+En cas d’appel d’offres consécutif à une pré-qualification infructueux ou de rejet du rapport d’évaluation des offres et du procès-verbal d’attribution provisoire du marché, la CNMP recommande la reprise du processus d’appel d’offres consécutif à une pré-qualification après modification du DAO.
+En cas de financement extérieur, l’autorité contractante doit, avant de solliciter l’avis de validation de la CNMP, transmettre le procès-verbal d’attribution du marché, accompagné du procès-verbal d’ouverture des plis et du rapport d’évaluation comparative des offres, à l’organisme de financement, pour avis de non-objection.
+1.2.2.8. Notification et approbation du projet de marché
+L’autorité contractante doit :
+1.	notifier l’attribution du marché au soumissionnaire retenu dans un délai maximum de deux (2) jours ouvrables à partir de la date de réception de l’avis de validation par la CNMP du rapport d’analyse et du procès-verbal d’attribution du marché ;
+2.	informer dans le même délai par lettre avec accusé de réception tous les autres soumissionnaires du rejet de leurs offres et leur restituer leur garantie de soumission ;
+3.	préparer le projet de marché (devant comprendre les pièces et documents énumérés au § 6 de l’introduction du présent manuel) destiné à la signature des parties contractantes ;
+4.	transmettre le marché signé par les parties contractantes à l’autorité d’approbation compétente ;
+5.	transmettre à la CNMP le marché approuvé pour validation dans un délai maximum de dix (10) jours ouvrables à partir de la date de réception de l’avis de validation du rapport d’analyse et du procès-verbal d’attribution du marché.
+Ce délai de dix (10) jours doit permettre à l’autorité contractante de :
+1.	mettre au point le contrat de marché (4 jours ouvrables) ;
+2.	recueillir la signature du soumissionnaire retenu pour l’exécution du marché (2 jours ouvrables) ;
+3.	signer le marché (1 jour ouvrable) ;
+4.	obtenir l’approbation du marché par l’autorité compétente (3 jours ouvrables).
+1.2.2.9. Demande d’avis, validation et transmission du marché
+La Commission Nationale des Marchés Publics (CNMP) :
+1.	peut demander, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide à compter du jour de la réception du dossier de validation, en motivant sa requête, à l’autorité contractante, la production des pièces manquantes audit dossier dans un délai de deux (2) jours calendaires et dont l’absence peut empêcher la validation du marché ;
+2.	transmet le marché approuvé à la Cour Supérieure des Comptes et du Contentieux Administratif (CSCCA) pour avis dans un délai de deux (2) jours ouvrables à partir de la date de réception du marché approuvé si le dossier est complet ou, dans le cas contraire, à partir de la date de réception des pièces manquantes ;
+3.	valide le marché approuvé après avis favorable de la CSCCA intervenu dans un délai de cinq (5) jours ouvrables à compter de la date de réception de la transmission du marché approuvé ou, en cas d’avis défavorable de la Cour, retourne le marché approuvé à la personne responsable du marché avec les remarques et commentaires de la CSCCA ;
+4.	transmet le marché validé à la personne responsable du marché pour exécution dans un délai de trois (3) jours ouvrables à partir de la date de réception de l’avis favorable de la Cour Supérieure des Comptes et du Contentieux Administratif.
+1.2.2.10. Notification et publication de l’avis d’attribution du marché
+L’autorité contractante :
+1.	notifie le marché validé au soumissionnaire retenu dans un délai maximum de quatre (4) jours ouvrables pour exécution suivant la date de réception dudit marché ;
+Le marché entre en vigueur dès sa notification au titulaire ou à une date ultérieure si le marché le prévoit.
+L’entrée en vigueur du marché marque le début des obligations juridiques d’exécution et, sauf dispositions contraires du marché, le début des délais de réalisation.
+2.	publie un avis d’attribution définitive du marché dans les huit (8) jours ouvrables de l’entrée en vigueur du marché, dans un quotidien national à grand tirage ou, le cas échéant, dans un journal local, sur son site web et sollicite de la CNMP la publication de cet avis dans son Journal Électronique des Marchés Publics.
+Section 3 - Marchés sur appel d’offres en deux étapes
+L’appel d’offres est dit en deux étapes lorsque les soumissionnaires sont d’abord invités à remettre des propositions techniques, sans indication de prix, sur la base de principes généraux de conception ou de normes de performance, et sous réserve de précisions et d’ajustements ultérieurs d’ordre technique et/ou financier, intervenant dans le cadre de discussions menées avec l’autorité contractante.
+Lors de la seconde étape, les soumissionnaires retenus sont invités à présenter des propositions techniques définitives assorties de prix, sur la base du dossier d’appel d’offres préalablement révisé par l’autorité contractante.
+La procédure de l’appel d’offres en deux étapes peut être précédée d’une pré-qualification.
+Sous-section 1 - Première étape de l’appel d’offres
+1.3.1.1. Conditions du recours à l’appel d’offres en deux étapes
+Le recours à la procédure d’appel d’offres en deux étapes ne peut être effectué que dans l’un ou l’autre des cas suivants :
+1.	lorsque le marché est d’une grande complexité ;
+2.	lorsque le marché doit être attribué sur la base de critères de performance et non sur celle de spécifications techniques détaillées.
+1.3.1.2. Tâches à accomplir par l’autorité contractante
+L’autorité contractante :
+1.	doit s’assurer, avant l’organisation de tout appel d’offres en deux étapes, de l’existence et de la disponibilité des crédits nécessaires à la prise en charge des acquisitions ou réalisations projetées ;
+2.	doit, afin de trouver la solution la mieux adaptée à ses besoins, préparer un projet de dossier d’appel d’offres en deux étapes sur la base duquel les soumissionnaires, intéressés par l’opération envisagée, pourront faire des offres ou des propositions concernant les différentes possibilités de répondre à ses attentes ;
+3.	adresse, pour avis conforme, à la Commission Nationale des Marchés Publics (CNMP), le projet de dossier d’appel d’offres en deux étapes sollicitant des propositions en ce qui concerne tant les caractéristiques techniques, qualitatives ou autres des biens, des travaux ou des services que les conditions contractuelles de leur fourniture et, le cas échéant, les compétences et qualifications professionnelles et techniques des soumissionnaires ;
+En cas de financement extérieur, la CNMP donne son avis sur ce projet de dossier d’appel d’offres en deux étapes après sa transmission à l’organisme de financement pour avis de non-objection sur son contenu.
+4.	forme le comité d’ouverture des plis et d’évaluation des offres sept (7) jours ouvrables avant la séance publique d’ouverture des plis.
+1.3.1.3. Examen du projet de dossier d’appel d’offres en deux étapes par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le projet de dossier d’appel d’offres en deux étapes et vérifie sa conformité avec la réglementation en vigueur. Elle dispose d’un délai maximum de cinq (5) jours ouvrables pour donner son avis conforme, à partir de la date de réception du document. En cas de dépassement de ce délai, l’autorisation du lancement de la première étape de l’appel d’offres est réputée acquise.
+En cas d’avis favorable, la CNMP autorise, par lettre avec accusé de réception et/ou par courrier électronique ou par tout autre moyen de communication rapide, l’autorité contractante à procéder à la publication et à la diffusion de l’avis d’appel d’offres en deux étapes dans les médias nationaux et/ou internationaux.
+En cas d’avis défavorable, la CNMP recommande, par lettre avec accusé de réception et/ou par courrier électronique, ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au document dans un délai maximum de trois (3) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités.
+1.3.1.4. Publication de l’avis d’appel d’offres en deux étapes
+Après l’autorisation de la CNMP, l’autorité contractante publie l’avis d’appel d’offres en deux étapes dans un quotidien national à grand tirage et/ou dans un journal local pendant au moins quatre (4) jours non consécutifs, à la radio et, si nécessaire, par voie d’affichage.
+Pour les appels d’offres en deux étapes de portée internationale, l’avis d’appel public d’offres est également inséré dans une publication à large diffusion internationale.
+Cet avis fait parallèlement l’objet d’une publicité par voie électronique sur le site web de l’autorité contractante et dans le Journal Électronique des Marchés Publics domicilié sur le site web de la CNMP, à la demande de l’autorité contractante.
+1.3.1.5. Délai de réception des dossiers de candidatures
+En application de l’article 48 de la Loi du 10 juin 2009 et de l’article 83 de l’Arrêté d’application de ladite Loi, le délai de réception des candidatures ne peut être inférieur à trente (30) jours calendaires pour les appels d’offres nationaux à compter de la date de publication de l’avis d’appel d’offres en deux étapes dans un quotidien national à grand tirage et/ou dans un journal local et à quarante-cinq (45) jours calendaires pour les appels d’offres internationaux, dans un quotidien national à grand tirage et dans un journal international à large diffusion.
+1.3.1.6. Ouverture des plis et évaluation des offres
+1.3.1.6.1. Tâches du comité d’ouverture des plis et d’évaluation des offres
+Le comité d’ouverture des plis et d’évaluation des offres placé auprès de l’autorité contractante et siégeant sous l’autorité de son Président :
+1.	vérifie d’abord les date et heure de la réception de chaque pli. Les plis remis avec retard ne sont pas acceptés et sont retournés à leurs expéditeurs sans être ouverts ;
+2.	vérifie sommairement si le minimum requis de six (6) plis est atteint. Dans le cas contraire, l’appel doit être relancé dans un délai de quinze (15) jours, sauf autorisation de la CNMP pour poursuivre la procédure. Les représentants des candidats, assistant à cette séance, signent un registre attestant leur présence ;
+3.	procède, dans un premier temps, à l’ouverture de chaque enveloppe extérieure et vérifie uniquement la présence des pièces exigées par le dossier d’appel d’offres en deux étapes, lesquelles pièces servent entre autres à déterminer la qualification du soumissionnaire ;
+4.	procède, dans un deuxième temps, à l’ouverture de l’enveloppe intérieure contenant l’offre initiale sans prix soumissionné et, après avoir lu, à haute voix, l’offre de chaque soumissionnaire, établit un tableau récapitulant les principales caractéristiques des différentes propositions de solutions techniques ;
+5.	établit un procès-verbal de la séance d’ouverture des plis devant être signé séance tenante par tous les membres présents du comité et les représentants des soumissionnaires ; ces derniers pouvant formuler des réserves avant de signer ;
+6.	désigne un sous-comité technique d’étude et d’évaluation des offres.
+1.3.1.6.2. Tâches du sous-comité technique d’étude et d’évaluation des offres
+Le sous-comité technique d’étude et d’évaluation des offres :
+1.	procède, à huis clos et dans la plus grande confidentialité, à l’examen préliminaire ainsi qu’à l’évaluation des propositions de solutions techniques et à l’établissement d’un rapport proposant une liste de soumissionnaires admis à présenter des offres finales avec prix soumissionnés lors de la deuxième étape ;
+Lorsqu’une offre n’est pas conforme aux exigences du dossier d’appel d’offres en deux étapes (absence ou non-validité à caractère éliminatoire de certaines pièces exigées par le dossier de consultation), elle est rejetée immédiatement et ne peut être, par la suite, rendue conforme au dossier de consultation ni par correction, ni par ajouts des documents manquants.
+2.	peut demander aux candidats des éclaircissements au sujet de tout aspect de leur offre initiale pour faciliter l’examen et l’évaluation des propositions. Une telle démarche et la réponse qui est apportée sont formulées par écrit ;
+3.	transmet son rapport à tous les membres du comité, pour examen et amendements éventuels.
+Toutes ces actions relevant de la compétence du sous-comité technique doivent être effectuées dans un délai maximum de dix (10) jours ouvrables à partir de la date limite de dépôt des propositions/ouverture des plis.
+1.3.1.6.3. Délibération du comité d’ouverture des plis et d’évaluation des offres
+Le comité d’ouverture des plis et d’évaluation des offres :
+1.	vérifie que les conditions de quorum sont remplies pour pouvoir délibérer ;
+2.	statue éventuellement sur les éléments restés en suspens à l’ouverture des plis ;
+3.	dispose d’un délai de deux (2) jours ouvrables, à compter de la date de transmission du rapport d’analyse, pour arrêter la liste provisoire des soumissionnaires admis à soumettre une offre finale accompagnée de prix lors de la deuxième étape ;
+Il doit arrêter cette liste sur la base des conclusions, éventuellement amendées, du sous-comité technique ;
+4.	rédige un procès-verbal listant provisoirement les entreprises retenues pour participer à la deuxième étape.
+Le procès-verbal précité doit être rédigé et signé séance tenante par tous les membres du comité d’ouverture des plis et d’évaluation des offres.
+1.3.1.7. Transmission du rapport d’évaluation des offres à la CNMP
+L’autorité contractante transmet à la CNMP, pour validation, une copie de chacun des dossiers reçus, le procès-verbal d’ouverture des plis, le rapport d’analyse des propositions et le procès-verbal listant provisoirement les entreprises retenues pour participer à la deuxième étape, dans un délai de deux (2) jours ouvrables à partir de la date de signature de ce dernier document.
+1.3.1.8. Examen du rapport d’évaluation des offres par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) procède à l’étude du procès-verbal d’ouverture des plis, du rapport d’évaluation des propositions du sous-comité technique ainsi que du procès-verbal listant les entreprises retenues, et vérifie leur conformité avec les dispositions du dossier d’appel d’offres en deux étapes. Elle dispose d’un délai maximum de cinq (5) jours ouvrables pour émettre un avis, à partir de la date de réception du document. En l’absence de cet avis dans le délai imparti, la liste provisoire des soumissionnaires (admis à soumettre une offre finale accompagnée de prix lors de la deuxième étape) est considérée comme validée.
+En cas d’avis favorable, la CNMP informe, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, l’autorité contractante qu’elle valide la liste des entreprises retenues pour participer à la deuxième étape, la rendant ainsi définitive.
+En cas d’avis défavorable, la CNMP recommande, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au rapport d’évaluation des propositions et au procès-verbal listant les entreprises retenues pour participer à la deuxième étape dans un délai maximum de trois (3) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités.
+La Commission Nationale des Marchés Publics (CNMP) examine le rapport et le procès-verbal amendés, rendant définitive la liste des entreprises retenues pour participer à la deuxième étape, dans un délai de trois (3) jours ouvrables à compter de la date de réception de ces documents. Ceux-ci doivent lui être transmis par l’autorité contractante dans un délai maximum de deux (2) jours ouvrables qui suit la fin du délai visé au paragraphe précédent.
+En cas d’appel public en deux étapes infructueux ou de rejet du rapport d’évaluation des candidatures et du procès-verbal listant les entreprises pré-qualifiées, la CNMP peut recommander la reprise du processus d’appel public à candidatures après modification du dossier d’appel d’offres en deux étapes.
+Sous-section 2 - Deuxième étape de l’appel d’offres
+1.3.2.1. Tâches à accomplir par l’autorité contractante
+L’autorité contractante :
+1.	adresse, pour avis conforme, à la CNMP, un projet de cahier des charges définitif (accompagné du procès-verbal du comité d’ouverture des plis et d’évaluation des offres arrêtant la liste des soumissionnaires admis à soumettre une offre finale lors de la deuxième étape), dans un délai maximum de quinze (15) jours ouvrables à partir de la date de réception de l’avis de validation du rapport et du procès-verbal dressé lors de la première étape ;
+Ce projet de cahier des charges définitif est élaboré par l’autorité contractante, au regard des propositions de solutions techniques obtenues de la part des soumissionnaires dont les offres initiales n’ont pas été rejetées. Il est la résultante, d’une part, de la suppression ou de la modification de tout aspect, initialement prévu dans le dossier d’appel d’offres en deux étapes, des caractéristiques techniques ou qualitatives des fournitures, travaux ou services requis et de tout critère initialement énoncé dans ce dossier pour la détermination de l’offre à retenir et, d’autre part, de l’ajout de nouvelles caractéristiques ou de nouveaux critères d’évaluation.
+En cas de financement extérieur, la CNMP donne son avis sur ce projet de cahier des charges définitif après sa transmission à l’organisme de financement pour avis de non-objection.
+2.	forme le comité d’ouverture des plis et d’évaluation des offres sept (7) jours ouvrables avant la séance publique d’ouverture des plis.
+1.3.2.2. Examen du projet de cahier des charges par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le projet de cahier des charges définitif et vérifie sa conformité avec la réglementation en vigueur. Elle dispose d’un délai maximum de huit (8) jours ouvrables pour donner son avis conforme, à partir de la date de réception du document. En cas de dépassement de ce délai, l’autorisation du lancement de la deuxième étape de l’appel d’offres est réputée acquise.
+En cas d’avis favorable, la CNMP autorise, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, l’autorité contractante à procéder à la diffusion du cahier des charges définitif auprès des candidats admis à soumissionner lors de la deuxième étape selon les modalités prévues au § 1.3.2.3 ci-dessous.
+En cas d’avis défavorable, la CNMP recommande, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au document dans un délai maximum de trois (3) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités.
+1.3.2.3. Invitation à concourir aux candidats admis
+L’autorité contractante adresse une lettre d’invitation à concourir à l’ensemble des candidats admis à soumettre des offres finales accompagnées de prix (leur précisant l’adresse du service administratif où retirer le cahier des charges définitif), dans un délai maximum de deux (2) jours ouvrables, soit à partir de la date de réception de la lettre et/ou du courrier électronique mentionné au paragraphe 2 du § 1.3.2.2 ci-dessus, soit à partir de la fin du délai précédent pour la finalisation du document précité ou après la date de réception de l’avis de non-objection de l’organisme de financement.
+1.3.2.4. Délai de réception des offres
+En application de l’article 48 de la Loi du 10 juin 2009 et de l’article 83 de l’Arrêté d’application de ladite Loi, le délai de réception des offres des candidats ne peut être inférieur à trente (30) jours calendaires pour les appels d’offres en deux étapes nationaux et à quarante-cinq (45) jours calendaires pour les appels d’offres en deux étapes internationaux à compter de la date de notification de la lettre d’invitation à concourir, lors de la deuxième étape, à l’adresse indiquée au lieu où siège l’autorité contractante.
+En cas d’urgence dûment motivée, le délai prévu pour la deuxième étape de l’appel d’offres en deux étapes national peut être ramené à quinze (15) jours calendaires.
+1.3.2.5. Ouverture des plis et évaluation des offres
+1.3.2.5.1. Tâches du comité d’ouverture des plis et d’évaluation des offres
+Le comité d’ouverture des plis et d’évaluation des offres placé auprès de l’autorité contractante et siégeant sous l’autorité de son Président :
+1.	s’assure que tous les candidats admis à concourir ont été invités de façon équitable à soumissionner dans le délai fixé. Dans le cas contraire, l’invitation est relancée ;
+2.	vérifie, en tout premier lieu, les date et heure de la réception de chaque pli. Les plis remis avec retard ne sont pas acceptés et sont retournés à leurs expéditeurs sans être ouverts ;
+3.	vérifie sommairement si le minimum requis de deux (2) plis est atteint. Dans le cas contraire, l’appel doit être relancé dans un délai de quinze (15) jours, sauf autorisation de la CNMP pour poursuivre la procédure. Les représentants des soumissionnaires, assistant à cette séance, signent un registre attestant leur présence ;
+4.	procède, dans un premier temps, à l’ouverture de chaque enveloppe extérieure et vérifie uniquement la présence des pièces exigées par le cahier des charges définitif ;
+5.	procède, dans un deuxième temps, à l’ouverture de l’enveloppe contenant l’offre finale accompagnée de prix correspondant aux spécifications du cahier des charges définitif et, après avoir lu, à haute voix, l’offre de chaque soumissionnaire, établit un tableau récapitulant les principales caractéristiques des différentes offres et, particulièrement les montants, délais, variantes et rabais éventuels ;
+6.	établit un procès-verbal de la séance d’ouverture des plis devant être signé séance tenante par tous les membres présents du comité et les représentants des soumissionnaires ;
+7.	désigne un sous-comité technique d’étude et d’évaluation des offres.
+1.3.2.5.2. Tâches du sous-comité d’étude et d’évaluation des offres
+Le sous-comité technique d’étude et d’évaluation des offres :
+1.	procède, à huis clos et dans la plus grande confidentialité, à l’analyse ainsi qu’à l’évaluation comparative des offres finales accompagnées de prix ;
+L’évaluation des offres finales tient compte, outre des prix, de critères précis et quantifiés (énumérés à l’intention des soumissionnaires) dans le cahier des charges définitif de l’appel d’offres en deux étapes en fonction de l’objet du marché et devant être exprimés en termes monétaires.
+2.	peut demander éventuellement aux soumissionnaires des éclaircissements relatifs à leur offre finale, y compris le sous-détail de leurs prix unitaires, pour faciliter l’examen, l’évaluation et la comparaison des propositions ;
+Une telle démarche et la réponse qui est apportée sont formulées par écrit. Mais, à l’exception de la confirmation de la rectification des erreurs de calcul pouvant être découvertes par le sous-comité technique au cours de la vérification du bordereau des quantités et des prix unitaires, aucune modification du prix ou du contenu de l’offre finale ne peut être demandée, ni offerte, ni recevable.
+Une offre finale comportant une variante par rapport à l’objet du marché tel qu’il a été défini ne peut être prise en considération par le sous-comité technique que dans la mesure où une telle éventualité a été expressément autorisée dans le cahier des charges définitif de l’appel d’offres en deux étapes et qu’à la condition que le soumissionnaire ait également proposé une offre de base.
+Les rabais éventuels accordés par le soumissionnaire sont appliqués au montant de sa proposition financière, éventuellement corrigée par le sous-comité technique, avant la comparaison des offres. Dans le cas où le cahier des charges définitif de l’appel d’offres en deux étapes demande au soumissionnaire de proposer des rabais, une offre sans proposition de rabais est considérée comme ayant accordé un rabais nul et n’est donc pas éliminée.
+Aucune information relative à l’examen, aux éclaircissements, à l’évaluation et à la comparaison des offres finales, ainsi qu’aux recommandations relatives à l’attribution provisoire du marché, ne peut être, sous peine d’exclusion temporaire de la commande publique prévue par la Loi, divulguée aux soumissionnaires ni à toute personne étrangère à la procédure d’analyse et d’évaluation, après l’ouverture des plis et jusqu’à l’annonce de l’attribution définitive du marché au soumissionnaire retenu.
+3.	élabore un rapport d’analyse faisant apparaître un classement des offres finales par application des seuls critères définis le plus précisément possible au cahier des charges définitif de l’appel d’offres en deux étapes ;
+4.	transmet sans délai ce rapport d’analyse à tous les membres du comité, pour examen et amendements éventuels.
+Toutes ces actions relevant de la compétence du sous-comité technique doivent être effectuées dans un délai maximum de huit (8) jours ouvrables à compter de la date limite de dépôt des offres finales ou d’ouverture des plis.
+1.3.2.5.3. Délibération du comité d’ouverture des plis et d’évaluation des offres
+Le comité d’ouverture des plis et d’évaluation des offres :
+1.	vérifie que les conditions de quorum sont remplies pour pouvoir délibérer ;
+2.	dispose d’un délai maximum de deux (2) jours ouvrables pour procéder à l’attribution provisoire du marché ;
+Il doit attribuer le marché, sur la base des conclusions éventuellement amendées du sous-comité technique, au soumissionnaire jugé qualifié pour exécuter le marché de façon satisfaisante après vérification de ses capacités techniques et financières et dont l’offre est jugée la mieux-disante au regard des critères fixés au cahier des charges définitif de l’appel d’offres en deux étapes.
+3.	rédige un procès-verbal d’attribution provisoire du marché.
+Le procès-verbal d’attribution provisoire du marché doit être rédigé et signé séance tenante par tous les membres du comité d’ouverture des plis et d’évaluation des offres.
+Toute tentative effectuée par un soumissionnaire pour influencer les membres du comité au cours de la procédure d’examen, d’évaluation et de comparaison des offres finales, et dans leur décision relative à l’attribution provisoire du marché, conduit à son exclusion temporaire de la commande publique [Se reporter aux dossiers standard d’appel d’offres].
+1.3.2.6. Transmission du rapport d’évaluation à la CNMP
+L’autorité contractante transmet à la CNMP, pour validation, une copie de chacune des soumissions, le procès-verbal d’ouverture des plis, le rapport d’évaluation des offres et le procès-verbal d’attribution provisoire du marché dans un délai de deux (2) jours ouvrables à partir de la date de signature du procès-verbal d’attribution provisoire du marché.
+1.3.2.7. Examen du rapport d’évaluation par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le rapport d’analyse, le procès-verbal d’ouverture des plis, le rapport d’évaluation des offres ainsi que le procès-verbal d’attribution provisoire du marché et vérifie leur conformité avec les dispositions du cahier des charges définitif. Elle dispose d’un délai de dix (10) jours ouvrables pour émettre un avis, à partir de la date de réception des documents.
+La CNMP peut, sous réserve de notification à l’autorité compétente avec motif à l’appui avant l’expiration du délai, prendre un délai supplémentaire d’un maximum de dix (10) jours ouvrables pour émettre son avis, les motifs évoqués pour le délai supplémentaire par la CNMP devant fondamentalement porter sur la complexité du marché.
+En aucun cas, la durée totale de l’étude du dossier ne peut excéder vingt (20) jours ouvrables.
+En l’absence de cet avis dans le délai de vingt (20) jours, l’attribution du marché est considérée comme validée, et l’autorité contractante est alors habilitée à informer le soumissionnaire retenu qu’il est attributaire du marché.
+En cas d’avis favorable, la CNMP valide l’attribution du marché et invite, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, l’autorité contractante à réaliser les actions énumérées au § 1.3.2.8 ci-dessous.
+En cas d’avis défavorable, la CNMP recommande, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au rapport d’évaluation des offres et au procès-verbal d’attribution provisoire du marché dans un délai maximum de trois (3) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités.
+La Commission Nationale des Marchés Publics (CNMP) valide le rapport et le procès-verbal amendés, rendant définitive l’attribution du marché, dans un délai de trois (3) jours ouvrables à compter de la réception de ces documents. Ceux-ci doivent lui être transmis par l’autorité contractante dans un délai maximum de deux (2) jours ouvrables qui suit la fin du délai visé au paragraphe précédent.
+En cas d’appel d’offres en deuxième étape infructueux ou de rejet du rapport d’évaluation des offres et du procès-verbal d’attribution provisoire du marché, la CNMP recommande la reprise de la deuxième étape après modification du DAO.
+En cas de financement extérieur, l’autorité contractante doit, avant de solliciter l’avis de validation de la CNMP, transmettre le procès-verbal d’attribution du marché, accompagné d’une copie de chacune des offres, du procès-verbal d’ouverture des plis et du rapport d’évaluation comparative des offres finales, à l’organisme de financement, pour avis de non-objection.
+1.3.2.8. Notification et approbation du marché
+L’autorité contractante doit :
+1.	notifier l’attribution du marché au soumissionnaire retenu dans un délai maximum de deux (2) jours ouvrables à partir de la date de réception de l’avis de validation du rapport d’analyse et du procès-verbal d’attribution du marché par la CNMP ;
+2.	informer dans le même délai par lettre avec accusé de réception et/ou par courrier électronique tous les autres soumissionnaires du rejet de leurs offres et leur restituer leur garantie de soumission ;
+3.	préparer le projet de marché (devant comprendre les pièces et documents énumérés au § 6 de l’introduction du présent manuel) destiné à la signature des parties contractantes ;
+4.	transmettre le marché signé par les parties contractantes à l’autorité d’approbation compétente ;
+5.	transmettre à la CNMP le marché approuvé pour validation dans un délai maximum de dix (10) jours ouvrables à partir de la date de réception de l’avis de validation du rapport d’analyse et du procès-verbal d’attribution du marché.
+Ce délai de dix (10) jours doit permettre à l’autorité contractante de :
+1.	mettre au point le contrat de marché (4 jours ouvrables) ;
+2.	recueillir la signature du soumissionnaire retenu pour l’exécution du marché (2 jours ouvrables) ;
+3.	signer le marché (1 jour ouvrable) ;
+4.	obtenir l’approbation du marché par l’autorité compétente (3 jours ouvrables).
+1.3.2.9. Demande d’avis, validation et transmission du marché par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) :
+1.	peut demander, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide à compter du jour de la réception du dossier de validation, en motivant sa requête, à l’autorité contractante, la production des pièces manquantes audit dossier dans un délai de deux (2) jours calendaires et dont l’absence peut empêcher la validation du marché ;
+2.	transmet le marché approuvé à la Cour Supérieure des Comptes et du Contentieux Administratif (CSCCA) pour avis dans un délai de deux (2) jours ouvrables à partir de la date de réception du marché approuvé si le dossier est complet ou, dans le cas contraire, à partir de la date de réception des pièces manquantes ;
+3.	valide le marché approuvé après avis favorable de la CSCCA intervenu dans un délai de cinq (5) jours ouvrables à compter de la date de réception de la transmission du marché approuvé ou, en cas d’avis défavorable de la Cour, retourne le marché approuvé à la personne responsable du marché avec les remarques et commentaires de la CSCCA ;
+4.	transmet le marché validé à la personne responsable du marché pour exécution dans un délai de trois (3) jours ouvrables à partir de la date de réception de l’avis favorable de la Cour Supérieure des Comptes et du Contentieux Administratif.
+1.3.2.10. Notification et publication de l’avis d’attribution du marché
+L’autorité contractante :
+1.	notifie le marché validé au soumissionnaire retenu dans un délai maximum de quatre (4) jours ouvrables pour exécution suivant la date de réception dudit marché ;
+Le marché entre en vigueur dès sa notification au titulaire ou à une date ultérieure si le marché le prévoit.
+L’entrée en vigueur du marché marque le début des obligations juridiques d’exécution et, sauf dispositions contraires du marché, le début des délais de réalisation.
+2.	publie un avis d’attribution définitive du marché dans les huit (8) jours ouvrables de l’entrée en vigueur du marché, dans un quotidien national à grand tirage ou, le cas échéant, dans un journal local, sur son site web et sollicite de la CNMP la publication de cet avis dans son Journal Électronique des Marchés Publics.
+Sous-section 3 - Appel d’offres en deux étapes précédé d’une pré-qualification
+L’autorité contractante, avant de mettre en branle la procédure d’appel d’offres en deux étapes, peut initialement recourir à une pré-qualification des candidats. Cette pré-qualification dont la procédure est décrite à la sous-section 1 de la section 2 du présent chapitre s’effectue exclusivement en fonction de l’aptitude des candidats à exécuter le marché de façon satisfaisante et selon les critères de performance et de capacité technique.
+CHAPITRE II
+PROCÉDURES EXCEPTIONNELLES
+DE PASSATION DES MARCHÉS PUBLICS
+Les procédures exceptionnelles de passation des marchés publics sont :
+1.	L’appel d’offres restreint sans pré-qualification (Cf. Article 33 de la Loi du 10 juin 2009) ;
+2.	Le marché de gré à gré ou par entente directe (Cf. Articles 34 et 34-1 de la Loi du 10 juin 2009).
+Section 1 : Marchés sur appel d’offres restreint sans pré-qualification
+L’appel d’offres est dit restreint, lorsque seuls peuvent remettre des offres les candidats qui y ont été invités par l’autorité contractante. Le nombre de candidats admis à soumissionner doit assurer une concurrence réelle.
+2.1.1. Conditions de recours à l’appel d’offres restreint (AOR)
+Sous réserve d’un appel d’offres restreint consécutif à un appel d’offres infructueux, il ne peut être recouru à la procédure de l’appel d’offres restreint que lorsque les biens, les travaux ou les services, de par leur nature extrêmement complexe ou spécialisée, ne sont disponibles qu’auprès d’un nombre limité d’entrepreneurs, de fournisseurs ou de prestataires de services.
+Le recours à la procédure de l’appel d’offres restreint est motivé sur la base des critères pré-établis par la Commission Nationale des Marchés Publics. L’autorité contractante qui décide d’y recourir produit auprès de la CNMP une demande de non-objection avant de passer le marché.
+2.1.2. Tâches à accomplir par l’autorité contractante/maître d’ouvrage
+L’autorité contractante :
+1.	doit s’assurer de l’existence et de la disponibilité des crédits nécessaires à la prise en charge des acquisitions ou réalisations projetées ;
+2.	établit une liste des candidats pressentis lorsque les besoins à satisfaire relèvent de fournitures, prestations ou travaux spécialisés, ou requièrent une technique particulière, ou auxquels peu de candidats sont capables de répondre ;
+3.	procède, pour l’utilisation de cette procédure dérogatoire, à une demande d’autorisation préalable auprès de la Commission Nationale des Marchés Publics (CNMP) en soumettant avec la requête la liste restreinte d’entreprises et un projet de dossier d’appel d’offres restreint ;
+En cas de financement extérieur, la CNMP donne son avis sur la liste restreinte et le projet de dossier d’appel d’offres restreint après leur transmission à l’organisme de financement pour avis de non-objection.
+4.	forme le comité d’ouverture des plis et d’évaluation des offres sept (7) jours ouvrables avant la séance publique d’ouverture des plis.
+2.1.3. Examen du dossier d’appel d’offres restreint par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le dossier d’appel d’offres restreint dans un délai maximum de huit (8) jours ouvrables.
+En cas d’avis favorable, la CNMP, après recommandation de la modification éventuelle de la liste proposée, adresse à l’autorité contractante une lettre avec accusé de réception et/ou un courrier électronique par lesquels elle l’autorise à recourir à cette procédure dérogatoire et lui demande :
+soit d’adresser une lettre d’invitation à concourir à l’ensemble des candidats sélectionnés (leur précisant l’adresse du service administratif où retirer le dossier d’appel d’offres restreint n’ayant fait l’objet d’aucune remarque particulière de la part de la CNMP), dans un délai maximum de trois (3) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités ;
+soit, en cas d’observations sur le projet de dossier d’appel d’offres restreint, de prendre l’attache de ce dernier pour procéder aux aménagements et amendements du document recommandés, dans un délai maximum de trois (3) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique d’autorisation de la CNMP.
+En cas d’avis défavorable, la CNMP adresse à l’autorité contractante une lettre avec accusé de réception et/ou un courrier électronique de rejet lui préconisant le recours à l’appel d’offres ouvert avec ou sans pré-qualification.
+2.1.4. Invitation à concourir
+L’autorité contractante adresse une lettre d’invitation à concourir à l’ensemble des candidats listés (leur précisant l’adresse du service administratif où retirer le dossier d’appel d’offres restreint), dans un délai maximum de trois (3) jours ouvrables à partir de la fin du délai fixé à l’alinéa 2 du deuxième paragraphe du § 2.1.3 pour la finalisation du document précité.
+2.1.5. Délai de réception des offres
+En application de l’article 48 de la Loi du 10 juin 2009 et de l’article 83 de l’Arrêté d’application de ladite Loi, le délai de réception des offres des candidats ne peut être inférieur à trente (30) jours calendaires pour les appels d’offres restreints nationaux et à quarante-cinq (45) jours calendaires pour les appels d’offres restreints internationaux à compter de la date de notification de la lettre d’invitation à concourir à l’adresse indiquée au lieu où siège l’autorité contractante.
+En cas d’urgence dûment motivée, le délai prévu pour l’appel d’offres restreint national peut être ramené à quinze (15) jours calendaires.
+2.1.6. Ouverture des plis et évaluation des offres
+2.1.6.1. Tâches du comité d’ouverture des plis et d’évaluation des offres
+Le comité d’ouverture des plis et d’évaluation des offres placé auprès de l’autorité contractante et siégeant sous l’autorité de son Président :
+1.	vérifie d’abord les date et heure de la réception de chaque pli. Les plis remis avec retard ne sont pas acceptés et sont retournés à leurs expéditeurs sans être ouverts ;
+2.	vérifie sommairement si le minimum requis de deux (2) plis est atteint. Dans le cas contraire, l’appel d’offres restreint doit être relancé dans un délai de quinze (15) jours ouvrables, sauf autorisation de la CNMP pour poursuivre la procédure. Les représentants des soumissionnaires, assistant à cette séance, signent un registre attestant leur présence ;
+3.	procède, dans un premier temps, à l’ouverture de chaque enveloppe extérieure et vérifie uniquement la présence des pièces exigées par le dossier d’appel d’offres restreint, telle la garantie de soumission, le quitus fiscal, lesquelles pièces servent entre autres à déterminer la qualification du soumissionnaire ;
+4.	procède, dans un deuxième temps, à l’ouverture de l’enveloppe intérieure (contenant l’offre proprement dite) et, après avoir lu, à haute voix, l’offre de chaque soumissionnaire, établit un tableau récapitulant les principales caractéristiques des différentes offres et particulièrement les montants, délais, variantes et rabais éventuels ;
+Nota : Pour les marchés d’études ou de prestations intellectuelles, l’offre technique et l’offre financière font l’objet de deux enveloppes intérieures séparées ; seule l’enveloppe contenant l’offre technique peut alors être ouverte, l’enveloppe contenant l’offre financière devant alors être ouverte ultérieurement, lors d’une nouvelle séance publique, au cas où, après analyse et évaluation, l’offre technique est retenue par le comité d’ouverture des plis et d’évaluation des offres.
+5.	établit un procès-verbal de la séance d’ouverture des plis devant être signé séance tenante par tous les membres présents du comité et les représentants des soumissionnaires ; ces derniers pouvant formuler des réserves avant de signer ;
+6.	désigne un sous-comité technique d’étude et d’évaluation des offres.
+2.1.6.2. Tâches du sous-comité technique d’étude et d’évaluation des offres
+Le sous-comité technique d’étude et d’évaluation des offres :
+1.	procède, à huis clos et dans la plus grande confidentialité, à l’examen préliminaire ainsi qu’à l’évaluation comparative des offres ;
+Lorsqu’une offre n’est pas conforme aux exigences du dossier d’appel d’offres restreint (absence ou non-validité à caractère éliminatoire de certaines des pièces précitées comme la garantie de soumission), elle est rejetée immédiatement et ne peut être, par la suite, rendue conforme au dossier d’appel d’offres restreint ni par correction, ni par ajouts des documents manquants.
+L’évaluation des offres tient compte, outre des prix, de critères précis et quantifiés (énumérés à l’intention des candidats dans le dossier d’appel d’offres restreint) en fonction de l’objet du marché et devant être exprimés en termes monétaires, sauf pour les marchés de prestations intellectuelles pour lesquels le facteur « qualité » est prédominant.
+2.	peut demander éventuellement aux soumissionnaires des éclaircissements relatifs à leur offre, y compris le sous-détail de leurs prix unitaires, pour faciliter l’examen, l’évaluation et la comparaison des propositions ;
+Une telle démarche et la réponse qui est apportée sont formulées par écrit. Mais à l’exception de la confirmation de la rectification des erreurs de calcul pouvant être découvertes par le sous-comité technique au cours de la vérification du bordereau des quantités et des prix unitaires, aucune modification du prix ou du contenu de l’offre ne peut être demandée, ni offerte, ni recevable.
+Une offre comportant une variante par rapport à l’objet du marché tel qu’il a été défini ne peut être prise en considération par le sous-comité technique que dans la mesure où une telle éventualité a été expressément autorisée dans le dossier d’appel d’offres restreint et qu’à la condition que le soumissionnaire ait proposé également une offre de base.
+Les rabais éventuels accordés par le soumissionnaire sont appliqués au montant de sa proposition financière, éventuellement corrigée par le sous-comité technique, avant la comparaison des offres. Dans le cas où le dossier d’appel d’offres restreint demande au soumissionnaire de proposer des rabais, une offre sans proposition de rabais est considérée comme ayant accordé un rabais nul et n’est donc pas éliminée.
+Aucune information relative à l’examen, aux éclaircissements, à l’évaluation et à la comparaison des offres, ainsi qu’aux recommandations relatives à l’attribution provisoire du marché, ne peut être, sous peine d’exclusion temporaire de la commande publique prévue par la Loi, divulguée aux soumissionnaires ni à toute personne étrangère à la procédure d’analyse et d’évaluation, après l’ouverture des plis et jusqu’à l’annonce de l’attribution définitive du marché au soumissionnaire retenu.
+3.	élabore un rapport d’analyse faisant apparaître un classement des offres par application des seuls critères définis le plus précisément possible aux instructions aux soumissionnaires ;
+4.	transmet ce rapport d’analyse à tous les membres du comité, pour examen et amendements éventuels.
+Toutes ces actions relevant de la compétence du sous-comité technique doivent être effectuées, à compter de la date limite de dépôt des offres/ouverture des plis, dans un délai de :
+cinq (5) jours ouvrables, s’il s’agit de fournitures ;
+six (6) jours ouvrables, s’il s’agit de services et de petits ou moyens travaux ;
+dix (10) jours ouvrables, s’il s’agit de grands travaux, d’équipements techniques ou d’études soumises à la procédure de la double enveloppe intérieure contenant l’une, la proposition technique, l’autre, la proposition financière (voir Nota au § 2.1.6.1 ci-dessus) et de l’analyse ou l’évaluation des offres en deux phases.
+2.1.6.3. Délibération du comité d’ouverture des plis et d’évaluation des offres
+Le comité d’ouverture des plis et d’évaluation des offres :
+1.	vérifie que les conditions de quorum sont remplies pour pouvoir délibérer ;
+2.	statue éventuellement sur les éléments restés en suspens à l’ouverture des plis ;
+3.	dispose d’un délai maximum de deux (2) jours ouvrables pour procéder à l’attribution provisoire du marché ;
+Il doit attribuer le marché sur la base des conclusions, éventuellement amendées, du sous-comité technique, au soumissionnaire jugé qualifié pour exécuter le marché de façon satisfaisante après vérification de ses capacités techniques et financières et dont l’offre est jugée la mieux-disante au regard des critères fixés au DAO.
+4.	rédige un procès-verbal d’attribution provisoire du marché.
+Le procès-verbal d’attribution provisoire du marché doit être rédigé et signé séance tenante par tous les membres du comité d’ouverture des plis et d’évaluation des offres.
+Toute tentative effectuée par un soumissionnaire pour influencer les membres du comité au cours de la procédure d’examen, d’évaluation et de comparaison des offres, et dans leur décision relative à l’attribution provisoire du marché, conduit à son exclusion temporaire de la commande publique [se reporter aux dossiers standards d’appel d’offres].
+2.1.7. Transmission du rapport d’évaluation à la CNMP
+L’autorité contractante transmet à la CNMP, pour validation, une copie de chacune des soumissions reçues, le procès-verbal d’ouverture des plis, le rapport d’évaluation des offres et le procès-verbal d’attribution provisoire du marché dans un délai de deux (2) jours ouvrables à partir de la date de signature du procès-verbal d’attribution provisoire du marché.
+2.1.8. Analyse du rapport d’évaluation des offres par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le rapport d’évaluation des offres ainsi que le procès-verbal d’attribution provisoire du marché et vérifie leur conformité avec les dispositions du dossier d’appel d’offres restreint. Elle dispose d’un délai de dix (10) jours ouvrables pour émettre un avis, à partir de la date de réception des documents.
+La CNMP peut, sous réserve de notification à l’autorité compétente avec motif à l’appui avant l’expiration du délai, prendre un délai supplémentaire d’un maximum de dix (10) jours ouvrables pour émettre son avis, les motifs évoqués par la CNMP devant fondamentalement porter sur la complexité du marché.
+En aucun cas, la durée totale de l’étude du dossier ne peut excéder vingt (20) jours ouvrables.
+En l’absence de cet avis dans un délai de vingt (20) jours, l’attribution du marché est considérée comme validée et l’autorité contractante est alors habilitée à informer le soumissionnaire retenu qu’il est attributaire du marché.
+En cas d’avis favorable, la CNMP valide l’attribution du marché et invite, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, l’autorité contractante à réaliser les actions énumérées au § 2.1.9 ci-dessous.
+En cas d’avis défavorable, la CNMP recommande, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au rapport d’évaluation des offres et au procès-verbal d’attribution provisoire du marché dans un délai maximum de trois (3) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités.
+La Commission Nationale des Marchés Publics (CNMP) valide le rapport et le procès-verbal amendés, rendant définitive l’attribution du marché, dans un délai de trois (3) jours ouvrables à compter de la date de réception de ces documents. Ceux-ci doivent lui être transmis par l’autorité contractante dans un délai maximum de deux (2) jours ouvrables qui suit la fin du délai visé au paragraphe précédent.
+En cas d’appel d’offres restreint infructueux ou de rejet du rapport d’évaluation des offres et du procès-verbal d’attribution provisoire du marché, la CNMP recommande la reprise du processus d’appel d’offres restreint après modification du DAO.
+En cas de financement extérieur, l’autorité contractante doit, avant de solliciter l’avis de validation de la CNMP, transmettre le procès-verbal d’attribution du marché, accompagné du procès-verbal d’ouverture des plis et du rapport d’évaluation comparative des offres, à l’organisme de financement, pour avis de non-objection.
+2.1.9. Notification et approbation du projet de marché
+L’autorité contractante doit :
+1.	notifier l’attribution du marché au soumissionnaire retenu dans un délai maximum de deux (2) jours ouvrables à partir de la date de réception de l’avis de validation par la CNMP du rapport d’analyse et du procès-verbal d’attribution du marché ;
+2.	informer dans le même délai par lettre avec accusé de réception et/ou par courrier électronique tous les autres soumissionnaires du rejet de leurs offres et leur restituer leur garantie de soumission ;
+3.	préparer le projet de marché (devant comprendre les pièces et documents énumérés au § 6 de l’introduction du présent manuel) destiné à la signature des parties contractantes ;
+4.	transmettre le marché signé par les parties contractantes à l’autorité d’approbation compétente ;
+5.	transmettre à la CNMP le marché approuvé pour validation finale dans un délai maximum de dix (10) jours ouvrables à partir de la date de réception de l’avis de validation du rapport d’analyse et du procès-verbal d’attribution du marché.
+Ce délai de dix (10) jours doit permettre à l’autorité contractante de :
+1.	mettre au point le contrat de marché (4 jours ouvrables) ;
+2.	recueillir la signature du soumissionnaire retenu pour l’exécution du marché (2 jours ouvrables) ;
+3.	signer le marché (1 jour ouvrable) ;
+4.	obtenir l’approbation du marché par l’autorité compétente (3 jours ouvrables).
+2.1.10. Demande d’avis, validation et transmission du marché
+La Commission Nationale des Marchés Publics (CNMP) :
+1.	peut demander, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide à compter du jour de la réception du dossier de validation, en motivant sa requête, à l’autorité contractante, la production des pièces manquantes audit dossier dans un délai de deux (2) jours calendaires et dont l’absence peut empêcher la validation du marché ;
+2.	transmet le marché approuvé à la Cour Supérieure des Comptes et du Contentieux Administratif (CSCCA) pour avis dans un délai de deux (2) jours ouvrables à partir de la date de réception du marché approuvé si le dossier est complet ou, dans le cas contraire, à partir de la date de réception des pièces manquantes ;
+3.	valide le marché approuvé après avis favorable de la CSCCA intervenu dans un délai de cinq (5) jours ouvrables à compter de la date de réception de la transmission du marché approuvé ou, en cas d’avis défavorable de la Cour, retourne le marché approuvé à la personne responsable du marché avec les remarques et commentaires de la CSCCA ;
+4.	transmet le marché validé à la personne responsable du marché pour exécution dans un délai de trois (3) jours ouvrables à partir de la date de réception de l’avis favorable de la Cour Supérieure des Comptes et du Contentieux Administratif.
+2.1.11. Notification et publication de l’avis d’attribution du marché
+L’autorité contractante :
+1.	notifie le marché validé au soumissionnaire retenu dans un délai maximum de quatre (4) jours ouvrables pour exécution suivant la date de la réception dudit marché ;
+Le marché entre en vigueur dès sa notification au titulaire ou à une date ultérieure si le marché le prévoit.
+L’entrée en vigueur du marché marque le début des obligations juridiques d’exécution et, sauf dispositions contraires du marché, le début des délais de réalisation.
+2.	publie un avis d’attribution définitive du marché dans les huit (8) jours ouvrables de l’entrée en vigueur du marché, dans un quotidien national à grand tirage ou, le cas échéant, dans un journal local et/ou dans un journal international, sur internet et sollicite de la CNMP la publication de cet avis dans son Journal Électronique des Marchés Publics.
+Section 2 : Marchés de gré à gré ou par entente directe
+Le marché est passé de gré à gré ou par entente directe lorsque l’autorité contractante engage, sans appel à la concurrence, les discussions qui lui paraissent utiles, avec un entrepreneur, fournisseur ou prestataire de services identifié à l’avance et qui accepte de se soumettre à un contrôle des prix spécifiques durant l’exécution des prestations.
+2.2.1. Conditions de recours au marché de gré à gré
+Le marché est passé de gré à gré ou par entente directe :
+1.	lorsque les besoins ne peuvent être satisfaits que par une prestation nécessitant l’emploi d’un brevet d’invention, d’une licence ou de droits exclusifs détenus par un seul entrepreneur, un seul fournisseur ou un seul prestataire ;
+2.	dans le cas d’urgence due à des circonstances imprévisibles ou de force majeure ne permettant pas de respecter les délais prévus dans les procédures d’appel d’offres ;
+3.	dans le cas d’urgence motivée où l’autorité contractante doit faire exécuter un marché en lieu et place de l’entrepreneur, du fournisseur ou du prestataire défaillant ;
+4.	pour des fournitures, services ou travaux qui complètent ceux ayant fait l’objet d’un premier marché exécuté par le même titulaire, à la condition que le marché initial ait été passé selon la procédure d’appel d’offres, que le marché complémentaire porte sur des fournitures, services ou travaux qui ne figurent pas dans le marché initialement conclu mais qui sont devenus nécessaires, à la suite d’une circonstance imprévue et extérieure aux parties et que ces fournitures, services ou travaux ne peuvent être techniquement ou économiquement séparés du marché principal.
+2.2.2. Obligation d’obtenir l’autorisation préalable de la CNMP
+L’autorité contractante doit obtenir l’autorisation préalable de la Commission Nationale des Marchés Publics (CNMP). Dans cette optique, elle doit transmettre à la CNMP un dossier indiquant les raisons objectives ayant présidé au choix de cette procédure exceptionnelle de passation de marché.
+2.2.3. Examen du dossier de la demande de l’autorité contractante par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le dossier et dispose d’un délai de dix (10) jours ouvrables pour émettre son avis, à partir de la date de réception des documents.
+La CNMP peut, sous réserve de notification à l’autorité compétente avec motif à l’appui avant l’expiration du délai, prendre un délai supplémentaire d’un maximum de dix (10) jours ouvrables pour émettre son avis ; les motifs évoqués par la CNMP devant fondamentalement porter sur la complexité du marché.
+En aucun cas, la durée totale de l’étude du dossier ne peut excéder vingt (20) jours ouvrables.
+En cas d’avis défavorable, la CNMP notifie, par lettre avec accusé de réception et/ou par courrier électronique, le rejet motivé du dossier préconisant le recours à la procédure d’appel à la concurrence lui apparaissant la plus appropriée (appel d’offres ouvert avec ou sans pré-qualification ou appel d’offres restreint).
+En cas d’avis favorable, la CNMP autorise, par lettre avec accusé de réception et/ou par courrier électronique, l’autorité contractante à recourir à cette procédure dérogatoire et l’invite à préparer le dossier d’approbation du marché correspondant (devant comprendre les pièces et documents énumérés au § 6 de l’introduction du présent manuel) et à lui transmettre, dans un délai maximum de dix (10) jours ouvrables à partir de la date de réception de ladite lettre d’autorisation.
+Ce délai de dix (10) jours doit permettre à l’autorité contractante de :
+1.	mettre au point le projet de marché (4 jours ouvrables) ;
+2.	recueillir la signature du soumissionnaire retenu pour l’exécution du marché (2 jours ouvrables) ;
+3.	signer le marché (1 jour ouvrable) ;
+4.	obtenir l’approbation du marché par l’autorité compétente (3 jours ouvrables).
+2.2.4. Demande d’avis, validation et transmission du marché
+La Commission Nationale des Marchés Publics (CNMP) :
+1.	peut demander, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide à compter du jour de la réception du dossier de validation, en motivant sa requête, à l’autorité contractante, la production des pièces manquantes audit dossier dans un délai de deux (2) jours calendaires et dont l’absence peut empêcher la validation du marché ;
+2.	transmet le marché approuvé à la Cour Supérieure des Comptes et du Contentieux Administratif (CSCCA) pour avis dans un délai de deux (2) jours ouvrables à partir de la date de réception du marché approuvé si le dossier est complet ou, dans le cas contraire, à partir de la date de réception des pièces manquantes ;
+3.	valide le marché approuvé après avis favorable de la CSCCA intervenu dans un délai de cinq (5) jours ouvrables à compter de la date de réception de la transmission du marché approuvé ou, en cas d’avis défavorable de la Cour, retourne le marché approuvé à la personne responsable du marché avec les remarques et commentaires de la CSCCA ;
+4.	transmet le marché validé à la personne responsable du marché pour exécution dans un délai de trois (3) jours ouvrables à partir de la date de réception de l’avis favorable de la Cour Supérieure des Comptes et du Contentieux Administratif.
+2.2.5. Notification et publication de l’avis d’attribution du marché
+L’autorité contractante :
+1.	notifie le marché validé au soumissionnaire retenu dans un délai maximum de quatre (4) jours ouvrables pour exécution suivant la date de réception dudit marché ;
+Le marché entre en vigueur dès sa notification au titulaire ou à une date ultérieure si le marché le prévoit.
+L’entrée en vigueur du marché marque le début des obligations juridiques d’exécution et, sauf dispositions contraires du marché, le début des délais de réalisation.
+2.	publie un avis d’attribution définitive du marché dans les huit (8) jours ouvrables de l’entrée en vigueur du marché, dans un quotidien national à grand tirage ou, le cas échéant, dans un journal local, sur son site web et sollicite de la CNMP la publication de cet avis dans son Journal Électronique des Marchés Publics.
+CHAPITRE III
+PROCÉDURES SPÉCIFIQUES DE PASSATION
+DES MARCHÉS PUBLICS
+Les procédures spécifiques utilisées pour passer certains marchés publics sont :
+3.1.	les procédures spécifiques relatives aux marchés de prestations intellectuelles (Cf. : Articles 35, 35-1, 35-2, 35-3 de la Loi du 10 juin 2009) ;
+3.2.	les procédures spécifiques relatives aux marchés à commandes et aux marchés de clientèle (Cf. : Articles 37 et 38 de la Loi du 10 juin 2009).
+Section 1 : Procédures relatives aux marchés de prestations intellectuelles
+Le marché de prestations intellectuelles est relatif aux activités faisant appel essentiellement à la matière grise et dont l’élément prédominant n’est pas physiquement quantifiable.
+Il est attribué après mise en concurrence des candidats pré-qualifiés, en raison de leur aptitude à exécuter les prestations, à la suite d’un appel public à manifestations d’intérêt.
+La sélection est effectuée sur la base d’un dossier de consultation qui comprend les termes de référence, la lettre d’invitation indiquant les critères de sélection et leur mode d’application détaillé et le projet de marché. Le dossier de consultation indique également les exclusions à la participation future aux marchés de travaux, fournitures et services qui résulteraient des prestations qui font l’objet de la consultation.
+Sous-section 1 : Appel à manifestations d’intérêt (AMI)
+3.1.1.1. Tâches à accomplir par l’autorité contractante
+L’autorité contractante :
+1.	doit s’assurer, avant l’organisation de tout appel à manifestations d’intérêt, de l’existence et de la disponibilité des crédits nécessaires à la prise en charge des acquisitions ou réalisations projetées ;
+2.	doit, afin d’établir une liste restreinte de candidats qualifiés, préparer un projet de dossier d’appel à manifestations d’intérêt sur la base duquel les candidats, intéressés par l’opération envisagée, pourront présenter des dossiers de candidature ;
+3.	adresse, pour avis conforme, à la Commission Nationale des Marchés Publics (CNMP), le projet de dossier d’appel à manifestations d’intérêt sollicitant des dossiers de candidature en ce qui concerne les capacités techniques, qualitatives ou financières des consultants ou de prestataires de services ;
+En cas de financement extérieur, la CNMP donne son avis conforme sur le projet de dossier d’appel à manifestations d’intérêt après sa transmission à l’organisme de financement pour avis de non-objection.
+4.	forme le comité d’ouverture des plis et d’évaluation des candidatures sept (7) jours ouvrables avant la séance publique d’ouverture des plis.
+3.1.1.2. Examen du projet de dossier d’appel à manifestations d’intérêt par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le projet de dossier d’appel à manifestations d’intérêt et vérifie sa conformité avec la réglementation en vigueur. Elle dispose d’un délai maximum de trois (3) jours ouvrables pour donner son avis, à partir de la date de réception du document. En cas de dépassement de ce délai, l’autorisation du lancement de l’appel à manifestations d’intérêt est réputée acquise.
+En cas d’avis favorable, la CNMP autorise, par lettre avec accusé de réception et/ou par courrier électronique ou par tout autre moyen de communication rapide, l’autorité contractante à procéder à la publication et à la diffusion de l’appel d’offres à manifestations d’intérêt dans les médias nationaux et/ou internationaux.
+En cas d’avis défavorable, la CNMP recommande, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au document dans un délai maximum de deux (2) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités.
+3.1.1.3. Publication de l’avis d’appel à manifestations d’intérêt
+Après l’autorisation de la CNMP, l’autorité contractante publie l’appel à manifestations d’intérêt dans un quotidien national à grand tirage et/ou dans un journal local pendant au moins quatre (4) jours non consécutifs, à la radio et, si nécessaire, par voie d’affichage.
+Pour les appels à manifestations d’intérêt de portée internationale, l’avis est également inséré dans une publication à large diffusion internationale.
+Cet avis fait parallèlement l’objet d’une publicité par voie électronique sur le site web de l’autorité contractante et dans le Journal Électronique des Marchés Publics domicilié sur le site web de la CNMP, à la demande de l’autorité contractante.
+3.1.1.4. Délai de réception des dossiers de candidature
+En application de l’article 48 de la Loi du 10 juin 2009 et de l’article 83 de l’Arrêté d’application de ladite Loi, le délai de réception des candidatures ne peut être inférieur à trente (30) jours calendaires pour les appels à manifestations d’intérêt nationaux à compter de la date de publication de l’avis d’appel à manifestations d’intérêt dans un quotidien national à grand tirage et/ou dans un journal local et à quarante-cinq (45) jours calendaires pour les appels à manifestations d’intérêt internationaux dans un quotidien national à grand tirage et dans un journal international à large diffusion.
+3.1.1.5. Ouverture des plis et évaluation des offres
+3.1.1.5.1. Tâches du comité d’ouverture des plis et d’évaluation des offres
+Le comité d’ouverture des plis et d’évaluation des offres placé auprès de l’autorité contractante/maître d’ouvrage ou du maître d’ouvrage délégué et siégeant sous l’autorité de son Président :
+1.	procède à l’ouverture des enveloppes, aux date et heure fixées pour leur dépôt, si le minimum requis de trois (3) plis est atteint. Dans le cas contraire, l’appel public à manifestations d’intérêt doit être relancé dans un délai de quinze (15) jours, sauf autorisation de la CNMP pour poursuivre la procédure ;
+2.	annonce les nom et objet social des candidats ;
+3.	établit un procès-verbal de la séance d’ouverture des plis devant être signé séance tenante par tous les membres présents du comité ;
+4.	désigne un sous-comité technique d’étude et d’évaluation des candidatures.
+3.1.1.5.2. Tâches du sous-comité technique d’étude et d’évaluation des offres
+Le sous-comité technique d’étude et d’évaluation des candidatures :
+1.	procède, à huis clos et dans la plus grande confidentialité, à l’analyse, à l’évaluation des candidatures et à l’établissement d’un rapport proposant une liste de candidats admis à présenter des offres dans le cadre d’une consultation à organiser dans une deuxième phase ;
+2.	transmet le rapport d’évaluation à tous les membres du comité pour examen et amendements éventuels.
+Toutes ces actions relevant de la compétence du sous-comité technique doivent être effectuées dans un délai maximum de quatre (4) jours ouvrables à partir de la date limite de dépôt des candidatures/ouverture des plis.
+3.1.1.5.3. Délibération du comité d’ouverture des plis et d’évaluation des offres
+Le comité d’ouverture des plis et d’évaluation des offres :
+1.	vérifie que les conditions de quorum sont remplies pour pouvoir délibérer ;
+2.	statue éventuellement sur les éléments restés en suspens à l’ouverture des plis ;
+3.	dispose d’un délai de deux (2) jours ouvrables, à compter de la date de transmission du rapport d’analyse, pour arrêter la liste provisoire des candidats admis à soumettre une offre finale accompagnée de prix ;
+Il doit arrêter cette liste sur la base des conclusions, éventuellement amendées, du sous-comité technique.
+4.	rédige un procès-verbal listant provisoirement les candidats retenus pour participer à la deuxième phase. Le procès-verbal précité doit être rédigé et signé séance tenante par tous les membres du comité d’ouverture des plis et d’évaluation des candidatures.
+3.1.1.6. Transmission du rapport d’évaluation des candidatures à la CNMP
+L’autorité contractante transmet à la CNMP, pour validation, une copie de chacun des dossiers reçus, le procès-verbal d’ouverture des plis, le rapport d’analyse des dossiers de candidatures et le procès-verbal listant provisoirement les candidats retenus pour participer à la deuxième phase, dans un délai de deux (2) jours ouvrables à partir de la date de signature de ce dernier document.
+3.1.1.7. Examen du rapport d’évaluation des candidatures par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le procès-verbal d’ouverture des plis, le rapport d’évaluation des candidatures du comité d’ouverture des plis et d’évaluation des offres ainsi que le procès-verbal listant les candidats admis et vérifie leur conformité avec l’avis d’appel à manifestations d’intérêt. Elle dispose d’un délai maximum de cinq (5) jours ouvrables pour émettre un avis, à partir de la date de réception du document. En l’absence de cet avis dans le délai imparti, la liste provisoire des candidats admis à soumettre une offre est considérée comme validée.
+En cas d’avis favorable, la CNMP informe, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, l’autorité contractante qu’elle valide la liste des candidats admis, la rendant ainsi définitive.
+En cas d’avis défavorable, la CNMP recommande, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au rapport d’évaluation des dossiers de candidatures et au procès-verbal listant les candidats admis dans un délai maximum de trois (3) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités.
+La Commission Nationale des Marchés Publics (CNMP) valide le rapport et le procès-verbal amendés, rendant définitive la liste des candidats admis, dans un délai de trois (3) jours ouvrables à compter de la date de réception de ces documents. Ceux-ci doivent lui être transmis par l’autorité contractante dans un délai maximum de deux (2) jours ouvrables qui suit la fin du délai visé au paragraphe précédent.
+En cas d’appel à manifestations d’intérêt infructueux ou de rejet du rapport d’évaluation des candidatures et du procès-verbal listant les candidats pré-qualifiés, la CNMP peut recommander la reprise du processus d’appel public à manifestations d’intérêt après modification de l’avis.
+Sous-section 2 - Demande de propositions (DP)
+3.1.2.1. Tâches à accomplir par l’autorité contractante
+L’autorité contractante :
+1.	adresse, pour avis conforme, à la CNMP, un projet de Demande de propositions (accompagné du procès-verbal du comité d’ouverture des plis et d’évaluation des candidatures arrêtant la liste des candidats pré-qualifiés) comprenant, entre autres pièces, le projet de lettre d’invitation à soumissionner, les instructions aux soumissionnaires, les différents cahiers des charges, les termes de référence (TdR), ainsi que les modèles de contrat, dans un délai maximum de dix (10) jours ouvrables à partir de la date de réception de l’avis de validation par la CNMP du rapport et du procès-verbal précités ;
+En cas de financement extérieur, la CNMP donne son avis conforme sur le projet de Demande de propositions après sa transmission par l’autorité contractante à l’organisme de financement pour avis de non-objection.
+2.	forme le comité d’ouverture des plis et d’évaluation des offres (technique et financière) sept (7) jours ouvrables avant la séance publique d’ouverture des plis.
+3.1.2.2. Examen du projet de dossier de Demande de propositions par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le projet de Demande de propositions et vérifie sa conformité avec la réglementation en vigueur. Elle dispose d’un délai maximum de huit (8) jours ouvrables pour donner son avis conforme, à partir de la date de réception du document. En cas de dépassement de ce délai, l’autorisation du lancement de la Demande de propositions est réputée acquise.
+En cas d’avis favorable, la CNMP autorise, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, l’autorité contractante à procéder à la diffusion du dossier de Demande de propositions auprès des candidats admis à soumissionner.
+En cas d’avis défavorable, la CNMP recommande, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au document dans un délai maximum de trois (3) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités.
+3.1.2.3. Invitation à concourir aux candidats admis
+L’autorité contractante adresse une lettre d’invitation à concourir à l’ensemble des candidats admis à soumettre des offres accompagnées de prix (leur précisant l’adresse du service administratif où retirer le dossier de Demande de Propositions), dans un délai maximum de deux (2) jours ouvrables, soit à partir de la date de réception de la lettre et/ou du courrier électronique mentionnés au paragraphe 2 du § 3.1.2.2 ci-dessus, soit à partir de la fin du délai mentionné au 3e paragraphe précédent (§ 3.1.2.2) pour la finalisation du document précité.
+3.1.2.4. Délai de réception des offres
+En application de l’article 48 de la Loi du 10 juin 2009 et de l’article 83 de l’Arrêté d’application de ladite Loi, le délai de réception des offres des candidats ne peut être inférieur à trente (30) jours calendaires pour les Demandes de Propositions nationales et à quarante-cinq (45) jours calendaires pour les Demandes de Propositions internationales à compter de la date de notification de la lettre d’invitation à concourir à l’adresse indiquée au lieu où siège l’autorité contractante.
+En cas d’urgence dûment motivée, le délai prévu pour la Demande de Propositions nationale peut être ramené à quinze (15) jours calendaires.
+3.1.2.5. Ouverture des plis et évaluation des offres
+3.1.2.5.1. Tâches du comité d’ouverture des plis et d’évaluation des offres
+Le comité d’ouverture des plis et d’évaluation des offres placé auprès de l’autorité contractante et siégeant sous l’autorité de son Président :
+1.	s’assure que tous les consultants admis à concourir ont été invités de façon équitable à soumissionner dans le délai fixé. Dans le cas contraire, l’invitation est relancée ;
+2.	vérifie, en tout premier lieu, les date et heure de la réception de chaque pli. Les plis remis avec retard ne sont pas acceptés et sont retournés à leurs expéditeurs sans être ouverts ;
+3.	vérifie sommairement si le minimum requis de deux (2) plis est atteint. Dans le cas contraire, l’appel doit être relancé dans un délai de quinze (15) jours, sauf autorisation de la CNMP pour poursuivre la procédure. Les représentants des consultants, assistant à cette séance, signent un registre attestant leur présence ;
+4.	procède, dans un premier temps, à l’ouverture de chaque enveloppe extérieure et vérifie la présence de l’enveloppe contenant l’offre financière et d’autres pièces exigées par la Demande de Propositions ;
+5.	procède, dans un deuxième temps, à l’ouverture de l’enveloppe contenant l’offre technique correspondant aux termes de référence de la Demande de Propositions et, après avoir constaté l’existence des documents de chaque offre technique, établit un tableau récapitulant les principales composantes des différentes offres techniques ;
+6.	établit un procès-verbal de la séance d’ouverture des plis devant être signé séance tenante par tous les membres présents du comité et les représentants des consultants ;
+7.	désigne un sous-comité technique d’étude et d’évaluation des offres ;
+8.	conserve en lieu sûr les enveloppes contenant l’offre financière en attendant l’analyse des offres techniques.
+3.1.2.5.2. Tâches du sous-comité technique d’étude et d’évaluation des offres
+Le sous-comité technique d’étude et d’évaluation des offres :
+1.	procède, à huis clos et dans la plus grande confidentialité, à l’analyse ainsi qu’à l’évaluation comparative des offres techniques ;
+L’évaluation des offres techniques tient compte de critères précis et quantifiés, préalablement portés à la connaissance des candidats dans la Demande de Propositions en fonction de l’objet du marché.
+2.	peut demander éventuellement aux candidats des éclaircissements relatifs à leur offre technique, pour faciliter l’examen, l’évaluation et la comparaison des propositions ;
+Aucune information relative à l’examen, aux éclaircissements, à l’évaluation et à la comparaison des offres techniques, ainsi qu’aux recommandations relatives à l’attribution provisoire du marché, ne peut être, sous peine d’exclusion temporaire de la commande publique prévue par la Loi, divulguée aux consultants ni à toute personne étrangère à la procédure d’analyse et d’évaluation, après l’ouverture des plis et jusqu’à l’annonce de l’attribution définitive du marché au consultant retenu.
+3.	élabore un rapport d’analyse faisant apparaître un classement des offres techniques finales par application des seuls critères définis le plus précisément possible au niveau de la Demande de Propositions ;
+4.	transmet sans délai ce rapport d’analyse à tous les membres du comité pour examen et amendements éventuels.
+Toutes ces actions relevant de la compétence du sous-comité technique doivent être effectuées dans un délai maximum de huit (8) jours ouvrables à compter de la date limite de dépôt des offres/ouverture des plis.
+3.1.2.5.3. Délibération du comité d’ouverture des plis et d’évaluation des offres
+Le comité d’ouverture des plis et d’évaluation des offres :
+1.	vérifie que les conditions de quorum sont remplies pour pouvoir délibérer ;
+2.	dispose d’un délai maximum de deux (2) jours ouvrables pour procéder à la sélection des consultants dont les offres financières seront ouvertes ;
+Il doit sélectionner les consultants jugés qualifiés pour exécuter le marché de façon satisfaisante après vérification de ses capacités techniques, sur la base des conclusions, éventuellement amendées, du sous-comité technique, au regard des critères fixés dans la Demande de Propositions.
+3.	rédige un procès-verbal de sélection provisoire des consultants admis à la phase d’analyse de l’offre financière. Le procès-verbal de sélection provisoire des consultants admis à la phase d’analyse de l’offre financière doit être rédigé et signé séance tenante par tous les membres du comité d’ouverture des plis et d’évaluation des offres.
+Toute tentative effectuée par un consultant pour influencer les membres du comité au cours de la procédure d’examen, d’évaluation et de comparaison des offres, et dans leur décision relative à la sélection provisoire de consultants, conduit à son exclusion temporaire de la commande publique [se reporter aux dossiers standards d’appel d’offres].
+3.1.2.6. Transmission du rapport d’évaluation à la CNMP
+L’autorité contractante transmet à la CNMP, pour validation, une copie de chacune des offres techniques reçues, le procès-verbal d’ouverture des plis, le rapport d’évaluation des offres et le procès-verbal de sélection provisoire des consultants admis à la phase d’analyse de l’offre financière dans un délai de deux (2) jours ouvrables à partir de la date de signature du procès-verbal de sélection provisoire des consultants admis à la phase d’analyse de l’offre financière.
+3.1.2.7. Examen du rapport d’évaluation par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le procès-verbal d’ouverture des plis, le rapport d’évaluation des offres ainsi que le procès-verbal de sélection provisoire des consultants admis à la phase d’analyse de l’offre financière et vérifie leur conformité avec les dispositions du dossier de Demande de Propositions. Elle dispose d’un délai de dix (10) jours ouvrables pour émettre un avis, à partir de la date de réception des documents.
+En l’absence de cet avis dans le délai imparti, la sélection provisoire des consultants admis à la phase d’analyse de l’offre financière est considérée comme validée, et l’autorité contractante est alors habilitée à inviter les consultants retenus à l’ouverture publique de leur offre financière.
+En cas d’avis favorable, la CNMP valide la sélection provisoire des consultants admis à la phase d’analyse de l’offre financière et invite, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, l’autorité contractante à procéder à l’ouverture des offres financières des consultants retenus.
+En cas d’avis défavorable, la CNMP recommande, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au rapport d’évaluation des offres et au procès-verbal de sélection provisoire des consultants admis à la phase d’analyse de l’offre financière dans un délai maximum de trois (3) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités.
+La Commission Nationale des Marchés Publics (CNMP) valide le rapport et le procès-verbal amendés, rendant définitive la liste de consultants retenus, dans un délai de deux (2) jours ouvrables à compter de la réception de ces documents. Ceux-ci doivent lui être transmis par l’autorité contractante dans un délai maximum de deux (2) jours ouvrables qui suit la fin du délai visé au paragraphe précédent.
+En cas de Demande de Propositions infructueuse ou de rejet du rapport d’évaluation des offres et du procès-verbal de sélection provisoire des consultants admis à la phase d’analyse de l’offre financière, la CNMP recommande la reprise du processus de Demande de propositions après modification du dossier de Demande de Propositions.
+3.1.2.8. Notification et invitation à l’ouverture des offres financières des consultants admis
+L’autorité contractante doit :
+1.	notifier aux consultants admis l’invitation à l’ouverture des offres financières dans un délai maximum de deux (2) jours ouvrables à partir de la date de réception de l’avis de validation du rapport d’analyse et du procès-verbal de sélection provisoire des consultants admis à la phase d’analyse de l’offre financière par la CNMP, sauf dans le cas où la méthode fondée sur la qualité technique est retenue dans la Demande de Propositions ;
+2.	informer dans le même délai par lettre avec accusé de réception et/ou par courrier électronique tous les autres consultants du rejet de leur offre technique et leur restituer leur offre financière sans être ouverte.
+3.1.2.9. Ouverture et évaluation des offres financières des consultants admis
+3.1.2.9.1. Séance publique d’ouverture des offres financières des consultants admis
+Le comité d’ouverture des plis et d’évaluation des offres :
+1.	vérifie que les conditions de quorum sont remplies pour pouvoir délibérer ;
+2.	procède à l’ouverture des enveloppes contenant l’offre financière et, après avoir lu, à haute voix, le montant de l’offre de chaque consultant admis, établit un tableau récapitulant les principales caractéristiques des différentes offres (prix unitaires) ;
+3.	prépare un procès-verbal d’ouverture des offres financières signé par tous les consultants présents et les membres du comité d’ouverture des plis et d’évaluation des offres.
+3.1.2.9.2. Évaluation des offres financières des consultants admis
+Le comité d’ouverture des plis et d’évaluation des offres :
+1.	procède le jour même de l’ouverture des plis, à huis clos et dans la plus grande confidentialité, à l’examen préliminaire ainsi qu’à l’évaluation comparative des offres ;
+2.	retient, en fonction de la méthode d’évaluation retenue dans la Demande de Propositions, le consultant dont la moyenne des notes technique et financière est la plus élevée ou le consultant dont l’offre financière est la plus basse, sous réserve de l’utilisation de la méthode fondée sur la qualité technique ;
+3.	établit un procès-verbal d’ouverture des plis et d’attribution provisoire du marché.
+Le procès-verbal d’ouverture des plis et d’attribution provisoire du marché doit être rédigé et signé séance tenante par tous les membres du comité d’ouverture des plis et d’évaluation des offres.
+3.1.2.10. Transmission du rapport d’évaluation finale des offres à la CNMP
+L’autorité contractante transmet à la CNMP, pour validation, une copie de chacune des offres financières retenues, le rapport d’évaluation accompagné du procès-verbal d’ouverture des plis et d’attribution provisoire du marché dans un délai de deux (2) jours ouvrables à partir de la date de signature de ce document par les membres du comité.
+3.1.2.11. Examen du rapport d’évaluation finale des offres par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le rapport d’évaluation et le procès-verbal d’ouverture des plis et d’attribution provisoire du marché et vérifie sa conformité avec les dispositions du dossier de Demande de Propositions. Elle dispose d’un délai de dix (10) jours ouvrables pour émettre un avis, à partir de la date de réception des documents.
+La CNMP peut, sous réserve de notification à l’autorité compétente avec motif à l’appui avant l’expiration du délai, prendre un délai supplémentaire d’un maximum de dix (10) jours ouvrables pour émettre son avis, les motifs évoqués par la CNMP devant fondamentalement porter sur la complexité du marché.
+En aucun cas, la durée totale de l’étude du dossier ne peut excéder vingt (20) jours ouvrables.
+En l’absence de cet avis dans le délai de vingt (20) jours, l’attribution du marché est considérée comme validée, et l’autorité contractante est alors habilitée à informer le consultant retenu qu’il est attributaire du marché.
+En cas d’avis favorable, la CNMP valide l’attribution du marché et invite, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, l’autorité contractante à réaliser les actions énumérées au § 2.8 ci-dessous [sic — renvoi tel que figurant dans le texte source ; il s’agit vraisemblablement du § 3.1.2.12].
+En cas d’avis défavorable, la CNMP recommande, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au procès-verbal d’ouverture des plis et d’attribution provisoire du marché dans un délai maximum de deux (2) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités.
+La Commission Nationale des Marchés Publics (CNMP) valide le procès-verbal amendé, rendant définitive l’attribution du marché, dans un délai de deux (2) jours ouvrables à compter de la réception de ce document, lequel doit lui être transmis par l’autorité contractante dans un délai maximum de deux (2) jours ouvrables qui suit la fin du délai visé au paragraphe précédent.
+En cas de Demande de Propositions infructueuse ou en cas de rejet du procès-verbal d’ouverture des plis et d’attribution provisoire du marché, la CNMP peut recommander la reprise du processus d’appel d’offres après modification du dossier de Demande de Propositions.
+3.1.2.12. Notification et approbation du projet de marché
+L’autorité contractante doit :
+1.	notifier l’attribution du marché au consultant retenu dans un délai maximum de deux (2) jours ouvrables à partir de la date de réception de l’avis de validation par la CNMP du procès-verbal d’ouverture des plis et d’attribution du marché ;
+2.	informer dans le même délai par lettre avec accusé de réception et/ou par courrier électronique tous les autres consultants du rejet de leurs offres ;
+3.	préparer le dossier d’approbation du marché (devant comprendre les pièces et documents énumérés au § 6 de l’introduction du présent manuel) destiné à la signature des parties contractantes ;
+4.	transmettre le marché signé par les parties contractantes à l’autorité d’approbation compétente ;
+5.	transmettre à la CNMP le marché approuvé, dans un délai maximum de dix (10) jours ouvrables à partir de la date de réception de l’avis de validation par la CNMP du procès-verbal d’ouverture des plis et d’attribution du marché.
+Ce délai de dix (10) jours doit permettre à l’autorité contractante de :
+1.	mettre au point le contrat de marché (4 jours ouvrables) ;
+2.	recueillir la signature du soumissionnaire retenu pour l’exécution du marché (2 jours ouvrables) ;
+3.	signer le marché (1 jour ouvrable) ;
+4.	obtenir l’approbation du marché par l’autorité compétente (3 jours ouvrables).
+3.1.2.13. Demande d’avis, validation et transmission du marché par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) :
+1.	peut demander, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide à compter du jour de la réception du dossier de validation, en motivant sa requête, à l’autorité contractante, la production des pièces manquantes audit dossier dans un délai de deux (2) jours calendaires et dont l’absence peut empêcher la validation du marché ;
+2.	transmet le marché approuvé à la Cour Supérieure des Comptes et du Contentieux Administratif (CSCCA) pour avis dans un délai de deux (2) jours ouvrables à partir de la date de réception du marché approuvé si le dossier est complet ou, dans le cas contraire, à partir de la date de réception des pièces manquantes ;
+3.	valide le marché approuvé après avis favorable de la CSCCA intervenu dans un délai de cinq (5) jours ouvrables à compter de la date de réception de la transmission du marché approuvé ou, en cas d’avis défavorable de la Cour, retourne le marché approuvé à la personne responsable du marché avec les remarques et commentaires de la CSCCA ;
+4.	transmet le marché validé à la personne responsable du marché pour exécution dans un délai de trois (3) jours ouvrables à partir de la date de réception de l’avis favorable de la Cour Supérieure des Comptes et du Contentieux Administratif.
+3.1.2.14. Notification et publication de l’avis d’attribution du marché
+L’autorité contractante :
+1.	notifie le marché validé au consultant retenu dans un délai maximum de quatre (4) jours ouvrables pour exécution suivant la date de réception dudit marché ;
+Le marché entre en vigueur dès sa notification au titulaire ou à une date ultérieure si le marché le prévoit.
+L’entrée en vigueur du marché marque le début des obligations juridiques d’exécution et, sauf dispositions contraires du marché, le début des délais de réalisation.
+2.	publie un avis d’attribution définitive du marché dans les huit (8) jours ouvrables de l’entrée en vigueur du marché, dans un quotidien national à grand tirage ou, le cas échéant, dans un journal local, sur son site web et sollicite de la CNMP la publication de cet avis dans son Journal Électronique des Marchés Publics.
+Section 2 - Procédures spécifiques aux marchés à commandes et aux marchés de clientèle
+Lorsque, pour des raisons économiques, techniques et financières, l’autorité contractante ne peut déterminer entièrement à l’avance le volume et le rythme des commandes de fournitures ou de services courants nécessaires à ses besoins, elle peut avoir recours à un marché à commandes ou à bons de commandes qui fixe le minimum et le maximum des fournitures ou services, arrêtés en valeur, susceptibles d’être commandés au cours d’une période déterminée n’excédant pas celle d’utilisation des crédits de paiement.
+Lorsque l’importance des besoins et le rythme auxquels les bons de commande devront être émis ne peuvent être appréciés a priori par l’autorité contractante, celle-ci peut avoir recours à un marché de clientèle par lequel elle s’engage à confier au fournisseur ou au prestataire de services, au fur et à mesure de ses besoins, des commandes portant sur une catégorie déterminée de fournitures ou de services, sans indiquer la quantité ou la valeur globale des commandes.
+Les procédures utilisées pour passer des marchés à commandes et des marchés de clientèle sont de deux sortes :
+1.	Appel d’offres ouvert de prix unitaires ;
+2.	Appel d’offres ouvert de prix unitaires précédé de pré-qualification.
+Sous-section 1 - Appel d’offres ouvert de prix unitaires
+3.2.1.1. Tâches à accomplir par l’autorité contractante
+L’autorité contractante :
+1.	doit s’assurer, avant l’organisation de toute consultation ouverte, de l’existence et de la disponibilité des crédits nécessaires à la prise en charge des acquisitions ou réalisations projetées ;
+2.	adresse, pour avis conforme, à la Commission Nationale des Marchés Publics (CNMP), un projet de dossier d’appel d’offres de prix unitaires comprenant, entre autres pièces, l’avis d’appel d’offres, les instructions aux soumissionnaires, les différents cahiers des charges, le descriptif des fournitures, services ou travaux, ainsi que les modèles de contrat, de soumission et de garanties [se reporter aux dossiers standard d’appels d’offres] ;
+3.	forme le comité d’ouverture des plis et d’évaluation des offres sept (7) jours ouvrables avant la séance publique d’ouverture des plis.
+3.2.1.2. Examen du projet de dossier d’appel d’offres de prix unitaires par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le projet de dossier d’appel d’offres de prix unitaires (DAO) et vérifie sa conformité avec la réglementation en vigueur. Elle dispose d’un délai maximum de huit (8) jours ouvrables pour se prononcer, à partir de la date de réception du document. En cas de dépassement de ce délai, l’autorisation du lancement de l’appel d’offres de prix unitaires est réputée acquise.
+En cas d’avis favorable, la CNMP autorise, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, l’autorité contractante à procéder à la publication et à la diffusion de l’avis d’appel d’offres de prix unitaires dans les médias nationaux.
+En cas d’avis défavorable, la CNMP recommande, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au document dans un délai maximum de trois (3) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités.
+3.2.1.3. Publication de l’avis d’appel d’offres de prix unitaires par l’autorité contractante
+Après l’autorisation de la CNMP, l’autorité contractante publie l’avis d’appel d’offres de prix unitaires dans un quotidien national à grand tirage et/ou dans un journal local pendant au moins quatre (4) jours non consécutifs, à la radio et, si nécessaire, par voie d’affichage.
+Cet avis fait parallèlement l’objet d’une publicité par voie électronique sur le site web de l’autorité contractante et dans le Journal Électronique des Marchés Publics domicilié sur le site web de la CNMP, à la demande de l’autorité contractante.
+3.2.1.4. Délai de réception des offres
+En application de l’article 48 de la Loi du 10 juin 2009 et de l’article 83 de l’Arrêté d’application de ladite Loi, le délai de réception des offres des soumissionnaires ne peut être inférieur à trente (30) jours calendaires à compter de la date de publication de l’avis d’appel d’offres de prix unitaires dans un quotidien national à grand tirage et/ou dans un journal local suivant le cas.
+En cas d’urgence dûment motivée, le délai prévu pour l’appel d’offres de prix unitaires peut être ramené à quinze (15) jours calendaires.
+3.2.1.5. Ouverture des plis et évaluation des offres
+3.2.1.5.1. Séance publique d’ouverture des plis
+Le comité d’ouverture des plis et d’évaluation des offres placé auprès de l’autorité contractante et siégeant sous l’autorité de son Président :
+1.	vérifie, en tout premier lieu, les date et heure de la réception de chaque pli. Les plis remis avec retard ne sont pas acceptés et sont retournés à leurs expéditeurs sans être ouverts ;
+2.	vérifie sommairement si le minimum requis de deux (2) plis est atteint. Dans le cas contraire, l’appel doit être relancé dans un délai de quinze (15) jours, sauf autorisation de la CNMP pour poursuivre la procédure. Les représentants des soumissionnaires, assistant à cette séance, signent un registre attestant leur présence ;
+3.	procède, dans un premier temps, à l’ouverture de chaque enveloppe extérieure et vérifie uniquement la présence des pièces exigées par le dossier d’appel d’offres de prix unitaires, telle la garantie de soumission, le quitus fiscal, lesquelles pièces servent entre autres à déterminer la qualification du soumissionnaire ;
+4.	procède, dans un deuxième temps, à l’ouverture de l’enveloppe intérieure (contenant l’offre proprement dite) et, après avoir lu, à haute voix, l’offre de chaque soumissionnaire, établit un tableau récapitulant les principales caractéristiques des différentes offres (prix unitaires et délais) ;
+5.	établit un procès-verbal d’ouverture des plis devant être signé par tous les membres du comité d’ouverture des plis et d’évaluation des offres et les représentants des soumissionnaires ; ces derniers pouvant formuler des réserves avant de signer.
+3.2.1.5.2. Évaluation des offres
+Le comité d’ouverture des plis et d’évaluation des offres placé auprès de l’autorité contractante et siégeant sous l’autorité de son Président :
+1.	vérifie que les conditions de quorum sont remplies ;
+2.	procède ensuite le jour même de l’ouverture des plis, à huis clos et dans la plus grande confidentialité, à l’examen préliminaire ainsi qu’à l’évaluation comparative des offres ;
+Lorsqu’une offre n’est pas conforme aux exigences du dossier d’appel d’offres de prix unitaires (absence ou non-validité à caractère éliminatoire de certaines des pièces précitées comme la garantie de soumission), elle est rejetée immédiatement et ne peut être, par la suite, rendue conforme au dossier de consultation ni par correction, ni par ajouts des documents manquants.
+3.	retient l’offre conforme dont les prix unitaires sont les plus bas, sans préjudice des spécifications techniques requises ;
+4.	établit un procès-verbal d’ouverture des plis et d’attribution provisoire du marché ;
+5.	rédige un rapport d’évaluation du processus.
+Le procès-verbal d’attribution provisoire du marché doit être rédigé et signé séance tenante par tous les membres du comité d’ouverture des plis et d’évaluation des offres.
+3.2.1.6. Transmission du rapport d’évaluation des offres à la CNMP
+L’autorité contractante transmet à la CNMP, pour validation, une copie de chacune des soumissions reçues, le rapport d’évaluation accompagné du procès-verbal d’ouverture des plis et du procès-verbal d’attribution provisoire du marché dans un délai de deux (2) jours ouvrables à partir de la date de signature du procès-verbal d’attribution provisoire du marché.
+3.2.1.7. Examen du rapport d’évaluation par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le rapport d’évaluation, le procès-verbal d’ouverture des plis et le procès-verbal d’attribution provisoire du marché et vérifie leur conformité avec les dispositions du dossier d’appel d’offres de prix unitaires. Elle dispose d’un délai de dix (10) jours ouvrables pour émettre un avis, à partir de la date de réception des documents.
+La CNMP peut, sous réserve de notification à l’autorité compétente avec motif à l’appui avant l’expiration du délai, prendre un délai supplémentaire d’un maximum de dix (10) jours ouvrables pour émettre son avis, les motifs évoqués par la CNMP devant fondamentalement porter sur la complexité du marché.
+En aucun cas, la durée totale de l’étude du dossier ne peut excéder vingt (20) jours ouvrables.
+En l’absence de cet avis dans le délai de vingt (20) jours, l’attribution du marché est considérée comme validée, et l’autorité contractante est alors habilitée à informer le soumissionnaire retenu qu’il est attributaire du marché.
+En cas d’avis favorable, la CNMP valide l’attribution du marché et invite, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, l’autorité contractante à réaliser les actions énumérées au § 3.2.1.8 ci-dessous.
+En cas d’avis défavorable, la CNMP recommande, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au procès-verbal d’ouverture des plis et d’attribution provisoire du marché dans un délai maximum de trois (3) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités.
+La Commission Nationale des Marchés Publics (CNMP) valide le rapport d’évaluation et le procès-verbal amendés, rendant définitive l’attribution du marché, dans un délai de trois (3) jours ouvrables à compter de la réception de ces documents. Ces derniers doivent lui être transmis par l’autorité contractante dans un délai maximum de deux (2) jours ouvrables qui suit la fin du délai visé au paragraphe précédent.
+En cas d’appel d’offres ouvert de prix unitaires infructueux ou en cas de rejet du procès-verbal d’ouverture des plis et d’attribution provisoire du marché, la CNMP peut recommander soit la reprise du processus d’appel d’offres ouvert de prix unitaires, soit le lancement d’un appel d’offres restreint de prix unitaires après modification du DAO.
+3.2.1.8. Notification et approbation du marché
+L’autorité contractante doit :
+1.	notifier l’attribution du marché au soumissionnaire retenu dans un délai maximum de deux (2) jours ouvrables à partir de la date de réception de l’avis de validation par la CNMP du procès-verbal d’ouverture des plis et d’attribution du marché ;
+2.	informer dans le même délai par lettre avec accusé de réception et/ou par courrier électronique tous les autres soumissionnaires du rejet de leurs offres et leur restituer leur garantie de soumission ;
+3.	préparer le dossier d’approbation du marché (devant comprendre les pièces et documents énumérés au § 6 de l’introduction du présent manuel) destiné à la signature des parties contractantes ;
+4.	transmettre le marché signé par les parties contractantes à l’autorité d’approbation compétente ;
+5.	transmettre le marché approuvé à la CNMP, dans un délai maximum de dix (10) jours ouvrables à partir de la date de réception de l’avis de validation par la CNMP du procès-verbal d’ouverture des plis et d’attribution du marché.
+Ce délai de dix (10) jours doit permettre à l’autorité contractante de :
+1.	mettre au point le contrat de marché (4 jours ouvrables) ;
+2.	recueillir la signature du soumissionnaire retenu pour l’exécution du marché (2 jours ouvrables) ;
+3.	signer le marché (1 jour ouvrable) ;
+4.	obtenir l’approbation du marché par l’autorité compétente (3 jours ouvrables).
+3.2.1.9. Demande d’avis, validation et transmission du marché par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) :
+1.	peut demander, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide à compter du jour de la réception du dossier de validation, en motivant sa requête, à l’autorité contractante, la production des pièces manquantes audit dossier dans un délai de deux (2) jours calendaires et dont l’absence peut empêcher la validation du marché ;
+2.	transmet le marché approuvé à la Cour Supérieure des Comptes et du Contentieux Administratif (CSCCA) pour avis dans un délai de deux (2) jours ouvrables à partir de la date de réception du marché approuvé si le dossier est complet ou, dans le cas contraire, à partir de la date de réception des pièces manquantes ;
+3.	valide le marché approuvé après avis favorable de la CSCCA intervenu dans un délai de cinq (5) jours ouvrables à compter de la date de réception de la transmission du marché approuvé ou, en cas d’avis défavorable de la Cour, retourne le marché approuvé à la personne responsable du marché avec les remarques et commentaires de la CSCCA ;
+4.	transmet le marché validé à la personne responsable du marché, pour exécution, dans un délai de trois (3) jours ouvrables à partir de la date de réception de l’avis favorable de la Cour Supérieure des Comptes et du Contentieux Administratif.
+3.2.1.10. Notification et publication de l’avis d’attribution du marché
+L’autorité contractante :
+1.	notifie le marché validé au soumissionnaire retenu dans un délai maximum de quatre (4) jours ouvrables, pour exécution, suivant la date de réception dudit marché ;
+Le marché entre en vigueur dès sa notification au titulaire ou à une date ultérieure si le marché le prévoit.
+L’entrée en vigueur du marché marque le début des obligations juridiques d’exécution et, sauf dispositions contraires du marché, le début des délais de réalisation.
+2.	publie un avis d’attribution définitive du marché dans les huit (8) jours ouvrables de l’entrée en vigueur du marché, dans un quotidien national à grand tirage ou, le cas échéant, dans un journal local, sur son site web et sollicite de la CNMP la publication de cet avis dans son Journal Électronique des Marchés Publics.
+Sous-section 2 - Appel d’offres ouvert de prix unitaires précédé d’une pré-qualification
+3.2.2.1. Pré-qualification des candidats
+L’autorité contractante peut initialement recourir à une pré-qualification des candidats pour établir une liste d’entreprises admises à soumettre des offres dans le cadre de la passation des marchés à commandes et des marchés de clientèle. La procédure qui sera suivie est celle décrite à la sous-section 1 de la section 2 du chapitre 1 traitée du § 1.2.1.1 au § 1.2.1.8.
+3.2.2.2. Appel d’offres de prix unitaires consécutif à la pré-qualification des candidats
+3.2.2.2.1. Tâches de l’autorité contractante
+L’autorité contractante :
+1.	doit s’assurer, avant l’organisation de toute consultation des candidats pré-qualifiés, de l’existence et de la disponibilité des crédits nécessaires à la prise en charge des acquisitions ou réalisations projetées ;
+2.	adresse, pour avis conforme, à la CNMP, un projet de dossier d’appel d’offres de prix unitaires (accompagné du procès-verbal du comité d’ouverture des plis et d’évaluation des offres arrêtant la liste des candidats pré-qualifiés) comprenant, entre autres pièces, le projet de lettre d’invitation à soumissionner, les instructions aux soumissionnaires, les différents cahiers des charges, ainsi que les modèles de contrat, de soumission et de garanties, dans un délai maximum de cinq (5) jours ouvrables à partir de la date de validation par la CNMP du procès-verbal précité ;
+3.	forme le comité d’ouverture des plis et d’évaluation des offres sept (7) jours ouvrables avant la séance publique d’ouverture des plis.
+3.2.2.2.2. Examen du projet de dossier d’appel d’offres de prix unitaires par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le projet de dossier d’appel d’offres de prix unitaires et vérifie sa conformité avec la réglementation en vigueur. Elle dispose d’un délai maximum de huit (8) jours ouvrables pour donner son avis conforme, à partir de la date de réception du document. En cas de dépassement de ce délai, l’autorisation du lancement de l’appel d’offres de prix unitaires est réputée acquise.
+En cas d’avis favorable, la CNMP autorise, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, l’autorité contractante à procéder à la diffusion du dossier de consultation de prix unitaires auprès des candidats pré-qualifiés.
+En cas d’avis défavorable, la CNMP recommande, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au document dans un délai maximum de trois (3) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités.
+3.2.2.2.3. Notification de la lettre d’invitation à soumissionner
+L’autorité contractante adresse une lettre d’invitation à soumissionner à l’ensemble des candidats pré-qualifiés (leur précisant l’adresse du service administratif où retirer le dossier de consultation), dans un délai maximum de deux (2) jours ouvrables à partir de la date de réception de l’avis favorable de la CNMP ou de la fin du délai prévu au paragraphe précédent pour la finalisation du document précité.
+3.2.2.2.4. Délai de réception des offres
+En application de l’article 48 de la Loi du 10 juin 2009 et de l’article 83 de l’Arrêté d’application de ladite Loi, le délai de réception des offres des soumissionnaires ne peut être inférieur à trente (30) jours calendaires à compter de la date de notification de la lettre d’invitation à soumissionner à l’adresse indiquée au lieu où siège l’autorité contractante.
+En cas d’urgence dûment motivée, le délai prévu pour l’appel d’offres de prix unitaires peut être ramené à quinze (15) jours calendaires.
+3.2.2.2.5. Tâches du comité d’ouverture des plis et d’évaluation des offres
+Le comité d’ouverture des plis et d’évaluation des offres placé auprès de l’autorité contractante et siégeant sous l’autorité de son Président :
+1.	s’assure que tous les candidats pré-qualifiés ont été invités de façon équitable à soumissionner dans le délai fixé. Dans le cas contraire, l’invitation est relancée ;
+2.	vérifie d’abord les date et heure de la réception de chaque pli. Ceux remis avec retard ne sont pas acceptés et sont retournés à leurs expéditeurs sans être ouverts ;
+3.	vérifie sommairement si le minimum requis de deux (2) plis est atteint. Dans le cas contraire, l’appel doit être relancé dans un délai de quinze (15) jours, sauf autorisation de la CNMP pour poursuivre la procédure. Les représentants des soumissionnaires, assistant à cette séance, signent un registre attestant leur présence ;
+4.	procède dans un premier temps à l’ouverture de chaque enveloppe extérieure et vérifie uniquement la présence des pièces exigées par le dossier d’appel d’offres de prix unitaires ;
+5.	procède, dans un deuxième temps, à l’ouverture de l’enveloppe intérieure (contenant l’offre proprement dite) et, après avoir lu, à haute voix, l’offre de chaque soumissionnaire, établit un tableau récapitulant les principales caractéristiques des différentes offres (prix unitaires et délais) ;
+6.	établit le procès-verbal d’ouverture des plis clôturant la séance publique d’ouverture des plis ;
+7.	procède ensuite le même jour, à huis clos et dans la plus grande confidentialité, à l’examen préliminaire ainsi qu’à l’évaluation comparative des offres ;
+Lorsqu’une offre n’est pas conforme aux exigences du dossier d’appel d’offres de prix unitaires (absence ou non-validité à caractère éliminatoire de certaines pièces comme la garantie de soumission), elle est rejetée immédiatement et ne peut être, par la suite, rendue conforme au dossier de consultation ni par correction, ni par ajouts des documents manquants.
+8.	retient l’offre conforme dont les prix unitaires sont les plus bas sans préjudice des spécifications techniques ;
+9.	établit un procès-verbal d’attribution provisoire du marché ;
+10.	rédige un rapport d’évaluation.
+Le procès-verbal d’attribution provisoire du marché doit être rédigé et signé séance tenante par tous les membres du comité d’ouverture des plis et d’évaluation des offres.
+3.2.2.2.6. Transmission du rapport d’évaluation des offres à la CNMP
+L’autorité contractante transmet à la CNMP, pour validation, une copie de chacune des soumissions reçues, le rapport d’évaluation accompagné du procès-verbal d’ouverture des plis et du procès-verbal d’attribution provisoire du marché dans un délai de deux (2) jours ouvrables à partir de la date de signature de ces documents par les membres du comité.
+3.2.2.2.7. Examen du rapport d’évaluation des offres par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) examine le rapport d’évaluation, le procès-verbal d’ouverture des plis et le procès-verbal d’attribution provisoire du marché et vérifie leur conformité avec les dispositions du dossier d’appel d’offres de prix unitaires. Elle dispose d’un délai de dix (10) jours ouvrables pour émettre un avis, à partir de la date de réception des documents.
+La CNMP peut, sous réserve de notification à l’autorité compétente avec motif à l’appui avant l’expiration du délai, prendre un délai supplémentaire d’un maximum de dix (10) jours ouvrables, pour émettre son avis ; les motifs évoqués par la CNMP devant fondamentalement porter sur la complexité du marché.
+En aucun cas, la durée totale de l’étude du dossier ne peut excéder vingt (20) jours ouvrables.
+En l’absence de cet avis dans le délai de vingt (20) jours, l’attribution du marché est considérée comme validée, et l’autorité contractante est alors habilitée à informer le soumissionnaire retenu qu’il est attributaire du marché.
+En cas d’avis favorable, la CNMP valide l’attribution du marché et invite, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, l’autorité contractante à réaliser les actions énumérées au § 3.2.2.2.8 ci-dessous.
+En cas d’avis défavorable, la CNMP recommande, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide, à l’autorité contractante, les aménagements et amendements à apporter au procès-verbal d’ouverture des plis et d’attribution provisoire du marché dans un délai maximum de trois (3) jours ouvrables à partir de la date de réception de la lettre et/ou du courrier électronique précités.
+La Commission Nationale des Marchés Publics (CNMP) valide le rapport d’évaluation et le procès-verbal amendés, rendant définitive l’attribution du marché, dans un délai de trois (3) jours ouvrables à compter de la réception de ces documents. Ces derniers doivent lui être transmis par l’autorité contractante dans un délai maximum de deux (2) jours ouvrables qui suit la fin du délai visé au paragraphe précédent.
+En cas d’appel d’offres de prix unitaires précédé d’une pré-qualification infructueux ou en cas de rejet du rapport d’évaluation et du procès-verbal d’attribution provisoire du marché, la CNMP recommande la reprise du processus d’appel d’offres de prix unitaires après modification du DAO.
+3.2.2.2.8. Notification et approbation du projet de marché
+L’autorité contractante doit :
+1.	notifier l’attribution du marché au soumissionnaire retenu dans un délai maximum de deux (2) jours ouvrables à partir de la date de réception de l’avis de validation par la CNMP du procès-verbal d’ouverture des plis et d’attribution du marché ;
+2.	informer dans le même délai par lettre avec accusé de réception et/ou par courrier tous les autres soumissionnaires du rejet de leurs offres et leur restituer leur garantie de soumission ;
+3.	préparer le dossier d’approbation du marché (devant comprendre les pièces et documents énumérés au § 6 de l’introduction du présent manuel) destiné à la signature des parties contractantes ;
+4.	transmettre le marché signé par les parties contractantes à l’autorité d’approbation compétente ;
+5.	transmettre à la CNMP le marché approuvé, dans un délai maximum de dix (10) jours ouvrables, à partir de la date de réception de l’avis de validation par la CNMP du procès-verbal d’ouverture des plis et d’attribution du marché.
+Ce délai de dix (10) jours doit permettre à l’autorité contractante de :
+1.	mettre au point le contrat de marché (4 jours ouvrables) ;
+2.	recueillir la signature du soumissionnaire retenu pour l’exécution du marché (2 jours ouvrables) ;
+3.	signer le marché (1 jour ouvrable) ;
+4.	obtenir l’approbation du marché par l’autorité compétente (3 jours ouvrables).
+3.2.2.2.9. Demande d’avis, validation et transmission du marché par la CNMP
+La Commission Nationale des Marchés Publics (CNMP) :
+1.	peut demander, par lettre avec accusé de réception et/ou par courrier électronique ou tout autre moyen de communication rapide à compter du jour de la réception du dossier de validation, en motivant sa requête, à l’autorité contractante, la production des pièces manquantes audit dossier dans un délai de deux (2) jours calendaires et dont l’absence peut empêcher la validation du marché ;
+2.	transmet le marché approuvé à la Cour Supérieure des Comptes et du Contentieux Administratif (CSCCA) pour avis dans un délai de deux (2) jours ouvrables à partir de la date de réception du marché approuvé si le dossier est complet ou, dans le cas contraire, à partir de la date de réception des pièces manquantes ;
+3.	valide le marché approuvé après avis favorable de la CSCCA intervenu dans un délai de cinq (5) jours ouvrables à compter de la date de réception de la transmission du marché approuvé ou, en cas d’avis défavorable de la Cour, retourne le marché approuvé à la personne responsable du marché avec les remarques et commentaires de la CSCCA ;
+4.	transmet le marché validé à la personne responsable du marché pour exécution dans un délai de trois (3) jours ouvrables à partir de la date de réception de l’avis favorable de la Cour Supérieure des Comptes et du Contentieux Administratif.
+3.2.2.2.10. Notification et publication de l’avis d’attribution du marché
+L’autorité contractante :
+1.	notifie le marché validé au soumissionnaire retenu dans un délai maximum de quatre (4) jours ouvrables pour exécution suivant la date de réception dudit marché ;
+Le marché entre en vigueur dès sa notification au titulaire ou à une date ultérieure si le marché le prévoit.
+L’entrée en vigueur du marché marque le début des obligations juridiques d’exécution et, sauf dispositions contraires du marché, le début des délais de réalisation.
+2.	publie un avis d’attribution définitive du marché dans les huit (8) jours ouvrables de l’entrée en vigueur du marché, dans un quotidien national à grand tirage ou, le cas échéant, dans un journal local, sur son site web et sollicite de la CNMP la publication de cet avis dans son Journal Électronique des Marchés Publics.
+CHAPITRE IV
+PROCÉDURES SPÉCIALES APPLICABLES AUX CONVENTIONS
+DE CONCESSION D’OUVRAGE DE SERVICE PUBLIC
+La passation des conventions de concession d’ouvrage de service public, assimilables aux marchés publics, doit suivre les procédures générales et l’une des procédures exceptionnelles de passation des marchés publics.
+Section 1 - Procédures générales
+4.1.1. Recours à l’appel d’offres ouvert avec pré-qualification ou à l’appel d’offres en deux étapes
+Les conventions de concession de service public sont passées suivant la procédure d’appel d’offres ouvert avec pré-qualification ou la procédure d’appel d’offres en deux étapes, en fonction de la complexité du projet. Ces procédures sont décrites au chapitre I du présent manuel.
+Cependant, lorsque l’autorité concédante est en mesure de définir les spécifications techniques détaillées et les critères de performance ou les indicateurs de résultats précis permettant d’attribuer le contrat, la sélection peut se faire en une seule étape.
+L’attribution de la convention s’effectue sur la base de la combinaison optimale de différents critères d’évaluation prévus dans le dossier d’appel d’offres, tels que les spécifications et normes de performance prévues ou proposées, la qualité des services publics visant à assurer leur continuité, les tarifs imposés aux usagers, reversés à l’État, le cas échéant, en tout ou en partie, le potentiel de développement socio-économique offert, le respect des normes environnementales, toute autre recette que les équipements procureront à l’autorité concédante, le coût, le montant et la rationalité du financement offert et la valeur de rétrocession des installations.
+L’autorité concédante et l’opérateur retenu, à l’issue du processus de sélection, engagent des négociations en vue d’arrêter les termes définitifs de la convention de concession d’ouvrage de service public.
+Les avis d’appel à la concurrence ou à candidatures sont publiés dans les conditions fixées pour les appels d’offres ouverts avec pré-qualification ou les appels d’offres en deux étapes décrits au chapitre I du présent manuel. Le délai de remise des offres ou des propositions ne peut être inférieur à quarante-cinq (45) jours calendaires à compter de la date de publication.
+Section 2 - Procédure exceptionnelle
+4.2.1. Recours au marché de gré à gré ou par entente directe
+L’autorité concédante peut avoir recours à la procédure de passation de gré à gré décrite au chapitre II du présent manuel, dans les cas suivants :
+1.	lorsqu’en cas d’urgence motivée et constatée par la Commission Nationale des Marchés Publics, ou afin d’assurer la continuité du service public, il n’est pas possible d’ouvrir une procédure de sélection avec mise en concurrence ;
+2.	lorsqu’il est nécessaire de recourir à l’utilisation d’une technique exclusive, éventuellement protégée par un brevet.

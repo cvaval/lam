@@ -1,0 +1,86 @@
+{
+ "id": "06",
+ "slug": "arr-dtp-consultants-2011",
+ "titre_provisoire": "Arrêté sanctionnant pour sortir son plein et entier effet le Dossier de demandes types de propositions pour services de consultants et modèles de contrats (Tome III)",
+ "source": {
+  "fichier": "piece-06-arrete-2011-05-10-consultants-tome3.txt",
+  "md5_txt": "6a58e2cd766be7f5473bfbca531a9f49",
+  "lignes_fichier": 104
+ },
+ "decoupe": {
+  "segments": [
+   [
+    26,
+    101
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     10
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps"
+   },
+   {
+    "plage": [
+     11,
+     25
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif : couverture du TOME III (demandes types de propositions et DAO informatique ANNEXÉS, non transcrits). Cette pièce ne porte pas de sommaire"
+   },
+   {
+    "plage": [
+     102,
+     104
+    ],
+    "motif": "bloc « Note de transcription » de l'éditeur (corrections d'OCR, anomalies de l'original) — appareil, § 11.11"
+   }
+  ],
+  "note": null,
+  "retraits": [
+   {
+    "ligne_source": 103,
+    "motif": "note de transcription de l'éditeur (corrections d'OCR, anomalies de l'original)",
+    "texte": "Note de transcription — Les erreurs machinales d'OCR (accents omis, lettres substituées) ont été corrigées silencieusement. Deux anomalies figurant dans l'original imprimé ont été normalisées : « IET MODELES DE CONTRATS » (page de titre, lire « ET MODÈLES DE CONTRATS ») et « D'EQUIPMENTS » (page de titre, lire « D'ÉQUIPEMENTS »). Les signatures manuscrites de l'original ne sont pas reproduites ; seuls les noms dactylographiés des signataires sont restitués."
+   }
+  ],
+  "insertions": []
+ },
+ "jointures_entetes": [],
+ "toc": [],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2"
+ },
+ "navToc": [],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 76,
+  "toc": 0,
+  "labels": 2,
+  "ancres_emises": 2,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 0,
+  "navToc_groupes": 0
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": null,
+ "md5_corps": "71be23ae5efd5a763a810c365ff352b0",
+ "apostrophes": {
+  "droites": 0,
+  "courbes": 24
+ },
+ "exposants_unicode": {}
+}

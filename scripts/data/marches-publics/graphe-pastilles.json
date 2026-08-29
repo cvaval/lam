@@ -1,0 +1,271 @@
+{
+ "meta": {
+  "genere_le": "2026-08-27T23:51:51-04:00",
+  "produit_par": "scripts/data/marches-publics/graphe-construire.py",
+  "regles": [
+   "Le kind d'un CrossRef AFFIRME : considérant → CITE ; clause du dispositif → MODIFIE / ABROGE.",
+   "Chaque arête porte sa clause EXTRAITE du corps (jamais retapée), avec fichier, ligne et md5.",
+   "Aucune citation normalisée : les sics du J.O. sont des sentinelles.",
+   "Toute cible absente du corpus est un renvoi EN CLAIR (toLabel), jamais un lien.",
+   "Aucune écriture en base : ce fichier est une DONNÉE, consommée par le script d'apply."
+  ],
+  "empreintes_des_corps_lus": {
+   "00": "1831c4ed72a4",
+   "01": "d89f22316950",
+   "02": "b58975a6e49e",
+   "03": "ed415c6b4982",
+   "04": "b54d9993a14f",
+   "05": "abf88e445881",
+   "06": "88030ff42c90",
+   "07": "e42f3eaa166c",
+   "08": "652e1a47d2bb",
+   "09": "19d60338b6b0",
+   "10": "55634e78dafe",
+   "11": "22ab931b6add",
+   "12": "600c4ac8c403",
+   "13": "66e0dbdc8722",
+   "14": "591d341346e6",
+   "15": "68211862bd44",
+   "16": "95f044cff268",
+   "17": "12fa571b48db",
+   "18": "26bfc63ae17c",
+   "19": "b8c0c433fe07",
+   "20": "03835eb73056",
+   "21": "f8f2679eecad",
+   "22": "0e40361ad643",
+   "23": "444bc1005b5d",
+   "24": "bc9bfb75609a"
+  }
+ },
+ "pastilles": {
+  "principe": "La version EN VIGUEUR est celle qui s'affiche ; l'ancienne rédaction se replie (annotations.oldVersions) et se date (ArticleVersion). Patron : Code civil / Code de commerce (scripts/_apply-notariat-overlays.ts, scripts/_apply-electronique-cc.ts). Référence = titre complet. Aucune citation normalisée.",
+  "statuts_de_document": [
+   {
+    "texte": "01",
+    "source": "MARCHES_DECRET_2004",
+    "status": "ABROGE",
+    "abrogatedByNumber": null,
+    "abroge_par": {
+     "texte": "00",
+     "source": "MARCHES_LOI_2009",
+     "clause": "article 99"
+    },
+    "clause_citee": {
+     "texte": "Article 99.-\tLa présente Loi abroge toutes Lois ou dispositions de Lois, tous Décrets ou dispositions de Décrets, tous Décrets-Lois ou dispositions de Décrets-Lois qui lui sont contraires, notamment la Loi du 16 septembre 1953 sur l'adjudication, le Décret du 3 décembre 2004 fixant la réglementation des Marchés Publics de services, de fournitures et de travaux et l'Arrêté du 4 décembre 2006 révisant les seuils de Passation des Marchés Publics, et sera publiée et exécutée à la diligence du Premier Ministre et du Ministre de l'Économie et des Finances, chacun en ce qui le concerne.",
+     "fichier": "prep-00-loi-mere-2009-corps.txt",
+     "ligne": 470,
+     "lignes": 1,
+     "sentinelle": "Article 99.-",
+     "md5": "9c5d122ef6"
+    },
+    "note_de_fiche": "Abrogé par la Loi du 10 juin 2009 fixant les règles générales relatives aux Marchés Publics et aux Conventions de Concession d'Ouvrage de Service Public, article 99, qui le nomme. L'article 97 de la même Loi maintient toutefois les dispositions du présent Décret « applicables aux marchés et avenants déjà approuvés avant la date d'entrée en vigueur » de la Loi. Les trois arrêtés du 26 octobre 2009 datent leur propre entrée en vigueur de « la cessation des effets » du présent Décret.",
+    "controle": "abrogatedByNumber est résolu À L'AFFICHAGE par numéro ; la loi-mère étant versée, le lien se fait par CrossRef A01 (toId), pas par ce champ"
+   },
+   {
+    "texte": "16",
+    "source": "MARCHES_ARR_DEFENSE_2019",
+    "status": "ABROGE",
+    "abroge_par": {
+     "texte": "18",
+     "source": "MARCHES_ARR_DEFENSE_2020",
+     "clause": "article 15"
+    },
+    "clause_citee": {
+     "texte": "Article 15.-\tLe présent arrêté remplace l'arrêté du 9 janvier 2019 portant révision de celui du 30 août 2017 fixant les règles de procédure de passation de certains marchés de travaux, de fournitures, de prestations intellectuelles et de services dans les domaines de défense ou de sécurité nationale.",
+     "fichier": "prep-18-arr-defense-2020-corps.txt",
+     "ligne": 98,
+     "lignes": 1,
+     "sentinelle": "Article 15.-\tLe présent arrêté remplace",
+     "md5": "aa81a1371e"
+    },
+    "note_de_fiche": "Remplacé par l'Arrêté du 12 février 2020 soumettant les marchés publics de défense ou de sécurité nationale au respect des principes de passation des marchés, article 15. Le présent arrêté portait lui-même révision de l'arrêté du 30 août 2017, qui n'est pas au corpus.",
+    "controle": "cible présente : lien résolu (CrossRef A06)"
+   }
+  ],
+  "articles_amendes": [
+   {
+    "texte": "02",
+    "source": "MARCHES_ARR_MODALITES_2009",
+    "anchor": "art-227",
+    "label": "Article 227",
+    "pastille": "Modifié par l'Arrêté du 9 décembre 2020 modifiant les articles 227 et 227.1 de l'Arrêté du 26 octobre 2009",
+    "annotations.status[art-227]": "modifié",
+    "SUBSTITUTION_DU_CORPS": true,
+    "version_en_vigueur": {
+     "origine": "citée entre guillemets au dispositif du modificateur (texte n° 19, article 2)",
+     "texte_cite_verbatim": "« Article 227.- Le Comité de Règlement des Différends est composé de cinq (5) membres :\n1°)\tun (1) représentant de la Commission Nationale des Marchés Publics ;\n2°)\tdeux (2) représentants de l’Administration publique dont un (1) représentant du Secrétariat Général de la Primature ;\n3°)\tun (1) magistrat à la retraite désigné par une association de Magistrats haïtiens dûment reconnue ou un avocat possédant les compétences et expériences pour ce genre de litiges désigné par la Fédération des Barreaux d’Haïti ;\n4°)\tun (1) représentant désigné par une association du secteur privé, reconnu pour sa compétence, son professionnalisme, son impartialité et son expérience en matière de marchés publics ».\n« Les membres du Comité désignent en leur sein le Président. Le Comité est assisté d’un secrétariat ; il peut s’adjoindre des experts ».\n« Le représentant de la Commission Nationale des Marchés Publics et celui du Secrétariat Général de la Primature sont désignés pour un an ».",
+     "md5_verbatim": "77f0d412a8",
+     "payload_ArticleVersion_body": "Article 227.- Le Comité de Règlement des Différends est composé de cinq (5) membres :\n1°)\tun (1) représentant de la Commission Nationale des Marchés Publics ;\n2°)\tdeux (2) représentants de l’Administration publique dont un (1) représentant du Secrétariat Général de la Primature ;\n3°)\tun (1) magistrat à la retraite désigné par une association de Magistrats haïtiens dûment reconnue ou un avocat possédant les compétences et expériences pour ce genre de litiges désigné par la Fédération des Barreaux d’Haïti ;\n4°)\tun (1) représentant désigné par une association du secteur privé, reconnu pour sa compétence, son professionnalisme, son impartialité et son expérience en matière de marchés publics.\nLes membres du Comité désignent en leur sein le Président. Le Comité est assisté d’un secrétariat ; il peut s’adjoindre des experts.\nLe représentant de la Commission Nationale des Marchés Publics et celui du Secrétariat Général de la Primature sont désignés pour un an.",
+     "md5_payload": "f23568f617",
+     "operation": "retrait du « ouvrant et du » fermant DE BORD sur chaque ligne, rien d'autre — réversible",
+     "rendu_si_verbatim": {
+      "apres_applyAmendments": "Article 227.- « Article 227.- Le Comité de Règlement des Différends est composé de cinq (5) membres :",
+      "corps_affiche_sous_le_badge": "« Article 227.- Le Comité de Règlement des Différends est composé de cinq (5) membres :"
+     },
+     "rendu_si_payload": {
+      "apres_applyAmendments": "Article 227.- Le Comité de Règlement des Différends est composé de cinq (5) membres :",
+      "corps_affiche_sous_le_badge": "Le Comité de Règlement des Différends est composé de cinq (5) membres :"
+     },
+     "pourquoi": "Mesuré en rejouant la chaîne du lecteur : gardé verbatim, le corps produit la tête EN DOUBLE (« Article 227.- « Article 227.- Le Comité… »), parce que `applyAmendments` ne reconnaît pas une tête d'article derrière un guillemet et rajoute la sienne. Les DEUX états sont fournis avec leur md5 : la citation verbatim reste dans la note du CrossRef et dans le corps du modificateur, qui, lui, n'est pas touché."
+    },
+    "repli_oldVersions": {
+     "origine": "rédaction de 2009, extraite du corps préparé du texte n° 2",
+     "texte_verbatim": "Article 227.-\tLe Comité de Règlement des Différends est composé de cinq membres :\n1.\tun représentant de la Commission Nationale des Marchés Publics ;\n2.\tdeux autres représentants de l’Administration Publique dont un représentant du Secrétaire Général de la Primature ;\n3.\tun Magistrat à la retraite ou un Avocat possédant les compétences et expériences pour ce genre de litiges choisi d’un commun accord par les deux parties ;\n4.\tun représentant désigné par les associations du secteur privé, reconnu pour sa compétence, son professionnalisme, son impartialité et son expérience en matière de marchés publics. Ce représentant sera agréé par le requérant privé.\nLes membres du Comité désignent en leur sein le Président. Le Comité est assisté d’un secrétariat, il peut s’adjoindre des experts.\nLe représentant de la CNMP et celui du Secrétaire Général de la Primature sont désignés pour un an.",
+     "md5_verbatim": "71bce8db7b",
+     "payload_oldVersions": "Le Comité de Règlement des Différends est composé de cinq membres :\n1.\tun représentant de la Commission Nationale des Marchés Publics ;\n2.\tdeux autres représentants de l’Administration Publique dont un représentant du Secrétaire Général de la Primature ;\n3.\tun Magistrat à la retraite ou un Avocat possédant les compétences et expériences pour ce genre de litiges choisi d’un commun accord par les deux parties ;\n4.\tun représentant désigné par les associations du secteur privé, reconnu pour sa compétence, son professionnalisme, son impartialité et son expérience en matière de marchés publics. Ce représentant sera agréé par le requérant privé.\nLes membres du Comité désignent en leur sein le Président. Le Comité est assisté d’un secrétariat, il peut s’adjoindre des experts.\nLe représentant de la CNMP et celui du Secrétaire Général de la Primature sont désignés pour un an.",
+     "md5_payload": "51613f0198",
+     "operation": "retrait de la tête « Article 227.- » — convention des replis de la maison, le libellé étant affiché à part"
+    },
+    "ArticleVersion": [
+     {
+      "seq": 0,
+      "status": "MODIFIE",
+      "body": "↑ repli_oldVersions.payload_oldVersions",
+      "label": "Article 227",
+      "note": "rédaction du 26 octobre 2009"
+     },
+     {
+      "seq": 1,
+      "status": "EN_VIGUEUR",
+      "body": "↑ version_en_vigueur.payload_ArticleVersion_body",
+      "label": "Article 227",
+      "amendedBySource": "MARCHES_ARR_MODIF_227_2020",
+      "amendedByNumber": "Arrêté du 9 décembre 2020",
+      "effectiveDate": null,
+      "note": "Arrêté du 9 décembre 2020 modifiant les articles 227 et 227.1 de l'Arrêté du 26 octobre 2009 précisant les modalités d'application de la Loi du 10 juin 2009 fixant les règles générales relatives aux marchés publics et aux conventions de concession d'ouvrage de service public, article 2"
+     }
+    ],
+    "crossRef": "A04"
+   },
+   {
+    "texte": "02",
+    "source": "MARCHES_ARR_MODALITES_2009",
+    "anchor": "art-227-1",
+    "label": "Article 227-1",
+    "pastille": "Modifié par l'Arrêté du 9 décembre 2020 modifiant les articles 227 et 227.1 de l'Arrêté du 26 octobre 2009",
+    "annotations.status[art-227-1]": "modifié",
+    "graphie": "⚠️ Le modificateur écrit « Article 227.1 » à POINT ; le texte de base écrit « Article 227-1 » à TRAIT D'UNION. Chaque graphie reste dans son corps ; l'ancre commune est art-227-1 (labels['art-227-1'] = « Article 227-1 »).",
+    "SUBSTITUTION_DU_CORPS": true,
+    "version_en_vigueur": {
+     "origine": "citée entre guillemets au dispositif du modificateur (texte n° 19, article 2)",
+     "texte_cite_verbatim": "« Article 227.1.- Les membres du Comité de Règlement des Différends sont désignés par les institutions et personnes concernées à la diligence de la Commission Nationale des Marchés Publics ».\n« Une lettre du Premier Ministre consacre la désignation des membres du Comité ».",
+     "md5_verbatim": "e71a9e9aef",
+     "payload_ArticleVersion_body": "Article 227.1.- Les membres du Comité de Règlement des Différends sont désignés par les institutions et personnes concernées à la diligence de la Commission Nationale des Marchés Publics.\nUne lettre du Premier Ministre consacre la désignation des membres du Comité.",
+     "md5_payload": "e06960a057",
+     "operation": "retrait du « ouvrant et du » fermant DE BORD sur chaque ligne, rien d'autre — réversible",
+     "rendu_si_verbatim": {
+      "apres_applyAmendments": "Article 227-1.- « Article 227.1.- Les membres du Comité de Règlement des Différends sont désignés par les institutions et personnes concernées à la diligence de la Commission Nationale des Marchés Publics ».",
+      "corps_affiche_sous_le_badge": "« Article 227.1.- Les membres du Comité de Règlement des Différends sont désignés par les institutions et personnes concernées à la diligence de la Commission Nationale des Marchés Publics »."
+     },
+     "rendu_si_payload": {
+      "apres_applyAmendments": "Article 227.1.- Les membres du Comité de Règlement des Différends sont désignés par les institutions et personnes concernées à la diligence de la Commission Nationale des Marchés Publics.",
+      "corps_affiche_sous_le_badge": "Les membres du Comité de Règlement des Différends sont désignés par les institutions et personnes concernées à la diligence de la Commission Nationale des Marchés Publics."
+     },
+     "pourquoi": "Même mesure que pour l'article 227, et un second effet ici : gardé verbatim, le lecteur empile les DEUX graphies rivales — « Article 227-1.- « Article 227.1.- … ». Avec le payload, le badge affiche « Article 227-1 » (labels) et la tête « 227.1 » du modificateur est absorbée par LEAD_ART : la graphie à point reste lisible là où elle est écrite, dans le corps du modificateur, qui n'est pas touché."
+    },
+    "repli_oldVersions": {
+     "origine": "rédaction de 2009, extraite du corps préparé du texte n° 2",
+     "texte_verbatim": "Article 227-1.-\tLes membres du Comité de Règlement des Différends sont désignés par les institutions et personnes concernées à la diligence de la Commission Nationale des Marchés Publics.\nUn acte du Premier Ministre consacre la désignation des membres du Comité.",
+     "md5_verbatim": "4264b40c35",
+     "payload_oldVersions": "Les membres du Comité de Règlement des Différends sont désignés par les institutions et personnes concernées à la diligence de la Commission Nationale des Marchés Publics.\nUn acte du Premier Ministre consacre la désignation des membres du Comité.",
+     "md5_payload": "2f5187201d",
+     "operation": "retrait de la tête « Article 227-1.- »"
+    },
+    "ArticleVersion": [
+     {
+      "seq": 0,
+      "status": "MODIFIE",
+      "body": "↑ repli_oldVersions.payload_oldVersions",
+      "label": "Article 227-1",
+      "note": "rédaction du 26 octobre 2009"
+     },
+     {
+      "seq": 1,
+      "status": "EN_VIGUEUR",
+      "body": "↑ version_en_vigueur.payload_ArticleVersion_body",
+      "label": "Article 227-1",
+      "amendedBySource": "MARCHES_ARR_MODIF_227_2020",
+      "amendedByNumber": "Arrêté du 9 décembre 2020",
+      "effectiveDate": null,
+      "note": "Arrêté du 9 décembre 2020 modifiant les articles 227 et 227.1 de l'Arrêté du 26 octobre 2009, article 2 — le modificateur écrit « Article 227.1 » à point"
+     }
+    ],
+    "crossRef": "A04b"
+   },
+   {
+    "texte": "18",
+    "source": "MARCHES_ARR_DEFENSE_2020",
+    "anchor": "art-2",
+    "label": "Article 2",
+    "pastille": "Modifié (définition annulée et remplacée) par le Décret du 21 octobre 2021, article 16.1, alinéa 2",
+    "annotations.status[art-2]": "modifié",
+    "SUBSTITUTION_DU_CORPS": false,
+    "pourquoi_pas_de_substitution": "L'étendue n'est pas tranchée (§ 13.4, interdit n° 7). La clause du décret ne remplace que « la définition ». Or l'article 2 de l'arrêté de 2020 porte, après sa phrase de définition, une énumération de DOUZE catégories (mesurée sur le corps : items 1) à 12) ; la rédaction de 2019 en portait ONZE, la catégorie « Les marchés publics de l'électricité » ayant été insérée en 11e position en 2020). Substituer le corps entier emporterait cette liste ; ne substituer que la première phrase suppose que la liste survit. Aucune des deux lectures ne se déduit du texte.",
+    "conduite_retenue": "pastille + note exposant la clause, SANS toucher au corps ; ni oldVersions ni ArticleVersion tant que la réponse n'est pas connue",
+    "note_dediee": "L'article 16.1, alinéa 2, du Décret du 21 octobre 2021 établissant l'obligation de présenter des informations permettant d'identifier les Bénéficiaires effectifs des Marchés publics et des Concessions dispose : « Cette définition des Marchés de défense ou de sécurité nationale annule et remplace la définition contenue dans l'article 2 de l'Arrêté du 12 février 2020 soumettant les marchés publics de défense ou de sécurité nationale au respect des principes de passation de marchés. » La portée de ce remplacement sur l'énumération qui suit la définition n'est pas précisée par le texte.",
+    "clause_citee": {
+     "texte": "Cette définition des Marchés de défense ou de sécurité nationale annule et remplace la définition contenue dans l'article 2 de l'Arrêté du 12 février 2020 soumettant les marchés publics de défense ou de sécurité nationale au respect des principes de passation de marchés.",
+     "fichier": "prep-21-decret-beneficiaires-effectifs-2021-corps.txt",
+     "ligne": 79,
+     "lignes": 1,
+     "sentinelle": "annule et remplace la définition contenue dans l'article 2",
+     "md5": "31d540e15d"
+    },
+    "definition_de_remplacement": {
+     "texte": "Article 16.1.-\tLes Marchés de défense ou de sécurité nationale font référence aux Marchés de livraison des biens et services, et aux immobilisations qui doivent être fournis aux forces de défense ou de sécurité nationale, y compris l'Armée, les Forces de police, ou qui sont désignés et certifiés par écrit à la Commission nationale des Marchés publics par le(s) Ministre(s) chargé(s) de la Sécurité nationale comme nécessaires à la préservation de la sécurité nationale de la République d'Haïti.",
+     "fichier": "prep-21-decret-beneficiaires-effectifs-2021-corps.txt",
+     "ligne": 78,
+     "lignes": 1,
+     "sentinelle": "Article 16.1.-",
+     "md5": "243aa721bc"
+    },
+    "crossRef": "A07"
+   }
+  ],
+  "entrent_EN_VIGUEUR_sans_pastille": [
+   "02",
+   "03",
+   "04",
+   "05",
+   "06",
+   "07",
+   "09",
+   "10",
+   "11",
+   "12",
+   "13",
+   "14",
+   "15",
+   "19",
+   "20",
+   "21",
+   "23",
+   "24"
+  ],
+  "statuts_a_trancher_par_l_editeur": [
+   {
+    "textes": [
+     "08",
+     "22"
+    ],
+    "question": "§ 13.3",
+    "defaut_si_pas_de_decision": "EN_VIGUEUR + note d’édition citant l’article 7-1 de l’arrêté du 1er juin 2022 — jamais ABROGE (§ 11.8, interdit n° 6)",
+    "note_proposee": "Les seuils fixés par le présent arrêté ont été remplacés EN FAIT à compter du 1er octobre 2022 par l'Arrêté du 1er juin 2022 fixant les seuils de passation des marchés publics et les seuils d'intervention de la Commission Nationale des Marchés Publics (articles 7 et 7-1). Aucun texte ne l'abroge nommément."
+   },
+   {
+    "textes": [
+     "17"
+    ],
+    "question": "§ 13.2",
+    "defaut_si_pas_de_decision": "SANS OBJET — la question est tranchée. Le défaut d'attente était « ne pas verser » ; il ne s'applique plus. Voir `decision_de_me_vaval`.",
+    "decision_de_me_vaval": "28 août 2026 — « à verser ». L'arrêté publié au Moniteur n° 221 du 30 décembre 2019 (acte de nomination individuel, mandat de trois ans échu) ENTRE au corpus, au statut PUBLIE, avec sa note de fiche ; le lot passe de 24 à 25 textes et l'arête F17 revient avec lui. La décision s'exécute par UNE constante, VERSER_NOMINATION_2019 = true dans scripts/data/marches-publics/fiches-marches-publics.ts, que B et C lisent tous deux (C y compris en pré-vol). Le 28 août au matin, cette fondation-ci disait « ne pas verser » quand B versait : les deux valeurs contraires sont réconciliées, et sur la décision, non plus sur un défaut."
+   }
+  ],
+  "loi_mere_00": {
+   "status": "EN_VIGUEUR",
+   "pastille": null,
+   "note_de_tete": "La pièce transcrite est la reproduction pour erreurs matérielles publiée au Moniteur n° 78 du mardi 28 juillet 2009, qui renvoie au Moniteur n° 60 du vendredi 12 juin 2009. Le texte est désigné, ici comme dans les visas de tous ses arrêtés d'application, « Loi du 10 juin 2009 » — date du vote de la Chambre des Députés. Le Sénat l'a votée le 4 juin 2009 et la promulgation présidentielle est datée du 12 juin 2009.",
+   "decision_de_me_vaval": "double publication laissée telle quelle et mentionnée sans qu’on tranche ; écart 10 juin / 12 juin non pris en compte ; la règle générale « adoptionDate = dernière entité d’adoption » n’est PAS appliquée à ce texte (décision expresse du 27 août)"
+  }
+ }
+}

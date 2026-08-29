@@ -1,0 +1,669 @@
+{
+ "id": "01",
+ "slug": "decret-2004",
+ "titre_provisoire": "Décret fixant la réglementation des marchés publics de services, de fournitures et de travaux",
+ "source": {
+  "fichier": "piece-01-decret-2004-12-03-reglementation.txt",
+  "md5_txt": "80d9c1ab8ca8b4c9b464e24744aef5e7",
+  "lignes_fichier": 432
+ },
+ "decoupe": {
+  "segments": [
+   [
+    8,
+    428
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     4
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps"
+   },
+   {
+    "plage": [
+     5,
+     7
+    ],
+    "motif": "SOMMAIRE du fascicule. ⚠️ SEUL ENDROIT DE LA PIÈCE où le J.O. imprime l'intitulé de ce décret : l'acte lui-même n'en porte pas d'en-tête. L'intitulé de fiche se lit donc à la PIÈCE, plus au corps ⚠️ DEPUIS LE 28 AOÛT (seconde décision de Me Vaval, « ajouter les titres au début ») : la plage reste hors du corps — puce, rubrique de classement, mentions de reproduction et actes voisins n'y entrent pas — mais l'INTITULÉ DE CET ACTE en est RESTITUÉ au corps, ligne par ligne, par `decoupe.insertions`, qui en déclare l'origine et le motif et le prouve verbatim."
+   },
+   {
+    "plage": [
+     429,
+     432
+    ],
+    "motif": "colophon des Presses Nationales d'Haïti (adresse rue Hammerton Killick, boîte postale, dépôt légal, ISSN) : appareil de fascicule, jamais du dispositif (§ 8.4). Ce colophon-ci n'ouvre PAS sur « Achevé d'imprimer » — c'est pourquoi le motif RE_COLO de outils/decouper.py ne l'avait pas relevé dans table-decoupe.md"
+   }
+  ],
+  "note": "Colophon des Presses Nationales retiré du corps (l. 429-431 de la pièce) : appareil de fascicule (§ 8.4).",
+  "retraits": [],
+  "insertions": [
+   {
+    "ligne_source": 6,
+    "texte_source": "DÉCRET FIXANT",
+    "texte": "Décret fixant",
+    "transformation": "ABAISSEMENT DE CASSE — décision de Me Vaval du 28 août 2026 (soir) : « ayez les majuscules comme pour le traitement des autres et non en all caps ». Le Journal officiel compose CETTE ligne de sommaire en CAPITALES ; six des dix lignes restituées du lot sont composées en casse de phrase, et c'est cette composition-là qui fait règle. LA CASSE N'EST PAS SAISIE À LA MAIN : elle est DÉRIVÉE du `titleFr` de la fiche, lettre par lettre — les lettres de la ligne de sommaire et celles du titre sont les mêmes, dans le même ordre, et chaque lettre prend la casse que le titre lui donne. Rien d'autre n'est touché : les accents, les apostrophes, les espaces et la ponctuation restent ceux de la PIÈCE (le point final que le titre ne porte pas est conservé ; l'apostrophe reste celle du J.O., droite ou courbe). `ecartHorsCasse()` le revérifie caractère par caractère à chaque dérivation, et refuse tout écart qui ne soit pas un écart de casse.",
+    "position": {
+     "avant_ligne_source": 11
+    },
+    "motif": "RESTITUTION DE L'INTITULÉ (décision de Me Vaval du 28 août 2026, « ajouter les titres au début »). Le corps de cet acte n'ouvre PAS sur son objet : le Journal officiel y imprime le mot d'acte puis le signataire, et l'intitulé nulle part ailleurs qu'au SOMMAIRE du même fascicule. L'intitulé n'est donc pas fabriqué : il est LU mot pour mot à la ligne déclarée de la pièce, dont le md5 est asserté avant toute lecture. Ligne 6 du SOMMAIRE, reprise ENTIÈRE (ni puce ni ponctuation de liste). L'intitulé occupe deux lignes au sommaire (l. 6 et 7) : chacune est déclarée séparément et prouvée à sa propre ligne. PLACE : immédiatement après le mot d'acte et AVANT le signataire — c'est ainsi que les textes du lot qui portent DÉJÀ leur intitulé au corps l'impriment dans cinq cas sur huit (n° 19, 20, 21, 22, 24 ; les n° 02, 03 et 04 le placent après le signataire). ⚠️ MESURÉ : le sommaire de CETTE pièce, lui, n'imprime PAS de ligne d'acte séparée avant l'objet — l'argument tiré de « l'ordre du sommaire » ne vaut que pour les pièces des n° 16, 17, 18 et 23, dont le sommaire porte bien une ligne « ARRÊTÉ » seule avant l'intitulé."
+   },
+   {
+    "ligne_source": 7,
+    "texte_source": "LA RÉGLEMENTATION DES MARCHÉS PUBLICS DE SERVICES, DE FOURNITURES ET DE TRAVAUX.",
+    "texte": "la réglementation des marchés publics de services, de fournitures et de travaux.",
+    "transformation": "ABAISSEMENT DE CASSE — décision de Me Vaval du 28 août 2026 (soir) : « ayez les majuscules comme pour le traitement des autres et non en all caps ». Le Journal officiel compose CETTE ligne de sommaire en CAPITALES ; six des dix lignes restituées du lot sont composées en casse de phrase, et c'est cette composition-là qui fait règle. LA CASSE N'EST PAS SAISIE À LA MAIN : elle est DÉRIVÉE du `titleFr` de la fiche, lettre par lettre — les lettres de la ligne de sommaire et celles du titre sont les mêmes, dans le même ordre, et chaque lettre prend la casse que le titre lui donne. Rien d'autre n'est touché : les accents, les apostrophes, les espaces et la ponctuation restent ceux de la PIÈCE (le point final que le titre ne porte pas est conservé ; l'apostrophe reste celle du J.O., droite ou courbe). `ecartHorsCasse()` le revérifie caractère par caractère à chaque dérivation, et refuse tout écart qui ne soit pas un écart de casse.",
+    "position": {
+     "avant_ligne_source": 11
+    },
+    "motif": "RESTITUTION DE L'INTITULÉ (décision de Me Vaval du 28 août 2026, « ajouter les titres au début »). Le corps de cet acte n'ouvre PAS sur son objet : le Journal officiel y imprime le mot d'acte puis le signataire, et l'intitulé nulle part ailleurs qu'au SOMMAIRE du même fascicule. L'intitulé n'est donc pas fabriqué : il est LU mot pour mot à la ligne déclarée de la pièce, dont le md5 est asserté avant toute lecture. Ligne 7 du SOMMAIRE, reprise ENTIÈRE, point final compris — c'est la seconde ligne de l'intitulé, qui suit immédiatement « DÉCRET FIXANT ». PLACE : immédiatement après le mot d'acte et AVANT le signataire — c'est ainsi que les textes du lot qui portent DÉJÀ leur intitulé au corps l'impriment dans cinq cas sur huit (n° 19, 20, 21, 22, 24 ; les n° 02, 03 et 04 le placent après le signataire). ⚠️ MESURÉ : le sommaire de CETTE pièce, lui, n'imprime PAS de ligne d'acte séparée avant l'objet — l'argument tiré de « l'ordre du sommaire » ne vaut que pour les pièces des n° 16, 17, 18 et 23, dont le sommaire porte bien une ligne « ARRÊTÉ » seule avant l'intitulé."
+   }
+  ]
+ },
+ "jointures_entetes": [
+  {
+   "ligne_source": 41,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE I — DISPOSITIONS GÉNÉRALES"
+  },
+  {
+   "ligne_source": 100,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE II — DES COMMISSIONS DES MARCHÉS PUBLICS"
+  },
+  {
+   "ligne_source": 166,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE III — DE LA PASSATION DES MARCHÉS PUBLICS"
+  },
+  {
+   "ligne_source": 269,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE IV — DE LA SOUS-TRAITANCE ET DES GROUPEMENTS"
+  },
+  {
+   "ligne_source": 279,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE V — DES GARANTIES"
+  },
+  {
+   "ligne_source": 302,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE VI — DES CAS DE FORCE MAJEURE"
+  },
+  {
+   "ligne_source": 317,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE VII — DE LA CESSATION, RÉSILIATION ET AJOURNEMENT DU CONTRAT"
+  },
+  {
+   "ligne_source": 332,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE VIII — DES SANCTIONS ET DES PÉNALITÉS"
+  },
+  {
+   "ligne_source": 338,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE IX — DE LA RÉSOLUTION DES CONFLITS"
+  },
+  {
+   "ligne_source": 352,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE X — DE LA RÉCEPTION"
+  },
+  {
+   "ligne_source": 364,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE XI — DE LA DOCUMENTATION ANNEXE"
+  },
+  {
+   "ligne_source": 381,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE XII — DES DISPOSITIONS TRANSITOIRES"
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "CHAPITRE I — DISPOSITIONS GÉNÉRALES",
+   "anchor": "sec-1",
+   "kind": "code",
+   "ligne_source": 41
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE II — DES COMMISSIONS DES MARCHÉS PUBLICS",
+   "anchor": "sec-2",
+   "kind": "code",
+   "ligne_source": 100
+  },
+  {
+   "level": 2,
+   "label": "SECTION I.- DE LA COMMISSION NATIONALE DES MARCHÉS PUBLICS",
+   "anchor": "sec-3",
+   "kind": "code",
+   "ligne_source": 104
+  },
+  {
+   "level": 2,
+   "label": "SECTION II.- DES COMMISSIONS DÉPARTEMENTALES, MINISTÉRIELLES ET SPÉCIALISÉES DES MARCHÉS PUBLICS",
+   "anchor": "sec-4",
+   "kind": "code",
+   "ligne_source": 139
+  },
+  {
+   "level": 3,
+   "label": "DES COMMISSIONS DÉPARTEMENTALES",
+   "anchor": "sec-5",
+   "kind": "code",
+   "ligne_source": 140
+  },
+  {
+   "level": 3,
+   "label": "DES COMMISSIONS MINISTÉRIELLES",
+   "anchor": "sec-6",
+   "kind": "code",
+   "ligne_source": 151
+  },
+  {
+   "level": 3,
+   "label": "DES COMMISSIONS SPÉCIALISÉES",
+   "anchor": "sec-7",
+   "kind": "code",
+   "ligne_source": 163
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE III — DE LA PASSATION DES MARCHÉS PUBLICS",
+   "anchor": "sec-8",
+   "kind": "code",
+   "ligne_source": 166
+  },
+  {
+   "level": 2,
+   "label": "SECTION I.- DES ORGANES COMPÉTENTS",
+   "anchor": "sec-9",
+   "kind": "code",
+   "ligne_source": 168
+  },
+  {
+   "level": 2,
+   "label": "SECTION II.- DES MODES DE PASSATION DES MARCHÉS",
+   "anchor": "sec-10",
+   "kind": "code",
+   "ligne_source": 173
+  },
+  {
+   "level": 3,
+   "label": "DE LA PROCÉDURE D'ADJUDICATION",
+   "anchor": "sec-11",
+   "kind": "code",
+   "ligne_source": 174
+  },
+  {
+   "level": 3,
+   "label": "DE LA PROCÉDURE D'APPEL D'OFFRES",
+   "anchor": "sec-12",
+   "kind": "code",
+   "ligne_source": 220
+  },
+  {
+   "level": 3,
+   "label": "DE LA PROCÉDURE DU MARCHÉ DE GRÉ À GRÉ OU NÉGOCIÉ",
+   "anchor": "sec-13",
+   "kind": "code",
+   "ligne_source": 241
+  },
+  {
+   "level": 3,
+   "label": "DISPOSITIONS PARTICULIÈRES AUX MARCHÉS DE PRESTATIONS INTELLECTUELLES",
+   "anchor": "sec-14",
+   "kind": "code",
+   "ligne_source": 260
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE IV — DE LA SOUS-TRAITANCE ET DES GROUPEMENTS",
+   "anchor": "sec-15",
+   "kind": "code",
+   "ligne_source": 269
+  },
+  {
+   "level": 2,
+   "label": "SECTION I.- DE LA SOUS-TRAITANCE",
+   "anchor": "sec-16",
+   "kind": "code",
+   "ligne_source": 271
+  },
+  {
+   "level": 2,
+   "label": "SECTION II.- DE LA CO-TRAITANCE OU DU GROUPEMENT",
+   "anchor": "sec-17",
+   "kind": "code",
+   "ligne_source": 276
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE V — DES GARANTIES",
+   "anchor": "sec-18",
+   "kind": "code",
+   "ligne_source": 279
+  },
+  {
+   "level": 3,
+   "label": "DES GARANTIES EXIGÉES PAR L'ADMINISTRATION",
+   "anchor": "sec-19",
+   "kind": "code",
+   "ligne_source": 281
+  },
+  {
+   "level": 3,
+   "label": "CHANGEMENTS DANS LE VOLUME DES PRESTATIONS",
+   "anchor": "sec-20",
+   "kind": "code",
+   "ligne_source": 294
+  },
+  {
+   "level": 3,
+   "label": "CHANGEMENTS DANS LES DÉLAIS CONTRACTUELS",
+   "anchor": "sec-21",
+   "kind": "code",
+   "ligne_source": 299
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE VI — DES CAS DE FORCE MAJEURE",
+   "anchor": "sec-22",
+   "kind": "code",
+   "ligne_source": 302
+  },
+  {
+   "level": 3,
+   "label": "DES ASSURANCES",
+   "anchor": "sec-23",
+   "kind": "code",
+   "ligne_source": 314
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE VII — DE LA CESSATION, RÉSILIATION ET AJOURNEMENT DU CONTRAT",
+   "anchor": "sec-24",
+   "kind": "code",
+   "ligne_source": 317
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE VIII — DES SANCTIONS ET DES PÉNALITÉS",
+   "anchor": "sec-25",
+   "kind": "code",
+   "ligne_source": 332
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE IX — DE LA RÉSOLUTION DES CONFLITS",
+   "anchor": "sec-26",
+   "kind": "code",
+   "ligne_source": 338
+  },
+  {
+   "level": 2,
+   "label": "SECTION I.- DE L'ATTRIBUTION DES MARCHÉS PUBLICS",
+   "anchor": "sec-27",
+   "kind": "code",
+   "ligne_source": 340
+  },
+  {
+   "level": 2,
+   "label": "SECTION II.- DE L'EXÉCUTION DES MARCHÉS PUBLICS",
+   "anchor": "sec-28",
+   "kind": "code",
+   "ligne_source": 346
+  },
+  {
+   "level": 3,
+   "label": "RECOURS HIÉRARCHIQUE OU GRACIEUX",
+   "anchor": "sec-29",
+   "kind": "code",
+   "ligne_source": 348
+  },
+  {
+   "level": 3,
+   "label": "RECOURS CONTENTIEUX",
+   "anchor": "sec-30",
+   "kind": "code",
+   "ligne_source": 350
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE X — DE LA RÉCEPTION",
+   "anchor": "sec-31",
+   "kind": "code",
+   "ligne_source": 352
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE XI — DE LA DOCUMENTATION ANNEXE",
+   "anchor": "sec-32",
+   "kind": "code",
+   "ligne_source": 364
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE XII — DES DISPOSITIONS TRANSITOIRES",
+   "anchor": "sec-33",
+   "kind": "code",
+   "ligne_source": 381
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1",
+  "art-2": "Article 2",
+  "art-3": "Article 3",
+  "art-4": "Article 4",
+  "art-5": "Article 5",
+  "art-6": "Article 6",
+  "art-7": "Article 7",
+  "art-8": "Article 8",
+  "art-9": "Article 9",
+  "art-10": "Article 10",
+  "art-11": "Article 11",
+  "art-12": "Article 12",
+  "art-13": "Article 13",
+  "art-14": "Article 14",
+  "art-15": "Article 15",
+  "art-16": "Article 16",
+  "art-17": "Article 17",
+  "art-18": "Article 18",
+  "art-19": "Article 19",
+  "art-19-1": "Article 19.1",
+  "art-20": "Article 20",
+  "art-21": "Article 21",
+  "art-22": "Article 22",
+  "art-23": "Article 23",
+  "art-24": "Article 24",
+  "art-25": "Article 25",
+  "art-26": "Article 26",
+  "art-27": "Article 27",
+  "art-28": "Article 28",
+  "art-29": "Article 29",
+  "art-30": "Article 30",
+  "art-31": "Article 31",
+  "art-32": "Article 32",
+  "art-33": "Article 33",
+  "art-34": "Article 34",
+  "art-35": "Article 35",
+  "art-36": "Article 36",
+  "art-37": "Article 37",
+  "art-38": "Article 38",
+  "art-39": "Article 39",
+  "art-40": "Article 40",
+  "art-41": "Article 41",
+  "art-42": "Article 42",
+  "art-43": "Article 43",
+  "art-44": "Article 44",
+  "art-45": "Article 45",
+  "art-46": "Article 46",
+  "art-47": "Article 47",
+  "art-48": "Article 48",
+  "art-49": "Article 49",
+  "art-50": "Article 50",
+  "art-51": "Article 51",
+  "art-52": "Article 52",
+  "art-53": "Article 53",
+  "art-54": "Article 54",
+  "art-55": "Article 55",
+  "art-56": "Article 56",
+  "art-57": "Article 57",
+  "art-58": "Article 58",
+  "art-59": "Article 59",
+  "art-60": "Article 60",
+  "art-61": "Article 61",
+  "art-62": "Article 62",
+  "art-63": "Article 63",
+  "art-64": "Article 64",
+  "art-65": "Article 65",
+  "art-66": "Article 66",
+  "art-67": "Article 67",
+  "art-68": "Article 68",
+  "art-69": "Article 69",
+  "art-70": "Article 70",
+  "art-71": "Article 71",
+  "art-72": "Article 72",
+  "art-73": "Article 73",
+  "art-74": "Article 74",
+  "art-75": "Article 75",
+  "art-76": "Article 76",
+  "art-77": "Article 77",
+  "art-78": "Article 78",
+  "art-79": "Article 79",
+  "art-80": "Article 80",
+  "art-81": "Article 81",
+  "art-82": "Article 82",
+  "art-83": "Article 83",
+  "art-84": "Article 84",
+  "art-85": "Article 85",
+  "art-86": "Article 86",
+  "art-87": "Article 87",
+  "art-88": "Article 88",
+  "art-89": "Article 89",
+  "art-90": "Article 90",
+  "art-91": "Article 91",
+  "art-92": "Article 92",
+  "art-93": "Article 93",
+  "art-94": "Article 94",
+  "art-95": "Article 95",
+  "art-96": "Article 96",
+  "art-97": "Article 97",
+  "art-98": "Article 98",
+  "art-99": "Article 99",
+  "art-100": "Article 100",
+  "art-101": "Article 101",
+  "art-102": "Article 102",
+  "art-103": "Article 103",
+  "art-104": "Article 104",
+  "art-105": "Article 105",
+  "art-106": "Article 106",
+  "art-107": "Article 107",
+  "art-108": "Article 108",
+  "art-109": "Article 109",
+  "art-110": "Article 110",
+  "art-111": "Article 111",
+  "art-112": "Article 112",
+  "art-113": "Article 113",
+  "art-114": "Article 114",
+  "art-115": "Article 115",
+  "art-116": "Article 116",
+  "art-117": "Article 117"
+ },
+ "navToc": [
+  {
+   "label": "CHAPITRE I — DISPOSITIONS GÉNÉRALES",
+   "anchor": "sec-1",
+   "children": []
+  },
+  {
+   "label": "CHAPITRE II — DES COMMISSIONS DES MARCHÉS PUBLICS",
+   "anchor": "sec-2",
+   "children": [
+    {
+     "label": "SECTION I.- DE LA COMMISSION NATIONALE DES MARCHÉS PUBLICS",
+     "anchor": "sec-3"
+    },
+    {
+     "label": "SECTION II.- DES COMMISSIONS DÉPARTEMENTALES, MINISTÉRIELLES ET SPÉCIALISÉES DES MARCHÉS PUBLICS",
+     "anchor": "sec-4",
+     "children": [
+      {
+       "label": "DES COMMISSIONS DÉPARTEMENTALES",
+       "anchor": "sec-5"
+      },
+      {
+       "label": "DES COMMISSIONS MINISTÉRIELLES",
+       "anchor": "sec-6"
+      },
+      {
+       "label": "DES COMMISSIONS SPÉCIALISÉES",
+       "anchor": "sec-7"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "CHAPITRE III — DE LA PASSATION DES MARCHÉS PUBLICS",
+   "anchor": "sec-8",
+   "children": [
+    {
+     "label": "SECTION I.- DES ORGANES COMPÉTENTS",
+     "anchor": "sec-9"
+    },
+    {
+     "label": "SECTION II.- DES MODES DE PASSATION DES MARCHÉS",
+     "anchor": "sec-10",
+     "children": [
+      {
+       "label": "DE LA PROCÉDURE D'ADJUDICATION",
+       "anchor": "sec-11"
+      },
+      {
+       "label": "DE LA PROCÉDURE D'APPEL D'OFFRES",
+       "anchor": "sec-12"
+      },
+      {
+       "label": "DE LA PROCÉDURE DU MARCHÉ DE GRÉ À GRÉ OU NÉGOCIÉ",
+       "anchor": "sec-13"
+      },
+      {
+       "label": "DISPOSITIONS PARTICULIÈRES AUX MARCHÉS DE PRESTATIONS INTELLECTUELLES",
+       "anchor": "sec-14"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "CHAPITRE IV — DE LA SOUS-TRAITANCE ET DES GROUPEMENTS",
+   "anchor": "sec-15",
+   "children": [
+    {
+     "label": "SECTION I.- DE LA SOUS-TRAITANCE",
+     "anchor": "sec-16"
+    },
+    {
+     "label": "SECTION II.- DE LA CO-TRAITANCE OU DU GROUPEMENT",
+     "anchor": "sec-17"
+    }
+   ]
+  },
+  {
+   "label": "CHAPITRE V — DES GARANTIES",
+   "anchor": "sec-18",
+   "children": [
+    {
+     "label": "DES GARANTIES EXIGÉES PAR L'ADMINISTRATION",
+     "anchor": "sec-19",
+     "children": [
+      {
+       "label": "CHANGEMENTS DANS LE VOLUME DES PRESTATIONS",
+       "anchor": "sec-20"
+      },
+      {
+       "label": "CHANGEMENTS DANS LES DÉLAIS CONTRACTUELS",
+       "anchor": "sec-21"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "CHAPITRE VI — DES CAS DE FORCE MAJEURE",
+   "anchor": "sec-22",
+   "children": [
+    {
+     "label": "DES ASSURANCES",
+     "anchor": "sec-23"
+    }
+   ]
+  },
+  {
+   "label": "CHAPITRE VII — DE LA CESSATION, RÉSILIATION ET AJOURNEMENT DU CONTRAT",
+   "anchor": "sec-24",
+   "children": []
+  },
+  {
+   "label": "CHAPITRE VIII — DES SANCTIONS ET DES PÉNALITÉS",
+   "anchor": "sec-25",
+   "children": []
+  },
+  {
+   "label": "CHAPITRE IX — DE LA RÉSOLUTION DES CONFLITS",
+   "anchor": "sec-26",
+   "children": [
+    {
+     "label": "SECTION I.- DE L'ATTRIBUTION DES MARCHÉS PUBLICS",
+     "anchor": "sec-27"
+    },
+    {
+     "label": "SECTION II.- DE L'EXÉCUTION DES MARCHÉS PUBLICS",
+     "anchor": "sec-28",
+     "children": [
+      {
+       "label": "RECOURS HIÉRARCHIQUE OU GRACIEUX",
+       "anchor": "sec-29"
+      },
+      {
+       "label": "RECOURS CONTENTIEUX",
+       "anchor": "sec-30"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "CHAPITRE X — DE LA RÉCEPTION",
+   "anchor": "sec-31",
+   "children": []
+  },
+  {
+   "label": "CHAPITRE XI — DE LA DOCUMENTATION ANNEXE",
+   "anchor": "sec-32",
+   "children": []
+  },
+  {
+   "label": "CHAPITRE XII — DES DISPOSITIONS TRANSITOIRES",
+   "anchor": "sec-33",
+   "children": []
+  }
+ ],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 411,
+  "toc": 33,
+  "labels": 118,
+  "ancres_emises": 118,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 0,
+  "navToc_groupes": 12
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": null,
+ "md5_corps": "f633907ee7d1a30105231642cb20aeaa",
+ "apostrophes": {
+  "droites": 595,
+  "courbes": 0
+ },
+ "exposants_unicode": {}
+}

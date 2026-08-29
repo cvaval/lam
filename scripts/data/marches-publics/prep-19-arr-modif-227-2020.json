@@ -1,0 +1,88 @@
+{
+ "id": "19",
+ "slug": "arr-modif-227-2020",
+ "titre_provisoire": "Arrêté modifiant les articles 227 et 227.1 de l'Arrêté du 26 octobre 2009 précisant les modalités d'application de la Loi du 10 juin 2009",
+ "source": {
+  "fichier": "piece-19-20-fascicule-sp8-2021-02-04.txt",
+  "md5_txt": "21548b7b795d41e2f32d2c3410abe0fa",
+  "lignes_fichier": 497
+ },
+ "decoupe": {
+  "segments": [
+   [
+    18,
+    95
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     4
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps"
+   },
+   {
+    "plage": [
+     5,
+     14
+    ],
+    "motif": "SOMMAIRE du fascicule : il annonce les dix actes du Spécial n° 8 — l'autre arrêté marchés publics (versé au document n° 20), les nominations BNC/BNDA/CNAL, les commissions municipales et la Circulaire no 009, toutes hors corpus"
+   },
+   {
+    "plage": [
+     15,
+     17
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif"
+   },
+   {
+    "plage": [
+     96,
+     497
+    ],
+    "motif": "les neuf autres actes du Spécial n° 8 : le 2e arrêté marchés publics est versé au document n° 20, les sept nominations et la Circulaire n° 009 sont HORS CORPUS ; puis les abonnements et le colophon"
+   }
+  ],
+  "note": "fascicule à 10 actes : seul le 1er arrêté marchés publics est versé ici. Retirés : SOMMAIRE (l. 5-16, il nomme les nominations BNC/BNDA/CNAL, les commissions municipales et la circulaire 009 CIN) ; arrêté CMMP/CSMP (l. 96-209, versé au document n° 20) ; nominations et circulaire 009 (l. 211-484).",
+  "retraits": [],
+  "insertions": []
+ },
+ "jointures_entetes": [],
+ "toc": [],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2",
+  "art-3": "Article 3"
+ },
+ "navToc": [],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 78,
+  "toc": 0,
+  "labels": 3,
+  "ancres_emises": 3,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 0,
+  "navToc_groupes": 0
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": null,
+ "md5_corps": "f90e4b504d8f492938805fe236db4c4b",
+ "apostrophes": {
+  "droites": 0,
+  "courbes": 48
+ },
+ "exposants_unicode": {}
+}

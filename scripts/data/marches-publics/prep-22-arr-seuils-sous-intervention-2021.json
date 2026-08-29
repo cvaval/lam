@@ -1,0 +1,104 @@
+{
+ "id": "22",
+ "slug": "arr-seuils-sous-intervention-2021",
+ "titre_provisoire": "Arrêté fixant les seuils de passation des Marchés publics en dessous des seuils d'intervention de la Commission Nationale des Marchés Publics",
+ "source": {
+  "fichier": "piece-21-22-fascicule-sp52-2021-11-09.txt",
+  "md5_txt": "68901156f2e4a885957f7e003de0befd",
+  "lignes_fichier": 259
+ },
+ "decoupe": {
+  "segments": [
+   [
+    129,
+    243
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     8
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps"
+   },
+   {
+    "plage": [
+     9,
+     13
+    ],
+    "motif": "SOMMAIRE du fascicule : il annonce les DEUX actes du Spécial n° 52 et nomme donc, à la l. 11, L'AUTRE ACTE DU MÊME NUMÉRO — le Décret du 21 octobre 2021, versé au document n° 21"
+   },
+   {
+    "plage": [
+     14,
+     14
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif"
+   },
+   {
+    "plage": [
+     15,
+     128
+    ],
+    "motif": "le Décret du 21 octobre 2021, premier acte du Spécial 52, versé au document n° 21"
+   },
+   {
+    "plage": [
+     244,
+     259
+    ],
+    "motif": "colophon des Presses Nationales d'Haïti (achevé d'imprimer, ISSN, dépôt légal, adresse, téléphones, tirage) : appareil de fascicule, jamais du dispositif — table-decoupe.md, § « Les zones d'appareil d'éditeur, à écarter du corps au § 8.4 » ; puis la NOTE DE TRANSCRIPTION de l'éditeur (l. 254-258)"
+   }
+  ],
+  "note": "même fascicule que le n° 21 ; le colophon des Presses Nationales (l. 243-250) est rattaché au dernier acte. NOTE DE TRANSCRIPTION (l. 252-256) retirée.",
+  "retraits": [],
+  "insertions": []
+ },
+ "jointures_entetes": [],
+ "toc": [],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2",
+  "art-2-1": "Article 2-1",
+  "art-3": "Article 3",
+  "art-3-1": "Article 3-1",
+  "art-3-2": "Article 3-2",
+  "art-3-3": "Article 3-3",
+  "art-4": "Article 4",
+  "art-5": "Article 5",
+  "art-6": "Article 6",
+  "art-7": "Article 7",
+  "art-8": "Article 8"
+ },
+ "navToc": [],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 115,
+  "toc": 0,
+  "labels": 12,
+  "ancres_emises": 12,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 0,
+  "navToc_groupes": 0
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": null,
+ "md5_corps": "b87d626caeee2ef48574e3a4db456083",
+ "apostrophes": {
+  "droites": 103,
+  "courbes": 0
+ },
+ "exposants_unicode": {}
+}

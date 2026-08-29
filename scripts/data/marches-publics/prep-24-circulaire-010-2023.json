@@ -1,0 +1,55 @@
+{
+ "id": "24",
+ "slug": "circulaire-010-2023",
+ "titre_provisoire": "Circulaire 010 relative aux procédures de passation et d'exécution des marchés publics",
+ "source": {
+  "fichier": "piece-24-circulaire-010-2023-12-04.txt",
+  "md5_txt": "a8e25fbb5f09fdc1fd86bfc8e4780812",
+  "lignes_fichier": 45
+ },
+ "decoupe": {
+  "segments": [
+   [
+    1,
+    44
+   ]
+  ],
+  "hors_segments": [],
+  "note": null,
+  "retraits": [],
+  "insertions": []
+ },
+ "jointures_entetes": [],
+ "toc": [],
+ "labels": {},
+ "navToc": [],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 44,
+  "toc": 0,
+  "labels": 0,
+  "ancres_emises": 0,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 0,
+  "navToc_groupes": 0
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": "0 article, 0 division imprimée : ni toc, ni labels, ni navToc, ni pointAnchors (§ 9.6 et interdit n° 16 — on ne fabrique pas d'appareil que le texte ne porte pas).",
+ "md5_corps": "bc9bfb75609abf39e26f09aae8a0697e",
+ "apostrophes": {
+  "droites": 0,
+  "courbes": 184
+ },
+ "exposants_unicode": {}
+}

@@ -1,0 +1,261 @@
+{
+ "id": "15",
+ "slug": "arr-alleges-consultants-2017",
+ "titre_provisoire": "Arrêté sanctionnant pour sortir leur plein et entier effet le Manuel de procédures allégées pour la sélection de consultants et le Dossier allégé de demande de propositions pour services de consultants",
+ "source": {
+  "fichier": "piece-15-arrete-2017-08-30-allege-consultants.txt",
+  "md5_txt": "9821e06c95386a4f72c81824d76cc4d7",
+  "lignes_fichier": 1562
+ },
+ "decoupe": {
+  "segments": [
+   [
+    19,
+    1553
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     4
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps"
+   },
+   {
+    "plage": [
+     5,
+     11
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif. La l. 6-9 y imprime l'objet de l'arrêté ; l'article 1er le REPREND à la l. 45, qui reste au corps"
+   },
+   {
+    "plage": [
+     12,
+     17
+    ],
+    "motif": "SOMMAIRE du fascicule"
+   },
+   {
+    "plage": [
+     18,
+     18
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif"
+   },
+   {
+    "plage": [
+     1554,
+     1562
+    ],
+    "motif": "colophon des Presses Nationales d'Haïti (achevé d'imprimer, ISSN, dépôt légal, adresse, téléphones, tirage) : appareil de fascicule, jamais du dispositif — table-decoupe.md, § « Les zones d'appareil d'éditeur, à écarter du corps au § 8.4 »"
+   }
+  ],
+  "note": "Colophon retiré du corps (l. 1554-1561) : appareil de fascicule (§ 8.4). Note de reconstitution de diagramme retirée l. 744 (D2).",
+  "retraits": [
+   {
+    "ligne_source": 744,
+    "motif": "[Note de transcription] de l'éditeur (reconstitution d'un diagramme) — la note strictement équivalente est déjà retirée des n° 10, 12, 13 et 14 (D2, contrôle du 28 août)",
+    "texte": "[Reconstitution du diagramme original : les cellules grisées indiquent la position de chaque étape dans la séquence des durées.]"
+   }
+  ],
+  "insertions": []
+ },
+ "jointures_entetes": [
+  {
+   "ligne_source": 91,
+   "lignes_jointes": 4,
+   "libelle": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MANUEL DE PROCÉDURES ALLÉGÉES — POUR LA SÉLECTION DE CONSULTANTS"
+  },
+  {
+   "ligne_source": 757,
+   "lignes_jointes": 5,
+   "libelle": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — DOSSIER ALLÉGÉ DE DEMANDE — DE PROPOSITIONS POUR SERVICES — DE CONSULTANTS"
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MANUEL DE PROCÉDURES ALLÉGÉES — POUR LA SÉLECTION DE CONSULTANTS",
+   "anchor": "sec-1",
+   "kind": "connexe",
+   "ligne_source": 91
+  },
+  {
+   "level": 1,
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — DOSSIER ALLÉGÉ DE DEMANDE — DE PROPOSITIONS POUR SERVICES — DE CONSULTANTS",
+   "anchor": "sec-2",
+   "kind": "connexe",
+   "ligne_source": 757
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2"
+ },
+ "navToc": [
+  {
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — MANUEL DE PROCÉDURES ALLÉGÉES — POUR LA SÉLECTION DE CONSULTANTS",
+   "anchor": "sec-1",
+   "children": []
+  },
+  {
+   "label": "COMMISSION NATIONALE DES MARCHÉS PUBLICS — (CNMP) — DOSSIER ALLÉGÉ DE DEMANDE — DE PROPOSITIONS POUR SERVICES — DE CONSULTANTS",
+   "anchor": "sec-2",
+   "children": []
+  }
+ ],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 1527,
+  "toc": 2,
+  "labels": 2,
+  "ancres_emises": 2,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 20,
+  "navToc_groupes": 2
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [
+  {
+   "ligne_corps": 1443,
+   "ancre": "art-1",
+   "tete": "Article 1.- Objet",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1445,
+   "ancre": "art-2",
+   "tete": "Article 2.- Durée",
+   "motif": "doublon"
+  },
+  {
+   "ligne_corps": 1448,
+   "ancre": "art-3",
+   "tete": "Article 3.- Rapports",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1450,
+   "ancre": "art-4",
+   "tete": "Article 4.- Paiement",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1454,
+   "ancre": "art-4-2",
+   "tete": "Article 4.2.- Rémunération",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1456,
+   "ancre": "art-4-3",
+   "tete": "Article 4.3.- Dépenses remboursables",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1460,
+   "ancre": "art-4-4",
+   "tete": "Article 4.4.- Conditions de paiement",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1462,
+   "ancre": "art-5",
+   "tete": "Article 5.- Administration du contrat",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1463,
+   "ancre": "art-5-1",
+   "tete": "Article 5.1.- Coordonnateur",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1465,
+   "ancre": "art-5-2",
+   "tete": "Article 5.2.- Feuilles d’emploi du temps (applicable au contrat à rémunération a",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1467,
+   "ancre": "art-5-3",
+   "tete": "Article 5.3.- Écritures et comptes",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1470,
+   "ancre": "art-6",
+   "tete": "Article 6.- Normes de performance",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1473,
+   "ancre": "art-7",
+   "tete": "Article 7.- Secret professionnel",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1475,
+   "ancre": "art-8",
+   "tete": "Article 8.- Devoir de réserve",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1477,
+   "ancre": "art-9",
+   "tete": "Article 9.- Propriété des documents et produits",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1481,
+   "ancre": "art-10",
+   "tete": "Article 10.- Activités interdites au Consultant",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1483,
+   "ancre": "art-11",
+   "tete": "Article 11.- Assurance",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1485,
+   "ancre": "art-12",
+   "tete": "Article 12.- Transfert",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1487,
+   "ancre": "art-13",
+   "tete": "Article 13.- Règlement des différends",
+   "motif": "annexe (kind connexe)"
+  },
+  {
+   "ligne_corps": 1490,
+   "ancre": "art-14",
+   "tete": "Article 14. Clause complémentaire",
+   "motif": "annexe (kind connexe)"
+  }
+ ],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": null,
+ "md5_corps": "47cd419db2eead43737a8cc3d4c29c2c",
+ "apostrophes": {
+  "droites": 0,
+  "courbes": 871
+ },
+ "exposants_unicode": {},
+ "reserves": {
+  "intitule_non_restitue": "l'intitulé n'a PAS été restitué au corps : le sommaire du fascicule ne l'imprime pas sur une ligne, mais en LISTE — une ligne d'annonce (« ARRÊTÉ SANCTIONNANT POUR SORTIR LEUR PLEIN ET ENTIER EFFET : ») suivie d'items tirés, un par pièce sanctionnée. Le restituer supposerait de RECOLLER plusieurs lignes, c'est-à-dire de composer un intitulé — ce que la règle interdit (il se restitue mot pour mot, il ne se compose pas). L'objet de l'acte se lit à son dispositif, article 1er."
+ }
+}

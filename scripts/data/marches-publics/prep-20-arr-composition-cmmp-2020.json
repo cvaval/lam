@@ -1,0 +1,205 @@
+{
+ "id": "20",
+ "slug": "arr-composition-cmmp-2020",
+ "titre_provisoire": "Arrêté fixant la composition des Commissions Ministérielles des Marchés Publics (CMMP) et des Commissions Spécialisées des Marchés Publics (CSMP)",
+ "source": {
+  "fichier": "piece-19-20-fascicule-sp8-2021-02-04.txt",
+  "md5_txt": "21548b7b795d41e2f32d2c3410abe0fa",
+  "lignes_fichier": 497
+ },
+ "decoupe": {
+  "segments": [
+   [
+    98,
+    211
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     4
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps"
+   },
+   {
+    "plage": [
+     5,
+     14
+    ],
+    "motif": "SOMMAIRE du fascicule : il annonce les dix actes du Spécial n° 8, dont le premier arrêté marchés publics (versé au document n° 19), les nominations et la Circulaire no 009, hors corpus"
+   },
+   {
+    "plage": [
+     15,
+     17
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif"
+   },
+   {
+    "plage": [
+     18,
+     97
+    ],
+    "motif": "le 1er arrêté marchés publics du Spécial n° 8, versé au document n° 19"
+   },
+   {
+    "plage": [
+     212,
+     497
+    ],
+    "motif": "les sept nominations et la Circulaire n° 009 (HORS CORPUS), puis les abonnements et le colophon"
+   }
+  ],
+  "note": "même fascicule que le n° 19 : seul le 2e arrêté marchés publics est versé ici (l. 96-209).",
+  "retraits": [],
+  "insertions": []
+ },
+ "jointures_entetes": [
+  {
+   "ligne_source": 121,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE Ier — DISPOSITIONS GÉNÉRALES"
+  },
+  {
+   "ligne_source": 126,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE II — COMPOSITION DES COMMISSIONS MINISTÉRIELLES ET SPÉCIALISÉES DES MARCHÉS PUBLICS ET CRITÈRES DE CHOIX ET TÂCHES SPÉCIFIQUES DE LEURS MEMBRES"
+  },
+  {
+   "ligne_source": 128,
+   "lignes_jointes": 2,
+   "libelle": "Section 1re — Composition"
+  },
+  {
+   "ligne_source": 136,
+   "lignes_jointes": 2,
+   "libelle": "Section 2 — Critères de choix"
+  },
+  {
+   "ligne_source": 145,
+   "lignes_jointes": 2,
+   "libelle": "Section 3 — Tâches spécifiques"
+  },
+  {
+   "ligne_source": 164,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE III — DISPOSITIONS FINALES"
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "CHAPITRE Ier — DISPOSITIONS GÉNÉRALES",
+   "anchor": "sec-1",
+   "kind": "code",
+   "ligne_source": 121
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE II — COMPOSITION DES COMMISSIONS MINISTÉRIELLES ET SPÉCIALISÉES DES MARCHÉS PUBLICS ET CRITÈRES DE CHOIX ET TÂCHES SPÉCIFIQUES DE LEURS MEMBRES",
+   "anchor": "sec-2",
+   "kind": "code",
+   "ligne_source": 126
+  },
+  {
+   "level": 2,
+   "label": "Section 1re — Composition",
+   "anchor": "sec-3",
+   "kind": "code",
+   "ligne_source": 128
+  },
+  {
+   "level": 2,
+   "label": "Section 2 — Critères de choix",
+   "anchor": "sec-4",
+   "kind": "code",
+   "ligne_source": 136
+  },
+  {
+   "level": 2,
+   "label": "Section 3 — Tâches spécifiques",
+   "anchor": "sec-5",
+   "kind": "code",
+   "ligne_source": 145
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE III — DISPOSITIONS FINALES",
+   "anchor": "sec-6",
+   "kind": "code",
+   "ligne_source": 164
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2",
+  "art-3": "Article 3",
+  "art-4": "Article 4",
+  "art-5": "Article 5",
+  "art-6": "Article 6",
+  "art-7": "Article 7",
+  "art-8": "Article 8",
+  "art-9": "Article 9",
+  "art-10": "Article 10"
+ },
+ "navToc": [
+  {
+   "label": "CHAPITRE Ier — DISPOSITIONS GÉNÉRALES",
+   "anchor": "sec-1",
+   "children": []
+  },
+  {
+   "label": "CHAPITRE II — COMPOSITION DES COMMISSIONS MINISTÉRIELLES ET SPÉCIALISÉES DES MARCHÉS PUBLICS ET CRITÈRES DE CHOIX ET TÂCHES SPÉCIFIQUES DE LEURS MEMBRES",
+   "anchor": "sec-2",
+   "children": [
+    {
+     "label": "Section 1re — Composition",
+     "anchor": "sec-3"
+    },
+    {
+     "label": "Section 2 — Critères de choix",
+     "anchor": "sec-4"
+    },
+    {
+     "label": "Section 3 — Tâches spécifiques",
+     "anchor": "sec-5"
+    }
+   ]
+  },
+  {
+   "label": "CHAPITRE III — DISPOSITIONS FINALES",
+   "anchor": "sec-6",
+   "children": []
+  }
+ ],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 108,
+  "toc": 6,
+  "labels": 10,
+  "ancres_emises": 10,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 0,
+  "navToc_groupes": 3
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": null,
+ "md5_corps": "0020a8c340dda64ceef5baf2a7e66c5a",
+ "apostrophes": {
+  "droites": 0,
+  "courbes": 70
+ },
+ "exposants_unicode": {}
+}

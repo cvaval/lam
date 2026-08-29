@@ -1,0 +1,218 @@
+{
+ "id": "21",
+ "slug": "decret-beneficiaires-effectifs-2021",
+ "titre_provisoire": "Décret établissant l'obligation de présenter des informations permettant d'identifier les Bénéficiaires effectifs des Marchés publics et des Concessions",
+ "source": {
+  "fichier": "piece-21-22-fascicule-sp52-2021-11-09.txt",
+  "md5_txt": "68901156f2e4a885957f7e003de0befd",
+  "lignes_fichier": 259
+ },
+ "decoupe": {
+  "segments": [
+   [
+    15,
+    126
+   ]
+  ],
+  "hors_segments": [
+   {
+    "plage": [
+     1,
+     8
+    ],
+    "motif": "bandeau du fascicule (titre du journal, périodicité, directeur général, millésime et numéro, lieu, date de parution) : appareil du Journal officiel, jamais du dispositif. La référence du fascicule et sa date NE SONT PAS PERDUES — elles vivent dans les CHAMPS de la fiche, « moniteurRef » et « publicationDate », que B écrit depuis la fiche et non depuis le corps"
+   },
+   {
+    "plage": [
+     9,
+     13
+    ],
+    "motif": "SOMMAIRE du fascicule : il annonce les DEUX actes du Spécial n° 52 et nomme donc, à la l. 13, L'AUTRE ACTE DU MÊME NUMÉRO — l'Arrêté du 21 octobre 2021, versé au document n° 22"
+   },
+   {
+    "plage": [
+     14,
+     14
+    ],
+    "motif": "page de titre du fascicule (« NUMÉRO SPÉCIAL » / « NUMÉRO EXTRAORDINAIRE » et le titre de couverture du numéro) : appareil du fascicule, jamais du dispositif"
+   },
+   {
+    "plage": [
+     127,
+     259
+    ],
+    "motif": "l'Arrêté du 21 octobre 2021, second acte du Spécial 52, versé au document n° 22 ; puis le colophon et la NOTE DE TRANSCRIPTION de l'éditeur"
+   }
+  ],
+  "note": "fascicule à 2 actes, tous deux du corpus : le Décret (l. 15-126) ici, l'Arrêté (l. 128-241) au document n° 22. Bloc NOTE DE TRANSCRIPTION du fascicule (l. 252-256) retiré des deux.",
+  "retraits": [],
+  "insertions": []
+ },
+ "jointures_entetes": [
+  {
+   "ligne_source": 37,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE I — DISPOSITIONS GÉNÉRALES"
+  },
+  {
+   "ligne_source": 48,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE II — OBLIGATIONS DES SOUMISSIONNAIRES"
+  },
+  {
+   "ligne_source": 50,
+   "lignes_jointes": 2,
+   "libelle": "Section I — Identification des bénéficiaires effectifs"
+  },
+  {
+   "ligne_source": 58,
+   "lignes_jointes": 2,
+   "libelle": "Section II — Soumission de la liste des bénéficiaires effectifs"
+  },
+  {
+   "ligne_source": 65,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE III — OBLIGATIONS DES AUTORITÉS CONTRACTANTES"
+  },
+  {
+   "ligne_source": 77,
+   "lignes_jointes": 2,
+   "libelle": "CHAPITRE IV — DISPOSITIONS FINALES"
+  }
+ ],
+ "toc": [
+  {
+   "level": 1,
+   "label": "CHAPITRE I — DISPOSITIONS GÉNÉRALES",
+   "anchor": "sec-1",
+   "kind": "code",
+   "ligne_source": 37
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE II — OBLIGATIONS DES SOUMISSIONNAIRES",
+   "anchor": "sec-2",
+   "kind": "code",
+   "ligne_source": 48
+  },
+  {
+   "level": 2,
+   "label": "Section I — Identification des bénéficiaires effectifs",
+   "anchor": "sec-3",
+   "kind": "code",
+   "ligne_source": 50
+  },
+  {
+   "level": 2,
+   "label": "Section II — Soumission de la liste des bénéficiaires effectifs",
+   "anchor": "sec-4",
+   "kind": "code",
+   "ligne_source": 58
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE III — OBLIGATIONS DES AUTORITÉS CONTRACTANTES",
+   "anchor": "sec-5",
+   "kind": "code",
+   "ligne_source": 65
+  },
+  {
+   "level": 1,
+   "label": "CHAPITRE IV — DISPOSITIONS FINALES",
+   "anchor": "sec-6",
+   "kind": "code",
+   "ligne_source": 77
+  }
+ ],
+ "labels": {
+  "art-1": "Article 1er",
+  "art-2": "Article 2",
+  "art-2-1": "Article 2.1",
+  "art-2-2": "Article 2.2",
+  "art-2-3": "Article 2.3",
+  "art-3": "Article 3",
+  "art-4": "Article 4",
+  "art-4-1": "Article 4.1",
+  "art-5": "Article 5",
+  "art-5-1": "Article 5.1",
+  "art-6": "Article 6",
+  "art-7": "Article 7",
+  "art-7-1": "Article 7.1",
+  "art-8": "Article 8",
+  "art-9": "Article 9",
+  "art-10": "Article 10",
+  "art-11": "Article 11",
+  "art-11-1": "Article 11.1",
+  "art-12": "Article 12",
+  "art-13": "Article 13",
+  "art-13-1": "Article 13.1",
+  "art-13-2": "Article 13.2",
+  "art-14": "Article 14",
+  "art-15": "Article 15",
+  "art-15-1": "Article 15.1",
+  "art-15-2": "Article 15.2",
+  "art-16": "Article 16",
+  "art-16-1": "Article 16.1",
+  "art-17": "Article 17"
+ },
+ "navToc": [
+  {
+   "label": "CHAPITRE I — DISPOSITIONS GÉNÉRALES",
+   "anchor": "sec-1",
+   "children": []
+  },
+  {
+   "label": "CHAPITRE II — OBLIGATIONS DES SOUMISSIONNAIRES",
+   "anchor": "sec-2",
+   "children": [
+    {
+     "label": "Section I — Identification des bénéficiaires effectifs",
+     "anchor": "sec-3"
+    },
+    {
+     "label": "Section II — Soumission de la liste des bénéficiaires effectifs",
+     "anchor": "sec-4"
+    }
+   ]
+  },
+  {
+   "label": "CHAPITRE III — OBLIGATIONS DES AUTORITÉS CONTRACTANTES",
+   "anchor": "sec-5",
+   "children": []
+  },
+  {
+   "label": "CHAPITRE IV — DISPOSITIONS FINALES",
+   "anchor": "sec-6",
+   "children": []
+  }
+ ],
+ "pointAnchors": null,
+ "comptes": {
+  "lignes_corps": 106,
+  "toc": 6,
+  "labels": 29,
+  "ancres_emises": 29,
+  "tetes_article_sans_ancre_annexe_ou_doublon": 0,
+  "navToc_groupes": 4
+ },
+ "gardes": {
+  "secs_egale_toc": true,
+  "join_egale_corps": true,
+  "ancres_egalent_labels": true,
+  "aucune_ancre_dupliquee": true,
+  "toc_apparie_dans_l_ordre": true,
+  "appariement_sur_la_bonne_ligne": true,
+  "libelles_toc_uniques_dans_le_corps": true
+ },
+ "ancres_non_emises": [],
+ "libelles_toc_ambigus": [],
+ "libelles_ecartes_car_repetes_dans_le_corps": [],
+ "reserve": null,
+ "sans_appareil": null,
+ "md5_corps": "85350c63067b63b7f076aaeafd12be13",
+ "apostrophes": {
+  "droites": 105,
+  "courbes": 0
+ },
+ "exposants_unicode": {}
+}
