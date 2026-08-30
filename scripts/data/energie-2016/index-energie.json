@@ -1,0 +1,1550 @@
+[
+ {
+  "subject": "Abrogation des textes contraires",
+  "ctRefs": [
+   84
+  ],
+  "autres": {
+   "dsis": [
+    11
+   ],
+   "anarse": [
+    33
+   ]
+  }
+ },
+ {
+  "subject": "Accès au réseau",
+  "ctRefs": [
+   16,
+   47,
+   55,
+   59
+  ],
+  "autres": {
+   "anarse": [
+    4
+   ]
+  }
+ },
+ {
+  "subject": "Actionnaires et dirigeants",
+  "ctRefs": [
+   8,
+   29,
+   69
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Amende",
+  "ctRefs": [
+   69,
+   72,
+   73,
+   74,
+   75,
+   76,
+   77,
+   78,
+   79,
+   80,
+   81
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Amortissement des investissements",
+  "ctRefs": [
+   37,
+   61
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "ANARSE (Autorité Nationale de Régulation du Secteur de l'Énergie)",
+  "ctRefs": [
+   22
+  ],
+  "autres": {
+   "anarse": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    15,
+    16,
+    17,
+    18,
+    21,
+    22,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    32
+   ]
+  }
+ },
+ {
+  "subject": "Appel d'offres",
+  "ctRefs": [
+   11
+  ],
+  "autres": {
+   "anarse": [
+    26
+   ]
+  }
+ },
+ {
+  "subject": "Approbation et agrément préalables",
+  "ctRefs": [
+   13,
+   15,
+   31,
+   36,
+   41,
+   60,
+   64,
+   66
+  ],
+  "autres": {
+   "anarse": [
+    4,
+    10,
+    17,
+    20,
+    25
+   ]
+  }
+ },
+ {
+  "subject": "Audit et vérification",
+  "ctRefs": [
+   44
+  ],
+  "autres": {
+   "anarse": [
+    27
+   ]
+  }
+ },
+ {
+  "subject": "Autorité concédante",
+  "ctRefs": [
+   38,
+   41,
+   43
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Autorité de régulation",
+  "ctRefs": [
+   4,
+   8,
+   10,
+   11,
+   13,
+   15,
+   16,
+   18,
+   28,
+   30,
+   31,
+   34,
+   35,
+   42,
+   43,
+   49,
+   53,
+   54,
+   58,
+   60,
+   62,
+   63,
+   64,
+   66,
+   67,
+   82
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Avantages fiscaux, financiers et douaniers",
+  "ctRefs": [
+   14,
+   68
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Avis de non-objection environnemental",
+  "ctRefs": [
+   44
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Bâtiments et terrains",
+  "ctRefs": [
+   4,
+   13,
+   50,
+   52
+  ],
+  "autres": {
+   "dsis": [
+    4
+   ]
+  }
+ },
+ {
+  "subject": "Biens meubles et immeubles",
+  "ctRefs": [
+   3
+  ],
+  "autres": {
+   "dsis": [
+    10
+   ]
+  }
+ },
+ {
+  "subject": "Cahier des charges",
+  "ctRefs": [
+   4,
+   8,
+   20,
+   24,
+   26,
+   29,
+   30,
+   42,
+   61,
+   62,
+   68
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Capacité financière du requérant",
+  "ctRefs": [
+   8,
+   12,
+   27,
+   29
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Carence du titulaire",
+  "ctRefs": [
+   35,
+   40
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Centrale électrique",
+  "ctRefs": [
+   49,
+   51,
+   71,
+   72
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Certificat de conformité",
+  "ctRefs": [
+   54,
+   71,
+   78
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Cession et transfert de droits",
+  "ctRefs": [
+   39,
+   41
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Chiffre d'affaires",
+  "ctRefs": [
+   67
+  ],
+  "autres": {
+   "anarse": [
+    23
+   ]
+  }
+ },
+ {
+  "subject": "Code des investissements",
+  "ctRefs": [
+   14
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Code Pénal",
+  "ctRefs": [
+   72
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Collectivités territoriales",
+  "ctRefs": [
+   36
+  ],
+  "autres": {
+   "dsis": [
+    2,
+    5,
+    9,
+    11
+   ]
+  }
+ },
+ {
+  "subject": "Commercialisation de l'énergie électrique",
+  "ctRefs": [
+   1,
+   2,
+   4,
+   6,
+   7,
+   28,
+   30,
+   53,
+   55,
+   68,
+   69
+  ],
+  "autres": {
+   "anarse": [
+    2,
+    3,
+    4,
+    23,
+    26
+   ]
+  }
+ },
+ {
+  "subject": "Compteurs",
+  "ctRefs": [
+   51,
+   65,
+   71,
+   75
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Concession de service public",
+  "ctRefs": [
+   5,
+   7,
+   9,
+   24,
+   69
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Concurrence",
+  "ctRefs": [
+   2,
+   23,
+   34
+  ],
+  "autres": {
+   "anarse": [
+    3,
+    4,
+    29
+   ]
+  }
+ },
+ {
+  "subject": "Confidentialité des informations commerciales",
+  "ctRefs": [
+   19
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Conseil des Ministres (préambule — visas)",
+  "ctRefs": [],
+  "autres": {
+   "anarse": [
+    8,
+    9,
+    16
+   ]
+  }
+ },
+ {
+  "subject": "Consommateur final",
+  "ctRefs": [
+   4,
+   51
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Consommateurs (protection et droits)",
+  "ctRefs": [
+   2,
+   4,
+   27,
+   40,
+   51,
+   59,
+   66,
+   71,
+   73,
+   75
+  ],
+  "autres": {
+   "anarse": [
+    3,
+    4,
+    28,
+    30
+   ]
+  }
+ },
+ {
+  "subject": "Constitution (préambule — visas)",
+  "ctRefs": [],
+  "autres": {}
+ },
+ {
+  "subject": "Contrat de fourniture",
+  "ctRefs": [
+   46,
+   64
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Contrat de production",
+  "ctRefs": [
+   13,
+   14,
+   37
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Coûts (prise en compte des)",
+  "ctRefs": [
+   31,
+   59,
+   60,
+   61
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Délégation de gestion",
+  "ctRefs": [
+   9
+  ],
+  "autres": {
+   "anarse": [
+    10,
+    11,
+    12
+   ]
+  }
+ },
+ {
+  "subject": "Démantèlement des installations",
+  "ctRefs": [
+   38
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Dérogation écrite",
+  "ctRefs": [
+   55
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Dispatching",
+  "ctRefs": [
+   22,
+   32,
+   50
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Distribution de l'énergie électrique",
+  "ctRefs": [
+   1,
+   2,
+   4,
+   6,
+   7,
+   8,
+   9,
+   16,
+   25,
+   26,
+   27,
+   30,
+   47,
+   49,
+   50,
+   51,
+   53,
+   54,
+   55,
+   57,
+   58,
+   68,
+   69,
+   71,
+   72,
+   78
+  ],
+  "autres": {
+   "anarse": [
+    2,
+    3,
+    4,
+    23,
+    26
+   ]
+  }
+ },
+ {
+  "subject": "Domaine public et domaine privé de l'État",
+  "ctRefs": [
+   4,
+   12,
+   36,
+   49,
+   71,
+   76
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Dommages et intérêts",
+  "ctRefs": [
+   70,
+   82
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Droit d'exploitation",
+  "ctRefs": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   30,
+   31,
+   32,
+   33,
+   34,
+   35,
+   36,
+   37,
+   38,
+   39,
+   40,
+   41,
+   42,
+   43,
+   44,
+   47,
+   50,
+   61,
+   62,
+   64,
+   70
+  ],
+  "autres": {
+   "anarse": [
+    4,
+    5,
+    23,
+    26
+   ]
+  }
+ },
+ {
+  "subject": "Droit d'exploitation — octroi et objet",
+  "ctRefs": [
+   8,
+   30
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Droit d'exploitation — obligations du titulaire",
+  "ctRefs": [
+   31,
+   32
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Droit d'exploitation — durée et renouvellement",
+  "ctRefs": [
+   33,
+   34
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Droit d'exploitation — modification",
+  "ctRefs": [
+   42
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Droit d'exploitation — retrait et résiliation",
+  "ctRefs": [
+   37,
+   43
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Durée (licence et droit d'exploitation)",
+  "ctRefs": [
+   33,
+   38,
+   83
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Efficacité énergétique",
+  "ctRefs": [
+   12,
+   27
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Égalité et non-discrimination",
+  "ctRefs": [
+   16,
+   23,
+   27,
+   42,
+   47,
+   59,
+   64
+  ],
+  "autres": {
+   "anarse": [
+    4
+   ]
+  }
+ },
+ {
+  "subject": "Électricité (définition et nature juridique)",
+  "ctRefs": [
+   3,
+   4
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Électricité d'Haïti (EDH) (préambule — visas)",
+  "ctRefs": [],
+  "autres": {}
+ },
+ {
+  "subject": "Électrification rurale (préambule — visas)",
+  "ctRefs": [],
+  "autres": {
+   "anarse": [
+    20
+   ]
+  }
+ },
+ {
+  "subject": "Emprisonnement",
+  "ctRefs": [
+   69,
+   70,
+   72,
+   73,
+   74,
+   75,
+   76,
+   77,
+   78,
+   79,
+   80,
+   81
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Énergies renouvelables et sources d'énergie",
+  "ctRefs": [
+   4,
+   34
+  ],
+  "autres": {
+   "anarse": [
+    2,
+    9
+   ]
+  }
+ },
+ {
+  "subject": "Environnement (protection de l')",
+  "ctRefs": [
+   8,
+   44,
+   48,
+   49,
+   58,
+   71
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Étude d'impact environnemental et social",
+  "ctRefs": [
+   44
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Exclusivité (clause d')",
+  "ctRefs": [
+   16,
+   25,
+   47
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Expropriation",
+  "ctRefs": [
+   36
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Facturation",
+  "ctRefs": [
+   21,
+   65,
+   66
+  ],
+  "autres": {
+   "anarse": [
+    21
+   ]
+  }
+ },
+ {
+  "subject": "Force publique et système judiciaire",
+  "ctRefs": [
+   56
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Formules d'ajustement et prix plafond",
+  "ctRefs": [
+   60
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Fraude et raccordement frauduleux",
+  "ctRefs": [
+   71,
+   75
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Gourdes (montant des amendes en)",
+  "ctRefs": [
+   69,
+   72,
+   73,
+   74,
+   75,
+   76,
+   77,
+   78,
+   79,
+   80,
+   81
+  ],
+  "autres": {
+   "anarse": [
+    23
+   ]
+  }
+ },
+ {
+  "subject": "Homologation des installations",
+  "ctRefs": [
+   71,
+   77
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Hypothèques",
+  "ctRefs": [
+   39
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Indemnisation de l'opérateur",
+  "ctRefs": [
+   37,
+   52
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Infractions pénales",
+  "ctRefs": [
+   6,
+   69,
+   70,
+   71,
+   72,
+   73,
+   74,
+   75,
+   76,
+   77,
+   78,
+   79,
+   80,
+   81
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Installations électriques",
+  "ctRefs": [
+   4,
+   8,
+   9,
+   13,
+   14,
+   27,
+   36,
+   38,
+   39,
+   40,
+   44,
+   45,
+   49,
+   51,
+   52,
+   57,
+   71,
+   72,
+   74,
+   75,
+   76,
+   77,
+   78
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Interconnexion des réseaux",
+  "ctRefs": [
+   20,
+   21,
+   22,
+   31
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Interruption de la fourniture",
+  "ctRefs": [
+   71,
+   72,
+   73
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Intervention sans mandat ni qualité",
+  "ctRefs": [
+   71,
+   74
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Investissements",
+  "ctRefs": [
+   2,
+   8,
+   14,
+   20,
+   33,
+   37,
+   44,
+   59,
+   68
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Juge de paix",
+  "ctRefs": [
+   82
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Licence",
+  "ctRefs": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   10,
+   11,
+   12,
+   13,
+   14,
+   16,
+   18,
+   19,
+   20,
+   21,
+   23,
+   25,
+   26,
+   27,
+   28,
+   29,
+   33,
+   34,
+   35,
+   36,
+   37,
+   38,
+   39,
+   40,
+   41,
+   42,
+   43,
+   44,
+   50,
+   61,
+   62,
+   69,
+   70
+  ],
+  "autres": {
+   "anarse": [
+    4,
+    5,
+    23,
+    26
+   ]
+  }
+ },
+ {
+  "subject": "Licence — licence de production",
+  "ctRefs": [
+   10,
+   11,
+   12,
+   13,
+   14,
+   16,
+   50
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Licence — licence de transport",
+  "ctRefs": [
+   16,
+   18,
+   19,
+   20,
+   21,
+   23
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Licence — licence de distribution",
+  "ctRefs": [
+   25,
+   26,
+   27
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Licence — licence de commercialisation",
+  "ctRefs": [
+   28
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Licence — critères d'octroi",
+  "ctRefs": [
+   8,
+   12,
+   27,
+   29
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Licence — modification et retrait",
+  "ctRefs": [
+   37,
+   42,
+   43
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Litiges et différends (règlement)",
+  "ctRefs": [
+   13
+  ],
+  "autres": {
+   "anarse": [
+    28,
+    29,
+    30
+   ]
+  }
+ },
+ {
+  "subject": "Malfaçon",
+  "ctRefs": [
+   71,
+   79
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Marchés publics",
+  "ctRefs": [
+   9
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Ministère de l'Environnement",
+  "ctRefs": [
+   44
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Ministère des Travaux Publics, Transports et Communications",
+  "ctRefs": [
+   17,
+   84
+  ],
+  "autres": {
+   "anarse": [
+    1,
+    9,
+    10,
+    16,
+    24,
+    33
+   ]
+  }
+ },
+ {
+  "subject": "Nantissement",
+  "ctRefs": [
+   39
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Normes, standards et conditions techniques",
+  "ctRefs": [
+   53,
+   58,
+   71
+  ],
+  "autres": {
+   "anarse": [
+    10,
+    20,
+    22
+   ]
+  }
+ },
+ {
+  "subject": "Obligations de service public",
+  "ctRefs": [
+   5,
+   7,
+   9,
+   30,
+   35,
+   50,
+   59,
+   61,
+   64
+  ],
+  "autres": {
+   "anarse": [
+    4
+   ]
+  }
+ },
+ {
+  "subject": "Opérateur",
+  "ctRefs": [
+   4,
+   13,
+   21,
+   22,
+   29,
+   33,
+   36,
+   37,
+   38,
+   46,
+   47,
+   50,
+   52,
+   55,
+   56,
+   57,
+   59,
+   60,
+   64,
+   67,
+   68,
+   70,
+   71,
+   82
+  ],
+  "autres": {
+   "anarse": [
+    4,
+    5,
+    21,
+    28,
+    30
+   ]
+  }
+ },
+ {
+  "subject": "Périmètre et zone géographique",
+  "ctRefs": [
+   4,
+   18,
+   26,
+   27,
+   28,
+   30
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Plans (directeur, stratégique, de développement)",
+  "ctRefs": [
+   32,
+   36,
+   44
+  ],
+  "autres": {
+   "anarse": [
+    10
+   ]
+  }
+ },
+ {
+  "subject": "Prêteurs et substitution",
+  "ctRefs": [
+   40
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Production d'énergie électrique",
+  "ctRefs": [
+   1,
+   2,
+   4,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   16,
+   17,
+   20,
+   32,
+   37,
+   49,
+   50,
+   51,
+   53,
+   54,
+   55,
+   57,
+   58,
+   61,
+   69,
+   71,
+   78
+  ],
+  "autres": {
+   "anarse": [
+    2,
+    3,
+    4,
+    26
+   ]
+  }
+ },
+ {
+  "subject": "Propriétés privées et propriétaires",
+  "ctRefs": [
+   36,
+   38,
+   49,
+   50,
+   52,
+   57
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Qualité du service et de la fourniture",
+  "ctRefs": [
+   2
+  ],
+  "autres": {
+   "anarse": [
+    3,
+    4
+   ]
+  }
+ },
+ {
+  "subject": "Raccordement",
+  "ctRefs": [
+   16,
+   31,
+   45,
+   71,
+   75
+  ],
+  "autres": {
+   "anarse": [
+    5
+   ]
+  }
+ },
+ {
+  "subject": "Redevance",
+  "ctRefs": [
+   67
+  ],
+  "autres": {
+   "anarse": [
+    26
+   ]
+  }
+ },
+ {
+  "subject": "Renouvellement",
+  "ctRefs": [
+   4,
+   34
+  ],
+  "autres": {
+   "anarse": [
+    9
+   ]
+  }
+ },
+ {
+  "subject": "Rentabilité (taux de)",
+  "ctRefs": [
+   59,
+   61
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Réseau de distribution",
+  "ctRefs": [
+   4,
+   51,
+   55,
+   57
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Réseau de transport",
+  "ctRefs": [
+   4,
+   9,
+   20,
+   21,
+   47,
+   49,
+   51,
+   55,
+   57,
+   71,
+   72
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Responsabilité civile",
+  "ctRefs": [
+   8,
+   82
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Ressources énergétiques (préambule — visas)",
+  "ctRefs": [],
+  "autres": {
+   "anarse": [
+    20
+   ]
+  }
+ },
+ {
+  "subject": "Retrait et résiliation",
+  "ctRefs": [
+   37,
+   43
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Sabotage et destruction d'ouvrages",
+  "ctRefs": [
+   71,
+   72,
+   75
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Sanctions administratives",
+  "ctRefs": [
+   13
+  ],
+  "autres": {
+   "anarse": [
+    11,
+    21,
+    23,
+    28
+   ]
+  }
+ },
+ {
+  "subject": "Sécurité des personnes et des biens",
+  "ctRefs": [
+   8,
+   20,
+   26,
+   32,
+   49,
+   50,
+   53,
+   58
+  ],
+  "autres": {
+   "dsis": [
+    4,
+    11
+   ],
+   "anarse": [
+    4
+   ]
+  }
+ },
+ {
+  "subject": "Servitudes",
+  "ctRefs": [
+   50,
+   52,
+   57,
+   71,
+   80
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Sous-stations",
+  "ctRefs": [
+   51
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Sûretés (garanties réelles)",
+  "ctRefs": [
+   39
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Tarifs",
+  "ctRefs": [
+   13,
+   16,
+   33,
+   47,
+   59,
+   60,
+   61,
+   63
+  ],
+  "autres": {
+   "anarse": [
+    4,
+    5,
+    20
+   ]
+  }
+ },
+ {
+  "subject": "Tarifs — principes généraux",
+  "ctRefs": [
+   59
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Tarifs — prix plafond et ajustement",
+  "ctRefs": [
+   60
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Tarifs — calcul du taux de rentabilité",
+  "ctRefs": [
+   61
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Tarifs — révision",
+  "ctRefs": [
+   60,
+   63
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Tension (très haute, haute, moyenne, basse)",
+  "ctRefs": [
+   4,
+   51,
+   82
+  ],
+  "autres": {
+   "anarse": [
+    5
+   ]
+  }
+ },
+ {
+  "subject": "Territoire national",
+  "ctRefs": [
+   1,
+   4,
+   49
+  ],
+  "autres": {
+   "anarse": [
+    2
+   ]
+  }
+ },
+ {
+  "subject": "Urbanisme",
+  "ctRefs": [
+   8,
+   49,
+   50,
+   71
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Utilité publique",
+  "ctRefs": [
+   36,
+   50,
+   52
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Zones naturelles protégées",
+  "ctRefs": [
+   48
+  ],
+  "autres": {}
+ }
+]

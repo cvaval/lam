@@ -1,0 +1,279 @@
+Le Moniteur — Journal Officiel de la République d’Haïti
+171e Année, No. 23 — Port-au-Prince, mercredi 3 février 2016
+DÉCRET RÉGISSANT LE SECTEUR DE L’ÉNERGIE ÉLECTRIQUE
+LIBERTÉ ÉGALITÉ FRATERNITÉ
+RÉPUBLIQUE D’HAÏTI
+DÉCRET
+MICHEL JOSEPH MARTELLY
+PRÉSIDENT
+Vu la Constitution, notamment ses articles 136, 159, 245 et 250 ;
+Vu le Code Civil ;
+Vu le Code Pénal ;
+Vu la Loi du 18 juin 1948 faisant de la production et de la vente de l’énergie électrique un monopole de l’État ;
+Vu le Décret du 7 septembre 1950 modifiant les articles 4, 5 et 7 de la Loi du 18 juin 1948 faisant de la production et de la vente de l’énergie électrique un monopole de l’État ;
+Vu le Décret du 18 octobre 1983 réorganisant le Département Ministériel des Travaux Publics, Transports et Communications ;
+Vu le Décret du 1er août 1986 par lequel le Département des Mines et des Ressources Énergétiques devient Bureau des Mines et de l’Énergie (BME) ;
+Vu le Décret du 20 août 1989 aménageant la structure organisationnelle de l’Électricité d’Haïti (EDH) dans le dessein de lui permettre de mieux remplir sa mission et d’améliorer la gestion de ses biens et de ses affaires ;
+Vu la Loi du 26 septembre 1996 sur la modernisation des entreprises publiques ;
+Vu la Loi du 9 septembre 2002 portant sur le Code des investissements modifiant le Décret du 30 octobre 1989 relatif au Code des investissements ;
+Vu le Décret du 12 octobre 2005 portant sur la Gestion de l’Environnement et de Régulation de la Conduite des Citoyens et Citoyennes pour un Développement Durable ;
+Vu la Loi du 10 juin 2009 fixant les règles générales relatives aux marchés publics et aux conventions de concession d’ouvrage de service public ;
+Considérant que l’électricité est l’un des facteurs essentiels au développement économique, social et technologique d’une nation ;
+Considérant le faible taux d’accès à l’énergie électrique et l’absence d’un cadre juridique adapté ;
+Considérant qu’il est fondamental pour l’État de créer des conditions économiques en vue de renforcer le secteur de l’énergie électrique ;
+Considérant que l’État a le devoir de promouvoir l’électrification tant en milieu rural qu’en milieu urbain ;
+Considérant la nécessité de garantir la protection tant de l’opérateur que du consommateur ;
+Considérant que le Pouvoir Législatif est, pour le moment, inopérant et qu’il y a alors lieu pour le Pouvoir Exécutif de légiférer par Décret sur les objets d’intérêt public ;
+Sur le rapport du Ministre des Travaux Publics, Transports et Communications ;
+Et après délibération en Conseil des Ministres ;
+DÉCRÈTE
+TITRE 1er — DISPOSITIONS GÉNÉRALES
+CHAPITRE 1er — OBJET ET CHAMP D’APPLICATION
+Article 1er.- Le présent Décret régit le secteur de l’énergie électrique. Il s’applique aux activités de production, de transport, de distribution et de commercialisation de l’électricité réalisées par toute personne physique ou morale sur le territoire national.
+Article 2.- Le présent Décret a pour but d’assurer :
+1) le développement rationnel de l’offre d’énergie électrique dans le cadre de la politique sectorielle en vigueur ;
+2) l’équilibre économique et financier du secteur de l’électricité ;
+3) une fourniture d’électricité appropriée en quantité et en qualité aux besoins des consommateurs ;
+4) la promotion de la concurrence et de la participation du secteur privé en matière de production, de transport, de distribution et de commercialisation d’énergie électrique ;
+5) l’apport d’investissement privé dans le développement du secteur de l’électricité, et
+6) les conditions de viabilité financière des entreprises opérant dans le secteur de l’électricité.
+Article 3.- Dans le cadre du présent Décret, l’électricité est un bien meuble par nature, consomptible et fongible.
+CHAPITRE II — DÉFINITIONS
+Article 4.- Au terme du présent Décret, on entend par :
+1) Commercialisation d’énergie électrique : vente aux tiers ou aux consommateurs finaux de l’électricité. Elle n’est autorisée qu’aux entreprises ayant reçu une licence à cet effet.
+2) Distribution de l’énergie électrique : exploitation d’un réseau de distribution destiné à fournir l’énergie électrique depuis les points d’alimentation du réseau de distribution jusqu’aux consommateurs finaux. Elle comprend les lignes, stations, transformateurs et autres composants électriques dont la tension est au plus égale à 57 KV, et dont la fonction est la distribution au détail de l’énergie électrique sur le territoire national. Constituent également des composants du réseau de distribution les biens qui en sont l’accessoire. La distribution d’énergie électrique n’est autorisée qu’aux entreprises ayant reçu une licence à cet effet.
+3) Droit d’exploitation : autorisation conclue de manière exclusive sous la forme d’une convention entre l’autorité de régulation et un opérateur, lui permettant d’exploiter le domaine public dans des limites territoriales précises, en vue d’assurer la production, le transport, la distribution et la commercialisation de l’énergie électrique sur la base d’un cahier de charges.
+4) Électricité : énergie générée à partir des sources primaires (cours d’eau, lacs ou marées), des matières premières minérales (charbon, pétrole, substances nucléaires, sources géothermiques ou autres) ou des sources d’énergie renouvelables (rayonnement solaire, vent, biomasse, etc.).
+5) Installation électrique : ensemble de matériels électriques destiné à la production, au transport, ou à la distribution de l’électricité : i) bâtiment ou terrain utilisé en relation avec des lignes de fourniture d’électricité ; et ii) appareil permettant la fourniture d’électricité aux consommateurs jusqu’au point de livraison.
+6) Licence : acte juridique délivré par l’autorité de régulation du secteur, permettant la réalisation d’une activité dans le secteur de l’électricité et constatant que l’opérateur remplit les conditions et les obligations auxquelles il est soumis en vertu du présent Décret et des textes réglementaires. Elle fait l’objet d’une convention entre l’autorité de régulation et l’opérateur.
+7) Production d’énergie : production ainsi que de toute activité auxiliaire de transport jusqu’aux points d’alimentation des réseaux de transport ou de distribution. Elle n’est autorisée qu’aux entreprises ayant reçu une licence à cet effet.
+8) Réseau de transport : système de conducteurs constituant les lignes d’électricité à très haute et haute tension et de postes de transformation entre la très haute et la haute tension ou la haute et la moyenne tension, aux fins de délivrer de l’électricité jusqu’aux points de livraison haute ou moyenne tension.
+9) Réseau électrique : ensemble des ouvrages, des installations et des équipements de production, de transport et de distribution permettant d’acheminer l’électricité des sources de production aux points de livraison.
+10) Services auxiliaires : services nécessaires aux systèmes de transport et de distribution d’électricité.
+11) Transport de l’énergie électrique : exploitation d’un réseau de transport destiné à la conduite de l’énergie depuis les sources de production jusqu’aux points d’alimentation du réseau de distribution. Il comprend les lignes, stations, transformateurs et autres composants électriques dont la tension est au moins égal à 60 KV ainsi que les lignes électriques figurant sur une liste établie par l’autorité de régulation du secteur, dont la fonction est le transport en gros de l’énergie électrique sur le territoire national. Constituent également des composants du réseau de transport les biens qui en sont l’accessoire. Le transport de l’énergie électrique n’est autorisé qu’aux entreprises ayant reçu une licence à cet effet.
+TITRE II — DES RÉGIMES APPLICABLES POUR LA PRODUCTION, LE TRANSPORT, LA DISTRIBUTION ET LA COMMERCIALISATION
+CHAPITRE 1er — DISPOSITIONS GÉNÉRALES
+Article 5.- L’exercice des activités dans le secteur de l’électricité est soumis soit à une licence, soit à un droit d’exploitation, soit à une concession de service public.
+Article 6.- La production, le transport, la distribution et la commercialisation de l’énergie électrique sont autorisés aux seules personnes physiques et aux personnes morales de droit privé ou de droit public ayant obtenu une licence ou un droit d’exploitation délivrés dans les conditions prévues par le présent Décret.
+Toute activité exercée sans l’obtention préalable d’une licence ou d’un droit d’exploitation sera punie des peines prévues à l’article 69 du présent Décret.
+Article 7.- La production ou le transport ou la distribution ou la commercialisation de l’énergie électrique sont soumises au régime de la licence.
+La production, le transport, la distribution et la commercialisation de l’énergie électrique sont soumis au droit d’exploitation ou à la concession de service public.
+Article 8.- Les licences ou les droits d’exploitation sont accordés par l’autorité de régulation sur la base de critères ci-après :
+1) La capacité de l’entreprise requérante à respecter l’intégralité de ses obligations définies dans un cahier des charges ;
+2) La capacité à mener à bien les activités pour lesquelles la licence ou le droit d’exploitation est demandé, l’expérience de l’entreprise dans ce domaine, l’honorabilité des actionnaires et dirigeants de l’entreprise ;
+3) La capacité de l’entreprise ou de ses actionnaires à financer le projet d’investissement soumis ;
+4) La capacité à veiller aux règles en matière de sécurité du personnel et du public, de protection de l’environnement et de réglementation de l’urbanisme ;
+5) La capacité à assumer la responsabilité civile découlant de l’activité pour laquelle la licence ou le droit d’exploitation est demandé ;
+6) Les moyens dont dispose l’entreprise pour le développement de capacités de production d’énergie électrique fondée sur les sources d’énergie conformes à la politique sectorielle en vigueur ;
+7) Les moyens et l’expérience de l’entreprise pour le développement de capacités de distribution correspondant à la politique sectorielle en vigueur ;
+8) La sécurité des systèmes électriques, des installations et des équipements associés proposée par l’entreprise ;
+9) La proposition de l’entreprise pour garantir la protection appropriée de l’environnement et l’utilisation appropriée des terres.
+Article 9.- L’État peut confier à un tiers, par contrat de délégation, la gestion de tout ou partie de ses installations de production, réseaux de transport ou de distribution, ouvrages et autres dépendances destinés au service public de l’électricité. Cette délégation s’opère à travers l’un des modes ci-après :
+1) La concession de service public ;
+2) Le droit d’exploitation.
+Le contrat de concession de service public est conclu conformément aux procédures de passation des marchés publics et de concession de service public.
+CHAPITRE II — DU RÉGIME DE LA LICENCE
+Section 1re.- De la licence de production
+Article 10.- Toute entreprise envisageant de produire de l’énergie électrique par quelque moyen que ce soit, doit au préalable, obtenir de l’autorité de régulation une licence à cet effet.
+La licence de production accordée à un producteur permet à l’entreprise titulaire de procéder à la production d’énergie électrique ainsi qu’à la vente de cette énergie suivant les termes et conditions stipulés par ladite licence.
+Article 11.- Les licences pour la production de l’énergie électrique sont accordées soient sur requête individuelle, soit suite à un appel d’offres de l’autorité de régulation.
+Article 12.- Les critères d’octroi des licences de production portent sur :
+1) La nature des sources d’énergie ;
+2) Le choix des sites, l’occupation des sols et l’utilisation du domaine public ;
+3) L’efficacité énergétique et l’opportunité ;
+4) La capacité à installer et la capacité nominale du site ;
+5) La capacité financière du requérant à réaliser son projet sans garantie de l’État.
+Article 13.- L’octroi de la licence de production d’énergie fait l’objet d’un accord à intervenir entre l’opérateur et l’autorité de régulation après approbation du dossier du requérant ou du soumissionnaire, le cas échéant. Le contrat de production devra mentionner, entre autres, en plus de son objet et de sa durée :
+1) Les modalités d’obtention et de mise à disposition des terrains nécessaires à l’implantation et à l’exploitation des installations ;
+2) Les droits et obligations du producteur ;
+3) Les conditions générales de construction, d’exploitation et d’entretien des installations ;
+4) Les dispositions particulières relatives au financement des installations et des activités du producteur ;
+5) Les conditions et modalités tarifaires ;
+6) Les modalités d’application des sanctions en cas de violation des termes de l’accord ;
+7) La procédure de règlement des litiges.
+Article 14.- Le contrat de production définit les conditions d’exploitation des installations précises, destinées à générer de l’électricité à partir de toute source d’énergie, en vue de la vente et de la fourniture de cette électricité à des tiers. Elle définit, en outre, les droits et obligations du producteur dans l’exercice de ses activités.
+Le titulaire de la licence de production ne bénéficie d’aucune subvention de l’État en dehors des avantages incitatifs prévus dans le Code des investissements et toute autre loi en vigueur.
+Article 15.- Toute décision pour l’augmentation de la puissance installée doit donner lieu à une demande du producteur visant à l’approbation de l’autorité de régulation.
+Article 16.- Les entreprises titulaires d’une licence de production transmettent à l’autorité de régulation, dès signature, les contrats de raccordement aux réseaux qu’elles concluent avec des entreprises titulaires d’une licence de transport ou de distribution. Toute clause d’exclusivité ou d’accès préférentiel est interdite.
+Une entreprise assurant le transport ou la distribution d’énergie électrique ne peut en refuser l’accès aux producteurs d’électricité dès lors que leur demande est normale et faite de bonne foi. Elle ne peut non plus leur appliquer des tarifs discriminatoires, seules les différences objectives entre producteurs pouvant justifier des différences tarifaires.
+Article 17.- Sont réputées titulaires de plein droit d’une autorisation de production, toutes les entreprises ayant un contrat conforme aux lois de la République pour exercer une telle activité à la date d’entrée en vigueur du présent Décret et figurant sur une liste établie par Arrêté du Ministre des Travaux Publics, Transports et Communications. Celles dont les contrats contiennent des dispositions contraires au présent Décret devront se mettre à jour au plus tard trois (3) mois après la publication du présent Décret.
+Section 2.- De la licence de transport
+Article 18.- Toute entreprise envisageant de transporter de l’énergie électrique doit au préalable obtenir de l’autorité de régulation une licence à cet effet.
+La licence de transport est accordée sur un périmètre donné après études appropriées. Elle n’est valable que sur l’aire géographique pour laquelle elle a été conclue.
+Article 19.- Le titulaire de la licence de transport est astreint au respect de la confidentialité des informations commerciales qui lui sont transmises dans le cadre de son activité.
+Article 20.- Le titulaire de la licence de transport est responsable de l’exploitation, de l’entretien et du développement du réseau électrique de transport. Il est chargé en outre de :
+1) Réaliser les investissements nécessaires prévus dans le cahier des charges annexé au contrat de transport ;
+2) Gérer les flux d’énergie électrique sur le réseau électrique qui lui est attribué ;
+3) D’assurer l’équilibre entre les capacités de production et les besoins de consommation en recourant aux capacités de production disponibles et en tenant compte des échanges avec les autres réseaux interconnectés ;
+4) Assurer la sécurité, la fiabilité et l’efficacité du flux d’énergie sur le réseau de transport ;
+5) Veiller à l’utilisation optimale des capacités disponibles ;
+6) Prendre des mesures en vue d’assurer la disponibilité de tous les services auxiliaires nécessaires et de maintenir un haut niveau de fiabilité et de sécurité du réseau électrique.
+Article 21.- Le titulaire d’une licence de transport est tenu en outre de :
+1) Garantir la disponibilité des données de gestion et faire parvenir aux parties intéressées toute information nécessaire à la facturation des prestations ;
+2) S’abstenir de toute discrimination entre les utilisateurs du réseau, dans la limite des capacités disponibles ;
+3) Fournir au gestionnaire du réseau de transport interconnecté des informations suffisantes pour garantir une exploitation sûre et efficace ;
+4) Faciliter l’interconnexion des réseaux par des accords conclus avec les autres opérateurs ;
+5) Participer à la mise en œuvre des règles d’utilisation des interconnecteurs.
+Article 22.- L’État organise, en partenariat avec les opérateurs du transport, à travers l’Autorité Nationale de Régulation du Secteur de l’Énergie (ANARSE), la gestion des réseaux interconnectés de transport par la coordination des opérations de dispatching, d’exploitation, de maintenance, de régulation des flux d’énergie et du développement des réseaux.
+Les conditions et modalités de fonctionnement de cette gestion sont fixées par accord entre parties.
+Article 23.- Le titulaire d’une licence de transport négocie librement avec les producteurs et les fournisseurs autorisés d’électricité ou les clients éligibles des contrats nécessaires à l’exécution de ses missions selon des procédures concurrentielles, transparentes et non discriminatoires.
+Article 24.- Le cahier des charges de la concession de transport inclut, entre autres spécifications, la longueur de la ligne, la zone traversée, la capacité et la nature des ouvrages.
+Section 3.- De la licence de distribution
+Article 25.- La licence de distribution définit les conditions d’exclusivité dans le territoire pour lequel elle est octroyée. Elle définit en outre les droits et obligations du titulaire de la licence dans le cadre de ses activités.
+Article 26.- Le titulaire de la licence de distribution est responsable dans son périmètre de distribution de l’exploitation, de l’entretien et du développement du réseau électrique de distribution conformément à son cahier des charges. À cet effet, il veille à tout instant à l’équilibre des flux d’électricité, à l’efficacité, à la sécurité et à la sûreté du réseau qu’il exploite.
+Article 27.- Les critères d’obtention des licences de distribution portent sur :
+1) La zone géographique ;
+2) La puissance à distribuer ;
+3) La nature des installations ;
+4) L’efficacité énergétique ;
+5) L’équité dans le traitement des consommateurs ;
+6) L’impact et autres contributions au développement socio-économique du périmètre visé ;
+7) La capacité démontrée des moyens financiers du requérant à réaliser le projet dans les termes et conditions de la licence.
+Section 4.- De la licence de commercialisation
+Article 28.- La licence pour la commercialisation de l’énergie électrique en vue de couvrir les besoins d’un périmètre géographique est octroyée par l’autorité de régulation.
+Article 29.- La licence est accordée sur la base des critères ci-après :
+1) La capacité de l’opérateur candidat à respecter l’intégralité de ses obligations indiquées dans le cahier spécial des charges ;
+2) Les capacités financières et techniques de l’opérateur candidat ;
+3) L’expérience et l’honorabilité des dirigeants.
+CHAPITRE III — DU RÉGIME DU DROIT D’EXPLOITATION
+Article 30.- Toute entreprise souhaitant produire, transporter, distribuer et commercialiser l’énergie électrique doit au préalable obtenir de l’autorité de régulation un droit d’exploitation d’un périmètre à cet effet.
+Le contrat de droit d’exploitation, auquel est annexé un cahier des charges, détermine le champ d’application territorial, la durée et les obligations de service public qui s’imposent à l’entreprise titulaire.
+Article 31.- Les titulaires de droit d’exploitation ont l’obligation de procéder à l’interconnexion de nouveaux exploitants qui en font la demande, si ces derniers acceptent de respecter les termes et conditions de l’accord d’interconnexion qui devra être approuvé par l’autorité de régulation.
+Les modalités et la répartition des coûts du raccordement et si nécessaire, de renforcement du réseau font l’objet de négociations entre les deux parties et sont réglées par accord, conformément aux principes arrêtés par l’autorité de régulation.
+Article 32.- Le titulaire d’un droit d’exploitation veille à assurer la sécurité du réseau, sa fiabilité et son efficacité dans la zone qu’il couvre. Il assure la fonction de dispatching. Il élabore un plan de développement de la production dans le réseau.
+Il prend toutes les mesures nécessaires pour assurer la disponibilité de tous les services auxiliaires indispensables au maintien d’un haut niveau de fiabilité et de sécurité du réseau électrique.
+CHAPITRE IV — DISPOSITIONS COMMUNES
+Article 33.- La durée de la licence et du droit d’exploitation tient compte de la nature et du montant des investissements à réaliser par l’opérateur et des tarifs.
+Article 34.- Les licences et droits d’exploitation ne sont ni tacitement, ni de plein droit renouvelables. Au terme de la licence ou du droit d’exploitation, une nouvelle licence ou un nouveau droit d’exploitation pourra être accordé à l’issue d’une mise en concurrence dont les modalités seront fixées par l’autorité de régulation.
+Article 35.- L’État garantit la continuité du service public de l’électricité en cas de carence des titulaires de droit d’exploitation ou de licence ou en l’absence des titulaires. À cette fin, il peut prendre toutes mesures urgentes, conformément aux modalités précisées par les lois et règlements, sur recommandation de l’autorité de régulation.
+Article 36.- La licence ou le droit d’exploitation confère à l’opérateur :
+1) Le droit d’occuper les dépendances du domaine public et du domaine privé de l’État ou des collectivités locales nécessaires à l’établissement et à l’exploitation des installations d’électricité, en conformité avec le plan directeur de développement territorial ; s’il existe, ce droit confère à son titulaire les prérogatives et obligations d’un propriétaire ;
+2) Le droit d’exécuter, sous réserve de l’approbation des autorités compétentes, sur ces mêmes dépendances tous les travaux nécessaires à l’établissement, l’exploitation et à la maintenance des installations d’électricité.
+Les espaces nécessaires aux travaux relatifs à la construction, à l’exploitation et à la maintenance des installations d’utilité publique peuvent, s’il y a lieu, être déclarés d’utilité publique par l’État et entraîner, le cas échéant, des expropriations prononcées conformément à la législation en vigueur.
+Article 37.- En cas de retrait de la licence ou de la résiliation du droit d’exploitation avant le terme prévu, pour un motif autre que l’inexécution par le titulaire de la licence ou du droit d’exploitation de ses obligations, l’opérateur est indemnisé du préjudice né de l’éviction anticipée. Les règles de détermination de l’indemnité sont précisées dans l’accord de production ou dans le contrat de droit d’exploitation et doivent prévoir une indemnisation égale à la part des investissements non encore amortis par l’opérateur au jour du retrait et de la résiliation à laquelle seront ajoutés 10 % du montant de ladite indemnité à titre de dédommagement.
+Article 38.- Pendant la durée de la licence ou du droit d’exploitation, l’opérateur est propriétaire des installations objet de la licence ou du droit d’exploitation.
+Le sort des installations en fin de droit d’exploitation ou de licence est déterminé conformément aux dispositions de l’accord. Celles-ci peuvent prévoir notamment les conditions du démantèlement des installations ou de leur transfert à l’autorité concédante ou à toute personne publique ou privée ainsi que les modalités financières afférentes à ces opérations.
+Article 39.- Les droits conférés au titulaire de la licence ou du droit d’exploitation peuvent être nantis ou cédés, y compris à titre de garantie, individuellement ou collectivement, par les titulaires dans les conditions fixées par le présent Décret, et les termes du droit d’exploitation ou de la licence.
+La réalisation du nantissement ou la cession des droits découlant de la licence ou du droit d’exploitation emporte de plein droit, sauf prescription contraire de l’acte de nantissement ou de cession, le transfert des installations et du droit d’occupation au profit du nouveau titulaire de ces droits.
+Les installations et les droits d’occupation peuvent également faire l’objet d’hypothèques dans les conditions fixées par le présent Décret, et les termes du droit d’exploitation ou de la licence.
+Les nantissements, les cessions à titre de garantie ou les hypothèques visés ci-dessus ne peuvent cependant être accordés que pour garantir les emprunts contractés, directement ou indirectement, par le titulaire de la licence ou droit d’exploitation pour financer la réalisation, la modification ou l’exploitation de ses installations. Ces sûretés, lorsqu’elles sont destinées à garantir une pluralité de créanciers, peuvent être accordées à l’un d’entre eux ou à un représentant ou mandataire pour compte commun de tous les créanciers concernés.
+Article 40.- Le droit d’exploitation ou la licence peut prévoir les conditions et modalités dans lesquelles les prêteurs ayant participé au financement et/ou au refinancement des installations d’électricité peuvent, en cas de défaillance du titulaire, se substituer ou substituer une entité de leur choix au titulaire de la licence ou du droit d’exploitation initial dans les droits et obligations résultant du droit d’exploitation ou de la licence pour garantir la continuité des services aux consommateurs.
+À cet effet, nonobstant toute disposition législative ou réglementaire contraire, notamment en cas de faillite ou de liquidation du titulaire de la licence ou du droit d’exploitation initial, la substitution emporte dévolution à la nouvelle entité desdits droits et obligations, y compris des droits d’occupation et de superficie, ainsi que des installations d’électricité nécessaires à la poursuite du droit d’exploitation ou de la licence.
+Article 41.- Toute convention par laquelle le titulaire de la licence ou du droit d’exploitation transfère à un tiers les droits conférés par la licence ou le droit d’exploitation est soumise à l’approbation préalable de l’autorité concédante. Les délais et modalités de ce transfert sont fixés dans le contrat liant les parties.
+Article 42.- L’autorité de régulation est compétente pour apporter toute modification aux licences, aux droits d’exploitation ou à leur cahier des charges, conformément à la procédure suivante :
+1) Elle informe les titulaires de licence ou de droit d’exploitation des modifications d’ordre général qu’elle envisage d’apporter à la licence, au droit d’exploitation ou à leur cahier des charges et en énonce les raisons : ces raisons doivent être objectives, non discriminatoires et proprement documentées ;
+2) Elle indique le délai, qui ne pourra être inférieur à trente jours à compter de la date à laquelle les titulaires auront été informés des modifications envisagées ainsi que les implications financières ou non au respect des nouvelles mesures et les responsabilités.
+Article 43.- L’autorité de régulation peut retirer les licences ou les droits d’exploitation, sans aucun préjudice pour l’autorité contractante, dans les cas où le titulaire a violé de façon répétée, grave et manifeste ses obligations légales, réglementaires ou contractuelles.
+Les conditions ainsi que les modalités de retrait des licences et des droits d’exploitation seront précisées, par voie réglementaire, par l’autorité de régulation.
+TITRE III — DES NORMES RELATIVES AUX ACTIVITÉS DU SECTEUR
+CHAPITRE 1er — DES PRINCIPES ET OBLIGATIONS
+Article 44.- Tout projet de développement, d’ouvrage ou d’installation électrique ou toute activité dans le secteur de l’électricité est assujetti à une étude d’impact environnemental et social préalable assortie de son plan d’investissement, de financement, de mise en œuvre et de gestion.
+Le Ministère de l’Environnement procède à l’audit, dans un délai ne dépassant 30 jours de la date de la demande, de tout projet, ouvrage ou de toute activité dans le secteur de l’électricité présentant ou susceptible de présenter un risque pour l’environnement ou pour la population. Un avis de non objection suite à l’audit du Ministère de l’Environnement est obligatoire avant l’obtention de la licence ou du droit d’exploitation.
+Article 45.- La connexion physique d’une installation au réseau public de l’électricité est assurée par un raccordement qui lui permet d’échanger la totalité de la puissance que le demandeur souhaite injecter ou soutirer.
+Article 46.- Toute personne désirant être approvisionnée en électricité en fait la demande à l’un des exploitants de son espace géographique et y accède moyennant un contrat entre elle et l’opérateur.
+Article 47.- Toute clause d’exclusivité ou d’accès préférentiel au réseau de transport et de distribution est interdite. Un opérateur titulaire d’un droit d’exploitation assurant le transport ou la distribution d’énergie électrique ne peut en refuser l’accès aux producteurs d’électricité dès lors que leur demande est normale et faite de bonne foi. Il ne peut non plus leur appliquer des tarifs discriminatoires, seules les différences objectives entre producteurs pouvant justifier des différences tarifaires.
+Article 48.- Les travaux de construction d’ouvrages électriques intervenant dans les zones naturelles protégées, telles que les réserves et les parcs, ne peuvent être réalisés qu’après obtention d’une autorisation délivrée par l’autorité en charge de la protection de l’environnement, conformément aux lois et règlements en vigueur.
+Article 49.- Sont libres sur toute l’étendue du territoire national les activités de production, de transport et de distribution d’énergie électrique par centrales et réseaux de transport ou de distribution y compris par installations de secours, établis par une entreprise ou un ménage pour sa propre consommation ou celle des entreprises qui lui sont affiliées, dès lors que ces centrales ou réseaux sont établis à l’intérieur de propriétés privées sans empiétement sur le domaine de l’État ou sur le domaine national.
+L’entreprise concernée, en vertu des dispositions du présent article, n’est pas dispensée d’obtenir toutes les autorisations requises y compris l’autorisation de l’autorité de régulation au regard des réglementations applicables, notamment en matière d’urbanisme, de sécurité des personnels et du public et d’environnement.
+Article 50.- Dans le cadre des services découlant de la licence de production ou du droit d’exploitation, tout opérateur peut être autorisé à :
+1) Établir sur les propriétés privées les ouvrages de production, de transport, de dispatching ou de distribution déclarés d’utilité publique, à les occuper, à les surplomber ou à y réaliser des canalisations souterraines à titre de servitude ;
+2) Établir à demeure des supports ou ancrages pour conducteurs aériens d’électricité, soit à l’extérieur des murs ou façades donnant sur la voie publique, soit sur les toits et terrasses des bâtiments, à la condition qu’on puisse y accéder de l’extérieur et sous réserve du respect des règlements de sécurité, de voirie et d’urbanisme ;
+3) Faire passer des conducteurs d’électricité au-dessus des propriétés privées, sous réserve du respect des règlements de sécurité, de voirie et d’urbanisme ;
+4) Établir à demeure des canalisations souterraines ou des supports pour conducteurs aériens sur des terrains privés non bâtis qui ne sont pas fermés de murs ou clôtures équivalentes ;
+5) Élaguer, à ébrancher ou abattre les arbres ou arbustes sur les propriétés privées en vue d’assurer la sécurité des personnes et des biens ainsi que la continuité du service public.
+Article 51.- La production englobe les ouvrages, installations et équipements d’une centrale électrique et les installations d’élévation de la tension produite par ladite centrale en très haute, haute ou moyenne tension, selon le cas.
+Le réseau de transport s’étend des bornes de sortie des installations très haute tension ou haute tension de la production, au travers des lignes de transport, jusqu’aux postes de transformation très haute tension ou haute tension/moyenne tension de l’énergie électrique par lesquels s’opère l’alimentation des sous-stations moyenne tension ou des réseaux de distribution moyenne tension ou du consommateur final éligible.
+Les réseaux de distribution partent des sous-stations moyenne tension ou des bornes de sortie des postes de transformation haute tension/moyenne tension jusqu’à la sortie des compteurs dans les installations du consommateur final moyenne tension ou basse tension.
+Article 52.- L’exercice ou l’établissement d’une servitude d’utilité publique est précédé d’une notification aux propriétaires concernés, sauf cas d’urgence.
+La pose d’appui sur les murs ou façades ne peut faire obstacle au droit du propriétaire de les démolir, de les réparer ou de les surélever.
+La pose de conducteurs ou supports sur un terrain ouvert et non bâti ne fait pas obstacle au droit du propriétaire de clôturer ou de bâtir, lequel doit être exercé légitimement. Toutefois, dans ce cas, subsistent les servitudes nécessaires à l’utilisation et à l’entretien des installations s’y trouvant. Aucune indemnité n’est due aux propriétaires en raison de ces servitudes.
+Le propriétaire est tenu, trois (3) mois avant d’entreprendre tous travaux de démolition, de réparation, de surélévation, de clôture ou de construction, de prévenir l’opérateur intéressé, par une lettre avec accusé de réception.
+CHAPITRE II — DES MESURES DE SÉCURITÉ, DES STANDARDS ET NORMES
+Article 53.- Les conditions techniques de production, de transport, de distribution et de commercialisation de l’électricité ainsi que de prestation de services y afférents sont fixées par voie réglementaire par l’autorité de régulation.
+Ces conditions garantissent la sécurité des personnes et des biens ainsi que le bon fonctionnement de l’ensemble du secteur.
+Article 54.- La mise en exploitation des infrastructures de production, de transport et de distribution d’électricité est subordonnée à l’obtention d’un certificat de conformité délivré par l’autorité de régulation.
+Article 55.- Il est interdit à toute personne étrangère aux services de production, de transport ou de distribution, sauf dérogation écrite délivrée par l’opérateur concerné :
+1) De perturber, d’altérer, de modifier ou de manœuvrer, sous quelque prétexte que ce soit, les appareils et ouvrages servant à la production, au transport, à la distribution ou à la commercialisation ;
+2) De placer quelque objet que ce soit sur ou sous les conducteurs du réseau de transport ou du réseau de distribution, de les toucher ou de lancer quelque objet qui pourrait les atteindre ;
+3) D’obstruer les accès aux ouvrages de distribution publique ;
+4) De pénétrer, sans y être régulièrement autorisé, dans les immeubles dépendant de la production, du transport, de la distribution ou de la commercialisation, d’y introduire ou d’y laisser introduire des animaux ;
+5) D’occuper, de quelque manière que ce soit, les emprises des ouvrages du réseau de transport ou du réseau de distribution ;
+6) De réduire, en partie ou en totalité, la mesure de l’énergie électrique consommée quel que soit le moyen utilisé.
+Article 56.- L’opérateur est tenu de prendre toutes les dispositions sécuritaires et de sûreté nécessaires à la protection des ouvrages et équipements conformément à la réglementation en vigueur ou, le cas échéant, aux meilleures pratiques en la matière, outre celles spécifiquement édictées dans son contrat.
+L’opérateur bénéficie du concours du système judiciaire et de la force publique en vue d’assurer le respect des dispositions de l’alinéa précédent.
+Article 57.- Les servitudes prévues à l’article 50 du présent Décret et le droit d’occuper les propriétés publiques autorisent l’opérateur concerné à prendre lui-même toutes les mesures nécessaires à la protection des ouvrages et installations de production, de transport, ou de distribution, conformément à la législation en vigueur.
+Les mesures visées à l’alinéa précédent concernent également les emprises des ouvrages et installations du réseau de transport ou du réseau de distribution y compris la partie de ces réseaux située sur ou sous les voies publiques ou en bordure des propriétés privées ou publiques.
+Article 58.- L’autorité de régulation détermine les conditions techniques, financières et réglementaires auxquelles doivent satisfaire la production, le transport, la distribution, eu égard à la sécurité des personnes et des biens, à la protection de l’environnement, des paysages et des sites.
+Les matériels et équipements fabriqués ou vendus en vue d’être installés sur les ouvrages de production, de transport, et de distribution doivent être conformes aux normes et standards en vigueur.
+TITRE IV — RÉGLEMENTATION DES TARIFS
+CHAPITRE 1er — DES RÈGLES TARIFAIRES ET DE LA FACTURATION
+Article 59.- Les tarifs applicables dans le secteur de l’électricité, notamment ceux de la vente et de l’achat de l’énergie électrique, de l’accès au réseau, du transit d’énergie sont établis sur la base des principes généraux suivants :
+1) L’équilibre financier du secteur de l’électricité ;
+2) Le développement du secteur de l’électricité ;
+3) L’équité et la non-discrimination pour les mêmes catégories de consommateurs ;
+4) La prise en compte des coûts, des bénéfices escomptés et des charges découlant des obligations de service public ;
+5) L’équilibre financier de l’opérateur et la rentabilité de son investissement.
+Article 60.- L’autorité de régulation définit des prix plafond pour les tarifs, ainsi que des formules d’ajustement de ces prix plafond permettant de compenser l’effet de l’évolution des principaux paramètres économiques. Ces formules incorporent un terme pour inciter les opérateurs à augmenter leur productivité. L’autorité de régulation révise la structure et les coefficients des formules d’ajustement tous les cinq (5) ans ou en cas de modification fondamentale et soudaine de la structure des coûts.
+À chaque fois que la déviation indiquée par les formules d’ajustement dépasse plus ou moins cinq pour cent (5 %), les opérateurs sont en droit d’ajuster les tarifs, moyennant un préavis de trente (30) jours à l’autorité de régulation et la soumission des calculs et justificatifs pour analyse et approbation.
+La structure des tarifs réglementés reflète les coûts économiques de la fourniture de manière à stimuler l’efficacité dans l’utilisation de l’énergie électrique. Le niveau des tarifs réglementés tient compte de la nécessité d’assurer la viabilité financière des opérateurs.
+Article 61.- Pour le calcul des tarifs réglementés, le taux de rentabilité attendu du titulaire de la licence ou du droit d’exploitation sera calculé compte tenu des estimations de ses dépenses qui devront comprendre notamment :
+1) l’amortissement conformément à des règles convenues ;
+2) les coûts de production ou d’achat de l’électricité ou de prestations auxiliaires ;
+3) les salaires, honoraires et coûts auxiliaires ;
+4) d’autres frais d’exploitation y compris les taxes et les impôts ;
+5) les coûts provenant du respect de toutes les obligations réglementaires ;
+6) les coûts provenant du respect des obligations de service public.
+Le taux de rentabilité normal sera considéré comme le taux de rentabilité sur capital qui, prenant en compte les risques auxquels sont assujettis les investisseurs, est suffisant pour permettre à l’entreprise d’attirer de nouveaux capitaux. Le taux de rentabilité normal sera défini en termes réels, en tenant compte de l’inflation mesurée sur la base d’indices d’inflation généraux qui peuvent être stipulés dans le cahier des charges du titulaire de la licence ou du droit d’exploitation.
+Article 62.- L’autorité de régulation tiendra pleinement compte de tous règlements ou formules supplémentaires définis dans le cahier des charges du titulaire de la licence ou du droit d’exploitation aux fins des calculs susvisés, y compris des règles régissant le traitement des erreurs de prévision pendant la période écoulée et le traitement des gains d’efficacité non prévus réalisés par le titulaire de la licence ou du droit d’exploitation.
+Article 63.- Les modalités d’établissement des tarifs et de révision des prix seront précisées par voie réglementaire par l’autorité de régulation.
+Article 64.- Toute fourniture d’énergie électrique est subordonnée à la passation d’un contrat entre le fournisseur et l’utilisateur ; il en est de même pour les producteurs et les opérateurs. Pour les abonnés du service public, ce contrat de fourniture a une forme approuvée par l’autorité de régulation.
+L’égalité de traitement est garantie entre tous les utilisateurs ayant des caractéristiques de consommation identiques à l’intérieur d’un même droit d’exploitation.
+Article 65.- Toute vente d’énergie doit être facturée sur la base de la consommation réelle prélevée par des compteurs calibrés et en bon état de fonctionnement. Toute facturation forfaitaire est prohibée.
+Article 66.- Les prix des branchements et autres services aux consommateurs sont facturés sur la base d’un modèle de bordereau de prix ayant toutes les caractéristiques du service demandé, offert, approuvé par l’autorité de régulation.
+CHAPITRE II — DISPOSITIONS FINANCIÈRES, FISCALES ET DOUANIÈRES
+Article 67.- Tout opérateur titulaire ou signataire d’un contrat est assujetti au paiement d’une redevance à l’autorité de régulation, au profit de l’État pour l’exercice d’une activité du secteur de l’électricité et/ou pour l’utilisation du patrimoine concédé par l’État, dont l’assiette est déterminée en fonction du chiffre d’affaires.
+Article 68.- Les opérateurs sont assujettis aux dispositions fiscales et douanières de droit commun en vigueur et applicables.
+Toutefois, pour des raisons d’intérêt général, il peut être accordé des avantages financiers, fiscaux et douaniers spécifiques aux opérateurs du secteur de l’électricité en fonction de :
+1) La nature du cahier des charges ;
+2) Le niveau d’investissement exigé ;
+3) La nature des travaux à entreprendre pour moderniser le réseau, la distribution et la commercialisation.
+TITRE V — DISPOSITIONS PÉNALES, TRANSITOIRES ET FINALES
+CHAPITRE 1er — DISPOSITIONS PÉNALES
+Article 69.- Sera puni d’un emprisonnement de un à trois ans de prison et d’une amende de 5 millions de gourdes, ou de l’une de ces peines seulement, tout dirigeant de droit ou de fait d’une entreprise qui aura exercé sans avoir obtenu au préalable une concession ou licence à cet effet, une activité de production, de transport, de distribution, ou de commercialisation d’énergie électrique.
+Article 70.- Toute personne qui se connecte directement sur un réseau public ou privé d’électricité sans un contrat avec le titulaire d’une licence ou d’un droit d’exploitation sera poursuivie et condamnée à une peine carcérale de 6 à 12 mois de prison et à payer des dommages et intérêts réclamés par l’opérateur concerné.
+Article 71.- Sont érigés en infractions pénales les faits suivants :
+1) La malfaçon pour violation des standards et normes dans le secteur de l’électricité ;
+2) L’interruption de la fourniture de l’électricité aux consommateurs sans motif valable ;
+3) La destruction d’une centrale, d’un ouvrage, d’une installation électrique, d’un réseau de transport ou de distribution de l’énergie électrique ;
+4) Le sabotage d’une centrale, d’un ouvrage, d’une installation électrique ou d’un réseau de transport ou de distribution de l’énergie électrique ;
+5) La destruction des scellés des compteurs ou l’endommagement des équipements de raccordement et de comptage placés dans les installations des consommateurs ;
+6) La fraude de l’énergie électrique et le raccordement frauduleux ;
+7) La construction ou l’autorisation d’une construction sur ou sous les lignes électriques ;
+8) L’intervention sans mandat ou qualification au niveau des installations des réseaux électriques ;
+9) L’occupation d’une emprise des installations électriques du domaine public ;
+10) La perturbation du réseau, du fait de la non homologation des installations internes de l’opérateur et de celles de production, de transport, et de distribution ;
+11) La mise en service, sans certificat de conformité, d’une installation de production, de transport, et de distribution ;
+12) L’exercice de l’une des activités du secteur de l’électricité, en dépit de son interdiction ;
+13) L’entrave à l’exécution des travaux autorisés ou concédés, à l’entretien des ouvrages ou à l’usage des servitudes par l’exploitant ;
+14) Le non respect des normes environnementales, urbanistiques et sécuritaires dans le secteur de l’électricité.
+Article 72.- Est puni d’un emprisonnement de cinq à dix ans et d’une amende de 50 millions de gourdes quiconque interrompt sans motif valable, détruit ou sabote, fait exploser une centrale, un ouvrage, une installation, un réseau de transport ou de distribution de l’énergie électrique.
+Si cet acte cause la mort ou des blessures graves sans intention de les donner, son auteur est puni conformément au Code Pénal.
+Article 73.- Est puni d’un emprisonnement de trois à six mois et d’une amende de 500 mille gourdes ou de l’une de ces peines seulement, quiconque interrompt la fourniture de l’électricité aux consommateurs sans motif valable.
+Article 74.- Est puni d’un emprisonnement de un à trois ans et d’une amende de 1 million de gourdes quiconque s’octroie illégalement un titre pour exercer une activité du secteur de l’électricité ou intervient sur des installations électriques sans mandat ni qualité.
+Article 75.- Est puni d’un emprisonnement de six à douze mois et d’une amende allant de 250 mille gourdes à 1 million de gourdes ou de l’une de ces peines seulement, quiconque se livre à la fraude de l’énergie électrique ou au raccordement frauduleux, à la destruction de scellés de compteurs ou l’endommagement des équipements de raccordement et de comptage placés dans les installations des consommateurs.
+Article 76.- Est puni d’un emprisonnement de six à douze mois et d’une amende allant de 500 mille gourdes à 1.5 millions de gourdes, quiconque construit sur ou sous les lignes électriques ou occupe des emprises des installations électriques du domaine public de l’État.
+La peine est de 1 à 5 ans et une amende de 1.5 million à 5 millions de gourdes pour ceux qui autorisent cette construction ou cette occupation.
+Article 77.- Est puni d’un emprisonnement de trois à six mois et d’une amende de 10 millions de gourdes ou de l’une de ces peines seulement, quiconque cause des perturbations importantes aux réseaux du fait de la non homologation de ses installations électriques intérieures.
+Article 78.- Est puni d’un emprisonnement de trois à six mois et d’une amende allant de 1 à 5 millions de gourdes, quiconque met en service une installation de production, de transport ou d’importation ou d’exportation ou de distribution de l’électricité sans avoir obtenu le certificat de conformité.
+Article 79.- Est puni d’un emprisonnement de six à douze mois et d’une amende allant de 1 à 10 millions de gourdes, quiconque fait de la malfaçon ou expose, par ce fait, les personnes et leurs biens à de graves dangers.
+Article 80.- Est puni d’un emprisonnement de six à douze mois et d’une amende de 500 mille à 1 million de gourdes, quiconque fait entrave à l’exécution des travaux autorisés ou concédés et à l’entretien des ouvrages ou l’usage par l’exploitant des servitudes.
+Article 81.- Est puni d’un emprisonnement de six à douze mois et d’une amende allant de 1 à 15 millions de gourdes, ou de l’une de ces peines seulement, quiconque viole l’article 55 du présent Décret.
+Article 82.- L’opérateur est tenu responsable de tout dommage causé par une surtension ou une anomalie quelconque provenant de son réseau électrique sur les biens de son client. À cet effet, le constat du juge de paix et l’avis technique de l’autorité de régulation du secteur l’électricité sont requis.
+CHAPITRE II — DISPOSITIONS TRANSITOIRES ET FINALES
+Article 83.- Les accords ou contrats en conformité avec la législation haïtienne en cours de validité à la date d’entrée en vigueur du présent Décret restent valables pour la durée de leur validité.
+Article 84.- Le présent Décret abroge toutes Lois ou dispositions de Lois, tous Décrets ou dispositions de Décrets, tous Décrets-Lois ou dispositions de Décrets-Lois qui lui sont contraires et sera publié et exécuté à la diligence du Ministre des Travaux Publics, Transports et Communications.
+Donné au Palais National, à Port-au-Prince, le 6 janvier 2016, An 213e de l’Indépendance.
+Par :
+Le Président Michel Joseph MARTELLY
+Le Premier Ministre Evans PAUL
+Le Ministre de la Planification et de la Coopération Externe Yves Germain JOSEPH

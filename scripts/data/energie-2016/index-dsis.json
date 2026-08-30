@@ -1,0 +1,214 @@
+[
+ {
+  "subject": "Abrogation des textes contraires",
+  "ctRefs": [
+   11
+  ],
+  "autres": {
+   "energie": [
+    84
+   ],
+   "anarse": [
+    33
+   ]
+  }
+ },
+ {
+  "subject": "Bâtiments et terrains",
+  "ctRefs": [
+   4
+  ],
+  "autres": {
+   "energie": [
+    4,
+    13,
+    50,
+    52
+   ]
+  }
+ },
+ {
+  "subject": "Biens meubles et immeubles",
+  "ctRefs": [
+   10
+  ],
+  "autres": {
+   "energie": [
+    3
+   ]
+  }
+ },
+ {
+  "subject": "Budget",
+  "ctRefs": [
+   5
+  ],
+  "autres": {
+   "anarse": [
+    10,
+    17,
+    25
+   ]
+  }
+ },
+ {
+  "subject": "Collectivités territoriales",
+  "ctRefs": [
+   2,
+   5,
+   9,
+   11
+  ],
+  "autres": {
+   "energie": [
+    36
+   ]
+  }
+ },
+ {
+  "subject": "Conseil des Ministres (préambule — visas)",
+  "ctRefs": [],
+  "autres": {
+   "anarse": [
+    8,
+    9,
+    16
+   ]
+  }
+ },
+ {
+  "subject": "Constitution (préambule — visas)",
+  "ctRefs": [],
+  "autres": {}
+ },
+ {
+  "subject": "Corps Autonome des Pompiers (CAP)",
+  "ctRefs": [
+   1,
+   10
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Corps de Protection Incendie et Sauvetage (CPIS)",
+  "ctRefs": [
+   10
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Cour Supérieure des Comptes et du Contentieux Administratif (préambule — visas)",
+  "ctRefs": [],
+  "autres": {
+   "anarse": [
+    27,
+    28
+   ]
+  }
+ },
+ {
+  "subject": "Direction du Service d'Incendie et de Secours (DSIS)",
+  "ctRefs": [
+   2,
+   3,
+   4,
+   5,
+   6,
+   9,
+   10
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Fonction Publique",
+  "ctRefs": [
+   3,
+   7
+  ],
+  "autres": {
+   "anarse": [
+    21,
+    32
+   ]
+  }
+ },
+ {
+  "subject": "Incendie (prévention et lutte contre l')",
+  "ctRefs": [
+   4
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Ministère de l'Intérieur et des Collectivités Territoriales",
+  "ctRefs": [
+   2,
+   5,
+   9
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Police Nationale d'Haïti (PNH)",
+  "ctRefs": [
+   10
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Sanctions administratives (préambule — visas)",
+  "ctRefs": [],
+  "autres": {
+   "energie": [
+    13
+   ],
+   "anarse": [
+    11,
+    21,
+    23,
+    28
+   ]
+  }
+ },
+ {
+  "subject": "Sapeurs-pompiers",
+  "ctRefs": [
+   1,
+   6,
+   7,
+   8,
+   10
+  ],
+  "autres": {}
+ },
+ {
+  "subject": "Sécurité des personnes et des biens",
+  "ctRefs": [
+   4,
+   11
+  ],
+  "autres": {
+   "energie": [
+    8,
+    20,
+    26,
+    32,
+    49,
+    50,
+    53,
+    58
+   ],
+   "anarse": [
+    4
+   ]
+  }
+ },
+ {
+  "subject": "Volontaires (sapeurs-pompiers)",
+  "ctRefs": [
+   6,
+   8
+  ],
+  "autres": {}
+ }
+]

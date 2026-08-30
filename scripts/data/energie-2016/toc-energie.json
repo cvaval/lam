@@ -1,0 +1,128 @@
+[
+ {
+  "level": 1,
+  "label": "TITRE 1er — DISPOSITIONS GÉNÉRALES",
+  "anchor": "sec-1",
+  "kind": "titre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE 1er — OBJET ET CHAMP D’APPLICATION",
+  "anchor": "sec-2",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE II — DÉFINITIONS",
+  "anchor": "sec-3",
+  "kind": "chapitre"
+ },
+ {
+  "level": 1,
+  "label": "TITRE II — DES RÉGIMES APPLICABLES POUR LA PRODUCTION, LE TRANSPORT, LA DISTRIBUTION ET LA COMMERCIALISATION",
+  "anchor": "sec-4",
+  "kind": "titre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE 1er — DISPOSITIONS GÉNÉRALES",
+  "anchor": "sec-5",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE II — DU RÉGIME DE LA LICENCE",
+  "anchor": "sec-6",
+  "kind": "chapitre"
+ },
+ {
+  "level": 3,
+  "label": "Section 1re.- De la licence de production",
+  "anchor": "sec-7",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "Section 2.- De la licence de transport",
+  "anchor": "sec-8",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "Section 3.- De la licence de distribution",
+  "anchor": "sec-9",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "Section 4.- De la licence de commercialisation",
+  "anchor": "sec-10",
+  "kind": "section"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE III — DU RÉGIME DU DROIT D’EXPLOITATION",
+  "anchor": "sec-11",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE IV — DISPOSITIONS COMMUNES",
+  "anchor": "sec-12",
+  "kind": "chapitre"
+ },
+ {
+  "level": 1,
+  "label": "TITRE III — DES NORMES RELATIVES AUX ACTIVITÉS DU SECTEUR",
+  "anchor": "sec-13",
+  "kind": "titre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE 1er — DES PRINCIPES ET OBLIGATIONS",
+  "anchor": "sec-14",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE II — DES MESURES DE SÉCURITÉ, DES STANDARDS ET NORMES",
+  "anchor": "sec-15",
+  "kind": "chapitre"
+ },
+ {
+  "level": 1,
+  "label": "TITRE IV — RÉGLEMENTATION DES TARIFS",
+  "anchor": "sec-16",
+  "kind": "titre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE 1er — DES RÈGLES TARIFAIRES ET DE LA FACTURATION",
+  "anchor": "sec-17",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE II — DISPOSITIONS FINANCIÈRES, FISCALES ET DOUANIÈRES",
+  "anchor": "sec-18",
+  "kind": "chapitre"
+ },
+ {
+  "level": 1,
+  "label": "TITRE V — DISPOSITIONS PÉNALES, TRANSITOIRES ET FINALES",
+  "anchor": "sec-19",
+  "kind": "titre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE 1er — DISPOSITIONS PÉNALES",
+  "anchor": "sec-20",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE II — DISPOSITIONS TRANSITOIRES ET FINALES",
+  "anchor": "sec-21",
+  "kind": "chapitre"
+ }
+]

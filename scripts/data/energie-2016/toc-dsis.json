@@ -1,0 +1,38 @@
+[
+ {
+  "level": 2,
+  "label": "CHAPITRE 1er — DISPOSITIONS GÉNÉRALES",
+  "anchor": "sec-1",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE II — ATTRIBUTIONS",
+  "anchor": "sec-2",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE III — RESSOURCES FINANCIÈRES",
+  "anchor": "sec-3",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE IV — ORGANISATION ADMINISTRATIVE",
+  "anchor": "sec-4",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE V — DISPOSITIONS TRANSITOIRES",
+  "anchor": "sec-5",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE VI — DISPOSITIONS FINALES",
+  "anchor": "sec-6",
+  "kind": "chapitre"
+ }
+]
