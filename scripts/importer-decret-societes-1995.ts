@@ -158,9 +158,15 @@ async function main() {
         { fromId: doc.id, toId: d79.id, toType: 'LEGISLATION', kind: 'ABROGE', position: 0, source: 'EDITORIAL',
           toLabel: 'Décret du 10 octobre 1979 sur les sociétés anonymes — articles 5 et 6',
           note: 'dispositif (article 1er du Décret) : « Sont et demeurent abrogés les articles 5 et 6 du Décret du 10 octobre 1979 relatifs aux formalités de constitution des sociétés anonymes. » Abrogation NOMINATIVE.' },
-        { fromId: doc.id, toType: 'LEGISLATION', kind: 'ABROGE', position: 1, source: 'EDITORIAL',
-          toLabel: 'Toutes lois et dispositions contraires (clause générale)',
-          note: 'dispositif (article 4 du Décret) : « Le présent Décret abroge toutes lois ou dispostions de lois, tous décrets ou dispositions de décrets, tous décrets-lois ou dispositions de décrets-lois qui lui sont contraires » (sic « dispostions »). ⚠️ Clause GÉNÉRALE : aucune pastille n’en est tirée.' },
+        // ⚠️ AUCUN RENVOI POUR LA CLAUSE-BALAI DE L'ARTICLE 4 (« abroge toutes lois ou
+        // dispostions de lois […] qui lui sont contraires », sic « dispostions »). Elle ne NOMME
+        // personne : un CrossRef est un renvoi VERS UN TEXTE, et une clause sans texte désigné
+        // n'a pas de cible. L'inscrire faisait afficher « ABROGE → Toutes lois et dispositions
+        // contraires (clause générale) · cible non importée », soit un texte abrogé que la
+        // plateforme aurait omis de verser. La clause reste lisible dans le CORPS, à l'article 4 ;
+        // elle ne donne ni pastille, ni renvoi. Le contraste est ici sous les yeux : l'article 1er
+        // ci-dessus, lui, NOMME les articles 5 et 6 du Décret de 1979 — c'est ce renvoi-là qui
+        // existe. Retrait en base : scripts/retirer-renvois-clause-balai.ts
       ],
     })
     const l55 = await tx.document.findFirst({ where: { source: 'CC_VANDAL_IV-A-1' }, select: { id: true } })

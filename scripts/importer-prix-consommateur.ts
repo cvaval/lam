@@ -73,8 +73,18 @@ function ancres(corps: string) {
 }
 
 async function main() {
-  const dc = await prisma.theme.findFirst({ where: { slug: 'droit-commercial' }, select: { id: true } })
-  if (!dc) throw new Error('thème droit-commercial introuvable. STOP')
+  // ⚠️ ENFANT DIRECT DE « Droit économique & des affaires », PAS DE « Droit commercial ».
+  // Le menu de domaine de la recherche n'aplatit que DEUX niveaux
+  // (src/app/[locale]/(app)/search/page.tsx : `aplatir(null, 0)` puis `if (profondeur >= NIVEAUX)
+  // return`, NIVEAUX = 2) : les racines et leurs enfants y entrent, les PETITS-ENFANTS non.
+  // Créé sous « Droit commercial » le 29 août 2026, ce thème était petit-enfant : lui et ses six
+  // documents — dont le Décret du 11 mars 2020 sur la protection du consommateur — étaient absents
+  // du filtre. Remonté le même jour d'un cran (scripts/remonter-theme-prix-consommateur.ts, décision
+  // de Me Vaval). Ce script est corrigé pour que le rejouer ne recrée pas la branche au mauvais
+  // endroit : l'idempotence de la ligne suivante le protège tant que le thème existe, mais sur une
+  // base neuve, elle ne protège rien.
+  const parent = await prisma.theme.findFirst({ where: { slug: 'economique' }, select: { id: true, labelFr: true } })
+  if (!parent) throw new Error('thème economique introuvable. STOP')
   if (await prisma.theme.findFirst({ where: { slug: THEME.slug } })) { console.log('sous-thème déjà créé — rien à faire.'); await prisma.$disconnect(); return }
   const deja = await prisma.document.findMany({ where: { source: { in: FICHES.map((f) => f.source) } }, select: { source: true } })
   if (deja.length) throw new Error(`${deja.length} fiche(s) déjà versée(s) : ${deja.map((d) => d.source).join(', ')}. STOP`)
@@ -123,7 +133,7 @@ async function main() {
     }
   }
 
-  console.log(`sous-thème « ${THEME.labelFr} » [${THEME.slug}] sous Droit commercial, position 0`)
+  console.log(`sous-thème « ${THEME.labelFr} » [${THEME.slug}] sous « ${parent.labelFr} »`)
   console.log(`   En « ${THEME.labelEn} » · Ht « ${THEME.labelHt} »\n`)
   for (const { f, corps, a } of prep)
     console.log(`  ${f.source.padEnd(38)} ${String(corps.split('\n').length).padStart(3)} l. · ${String(a.length).padStart(2)} art. · adopté ${f.adoption} · publié ${f.publication}`)
@@ -136,10 +146,10 @@ async function main() {
 
   if (!APPLY) { console.log('\nSIMULATION — rien n’a été écrit.'); await prisma.$disconnect(); return }
 
-  const max = await prisma.theme.aggregate({ where: { parentId: dc.id }, _max: { position: true } })
+  const max = await prisma.theme.aggregate({ where: { parentId: parent.id }, _max: { position: true } })
   const ids = new Map<string, string>()
   await prisma.$transaction(async (tx) => {
-    const th = await tx.theme.create({ data: { ...THEME, parentId: dc.id, position: (max._max.position ?? -1) + 1 } })
+    const th = await tx.theme.create({ data: { ...THEME, parentId: parent.id, position: (max._max.position ?? -1) + 1 } })
     for (const { f, corps, a } of prep) {
       const doc = await tx.document.create({
         data: {
@@ -173,9 +183,16 @@ async function main() {
         { fromId: ref!.id, toId: l46.id, toType: 'LEGISLATION', kind: 'CITE', position: 12, source: 'EDITORIAL',
           toLabel: 'Loi du 20 décembre 1946 sur le marché noir',
           note: 'visa du Décret du 25 novembre 2020 : « Vu la Loi du 20 décembre 1946 sur le marché noir ; ».' },
-        { fromId: id20, toType: 'LEGISLATION', kind: 'ABROGE', position: 0, source: 'EDITORIAL',
-          toLabel: 'Toutes lois et dispositions contraires (clause générale)',
-          note: 'dispositif (article 44 du Décret) : « Le présent Décret abroge toutes Lois ou dispositions de Lois, tous Décrets ou dispositions de Décrets, tous Décrets-Lois ou dispositions de Décrets-Lois qui lui sont contraires ». ⚠️ Clause GÉNÉRALE : aucune pastille n’en est tirée sur un article.' },
+        // ⚠️ AUCUN RENVOI POUR LA CLAUSE-BALAI DE L'ARTICLE 44 du Décret du 11 mars 2020
+        // (« abroge toutes Lois ou dispositions de Lois […] qui lui sont contraires »). Elle ne
+        // NOMME personne : un CrossRef est un renvoi VERS UN TEXTE, et une clause sans texte
+        // désigné n'a pas de cible. L'inscrire faisait afficher « ABROGE → Toutes lois et
+        // dispositions contraires (clause générale) · cible non importée », soit un texte abrogé
+        // que la plateforme aurait omis de verser. La clause reste lisible dans le CORPS, à
+        // l'article 44 ; elle ne donne ni pastille, ni renvoi. C'est la même règle que celle déjà
+        // dite ci-dessus sur l'Arrêté du 19 septembre 2018 : une clause qui n'énumère pas les
+        // arrêtés ne les abroge pas sous la plume de la plateforme.
+        // Retrait en base : scripts/retirer-renvois-clause-balai.ts
       ],
     })
     await audit({

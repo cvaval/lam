@@ -166,9 +166,15 @@ async function main() {
         { fromId: doc.id, toId: code.id, toType: 'LEGISLATION', kind: 'MODIFIE', position: 0, source: 'EDITORIAL',
           toLabel: 'Code de procédure civile d’Haïti — Livre IX',
           note: 'dispositif (article 1er du Décret) : « Le livre 9 du Code de Procédure Civile portant sur l’arbitrage est et demeure modifié. Les articles 955 à 980 qui le composent se liront désormais comme suit : » — 26 articles réécrits, 43 articles décimaux ajoutés.' },
-        { fromId: doc.id, toType: 'LEGISLATION', kind: 'ABROGE', position: 1, source: 'EDITORIAL',
-          toLabel: 'Toutes lois et dispositions contraires (clause générale)',
-          note: 'dispositif (article 2 du Décret) : « Le présent Décret abroge toutes Lois ou dispositions de Lois, tous Décrets-Lois ou dispositions de Décrets-Lois… qui lui sont contraires ». ⚠️ Clause GÉNÉRALE : aucune pastille « abrogé » n’en est tirée sur un article, faute de désignation nominative.' },
+        // ⚠️ AUCUN RENVOI POUR LA CLAUSE-BALAI DE L'ARTICLE 2 (« abroge toutes Lois ou
+        // dispositions de Lois […] qui lui sont contraires »). Elle ne NOMME personne : un
+        // CrossRef est un renvoi VERS UN TEXTE, et une clause sans texte désigné n'a pas de
+        // cible. L'inscrire faisait afficher « ABROGE → Toutes lois et dispositions contraires
+        // (clause générale) · cible non importée », soit un texte abrogé que la plateforme
+        // aurait omis de verser, alors qu'il n'y a rien à verser. La clause reste lisible dans
+        // le CORPS, à l'article 2 ; elle ne donne ni pastille, ni renvoi — même raison qui fait
+        // qu'aucune pastille « abrogé » n'en est tirée sur un article du Livre IX.
+        // Retrait en base : scripts/retirer-renvois-clause-balai.ts
       ],
     })
     for (const [slug, label] of [['CC_VANDAL_I-D-1', 'Loi du 11 juin 1935 réglementant l’arbitrage commercial'], ['CC_VANDAL_I-Annexe-II', 'Règlement d’arbitrage']] as const) {

@@ -136,12 +136,21 @@ async function main() {
       ids.set(f.source, doc.id)
       await tx.documentTheme.create({ data: { documentId: doc.id, themeId: th.id, isPrimary: true, assignedBy: 'IMPORT' } })
     }
-    const id05 = ids.get('DECRET_CIRCULATION_VEHICULES_2005')!, id22 = ids.get('ARRETE_DECLASSEMENT_VEHICULES_2022')!
+    // Le Décret de 2005 n'a plus de renvoi sortant : son unique CrossRef était la clause-balai
+    // de l'article 284, retirée ci-dessous. Il ne reste donc que l'arrêté de 2022 à relier.
+    const id22 = ids.get('ARRETE_DECLASSEMENT_VEHICULES_2022')!
     await tx.crossRef.createMany({
       data: [
-        { fromId: id05, toType: 'LEGISLATION', kind: 'ABROGE', position: 0, source: 'EDITORIAL',
-          toLabel: 'Toutes lois et dispositions contraires (clause générale)',
-          note: 'dispositif (article 284 du Décret) : « … tous décrets ou dispositions de décret qui lui est contraire et sera publié et exécuté … ». ⚠️ Clause GÉNÉRALE : aucune pastille n’en est tirée sur un article.' },
+        // ⚠️ AUCUN RENVOI POUR LA CLAUSE-BALAI DE L'ARTICLE 284. Le Décret y abroge « toutes
+        // Lois ou dispositions de Lois […] qui lui est contraire » : il ne NOMME personne. Un
+        // CrossRef est un renvoi VERS UN TEXTE ; une clause qui ne nomme aucun texte n'a pas de
+        // cible. L'inscrire faisait afficher au lecteur « ABROGE → Toutes lois et dispositions
+        // contraires (clause générale) · cible non importée » — soit un texte abrogé que la
+        // plateforme aurait omis de verser, alors qu'il n'y a rien à verser. La clause reste
+        // lisible dans le CORPS, à son article final ; elle ne donne ni pastille, ni renvoi.
+        // Une `note` de mise en garde ne rattrape rien : elle n'est lue NULLE PART — ni par
+        // ResolvedTarget (src/lib/legislation/refs.ts), ni par la fiche publique, ni par le
+        // back-office. Retrait en base : scripts/retirer-renvois-clause-balai.ts
         { fromId: id22, toType: 'LEGISLATION', kind: 'APPLIQUE', position: 0, source: 'EDITORIAL',
           toLabel: 'Décret du 12 mai 2022 établissant le Budget général de la République d’Haïti, exercice 2021-2022 — article 85',
           note: 'Texte NON VERSÉ au corpus : renvoi en clair, sans lien. L’Arrêté définit les modalités d’application de l’article 85 de ce décret budgétaire.' },
