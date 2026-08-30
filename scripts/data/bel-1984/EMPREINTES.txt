@@ -1,0 +1,5 @@
+# Empreintes SHA-256 du jeu « bel-1984 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts bel-1984
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+42346e25b0dc9ad3b2983f503544a63ac78fc547ef94ffdbf4be7f619b38e616  piece-retenue.json

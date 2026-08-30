@@ -1,0 +1,8 @@
+# Empreintes SHA-256 du jeu « commerce-prix » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts commerce-prix
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+8e68fbd0acc6ba3ed89d85a52383e684fa5460d789794b38021599e4cb9c240d  affichage.txt
+13a5254b32c36d66c13f29b5590c6d45677e40608adc8dc81a3b6a6c3dfd8947  corps-consommateur.txt
+b07bd7cefad9302a99f1a4f92f55355899371e9501fb955467e4b918b1964ac8  corps-no175.txt
+e70441441b010e080027e0573efe0a32a468f12d9911249fb676da5ee2b7db3d  corps-speculation.txt

@@ -1,0 +1,6 @@
+# Empreintes SHA-256 du jeu « loi-blanchiment-2013 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts loi-blanchiment-2013
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+9df533ffaaa62d9b034672aec7d0007b879048da07e55a721c553198c7b85c1e  _index.json
+2aead09c167f6e72356030c79be81241a75fbaf3f68726b780c0233e40f7029a  build_index.py

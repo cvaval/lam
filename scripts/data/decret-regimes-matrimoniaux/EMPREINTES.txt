@@ -1,0 +1,7 @@
+# Empreintes SHA-256 du jeu « decret-regimes-matrimoniaux » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts decret-regimes-matrimoniaux
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+0c10a0fcda24ee85a248f73c9bd30f680ec94ff01352efba8de8017bf4a7352b  annotations.json
+fe111b76fa0f3942fd36ddddf3f25bd735eaacdeae2d936ffbeb935c9d9bc5f5  bodyOriginal.txt
+db0a75a27928b40d052fc75105eed348cd562ba39bd68ad12aaa948acec737db  parse_drm.py

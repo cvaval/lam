@@ -1,0 +1,5 @@
+# Empreintes SHA-256 du jeu « decret-agressions-2005 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts decret-agressions-2005
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+5755f024f8a77dd8df60ae5fb1bc06ffca5356aad4f98305b34725c1e6cb20e7  bodyOriginal.txt

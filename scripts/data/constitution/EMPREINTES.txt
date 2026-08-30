@@ -1,0 +1,10 @@
+# Empreintes SHA-256 du jeu « constitution » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts constitution
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+68da4b7e9993b575b08a99f3e4ce63ac2c06f69ab4654136dadec738b675b481  parse_const.py
+0343ea6f671d8e5cee9fcf9a81a8488dd67e35fe5cfdb98e27de0093f37db717  parsed/_index_backup.json
+c898529627038ddb53bfb57a061fdc6b8514dceb7d9b4ebb7549c58c7b635817  parsed/arts.json
+bbd41102a25b4b635d5ffcb3577f9935ac60daa75b11ffaabb223dc282b3877c  parsed/bodyOriginal.txt
+69ffb62957c10c3a74c3e7c14db1d8d6d1fdca4e70938d27637e47200f9cd174  parsed/structure.json
+bcdaaf94f5082552fb560e27bfbdfe3a66cc047cb9dc86e943977b28223cdae6  preview_data.json

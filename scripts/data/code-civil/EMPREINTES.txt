@@ -1,0 +1,17 @@
+# Empreintes SHA-256 du jeu « code-civil » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts code-civil
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+f24e3ec4f06fa306e46412cfc743d428fd24868a55b6fe9ef85ba44ced91fde6  cch-source.json
+49affccd0431e3068cfa983cf867f7a5deea360eaea7146d79b4fa54f2306b2e  parse_cc.py
+433094d7533f650801598a8abc92cda22f7cea83133f5f1dfdf5fb7c79088656  parsed/bodyOriginal.txt
+ebb98413276cd662d9aa7ff549b4f657ee65fde86fd3fed7649964ca2c070053  parsed/review.json
+62a02385868ef10a86c5410ab4690c027a0c2d0977e8efb2e1c3142f3c1aacc6  parsed/structure.json
+15de6aa57b78b52272e012a518aaac94f5134eb1d586ae50207d3a74a965f2ce  regimes-matrimoniaux/annexe_renvois.csv
+c6cd7e9a2152da3a11090ec660de8b8282d5064bd97d8528905da530ee9cd4d0  regimes-matrimoniaux/backup-before.json
+031d4d6509ff64bac3d58bf300978324baebf110965bde52416a9e2915ed7cf0  regimes-matrimoniaux/concordance.json
+b47d70af93f13a522e9cbe30df85c2faf7841434dddb341d006a22c0f60d32e9  reprise-loi/charge-lot-1.json
+a9bf516a0611af6cf6a837e6baa5e43fb1c7ab4de77321d5a0e21a6c44f73395  reprise-loi/charge-lot-2.json
+79af867f4906f5bf96e57713453500d146d84d4d4425f938cb05ff49db6e6503  reprise-loi/charge-lot-3.json
+b09ce652d54b6e1e057a6b53ff8c44a274beb2a0ac503290d455d102e2fdca23  reprise-loi/charge-lot-4.json
+539914092ff03e26e300fbd2066c350221a1e50dd8dd6b62ec3f6c0817fafd22  reprise-loi/dossier-27.json

@@ -1,0 +1,20 @@
+# Empreintes SHA-256 du jeu « decret-suretes » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts decret-suretes
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+9b84d1980bb260db3c3f5740fa2d89c5b9e64e663a3adc3ca955496d10735699  annotations.json
+a4a2b9d37c85adde37b9eaaf2735d8bf061f6cac8fe1b4beb000008ca54c5082  backup-before-suretes.json
+fbf8f3793c3e6a820080420e697ded214b2de2a3ba02411b563e5c31c5952729  bodyOriginal.txt
+10ef75daf3d6966ee82645d0246783632ddb6d543c679e66d5a742d516fdb527  etat-anterieur-maj-decret-2026-08-27T04-05-36-780Z.json
+fa6df3f9d07da791d1a174763255ae897542ef409d090cbc021ff638c814f76f  etat-anterieur-pastilles-2026-08-27T04-14-42-802Z.json
+1c38afb9d852d8f0054fe7dd87e0317811cf42a05f287c8abb54decdecfe8f63  etat-anterieur-pieces-2026-08-27T04-07-07-893Z.json
+2510ebb0a7046c093a316e14ec5c8ee9e2370f69e3a851e0652390fc4f36802c  etat-anterieur-titre-ii-2026-08-27T04-06-20-342Z.json
+a21d81b9f94699b12ef3f0a06ccb9bb2068eb0ebd380c998b42df0162aa22804  etat-anterieur-vigueur-2026-08-27T04-25-26-634Z.json
+1ba82db68f4a24748f6009467809448f143848a912a996d014d815a4adb3fcec  maj2026-ccom-apply.ts
+39c853cc4fc16941f073af917130d0d0a3b27125da32da298fdc5ce95b0c05a8  maj2026-ccom-avant.json
+d5466906b8bc11069a39c36133d99335bda132998b839d64a736f797b524f9ce  maj2026-pieces.json
+29bd4aa93e3d54b4211035097e96284cdfdd40227446926e6f6671c21131dec5  parse_ds.py
+44914d7a237d0bea9a037af36cb54843f62f81916c7a53b22fbdf1a79d33fcaf  pieces-2026-08/piece-decret-texte-extrait-351p.txt
+304465645fe203bb3927c98830cb8bd29dddd36f4623e65ae5dc86629f56114f  pieces-2026-08/piece-formulaire-rsm001-bordereau-inscription-1.docx
+05a69c5912db4c25a1ab1531feb450ca67fbd985e8ab62cecdd4da6bfb50103b  pieces-2026-08/piece-formulaire-rsm001-bordereau-inscription-remplissable-2.pdf
+a6f3bba1d16f19dd093fd81ce58fe6721c9696c46d8c6845fc9ed1ef9bed8bfc  pieces-2026-08/piece-officiel-decret-suretes-2020-04-09.docx

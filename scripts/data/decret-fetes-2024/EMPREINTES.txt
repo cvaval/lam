@@ -1,0 +1,6 @@
+# Empreintes SHA-256 du jeu « decret-fetes-2024 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts decret-fetes-2024
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+c8f7bc6f1f7488590b218dd83e4b4f9a95a8838b2de1d6836328b06cec9f053e  parse_fetes.py
+1cd01f5cfee87c04326c5f555b44a4764385cc195ea541cf4340c28310820cbe  source.json

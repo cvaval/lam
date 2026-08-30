@@ -1,0 +1,15 @@
+# Empreintes SHA-256 du jeu « electronique-2015-2025 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts electronique-2015-2025
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+792bbc050f439ddedb9556d802ccc65395a35f75144e9b2f1922625685ca6ce1  appareil.json
+8268c141f9e766ce7f9458e8de5df6de071436399332c09b2b255439a26a642d  articles.json
+6b9007ccddb82658401705663761cab9ce0b099feecdecca9c4e98c53684f2f8  build_appareil.py
+6788466a1de1172a3126d6a7345939216af66bdc8d359c26648a20a03f4080f7  extract_arts.py
+50c8c56c21d9f0ec930a27b7b98b6049eaf8569602c1d419efd9e41c7aa4386a  extract_textes.py
+3349391f9288687844f7a9c1642e91e79e9f956483e6145a27dc8ba72fcd775d  index-decret-2015-signature.json
+9439158648f86bbc71d05a28cbdf861dd133cb6d5acb6d5c4e5216de99cca6cf  index-decret-2016-administration.json
+50b848b4bfa54dcfd21123c78a16ce0b0d31cc2f68f9810c146013ea9565fb1b  index-loi-2017-echanges.json
+7da0aa29294b473db2823b11626e3a18ca95675f2c7776c48cee82e2510951e8  render_index_docx.py
+21d865b31f80db516e6c6100c96ffd56182d0fcd29e83778c4743b93fbda448e  rubriques.json
+b04a8b54e4ac4725857619d7671a3d5e37d921a88cc544075562da614fd7bf24  textes.json

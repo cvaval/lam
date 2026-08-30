@@ -1,0 +1,9 @@
+# Empreintes SHA-256 du jeu « decret-imf-2020 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts decret-imf-2020
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+537995996a23e05f27ce865fe76a23c9a641dd615b94402491fb5e630aad321d  _imf_index.json
+055d0406a9912c966fe620a077e3db0acb29012a142ae42ed006c0481770b0a0  annotations.json
+5248e2f58d61afe9c45f4d7b3170e493bc434ef6968441a91762002cf6551a38  bodyOriginal.txt
+b6f9f26e2b69950721704f22a50c93ad4a2116067b398541728978476c3f2f63  parse_imf.py
+6f1a8bf280841dc5ebfc872e6109df71e2256736da3cd49bdfd612ce6b42a3a3  parse_imf_index.py

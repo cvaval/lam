@@ -1,0 +1,6 @@
+# Empreintes SHA-256 du jeu « loi-filiation-2014 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts loi-filiation-2014
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+192ee3cb944d89c06f55948e23a234fd9c71c7974f513c0765de54204dcc11d7  bodyOriginal.txt
+26f974c715280f5a90b9ab467ebd64ca24a83f39a597886c80c02fd9f5af996a  newtexts.json

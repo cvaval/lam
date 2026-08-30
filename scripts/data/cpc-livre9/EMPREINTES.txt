@@ -1,0 +1,8 @@
+# Empreintes SHA-256 du jeu « cpc-livre9 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts cpc-livre9
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+d3f5312f886af896a8b7bceea9f239d181469f1fa9d0eb196980739f6eaac4c9  corps-decret-2006.txt
+010134e97dae8966f791dbe671777dccc73288cdea8324127e7c2c7242b67d6a  idx-decret.json
+4c838937a8a1a3ca0d72fffbb9f694d544bd183fb850cc4a0fcca819fdbc10a6  table-analytique.json
+d08acea0f585a6944fad135bfc63e01001e8046dbc87b3dbdd977490839eb41f  toc-decret.json

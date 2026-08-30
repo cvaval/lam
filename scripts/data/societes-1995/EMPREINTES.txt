@@ -1,0 +1,6 @@
+# Empreintes SHA-256 du jeu « societes-1995 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts societes-1995
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+846da65126f24c165fec112189fe7cfd44a215053f4a6f6a59f83b675d99e017  art7-1979.txt
+cd5f5c852071376f7c45d86429bd03fe3538bf3bf63334908653a97ccd4366ef  corps-1995.txt

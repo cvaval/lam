@@ -1,0 +1,7 @@
+# Empreintes SHA-256 du jeu « decret-minier-2026 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts decret-minier-2026
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+7f44c3d06839042da275e62fbbb6b4dc6a3e06a5739fc7911206ddb13a12319b  annotations.json
+f221851112c790989a8ea2cf73de1b88b951eb8e7dad4c0ea063a8de758fea91  bodyOriginal.txt
+ccb1fcf1e89f3b3165060bef402b42940b4aa45d5f7338c234633b0c7b11fd14  parse_dm.py

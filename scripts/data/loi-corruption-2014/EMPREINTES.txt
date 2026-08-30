@@ -1,0 +1,6 @@
+# Empreintes SHA-256 du jeu « loi-corruption-2014 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts loi-corruption-2014
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+27f1e9cc67969b000dd1b8e72ec7b6b9ca822af947f398b6038fd0763f5c2e0c  _index.json
+212fded2fd8c75aecb67c029c91be00329e715a717b9bb7c6708805e56da8b16  build_index.py

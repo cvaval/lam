@@ -1,0 +1,9 @@
+# Empreintes SHA-256 du jeu « notariat-compilation » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts notariat-compilation
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+7863c04133847a74461fe80549b638610d90b3fef41f4379a9b2227b7c92ec48  extract_compilation.py
+1a93b7de562932b973feb24563fa5c8fefa3b43522fa50379a1e9a3b25d3d251  index-final.json
+4f101af34d7854f1c10552dc3c75ccd232c9959ac7eb87f0b3b23ba319077073  render_compilation.py
+bddbed68702b1bd76c81681148ebfae0368f45bb79d8de12d409df9604f7f114  sommaire-index.json
+3a040f0e22bc1d4a0d4ccd105d96b9a0750b1a32677c7bec12eb5975f4b7f7ea  textes.json

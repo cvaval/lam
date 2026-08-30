@@ -1,0 +1,7 @@
+# Empreintes SHA-256 du jeu « code-travail » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts code-travail
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+92c981af240ed6acc3b6eb89ebcd34fe2dbb143815ac4e33228211d52cf459eb  parse_ct.py
+ab237be42b87c996a97c395811eba030f6c804b1b0267a3ec08862f64821035b  parsed/bodyOriginal.txt
+cda61bef8fefabb564aca1d3ec42c60d51854beb66cf3fe02f46ada3f1c48bdc  parsed/structure.json

@@ -1,0 +1,7 @@
+# Empreintes SHA-256 du jeu « code-douanes » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts code-douanes
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+31982b3ea092c2ccda72915dce4b5d8c843776d0d7d6435fdb691a532c8d4089  annotations.json
+148c338cf81070d09b9e65cc43d7a95e05d63487327b10b4e80b0142dc9573c9  body_trimmed.txt
+a1595f390d3db6b7da4ce64db1646b14d7fd3d696f259000d5450c9877229051  parse_cd.py

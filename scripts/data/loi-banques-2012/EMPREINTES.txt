@@ -1,0 +1,7 @@
+# Empreintes SHA-256 du jeu « loi-banques-2012 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts loi-banques-2012
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+adb833b0ca147c2af11b6d2468f760b89b749196e8c14372bea60fd47487e783  annotations.json
+4a85ff208f55f4fcbf2ec7210a3379fa952ca53d0ed02e210e57218a1788aeda  bodyOriginal.txt
+a4e2cc767aac30b673d6bd5fc61071910e3d3f4729c6253fa0437b72e057fe01  parse_bank.py

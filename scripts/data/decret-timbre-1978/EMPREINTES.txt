@@ -1,0 +1,7 @@
+# Empreintes SHA-256 du jeu « decret-timbre-1978 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts decret-timbre-1978
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+e8696fd6a01363cb854d8621babaadfcfb6431f3fc0dfe16d32a422ca091a200  annotations.json
+7b9eec37580016a03c202e3ba8adddbb3c40df728289924fb6e04fbde4c1f385  bodyOriginal.txt
+a8ec212a949feed36e440f93903ed6d00f9c7f73a621fd10b020bd641b23b127  parse_timbre.py

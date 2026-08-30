@@ -1,0 +1,14 @@
+# Empreintes SHA-256 du jeu « fiscal-vague2 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts fiscal-vague2
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+c2cc18b8ab1840e20850a61d25b0dd3a39cbe1a817365377ceb9351160d73868  cfgdct/_index.json
+6ca8e6823de734dcac70a03fb9ca23f9a6aede7e2da8d23842790ab8dea02a24  cfgdct/annotations.json
+e26789b93430eede61ca3b3435388a636d91ea54cafafe7b50f859bcafe837af  cfgdct/bodyOriginal.txt
+b0b9034f007c41e1d4a3d2af526bbf15576c36a1f353c9216e9bd18360a66627  cfpb/_index.json
+96afdae71da6d92e50f9a1b358f3e9a25736492e199e75b6c814a64d05e15b31  cfpb/annotations.json
+00f681343b4c551366c00874105465bd6989f1535d277e87a41572e26297925b  cfpb/bodyOriginal.txt
+0fdc1f548fd6b757f69add74a0731b922bbd83266ba1cab8aa2c4225c673e387  enregistrement/_index.json
+a92496161d68ceeaf4ef26341f70b7cb4b45b71aa4d719bee80bf1641c286446  enregistrement/annotations.json
+269c02adec50f157a94b0854985508c40018821357fc02f0a167716f5462b32c  enregistrement/bodyOriginal.txt
+2682ee0e71361df2ec1b498f442ea8290f28b37c4983ef69645934bb7ffc5fd8  parse_vague2.py

@@ -1,0 +1,6 @@
+# Empreintes SHA-256 du jeu « arrete-pdp-2018 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts arrete-pdp-2018
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+f76da0124c0dd31fe1a2db4ecad63055adea72bc43f0dce1adcc9685ffbc2428  parse_pdp.py
+86f416039858cdb4e51ccac14e4b39ca1d02791da7441e606293902cb9d5eb61  source.json

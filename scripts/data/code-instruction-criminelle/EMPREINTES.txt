@@ -1,0 +1,10 @@
+# Empreintes SHA-256 du jeu « code-instruction-criminelle » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts code-instruction-criminelle
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+4bc9a30d9f8826b8e981e60b1855844dd838533ed0f53e4c57929af660dcbbec  07-grammaire.ts.txt
+1ad8a5f7c898e5f512b15f644fe30011d48a6c6a57fde80ba7ba3326835c6789  build_cic.py
+229f6f06f728b9615c3c654f297ac8a7aca6b4127c992d330025c4662f91a808  coderefs-cic.ts.txt
+10ebf4f1bcfa904883c24b82b4c850ac03e60e5573ceea7aa7af8e251a86a823  concordance.json
+288be183de31cdd245c2d73bacc343fb97f92815305214f3b2c7d9fa29818078  parse_cic.py
+43fe3b677010e88e424f5a338e3bd937f6ebe445c0168f978dc2dbfc1b8188aa  source.json

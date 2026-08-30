@@ -1,0 +1,7 @@
+# Empreintes SHA-256 du jeu « loi-patente-1996 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts loi-patente-1996
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+1377961c86b4c250377f47a7061c88c611e23ab4362dd7e478c5da81d8a6af56  annotations.json
+a4f916789d7d3e6dec14e2771303ac4da82c389f8a2c951855dad9fa6ec4544d  bodyOriginal.txt
+2e46b1ee99516a3c7fb934587537fcf98578f42108f859b270b8d8a2b60ad35f  parse_patente.py

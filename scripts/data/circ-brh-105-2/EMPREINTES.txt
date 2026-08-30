@@ -1,0 +1,11 @@
+# Empreintes SHA-256 du jeu « circ-brh-105-2 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts circ-brh-105-2
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+a4a990641f892b2f46c53c4441a4fcfe8f6fbe0d22d92f9bde193768031eae6c  _body.txt
+a9b37205694df7400668682f49905b3bc75adc053abc6c7fc79946ae9135898e  _clean.txt
+3f4dfb592df8398918e911c1dab87b4e55a42ee22c09ea52c08b20444108a7fe  _index.json
+24abd58b868cdfe7ce9a199442cbd89305f9a1cf786955ee1707428f1991393c  _rich.json
+6cc6f4600a1f0863ee3f742e6019ae0030d41127c5ea384af032b72b2b64e29c  _struct.json
+29a00c51dd5a45915491c9e0cf15565411f83c9e70b7107b2602001ad1d45061  build_index.py
+d8ecac4474bd64007d2fe8852c9e918affddca98d6b5c92ba6a29bff087e2233  parse_105_2.py

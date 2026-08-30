@@ -1,0 +1,8 @@
+# Empreintes SHA-256 du jeu « code-penal » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts code-penal
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+30d5b01999039019d3a94e1d2258ff48326c662a35403baca6048ddc25c1be5b  parse_cp.py
+1e01b6ac7b9ac850ea7ca60a3476986623d47c5702117c3c5521e0f8994dbbed  parsed/bodyOriginal.txt
+c3ad9f7efe2010205ab42330f90d287869f702cba9e60765426c66b5ed7d5b20  parsed/review.json
+1e090d5c9599079d8a356ad70a9ded3fbf6df1cfe9026f7468fa61827f64686f  parsed/structure.json

@@ -1,0 +1,6 @@
+# Empreintes SHA-256 du jeu « assurances » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts assurances
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+6f80e2d37cefe3d2f570094da23daa531c5ce58ab4bbbc67c8fe6ba16986485d  parse_assurances.py
+7a5bbc6f850854d708b1d8e80a83eda86a3481cddf21c17f3f5cb78a382538f4  textes.json

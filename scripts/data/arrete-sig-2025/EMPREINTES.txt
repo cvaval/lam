@@ -1,0 +1,7 @@
+# Empreintes SHA-256 du jeu « arrete-sig-2025 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts arrete-sig-2025
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+a807ed2d384534038b1cbb7912a2b4d19a1117d4fd43d7840025a3e93bb22aa0  corps-arrete.txt
+52565c0f535963af82be11800386229f481c67f249bbc0fb2e4639aea7682387  index-arrete.json
+89c3ed765c39512ee216c05ab462e58d2c43c619d1139eac81a51529379281fb  toc-arrete.json

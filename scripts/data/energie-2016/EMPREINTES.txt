@@ -1,0 +1,19 @@
+# Empreintes SHA-256 du jeu « energie-2016 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts energie-2016
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+443ee8847f365d2569e52ef6860fb9b1acc12d75fcf26919b0b6b2cdd8e6adbb  corps-anarse.txt
+b91cfc97e8707de9bc92a052c71736487fb63c617ef85b64abba9f813cdf3208  corps-dsis.txt
+5caf2255bad7c72686b44727866fc534266134bbb601202d791c470d5f0d60a1  corps-energie.txt
+631905b9ebddb192a607a50b81c86b1391dd4e0143bc2238487ceeddc9709e1c  facsimiles/anarse.pdf
+820df0ebe62b346099acd93f74be1e29b26355d93de295819cb6621026e6847c  facsimiles/dsis.pdf
+c2c9856569569e98ee24477f787c9191e70a2529eaf3cc921ea773c55ba4038b  facsimiles/energie.pdf
+eee449d7c4cc7e44133a8bc9e1216156983b1f09b3b80152e10188cc0f20d3ab  index-anarse.json
+0b02b951ccae610146156de7302acac2fe3c53a2017a611954c55fe4d44426ef  index-dsis.json
+7c93081a5216933fee75317385718de467746293f68ec1ef04b3f2f48d46450d  index-energie.json
+ee0a4a3f4cced1f096b3384024df561de5f3272356c3041d32ca726c4976a2d9  rubriques-anarse.json
+eb405ace5ab704d6885257bfc87399fbed1cbd315747f2a79da6dba4ee8731c7  rubriques-dsis.json
+85d96be679eb85a1e3fc8877f454c6e4a0fd263a92a379fe48bcdd8e201dafd0  rubriques-energie.json
+1e2e0047acd754b9952a7813c16f383c2e2155500b6e81d09a6f666c0375eb4b  toc-anarse.json
+6ab10c04133cc0095eacd92ceea0f16c8e2f1b0a58e3a0c5315fb7a14ca97cbc  toc-dsis.json
+7e765a4dae74857f94ae649b11c7287d223a2c9387ba431a46558593d4028fb4  toc-energie.json

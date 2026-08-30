@@ -1,0 +1,5 @@
+# Empreintes SHA-256 du jeu « circ-brh-127 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts circ-brh-127
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+1e3fe8d994551a754d9e3e19deed1cf28b1686a8a3d13d112434ee604fce0b03  reparation.json

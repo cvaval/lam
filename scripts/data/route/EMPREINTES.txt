@@ -1,0 +1,9 @@
+# Empreintes SHA-256 du jeu « route » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts route
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+73f43781433dddd9826b793c88d7193375ebb190efb5eb7d6f3d49160c81d631  corps-arrete2022.txt
+b9eccb8f734d9e4c814d682291ee2c2dee189caaa610de0e5b21eb14e0ce781a  corps-code.txt
+96e2b901acb2e90d746f4fa30ac0897f6169061458c1ffcbf0b310c3b4bab839  corps-location.txt
+6a04ba9ec98c8b8c4437dead7cd7102824e32ff8d98e419baf818fdefa1ebd52  index-route.json
+1e793cfbe9dcb9a2c0663839196cf5a4ff66a63fd68c965362a5d05b0d12156a  toc-code.json

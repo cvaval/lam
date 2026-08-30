@@ -1,0 +1,12 @@
+# Empreintes SHA-256 du jeu « obnl » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts obnl
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+ff68eb3118b4690492a834bc41c2c0ea33a80d7535e0bd6a9582266840319b29  anciennes-1934.json
+fee9da9b1723738da418a6e48a6c45d347ff408b5bb1992c3ce17cbe14d37091  corps-1921.txt
+f445de5dcf774791d6997758098434419b99d572e336f534af53d09736705136  corps-1934-en-vigueur.txt
+5cff4b146772b200d46e39abc8399ee5148945df6a3faa1282cc6e7a0ed316bb  corps-1953.txt
+b17855225d3250439b9c54ae0fafe985bb5d4732a8300c0733c8576bac81c673  corps-1989.txt
+eb41780f1a2d0a702fade565308a8d03b32746e0a2e2c91f8b57a4aba62cfb05  idx-fondations.json
+9a38dbf207e0acf2a10d80933542ef9a49e3d09e053ac4827070bb9e85ffe596  idx-ong.json
+5edddbd8c006a1a119ad2c90833f94ab1d0cd48338e9e92003fd3ccbdaf2789b  sommaires.json

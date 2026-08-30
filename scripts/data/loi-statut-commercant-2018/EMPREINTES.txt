@@ -1,0 +1,8 @@
+# Empreintes SHA-256 du jeu « loi-statut-commercant-2018 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts loi-statut-commercant-2018
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+62729788fc9ebdc0e14cc99d46c31674a14d04873132b26f006437ff7a2fccec  annotations.json
+43fa4ee6cc873d4ad6bfe8897964e26d703e68d8bc1c86b3177f56a03cce46f6  backup-before-ccom.json
+8ca4ba063853b38f0644df65f0148461a7356a6a767f3bda2201dc7cfd921ef1  bodyOriginal.txt
+cbd0e32c7aef99642c9c8a4ddaa9a8dda24d564304c0d2e46a39900acd6fb149  parse_lsc.py

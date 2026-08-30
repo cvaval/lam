@@ -1,0 +1,9 @@
+# Empreintes SHA-256 du jeu « loi-ucref-2017 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts loi-ucref-2017
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+874635cfc62da16febfcab13a25cfef648b6c0ccdfa33e5fff5c87467251ad9d  _ucref_index.json
+7367dd167360d09718d59aee8bd13233bc824ce515f3d4a078fabb60dbbe2aaa  annotations.json
+4387c61451dc07bad74dfbf9724e957d8bfc6830531c387313de5a68f11bd5f2  bodyOriginal.txt
+a656321ff11a2a40bbed378269fd53583f0b143cb83d6b37880f6746d239b4e6  parse_ucref.py
+e2b5d1b5656dd4e9a1269fc27a8f9d9e826ee8c9871aadf652aa726cacd0902c  parse_ucref_index.py

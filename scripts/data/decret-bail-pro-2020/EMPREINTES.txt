@@ -1,0 +1,7 @@
+# Empreintes SHA-256 du jeu « decret-bail-pro-2020 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts decret-bail-pro-2020
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+44afda8d3b569a6cb885bc3e041cb16e5bda265aeb892597bc3b96ff9779a13b  annotations.json
+d9de790ce9ff7624292d1f7baa838b606d2de76585162e071ab1d323707d649c  bodyOriginal.txt
+c587fd9caa7e0928657034d593c05289eab37ef53ae7568a952fe27ef463770d  parse_dbp.py

@@ -1,0 +1,5 @@
+# Empreintes SHA-256 du jeu « avis-ld-brh-2020 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts avis-ld-brh-2020
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+1305d8b5ad20502391521897a4575515c9bd0552a4b4b16a9997cd9476751937  source.json
