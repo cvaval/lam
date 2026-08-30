@@ -1,0 +1,16 @@
+# Empreintes SHA-256 du jeu « telecom » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts telecom
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+53edfca2c0e758ab8a4cef9d35507e4d07a7352b4b18f6d6a7422ea21a77439c  annexe-I-taxation.txt
+80535e2ce5d7092637337f464cb5df9385a5d63dd683528fa2ef4f022a93ffcb  annexe-II-taxation.txt
+c2a6270b5b4ff29c5f2d4a87b7c544603d476317f1b700d83dc2810dce5c7bed  corps-circulaire-conatel.txt
+7ccede33e2916274861f4d331f198d5da96073d7f84b39c3d1429db970914777  corps-conatel-mission.txt
+eba14f6eb702a004380af51230206f67cec3278fe9e50e65e02f7335bd9657d9  corps-conatel-taxation.txt
+6c44dad973b2afb2ac86401e8fec990621e52873b6ed5274adfd4949ebcb6224  corps-tnt.txt
+120919b4983ebed856c03947fc991a63d7380c1ecbaacb0797598573a4390472  index-tnt.json
+2e63da3c4153d694373b467549da3ed1b8be06b072ffc0b8d945c9ab7acbe4b0  note-liminaire-taxation.txt
+db38adf8900a8b0fe3a58e81b8562d130e2c80ebeb7e16ab1f0b87057731af87  recapitulatifs-tnt.md
+a5282bdc532f637f1e13b2afb499aef4b233b3d518f5c06a67d2226f717bf938  rubriques-conatel-taxation.json
+cdb1e131153fa7fa209666d1e220ece8b38cfbbae72dfaaed037ab675dfb3174  toc-conatel-mission.json
+00ec77b548d86d67c109682a30c15b23cc59188d3f503c776172bd40bb0360af  toc-tnt.json

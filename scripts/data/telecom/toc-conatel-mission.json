@@ -1,0 +1,62 @@
+[
+ {
+  "level": 2,
+  "label": "CHAPITRE 1 — STATUT, COMPOSITION, MISSION ET ATTRIBUTIONS DU CONSEIL NATIONAL DES TÉLÉCOMMUNICATIONS",
+  "anchor": "sec-1",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE 2 — DU CONSEIL D’ADMINISTRATION",
+  "anchor": "sec-2",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE 3 — MISSION ET ATTRIBUTION DE L’ORGANE EXÉCUTIF DU CONSEIL NATIONAL DES TÉLÉCOMMUNICATIONS",
+  "anchor": "sec-3",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE IV — DE L’ORGANISATION ET DU FONCTIONNEMENT DE L’ORGANE EXÉCUTIF DU CONSEIL NATIONAL DES TÉLÉCOMMUNICATIONS",
+  "anchor": "sec-4",
+  "kind": "chapitre"
+ },
+ {
+  "level": 3,
+  "label": "SECTION IV.1",
+  "anchor": "sec-5",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "SECTION IV.2",
+  "anchor": "sec-6",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "SECTION IV.3",
+  "anchor": "sec-7",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "SECTION IV.4",
+  "anchor": "sec-8",
+  "kind": "section"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE V — DES SERVICES FINANCIERS DU CONSEIL NATIONAL DES TÉLÉCOMMUNICATIONS",
+  "anchor": "sec-9",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE VI — DISPOSITION FINALE",
+  "anchor": "sec-10",
+  "kind": "chapitre"
+ }
+]

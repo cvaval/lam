@@ -1,0 +1,7 @@
+# Empreintes SHA-256 du jeu « investissements-2002 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts investissements-2002
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+0aa7a7d2e1abaf9644b6e3c694466058e2e5f351f5c20455b87cc8edd30a80f2  corps-investissements.txt
+20c6b47bf7622700462aaaf946f53ba5152e1a5aff82d6e6e0f39d8c59545dcf  index-investissements.json
+89d954d0ae6b4e81ce5ea53b65ac8a5564111ded69689be5fecc8fa5b717a0bf  toc-investissements.json

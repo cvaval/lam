@@ -1,0 +1,152 @@
+RÉPUBLIQUE D’HAÏTI
+Liberté — Égalité — Fraternité
+DÉCRET DU 26 JUIN 1987
+dotant le Conseil National des Télécommunications de moyens techniques et adoptant un mode de taxation en harmonie avec le niveau d’utilisation du spectre, en tenant compte des nouvelles méthodes de description et de désignation des émissions
+Publié au Journal Officiel — Le Moniteur, 142e année, n° 76, jeudi 17 septembre 1987, pp. 1381-1388
+(contreseings ministériels : p. 1389)
+LIBERTÉ — ÉGALITÉ — FRATERNITÉ
+RÉPUBLIQUE D’HAÏTI
+DÉCRET
+CONSEIL NATIONAL DE GOUVERNEMENT
+Henri NAMPHY, Lieutenant-Général FAd’H., Président
+Williams REGALA, Général de Brigade FAd’H.
+Luc D. HECTOR
+Membres
+Visas
+Vu les articles 285 et 285-1 de la Constitution;
+Vu la Proclamation du 7 février 1986 du Conseil National de Gouvernement;
+Vu le Décret du 7 février 1986 portant dissolution de la Chambre Législative;
+Vu le Message en date du 13 avril 1987 annonçant la nouvelle composition du Conseil National de Gouvernement;
+Vu le Décret-Loi du 19 septembre 1935, modifié par celui du 2 décembre 1936, réglementant la radiocommunication;
+Vu le Décret du 12 octobre 1977 accordant à l’État Haïtien le monopole des services de télécommunications;
+Vu le Décret du 13 janvier 1978 complétant et unifiant la législation sur le droit de licence;
+Considérants
+Considérant que le système de taxation en vigueur pour les différents services de radiocommunications ne répond point aux exigences qu’impose l’utilisation rationnelle du spectre radioélectrique, et qu’il convient d’adapter la tarification desdits services à l’exploitation actuelle du spectre en fonction des possibilités qu’offre la technologie moderne;
+Considérant que l’exploitation accrue d’une telle ressource, si elle n’est contrôlée, risque d’entraîner sa dégradation;
+Considérant qu’il convient de doter le Conseil National des Télécommunications, à qui incombe la gestion de cette ressource, de moyens techniques adéquats pour assumer cette fonction et qu’il convient, en outre, d’adopter à cet effet un mode de taxation dont le mécanisme soit en harmonie avec le niveau d’utilisation du spectre, en tenant compte des nouvelles méthodes de description et de désignation des émissions;
+Sur le rapport des Ministres des Travaux Publics, Transports et Communications et de l’Économie et des Finances;
+Et après délibération en Conseil des Ministres;
+DÉCRÈTE
+Article 1er.- Les stations utilisées dans les différents services de radiocommunications sont groupées suivant les catégories ci-après désignées :
+Catégorie A : Stations destinées à la correspondance privée ou publique, à l’exception des stations des services aéronautique, maritime, de radioamateur et de radio générale. Les stations de radiodiffusion appartiennent à cette catégorie.
+Catégorie B : Stations des services aéronautique et maritime.
+Catégorie C : Stations du service de radioamateur.
+Catégorie D : Stations du service de radio générale.
+Article 2.- Les classes de stations définies ci-après s’appliquent aux stations de radiodiffusion sonore en fonction de la gamme de fréquences qu’elles utilisent, la puissance rayonnée et leur zone de service :
+Radiodiffusion à ondes hectométriques
+Classe A : station dont la puissance nominale est supérieure à 10 kilowatts de jour.
+Classe B : station dont la puissance nominale est supérieure à 5 kilowatts et inférieure à 10 kilowatts de jour.
+Classe BC : station dont la puissance nominale est supérieure à 1 kilowatt et inférieure à 5 kilowatts de jour comme de nuit.
+Classe C : station dont la puissance nominale est supérieure à 500 watts et inférieure à 1 kilowatt.
+Classe D : station dont la puissance nominale est inférieure à 500 watts.
+Radiodiffusion à ondes métriques
+Classe A (régionale) : station destinée à couvrir, à l’intérieur de sa zone de service, une ou plusieurs agglomérations ainsi que les zones rurales contiguës.
+Classe B (communautaire) : station destinée à couvrir, à l’intérieur d’une zone de service restreinte, un quartier, une ville ou une localité ainsi que les zones suburbaines contiguës.
+Article 3.- Les taxes applicables aux stations des différentes catégories de service ci-dessus mentionnées sont établies suivant la désignation de l’émission comme indiqué au tableau figurant ci-après.
+CATÉGORIE A
+Stations destinées à la correspondance privée ou publique, sauf les stations des services aéronautique, maritime, de radio-amateur et de radio générale
+I. MODULATION D’AMPLITUDE
+1. Télégraphie et autres signaux contenant de l’information quantifiée ou numérique
+Description de l’émission │ Désignation-type │ Taxe (Gdes / fréq. / an) │ Remarques
+Télégraphie à ondes entretenues, code Morse │ 100HA1AAN │ 500
+Télégraphie à manipulation par tout ou rien d’une porteuse modulée par une fréquence audible, code Morse │ 2K10A2AAN │ 500
+Signal d’appel sélectif avec emploi d’un code séquentiel à une seule fréquence, bande latérale unique, onde porteuse complète │ 2K11H2BFN │ 500
+Télégraphie à impression directe, avec emploi d’une sous-porteuse modulante à déplacement de fréquence, corrections des erreurs, bande latérale unique, onde porteuse supprimée (une seule voie) │ [ill.] │ [ill.]
+Télégraphie harmonique multivoie avec correction des erreurs, quelques voies sont multiplexées par répartition dans le temps, bande latérale unique, onde porteuse réduite │ ⟨2K89R7BCN⟩ │ 500 / voie
+2. Téléphonie (qualité commerciale)
+Description de l’émission │ Désignation-type │ Taxe (Gdes / fréq. / an) │ Remarques
+Téléphonie, double bande latérale (une seule voie) │ ⟨6K00A3EJN⟩ │ 500
+Téléphonie, bande latérale unique, onde porteuse complète (une seule voie) │ ⟨3K00H3EJN⟩ │ 500
+Téléphonie, bande latérale unique, onde porteuse supprimée (une seule voie) │ 2K70J3EJN │ 500
+Téléphonie avec signaux distincts modulés en fréquence pour régler le niveau du signal vocal démodulé, bande latérale unique, onde porteuse réduite (Lincompex) (une seule voie) │ 2K99R3ELN │ 500
+Téléphonie avec dispositif de secret, bande latérale unique, onde porteuse supprimée (deux voies ou plus) │ [ill.] │ 500 / voie
+Téléphonie, bandes latérales indépendantes (deux voies ou plus) │ [ill.] │ 500 / voie
+3. Radiodiffusion sonore
+Description de l’émission │ Désignation-type │ Taxe (Gdes / fréq. / an) │ Remarques
+Radiodiffusion sonore, double bande latérale │ 8K00A3EGN │ 3.000 : A 2.000 : B 1.500 : BC 1.000 : C 750 : D
+4. Télévision
+Description de l’émission │ Désignation-type │ Taxe (Gdes / fréq. / an) │ Remarques
+Télévision, image et son │ 6M25C3F 750KF3EGN │ 5.000 / voie
+5. Fac-similé
+Description de l’émission │ Désignation-type │ Taxe (Gdes / fréq. / an) │ Remarques
+Fac-similé analogique par modulation en fréquence de la sous-porteuse d’une émission à bande latérale unique, onde porteuse réduite, noir et blanc │ 2K89R3CMN │ 1.000
+Fac-similé analogique; modulation en fréquence d’une sous-porteuse audiofréquence modulant la porteuse principale, bande latérale unique, onde porteuse supprimée │ 1K98J3C-- │ 1.000
+6. Émissions composites
+Description de l’émission │ Désignation-type │ Taxe (Gdes / fréq. / an) │ Remarques
+Double bande latérale, faisceau hertzien de télévision │ ⟨13M1A8N⟩ │ 5.000 / voie
+[II. MODULATION DE FRÉQUENCE]
+Intitulé de section non lisible sur la source; il est déduit de la numérotation des sections (I. Modulation d’amplitude / III. Modulation par impulsions) et de la nature des désignations-types reprises ci-dessous (classes F et J).
+1. Télégraphie
+Description de l’émission │ Désignation-type │ Taxe (Gdes / fréq. / an) │ Remarques
+Signal d’appel sélectif │ 304HF1BCN │ 500
+Télégraphie duplex à 4 fréquences │ 1K42F7BDX │ 2.000
+2. Téléphonie (qualité commerciale)
+Description de l’émission │ Désignation-type │ Taxe (Gdes / fréq. / an) │ Remarques
+Téléphonie commerciale │ 16K0F3FJN │ 750 : 1ère fréquence 1.000 : 2ème fréquence 1.250 : 3ème fréquence 1.500 / fréquence au-dessus de 3 fréquences
+3. Radiodiffusion sonore
+Description de l’émission │ Désignation-type │ Taxe (Gdes / fréq. / an) │ Remarques
+Radiodiffusion sonore │ 180KF3EGN │ 1.500 : A 500 : B
+Radiodiffusion sonore │ 30K0F3EGN │ 500
+Radiodiffusion sonore stéréophonique avec sous-porteuse subsidiaire de téléphonie multiplexée │ ⟨300KF8EHF⟩ │ 2.000
+4. Fac-similé
+Description de l’émission │ Désignation-type │ Taxe (Gdes / fréq. / an) │ Remarques
+Fac-similé par modulation directe en fréquence de la porteuse; noir et blanc │ [ill.] │ 500
+Fac-similé analogique │ [ill.] │ 500
+5. Émissions composites
+Description de l’émission │ Désignation-type │ Taxe (Gdes / fréq. / an) │ Remarques
+Faisceau hertzien, multiplexage par répartition en fréquence │ F8LJF │ 1.000 / voie
+III. MODULATION PAR IMPULSIONS
+1. Radar
+Description de l’émission │ Désignation-type │ Taxe (Gdes / fréq. / an) │ Remarques
+Émission d’impulsions non modulées │ P0NAN │ 500
+2. Télégraphie
+Description de l’émission │ Désignation-type │ Taxe (Gdes / fréq. / an) │ Remarques
+— │ K1A K2A M2A │ 500 / voie 500 / voie 500 / voie
+3. Téléphonie
+Description de l’émission │ Désignation-type │ Taxe (Gdes / fréq. / an) │ Remarques
+— │ K2E L3E V3E │ * * *
+4. Émissions composites
+Description de l’émission │ Désignation-type │ Taxe (Gdes / fréq. / an) │ Remarques
+Faisceau hertzien │ ⟨M7E⟩ │ *
+* À déterminer en fonction de la largeur de bande nécessaire et du nombre de voies utilisables.
+CATÉGORIE B — Stations des services aéronautique et maritime
+Gdes 50 par an pour l’utilisation d’un poste et Gdes 15 par an par poste additionnel.
+CATÉGORIE C — Stations du service de radioamateur
+Gdes 100 par an.
+CATÉGORIE D — Stations du service de radio générale
+Gdes 50 par an et par poste.
+CERTIFICATS D’OPÉRATEUR
+1.- Opérateurs de 1ère classe : Gdes 100 / an
+2.- Opérateurs de 2ème classe : Gdes 100 / an
+3.- Opérateurs de 3ème classe : Gdes 25 / an
+Article 4.- Le Chef du Pouvoir Exécutif pourra, par arrêté, apporter toute modification reconnue nécessaire au présent barème des taxes.
+Article 5.- La validité des licences et permis d’exploitation des stations des différentes catégories de service est fixée comme suit :
+Catégorie A │ de un (1) à sept (7) ans
+Catégorie B │ de un (1) à cinq (5) ans
+Catégorie C │ de un (1) à cinq (5) ans
+Catégorie D │ de un (1) à cinq (5) ans
+Permis d’Opérateur │ de un (1) à cinq (5) ans
+Article 6.- La perception des droits de licence sera effectuée pour chaque exercice fiscal, à partir d’une liste préparée par le CONATEL, selon les règles de la Direction Générale des Impôts.
+Le non-paiement des droits afférents à l’exploitation des stations, dans le délai prévu par la Loi pour l’exercice fiscal en cours, entraînera l’annulation de la licence.
+Article 7.- Le présent Décret abroge toutes Lois ou dispositions de Lois, tous Décrets ou dispositions de Décrets, tous Décrets-Lois ou dispositions de Décrets-Lois qui lui sont contraires et sera publié et exécuté à la diligence des Ministres des Travaux Publics, Transports et Communications et de l’Économie et des Finances, chacun en ce qui le concerne.
+Donné au Palais National, à Port-au-Prince, le 26 juin 1987, an 184ème de l’Indépendance.
+Henri NAMPHY
+Lieutenant-Général FAd’H., Président
+Williams REGALA
+Général de Brigade FAd’H., Membre
+Me Luc D. HECTOR
+Membre
+Par le Conseil National de Gouvernement
+Le Ministre des Travaux Publics, Transports et Communications : Ing. Jacques JOACHIM, Colonel FAd’H
+Le Ministre de l’Économie et des Finances : Leslie DELATOUR
+Le Ministre de l’Intérieur et de la Défense Nationale : Williams REGALA, Général de Brigade FAd’H.
+Le Ministre de la Justice : Me François ST-FLEUR
+Le Ministre du Commerce et de l’Industrie : Mario CÉLESTIN
+Le Ministre des Affaires Étrangères et des Cultes : Hérard ABRAHAM, Colonel FAd’H.
+Le Ministre de l’Information et de la Coordination : Ing. Jacques LORTHE
+Le Ministre de l’Agriculture, des Ressources Naturelles et du Développement Rural : Agr. Gustave MÉNAGER
+Le Ministre de l’Éducation Nationale, de la Jeunesse et des Sports : Patrice DALENCOUR
+Le Ministre des Affaires Sociales : Me Gérard C. NOËL
+Le Ministre de la Santé Publique et de la Population : Dr Jean VERLY, Lieutenant-Colonel FAd’H.
+Le Ministre Sans Portefeuille : Jean René CONDÉ
+Le prénom du Ministre des Affaires Étrangères et des Cultes est restitué en « Hérard » : la source porte « Rérard », lecture manifestement fautive (confusion H/R de l’océrisation). Voir annexe I.

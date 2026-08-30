@@ -1,0 +1,42 @@
+CIRCULAIRE
+# CIR-20220011-Rev.0
+de l’Organe Exécutif du Conseil National des Télécommunications
+portant sur la licence de concessionnaire d’équipements de communications électroniques
+Vu la Constitution de la République ;
+Vu le décret du 12 octobre 1977 accordant à l’État Haïtien le monopole des services de télécommunications ;
+Vu le décret du 10 juin 1987 redéfinissant la mission du Conseil National des Télécommunications (CONATEL) et fixant les attributions d’Organe Exécutif en ce qui a trait à la planification, la règlementation et le contrôle des services de Télécommunications, et notamment en ses articles (alinéa g et h), 5, 6 et 7 ;
+Considérant qu’il convient de protéger le marché des équipements de communications électroniques et de garantir la fiabilité des constructions de réseau de télécommunication ;
+Considérant qu’il convient pour l’Organe Exécutif du Conseil National des Télécommunications d’assurer un meilleur contrôle sur les équipements de communications électroniques importés et de veiller à ce que ceux-ci correspondent à un usage autorisé sur le territoire haïtien ;
+Après en avoir délibéré le 25 novembre 2022 ;
+Et après que la présente a été jugée conforme aux lois de la République ;
+L’Organe Exécutif du Conseil National des Télécommunications pleinement habilité à l’effet des présente par les articles 3 alinéa g et h, 6 et 7 du décret du 10 juin 1987,
+Informe la population en général et les intéressés en particulier de la Décision qui suit :
+Article 1. Une licence de concessionnaire est obligatoire pour l’importation et la vente sur le territoire haïtien des équipements de communication répondant aux spécifications qui suivent :
+1. Équipements terminaux propriétaires ne pouvant être utilisés que sur un réseau spécifique, notamment les stations terriennes ;
+2. Équipements de télécommunications destinés à produire ou fournir un service de télécommunications pour lequel une autorisation est nécessaire.
+Article 2. La Licence de concessionnaire est accordée pour une durée de sept (7) ans, à compter de la date de délivrance (date d’entrée en vigueur).
+Article 3. Le titulaire de la licence doit placer la licence dans un cadre vitré qui doit être affiché bien en vue dans les locaux autorisés en tout temps.
+Article 4. Le titulaire de la licence doit exercer les activités de concessionnaire uniquement dans les locaux visés par l’autorisation.
+Article 5. Le titulaire de la licence doit :
+a. tenir un registre complet et exact de toutes les transactions, qui comprend les informations suivantes :
+i. la date de la transaction et les détails de l’équipement acheté et vendu ; tels que le type d’équipement, la marque, numéros de modèle et de série ;
+ii. le nom, l’adresse, les numéros de téléphone et l’adresse électronique du fournisseur/client ;
+b. produire le(s) registre(s) et montrer son stock d’appareil homologué à tout agent autorisé du CONATEL, sur demande ;
+c. déposer une copie du ou des registres auprès du CONATEL à la fin de chaque trimestre de l’année.
+Article 6. Le titulaire de la licence doit informer le CONATEL rapidement par écrit de tout changement de propriétaire, de raison sociale, coordonnées, nombre de points de vente, emplacement, etc. de l’entreprise.
+Article 7. La licence n’est pas transférable.
+Article 8. Le titulaire de la licence ne doit livrer les appareils mentionnés à l’article 1 alinéa 2) qu’à un consommateur détenant l’autorisation appropriée du CONATEL pour l’usage prescrit.
+Article 9. Le titulaire de la licence ne doit en aucun cas modifier les spécifications de l’appareil homologué.
+Article 10. Le CONATEL peut, à tout moment après la date d’entrée en vigueur de la présente licence, en modifier les modalités lorsqu’il le juge nécessaire ;
+Article 11. Le CONATEL peut suspendre ou révoquer la licence de concessionnaire en cas de non-respect par le titulaire de la licence des dispositions qui y sont contenues.
+Article 12. Le titulaire de la licence paie le droit de licence fixé par la loi chaque année à la Direction Générale des Impôts, DGI ;
+Le titulaire de la licence paie la redevance de licence fixée par le barème des frais et redevances à la date d’entrée en vigueur de la licence et annuellement à chaque date anniversaire d’octroi de la licence ;
+Le titulaire de la licence paie la redevance administrative de 1,67 % sur son Chiffre d’Affaires pour les produits objets de sa concession au titre du principe d’équité envers les opérateurs de réseaux payant ladite redevance pour l’exploitation de leur réseau.
+Le titulaire de la licence doit payer les redevances d’usage annuelles des appareils vendus ou enregistrés telles que spécifiées par le barème des frais et des redevances, tous les trimestres, tant pour les équipements qu’il aurait vendu, que pour ceux vendus en ligne à partir du site du fabricant ;
+Article 13. Le licencié doit fournir au CONATEL une liste de tous les appareils sous licence qu’il a l’intention d’importer dans le pays.
+Article 14. Le titulaire de la licence est tenu de déposer une copie des états financiers vérifiés de son entreprise auprès du CONATEL au même moment où il les dépose à la Direction Générale des Impôts.
+Article 15. La présente circulaire entre en vigueur dès sa publication.
+Fait à Port-au-Prince le 25 novembre 2022
+Pour l’Organe Exécutif du Conseil National des Télécommunications
+Jean-Marie GUILLAUME
+Directeur Général

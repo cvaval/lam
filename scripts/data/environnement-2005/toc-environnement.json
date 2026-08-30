@@ -1,0 +1,248 @@
+[
+ {
+  "level": 1,
+  "label": "TITRE I — DES DISPOSITIONS GÉNÉRALES",
+  "anchor": "sec-1",
+  "kind": "titre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE I — DE L'OBJET ET DES DÉFINITIONS",
+  "anchor": "sec-2",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE II — DES PRINCIPES DE BASE",
+  "anchor": "sec-3",
+  "kind": "chapitre"
+ },
+ {
+  "level": 1,
+  "label": "TITRE II — DES ORGANES DE GESTION DE L'ENVIRONNEMENT",
+  "anchor": "sec-4",
+  "kind": "titre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE UNIQUE",
+  "anchor": "sec-5",
+  "kind": "chapitre"
+ },
+ {
+  "level": 1,
+  "label": "TITRE III — DES INSTRUMENTS POUR LA GESTION DE L'ENVIRONNEMENT",
+  "anchor": "sec-6",
+  "kind": "titre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE I — GÉNÉRALITÉS",
+  "anchor": "sec-7",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE II — DE LA PLANIFICATION ENVIRONNEMENTALE",
+  "anchor": "sec-8",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE III — DE L'AMÉNAGEMENT DU TERRITOIRE",
+  "anchor": "sec-9",
+  "kind": "chapitre"
+ },
+ {
+  "level": 3,
+  "label": "Section I.- Normes Communes",
+  "anchor": "sec-10",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "Section II.- De l'Habitat",
+  "anchor": "sec-11",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "Section III.- De l'Urbanisme",
+  "anchor": "sec-12",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "Section IV.- Du patrimoine naturel et culturel",
+  "anchor": "sec-13",
+  "kind": "section"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE III — DES AIRES PROTÉGÉES",
+  "anchor": "sec-14",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE IV — DE L'ÉVALUATION ENVIRONNEMENTALE",
+  "anchor": "sec-15",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE V — DE LA SURVEILLANCE ENVIRONNEMENTALE",
+  "anchor": "sec-16",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE VI — DE L'INFORMATION ENVIRONNEMENTALE",
+  "anchor": "sec-17",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE VI — DE L'ÉDUCATION RELATIVE À L'ENVIRONNEMENT",
+  "anchor": "sec-18",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE VII — DES FONDS ENVIRONNEMENTAUX",
+  "anchor": "sec-19",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE VIII — DES INSTRUMENTS ÉCONOMIQUES ET DE MARCHÉ",
+  "anchor": "sec-20",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE IX — DE LA RECHERCHE SCIENTIFIQUE ET TECHNIQUE",
+  "anchor": "sec-21",
+  "kind": "chapitre"
+ },
+ {
+  "level": 1,
+  "label": "TITRE IV — DES RESSOURCES NATURELLES, DES POLLUTIONS ET DES NUISANCES",
+  "anchor": "sec-22",
+  "kind": "titre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE I — NORMES COMMUNES",
+  "anchor": "sec-23",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE II — DES SOLS ET DES ÉCOSYSTÈMES TERRESTRES",
+  "anchor": "sec-24",
+  "kind": "chapitre"
+ },
+ {
+  "level": 3,
+  "label": "Section I.- Normes communes.",
+  "anchor": "sec-25",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "Section II.- Normes spéciales pour la protection des sols utilisés pour les activités agricoles",
+  "anchor": "sec-26",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "Section III.- Normes spéciales pour la protection des sols forestiers et des forêts naturelles",
+  "anchor": "sec-27",
+  "kind": "section"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE III — DES RESSOURCES MINÉRALES ET FOSSILES",
+  "anchor": "sec-28",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE IV — DES EAUX CONTINENTALES",
+  "anchor": "sec-29",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE V — DES EAUX MARITIMES ET DE LEURS RESSOURCES",
+  "anchor": "sec-30",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE VI — DE L'AIR",
+  "anchor": "sec-31",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE VII — DE LA DIVERSITÉ BIOLOGIQUE",
+  "anchor": "sec-32",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE VIII — DES RÉSIDUS SOLIDES",
+  "anchor": "sec-33",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE IX — DES SUBSTANCES ET DÉCHETS DANGEREUX",
+  "anchor": "sec-34",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE X — DES RISQUES LIÉS AUX PHÉNOMÈNES NATURELS",
+  "anchor": "sec-35",
+  "kind": "chapitre"
+ },
+ {
+  "level": 1,
+  "label": "TITRE V — DES COMPÉTENCES, RESPONSABILITÉS ET RESPONSABILITÉS POUR DOMMAGE ENVIRONNEMENTAL",
+  "anchor": "sec-36",
+  "kind": "titre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE I — DES COMPÉTENCES INSTITUTIONNELLES",
+  "anchor": "sec-37",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE II — DES INFRACTIONS ENVIRONNEMENTALES",
+  "anchor": "sec-38",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE III — DE LA DOUBLE RESPONSABILITÉ PÉNALE ET CIVILE",
+  "anchor": "sec-39",
+  "kind": "chapitre"
+ },
+ {
+  "level": 1,
+  "label": "TITRE VI — DES DISPOSITIONS TRANSITOIRES",
+  "anchor": "sec-40",
+  "kind": "titre"
+ },
+ {
+  "level": 1,
+  "label": "TITRE VII — DES DISPOSITIONS ABROGATIVES",
+  "anchor": "sec-41",
+  "kind": "titre"
+ }
+]

@@ -1,0 +1,56 @@
+[
+ {
+  "level": 2,
+  "label": "CHAPITRE I — DISPOSITIONS GÉNÉRALES",
+  "anchor": "sec-1",
+  "kind": "chapitre"
+ },
+ {
+  "level": 3,
+  "label": "SECTION 1 — OBJET ET CHAMP D’APPLICATION",
+  "anchor": "sec-2",
+  "kind": "section"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE II — DU RECENSEMENT, DE L’IDENTIFICATION ET DE LA VACCINATION DES BŒUFS",
+  "anchor": "sec-3",
+  "kind": "chapitre"
+ },
+ {
+  "level": 3,
+  "label": "SECTION 1 — DU RECENSEMENT DES BŒUFS",
+  "anchor": "sec-4",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "SECTION 2 — DE L’IDENTIFICATION ET DE LA VACCINATION DES BŒUFS",
+  "anchor": "sec-5",
+  "kind": "section"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE III — DE L’ABATTAGE DES BŒUFS",
+  "anchor": "sec-6",
+  "kind": "chapitre"
+ },
+ {
+  "level": 3,
+  "label": "SECTION 1 — DES MODALITÉS DE RÉALISATION DE L’ABATTAGE",
+  "anchor": "sec-7",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "SECTION 2 — DES MODALITÉS DE CONTRÔLE DE L’ABATTAGE",
+  "anchor": "sec-8",
+  "kind": "section"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE IV — DISPOSITIONS FINALES",
+  "anchor": "sec-9",
+  "kind": "chapitre"
+ }
+]

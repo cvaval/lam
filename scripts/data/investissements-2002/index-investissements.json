@@ -1,0 +1,1085 @@
+[
+ {
+  "subject": "Abrogation",
+  "ctRefs": [
+   "49",
+   "83"
+  ]
+ },
+ {
+  "subject": "Actionnaires",
+  "ctRefs": [
+   "21"
+  ]
+ },
+ {
+  "subject": "Admission temporaire",
+  "ctRefs": [
+   "5",
+   "28",
+   "29",
+   "31",
+   "33",
+   "35",
+   "38"
+  ]
+ },
+ {
+  "subject": "Agrément",
+  "ctRefs": [
+   "27",
+   "28",
+   "33",
+   "35",
+   "37",
+   "53",
+   "54",
+   "58"
+  ]
+ },
+ {
+  "subject": "Agriculture",
+  "ctRefs": [
+   "19",
+   "30",
+   "31",
+   "52",
+   "81",
+   "83"
+  ]
+ },
+ {
+  "subject": "Amende",
+  "ctRefs": [
+   "61",
+   "76",
+   "77"
+  ]
+ },
+ {
+  "subject": "Année financière — rapport annuel",
+  "ctRefs": [
+   "71"
+  ]
+ },
+ {
+  "subject": "Aquaculture / élevage industriel",
+  "ctRefs": [
+   "30"
+  ]
+ },
+ {
+  "subject": "Arbitrage — sentences arbitrales",
+  "ctRefs": [
+   "15"
+  ]
+ },
+ {
+  "subject": "Arrêté",
+  "ctRefs": [
+   "38",
+   "42",
+   "50",
+   "52"
+  ]
+ },
+ {
+  "subject": "Artisanat",
+  "ctRefs": [
+   "19",
+   "32",
+   "33"
+  ]
+ },
+ {
+  "subject": "Assemblage de produits",
+  "ctRefs": [
+   "5"
+  ]
+ },
+ {
+  "subject": "Autobus (transport du personnel)",
+  "ctRefs": [
+   "29",
+   "35"
+  ]
+ },
+ {
+  "subject": "Avantages incitatifs",
+  "ctRefs": [
+   "5",
+   "18",
+   "19",
+   "21",
+   "23",
+   "24",
+   "28",
+   "44",
+   "48",
+   "62",
+   "63",
+   "66",
+   "72",
+   "74",
+   "75",
+   "77"
+  ]
+ },
+ {
+  "subject": "Avenant",
+  "ctRefs": [
+   "50"
+  ]
+ },
+ {
+  "subject": "Avis motivé",
+  "ctRefs": [
+   "6",
+   "50"
+  ]
+ },
+ {
+  "subject": "Bail (durée)",
+  "ctRefs": [
+   "39",
+   "51"
+  ]
+ },
+ {
+  "subject": "Balance des paiements",
+  "ctRefs": [
+   "2"
+  ]
+ },
+ {
+  "subject": "Bénéficiaire",
+  "ctRefs": [
+   "4",
+   "21",
+   "22",
+   "23",
+   "24",
+   "26",
+   "41",
+   "47",
+   "49",
+   "54",
+   "69",
+   "72",
+   "73",
+   "82"
+  ]
+ },
+ {
+  "subject": "Biens d'équipement",
+  "ctRefs": [
+   "28",
+   "29",
+   "31",
+   "33",
+   "35",
+   "38"
+  ]
+ },
+ {
+  "subject": "Bordereaux fiscaux",
+  "ctRefs": [
+   "70",
+   "75"
+  ]
+ },
+ {
+  "subject": "Carte de santé",
+  "ctRefs": [
+   "24"
+  ]
+ },
+ {
+  "subject": "Caution « judicatum solvi »",
+  "ctRefs": [
+   "16"
+  ]
+ },
+ {
+  "subject": "Charge d'exploitation",
+  "ctRefs": [
+   "25"
+  ]
+ },
+ {
+  "subject": "Chiffre d'affaires (T.C.A.)",
+  "ctRefs": [
+   "36"
+  ]
+ },
+ {
+  "subject": "Code de Procédure Civile",
+  "ctRefs": [
+   "15"
+  ]
+ },
+ {
+  "subject": "Code Douanier",
+  "ctRefs": [
+   "28",
+   "31",
+   "33",
+   "35",
+   "38"
+  ]
+ },
+ {
+  "subject": "Code du Travail",
+  "ctRefs": [
+   "7",
+   "29",
+   "35"
+  ]
+ },
+ {
+  "subject": "Comité d'appel",
+  "ctRefs": [
+   "57",
+   "59",
+   "60"
+  ]
+ },
+ {
+  "subject": "Commission de mise en œuvre",
+  "ctRefs": [
+   "80",
+   "81"
+  ]
+ },
+ {
+  "subject": "Commission Interministérielle des Investissements",
+  "ctRefs": [
+   "5",
+   "22",
+   "26",
+   "27",
+   "28",
+   "30",
+   "32",
+   "33",
+   "35",
+   "37",
+   "39",
+   "44",
+   "45",
+   "46",
+   "47",
+   "48",
+   "49",
+   "53",
+   "54",
+   "55",
+   "56",
+   "58",
+   "74",
+   "79"
+  ]
+ },
+ {
+  "subject": "Comptabilité",
+  "ctRefs": [
+   "63",
+   "65"
+  ]
+ },
+ {
+  "subject": "Conditionnement",
+  "ctRefs": [
+   "5",
+   "31",
+   "34"
+  ]
+ },
+ {
+  "subject": "Confidentialité — secret professionnel",
+  "ctRefs": [
+   "73"
+  ]
+ },
+ {
+  "subject": "Constitution",
+  "ctRefs": [
+   "1",
+   "7",
+   "9",
+   "17"
+  ]
+ },
+ {
+  "subject": "Contrainte administrative",
+  "ctRefs": [
+   "76",
+   "77"
+  ]
+ },
+ {
+  "subject": "Contrefaçon",
+  "ctRefs": [
+   "14"
+  ]
+ },
+ {
+  "subject": "Contribution Foncière des propriétés bâties",
+  "ctRefs": [
+   "38"
+  ]
+ },
+ {
+  "subject": "Contrôle",
+  "ctRefs": [
+   "49",
+   "52",
+   "65",
+   "67",
+   "73"
+  ]
+ },
+ {
+  "subject": "Convention avec l'État",
+  "ctRefs": [
+   "1",
+   "15",
+   "37",
+   "41",
+   "42",
+   "43",
+   "48",
+   "49",
+   "50",
+   "51"
+  ]
+ },
+ {
+  "subject": "Coopératives",
+  "ctRefs": [
+   "31",
+   "33"
+  ]
+ },
+ {
+  "subject": "Délai de notification (10 jours ouvrables)",
+  "ctRefs": [
+   "53"
+  ]
+ },
+ {
+  "subject": "Délai de recours (15 jours)",
+  "ctRefs": [
+   "57",
+   "80"
+  ]
+ },
+ {
+  "subject": "Dépréciation accélérée",
+  "ctRefs": [
+   "27"
+  ]
+ },
+ {
+  "subject": "Dispense de dépôt de garantie",
+  "ctRefs": [
+   "28",
+   "29",
+   "31",
+   "33",
+   "35",
+   "38"
+  ]
+ },
+ {
+  "subject": "Dividendes",
+  "ctRefs": [
+   "17"
+  ]
+ },
+ {
+  "subject": "Domaine privé et public de l'État",
+  "ctRefs": [
+   "39",
+   "51"
+  ]
+ },
+ {
+  "subject": "Douanes — Administration Générale",
+  "ctRefs": [
+   "66"
+  ]
+ },
+ {
+  "subject": "Drawback",
+  "ctRefs": [
+   "5"
+  ]
+ },
+ {
+  "subject": "Droit commun (régime de)",
+  "ctRefs": [
+   "3",
+   "5",
+   "8"
+  ]
+ },
+ {
+  "subject": "Droit de propriété",
+  "ctRefs": [
+   "11",
+   "13"
+  ]
+ },
+ {
+  "subject": "Élevage",
+  "ctRefs": [
+   "30",
+   "31"
+  ]
+ },
+ {
+  "subject": "Emballage (matériel d')",
+  "ctRefs": [
+   "29",
+   "31",
+   "33",
+   "34"
+  ]
+ },
+ {
+  "subject": "Employé étranger",
+  "ctRefs": [
+   "23",
+   "25"
+  ]
+ },
+ {
+  "subject": "Entrepôt de douane",
+  "ctRefs": [
+   "5"
+  ]
+ },
+ {
+  "subject": "Entreprise de l'État ou contrôlée par l'État",
+  "ctRefs": [
+   "9",
+   "10"
+  ]
+ },
+ {
+  "subject": "Entreprise franche",
+  "ctRefs": [
+   "5"
+  ]
+ },
+ {
+  "subject": "Environnement",
+  "ctRefs": [
+   "6",
+   "42",
+   "83"
+  ]
+ },
+ {
+  "subject": "États financiers",
+  "ctRefs": [
+   "61"
+  ]
+ },
+ {
+  "subject": "Exonération de l'impôt sur le revenu",
+  "ctRefs": [
+   "26",
+   "27",
+   "38"
+  ]
+ },
+ {
+  "subject": "Exportation",
+  "ctRefs": [
+   "5",
+   "19",
+   "29",
+   "36"
+  ]
+ },
+ {
+  "subject": "Expropriation",
+  "ctRefs": [
+   "13"
+  ]
+ },
+ {
+  "subject": "Force majeure",
+  "ctRefs": [
+   "26",
+   "27"
+  ]
+ },
+ {
+  "subject": "Formation professionnelle",
+  "ctRefs": [
+   "2",
+   "25",
+   "49",
+   "71"
+  ]
+ },
+ {
+  "subject": "Formulaire de demande",
+  "ctRefs": [
+   "48",
+   "66"
+  ]
+ },
+ {
+  "subject": "Franchise douanière et fiscale",
+  "ctRefs": [
+   "5",
+   "29",
+   "31",
+   "33",
+   "35",
+   "38",
+   "65",
+   "67",
+   "68"
+  ]
+ },
+ {
+  "subject": "Fusion / rachat partiel",
+  "ctRefs": [
+   "22"
+  ]
+ },
+ {
+  "subject": "Garanties financières",
+  "ctRefs": [
+   "41",
+   "42"
+  ]
+ },
+ {
+  "subject": "Garanties générales",
+  "ctRefs": [
+   "2",
+   "3",
+   "11",
+   "13",
+   "14"
+  ]
+ },
+ {
+  "subject": "Horticulture",
+  "ctRefs": [
+   "30"
+  ]
+ },
+ {
+  "subject": "Hôtellerie",
+  "ctRefs": [
+   "27",
+   "37"
+  ]
+ },
+ {
+  "subject": "Impôt sur le revenu",
+  "ctRefs": [
+   "21",
+   "26",
+   "27",
+   "38"
+  ]
+ },
+ {
+  "subject": "Impôt sur le revenu individuel",
+  "ctRefs": [
+   "21",
+   "38"
+  ]
+ },
+ {
+  "subject": "Indemnisation",
+  "ctRefs": [
+   "13",
+   "74"
+  ]
+ },
+ {
+  "subject": "Industrie nationale",
+  "ctRefs": [
+   "19",
+   "36"
+  ]
+ },
+ {
+  "subject": "Infrastructures",
+  "ctRefs": [
+   "20"
+  ]
+ },
+ {
+  "subject": "Ingérence de l'État",
+  "ctRefs": [
+   "8"
+  ]
+ },
+ {
+  "subject": "Intrants agricoles (semences, engrais)",
+  "ctRefs": [
+   "31"
+  ]
+ },
+ {
+  "subject": "Investissement prioritaire",
+  "ctRefs": [
+   "2",
+   "5",
+   "42"
+  ]
+ },
+ {
+  "subject": "Investissement privilégié",
+  "ctRefs": [
+   "5",
+   "22",
+   "34",
+   "64",
+   "82"
+  ]
+ },
+ {
+  "subject": "Investisseur étranger",
+  "ctRefs": [
+   "11",
+   "15",
+   "16"
+  ]
+ },
+ {
+  "subject": "Investisseur haïtien",
+  "ctRefs": [
+   "11"
+  ]
+ },
+ {
+  "subject": "Journal officiel — publication",
+  "ctRefs": [
+   "54",
+   "79"
+  ]
+ },
+ {
+  "subject": "Liberté d'entreprise",
+  "ctRefs": [
+   "7",
+   "8",
+   "17"
+  ]
+ },
+ {
+  "subject": "Licence des étrangers (droit de)",
+  "ctRefs": [
+   "23"
+  ]
+ },
+ {
+  "subject": "Livre de stock",
+  "ctRefs": [
+   "65",
+   "66",
+   "70"
+  ]
+ },
+ {
+  "subject": "Logiciel",
+  "ctRefs": [
+   "27",
+   "65"
+  ]
+ },
+ {
+  "subject": "Main-d'œuvre nationale",
+  "ctRefs": [
+   "2"
+  ]
+ },
+ {
+  "subject": "Marques de fabrique et brevets",
+  "ctRefs": [
+   "17"
+  ]
+ },
+ {
+  "subject": "Matières premières",
+  "ctRefs": [
+   "29",
+   "34",
+   "35",
+   "67"
+  ]
+ },
+ {
+  "subject": "Ministère de l'Économie et des Finances",
+  "ctRefs": [
+   "45",
+   "46",
+   "57",
+   "59",
+   "60",
+   "66",
+   "69",
+   "73",
+   "75",
+   "79",
+   "80",
+   "81",
+   "83"
+  ]
+ },
+ {
+  "subject": "Ministère de la Santé Publique",
+  "ctRefs": [
+   "24",
+   "83"
+  ]
+ },
+ {
+  "subject": "Ministère du Commerce et de l'Industrie",
+  "ctRefs": [
+   "45",
+   "57",
+   "64",
+   "81",
+   "83"
+  ]
+ },
+ {
+  "subject": "Ministère du Tourisme",
+  "ctRefs": [
+   "39",
+   "45",
+   "81"
+  ]
+ },
+ {
+  "subject": "Monopole",
+  "ctRefs": [
+   "9",
+   "52"
+  ]
+ },
+ {
+  "subject": "Municipalité",
+  "ctRefs": [
+   "39"
+  ]
+ },
+ {
+  "subject": "Nationalité",
+  "ctRefs": [
+   "3",
+   "17"
+  ]
+ },
+ {
+  "subject": "Non-discrimination",
+  "ctRefs": [
+   "10",
+   "11",
+   "15"
+  ]
+ },
+ {
+  "subject": "Normes comptables",
+  "ctRefs": [
+   "63"
+  ]
+ },
+ {
+  "subject": "Patente (droit fixe de)",
+  "ctRefs": [
+   "27"
+  ]
+ },
+ {
+  "subject": "Pêche",
+  "ctRefs": [
+   "30",
+   "31"
+  ]
+ },
+ {
+  "subject": "Perfectionnement actif",
+  "ctRefs": [
+   "5",
+   "29"
+  ]
+ },
+ {
+  "subject": "Permis de séjour",
+  "ctRefs": [
+   "11"
+  ]
+ },
+ {
+  "subject": "Permis de travail / d'emploi",
+  "ctRefs": [
+   "23"
+  ]
+ },
+ {
+  "subject": "Pièces de rechange",
+  "ctRefs": [
+   "29",
+   "31",
+   "33",
+   "35",
+   "38"
+  ]
+ },
+ {
+  "subject": "Prix (communication au Ministère)",
+  "ctRefs": [
+   "64"
+  ]
+ },
+ {
+  "subject": "Programme d'activités et de production",
+  "ctRefs": [
+   "48",
+   "62",
+   "66",
+   "67"
+  ]
+ },
+ {
+  "subject": "Propriété intellectuelle",
+  "ctRefs": [
+   "14"
+  ]
+ },
+ {
+  "subject": "Prospection et recherche",
+  "ctRefs": [
+   "29",
+   "35",
+   "38"
+  ]
+ },
+ {
+  "subject": "Récidive",
+  "ctRefs": [
+   "77"
+  ]
+ },
+ {
+  "subject": "Recours (voies de)",
+  "ctRefs": [
+   "56",
+   "57",
+   "58",
+   "59"
+  ]
+ },
+ {
+  "subject": "Recours gracieux",
+  "ctRefs": [
+   "57"
+  ]
+ },
+ {
+  "subject": "Réexportation",
+  "ctRefs": [
+   "5",
+   "19",
+   "29"
+  ]
+ },
+ {
+  "subject": "Régimes suspensifs",
+  "ctRefs": [
+   "5"
+  ]
+ },
+ {
+  "subject": "Réhabilitation / modernisation",
+  "ctRefs": [
+   "28",
+   "35"
+  ]
+ },
+ {
+  "subject": "Rejet (décision de)",
+  "ctRefs": [
+   "8",
+   "53",
+   "55",
+   "58",
+   "60"
+  ]
+ },
+ {
+  "subject": "Retrait des avantages",
+  "ctRefs": [
+   "4",
+   "47",
+   "74",
+   "75"
+  ]
+ },
+ {
+  "subject": "Revenu privilégié",
+  "ctRefs": [
+   "5"
+  ]
+ },
+ {
+  "subject": "Sanction par arrêté ou par une loi",
+  "ctRefs": [
+   "50",
+   "51"
+  ]
+ },
+ {
+  "subject": "Sanctions",
+  "ctRefs": [
+   "49",
+   "62",
+   "65",
+   "74",
+   "75",
+   "76",
+   "78"
+  ]
+ },
+ {
+  "subject": "Sécurité et surveillance (équipements)",
+  "ctRefs": [
+   "29",
+   "35",
+   "38"
+  ]
+ },
+ {
+  "subject": "Services de santé (entreprise)",
+  "ctRefs": [
+   "24"
+  ]
+ },
+ {
+  "subject": "Sociétés de développement agricole",
+  "ctRefs": [
+   "31"
+  ]
+ },
+ {
+  "subject": "Subrogation de l'acquéreur",
+  "ctRefs": [
+   "22"
+  ]
+ },
+ {
+  "subject": "Sylviculture",
+  "ctRefs": [
+   "30"
+  ]
+ },
+ {
+  "subject": "Taxe sur la masse salariale",
+  "ctRefs": [
+   "29",
+   "31",
+   "33",
+   "35"
+  ]
+ },
+ {
+  "subject": "Taxes communales",
+  "ctRefs": [
+   "27"
+  ]
+ },
+ {
+  "subject": "Technologie (achat de)",
+  "ctRefs": [
+   "25"
+  ]
+ },
+ {
+  "subject": "Tourisme",
+  "ctRefs": [
+   "19",
+   "37",
+   "38",
+   "39",
+   "45",
+   "52",
+   "57",
+   "81",
+   "83"
+  ]
+ },
+ {
+  "subject": "Transfert de dividendes et revenus",
+  "ctRefs": [
+   "17"
+  ]
+ },
+ {
+  "subject": "Tribunal correctionnel",
+  "ctRefs": [
+   "14",
+   "77"
+  ]
+ },
+ {
+  "subject": "Utilité publique",
+  "ctRefs": [
+   "13"
+  ]
+ },
+ {
+  "subject": "Valeur ajoutée",
+  "ctRefs": [
+   "2",
+   "34"
+  ]
+ },
+ {
+  "subject": "Vente, cession ou transfert",
+  "ctRefs": [
+   "22",
+   "77"
+  ]
+ },
+ {
+  "subject": "Vérification (frais de)",
+  "ctRefs": [
+   "29"
+  ]
+ },
+ {
+  "subject": "Zones de développement agricole",
+  "ctRefs": [
+   "52"
+  ]
+ },
+ {
+  "subject": "Zones de développement touristique",
+  "ctRefs": [
+   "37",
+   "38",
+   "52"
+  ]
+ },
+ {
+  "subject": "Zones franches",
+  "ctRefs": [
+   "5",
+   "19",
+   "40"
+  ]
+ }
+]

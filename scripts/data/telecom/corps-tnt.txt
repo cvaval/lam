@@ -1,0 +1,266 @@
+Le Moniteur
+Paraissant du Lundi au Vendredi
+JOURNAL OFFICIEL DE LA RÉPUBLIQUE D’HAÏTI
+Directeur Général : Ronald Saint Jean
+181e Année - Spécial N° 17 — PORT-AU-PRINCE — Mardi 31 Mars 2026
+SOMMAIRE
+DÉCRET
+DÉCRET PORTANT MIGRATION DE LA TÉLÉVISION ANALOGIQUE VERS LA TÉLÉVISION NUMÉRIQUE TERRESTRE
+NUMÉRO SPÉCIAL
+LIBERTÉ ÉGALITÉ FRATERNITÉ
+RÉPUBLIQUE D’HAÏTI
+DÉCRET
+DÉCRET PORTANT MIGRATION DE LA TÉLÉVISION ANALOGIQUE VERS LA TÉLÉVISION NUMÉRIQUE TERRESTRE
+LE CONSEIL DES MINISTRES
+Vu la Constitution de 1987 ;
+Vu la Loi constitutionnelle du 9 mai 2011 portant amendement de la Constitution de 1987 ;
+Vu le Pacte National pour la Stabilité et l’Organisation des Élections du 21 février 2026, publié au Journal Officiel « Le Moniteur » Spécial N° 7 du 23 février 2026 ;
+Vu le Décret du 27 septembre 1969 portant création du Conseil National des Télécommunications (CONATEL) ;
+Vu le Décret du 12 octobre 1977 accordant à l’État Haïtien le monopole des services de télécommunication ;
+Vu la Loi du 18 octobre 1983 organisant le Département Ministériel des Travaux Publics, Transports et Communications ;
+Vu le Décret du 10 juin 1987 redéfinissant la mission du Conseil National des Télécommunications (CONATEL) et fixant ses attributions en ce qui a trait à la planification, à la réglementation et au contrôle des services de télécommunication ;
+Vu le Décret du 26 juin 1987 dotant le Conseil National des Télécommunications (CONATEL) de moyens techniques et adoptant un mode de taxation pour l’utilisation des fréquences ;
+Vu le Décret du 17 mai 2005 portant organisation de l’Administration centrale de l’État, amendé par celui du 6 janvier 2016 ;
+Vu le Décret du 12 octobre 2005 sur les droits d’auteur ;
+Vu le Décret du 23 novembre 2005 établissant l’organisation et le fonctionnement de la Cour Supérieure des Comptes et du Contentieux Administratif (CSCCA) ;
+Vu la Loi du 10 juin 2009 fixant les règles générales relatives aux Marchés publics et aux Conventions de Concession d’ouvrage de Service public ;
+Vu la Loi du 14 février 2017 portant sur la signature électronique, adaptant le droit de la preuve aux technologies de l’information et élargissant les compétences du Conseil National des Télécommunications (CONATEL), amendée par le Décret du 20 août 2025 ;
+Vu le Décret du 7 février 2026 plaçant le Pouvoir Exécutif sous l’égide du Conseil des Ministres au regard de la vacance de la Présidence de la République ;
+Considérant l’importance des services audiovisuels pour l’émancipation sociale, éducative et culturelle ;
+Considérant que l’État a l’obligation de favoriser le développement de l’audiovisuel haïtien ;
+Considérant qu’en raison de l’évolution rapide de la technologie, il convient de changer le mode d’adoption de la version de la norme de télévision numérique terrestre fixée par Arrêté du 9 juillet 2013 fixant la norme de transmission des signaux de Télévision Numérique Terrestre (TNT) sur le territoire national ;
+Considérant qu’à cet effet, il y a lieu d’établir les règles relatives à la migration de la télévision analogique vers la télévision numérique terrestre ;
+Considérant que le Pouvoir Législatif est, pour le moment, inopérant et qu’il y a alors lieu pour le Pouvoir Exécutif de légiférer par Décret sur les objets d’intérêt public ;
+Sur le rapport du Ministre des Travaux Publics, Transports et Communications ;
+Et après délibération ;
+DÉCRÈTE
+CHAPITRE PREMIER
+DISPOSITIONS GÉNÉRALES
+Section 1re
+Objet
+Article 1er.- Le présent Décret porte migration de la télévision analogique vers la Télévision Numérique Terrestre (TNT).
+Section 2
+Principes et terminologie
+Article 2.- La transition de la télévision analogique à la TNT s’effectue dans le respect :
+1. des normes techniques adoptées en la matière ;
+2. de l’accès universel au service de télévision ;
+3. du calendrier d’extinction du signal analogique défini par le Ministère des Travaux Publics, Transports et Communications (MTPTC), sur proposition du Conseil National des Télécommunications (CONATEL).
+Article 3.- Au sens du présent Décret, on entend par :
+1. Abonné : personne physique ou morale partie à un contrat avec un distributeur de services de communication audiovisuelle accessibles au public, pour la fourniture de tels services.
+2. Adaptateur ou décodeur numérique : boîtier électronique qui permet à un poste téléviseur analogique de recevoir les images d’une chaîne de télévision numérique terrestre.
+3. Distributeur de services : personne morale qui met à la disposition du public un ou des services de radiodiffusion de quelque manière que ce soit, notamment par voie hertzienne terrestre, par satellite ou par câble et qui établit avec des éditeurs de services des relations contractuelles en vue de constituer une offre de services.
+Est également considérée comme distributeur de services, toute personne morale qui constitue une telle offre en établissant des relations contractuelles avec d’autres distributeurs.
+4. Éditeur de service (ou chaîne de télévision) : personne physique ou morale légalement autorisée qui assume une responsabilité éditoriale d’un ou de plusieurs programmes de télévision qu’elle a produits, coproduits ou sur lesquels elle a acquis des droits en vue de les faire diffuser dans une ou plusieurs zones déterminées.
+5. TNT : Télévision Numérique Terrestre.
+6. Opérateur de diffusion : Société anonyme qui réalise les opérations techniques de multiplexage et de diffusion en vue de mettre un ou plusieurs programmes de télévision à la disposition du public dans une zone de couverture déterminée.
+7. Opérateur de transport : personne morale légalement autorisée qui établit un réseau de transmission pouvant acheminer des signaux de télécommunications d’un point déterminé à un autre point donné.
+8. Média de service public : Institution publique dont la mission est d’informer, d’éduquer et de divertir le public dans l’intérêt général, indépendamment des pouvoirs politiques, des pressions économiques ou des questions d’audience.
+9. Service de télévision : service de communication au public par voie électronique destiné à être reçu simultanément par l’ensemble ou une catégorie du public et dont le programme principal est composé d’une suite ordonnée d’émissions comportant des images et des sons.
+10. Simulcast : diffusion simultanée des émissions radiophoniques ou télévisuelles en mode numérique et en mode analogique.
+11. Récepteur de télévision numérique : dispositif destiné à la réception de services de télévision numérique.
+12. Multiplex : flux numérique transporté par un canal radioélectrique et utilisé pour véhiculer un certain nombre de programmes, de services associés, de données de signalisation. Le multiplex est caractérisé par un débit total donné.
+13. Opérateur de réseau de radiodiffusion : personne morale qui assure les opérations techniques d’un réseau de radiodiffusion et nécessaires à la transmission et à la diffusion auprès du public des services de radiodiffusion.
+14. Réseau de radiodiffusion : systèmes de transmission et, le cas échéant, les équipements de commutation ou de routage et les autres ressources, qui permettent l’acheminement de signaux porteurs de services de radiodiffusion par câble, par voie hertzienne, par moyen optique ou par d’autres moyens électromagnétiques.
+CHAPITRE II — PILOTAGE DE LA MIGRATION VERS LA TÉLÉVISION NUMÉRIQUE TERRESTRE
+Section 1re
+Ministère des Travaux Publics, Transports et Communications
+Article 4.- Dans le cadre de la migration vers la TNT, le MTPTC a pour attributions de :
+1. octroyer, sur recommandation du CONATEL, les licences d’exploitation aux opérateurs de diffusion ;
+2. informer le public sur la migration de la télévision analogique vers la TNT ;
+3. définir, sur proposition du CONATEL, le calendrier d’extinction du signal analogique ;
+4. exercer toutes autres attributions connexes.
+Section 2
+Ministère de la Culture et de la Communication
+Article 5.- Dans le cadre de la migration vers la TNT, le Ministère de la Culture et de la Communication a pour attributions de :
+1. promouvoir la numérisation du patrimoine audiovisuel haïtien ;
+2. informer le public sur la migration de la télévision analogique vers la TNT ;
+3. définir les quotas de production haïtienne devant être diffusés par les éditeurs de service ;
+4. redéfinir le cadre de fonctionnement des média de service public dans le nouvel environnement numérique en accord avec les instances concernées ;
+5. exercer toutes autres attributions connexes.
+Section 3
+Conseil National des Télécommunications (CONATEL)
+Article 6.- Dans le cadre de la migration de la télévision analogique vers la TNT, le Conseil National des Télécommunications (CONATEL) a pour attributions de :
+1. planifier et superviser la migration technique ;
+2. assigner les fréquences et canaux radioélectriques aux opérateurs de diffusion de la TNT ;
+3. contrôler la conformité des équipements et installations radioélectriques ;
+4. recommander les licences d’exploitation des opérateurs de diffusion ;
+5. octroyer des licences d’exploitation aux éditeurs de service ;
+6. informer le public sur la migration de la télévision analogique vers la TNT ;
+7. exercer toutes autres attributions connexes.
+CHAPITRE III — NORMES ET OBLIGATIONS
+Section 1re
+Normes techniques et obligations des opérateurs
+Sous-section 1re
+Adoption de norme de télévision numérique
+Article 7.- Dans les limites du territoire national, la norme de télévision numérique ATSC (Advanced Television Standard Committee) est adoptée pour le service de télévision numérique terrestre en ondes claires.
+La version de la norme ATSC à utiliser pour le déploiement de la TNT dans le pays est précisée par circulaire du CONATEL.
+Article 8.- Le spectre des fréquences radioélectriques est réaménagé dans le cadre de la migration de la télévision analogique vers la TNT.
+Les changements suivants sont opérés dans le plan national d’attribution des fréquences radioélectriques :
+1. Les gammes de fréquences suivantes : 54-72 MHz, 76-88 MHz et 174-216 MHz, correspondant aux canaux 2 à 13 de la bande VHF, sont attribuées au service de télévision numérique terrestre en ondes claires ;
+2. La gamme de fréquences 470-506 MHz, correspondant aux canaux 14 à 19 de la bande UHF, est attribuée au service de télévision numérique terrestre en ondes claires ;
+3. La gamme de fréquences 506-692 MHz, correspondant aux canaux 20 à 50 de la bande UHF, est attribuée au service de télévision numérique en ondes brouillées à accès conditionné et aux services de télécommunications mobiles ;
+4. La bande 700 MHz de fréquences 698-806 MHz est attribuée au service de télécommunications mobiles 4G, 5G ou des générations technologiques futures.
+Sous-section 2
+Conditions d’assignation des fréquences et plateformes de diffusion
+Article 9.- La licence d’exploitation de plateforme de diffusion de la TNT est attribuée par appel d’offres.
+Le CONATEL assigne des fréquences ou canaux radioélectriques nécessaires à la transmission et la diffusion des signaux de télévision numérique terrestre suivant le plan national d’attribution de fréquences réaménagé conformément à l’article 8 du présent Décret.
+Les plateformes de diffusion sont exploitées dans le cadre des autorisations accordées et doivent fonctionner dans le respect des Lois et règlements en vigueur et du cahier de charges associé à leurs activités.
+Section 2
+Accompagnement des opérateurs et usagers
+Sous-section 1re
+Accompagnement des usagers
+Article 10.- Dans le cadre de migration de la télévision analogique vers la TNT, l’État haïtien prend toutes les mesures d’accompagnement nécessaires afin d’assurer à la population la continuité de l’accès aux services de communication audiovisuelle.
+Sous-section 2
+Accompagnement de la migration des chaînes de télévision
+Article 11.- Pendant une période de simulcast de trois (3) mois, les éditeurs de services de télévision bénéficient de la gratuité de la diffusion de leurs programmes en mode numérique.
+Article 12.- Durant les trois (3) mois suivant la période de simulcast, une réduction de quarante pour cent (40 %) des frais mensuels d’hébergement à une plate-forme de diffusion est accordée aux éditeurs de services de télévision qui ont présenté des plans d’affaires et leur programmation démontrant leur capacité à assurer le maintien de leurs opérations et le respect de la propriété intellectuelle pendant la période de validité de leur licence.
+Article 13.- Les modalités d’application des articles 11 et 12 sont fixées dans le cahier des charges.
+CHAPITRE IV — EXPLOITATION DES SERVICES DE TÉLÉVISION
+Section 1re
+Organisation de la chaîne de valeur de la Télévision Numérique Terrestre (TNT)
+Article 14.- L’exploitation du service de TNT en ondes claires sur le territoire national est assurée par :
+1. les éditeurs de service ou chaînes de télévision qui produisent, coproduisent ou achètent des droits sur des programmes de télévision qu’ils mettent à la disposition du public ;
+2. les opérateurs de diffusion qui regroupent les signaux de chaînes de télévision autorisées, composent leur plateforme au moyen de multiplex et diffusent les signaux de TNT sur une ou plusieurs zones de couverture autorisées ;
+3. les transporteurs qui assurent la transmission des signaux de TNT entre les éditeurs de service et la plateforme de diffusion.
+Section 2
+Éditeurs de service
+Article 15.- L’exercice du métier d’éditeur de service en mode numérique est subordonné à l’obtention d’une licence délivrée par le CONATEL après avis favorable du Ministère de la Culture et de la Communication.
+Le Ministère de la Culture et de la Communication dispose d’un délai maximum de quinze (15) jours calendaires, à partir de la date de réception de la requête du CONATEL, pour donner son avis motivé.
+Cet avis porte sur le contenu du service proposé.
+Article 16.- La demande de licence est accompagnée des documents et informations ci-après :
+1. la dénomination de l’éditeur de service ;
+2. les documents légaux ;
+3. l’adresse du siège social et du siège d’exploitation ;
+4. le montant du capital social et sa répartition ;
+5. un plan financier établi sur trois (3) ans ;
+6. la nature et la description du service ;
+7. les conditions relatives à la transmission du service ;
+8. la description du public cible ;
+9. un plan d’emplois portant sur le personnel.
+Article 16.1.- Outre les exigences prévues à l’article 16 du présent Décret, l’éditeur de service doit :
+1. n’avoir jamais été condamné à une peine afflictive ou infamante ;
+2. ne pas être sous l’effet d’une suspension ou radiation de leur profession pour faute éthique grave.
+Article 17.- Si le dossier est conforme et obtient l’avis favorable du Ministère de la Culture et de la Communication, une autorisation provisoire est accordée à l’éditeur de service aux fins de conclure, dans un délai maximal de quatre-vingt-dix (90) jours calendaires, une Convention de Diffusion avec un opérateur de diffusion.
+À défaut de cette formalité, l’éditeur de service perd le bénéfice de l’octroi de la licence.
+Article 18.- La Convention de Diffusion précise le format des signaux à transmettre et les conditions administratives et financières.
+La Convention de Diffusion fixe les règles particulières applicables au service, en tenant compte de l’étendue de la zone desservie.
+La Convention de Diffusion entre l’éditeur de service et l’opérateur de diffusion est soumise à l’approbation du CONATEL.
+Article 19.- Les points contenus dans la Convention de Diffusion entre l’éditeur de service et l’opérateur de diffusion font l’objet d’une circulaire du CONATEL.
+Article 20.- Le service de télévision édité en vertu de la licence accordée peut être :
+1. à couverture nationale ou régionale ;
+2. à vocation généraliste ou thématique ;
+3. de format définition standard (SD), haute définition (HD) ou ultra haute définition (FHD).
+Article 21.- Un cahier des charges général relatif aux éditeurs de service est adopté par circulaire du CONATEL.
+Section 3
+Opérateurs de diffusion
+Article 22.- L’activité d’opérateur de diffusion consiste à assurer les opérations techniques et commerciales nécessaires au multiplexage et à la diffusion des programmes des éditeurs de service.
+L’opérateur de diffusion est garant du bon fonctionnement de l’ensemble des opérations de la plateforme de diffusion qu’il gère et veille à un niveau de réception homogène sur l’ensemble des zones de couverture indiquées dans le cahier des charges.
+Article 23.- L’établissement et l’exploitation d’une plateforme de diffusion sont soumis à l’obtention d’une licence délivrée par le MTPTC, sur recommandation du CONATEL.
+Cette licence est assujettie au respect d’un cahier des charges donné sous forme de circulaire du CONATEL qui précise les droits et obligations ainsi que les conditions dans lesquelles un opérateur de diffusion est autorisé à établir sa plateforme et à fournir le service de la TNT.
+Article 24.- L’obtention de la licence par les opérateurs de diffusion fait l’objet d’un appel d’offres.
+Article 25.- L’opérateur de diffusion n’héberge sur sa plateforme que des éditeurs de service régulièrement autorisés.
+CHAPITRE V — DISPOSITIONS SPÉCIALES
+Section 1re
+Dispositions générales
+Article 26.- Les liaisons de transport utilisées pour la transmission des signaux d’un éditeur de service vers la plateforme de diffusion peuvent être louées auprès d’un opérateur de transport ou établies après autorisation préalable du CONATEL.
+Article 27.- Les fréquences radioélectriques utilisées pour le transport et la diffusion de la TNT font l’objet d’une assignation par le CONATEL.
+Article 28.- L’exploitation d’un éditeur de service est incompatible avec la détention d’une licence pour l’exploitation d’une plateforme de diffusion de la TNT.
+Un opérateur de diffusion de la TNT ne peut détenir en même temps une licence d’exploitation de service de télévision payant par câbles ou par satellite ou en ondes brouillées.
+Section 2
+Obligations en matière de diffusion en ondes claires
+Article 29.- Les stations de radiodiffusion et les éditeurs de service ne peuvent diffuser des contenus contraires aux Lois, aux bonnes mœurs ou à l’intérêt général.
+En cas de violation des dispositions du premier alinéa, le CONATEL peut ordonner l’arrêt des transmissions.
+Article 30.- Un quota de production locale est établi, par circulaire du Ministère de la Culture et de la Communication, pour tous les services de radiodiffusion en ondes claires afin de :
+1. promouvoir la culture et la création haïtiennes ;
+2. soutenir l’industrie culturelle nationale ;
+3. garantir le respect de la diversité culturelle.
+Les services de radio télédiffusion sont informés des quotas six (6) mois, au plus tard, après la publication du présent Décret.
+Article 31.- Les chaînes thématiques peuvent négocier des quotas adaptés à leur besoin avec les services compétents du Ministère de la Culture et de la Communication.
+La décision devient effective à compter de la date de réception de sa notification au CONATEL par le Ministère de la Culture et de la Communication.
+Article 32.- Les retransmissions en direct d’événements internationaux sont exemptes de quota.
+Article 33.- Les éditeurs de service, s’ils le souhaitent, sont en droit de négocier l’intégration de leurs programmes dans les bouquets des opérateurs de télédistribution en ondes brouillées, par satellite ou par câble.
+Cependant, les accords y relatifs sont soumis à l’approbation du CONATEL.
+Article 34.- Le Ministère de la Culture et de la Communication et le CONATEL procèdent annuellement, chacun en ce qui le concerne, à un audit du respect des quotas par les services de radiodiffusion.
+Le non-respect des quotas fait l’objet d’une amende dont le montant est déterminé par le CONATEL en fonction de l’importance de l’infraction.
+En cas de récidive, le montant de l’amende est doublé.
+Article 35.- Pour toute diffusion de contenus qu’ils n’ont pas produits, les services de radiodiffusion doivent :
+1. obtenir les autorisations nécessaires auprès des ayants droit ;
+2. respecter les accords établis avec les sociétés de gestion collective.
+Les œuvres sous licence libre doivent être vérifiées avant utilisation.
+Article 36.- Les auteurs ou les ayants droit d’une œuvre audiovisuelle ont le droit de s’opposer à la diffusion de leurs œuvres et les services de diffusion ont pour obligation de respecter leur volonté sous peine d’encourir des dommages et intérêts pour torts ou préjudices causés par une telle violation.
+Sans préjudices des actions civiles ou pénales, le CONATEL peut, en cas de non-respect du présent article, prendre des mesures conservatoires conformément aux procédures amiables de résolution de conflit établies.
+Article 37.- Sous réserve des dispositions du Décret du 12 octobre 2005 sur les droits d’auteur, les services de radiodiffusion sont tenus de conclure un contrat avec tout auteur ou ses ayants droits dont l’œuvre sera diffusée durant sa période de protection.
+Article 38.- Pour conclure un contrat avec les services de radiodiffusion, les fournisseurs de contenus, tels que les agences de production, les agences de publicité, les sous-traitants, doivent prouver qu’ils détiennent tous les droits nécessaires.
+En cas de différend sur un contenu, le diffuseur se réserve le droit de le retirer immédiatement.
+Article 39.- Les stations de radiodiffusion sonore et les éditeurs de service transmettent obligatoirement au CONATEL, chaque trois (3) mois, la valeur du temps d’antenne établi sur une base horaire.
+Article 40.- La publicité ne doit pas affecter la qualité des programmes par sa forme et son intensité,
+ni encourager des comportements préjudiciables à la santé ou à la sécurité, ni contenir des références à une personne, des déclarations émanant d’elle sans son autorisation ou celle de ses ayants droit.
+Aucune publicité pour des produits ou des services étrangers dévalorisant un produit ou un service national analogue n’est autorisée.
+La publicité effectuée suivant les procédés de perception subliminale est aussi prohibée.
+Article 41.- Les programmes, dont les contenus seraient considérés interdits aux mineurs, font l’objet d’une interdiction totale de diffusion en ondes claires, quelle que soit l’heure.
+Cette interdiction s’étend à tous les programmes caractérisés par la crudité :
+1. des scènes de violence ou des actes sexuels ;
+2. des comportements antisociaux ou contraires aux bonnes mœurs.
+Section 3
+Transparence et archivage
+Article 42.- Tous les contrats de cession de droits doivent être conservés pendant cinq (5) ans après leur expiration.
+Les logs de diffusion doivent être disponibles pendant cinq (5) ans.
+Article 43.- Tout opérateur de diffusion est tenu de conserver l’enregistrement des émissions diffusées pendant une durée de cinq (5) ans.
+À l’issue de cette période, le CONATEL récupère les enregistrements conservés.
+L’enregistrement est effectué sur un support dont les caractéristiques sont précisées dans le cahier des charges.
+CHAPITRE VI — CONTRÔLE ET SANCTIONS
+Article 44.- Le CONATEL peut être saisi par un éditeur de service, un opérateur de diffusion, une station de radiodiffusion ou par un consommateur, de tout différend relatif à l’édition ou la diffusion d’un service de radiodiffusion ou de tout différend relatif aux conditions techniques et commerciales d’accès.
+Article 45.- Sans préjudice des dispositions prévues par les Lois et règlements en vigueur, tout manquement aux obligations par les éditeurs de services, les opérateurs de diffusion et autres intervenants dans la production, la diffusion et la commercialisation des services de radiodiffusion est passible, selon la gravité des faits et actes reprochés, après mise en demeure, des sanctions ci-après mentionnées :
+1. la suspension temporaire de la licence d’exploitation ou d’une partie des programmes ;
+2. la réduction de la durée de la licence d’exploitation ;
+3. le retrait définitif de la licence d’exploitation ;
+4. les amendes.
+Article 46.- Le CONATEL publie, en décembre et en août de chaque année, sur son site électronique et par tous les moyens accessibles à la population, la liste des stations de radiodiffusion et des éditeurs de service autorisés à fonctionner sur le territoire national.
+Cette liste est mise à jour régulièrement.
+Les stations de radiodiffusion et les éditeurs de service autorisés obtiennent du CONATEL un certificat annuel sur présentation du paiement de leurs redevances et taxes.
+Toute personne, qui octroie de la publicité ou des subventions à une station de télévision émettant en mode analogique après la migration, à une station de radiodiffusion sonore ou à un éditeur de service fonctionnant illégalement, encourt une amende d’un montant égal à quatre (4) fois le montant de la publicité ou de la subvention, sur simple requête du CONATEL.
+Article 47.- Est sanctionné d’une amende de deux millions (2,000,000.00) de gourdes toute station de télévision qui continue d’émettre en mode analogique après la date fixée par le schéma national d’arrêt de la diffusion en mode analogique.
+Article 48.- Est sanctionné d’une amende de dix millions (10,000,000.00) de gourdes tout opérateur de diffusion ou station de radiodiffusion qui émet sur une fréquence ou un canal radioélectrique autre que celle qui lui a été assignée.
+Article 49.- Est sanctionné d’une amende de dix millions (10,000,000.00) de gourdes tout opérateur de diffusion qui diffuse une chaîne non autorisée ou tout éditeur de service non autorisé qui s’insère dans un multiplex.
+Article 50.- Nonobstant toute autre sanction civile ou pénale prévue par la Loi, les sanctions administratives suivantes sont appliquées progressivement en cas de non-respect des quotas ou du droit d’auteur par les services de radiodiffusion :
+a. 1er manquement : un avertissement public ;
+b. 2e manquement : une amende de 5 % du chiffre d’affaires ;
+c. 3e manquement : suspension temporaire de la licence pour une durée de trois (3) mois.
+Article 51.- Nonobstant toute autre sanction civile ou pénale prévue par la Loi, les sanctions administratives suivantes sont appliquées progressivement en cas de non-respect des dispositions de protection des mineurs par les services de radiodiffusion :
+a. 1er manquement : un avertissement public ;
+b. 2e manquement : une amende de 8 % du chiffre d’affaires ;
+c. 3e manquement : suspension temporaire de la licence pour une durée de trois (3) mois ;
+d. 4e manquement : annulation définitive de la licence.
+CHAPITRE VII — DISPOSITIONS TRANSITOIRES
+Article 52.- Les stations de télévision opérant en mode analogique, dont les autorisations sont encore valides, conservent leur droit d’exploitation pour la durée restante de validité dans les conditions fixées par le présent Décret et dans leurs cahiers de charges amendés en conséquence.
+Ces stations de télévision, converties en éditeurs de service, doivent négocier leur intégration sur une plateforme de diffusion autorisée.
+Article 53.- Le cahier des charges pour la migration vers le numérique des média de service public est proposé par le CONATEL et adopté conjointement par le MTPTC et le Ministère de la Culture et de la Communication.
+Article 54.- La diffusion de programmes de télévision en mode analogique par voie hertzienne terrestre prend fin au plus tard le 30 septembre 2027 au terme d’une période de transition pendant laquelle la diffusion simultanée en mode analogique et en mode numérique, période de simulcast, est autorisée.
+L’extinction de la diffusion en mode analogique est effectuée de manière progressive selon un calendrier et un plan d’arrêt déterminé par le MTPTC, sur proposition du CONATEL.
+Article 55.- Les fréquences libérées par l’arrêt de la diffusion analogique des services de télévision, par voie hertzienne, retombent dans les disponibilités de l’État.
+Article 56.- Dès la publication du présent Décret, le CONATEL n’est plus autorisé à délivrer de licence d’exploitation de télévision en mode analogique.
+Article 57.- L’importation et la commercialisation des postes téléviseurs analogiques et ceux non conformes aux normes de diffusion et de compression de télévision numérique terrestre sont interdites sur le territoire national.
+Article 58.- Un délai de douze (12) mois, à partir de la notification des quotas, est accordé aux services de radio télédiffusion pour leur plein respect.
+CHAPITRE VIII — DISPOSITIONS FINALES
+Article 59.- Le présent Décret abroge toutes Lois ou dispositions de Lois, tous Décrets-Lois ou dispositions de Décrets-Lois, tous Décrets ou dispositions de Décrets qui lui sont contraires et sera publié et exécuté à la diligence du Premier Ministre, des Ministres des Travaux Publics, Transports et Communications, et de la Culture et de la Communication, chacun en ce qui le concerne.
+Donné au Palais National, à Port-au-Prince, le 27 mars 2026, An 223e de l’Indépendance.
+Par :
+Le Premier Ministre Alix Didier FILS-AIMÉ
+Le Ministre de l’Économie et des Finances Serge Gabriel COLLIN
+La Ministre de la Planification et de la Coopération Externe Sandra PAULEMON
+Le Ministre de la Justice et de la Sécurité Publique Patrick PÉLISSIER
+Le Ministre des Affaires Étrangères et des Cultes Raina FORBIN
+Le Ministre de l’Intérieur et des Collectivités Territoriales Paul Antoine BIEN-AIMÉ
+Le Ministre des Travaux Publics, Transports et Communications Joseph Almathé PIERRE LOUIS
+Le Ministre de la Défense Mario ANDRESOL
+Le Ministre de l’Agriculture, des Ressources Naturelles et du Développement Rural Marcelin AUBOURG
+Le Ministre de la Santé Publique et de la Population Bertrand SINAL
+Le Ministre des Affaires Sociales et du Travail Pr. Marc Elie NELSON
+Le Ministre de l’Environnement Pr. Valery FILS AIMÉ
+Le Ministre de la Culture et de la Communication Emmanuel MENARD
+La Ministre de la Condition Féminine et des Droits de la Femme Pédrica SAINT JEAN
+Le Ministre du Commerce et de l’Industrie Pr. James MONAZARD
+Le Ministre du Tourisme Stéphanie SMITH
+La Ministre des Haïtiens vivant à l’étranger Pr. J. E. Kathia VERDIER
+La Ministre de la Jeunesse, des Sports et de l’Action Civique Pythagore DUMAS
+Le Ministre de l’Éducation Nationale et de la Formation Professionnelle Vijonet DEMERO

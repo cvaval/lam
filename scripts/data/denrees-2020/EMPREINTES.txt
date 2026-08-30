@@ -1,0 +1,13 @@
+# Empreintes SHA-256 du jeu « denrees-2020 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts denrees-2020
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+d597aeab0cbe3ca8ca15d0711fd05628789942c67beba171dd2aa5fc0378c83b  annexes-index-denrees.txt
+a60b8217c752028181858dfcc155b93cbf2c3c0bb36ac56c3117ac97ed8869b5  corps-abattage.txt
+85fa1c8ecc58a3c101dd5a9185ebd5a4cccba15b8eaea2e00fb8756e815aa115  corps-avis-mci.txt
+cc5decdbff37b64b4f590e604497df0063d30490cbd1bc60e4317f6b2b94b90b  corps-delegation.txt
+7ad71adc3f4ef30e54d5876bfa2173fb0bebad6caede17566320cb5b397b78c8  corps-denrees.txt
+6d6ed88f3f6a598a5d0ea18b38504ba823aefeb9fe62857bfc507ba3c97118c7  index-denrees.json
+ba95578d87b6188ed9cf5a349954655df3227380fa1aee3ee28ef1248c169d97  rubriques-denrees.json
+b5d479667f84e69c72e3c3e058ccec813696f468d06737fa93dbab1c46aceb6c  toc-abattage.json
+fff24a8cf8f07a265b6e809d7426641fa43ef4f1c4fa690af5af323b2000179d  toc-denrees.json

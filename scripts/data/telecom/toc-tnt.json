@@ -1,0 +1,152 @@
+[
+ {
+  "level": 2,
+  "label": "CHAPITRE PREMIER",
+  "anchor": "sec-1",
+  "kind": "chapitre"
+ },
+ {
+  "level": 3,
+  "label": "Section 1re",
+  "anchor": "sec-2",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "Section 2",
+  "anchor": "sec-3",
+  "kind": "section"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE II — PILOTAGE DE LA MIGRATION VERS LA TÉLÉVISION NUMÉRIQUE TERRESTRE",
+  "anchor": "sec-4",
+  "kind": "chapitre"
+ },
+ {
+  "level": 3,
+  "label": "Section 1re",
+  "anchor": "sec-5",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "Section 2",
+  "anchor": "sec-6",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "Section 3",
+  "anchor": "sec-7",
+  "kind": "section"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE III — NORMES ET OBLIGATIONS",
+  "anchor": "sec-8",
+  "kind": "chapitre"
+ },
+ {
+  "level": 3,
+  "label": "Section 1re",
+  "anchor": "sec-9",
+  "kind": "section"
+ },
+ {
+  "level": 4,
+  "label": "Sous-section 1re",
+  "anchor": "sec-10",
+  "kind": "sous-section"
+ },
+ {
+  "level": 4,
+  "label": "Sous-section 2",
+  "anchor": "sec-11",
+  "kind": "sous-section"
+ },
+ {
+  "level": 3,
+  "label": "Section 2",
+  "anchor": "sec-12",
+  "kind": "section"
+ },
+ {
+  "level": 4,
+  "label": "Sous-section 1re",
+  "anchor": "sec-13",
+  "kind": "sous-section"
+ },
+ {
+  "level": 4,
+  "label": "Sous-section 2",
+  "anchor": "sec-14",
+  "kind": "sous-section"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE IV — EXPLOITATION DES SERVICES DE TÉLÉVISION",
+  "anchor": "sec-15",
+  "kind": "chapitre"
+ },
+ {
+  "level": 3,
+  "label": "Section 1re",
+  "anchor": "sec-16",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "Section 2",
+  "anchor": "sec-17",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "Section 3",
+  "anchor": "sec-18",
+  "kind": "section"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE V — DISPOSITIONS SPÉCIALES",
+  "anchor": "sec-19",
+  "kind": "chapitre"
+ },
+ {
+  "level": 3,
+  "label": "Section 1re",
+  "anchor": "sec-20",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "Section 2",
+  "anchor": "sec-21",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "Section 3",
+  "anchor": "sec-22",
+  "kind": "section"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE VI — CONTRÔLE ET SANCTIONS",
+  "anchor": "sec-23",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE VII — DISPOSITIONS TRANSITOIRES",
+  "anchor": "sec-24",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE VIII — DISPOSITIONS FINALES",
+  "anchor": "sec-25",
+  "kind": "chapitre"
+ }
+]

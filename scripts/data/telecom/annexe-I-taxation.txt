@@ -1,0 +1,15 @@
+Annexe I — Relevé des lectures incertaines et des passages illisibles
+Le tableau ci-après recense chaque intervention de transcription signalée dans le corps du document. Il constitue la liste de contrôle à utiliser lors du collationnement sur un tirage lisible du Moniteur.
+Emplacement │ Élément concerné │ Traitement retenu │ Observation
+Cat. A — I.1, 4e ligne │ Désignation-type et montant de la taxe (télégraphie à impression directe) │ [ill.] │ Cellules effacées sur la source. Le montant n’est pas restituable; les taxes voisines de la même sous-section sont de 500 Gdes.
+Cat. A — I.1, 5e ligne │ Désignation-type (télégraphie harmonique multivoie) │ ⟨2K89R7BCN⟩ │ Lecture partielle; les caractères médians sont incertains.
+Cat. A — I.2, 1re ligne │ Désignation-type (téléphonie, double bande latérale) │ ⟨6K00A3EJN⟩ │ Restitution par analogie avec la nomenclature UIT; premier groupe incertain.
+Cat. A — I.2, 2e ligne │ Désignation-type (bande latérale unique, porteuse complète) │ ⟨3K00H3EJN⟩ │ Seul « 3K00H3 » est lisible; les trois derniers caractères sont restitués.
+Cat. A — I.2, 5e et 6e lignes │ Désignations-types (dispositif de secret; bandes latérales indépendantes) │ [ill.] │ Cellules effacées. Les montants (500 / voie) restent lisibles.
+Cat. A — I.6 │ Désignation-type (double bande latérale, faisceau hertzien de télévision) │ ⟨13M1A8N⟩ │ Dernier caractère incertain.
+Cat. A — Section II │ Intitulé de la section │ [II. MODULATION DE FRÉQUENCE] │ Intitulé absent de la source; déduit de la numérotation (I / III) et des désignations-types de classes F et J.
+Cat. A — II.3, 2e ligne │ Désignation-type (radiodiffusion stéréophonique) │ ⟨300KF8EHF⟩ │ Premier groupe incertain (300 / 100).
+Cat. A — II.4 │ Désignations-types (fac-similé) │ [ill.] │ Cellules effacées; les montants (500) restent lisibles.
+Cat. A — III.4 │ Désignation-type (faisceau hertzien) │ ⟨M7E⟩ │ Seule l’initiale est nette.
+Contreseings │ Prénom du Ministre des Affaires Étrangères et des Cultes │ Hérard ABRAHAM │ La source porte « Rérard ». Correction d’une erreur de lecture; à confirmer sur l’original.
+Art. 5 │ Durée du permis d’opérateur │ de un (1) à cinq (5) ans │ Chiffre partiellement effacé sur la source; restitution cohérente avec les catégories B, C et D.
