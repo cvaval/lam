@@ -104,7 +104,14 @@ const FICHES = [
   },
   {
     slug: 'conatel-taxation', source: 'DECRET_CONATEL_TAXATION_1987', articles: 7, toc: 0,
-    titre: 'Décret du 26 juin 1987 dotant le Conseil National des Télécommunications de moyens techniques et adoptant un mode de taxation en harmonie avec le service rendu',
+    // ⚠️ INTITULÉ CORRIGÉ le 30 août : la version précédente disait « en harmonie avec le SERVICE
+    // RENDU », formule qui n'existe dans aucune source. Le .docx et la notice LM1987-76 de l'Index
+    // du Moniteur disent l'un comme l'autre « niveau d'utilisation du spectre ». Rejouer ce script
+    // avec l'ancien libellé recréerait le défaut sur une base neuve.
+    titre:
+      'Décret du 26 juin 1987 dotant le Conseil National des Télécommunications (CONATEL) de moyens ' +
+      'techniques et adoptant un mode de taxation en harmonie avec le niveau d’utilisation du spectre, ' +
+      'en tenant compte des nouvelles méthodes de description et de désignation des émissions',
     adoption: '1987-06-26', publication: '1987-09-17',
     moniteur: 'Le Moniteur · LM1987-76 · 142ᵉ année, n° 76 du jeudi 17 septembre 1987, pages 1381 à 1388',
     avert: AVERT_TAXATION, rubriques: true, index: false,
