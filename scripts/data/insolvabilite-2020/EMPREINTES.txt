@@ -1,0 +1,9 @@
+# Empreintes SHA-256 du jeu « insolvabilite-2020 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts insolvabilite-2020
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+4b15abb9af4a3d11061ff294c5d0fef7b0068e9335aa61e8baca18065b585695  articles.json
+68f83a1f716cca6afb31882c52cf75c28eed96ac186bf275b1c7561d92f0a437  corps-decret.txt
+372475fc638427391a1b4688553f058f5109dec958d03530731421b02066a30c  divisions.json
+fd08d09029b144a203403be311a3e4b41d88529bc854511e5476e7131bd30c2b  index-client.txt
+509a47b70461f7ba096a93c24d7412b383c0705cbb5a00aef4dbbd9171074e82  sommaire-client.txt

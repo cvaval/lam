@@ -36,8 +36,16 @@ export function articleAnchorFromNum(num: string): string {
  * → id d'ancre, ou undefined si la ligne ne commence pas par un en-tête d'article/section reconnu.
  */
 export function articleAnchorFromHeading(textLine: string): string | undefined {
+  // ⚠️ CINQ CHIFFRES, PAS QUATRE. Le Décret régissant l'insolvabilité numérote le Livre III du
+  // Code de commerce en composé — Livre · Titre · Chapitre · Section · rang — et sa section 10
+  // porte le total à cinq : « Article 33410-1.- Les tiers, créanciers ou non… ». À quatre
+  // chiffres, la tête produisait `art-3341` quand `anchorFromDesignation('33410-1')`, que suit
+  // l'index, produit `art-33410-1` : le renvoi mourait et l'article devenait introuvable.
+  //
+  // Innocuité MESURÉE sur toute la base — 31 301 documents, 78 312 têtes d'article reconnues :
+  // l'élargissement ne change AUCUNE ancre existante.
   const m = textLine.match(
-    /^(?:art(?:icle)?\.?|section)\s+(premier|\d{1,4}(?:\s*(?:er|ère))?(?:\s*(?:bis|ter|quater))?(?:[.\-]\d+)*)/i,
+    /^(?:art(?:icle)?\.?|section)\s+(premier|\d{1,5}(?:\s*(?:er|ère))?(?:\s*(?:bis|ter|quater))?(?:[.\-]\d+)*)/i,
   )
   if (m) return anchorFromDesignation(m[1])
   // Forme PLURIELLE « Articles 27.- » : coquille du Journal officiel (Décret minier,

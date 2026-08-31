@@ -142,6 +142,7 @@ export function AnnotatedText({
   const oldVersions = annotations.oldVersions ?? {}
   const statusMap = annotations.status ?? {}
   const concordanceMap = annotations.concordance ?? {}
+  const acteMap = annotations.statusActe ?? {}
   const labelsMap = annotations.labels ?? {}
   // Code pénal : ancres d'articles réelles → renvois internes « l'article N » cliquables.
   const artRefSet = linkArtRefs ? new Set(Object.keys(labelsMap)) : undefined
@@ -171,6 +172,30 @@ export function AnnotatedText({
       {blocks.map((b, i) => {
         // ── En-têtes de section ──
         if (b.kind === 'section') {
+          /**
+           * ⚠️ UN PLAN ÉDICTÉ N'EST PAS UNE DIVISION DU TEXTE — mais il ne doit pas non plus
+           * être lu comme une suite d'articles.
+           *
+           * L'article 1er du Décret régissant l'insolvabilité ÉNONCE le plan du Livre III :
+           * « Section 1.- L'ouverture de la conciliation (art. 3211-1s) », soixante et onze
+           * lignes. Or `articleAnchorFromHeading` accepte « section N » autant que « article
+           * N » : ces lignes revendiquaient `art-1`, `art-2`, `art-3`… et, arrivant AVANT eux
+           * dans le corps, elles prenaient l'ancre des articles 2 et 3 du décret lui-même —
+           * dont l'article 3, celui qui abroge les articles 477 à 634 du Code de commerce.
+           * Mesuré : `art-2` allait à « Section 2.- Le déroulement… », `art-3` à « Section 3.-
+           * Le ministère public ». Les deux articles devenaient inatteignables, en silence.
+           *
+           * Elles entrent donc au `toc` sous le genre `plan`, ce qui les soustrait à l'ancrage
+           * d'article — et se rendent ICI comme le texte qu'elles sont : de la prose de
+           * l'article 1er, en retrait, jamais un intertitre.
+           */
+          if (b.tocKind === 'plan') {
+            return (
+              <p key={i} className="pl-6 text-[15px] leading-relaxed text-ank">
+                {b.text}
+              </p>
+            )
+          }
           if (b.anchor === preambleAnchor) preambleBodyNext = true // le corps suivant portera l'ancien préambule
           const xref = crossRefMap.get(b.anchor)
           const bigTitle = b.tocKind === 'title' && !titleShown
@@ -311,6 +336,7 @@ export function AnnotatedText({
           const st = statusMap[b.anchor]
           const badge = st ? STATUS_BADGE[st] : undefined
           const conc = concordanceMap[b.anchor]
+          const acte = acteMap[b.anchor]
           const old = oldVersions[b.anchor]
           const cx = connexeMap[b.anchor]
           return (
@@ -318,6 +344,14 @@ export function AnnotatedText({
               <h4 id={b.noAnchors ? undefined : b.anchor} className="mb-1 flex scroll-mt-24 flex-wrap items-center gap-2">
                 <span className="font-serif text-[15px] font-bold text-chabon">{label}</span>
                 {badge && <span className={badge.cls}>{badge.fr}</span>}
+                {/* ⚠️ LA PASTILLE SEULE NE DIT PAS DE QUI. Trois réformes distinctes ont
+                    marqué des articles « nouveau » dans ce Code : l'acte se nomme, et se
+                    clique. */}
+                {acte && (
+                  <Link href={acte.href} className="text-[11px] font-medium text-chabon hover:underline" title={acte.label}>
+                    {acte.label}
+                  </Link>
+                )}
                 {conc && (
                   <span className={CONCORDANCE_CLS} title="Concordance de l’édition : correspondance de cet article avec l’ancienne numérotation. Ce n’est pas un statut d’amendement.">
                     concordance : {conc}

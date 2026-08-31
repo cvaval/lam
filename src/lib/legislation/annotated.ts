@@ -105,6 +105,15 @@ export interface Annotations {
    * MODIFIÉ ou ABROGÉ (arts 93, 94, 95…). Elles vivent donc ici, et se rendent à part.
    */
   concordance?: Record<string, string>
+  /**
+   * Acte auquel un article doit son ÉTAT — ancre → { label, href }.
+   *
+   * ⚠️ « Nouveau » NE DIT PAS DE QUI. Le Code de commerce porte 100 articles marqués
+   * « nouveau » venus du bail professionnel et des sûretés, et 297 de plus venus du Décret
+   * régissant l'insolvabilité : sans le nom de l'acte, la pastille range trois réformes
+   * distinctes sous un même mot. Le libellé est court, le lien mène à la fiche de l'acte.
+   */
+  statusActe?: Record<string, { label: string; href: string }>
   // Circulaires BRH : désignations des divisions numérotées « 1.- » / « 4.2.1 » qui tiennent
   // lieu d'articles (liste blanche, ordre du corps). Active l'ancrage art-… sur ces têtes et
   // les renvois internes « la section 7 ». Absent = comportement historique inchangé.
@@ -159,6 +168,7 @@ export function parseAnnotations(json: string | null | undefined): Annotations |
       status: a.status && typeof a.status === 'object' ? a.status : {},
       labels: a.labels && typeof a.labels === 'object' ? a.labels : {},
       concordance: a.concordance && typeof a.concordance === 'object' ? a.concordance : {},
+      statusActe: a.statusActe && typeof a.statusActe === 'object' ? a.statusActe : {},
       connexe: a.connexe && typeof a.connexe === 'object' ? a.connexe : {},
       commentaires: a.commentaires && typeof a.commentaires === 'object' ? a.commentaires : {},
       // Circulaires BRH : sans ce champ, la liste blanche n'atteint pas segmentAnnotated et

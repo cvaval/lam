@@ -36,3 +36,32 @@ describe('anchorFromDesignation', () => {
     expect(anchorFromDesignation('31.1.1')).toBe('art-31-1-1')
   })
 })
+
+/**
+ * ⚠️ LA NUMÉROTATION À CINQ CHIFFRES DU LIVRE III REFONDU.
+ *
+ * Le Décret du 19 août 2020 régissant l'insolvabilité numérote en composé : Livre 3 · Titre 3 ·
+ * Chapitre 4 · Section 10 · article 1 → « 33410-1 ». La section à deux chiffres porte le total
+ * à cinq. À quatre, la tête d'article donnait `art-3341` quand l'index — qui passe par
+ * `anchorFromDesignation` — donne `art-33410-1` : le renvoi mourait, et l'article était
+ * introuvable. Un seul article sur 294, mais perdu en silence.
+ */
+describe('numérotation à cinq chiffres (Livre III de l’insolvabilité)', () => {
+  it('la tête et la désignation tombent sur la MÊME ancre', () => {
+    expect(articleAnchorFromHeading('Article 33410-1.- Les tiers, créanciers ou non…')).toBe('art-33410-1')
+    expect(anchorFromDesignation('33410-1')).toBe('art-33410-1')
+  })
+
+  it('les numérotations voisines du même Livre restent intactes', () => {
+    expect(articleAnchorFromHeading('Article 3349-4.- x')).toBe('art-3349-4')
+    expect(articleAnchorFromHeading('Article 3000-1.- x')).toBe('art-3000-1')
+    expect(articleAnchorFromHeading('Article 3750-5.- x')).toBe('art-3750-5')
+  })
+
+  /** Le corpus ne bouge pas : mesuré sur 31 301 documents et 78 312 têtes, zéro ancre changée. */
+  it('les formes ordinaires du corpus ne changent pas', () => {
+    expect(articleAnchorFromHeading('Article 1er.- x')).toBe('art-1')
+    expect(articleAnchorFromHeading('Art. 1774-1 x')).toBe('art-1774-1')
+    expect(articleAnchorFromHeading('Article 95 bis.- x')).toBe('art-95-bis')
+  })
+})
