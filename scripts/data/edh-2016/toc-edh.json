@@ -1,0 +1,62 @@
+[
+ {
+  "level": 2,
+  "label": "CHAPITRE 1er",
+  "anchor": "sec-1",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE II",
+  "anchor": "sec-2",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE III",
+  "anchor": "sec-3",
+  "kind": "chapitre"
+ },
+ {
+  "level": 3,
+  "label": "Section 1re.- Dispositions générales",
+  "anchor": "sec-4",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "Section 2.- Du Conseil d'Administration",
+  "anchor": "sec-5",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "Section 3.- De la Direction Générale",
+  "anchor": "sec-6",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "Section 4.- Du Conseil de Direction",
+  "anchor": "sec-7",
+  "kind": "section"
+ },
+ {
+  "level": 3,
+  "label": "Section 5.- Des Directions techniques",
+  "anchor": "sec-8",
+  "kind": "section"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE IV",
+  "anchor": "sec-9",
+  "kind": "chapitre"
+ },
+ {
+  "level": 2,
+  "label": "CHAPITRE V",
+  "anchor": "sec-10",
+  "kind": "chapitre"
+ }
+]

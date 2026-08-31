@@ -1,0 +1,8 @@
+# Empreintes SHA-256 du jeu « edh-2016 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts edh-2016
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+707de1fb44f69fdbb442ee5eaa8cc58bd3b81f755c0a2753785ec0f2330a2eca  corps-edh.txt
+be0d9afc4115137863537f32c0a6012a5df5b9d0786a4e962201e6791a5208ad  index-edh.json
+0ff45e377ae2977a72105f65f637c1dc27ebc27c9db4bf8d8602a7cf1f6789d6  rubriques-edh.json
+853c782b2c684f1b4e40b53bb3bf158597fcfcf31b9b42f0f7c6524f7ae6d980  toc-edh.json
