@@ -2,10 +2,11 @@
 # Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts environnement-2005
 # Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
 # ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+2f9960c3425894c68e7fc614cc46b525f4c1303584f26c9708e139623c384bb0  classement-thematique-environnement.txt
 9943f3b8cad8345b78d4157f27cd640a4ca089b3014ebee838600e9b7a757b3b  corps-carrieres.txt
 a1df4b435687fe0fe4429a6f356c0703100cb95c21fcb8a5fbe5ebf60a3a36ae  corps-ciment.txt
-dcf29a8767778c1dd484c6e2e0af7cd554583941093034b1f78ceb783d9f7409  corps-environnement.txt
-ac56b0db7f871c46cf4600e086571f3b4110a6ed82a6eecd239bfdbdf88425d3  index-environnement.json
+7970bf888528b4a8124fd80e055ae46a8bda615c794dc1bcca0f09b596f64c80  corps-environnement.txt
+710c13364e85925b3ae0cd6a234ec429d1007436bba4509e32cdb1b6a147dfd8  index-environnement.json
 37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570  toc-carrieres.json
 37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570  toc-ciment.json
 d0bd33a07ccc2fa381e03f70cea6ab4153cd5903906f1c8e154f1638745fa68b  toc-environnement.json
