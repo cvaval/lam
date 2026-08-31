@@ -22,15 +22,36 @@ const LEAD_ART =
 // du corps du bloc, le libellé étant affiché en badge. N'est consultée que lorsque le
 // document déclare `pointAnchors` (sinon aucun texte n'est modifié).
 const LEAD_POINT = /^(\d{1,2}(?:\.\d{1,2})*)\s*\.?\s*-?\s+/
-// Statut d'amendement (Constitution) → pastille colorée.
+/**
+ * Statut d'amendement → pastille.
+ *
+ * ⚠️ AUCUNE N'EST EN SITWON. « abrogé » et « partiellement abrogé » l'étaient : or Sitwon est
+ * le trait du CERTIFICATEUR, rationné à UNE occurrence d'interface par écran (charte Klinik
+ * v3, avenant AV-02), et le Code civil aligne à lui seul 68 articles abrogés. Même vocabulaire
+ * neutre que les pastilles d'état du lecteur — filet Liy fonsé, fond Pil, texte Chabon.
+ */
+const CHIP =
+  'inline-flex items-center whitespace-nowrap rounded-md border border-liy-fonse bg-pil px-2 py-0.5 ' +
+  'text-[11px] font-semibold leading-[1.45] text-chabon'
 const STATUS_BADGE: Record<string, { fr: string; cls: string }> = {
-  modifié: { fr: 'modifié', cls: 'bg-pil text-chabon' },
-  nouveau: { fr: 'nouveau', cls: 'bg-pil text-chabon' },
-  abrogé: { fr: 'abrogé', cls: 'bg-sitwon text-chabon' },
+  modifié: { fr: 'Modifié', cls: CHIP },
+  nouveau: { fr: 'Nouveau', cls: CHIP },
+  abrogé: { fr: 'Abrogé', cls: CHIP },
   // Abrogation PARTIELLE (ex. art. 7 du Décret régimes matrimoniaux : seules les dispositions
   // relatives à l'hypothèque légale de la femme mariée tombent — le reste demeure en vigueur).
-  'partiellement abrogé': { fr: 'partiellement abrogé', cls: 'bg-sitwon text-chabon' },
+  'partiellement abrogé': { fr: 'Partiellement abrogé', cls: CHIP },
 }
+
+/**
+ * Note de CONCORDANCE de l'éditeur — « Nouveau », « Anc. art. 42 fr. ».
+ *
+ * ⚠️ ELLE NE DIT PAS LA MÊME CHOSE QU'UN STATUT, et il faut que cela se voie. Dans l'édition
+ * Vandal, « Nouveau » signifie « sans antécédent dans le Code de commerce FRANÇAIS » — pas
+ * « inséré par tel acte ». Sur 17 articles du Code de commerce, la note surmonte un article
+ * que le statut donne pour MODIFIÉ ou ABROGÉ : rendues à l'identique, les deux se
+ * contrediraient. La concordance est donc en retrait, sans cadre, et se nomme.
+ */
+const CONCORDANCE_CLS = 'text-[11px] font-normal italic text-grafit'
 
 /**
  * Lecteur d'un texte annoté (Code du travail) : chapitres et articles en unités visuelles
@@ -120,6 +141,7 @@ export function AnnotatedText({
   const crossRefMap = new Map((annotations.crossRefs ?? []).map((c) => [c.anchor, c]))
   const oldVersions = annotations.oldVersions ?? {}
   const statusMap = annotations.status ?? {}
+  const concordanceMap = annotations.concordance ?? {}
   const labelsMap = annotations.labels ?? {}
   // Code pénal : ancres d'articles réelles → renvois internes « l'article N » cliquables.
   const artRefSet = linkArtRefs ? new Set(Object.keys(labelsMap)) : undefined
@@ -288,14 +310,18 @@ export function AnnotatedText({
           const label = labelsMap[b.anchor] ?? labelFromAnchor(b.anchor)
           const st = statusMap[b.anchor]
           const badge = st ? STATUS_BADGE[st] : undefined
+          const conc = concordanceMap[b.anchor]
           const old = oldVersions[b.anchor]
           const cx = connexeMap[b.anchor]
           return (
             <article key={i} className="scroll-mt-24 rounded-r-lg border-l-2 border-chabon/20 pl-4 transition-colors hover:border-chabon/60">
               <h4 id={b.noAnchors ? undefined : b.anchor} className="mb-1 flex scroll-mt-24 flex-wrap items-center gap-2">
                 <span className="font-serif text-[15px] font-bold text-chabon">{label}</span>
-                {badge && (
-                  <span className={`rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${badge.cls}`}>{badge.fr}</span>
+                {badge && <span className={badge.cls}>{badge.fr}</span>}
+                {conc && (
+                  <span className={CONCORDANCE_CLS} title="Concordance de l’édition : correspondance de cet article avec l’ancienne numérotation. Ce n’est pas un statut d’amendement.">
+                    concordance : {conc}
+                  </span>
                 )}
               </h4>
               <OfficialText text={body} hrefFor={hrefFor} locale={locale} terms={terms} noAnchors civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} codeHrefs={codeHrefs} ownCode={ownCode} />

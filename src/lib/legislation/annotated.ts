@@ -94,6 +94,17 @@ export interface Annotations {
   oldVersions?: Record<string, string> // ancre → texte de l'ancienne version (repliable)
   status?: Record<string, string | null> // ancre → « modifié » | « nouveau » | « abrogé »
   labels?: Record<string, string> // ancre → « Article 12.1 » (numérotation complexe)
+  /**
+   * Note de CONCORDANCE de l'éditeur — ancre → « Nouveau », « Anc. art. 42 fr. ».
+   *
+   * ⚠️ CE N'EST PAS UN STATUT D'AMENDEMENT, et les deux se contredisent sur ce corpus.
+   * L'édition Vandal du Code de commerce imprime en marge la correspondance avec l'ancienne
+   * numérotation FRANÇAISE : « Nouveau » y signifie « sans antécédent français », pas
+   * « inséré par tel acte ». Aplaties dans le corps par l'import, ces notes se lisaient comme
+   * du texte de loi — et 17 d'entre elles surmontaient un article que `status` donne pour
+   * MODIFIÉ ou ABROGÉ (arts 93, 94, 95…). Elles vivent donc ici, et se rendent à part.
+   */
+  concordance?: Record<string, string>
   // Circulaires BRH : désignations des divisions numérotées « 1.- » / « 4.2.1 » qui tiennent
   // lieu d'articles (liste blanche, ordre du corps). Active l'ancrage art-… sur ces têtes et
   // les renvois internes « la section 7 ». Absent = comportement historique inchangé.
@@ -147,6 +158,7 @@ export function parseAnnotations(json: string | null | undefined): Annotations |
       oldVersions: a.oldVersions && typeof a.oldVersions === 'object' ? a.oldVersions : {},
       status: a.status && typeof a.status === 'object' ? a.status : {},
       labels: a.labels && typeof a.labels === 'object' ? a.labels : {},
+      concordance: a.concordance && typeof a.concordance === 'object' ? a.concordance : {},
       connexe: a.connexe && typeof a.connexe === 'object' ? a.connexe : {},
       commentaires: a.commentaires && typeof a.commentaires === 'object' ? a.commentaires : {},
       // Circulaires BRH : sans ce champ, la liste blanche n'atteint pas segmentAnnotated et
