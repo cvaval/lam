@@ -1,0 +1,8 @@
+# Empreintes SHA-256 du jeu « tca-2002 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts tca-2002
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+3102c4043563b19107c2e1bcb9178eaf1508805cb91342ff620f77fe8c4ea81d  corps-loi-1995.txt
+108d2a4fa187d9f1e33102d435b9073a696664ace1aad318ad7ea350efad6537  corps-loi-2002.txt
+e0a0d11457bd872b12decee0976ac698152caff592fc105e977a81561bdbbc4b  index-client.txt
+3efb66432ace2a0c7b2a47cb28daa7cd21e2c41ad3a5a64ed16e4ce1bfe0e8f6  sommaire-client.txt

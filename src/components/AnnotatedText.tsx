@@ -143,6 +143,7 @@ export function AnnotatedText({
   const statusMap = annotations.status ?? {}
   const concordanceMap = annotations.concordance ?? {}
   const acteMap = annotations.statusActe ?? {}
+  const acteMap = annotations.statusActe ?? {}
   const labelsMap = annotations.labels ?? {}
   // Code pénal : ancres d'articles réelles → renvois internes « l'article N » cliquables.
   const artRefSet = linkArtRefs ? new Set(Object.keys(labelsMap)) : undefined
@@ -337,6 +338,7 @@ export function AnnotatedText({
           const badge = st ? STATUS_BADGE[st] : undefined
           const conc = concordanceMap[b.anchor]
           const acte = acteMap[b.anchor]
+          const acte = acteMap[b.anchor]
           const old = oldVersions[b.anchor]
           const cx = connexeMap[b.anchor]
           return (
@@ -344,6 +346,20 @@ export function AnnotatedText({
               <h4 id={b.noAnchors ? undefined : b.anchor} className="mb-1 flex scroll-mt-24 flex-wrap items-center gap-2">
                 <span className="font-serif text-[15px] font-bold text-chabon">{label}</span>
                 {badge && <span className={badge.cls}>{badge.fr}</span>}
+                {/* ⚠️ LA PASTILLE SEULE NE DIT PAS DE QUI, ET UN ACTE SANS FICHE NE SE LIE PAS.
+                    Le Décret du 23 novembre 2005 qui réécrit les articles 34 à 36 de la loi TCA
+                    n'est pas au corpus : un `href` vide ferait un lien qui ramène à la page
+                    courante. Il se NOMME quand même — savoir d'où vient une rédaction ne suppose
+                    pas de pouvoir l'ouvrir. */}
+                {acte && (acte.href ? (
+                  <Link href={acte.href} className="text-[11px] font-medium text-chabon hover:underline" title={acte.label}>
+                    {acte.label}
+                  </Link>
+                ) : (
+                  <span className="text-[11px] font-medium text-grafit" title={acte.label}>
+                    {acte.label}
+                  </span>
+                ))}
                 {/* ⚠️ LA PASTILLE SEULE NE DIT PAS DE QUI. Trois réformes distinctes ont
                     marqué des articles « nouveau » dans ce Code : l'acte se nomme, et se
                     clique. */}
