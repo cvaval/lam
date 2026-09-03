@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { apiError } from '@/lib/api'
-import { PDFParse } from 'pdf-parse'
+import { pdfTextLayer } from '@/lib/pdf/text-layer'
 import { getCurrentUser } from '@/lib/auth/session'
 import { getClientCtx } from '@/lib/auth/request'
 import { can } from '@/lib/rbac'
@@ -34,17 +34,14 @@ export async function POST(req: NextRequest) {
   const bytes = new Uint8Array(await file.arrayBuffer())
 
   // Couche texte (peut être vide sur un pur scan — l'IA, elle, lit l'image).
-  let fullText = ''
-  let firstPageText = ''
-  try {
-    const parser = new PDFParse({ data: bytes })
-    const result = await parser.getText()
-    fullText = result.text.slice(0, MAX_BODY_CHARS)
-    firstPageText = result.pages[0]?.text ?? ''
-    await parser.destroy()
-  } catch {
-    /* PDF sans couche texte exploitable */
-  }
+  // ⚠️ NE JAMAIS IMPORTER `pdf-parse` STATIQUEMENT ICI. pdfjs évalue `new DOMMatrix()` au
+  // chargement du module : sans `@napi-rs/canvas` — absent du bundle serverless — l'import jette,
+  // et c'est la ROUTE ENTIÈRE qui répond 500, avant même ce `try`. L'écran affichait alors
+  // « L'analyse a échoué » sans que le repli heuristique ci-dessous ait jamais pu s'exécuter.
+  // Le détour par `pdfTextLayer` pose le substitut puis importe à la demande ; il ne jette pas.
+  const layer = await pdfTextLayer(bytes)
+  const fullText = layer.full.slice(0, MAX_BODY_CHARS)
+  const firstPageText = layer.firstPage
 
   try {
     const outcome = await extractDocument(bytes, firstPageText)

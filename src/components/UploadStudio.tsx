@@ -8,6 +8,41 @@ import { type DocType, type Locale } from '@/lib/types'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import { ChampErreur } from './ChampErreur'
 
+/**
+ * ⚠️ NE JAMAIS AVALER LE MOTIF D'UN ÉCHEC. Le serveur renvoie toujours un code (`tooLarge`,
+ * `rate`, `forbidden`…) et un statut HTTP ; les jeter réduisait toute panne, quelle qu'elle
+ * soit, au même « L'analyse a échoué — réessayez ». Le 1er septembre 2026, ce message
+ * générique a masqué deux jours durant un 500 de la fonction (`ReferenceError: DOMMatrix is
+ * not defined`, pdfjs sans son canvas natif) : ni la rédaction ni l'écran ne pouvaient le
+ * savoir, il a fallu aller le lire dans les journaux Vercel. Un motif affiché, même brut,
+ * vaut mieux qu'une invitation à réessayer ce qui ne peut pas marcher.
+ */
+/**
+ * ⚠️ PLAFOND DE L'HÉBERGEUR, PAS DE L'APPLICATION. Vercel rejette toute requête de plus de
+ * ~4,5 Mo AVANT que la fonction ne s'exécute : les plafonds annoncés côté serveur (30 Mo pour
+ * l'analyse et l'OCR, 80 Mo pour les pièces) ne sont donc jamais atteints en production — ce
+ * sont des plafonds applicatifs, vrais en local seulement. Sans ce contrôle ici, un fascicule
+ * trop lourd échoue sans nom, rejeté avant d'avoir atteint le moindre de nos garde-fous.
+ */
+const MAX_ENVOI_OCTETS = 4.5 * 1024 * 1024
+
+function tropLourd(file: File): string | null {
+  if (file.size <= MAX_ENVOI_OCTETS) return null
+  return `PDF de ${(file.size / 1048576).toFixed(1)} Mo — la plateforme d’hébergement n’accepte pas plus de 4,5 Mo par envoi. Découpez le fascicule en plusieurs PDF et analysez-les l’un après l’autre.`
+}
+
+function motifEchec(res: { status: number; error: string | null }): string {
+  const connus: Record<string, string> = {
+    unauthorized: 'session expirée — reconnectez-vous',
+    forbidden: 'droits insuffisants pour publier',
+    rate: 'trop de tentatives — patientez une minute',
+    tooLarge: 'PDF trop volumineux',
+    noFile: 'aucun fichier reçu',
+    network: 'connexion interrompue',
+  }
+  return connus[res.error ?? ''] ?? `${res.error ?? 'erreur'} (HTTP ${res.status})`
+}
+
 interface SocieteData {
   denomination: string
   formeJuridique: string | null
@@ -133,10 +168,12 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
     setAnalyzing(true)
     setError(null)
     try {
+      const lourd = tropLourd(file)
+      if (lourd) throw new Error(lourd)
       const fd = new FormData()
       fd.set('file', file)
       const res = await postForm<ExtractResponse>('/api/admin/upload/extract', fd)
-      if (!res.ok || !res.data) throw new Error('extract')
+      if (!res.ok || !res.data) throw new Error(motifEchec(res))
       const data = res.data
       setAnalysis({ ai: data.ai, aiError: data.aiError, textLayer: data.textLayer, detected: data.documentKind })
       // Bascule automatique d'onglet selon la nature détectée (corrigeable à la main).
@@ -158,8 +195,8 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
       if (data.keywords?.length) setKeywords(data.keywords.join(', '))
       setPubs(data.publications.map((p) => ({ selected: true, title: p.title, type: p.type, category: p.category, societe: p.societe ?? null })))
       if (data.bodyText && !body) setBody(data.bodyText)
-    } catch {
-      setError(t.cms.analyzeFailed)
+    } catch (e) {
+      setError(`${t.cms.analyzeFailed} — ${(e as Error).message}`)
     } finally {
       setAnalyzing(false)
     }
@@ -173,13 +210,16 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
     setOcrNote(null)
     setError(null)
     try {
+      const lourd = tropLourd(file)
+      if (lourd) throw new Error(lourd)
       const fd = new FormData()
       fd.set('file', file)
       const res = await postForm<{ ok: boolean; text: string; pages: number; truncated: boolean }>(
         '/api/admin/upload/ocr',
         fd,
       )
-      if (!res.ok || !res.data?.text) throw new Error('ocr')
+      if (!res.ok) throw new Error(motifEchec(res))
+      if (!res.data?.text) throw new Error('aucun texte reconnu dans ce PDF')
       setBody(res.data.text)
       setAnalysis((a) => (a ? { ...a, textLayer: true } : a))
       setOcrNote(
@@ -187,8 +227,8 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
           ? `${t.cms.ocrDone} (${res.data.pages} ${t.cms.ocrPages}, ${t.cms.ocrTruncated})`
           : `${t.cms.ocrDone} (${res.data.pages} ${t.cms.ocrPages})`,
       )
-    } catch {
-      setError(t.cms.ocrFailed)
+    } catch (e) {
+      setError(`${t.cms.ocrFailed} — ${(e as Error).message}`)
     } finally {
       setOcrBusy(false)
     }
@@ -371,10 +411,21 @@ export function UploadStudio({ locale, t }: { locale: Locale; t: Dictionary }) {
 
       {/* 1 — Dépôt du PDF + analyse */}
       <div className="rounded-2xl border border-chabon/10 bg-white p-5">
+        {/* ⚠️ CETTE ZONE PORTE UN TITRE ET UNE ICÔNE, comme « Pièces du document » plus bas.
+            Sans eux, elle n'était qu'un rectangle en pointillés au texte gris, en tête d'un
+            écran long : on la cherchait sans la voir (« il n'y a pas d'icône pour téléverser »,
+            2 sept. 2026). Et une fois le fichier choisi, le nom du fichier REMPLAÇAIT l'invite,
+            si bien que plus rien ne disait qu'on pouvait encore cliquer pour en changer — le
+            libellé de remplacement le dit maintenant, comme le fait « ✓ PDF original joint —
+            remplacer » de la section des pièces. */}
+        <h2 className="mb-1 text-sm font-semibold text-ank">Le PDF à analyser</h2>
+        <p className="mb-3 text-xs text-ank/80">
+          Édition du Moniteur ou circulaire BRH — c’est ce fichier que l’analyse lit et que la vue comparée affiche.
+        </p>
         <div className="flex flex-wrap items-center gap-3">
-          <label className="flex flex-1 cursor-pointer items-center justify-center rounded-xl border-2 border-dashed border-chabon/20 px-6 py-6 text-center hover:border-liy">
+          <label className="flex flex-1 cursor-pointer items-center justify-center rounded-xl border-2 border-dashed border-chabon/20 px-6 py-6 text-center text-sm text-grafit hover:border-liy">
             <input type="file" accept="application/pdf" className="hidden" onChange={(e) => onFile(e.target.files?.[0])} />
-            <span className="text-sm text-grafit">{file?.name ?? t.cms.drop}</span>
+            <span>{file ? `✓ ${file.name} — remplacer` : `📥 ${t.cms.drop}`}</span>
           </label>
           <button
             onClick={analyze}
