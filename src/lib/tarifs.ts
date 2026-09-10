@@ -72,11 +72,48 @@ export function tariffSynonymTargets(q: string): { codes: string[]; mots: string
 }
 
 /**
- * Filtre d'une position tarifaire : par texte (code pointé OU chiffres seuls via
- * searchCode, OU désignation, OU vocabulaire ordinaire) et/ou par chapitre SH. Partagé par
- * /tarifs, l'API de recherche et /admin/tarifs.
+ * Plafond de la passe « accents repliés » : nombre d'identifiants rapportés au plus.
+ *
+ * La table compte 5 918 positions ; un terme large (« autres », « machines ») en touche
+ * beaucoup. Le plafond borne la liste de paramètres envoyée à Postgres. Au-delà, la
+ * recherche littérale continue de rendre les correspondances ACCENTUÉES : on perd des
+ * variantes repliées, jamais la réponse évidente.
  */
-export function tariffWhere(q: string, chapter?: string | null): Prisma.CustomsTariffWhereInput {
+export const TARIF_FOLD_CAP = 3000
+
+/**
+ * Motif LIKE d'une recherche repliée, ou `null` si la requête est trop courte.
+ *
+ * ⚠️ LES MÉTACARACTÈRES DE LIKE S'ÉCHAPPENT, SINON L'UTILISATEUR LES SUBIT. Un juriste qui
+ * cherche « 50 % » écrirait sans le vouloir un joker qui ramène toute la table ; « 8471_30 »
+ * ferait de même sur un caractère. Antislash d'abord — l'échapper après aurait doublé les
+ * antislashs que l'on vient d'ajouter.
+ */
+export function foldedLikePattern(q: string): string | null {
+  const s = (q ?? '').trim()
+  if (s.length < 2) return null
+  // ⚠️ LES ACCENTS VIVENT SUR DES LETTRES. Une recherche par code — « 8471.30 », « 50 % » —
+  // n'a rien à replier : la passe lui coûterait un balayage complet (≈ 236 ms mesurés) pour
+  // un résultat identique. C'est le cas le plus fréquent sur un tarif douanier.
+  if (!/\p{L}/u.test(s)) return null
+  return `%${s.replace(/\\/g, '\\\\').replace(/%/g, '\\%').replace(/_/g, '\\_')}%`
+}
+
+/**
+ * Filtre d'une position tarifaire : par texte (code pointé OU chiffres seuls via
+ * searchCode, OU désignation, OU vocabulaire ordinaire, OU accents repliés) et/ou par
+ * chapitre SH. Partagé par /tarifs, l'API de recherche et /admin/tarifs.
+ *
+ * `foldedIds` vient de `tariffFoldedIds()` (src/lib/tarifs-db.ts) : Postgres sait replier
+ * les accents avec `unaccent`, Prisma ne sait pas l'exprimer dans un `where`. La liste est
+ * donc calculée à part, puis versée ici comme une branche de plus du OU. Omise, le
+ * comportement est exactement celui d'avant.
+ */
+export function tariffWhere(
+  q: string,
+  chapter?: string | null,
+  foldedIds?: readonly string[],
+): Prisma.CustomsTariffWhereInput {
   const s = (q ?? '').trim()
   const and: Prisma.CustomsTariffWhereInput[] = []
   if (chapter) and.push({ chapter })
@@ -92,6 +129,8 @@ export function tariffWhere(q: string, chapter?: string | null): Prisma.CustomsT
     const { codes, mots } = tariffSynonymTargets(s)
     for (const c of codes) or.push({ searchCode: { startsWith: c } })
     for (const m of mots) or.push({ designation: { contains: m, mode: 'insensitive' } })
+    // Accents repliés : « ecran » trouve « écran ». S'AJOUTE aussi.
+    if (foldedIds?.length) or.push({ id: { in: [...foldedIds] } })
     and.push({ OR: or })
   }
   return and.length ? { AND: and } : {}

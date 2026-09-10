@@ -6,6 +6,7 @@ import { guard } from '@/lib/security/ratelimit'
 import { canReadService } from '@/lib/access'
 import { prisma } from '@/lib/db'
 import { tariffWhere, TARIFS_PAGE_SIZE } from '@/lib/tarifs'
+import { tariffFoldedIds } from '@/lib/tarifs-db'
 
 export const runtime = 'nodejs'
 
@@ -32,7 +33,12 @@ export async function GET(req: NextRequest) {
   // Il faut au moins un critère (texte ≥ 2 car. OU chapitre).
   if (q.length < 2 && !chapter) return NextResponse.json({ ok: true, rows: [], total: 0 })
 
-  const where = tariffWhere(q.length >= 2 ? q : '', chapter)
+  // Accents repliés (« ecran » → « écran ») : Postgres sait le faire, Prisma ne sait pas
+  // l'exprimer dans un `where`. Une passe séparée rapporte les identifiants, versés ensuite
+  // comme une branche de plus du OU. Ne lève jamais : au pire, on retombe sur l'ancien
+  // comportement.
+  const foldedIds = q.length >= 2 ? await tariffFoldedIds(q) : []
+  const where = tariffWhere(q.length >= 2 ? q : '', chapter, foldedIds)
   const [rows, total] = await Promise.all([
     prisma.customsTariff.findMany({
       where,

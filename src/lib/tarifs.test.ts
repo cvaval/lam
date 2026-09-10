@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { digitsOnly, tariffSynonymTargets, tariffWhere, TARIF_SYNONYMES } from './tarifs'
+import { digitsOnly, foldedLikePattern, tariffSynonymTargets, tariffWhere, TARIF_SYNONYMES } from './tarifs'
 
 /**
  * Le défaut mesuré en production le 9 septembre 2026 : sur 5 918 positions, « ordinateur »,
@@ -67,6 +67,50 @@ describe('tariffWhere', () => {
 
   it('sans critère, aucun filtre', () => {
     expect(tariffWhere('')).toEqual({})
+  })
+})
+
+describe('recherche accents repliés — motif LIKE', () => {
+  it('encadre le terme de jokers', () => {
+    expect(foldedLikePattern('ecran')).toBe('%ecran%')
+  })
+
+  it('refuse une requête trop courte', () => {
+    expect(foldedLikePattern('e')).toBeNull()
+    expect(foldedLikePattern('  ')).toBeNull()
+  })
+
+  it('une recherche SANS LETTRE ne déclenche pas la passe — un code n’a pas d’accent', () => {
+    expect(foldedLikePattern('8471.30')).toBeNull()
+    expect(foldedLikePattern('50 %')).toBeNull()
+    expect(foldedLikePattern('84 71')).toBeNull()
+  })
+
+  it('⚠️ échappe le pour-cent — un joker non échappé ramènerait toute la table', () => {
+    expect(foldedLikePattern('a%b')).toBe('%a\\%b%')
+  })
+
+  it('⚠️ échappe le souligné — il jokerise un caractère', () => {
+    expect(foldedLikePattern('art_30')).toBe('%art\\_30%')
+  })
+
+  it('⚠️ échappe l’antislash EN PREMIER, sinon il doublerait ceux qu’on vient d’ajouter', () => {
+    expect(foldedLikePattern('a\\b')).toBe('%a\\\\b%')
+    expect(foldedLikePattern('a\\%b')).toBe('%a\\\\\\%b%')
+  })
+})
+
+describe('tariffWhere avec les identifiants repliés', () => {
+  it('ajoute une branche id IN sans toucher aux autres', () => {
+    const w = tariffWhere('ecran', null, ['a', 'b']) as { AND: { OR: Record<string, unknown>[] }[] }
+    const or = w.AND[0].OR
+    expect(or.some((c) => JSON.stringify(c) === JSON.stringify({ id: { in: ['a', 'b'] } }))).toBe(true)
+    expect(or.some((c) => 'designation' in c)).toBe(true)
+  })
+
+  it('sans identifiants, le filtre est EXACTEMENT celui d’avant', () => {
+    expect(tariffWhere('ecran', null, [])).toEqual(tariffWhere('ecran'))
+    expect(tariffWhere('ecran', null, undefined)).toEqual(tariffWhere('ecran'))
   })
 })
 

@@ -2,6 +2,7 @@ import { prisma } from '@/lib/db'
 import { dictFor } from '@/lib/i18n/server'
 import { requireCapability } from '@/lib/auth/guard'
 import { tariffWhere } from '@/lib/tarifs'
+import { tariffFoldedIds } from '@/lib/tarifs-db'
 import { TariffAdmin } from '@/components/TariffAdmin'
 
 export const dynamic = 'force-dynamic'
@@ -19,7 +20,9 @@ export default async function AdminTarifsPage({
 
   const rawQ = Array.isArray(searchParams?.q) ? searchParams.q[0] : searchParams?.q
   const q = (rawQ ?? '').trim().slice(0, 120)
-  const where = tariffWhere(q)
+  // Même repli d'accents que la recherche publique : l'écran d'édition doit trouver ce que
+  // le lecteur trouve, sinon on corrige une ligne qu'on ne sait pas atteindre.
+  const where = tariffWhere(q, null, await tariffFoldedIds(q))
   const [total, rows] = await Promise.all([
     prisma.customsTariff.count({ where }),
     prisma.customsTariff.findMany({
