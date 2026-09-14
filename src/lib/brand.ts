@@ -132,6 +132,13 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
     type: 'JURISPRUDENCE',
     num: 3,
     slug: 'jurisprudence',
+    corpus: ['JURISPRUDENCE'] as const,
+    // L'axe « par matière » que la rubrique annonce depuis sa création (« filtres … par
+    // matière ») et n'avait jamais eu : les 745 notions du Répertoire alphabétique d'extraits
+    // de jurisprudence haïtienne (J.-F. Salès, 1963-1989), sous leur propre racine. Déclarée
+    // ICI et nulle part ailleurs : `navigationThemes` prend tout l'arbre quand une section ne
+    // déclare rien, et une racine de jurisprudence n'a rien à faire dans le parcours d'une loi.
+    racinesThemes: ['jurisprudence-sales'] as const,
     pastille: 'Brim',
     code: 'JUR',
     badge: 'JURISPRUDENCE',

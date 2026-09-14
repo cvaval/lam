@@ -16,6 +16,8 @@ const DEDICATED: Record<string, string> = {
   circulaires: 'circulaires',
   brh: 'circulaires', // alias historique (TYPE_SLUGS)
   tarifs: 'tarifs',
+  // Rubrique dédiée depuis le versement du Répertoire alphabétique (Salès) : entrée par notion.
+  jurisprudence: 'jurisprudence',
 }
 
 export function sectionHref(locale: string, slug: string): string {

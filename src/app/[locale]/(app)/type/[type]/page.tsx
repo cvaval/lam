@@ -15,5 +15,6 @@ export default function TypePage({ params }: { params: { locale: string; type: s
   if (params.type === 'circulaires' || params.type === 'brh') redirect(`/${locale}/circulaires`)
   // Tarifs douaniers : la tuile ouvre la table de tarifs (+ lien vers le corpus).
   if (params.type === 'tarifs') redirect(`/${locale}/tarifs`)
+  if (params.type === 'jurisprudence') redirect(`/${locale}/jurisprudence`)
   redirect(`/${locale}/search?type=${encodeURIComponent(params.type)}`)
 }

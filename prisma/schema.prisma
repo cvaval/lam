@@ -376,6 +376,10 @@ model Document {
   articleVersions ArticleVersion[]
   notes           DocumentNote[]
   judges          DecisionJudge[]
+  // Répertoire alphabétique de jurisprudence (Salès) : extraits dont CET arrêt est la
+  // décision, et renvois d'extraits vers CE texte (code, loi) — résolus après coup.
+  extraitsDecision JurisExtrait[]    @relation("ExtraitsDecision")
+  refsRecues       JurisExtraitRef[] @relation("RefsVersDocument")
   // NB : les index GIN du vecteur searchTsv sont PARTIELS (Document_searchTsv_visible_idx +
   // Document_searchTsv_societe_idx) et NE SONT PAS déclarés ici — Prisma ne représente pas les
   // index partiels, les déclarer recréerait un index plein redondant. Voir migrate-fts-tsvector.ts
@@ -596,6 +600,7 @@ model Theme {
   active   Boolean @default(true)
 
   documents DocumentTheme[]
+  extraits  JurisExtrait[]
 
   @@index([parentId])
 }
@@ -1085,4 +1090,59 @@ model DelaiFenetreSignification {
   createdAt       DateTime @default(now())
 
   @@unique([versionFenetres, matiere])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────────────────────
+// RÉPERTOIRE ALPHABÉTIQUE D'EXTRAITS DE JURISPRUDENCE HAÏTIENNE (J.-F. Salès, 1963-1989)
+//
+// L'UNITÉ EST L'ARRÊT (Document JURISPRUDENCE) ; L'EXTRAIT EST UNE LIAISON arrêt × notion,
+// avec le passage retenu — 2 930 entrées pour ≈ 1 286 arrêts, un même arrêt sous ≤ 15 notions.
+// Le renvoi vers un article de loi se stocke PAR DÉSIGNATION (« CTA », « 507 ») et se résout
+// plus tard : le recueil cite 138 textes hors codes, la plupart absents du corpus, et
+// d'autres viendront. Un renvoi résolu à l'import serait mort pour tout texte versé après.
+// Prompt : « Lam — Prompt Répertoire alphabétique de jurisprudence (Salès).md ».
+// ─────────────────────────────────────────────────────────────────────────────────────────────
+
+/// Un extrait du Répertoire : CET arrêt, sous CETTE notion, CE passage.
+model JurisExtrait {
+  id         String   @id @default(cuid())
+  decisionId String
+  decision   Document @relation("ExtraitsDecision", fields: [decisionId], references: [id], onDelete: Cascade)
+  themeId    String
+  theme      Theme    @relation(fields: [themeId], references: [id], onDelete: Restrict)
+  // Position sous la notion — ordre d'apparition dans le livre. Six notions du manuscrit
+  // numérotent mal (un « 3 » en double, un « 9 » absent) : la position est la seule clé sûre.
+  rang       Int
+  texte      String // les « Attendu », tels qu'imprimés
+  refsBrutes String? // « Réf: articles 28, 41 C.T. [36, 49 CTA] » verbatim — reste visible si le découpage échoue
+  tome       Int? // RAEJH t. I / II / III — phase 4
+  page       Int? // page du fac-similé — phase 4
+  refs       JurisExtraitRef[]
+  createdAt  DateTime @default(now())
+
+  @@unique([themeId, rang])
+  @@index([decisionId])
+}
+
+/// Un renvoi d'un extrait vers un article de loi — DÉSIGNÉ par le livre, RÉSOLU plus tard.
+model JurisExtraitRef {
+  id           String       @id @default(cuid())
+  extraitId    String
+  extrait      JurisExtrait @relation(fields: [extraitId], references: [id], onDelete: Cascade)
+  // ── ce que le livre écrit (immuable) ──
+  cible        String // clé canonique : « CTA », « CPC », « CT-1961 », « CONST-1987 », « LOI-1967-08-28 »
+  cibleLibelle String // verbatim : « Loi organique du Département des Affaires Sociales du 28 août 1967 »
+  article      String? // « 507 », « 567-b » ; null = le texte entier
+  // Renvoi à un texte POSTÉRIEUR à l'arrêt : annotation de l'éditeur (le manuscrit a été
+  // enrichi après 1989), jamais visa de la Cour. CALCULÉ, pas saisi.
+  posterieur   Boolean      @default(false)
+  // ── ce que le résolveur trouve (rejouable, jamais définitif) ──
+  documentId   String?
+  document     Document?    @relation("RefsVersDocument", fields: [documentId], references: [id], onDelete: SetNull)
+  anchor       String? // « art-507 » — null si le texte est en base mais pas l'article
+  resoluLe     DateTime?
+
+  @@index([cible, article]) // « quels extraits citent l'article 507 du CTA ? » — sans résolution
+  @@index([documentId, anchor])
+  @@index([documentId]) // « que cite-t-on de ce texte ? » — et la liste d'attente
 }

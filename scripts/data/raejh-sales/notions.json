@@ -1,0 +1,8048 @@
+[
+ {
+  "label": "ACCIDENT [OBJETS INANIMÉS]",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-accident-objets-inanimes",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "ACTES AUTHENTIQUES",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-actes-authentiques",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "ACTE PRIVÉ",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-acte-prive",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "AMENDE",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-amende",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "AMENDE D'APPEL",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-amende-d-appel",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "ANNULATION D'ENQUÊTE",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-annulation-d-enquete",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "ANNULATION D'UNE DÉCISION",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-annulation-d-une-decision",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "ARRÊT CONFIRMATIF",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-arret-confirmatif",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "ASSISES CRIMINELLES",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-assises-criminelles",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "AVOCATS",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-avocats",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "CASSATION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-cassation",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "CÉLÉRITÉ",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-celerite",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "CHEMIN DE FER",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-chemin-de-fer",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "CO-DÉFENDEURS",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-co-defendeurs",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "COHABITATION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-cohabitation",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "COMPENSATION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-compensation",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "COMPÉTENCE COMMERCIALE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-competence-commerciale",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "COMPOSITION DES TRIBUNAUX",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-composition-des-tribunaux",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "CONFLITS DE TRAVAIL",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-conflits-de-travail",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "CONSEIL DE DISCIPLINE DE L’ORDRE DES AVOCATS",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-conseil-de-discipline-de-l-ordre-des-avocats",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "CONSEIL SUPERIEUR DE LA MAGISTRATURE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-conseil-superieur-de-la-magistrature",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "CONSTITUTION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-constitution",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "COPIE DE DOCUMENTS",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-copie-de-documents",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "COPROPRIÉTÉ",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-copropriete",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "CORPS DU DÉLIT",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-corps-du-delit",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "COUR D'ASSISES",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-cour-d-assises",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "COUR SUPÉRIEURE DES COMPTES ET DU CONTENTIEUX ADMINSITRATIF",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-cour-superieure-des-comptes-et-du-contentieux-adminsitratif",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "CRIME POLITIQUE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-crime-politique",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "DÉCISIONS SUCCESSIVES",
+  "lettre": "D",
+  "parent": null,
+  "slug": "jfs-decisions-successives",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "DÉFAUT DE MOTIFS",
+  "lettre": "D",
+  "parent": null,
+  "slug": "jfs-defaut-de-motifs",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "DÉFAUT DE STATUER",
+  "lettre": "D",
+  "parent": null,
+  "slug": "jfs-defaut-de-statuer",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "DÉFENDRE",
+  "lettre": "D",
+  "parent": null,
+  "slug": "jfs-defendre",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "DÉLAI DE POURVOI",
+  "lettre": "D",
+  "parent": null,
+  "slug": "jfs-delai-de-pourvoi",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "DÉLAI D'ASSIGNATION",
+  "lettre": "D",
+  "parent": null,
+  "slug": "jfs-delai-d-assignation",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "DÉLAIS",
+  "lettre": "D",
+  "parent": null,
+  "slug": "jfs-delais",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "DÉLIT POLITIQUE",
+  "lettre": "D",
+  "parent": null,
+  "slug": "jfs-delit-politique",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "DÉSISTEMENT",
+  "lettre": "D",
+  "parent": null,
+  "slug": "jfs-desistement",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "DISPENSE",
+  "lettre": "D",
+  "parent": null,
+  "slug": "jfs-dispense",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "DISTRACTION",
+  "lettre": "D",
+  "parent": null,
+  "slug": "jfs-distraction",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "DROIT DE PROPRIÉTÉ",
+  "lettre": "D",
+  "parent": null,
+  "slug": "jfs-droit-de-propriete",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "DROIT PÉNAL",
+  "lettre": "D",
+  "parent": null,
+  "slug": "jfs-droit-penal",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "DROIT SOCIAL",
+  "lettre": "D",
+  "parent": null,
+  "slug": "jfs-droit-social",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "EFFET DÉVOLUTIF",
+  "lettre": "E",
+  "parent": null,
+  "slug": "jfs-effet-devolutif",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "EFFET SUSPENSIF",
+  "lettre": "E",
+  "parent": null,
+  "slug": "jfs-effet-suspensif",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "ÉLÉGIBILITÉ",
+  "lettre": "É",
+  "parent": null,
+  "slug": "jfs-elegibilite",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "EMPLOYÉ",
+  "lettre": "E",
+  "parent": null,
+  "slug": "jfs-employe",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "EMPLOYEUR",
+  "lettre": "E",
+  "parent": null,
+  "slug": "jfs-employeur",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "ENTREPRISE",
+  "lettre": "E",
+  "parent": null,
+  "slug": "jfs-entreprise",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "ÉTABLISSEMENT PUBLIC",
+  "lettre": "É",
+  "parent": null,
+  "slug": "jfs-etablissement-public",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "ÉVOCATION",
+  "lettre": "É",
+  "parent": null,
+  "slug": "jfs-evocation",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "EXAMEN DE LA CAUSE",
+  "lettre": "E",
+  "parent": null,
+  "slug": "jfs-examen-de-la-cause",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "EXCEPTIONS",
+  "lettre": "E",
+  "parent": null,
+  "slug": "jfs-exceptions",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "EXCEPTION PRÉJUDICIELLE",
+  "lettre": "E",
+  "parent": null,
+  "slug": "jfs-exception-prejudicielle",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "EXCÈS DE POUVOIR",
+  "lettre": "E",
+  "parent": null,
+  "slug": "jfs-exces-de-pouvoir",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "EXPÉDITION",
+  "lettre": "E",
+  "parent": null,
+  "slug": "jfs-expedition",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "EXPÉDITION DE DOCUMENTS",
+  "lettre": "E",
+  "parent": null,
+  "slug": "jfs-expedition-de-documents",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "EXPLOIT D'APPEL",
+  "lettre": "E",
+  "parent": null,
+  "slug": "jfs-exploit-d-appel",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "EXPLOIT",
+  "lettre": "E",
+  "parent": null,
+  "slug": "jfs-exploit",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "EXPLOIT INTRODUCTIF D'INSTANCE",
+  "lettre": "E",
+  "parent": null,
+  "slug": "jfs-exploit-introductif-d-instance",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "EXTRAIT DE COMPTES",
+  "lettre": "E",
+  "parent": null,
+  "slug": "jfs-extrait-de-comptes",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "FAUTE LOURDE",
+  "lettre": "F",
+  "parent": null,
+  "slug": "jfs-faute-lourde",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "FILIATION",
+  "lettre": "F",
+  "parent": null,
+  "slug": "jfs-filiation",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "FRAUDE",
+  "lettre": "F",
+  "parent": null,
+  "slug": "jfs-fraude",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "GÉRANT",
+  "lettre": "G",
+  "parent": null,
+  "slug": "jfs-gerant",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "HÉRITIERS",
+  "lettre": "H",
+  "parent": null,
+  "slug": "jfs-heritiers",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "HUISSIER",
+  "lettre": "H",
+  "parent": null,
+  "slug": "jfs-huissier",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "IDENTITÉ",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-identite",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "INCIDENT",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-incident",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "INEXÉCUTION",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-inexecution",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "INFIRMATION",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-infirmation",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "INFRACTIONS POLITIQUES",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-infractions-politiques",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "INSPECTEURS DU TRAVAIL",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-inspecteurs-du-travail",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "INTÉRÊT COMMUN",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-interet-commun",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "INTÉRÊT MORATOIRE",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-interet-moratoire",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "INTERLOCUTOIRE",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-interlocutoire",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "INTERPRÉTATION",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-interpretation",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "INVITATION OBLIGATOIRE",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-invitation-obligatoire",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "IRRECEVABILITÉ",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-irrecevabilite",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "JUGE",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-juge",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "JUGE DE PAIX",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-juge-de-paix",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "JUGE DE TRAVAIL",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-juge-de-travail",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "JUGE DU FOND",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-juge-du-fond",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "JUGEMENT AVANT-DIRE DROIT",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-jugement-avant-dire-droit",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "JUGEMENT CORRECTIONEL",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-jugement-correctionel",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "JUGEMENT DE RECTIFICATION",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-jugement-de-rectification",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "JUGEMENT INTERLOCUTOIRE",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-jugement-interlocutoire",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "JUGEMENT PAR DÉFAUT",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-jugement-par-defaut",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "JURÉS",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-jures",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "JURIDICTIONS",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-juridictions",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "JURY",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-jury",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "JUSTE TITRE",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-juste-titre",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "LETTRE",
+  "lettre": "L",
+  "parent": null,
+  "slug": "jfs-lettre",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "LIVRES DE COMMERCE",
+  "lettre": "L",
+  "parent": null,
+  "slug": "jfs-livres-de-commerce",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "LOI",
+  "lettre": "L",
+  "parent": null,
+  "slug": "jfs-loi",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "MER",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-mer",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "MOYEN",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-moyen",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "MUTATION",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-mutation",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "NOTAIRE",
+  "lettre": "N",
+  "parent": null,
+  "slug": "jfs-notaire",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "NULLITÉ DE CLAUSES",
+  "lettre": "N",
+  "parent": null,
+  "slug": "jfs-nullite-de-clauses",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "PENSION",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-pension",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "PERMIS",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-permis",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "PERSONNALITÉ",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-personnalite",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "PIÈCES",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-pieces",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "POURVOI",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-pourvoi",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "PRESTATIONS",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-prestations",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "PROCÉDURE",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-procedure",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "PROCÈS-VERBAUX",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-proces-verbaux",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "PROCÈS-VERBAUX D'INSPECTEURS DU TRAVAIL",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-proces-verbaux-d-inspecteurs-du-travail",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "PROMESSE",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-promesse",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "PROMOTION",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-promotion",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "PRONONCÉ D'UN JUGEMENT",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-prononce-d-un-jugement",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "PUBLICITÉ",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-publicite",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "PUISSANCE PATERNELLE (MARITALE)",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-puissance-paternelle-maritale",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "QUALIFICATION D'UN JUGEMENT",
+  "lettre": "Q",
+  "parent": null,
+  "slug": "jfs-qualification-d-un-jugement",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "RÉCLAMATION",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-reclamation",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "RÉPARATION",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-reparation",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "RÉSERVES",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-reserves",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "RÉSILIATION DE CONTRAT DE TRAVAIL",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-resiliation-de-contrat-de-travail",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "RÉSILIATION ILLÉGALE DE CONTRAT DE TRAVAIL",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-resiliation-illegale-de-contrat-de-travail",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "RESPONSABILITÉ",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-responsabilite",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "RESPONSABILITÉ CIVILE DES PARENTS",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-responsabilite-civile-des-parents",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "RESPONSABILITÉ PARTAGÉE",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-responsabilite-partagee",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "RESSORT",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-ressort",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "RESTITUTION",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-restitution",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "RÉTRACTATION",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-retractation",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "RETRAITE",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-retraite",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "RÉVISION",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-revision",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "SAISIE",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-saisie",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "SCELLÉS",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-scelles",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "SECTIONS RÉUNIES DE LA COUR DE CASSATION",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-sections-reunies-de-la-cour-de-cassation",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "SIGNATURE",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-signature",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "SIGNIFICATION D'UNE DÉCISION",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-signification-d-une-decision",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "SIGNIFICATION D'EXPLOIT",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-signification-d-exploit",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "SIGNIFICATION D'EXPLOITS",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-signification-d-exploits",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "SOUS-ENTREPRISE",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-sous-entreprise",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "SUBORDINATION",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-subordination",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "TESTAMENT",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-testament",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "TIMBRES JUSTICE POUR TOUS",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-timbres-justice-pour-tous",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "TRANSPORT",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-transport",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "TRANSPORT AÉRIEN",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-transport-aerien",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "TRAVAIL",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-travail",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "TRIBUNAL CRIMINEL",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-tribunal-criminel",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "TRIBUNAL DE PAIX",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-tribunal-de-paix",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "TRIBUNAL DE TRAVAIL",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-tribunal-de-travail",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "TRIBUNAL TERRIEN",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-tribunal-terrien",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "VICES CACHÉS",
+  "lettre": "V",
+  "parent": null,
+  "slug": "jfs-vices-caches",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "VOLONTÉ",
+  "lettre": "V",
+  "parent": null,
+  "slug": "jfs-volonte",
+  "virtuel": true,
+  "preambule": [],
+  "nb": 0
+ },
+ {
+  "label": "ABANDON DU TOÎT MARITAL",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-abandon-du-toit-marital",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ABROGATION",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-abrogation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ABUS DE DROIT DE DÉNONCER",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-abus-de-droit-de-denoncer",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ABUS DU DROIT D'ASSIGNER",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-abus-du-droit-d-assigner",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "ACCEPTATION",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-acceptation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ACCIDENT DE CHEMIN DE FER",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-accident-de-chemin-de-fer",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "ACCCIDENT DE LA CIRCULATION",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-acccident-de-la-circulation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "ACCIDENT DE TRAVAIL",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-accident-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 18
+ },
+ {
+  "label": "ACCIDENT [OBJETS INANIMÉS] - RESPONSABILITÉ",
+  "lettre": "A",
+  "parent": "ACCIDENT [OBJETS INANIMÉS]",
+  "slug": "jfs-accident-objets-inanimes-responsabilite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ACCORD ENTRE LES PARTIES",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-accord-entre-les-parties",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ACQUIESCEMENT",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-acquiescement",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 17
+ },
+ {
+  "label": "ACQUITTEMENT",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-acquittement",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ACTES AUTHENTIQUES - FORCE PROBANTE",
+  "lettre": "A",
+  "parent": "ACTES AUTHENTIQUES",
+  "slug": "jfs-actes-authentiques-force-probante",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 10
+ },
+ {
+  "label": "ACTE DE COMMERCE",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-acte-de-commerce",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ACTE DE L'ÉTAT CIVIL",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-acte-de-l-etat-civil",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "ACTE DE PROCÉDURE",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-acte-de-procedure",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ACTE PRIVÉ - FORCE PROBANTE",
+  "lettre": "A",
+  "parent": "ACTE PRIVÉ",
+  "slug": "jfs-acte-prive-force-probante",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "ACTE RÉCOGNITIF",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-acte-recognitif",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ACTION CIVILE",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-action-civile",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "ACTION POSSESSOIRE",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-action-possessoire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "ACTION POSSESSOIRE - DÉFINITION ET CONDITIONS D'EXERCICE",
+  "lettre": "A",
+  "parent": "ACTION POSSESSOIRE",
+  "slug": "jfs-action-possessoire-definition-et-conditions-d-exercice",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ACTION POSSESSOIRE - RECEVABILITÉ",
+  "lettre": "A",
+  "parent": "ACTION POSSESSOIRE",
+  "slug": "jfs-action-possessoire-recevabilite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "ACTION PUBLIQUE",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-action-publique",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "ACTION PUBLIQUE - EFFET DU DÉFAUT D'APPEL",
+  "lettre": "A",
+  "parent": "ACTION PUBLIQUE",
+  "slug": "jfs-action-publique-effet-du-defaut-d-appel",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ACTION PUBLIQUE - MODE D'INTERRUPTION",
+  "lettre": "A",
+  "parent": "ACTION PUBLIQUE",
+  "slug": "jfs-action-publique-mode-d-interruption",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ACTION PUBLIQUE - PRESCRIPTION",
+  "lettre": "A",
+  "parent": "ACTION PUBLIQUE",
+  "slug": "jfs-action-publique-prescription",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "ACTIONNAIRE",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-actionnaire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ADJUDICATION",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-adjudication",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "ADMINISTRATEUR",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-administrateur",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "ADMINISTRATION PUBLIQUE",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-administration-publique",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ADMINISTRATION PUBLIQUE - DÉFINITION",
+  "lettre": "A",
+  "parent": "ADMINISTRATION PUBLIQUE",
+  "slug": "jfs-administration-publique-definition",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ADOPTION",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-adoption",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "AFFAIRE EN ÉTAT",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-affaire-en-etat",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "AFFAIRE SOMMAIRE",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-affaire-sommaire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "AGENT",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-agent",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "ALLÉGATIONS",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-allegations",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "AMENDE - CONSIGNATION - ORDRE PUBLIC",
+  "lettre": "A",
+  "parent": "AMENDE",
+  "slug": "jfs-amende-consignation-ordre-public",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 24
+ },
+ {
+  "label": "AMENDE D'APPEL - DÉLAI POUR DÉPOSER",
+  "lettre": "A",
+  "parent": "AMENDE D'APPEL",
+  "slug": "jfs-amende-d-appel-delai-pour-deposer",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "AMENDE - JURIDICTION DE RENVOI",
+  "lettre": "A",
+  "parent": "AMENDE",
+  "slug": "jfs-amende-juridiction-de-renvoi",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ANNULATION D'ENQUÊTE - EFFETS",
+  "lettre": "A",
+  "parent": "ANNULATION D'ENQUÊTE",
+  "slug": "jfs-annulation-d-enquete-effets",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ANNULATION D'UN ACTE",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-annulation-d-un-acte",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ANNULATION D'UNE DÉCISION - EFFETS",
+  "lettre": "A",
+  "parent": "ANNULATION D'UNE DÉCISION",
+  "slug": "jfs-annulation-d-une-decision-effets",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "APPEL",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-appel",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 13
+ },
+ {
+  "label": "APPEL COMMERCIAL",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-appel-commercial",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "APPEL - COMPÉTENCE",
+  "lettre": "A",
+  "parent": "APPEL",
+  "slug": "jfs-appel-competence",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "APPEL - CONTRE UNE DÉCISION INTERLOCUTOIRE",
+  "lettre": "A",
+  "parent": "APPEL",
+  "slug": "jfs-appel-contre-une-decision-interlocutoire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "APPEL - CORRECTIONNEL",
+  "lettre": "A",
+  "parent": "APPEL",
+  "slug": "jfs-appel-correctionnel",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "APPEL - DROIT D'",
+  "lettre": "A",
+  "parent": "APPEL",
+  "slug": "jfs-appel-droit-d",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "APPEL - EFFET DÉVOLUTIF",
+  "lettre": "A",
+  "parent": "APPEL",
+  "slug": "jfs-appel-effet-devolutif",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 33
+ },
+ {
+  "label": "APPEL - EFFET SUSPENSIF",
+  "lettre": "A",
+  "parent": "APPEL",
+  "slug": "jfs-appel-effet-suspensif",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "APPEL - FORMALITÉS",
+  "lettre": "A",
+  "parent": "APPEL",
+  "slug": "jfs-appel-formalites",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 8
+ },
+ {
+  "label": "APPEL INCIDENT",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-appel-incident",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "APPEL – MISSION",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-appel-mission",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "APPEL - SIMPLE POLICE",
+  "lettre": "A",
+  "parent": "APPEL",
+  "slug": "jfs-appel-simple-police",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "APPRÉCIATION DES FAITS",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-appreciation-des-faits",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 15
+ },
+ {
+  "label": "ARBITRAGE",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-arbitrage",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "ARPENTAGE",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-arpentage",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "ARPENTEUR",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-arpenteur",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ARRESTATION",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-arrestation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "ARRÊT CONFIRMATIF - ÉTENDUE DU RAISONNEMENT",
+  "lettre": "A",
+  "parent": "ARRÊT CONFIRMATIF",
+  "slug": "jfs-arret-confirmatif-etendue-du-raisonnement",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ASSIGNATION",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-assignation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "ASSIGNATION - À MANDATAIRE",
+  "lettre": "A",
+  "parent": "ASSIGNATION",
+  "slug": "jfs-assignation-a-mandataire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ASSIGNATION COLLECTIVE",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-assignation-collective",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ASSIGNATION - FORMES",
+  "lettre": "A",
+  "parent": "ASSIGNATION",
+  "slug": "jfs-assignation-formes",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "ASSISES CRIMINELLES - PROCÉDURE",
+  "lettre": "A",
+  "parent": "ASSISES CRIMINELLES",
+  "slug": "jfs-assises-criminelles-procedure",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "ASSOCIÉ EN NOM COLLECTIF",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-associe-en-nom-collectif",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "ASSURANCES SOCIALES",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-assurances-sociales",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "ASSURANCE VÉHICULES CONTRE TIERS",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-assurance-vehicules-contre-tiers",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ASTREINTE",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-astreinte",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "ATTRIBUTIONS",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-attributions",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "AUDIENCE",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-audience",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "AUTORISATION MARITALE",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-autorisation-maritale",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "AVAL",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-aval",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "AVANCE DE FONDS",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-avance-de-fonds",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "AVENIR",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-avenir",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "AVEU",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-aveu",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 8
+ },
+ {
+  "label": "AVOCAT",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-avocat",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "AVOCAT vs. AGENT CONSULAIRE",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-avocat-vs-agent-consulaire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "AVOCAT - CONSTITUTION D'",
+  "lettre": "A",
+  "parent": "AVOCAT",
+  "slug": "jfs-avocat-constitution-d",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "AVOCAT – REPRESENTATION (EFFET)",
+  "lettre": "A",
+  "parent": null,
+  "slug": "jfs-avocat-representation-effet",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "AVOCATS - ORDRE DES",
+  "lettre": "A",
+  "parent": "AVOCATS",
+  "slug": "jfs-avocats-ordre-des",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "BAIL À CHEPTEL",
+  "lettre": "B",
+  "parent": null,
+  "slug": "jfs-bail-a-cheptel",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "BAIL À FERME",
+  "lettre": "B",
+  "parent": null,
+  "slug": "jfs-bail-a-ferme",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "BAIL À LOYER",
+  "lettre": "B",
+  "parent": null,
+  "slug": "jfs-bail-a-loyer",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 10
+ },
+ {
+  "label": "BAIL COMMERCIAL",
+  "lettre": "B",
+  "parent": null,
+  "slug": "jfs-bail-commercial",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "BAIL – RÉSILIATION DE",
+  "lettre": "B",
+  "parent": null,
+  "slug": "jfs-bail-resiliation-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "BILLET À ORDRE",
+  "lettre": "B",
+  "parent": null,
+  "slug": "jfs-billet-a-ordre",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "BONI",
+  "lettre": "B",
+  "parent": null,
+  "slug": "jfs-boni",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "BONNE FOI",
+  "lettre": "B",
+  "parent": null,
+  "slug": "jfs-bonne-foi",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "CABINET D’INSTRUCTION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-cabinet-d-instruction",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CAHIER DES CHARGES",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-cahier-des-charges",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CARTE D'IDENTITÉ",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-carte-d-identite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "CASSATION - EFFETS",
+  "lettre": "C",
+  "parent": "CASSATION",
+  "slug": "jfs-cassation-effets",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "CASSATION - EFFET DÉVOLUTIF",
+  "lettre": "C",
+  "parent": "CASSATION",
+  "slug": "jfs-cassation-effet-devolutif",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CASSATION - RECOURS EN",
+  "lettre": "C",
+  "parent": "CASSATION",
+  "slug": "jfs-cassation-recours-en",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "CAUTION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-caution",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CAUTION JUDICATUM SOLVI",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-caution-judicatum-solvi",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "CÉLÉRITÉ - PROCÉDURE DE TRAVAIL",
+  "lettre": "C",
+  "parent": "CÉLÉRITÉ",
+  "slug": "jfs-celerite-procedure-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "CERTIFICAT",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-certificat",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CHANGEMENT D'EMPLOYEUR",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-changement-d-employeur",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "CHEMIN DE FER - ACCIDENT",
+  "lettre": "C",
+  "parent": "CHEMIN DE FER",
+  "slug": "jfs-chemin-de-fer-accident",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "CHÈQUE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-cheque",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "CHÔMAGE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-chomage",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CHOSE JUGÉE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-chose-jugee",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 11
+ },
+ {
+  "label": "CIRCONSTANCES AGGRAVANTES",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-circonstances-aggravantes",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CIRCONSTANCES ATTÉNUANTES",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-circonstances-attenuantes",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "CIRCULATION FERROVIAIRE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-circulation-ferroviaire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CITATION CORRECTIONNELLE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-citation-correctionnelle",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CLAUSE COMPROMISSOIRE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-clause-compromissoire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CODE DU TRAVAIL",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-code-du-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "CO-DÉFENDEURS - VALIDITÉ DE L'ASSIGNATION",
+  "lettre": "C",
+  "parent": "CO-DÉFENDEURS",
+  "slug": "jfs-co-defendeurs-validite-de-l-assignation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "COHABITATION - DEVOIR DE",
+  "lettre": "C",
+  "parent": "COHABITATION",
+  "slug": "jfs-cohabitation-devoir-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "COHÉRITIERS",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-coheritiers",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "COLONAT PARTIAIRE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-colonat-partiaire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "COMMANDEMENT",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-commandement",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "COMMERÇANT",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-commercant",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "COMMERÇANT - JURIDICTION COMPÉTENTE",
+  "lettre": "C",
+  "parent": "COMMERÇANT",
+  "slug": "jfs-commercant-juridiction-competente",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "COMMERÇANT - QUALITÉ",
+  "lettre": "C",
+  "parent": "COMMERÇANT",
+  "slug": "jfs-commercant-qualite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "COMMERCIALITÉ",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-commercialite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "COMMISSION PRÉSIDENTIELLE AGRAIRE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-commission-presidentielle-agraire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "COMMUNICATION DE PIÈCES",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-communication-de-pieces",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 21
+ },
+ {
+  "label": "COMMUNICATION DE PIÈCES - INCIDENT DE",
+  "lettre": "C",
+  "parent": "COMMUNICATION DE PIÈCES",
+  "slug": "jfs-communication-de-pieces-incident-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "COMPARUTION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-comparution",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "COMPARUTION PERSONNELLE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-comparution-personnelle",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "COMPARUTION PERSONNELLE - AFFAIRE DE TRAVAIL",
+  "lettre": "C",
+  "parent": "COMPARUTION PERSONNELLE",
+  "slug": "jfs-comparution-personnelle-affaire-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "COMPENSATION - NATURE DE LA",
+  "lettre": "C",
+  "parent": "COMPENSATION",
+  "slug": "jfs-compensation-nature-de-la",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "COMPÉTENCE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-competence",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 12
+ },
+ {
+  "label": "COMPÉTENCE - AFFAIRES DE TRAVAIL",
+  "lettre": "C",
+  "parent": "COMPÉTENCE",
+  "slug": "jfs-competence-affaires-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 18
+ },
+ {
+  "label": "COMPÉTENCE COMMERCIALE - DÉTERMINATION",
+  "lettre": "C",
+  "parent": "COMPÉTENCE COMMERCIALE",
+  "slug": "jfs-competence-commerciale-determination",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "COMPÉTENCE - CONSEIL DE DISCIPLINE [ORDRE DES AVOCATS]",
+  "lettre": "C",
+  "parent": "COMPÉTENCE",
+  "slug": "jfs-competence-conseil-de-discipline-ordre-des-avocats",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "COMPÉTENCE - COUR D'APPEL",
+  "lettre": "C",
+  "parent": "COMPÉTENCE",
+  "slug": "jfs-competence-cour-d-appel",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "COMPÉTENCE - COUR D'ASSISES",
+  "lettre": "C",
+  "parent": "COMPÉTENCE",
+  "slug": "jfs-competence-cour-d-assises",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "COMPÉTENCE - COUR DE CASSATION",
+  "lettre": "C",
+  "parent": "COMPÉTENCE",
+  "slug": "jfs-competence-cour-de-cassation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "COMPÉTENCE - RÉFÉRÉS",
+  "lettre": "C",
+  "parent": "COMPÉTENCE",
+  "slug": "jfs-competence-referes",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "COMPÉTENCE - TRIBUNAL DE PAIX",
+  "lettre": "C",
+  "parent": "COMPÉTENCE",
+  "slug": "jfs-competence-tribunal-de-paix",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 8
+ },
+ {
+  "label": "COMPÉTENCE - TRIBUNAL TERRIEN",
+  "lettre": "C",
+  "parent": "COMPÉTENCE",
+  "slug": "jfs-competence-tribunal-terrien",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "COMPÉTENCE - TRIBUNAUX ET COURS",
+  "lettre": "C",
+  "parent": "COMPÉTENCE",
+  "slug": "jfs-competence-tribunaux-et-cours",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "COMPLAINTE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-complainte",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "COMPLAISANCE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-complaisance",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "COMPLICITÉ",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-complicite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "COMPOSITION DES TRIBUNAUX - ORDRE PUBLIC",
+  "lettre": "C",
+  "parent": "COMPOSITION DES TRIBUNAUX",
+  "slug": "jfs-composition-des-tribunaux-ordre-public",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "CONCILIATION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-conciliation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 10
+ },
+ {
+  "label": "CONCLUSIONS",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-conclusions",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 13
+ },
+ {
+  "label": "CONCLUSIONS - AFFAIRES PÉNALES",
+  "lettre": "C",
+  "parent": "CONCLUSIONS",
+  "slug": "jfs-conclusions-affaires-penales",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "CONCLUSIONS - INSERTION AU JUGEMENT",
+  "lettre": "C",
+  "parent": "CONCLUSIONS",
+  "slug": "jfs-conclusions-insertion-au-jugement",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 18
+ },
+ {
+  "label": "CONDAMNATION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-condamnation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONDAMNATION - PÉNALE",
+  "lettre": "C",
+  "parent": "CONDAMNATION",
+  "slug": "jfs-condamnation-penale",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "CONFLITS INDIVIDUELS DE TRAVAIL",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-conflits-individuels-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "CONFLITS DE TRAVAIL - TRIBUNAL COMPÉTENT",
+  "lettre": "C",
+  "parent": "CONFLITS DE TRAVAIL",
+  "slug": "jfs-conflits-de-travail-tribunal-competent",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONGÉ ANNUEL",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-conge-annuel",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "CONGÉ-DÉFAUT",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-conge-defaut",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 10
+ },
+ {
+  "label": "CONGÉ DE LOCATION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-conge-de-location",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "CONGÉ DE LOCATION - RECEVABILITÉ DE LA DEMANDE EN VALIDITÉ",
+  "lettre": "C",
+  "parent": "CONGÉ DE LOCATION",
+  "slug": "jfs-conge-de-location-recevabilite-de-la-demande-en-validite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONGÉ DE MALADIE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-conge-de-maladie",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "CONGÉ DE MATERNITÉ",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-conge-de-maternite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONNEXITÉ",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-connexite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "CONSEIL DE DISCIPLINE DE L’ORDRE DES AVOCATS - COMPOSITION",
+  "lettre": "C",
+  "parent": "CONSEIL DE DISCIPLINE DE L’ORDRE DES AVOCATS",
+  "slug": "jfs-conseil-de-discipline-de-l-ordre-des-avocats-composition",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 8
+ },
+ {
+  "label": "CONSEIL SUPERIEUR DE LA MAGISTRATURE - COMPÉTENCE",
+  "lettre": "C",
+  "parent": "CONSEIL SUPERIEUR DE LA MAGISTRATURE",
+  "slug": "jfs-conseil-superieur-de-la-magistrature-competence",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONSENTEMENT",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-consentement",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "CONSIGNATION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-consignation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONSIGNATION - DE LOYERS",
+  "lettre": "C",
+  "parent": "CONSIGNATION",
+  "slug": "jfs-consignation-de-loyers",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "CONSORTS",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-consorts",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONSTITUTION - INTERPRÉTATION",
+  "lettre": "C",
+  "parent": "CONSTITUTION",
+  "slug": "jfs-constitution-interpretation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONSTITUTION D'AVOCAT",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-constitution-d-avocat",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "CONTRADICTION: MOTIFS vs. DISPOSITIF",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-contradiction-motifs-vs-dispositif",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONTRAINTE PAR CORPS",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-contrainte-par-corps",
+  "virtuel": false,
+  "preambule": [
+   "Note: - Depuis la ratification par Haïti de la Convention Américaine Relative aux Droits de l’Homme, la contrainte par corps n’a plus légalement cour dans le pays. C’est en effet ce qui ressort de l’article 7-7 de la Convention libellé comme suit: « Nul ne peut être arrêté pour motif de dette. Cette disposition ne s'applique pas aux mandats décernés par une autorité judiciaire compétente pour cause d'inexécution des obligations alimentaires»."
+  ],
+  "nb": 3
+ },
+ {
+  "label": "CONTRARIÉTÉ DE DISPOSITIONS",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-contrariete-de-dispositions",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONTRAT",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-contrat",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "CONTRAT - INEXÉCUTION DE",
+  "lettre": "C",
+  "parent": "CONTRAT",
+  "slug": "jfs-contrat-inexecution-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONTRAT - INTERPRÉTATION",
+  "lettre": "C",
+  "parent": "CONTRAT",
+  "slug": "jfs-contrat-interpretation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONTRAT - NULLITÉ DE",
+  "lettre": "C",
+  "parent": "CONTRAT",
+  "slug": "jfs-contrat-nullite-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONTRAT - RÉSILIATION DE",
+  "lettre": "C",
+  "parent": "CONTRAT",
+  "slug": "jfs-contrat-resiliation-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONTRAT COMMERCIAL",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-contrat-commercial",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONTRAT DE CONSTRUCTION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-contrat-de-construction",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONTRAT DE GÉRANCE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-contrat-de-gerance",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONTRAT D'ENTREPRISE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-contrat-d-entreprise",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "CONTRAT DE TRAVAIL",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-contrat-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 14
+ },
+ {
+  "label": "CONTRAT DE TRAVAIL AGRICOLE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-contrat-de-travail-agricole",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONTRAT DE TRAVAIL COLLECTIF",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-contrat-de-travail-collectif",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "CONTRAT DE TRAVAIL - INTERPRÉTATION",
+  "lettre": "C",
+  "parent": "CONTRAT DE TRAVAIL",
+  "slug": "jfs-contrat-de-travail-interpretation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "CONTRAT DE TRAVAIL - RÉSILIATION",
+  "lettre": "C",
+  "parent": "CONTRAT DE TRAVAIL",
+  "slug": "jfs-contrat-de-travail-resiliation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "CONTRAT MIXTE TRAVAIL/ENTREPRISE]",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-contrat-mixte-travail-entreprise",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONTRAVENTION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-contravention",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "CONTREBANDE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-contrebande",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONTRE-LETTRE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-contre-lettre",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CONTRIBUTION FONCIÈRE SUR PROPRIÉTÉS BÂTIES",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-contribution-fonciere-sur-proprietes-baties",
+  "virtuel": false,
+  "preambule": [
+   "Voir : Impôt locatif."
+  ],
+  "nb": 0
+ },
+ {
+  "label": "CONVENTIONS",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-conventions",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "CONVICTION DU JUGE – BASE DE LA",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-conviction-du-juge-base-de-la",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "COPIE DE DOCUMENTS - FORCE PROBANTE",
+  "lettre": "C",
+  "parent": "COPIE DE DOCUMENTS",
+  "slug": "jfs-copie-de-documents-force-probante",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "COPROPRIÉTAIRES",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-coproprietaires",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "COPROPRIÉTÉ - EFFETS",
+  "lettre": "C",
+  "parent": "COPROPRIÉTÉ",
+  "slug": "jfs-copropriete-effets",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CORPS DU DÉLIT - PRÉSENTATION",
+  "lettre": "C",
+  "parent": "CORPS DU DÉLIT",
+  "slug": "jfs-corps-du-delit-presentation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "COUR D'APPEL",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-cour-d-appel",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "COUR D'ASSISES - COMPÉTENCE",
+  "lettre": "C",
+  "parent": "COUR D'ASSISES",
+  "slug": "jfs-cour-d-assises-competence",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "COUR DE CASSATION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-cour-de-cassation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "COUR DE CASSATION – COMPÉTENCE AFFAIRES DE TRAVAIL",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-cour-de-cassation-competence-affaires-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "COUR DE RENVOI",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-cour-de-renvoi",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "COUR MARTIALE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-cour-martiale",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "COUR SUPÉRIEURE DES COMPTES ET DU CONTENTIEUX ADMINSITRATIF - COMPÉTENCE",
+  "lettre": "C",
+  "parent": "COUR SUPÉRIEURE DES COMPTES ET DU CONTENTIEUX ADMINSITRATIF",
+  "slug": "jfs-cour-superieure-des-comptes-et-du-contentieux-adminsitratif-competence",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "COURTIER",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-courtier",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "CRÉANCE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-creance",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "CRIME POLITIQUE - JURIDICTION COMPÉTENTE",
+  "lettre": "C",
+  "parent": "CRIME POLITIQUE",
+  "slug": "jfs-crime-politique-juridiction-competente",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CUMUL",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-cumul",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "CUMUL - POSSESSOIRE ET PÉTITOIRE",
+  "lettre": "C",
+  "parent": "CUMUL",
+  "slug": "jfs-cumul-possessoire-et-petitoire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 12
+ },
+ {
+  "label": "CUMUL - DES VOIES DE RECOURS",
+  "lettre": "C",
+  "parent": "CUMUL",
+  "slug": "jfs-cumul-des-voies-de-recours",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "DATE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-date",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "DÉCÈS",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-deces",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉCHÉANCE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-decheance",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉCHÉANCE - EFFETS",
+  "lettre": "C",
+  "parent": "DÉCHÉANCE",
+  "slug": "jfs-decheance-effets",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉCISION CONTRADICTOIRE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-decision-contradictoire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉCISIONS SUCCESSIVES - EFFET",
+  "lettre": "C",
+  "parent": "DÉCISIONS SUCCESSIVES",
+  "slug": "jfs-decisions-successives-effet",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉCLARATION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-declaration",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉCLARATION D'APPEL",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-declaration-d-appel",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉCLARATION DE POURVOI",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-declaration-de-pourvoi",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 25
+ },
+ {
+  "label": "DÉCLARATION DE POURVOI - AFFAIRES DE TRAVAIL",
+  "lettre": "C",
+  "parent": "DÉCLARATION DE POURVOI",
+  "slug": "jfs-declaration-de-pourvoi-affaires-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "DÉCLARATION DE POURVOI - AFFAIRES PÉNALES",
+  "lettre": "C",
+  "parent": "DÉCLARATION DE POURVOI",
+  "slug": "jfs-declaration-de-pourvoi-affaires-penales",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "DÉCLARATION DE POURVOI - RECEVABILITÉ",
+  "lettre": "C",
+  "parent": "DÉCLARATION DE POURVOI",
+  "slug": "jfs-declaration-de-pourvoi-recevabilite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "DÉFAUT",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-defaut",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "DÉFAUT - CONDITIONS D'OCTROI",
+  "lettre": "C",
+  "parent": "DÉFAUT",
+  "slug": "jfs-defaut-conditions-d-octroi",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉFAUT DE MOTIFS - EFFETS",
+  "lettre": "C",
+  "parent": "DÉFAUT DE MOTIFS",
+  "slug": "jfs-defaut-de-motifs-effets",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 18
+ },
+ {
+  "label": "DÉFAUT DE STATUER - EFFETS",
+  "lettre": "C",
+  "parent": "DÉFAUT DE STATUER",
+  "slug": "jfs-defaut-de-statuer-effets",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 31
+ },
+ {
+  "label": "DÉFAUT PROFIT-JOINT",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-defaut-profit-joint",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉFENDRE - DÉFINITION",
+  "lettre": "C",
+  "parent": "DÉFENDRE",
+  "slug": "jfs-defendre-definition",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉFENSE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-defense",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "DÉFENSES D'EXÉCUTER",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-defenses-d-executer",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 13
+ },
+ {
+  "label": "DÉGUERPISSEMENT",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-deguerpissement",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "DÉLAI",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-delai",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "DÉLAI D'APPEL – POINT DE DÉPART",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-delai-d-appel-point-de-depart",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "DÉLAI DE POURVOI - POINT DE DÉPART",
+  "lettre": "C",
+  "parent": "DÉLAI DE POURVOI",
+  "slug": "jfs-delai-de-pourvoi-point-de-depart",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "DÉLAI D'ASSIGNATION - IMPORTANCE",
+  "lettre": "C",
+  "parent": "DÉLAI D'ASSIGNATION",
+  "slug": "jfs-delai-d-assignation-importance",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 9
+ },
+ {
+  "label": "DÉLAIS - POINT DE DÉPART",
+  "lettre": "C",
+  "parent": "DÉLAIS",
+  "slug": "jfs-delais-point-de-depart",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "DÉLIBÉRÉ",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-delibere",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉLIT",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-delit",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉLIT POLITIQUE - JURIDICTION COMPÉTENTE",
+  "lettre": "C",
+  "parent": "DÉLIT POLITIQUE",
+  "slug": "jfs-delit-politique-juridiction-competente",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DEMANDE D'ACTES",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-demande-d-actes",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DEMANDE EN JUSTICE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-demande-en-justice",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "DEMANDES MULTIPLES",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-demandes-multiples",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DEMANDES NOUVELLES",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-demandes-nouvelles",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "DEMANDES PRINCIPALES",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-demandes-principales",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "DÉMARCHEUR",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-demarcheur",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉNATURATION DES FAITS",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-denaturation-des-faits",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "DÉNÉGATION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-denegation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉNI DE JUSTICE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-deni-de-justice",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "DÉNONCIATION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-denonciation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉNONCIATION CALOMNIEUSE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-denonciation-calomnieuse",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉNONCIATION DE NOUVELLE OEUVRE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-denonciation-de-nouvelle-oeuvre",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉPENS",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-depens",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "DÉPORT",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-deport",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉPOSSESSION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-depossession",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉPÔT",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-depot",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉPÔT DE PIÈCES",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-depot-de-pieces",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "DÉPÔT DE PIÈCES - AFFAIRES PÉNALES",
+  "lettre": "C",
+  "parent": "DÉPÔT DE PIÈCES",
+  "slug": "jfs-depot-de-pieces-affaires-penales",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "DÉPÔT DE PIÈCES – DÉLAIS POUR",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-depot-de-pieces-delais-pour",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "DÉPÔT DE PIÈCES - IMPORTANCE",
+  "lettre": "C",
+  "parent": "DÉPÔT DE PIÈCES",
+  "slug": "jfs-depot-de-pieces-importance",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DÉSAVEU",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-desaveu",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "DESCENTE SUR LES LIEUX",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-descente-sur-les-lieux",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "DÉSISTEMENT - EFFETS",
+  "lettre": "C",
+  "parent": "DÉSISTEMENT",
+  "slug": "jfs-desistement-effets",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "DÉSSAISISSEMENT",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-dessaisissement",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "DISCIPLINE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-discipline",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "DISPENSE - DE PLAIDER",
+  "lettre": "C",
+  "parent": "DISPENSE",
+  "slug": "jfs-dispense-de-plaider",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DISPOSITIF",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-dispositif",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 13
+ },
+ {
+  "label": "DISPOSITIF - CONTENU",
+  "lettre": "C",
+  "parent": "DISPOSITIF",
+  "slug": "jfs-dispositif-contenu",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "DISPOSITIF - EFFET DE SA SIGNIFICATION",
+  "lettre": "C",
+  "parent": "DISPOSITIF",
+  "slug": "jfs-dispositif-effet-de-sa-signification",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "DISPOSITIF - INTERPRÉTATION",
+  "lettre": "C",
+  "parent": "DISPOSITIF",
+  "slug": "jfs-dispositif-interpretation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DISTRACTION - DE BIENS SAISIS",
+  "lettre": "C",
+  "parent": "DISTRACTION",
+  "slug": "jfs-distraction-de-biens-saisis",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DISTRACTION - DE DÉPENS ET FRAIS",
+  "lettre": "C",
+  "parent": "DISTRACTION",
+  "slug": "jfs-distraction-de-depens-et-frais",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "DIVORCE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-divorce",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "DOCTRINE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-doctrine",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DOL",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-dol",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "DOMMAGES-INTÉRÊTS",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-dommages-interets",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 36
+ },
+ {
+  "label": "DOMMAGES-INTÉRÊTS - CARACTÉRISTIQUES ET CONDITIONS D'OCTROI",
+  "lettre": "C",
+  "parent": "DOMMAGES-INTÉRÊTS",
+  "slug": "jfs-dommages-interets-caracteristiques-et-conditions-d-octroi",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 24
+ },
+ {
+  "label": "DOMMAGES-INTÉRÊTS - DÉTERMINATION DU MONTANT",
+  "lettre": "C",
+  "parent": "DOMMAGES-INTÉRÊTS",
+  "slug": "jfs-dommages-interets-determination-du-montant",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 14
+ },
+ {
+  "label": "DOMMAGES-INTÉRÊTS - JUSTIFICATION",
+  "lettre": "C",
+  "parent": "DOMMAGES-INTÉRÊTS",
+  "slug": "jfs-dommages-interets-justification",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 17
+ },
+ {
+  "label": "DOMMAGES-INTÉRÊTS - RENONCIATION À",
+  "lettre": "C",
+  "parent": "DOMMAGES-INTÉRÊTS",
+  "slug": "jfs-dommages-interets-renonciation-a",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DONATION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-donation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "DROIT DE LA DÉFENSE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-droit-de-la-defense",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 9
+ },
+ {
+  "label": "DROIT DE PASSAGE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-droit-de-passage",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "DROIT DE PROPRIÉTÉ - PREUVES",
+  "lettre": "C",
+  "parent": "DROIT DE PROPRIÉTÉ",
+  "slug": "jfs-droit-de-propriete-preuves",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "DROIT PÉNAL - INTERPRÉTATION",
+  "lettre": "C",
+  "parent": "DROIT PÉNAL",
+  "slug": "jfs-droit-penal-interpretation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "DROIT SOCIAL - INTERPRÉTATION STRICTE",
+  "lettre": "C",
+  "parent": "DROIT SOCIAL",
+  "slug": "jfs-droit-social-interpretation-stricte",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 11
+ },
+ {
+  "label": "DURÉE DU TRAVAIL",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-duree-du-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "ÉLECTRICITÉ D'HAÏTI",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-electricite-d-haiti",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "EFFET DE COMMERCE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-effet-de-commerce",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "EFFET DÉVOLUTIF - APPEL",
+  "lettre": "C",
+  "parent": "EFFET DÉVOLUTIF",
+  "slug": "jfs-effet-devolutif-appel",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 21
+ },
+ {
+  "label": "EFFET DÉVOLUTIF - CASSATION",
+  "lettre": "C",
+  "parent": "EFFET DÉVOLUTIF",
+  "slug": "jfs-effet-devolutif-cassation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "EFFET SUSPENSIF - APPEL",
+  "lettre": "C",
+  "parent": "EFFET SUSPENSIF",
+  "slug": "jfs-effet-suspensif-appel",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ÉLECTION DE DOMICILE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-election-de-domicile",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "ÉLÉGIBILITÉ - À UNE FONCTION ÉLECTIVE",
+  "lettre": "C",
+  "parent": "ÉLÉGIBILITÉ",
+  "slug": "jfs-elegibilite-a-une-fonction-elective",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "EMPLOYÉ DE L'ÉTAT",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-employe-de-l-etat",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "EMPLOYÉ - OBLIGATIONS",
+  "lettre": "C",
+  "parent": "EMPLOYÉ",
+  "slug": "jfs-employe-obligations",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "EMPLOYÉ - PREUVE",
+  "lettre": "C",
+  "parent": "EMPLOYÉ",
+  "slug": "jfs-employe-preuve",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "EMPLOYÉ - PROFESSIONS LIBÉRALES",
+  "lettre": "C",
+  "parent": "EMPLOYÉ",
+  "slug": "jfs-employe-professions-liberales",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "EMPLOYEUR – ADMINISTRATEUR / DIRECTEUR",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-employeur-administrateur-directeur",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "EMPLOYEUR – CHANGEMENT / SUBSTITUTION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-employeur-changement-substitution",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "EMPLOYEUR - PRÉROGATIVES",
+  "lettre": "C",
+  "parent": "EMPLOYEUR",
+  "slug": "jfs-employeur-prerogatives",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ENDOS",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-endos",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ENFANT ADULTÉRIN",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-enfant-adulterin",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ENQUÊTE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-enquete",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "ENQUÊTE - AFFAIRES DE TRAVAIL",
+  "lettre": "C",
+  "parent": "ENQUÊTE",
+  "slug": "jfs-enquete-affaires-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "ENQUÊTE - APPRÉCIATION / AFFAIRES DE TRAVAIL",
+  "lettre": "C",
+  "parent": "ENQUÊTE",
+  "slug": "jfs-enquete-appreciation-affaires-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "ENQUÊTE SOMMAIRE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-enquete-sommaire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "ENREGISTREMENT",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-enregistrement",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 12
+ },
+ {
+  "label": "ENREGISTREMENT - EXPLOIT D'HUISSIER",
+  "lettre": "C",
+  "parent": "ENREGISTREMENT",
+  "slug": "jfs-enregistrement-exploit-d-huissier",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "ENTREPRENEUR",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-entrepreneur",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "ENTREPRISE MINIÈRE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-entreprise-miniere",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ENTREPRISE - PREUVE DE SON EXISTENCE",
+  "lettre": "C",
+  "parent": "ENTREPRISE",
+  "slug": "jfs-entreprise-preuve-de-son-existence",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ENTREPRISE SAISONNIÈRE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-entreprise-saisonniere",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "ÉQUITÉ",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-equite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "ESCROQUERIE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-escroquerie",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "ERREUR",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-erreur",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "ERREUR MATÉRIELLE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-erreur-materielle",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "ÉTABLISSEMENT PUBLIC - DÉFINITION",
+  "lettre": "C",
+  "parent": "ÉTABLISSEMENT PUBLIC",
+  "slug": "jfs-etablissement-public-definition",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ÉTRANGER",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-etranger",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ÉVOCATION - DROIT D'",
+  "lettre": "C",
+  "parent": "ÉVOCATION",
+  "slug": "jfs-evocation-droit-d",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "EXAMEN DE LA CAUSE - MODES",
+  "lettre": "C",
+  "parent": "EXAMEN DE LA CAUSE",
+  "slug": "jfs-examen-de-la-cause-modes",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "EXCEPTION JUDICATUM SOLVI",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-exception-judicatum-solvi",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "EXCEPTIONS - ORDRE DES",
+  "lettre": "C",
+  "parent": "EXCEPTIONS",
+  "slug": "jfs-exceptions-ordre-des",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "EXCEPTION PRÉJUDICIELLE - EFFET",
+  "lettre": "C",
+  "parent": "EXCEPTION PRÉJUDICIELLE",
+  "slug": "jfs-exception-prejudicielle-effet",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "EXCÈS DE POUVOIR - DÉFINITION",
+  "lettre": "C",
+  "parent": "EXCÈS DE POUVOIR",
+  "slug": "jfs-exces-de-pouvoir-definition",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 8
+ },
+ {
+  "label": "EXÉCUTION",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-execution",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "EXÉCUTION - AFFAIRES DE TRAVAIL",
+  "lettre": "C",
+  "parent": "EXÉCUTION",
+  "slug": "jfs-execution-affaires-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "EXÉCUTION PROVISOIRE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-execution-provisoire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 15
+ },
+ {
+  "label": "EXÉCUTION - SURSIS À",
+  "lettre": "C",
+  "parent": "EXÉCUTION",
+  "slug": "jfs-execution-sursis-a",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "EXPÉDITION - DÉFINITION",
+  "lettre": "C",
+  "parent": "EXPÉDITION",
+  "slug": "jfs-expedition-definition",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "EXPÉDITION DE DOCUMENTS - FORCE PROBANTE",
+  "lettre": "C",
+  "parent": "EXPÉDITION DE DOCUMENTS",
+  "slug": "jfs-expedition-de-documents-force-probante",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "EXPERT",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-expert",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "EXPERT – RAPPORT / FORCE PROBANTE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-expert-rapport-force-probante",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "EXPERTISE",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-expertise",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "EXPLOITS",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-exploits",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "EXPLOIT D'APPEL - FORMALITÉS",
+  "lettre": "C",
+  "parent": "EXPLOIT D'APPEL",
+  "slug": "jfs-exploit-d-appel-formalites",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "EXPLOIT - DATE",
+  "lettre": "C",
+  "parent": "EXPLOIT",
+  "slug": "jfs-exploit-date",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "EXPLOIT - FORCE PROBANTE",
+  "lettre": "C",
+  "parent": "EXPLOIT",
+  "slug": "jfs-exploit-force-probante",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "EXPLOIT INTRODUCTIF D'INSTANCE - VALIDITÉ / FORMALITÉ ET PREUVE",
+  "lettre": "C",
+  "parent": "EXPLOIT INTRODUCTIF D'INSTANCE",
+  "slug": "jfs-exploit-introductif-d-instance-validite-formalite-et-preuve",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "EXPLOIT – NULLITÉ D’",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-exploit-nullite-d",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "EXPLOIT - SIGNIFICATION À PLUSIEURS PERSONNES",
+  "lettre": "C",
+  "parent": "EXPLOIT",
+  "slug": "jfs-exploit-signification-a-plusieurs-personnes",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "EXPULSION DES LIEUX",
+  "lettre": "C",
+  "parent": null,
+  "slug": "jfs-expulsion-des-lieux",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "EXTRAIT DE COMPTES - FORCE PROBANTE",
+  "lettre": "C",
+  "parent": "EXTRAIT DE COMPTES",
+  "slug": "jfs-extrait-de-comptes-force-probante",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "FAUTE",
+  "lettre": "F",
+  "parent": null,
+  "slug": "jfs-faute",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 8
+ },
+ {
+  "label": "FAUTE LOURDE - NÉGLIGENCE GRAVE",
+  "lettre": "F",
+  "parent": "FAUTE LOURDE",
+  "slug": "jfs-faute-lourde-negligence-grave",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "FAUTE PROFESSIONNELLE",
+  "lettre": "F",
+  "parent": null,
+  "slug": "jfs-faute-professionnelle",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "FAUX",
+  "lettre": "F",
+  "parent": null,
+  "slug": "jfs-faux",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "FAUX - EN ÉCRITURE PUBLIQUE",
+  "lettre": "F",
+  "parent": "FAUX",
+  "slug": "jfs-faux-en-ecriture-publique",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "FILIATION - ADULTÉRINE",
+  "lettre": "F",
+  "parent": "FILIATION",
+  "slug": "jfs-filiation-adulterine",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "FILIATION - NATURELLE",
+  "lettre": "F",
+  "parent": "FILIATION",
+  "slug": "jfs-filiation-naturelle",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "FILIATION - PREUVE",
+  "lettre": "F",
+  "parent": "FILIATION",
+  "slug": "jfs-filiation-preuve",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "FIN DE NON-RECEVOIR",
+  "lettre": "F",
+  "parent": null,
+  "slug": "jfs-fin-de-non-recevoir",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "FONCTIONNAIRE – DESINVESTITURE/ TRAITEMENT",
+  "lettre": "F",
+  "parent": null,
+  "slug": "jfs-fonctionnaire-desinvestiture-traitement",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "FONCTIONNAIRE PUBLIC – NOTION DE",
+  "lettre": "F",
+  "parent": null,
+  "slug": "jfs-fonctionnaire-public-notion-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "FORCE MAJEURE",
+  "lettre": "F",
+  "parent": null,
+  "slug": "jfs-force-majeure",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "FORMULE EXÉCUTOIRE",
+  "lettre": "F",
+  "parent": null,
+  "slug": "jfs-formule-executoire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "FRAIS DE PROCÉDURE",
+  "lettre": "F",
+  "parent": null,
+  "slug": "jfs-frais-de-procedure",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "FRAIS FUNÉRAIRES",
+  "lettre": "F",
+  "parent": null,
+  "slug": "jfs-frais-funeraires",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "FRAUDE - APPRÉCIATION",
+  "lettre": "F",
+  "parent": "FRAUDE",
+  "slug": "jfs-fraude-appreciation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "GARANTIE",
+  "lettre": "G",
+  "parent": null,
+  "slug": "jfs-garantie",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "GARDE D'ENFANTS",
+  "lettre": "G",
+  "parent": null,
+  "slug": "jfs-garde-d-enfants",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 12
+ },
+ {
+  "label": "GÉNIE MUNICIPAL",
+  "lettre": "G",
+  "parent": null,
+  "slug": "jfs-genie-municipal",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "GÉRANCE",
+  "lettre": "G",
+  "parent": null,
+  "slug": "jfs-gerance",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "GÉRANT - RESPONSABILITÉ",
+  "lettre": "G",
+  "parent": "GÉRANT",
+  "slug": "jfs-gerant-responsabilite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "GREFFIER",
+  "lettre": "G",
+  "parent": null,
+  "slug": "jfs-greffier",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "GRÈVE",
+  "lettre": "G",
+  "parent": null,
+  "slug": "jfs-greve",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "HÉRITIERS - QUALITÉ / PREUVE",
+  "lettre": "H",
+  "parent": "HÉRITIERS",
+  "slug": "jfs-heritiers-qualite-preuve",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "HEURES SUPPLÉMENTAIRES",
+  "lettre": "H",
+  "parent": null,
+  "slug": "jfs-heures-supplementaires",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "HOMICIDE",
+  "lettre": "H",
+  "parent": null,
+  "slug": "jfs-homicide",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "HUISSIER - CERTIFICATION",
+  "lettre": "H",
+  "parent": "HUISSIER",
+  "slug": "jfs-huissier-certification",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "HUISSIER - COMMIS",
+  "lettre": "H",
+  "parent": "HUISSIER",
+  "slug": "jfs-huissier-commis",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "HUISSIER - COMPÉTENCE",
+  "lettre": "H",
+  "parent": "HUISSIER",
+  "slug": "jfs-huissier-competence",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 10
+ },
+ {
+  "label": "HYPOTHÈQUE",
+  "lettre": "H",
+  "parent": null,
+  "slug": "jfs-hypotheque",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "HYPOTHÈQUE - ANNULATION D' / JURIDICTION COMPÉTENTE",
+  "lettre": "H",
+  "parent": "HYPOTHÈQUE",
+  "slug": "jfs-hypotheque-annulation-d-juridiction-competente",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "IDENTITÉ - DÉTERMINATION",
+  "lettre": "I",
+  "parent": "IDENTITÉ",
+  "slug": "jfs-identite-determination",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "IDENTITÉ - IMPORTANCE",
+  "lettre": "I",
+  "parent": "IDENTITÉ",
+  "slug": "jfs-identite-importance",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "IMMEUBLES",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-immeubles",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "IMMUTABILITÉ DES ARRÊTS DE LA COUR DE CASSATION",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-immutabilite-des-arrets-de-la-cour-de-cassation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "IMPÔT LOCATIF",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-impot-locatif",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 22
+ },
+ {
+  "label": "INCIDENT - SUR EXCEPTION",
+  "lettre": "I",
+  "parent": "INCIDENT",
+  "slug": "jfs-incident-sur-exception",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "INCOMPÉTENCE",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-incompetence",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "INCONSTITUTIONALITÉ",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-inconstitutionalite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "INDEMNITÉS",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-indemnites",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "INDIVISIBILITÉ",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-indivisibilite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "INDIVISIBILITÉ - DE L'ACTION",
+  "lettre": "I",
+  "parent": "INDIVISIBILITÉ",
+  "slug": "jfs-indivisibilite-de-l-action",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "INDIVISION",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-indivision",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "INDUE JOUISSANCE",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-indue-jouissance",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "INEXACTITUDES",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-inexactitudes",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "INEXÉCUTION - D'UNE DÉCISION",
+  "lettre": "I",
+  "parent": "INEXÉCUTION",
+  "slug": "jfs-inexecution-d-une-decision",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "INFIRMATION - D'UNE DÉCISION",
+  "lettre": "I",
+  "parent": "INFIRMATION",
+  "slug": "jfs-infirmation-d-une-decision",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "INFRACTIONS POLITIQUES - JURIDICTION COMPÉTENTE",
+  "lettre": "I",
+  "parent": "INFRACTIONS POLITIQUES",
+  "slug": "jfs-infractions-politiques-juridiction-competente",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "INJURES",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-injures",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "INSCRIPTION EN FAUX",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-inscription-en-faux",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "INSPECTEURS DU TRAVAIL - PROCÈS-VERBAUX",
+  "lettre": "I",
+  "parent": "INSPECTEURS DU TRAVAIL",
+  "slug": "jfs-inspecteurs-du-travail-proces-verbaux",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 8
+ },
+ {
+  "label": "INSTRUCTION PÉNALE",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-instruction-penale",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "INSTRUCTION PÉNALE - ORALITÉ DES DÉBATS",
+  "lettre": "I",
+  "parent": "INSTRUCTION PÉNALE",
+  "slug": "jfs-instruction-penale-oralite-des-debats",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "INTENTION CRIMINELLE",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-intention-criminelle",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "INTÉRÊT",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-interet",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "INTÉRÊT COMMUN - EFFET",
+  "lettre": "I",
+  "parent": "INTÉRÊT COMMUN",
+  "slug": "jfs-interet-commun-effet",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "INTÉRÊT MORATOIRE - CONDITIONS D'OCTROI",
+  "lettre": "I",
+  "parent": "INTÉRÊT MORATOIRE",
+  "slug": "jfs-interet-moratoire-conditions-d-octroi",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "INTÉRÊT SUR PRÊT CONVENTIONNEL",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-interet-sur-pret-conventionnel",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "INTERLOCUTOIRE - POURVOI CONTRE",
+  "lettre": "I",
+  "parent": "INTERLOCUTOIRE",
+  "slug": "jfs-interlocutoire-pourvoi-contre",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "INTERPRÉTATION – CONVENTIONS DES PARTIES",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-interpretation-conventions-des-parties",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "INTERPRÉTATION D'ARRÊT",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-interpretation-d-arret",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "INTERPRÉTATION - DE LA CONSTITUTION",
+  "lettre": "I",
+  "parent": "INTERPRÉTATION",
+  "slug": "jfs-interpretation-de-la-constitution",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "INTERPRÉTATION - D'UN DISPOSITIF",
+  "lettre": "I",
+  "parent": "INTERPRÉTATION",
+  "slug": "jfs-interpretation-d-un-dispositif",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "INTERPRÉTATION - DROIT SOCIAL",
+  "lettre": "I",
+  "parent": "INTERPRÉTATION",
+  "slug": "jfs-interpretation-droit-social",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 8
+ },
+ {
+  "label": "INTERVENTION",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-intervention",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "INTIMÉ",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-intime",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "INTIME CONVICTION",
+  "lettre": "I",
+  "parent": null,
+  "slug": "jfs-intime-conviction",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "INVITATION OBLIGATOIRE - AFFAIRE DE TRAVAIL",
+  "lettre": "I",
+  "parent": "INVITATION OBLIGATOIRE",
+  "slug": "jfs-invitation-obligatoire-affaire-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "IRRECEVABILITÉ - EFFETS",
+  "lettre": "I",
+  "parent": "IRRECEVABILITÉ",
+  "slug": "jfs-irrecevabilite-effets",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "JONCTION",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-jonction",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "JUGE - MANDAT DU",
+  "lettre": "J",
+  "parent": "JUGE",
+  "slug": "jfs-juge-mandat-du",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "JUGE - POUVOIRS",
+  "lettre": "J",
+  "parent": "JUGE",
+  "slug": "jfs-juge-pouvoirs",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "JUGE DE PAIX - POUVOIRS",
+  "lettre": "J",
+  "parent": "JUGE DE PAIX",
+  "slug": "jfs-juge-de-paix-pouvoirs",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "JUGE DE TRAVAIL - MANDAT",
+  "lettre": "J",
+  "parent": "JUGE DE TRAVAIL",
+  "slug": "jfs-juge-de-travail-mandat",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "JUGE D'INSTRUCTION",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-juge-d-instruction",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "JUGE DU FOND - ATTRIBUTIONS",
+  "lettre": "J",
+  "parent": "JUGE DU FOND",
+  "slug": "jfs-juge-du-fond-attributions",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "JUGEMENT",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-jugement",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "JUGEMENT - EFFET DE LA SIGNIFICATION",
+  "lettre": "J",
+  "parent": "JUGEMENT",
+  "slug": "jfs-jugement-effet-de-la-signification",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "JUGEMENT - EFFET DU PRONONCÉ",
+  "lettre": "J",
+  "parent": "JUGEMENT",
+  "slug": "jfs-jugement-effet-du-prononce",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "JUGEMENT - EXÉCUTION DE",
+  "lettre": "J",
+  "parent": "JUGEMENT",
+  "slug": "jfs-jugement-execution-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "JUGEMENT - FORMALITÉS DE RÉDACTION",
+  "lettre": "J",
+  "parent": "JUGEMENT",
+  "slug": "jfs-jugement-formalites-de-redaction",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 14
+ },
+ {
+  "label": "JUGEMENT - INTITULÉ",
+  "lettre": "J",
+  "parent": "JUGEMENT",
+  "slug": "jfs-jugement-intitule",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "JUGEMENT - QUALIFICATION D'UN",
+  "lettre": "J",
+  "parent": "JUGEMENT",
+  "slug": "jfs-jugement-qualification-d-un",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "JUGEMENT – RECOURS CONTRE",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-jugement-recours-contre",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "JUGEMENT AVANT-DIRE DROIT – RECOURS CONTRE",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-jugement-avant-dire-droit-recours-contre",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "JUGEMENT AVANT-DIRE DROIT - SIGNIFICATION",
+  "lettre": "J",
+  "parent": "JUGEMENT AVANT-DIRE DROIT",
+  "slug": "jfs-jugement-avant-dire-droit-signification",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "JUGEMENT COLLECTIF",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-jugement-collectif",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "JUGEMENT CORRECTIONEL - FORME",
+  "lettre": "J",
+  "parent": "JUGEMENT CORRECTIONEL",
+  "slug": "jfs-jugement-correctionel-forme",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "JUGEMENT CORRECTIONNEL – RECOURS CONTRE",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-jugement-correctionnel-recours-contre",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "JUGEMENT DE RECTIFICATION - VALIDITÉ",
+  "lettre": "J",
+  "parent": "JUGEMENT DE RECTIFICATION",
+  "slug": "jfs-jugement-de-rectification-validite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "JUGEMENT INTERLOCUTOIRE - RECOURS CONTRE / AFFAIRE DE TRAVAIL]",
+  "lettre": "J",
+  "parent": "JUGEMENT INTERLOCUTOIRE",
+  "slug": "jfs-jugement-interlocutoire-recours-contre-affaire-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "JUGEMENT PAR DÉFAUT - EFFET",
+  "lettre": "J",
+  "parent": "JUGEMENT PAR DÉFAUT",
+  "slug": "jfs-jugement-par-defaut-effet",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "JURÉS - LISTE DES",
+  "lettre": "J",
+  "parent": "JURÉS",
+  "slug": "jfs-jures-liste-des",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 9
+ },
+ {
+  "label": "JURÉS - QUESTIONS AUX",
+  "lettre": "J",
+  "parent": "JURÉS",
+  "slug": "jfs-jures-questions-aux",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "JURÉS - SERMENT",
+  "lettre": "J",
+  "parent": "JURÉS",
+  "slug": "jfs-jures-serment",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "JURÉS - SUPPLÉANTS",
+  "lettre": "J",
+  "parent": "JURÉS",
+  "slug": "jfs-jures-suppleants",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "JURIDICTION COMMERCIALE – COMPÉTENCE",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-juridiction-commerciale-competence",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "JURIDICTION DE RENVOI",
+  "lettre": "J",
+  "parent": null,
+  "slug": "jfs-juridiction-de-renvoi",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "JURIDICTIONS - ORDRE DES",
+  "lettre": "J",
+  "parent": "JURIDICTIONS",
+  "slug": "jfs-juridictions-ordre-des",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 8
+ },
+ {
+  "label": "JURY - FORMATION DU",
+  "lettre": "J",
+  "parent": "JURY",
+  "slug": "jfs-jury-formation-du",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "JURY - QUESTIONS AU",
+  "lettre": "J",
+  "parent": "JURY",
+  "slug": "jfs-jury-questions-au",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "JURY - VERDICT",
+  "lettre": "J",
+  "parent": "JURY",
+  "slug": "jfs-jury-verdict",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "JUSTE TITRE - DÉFINITION",
+  "lettre": "J",
+  "parent": "JUSTE TITRE",
+  "slug": "jfs-juste-titre-definition",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "LÉGITIME DÉFENSE",
+  "lettre": "L",
+  "parent": null,
+  "slug": "jfs-legitime-defense",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "LETTRE - FORCE PROBANTE",
+  "lettre": "L",
+  "parent": "LETTRE",
+  "slug": "jfs-lettre-force-probante",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "LIBÉRALITÉS",
+  "lettre": "L",
+  "parent": null,
+  "slug": "jfs-liberalites",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "LIBERTÉ PROVISOIRE",
+  "lettre": "L",
+  "parent": null,
+  "slug": "jfs-liberte-provisoire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "LICENCE D'ÉTRANGER",
+  "lettre": "L",
+  "parent": null,
+  "slug": "jfs-licence-d-etranger",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "LIQUIDATION",
+  "lettre": "L",
+  "parent": null,
+  "slug": "jfs-liquidation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "LITISPENDANCE",
+  "lettre": "L",
+  "parent": null,
+  "slug": "jfs-litispendance",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "LIVRES DE COMMERCE - COMMUNICATION",
+  "lettre": "L",
+  "parent": "LIVRES DE COMMERCE",
+  "slug": "jfs-livres-de-commerce-communication",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "LIVRET DE TRAVAIL",
+  "lettre": "L",
+  "parent": null,
+  "slug": "jfs-livret-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "LOI - FORCE OBLIGATOIRE",
+  "lettre": "L",
+  "parent": "LOI",
+  "slug": "jfs-loi-force-obligatoire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "LOYERS",
+  "lettre": "L",
+  "parent": null,
+  "slug": "jfs-loyers",
+  "virtuel": false,
+  "preambule": [
+   "Commentaire : La législation sur le loyer est littéralement figée depuis la promulgation des lois du 14 septembre 1947, 17 mai et 8 septembre 1948, les décrets des 26 et 29 janvier 1959, et la loi du 19 juillet 1961. La législation sus rappelée ayant une origine conjoncturelle et à vocation temporaire, compte tenu des développements sociaux, économiques et techniques de cette période allant de 58 à 72 ans, son opportunité mérite d’être reconsidérée. – L’article 16 du décret du 5 avril 1979, modifié par le décret du 23 décembre 1981, relatif à la Contribution Foncière des Propriétés Bâties [ci-devant Impôt Locatif] semble vouloir amorcer cette réflexion. En effet, ledit article prévoit la possibilité pour les administrations communales et l’Office des Contributions de réviser à la hausse le montant de l’impôt à payer. Le corrollaire de cette disposition devrait donc être pour le contribuable de pouvoir réviser proportionellement, au moins, le montant des loyers."
+  ],
+  "nb": 12
+ },
+ {
+  "label": "MAIN-LEVÉE",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-main-levee",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "MAJORITÉ",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-majorite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "MALADIE",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-maladie",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "MANDAT",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-mandat",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 12
+ },
+ {
+  "label": "MANDAT - DU JUGE",
+  "lettre": "M",
+  "parent": "MANDAT",
+  "slug": "jfs-mandat-du-juge",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "MANDAT – POURVOI AFFAIRE DE TRAVAIL",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-mandat-pourvoi-affaire-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "MANDAT SPÉCIAL",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-mandat-special",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "MANDAT SPÉCIAL - AFFAIRES PÉNALES",
+  "lettre": "M",
+  "parent": "MANDAT SPÉCIAL",
+  "slug": "jfs-mandat-special-affaires-penales",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "MANDATAIRE",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-mandataire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "MANDEMENT",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-mandement",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "MARIAGE",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-mariage",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "MARQUES DE FABRIQUE ET DE COMMERCE",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-marques-de-fabrique-et-de-commerce",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "MÉMOIRES",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-memoires",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "MER - FORTUNE DE",
+  "lettre": "M",
+  "parent": "MER",
+  "slug": "jfs-mer-fortune-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "MESURES D'INSTRUCTION",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-mesures-d-instruction",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 28
+ },
+ {
+  "label": "MESURES D'INSTRUCTION - AFFAIRES DE TRAVAIL",
+  "lettre": "M",
+  "parent": "MESURES D'INSTRUCTION",
+  "slug": "jfs-mesures-d-instruction-affaires-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "MESURES D'INSTRUCTION - APPRECIATION DES RÉSULTATS",
+  "lettre": "M",
+  "parent": "MESURES D'INSTRUCTION",
+  "slug": "jfs-mesures-d-instruction-appreciation-des-resultats",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 9
+ },
+ {
+  "label": "MESURES D'INSTRUCTION - DEMANDE DE",
+  "lettre": "M",
+  "parent": "MESURES D'INSTRUCTION",
+  "slug": "jfs-mesures-d-instruction-demande-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 11
+ },
+ {
+  "label": "MESURES D'INSTRUCTION - FORMES",
+  "lettre": "M",
+  "parent": "MESURES D'INSTRUCTION",
+  "slug": "jfs-mesures-d-instruction-formes",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "MEURTRE",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-meurtre",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "MILICIEN [V.S.N.]",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-milicien-v-s-n",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "MINISTÈRE PUBLIC",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-ministere-public",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 22
+ },
+ {
+  "label": "MISE EN DEMEURE",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-mise-en-demeure",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "MOTIFS",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-motifs",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 29
+ },
+ {
+  "label": "MOTIFS - CONTARIÉTÉS DE: EFFETS",
+  "lettre": "M",
+  "parent": "MOTIFS",
+  "slug": "jfs-motifs-contarietes-de-effets",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "MOYEN - DE POURVOI",
+  "lettre": "M",
+  "parent": "MOYEN",
+  "slug": "jfs-moyen-de-pourvoi",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "MOYEN DE POURVOI – ADMISSIBILTÉ",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-moyen-de-pourvoi-admissibilte",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "MOYEN - EXAMEN D'UN",
+  "lettre": "M",
+  "parent": "MOYEN",
+  "slug": "jfs-moyen-examen-d-un",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "MOYENS NOUVEAUX",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-moyens-nouveaux",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 12
+ },
+ {
+  "label": "MOYEN RECONVENTIONNEL",
+  "lettre": "M",
+  "parent": null,
+  "slug": "jfs-moyen-reconventionnel",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "MUTATION - TRAVAIL",
+  "lettre": "M",
+  "parent": "MUTATION",
+  "slug": "jfs-mutation-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "NEMO AUDITUR",
+  "lettre": "N",
+  "parent": null,
+  "slug": "jfs-nemo-auditur",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "NOMINATION DE DÉFENSEUR",
+  "lettre": "N",
+  "parent": null,
+  "slug": "jfs-nomination-de-defenseur",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "NOMINATION D'EXPERT",
+  "lettre": "N",
+  "parent": null,
+  "slug": "jfs-nomination-d-expert",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "NON-LIEU",
+  "lettre": "N",
+  "parent": null,
+  "slug": "jfs-non-lieu",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "NOTAIRE - COMPÉTENCE",
+  "lettre": "N",
+  "parent": "NOTAIRE",
+  "slug": "jfs-notaire-competence",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "NOTAIRE - OBLIGATIONS",
+  "lettre": "N",
+  "parent": "NOTAIRE",
+  "slug": "jfs-notaire-obligations",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "NOVATION DE DETTE",
+  "lettre": "N",
+  "parent": null,
+  "slug": "jfs-novation-de-dette",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "NULLITÉ",
+  "lettre": "N",
+  "parent": null,
+  "slug": "jfs-nullite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 10
+ },
+ {
+  "label": "NULLITÉ - COUVERTE",
+  "lettre": "N",
+  "parent": "NULLITÉ",
+  "slug": "jfs-nullite-couverte",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 15
+ },
+ {
+  "label": "NULLITÉ – D’ACTE D'APPEL",
+  "lettre": "N",
+  "parent": null,
+  "slug": "jfs-nullite-d-acte-d-appel",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "NULLITÉ DE CLAUSES - EFFETS",
+  "lettre": "N",
+  "parent": "NULLITÉ DE CLAUSES",
+  "slug": "jfs-nullite-de-clauses-effets",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "NULLITÉ DE CONTRAT",
+  "lettre": "N",
+  "parent": null,
+  "slug": "jfs-nullite-de-contrat",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "NULLITÉ – DE PROCÉDURE",
+  "lettre": "N",
+  "parent": null,
+  "slug": "jfs-nullite-de-procedure",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "O.A.V.C.T.",
+  "lettre": "O",
+  "parent": null,
+  "slug": "jfs-o-a-v-c-t",
+  "virtuel": false,
+  "preambule": [
+   "Voir : Office Assurances Véhicules Contre Tiers"
+  ],
+  "nb": 0
+ },
+ {
+  "label": "OBLIGATIONS",
+  "lettre": "O",
+  "parent": null,
+  "slug": "jfs-obligations",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "OBLIGATIONS DE L'EMPLOYÉ",
+  "lettre": "O",
+  "parent": null,
+  "slug": "jfs-obligations-de-l-employe",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "OFFICE ASSURANCE ACCIDENT DU TRAVAIL, MALADIE ET MATERNITÉ",
+  "lettre": "O",
+  "parent": null,
+  "slug": "jfs-office-assurance-accident-du-travail-maladie-et-maternite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "OFFICE ASSURANCES VÉHICULES CONTRE TIERS",
+  "lettre": "O",
+  "parent": null,
+  "slug": "jfs-office-assurances-vehicules-contre-tiers",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "OFFRES RÉELLES",
+  "lettre": "O",
+  "parent": null,
+  "slug": "jfs-offres-reelles",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "OPPOSITION",
+  "lettre": "O",
+  "parent": null,
+  "slug": "jfs-opposition",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 17
+ },
+ {
+  "label": "OPPOSITION - À ARPENTAGE",
+  "lettre": "O",
+  "parent": "OPPOSITION",
+  "slug": "jfs-opposition-a-arpentage",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "OPPOSITION - AFFAIRE PÉNALE",
+  "lettre": "O",
+  "parent": "OPPOSITION",
+  "slug": "jfs-opposition-affaire-penale",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "OPPOSITION - TRIBUNAL TERRIEN",
+  "lettre": "O",
+  "parent": "OPPOSITION",
+  "slug": "jfs-opposition-tribunal-terrien",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "ORDRE DES AVOCATS",
+  "lettre": "O",
+  "parent": null,
+  "slug": "jfs-ordre-des-avocats",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "ORGANISATION JUDICIAIRE",
+  "lettre": "O",
+  "parent": null,
+  "slug": "jfs-organisation-judiciaire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "OUTRAGE A MAGISTRAT",
+  "lettre": "O",
+  "parent": null,
+  "slug": "jfs-outrage-a-magistrat",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PAROLE EN DERNIER",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-parole-en-dernier",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "PARTAGE",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-partage",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "PARTAGE - VALLÉE DE L'ARTIBONITE",
+  "lettre": "P",
+  "parent": "PARTAGE",
+  "slug": "jfs-partage-vallee-de-l-artibonite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PARTIES",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-parties",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PARTIES CIVILES",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-parties-civiles",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "PARTIES PLAIGNANTES",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-parties-plaignantes",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PATENTE",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-patente",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "PATENTE - EFFETS DU DÉFAUT DE",
+  "lettre": "P",
+  "parent": "PATENTE",
+  "slug": "jfs-patente-effets-du-defaut-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "PATERNITÉ",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-paternite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PATERNITÉ – DÉCLARATION / RECHERCHE",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-paternite-declaration-recherche",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PAYSAN",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-paysan",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 9
+ },
+ {
+  "label": "PENSION - ALIMENTAIRE",
+  "lettre": "P",
+  "parent": "PENSION",
+  "slug": "jfs-pension-alimentaire",
+  "virtuel": false,
+  "preambule": [
+   "Note : - Les extraits 1 à 3 qui suivent doivent aujourd’hui être retenus en tenant compte de l’impact sur la matière, du Décret du 14 septembre 1983 instituant et réglementant la procédure de recouvrement de créances d’aliments et celle relative à la garde des enfants mentioné dans l’extrait 4."
+  ],
+  "nb": 10
+ },
+ {
+  "label": "PENSION - CIVILE",
+  "lettre": "P",
+  "parent": "PENSION",
+  "slug": "jfs-pension-civile",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PÉREMPTION D'INSTANCE",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-peremption-d-instance",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 17
+ },
+ {
+  "label": "PÉRIL",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-peril",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PERMIS - DE SÉJOUR",
+  "lettre": "P",
+  "parent": "PERMIS",
+  "slug": "jfs-permis-de-sejour",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "PERSONNALITÉ - JURIDIQUE",
+  "lettre": "P",
+  "parent": "PERSONNALITÉ",
+  "slug": "jfs-personnalite-juridique",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PHOTOCOPIES",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-photocopies",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "PIÈCES - NON-INVOQUÉES / NON-DISCUTÉES",
+  "lettre": "P",
+  "parent": "PIÈCES",
+  "slug": "jfs-pieces-non-invoquees-non-discutees",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PIÈCES - NOUVELLES",
+  "lettre": "P",
+  "parent": "PIÈCES",
+  "slug": "jfs-pieces-nouvelles",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PLAIDOIRIE",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-plaidoirie",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PLAINTE",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-plainte",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "PLAINTE EN FAUX",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-plainte-en-faux",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "POLICE",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-police",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "POLICE - D'ASSURANCE",
+  "lettre": "P",
+  "parent": "POLICE",
+  "slug": "jfs-police-d-assurance",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "POSSESSION",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-possession",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 11
+ },
+ {
+  "label": "POSSESSION - ACQUISITIVE",
+  "lettre": "P",
+  "parent": "POSSESSION",
+  "slug": "jfs-possession-acquisitive",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "POSSESSION - NATURE / PREUVE",
+  "lettre": "P",
+  "parent": "POSSESSION",
+  "slug": "jfs-possession-nature-preuve",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 15
+ },
+ {
+  "label": "POSSESSION - PRÉCAIRE",
+  "lettre": "P",
+  "parent": "POSSESSION",
+  "slug": "jfs-possession-precaire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "POSSESSOIRE",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-possessoire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 10
+ },
+ {
+  "label": "POURBOIRE",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-pourboire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "POURVOI – AFFAIRES ADMINISTRATIVES",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-pourvoi-affaires-administratives",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "POURVOI – AFFAIRES DE TRAVAIL",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-pourvoi-affaires-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "POURVOI – AFFAIRES PÉNALES",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-pourvoi-affaires-penales",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 13
+ },
+ {
+  "label": "POURVOI - COMMERCIAL",
+  "lettre": "P",
+  "parent": "POURVOI",
+  "slug": "jfs-pourvoi-commercial",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "POURVOI - CONTRE AVANT-DIRE DROIT",
+  "lettre": "P",
+  "parent": "POURVOI",
+  "slug": "jfs-pourvoi-contre-avant-dire-droit",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "POURVOI – CONTRE DÉFENSE D’EXÉCUTER",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-pourvoi-contre-defense-d-executer",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "POURVOI - DÉCLARATION DE",
+  "lettre": "P",
+  "parent": "POURVOI",
+  "slug": "jfs-pourvoi-declaration-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 13
+ },
+ {
+  "label": "POURVOI - DROIT DE",
+  "lettre": "P",
+  "parent": "POURVOI",
+  "slug": "jfs-pourvoi-droit-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "POURVOI – ÉTENDU DU",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-pourvoi-etendu-du",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "POURVOI - FORMALITÉS",
+  "lettre": "P",
+  "parent": "POURVOI",
+  "slug": "jfs-pourvoi-formalites",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 79
+ },
+ {
+  "label": "POURVOI - NATURE",
+  "lettre": "P",
+  "parent": "POURVOI",
+  "slug": "jfs-pourvoi-nature",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "POURVOI - RECEVABILITÉ",
+  "lettre": "P",
+  "parent": "POURVOI",
+  "slug": "jfs-pourvoi-recevabilite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 9
+ },
+ {
+  "label": "POURVOI - TRIBUNAL TERRIEN",
+  "lettre": "P",
+  "parent": "POURVOI",
+  "slug": "jfs-pourvoi-tribunal-terrien",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "PRÉAVIS",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-preavis",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 15
+ },
+ {
+  "label": "PRÉJUDICE",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-prejudice",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "PRÉJUGÉ",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-prejuge",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "PRÉPOSÉ",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-prepose",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PRESCRIPTION",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-prescription",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 17
+ },
+ {
+  "label": "PRESCRIPTION - ACQUISITIVE",
+  "lettre": "P",
+  "parent": "PRESCRIPTION",
+  "slug": "jfs-prescription-acquisitive",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "PRESCRIPTION - EXTINCTIVE",
+  "lettre": "P",
+  "parent": "PRESCRIPTION",
+  "slug": "jfs-prescription-extinctive",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "PRESCRIPTION – INTERRUPTION DE",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-prescription-interruption-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PRESCRIPTION - DE RÉCLAMATIONS",
+  "lettre": "P",
+  "parent": "PRESCRIPTION",
+  "slug": "jfs-prescription-de-reclamations",
+  "virtuel": false,
+  "preambule": [
+   "Note : - La jurisprudence des extraits 1 à 7 qui suit, a, en grande partie une valeur essentiellement historique, depuis les modifications qui ont été apportées au Code du Travail par la réforme de 1984 et la Loi du 17 août 2017 portant organisation et réglementation du travail sur la durée de vingt-quatre (24) heures répartie en trois (3) tranches de huit (8) heures."
+  ],
+  "nb": 8
+ },
+ {
+  "label": "PRESCRIPTION - RENONCIATION À",
+  "lettre": "P",
+  "parent": "PRESCRIPTION",
+  "slug": "jfs-prescription-renonciation-a",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PRESCRIPTION - SUSPENSION DE",
+  "lettre": "P",
+  "parent": "PRESCRIPTION",
+  "slug": "jfs-prescription-suspension-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "PRÉSOMPTIONS",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-presomptions",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 11
+ },
+ {
+  "label": "PRESTATIONS - PAIEMENT DE",
+  "lettre": "P",
+  "parent": "PRESTATIONS",
+  "slug": "jfs-prestations-paiement-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 12
+ },
+ {
+  "label": "PREUVE",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-preuve",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 10
+ },
+ {
+  "label": "PREUVE - AFFAIRES DE TRAVAIL",
+  "lettre": "P",
+  "parent": "PREUVE",
+  "slug": "jfs-preuve-affaires-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "PREUVE - CHARGE DE LA",
+  "lettre": "P",
+  "parent": "PREUVE",
+  "slug": "jfs-preuve-charge-de-la",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 30
+ },
+ {
+  "label": "PREUVE - EFFET DU DÉFAUT DE",
+  "lettre": "P",
+  "parent": "PREUVE",
+  "slug": "jfs-preuve-effet-du-defaut-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PREUVE - MODES DE",
+  "lettre": "P",
+  "parent": "PREUVE",
+  "slug": "jfs-preuve-modes-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 23
+ },
+ {
+  "label": "PREUVE - NON-DIVISIBILITÉ DE LA",
+  "lettre": "P",
+  "parent": "PREUVE",
+  "slug": "jfs-preuve-non-divisibilite-de-la",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PRISE À PARTIE",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-prise-a-partie",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "PROCÉDURE - AFFAIRES DE TRAVAIL",
+  "lettre": "P",
+  "parent": "PROCÉDURE",
+  "slug": "jfs-procedure-affaires-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PROCÉDURE – AFFAIRES PÉNALES",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-procedure-affaires-penales",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "PROCÉDURE - LOIS DE",
+  "lettre": "P",
+  "parent": "PROCÉDURE",
+  "slug": "jfs-procedure-lois-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "PROCÉDURE - PIÈCES NOUVELLES",
+  "lettre": "P",
+  "parent": "PROCÉDURE",
+  "slug": "jfs-procedure-pieces-nouvelles",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PROCÉDURE - PRINCIPES GÉNÉRAUX",
+  "lettre": "P",
+  "parent": "PROCÉDURE",
+  "slug": "jfs-procedure-principes-generaux",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "PROCÈS",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-proces",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PROCÈS-VERBAUX - RAPPORT D’EXPERT",
+  "lettre": "P",
+  "parent": "PROCÈS-VERBAUX",
+  "slug": "jfs-proces-verbaux-rapport-d-expert",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PROCÈS-VERBAUX D'INSPECTEURS DU TRAVAIL - FORCE PROBANTE",
+  "lettre": "P",
+  "parent": "PROCÈS-VERBAUX D'INSPECTEURS DU TRAVAIL",
+  "slug": "jfs-proces-verbaux-d-inspecteurs-du-travail-force-probante",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 9
+ },
+ {
+  "label": "PROFESSIONS LIBÉRALES",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-professions-liberales",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PROFIT-JOINT",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-profit-joint",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "PROMESSE - EXPRESSÉMENT RECONNUE",
+  "lettre": "P",
+  "parent": "PROMESSE",
+  "slug": "jfs-promesse-expressement-reconnue",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "PROMESSE - DE VENTE",
+  "lettre": "P",
+  "parent": "PROMESSE",
+  "slug": "jfs-promesse-de-vente",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "PROMOTION - EFFET SUR LE CONTRAT DE TRAVAIL",
+  "lettre": "P",
+  "parent": "PROMOTION",
+  "slug": "jfs-promotion-effet-sur-le-contrat-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PRONONCÉ D'UN JUGEMENT - EFFETS",
+  "lettre": "P",
+  "parent": "PRONONCÉ D'UN JUGEMENT",
+  "slug": "jfs-prononce-d-un-jugement-effets",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PROPRIÉTÉ",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-propriete",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "PROPRIÉTÉ - INDUSTRIELLE",
+  "lettre": "P",
+  "parent": "PROPRIÉTÉ",
+  "slug": "jfs-propriete-industrielle",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PROTÊT",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-protet",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PROVISION ALIMENTAIRE",
+  "lettre": "P",
+  "parent": null,
+  "slug": "jfs-provision-alimentaire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "PUBLICITÉ - DES AUDIENCES",
+  "lettre": "P",
+  "parent": "PUBLICITÉ",
+  "slug": "jfs-publicite-des-audiences",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "PUISSANCE PATERNELLE (MARITALE) - CONSÉQUENCES",
+  "lettre": "P",
+  "parent": "PUISSANCE PATERNELLE (MARITALE)",
+  "slug": "jfs-puissance-paternelle-maritale-consequences",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "QUALIFICATION D'UN JUGEMENT - EFFET",
+  "lettre": "Q",
+  "parent": "QUALIFICATION D'UN JUGEMENT",
+  "slug": "jfs-qualification-d-un-jugement-effet",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "QUALITÉS",
+  "lettre": "Q",
+  "parent": null,
+  "slug": "jfs-qualites",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 32
+ },
+ {
+  "label": "QUALITÉS - CHANGEMENT DE",
+  "lettre": "Q",
+  "parent": "QUALITÉS",
+  "slug": "jfs-qualites-changement-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "QUALITÉS - IMPORTANCE",
+  "lettre": "Q",
+  "parent": "QUALITÉS",
+  "slug": "jfs-qualites-importance",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "QUASI-DÉLIT",
+  "lettre": "Q",
+  "parent": null,
+  "slug": "jfs-quasi-delit",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "RAFRAÎCHISSEMENT DE LISIÈRES",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-rafraichissement-de-lisieres",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RAPPORT DE POLICE",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-rapport-de-police",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RÉCLAMATION - DE PRESTATIONS",
+  "lettre": "R",
+  "parent": "RÉCLAMATION",
+  "slug": "jfs-reclamation-de-prestations",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "RECONDUCTION",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-reconduction",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RECONDUCTION - TACITE",
+  "lettre": "R",
+  "parent": "RECONDUCTION",
+  "slug": "jfs-reconduction-tacite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RECONNAISSANCE",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-reconnaissance",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RECOURS",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-recours",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 6
+ },
+ {
+  "label": "RECOURS - CONTRE AVANT-DIRE DROIT",
+  "lettre": "R",
+  "parent": "RECOURS",
+  "slug": "jfs-recours-contre-avant-dire-droit",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RECOURS - CORRECTIONNEL",
+  "lettre": "R",
+  "parent": "RECOURS",
+  "slug": "jfs-recours-correctionnel",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RECOUVREMENT",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-recouvrement",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RECTIFICATION D'ARRÊT / DE JUGEMENT",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-rectification-d-arret-de-jugement",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "RÉCUSATION",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-recusation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 14
+ },
+ {
+  "label": "REDDITION DE COMPTES",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-reddition-de-comptes",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "RÉEMBAUCHAGE",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-reembauchage",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RÉFÉRÉS",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-referes",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 21
+ },
+ {
+  "label": "RÈGLEMENTS INTÉRIEURS DE TRAVAIL",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-reglements-interieurs-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "RÉINTÉGRANDE",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-reintegrande",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "REJUGÉ",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-rejuge",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RÉMÉRÉ",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-remere",
+  "virtuel": false,
+  "preambule": [
+   "- Voir : Vente à réméré."
+  ],
+  "nb": 0
+ },
+ {
+  "label": "RENONCIATION",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-renonciation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 11
+ },
+ {
+  "label": "RENOUVELLEMENT TACITE",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-renouvellement-tacite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RENVOI",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-renvoi",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RÉPARATION - D'UN PRÉJUDICE",
+  "lettre": "R",
+  "parent": "RÉPARATION",
+  "slug": "jfs-reparation-d-un-prejudice",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "REPRISE DE TRAVAUX",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-reprise-de-travaux",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "REPRODUCTION",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-reproduction",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "REQUÊTE",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-requete",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "REQUÊTE CIVILE",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-requete-civile",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 12
+ },
+ {
+  "label": "RÉQUISITOIRE",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-requisitoire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RÉSERVES - VALIDITÉ ET EFFETS",
+  "lettre": "R",
+  "parent": "RÉSERVES",
+  "slug": "jfs-reserves-validite-et-effets",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "RÉSILIATION DE CONTRAT DE TRAVAIL - DROIT DE",
+  "lettre": "R",
+  "parent": "RÉSILIATION DE CONTRAT DE TRAVAIL",
+  "slug": "jfs-resiliation-de-contrat-de-travail-droit-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 67
+ },
+ {
+  "label": "RÉSILIATION DE CONTRAT DE TRAVAIL - PRÉSOMPTION DE RESPONSABILITÉ",
+  "lettre": "R",
+  "parent": "RÉSILIATION DE CONTRAT DE TRAVAIL",
+  "slug": "jfs-resiliation-de-contrat-de-travail-presomption-de-responsabilite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "RÉSILIATION ILLÉGALE DE CONTRAT DE TRAVAIL - DÉFINITION",
+  "lettre": "R",
+  "parent": "RÉSILIATION ILLÉGALE DE CONTRAT DE TRAVAIL",
+  "slug": "jfs-resiliation-illegale-de-contrat-de-travail-definition",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RESPONSABILITÉ - CIVILE",
+  "lettre": "R",
+  "parent": "RESPONSABILITÉ",
+  "slug": "jfs-responsabilite-civile",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 14
+ },
+ {
+  "label": "RESPONSABILITÉ CIVILE DES PARENTS - DU FAIT DE LEURS ENFANTS",
+  "lettre": "R",
+  "parent": "RESPONSABILITÉ CIVILE DES PARENTS",
+  "slug": "jfs-responsabilite-civile-des-parents-du-fait-de-leurs-enfants",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RESPONSABILITÉ - DOMMAGES-INTÉRÊTS",
+  "lettre": "R",
+  "parent": "RESPONSABILITÉ",
+  "slug": "jfs-responsabilite-dommages-interets",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RESPONSABILITÉ PARTAGÉE - AFFAIRES DE TRAVAIL",
+  "lettre": "R",
+  "parent": "RESPONSABILITÉ PARTAGÉE",
+  "slug": "jfs-responsabilite-partagee-affaires-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "RESSORT - DÉTERMINATION",
+  "lettre": "R",
+  "parent": "RESSORT",
+  "slug": "jfs-ressort-determination",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RESTITUTION - DE FRUITS",
+  "lettre": "R",
+  "parent": "RESTITUTION",
+  "slug": "jfs-restitution-de-fruits",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RESTITUTION - DE L'INDU",
+  "lettre": "R",
+  "parent": "RESTITUTION",
+  "slug": "jfs-restitution-de-l-indu",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RÉTRACTATION - DE DÉCISION",
+  "lettre": "R",
+  "parent": "RÉTRACTATION",
+  "slug": "jfs-retractation-de-decision",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "RÉTRACTATION - DE DÉCLARATION",
+  "lettre": "R",
+  "parent": "RÉTRACTATION",
+  "slug": "jfs-retractation-de-declaration",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RETRAITE - MISE À LA",
+  "lettre": "R",
+  "parent": "RETRAITE",
+  "slug": "jfs-retraite-mise-a-la",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "RETRAIT SUCCESSORAL",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-retrait-successoral",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "RÉTROACTIVITÉ [NON] DES LOIS",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-retroactivite-non-des-lois",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "REVENDICATION",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-revendication",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "REVENDICATION - ACTION EN",
+  "lettre": "R",
+  "parent": "REVENDICATION",
+  "slug": "jfs-revendication-action-en",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "RÉVISION - DE CONTRAT DE TRAVAIL",
+  "lettre": "R",
+  "parent": "RÉVISION",
+  "slug": "jfs-revision-de-contrat-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "RISQUES PROFESSIONNELS",
+  "lettre": "R",
+  "parent": null,
+  "slug": "jfs-risques-professionnels",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "SAISIE - CONDITIONS DE",
+  "lettre": "S",
+  "parent": "SAISIE",
+  "slug": "jfs-saisie-conditions-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "SAISIE EXÉCUTION",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-saisie-execution",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "SAISIE IMMOBILIÈRE",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-saisie-immobiliere",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "SAISIE-ARRÊT",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-saisie-arret",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "SAISIE-ARRÊT - CONDITIONS",
+  "lettre": "S",
+  "parent": "SAISIE-ARRÊT",
+  "slug": "jfs-saisie-arret-conditions",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "SAISINE",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-saisine",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 43
+ },
+ {
+  "label": "SAISINE - COUR DE RENVOI",
+  "lettre": "S",
+  "parent": "SAISINE",
+  "slug": "jfs-saisine-cour-de-renvoi",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "SAISINE - OPPOSITION",
+  "lettre": "S",
+  "parent": "SAISINE",
+  "slug": "jfs-saisine-opposition",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "SALAIRE",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-salaire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "SANCTIONS DISCIPLINAIRES",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-sanctions-disciplinaires",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "SANITATION",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-sanitation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "SCELLÉS - BRIS DE",
+  "lettre": "S",
+  "parent": "SCELLÉS",
+  "slug": "jfs-scelles-bris-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "SCELLÉS - LEVÉE DE",
+  "lettre": "S",
+  "parent": "SCELLÉS",
+  "slug": "jfs-scelles-levee-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "SECTIONS RÉUNIES DE LA COUR DE CASSATION - COMPÉTENCE",
+  "lettre": "S",
+  "parent": "SECTIONS RÉUNIES DE LA COUR DE CASSATION",
+  "slug": "jfs-sections-reunies-de-la-cour-de-cassation-competence",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "SECTIONS RÉUNIES DE LA COUR DE CASSATION - COMPOSITION",
+  "lettre": "S",
+  "parent": "SECTIONS RÉUNIES DE LA COUR DE CASSATION",
+  "slug": "jfs-sections-reunies-de-la-cour-de-cassation-composition",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "SECTIONS RÉUNIES DE LA COUR DE CASSATION - CONDITION DE SAISINE",
+  "lettre": "S",
+  "parent": "SECTIONS RÉUNIES DE LA COUR DE CASSATION",
+  "slug": "jfs-sections-reunies-de-la-cour-de-cassation-condition-de-saisine",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "SEQUESTRE",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-sequestre",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "SERMENT",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-serment",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 11
+ },
+ {
+  "label": "SERMENT - SUPPLÉTOIRE",
+  "lettre": "S",
+  "parent": "SERMENT",
+  "slug": "jfs-serment-suppletoire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "SERVITUDE",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-servitude",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "SÉVICES",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-sevices",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "SIGNATURE - [IMPORTANCE ET EFFET]",
+  "lettre": "S",
+  "parent": "SIGNATURE",
+  "slug": "jfs-signature-importance-et-effet",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "SIGNIFICATION",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-signification",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "SIGNIFICATION D'UNE DÉCISION - EFFETS",
+  "lettre": "S",
+  "parent": "SIGNIFICATION D'UNE DÉCISION",
+  "slug": "jfs-signification-d-une-decision-effets",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 8
+ },
+ {
+  "label": "SIGNIFICATION - JUGEMENT vs. DISPOSITIF",
+  "lettre": "S",
+  "parent": "SIGNIFICATION",
+  "slug": "jfs-signification-jugement-vs-dispositif",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "SIGNIFICATION D'EXPLOIT - NULLITÉ RELATIVE",
+  "lettre": "S",
+  "parent": "SIGNIFICATION D'EXPLOIT",
+  "slug": "jfs-signification-d-exploit-nullite-relative",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 18
+ },
+ {
+  "label": "SIGNIFICATION D'EXPLOIT - DOMICILE INCONNU [FORMALITÉS]",
+  "lettre": "S",
+  "parent": "SIGNIFICATION D'EXPLOIT",
+  "slug": "jfs-signification-d-exploit-domicile-inconnu-formalites",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "SIGNIFICATION D'EXPLOITS - FORMALITÉS",
+  "lettre": "S",
+  "parent": "SIGNIFICATION D'EXPLOITS",
+  "slug": "jfs-signification-d-exploits-formalites",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 8
+ },
+ {
+  "label": "SIGNIFICATION D'EXPLOITS - À L'ÉTRANGER",
+  "lettre": "S",
+  "parent": "SIGNIFICATION D'EXPLOITS",
+  "slug": "jfs-signification-d-exploits-a-l-etranger",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "SIGNIFICATION D'EXPLOITS - À UNE SOCIÉTÉ COMMERCIALE",
+  "lettre": "S",
+  "parent": "SIGNIFICATION D'EXPLOITS",
+  "slug": "jfs-signification-d-exploits-a-une-societe-commerciale",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "SIGNIFICATION D'EXPLOITS - À MINEUR",
+  "lettre": "S",
+  "parent": "SIGNIFICATION D'EXPLOITS",
+  "slug": "jfs-signification-d-exploits-a-mineur",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "SIGNIFICATION D'EXPLOITS - AFFAIRES DE TRAVAIL",
+  "lettre": "S",
+  "parent": "SIGNIFICATION D'EXPLOITS",
+  "slug": "jfs-signification-d-exploits-affaires-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "SIMULATION",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-simulation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "SIMULATION – APPRÉCIATION DE LA",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-simulation-appreciation-de-la",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "SOCIÉTÉS DE COMMERCE",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-societes-de-commerce",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "SOCIÉTÉ DE COMMERCE – RESPONSABILITÉ DES REPRÉSENTANTS",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-societe-de-commerce-responsabilite-des-representants",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "SOINS MÉDICAUX",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-soins-medicaux",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "SOLIDARITÉ",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-solidarite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "SOMMATION",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-sommation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "SOMMATION D'AUDIENCE",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-sommation-d-audience",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "SOUS-ENTREPRENEUR",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-sous-entrepreneur",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "SOUS-ENTREPRISE - RESPONSABILITÉ DE L'EMPLOYEUR",
+  "lettre": "S",
+  "parent": "SOUS-ENTREPRISE",
+  "slug": "jfs-sous-entreprise-responsabilite-de-l-employeur",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "SUBORDINATION - AFFAIRE DE TRAVAIL",
+  "lettre": "S",
+  "parent": "SUBORDINATION",
+  "slug": "jfs-subordination-affaire-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "SUBROGATION – IDASH/OFATMA",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-subrogation-idash-ofatma",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "SURSIS",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-sursis",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 17
+ },
+ {
+  "label": "SUSPENSION DE CONTRAT DE TRAVAIL",
+  "lettre": "S",
+  "parent": null,
+  "slug": "jfs-suspension-de-contrat-de-travail",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "TÉMOIGNAGE",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-temoignage",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 8
+ },
+ {
+  "label": "TÉMOINS",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-temoins",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 8
+ },
+ {
+  "label": "TESTAMENT - INTERPRÉTATION",
+  "lettre": "T",
+  "parent": "TESTAMENT",
+  "slug": "jfs-testament-interpretation",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "THÉORIE DE L'ACCESSOIRE",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-theorie-de-l-accessoire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "THÉORIE DES ÉQUIPOLLENTS",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-theorie-des-equipollents",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "TIERCE OPPOSITION",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-tierce-opposition",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "TIMBRES JUSTICE POUR TOUS - EFFET DU DÉFAUT DE",
+  "lettre": "T",
+  "parent": "TIMBRES JUSTICE POUR TOUS",
+  "slug": "jfs-timbres-justice-pour-tous-effet-du-defaut-de",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 9
+ },
+ {
+  "label": "TRANSACTION",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-transaction",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "TRANSCRIPTION",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-transcription",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "TRANSPORT – DE TRAVAILLEURS",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-transport-de-travailleurs",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "TRANSPORT - RESPONSABILITÉ CIVILE",
+  "lettre": "T",
+  "parent": "TRANSPORT",
+  "slug": "jfs-transport-responsabilite-civile",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "TRANSPORT AÉRIEN - RESPONSABILITÉ",
+  "lettre": "T",
+  "parent": "TRANSPORT AÉRIEN",
+  "slug": "jfs-transport-aerien-responsabilite",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 9
+ },
+ {
+  "label": "TRANSPORT MARITIME",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-transport-maritime",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "TRANSPORT SUR LES LIEUX",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-transport-sur-les-lieux",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "TRANSPORT SUR LES LIEUX - FORMES",
+  "lettre": "T",
+  "parent": "TRANSPORT SUR LES LIEUX",
+  "slug": "jfs-transport-sur-les-lieux-formes",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "TRAVAIL DE NUIT",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-travail-de-nuit",
+  "virtuel": false,
+  "preambule": [
+   "Note : - Les dispositions spéciales du Code du Travail relatives au travail de nuit ont été abrogées par la loi du 17 août 2017."
+  ],
+  "nb": 2
+ },
+ {
+  "label": "TRAVAIL DÉTERMINÉ",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-travail-determine",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "TRAVAIL - DIMANCHES ET JOURS FÉRIÉS",
+  "lettre": "T",
+  "parent": "TRAVAIL",
+  "slug": "jfs-travail-dimanches-et-jours-feries",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "TRAVAIL DOMESTIQUE",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-travail-domestique",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "TRAVAIL PERMANENT",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-travail-permanent",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "TRAVAIL PROVISOIRE",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-travail-provisoire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "TRAVAILLEUR À LA TÂCHE",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-travailleur-a-la-tache",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "TRAVAILLEUR OCCASIONNEL OU PROVISOIRE",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-travailleur-occasionnel-ou-provisoire",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "TRAVAILLEUR PERMANENT",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-travailleur-permanent",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "TRIBUNAL CORRECTIONNEL",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-tribunal-correctionnel",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "TRIBUNAL CRIMINEL - COMPÉTENCE",
+  "lettre": "T",
+  "parent": "TRIBUNAL CRIMINEL",
+  "slug": "jfs-tribunal-criminel-competence",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "TRIBUNAL DE PAIX - COMPÉTENCE",
+  "lettre": "T",
+  "parent": "TRIBUNAL DE PAIX",
+  "slug": "jfs-tribunal-de-paix-competence",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "TRIBUNAL DE PAIX - PROCÉDURE",
+  "lettre": "T",
+  "parent": "TRIBUNAL DE PAIX",
+  "slug": "jfs-tribunal-de-paix-procedure",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "TRIBUNAL DE TRAVAIL - COMPÉTENCE",
+  "lettre": "T",
+  "parent": "TRIBUNAL DE TRAVAIL",
+  "slug": "jfs-tribunal-de-travail-competence",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 13
+ },
+ {
+  "label": "TRIBUNAL TERRIEN - COMPÉTENCE",
+  "lettre": "T",
+  "parent": "TRIBUNAL TERRIEN",
+  "slug": "jfs-tribunal-terrien-competence",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "TRIBUNAL TERRIEN - PROCÉDURE",
+  "lettre": "T",
+  "parent": "TRIBUNAL TERRIEN",
+  "slug": "jfs-tribunal-terrien-procedure",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "TROUBLE DE POSSESSION",
+  "lettre": "T",
+  "parent": null,
+  "slug": "jfs-trouble-de-possession",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "ULTRA PETITA",
+  "lettre": "U",
+  "parent": null,
+  "slug": "jfs-ultra-petita",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "URBANISME",
+  "lettre": "U",
+  "parent": null,
+  "slug": "jfs-urbanisme",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "URGENCE",
+  "lettre": "U",
+  "parent": null,
+  "slug": "jfs-urgence",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 4
+ },
+ {
+  "label": "USAGE",
+  "lettre": "U",
+  "parent": null,
+  "slug": "jfs-usage",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "USAGE DE FAUX",
+  "lettre": "U",
+  "parent": null,
+  "slug": "jfs-usage-de-faux",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "USAGE DE FAUX - PRESCRIPTION",
+  "lettre": "U",
+  "parent": "USAGE DE FAUX",
+  "slug": "jfs-usage-de-faux-prescription",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "US ET COUTUMES",
+  "lettre": "U",
+  "parent": null,
+  "slug": "jfs-us-et-coutumes",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "USUCAPION",
+  "lettre": "U",
+  "parent": null,
+  "slug": "jfs-usucapion",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "VALIDATION D'ÉLECTION",
+  "lettre": "V",
+  "parent": null,
+  "slug": "jfs-validation-d-election",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "VÉHICULES",
+  "lettre": "V",
+  "parent": null,
+  "slug": "jfs-vehicules",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "VENTE",
+  "lettre": "V",
+  "parent": null,
+  "slug": "jfs-vente",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 8
+ },
+ {
+  "label": "VENTE À RÉMÉRÉ",
+  "lettre": "V",
+  "parent": null,
+  "slug": "jfs-vente-a-remere",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "VENTE CONDITIONNELLE",
+  "lettre": "V",
+  "parent": null,
+  "slug": "jfs-vente-conditionnelle",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "VENTE – DE DROITS ET PRÉTENTIONS",
+  "lettre": "V",
+  "parent": null,
+  "slug": "jfs-vente-de-droits-et-pretentions",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "VENTE D’IMMEUBLE",
+  "lettre": "V",
+  "parent": null,
+  "slug": "jfs-vente-d-immeuble",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 3
+ },
+ {
+  "label": "VENTE PAR VOIE PARÉE",
+  "lettre": "V",
+  "parent": null,
+  "slug": "jfs-vente-par-voie-paree",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 5
+ },
+ {
+  "label": "VENTE AUX ENCHÈRES",
+  "lettre": "V",
+  "parent": null,
+  "slug": "jfs-vente-aux-encheres",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "VERDICT",
+  "lettre": "V",
+  "parent": null,
+  "slug": "jfs-verdict",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 2
+ },
+ {
+  "label": "VICES CACHÉS - EFFETS",
+  "lettre": "V",
+  "parent": "VICES CACHÉS",
+  "slug": "jfs-vices-caches-effets",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ },
+ {
+  "label": "VISA DE PIÈCES",
+  "lettre": "V",
+  "parent": null,
+  "slug": "jfs-visa-de-pieces",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 7
+ },
+ {
+  "label": "VOIE PARÉE",
+  "lettre": "V",
+  "parent": null,
+  "slug": "jfs-voie-paree",
+  "virtuel": false,
+  "preambule": [
+   "- Voir: Vente par Voie Parée."
+  ],
+  "nb": 0
+ },
+ {
+  "label": "VOLONTÉ - PREUVE DE LA",
+  "lettre": "V",
+  "parent": "VOLONTÉ",
+  "slug": "jfs-volonte-preuve-de-la",
+  "virtuel": false,
+  "preambule": [],
+  "nb": 1
+ }
+]

@@ -1,0 +1,8 @@
+# Empreintes SHA-256 du jeu « raejh-sales » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts raejh-sales
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+fa6fcc1763015982cdef82d695e25b31dd6ee723222a69c34ebdb69616b251ad  arrets.json
+f1f7aa3828f49ee259fca5f454d4865141e99b23a74857d742d97caaea41cb9e  extraits.json
+26abd61620ba26451cbf56088362208d1524cb8e5ea3c59de4584ae7b573501b  notions.json
+0c6a84bf2ea655d4b0efb4849a88a5bdf0d1547564e9aac316642e5d99ea871f  rapport.md
