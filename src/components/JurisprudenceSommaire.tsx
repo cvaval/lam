@@ -27,6 +27,8 @@
  * géométrie variable.
  */
 
+import { JurisprudenceRepertoire } from './JurisprudenceRepertoire'
+
 export const ANCRE_TEXTE = 'texte-officiel'
 
 const LIB = {
@@ -54,6 +56,9 @@ export function JurisprudenceSommaire({
   locale,
 }: {
   doc: {
+    /** Présent quand la fiche passe l'arrêt entier : ouvre la section « Au Répertoire »
+     *  (extraits du Recueil Salès). Absent dans les tests, qui rendent en synchrone. */
+    id?: string
     matiere: string | null
     decisionAttaquee: string | null
     questionDroit: string | null
@@ -78,9 +83,17 @@ export function JurisprudenceSommaire({
     { lib: LIB.dispositif, valeur: doc.dispositif, fort: true },
   ].filter((l) => l.valeur && l.valeur.trim())
 
-  if (lignes.length === 0) return null
+  /**
+   * ⚠️ LE SOMMAIRE PEUT ÊTRE VIDE ET LE RÉPERTOIRE PLEIN. Les 1 201 arrêts créés depuis le
+   * Recueil Salès n'ont aucune rubrique éditoriale (rien n'est inventé) mais portent leurs
+   * extraits : le bloc « Au Répertoire » se rend seul. Il est asynchrone (lecture en base) et
+   * rend `null` s'il n'y a rien — d'où la garde sur `id` seulement.
+   */
+  const repertoire = doc.id ? <JurisprudenceRepertoire decisionId={doc.id} locale={locale} /> : null
+  if (lignes.length === 0) return repertoire
 
   return (
+    <>
     <section className="rounded-2xl border border-chabon/10 bg-white p-5 font-sans" aria-labelledby="sommaire-titre">
       <div className="mb-3 flex flex-wrap items-center gap-2 border-b border-chabon/10 pb-3">
         <h2 id="sommaire-titre" className="text-sm font-semibold text-ank">
@@ -110,5 +123,7 @@ export function JurisprudenceSommaire({
         ))}
       </dl>
     </section>
+    {repertoire}
+    </>
   )
 }
