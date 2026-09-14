@@ -18,14 +18,23 @@ import { reindexDocument } from '../src/lib/search/reindex'
 const prisma = new PrismaClient()
 async function main() {
   if (process.env.SEARCH_PROVIDER === 'opensearch') { console.error('⛔ SEARCH_PROVIDER=opensearch — lancer avec SEARCH_PROVIDER=fts'); process.exit(1) }
-  const crees = await prisma.document.findMany({ where: { source: 'RAEJH_SALES', OR: [{ searchText: null }, { searchText: '' }] }, select: { id: true } })
-  const rattaches = await prisma.$queryRaw<{ id: string }[]>`SELECT DISTINCT d.id FROM "Document" d JOIN "JurisExtrait" e ON e."decisionId" = d.id WHERE d.source <> 'RAEJH_SALES'`
+  // `--tout` : tous les arrêts du recueil ET tout document portant une notion (arrêts
+  // existants rattachés, textes de loi liés) — après un changement de présentation ou de
+  // liaisons. Sinon : seulement ce qui n'a pas encore de searchText.
+  const tout = process.argv.includes('--tout')
+  const crees = await prisma.document.findMany({ where: tout ? { source: 'RAEJH_SALES' } : { source: 'RAEJH_SALES', OR: [{ searchText: null }, { searchText: '' }] }, select: { id: true } })
+  const rattaches = await prisma.$queryRaw<{ id: string }[]>`SELECT DISTINCT dt."documentId" AS id FROM "DocumentTheme" dt JOIN "Theme" t ON t.id = dt."themeId" JOIN "Document" d ON d.id = dt."documentId" WHERE t.slug LIKE 'jfs-%' AND d.source <> 'RAEJH_SALES'`
   const ids = [...new Set([...crees.map((d) => d.id), ...rattaches.map((d) => d.id)])]
-  console.log(`à réindexer : ${crees.length} créés sans searchText + ${rattaches.length} existants rattachés = ${ids.length}`)
+  console.log(`à réindexer : ${crees.length} du recueil + ${rattaches.length} documents à notion = ${ids.length}`)
   let i = 0
   const t0 = Date.now()
+  /**
+   * ⚠️ UN SEUL FIL. L'URL du pooler porte `connection_limit=1` : quatre fils de front se
+   * disputent une connexion, et une réindexation lourde (Code civil, 690 Ko) la garde plus
+   * de 10 s — P2024, pool timeout, arrêt à 200. Le parallélisme n'était qu'une illusion.
+   */
   const worker = async () => { while (i < ids.length) { const id = ids[i++]; await reindexDocument(id); if (i % 100 === 0) console.log(`  ${i}/${ids.length} · ${((Date.now() - t0) / 1000).toFixed(0)} s`) } }
-  await Promise.all([worker(), worker(), worker(), worker()])
+  await worker()
   const reste = await prisma.document.count({ where: { source: 'RAEJH_SALES', OR: [{ searchText: null }, { searchText: '' }] } })
   console.log(`✅ ${ids.length} réindexés en ${((Date.now() - t0) / 1000).toFixed(0)} s · reste sans searchText : ${reste}`)
 }

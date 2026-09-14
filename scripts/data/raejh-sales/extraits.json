@@ -746,12 +746,25 @@
  {
   "notion": "ACQUIESCEMENT",
   "rang": 7,
-  "dateIso": "1961-07-24",
-  "formation": null,
-  "parties": "",
+  "dateIso": "1971-12-21",
+  "formation": "Deuxième Section",
+  "parties": "Veuve Grévy JARBATH c. Banque Populaire Colombo-Haïtienne",
   "texte": "Attendu que, dans les prévisions de la loi, aucun recours n'est recevable contre un jugement concernant le non paiement de loyer de maison, si le demandeur ne justifie qu'il a effectivement consigné le montant des loyers échus avant ou pendant l'instance du recours; qu'il est évident qu'une exécution qui s'opère dans ces conditions ne saurait exprimer la libre volonté de la recourante; car une partie qui exécute un jugement sous l'empire d'une contrainte légale ne donne point à cette décision l'acquiescement prévu à l'article 414 du Code de Procédure Civile; d'où le rejet ...",
-  "refsBrutes": null,
-  "refs": [],
+  "refsBrutes": "article 414 C.P.C.; Loi du 24 juillet 1961",
+  "refs": [
+   {
+    "cible": "CPC",
+    "cibleLibelle": "C.P.C.",
+    "article": "414",
+    "posterieur": false
+   },
+   {
+    "cible": "LOI-1961-07-24",
+    "cibleLibelle": "Loi du 24 juillet 1961",
+    "article": null,
+    "posterieur": false
+   }
+  ],
   "reliquatRefs": null
  },
  {

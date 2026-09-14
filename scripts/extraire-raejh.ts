@@ -79,7 +79,10 @@ function paragraphes(): { style: string; texte: string }[] {
 const fold = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
 const slugOf = (s: string) => fold(s).replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
 const MOIS: Record<string, number> = { janvier: 1, fevrier: 2, mars: 3, avril: 4, mai: 5, juin: 6, juillet: 7, aout: 8, septembre: 9, octobre: 10, novembre: 11, decembre: 12 }
-const RE_DATE = /(\d{1,2})(?:er)?\s+([a-zéû]+)\s*(\d{4})/i // « 12 juillet1989 » existe
+// ⚠️ `\p{L}` et non `[a-zéû]` : « 21 dècembre 1971 » (accent GRAVE) était refusé, la date
+// suivante de la ligne (« Loi du 24 juillet 1961 ») passait pour celle de l'arrêt et les
+// parties se vidaient — une fiche fantôme, datée d'avant le recueil.
+const RE_DATE = /(\d{1,2})(?:er)?\s+(\p{L}+)\s*(\d{4})/iu // « 12 juillet1989 » existe
 function iso(dateTxt: string): string | null {
   const m = RE_DATE.exec(dateTxt)
   if (!m) return null

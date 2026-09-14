@@ -54,9 +54,9 @@ const L = {
   videPlat: { fr: 'Aucun arrêt accessible pour le moment.', en: 'No accessible ruling yet.', ht: 'Pa gen desizyon aksesib pou kounye a.' },
   volumes: { fr: 'Les volumes', en: 'The volumes', ht: 'Volim yo' },
   volumesSub: {
-    fr: 'Chaque volume, arrêt par arrêt, dans l’ordre des décisions. Les notions du Répertoire alphabétique sont une seconde entrée, plus bas.',
-    en: 'Each volume, ruling by ruling, in the order of the decisions. The notions of the Alphabetical Digest are a second entry, below.',
-    ht: 'Chak volim, desizyon pa desizyon, nan lòd desizyon yo. Nosyon Repètwa alfabetik la se yon dezyèm antre, anba.',
+    fr: 'Un volume par exercice judiciaire, arrêt par arrêt, dans l’ordre des décisions — textes intégraux et extraits du Répertoire alphabétique (J.-F. Salès) confondus. Les notions du Répertoire sont une seconde entrée, plus bas.',
+    en: 'One volume per judicial year, ruling by ruling, in the order of the decisions — full texts and extracts from the Alphabetical Digest (J.-F. Salès) together. The notions of the Digest are a second entry, below.',
+    ht: 'Yon volim pou chak ane jidisyè, desizyon pa desizyon, nan lòd desizyon yo — tèks konplè ak ekstrè Repètwa alfabetik la (J.-F. Salès) ansanm. Nosyon Repètwa a se yon dezyèm antre, anba.',
   },
   parNotion: { fr: 'Par notion', en: 'By notion', ht: 'Pa nosyon' },
   parNotionSub: {
@@ -69,8 +69,8 @@ const L = {
 } as const
 const MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
 const dateFr = (d: Date) => `${d.getUTCDate() === 1 ? '1er' : d.getUTCDate()} ${MOIS[d.getUTCMonth()]} ${d.getUTCFullYear()}`
-/** Ordre des volumes : les exercices d'abord (texte intégral), le Répertoire ensuite. */
-const rangVolume = (r: string) => (/exercice/i.test(r) ? 0 : /Salès/.test(r) ? 1 : 2)
+/** Un volume à texte intégral (« recueil complet ») s'ouvre ; les exercices d'extraits se replient. */
+const rangVolume = (r: string) => (/complet/i.test(r) ? 0 : /exercice/i.test(r) ? 1 : 2)
 
 const META = DOC_TYPE_META.JURISPRUDENCE
 
@@ -113,8 +113,8 @@ export default async function JurisprudencePage({ params }: { params: { locale: 
         <p className="mt-1 max-w-2xl text-sm text-ank/80">{lt(L.volumesSub)}</p>
         <div className="mt-4 space-y-3">
           {volumesTries.map(([ref, arrets]) => (
-            /* Les exercices (≈ 80 arrêts) s'ouvrent ; le Répertoire (1 201) se replie, ses
-               notions sont juste dessous. */
+            /* 27 volumes d'exercice : ceux à texte intégral (« recueil complet ») s'ouvrent,
+               les exercices d'extraits se replient — leurs notions sont juste dessous. */
             <details key={ref || '∅'} open={rangVolume(ref) === 0} className="rounded-xl border border-chabon/10">
               <summary className="cursor-pointer list-none px-4 py-3">
                 <span className="font-medium text-ank">{ref || lt(L.sansVolume)}</span>

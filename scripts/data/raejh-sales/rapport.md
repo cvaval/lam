@@ -9,16 +9,16 @@
 | lignes hors patron (tête manquée ?) | 0 |
 | attendus | 6213 |
 | entrées sans date lisible | 7 |
-| entrées sans formation | 22 |
-| formations | {"Deuxième Section":1393,"Première Section":1346,"Sections Réunies":177,"∅":11,"Assemblée Générale":3} |
-| **arrêts distincts** (date, formation, parties normalisées) | **1283** |
+| entrées sans formation | 21 |
+| formations | {"Deuxième Section":1394,"Première Section":1346,"Sections Réunies":177,"∅":10,"Assemblée Générale":3} |
+| **arrêts distincts** (date, formation, parties normalisées) | **1282** |
 | cités sous ≥ 2 notions | 714 · max 15 |
 | doublons probables (même jour, parties ≈) | 94 |
 | entrées « 1909 » corrigées en 1989 (RAEJH p. 133, image) | 4 — — |
 | « 37 juillet 1981 » corrigé en 31 juillet (attesté 3× par le livre) | 1 |
 | identités fusionnées (variantes d'écriture, ≥ 0,8) | 94 paires |
-| entrées avec Réf | 1224 |
-| renvois unitaires | 3503 · dont postérieurs à l'arrêt : 118 |
+| entrées avec Réf | 1225 |
+| renvois unitaires | 3505 · dont postérieurs à l'arrêt : 118 |
 | entrées à reliquat non découpé | 49 |
 | slugs en collision (suffixés -2) | 0 |
 | jetons capitales ≤ 4 (sigles possibles) | ÉS, ACTE, PRIV, ENQU, ÊTE, DÉ, ARRÊ, CÉLÉ, RIT, FER, CO, COMP, ÉT, LIT, COUR, SUPÉ, FAUT, LAI, LAIS, PÉ, NAL, LÉ, PRÉ, EXCÈ, EXPÉ, GÉ, RANT, HÉ, INEX, INTÉ, RÊT, JUGE, PAIX, FOND, DIRE, JURÉ, JURY, LOI, MER, PIÈ |
@@ -26,7 +26,7 @@
 ## Renvois par cible (20 premières)
 - CT : 964
 - CTA : 926
-- CPC : 662
+- CPC : 663
 - CC : 277
 - CIC : 143
 - LOI-1967-08-28 : 40
@@ -104,7 +104,6 @@
 
 ## Sans formation (10 premières)
 - 5.- Arrêt du 23 décembre 1968, Compagnie d'Eclairage Electrique des Villes de Port-au-Prince et du Cap-Haïtien
-- 7.- Arrêt du 21 dècembre 1971, 2ème section, Veuve Grévy JARBATH c. Banque Populaire Colombo-Haïtienne. - Réf:
 - 5.- Arrêt du 21 Février 1985, Éric BAPTISTE c. Ministère Public.
 - 6.- Arrêt du 3 avril 1974, Reynold CHERON c. Léon O. BAPTISTE.
 - 3.- Arrêt du 31 mars 1965, Léon CHÉRY c. Veuve L. A. ROUMER.
@@ -113,3 +112,4 @@
 - 7.- Arrêt du 29 juin 1978, DUMEZ Travaux Publics, S.A. c. Georges LUBIN.
 - 7.- Arrêt du 12 avril 1976, Clément ROBITAILLE c. André JEAN-JOSEPH. - Réf: article 247 C.T. [article 503 CTA]
 - 5.- Arrêt du 1989, 2ème Section, Cébien STYLE & Veuve André RIOBÉ. - Réf : articles 403, 76, 981, 982, 983 CPC
+- 1.- Arrêt du 4 août 1989, Section réunis, Guy Eddy LÉVEILLÉ ȼ Banque Populaire Haïtienne -Réf : article 122 Lo

@@ -408,13 +408,15 @@
   ]
  },
  {
-  "cle": "1961-07-24||",
-  "dateIso": "1961-07-24",
-  "formation": null,
-  "parties": "",
-  "nbEntrees": 1,
+  "cle": "1971-12-21|Deuxième Section|veuve grevy jarbath c banque populaire colombo haitienne",
+  "dateIso": "1971-12-21",
+  "formation": "Deuxième Section",
+  "parties": "Veuve Grévy JARBATH c. Banque Populaire Colombo-Haïtienne",
+  "nbEntrees": 3,
   "notions": [
-   "ACQUIESCEMENT"
+   "ACQUIESCEMENT",
+   "LOYERS",
+   "LOYERS"
   ]
  },
  {
@@ -10484,17 +10486,6 @@
   "parties": "Bellegarde SEVERE c. Veuve Roederer LEVEQUE",
   "nbEntrees": 1,
   "notions": [
-   "LOYERS"
-  ]
- },
- {
-  "cle": "1971-12-21|Deuxième Section|veuve grevy jarbath c banque populaire colombo haitienne",
-  "dateIso": "1971-12-21",
-  "formation": "Deuxième Section",
-  "parties": "Veuve Grévy JARBATH c. Banque Populaire Colombo-Haïtienne",
-  "nbEntrees": 2,
-  "notions": [
-   "LOYERS",
    "LOYERS"
   ]
  },
