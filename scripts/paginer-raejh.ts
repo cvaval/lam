@@ -125,7 +125,33 @@ async function main() {
       posParId.set(e.id, { tome: pos.tome, page: pEntree + 1 })
     }
   }
-  console.log(`notions : ${position.size} trouvées · ${notionsPerdues} introuvables → ${sansPage} extraits sans page`)
+  /**
+   * ⚠️ UNE NOTION INTROUVABLE N'EST PAS UN EXTRAIT INTROUVABLE. Neuf libellés du manuscrit ne
+   * se retrouvent pas comme titres dans le livre (« RÉTROACTIVITÉ [NON] DES LOIS », « THÉORIE DE
+   * L'ACCESSOIRE »…) — remaniés après publication, ou trop abîmés par l'OCR. Leurs extraits,
+   * eux, sont dans le livre : on les cherche par leur date ET un nom propre sur les trois tomes
+   * entiers, et on ne retient la page que si elle est UNIQUE. Sinon, sans page — rapporté.
+   */
+  let rattrapes = 0, ambigusPage = 0
+  for (const slug of slugs) {
+    if (position.has(slug)) continue
+    for (const e of parNotion.get(slug)!) {
+      const d = e.decision.publicationDate
+      if (!d) continue
+      const dateCle = serre(`du ${d.getUTCDate()} ${MOIS[d.getUTCMonth()]} ${d.getUTCFullYear()}`)
+      const noms = fold(e.decision.titleFr).replace(/[^a-z ]+/g, ' ').split(/\s+/).filter((t) => t.length >= 5 && !CREUX.has(t))
+      const hits: { tome: number; page: number }[] = []
+      for (const [tome, pages] of pagesParTome) pages.forEach((pg, p) => { if (pg.includes(dateCle) && noms.some((n) => pg.includes(n))) hits.push({ tome, page: p + 1 }) })
+      // Plusieurs pages : l'arrêt est cité sous d'autres notions, déjà paginées. La candidate
+      // qu'aucun autre extrait du même arrêt n'occupe est celle de la notion manquante.
+      const occupees = new Set(extraits.filter((x) => x.decision.id === e.decision.id && x.id !== e.id).map((x) => { const q = posParId.get(x.id); return q ? `${q.tome}|${q.page}` : '' }))
+      const libres = hits.filter((h) => !occupees.has(`${h.tome}|${h.page}`))
+      const choix = hits.length === 1 ? hits[0] : libres.length === 1 ? libres[0] : null
+      if (choix) { posParId.set(e.id, choix); rattrapes++; sansPage-- }
+      else if (hits.length > 1) ambigusPage++
+    }
+  }
+  console.log(`notions : ${position.size} trouvées · ${notionsPerdues} introuvables → extraits rattrapés par date+nom sur tout le livre : ${rattrapes} · ambigus (plusieurs pages) : ${ambigusPage} · sans page : ${sansPage}`)
   console.log(`entrées : ${entreesParDate} par date+nom · ${entreesParNotion} par la page de la notion`)
   if (perdues.length) console.log(`  introuvables (12 premières) : ${perdues.slice(0, 12).join(' · ')}`)
   // tome de chaque arrêt créé = celui de son premier extrait (tome le plus bas, puis page)
@@ -141,6 +167,9 @@ async function main() {
   for (const [k, ids] of parPos) { const [tome, page] = k.split('|').map(Number); await prisma.jurisExtrait.updateMany({ where: { id: { in: ids } }, data: { tome, page } }) }
   console.log(`tome/page écrits sur ${posParId.size} extraits (${parPos.size} positions distinctes)`)
 
+  // `--sans-blob` : les tomes sont déjà sur le Blob (allowOverwrite les réécrirait à l'identique,
+  // 103 Mo pour rien) — on ne repose que les pages, et les URL déjà posées restent.
+  if (process.argv.includes('--sans-blob')) { console.log(`✅ pages écrites · extraits sans page : ${await prisma.jurisExtrait.count({ where: { page: null } })}`); return }
   if (!process.env.BLOB_READ_WRITE_TOKEN) { console.error('⛔ BLOB_READ_WRITE_TOKEN absent'); process.exit(1) }
   const urlParTome = new Map<number, string>()
   for (const T of TOMES) {

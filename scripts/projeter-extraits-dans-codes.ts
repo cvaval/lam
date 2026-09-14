@@ -36,6 +36,15 @@ import { parseAnnotations, segmentAnnotated } from '../src/lib/legislation/annot
 import { CIBLES_DIRECTES } from '../src/lib/jurisprudence/cibles'
 
 const APPLY = process.argv.includes('--apply')
+/**
+ * `--remplacer-herites` : quand une entrée HÉRITÉE a son jumeau dans la table (même clé, même
+ * date, un nom propre commun), on retire l'héritée et on pose celle de la table. Décision de
+ * la cliente du 14 sept. 2026 (« corriger ») : la table devient la source de ce qu'elle
+ * couvre — régénérable, liée à l'arrêt, un jour cliquable. Une héritée SANS jumeau reste :
+ * rien ne se perd. Sentinelle : héritées après = héritées avant − remplacées, et pour chaque
+ * clé touchée, autant d'entrées après qu'avant.
+ */
+const REMPLACER = process.argv.includes('--remplacer-herites')
 const prisma = new PrismaClient()
 const fold = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
 const MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
@@ -76,8 +85,9 @@ async function main() {
       select: { anchor: true, article: true, extrait: { select: { id: true, texte: true, decision: { select: { titleFr: true, chambre: true, publicationDate: true } } } } },
     })
     const projete: Record<string, Cas[]> = {}
-    let poses = 0, sansBloc = 0, doublonsHerites = 0, doublonsInternes = 0
+    let poses = 0, sansBloc = 0, doublonsHerites = 0, doublonsInternes = 0, remplaces = 0
     const vus = new Set<string>()
+    const heritesARetirer = new Map<string, Set<Cas>>()
     for (const r of refs) {
       const cle = cleParAncre.get(r.anchor!)
       if (!cle) { sansBloc++; continue }
@@ -88,7 +98,7 @@ async function main() {
       vus.add(sig)
       const dIso = d.publicationDate?.toISOString().slice(0, 10)
       const nomsRef = noms(d.titleFr)
-      const dejaHerite = (herite[cle] ?? []).some((h) => {
+      const jumeau = (herite[cle] ?? []).find((h) => {
         const hd = dateDe(h.ref)
         if (!hd || !dIso) return false
         const [y, mo, da] = dIso.split('-'); const mois = MOIS[Number(mo) - 1]
@@ -97,16 +107,22 @@ async function main() {
         for (const n of nomsRef) if (hn.has(n)) return true
         return false
       })
-      if (dejaHerite) { doublonsHerites++; continue }
+      if (jumeau && !REMPLACER) { doublonsHerites++; continue }
+      if (jumeau) { heritesARetirer.set(cle, new Set([...(heritesARetirer.get(cle) ?? []), jumeau])); remplaces++ }
       projete[cle] = [...(projete[cle] ?? []), { ref, excerpt: r.extrait.texte, raejh: true }]
       poses++
     }
-    // fusion : héritées d'abord, projetées ensuite
+    // fusion : héritées (moins celles remplacées) d'abord, projetées ensuite
     const fusion: Record<string, Cas[]> = {}
-    for (const k of new Set([...Object.keys(herite), ...Object.keys(projete)])) fusion[k] = [...(herite[k] ?? []), ...(projete[k] ?? [])]
+    for (const k of new Set([...Object.keys(herite), ...Object.keys(projete)])) {
+      const retirer = heritesARetirer.get(k) ?? new Set<Cas>()
+      fusion[k] = [...(herite[k] ?? []).filter((h) => !retirer.has(h)), ...(projete[k] ?? [])]
+      if (retirer.size && fusion[k].length !== (herite[k] ?? []).length + (projete[k] ?? []).length - retirer.size) { console.error(`⛔ ${source} ${k} : compte incohérent`); process.exit(1) }
+    }
     const nApres = Object.values(fusion).flat().filter((c) => !c.raejh).length
-    if (nApres !== nHerite) { console.error(`⛔ ${source} : entrées héritées ${nHerite} → ${nApres}`); process.exit(1) }
-    console.log(`  ${source.padEnd(28)} héritées ${String(nHerite).padStart(5)} (intactes) · retirées ${String(nRetire).padStart(4)} (ancienne projection) · posées ${String(poses).padStart(4)} sur ${Object.keys(projete).length} articles · doublons hérités ${doublonsHerites} · internes ${doublonsInternes} · sans bloc ${sansBloc}`)
+    const nRetires = [...heritesARetirer.values()].reduce((s, x) => s + x.size, 0)
+    if (nApres !== nHerite - nRetires) { console.error(`⛔ ${source} : entrées héritées ${nHerite} → ${nApres} (remplacées : ${nRetires})`); process.exit(1) }
+    console.log(`  ${source.padEnd(28)} héritées ${String(nHerite).padStart(5)} → ${String(nApres).padStart(5)} (remplacées ${remplaces}) · ancienne projection retirée ${String(nRetire).padStart(4)} · posées ${String(poses).padStart(4)} sur ${Object.keys(projete).length} articles · doublons gardés ${doublonsHerites} · internes ${doublonsInternes} · sans bloc ${sansBloc}`)
     if (APPLY) {
       await prisma.document.update({ where: { id: doc.id }, data: { annotationsJson: JSON.stringify({ ...raw, jurisprudence: fusion }) } })
       aReindexer.push(doc.id)
