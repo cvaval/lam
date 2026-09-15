@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation'
 import { dictFor } from '@/lib/i18n/server'
 import { requireUser } from '@/lib/auth/guard'
 import { canReadService } from '@/lib/access'
-import { DOC_TYPE_META } from '@/lib/brand'
+import { DOC_TYPE_META, racinesReserveesHors } from '@/lib/brand'
 import { navigationThemes, allThemedDocuments } from '@/lib/legislation/themes'
 import { ThemeBrowser } from '@/components/ThemeBrowser'
 
@@ -51,8 +51,14 @@ export default async function DoctrinePage({ params }: { params: { locale: strin
   // les vues à plat sortent du même corpus, déclaré avec la rubrique. Quatre requêtes
   // séparées portaient auparavant leurs propres filtres : c'est ainsi qu'un badge a pu
   // annoncer autre chose que la liste qu'il surmontait.
+  //
+  // ⚠️ ET UN SEUL ARBRE, MOINS CE QUI EST À D'AUTRES. La rubrique ne déclare aucune racine :
+  // elle parcourt tout l'arbre. Le Répertoire alphabétique (J.-F. Salès) y est apparu le
+  // 15 sept. 2026 dès que des textes de loi ont porté ses notions — « uniquement pour la
+  // section sur la jurisprudence », a tranché la rédaction. Les racines des autres rubriques
+  // sont écartées ici, qu'elles soient vides ou non pour ce corpus.
   const [nav, allDocs] = await Promise.all([
-    navigationThemes(user, { corpus: META.corpus, racines: META.racinesThemes }),
+    navigationThemes(user, { corpus: META.corpus, racines: META.racinesThemes, racinesExclues: racinesReserveesHors(META.slug) }),
     allThemedDocuments(user, { corpus: META.corpus }),
   ])
   // Garde-fou de troncature : la borne (take) de allThemedDocuments est atteinte →

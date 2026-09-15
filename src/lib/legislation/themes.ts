@@ -199,6 +199,17 @@ export function sousArbres(tree: ThemeNode[], slugs: readonly string[]): ThemeNo
   return trouves.sort((a, b) => voulu.get(a.slug)! - voulu.get(b.slug)!)
 }
 
+/**
+ * L'arbre PRIVÉ des sous-arbres enracinés aux slugs donnés, à n'importe quelle profondeur.
+ * Miroir de `sousArbres` : l'un prend, l'autre retire — voir `racinesReserveesHors` (brand.ts).
+ */
+export function sansSousArbres(tree: ThemeNode[], slugs: readonly string[]): ThemeNode[] {
+  const exclus = new Set(slugs)
+  const rec = (nodes: ThemeNode[]): ThemeNode[] =>
+    nodes.filter((n) => !exclus.has(n.slug)).map((n) => ({ ...n, children: rec(n.children) }))
+  return rec(tree)
+}
+
 /** Élague les nœuds dont le sous-arbre entier est vide POUR CE CORPUS. */
 function elaguer(nodes: ThemeNode[], sousTotal: Map<string, number>): ThemeNode[] {
   return nodes
@@ -236,7 +247,7 @@ export interface NavigationThemes {
  */
 export async function navigationThemes(
   user: { role: Role; services: DocType[] },
-  opts: { corpus?: readonly DocType[]; racines?: readonly string[]; recentDays?: number } = {},
+  opts: { corpus?: readonly DocType[]; racines?: readonly string[]; racinesExclues?: readonly string[]; recentDays?: number } = {},
 ): Promise<NavigationThemes> {
   const types = typesDeLaSection(user, opts.corpus)
   const cutoff = new Date(Date.now() - (opts.recentDays ?? 14) * 86400_000)
@@ -274,7 +285,9 @@ export async function navigationThemes(
   }
   arbreComplet.forEach(remonte)
 
-  const depart = opts.racines?.length ? sousArbres(arbreComplet, opts.racines) : arbreComplet
+  // Sans racines déclarées, TOUT l'arbre — moins ce que d'autres rubriques se sont réservé :
+  // l'élagage des branches vides n'est pas une frontière (voir `racinesReserveesHors`).
+  const depart = opts.racines?.length ? sousArbres(arbreComplet, opts.racines) : sansSousArbres(arbreComplet, opts.racinesExclues ?? [])
   const parId = new Map(Object.entries(subtotals))
   return {
     tree: elaguer(depart, parId),

@@ -138,6 +138,14 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
     // de jurisprudence haïtienne (J.-F. Salès, 1963-1989), sous leur propre racine. Déclarée
     // ICI et nulle part ailleurs : `navigationThemes` prend tout l'arbre quand une section ne
     // déclare rien, et une racine de jurisprudence n'a rien à faire dans le parcours d'une loi.
+    //
+    // ⚠️ DÉCLARER NE SUFFISAIT PAS. Le 15 sept. 2026, la carte « Répertoire alphabétique » est
+    // apparue dans la Législation annotée : treize textes de loi venaient d'être rattachés aux
+    // notions qu'ils portent (le Code civil sous « Acquiescement »…), et l'arbre entier, élagué
+    // de ses seules branches VIDES, la gardait. La rédaction : « le répertoire de Me Salès est
+    // uniquement pour la section sur la jurisprudence ». D'où `racinesReserveesHors` : une
+    // racine déclarée par une rubrique lui appartient, et les rubriques qui parcourent tout
+    // l'arbre l'écartent — qu'elle soit vide ou non pour leur corpus.
     racinesThemes: ['jurisprudence-sales'] as const,
     pastille: 'Brim',
     code: 'JUR',
@@ -257,6 +265,25 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
 }
 
 export const DOC_TYPE_LIST = Object.values(DOC_TYPE_META).sort((a, b) => a.num - b.num)
+
+/**
+ * Racines de thèmes RÉSERVÉES aux autres rubriques que `slug` — celles qu'elles déclarent dans
+ * `racinesThemes`. Une rubrique qui parcourt l'arbre ENTIER (la Législation annotée n'en
+ * déclare aucune) les laisse de côté, à quelque profondeur qu'elles soient.
+ *
+ * ⚠️ L'ÉLAGAGE NE TIENT PAS LIEU DE FRONTIÈRE. `navigationThemes` retire les branches vides
+ * pour le corpus ; tant qu'aucune loi ne portait une notion du Répertoire alphabétique, la
+ * racine de la jurisprudence disparaissait de la Législation annotée par ce seul effet — et
+ * la frontière paraissait tenue. Elle ne l'était pas : au premier texte de loi rattaché à une
+ * notion, la racine est revenue. Une frontière éditoriale se déclare, elle ne se déduit pas
+ * de ce que le corpus contient à un instant donné.
+ *
+ * Les deux axes de la BRH sont réservés de la même façon : sans effet visible aujourd'hui
+ * (aucune loi n'y est classée), mais la règle vaut pour eux comme pour le Répertoire.
+ */
+export function racinesReserveesHors(slug: string): string[] {
+  return [...new Set(Object.values(DOC_TYPE_META).filter((m) => m.slug !== slug).flatMap((m) => m.racinesThemes ?? []))]
+}
 
 /**
  * Pastille de type — UNIFORME. Le système v1.0 attribuait une teinte à chaque type et
