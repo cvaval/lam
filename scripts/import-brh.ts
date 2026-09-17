@@ -80,6 +80,9 @@ const SUPERSEDED_BY_WEB = new Set([
   // scripts/reparer-circulaire-127.ts. Sans ce saut, le ré-import recréerait un doublon
   // source='BRH' à côté du document réparé.
   '127_Circulaire.pdf',
+  // n° 120 : texte du Cabinet Salès (relu sur le fac-similé) + lecteur annoté (source dédiée
+  // 'CIRC_BRH_120') par scripts/reparer-circulaire-120.ts — même raison.
+  '120_Circulaire.pdf',
   '126_Circulaire.pdf',
   'Circulaire-129.pdf',
   'Circulaire-129-1-Aux-Institutions-FinancieEres-6-feevrier-2026-Lutte-contre-le-blanchiment-de-capitaux._0001.pdf',

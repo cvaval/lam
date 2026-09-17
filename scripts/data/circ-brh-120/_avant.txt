@@ -1,0 +1,1925 @@
+[1]
+Banque de la République d’Haïti
+CIRCULAIRE
+No. 120
+AUX BANQUES ET
+AUX SOCIETES DE PROMOTION DES INVESTISSEMENTS
+En conformité aux articles 4, 5, 7, 109, 161, 171, 191 et 199 de la loi du 14 mai 2012 portant sur
+les banques et autres institutions financières, les banques et les sociétés de promotion des
+investissements sont tenues de respecter les présentes normes relatives à l’appel public à
+l’épargne et au placement restreint.
+SECTION I
+GENERALITES
+1. Objet
+La présente circulaire détermine les conditions dans lesquelles les titres financiers peuvent être
+offerts, émis, transigés et conservés sur le marché, les rôles et responsabilités des différents
+intervenants et parties prenantes, dans le triple objectif de protéger les investisseurs, de maintenir
+la confiance dans le marché et d’éviter la concurrence déloyale dans le système financier.
+Elle ne s’applique pas aux titres publics.
+2. Définitions
+Les définitions suivantes s’appliquent à la présente circulaire :
+a) Action : titre négociable émis par une société anonyme et qui constate un droit de
+propriété dans cette société.
+b) Appel public à l’épargne : émission ou cession de titres financiers dans le public en
+général, en ayant recours soit à la publicité, soit au démarchage. Ne constitue pas un
+appel public à l'épargne le fait de proposer l'émission de titres financiers à travers un
+placement restreint.
+c) Asymétrie d’information : situation dans laquelle les participants à un marché ou à un
+contrat ne disposent pas de la même information, ou une partie dispose de plus
+d’information que l’autre.
+d) Changements importants : changements intervenus dans le contrôle, le capital, les
+activités commerciales, l’exploitation ou généralement les affaires d’un émetteur et qui
+peuvent influencer les décisions d’achat et de détention de ses titres, et donc avoir un
+impact sur la valeur desdits titres.
+
+
+
+[2]
+e) Compte espèces : compte que les investisseurs doivent approvisionner et à partir duquel
+les titres acquis seront réglés. Ce compte sera débité ou crédité en fonction des
+transactions effectuées par les investisseurs ou pour leur compte, notamment la réception
+de fonds pour acquisition de titres, la réception de revenus générés par les titres acquis,
+le produit de la cession ou du remboursement de titres, le paiement de frais, commissions,
+taxes impôts, ou toutes autres charges généralement quelconques.
+f) Compte titres : compte dans lequel sont inscrits et conservés les titres acquis par les
+investisseurs. Il est obligatoirement rattaché à un compte espèces dans lequel sont
+enregistrés les crédits ou les débits liés aux opérations d’achats ou de vente de titres.
+g) Conseiller en placement : personne physique chargée de fournir des conseils en
+investissement et des informations sur des titres financiers, des services d'investissement
+ou des services connexes aux clients du Prestataire pour le compte duquel il travaille.
+h) Déclaration de changements importants : acte par lequel l’émetteur porte à la
+connaissance des investisseurs des changements importants intervenus dans la vie de la
+société.
+i) Délit d’initié : fait de réaliser ou de permettre de réaliser, directement ou indirectement
+par personne interposée, une ou plusieurs opérations sur la base d’informations
+privilégiées.
+j) Démarchage : fait de se rendre au domicile ou à la résidence des personnes, ou sur leurs
+lieux de travail, ou dans des lieux publics, en vue de conseiller la souscription de titres
+financiers. Sont également considérés comme démarchage, les offres faites par l’envoi
+de documents ou par communication téléphonique, ou par tout autre moyen de
+communication.
+k) Dématérialisation : conversion d'un certificat d'action ou d’obligation de sa forme
+physique à sa forme électronique. La dématérialisation implique l’ouverture d’un compte
+titres ou compte dématérialisé permettant l’enregistrement, la conservation et la gestion
+électronique des titres.
+l) Devoir de conseil : devoir d’orienter le choix de l’investisseur à partir de critères
+d’opportunités, d’émettre une opinion sur ce qu’il conviendrait de faire ou pas.
+m) Diffusion : action de proposer les titres objet du prospectus visé par la BRH à un public
+potentiel, répondant aux conditions ou caractéristiques précisées dans lesdits documents,
+ce par une campagne de publicité ou par des actions de démarchage.
+n) Emetteur : société anonyme de droit haïtien remplissant les critères d’éligibilité imposés
+par la présente circulaire qui émet des titres financiers soit à travers un Placement
+restreint, soit à travers un Appel public à l’épargne.
+o) Emission : création et mise en circulation de titres financiers sur le marché primaire.
+p) Garde des titres : fonction qui consiste à assurer la conservation, la comptabilisation et
+la gestion des comptes d’émission et des comptes-titres.
+q) Information exacte : information exempte d’erreurs.
+
+
+
+[3]
+r) Information précise : information complète communiquée de manière claire et correcte.
+La précision diffère de l’exactitude en ce sens qu’une information en elle-même exacte
+pourrait être imprécise si l’émetteur a omis de communiquer une autre information ou un
+élément d’information qui aurait été susceptible de modifier l’appréciation de sa situation
+par le public.
+s) Information privilégiée : information non connue ou non encore connue du public et
+obtenue du fait de sa position, ses fonctions ou relations avec l’émetteur et non encore
+prise en compte dans l’évaluation et le prix des titres de l’émetteur.
+t) Information sincère : information qui contient à la fois les éléments positifs et les
+éléments négatifs le cas échéant. Le caractère sincère de l’information implique que
+soient communiqués les éléments positifs et négatifs liés à l’information considérée.
+u) Initié : administrateurs et dirigeants de toute société intervenant sur le marché financier
+ainsi que toutes les personnes en relation professionnelle avec cette société qui détient
+des informations privilégiées sur les perspectives ou la situation d’une société dont les
+titres sont émis ou négociés sur le marché, ou sur les perspectives d’évolution desdits
+titres.
+v) Investisseur : toute personne physique ou morale à capacité de financement qui achète
+des titres financiers d’un émetteur en vue d’obtenir un rendement.
+w) Investisseur averti : investisseur réputé disposer des compétences et des moyens
+nécessaires pour appréhender les risques inhérents aux opérations sur titres financiers.
+Ont la qualité d'investisseurs avertis lorsqu'ils agissent pour leur propre compte, les
+catégories de personnes suivantes: les banques et autres institutions financières visées
+à l’article 2 de la loi du 14 mai 2012 portant sur les banques et autres institutions
+financières; les sociétés anonymes pouvant justifier d’un capital social libéré d’au moins
+cent vingt millions de gourdes ; les organismes autonomes de l’Etat, les sociétés
+anonymes mixtes et les sociétés d’économie mixte dûment autorisés par leur conseil
+d’administration; les fonds de pension ou de retraite dûment autorisés par leur conseil
+d’administration ou tout autre organe désigné par la loi ou par les statuts à cet effet; les
+compagnies d'assurance et de réassurance; les organisations internationales ; les
+personnes physiques qui peuvent justifier soit d’un avoir net personnel de soixante
+millions de gourdes, soit d’une activité professionnelle, pendant au moins trois ans,
+exigeant une connaissance en investissement en instruments financiers; et les Prestataires
+de services d'investissement agissant pour leur propre compte ou sous mandat spécifique
+et explicite de l’une des catégories susmentionnées.
+x) Investisseur non-averti : tout investisseur qui ne remplit pas les conditions pour être
+qualifié d’investisseur averti.
+y) Marché Financier : marché où sont émis et échangés des actions et des obligations et
+tous autres titres financiers admis par la BRH. Ce marché permet d’effectuer l’ensemble
+des opérations liées aux émissions de titres financiers par appel public à l’épargne ou par
+placement restreint.
+z) Marché primaire : marché où les titres sont émis et vendus pour la première fois.
+
+
+
+[4]
+aa) Marché secondaire : marché où ont lieu des transactions sur les titres déjà vendus sur
+le marché primaire.
+bb) Mémorandum d’Information aux Investisseurs (MII) : document préparé dans le
+cadre d’un placement restreint contenant une synthèse d’informations portant notamment
+sur les titres à émettre, les activités de l’émetteur, ses dirigeants et sa situation financière.
+cc) Obligation : titre négociable émis par un émetteur lors d’un emprunt. Il est remis au
+prêteur en représentation de sa créance ou conservé par un Prestataire de service
+d’investissement sous forme dématérialisée.
+dd) Obligation de mise en garde : obligation d’attirer particulièrement l’attention de son
+client sur les dangers potentiels d’une opération donnée, ainsi que de l’alerter des dangers
+d’une opération sollicitée sans pour autant être tenu de la lui refuser.
+ee) Obligation de s’informer : obligation de s’enquérir auprès des clients actuels et
+potentiels des informations portant sur leurs connaissances et leur expérience en matière
+d’investissement, sur leur situation financière et leurs objectifs d’investissement, de
+manière à pouvoir les catégoriser, leur recommander les produits adaptés ou gérer leur
+portefeuille de manière adaptée à leur situation.
+ff) Offre au public : communication adressée à de potentiels investisseurs, dans le cadre
+d’un appel public à l’épargne sous quelque forme et par quelque moyen que ce soit, pour
+les inviter à acheter des titres financiers ou à en souscrire.
+gg) Opération sur titres : toute activité ou transaction relative à un titre notamment la
+souscription, la libération, la vente, l’achat et l’inscription auprès du Dépositaire Central.
+hh) Placement : recherche de souscripteurs potentiels pour le compte d’un émetteur dans le
+cadre d’une émission, et la collecte des ordres à cet effet. Cette recherche suppose une
+démarche de communication pour susciter l’intérêt des souscripteurs potentiels,
+notamment par voie de publicité ou de démarchage. Constitue également un placement,
+l’investissement effectué par un client en quête de rendement.
+ii) Placement restreint : placement auprès d’investisseurs avertis et/ou d’un groupe
+d’investisseurs non avertis ne dépassant pas trente-cinq (35) personnes.
+jj) Prestataire de service d’investissement : toute banque, toute société de promotion des
+investissements et toute autre entité agréée par la BRH dont l’objet social prévoit
+l’activité de placement ou de conseil en investissement en titres financiers ou valeurs
+mobilières. Il joue le rôle d’intermédiaire entre l’émetteur et la BRH, entre l’émetteur et
+les investisseurs dans le cadre d’une émission de titres.
+kk) Prise ferme : achat directement par le Prestataire, de l'émetteur, de la totalité ou d’une
+partie des titres objets de l'émission à un prix convenu, en vue de leur placement ultérieur
+auprès de ses clients.
+ll) Prospectus : note d’information détaillée contenant l’offre destinée au public que
+l’émetteur doit produire en vue de l’émission de ses titres financiers dans le cadre d’un
+appel public à l’épargne.
+
+
+
+[5]
+mm) Prospectus visé : Prospectus muni de la mention officielle contenue à l’article 19
+de la présente circulaire.
+nn) Publicité : sollicitation relatif à un titre, adressée au public, quels que soient les supports
+utilisés, presse écrite ou orale, affichage, procédés audiovisuels, moyens électroniques,
+internet, médias sociaux etc. se rapportant à des titres financiers.
+oo) Souscripteur : toute personne physique ou morale qui donne à un Prestataire de service
+d’investissement un ordre d’acquisition ou de cession portant sur des titres, proposés
+dans le cadre d’une émission.
+pp) Syndicat de placement : groupe de Prestataires, dont un chef de file choisi par
+l’émetteur, chargé du placement des titres objet de l’émission envisagée.
+qq) Titre financier ou titre : titre représentatif d’une partie du capital d’une société (action)
+ou d’une partie de sa dette (titre de créance : obligation) et tous autres titres hybrides ou
+dérivés autorisés par la BRH.
+rr) Visa : Document de la BRH autorisant la publication du prospectus et sans lequel aucune
+offre ne peut être faite directement ou indirectement via Appel public à l’épargne. Le
+visa indique la conformité aux exigences de divulgation d’informations à l’investisseur
+et n’est absolument pas une opinion sur la qualité de l’investissement en termes de risque
+et de rendement.
+3. Titres admis à l’émission
+Les titres admis à l’émission sont :
+a) Les actions ordinaires ou privilégiées ;
+b) Les obligations à court, à moyen et à long terme. Elles comprennent, sans s’y limiter,
+les obligations convertibles, les obligations indexées et tous types d’obligations admises
+dans la pratique par le milieu bancaire et financier ;
+c) Les actions et obligations composant les fonds propres réglementaires et
+complémentaires des institutions financières ;
+d) Tout autre titre que la BRH peut accepter en tenant compte de l’évolution du marché
+financier en Haïti.
+Seuls les titres nominatifs sont admis sur le marché financier.
+4. Responsabilité des informations soumises
+Les personnes responsables des informations soumises dans le prospectus sont notamment
+l’émetteur, les vérificateurs indépendants et les Prestataires. Le prospectus doit identifier
+clairement chacune de ces personnes par son nom et sa fonction, ou, dans le cas des personnes
+morales, par sa dénomination et son adresse.
+La signature des personnes physiques ou morales qui assument la responsabilité des informations
+du prospectus, de leur actualisation ou de leurs modifications doit être précédée de la mention
+prévue à cet effet par la présente circulaire.
+Toute personne qui, à un titre quelconque, appose sa signature sur le prospectus est responsable
+en ce qui la concerne.
+
+
+
+[6]
+Toute communication de fausse information dans le prospectus pourra donner lieu à la mise en
+cause de la responsabilité des personnes signataires, toutes les fois qu’elles ne peuvent pas
+prouver qu’elles ont signé de bonne foi et que l’information fausse leur a été communiquée ou
+confirmée par les personnes ou organes compétents de l’émetteur.
+5. Principaux acteurs du marché
+Les principaux acteurs du marché financier sont les émetteurs, les vérificateurs indépendants,
+les Prestataires de services d’investissement, les investisseurs, la BRH et, le cas échéant, le
+Dépositaire Central.
+SECTION II - EMETTEURS
+6. Conditions générales d’éligibilité au statut d’émetteur
+Seules les sociétés anonymes ayant cinq (5) ans d’existence et dont le capital est totalement
+libéré sont éligibles au statut d’émetteur.
+Pour émettre des titres financiers, que ce soit par appel public à l’épargne, que ce soit sur la base
+du régime de placement restreint pour lesquels les articles 7, 8 et 14 établissent des exigences
+additionnelles, l’émetteur doit satisfaire aux critères ci-après :
+1) avoir atteint son seuil de rentabilité, à moins que les titres objet de l’émission soient assortis
+de la garantie d’une banque ou de toute autre garantie acceptée par la BRH ;
+2) disposer d’un capital social minimum de vingt-cinq millions (25, 000,000.00) de gourdes;
+3) avoir des organes d’administration et de direction fonctionnels composés de membres
+disposant de connaissances et de compétences nécessaires en matière d’administration
+d’entreprises et dont la réputation n’est pas entachée par des faits mettant en question leur
+intégrité ;
+4) faire preuve d’une gestion saine et conforme aux pratiques de la bonne gouvernance, à savoir
+justifier de :
+a. l’existence d’un conseil d’administration effectif qui se réunit régulièrement et
+dont les membres sont techniquement aptes à prendre les décisions relevant de
+leurs compétences, notamment la fixation des objectifs stratégiques, et
+l’évaluation de la qualité du travail de la direction générale. Il s’agit d’un conseil
+qui rend compte à une assemblée générale exerçant pleinement ses missions et
+veillant à la mise en œuvre effective, par la direction générale, des
+recommandations du vérificateur indépendant ;
+b. la tenue régulière de l’assemblée générale des actionnaires au cours de laquelle
+les états financiers, rapports, budgets et autres documents prévisionnels sont
+adoptés à une très large majorité et les décisions prises collégialement ;
+c. l’existence de politiques et de règlements internes au sein de son organisation ;
+5) avoir une comptabilité conforme aux normes comptables généralement reconnues;
+
+
+
+[7]
+6) être régulièrement auditée par un vérificateur indépendant depuis au moins deux (2) ans
+avant le processus d’émission ;
+7) être en règle avec les lois fiscales.
+La BRH se réserve le droit de fixer d’autres critères en tenant compte de l’évolution des activités
+économiques et financières.
+La BRH se réserve le droit d’exempter des sociétés issues d’une procédure de fusion-acquisition
+ou de groupe de sociétés de l’exigence de cinq (5) ans d’existence prévue dans les dispositions
+du premier alinéa de cet article.
+7. Placement restreint - Obligation de soumettre un Mémorandum d’Information aux
+Investisseurs (MII)
+Avant d’effectuer un placement restreint, tout émetteur est assujetti à l’obligation d’établir un
+Mémorandum d’information aux Investisseurs (MII) avec le concours d’un Prestataire de service
+d’investissement, lequel devra effectuer les diligences nécessaires conformément aux meilleures
+pratiques de la profession.
+Le MII doit contenir des informations exactes, sincères et précises afin de permettre aux
+investisseurs d’évaluer, en connaissance de cause, la situation financière et les perspectives de
+l’émetteur. Il est accompagné d’une attestation signée par l’émetteur indiquant qu’il ne contient
+aucune information fausse ou trompeuse.
+Le MII doit indiquer clairement les catégories de personnes habilitées à souscrire aux titres objet
+de l’émission ainsi que les risques potentiels associés au placement. En ce sens il contiendra, sur
+sa page de couverture, les mentions conformes à l’Annexe III de la présente circulaire.
+Le MII doit être communiqué aux catégories d’investisseurs ciblés par tous les moyens et
+téléchargeable sur les sites internet du Prestataire de service d’investissement et de l’émetteur si
+ce dernier en dispose.
+L’émetteur et le Prestataire ont la responsabilité de communiquer le MII à jour à toute personne
+qui achète un titre d’un porteur initial.
+Le mémorandum d’information ainsi que les documents d’information continue sont transmis à
+la BRH sous forme électronique pour dépôt au Registre des Placements Restreints à des fins
+d’archivage et de statistiques, et non à des fins de visa.
+Le Prestataire doit s’assurer de l’appartenance du souscripteur à l’une des catégories
+d’investisseurs prévues à l’article 21 de la présente circulaire et garder une copie du document
+attestant de ladite appartenance. Il est tenu de le faire signer un formulaire attestant qu’il
+reconnait et assume entièrement les risques associés à un tel placement.
+Les banques qui effectuent un placement restreint pour leur propre compte sont soumises aux
+mêmes obligations prévues dans le présent article.
+8. Appel Public à l’Épargne – Obligation d’établir et de publier un prospectus visé
+
+
+
+[8]
+L’émission de tous titres financiers offerts, directement ou indirectement sur le marché financier
+par appel public à l’épargne, doit être préalablement autorisée par la BRH. Pour obtenir
+l’autorisation, tout émetteur est assujetti à l’obligation d’élaborer un prospectus.
+Pour l’élaboration du prospectus, l’émetteur est tenu de recourir à un Prestataire de service
+d’investissement dûment agréé par la BRH. Ce Prestataire devra effectuer les diligences
+nécessaires conformément aux meilleures pratiques de la profession.
+Les diligences nécessaires comprennent généralement des discussions détaillées avec les
+administrateurs et dirigeants de l'émetteur au cours de la préparation du projet de prospectus,
+l'inspection des principaux éléments d'actif de l'émetteur, l'examen de ses contrats importants
+(comme les contrats de financement), l'examen de ses états financiers et de son plan financier
+ainsi que des discussions avec les cadres supérieurs de l'émetteur, ses vérificateurs et ses
+conseillers ou experts externes avant le dépôt du prospectus.
+9. Contenu du prospectus et qualité de l’information
+Le contenu du prospectus et sa mise à jour doivent être conformes à l’Annexe I de la présente
+circulaire. Le prospectus doit contenir des informations exactes, sincères, précises, comparables
+et compréhensibles permettant au public de former son jugement sur la situation financière et les
+perspectives de l'émetteur, ainsi que sur les droits attachés aux titres.
+A défaut de présenter un prospectus conforme à la présente circulaire, la BRH peut exiger d’un
+Prestataire qu’il apporte ou qu’il fasse apporter des modifications, qu’il fasse redresser toute
+situation ayant trait à des violations relevées par le vérificateur indépendant.
+A défaut de se conformer aux actions requises par la BRH, la demande d’autorisation sera
+purement et simplement rejetée.
+Le prospectus doit être signé par la personne habilitée à engager la société émettrice ainsi que
+par l'ensemble de personnes ayant émis une opinion ou ayant certifié des informations qui s’y
+trouvent.
+10. Informations supplémentaires dans le cas de groupe de sociétés
+Dans le cas où une société émettrice contrôle une ou plusieurs autres sociétés, elle doit présenter
+outre ses états financiers individuels, les états financiers consolidés du groupe.
+Si tout ou partie du produit du placement est destiné à financer l'acquisition d'une entreprise, la
+BRH peut exiger :
+a) l'identification de la société cible et la procédure de l'opération d'achat ;
+b) les états financiers de la société cible ;
+c) les états financiers pro-forma consolidant, à la date du bilan le plus récent de l'émetteur,
+l'actif et le passif de l'émetteur et de la société cible ;
+d) les objectifs de l'acquisition et leur impact sur la situation et la performance de
+l'entreprise.
+Lorsque La BRH estime cette information utile aux investisseurs, elle peut exiger, pour l'année
+précédant celle du bilan le plus récent de l'émetteur, ou permettre, pour chacune des trois années
+précédant cette date, la présentation au prospectus d'états financiers pro forma cumulant :
+
+
+
+[9]
+a) l'état de résultat de l'émetteur et celui de l'entreprise cible ;
+b) l’état des flux de trésorerie de l'émetteur et celui de l'entreprise cible.
+Tout document d’information portant sur des titres de créance ou sur des actions à dividendes
+prioritaires doit contenir l'information sur la couverture des engagements par l'actif et par les
+bénéfices.
+La BRH peut exiger que les états financiers d'une société soumise au contrôle d’une autre société
+soient présentés séparément au prospectus, qu'ils soient consolidés ou non avec ceux de
+l'émetteur.
+Lorsque le rapport du vérificateur indépendant d'une société soumise au contrôle d’une autre
+société comporte des réserves, il faut déposer ce rapport et ces états financiers avec le prospectus.
+La BRH peut permettre la présentation dans le prospectus d'états financiers non consolidés, à
+titre d'information supplémentaire.
+Lorsqu'un emprunt fait l'objet d'une garantie, le prospectus contient, outre les rubriques requises
+pour l'émetteur, une présentation complète du garant, lequel fournit les mêmes renseignements
+que l'émetteur, à l'exception de ceux relatifs aux titres offerts.
+Lorsque le garant est un émetteur, il peut utiliser un prospectus autorisé depuis moins d'un an.
+La présentation du garant n’est pas exigée lorsqu’il s’agit d’une institution financière agréée par
+la BRH.
+Dans tous les cas, le contrat de garantie est accessible gratuitement pour consultation à toute
+personne qui en fait la demande au siège de l'émetteur et auprès des institutions financières
+chargées d'assurer le service financier de l’emprunt.
+11. Le prospectus abrégé
+Le prospectus abrégé est prévu dans les cas suivants :
+a) les titres offerts proviennent de l'exercice d'un droit issu de titres financiers dont
+l'émission a déjà donné lieu à l'établissement d'un prospectus. Il s’agit notamment du
+cas de conversion d’obligations convertibles en actions dont l’émission a déjà donné
+lieu à l’établissement d’un prospectus ;
+b) l'émetteur a obtenu un visa relatif à un placement depuis moins de six (6) mois et
+désire faire une nouvelle offre publique.
+Les dispositions des articles 4, 6, 10, 14, 16 et 20 de la présente circulaire sont applicables dans
+le cas d'un prospectus abrégé.
+Le prospectus abrégé ne peut être établi lorsque l'opération envisagée entraîne :
+a) au moins le doublement du capital ; ou
+b) une augmentation d'au moins 50% du capital, assortie d'un changement de contrôle
+ou d'un changement important dans la nature des activités ; ou
+c) une modification significative de la structure du bilan.
+
+
+
+[10]
+Le prospectus abrégé doit être élaboré conformément à l’Annexe II de la présente circulaire. Il
+doit être déposé à la BRH trente (30) jours au moins avant la date projetée de l'offre.
+12. Contrat de services financiers
+Un contrat de services financiers ou de placement doit intervenir entre l’émetteur et le Prestataire
+de services d’investissement. Ce contrat doit porter principalement sur les conditions
+d’élaboration du prospectus, l’étendue des pouvoirs délégués au Prestataire, la nature du mandat
+(prise ferme ou placement pour compte), les restrictions, la rémunération, les conditions de
+clôture des placements, les obligations et responsabilités générales des parties.
+Le contrat oblige l'émetteur à aviser sans délai le Prestataire de tout changement important dans
+ses activités, de tout changement dans n'importe quel fait important présenté dans le prospectus
+ou de tout nouveau fait important.
+Le contrat de services financiers oblige l'émetteur à s’engager à respecter la présente circulaire
+en tout ce qui le concerne. Il prévoit que l’émetteur s’engage à communiquer au Prestataire tout
+document ou renseignement estimé utile à l’accomplissement de sa mission et tous documents
+exigés par la présente circulaire au moment du dépôt du prospectus.
+Le contrat de services financiers avec les Prestataires contient plusieurs déclarations et garanties
+en leur faveur, notamment :
+a) une déclaration de nature générale quant à l'exactitude et à l'exhaustivité de l'information
+fournies pour la préparation du prospectus;
+b) des déclarations spécifiques sur l'organisation de l'émetteur et de ses filiales importantes,
+son capital émis et en circulation, et l'absence de conflit entre les conditions du placement
+et les actes constitutifs et les contrats importants de l'émetteur.
+La portée des déclarations spécifiques relatives à l'émetteur, à ses activités et à ses affaires
+financières est négociée entre l'émetteur et le Prestataire dans le contexte d'une transaction
+particulière.
+Le contrat avec le Prestataire contient une clause d'indemnisation en faveur du Prestataire,
+accordée par l'émetteur en cas de fourniture de fausses informations dans le prospectus.
+13. Responsabilité de l’émetteur
+L’émetteur est responsable des informations fournies pour l’établissement du prospectus ainsi
+que pour toute version modifiée de celui-ci. Ce document ainsi que toutes ses versions modifiées
+doit être signé par le Président du conseil d’administration de l’émetteur et/ou par toute personne
+mandatée par celui-ci à l’effet d’engager la société.
+La signature du Président du conseil d’administration et/ou de la personne habilitée doit être
+précédée de la mention suivante : « A notre connaissance, les données du présent prospectus
+sont conformes à la réalité ; elles comprennent toutes les informations nécessaires aux
+investisseurs pour fonder leur jugement sur le patrimoine, l'activité, la situation financière, les
+résultats et les perspectives de l'émetteur ainsi que sur les droits attachés aux titres offerts ; elles
+ne comportent pas d'omissions de nature à en altérer la portée ».
+Cette attestation indique également que l'émetteur a obtenu de son vérificateur indépendant une
+lettre de fin de travaux dans laquelle ce dernier indique qu'il a mis en œuvre les normes
+
+
+
+[11]
+professionnelles relatives à la vérification du prospectus, notamment une lecture d'ensemble du
+document. Le cas échéant, l'émetteur mentionne les observations significatives du vérificateur
+indépendant.
+Le Président du conseil d’administration de l’émetteur est personnellement responsable de
+l'exhaustivité et de l'exactitude des informations fournies pour l’établissement du prospectus. En
+ce sens, il signe une déclaration d’engagement de sa responsabilité.
+14. Obligation d’information continue
+L’émetteur de titres est astreint à des obligations d’information continue vis-à-vis des porteurs
+de ses titres, qu’ils soient émis par appel public à l’épargne ou par placement restreint. Il
+s’acquitte de cette obligation par la mise à disposition de documents d’information périodique
+(états financiers annuels, rapport annuel, etc.) et de documents d’information occasionnelle
+(déclaration de changements importants etc.) conformément à l’Annexe IV de la présente
+circulaire.
+Les documents d’information continue sont transmis à la BRH sous forme électronique. Ils sont
+remis ou adressés, sans frais, à tout investisseur, ou à toute personne qui en fait la demande et
+sont mis à la disposition du public :
+- au siège de l'émetteur et sur son site web s’il en dispose;
+- au siège du Prestataire intéressé et sur son site web.
+Les obligations du présent article s’appliquent également à toutes les institutions financières
+agréées par la BRH qui émettent des titres financiers pour leur propre compte.
+SECTION III - VERIFICATEUR INDEPENDANT
+15. Qualification du vérificateur indépendant
+Le vérificateur indépendant d’un émetteur doit être un cabinet d’expertise comptable dont tous
+les associés sont habilités à exercer l’expertise comptable. Au moins deux (2) des associés
+doivent être membres de l’Ordre des Comptables Professionnels Agréés d’Haïti (OCPAH) et
+posséder chacun cinq (5) ans d’expérience dans le domaine, soit à titre d’associé d’un cabinet
+d’expertise comptable, soit à titre de chef d’équipe ou de mission, soit une conjugaison des deux,
+et être indépendants de l’émetteur ou du Prestataire.
+N’est pas habilité à effectuer la vérification d’un émetteur, un cabinet d’expertise comptable
+dont l’un des associés ou le cabinet lui-même :
+a) possède à titre de véritable propriétaire ou contrôle, directement ou indirectement, un
+intérêt important dans les actions de l’émetteur ou d’une entité de son groupe ;
+b) est administrateur ou dirigeant de l’émetteur ou d’une entité de son groupe ou est
+l’associé d’un des administrateurs ou dirigeants de l’émetteur ou d’une entité de son
+groupe ;
+c) est marié à une personne qui tombe sous les critères énoncés en a) et b).
+Le vérificateur indépendant doit s’assurer que les membres de son personnel professionnel
+(autres qu’associés) qui seraient inhabiles à effectuer la vérification d’un émetteur selon les
+critères énoncés précédemment, ne soient pas placés dans des situations de conflits d’intérêt.
+
+
+
+[12]
+16. Responsabilité du vérificateur indépendant
+Le vérificateur indépendant se prononce sur la régularité, la sincérité et l'image fidèle des
+comptes annuels, intermédiaires, ou consolidés, qui ont fait l'objet d'un audit ou d'un examen
+limité et qui sont présentés dans un prospectus, ou le cas échéant, dans son actualisation ou sa
+modification.
+Lorsque les comptes intermédiaires sont résumés, les vérificateurs indépendants se prononcent
+sur leur conformité au référentiel comptable. Ils attestent que les informations prévisionnelles,
+estimées ou pro forma, éventuellement présentées dans un prospectus, ou, le cas échéant, son
+actualisation ou sa rectification, ont été adéquatement établies sur la base indiquée et que la base
+comptable utilisée est conforme aux méthodes comptables appliquées par l'émetteur.
+Les vérificateurs indépendants procèdent à une lecture d'ensemble des autres informations
+contenues dans un prospectus ou, le cas échéant, son actualisation ou sa modification. Cette
+lecture d'ensemble ainsi que, le cas échéant, les vérifications particulières sont effectuées
+conformément aux normes régissant la matière.
+Les vérificateurs indépendants établissent à l’intention de l'émetteur une lettre de fin de travaux
+sur le prospectus dans laquelle ils font état des rapports émis figurant dans le prospectus, ou, le
+cas échéant, son actualisation ou sa rectification et indiquent, au terme de leur lecture d'ensemble
+et des éventuelles vérifications particulières effectuées conformément aux normes
+professionnelles leurs éventuelles observations.
+Une copie de la lettre de fin de travaux sur le prospectus est transmise par le Prestataire de service
+d’investissement lors de la demande de visa. Si elle contient des observations, la BRH en tient
+compte dans l'examen du prospectus.
+En cas de difficulté, la BRH peut interroger les vérificateurs indépendants, soit directement, soit
+à travers le Prestataire, pour toute question relative à l'information financière contenue dans un
+prospectus ou, le cas échéant, son actualisation ou sa modification.
+Toute communication de fausse information dans le prospectus peut donner lieu à la mise en
+cause de la responsabilité pénale du vérificateur indépendant.
+SECTION IV – DEMANDE DE VISA DU PROSPECTUS
+17. Conditions de la demande
+La demande de visa du prospectus d’émission de titres financiers doit être produite à la BRH par
+les Prestataires de service d’investissement au moins trente (30) jours avant la date projetée de
+l’émission. Les Prestataires indiquent aux émetteurs les exigences à respecter pour introduire la
+demande auprès de la BRH.
+Les institutions financières peuvent directement requérir l’autorisation de la BRH pour émettre
+leurs propres titres.
+
+
+
+[13]
+La demande de visa doit être accompagnée d’un exemplaire du prospectus, établi dans les formes
+prévues par la BRH, et des documents suivants dont toutes les copies doivent être certifiées
+conformes à l’original quand seulement des copies sont requises :
+a) la copie du contrat de services financiers intervenu entre le Prestataire et l’émetteur ;
+b) la copie du journal officiel « Le Moniteur » publiant les statuts de l’émetteur ;
+c) les copies de la carte d’immatriculation fiscale, de la patente et du quitus fiscal valides
+de l’émetteur ;
+d) la copie des procès-verbaux et rapports du ou des organes ayant décidé le placement ;
+e) la liste des administrateurs incluant nom, prénom, matricule fiscal et identification
+nationale, fonction, adresse de résidence ou domicile, nationalité ;
+f) la copie de la première page du passeport valide, dans le cas des administrateurs
+étrangers;
+g) le casier judiciaire (Tribunal de Premiere Instance) datant de moins de trois mois et le
+certificat de police (Direction Centrale de la Police Judiciaire (DCPJ)) des
+administrateurs ou leur équivalent s’agissant d’un administrateur étranger ;
+h) la copie de la déclaration définitive d’impôt sur le revenu à jour des administrateurs ;
+i) les informations prouvant l’expertise ou la formation et l’expérience professionnelle des
+administrateurs;
+j) les états financiers des deux derniers exercices dûment certifiés par un vérificateur
+indépendant et tel que soumis à la direction générale des impôts;
+k) le procès-verbal de l'assemblée générale constitutive et des assemblées générales ayant
+décidé et ratifié les modifications du capital, le cas échéant;
+l) les déclarations de désistement authentiques de tous les actionnaires aux droits de
+préemption sur les titres de capital ;
+m) un état comportant des informations prévisionnelles sur cinq (5) années assorti des
+hypothèses sous-jacentes, établies par le conseil d’administration, ainsi que le rapport du
+vérificateur indépendant. Ce rapport est émis sur la base de l’accomplissement des
+travaux de vérification conformément aux normes de vérification généralement
+reconnues ;
+n) une copie des documents de garantie de la convention de garantie à la première demande
+accompagnée de la lettre de garantie, s'il s'agit d'un placement d'obligations dont le
+remboursement est garanti ;
+o) la déclaration de l’émetteur sur la sincérité des informations fournies dans le prospectus ;
+p) une déclaration indiquant si oui ou non la société fait l’objet d’une action en justice en
+cours et les impacts probables sur sa situation financière.
+La BRH peut être amenée à demander tout document ou information complémentaire nécessaire
+à l’examen du dossier.
+Toute demande d’informations et/ou documents complémentaires par la BRH entraîne la
+suspension du délai de trente (30) jours pour l’approbation du prospectus. Ce délai recommence
+à courir à compter de la réception, par la BRH, des informations et/ou documents sollicités.
+Dans le cas où la BRH recommande des modifications au prospectus, le Prestataire devra déposer
+auprès de cette dernière, un exemplaire d’un nouveau prospectus.
+18. Responsabilité du Prestataire de service d’investissement
+Le Prestataire doit confirmer dans une déclaration signée destinée à la BRH qu’il a « effectué les
+diligences professionnelles d’usage et ces diligences n’ont révélé dans le contenu du prospectus
+
+
+
+[14]
+aucune inexactitude ni aucune omission significative de nature à induire l’investisseur en erreur
+ou à fausser son jugement. »
+Le Prestataire est tenu de porter à la connaissance du public, le plut tôt possible, tout fait
+important susceptible, s’il était connu, d’avoir une incidence significative sur le cours d’un titre
+ou sur la situation et les droits des porteurs.
+19. Visa du prospectus et limitation de responsabilité de la BRH
+Lorsqu’une demande de visa est régulièrement produite auprès de la BRH, celle-ci
+procède uniquement :
+a) à l’analyse de la conformité du dossier par rapport aux dispositions de la présente
+circulaire; et
+b) à la vérification des caractères compréhensible, complet et cohérent des informations
+contenues dans le prospectus.
+Le visa accordé par la BRH n’implique ni authentification des informations contenues dans le
+prospectus, ni un jugement sur l’opportunité de l’opération d’émission. Lorsque la BRH accorde
+le visa, elle communique la mention suivante au Prestataire qui doit la transcrire sur la première
+page du prospectus aux fins de sa publication.
+« En application des articles 191 et suivants de la loi du 14 mai 2012 portant sur les banques et
+autres institutions financières, paru dans le numéro spécial 4 du Journal officiel « Le Moniteur »
+du 20 juillet 2012, la Banque de la République d’Haïti (BRH) a accordé le visa référencé… en
+date du ….. 202... Le visa a été attribué après que la BRH a vérifié la conformité du document
+aux exigences de divulgation et la cohérence des informations y figurant. Il n’implique ni
+approbation de l’opportunité de l’opération, ni authentification des éléments comptables et
+financiers présentés, ni une évaluation du risque qui y est associée.
+Ce prospectus a été établi par [Nom de l’EMETTEUR] assisté de [Nom du PRESTATAIRE] et
+engage la responsabilité de ses signataires. »
+Lorsque des faits nouveaux significatifs, de nature à avoir une incidence sur l'évaluation des
+titres offerts interviennent entre la date de la délivrance du visa et celle de l’ouverture de l’offre
+des titres en cause, il doit être établit un document complémentaire de mise à jour, qui est,
+préalablement à sa diffusion, soumis à l’approbation de la BRH. Ce document est diffusé dans
+les mêmes conditions que le prospectus.
+Lorsque le délai entre la date du visa et l'émission proprement dite excède six (6) mois, un
+nouveau prospectus doit être élaboré, sauf dérogation accordée par la BRH.
+SECTION V - DEROULEMENT DE L’OFFRE
+20. Diffusion du prospectus
+Avant sa diffusion, tout prospectus doit être muni de la mention prévue à l’article 19 de la
+présente circulaire sur sa page de couverture. Il doit être mis à la disposition du public au siège
+de l'émetteur et sur son site internet s’il en dispose ainsi qu’au siège du Prestataire et sur son site
+internet.
+
+
+
+[15]
+Cette obligation s’etend à toutes les institutions financières agréées par la BRH qui émettent des
+titres financiers pour leur propre compte.
+Au cas où le contenu du prospectus diffusé n'est pas conforme à celui visé par la BRH, celle-ci
+en interdit la diffusion par tous les moyens, sans préjudice des actions pénales qui peuvent être
+intentées contre le signataire et/ou les responsables du prospectus.
+Sauf en cas de Placement restreint, toutes les publicités font référence à l'existence d'un
+prospectus visé par la BRH et indiquent les moyens d’y accéder.
+La campagne de publicité retenue doit être cohérente avec la taille de l’opération et du public
+visé. Au cas où le public visé est défini par des caractéristiques spécifiques, il est recommandé
+que la campagne de publicité le précise clairement.
+Aucune publicité ne doit porter sur des titres financiers dont le prospectus relatif à leur émission
+n’a pas été préalablement agréé par la BRH.
+Une publicité relative à des titres financiers doit être diffusée uniquement dans le but de
+promouvoir ces titres. Elle ne doit en aucun cas comparer deux titres financiers.
+Chaque fois qu'il est fait référence à des résultats passés, il convient notamment :
+a) d'éviter toute mention pouvant conduire à des erreurs d'interprétation de la part des
+éventuels investisseurs ;
+b) de communiquer ces résultats avec précision ;
+c) de bien spécifier que les rendements passés ne garantissent pas des rendements futurs.
+Toute publicité relative à des titres financiers comportant des énonciations relatives à des
+avantages spécifiques doit contenir l'indication des conditions d'octroi, de validité et de
+déchéance desdits avantages. Elle doit être fondée quant à la valeur réelle de l'avantage eu égard
+à la situation. La démonstration des avantages d'un placement en titres financiers ne doit donner
+aucune assurance d'accroissement ou de préservation en pouvoir d'achat des capitaux investis.
+S'il est fait référence à des dispositions fiscales particulières, il est interdit de leur accorder une
+place excessive dans la publicité.
+Dans le cas d'existence d'un droit de rétractation ou de renonciation, la publicité doit spécifier la
+période d'exercice de ce droit ainsi que tout élément de rémunération ou de dédommagement y
+afférent.
+21. Identification des catégories de souscripteurs
+Il existe deux catégories d’investisseurs : les investisseurs avertis et les investisseurs non-avertis.
+La catégorie ou les catégories d’investisseurs habilitées à souscrire à des titres financiers objet
+d’une opération de placement sont déterminées dans le prospectus ou dans le MII conformément
+à la présente circulaire.
+
+
+
+[16]
+Lors de l’établissement de la relation d’affaire, les Prestataires doivent s’assurer de
+l’appartenance de l’investisseur à l’une ou l’autre des catégories susmentionnées et garder une
+copie du document attestant de ladite appartenance.
+22. Souscription pour compte de tiers
+Les souscriptions pour compte de tiers sont acceptées sous réserve de la présentation par le
+souscripteur d’une procuration dûment signée et légalisée par son mandant. Le mandataire doit
+préciser les références des comptes titres et espèces du mandant à utiliser pour l’opération, et
+dans lesquels seront obligatoirement inscrits respectivement les mouvements sur titres ou sur
+espèces liés aux titres objet de l’opération.
+Dans le cas d’un mandat de gestion de portefeuille, le gestionnaire ne peut souscrire pour le
+compte du client dont il gère le portefeuille qu’en présentant une souscription dûment signée et
+légalisée par son mandant, ou le mandat de gestion si celui-ci prévoit une disposition expresse
+en ce sens.
+23. Capacité financière et couverture des souscriptions
+Les Prestataires doivent s’assurer, préalablement à l’acceptation d’une souscription, que le
+souscripteur a la capacité financière d’honorer ses engagements.
+Le Prestataire est tenu d’accepter toutes souscriptions de toutes personnes remplissant les
+conditions prévues dans le prospectus ou le MII, sous réserve que celles-ci fournissent les
+garanties financières nécessaires pour réaliser la transaction.
+Le Prestataire détermine librement les modalités de la garantie financière demandée aux
+souscripteurs, qui peut être un dépôt en espèces, en titres, une caution ou autre, sous réserve du
+respect des dispositions spécifiques prévue par le prospectus ou le contrat de placement.
+24. Bulletin de souscription
+Les ordres de souscription sont collectés par le Prestataire ou les Prestataires en cas de syndicat
+de placement. L’ordre doit être horodaté au moment de sa réception. Il ne peut être transmis par
+téléphone.
+L’ordre de souscription est matérialisé par un bulletin de souscription qui doit être dûment signé
+par le souscripteur ou le mandataire. Une copie de ce bulletin doit être remise à l’intéressé.
+25. Ouverture de compte titres
+Tout souscripteur est tenu d’ouvrir un compte titres dans lequel seront enregistrées ses
+transactions. A cet effet, une convention de compte titres doit être établie entre le Prestataire et
+le souscripteur. Cette convention définit les modalités de fonctionnement et de passation des
+ordres, et identifie les droits et obligations respectifs des parties.
+Préalablement à l'ouverture d'un compte titres au nom d'une personne physique, le Prestataire
+vérifie l'identité et l'adresse de cette personne et s'assure qu'elle a la capacité juridique et la
+qualité requise pour effectuer toutes les opérations qu'elle lui confie.
+
+
+
+[17]
+Préalablement à l'ouverture d'un compte titres au nom d'une personne morale, le Prestataire
+vérifie la validité du pouvoir dont bénéficie le représentant de cette personne morale. A cet effet,
+il demande la production de tout document lui permettant de vérifier l'habilitation du
+représentant.
+Une procuration pour une souscription ne peut en aucun cas permettre l’ouverture d’un compte
+pour le mandant. L’ouverture de compte titres pour les personnes qui ne peuvent se présenter
+physiquement est soumise aux règles émises par la BRH en matière d’identification de la
+clientèle.
+La convention de compte titres doit exposer les procédures de traitement des incidents de
+fonctionnement, ainsi que celles devant être suivies pour s’opposer à une opération.
+26. Traitement des souscriptions
+Les ordres de souscription sont irrévocables après la clôture de la période de souscription.
+Les souscriptions auprès de plusieurs intermédiaires sont interdites, sauf dans le cas où le
+souscripteur a le droit de souscrire plusieurs catégories de titres et que le Prestataire auquel il
+s’est adressé ne lui offre pas l’accès à toutes ces catégories.
+Toute souscription qui ne respecte pas les conditions contenues dans le prospectus ou le contrat
+de placement relatif à l’opération envisagée ou les dispositions de la présente circulaire est
+susceptible d’annulation par le Prestataire ou le chef de file le cas échéant. Les modalités
+d’annulation doivent être précisées dans la convention de placement.
+Chaque document d'offre doit indiquer la date d'ouverture de l'offre et la date de clôture de l'offre.
+L’offre s’effectue du premier au dernier jour de la période de souscription, tel que précisée dans
+le prospectus. La durée de la période de souscription est fixée librement par l’émetteur de concert
+avec le Prestataire.
+La période de souscription peut être prolongée à la demande du Prestataire pour le compte de
+l’émetteur, une seule fois et pour une durée au maximum égale à la durée initiale de placement,
+après avis favorable de la BRH et sous réserve du respect des conditions précisées dans le
+prospectus. Dans ce cas, le Prestataire est tenu d’en informer le public par voie d’un communiqué
+de presse.
+La BRH peut ordonner l’interruption du placement lorsqu’il relève des infractions aux règles de
+placement prévues dans le prospectus qui pourraient mettre en cause la protection des
+investisseurs. Dans ce cas, le placement ne peut reprendre qu’après régularisation de la situation
+et avec l’accord de la BRH.
+La clôture anticipée de la période de souscription peut être envisagée sous réserve que cette
+possibilité ait été portée dans le prospectus.
+Le placement d’un titre prend fin à la date prévue dans le prospectus. Cette date ne doit pas
+excéder les trois (3) mois qui suivent la date d'ouverture des souscriptions. Le prospectus doit
+prévoir les suites à donner en cas de non réussite de l'opération.
+27. Résultat de l’opération et avis de souscription
+
+
+
+[18]
+Un rapport contenant les résultats arrêtés de l’opération de souscription sont communiqués à la
+BRH incluant le nombre de titres proposé et le nombre de titres souscrit par catégorie
+d’investisseurs.
+La BRH peut être amené à demander tout élément d’information complémentaire sur les résultats
+de l’opération.
+A l’issue de l’opération, et dans un délai maximum de dix (10) jours ouvrés à compter de
+l’annonce des résultats, le Prestataire adresse au souscripteur un avis contenant les mentions
+minimales suivantes: date de souscription ; dénomination du titre ; quantité demandée ; quantité
+attribuée ; prix unitaire; montant brut de l’attribution ; montant des éventuelles commissions ;
+solde à reverser au souscripteur le cas échéant.
+28. Syndicat de placement
+Pour le placement des titres financiers, l’émetteur peut recourir à un seul Prestataire ou à un
+syndicat de placement.
+Lorsqu’un syndicat de placement est constitué, le chef de file doit être soit une banque, soit une
+société de promotion des investissements. Il est tenu de déposer auprès de la BRH, avant le
+déroulement du placement, la liste des autres Prestataires du groupe avec indication du
+pourcentage de l'émission attribué à chacun.
+Dans le cas d’un placement ferme, le Prestataire dépose auprès de la BRH, dans les trente (30)
+jours suivant la date du visa du prospectus, la liste des institutions financières intermédiaires de
+placement avec indication du pourcentage de l'émission attribué à chacune.
+Les institutions intermédiaires de placement s'entendent du groupe d’institutions financières qui,
+après la prise ferme, se partagent l'émission en vue de l’offre au public.
+29. Négociation des titres
+Les titres peuvent être transférés par leur détenteur à toute autre personne par écrit par
+l'intermédiaire du Prestataire de service d’investissement. Le nouveau propriétaire jouit de tous
+les droits attachés au titre dès l'endossement des instruments de transfert.
+Lorsque les titres sont sous forme de certificat, la confirmation par l'émetteur peut être une
+condition nécessaire pour valider toute opération de transfert de titres.
+Le Prestataire est tenu de confirmer la réalisation de ces transactions aux clients investisseurs
+qui ont passé les ordres de vente ou d'achat.
+Le Prestataire a la responsabilité de la mise à jour de tout document lié à une émission de titres
+financiers et de le communiquer à toute personne qui achète un titre d’un porteur initial.
+SECTION VI – OBLIGATIONS GENERALES DU PRESTATAIRE
+
+
+
+[19]
+30. Qualification du personnel des Prestataires
+Lors d’un appel public à l’épargne ou d’un placement restreint, tout Prestataire est tenu de
+s'assurer que les conseillers en placement et les analystes financiers agissant pour son compte et
+sous sa responsabilité disposent des connaissances et compétence nécessaires à
+l’accomplissement de leurs activités.
+Les personnes appelées à exercer les fonctions de conseiller en placement et d’analyste financier
+auprès d’un Prestataire de service d’investissement doivent être titulaires d'une carte
+professionnelle délivrée par la BRH. La BRH établit les conditions d’octroi de la carte
+professionnelle par voie règlementaire.
+31. Infrastructures technologiques
+Les Prestataires doivent disposer des infrastructures technologiques nécessaires à l’exercice de
+leurs activités, notamment la tenue des comptes titres dématérialisés, l’enregistrement des
+opérations sur titres et toutes autres opérations financières.
+Les Prestataires sont tenus d’élaborer et de mettre en application des procédures écrites et à jour
+pour toutes les opérations qu’ils permettent de réaliser. Les procédures doivent être validées par
+le conseil d’administration du Prestataire.
+Les infrastructures technologiques utilisées doivent permettre l’interface avec non seulement les
+acteurs actuels du marché financier mais aussi les acteurs potentiels et futurs et tout Dépositaire
+Central.
+32. Gestion des informations privilégiées
+Les Prestataires établissent et mettent en œuvre les procédures appropriées de contrôle de la
+circulation et de l'utilisation des informations privilégiées en vue de prévenir le délit d’initié.
+Les listes d'initiés de tous les émetteurs de titres financiers sont fournies à la BRH sur demande.
+Les Prestataires établissent une liste de surveillance recensant les émetteurs et les titres financiers
+sur lesquels ils disposent d’une information privilégiée.
+Ils conservent, sur un support durable (papier ou outil technologique), la trace des mesures qu'ils
+ont prises, ou, s’ils ne prennent aucune mesure en présence d'anomalie significative, les raisons
+de leur abstention. Ils mettent en œuvre une procédure appropriée de contrôle du respect de
+toute restriction applicable :
+a) aux transactions sur titres financiers effectuées pour son propre compte;
+b) aux transactions personnelles ;
+c) aux recommandations d'investissement.
+À cette fin, ils établissent une liste d'interdiction, et inscrivent également sur cette liste les
+émetteurs et/ou les titres financiers pour lesquels ils estiment nécessaire d'interdire ou de
+restreindre l'exercice d'un service d'investissement, d'une activité d'investissement ou d'un
+service connexe.
+33. Mesures de vigilance vis-à-vis de la clientèle
+
+
+
+[20]
+Le Prestataire est tenu de prendre les mesures de vigilance (« due diligence ») à l’égard de la
+clientèle conformément aux lois en vigueur sanctionnant le blanchiment de capitaux et le
+financement du terrorisme et aux règlements y relatifs. La prise de ces mesures consiste à :
+a) identifier le client et vérifier son identité au moyen de documents, données et informations
+issus de sources fiable et indépendantes conformément aux circulaires de la BRH;
+b) identifier le bénéficiaire effectif et prendre des mesures raisonnables pour vérifier cette
+identité afin d’avoir une connaissance satisfaisante du bénéficiaire effectif. Ceci inclut
+pour les personnes morales et les constructions juridiques que les Prestataires prennent
+également des mesures raisonnables pour comprendre la propriété et la structure de
+contrôle du client ;
+c) obtenir des informations sur l'objet et la nature envisagée de la relation d’affaires.
+Le Prestataire doit exercer une vigilance constante à l’égard de la relation d’affaires et assurer
+un examen attentif des transactions effectuées pendant toute la durée de cette relation d’affaires,
+afin de s'assurer que les transactions effectuées sont cohérentes avec la connaissance qu’il a de
+son client, de ses activités commerciales, de son profil de risque et, lorsque cela est nécessaire,
+de l'origine des fonds.
+34. Etablissement du profil et de la qualité des investisseurs
+Le Prestataire est tenu de dresser le profil de risques de chaque investisseur personne physique
+et personne morale et d’appliquer toutes les autres mesures exigées par la BRH.
+Il prend les mesures pour établir la qualité des investisseurs actuels et potentiels par la collecte
+de certaines informations portant notamment sur leur connaissance et leur expérience en matière
+d’investissement, leur situation financière et leurs objectifs d’investissement.
+L’établissement de la qualité de l’investisseur permet de le classer soit dans la catégorie des
+investisseurs avertis, soit dans la catégorie des investisseurs non avertis. Ce classement permet
+de faire le ciblage nécessaire dans le cadre d’un placement restreint, de recommander des
+produits adaptés et de gérer chaque portefeuille de manière adaptée à la situation du client
+concerné.
+Quel que soit le type d’investisseur, il doit reconnaitre sur un formulaire qu’il est conscient des
+risques liés aux placements dans des titres financiers en signant l’avertissement ci-après :
+« L’attention du souscripteur est attirée sur le fait que tout investissement en titres financiers
+comporte des risques et que la valeur de l’investissement est susceptible d’évoluer à la hausse
+comme à la baisse, sous l’influence de facteurs internes ou externes à l’émetteur. »
+35. Politiques et procédure
+Les Prestataires doivent disposer de politiques et procédures écrites en ce qui concerne la
+comptabilité, la protection des investisseurs, le remboursement anticipé des titres, le conseil en
+investissement, ce conformément aux lois et règlements en vigueur et aux standards
+internationaux.
+36. Primauté de l’intérêt des clients et respect de l’intégrité du marché
+
+
+
+[21]
+Toute offre au public doit proposer les mêmes conditions de prix et d’exécution à tous les
+porteurs de titres d’une même catégorie. Toute convention qui a pour effet de créer une inégalité
+entre les porteurs de titres est nulle.
+Au sein d’une même catégorie de souscripteurs, le traitement doit être égalitaire. Le traitement
+égalitaire doit couvrir en particulier les conditions d’accès, le prix et les modalités d’allocation.
+Le Prestataire ne peut accorder de privilège de souscription additionnelle au porteur d’un droit
+sans l’accorder aussi à tous les autres porteurs du même droit.
+Les Prestataires sont tenus d’agir d'une manière honnête, loyale et professionnelle, avec la
+compétence, le soin et la diligence qui s'imposent, afin de servir au mieux l'intérêt des clients
+investisseurs et de favoriser l'intégrité du marché. Ils doivent respecter notamment l'ensemble
+des règles organisant le fonctionnement des plateformes de paiement sur lesquelles elles
+interviennent ou sont susceptibles d’intervenir.
+Ils sont tenus aux obligations d’information, de conseil et de mise en garde envers les clients
+investisseurs. Ils évaluent l'adéquation et le caractère approprié du service à fournir, vérifient le
+statut d’investisseur averti ou d’investisseur non averti des clients conformément à l’article 21
+de la présente circulaire afin de leur fournir un conseil approprié.
+Il est tenu d’expliciter le contrat aux clients non-avertis et leur transmettre toute information qui
+concerne directement ou indirectement les titres acquis. Il informe les clients des opérations
+susceptibles d’être traitées et des risques particuliers qu’elles peuvent comporter. L’information
+communiquée au client doit être sincère, exact et précise.
+L’obligation de conseil doit être accomplie avec la plus grande prévenance. Le Prestataire doit
+en effet examiner la situation de son client avec une attention particulière en tenant compte de
+ses besoins et de ses compétences professionnelles.
+La charge de la preuve en ce qui concerne les obligations évoquées ci-dessus incombe au
+Prestataire. Cette preuve peut être apportée par tous les moyens notamment par une clause dans
+la convention ou à travers un formulaire établi par le Prestataire destiné à recueillir des
+informations du client.
+La responsabilité du Prestataire découlant de ces obligations s’apprécie selon qu’il s’agit d’un
+investisseur averti ou non averti.
+A l’égard d’un client averti, le Prestataire n’est pas tenu à l’obligation de mise en garde.
+Toutefois, il doit éviter toute asymétrie d’information.
+Le Prestataire qui donne une information qui s’avère fausse ou trompeuse est susceptible d’être
+pénalement responsable.
+37. Traitement des plaintes
+Les Prestataires doivent mettre en place une procédure clairement structurée de gestion des
+plaintes leur permettant de réagir rapidement et de manière adéquate aux plaintes et réclamations
+de leurs clients.
+
+
+
+[22]
+Cette procédure doit mentionner tous les éléments qu’il faut pour examiner une plainte ainsi que
+les voies de recours et alternatives offertes en cas d’insatisfaction des clients intéressés.
+Le Prestataire doit accuser réception de toute plainte et transmettre au client, dans un délai de
+quinze (15) jours calendaires, sa réponse définitive contenant :
+a) un résumé de la plainte;
+b) le résultat de l’enquête;
+c) une explication de la décision définitive; et
+d) éventuellement toutes autres voies de recours et/ou alternatives qui s’offrent au client en
+cas de décision insatisfaisante.
+SECTION VII – GESTION DES TITRES EMIS
+38. Garde et Ségrégation des titres
+Le Prestataire tient tous les registres et les comptes nécessaires pour permettre de distinguer à
+tout moment et immédiatement les titres financiers détenus par un client déterminé de ceux
+détenus par d'autres clients et de ses propres titres financiers. À cet effet, il dispose d’au moins
+deux comptes : le premier comptabilisant ses avoirs propres, le second les avoirs de ses clients.
+Il met en place une organisation appropriée minimisant le risque de perte ou de diminution de la
+valeur des titres financiers des clients ou des droits liés à ces titres financiers, du fait d'abus ou
+de fraudes, d'une administration déficiente, d'un enregistrement erroné ou de négligences.
+Lorsque le client choisit une entité tierce pour la garde de ses titres, ladite entité doit être agréée
+par la BRH. Toute entité assurant la garde de titres de clients est assujettie aux mêmes exigences
+de ségrégation des actifs, de bonne tenue des comptes, de transparence et de respect des avoirs
+des investisseurs.
+Lorsque le Prestataire recourt à une entité tierce pour la garde des titres financiers de ses clients,
+il agit avec toute la compétence, le soin et la diligence requis dans la sélection, la désignation et
+l'examen périodique de cette entité relativement aux dispositions prises pour la détention de ces
+titres financiers.
+Les Prestataires sont tenus d’assurer le bon déroulement de toutes les opérations intervenant dans
+la vie des titres émis sur le marché.
+Il est formellement interdit de faire usage des titres d’un client sans obtenir son consentement
+exprès et préalable et après s’être assuré que le client a bien compris les risques, s’il y en a,
+associés à cette utilisation. Le Prestataire met en place des systèmes et des contrôles qui lui
+permettent de s'assurer que seuls des titres financiers appartenant à des clients qui ont au
+préalable donné leur consentement seront utilisés ainsi.
+Les comptes titres comportent obligatoirement les informations suivantes :
+a) Les éléments d’identification des personnes physique ou morale propriétaires des titres
+et, s’il y a lieu, l’identification de l’usufruitier ainsi que les droits y attachés et, le cas
+échéant, à qui reviennent ces droits ;
+b) Les restrictions dont ces titres peuvent être frappés telles que le nantissement, la saisie et
+le séquestre ;
+c) Le numéro et l’intitulé du compte permettant d’identifier avec précision l’identité et la
+nationalité du titulaire du compte ainsi que les caractéristiques des titres dont il est
+propriétaire.
+
+
+
+[23]
+39. Comptabilité des titres
+Les comptes titres sont tenus selon les règles de la comptabilité en partie double. Leur
+fonctionnement est régi par les dispositions et la nomenclature comptables en vigueur.
+Le Prestataire tient ses registres et comptes d'une manière assurant leur exactitude, et en
+particulier leur correspondance avec les titres financiers détenus par les clients, et permettant de
+les utiliser comme piste d'audit. Il effectue avec régularité des rapprochements entre ses comptes
+et registres internes et ceux de tout tiers auprès duquel les titres financiers des clients seraient
+détenus.
+Les écritures en compte sont passées dès réception d‘instructions des titulaires.
+Le solde du compte titres est toujours créditeur. Il ne pourra jamais être débiteur. En ce sens, les
+investisseurs doivent :
+a) alimenter leur compte espèces de la provision nécessaire pour l'exécution de toute
+opération sur titre et ce, préalablement à la liquidation de la transaction ;
+b) alimenter leur compte-titre de la provision nécessaire pour la liquidation de toute
+opération sur titre.
+40. Opérations sur titres
+Les Prestataires sont tenus de respecter les dispositions concernant les opérations sur titres en
+général et les dispositions contenues dans le prospectus en particulier.
+Lors de paiement de dividendes ou de coupon d’obligations, les Prestataires créditent les
+comptes des bénéficiaires à la date de paiement annoncée, sous réserve de la réception des fonds
+correspondants et ce, au plus tard la veille de la date de paiement annoncée.
+En cas de retard de mise à disposition des fonds par l’émetteur, les Prestataires peuvent décaler
+la date de paiement à due concurrence.
+Le Prestataire s’assure, pour toute opération de débit ou de crédit affectant les comptes titres, de
+l’identité, de la capacité et de la qualité du donneur d’ordre ainsi que de la régularité de
+l’opération. Il ne peut agir que dans le cadre du mandat qui lui est confié par le propriétaire des
+titres. Il engage sa responsabilité civile et pénale en cas de dépassement du mandat qui lui est
+donné.
+Les Prestataires sont tenus d'informer leurs clients des opérations sur titres qui les concernent et
+de leur transmettre, par tous les moyens, dans un délai de trois (3) jours ouvrables après
+imputation des comptes titres et/ou espèces, un avis d’opération contenant les informations
+minimales suivantes :
+a) nature du mouvement impactant le portefeuille du client (titres/espèces) ;
+b) dénomination de la valeur et quantité allouée ;
+c) date de l’opération : débit/crédit du compte espèce, ou crédit du compte titres ;
+d) détail des commissions et frais prélevés ;
+e) reliquat espèce à reverser (le cas échéant).
+
+
+
+[24]
+L’avis d’opération fait foi des droits du titulaire du compte.
+Le titulaire du compte peut, à tout moment, solliciter du Prestataire un extrait ou un relevé de
+son compte.
+Les opérations sur les comptes titres sont justifiées par un document émanant du titulaire
+notifiant sa volonté au Prestataire.
+Le Prestataire doit informer clairement chaque titulaire d’un compte titres du régime applicable
+à la revendication de ses titres en cas de liquidation, de faillite ou de procédure similaire sur ses
+biens.
+Le Prestataire facilite l’exercice des droits attachés aux titres. Il ne peut ni faire usage des titres
+inscrits en compte ou des droits qui y sont attachés, ni en transférer la propriété sans l’accord
+express de leur titulaire.
+Le Prestataire a l’obligation de restituer les titres qui lui sont confiés.
+41. Conservation de document et disponibilité d’information
+Le Prestataire tient un registre des mouvements de titres ou sont répertoriées chronologiquement
+toutes les opérations sur titres.
+Les Prestataires sont tenus de conserver pendant une période de cinq (5) ans au moins, après la
+clôture des comptes ou la cessation des relations avec le client, toute la documentation relative
+à l’identité des clients et aussi les livres de comptes et la correspondance commerciale. De
+même, les documents relatifs aux opérations effectuées par les clients doivent être gardés dans
+les archives de l’institution pendant cinq (5) ans au moins après l’exécution de la transaction.
+A cette fin, une formule d’archivage des documents sur les opérations doit être utilisée pour la
+conservation des documents.
+Cette conservation des documents, se rapportant à toutes les transactions effectuées, permettra
+de répondre rapidement aux demandes d’informations des autorités compétentes et de
+reconstituer les transactions individuelles (y compris les montants et les types d’espèces en
+cause) de façon à fournir, le cas échéant, des preuves en cas de poursuite pour conduite
+criminelle.
+De même, une copie des rapports systématiques de transactions et des déclarations de soupçons
+doit être gardée et archivée par un officier de conformité.
+En cas de retrait de l'agrément d’une entité, la BRH peut soit récupérer les archives de
+l’institution, soit requérir le transfert des comptes titres à une autre entité de la place.
+Les Prestataires doivent s’assurer de la disponibilité des informations concernant :
+a) les comptes et registres internes liés qui permettent d'identifier facilement les soldes des
+comptes titres détenus pour chaque client ;
+b) le lieu où les titres financiers sont détenus ainsi que les détails des comptes ouverts auprès
+de tiers et les accords conclus avec ces entités ;
+c) le détail de toute tâche externalisée relative à la détention des titres financiers et les
+informations sur les tiers qui les effectuent ;
+
+
+
+[25]
+d) les personnes clés qui participent aux processus d’émission, y compris les personnes
+responsables du contrôle du respect des exigences en matière de sauvegarde des titres
+financiers des clients ; et
+e) les conventions permettant d'établir les droits de propriété des clients sur les titres
+financiers.
+SECTION VIII - RAPPORT – SANCTIONS – DISPOSITIONS TRANSITOIRES
+42. Rapport
+Un rapport contenant les résultats arrêtés de toute opération de souscription est communiqué à
+la BRH au plus tard dix (10) jours après la fermeture de la période de souscription. Ce rapport
+inclut notamment la dénomination de l’émetteur, le nombre de titres proposé et le nombre de
+titres souscrit par investisseurs, par catégorie d’investisseurs ainsi que les détails sur les fonds,
+le montant levé dans le cadre de l’émission, le coupon, l'échéance, pour les titres de créance, et
+les montants des remboursements aux investisseurs.
+43. Sanctions
+A défaut de fournir, dans le délai requis, le rapport prévu à l’article 42, les institutions concernées
+sont assujetties à une pénalité de cinquante mille gourdes (HTG 50,000.00) par jour d’infraction.
+La période de pénalité s’étend du jour de l’infraction jusqu’à celui où les renseignements sont
+mis à la disposition de la BRH.
+En cas de non-respect des obligations définies dans la présente circulaire ou de constat de défaut
+de vigilance de la part des Prestataires de service d’investissement, la BRH se réserve le droit de
+prendre toutes sanctions administratives allant de l’avertissement au retrait de l’agrément dans
+les cas les plus graves, et/ou d’appliquer une amende de deux cent cinquante mille gourdes (HTG
+250,000.00) par violation constatée.
+La BRH peut exiger d’un Prestataire de service d’investissement qu’il apporte les corrections
+nécessaires quant aux violations relatives à la présente circulaire. A défaut de se conformer aux
+actions de redressement requises par la BRH, le Prestataire est assujetti à une pénalité de trois
+cent mille gourdes (HTG 300,000.00) par jour d’infraction à compter de la date à laquelle
+l’infraction lui est notifiée par la BRH, sans dépasser trente (30) jours.
+Toute pénalité sera déduite du solde du compte de l’institution fautive à la BRH.
+44. Disposition transitoire
+Dans l’attente de la délivrance de la carte professionnelle par la BRH, tout Prestataire est tenu de
+faire parvenir à la BRH au plus tard trente (30) jours après la date d’entrée en vigueur de la présente
+circulaire le dossier complet du personnel visé à l’article 30 incluant un curriculum vitae détaillé
+et la copie de tous diplômes obtenus.
+45. Entrée en vigueur
+La présente circulaire entre en vigueur le 14 juin 2021.
+Port-au-Prince, le 25 mai 2021.
+
+
+
+[26]
+Jean Baden Dubois
+Gouverneur
+Liste des Annexes
+Annexe I – Schéma du prospectus
+Annexe II – Schéma du prospectus abrégé
+Annexe III – Schéma du mémorandum d’information aux investisseurs
+Annexe IV – Obligation d’information continue des émetteurs de titres financiers
+
+
+
+[27]
+ANNEXE I
+SCHEMA DU PROSPECTUS
+Les émetteurs sont tenus de soumettre un prospectus en tenant compte de l’architecture suivante
+pour l’élaboration du document. Certains éléments mentionnés dans cette annexe le sont à titre
+indicatif dans la mesure où ils s’avèrent pertinents au regard de l’activité et de l’organisation de
+l’émetteur. Ils peuvent être complétés par toute autre information de nature à permettre une
+appréciation du fonctionnement de l’émetteur.
+Mentions Obligatoires sur la page de couverture
+« En application des articles 191 et suivants de la loi du 14 mai 2012 portant sur les banques et
+autres institutions financières, paru dans le numéro spécial 4 du Journal officiel « Le Moniteur »
+du 20 juillet 2012, la Banque de la République d’Haïti (BRH) a accordé le visa référencé… en
+date du ….. 202... autorisant la publication du présent prospectus.
+Le visa a été attribué après que la BRH a vérifié la conformité du document aux exigences de
+divulgation et la cohérence des informations y figurant. Il n’implique ni approbation de
+l’opportunité de l’opération, ni authentification des éléments comptables et financiers présentés,
+ni une évaluation du risque qui y est associée.
+Ce prospectus a été établi par [Nom de l’EMETTEUR] assisté de [Nom du PRESTATAIRE] et
+engage la responsabilité de ses signataires. »
+Résumé
+Fournir un résumé des informations présentées dans le corps du texte qui sont les plus
+susceptibles d'influencer la décision de l'investisseur.
+Responsables du prospectus
+ Note précédant la signature de l’Emetteur: « A notre connaissance, les données du
+présent prospectus sont conformes à la réalité ; elles comprennent toutes les
+informations nécessaires aux investisseurs pour fonder leur jugement sur le patrimoine,
+l'activité, la situation financière, les résultats et les perspectives de l'émetteur ainsi que
+sur les droits attachés aux titres offerts ; elles ne comportent pas d'omissions de nature
+à en altérer la portée ».
+ Nom, adresse et qualification du vérificateur indépendant qui a procédé à la vérification
+des comptes annuels des deux derniers exercices. La signature du vérificateur
+indépendant est précédée de la mention suivante : « Nous avons vérifié les informations
+financières et les données comptables figurant dans le présent prospectus en ce qui a
+trait à leur conformité aux normes comptables et d’audit ainsi qu’au report fidèle des
+données financières indiquées dans les livres et registres comptables de la société.
+A notre avis, à l’exception des faiblesses et des erreurs décrites dans la lettre de fin de
+travaux, les informations financières et des données comptables figurant dans le présent
+prospectus ont été, à tous égards importants, complétés et reflètent fidèlement les
+
+
+
+[28]
+données financières indiquées dans les livres et registres comptables de la société
+......... »
+Indication est donnée des autres renseignements qui figurent dans le prospectus et qui
+ont été vérifiés par le vérificateur indépendant. Le cas échéant, les réserves faites par le
+vérificateur indépendant sont indiquées.
+ Nom et adresse de l’institution financière qui a assisté l’émetteur dans la réalisation du
+prospectus. La signature du Prestataire est précédée de la mention suivante : « Nous
+certifions avoir effectué les diligences professionnelles d’usage et ces diligences n’ont
+révélé dans le contenu du prospectus aucune inexactitude ni aucune omission
+significative de nature à induire l’investisseur en erreur ou à fausser son jugement. »
+1. Renseignements concernant l'opération
+A. Emission de titres de capital
+1.1 Renseignements relatifs à l’émission
+a) Indication des résolutions, autorisations et approbations en vertu desquelles les titres sont
+émis. Préciser le montant maximal d'émission autorisé. Préciser si ces résolutions,
+autorisations et approbations sont assorties de conditions particulières.
+b) Nombre, valeur nominale, forme et catégorie des titres.
+c) Prix de souscription, avec indication de la valeur nominale de la prime d'émission.
+ Justification du prix de souscription. Modalités de paiement du prix, notamment
+dans le cas d'actions non libérées à la souscription. Eventuellement, montant des
+frais mis explicitement à la charge du souscripteur.
+d) Droit préférentiel de souscription.
+ Indication de l'existence ou de l'absence de droit préférentiel de souscription.
+ Modalités d'exercice du droit préférentiel, négociabilité des droits de
+souscription, sort des droits de souscription non exercés (négociation des rompus1
+...).
+ Indication, s'il y a lieu, des raisons de la limitation ou de la suppression de ce droit
+; dans ces cas, justification du prix d'émission lorsqu'il s'agit d'une émission
+contre espèces ; indication des bénéficiaires si la limitation ou la suppression du
+droit préférentiel est faite en faveur de personnes déterminées.
+ Indication de l'existence d'une priorité accordée aux actionnaires en l'absence d'un
+droit préférentiel, conditions d'exercice de cette priorité (exemples : délai
+d'exercice, parité et base de calcul ...).
+ Indication des intentions formulées par certains actionnaires de suivre ou de
+participer à l'émission pour tout ou partie de leurs droits
+e) Période de souscription
+1 Droits d’attribution ou de souscription qui ne correspondent pas à la quotité requise pour posséder ou souscrire à une action nouvelle.
+
+
+
+[29]
+f) Jouissance des titres nouveaux
+ Quand la date de jouissance ne coïncide pas avec le début de l'exercice fiscal,
+préciser la part du dividende qui sera versée aux actionnaires et, s'il y a lieu,
+indiquer le mode de calcul de celle-ci.
+ Dans le cas où une augmentation de capital par attribution d'actions gratuites est
+concomitante ou postérieure à l'émission, préciser les modalités de cette
+attribution et, notamment, les droits de souscripteurs d'actions de numéraire à
+l'égard de cette attribution.
+g) Intermédiation : Institution financière chargée de recueillir les souscriptions du public
+h) Modalités et délais de délivrance des titres, création éventuelle de certificats provisoires.
+i) Procédure de délivrance d’une attestation à un investisseur.
+j) Mode de placement. Description brève du mode de placement :
+ Indiquer, le cas échéant, l’institution financière qui, vis-à-vis de l'émetteur,
+prennent ferme l'émission ou en garantissent la bonne fin. Si la prise ferme ou la
+garantie ne porte pas sur la totalité de l'émission, mentionner la quote-part non
+couverte.
+ Décrire brièvement tout autre mode de placement. Dans le cas du placement pour
+compte, indiquer autant que faire se peut la limite inférieure et la limite supérieure
+des fonds à recueillir, ainsi que la date où prend fin le placement.
+ Lorsqu'un syndicat de placement a été constitué, indiquer l’institution financière
+chef de file.
+k) But de l'émission. Affectation envisagée de l'émission.
+ Indiquer, suivant le cas, si les fonds collectés contribuent à de nouveaux
+investissements, au renforcement de la structure financière, à la reconstitution du
+capital.
+ Indiquer, le cas échéant, si d'autres ressources d'origine externe sont utilisées pour
+faire face aux besoins financiers de la société.
+ Si une partie importante du produit du placement est affectée au remboursement
+d'un emprunt, indiquer l'emploi des fonds empruntés dans le cas d'un emprunt
+datant de moins de deux ans.
+1.2.Renseignements divers sur l'émission
+a) Montant total prévu de l'émission et nombre d'actions placées, le cas échéant par
+catégorie.
+b) S'il y a lieu, indication des possibilités de modification de ce montant en précisant les
+modalités.
+
+
+
+[30]
+c) Si, simultanément ou presque simultanément à l'émission, des actions de même catégorie
+sont souscrites ou placées de manière restreinte ou si des actions d'autres catégories sont
+créées en vue de leur placement dans le public ou de manière restreinte, indication de la
+nature de ces opérations ainsi que du nombre et des caractéristiques des actions sur
+lesquelles elles portent.
+1.3.Renseignements généraux sur les titres financiers émis
+a) Description sommaire des droits attachés aux titres financiers, notamment étendue du
+droit de vote, droits à la répartition du bénéfice et à la participation à tout boni en cas de
+liquidation, ainsi que tout privilège.
+b) Délai de prescription des dividendes et indication au profit de qui cette prescription
+opère.
+c) Description sommaire du régime de cession ou de transfert des titres.
+d) Régime fiscal applicable.
+B. Emission de titres de créance
+a) Indication des résolutions, autorisation et approbations en vertu desquelles les titres sont
+émis. Préciser le montant maximal d'émission autorisé. Préciser si ces résolutions,
+autorisations et approbations sont assorties de conditions particulières.
+b) Nombre et valeur nominale des titres, montant nominal de l'emprunt ; si ce montant n'est
+pas fixé, mention doit en être faite.
+c) Produit brut et produit net estimé de l'emprunt, avec indication de la rémunération de
+l’institution financière et des frais d'émission. Ces données sont présentées à la fois de
+façon globale, pour l'ensemble de l'émission, et sur une base unitaire, par titre.
+d) Période d'ouverture de la souscription ou du placement des titres et indication des
+possibilités éventuelles de clôture anticipée.
+e) Mention précisant, s'il y a lieu, que les souscriptions sont susceptibles de réduction.
+f) Indication de l’institution financière chargée de recueillir les souscriptions du public.
+g) But de l'émission.
+h) Affectation envisagée de l'émission.
+i) Indiquer, suivant le cas, si les fonds collectés contribuent à de nouveaux investissements,
+au renforcement de la structure financière.
+j) Indiquer, le cas échéant, si d'autres ressources d'origine externe sont utilisées pour faire
+face aux besoins financiers de la société.
+1.4.Caractéristiques des titres émis.
+a) Nature, classe, forme et catégories des titres.
+b) Modalités et délais de délivrance des titres, et date prévue pour leur inscription en compte
+au nom du souscripteur.
+c) Modalités de paiement.
+
+
+
+[31]
+d) Prix de souscription
+ Prix d'émission
+ coupon couru s'il y a lieu
+e) Jouissance des titres. Date d'entrée en jouissance des titres.
+f) Date (s) de règlement.
+g) Taux nominal ou caractéristiques nominales. Si plusieurs taux d'intérêt sont prévus,
+indication de ces taux et des modalités de modification de ces taux.
+h) Si le taux est variable ou indexé :
+ indication et définition de l'indice, modalités de son calcul et de sa diffusion ;
+ marge nominale, additive, multiplicative ;
+ clauses de substitution ;
+ fournir un tableau ou un graphique récapitulant l'évolution au cours des dix dernières
+années de l'indice retenu.
+i) Indication des institutions habituellement chargées du calcul du taux.
+j) Indication des atypismes éventuels, taux plancher, taux plafond...
+k) Modalités d'octroi d'autres avantages, qu'elle qu'en soit la nature et méthode de calcul de
+ces avantages.
+l) Intérêt:
+ Montant, périodicité, date (s) d'échéance, atypismes éventuels.
+ Mention doit être faite le cas échéant des clauses de subordination relative au
+paiement des intérêts, aux différés de mise en paiement, à la rémunération des
+intérêts différés.
+ Le cas échéant, délai de prescription des intérêts.
+m) Amortissement, remboursement:
+ Modalités de l'amortissement normal, tableau d'amortissement, tirage, prix de
+remboursement, indexation, octroi d'avantages,...
+ Existence d'options de remboursements anticipés, de prorogations ou de facultés
+d'échange. Le cas échéant, délai de prescription du capital.
+ Faculté d'amortissement anticipé.
+ La description de ces opérations doit faire apparaître clairement les conséquences
+possibles pour un souscripteur qui désirait garder ses titres jusqu'à leur échéance
+normale, et notamment les incidences éventuelles de ces opérations sur le
+calendrier de l'amortissement normal.
+n) Taux de rendement actuariels ou marges actuarielles :
+ Indication du ou des taux de rendement actuariels, définition, méthode de calcul
+résumée et signification de ces taux dans les différentes hypothèses de
+remboursement, d'amortissement ou d'octroi d'autres avantages.
+ En cas d'émission à taux variables, indication de la ou des marges actuarielles,
+définition et signification de ces marges;
+ indication de la ou des marges actuarielles dans les différentes hypothèses de
+remboursement, d'amortissement ou d'octroi d'autres avantages.
+
+
+
+[32]
+o) Durée totale et durée de vie moyenne de l'emprunt :
+Indication de la durée totale. Indication de la durée de vie moyenne de l'emprunt, en
+précisant la définition et la signification de cette durée.
+p) Clauses d'assimilation. Le cas échéant, assimilation, aux titres d'une émission antérieure.
+Faculté d'émissions ultérieures de titres assimilables.
+q) Rang de créance. Maintien de l'emprunt à son rang. Mention doit également être faite,
+le cas échéant, des clauses de subordination de l'emprunt par rapport aux autres dettes de la
+société, déjà contractées ou futures.
+r) Garanties:
+ Le cas échéant, nature et portée précise des garanties, sûretés et engagements
+destinés à assurer le remboursement des titres et le paiement des intérêts.
+ Si la garantie ne porte pas sur la totalité de l'émission, mention des quotes-parts
+couvertes et non couvertes.
+ Indication des lieux où le public peut avoir accès aux textes des contrats relatifs
+à ces garanties, sûretés et engagements.
+ Lorsqu'il n'existe pas de telles sûretés, garanties ou engagements, ce fait est
+mentionné.
+s) Mode de placement. Description brève du mode de placement :
+ Lorsque l'emprunt fait l'objet d'un contrat de prise ferme par un syndicat de
+placement, indiquer les institutions financières et l’institution financière chef de
+file. Le cas échéant, indiquer les personnes physiques ou morales, autres que des
+institutions financières, qui garantissent la bonne fin de l'opération.
+ Si la prise ferme ou la bonne fin de l'opération ne porte pas sur la totalité de
+l'émission, mention des quotes-parts couvertes et non couvertes.
+ Décrire brièvement tout autre mode de placement. Dans le cas du placement pour
+compte, indiquer autant que faire se peut la limite inférieure et la limite supérieure
+des fonds à recueillir, ainsi que la date où prend fin le placement.
+t) Organisation de la représentation des porteurs de titres s’il y a lieu : masse, ou autre forme
+de représentation :
+ Nom et fonctions ou dénomination et siège du représentant des porteurs
+ Principales conditions de cette représentation, notamment conditions de
+désignation et de remplacement du représentant.
+u) Fiscalité des revenus et des résultats de cession des titres, pour les personnes physiques
+et les personnes morales. Le cas échéant, retenues fiscales à la source sur les revenus ou le
+remboursement des titres. Information concernant la prise en charge éventuelle de ces
+retenues à la source par l'émetteur.
+2. Renseignements généraux
+a) Liste des institutions financières chargées du service financier de l'emprunt. Préciser que
+cette liste mise à jour sera tenue par le Prestataire et l’émetteur à la disposition des porteurs
+de titres.
+b) Tribunaux compétents en cas de litige.
+
+
+
+[33]
+2.1 Renseignements à caractère général concernant l'émetteur et son capital
+a) Renseignements à caractère général concernant l'émetteur :
+ Dénomination, siège social.
+ Forme juridique;
+ Date de constitution de la société ;
+ Indication de l'objet social ;
+ Indication du numéro d'immatriculation fiscale, patente et quitus
+b) Clauses statutaires particulières :
+ Répartition des bénéfices ;
+ Assemblées générales (modes de convocation, conditions d'admission,
+conditions d'exercice du droit de vote) ;
+ Existence de droits de vote multiples ;
+ conditions d'acquisition ;
+ Existence de seuils statutaires devant être déclarés à l'émetteur.
+2.2 Renseignements à caractère général concernant le capital
+a) Montant de capital souscrit, nombre et catégories de titres qui le représentent, avec
+mention de leurs caractéristiques principales. Partie du capital souscrit à libérer, avec
+indication du nombre ou de la valeur nominale globale et de la nature des titres non
+entièrement libérés, ventilés le cas échéant selon leur degré de libération.
+b) Lorsqu'il existe des obligations convertibles, échangeables, remboursables en titres
+donnant accès au capital ou autres, indiquer :
+ Les délais d'exercice de l'option et les bases de conversion, d'échange ou de
+souscription ;
+ Le nombre d'obligations convertibles, échangeables restant en circulation ;
+ Nombre d'actions susceptibles d'être créées par catégorie.
+c) Tableau de l'évolution du capital. Présenter, sous forme de tableau, l'évolution du
+capital au cours des cinq dernières années ou, si l'émetteur a été constitué depuis
+moins de cinq ans, depuis son origine. Ce tableau ne comprend pas les modifications
+résultant de l'augmentation de capital qui fait l'objet du prospectus.
+d) Lorsque le prospectus est établi à l'occasion d'une émission de titres représentatifs de
+capital, préciser s'il existe un capital autorisé, mais non émis, ou un engagement
+d'augmentation de capital, notamment en cas d'obligations convertibles ou
+échangeables, indication:
+ du montant de capital autorisé, et de l'échéance éventuelle de l'autorisation ;
+ des catégories de bénéficiaires ayant un droit préférentiel pour la souscription
+de ces tranches supplémentaires de capital ;
+ des conditions et modalités de l'émission des titres de capital correspondant à
+ces tranches.
+
+
+
+[34]
+e) S'il existe des titres non représentatifs de capital (parts de fondateurs, certificats de
+droits de vote. ), mention de leur nombre et de leurs caractéristiques principales.
+f) Répartition actuelle du capital et des droits de vote.
+g) Indiquer, en mentionnant la date à laquelle le renseignement a été recueilli :
+ le nombre total des droits de vote avec ventilation selon les diverses
+catégories ;
+ le nom des actionnaires qui détiennent plus de 5% du capital ou des droits de
+vote de l'émetteur ;
+ les pourcentages de capital et de droits de vote détenus par l'ensemble des
+membres des organes d'administration et de direction ;
+ le nombre approximatif d'actionnaires, en fonction, soit des résultats d'une
+enquête, soit du nombre des souscripteurs à une récente augmentation du
+capital, soit des pouvoirs reçus lors de la dernière assemblée générale, etc.
+h) Pour autant qu'elles sont connues de l'émetteur, indication des personnes physiques
+ou morales qui, directement ou indirectement, isolément ou conjointement, ou de
+concert, exercent ou peuvent exercer un contrôle sur lui, et mention du pourcentage
+du capital et des droits de vote détenus.
+i) Si l'émetteur fait partie d'un groupe, description sommaire du groupe et de la place
+que l'émetteur y occupe.
+j) Montant du dividende global et par action pour les trois derniers exercices.
+k) Marché des titres de l'émetteur ; S'il y a lieu, indication des marchés étrangers,
+réglementés ou non, où les titres de l'émetteur sont négociés.
+l) Renseignements concernant l'activité de l'émetteur (tronc commun pour les titres de
+capital, les titres de créances et les autres titres)
+m) Présentation de la société et du groupe.
+n) Bref historique et évolution de la structure de la société holding et des sociétés qu’elle
+contrôle pendant les trois dernières années. Toutes les fois que cela apparaît utile,
+insérer un organigramme du groupe.
+o) Description des principales activités de l'émetteur ayant une importance significative
+sur le chiffre d'affaires ou le résultat consolidé des trois derniers exercices ou de
+l'exercice en cours, en précisant :
+ les principales catégories de produits ou de services ;
+ les raisons des variations importantes, favorables ou défavorables, dans les
+résultats d'exploitation de l'émetteur au cours des trois dernières années ;
+p) Indication des activités soumises à un régime fiscal spécifique ou des règles de droit
+publique particulières dont la modification aurait un impact significatif (ex. contrat
+de concession)
+
+
+
+[35]
+q) Pour les activités minières et d'exploitation de carrières et les autres activités
+analogues, pour autant qu'elles soient significatives :
+ Description des gisements, estimation des réserves économiquement exploitables
+et durée probable de cette exploitation, avec indication des méthodes d'évaluation
+ Indication de la durée et des conditions principales de concessions d'exploitation
+(coûts moyens de production, prix de vente) et des conditions économiques et de
+leur exploitation.
+ Indication concernant l'état d'avancement de la mise en exploitation.
+ Engagements de livraison.
+ Indication de toute interruption des activités de l'émetteur susceptible d'avoir ou
+ayant eu, dans un passé récent, une incidence significative sur sa situation
+financière et ses résultats.
+r) Lorsque les renseignements fournis ont été influencés par des événements
+exceptionnels, il en est fait mention.
+s) Donner des indications, s'il y a lieu, sur les facteurs de risque et la nature spéculative
+de l'activité de l'émetteur ou des titres offerts. En plus de facteurs communs à un
+secteur d'activité, il faut mentionner tout facteur particulier susceptible d'affecter
+l'appréciation des risques par un investisseur avisé.
+t) Informations sommaires sur la dépendance éventuelle de l'émetteur à l'égard de
+brevets et de licences, de contrats d'approvisionnement, industriels, commerciaux ou
+financiers ou de procédés nouveaux de fabrication, lorsque ces facteurs ont une
+importance significative pour l'activité ou la rentabilité de l'émetteur.
+u) Principale origine des approvisionnements, et modifications récentes (sous réserve
+qu'il s'agit d'éléments significatifs dont la divulgation ne suit pas à l'émetteur).
+v) Importance relative des principaux clients et, le cas échéant, ventilation de la clientèle
+entre marchés administratifs et marchés privés.
+w) Indication de tout litige ou arbitrage, en cours ou passé, susceptible d'avoir ou ayant
+eu, dans un passé récent, une incidence sensible sur la situation financière de
+l'émetteur, son activité, son résultat et, le cas échéant, sur son groupe.
+x) Effectif moyen et évolution au cours des trois derniers exercices.
+y) Politique d'investissement, notamment :
+ Indications concernant les principaux investissements en cours de réalisation, à
+l'exclusion des intérêts en cours d'acquisition dans d'autres entreprises, lorsque
+l'information est confidentielle. Indiquer notamment le taux de rendement interne
+(TRI) et le délai de récupération des investissements (DRI).
+ Indications concernant les principaux investissements futurs de l'émetteur qui ont
+fait l'objet d'engagements fermes de ses organes dirigeants, à l'exclusion des
+intérêts devant être acquis dans d'autres entreprises, lorsque l'information est
+confidentielle.
+
+
+
+[36]
+z) Lorsque l'émetteur est à la tête d'un groupe, les renseignements prévus au présent
+chapitre sont fournis pour l'émetteur et pour le groupe.
+aa) Lorsque l'historique de l'activité n'est pas représentatif de la situation de l'émetteur,
+l'émetteur fournit une présentation du projet, accompagnée éventuellement de
+l'opinion de la personne habilitée à émettre une opinion sur la cohérence des
+hypothèses retenues et la pertinence des méthodes utilisées.
+3. Patrimoine - Situation financière - Résultats
+a) Etats financiers de l'émetteur. Les états financiers doivent respecter les postulats de
+continuité de l'exploitation, de permanence des méthodes et d'indépendance des
+exercices. Au cas où il serait dérogé à l'un ou l'autre de ces principes, explications et
+justifications doivent être données.
+b) Etats financiers certifiés relatifs aux trois derniers exercices établis par les organes de
+l'émetteur et présentés sous forme de tableau comparatif.
+c) Si l'émetteur établit seulement des états financiers annuels consolidés, il les fait figurer
+dans le prospectus conformément à l’article 10.
+d) Pour les émetteurs de titres de créance, indication à la date la plus récente possible (qui
+doit être précisée), pour autant qu'ils soient significatifs :
+ du montant global des emprunts obligataires restant à rembourser, avec
+ventilation entre emprunts garantis (par des sûretés réelles ou autrement, par
+l'émetteur ou par des tiers) et emprunts non garantis;
+ du montant global de tous les autres emprunts et dettes, avec ventilation selon
+qu'ils sont garantis ou non garantis ;
+ du montant global des engagements conditionnels.
+e) Résultat de l'exercice, global et par action, avant et après impôts courant et net, individuel
+et consolidé pour les deux derniers exercices.
+f) Si, au cours de la période des trois exercices visés ci-dessus, le nombre d'actions de
+l'émetteur a été modifié du fait notamment d'une augmentation de capital ou d'une
+réduction de capital, d'un regroupement ou d'une division des actions, les résultats par
+action visés ci-dessus sont ajustés pour être rendus comparables ; dans ce cas, les
+formules des ajustements utilisés sont indiquées.
+g) Montant du dividende global et par action pour les trois derniers exercices, ajustés, le cas
+échéant, pour être rendus comparables conformément au point f.
+h) Les éléments prévus aux points susmentionnés sont présentés sous forme de tableau.
+i) Lorsque le prospectus comprend des états financiers annuels consolidés :
+ indication de la dénomination et du siège social des entreprises comprises dans la
+consolidation ;
+
+
+
+[37]
+ indication des principes de consolidation appliqués (intégration globale,
+proportionnelle, ou d'une mise en équivalence); le cas échéant, préciser et
+expliquer les dérogations par rapport à la méthode annoncée,
+ pour chacune des entreprises visées, indication du pourcentage de contrôle et
+d'intérêt direct et indirect dans les sociétés consolidées.
+Les éléments prévus aux points i peuvent être présentés sous forme de tableau.
+j) Si certains renseignements ci-dessus sont donnés dans les états financiers annuels fournis
+en vertu du présent chapitre, ils peuvent ne pas être répétés.
+4. Organes d'administration et de direction
+a) Pour chaque membre du conseil d’administration ou de direction, indiquer :
+ nom, prénom ;
+ fonctions, date d'entrée en fonction ou durée du mandat ;
+ principale activité exercée en dehors de la société au cours des trois dernières
+années ;
+ mandats d'administrateurs les plus significatifs dans d'autres sociétés ;
+ pour le représentant permanent d'une personne morale administrateur, il
+convient d'indiquer la fonction dans la société qu'il représente.
+b) L’émetteur peut, pour des raisons de sécurité, être autorisé à n'indiquer comme adresse
+que la ville de résidence.
+c) Intérêts des dirigeants dans le capital de l'émetteur, dans celui d'une société qui en
+détient le contrôle, dans celui d'une filiale de l'émetteur ou chez un client ou un
+fournisseur significatif de l'émetteur.
+d) Rémunérations et avantages en nature attribués pour le dernier exercice, à quelque titre
+que ce soit, par l'émetteur ou par la société holding et les sociétés qu’elle contrôle, aux
+membres des organes d'administration et de direction ; ces informations sont données
+de façon globale pour chaque catégorie. Indication globale des prêts et garanties
+accordés en faveur des membres des organes d'administration et de direction.
+e) Lorsque ces renseignements ne sont pas fournis à la section 1 :
+ nom, adresse et qualification du vérificateur indépendant qui a procédé à la
+vérification des comptes annuels des trois derniers exercices ;
+ la date de début du premier mandat ;
+ la durée et la date d'expiration des mandats des commissaires aux comptes ;
+ l'appartenance à un groupe ;
+ Indications précisant que les comptes ont été certifiés ; si les certifications ont été
+refusées par les commissaires aux comptes ou le vérificateur indépendant si elles
+comportent des réserves, ce refus ou ces réserves doivent être reproduits
+intégralement et la motivation doit en être donnée.
+f) Nature et importance des opérations conclues depuis le début du dernier exercice avec
+les membres des organes d'administration et de direction, ainsi qu'avec un candidat à un
+poste de membre du conseil, qui ne présentent pas le caractère d'opérations courantes
+conclues à des conditions normales.
+
+
+
+[38]
+g) Nature et importance des opérations conclues depuis le début du dernier exercice avec
+un actionnaire détenant plus de 5% du capital qui ne présentent pas le caractère
+d'opérations courantes conclues à des conditions normales.
+h) Renseignements concernant l'évolution récente et les perspectives d'avenir (tronc
+commun pour les titres de capital, les titres de créances et les autres titres)
+i) Evolution récente.
+ Indication générale sur les tendances récentes les plus significatives dans l'évolution
+des affaires de l'émetteur depuis la clôture de l'exercice auquel les derniers comptes
+annuels publiés se rapportent.
+k) Perspectives d'avenir :
+ Indications sur les perspectives de l'exercice en cours ;
+ Prévisions du chiffre d'affaires et du résultat ;
+ Précisions sur les négociations en cours ou l'avancement d'opérations de toute nature,
+et dont l'issue est de nature à avoir une influence significative sur l'appréciation de la
+situation financière, l'activité ou les résultats de l'émetteur.
+l) Informations concernant les facteurs probables relatifs à l'évolution prévisible du marché.
+m) Les orientations :
+ Politique générale : diversification, spécialisation, reconversion ;
+ Activités anciennes ou nouvelles qui seront développées ;
+ Le cas échéant, indication sur le programme d'investissement projeté ;
+ Mode de financement des projets.
+
+
+
+[39]
+ANNEXE II
+SCHEMA DU PROSPECTUS ABREGE
+1) Nom et fonctions des personnes physiques ou dénomination et siège des personnes
+morales qui assument la responsabilité du prospectus.
+2) Renseignements concernant l'opération
+3) Nombre, valeur nominale, forme et catégorie des titres. Prix de souscription et Modalités
+de paiement du prix.
+4) Produit brut et produit net de l'émission, avec indication de la rémunération de
+l’institution financière et des frais d'émission, le cas échéant.
+5) Période de souscription.
+6) Institution financière chargée de recueillir les souscriptions du public.
+7) Modalités et délais de délivrance des titres, création éventuelle de certificats provisoires.
+8) But de l'émission.
+9) Dénomination, siège social.
+
+
+
+[40]
+ANNEXE III
+SCHÉMA DU MÉMORANDUM D’INFORMATION AUX INVESTISSEURS (MII)
+Les émetteurs sont tenus de soumettre un prospectus en tenant compte de l’architecture suivante
+pour l’élaboration du document. Certains éléments mentionnés dans cette annexe le sont à titre
+indicatif dans la mesure où ils s’avèrent pertinents au regard de l’activité et de l’organisation de
+l’émetteur. Ils peuvent être complétés par toute autre information de nature à permettre une
+appréciation du fonctionnement de l’émetteur.
+I. Mentions Obligatoires sur la page de couverture
+ « La présente offre constitue un placement restreint sur la base des dispositions relatives
+au placement restreint de la circulaire …… de la Banque de la République d’Haïti
+relative au marché des titres financiers.
+Les investisseurs sont informés que la présente émission de titres financiers ne donne
+pas lieu à un prospectus soumis au visa de la Banque de la République d’Haïti (BRH) et
+ne répond pas aux exigences strictes d’un appel public à l’épargne au sens de la
+circulaire susmentionnée.
+En acquérant ce produit, l’investisseur prend un risque de crédit sur l’émetteur et son
+garant le cas échéant et un risque de liquidité s’il veut se défaire du titre à un moment
+où les prix sont défavorables. Ainsi l’insolvabilité de l’émetteur et de son garant, le cas
+échéant, de même que la matérialisation des risques de liquidité peuvent entraîner la
+perte totale ou partielle du montant investi. L’investissement proposé n’est donc pas un
+dépôt bancaire et présente des risques de perte en capital total ou partiel. »
+ Note des Responsables du MII : « A notre connaissance, les données du présent MII
+sont conformes à la réalité ; elles comprennent toutes les informations nécessaires aux
+investisseurs pour fonder leur jugement sur le patrimoine, l'activité, la situation
+financière, les résultats et les perspectives de l'émetteur ainsi que sur les droits attachés
+aux titres offerts ; elles ne comportent pas d'omissions de nature à en altérer la portée
+».
+ Note du vérificateur indépendant : « Nous avons vérifié les informations financières
+et les données comptables figurant dans le présent prospectus en ce qui a trait à leur
+conformité aux normes comptables et d’audit ainsi qu’au report fidèle des données
+financières indiquées dans les livres et registres comptables de la société.....
+A notre avis, à l’exception des faiblesses et des erreurs décrites dans la lettre de fin de
+travaux, les informations financières et des données comptables figurant dans le présent
+prospectus ont été, à tous égards importants, complétés et reflètent fidèlement les
+données financières indiquées dans les livres et registres comptables de la société
+......... »
+II. Présentation générale de l’émetteur
+1. Dénomination, siège social.
+
+
+
+[41]
+2. Organes d'administration et de direction
+3. Nom et fonctions des membres des organes d'administration et de direction.
+4. Concentration de l’actionnariat : liste des actionnaires avec leur pourcentage
+ayant 5% ou plus du capital.
+5. Difficultés financières au cours des 5 dernières années.
+III. Renseignements généraux sur l'opération
+1. Résolutions, autorisations et approbations en vertu desquelles les titres sont émis.
+2. Emission d’actions et/ou émission obligataire. Montant recherché en capital et
+en pourcentage du capital ; en obligations, montant recherché, maturité
+recherchée, principal remboursable à maturité ou amortissable.
+3. Utilisation des fonds : fonds de roulement, utilisation à long terme pour nouveaux
+investissements par exemple, renforcement de la structure financière,
+reconstitution du capital, remboursement d’emprunt, etc.
+IV. Renseignements à caractère général sur l'émetteur et son capital
+1. Capital autorisé, souscrit, libéré ; nombre et catégories de titres qui le
+représentent, avec mention de leurs caractéristiques principales. Partie du capital
+souscrit à libérer, avec indication du nombre ou de la valeur nominale globale et
+de la nature des titres non entièrement libérés, ventilés le cas échéant selon leur
+degré de libération.
+2. Clauses statutaires particulières : Répartition des bénéfices ; Assemblées
+générales (modes de convocation, conditions d'admission, conditions d'exercice
+du droit de vote, les majorités qualifiées) ; Existence de droits de vote multiples,
+de droits de préemption et tous autres droits et privilèges attachés aux actions ou
+à des catégories d’actions;
+3. S’il existe des obligations convertibles, échangeables, remboursables en titres
+donnant accès au capital ou autres, indiquer : les délais d'exercice de l'option et
+les bases de conversion, d'échange ou de souscription ; le nombre d'obligations
+convertibles, échangeables restant en circulation ; le nombre d'actions
+susceptibles d'être créées par catégorie.
+4. Tableau de l'évolution du capital. Présenter, sous forme de tableau, l'évolution du
+capital au cours des trois dernières années ou, si l'émetteur a été constitué depuis
+moins de trois ans, depuis son origine.
+5. Si l'émetteur fait partie d'un groupe, description sommaire du groupe et de la place
+que l'émetteur y occupe.
+6. Montant du dividende global et par action pour les trois derniers exercices.
+7. Marché des titres de l'émetteur ; S'il y a lieu, indication des marchés étrangers,
+réglementés ou non, où les titres de l'émetteur sont négociés.
+
+
+
+[42]
+V. Renseignements concernant les activités de l'émetteur
+1. Parts de marché et principales activités de l'émetteur et leur poids sur le chiffre
+d'affaires et/ou le résultat des trois derniers exercices. Préciser le cas échéant le
+poids d’événements positifs ou négatifs exceptionnels sur les résultats.
+2. Risques inhérents au secteur (degré de sensibilité à la conjoncture économique,
+par exemple) et risques particuliers à l'émetteur (par exemple, concentration
+clients, concentration fournisseurs, poids de l’endettement et sensibilité aux taux
+d’intérêt) ; intensité concurrentielle, menace de nouveaux entrants ; pouvoir de
+négociation des clients et des fournisseurs ; diversification des activités.
+3. Indication de tout litige ou arbitrage, en cours ou passé, impact potentiel sur la
+situation de l'émetteur.
+4. Perspectives d'avenir, l'évolution prévisible du marché, positionnement de
+l’émetteur, forces et faiblesses, facteurs clefs de succès de l’émetteur.
+VI. États financiers audités sur les 3 dernières années et rapport du vérificateur
+indépendant avec les indications suivantes
+1. Etats financiers certifiés présentés sous forme de tableau comparatif.
+2. Présenter dans un tableau les emprunts obligataires restant à rembourser, avec
+indication des emprunts garantis, les autres emprunts et dettes avec ou sans
+garantie, et les engagements conditionnels.
+3. Montant du dividende global et par action pour les trois derniers exercices,
+ajustés, le cas échéant, pour être rendus comparables conformément au point f.
+4. Opération ayant entraîné des changements importants récents, notamment une
+modification importante de la répartition du capital.
+5. Marché des titres. Indication des marchés étrangers où les titres de l'émetteur sont
+négociés s'il y a lieu. Si non, insertion de la mention suivante, en caractères gras,
+en page de titre : « Il n'existe, à la date du visa, aucun marché pour la négociation
+des titres offerts. »
+VII. Renseignements spécifiques à l’émission d’actions
+1. Nombre, valeur nominale, forme et catégorie des titres.
+2. Prix de souscription, avec indication de la valeur nominale de la prime d'émission.
+3. Description sommaire des droits attachés aux actions, notamment étendue du
+droit de vote, droits à la répartition du bénéfice ainsi que tout autre privilège.
+4. Description sommaire du régime de cession ou de transfert des titres.
+5. Régime fiscal applicable.
+
+
+
+[43]
+6. Droit préférentiel de souscription, s’il y en a ; modalités d'exercice du droit
+préférentiel, négociabilité des droits de souscription, sort des droits de
+souscription non exercés (négociation des rompus 2 ...). Indiquer toute autre
+priorité accordée et les conditions d'exercice (exemples : délai d'exercice, parité
+et base de calcul ...).
+7. Période de souscription. Jouissance des titres nouveaux. Quand la date de
+jouissance ne coïncide pas avec le début de l'exercice fiscal, préciser la part du
+dividende qui sera versée aux actionnaires et, s'il y a lieu, indiquer le mode de
+calcul de celle-ci.
+8. Intermédiation. Institution financière chargée de recueillir les souscriptions du
+public ; Modalités et délais de délivrance des titres, création éventuelle de
+certificats provisoires ; Procédure de délivrance d’une attestation à un
+investisseur.
+VIII. Renseignements spécifiques à l’émission d’obligations
+1. Conditions générales de l’emprunt.
+1. Nombre et valeur nominale des titres, montant nominal de l'emprunt ; si ce montant
+n'est pas fixé, mention doit en être faite.
+2. Indication d’une clause, le cas échéant, limitant l’endettement ou le levier financier
+de l’émetteur ; indication des ratios projetés de dette sur actif total et des frais
+financiers sur revenus bruts et revenus nets.
+3. Produit brut et produit net estimé de l'emprunt, avec indication de la rémunération de
+l’institution financière et des frais d'émission. Ces données sont présentées à la fois
+de façon globale, pour l'ensemble de l'émission, et sur une base unitaire, par titre.
+4. Période d'ouverture de la souscription ou du placement des titres et indication des
+possibilités éventuelles de clôture anticipée.
+5. Mention précisant, s'il y a lieu, que les souscriptions sont susceptibles de réduction.
+6. Indication de l’institution financière chargée de recueillir les souscriptions du public.
+2. Caractéristiques particulières des obligations émises.
+a) Nature, classe, forme et catégories des titres.
+b) Modalités et délais de délivrance des titres, et date prévue pour leur inscription en
+compte au nom du souscripteur.
+c) Modalités de paiement.
+2 Le rompu est la valeur fractionnaire correspondant au rapport entre la valeur nominale d'une action nouvelle et la valeur nominale d'une
+action ancienne. Si trois actions anciennes donnent droit à une action nouvelle, quelle sera la position de l'actionnaire qui détient quatre
+actions. L'actionnaire a en effet droit à une action nouvelle et 1/3 d'action nouvelle.
+
+
+
+[44]
+d) Prix de souscription: Prix d'émission; coupon
+e) Jouissance des titres. Date d'entrée en jouissance des titres.
+f) Date (s) de règlement
+g) Taux nominal ou caractéristiques nominales. Si plusieurs taux d'intérêt sont prévus,
+indication de ces taux et des modalités de modification de ces taux.
+h) Si le taux est variable ou indexé :
+ indication et définition de l'indice, modalités de son calcul et de sa diffusion ;
+ marge nominale, additive, multiplicative ;
+ clauses de substitution ;
+ fournir un tableau ou un graphique récapitulant l'évolution au cours des dix
+dernières années de l'indice retenu.
+i) Indication des atypismes éventuels, taux plancher, taux plafond, etc
+j) Modalités d'octroi d'autres avantages, qu'elle qu'en soit la nature et méthode de calcul
+de ces avantages.
+k) Intérêt.
+ Montant, périodicité, date (s) d'échéance, atypismes éventuels.
+ Mention doit être faite le cas échéant des clauses de subordination relative au
+paiement des intérêts, aux différés de mise en paiement, à la rémunération des
+intérêts différés.
+l) Amortissement, Remboursement.
+ Modalités de l'amortissement normal, tableau d'amortissement, tirage, prix de
+remboursement, indexation, octroi d'avantages
+ Existence d'options de remboursements anticipés, de prorogations ou de facultés
+d'échange. Le cas échéant, délai de prescription du capital.
+ Facultés d'amortissement anticipé.
+ La description de ces opérations doit faire apparaître clairement les conséquences
+possibles pour un souscripteur qui désirait garder ses titres jusqu'à leur échéance
+normale, et notamment les incidences éventuelles de ces opérations sur le
+calendrier de l'amortissement normal.
+m) Taux de rendement à l’échéance. Indication du ou des taux de rendement à
+l’échéance, définition, méthode de calcul résumée et signification de ces taux dans
+les différentes hypothèses de remboursement, d'amortissement ou d'octroi d'autres
+avantages.
+n) Rang de créance. Maintien de l'emprunt à son rang. Mention doit également être
+faite, le cas échéant, des clauses de subordination de l'emprunt par rapport aux autres
+dettes de la société, déjà contractées ou futures.
+o) Garanties.
+ Le cas échéant, nature et portée précise des garanties, sûretés et engagements
+destinés à assurer le remboursement des titres et le paiement des intérêts.
+
+
+
+[45]
+ Si la garantie ne porte pas sur la totalité de l'émission, mention des quotes-parts
+couvertes et non couvertes.
+ Indication des lieux où le public peut avoir accès aux textes des contrats relatifs
+à ces garanties, sûretés et engagements.
+ Lorsqu'il n'existe pas de telles sûretés, garanties ou engagements, ce fait est
+mentionné.
+p) Fiscalité des revenus et des résultats de cession des titres, pour les personnes
+physiques et les personnes morales. Le cas échéant, retenues fiscales à la source sur
+les revenus ou le remboursement des titres. Information concernant la prise en charge
+éventuelle de ces retenues à la source par l'émetteur.
+
+
+
+[46]
+ANNEXE IV
+OBLIGATIONS D’INFORMATION CONTINUE DES EMETTEURS
+DE TITRES FINANCIERS
+L’information continue est une obligation qui satisfait à l’exigence générale de communication
+financière imposée à toute société qui effectue un appel public à l’épargne ou un placement
+restreint.
+La communication financière est un élément clé de la transparence, de la crédibilité, de la
+discipline et de la qualité des marchés financiers. Elle constitue une condition essentielle de la
+confiance des investisseurs et un important outil d’aide à leur prise de décision d’investissement.
+Les émetteurs s’acquittent de cette obligation de divulgation d’information en mettant
+régulièrement à la disposition des investisseurs les documents d’information périodique (états
+financiers annuels et rapport annuel) et les documents d’information occasionnelle (déclarations
+de changements importants).
+1. Caractéristiques générales de l’information financière
+L’information financière doit être exacte, précise et sincère. Ces exigences s’appliquent tant aux
+informations dont la communication est obligatoire qu’aux informations communiquées par
+l’émetteur sur une base purement volontaire. L’exactitude, la précision et la sincérité des
+informations s’apprécient à la date de leur communication.
+2. Documents d’information périodique
+2.1 Etats financiers
+Les états financiers sont une représentation fidèle et structurée de la situation financière et des
+opérations réalisées par l’émetteur. Ils fournissent des informations utiles concernant :
+a) les sources, la répartition et l’utilisation des ressources financières;
+b) la manière dont l’émetteur a financé ses activités et a fait face à ses besoins de trésorerie ;
+c) la capacité de l’émetteur à financer ses activités et à honorer ses passifs et engagements;
+d) la situation financière de l’émetteur et son évolution;
+e) la performance de l’entité en termes d’efficacité et de réalisations.
+Les émetteurs doivent déposer à l’institution financière ayant organisé l’émission de leurs titres
+leurs états financiers annuels dument vérifiés le cent-vingtième (120ème) jour après la fin de leur
+exercice fiscal. Ces états financiers sont composés du bilan, de l’état des résultats, de l’état des
+variations des capitaux propres, du tableau des flux de trésorerie et des notes aux états financiers
+annuels.
+Les états financiers de l'émetteur contiennent une déclaration sans réserve de conformité aux
+normes de vérification généralement reconnues, signée par le vérificateur indépendant.
+Les états financiers sont remis ou adressés, sans frais, à tout investisseur, ou à toute personne
+qui en fait la demande et sont mis à la disposition du public :
+
+
+
+[47]
+- au siège de l'émetteur et sur son site internet;
+- au siège du Prestataire intéressé et sur son site internet.
+Les émetteurs sont tenus d’informer les porteurs de leurs titres, par tous moyens, de la
+disponibilité de leurs états financiers en diffusant un communiqué précisant les modalités
+d’accès.
+Les documents d’information continue sont transmis à la BRH via les Prestataires intéressés sous
+forme électronique.
+Les états financiers sont accompagnés du rapport annuel correspondant.
+2.2 Rapport annuel
+Le rapport annuel explique les résultats que la société a obtenus au cours de la période visée par
+les états financiers ainsi que sa situation financière et ses perspectives d'avenir. Il constitue à la
+fois un complément et un supplément des états financiers sans en faire partie. Il doit porter sur
+les informations pertinentes aux besoins des investisseurs de manière à les éclairer dans leur
+prise de décision.
+Le rapport annuel explique les événements, les décisions, les circonstances et la performance
+passés dans l’optique de déterminer s’il est raisonnablement probable qu’ils soient une indication
+des perspectives d’avenir ou qu’ils aient une incidence significative sur celles-ci. Il doit décrire
+en outre la stratégie de la haute direction ainsi que les événements, décisions, circonstances,
+opportunités et risques futurs qui auront probablement une incidence significative sur les
+perspectives d’avenir.
+Le rapport annuel doit :
+a) aider les investisseurs actuels et potentiels à comprendre ce que les états financiers
+montrent et ne montrent pas;
+b) expliquer la stratégie adoptée par la haute direction afin d’atteindre les objectifs à court
+terme et à long terme.
+c) porter sur l'information importante qui n'est pas traitée de façon approfondie dans les
+états financiers, par exemple, les éléments de passif éventuels, les manquements aux
+conditions d'un contrat de prêt, les arrangements hors bilan et les autres obligations
+contractuelles;
+d) analyser les tendances et les risques importants qui ont eu une incidence sur les états
+financiers, ainsi que les tendances et les risques qui pourraient dorénavant avoir une
+incidence;
+e) donner de l'information sur la qualité et l'éventuelle variabilité du résultat net et des flux
+de trésorerie de la société, pour permettre aux investisseurs de déterminer si la
+performance passée est indicative de la performance future ;
+f) tenir compte de toute information disponible à la date du rapport. Si celle-ci ne coïncide
+pas avec la date du dépôt, il faut s'assurer que l'information qu'il contient est à jour de
+façon à ne pas induire les destinataires en erreur.
+Lors de la rédaction du rapport annuel, les émetteurs doivent présenter une analyse transparente
+de leur performance et de leur situation financière, notamment leur situation de trésorerie et leurs
+sources de financement.
+
+
+
+[48]
+Les émetteurs doivent communiquer ouvertement les bonnes nouvelles comme les mauvaises.
+Le rapport annuel des émetteurs doit contenir au moins les informations suivantes :
+a) un exposé sur les activités et les projets;
+b) un exposé sur la situation financière;
+c) les performances au cours des 3 dernières années ;
+d) les événements importants survenus entre la date de clôture de l’exercice et la date à
+laquelle le rapport a été établi ;
+e) l’évolution prévisible de la situation de l’émetteur et les perspectives d’avenir ;
+f) les changements des méthodes d’élaboration et de présentation des états financiers ;
+g) l’activité des sociétés dont l’émetteur détient le contrôle ;
+h) les prises de participation ou les aliénations ;
+i) les renseignements relatifs à la répartition du capital et des droits de vote ;
+j) l’information sur les conditions d’accès à l’assemblée générale ;
+k) le rachat d'actions, nature et cadre légal de l’opération ;
+l) les principales délégations en cours de validité accordées par l’assemblée générale aux
+organes d’administration et de direction ;
+m) le rôle des organes d’administration et de direction ;
+n) l’évolution des transactions sur titres financiers depuis la dernière assemblée générale ;
+o) le déroulement des opérations de rachat et les effets que cette opération a engendrés ;
+p) un bref rappel des dispositions statutaires concernant l’affectation des résultats ;
+q) le tableau d’évolution des capitaux propres ainsi que les dividendes versés au titre des
+trois derniers exercices financiers.
+Le rapport annuel doit être approuvé par le Conseil d'Administration de l’émetteur avant toute
+forme de diffusion. Il est déposé avec les états financiers auxquels il correspond.
+L’émetteur peut insérer dans son rapport annuel d’autres rubriques spécifiques à son activité en
+plus de celles mentionnées ci-dessus.
+3. Documents d’information occasionnelle
+3.1 Déclaration de changement important
+Lorsque survient un changement important 3 dans le fonctionnement et les activités des
+émetteurs, ils doivent :
+a) diffuser sans délai un communiqué autorisé par le Conseil d’Administration exposant la
+nature et la substance du changement;
+b) déposer auprès de leur Prestataire la « Déclaration de changement important » dans les
+dix (10) jours à compter de la date de la survenance du changement.
+Les émetteurs qui réalisent une acquisition significative déposent une déclaration d'acquisition
+d'entreprise dans un délai de soixante-quinze (75) jours à compter de la date d'acquisition.
+Une acquisition est jugée significative sur la base des critères suivants :
+3 C’est un changement intervenu dans le contrôle, le capital, les activités commerciales, l’exploitation ou généralement les affaires d’un émetteur
+pouvant influencer les décisions d’achat et de détention de ses titres, et donc avoir un impact sur la valeur desdits titres.
+
+
+
+[49]
+a) le critère de l'actif: la quote-part de l'émetteur dans l'actif consolidé de l'entreprise ou
+des entreprises reliées, le cas échéant, excède 20% de l'actif consolidé de l'émetteur
+calculé au moyen de ses états financiers annuels audités et de ceux de l'entreprise ou des
+entreprises reliées portant sur le dernier exercice de chaque entité terminé avant la date
+d'acquisition;
+b) le critère des investissements: les investissements consolidés de l'émetteur dans
+l'entreprise ou les entreprises reliées et les avances qu'il leur consent excèdent, à la date
+d'acquisition, 20% de l'actif consolidé de l'émetteur assujetti à la date de clôture de son
+dernier exercice terminé avant la date d'acquisition, compte non tenu des investissements
+qu'il a pu faire dans l'entreprise ou les entreprises reliées et des avances qu'il leur a
+consenties à cette date;
+c) le critère du résultat: la quote-part de l'émetteur dans le résultat visé consolidé de
+l'entreprise ou des entreprises reliées excède 20% du résultat visé consolidé de l'émetteur
+assujetti calculé au moyen de ses états financiers annuels audités et de ceux de l'entreprise
+ou des entreprises reliées portant sur le dernier exercice de chaque entité terminé avant
+la date d'acquisition.
+L’information relative aux éventuelles condamnations qui pourraient être prononcées à
+l’encontre d’un administrateur de l’émetteur doit être communiquée au public.
+Par ailleurs, lorsqu’un administrateur fait l’objet d’une inculpation ou, plus généralement, se
+trouve impliqué dans une affaire judiciaire, l’émetteur apprécie la nécessité ou l’opportunité
+d’une communication au public au regard de la gravité des faits en cause.

@@ -1,0 +1,62 @@
+# Extraction — circulaire BRH n° 120 (.docx du Cabinet Salès)
+
+- paragraphes non vides : 761 · lignes du corps : 764 · caractères : 124839
+- articles (pointAnchors) : 45 (art-1 … art-45)
+- entrées de sommaire : 48 (niveau 1 : 12 · niveau 2 : 15 · niveau 3 : 21)
+- notes de bas de page replacées après leur appel : 3
+- reversions (le fac-similé fait foi) :
+  - le plus tôt → le plut tôt : 1 occurrence(s)
+  - établi → établit : 1 occurrence(s)
+  - ne nuit pas → ne suit pas : 1 occurrence(s)
+  - quelle qu’en → qu’elle qu’en : 2 occurrence(s)
+- sha256 _body.txt : e0a881fa76fa9d088573e1e9ee39a7ed4c6d753bb5dcbd40d5d48408bf6e7e31
+
+## Sommaire
+- sec-1 · SECTION I
+- sec-2 · SECTION II - EMETTEURS
+- sec-3 · SECTION III - VERIFICATEUR INDEPENDANT
+- sec-4 · SECTION IV – DEMANDE DE VISA DU PROSPECTUS
+- sec-5 · SECTION V - DEROULEMENT DE L’OFFRE
+- sec-6 · SECTION VI – OBLIGATIONS GENERALES DU PRESTATAIRE
+- sec-7 · SECTION VII – GESTION DES TITRES EMIS
+- sec-8 · SECTION VIII - RAPPORT – SANCTIONS – DISPOSITIONS TRANSITOIRES
+  - sec-9 · Liste des Annexes
+- sec-10 · ANNEXE I
+  - sec-11 · SCHEMA DU PROSPECTUS
+  - sec-12 · Mentions Obligatoires sur la page de couverture
+  - sec-13 · Résumé
+  - sec-14 · Responsables du prospectus
+  - sec-15 · 1. Renseignements concernant l'opération
+    - sec-16 · A. Emission de titres de capital
+    - sec-17 · 1.1 Renseignements relatifs à l’émission
+    - sec-18 · 1.2. Renseignements divers sur l'émission
+    - sec-19 · 1.3. Renseignements généraux sur les titres financiers émis
+    - sec-20 · B. Emission de titres de créance
+    - sec-21 · 1.4. Caractéristiques des titres émis.
+  - sec-22 · 2. Renseignements généraux
+    - sec-23 · 2.1 Renseignements à caractère général concernant l'émetteur et son capital
+    - sec-24 · 2.2 Renseignements à caractère général concernant le capital
+  - sec-25 · 3. Patrimoine - Situation financière - Résultats
+  - sec-26 · 4. Organes d'administration et de direction
+- sec-27 · ANNEXE II
+  - sec-28 · SCHEMA DU PROSPECTUS ABREGE
+- sec-29 · ANNEXE III
+  - sec-30 · SCHÉMA DU MÉMORANDUM D’INFORMATION AUX INVESTISSEURS (MII)
+    - sec-31 · I. Mentions Obligatoires sur la page de couverture
+    - sec-32 · II. Présentation générale de l’émetteur
+    - sec-33 · III. Renseignements généraux sur l'opération
+    - sec-34 · IV. Renseignements à caractère général sur l'émetteur et son capital
+    - sec-35 · V. Renseignements concernant les activités de l'émetteur
+    - sec-36 · VI. États financiers audités sur les 3 dernières années et rapport du vérificateur indépendant avec les indications suivantes
+    - sec-37 · VII. Renseignements spécifiques à l’émission d’actions
+    - sec-38 · VIII. Renseignements spécifiques à l’émission d’obligations
+    - sec-39 · 1. Conditions générales de l’emprunt.
+    - sec-40 · 2. Caractéristiques particulières des obligations émises.
+- sec-41 · ANNEXE IV
+  - sec-42 · OBLIGATIONS D’INFORMATION CONTINUE DES EMETTEURS DE TITRES FINANCIERS
+  - sec-43 · 1. Caractéristiques générales de l’information financière
+  - sec-44 · 2. Documents d’information périodique
+    - sec-45 · 2.1 Etats financiers
+    - sec-46 · 2.2 Rapport annuel
+  - sec-47 · 3. Documents d’information occasionnelle
+    - sec-48 · 3.1 Déclaration de changement important

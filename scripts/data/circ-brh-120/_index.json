@@ -1,0 +1,905 @@
+[
+ {
+  "subject": "Acquisition d’entreprise financée par le placement (états financiers de la cible)",
+  "ctRefs": [
+   "10"
+  ]
+ },
+ {
+  "subject": "Acquisition significative — déclaration (75 jours) et critères (20 %)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe IV, 3.1 — Déclaration de changement important",
+    "anchor": "sec-48"
+   }
+  ]
+ },
+ {
+  "subject": "Actions (ordinaires, privilégiées) — définition et admission",
+  "ctRefs": [
+   "2",
+   "3"
+  ]
+ },
+ {
+  "subject": "Actions — renseignements relatifs à l’émission (prospectus)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe I — Schéma du prospectus",
+    "anchor": "sec-10"
+   },
+   {
+    "label": "Annexe I, A — Émission de titres de capital",
+    "anchor": "sec-16"
+   },
+   {
+    "label": "Annexe I, 1.1 — Renseignements relatifs à l’émission",
+    "anchor": "sec-17"
+   }
+  ]
+ },
+ {
+  "subject": "Actions — renseignements spécifiques (MII)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe III, VII — Renseignements spécifiques à l’émission d’actions",
+    "anchor": "sec-37"
+   }
+  ]
+ },
+ {
+  "subject": "Analyste financier — qualification",
+  "ctRefs": [
+   "30"
+  ]
+ },
+ {
+  "subject": "Appel public à l’épargne — définition",
+  "ctRefs": [
+   "2"
+  ]
+ },
+ {
+  "subject": "Appel public à l’épargne — obligation d’un prospectus visé",
+  "ctRefs": [
+   "8",
+   "9"
+  ]
+ },
+ {
+  "subject": "Asymétrie d’information",
+  "ctRefs": [
+   "2",
+   "36"
+  ]
+ },
+ {
+  "subject": "Avis de souscription — résultat de l’opération",
+  "ctRefs": [
+   "27"
+  ]
+ },
+ {
+  "subject": "Avis d’opération (compte titres)",
+  "ctRefs": [
+   "40"
+  ]
+ },
+ {
+  "subject": "Bénéficiaire effectif — identification",
+  "ctRefs": [
+   "33"
+  ]
+ },
+ {
+  "subject": "Bulletin de souscription",
+  "ctRefs": [
+   "24"
+  ]
+ },
+ {
+  "subject": "Capacité financière du souscripteur — garantie financière",
+  "ctRefs": [
+   "23"
+  ]
+ },
+ {
+  "subject": "Capital social minimum de l’émetteur (25 000 000 gourdes)",
+  "ctRefs": [
+   "6"
+  ]
+ },
+ {
+  "subject": "Carte professionnelle — disposition transitoire (30 jours)",
+  "ctRefs": [
+   "44"
+  ]
+ },
+ {
+  "subject": "Casier judiciaire et certificat de police des administrateurs",
+  "ctRefs": [
+   "17"
+  ]
+ },
+ {
+  "subject": "Certificat (titres sous forme de) — confirmation par l’émetteur",
+  "ctRefs": [
+   "29"
+  ]
+ },
+ {
+  "subject": "Changement important — définition et déclaration",
+  "ctRefs": [
+   "2",
+   "12"
+  ],
+  "secRefs": [
+   {
+    "label": "Annexe IV, 3.1 — Déclaration de changement important",
+    "anchor": "sec-48"
+   }
+  ]
+ },
+ {
+  "subject": "Chef de file (syndicat de placement)",
+  "ctRefs": [
+   "2",
+   "28"
+  ]
+ },
+ {
+  "subject": "Clôture de la période de souscription — anticipée, prolongation",
+  "ctRefs": [
+   "26"
+  ]
+ },
+ {
+  "subject": "Comptabilité des titres — partie double, solde créditeur",
+  "ctRefs": [
+   "39"
+  ]
+ },
+ {
+  "subject": "Compte espèces — définition, provision",
+  "ctRefs": [
+   "2",
+   "39"
+  ]
+ },
+ {
+  "subject": "Compte titres — définition, ouverture, convention",
+  "ctRefs": [
+   "2",
+   "25",
+   "38"
+  ]
+ },
+ {
+  "subject": "Conseiller en placement — définition, qualification",
+  "ctRefs": [
+   "2",
+   "30"
+  ]
+ },
+ {
+  "subject": "Conservation des documents (5 ans) — archivage",
+  "ctRefs": [
+   "41"
+  ]
+ },
+ {
+  "subject": "Contrat de services financiers (émetteur – Prestataire)",
+  "ctRefs": [
+   "12",
+   "17"
+  ]
+ },
+ {
+  "subject": "Contrôle d’une société par une autre — états financiers consolidés",
+  "ctRefs": [
+   "10"
+  ]
+ },
+ {
+  "subject": "Couverture des engagements (titres de créance, dividendes prioritaires)",
+  "ctRefs": [
+   "10"
+  ]
+ },
+ {
+  "subject": "Définitions",
+  "ctRefs": [
+   "2"
+  ]
+ },
+ {
+  "subject": "Délit d’initié — information privilégiée, initié",
+  "ctRefs": [
+   "2",
+   "32"
+  ]
+ },
+ {
+  "subject": "Démarchage — définition",
+  "ctRefs": [
+   "2"
+  ]
+ },
+ {
+  "subject": "Dématérialisation des titres",
+  "ctRefs": [
+   "2"
+  ]
+ },
+ {
+  "subject": "Devoir de conseil — obligation de conseil et de mise en garde",
+  "ctRefs": [
+   "2",
+   "36"
+  ]
+ },
+ {
+  "subject": "Diffusion du prospectus",
+  "ctRefs": [
+   "2",
+   "20"
+  ]
+ },
+ {
+  "subject": "Diligences professionnelles du Prestataire — déclaration signée",
+  "ctRefs": [
+   "8",
+   "18"
+  ]
+ },
+ {
+  "subject": "Disposition transitoire",
+  "ctRefs": [
+   "44"
+  ]
+ },
+ {
+  "subject": "Dividendes et coupons — paiement, retard",
+  "ctRefs": [
+   "40"
+  ]
+ },
+ {
+  "subject": "Droit de rétractation ou de renonciation (publicité)",
+  "ctRefs": [
+   "20"
+  ]
+ },
+ {
+  "subject": "Droit préférentiel de souscription — rompus",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe I, 1.1 — Renseignements relatifs à l’émission",
+    "anchor": "sec-17"
+   },
+   {
+    "label": "Annexe III, VII — Renseignements spécifiques à l’émission d’actions",
+    "anchor": "sec-37"
+   }
+  ]
+ },
+ {
+  "subject": "Égalité de traitement des souscripteurs d’une même catégorie",
+  "ctRefs": [
+   "36"
+  ]
+ },
+ {
+  "subject": "Éligibilité au statut d’émetteur — conditions (5 ans, capital libéré, seuil de rentabilité)",
+  "ctRefs": [
+   "6"
+  ]
+ },
+ {
+  "subject": "Émetteur — définition, responsabilité",
+  "ctRefs": [
+   "2",
+   "13"
+  ]
+ },
+ {
+  "subject": "Émission — définition, titres admis",
+  "ctRefs": [
+   "2",
+   "3"
+  ]
+ },
+ {
+  "subject": "Entrée en vigueur (14 juin 2021)",
+  "ctRefs": [
+   "45"
+  ]
+ },
+ {
+  "subject": "États financiers — audités, consolidés, pro-forma, périodiques",
+  "ctRefs": [
+   "10",
+   "17"
+  ],
+  "secRefs": [
+   {
+    "label": "Annexe III, VI — États financiers audités sur les 3 dernières années",
+    "anchor": "sec-36"
+   },
+   {
+    "label": "Annexe IV, 2.1 — États financiers",
+    "anchor": "sec-45"
+   }
+  ]
+ },
+ {
+  "subject": "Fonds propres réglementaires — titres les composant",
+  "ctRefs": [
+   "3"
+  ]
+ },
+ {
+  "subject": "Garant et contrat de garantie (emprunt garanti)",
+  "ctRefs": [
+   "10",
+   "17"
+  ]
+ },
+ {
+  "subject": "Garde des titres — définition, ségrégation, entité tierce agréée",
+  "ctRefs": [
+   "2",
+   "38"
+  ]
+ },
+ {
+  "subject": "Gestion de portefeuille (mandat) — souscription pour compte du client",
+  "ctRefs": [
+   "22"
+  ]
+ },
+ {
+  "subject": "Groupe de sociétés — informations supplémentaires",
+  "ctRefs": [
+   "10"
+  ]
+ },
+ {
+  "subject": "Identification du client — mesures de vigilance",
+  "ctRefs": [
+   "25",
+   "33"
+  ]
+ },
+ {
+  "subject": "Information continue — obligation, documents périodiques et occasionnels",
+  "ctRefs": [
+   "7",
+   "14"
+  ],
+  "secRefs": [
+   {
+    "label": "Annexe IV — Obligations d’information continue des émetteurs",
+    "anchor": "sec-41"
+   },
+   {
+    "label": "Annexe IV — Obligations d’information continue des émetteurs de titres financiers (titre)",
+    "anchor": "sec-42"
+   },
+   {
+    "label": "Annexe IV, 1 — Caractéristiques générales de l’information financière",
+    "anchor": "sec-43"
+   },
+   {
+    "label": "Annexe IV, 2 — Documents d’information périodique",
+    "anchor": "sec-44"
+   },
+   {
+    "label": "Annexe IV, 3 — Documents d’information occasionnelle",
+    "anchor": "sec-47"
+   }
+  ]
+ },
+ {
+  "subject": "Information exacte, précise, sincère — définitions, qualité de l’information",
+  "ctRefs": [
+   "2",
+   "9"
+  ]
+ },
+ {
+  "subject": "Information privilégiée — liste de surveillance, liste d’interdiction",
+  "ctRefs": [
+   "2",
+   "32"
+  ]
+ },
+ {
+  "subject": "Infrastructures technologiques du Prestataire",
+  "ctRefs": [
+   "31"
+  ]
+ },
+ {
+  "subject": "Institutions financières émettant leurs propres titres",
+  "ctRefs": [
+   "14",
+   "17",
+   "20"
+  ]
+ },
+ {
+  "subject": "Interruption du placement ordonnée par la BRH",
+  "ctRefs": [
+   "26"
+  ]
+ },
+ {
+  "subject": "Investisseur averti / non averti — définitions, catégories, profil",
+  "ctRefs": [
+   "2",
+   "21",
+   "34"
+  ]
+ },
+ {
+  "subject": "Lettre de fin de travaux du vérificateur indépendant",
+  "ctRefs": [
+   "13",
+   "16"
+  ]
+ },
+ {
+  "subject": "Liste des annexes",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Liste des Annexes",
+    "anchor": "sec-9"
+   }
+  ]
+ },
+ {
+  "subject": "Loi du 14 mai 2012 sur les banques — fondement (art. 4, 5, 7, 109, 161, 171, 191, 199)",
+  "ctRefs": [
+   "1",
+   "19"
+  ]
+ },
+ {
+  "subject": "Marché financier, marché primaire, marché secondaire — définitions",
+  "ctRefs": [
+   "2"
+  ]
+ },
+ {
+  "subject": "Mémorandum d’information aux investisseurs (MII) — définition, contenu, dépôt",
+  "ctRefs": [
+   "2",
+   "7"
+  ],
+  "secRefs": [
+   {
+    "label": "Annexe III — Schéma du mémorandum d’information aux investisseurs (MII)",
+    "anchor": "sec-29"
+   },
+   {
+    "label": "Annexe III — Schéma du MII",
+    "anchor": "sec-30"
+   }
+  ]
+ },
+ {
+  "subject": "Mention obligatoire du visa sur la page de couverture",
+  "ctRefs": [
+   "19",
+   "20"
+  ],
+  "secRefs": [
+   {
+    "label": "Annexe I — Mentions obligatoires sur la page de couverture",
+    "anchor": "sec-12"
+   },
+   {
+    "label": "Annexe III, I — Mentions obligatoires sur la page de couverture",
+    "anchor": "sec-31"
+   }
+  ]
+ },
+ {
+  "subject": "Négociation des titres — transfert, confirmation des transactions",
+  "ctRefs": [
+   "29"
+  ]
+ },
+ {
+  "subject": "Objet de la circulaire — triple objectif",
+  "ctRefs": [
+   "1"
+  ]
+ },
+ {
+  "subject": "Obligation de s’informer — obligation de mise en garde",
+  "ctRefs": [
+   "2",
+   "36"
+  ]
+ },
+ {
+  "subject": "Obligations (titres de créance) — définition, admission, caractéristiques",
+  "ctRefs": [
+   "2",
+   "3"
+  ],
+  "secRefs": [
+   {
+    "label": "Annexe I, B — Émission de titres de créance",
+    "anchor": "sec-20"
+   },
+   {
+    "label": "Annexe I, 1.4 — Caractéristiques des titres émis",
+    "anchor": "sec-21"
+   },
+   {
+    "label": "Annexe III, VIII — Renseignements spécifiques à l’émission d’obligations",
+    "anchor": "sec-38"
+   }
+  ]
+ },
+ {
+  "subject": "Offre au public — définition, date d’ouverture et de clôture",
+  "ctRefs": [
+   "2",
+   "26"
+  ]
+ },
+ {
+  "subject": "Opérations sur titres — définition, avis, extrait de compte",
+  "ctRefs": [
+   "2",
+   "40"
+  ]
+ },
+ {
+  "subject": "Organes d’administration et de direction de l’émetteur",
+  "ctRefs": [
+   "6",
+   "17"
+  ],
+  "secRefs": [
+   {
+    "label": "Annexe I, 4 — Organes d’administration et de direction",
+    "anchor": "sec-26"
+   }
+  ]
+ },
+ {
+  "subject": "Patrimoine, situation financière, résultats (prospectus)",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe I, 3 — Patrimoine — Situation financière — Résultats",
+    "anchor": "sec-25"
+   }
+  ]
+ },
+ {
+  "subject": "Pénalité de 50 000 gourdes par jour — sanctions",
+  "ctRefs": [
+   "43"
+  ]
+ },
+ {
+  "subject": "Période de souscription — durée (3 mois), prolongation",
+  "ctRefs": [
+   "26"
+  ]
+ },
+ {
+  "subject": "Placement restreint — définition, régime, Registre des Placements Restreints",
+  "ctRefs": [
+   "2",
+   "7"
+  ]
+ },
+ {
+  "subject": "Placement — définition",
+  "ctRefs": [
+   "2"
+  ]
+ },
+ {
+  "subject": "Plaintes — procédure de traitement",
+  "ctRefs": [
+   "37"
+  ]
+ },
+ {
+  "subject": "Politiques et procédures écrites du Prestataire",
+  "ctRefs": [
+   "31",
+   "35"
+  ]
+ },
+ {
+  "subject": "Prestataire de service d’investissement — définition, obligations générales, responsabilité",
+  "ctRefs": [
+   "2",
+   "18",
+   "30",
+   "31",
+   "35",
+   "36"
+  ]
+ },
+ {
+  "subject": "Principaux acteurs du marché",
+  "ctRefs": [
+   "5"
+  ]
+ },
+ {
+  "subject": "Prise ferme — définition, placement ferme",
+  "ctRefs": [
+   "2",
+   "28"
+  ]
+ },
+ {
+  "subject": "Procuration — souscription pour compte de tiers",
+  "ctRefs": [
+   "22",
+   "25"
+  ]
+ },
+ {
+  "subject": "Profil de risques de l’investisseur — formulaire de reconnaissance des risques",
+  "ctRefs": [
+   "34"
+  ]
+ },
+ {
+  "subject": "Prospectus abrégé — cas, exclusions, dépôt (30 jours)",
+  "ctRefs": [
+   "11"
+  ],
+  "secRefs": [
+   {
+    "label": "Annexe II — Schéma du prospectus abrégé",
+    "anchor": "sec-27"
+   },
+   {
+    "label": "Annexe II — Schéma du prospectus abrégé",
+    "anchor": "sec-28"
+   }
+  ]
+ },
+ {
+  "subject": "Prospectus visé — définition, visa",
+  "ctRefs": [
+   "2",
+   "8",
+   "19"
+  ]
+ },
+ {
+  "subject": "Prospectus — définition, contenu, signature",
+  "ctRefs": [
+   "2",
+   "4",
+   "9"
+  ],
+  "secRefs": [
+   {
+    "label": "Annexe I — Schéma du prospectus",
+    "anchor": "sec-10"
+   },
+   {
+    "label": "Annexe I — Schéma du prospectus",
+    "anchor": "sec-11"
+   },
+   {
+    "label": "Annexe I — Résumé",
+    "anchor": "sec-13"
+   },
+   {
+    "label": "Annexe I — Responsables du prospectus",
+    "anchor": "sec-14"
+   },
+   {
+    "label": "Annexe I, 1 — Renseignements concernant l’opération",
+    "anchor": "sec-15"
+   },
+   {
+    "label": "Annexe I, 2 — Renseignements généraux",
+    "anchor": "sec-22"
+   }
+  ]
+ },
+ {
+  "subject": "Publicité — définition, règles, résultats passés, dispositions fiscales",
+  "ctRefs": [
+   "2",
+   "20"
+  ]
+ },
+ {
+  "subject": "Rapport annuel de l’émetteur",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Annexe IV, 2.2 — Rapport annuel",
+    "anchor": "sec-46"
+   }
+  ]
+ },
+ {
+  "subject": "Rapport à la BRH — résultats de l’opération (10 jours)",
+  "ctRefs": [
+   "27",
+   "42"
+  ]
+ },
+ {
+  "subject": "Responsabilité des informations soumises — signataires du prospectus",
+  "ctRefs": [
+   "4",
+   "13",
+   "16",
+   "18"
+  ]
+ },
+ {
+  "subject": "Responsabilité pénale (fausse information)",
+  "ctRefs": [
+   "4",
+   "16",
+   "36"
+  ]
+ },
+ {
+  "subject": "Restitution des titres confiés",
+  "ctRefs": [
+   "40"
+  ]
+ },
+ {
+  "subject": "Retrait de l’agrément — archives et transfert des comptes",
+  "ctRefs": [
+   "41"
+  ]
+ },
+ {
+  "subject": "Sanctions",
+  "ctRefs": [
+   "43"
+  ]
+ },
+ {
+  "subject": "Sections de la circulaire",
+  "ctRefs": [],
+  "secRefs": [
+   {
+    "label": "Section I — Généralités",
+    "anchor": "sec-1"
+   },
+   {
+    "label": "Section II — Émetteurs",
+    "anchor": "sec-2"
+   },
+   {
+    "label": "Section III — Vérificateur indépendant",
+    "anchor": "sec-3"
+   },
+   {
+    "label": "Section IV — Demande de visa du prospectus",
+    "anchor": "sec-4"
+   },
+   {
+    "label": "Section V — Déroulement de l’offre",
+    "anchor": "sec-5"
+   },
+   {
+    "label": "Section VI — Obligations générales du Prestataire",
+    "anchor": "sec-6"
+   },
+   {
+    "label": "Section VII — Gestion des titres émis",
+    "anchor": "sec-7"
+   },
+   {
+    "label": "Section VIII — Rapport, sanctions, dispositions transitoires",
+    "anchor": "sec-8"
+   }
+  ]
+ },
+ {
+  "subject": "Ségrégation des titres des clients",
+  "ctRefs": [
+   "38"
+  ]
+ },
+ {
+  "subject": "Sociétés anonymes — seuls émetteurs admis",
+  "ctRefs": [
+   "2",
+   "6"
+  ]
+ },
+ {
+  "subject": "Sociétés de promotion des investissements — assujetties",
+  "ctRefs": [
+   "2",
+   "28"
+  ]
+ },
+ {
+  "subject": "Souscripteur — définition, catégories, identification",
+  "ctRefs": [
+   "2",
+   "21"
+  ]
+ },
+ {
+  "subject": "Souscription — ordres, traitement, irrévocabilité, interdiction des souscriptions multiples",
+  "ctRefs": [
+   "24",
+   "26"
+  ]
+ },
+ {
+  "subject": "Syndicat de placement — définition, chef de file, institutions intermédiaires",
+  "ctRefs": [
+   "2",
+   "28"
+  ]
+ },
+ {
+  "subject": "Titre financier — définition",
+  "ctRefs": [
+   "2"
+  ]
+ },
+ {
+  "subject": "Titres admis à l’émission — nominatifs seulement",
+  "ctRefs": [
+   "3"
+  ]
+ },
+ {
+  "subject": "Titres publics — exclusion",
+  "ctRefs": [
+   "1"
+  ]
+ },
+ {
+  "subject": "Vérificateur indépendant — qualification, incompatibilités, responsabilité",
+  "ctRefs": [
+   "15",
+   "16"
+  ]
+ },
+ {
+  "subject": "Vigilance vis-à-vis de la clientèle (« due diligence »)",
+  "ctRefs": [
+   "33"
+  ]
+ },
+ {
+  "subject": "Visa du prospectus — demande, délai (30 jours), documents, limitation de responsabilité de la BRH",
+  "ctRefs": [
+   "17",
+   "19"
+  ]
+ },
+ {
+  "subject": "Visa — définition",
+  "ctRefs": [
+   "2"
+  ]
+ }
+]
