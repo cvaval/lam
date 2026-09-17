@@ -88,6 +88,13 @@ export function UsersManager({
                       {u.org}
                     </p>
                   )}
+                  {/* Le journal des connexions de CE compte (master admin). Libellé local :
+                      les fichiers de locale appartiennent à une autre session. */}
+                  {mode === 'all' && (
+                    <a href={`/${locale}/admin/connexions?compte=${encodeURIComponent(u.id)}`} className="mt-0.5 inline-block text-[11px] text-chabon hover:underline">
+                      Connexions →
+                    </a>
+                  )}
                 </td>
                 <td className="px-4 py-3 text-grafit">
                   {mode === 'pending' ? (

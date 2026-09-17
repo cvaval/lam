@@ -1,6 +1,6 @@
 import { dictFor } from '@/lib/i18n/server'
 import { requireAdmin } from '@/lib/auth/guard'
-import { formatDate } from '@/lib/i18n/format'
+import { formatInstant } from '@/lib/i18n/format'
 import { prisma } from '@/lib/db'
 
 const ACTION_COLOR: Record<string, string> = {
@@ -26,7 +26,12 @@ export default async function AdminLogsPage({ params }: { params: { locale: stri
 
   return (
     <div className="space-y-5">
-      <h1 className="text-xl font-semibold text-ank">{t.admin.logs}</h1>
+      <div>
+        <h1 className="text-xl font-semibold text-ank">{t.admin.logs}</h1>
+        {/* Un événement est un INSTANT : heure de Port-au-Prince, nommée une fois. La page
+            affichait l'UTC sans le dire — 19 h 49 pour une connexion faite à 15 h 49. */}
+        <p className="mt-1 font-mono text-[11px] uppercase tracking-wide text-grafit">Heures de Port-au-Prince · Port-au-Prince time</p>
+      </div>
       <div className="overflow-hidden rounded-2xl border border-chabon/10 bg-white">
         <table className="w-full text-sm">
           <thead>
@@ -47,7 +52,7 @@ export default async function AdminLogsPage({ params }: { params: { locale: stri
             )}
             {logs.map((l) => (
               <tr key={l.id} className="hover:bg-koton/50">
-                <td className="px-4 py-2.5 font-mono text-xs text-ank/80">{formatDate(locale, l.createdAt, { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}</td>
+                <td className="px-4 py-2.5 font-mono text-xs text-ank/80">{formatInstant(locale, l.createdAt, { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}</td>
                 <td className={`px-4 py-2.5 font-mono text-xs font-medium ${ACTION_COLOR[l.action] ?? 'text-grafit'}`}>
                   {l.action}
                 </td>

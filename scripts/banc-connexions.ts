@@ -290,8 +290,11 @@ async function lotC(ctx: Awaited<ReturnType<typeof lotA>>, b: Awaited<ReturnType
   const adminUser = await prisma.user.findUnique({ where: { email: adminEmail }, select: { id: true } })
   const al = await prisma.auditLog.count({ where: { action: 'SESSION_CLOSED_BY_ADMIN', actorId: adminUser!.id, targetId: cible!.id } })
   check('C1 journal SESSION_CLOSED_BY_ADMIN par l’admin', al === 1, String(al))
-  const csv = await admin.get('/api/admin/connexions/export?jours=7')
-  check('C2 export CSV : 200, text/csv, BOM', csv.status === 200 && /text\/csv/.test(csv.headers.get('content-type') ?? '') && csv.text.charCodeAt(0) === 0xfeff, `${csv.status} ${csv.headers.get('content-type')}`)
+  // `res.text()` retire le BOM (spécification Fetch) : on lit les OCTETS pour le vérifier.
+  const brut = await fetch(BASE + '/api/admin/connexions/export?jours=7', { headers: { cookie: admin.header(), 'user-agent': admin.ua, 'x-forwarded-for': admin.ip } })
+  const octets = new Uint8Array(await brut.arrayBuffer())
+  const csv = { status: brut.status, headers: brut.headers, text: new TextDecoder().decode(octets) }
+  check('C2 export CSV : 200, text/csv, BOM', csv.status === 200 && /text\/csv/.test(csv.headers.get('content-type') ?? '') && octets[0] === 0xef && octets[1] === 0xbb && octets[2] === 0xbf, `${csv.status} ${csv.headers.get('content-type')} ${octets.slice(0, 3).join(',')}`)
   check('C2 l’export porte l’appareil et le compte', csv.text.includes('Chrome 153 sur Windows') && csv.text.includes(email), '')
   const exp = await prisma.auditLog.count({ where: { action: 'EXPORT', actorId: adminUser!.id } })
   check('C2 l’export est journalisé', exp >= 1, String(exp))

@@ -102,3 +102,32 @@ describe('le navigateur évincé apprend pourquoi — et rien de plus', () => {
     expect(idle).not.toMatch(/timeout=1/)
   })
 })
+
+describe('le journal du master admin — deux gardes par écran, heures de Port-au-Prince', () => {
+  it('la page /admin/connexions est gardée par requireAdmin, ses routes par requireAdminApi', () => {
+    expect(readFileSync('src/app/[locale]/admin/connexions/page.tsx', 'utf8')).toMatch(/await requireAdmin\(locale\)/)
+    for (const r of ['close', 'export']) {
+      const src = readFileSync(`src/app/api/admin/connexions/${r}/route.ts`, 'utf8')
+      expect(src, r).toMatch(/await requireAdminApi\(\)/)
+      expect(src, r).toMatch(/if \(!admin\) return apiError\('forbidden', 403\)/)
+    }
+  })
+  it('les écrans d’instants n’emploient jamais formatDate (UTC)', () => {
+    for (const f of ['src/app/[locale]/admin/connexions/page.tsx', 'src/app/[locale]/admin/logs/page.tsx', 'src/lib/admin/connexions.ts', 'src/components/AvisSession.tsx']) {
+      const src = readFileSync(f, 'utf8')
+      expect(src, f).toMatch(/formatInstant/)
+      expect(src, f).not.toMatch(/\bformatDate\(/)
+    }
+  })
+  it('la fermeture par l’admin se signe : SESSION_CLOSED_BY_ADMIN avec l’admin en acteur', () => {
+    const src = readFileSync('src/app/api/admin/connexions/close/route.ts', 'utf8')
+    expect(src).toMatch(/closeSession\(cible\.id, 'ADMIN'\)/)
+    expect(src).toMatch(/action: 'SESSION_CLOSED_BY_ADMIN', actorId: admin\.id, targetType: 'SESSION', targetId: cible\.id/)
+  })
+  it('l’export est borné et journalisé', () => {
+    const src = readFileSync('src/app/api/admin/connexions/export/route.ts', 'utf8')
+    expect(src).toMatch(/lignes\.length < PAGE_MAX \* PAR_PAGE/)
+    expect(src).toMatch(/action: 'EXPORT'/)
+    expect(src).toMatch(/guard\(/)
+  })
+})
