@@ -131,3 +131,34 @@ describe('le journal du master admin — deux gardes par écran, heures de Port-
     expect(src).toMatch(/guard\(/)
   })
 })
+
+describe('la vue d’ensemble : chaque chiffre est une porte', () => {
+  const vue = readFileSync('src/app/[locale]/admin/page.tsx', 'utf8')
+  it('les quatre cartes sont des liens, vers la liste qu’elles résument', () => {
+    expect(vue).toMatch(/href: `\/\$\{locale\}\/admin\/users`/)
+    expect(vue).toMatch(/href: `\/\$\{locale\}\/admin\/recherches`/)
+    expect(vue).toMatch(/href: `\/\$\{locale\}\/admin\/logs\?action=SCRAPING_ALERT/)
+    expect(vue).toMatch(/href: '#comptes-en-attente'/)
+    expect(vue).toMatch(/id="comptes-en-attente"/)
+  })
+  it('« aujourd’hui » est la journée de Port-au-Prince, pas celle du serveur', () => {
+    expect(vue).toMatch(/debutDeJourneeHaiti\(\)/)
+    expect(vue).not.toMatch(/setHours\(0, 0, 0, 0\)/)
+  })
+  it('les pages de détail sont gardées par requireAdmin et bornent leur pagination', () => {
+    for (const f of ['src/app/[locale]/admin/recherches/page.tsx', 'src/app/[locale]/admin/logs/page.tsx']) {
+      const src = readFileSync(f, 'utf8')
+      expect(src, f).toMatch(/await requireAdmin\(locale\)/)
+      expect(src, f).toMatch(/Math\.min\(page, PAGE_MAX\)/)
+      expect(src, f).toMatch(/formatInstant/)
+      expect(src, f).not.toMatch(/\bformatDate\(/)
+      expect(src, f).not.toMatch(/runSearch/)
+    }
+  })
+  it('les logs disent l’origine : appareil et détail, et le cumul des alertes par origine', () => {
+    const logs = readFileSync('src/app/[locale]/admin/logs/page.tsx', 'utf8')
+    expect(logs).toMatch(/decrireAppareil\(l\.userAgent\)/)
+    expect(logs).toMatch(/detailDe\(l\.action, l\.metaJson\)/)
+    expect(logs).toMatch(/action: 'SCRAPING_ALERT'/)
+  })
+})

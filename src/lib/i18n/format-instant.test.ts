@@ -35,3 +35,20 @@ describe('formatDate reste en UTC — une date juridique ne recule jamais d’un
     expect(formatDate('fr', new Date('2026-09-16T00:00:00Z'))).toBe('16 septembre 2026')
   })
 })
+
+import { debutDeJourneeHaiti } from './format'
+
+describe('debutDeJourneeHaiti — la journée de Port-au-Prince, pas celle de Vercel', () => {
+  it('à 01:30Z le 17 sept. (21:30 la veille à Port-au-Prince), la journée en cours est le 16 sept.', () => {
+    const d = debutDeJourneeHaiti(new Date('2026-09-17T01:30:00Z'))
+    expect(d.toISOString()).toBe('2026-09-16T04:00:00.000Z') // minuit UTC−4
+  })
+  it('en hiver (UTC−5), minuit local est 05:00Z', () => {
+    const d = debutDeJourneeHaiti(new Date('2026-01-16T12:00:00Z'))
+    expect(d.toISOString()).toBe('2026-01-16T05:00:00.000Z')
+  })
+  it('une seconde avant minuit local reste la journée précédente ; une seconde après, la suivante', () => {
+    expect(debutDeJourneeHaiti(new Date('2026-09-17T03:59:59Z')).toISOString()).toBe('2026-09-16T04:00:00.000Z')
+    expect(debutDeJourneeHaiti(new Date('2026-09-17T04:00:01Z')).toISOString()).toBe('2026-09-17T04:00:00.000Z')
+  })
+})

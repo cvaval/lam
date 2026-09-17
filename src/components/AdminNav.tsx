@@ -38,6 +38,7 @@ export function AdminNav({ locale, t, role, enAttente = 0 }: { locale: Locale; t
         { href: `/${locale}/admin`, label: t.admin.overview, exact: true, badge: enAttente },
         { href: `/${locale}/admin/users`, label: t.admin.users },
         { href: `/${locale}/admin/connexions`, label: 'Connexions' },
+        { href: `/${locale}/admin/recherches`, label: 'Recherches' },
         { href: `/${locale}/admin/promo`, label: t.admin.promoNav },
         { href: `/${locale}/admin/logs`, label: t.admin.logs },
       ]

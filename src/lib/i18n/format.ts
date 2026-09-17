@@ -46,3 +46,18 @@ export function formatInstant(
   if (isNaN(d.getTime())) return '—'
   return new Intl.DateTimeFormat(intlLocale(locale), { ...options, timeZone: FUSEAU_HAITI }).format(d)
 }
+
+/**
+ * Le DÉBUT DE LA JOURNÉE en cours à Port-au-Prince, comme instant UTC — pour compter « les
+ * recherches d'aujourd'hui ». Sur Vercel, `new Date().setHours(0,0,0,0)` donnait minuit UTC : à
+ * 20 h à Port-au-Prince, la journée était déjà « finie » et le compteur affichait 0 pendant que
+ * 92 recherches avaient été faites dans la journée (16 sept. 2026).
+ */
+export function debutDeJourneeHaiti(now = new Date()): Date {
+  const parts = new Intl.DateTimeFormat('en-CA', { timeZone: FUSEAU_HAITI, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23' }).formatToParts(now)
+  const v = (t: string) => Number(parts.find((p) => p.type === t)?.value)
+  // Minuit local = maintenant − (heures, minutes, secondes locales écoulées). Exact quel que
+  // soit le décalage (UTC−4 / UTC−5), puisqu'on soustrait le temps écoulé, pas un décalage supposé.
+  const ecoule = (v('hour') * 3600 + v('minute') * 60 + v('second')) * 1000 + now.getMilliseconds()
+  return new Date(now.getTime() - ecoule)
+}
