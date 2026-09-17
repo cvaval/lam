@@ -172,7 +172,27 @@ model Session {
   // sessions antérieures à la fonctionnalité → initialisé à la première requête.
   lastSeenAt        DateTime?
 
+  // ─── Journal des connexions (16 sept. 2026) ───
+  // Une session ne se SUPPRIME plus à sa fin : elle se FERME. La ligne devient le journal
+  // que le master admin lit (/admin/connexions) — début, appareil, fin, motif. Une ligne
+  // fermée n'authentifie plus jamais (`loadSession`), et la première fin fait foi
+  // (`closeSession` n'écrit que si `endedAt` est encore nul). Purge à 12 mois, promesse de
+  // la Politique de confidentialité § 8.5 (`/api/cron/sessions`).
+  /// Fin de la session. Null = ouverte.
+  endedAt           DateTime?
+  /// LOGOUT | IDLE | EXPIRED | EVICTED | ADMIN | SUSPENDED | TWOFA_RESET | PASSWORD_RESET
+  endReason         String?
+  /// EVICTED : la session qui l'a remplacée (règle « une seule connexion par compte »).
+  evictedById       String?
+  /// Appareil lisible, dérivé de l'UA À LA CRÉATION et jamais recalculé (l'UA brut reste
+  /// dans `userAgent` pour relire) — voir src/lib/auth/appareil.ts.
+  deviceLabel       String?
+  /// Chemin de vérification : TOTP | TRUSTED_DEVICE. Null tant que la 2FA n'est pas passée.
+  verifiedVia       String?
+
   @@index([userId])
+  @@index([userId, createdAt])
+  @@index([endedAt])
 }
 
 /// Appareil de confiance — fenêtre de 30 jours (cookie signé + empreinte) (§04, §09).

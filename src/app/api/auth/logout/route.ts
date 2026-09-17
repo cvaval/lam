@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { clearSessionCookie, deleteSessionByToken, getCurrentUser } from '@/lib/auth/session'
+import { clearSessionCookie, closeSessionByToken, getCurrentUser } from '@/lib/auth/session'
 import { audit } from '@/lib/auth/audit'
 
 export const runtime = 'nodejs'
@@ -14,9 +14,10 @@ export const runtime = 'nodejs'
  * le symptôme signalé par la cliente, et la redirection dure le rendrait systématique là où
  * la navigation douce passait à côté du garde.
  *
- * Le retrait du cookie ne dépend plus de rien. La suppression en base et la journalisation
- * sont du meilleur effort, et leur échec est rapporté au client sans remettre en cause la
- * déconnexion elle-même : du point de vue du navigateur, elle EST faite.
+ * Le retrait du cookie ne dépend plus de rien. La FERMETURE en base (la ligne reste, motif
+ * LOGOUT — c'est le journal des connexions) et la journalisation sont du meilleur effort, et
+ * leur échec est rapporté au client sans remettre en cause la déconnexion elle-même : du point
+ * de vue du navigateur, elle EST faite.
  */
 export async function POST() {
   const token = clearSessionCookie()
@@ -24,7 +25,7 @@ export async function POST() {
   let baseOk = true
   try {
     const user = await getCurrentUser()
-    if (token) await deleteSessionByToken(token)
+    if (token) await closeSessionByToken(token, 'LOGOUT')
     if (user) await audit({ action: 'LOGOUT', actorId: user.id })
   } catch (e) {
     baseOk = false

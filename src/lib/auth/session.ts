@@ -2,6 +2,9 @@ import { cache } from 'react'
 import { cookies } from 'next/headers'
 import { prisma } from '../db'
 import { randomToken } from './crypto'
+import { decrireAppareil } from './appareil'
+import { IDLE_BACKSTOP_MS, type EndReason } from './session-etat'
+export { IDLE_TIMEOUT_MINUTES, IDLE_WARNING_SECONDS, IDLE_BACKSTOP_MS, estVivante, type EndReason } from './session-etat'
 import { parseServices } from '../access'
 import { downgradeIfPlanExpired } from '../promo'
 import { SITWAYEN_MONTHLY_QUOTA } from '../quota'
@@ -11,24 +14,6 @@ const SESSION_COOKIE = 'lv_session'
 export const DEVICE_COOKIE = 'lv_device'
 const SESSION_TTL_DAYS = 7
 
-/**
- * Déconnexion automatique pour inactivité (§sécurité). Deux mécanismes de portées
- * distinctes — ne pas les confondre :
- *  - IDLE_TIMEOUT_MINUTES : la véritable déconnexion d'inactivité HUMAINE, appliquée
- *    côté NAVIGATEUR (minuteur précis basé sur l'activité réelle souris/clavier/
- *    défilement, voir IdleTimer), avec un avertissement avant la coupure.
- *  - Le SERVEUR applique un filet plus large (IDLE_BACKSTOP_MS) : il invalide la
- *    session après une absence TOTALE de requêtes (navigateur abandonné / onglet
- *    fermé / JS désactivé). Ce filet ne mesure PAS l'inactivité humaine : loadSession()
- *    rafraîchit lastSeenAt sur toute requête authentifiée — y compris un simple ping
- *    /api/auth/heartbeat. Un appelant (client légitime comme script automatisé) qui
- *    émet une requête à intervalle < IDLE_BACKSTOP_MS garde donc la session vivante
- *    indéfiniment ; la garantie se limite au cas « plus aucune requête n'arrive ».
- *    Le « +5 min » absorbe le délai entre les pings d'activité du client.
- */
-export const IDLE_TIMEOUT_MINUTES = 15
-export const IDLE_WARNING_SECONDS = 60
-const IDLE_BACKSTOP_MS = (IDLE_TIMEOUT_MINUTES + 5) * 60_000
 const TOUCH_THROTTLE_MS = 60_000
 
 function baseCookieOpts(maxAgeSeconds: number) {
@@ -96,17 +81,60 @@ function toSessionUser(u: {
   }
 }
 
+/**
+ * ─── JOURNAL DES CONNEXIONS (16 sept. 2026) ───────────────────────────────────────────────
+ * Une session ne se SUPPRIME plus à sa fin : elle se FERME (`endedAt`, `endReason`). La ligne
+ * devient le journal que le master admin lit — début, appareil, fin, motif. Six chemins
+ * ferment une session, et tous passent par `closeSession` / `closeAllSessions` : la
+ * déconnexion, l'inactivité et l'expiration (ici), la suspension et la réinitialisation 2FA
+ * (route admin), la réinitialisation du mot de passe (route reset). Un test de source
+ * (`sessions-source.test.ts`) veille à ce qu'aucun `session.delete` ne réapparaisse hors de la
+ * purge à 12 mois (`/api/cron/sessions`).
+ */
+/**
+ * Ferme une session OUVERTE. Sans effet si elle est déjà fermée : le `endedAt: null` du `where`
+ * garantit que la PREMIÈRE fin fait foi — une expiration découverte tard n'écrase jamais une
+ * déconnexion volontaire. `endedAt` peut être daté dans le passé (une expiration a eu lieu à
+ * `expiresAt`, pas au moment où on la constate).
+ */
+export async function closeSession(
+  id: string,
+  reason: EndReason,
+  extra: { evictedById?: string; endedAt?: Date } = {},
+): Promise<boolean> {
+  const r = await prisma.session.updateMany({
+    where: { id, endedAt: null },
+    data: { endedAt: extra.endedAt ?? new Date(), endReason: reason, evictedById: extra.evictedById ?? null },
+  })
+  return r.count === 1
+}
+
+/** Ferme toutes les sessions ouvertes d'un compte (suspension, réinitialisations, admin). */
+export async function closeAllSessions(userId: string, reason: EndReason, opts: { except?: string } = {}): Promise<number> {
+  const r = await prisma.session.updateMany({
+    where: { userId, endedAt: null, ...(opts.except ? { id: { not: opts.except } } : {}) },
+    data: { endedAt: new Date(), endReason: reason },
+  })
+  return r.count
+}
+
 export async function createSession(
   userId: string,
   opts: { ip?: string | null; userAgent?: string | null; twoFactorVerified: boolean },
 ) {
   const token = randomToken(32)
   const expiresAt = new Date(Date.now() + SESSION_TTL_DAYS * 86400_000)
+  // L'appareil se décrit À LA CRÉATION et ne se recalcule jamais ; non reconnu → null, et
+  // l'écran montre l'UA brut (règle : le journal ne dit que ce qu'il sait).
+  const appareil = decrireAppareil(opts.userAgent)
   const session = await prisma.session.create({
     data: {
       token,
       userId,
       twoFactorVerified: opts.twoFactorVerified,
+      // Vérifiée dès la création = passée par un appareil de confiance (service.ts).
+      verifiedVia: opts.twoFactorVerified ? 'TRUSTED_DEVICE' : null,
+      deviceLabel: appareil.reconnu ? appareil.libelle : null,
       ip: opts.ip ?? null,
       userAgent: opts.userAgent ?? null,
       expiresAt,
@@ -123,16 +151,19 @@ const loadSession = cache(async () => {
   if (!token) return null
   const session = await prisma.session.findUnique({ where: { token }, include: { user: true } })
   if (!session) return null
+  // Une ligne FERMÉE n'authentifie plus jamais — quel que soit son motif, et sans rien écrire.
+  if (session.endedAt) return null
   const now = Date.now()
   if (session.expiresAt.getTime() < now) {
-    await prisma.session.delete({ where: { id: session.id } }).catch(() => {})
+    // La fin réelle est l'expiration, pas sa découverte.
+    await closeSession(session.id, 'EXPIRED', { endedAt: session.expiresAt }).catch(() => {})
     return null
   }
   // Inactivité (filet serveur) : invalide après IDLE_BACKSTOP_MS sans aucune requête.
   // lastSeenAt absent (session créée avant la fonctionnalité) → initialisé, pas de coupure.
   const last = session.lastSeenAt?.getTime()
   if (last !== undefined && now - last > IDLE_BACKSTOP_MS) {
-    await prisma.session.delete({ where: { id: session.id } }).catch(() => {})
+    await closeSession(session.id, 'IDLE', { endedAt: new Date(last + IDLE_BACKSTOP_MS) }).catch(() => {})
     return null
   }
   // Marque l'activité (throttle : au plus une écriture par minute et par session).
@@ -165,7 +196,7 @@ export async function getPendingSession() {
 }
 
 export async function markTwoFactorVerified(sessionId: string) {
-  await prisma.session.update({ where: { id: sessionId }, data: { twoFactorVerified: true } })
+  await prisma.session.update({ where: { id: sessionId }, data: { twoFactorVerified: true, verifiedVia: 'TOTP' } })
 }
 
 /**
@@ -179,9 +210,9 @@ export function clearSessionCookie(): string | undefined {
   return token
 }
 
-/** Supprime la ligne de session. Sans effet si elle n'existe plus. */
-export async function deleteSessionByToken(token: string) {
-  await prisma.session.deleteMany({ where: { token } })
+/** Ferme la session que porte ce jeton (déconnexion). Sans effet si elle n'existe plus ou est déjà fermée. */
+export async function closeSessionByToken(token: string, reason: EndReason = 'LOGOUT') {
+  await prisma.session.updateMany({ where: { token, endedAt: null }, data: { endedAt: new Date(), endReason: reason } })
 }
 
 /**
@@ -196,7 +227,7 @@ export async function deleteSessionByToken(token: string) {
  */
 export async function destroyCurrentSession() {
   const token = clearSessionCookie()
-  if (token) await deleteSessionByToken(token)
+  if (token) await closeSessionByToken(token, 'LOGOUT')
 }
 
 export function deviceCookieOpts(days: number) {

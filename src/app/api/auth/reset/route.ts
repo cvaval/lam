@@ -5,6 +5,7 @@ import { prisma } from '@/lib/db'
 import { hashPassword } from '@/lib/auth/password'
 import { sha256Hex } from '@/lib/auth/crypto'
 import { revokeTrustedDevices } from '@/lib/auth/devices'
+import { closeAllSessions } from '@/lib/auth/session'
 import { audit } from '@/lib/auth/audit'
 import { getClientCtx } from '@/lib/auth/request'
 import { guard, LIMITS } from '@/lib/security/ratelimit'
@@ -43,7 +44,7 @@ export async function POST(req: NextRequest) {
   // Reprise du contrôle du compte (§04, audit) : une réinitialisation doit invalider TOUTES
   // les sessions existantes (y compris celles d'un éventuel intrus) et révoquer les appareils
   // de confiance — sinon le changement de mot de passe ne rend pas la main à la victime.
-  await prisma.session.deleteMany({ where: { userId: user.id } })
+  await closeAllSessions(user.id, 'PASSWORD_RESET')
   await revokeTrustedDevices(user.id)
   await audit({ action: 'PASSWORD_RESET', actorId: user.id, ip: ctx.ip, userAgent: ctx.userAgent })
   return NextResponse.json({ ok: true })

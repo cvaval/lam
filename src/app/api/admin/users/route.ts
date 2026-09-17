@@ -5,6 +5,7 @@ import { prisma } from '@/lib/db'
 import { requireAdminApi } from '@/lib/auth/guard'
 import { audit, type AuditAction } from '@/lib/auth/audit'
 import { revokeTrustedDevices } from '@/lib/auth/devices'
+import { closeAllSessions } from '@/lib/auth/session'
 import { sendMail, welcomeEmail } from '@/lib/mail'
 import { quotaForRole } from '@/lib/quota'
 import { serializeServices } from '@/lib/access'
@@ -60,7 +61,7 @@ export async function POST(req: NextRequest) {
       break
     case 'suspend':
       await prisma.user.update({ where: { id: userId }, data: { status: 'SUSPENDED' } })
-      await prisma.session.deleteMany({ where: { userId } })
+      await closeAllSessions(userId, 'SUSPENDED')
       auditAction = 'ACCOUNT_SUSPENDED'
       break
     case 'reactivate':
@@ -78,7 +79,7 @@ export async function POST(req: NextRequest) {
     case 'reset2fa':
       await prisma.user.update({ where: { id: userId }, data: { totpEnabled: false, totpSecret: null } })
       await revokeTrustedDevices(userId)
-      await prisma.session.deleteMany({ where: { userId } })
+      await closeAllSessions(userId, 'TWOFA_RESET')
       auditAction = '2FA_RESET'
       break
     case 'setServices':
