@@ -28,6 +28,12 @@ export type AuditAction =
   | 'EXPORT'
   | 'SCRAPING_ALERT'
   | 'QUOTA_BLOCKED'
+  // Journal des connexions (16 sept. 2026) : une session VIVANTE fermée par une nouvelle
+  // connexion vérifiée du même compte, et une session fermée par le master admin depuis le
+  // journal. Les autres fins (déconnexion, inactivité, expiration…) vivent sur la ligne
+  // `Session` elle-même — elles ne sont la décision de personne.
+  | 'SESSION_EVICTED'
+  | 'SESSION_CLOSED_BY_ADMIN'
   // Législation annotée : thèmes, renvois, amendements
   | 'THEME_CREATED'
   | 'THEME_UPDATED'

@@ -51,7 +51,54 @@ describe('une session se FERME, elle ne se supprime pas', () => {
   it('l’appareil se décrit à la création, jamais ailleurs', () => {
     const src = readFileSync('src/lib/auth/session.ts', 'utf8')
     expect(src).toMatch(/deviceLabel: appareil\.reconnu \? appareil\.libelle : null/)
-    const ailleurs = sources.filter((f) => f !== 'src/lib/auth/session.ts' && /deviceLabel:\s/.test(readFileSync(f, 'utf8')))
+    // On cherche une ÉCRITURE (`data: { … deviceLabel: … }`), pas une sélection ni un type.
+    const ailleurs = sources.filter((f) => f !== 'src/lib/auth/session.ts' && /data:\s*\{[^}]*\bdeviceLabel:/s.test(readFileSync(f, 'utf8')))
     expect(ailleurs).toEqual([])
+  })
+})
+
+describe('une seule connexion par compte — les DEUX chemins de vérification, et eux seuls', () => {
+  const service = readFileSync('src/lib/auth/service.ts', 'utf8')
+  it('la connexion par appareil de confiance impose la session unique', () => {
+    const i = service.indexOf('twoFactorVerified: true })')
+    const j = service.indexOf('apresVerification(user, session.id, ctx)')
+    expect(i).toBeGreaterThan(-1)
+    expect(j).toBeGreaterThan(i)
+  })
+  it('la validation du code TOTP impose la session unique', () => {
+    expect(service).toMatch(/markTwoFactorVerified\(sessionId\)[\s\S]*apresVerification\(compte, sessionId, ctx\)/)
+  })
+  it('une session en attente de 2FA n’évince rien : pas d’appel sur le chemin « pending2fa »', () => {
+    const pending = service.indexOf("meta: { pending2fa: true }")
+    const suite = service.slice(pending, pending + 200)
+    expect(suite).not.toMatch(/apresVerification/)
+  })
+  it('l’éviction est sérialisée par un verrou consultatif de transaction, par compte', () => {
+    const session = readFileSync('src/lib/auth/session.ts', 'utf8')
+    expect(session).toMatch(/\$executeRaw`SELECT pg_advisory_xact_lock\(hashtext\(\$\{userId\}\)\)`/)
+  })
+  it('l’e-mail au titulaire ne part que si une session VIVANTE a été coupée', () => {
+    expect(service).toMatch(/fermetures\.some\(\(f\) => f\.reason === 'EVICTED' && f\.vivante\)/)
+  })
+})
+
+describe('le navigateur évincé apprend pourquoi — et rien de plus', () => {
+  it('la page de connexion lit la LIGNE, et ne prend de l’URL que « inactivite »', () => {
+    const page = readFileSync('src/app/[locale]/(auth)/login/page.tsx', 'utf8')
+    expect(page).toMatch(/lireFinDeSession\(\)/)
+    const avis = readFileSync('src/components/AvisSession.tsx', 'utf8')
+    const lecturesUrl = [...avis.matchAll(/motifUrl === '([^']+)'/g)].map((m) => m[1])
+    expect(lecturesUrl).toEqual(['inactivite'])
+  })
+  it('l’avis « nouvelle connexion » nomme l’appareil, jamais l’adresse IP', () => {
+    const avis = readFileSync('src/components/AvisSession.tsx', 'utf8')
+    expect(avis).toMatch(/deviceLabel/)
+    expect(avis).not.toMatch(/\.ip\b/)
+  })
+  it('le heartbeat répond le motif, et IdleTimer le lit (401 → départ)', () => {
+    expect(readFileSync('src/app/api/auth/heartbeat/route.ts', 'utf8')).toMatch(/motif: fin\?\.reason \?\? 'session'/)
+    const idle = readFileSync('src/components/IdleTimer.tsx', 'utf8')
+    expect(idle).toMatch(/res\.status === 401\) evince\(\)/)
+    expect(idle).not.toMatch(/timeout=1/)
   })
 })

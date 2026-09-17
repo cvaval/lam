@@ -74,8 +74,14 @@ function totp(secretB32: string): string {
 }
 
 // ── Navigateur simulé : un pot de cookies + un user-agent ──
+// Un sous-réseau par exécution : les freins du serveur sont en mémoire et par IP, et deux
+// passages à la suite ne doivent pas se gêner.
+const sousReseau = `10.${Math.floor(Math.random() * 250) + 1}.${Math.floor(Math.random() * 250) + 1}`
+let compteurIp = 10
 class Navigateur {
   cookies = new Map<string, string>()
+  /** Adresse simulée, distincte par navigateur : les freins de débit sont PAR IP (12 connexions/min). */
+  ip = `${sousReseau}.${compteurIp++}`
   constructor(public ua: string) {}
   absorb(res: Response) {
     for (const sc of res.headers.getSetCookie()) {
@@ -86,12 +92,12 @@ class Navigateur {
   }
   header() { return [...this.cookies.entries()].map(([k, v]) => `${k}=${v}`).join('; ') }
   async post(path: string, body: unknown) {
-    const res = await fetch(BASE + path, { method: 'POST', headers: { 'content-type': 'application/json', cookie: this.header(), 'user-agent': this.ua }, body: JSON.stringify(body), redirect: 'manual' })
+    const res = await fetch(BASE + path, { method: 'POST', headers: { 'content-type': 'application/json', cookie: this.header(), 'user-agent': this.ua, 'x-forwarded-for': this.ip }, body: JSON.stringify(body), redirect: 'manual' })
     this.absorb(res); const text = await res.text(); let json: any = null; try { json = JSON.parse(text) } catch {}
     return { status: res.status, json, text }
   }
   async get(path: string) {
-    const res = await fetch(BASE + path, { headers: { cookie: this.header(), 'user-agent': this.ua }, redirect: 'manual' })
+    const res = await fetch(BASE + path, { headers: { cookie: this.header(), 'user-agent': this.ua, 'x-forwarded-for': this.ip }, redirect: 'manual' })
     this.absorb(res); return { status: res.status, location: res.headers.get('location'), text: await res.text(), headers: res.headers }
   }
   token() { return this.cookies.get('lv_session') ?? null }
@@ -115,6 +121,19 @@ async function creer(email: string, role: string) {
   await cleanup(email)
   return prisma.user.create({ data: { email, name: email.split('@')[0], passwordHash: await hashPassword(PWD), role, status: 'ACTIVE', totpEnabled: false, totpSecret: null, activatedAt: new Date() } })
 }
+/**
+ * Un code TOTP ne vaut qu'UNE fois par pas de 30 s (anti-rejeu §04, `lastTotpStep`) : deux
+ * connexions du même compte dans la même demi-minute se refusent. On attend le pas suivant.
+ */
+async function attendreNouveauPas(email: string) {
+  const u = await prisma.user.findUnique({ where: { email }, select: { lastTotpStep: true } })
+  const pas = Math.floor(Date.now() / 1000 / 30)
+  if (u?.lastTotpStep !== null && u?.lastTotpStep !== undefined && u.lastTotpStep >= pas) {
+    const ms = ((u.lastTotpStep + 1) * 30 - Math.floor(Date.now() / 1000) + 1) * 1000
+    process.stdout.write(`   (pas TOTP déjà consommé : attente ${Math.ceil(ms / 1000)} s)\n`)
+    await new Promise((r) => setTimeout(r, ms))
+  }
+}
 /** Connexion complète par TOTP (enrôle au premier passage). */
 async function connecter(nav: Navigateur, email: string, trustDevice = false): Promise<{ ok: boolean; step: string; verify: any }> {
   const login = await nav.post('/api/auth/login', { email, password: PWD })
@@ -122,6 +141,7 @@ async function connecter(nav: Navigateur, email: string, trustDevice = false): P
   await nav.get('/fr/verify')
   const secret = (await prisma.user.findUnique({ where: { email }, select: { totpSecret: true } }))?.totpSecret
   if (!secret) throw new Error('pas de secret TOTP')
+  await attendreNouveauPas(email)
   const v = await nav.post('/api/auth/verify', { code: totp(secret), trustDevice })
   return { ok: v.json?.ok === true, step: String(login.json?.step), verify: v }
 }
@@ -213,10 +233,11 @@ async function lotB(ctx: Awaited<ReturnType<typeof lotA>>) {
   const { email } = ctx
   const a = new Navigateur(UA_A)
   const b = new Navigateur(UA_B)
-  await connecter(a, email)
+  const ca = await connecter(a, email)
   const tokenA = a.token()!
-  await connecter(b, email)
+  const cb = await connecter(b, email)
   const tokenB = b.token()!
+  if (!ca.ok || !cb.ok) console.log('   (connexions B :', JSON.stringify(ca.verify?.json ?? ca), JSON.stringify(cb.verify?.json ?? cb), ')')
   let sa = await session(tokenA)
   check('B1 la première session est ÉVINCÉE par la seconde', sa?.endReason === 'EVICTED' && sa.evictedById === (await session(tokenB))?.id, `${sa?.endReason} → ${sa?.evictedById}`)
   check('B1 une seule session vivante subsiste', (await vivantes(email)) === 1, String(await vivantes(email)))
@@ -225,7 +246,7 @@ async function lotB(ctx: Awaited<ReturnType<typeof lotA>>) {
   const page = await a.get('/fr/login')
   check('B4 le navigateur évincé lit l’avis « nouvelle connexion » sur /login', /nouvelle connexion/i.test(page.text), '')
   check('B4 l’avis nomme l’appareil de la nouvelle connexion', /Safari 26 sur macOS/.test(page.text), '')
-  check('B4 l’avis ne livre PAS l’adresse IP', !/127\.0\.0\.1|::1|adresse IP/i.test(page.text.replace(/<script[\s\S]*?<\/script>/g, '')), '')
+  check('B4 l’avis ne livre PAS l’adresse IP', !page.text.replace(/<script[\s\S]*?<\/script>/g, '').includes(b.ip), '')
   const forge = await new Navigateur(UA_A).get('/fr/login?motif=nouvelle-connexion')
   check('B4 un motif forgé dans l’URL ne rend aucun avis', !/nouvelle connexion/i.test(forge.text), '')
   const hb = await a.post('/api/auth/heartbeat', {})

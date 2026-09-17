@@ -86,6 +86,29 @@ export function accountRequestEmail(to: string, demandeur: { email: string; name
   }
 }
 
+/**
+ * Nouvelle connexion au compte : la session précédente, ENCORE ACTIVE, vient d'être fermée.
+ * C'est ainsi qu'un mot de passe volé se découvre — et c'est le seul canal qui livre l'adresse
+ * IP de la nouvelle connexion : le navigateur évincé, lui, n'apprend que l'appareil (s'il est
+ * celui d'un intrus, on ne lui donne pas l'adresse du titulaire). Bilingue, comme lockoutEmail.
+ */
+export function evictionEmail(email: string, nouvelle: { quandFr: string; quandEn: string; appareil: string; ip: string | null }) {
+  const base = process.env.NEXT_PUBLIC_APP_URL || `https://${BRAND.domain}`
+  return {
+    to: email,
+    subject: 'Nouvelle connexion à votre compte Lam · New sign-in to your Lam account',
+    text: [
+      `Une nouvelle connexion à votre compte Lam a été ouverte le ${nouvelle.quandFr} (heure de Port-au-Prince) depuis ${nouvelle.appareil}${nouvelle.ip ? `, adresse ${nouvelle.ip}` : ''}.`,
+      `Votre session précédente, encore active, a été fermée : un seul appareil à la fois par compte.`,
+      `Si ce n'est pas vous, réinitialisez votre mot de passe dès maintenant : ${base}/fr/forgot`,
+      '',
+      `A new sign-in to your Lam account was opened on ${nouvelle.quandEn} (Port-au-Prince time) from ${nouvelle.appareil}${nouvelle.ip ? `, address ${nouvelle.ip}` : ''}.`,
+      `Your previous, still active session has been closed: one device at a time per account.`,
+      `If this was not you, reset your password now: ${base}/en/forgot`,
+    ].join('\n'),
+  }
+}
+
 export function lockoutEmail(email: string, minutes: number) {
   return {
     to: email,

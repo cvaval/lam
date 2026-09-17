@@ -5,16 +5,22 @@ import { LocaleSwitcher } from '@/components/LocaleSwitcher'
 import { LoginForm } from '@/components/LoginForm'
 import { Pastille } from '@/components/TypeBadge'
 import { dictFor } from '@/lib/i18n/server'
-import { getCurrentUser } from '@/lib/auth/session'
+import { getCurrentUser, lireFinDeSession } from '@/lib/auth/session'
+import { AvisSession } from '@/components/AvisSession'
 import { DOC_TYPE_LIST } from '@/lib/brand'
 
 export const dynamic = 'force-dynamic'
 
 // Écran 1 — Accueil avec connexion intégrée (§05). Split 50/50, carte visible sans défilement.
-export default async function LoginPage({ params }: { params: { locale: string } }) {
+export default async function LoginPage({ params, searchParams }: { params: { locale: string }; searchParams?: { motif?: string } }) {
   const { locale, t } = dictFor(params.locale)
   const user = await getCurrentUser()
   if (user) redirect(`/${locale}/dashboard`)
+  // Pourquoi la session précédente s'est terminée — lu sur la LIGNE que le cookie désigne
+  // encore (nouvelle connexion ailleurs, administrateur…) ; l'URL n'est lue que pour
+  // « inactivite ». Voir AvisSession. Meilleur effort : la page de connexion ne dépend de rien.
+  const fin = await lireFinDeSession().catch(() => null)
+  const motifUrl = typeof searchParams?.motif === 'string' ? searchParams.motif : null
 
   return (
     <main className="min-h-screen lg:grid lg:grid-cols-2">
@@ -87,6 +93,7 @@ export default async function LoginPage({ params }: { params: { locale: string }
             <h2 className="font-serif text-2xl font-semibold text-ank">{t.home.signinTitle}</h2>
             <p className="mt-1 text-sm text-grafit">{t.home.signinSubtitle}</p>
             <div className="mt-6">
+              <AvisSession locale={locale} fin={fin} motifUrl={motifUrl} />
               <LoginForm locale={locale} t={t} />
             </div>
             <div className="mt-8 border-t border-liy pt-5 text-center">

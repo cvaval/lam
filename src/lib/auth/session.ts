@@ -3,7 +3,7 @@ import { cookies } from 'next/headers'
 import { prisma } from '../db'
 import { randomToken } from './crypto'
 import { decrireAppareil } from './appareil'
-import { IDLE_BACKSTOP_MS, type EndReason } from './session-etat'
+import { IDLE_BACKSTOP_MS, classerAutresSessions, type EndReason, type Fermeture } from './session-etat'
 export { IDLE_TIMEOUT_MINUTES, IDLE_WARNING_SECONDS, IDLE_BACKSTOP_MS, estVivante, type EndReason } from './session-etat'
 import { parseServices } from '../access'
 import { downgradeIfPlanExpired } from '../promo'
@@ -116,6 +116,59 @@ export async function closeAllSessions(userId: string, reason: EndReason, opts: 
     data: { endedAt: new Date(), endReason: reason },
   })
   return r.count
+}
+
+/**
+ * UNE SEULE CONNEXION PAR COMPTE — rend `gardeeId` la seule session ouverte de `userId`.
+ *
+ * Appelée aux DEUX endroits où une session devient VÉRIFIÉE (service.ts) : la connexion par
+ * appareil de confiance, et la validation du code TOTP. Nulle part ailleurs : une session en
+ * attente de 2FA n'évince rien — sinon quiconque connaît un mot de passe pourrait déconnecter
+ * le titulaire sans posséder la 2FA. C'est la NOUVELLE connexion qui l'emporte (décision de
+ * la rédaction, 16 sept. 2026) : celui qui a le mot de passe ET la 2FA entre toujours.
+ *
+ * ⚠️ SOUS VERROU. Deux connexions à la même seconde se fermeraient l'une l'autre et l'abonné se
+ * retrouverait sans session : le verrou consultatif de transaction, par compte, les sérialise.
+ *
+ * Ce qui est fermé se classe (`classerAutresSessions`) : seules les sessions VIVANTES sont
+ * « évincées » — le mot du journal pour une simultanéité réelle, celui qui vaut un e-mail au
+ * titulaire. Les mortes d'inactivité ou expirées se ferment pour ce qu'elles sont.
+ */
+export async function imposerSessionUnique(userId: string, gardeeId: string): Promise<{ fermetures: Fermeture[]; sessions: Map<string, { deviceLabel: string | null; userAgent: string | null; ip: string | null }> }> {
+  return prisma.$transaction(async (tx) => {
+    // `$executeRaw`, pas `$queryRaw` : la fonction rend `void`, que Prisma ne sait pas lire.
+    await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtext(${userId}))`
+    const autres = await tx.session.findMany({
+      where: { userId, endedAt: null, id: { not: gardeeId } },
+      select: { id: true, twoFactorVerified: true, endedAt: true, expiresAt: true, lastSeenAt: true, deviceLabel: true, userAgent: true, ip: true },
+    })
+    const fermetures = classerAutresSessions(autres)
+    for (const f of fermetures) {
+      await tx.session.updateMany({
+        where: { id: f.id, endedAt: null },
+        data: { endedAt: f.endedAt, endReason: f.reason, evictedById: f.reason === 'EVICTED' ? gardeeId : null },
+      })
+    }
+    return { fermetures, sessions: new Map(autres.map((a) => [a.id, { deviceLabel: a.deviceLabel, userAgent: a.userAgent, ip: a.ip }])) }
+  })
+}
+
+/**
+ * Ce que le cookie encore présent raconte d'une session FERMÉE — pour que l'écran de connexion
+ * dise pourquoi. Rend null si le cookie est absent, la ligne inconnue, encore ouverte, ou fermée
+ * depuis plus de 24 h (au-delà, l'avis n'apprend plus rien). Lecture seule : `cookies()` se lit
+ * depuis une page, il ne s'y écrit pas.
+ */
+export async function lireFinDeSession(): Promise<{ reason: EndReason; endedAt: Date; remplacePar: { deviceLabel: string | null; createdAt: Date } | null } | null> {
+  const token = cookies().get(SESSION_COOKIE)?.value
+  if (!token) return null
+  const s = await prisma.session.findUnique({ where: { token }, select: { endedAt: true, endReason: true, evictedById: true } })
+  if (!s?.endedAt || !s.endReason) return null
+  if (Date.now() - s.endedAt.getTime() > 24 * 3600_000) return null
+  const remplacePar = s.evictedById
+    ? await prisma.session.findUnique({ where: { id: s.evictedById }, select: { deviceLabel: true, createdAt: true } })
+    : null
+  return { reason: s.endReason as EndReason, endedAt: s.endedAt, remplacePar }
 }
 
 export async function createSession(

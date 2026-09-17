@@ -79,7 +79,9 @@ export function IdleTimer({
     // Préviens les AUTRES onglets : ils basculent vers /login immédiatement au lieu de
     // rester affichés sur une session détruite (clic suivant = « déconnexion » incomprise).
     try {
-      localStorage.setItem(LOGGED_OUT_KEY, String(Date.now()))
+      // Le signal porte sa cause : les autres onglets afficheront « inactivité » aussi (la
+      // déconnexion manuelle de TopBar pose un simple horodatage, sans motif).
+      localStorage.setItem(LOGGED_OUT_KEY, `inactivite:${Date.now()}`)
     } catch {
       /* sans stockage, les autres onglets découvriront la déconnexion à leur prochain appel */
     }
@@ -94,15 +96,41 @@ export function IdleTimer({
     } catch {
       /* on redirige quand même */
     }
-    hardRedirect(`/${locale}/login?timeout=1`, { sortie: true })
+    // `motif=inactivite` est le SEUL motif que la page de connexion lit dans l'URL : la
+    // coupure vient d'ici, côté client, avant que le serveur ait rien constaté. Tout autre
+    // motif (nouvelle connexion, administrateur…) se lit sur la ligne de session, jamais
+    // dans l'URL — n'importe qui peut taper une URL.
+    hardRedirect(`/${locale}/login?motif=inactivite`, { sortie: true })
+  }, [locale])
+
+  /**
+   * La session a été fermée AILLEURS — nouvelle connexion sur un autre appareil, fermeture par
+   * l'administrateur, suspension. Le serveur l'a déjà fermée : rien à demander, on quitte, et
+   * la page de connexion lira sur la ligne pourquoi. Les autres onglets suivent.
+   */
+  const evince = useCallback(() => {
+    if (loggingOut.current) return
+    loggingOut.current = true
+    try {
+      localStorage.setItem(LOGGED_OUT_KEY, String(Date.now()))
+    } catch {
+      /* idem */
+    }
+    hardRedirect(`/${locale}/login`, { sortie: true })
   }, [locale])
 
   const beat = useCallback((force = false) => {
     const now = Date.now()
     if (!force && now - lastBeat.current < HEARTBEAT_THROTTLE_MS) return
     lastBeat.current = now
-    fetch('/api/auth/heartbeat', { method: 'POST' }).catch(() => {})
-  }, [])
+    // ⚠️ LA RÉPONSE SE LIT. Ignorée, un onglet dont la session venait d'être fermée ailleurs
+    // restait affiché jusqu'au prochain clic serveur. 401 = la session n'existe plus.
+    fetch('/api/auth/heartbeat', { method: 'POST' })
+      .then((res) => {
+        if (res.status === 401) evince()
+      })
+      .catch(() => {})
+  }, [evince])
 
   const arm = useCallback(() => {
     if (loggingOut.current) return
@@ -156,7 +184,8 @@ export function IdleTimer({
       if (loggingOut.current) return
       if (e.key === LOGGED_OUT_KEY && e.newValue) {
         loggingOut.current = true
-        hardRedirect(`/${locale}/login?timeout=1`, { sortie: true })
+        const inactivite = e.newValue.startsWith('inactivite:')
+        hardRedirect(`/${locale}/login${inactivite ? '?motif=inactivite' : ''}`, { sortie: true })
         return
       }
       if (e.key === ACTIVITY_KEY) arm() // dissout aussi un avertissement en cours : présence avérée

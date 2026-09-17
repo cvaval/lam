@@ -4,11 +4,13 @@ import { verifyPassword } from './password'
 import { normalizeEmail } from './email'
 import { generateTotpSecret, verifyTotpStep, totpQrDataUrl, totpDelta } from './totp'
 import { deviceFingerprint } from './crypto'
-import { createSession, getPendingSession, markTwoFactorVerified } from './session'
+import { createSession, getPendingSession, markTwoFactorVerified, imposerSessionUnique } from './session'
+import { decrireAppareil } from './appareil'
+import { formatInstant } from '../i18n/format'
 import { issueTrustedDevice, getValidTrustedDevice } from './devices'
 import { audit } from './audit'
 import { isSensitiveRole } from '../rbac'
-import { sendMail, lockoutEmail } from '../mail'
+import { sendMail, lockoutEmail, evictionEmail } from '../mail'
 import { downgradeIfPlanExpired } from '../promo'
 import type { Role } from '../types'
 
@@ -122,6 +124,40 @@ export type LoginResult =
   | { ok: true; step: 'done' | '2fa' | 'enroll'; sensitive: boolean }
   | { ok: false; error: 'invalidCredentials' | 'pending' | 'suspended' | 'locked' }
 
+/**
+ * Ce qui suit toute session VÉRIFIÉE — les deux chemins (appareil de confiance, TOTP) y
+ * passent, et eux seuls : une session en attente de 2FA n'évince rien.
+ *
+ * `imposerSessionUnique` ferme les autres sessions du compte sous verrou ; ici, HORS
+ * transaction, on journalise chaque éviction (SESSION_EVICTED — la session fermée est la cible,
+ * la nouvelle est dans `meta.par`) et l'on prévient le titulaire par e-mail SEULEMENT si une
+ * session encore vivante a été coupée : l'abonné qui se reconnecte chaque matin sans s'être
+ * déconnecté la veille ne reçoit pas d'e-mail quotidien ; celui dont la session active est
+ * coupée pendant qu'il travaille apprend tout de suite depuis où. Meilleur effort : rien ici ne
+ * peut faire échouer la connexion elle-même.
+ */
+async function apresVerification(user: { id: string; email: string }, sessionId: string, ctx: ClientCtx) {
+  try {
+    const { fermetures, sessions } = await imposerSessionUnique(user.id, sessionId)
+    const appareil = decrireAppareil(ctx.userAgent)
+    const libelle = appareil.reconnu ? appareil.libelle : 'un navigateur non reconnu'
+    for (const f of fermetures) {
+      if (f.reason !== 'EVICTED') continue
+      const fermee = sessions.get(f.id)
+      await audit({
+        action: 'SESSION_EVICTED', actorId: user.id, targetType: 'SESSION', targetId: f.id, ip: ctx.ip, userAgent: ctx.userAgent,
+        meta: { par: sessionId, appareil: libelle, vivante: f.vivante, appareilFerme: fermee?.deviceLabel ?? null, ipFermee: fermee?.ip ?? null },
+      })
+    }
+    if (fermetures.some((f) => f.reason === 'EVICTED' && f.vivante)) {
+      const quand = new Date()
+      await sendMail(evictionEmail(user.email, { quandFr: formatInstant('fr', quand), quandEn: formatInstant('en', quand), appareil: libelle, ip: ctx.ip }))
+    }
+  } catch (e) {
+    console.error('session unique (non bloquant) :', e)
+  }
+}
+
 export async function attemptLogin(email: string, password: string, ctx: ClientCtx): Promise<LoginResult> {
   const user = await prisma.user.findUnique({ where: { email: normalizeEmail(email) } })
   if (!user) {
@@ -155,8 +191,9 @@ export async function attemptLogin(email: string, password: string, ctx: ClientC
   const trusted = sensitive ? null : await getValidTrustedDevice(user.id, fingerprint)
 
   if (trusted) {
-    await createSession(user.id, { ip: ctx.ip, userAgent: ctx.userAgent, twoFactorVerified: true })
+    const session = await createSession(user.id, { ip: ctx.ip, userAgent: ctx.userAgent, twoFactorVerified: true })
     await audit({ action: 'LOGIN_OK', actorId: user.id, ip: ctx.ip, userAgent: ctx.userAgent, meta: { trustedDevice: true } })
+    await apresVerification(user, session.id, ctx)
     return { ok: true, step: 'done', sensitive }
   }
 
@@ -226,6 +263,8 @@ async function finishTwoFactor(
   }
   if (enrolled) await audit({ action: '2FA_ENROLLED', actorId: userId, ip: ctx.ip })
   await audit({ action: '2FA_OK', actorId: userId, ip: ctx.ip, userAgent: ctx.userAgent, meta: { trustDevice: trustDevice && !sensitive } })
+  const compte = await prisma.user.findUnique({ where: { id: userId }, select: { id: true, email: true } })
+  if (compte) await apresVerification(compte, sessionId, ctx)
 }
 
 export async function verifyTwoFactor(code: string, trustDevice: boolean, ctx: ClientCtx): Promise<VerifyResult> {

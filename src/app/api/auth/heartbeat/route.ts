@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getCurrentUser } from '@/lib/auth/session'
+import { getCurrentUser, lireFinDeSession } from '@/lib/auth/session'
 import { getClientCtx } from '@/lib/auth/request'
 import { guard, LIMITS } from '@/lib/security/ratelimit'
 
@@ -16,7 +16,13 @@ export const runtime = 'nodejs'
 // loadSession() (session.ts) pour la portée exacte du filet serveur.
 export async function POST(req: NextRequest) {
   const user = await getCurrentUser()
-  if (!user) return NextResponse.json({ ok: false }, { status: 401 })
+  // 401 + le MOTIF de la fin, lu sur la ligne fermée que le cookie désigne encore (nouvelle
+  // connexion ailleurs, administrateur, suspension…) — 'session' s'il n'y a plus rien à lire.
+  // Le client (IdleTimer) quitte alors, et la page de connexion affiche l'avis correspondant.
+  if (!user) {
+    const fin = await lireFinDeSession().catch(() => null)
+    return NextResponse.json({ ok: false, motif: fin?.reason ?? 'session' }, { status: 401 })
+  }
   // Plafonne la lecture DB déclenchée par chaque ping (un appelant authentifié peut
   // appeler cet endpoint à volonté). Dépassement → 429 + SCRAPING_ALERT (meta.rule =
   // 'heartbeat'). Le seuil reste large pour l'usage normal — voir LIMITS.heartbeat.
