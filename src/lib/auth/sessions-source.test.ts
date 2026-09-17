@@ -19,8 +19,8 @@ function fichiersSource(dir: string, out: string[] = []): string[] {
   return out
 }
 
-/** Le seul endroit qui a le droit de SUPPRIMER une session : la purge à 12 mois. */
-const PURGE = 'src/app/api/cron/sessions/route.ts'
+/** Le seul endroit qui a le droit de SUPPRIMER une session : la purge à 12 mois (route /api/cron/sessions). */
+const PURGE = 'src/lib/admin/purge-connexions.ts'
 
 describe('une session se FERME, elle ne se supprime pas', () => {
   const sources = fichiersSource('src')
