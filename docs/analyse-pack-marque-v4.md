@@ -156,17 +156,24 @@ s'inversent** :
 L'article 1 de l'AV-01 est par ailleurs partiellement dépassé : il réservait Sitwon au badge
 « Dokiman verifye », que l'AV-02 fait passer en Wouj.
 
-## 7. À faire
+## 7. État d'exécution — 16 août 2026
 
-1. **Jeton** : `sitwonPal #FFF3C6` → `woujPal #FCE1E4` dans `src/lib/brand-colors.ts` et
-   `tailwind.config.ts`. Zéro usage à migrer.
-2. **Cinq boutons** en `bg-sitwon` → `bg-wouj text-white`.
-3. **55 `ring-wouj`** supprimés ; **36 `hover:text-wouj`** ramenés à Chabon.
-4. **Statut « Abrogé »** → pastille fond Sitwon, texte Chabon.
-5. **Badge « Dokiman verifye »** → fond Wouj, texte Blan.
-6. **AV-04 réécrit** sous le récit inversé.
-7. **Trancher** le modèle chromatique de la carte judiciaire (§4).
-8. **Poser au concepteur** la question des quatre gris (§5).
+| # | Point | État |
+|---|---|---|
+| 1 | Jeton `sitwonPal #FFF3C6` → `woujPal #FCE1E4` | ✅ **fait** — 4 fichiers ; `tsc` a rattrapé deux usages en JavaScript que le relevé par classe Tailwind avait manqués |
+| 2 | Les 5 `bg-sitwon` réaffectés | ✅ **fait** — badge vérifié → Wouj/Blan, 2 onglets → filet Wouj sur fond Pil, bascule → Wouj/Blan |
+| 3 | 55 `ring-wouj` et 36 `hover:text-wouj` | ✅ **fait** — vérifié au clavier : le contour Chabon 2 px prend le relais |
+| 4 | Statut « Abrogé » → pastille Sitwon, texte Chabon | ✅ **fait** |
+| 5 | Badge « Dokiman verifye » → fond Wouj, texte Blan | ✅ **fait** |
+| 6 | AV-04 réécrit sous le récit inversé | ✅ **fait** |
+| — | Garde-fous automatisés | ✅ **ajoutés** — `src/lib/brand-accents.test.ts`, 7 contrôles |
+| 7 | Modèle chromatique de la carte judiciaire | ⏳ **à trancher** (§4) |
+| 8 | Les quatre gris hors jetons | ⏳ **à poser au concepteur** (§5) |
+| — | Où va l'**erreur de saisie** ? | ⏳ **ouvert** — l'AV-02 ne le dit pas ; voir AV-04 §5 |
 
-Les points 1 à 3 sont mécaniques et sans risque. Le 4 et le 5 changent ce que le lecteur voit sur
-chaque fiche de document.
+**33 fichiers, 87 lignes.** `tsc` passe, **302 tests** passent, audit de contraste **0 échec sur
+137 fichiers**. Une sauvegarde de `src/` d'avant la migration est dans `/tmp/src-avant-av02`.
+
+Deux affinages ont été nécessaires sur les garde-fous, et tous deux sont justes : un filet
+décoratif `aria-hidden` en fond Wouj n'a pas de texte à colorer, et le `#000000` de
+`brand-colors.ts:40` est dans le commentaire qui énonce l'interdiction.
