@@ -700,6 +700,7 @@ export const fr = {
   },
   doc: {
     officialText: 'Texte officiel',
+    partialTranscript: 'Transcription partielle',
     unofficialNote:
       "Les versions anglaise et kreyòl de l'interface et des résumés sont fournies à titre informatif : elles sont NON OFFICIELLES et n'ont aucune valeur juridique. Seul le texte officiel en français fait foi.",
     editorialSummary: 'Résumé éditorial',

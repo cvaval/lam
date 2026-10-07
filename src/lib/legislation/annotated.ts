@@ -90,6 +90,20 @@ export interface Annotations {
   jurisprudence: Record<string, JurisCase[]> // clé = ancre d'article (art-N)
   indexEntries: IndexEntry[]
   crossRefs?: CrossRefEntry[] // renvois croisés éditoriaux (section → articles du Code)
+  /**
+   * RÉSERVE DE COUVERTURE — bandeau toujours visible en tête du texte officiel.
+   *
+   * Les transcriptions des lois de finances sont des EXTRAITS : elles couvrent la partie fiscale
+   * et s'arrêtent où commencent les tableaux budgétaires. Le Budget général 2025-2026 en compte
+   * 120 articles ; l'extrait s'arrête au 58ᵉ. Publier cela sans le dire tromperait le lecteur.
+   *
+   * ⚠️ POURQUOI UN CHAMP PROPRE plutôt qu'un canal existant. Les trois candidats mentent tous sur
+   * ce qu'ils affichent : `crossRefs` s'annonce « ↪ Renvoi : » (une réserve n'est pas un renvoi,
+   * et le libellé est en dur) ; `commentaires` est rendu dans un pliable FERMÉ par défaut et
+   * intitulé « Annotations » — une réserve qu'il faut déplier n'avertit personne ; `meansFr` dit
+   * « Sa sa vle di / What it means » et n'est utilisé par aucun document.
+   */
+  reserve?: string
   // Constitution : ancienne version (1987) par article, statut d'amendement, libellé d'article.
   oldVersions?: Record<string, string> // ancre → texte de l'ancienne version (repliable)
   status?: Record<string, string | null> // ancre → « modifié » | « nouveau » | « abrogé »
@@ -164,6 +178,7 @@ export function parseAnnotations(json: string | null | undefined): Annotations |
       jurisprudence: a.jurisprudence && typeof a.jurisprudence === 'object' ? a.jurisprudence : {},
       indexEntries: Array.isArray(a.indexEntries) ? a.indexEntries : [],
       crossRefs: Array.isArray(a.crossRefs) ? a.crossRefs : [],
+      reserve: typeof a.reserve === 'string' && a.reserve.trim() ? a.reserve : undefined,
       oldVersions: a.oldVersions && typeof a.oldVersions === 'object' ? a.oldVersions : {},
       status: a.status && typeof a.status === 'object' ? a.status : {},
       labels: a.labels && typeof a.labels === 'object' ? a.labels : {},

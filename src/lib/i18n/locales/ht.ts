@@ -390,6 +390,7 @@ export const ht: Dictionary = {
   },
   doc: {
     officialText: 'Tèks ofisyèl',
+    partialTranscript: 'Transkripsyon pasyèl',
     unofficialNote:
       'Vèsyon anglè ak kreyòl entèfas la ak rezime yo disponib pou enfòmasyon sèlman: yo PA OFISYÈL e yo pa gen okenn valè jiridik. Se sèl tèks ofisyèl an franse a ki fè otorite.',
     editorialSummary: 'Rezime editoryal',

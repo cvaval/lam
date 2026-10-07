@@ -719,6 +719,17 @@ export default async function DocPage({
               <h2 className="text-sm font-semibold text-ank">{t.doc.officialText}</h2>
             </div>
             <p className="mb-3 rounded-lg bg-pil px-3 py-2 text-[11px] leading-relaxed text-grafit">{t.doc.unofficialNote}</p>
+            {annotations?.reserve && (
+              /* RÉSERVE DE COUVERTURE — toujours visible, jamais dans un pliable : une réserve
+                 qu'il faut déplier n'avertit personne. Filet Wouj à gauche (la charte fait du
+                 Wouj le trait éditorial), fond Pil, texte Chabon. */
+              <div className="mb-3 flex items-start gap-3 rounded-r-lg border border-liy border-l-[3px] border-l-wouj bg-pil px-3.5 py-2.5">
+                <span className="whitespace-nowrap pt-0.5 font-mono text-[10px] font-medium uppercase tracking-[0.1em] text-wouj">
+                  {t.doc.partialTranscript}
+                </span>
+                <p className="text-[13px] leading-relaxed text-chabon">{annotations.reserve}</p>
+              </div>
+            )}
             <AnnotatedText
               text={effectiveBody}
               annotations={annotations}

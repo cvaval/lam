@@ -390,6 +390,7 @@ export const en: Dictionary = {
   },
   doc: {
     officialText: 'Official text',
+    partialTranscript: 'Partial transcript',
     unofficialNote:
       'The English and Kreyòl versions of the interface and summaries are provided for information only: they are UNOFFICIAL and have no legal value. Only the official French text is authoritative.',
     editorialSummary: 'Editorial summary',
