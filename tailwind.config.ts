@@ -9,10 +9,13 @@ import { BRAND_COLORS as C } from './src/lib/brand-colors'
  * DOC · FIN · MRK · IDX · TAR) — voir src/lib/brand.ts.
  *
  * ⚠️ DEUX ACCENTS, DEUX RÉCITS — ne pas les intervertir :
- *   WOUJ   le trait du CERTIFICATEUR — logotype (hors quota), statut « Abrogé », erreur,
- *          alerte de certification. Rationné à UNE occurrence d'interface par écran.
- *   SITWON la couleur de l'USAGE — CTA principal, badge « Dokiman verifye », surligneur du
- *          terme exact, soulignement de navigation active. JAMAIS en couleur de texte.
+ *   (INVERSÉS par l'avenant AV-02 du 11 août 2026 — ne pas revenir à l'ancien récit)
+ *   WOUJ   la couleur de l'USAGE — CTA principal (fond Wouj, TEXTE BLAN), badge « Dokiman
+ *          verifye », surlignage du terme exact, soulignement de navigation active.
+ *          Le logotype garde son trait Wouj, hors quota (AV-02bis).
+ *   SITWON le trait du CERTIFICATEUR — statut « Abrogé » (pastille fond Sitwon, texte
+ *          Chabon), alerte de certification. Rationné à UNE occurrence d'interface par
+ *          écran. JAMAIS en couleur de texte, jamais un trait : 1,46:1 sur Blan.
  */
 const config: Config = {
   content: ['./src/**/*.{ts,tsx,mdx}'],
@@ -32,6 +35,9 @@ const config: Config = {
         liy: C.liy,
         pil: C.pil,
         'wouj-pal': C.woujPal,
+        // Filet appuyé des pastilles de type. Il vivait dans brand-colors.ts sans être
+        // enregistré ici : aucune classe ne le résolvait, d'où deux littéraux en dur.
+        'liy-fonse': C.badgeBorder,
         // ── Accent fonctionnel, HORS marque : succès uniquement ──
         vet: C.vet,
         // ── Gamme cartographique (AV-02) : carte judiciaire uniquement, jamais un CTA ──
