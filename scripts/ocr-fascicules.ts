@@ -19,9 +19,20 @@ import { PrismaClient } from '@prisma/client'
 import { ocrDocument } from '../src/lib/ai/extract'
 import { isExhausted } from '../src/lib/ai/provider'
 import { buildSearchText } from '../src/lib/search/normalize'
+import { isBlobUrl, getPrivateBlob } from '../src/lib/storage/blob'
 
 const prisma = new PrismaClient()
-const PLACEHOLDER = /Fascicule scanné|non encore océrisé/
+
+/**
+ * ⚠️ « Reste à océriser » se mesure à la LONGUEUR DU CORPS, pas à la présence d'un motif.
+ * La ligne de provenance « [Fascicule scanné du journal officiel… ] » est conservée en tête
+ * même une fois le fascicule pleinement transcrit : un motif la cherchant désignait 3 645
+ * fascicules « en attente » dont 2 054 étaient DÉJÀ transcrits — une campagne les aurait
+ * ré-océrisés en écrasant du bon texte. Le seuil de 400 caractères est celui qu'emploie la
+ * production (`needsOcr`, src/app/api/doc/[id]/sommaire/route.ts) : on s'aligne dessus.
+ */
+const SEUIL_MARQUE_PAGE = 400
+const resteAOceriser = (body: string | null) => (body ?? '').trim().length < SEUIL_MARQUE_PAGE
 
 async function subPdf(src: PDFDocument, from: number, to: number): Promise<Uint8Array> {
   const out = await PDFDocument.create()
@@ -30,9 +41,24 @@ async function subPdf(src: PDFDocument, from: number, to: number): Promise<Uint8
   return out.save()
 }
 
+/**
+ * Récupère le PDF, qu'il soit sur le Blob privé (cas de TOUS les fascicules aujourd'hui) ou
+ * sur le disque (fonds anciens importés localement). Le worker ne testait que le disque, si
+ * bien qu'il annonçait « PDF introuvable » sur l'intégralité du reliquat.
+ */
+async function lirePdf(url: string): Promise<Uint8Array> {
+  if (isBlobUrl(url)) {
+    const b = await getPrivateBlob(url).catch(() => null)
+    if (!b?.stream) throw new Error('Blob illisible')
+    return new Uint8Array(await new Response(b.stream).arrayBuffer())
+  }
+  if (!existsSync(url)) throw new Error('fichier local absent')
+  return new Uint8Array(readFileSync(url))
+}
+
 /** OCR d'un fascicule par tranches de `chunk` pages (gros scans → un appel par tranche). */
-async function ocrFascicule(pdfPath: string, chunk: number): Promise<string> {
-  const bytes = new Uint8Array(readFileSync(pdfPath))
+async function ocrFascicule(pdfUrl: string, chunk: number): Promise<string> {
+  const bytes = await lirePdf(pdfUrl)
   const src = await PDFDocument.load(bytes, { ignoreEncryption: true })
   const total = src.getPageCount()
   const parts: string[] = []
@@ -60,7 +86,7 @@ async function main() {
     select: { id: true, titleFr: true, number: true, moniteurRef: true, sourcePdfUrl: true, bodyOriginal: true },
     orderBy: { publicationDate: 'asc' },
   })
-  const pending = all.filter((d) => PLACEHOLDER.test(d.bodyOriginal || ''))
+  const pending = all.filter((d) => resteAOceriser(d.bodyOriginal))
   console.log(`Fascicules : ${all.length} total · ${all.length - pending.length} déjà océrisés · ${pending.length} en attente.`)
 
   if (!commit) {
@@ -75,8 +101,8 @@ async function main() {
   let stoppedByQuota = false
 
   for (const d of batch) {
-    if (!d.sourcePdfUrl || !existsSync(d.sourcePdfUrl)) {
-      console.log(`  ⚠ ${d.number} : PDF introuvable (${d.sourcePdfUrl ?? 'aucun'}) — sauté.`)
+    if (!d.sourcePdfUrl) {
+      console.log(`  ⚠ ${d.number} : aucun PDF attaché — sauté.`)
       failed++
       continue
     }
