@@ -272,8 +272,6 @@ export const en: Dictionary = {
     signinBtn: 'Sign in',
     forgot: 'Forgot password?',
     lostEmail: 'Not sure which address you registered with? Use “Forgot password”: if an account exists, a message goes to the exact address on file.',
-    cardNote:
-      'The “Create account” button leads to an access request — the account stays pending activation by the master admin.',
   },
   verify: {
     title: 'Two-factor authentication',

@@ -37,14 +37,40 @@ describe('l’accueil se rend sans être attendu', () => {
     expect(html.length).toBeGreaterThan(1000)
   })
 
-  it('presents the judicial map without exposing document search or deadline forms', () => {
+  it('présente la carte judiciaire, sans exposer la recherche documentaire', () => {
     expect(html).toContain('href="/fr/juridictions"')
     expect(html).toContain('La justice en Haïti,')
-    expect(html).not.toContain('<form')
     expect(html).not.toContain('/fr/search')
     expect(html).not.toContain('/fr/editionsmoniteur')
     expect(html).not.toContain('name="q"')
-    expect(html).not.toContain('name="d"')
+  })
+
+  /**
+   * ⚠️ **LA BANDE DES DÉLAIS EST REVENUE LE 8 OCT. 2026.** La maquette Agora l'avait retirée ;
+   * Me Vaval l'a redemandée le jour même (« il manque sur la page d'accueil la calculatrice
+   * pour les jours francs »). Son `GET` revient sur l'ACCUEIL avec `?d=…&n=…` (20 août 2026),
+   * il ne part pas vers `/fr/delais` ; le calcul est fait par la page — c'est ce qui permet à
+   * `Landing` de rester SYNCHRONE, objet de ce fichier.
+   */
+  it('la bande des délais y est, avec ses deux champs et son bouton', () => {
+    expect(html).toContain('id="jours-francs"')
+    expect(html).toContain('href="#jours-francs"')
+    expect(html).toContain('action="/fr"')
+    expect(html).not.toContain('action="/fr/delais"')
+    expect(html).toContain('name="d"')
+    expect(html).toContain('name="n"')
+  })
+
+  /** Sans `delais`, la bande n'affiche AUCUNE date : l'accueil n'a pas d'état vide à meubler. */
+  it('… et aucune date tant que rien n’a été soumis', () => {
+    expect(html).not.toContain('Date limite')
+    expect(html).not.toMatch(/\d{2}\/\d{2}\/\d{4}/)
+  })
+
+  it('et elle ne lit toujours pas la base : aucune entrée du répertoire dans l’accueil', () => {
+    expect(html).not.toContain('Entrée du répertoire')
+    expect(html).not.toContain('Voir tout le répertoire')
+    expect(html).not.toContain('<select')
   })
 
   it('provides a secure entry through sign-in', () => {

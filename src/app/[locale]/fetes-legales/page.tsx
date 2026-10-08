@@ -48,11 +48,12 @@ export default async function HolidaysPage({ params }: { params: { locale: strin
       <header className="ag-header">
         <div className="ag-container ag-header-inner">
           <Link href={`/${locale}`} className="ag-brand" aria-label={tr('Agora — accueil', 'Agora — home', 'Agora — akèy')}>
-            {/* eslint-disable-next-line @next/next/no-img-element -- logo de la maquette, remplacé au lot 1 */}
+            {/* eslint-disable-next-line @next/next/no-img-element -- logotype du kit, PNG réduit (voir Logo.tsx) */}
             <img src="/brand/agora/logo.png" alt="agora.ht" width="190" height="63" />
           </Link>
           <nav className="ag-nav" aria-label={tr('Navigation principale', 'Main navigation', 'Navigasyon prensipal')}>
             <Link href={`/${locale}/juridictions`}>{tr('Carte judiciaire', 'Judicial map', 'Kat jidisyè')}</Link>
+            <Link href={`/${locale}#jours-francs`}>{tr('Jours francs', 'Clear days', 'Jou fran')}</Link>
             <Link href={`/${locale}#presentation`}>{tr('Présentation', 'About the map', 'Prezantasyon')}</Link>
             <Link href={`/${locale}/fetes-legales`} aria-current="page">{tr('Fêtes légales', 'Public holidays', 'Jou ferye')}</Link>
           </nav>

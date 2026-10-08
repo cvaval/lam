@@ -15,3 +15,5 @@
 .ag-map-shortcuts{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}.ag-map-shortcuts a{display:inline-flex;min-height:44px;align-items:center;padding:8px 16px;background:white;border:1px solid var(--ag-line);border-radius:4px;font-size:13px;color:var(--ag-ink)}.ag-map-shortcuts a:hover{background:#e7ece7}#ag-judicial-map,#ag-commune-list{scroll-margin-top:20px}.ag-judicial-page main{background:var(--ag-paper)}.ag-judicial-page main h1{font-size:36px}.ag-judicial-page main input{border-radius:4px}.ag-judicial-page a:focus-visible{outline-color:var(--ag-accent)}
 /* Mention de transition « Agora, anciennement Lam » (D7, six mois au moins) */
 .agora-portal .ag-transition{color:var(--ag-muted);font-size:12px}.ag-footer .ag-transition{color:inherit;opacity:.8}
+/* Ancre « Jours francs » de l'en-tête : la section ne se colle pas au bord haut. */
+#jours-francs{scroll-margin-top:16px}

@@ -581,8 +581,6 @@ export const fr = {
     signinBtn: 'Se connecter',
     forgot: 'Mot de passe oublié ?',
     lostEmail: "Vous n'êtes pas sûre de l'adresse utilisée à l'inscription ? Passez par « Mot de passe oublié » : si un compte existe, un message part vers l'adresse exacte enregistrée.",
-    cardNote:
-      "Le bouton « Créer un compte » mène à une demande d'accès — le compte reste en attente d'activation par le master admin.",
   },
   verify: {
     title: 'Double authentification',

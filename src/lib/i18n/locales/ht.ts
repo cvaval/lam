@@ -272,8 +272,6 @@ export const ht: Dictionary = {
     signinBtn: 'Konekte',
     forgot: 'Bliye modpas ou ?',
     lostEmail: 'Ou pa sèten ki adrès ou te itilize lè ou te enskri ? Pase pa « Bliye modpas ou » : si gen yon kont, yon mesaj ap ale nan adrès egzak ki anrejistre a.',
-    cardNote:
-      'Bouton « Kreye yon kont » la mennen sou yon demann aksè — kont lan rete ap tann master admin aktive l.',
   },
   verify: {
     title: 'Doub otantifikasyon',
