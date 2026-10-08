@@ -34,7 +34,8 @@ export function AgoraHolidayCalendar({
   // Les libellés n'ont pas de traduction relue : ils s'affichent en français (repli de `libelle`).
   const libellesEnFrancais = locale !== 'fr' && !entrees.some((e) => e.traductionRelue)
   const annees = Array.from({ length: 11 }, (_, i) => Math.max(PREMIERE_ANNEE_PUBLIQUE, initialYear - 1) + i)
-  const jourCourt = (f: FetePublique) => `${f.date.d} ${nomMois(f.date.m, locale)}`
+  // « 1er janvier » en français et en créole, comme `dateEnToutesLettres`.
+  const jourCourt = (f: FetePublique) => `${f.date.d === 1 && locale !== 'en' ? '1er' : f.date.d} ${nomMois(f.date.m, locale)}`
 
   const exportCalendar = () => {
     const ics = (iso: string) => iso.replace(/-/g, '')
