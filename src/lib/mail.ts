@@ -9,13 +9,9 @@ import { resolveLocale } from './i18n/config'
  */
 const MAIL_FROM = process.env.MAIL_FROM || `${BRAND.name} <no-reply@${BRAND.domain}>`
 
-/**
- * Pied des e-mails. La mention « Agora, anciennement Lam » y reste six mois au moins après
- * la bascule (D7) : un abonné qui reçoit un message d'un nom qu'il ne connaît pas doit pouvoir
- * le relier à celui qu'il connaît — sinon il le prend pour de l'hameçonnage.
- */
-function signature(langues: readonly ('fr' | 'en' | 'ht')[] = ['fr', 'en']): string {
-  return [`— ${BRAND.name} · ${BRAND.domain}`, langues.map((l) => BRAND.transition[l]).join(' · ')].join('\n')
+/** Pied des e-mails. */
+function signature(): string {
+  return `— ${BRAND.name} · ${BRAND.domain}`
 }
 
 export async function sendMail(opts: { to: string; subject: string; text: string }) {
@@ -91,7 +87,7 @@ export function accountRequestEmail(to: string, demandeur: { email: string; name
       `tentative de connexion : « Votre compte est en attente d'activation par un`,
       `administrateur. »`,
       ``,
-      signature(['fr']),
+      signature(),
     ].join('\n'),
   }
 }
@@ -183,7 +179,7 @@ export function alertDigestEmail(to: string, locale: string, items: AlertDigestI
     if (item.more > 0) lines.push(L.more(item.more))
     lines.push(``)
   }
-  lines.push(`${L.manage}${base}/${lang}/account`, ``, signature([lang]))
+  lines.push(`${L.manage}${base}/${lang}/account`, ``, signature())
   return { to, subject: L.subject, text: lines.join('\n') }
 }
 

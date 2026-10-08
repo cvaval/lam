@@ -9,9 +9,8 @@ import { join, relative } from 'node:path'
  * au navigateur : ils sont retirés avant la recherche (ils racontent l'histoire du produit, et
  * c'est leur rôle). Les tests aussi sont exclus — leurs gabarits sont des données.
  *
- * ⚠️ LA LISTE D'EXCEPTIONS EST FERMÉE. Chacune est une phrase qui DOIT nommer Lam :
- *  - la mention de transition « Agora, anciennement Lam (lam.ht) » (D7, six mois au moins) ;
- *  - les paragraphes de transition des CGU et des mentions légales, et la description du site ;
+ * ⚠️ LA LISTE D'EXCEPTIONS EST FERMÉE. Plus AUCUNE mention de transition (« Agora, anciennement
+ * Lam ») : Me Vaval l'a fait retirer le 8 oct. 2026. Seule exception, une phrase qui DOIT nommer Lam :
  *  - les avertissements 2FA qui nomment une entrée d'authentificateur créée avant la bascule.
  * Les noms INTERNES (`lv_*`, préfixe d'index `lam`, stockage `lam-pdfs`) ne sont pas des
  * « Lam » visibles et ne sont pas attrapés par le motif, qui est sensible à la casse.
@@ -20,9 +19,6 @@ const SRC = join(__dirname, '..')
 const MOTIF = /\bLam\b|lam\.ht/
 
 const EXCEPTIONS: { fichier?: string; ligne: RegExp; pourquoi: string }[] = [
-  { fichier: 'lib/brand.ts', ligne: /formerName: 'Lam'|formerDomain: 'lam\.ht'|anciennement Lam \(lam\.ht\)|formerly Lam \(lam\.ht\)|ansyen Lam \(lam\.ht\)/, pourquoi: 'mention de transition (D7)' },
-  { fichier: 'lib/legal.ts', ligne: /auparavant Lam/, pourquoi: 'paragraphes de transition des textes légaux' },
-  { fichier: 'app/layout.tsx', ligne: /Agora \(anciennement Lam\)/, pourquoi: 'description du site : les moteurs relient les deux noms' },
   { ligne: /« Lam » (ou|oswa) « Agora »|“Lam” or “Agora”/, pourquoi: 'entrée 2FA créée avant la bascule' },
 ]
 

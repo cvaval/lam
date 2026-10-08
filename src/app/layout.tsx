@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(BRAND.url),
   title: `${BRAND.name} — ${BRAND.baseline.fr}`,
   description:
-    "Agora (anciennement Lam) — plateforme trilingue (FR/EN/HT) de recherche juridique haïtienne : législation, circulaires BRH, jurisprudence, doctrine, lois de finances et marques — sourcées au Moniteur.",
+    "Agora — plateforme trilingue (FR/EN/HT) de recherche juridique haïtienne : législation, circulaires BRH, jurisprudence, doctrine, lois de finances et marques — sourcées au Moniteur.",
   manifest: '/site.webmanifest',
   /**
    * ⚠️ LE SUFFIXE `?v=` N'EST PAS DÉCORATIF. Les navigateurs conservent le favicon dans un

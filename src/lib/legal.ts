@@ -32,7 +32,6 @@ export const CGU: LegalDocData = {
   blocks: [
     { t: 'h2', id: 'art1', s: 'Article 1 — Objet' },
     { t: 'p', s: "Les présentes Conditions Générales d'Utilisation (ci-après « CGU ») régissent l'accès et l'utilisation de la plateforme Agora, accessible à l'adresse agora.ht (ci-après « la Plateforme »), exploitée par Agora (ci-après « l'Opérateur »)." },
-    { t: 'p', s: "La Plateforme s'appelait auparavant Lam et était accessible à l'adresse lam.ht. Cette adresse reste valable : elle redirige vers agora.ht, et les comptes, les documents et les liens existants sont conservés." },
     { t: 'p', s: "La Plateforme est un service de recherche en ligne (SaaS) offrant un accès numérique au contenu et à l'index du Journal Officiel de la République d'Haïti (Le Moniteur) et au contenu des circulaires de la Banque de la République d'Haïti." },
     { t: 'p', s: "Toute utilisation de la Plateforme implique l'acceptation sans réserve des présentes CGU. L'Utilisateur est invité à les lire attentivement avant toute utilisation." },
 
@@ -311,7 +310,6 @@ export const MENTIONS: LegalDocData = {
   blocks: [
     { t: 'h2', id: 'm1', s: '1. Éditeur du site' },
     { t: 'p', s: 'Le site agora.ht est édité par : Agora — Siège social : 62, rue Geffrard, Pétion-Ville, Haïti — Contact : legal@agora.ht.' },
-    { t: 'p', s: "Agora s'appelait auparavant Lam (lam.ht). L'adresse lam.ht redirige vers agora.ht." },
 
     { t: 'h2', id: 'm2', s: '2. Hébergeur' },
     { t: 'p', s: 'Vercel Inc. — 440 N. Barranca Avenue, #4133, Covina, CA 91723 — Localisation des serveurs : États-Unis.' },

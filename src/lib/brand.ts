@@ -304,12 +304,11 @@ export const TYPE_CHIP =
 export const FULLTEXT_TYPE_LIST = DOC_TYPE_LIST.filter((m) => !m.referenceOnly)
 
 /**
- * La marque — Agora (agora.ht), anciennement Lam (lam.ht). Kit de marque Agora v2.
+ * La marque — Agora (agora.ht). Kit de marque Agora v2.
  *
- * `formerName` / `formerDomain` ne servent qu'à la MENTION DE TRANSITION « Agora,
- * anciennement Lam », affichée au moins six mois après la bascule (D7), et aux messages qui
- * nomment une entrée 2FA créée avant elle. lam.ht ne meurt pas : il redirige à vie, chemin
- * conservé (19 PDF scellés le portent).
+ * Aucune mention de l'ancien nom n'est affichée (décision de Me Vaval, 8 oct. 2026 : la
+ * mention de transition « Agora, anciennement Lam » prévue pour six mois est retirée). lam.ht
+ * redirige à vie vers agora.ht, chemin conservé (19 PDF scellés le portent).
  *
  * ⚠️ Les noms INTERNES restent « lam » / « lv » (cookies `lv_*`, préfixe d'index, dépôt,
  * stockage `lam-pdfs`) : les changer déconnecterait ou perdrait des données pour rien.
@@ -326,12 +325,4 @@ export const BRAND = {
   },
   seal: 'AGORA · LE DROIT HAÏTIEN, ACCESSIBLE À TOUS',
   verifiedBadge: { fr: 'Document vérifié', en: 'Verified document', ht: 'Dokiman verifye' },
-  formerName: 'Lam',
-  formerDomain: 'lam.ht',
-  /** « Agora, anciennement Lam » — la mention de transition (D7, six mois au moins). */
-  transition: {
-    fr: 'Agora, anciennement Lam (lam.ht)',
-    en: 'Agora, formerly Lam (lam.ht)',
-    ht: 'Agora, ansyen Lam (lam.ht)',
-  },
 }
