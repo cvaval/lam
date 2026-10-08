@@ -1,107 +1,106 @@
-// Legal-holiday date helpers, ported 1:1 from the legacy SPA
-// (equinox-app.html, "Fêtes Légales" section). Shared by the trust bar,
-// the fêtes view and the calculator's holiday pickers.
+/**
+ * Fêtes légales du portail public — **LE CALENDRIER DE LA PLATEFORME, PAS UNE SECONDE LISTE.**
+ *
+ * ⚠️ La maquette du portail (8 oct. 2026) portait la liste d'une autre application (Equinox),
+ * copiée en JSON. Elle contredisait le calendrier que le calculateur de délais applique :
+ * « Jour de Dessalines » au 20 OCTOBRE (le décret du 11 décembre 2024 dit 20 septembre), le
+ * 14 août absent, la Toussaint « sous réserve de décret » alors que ce décret l'institue, le
+ * Lundi Gras en journée entière (c'est une demi-journée). Une plateforme juridique ne publie
+ * pas deux calendriers qui se démentent : ce module ne fait que PRÉSENTER
+ * `src/lib/delais/feries.ts`. Aucune date, aucun libellé n'y est saisi.
+ *
+ * Aucun `Date` ici non plus, pour la même raison que dans `feries.ts` : une fête est une date
+ * CIVILE, et un fuseau n'a pas à la faire glisser d'un jour.
+ */
+import type { CivilDate } from '@/lib/delais/civil'
+import { comparer, parseIso } from '@/lib/delais/civil'
+import { dateEntree, libelle, noteJournee, type EntreeCalendrier, type Locale } from '@/lib/delais/feries'
 
-import CT_HOLIDAYS from "@/data/agora/CT_HOLIDAYS.json";
-import CT_HOLIDAYS_DECREE from "@/data/agora/CT_HOLIDAYS_DECREE.json";
-type Lang = "fr" | "en" | "es";
+/**
+ * Les trois familles que l'écran distingue — et elles ne disent pas la même chose :
+ *  - `nationale` : les cinq fêtes de la Constitution (art. 275.1) ;
+ *  - `legale` : les fêtes légales du décret applicable ;
+ *  - `arrete` : les jours « à surveiller » — chômés certaines années, PAR ARRÊTÉ. Ce ne sont
+ *    pas des jours fériés : l'écran ne doit jamais les présenter comme tels.
+ */
+export type CategoriePublique = 'nationale' | 'legale' | 'arrete'
 
-export interface Holiday {
-  d: string;
-  fr: string;
-  en: string;
-  es: string;
-  type?: string;
-  religious?: boolean;
+export type FetePublique = {
+  cle: string
+  categorie: CategoriePublique
+  libelle: string
+  date: CivilDate
+  demiJournee: boolean
+  /** Note de demi-journée, dans la langue demandée (repli français) ; vide sinon. */
+  note: string
+  source: string
 }
 
-export const HOLIDAYS_MAIN = CT_HOLIDAYS as Holiday[];
-export const HOLIDAYS_DECREE = CT_HOLIDAYS_DECREE as Holiday[];
+/**
+ * Première année proposée : le décret du 11 décembre 2024 est la liste en vigueur, et 2025
+ * est la première année qu'il couvre entière. Avant, la liste change (décret de 1989) — le
+ * calculateur sait la rejouer, ce portail ne la présente pas.
+ */
+export const PREMIERE_ANNEE_PUBLIQUE = 2025
 
-// Easter calculation (Anonymous Gregorian algorithm)
-function computeEaster(year: number): Date {
-  const a = year % 19,
-    b = Math.floor(year / 100),
-    c = year % 100;
-  const d = Math.floor(b / 4),
-    e = b % 4,
-    f = Math.floor((b + 8) / 25);
-  const g = Math.floor((b - f + 1) / 3),
-    h = (19 * a + b - d - g + 15) % 30;
-  const i = Math.floor(c / 4),
-    k = c % 4,
-    l = (32 + 2 * e + 2 * i - h - k) % 7;
-  const m = Math.floor((a + 11 * h + 22 * l) / 451);
-  const month = Math.floor((h + l - 7 * m + 114) / 31),
-    day = ((h + l - 7 * m + 114) % 31) + 1;
-  return new Date(year, month - 1, day);
+export function categoriePublique(e: EntreeCalendrier): CategoriePublique {
+  if (e.typeEntree === 'A_SURVEILLER') return 'arrete'
+  return e.categorie === 'FETE_NATIONALE' ? 'nationale' : 'legale'
 }
 
-function getMovableDate(key: string, year: number): Date {
-  const easter = computeEaster(year);
-  const d = new Date(easter);
-  switch (key) {
-    case "MOVABLE_LUNDI_GRAS":
-      d.setDate(d.getDate() - 48);
-      break;
-    case "MOVABLE_MARDI_GRAS":
-      d.setDate(d.getDate() - 47);
-      break;
-    case "MOVABLE_GOOD_FRIDAY":
-      d.setDate(d.getDate() - 2);
-      break;
-    case "MOVABLE_CORPUS":
-      d.setDate(d.getDate() + 60);
-      break;
-    case "MOVABLE_ASH_WED":
-      d.setDate(d.getDate() - 46);
-      break;
-    case "MOVABLE_MAUNDY_THU":
-      d.setDate(d.getDate() - 3);
-      break;
+const RANG: Record<CategoriePublique, number> = { nationale: 0, legale: 1, arrete: 2 }
+
+/** Les entrées d'une année, datées, triées — celles qui ne s'appliquaient pas encore en sont exclues. */
+export function fetesDeLAnnee(
+  entrees: readonly EntreeCalendrier[],
+  annee: number,
+  locale: Locale,
+): FetePublique[] {
+  const fetes: FetePublique[] = []
+  for (const e of entrees) {
+    const date = dateEntree(e, annee)
+    const debut = parseIso(e.appliqueDepuis)
+    if (debut && comparer(date, debut) < 0) continue
+    const demiJournee = e.journee === 'DEMI_JOURNEE_APRES_MIDI'
+    fetes.push({
+      cle: e.cle,
+      categorie: categoriePublique(e),
+      libelle: libelle(e, locale),
+      date,
+      demiJournee,
+      note: demiJournee ? noteJournee(e, locale) : '',
+      source: e.source,
+    })
   }
-  return d;
+  return fetes.sort((a, b) => comparer(a.date, b.date) || RANG[a.categorie] - RANG[b.categorie])
 }
 
-export function getHolidayDate(h: Holiday, year: number): Date {
-  if (h.d.startsWith("MOVABLE")) return getMovableDate(h.d, year);
-  const [m, d] = h.d.split("-").map(Number);
-  return new Date(year, m - 1, d);
-}
-
-export function fmtDateHoliday(dt: Date, lng: Lang): string {
-  const opts: Intl.DateTimeFormatOptions = { day: "numeric", month: "long" };
-  const loc = lng === "es" ? "es-ES" : lng === "en" ? "en-US" : "fr-FR";
-  return dt.toLocaleDateString(loc, opts);
-}
-
-export interface HolidayInRange {
-  holiday: Holiday;
-  date: Date;
-  name: string;
-  dateStr: string;
-}
-
-export function getHolidaysInRange(startStr: string, endStr: string, lang: Lang): HolidayInRange[] {
-  if (!startStr || !endStr) return [];
-  const sd = new Date(startStr + "T00:00:00");
-  const ed = new Date(endStr + "T00:00:00");
-  if (isNaN(sd.getTime()) || isNaN(ed.getTime()) || sd > ed) return [];
-  const startY = sd.getFullYear(),
-    endY = ed.getFullYear();
-  const allH = HOLIDAYS_MAIN.map((h) => ({ h, src: "main" })).concat(
-    HOLIDAYS_DECREE.map((h) => ({ h, src: "decree" }))
-  );
-  const results: HolidayInRange[] = [];
-  for (let y = startY; y <= endY; y++) {
-    for (let i = 0; i < allH.length; i++) {
-      const dt = getHolidayDate(allH[i].h, y);
-      if (dt >= sd && dt <= ed) {
-        const name = allH[i].h[lang] || allH[i].h.fr;
-        results.push({ holiday: allH[i].h, date: dt, name, dateStr: dt.toISOString().slice(0, 10) });
-      }
-    }
+/**
+ * Prochaine fête nationale ou légale à partir d'aujourd'hui (inclus). Un jour « à surveiller »
+ * n'en est jamais une : il n'est chômé que si un arrêté le dit, l'année venue.
+ */
+export function prochaineFete(
+  entrees: readonly EntreeCalendrier[],
+  aujourdhui: CivilDate,
+  locale: Locale,
+): FetePublique | null {
+  for (const annee of [aujourdhui.y, aujourdhui.y + 1]) {
+    const suivante = fetesDeLAnnee(entrees, annee, locale).find(
+      (f) => f.categorie !== 'arrete' && comparer(f.date, aujourdhui) >= 0,
+    )
+    if (suivante) return suivante
   }
-  results.sort((a, b) => a.date.getTime() - b.date.getTime());
-  return results;
+  return null
+}
+
+/** Aujourd'hui à Port-au-Prince, en date civile — jamais minuit UTC (leçon de `debutDeJourneeHaiti`). */
+export function aujourdhuiHaiti(instant: Date = new Date()): CivilDate {
+  const parts = new Intl.DateTimeFormat('en', {
+    timeZone: 'America/Port-au-Prince',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(instant)
+  const champ = (type: string) => Number(parts.find((p) => p.type === type)?.value)
+  return { y: champ('year'), m: champ('month'), d: champ('day') }
 }
