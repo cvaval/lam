@@ -268,7 +268,7 @@ export const CONFIDENTIALITE: LegalDocData = {
       'Hachage des mots de passe : les mots de passe sont stockés sous forme de hash cryptographique irréversible.',
       "Contrôle d'accès : l'accès aux données est restreint aux seuls membres du personnel autorisés, selon le principe du moindre privilège.",
       'Journalisation : les accès aux données sont journalisés à des fins de traçabilité et d\'audit.',
-      "DNSSEC : le nom de domaine agora.ht est protégé par DNSSEC pour garantir l'authenticité des résolutions DNS.",
+      "DNSSEC : le nom de domaine agora.ht sera protégé par DNSSEC, pour garantir l'authenticité des résolutions DNS, dès l'enregistrement de sa clé auprès du registre .ht ; l'adresse historique de la Plateforme l'est déjà.",
       'Sauvegardes : des sauvegardes régulières et chiffrées sont effectuées pour prévenir toute perte de données.',
     ] },
 
