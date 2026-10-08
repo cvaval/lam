@@ -95,7 +95,7 @@ export default async function JuridictionsPage({
     <div className="agora-portal ag-judicial-page min-h-screen bg-koton">
       <AgoraPublicHeader locale={locale} />
 
-      <main className="mx-auto max-w-7xl px-4 pb-16 pt-6">
+      <main className="mx-auto max-w-none px-4 pb-16 pt-6 md:px-[clamp(24px,4vw,96px)]">
         <nav aria-label="Fil d’Ariane" className="text-sm text-ank/80">
           <ol className="flex flex-wrap items-center gap-1.5">
             <li><Link href={`/${locale}`} className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center transition hover:text-chabon hover:underline">{t.judicial.breadcrumbHome}</Link></li>
@@ -182,7 +182,7 @@ export default async function JuridictionsPage({
       </main>
 
       <footer className="border-t border-chabon/10 bg-white">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-6 text-xs text-ank/80">
+        <div className="mx-auto flex max-w-none flex-wrap items-center justify-between gap-3 px-4 py-6 text-xs text-ank/80 md:px-[clamp(24px,4vw,96px)]">
           <span>© 2026 Agora</span>
           <nav className="flex gap-4">
             <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
