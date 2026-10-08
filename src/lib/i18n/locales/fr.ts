@@ -594,7 +594,7 @@ export const fr = {
     j3: 'Votre appareil de confiance expire dans 3 jours',
   },
   register: {
-    title: 'Demander un accès',
+    title: 'Solliciter l’accès',
     subtitle: "Votre compte sera créé en attente — un master admin l'activera et vous attribuera votre type d'accès.",
     name: 'Nom complet',
     org: 'Organisation (optionnel)',

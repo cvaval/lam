@@ -19,9 +19,14 @@
    Marron inconnu, tour monumentale, bâtiment à grandes arcades, Cour de cassation (illustration fournie,
    fond rendu transparent). Purement décorative : pseudo-élément sous le contenu (z-index -1 dans le
    contexte isolé de la page), sans clic ni focus. Débute sous l'en-tête de 94 px. */
-.ag-secure-page::before{content:"";position:absolute;inset:94px 0 0;z-index:-1;pointer-events:none;background-image:url('/brand/agora/landmarks-haiti-references.png');background-repeat:repeat-x;background-position:center bottom 25px;background-size:1440px auto;opacity:.19}
+.ag-secure-page::before{content:"";position:absolute;inset:94px 0 0;z-index:-1;pointer-events:none;background-image:url('/brand/agora/landmarks-haiti-market-first.png');background-repeat:repeat-x;background-position:center bottom 25px;background-size:1440px auto;opacity:.19}
 @media(max-width:700px){.ag-secure-page::before{background-size:1000px auto;background-position:center bottom 15px;opacity:.11}}
 /* Pleine largeur (Me Vaval, 8 oct. 2026) : le portail occupe tout l'écran au lieu d'une colonne de 1 240 px ;
    la marge latérale suit la fenêtre (24 à 96 px). Sur grand écran, la carte du héros grandit avec sa colonne. */
-@media(min-width:1500px){.agora-portal .ag-map-art{height:340px}}
+/* Héros : Haïti agrandie et fiche de Port-au-Prince rétablie (8 oct. 2026). À partir de 1 000 px, la carte
+   prend la plus grande part du héros, l'île suit la largeur de sa colonne (proportions du viewBox 1000 × 764,
+   520 px de haut au plus) et la fiche se range à sa droite ; la ligne « Port-au-Prince · HT6110 » ferait doublon. */
+.ag-map-body{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:center}.ag-hero-fiche{display:none}
+@media(min-width:1000px){.ag-hero-grid{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr)}.ag-map-body{grid-template-columns:minmax(0,1fr) 14rem;margin-top:10px}.agora-portal .ag-map-art{height:auto;aspect-ratio:1000/764;max-height:520px;margin:0 -6px 6px}.ag-hero-fiche{display:block}.ag-map-place{display:none}}
+@media(min-width:1500px){.ag-map-body{grid-template-columns:minmax(0,1fr) 16rem}}
 .ag-secure-card{width:100%;max-width:560px;justify-self:end}
