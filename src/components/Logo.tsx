@@ -1,36 +1,30 @@
 /**
- * Marque officielle Lam — le fruit à pain (« lam veritab »), le fruit du savoir.
- * Les visuels viennent du kit de marque officiel (public/brand/, août 2026 — système « Klinik ») :
- *  - Lam_Logo_Principal.svg          logotype fruit + « lam » (fond clair)
- *  - Lam_Logo_FondFonce.svg          idem en crème (fond navy)
- *  - Lam_Logo_Principal_Baseline.svg logotype + « LE FRUIT DU SAVOIR »
- *  - Lam_Marque_Klinik.svg           marque seule, encrée pour FOND CLAIR
- *  - Lam_Marque_Klinik_FondFonce.svg même marque, contours en Koton — FOND SOMBRE
- *  - Lam_AppIcon_Klinik.svg          marque sur carré Chabon arrondi — source vectorielle
- *                                    des icônes d'application (icon-192/512.png,
- *                                    apple-touch-icon.png). JAMAIS dans l'interface.
- * Le PNG (Lam_Logo_Principal.png) est servi dans public/brand/ pour les usages
- * hors interface (e-mails riches, documents) ; l'interface utilise les SVG
- * vectoriels du même kit.
+ * Marque Agora (agora.ht) — kit de marque Agora v2 (`Dropbox/Lam Veritab/Agora/`).
  *
- * ⚠️ AUCUN LOGO NE PORTE SON PROPRE FOND. Les variantes « fond foncé » comportaient une
- * plaque opaque Chabon : invisible sur un bandeau Chabon, elle apparaissait en pavé dès
- * que la surface différait — carte Adwaz du héros, lien du back-office qui s'éclaircit au
- * survol. C'est la SURFACE qui fournit le fond ; le logo n'apporte que son encre.
+ *  - le SYMBOLE (deux arches) est vectoriel dans le kit (`symbole-*.svg`, 254 octets) : il est
+ *    rendu ici en SVG en ligne, sans requête ;
+ *  - le LOGOTYPE (symbole + « agora.ht ») n'existe qu'en PNG dans le kit — ses SVG horizontaux
+ *    EMBARQUENT un PNG de 426 Ko. On sert donc `public/brand/agora/logo.png` et
+ *    `logo-white.png`, réduits à 480 px de large (deux fois la plus grande taille d'affichage,
+ *    5 Ko au lieu de 319). La vectorisation par un graphiste reste à faire avant tout dépôt de
+ *    marque ou toute impression (D5).
  *
- * ⚠️ L'ICÔNE D'APPLICATION N'EST PAS UN LOGO D'INTERFACE. Son carré arrondi est un support
- * imposé par les systèmes d'exploitation (tuile d'accueil, écran de démarrage), pas un
- * élément de la marque. `tone="dark"` servait cette icône faute de marque encrée pour fond
- * sombre : c'est ce manque qui est comblé, l'icône retourne à son seul usage.
+ * ⚠️ AUCUN LOGO NE PORTE SON PROPRE FOND : c'est la SURFACE qui le fournit (leçon Klinik).
+ *
+ * Les anciens fichiers `public/brand/Lam_*` restent en place six mois après la bascule :
+ * d'anciens e-mails et caches peuvent encore les appeler.
  */
 
-// Proportions des fichiers du kit (viewBox) — évitent tout décalage de mise en page.
-const LOGO_RATIO = 315 / 140 // logotype principal
-const BASELINE_RATIO = 315 / 150 // variante avec baseline (plus haute)
-// La marque « Klinik » est CARRÉE (viewBox 132×132), là où le fruit v1 était en 92×124.
-const FRUIT_RATIO = 1 // marque seule
+// Proportions du logotype du kit (2172 × 724) — évitent tout décalage de mise en page.
+const LOGO_RATIO = 2172 / 724
 
-/** Fruit seul (favicon, barre admin, 2FA). tone="dark" = contours Koton, SANS plaque. */
+/** Encre du symbole : encre Agora sur fond clair, blanc sur fond sombre (kit, § couleurs). */
+const ENCRE = { light: '#152E38', dark: '#FFFFFF' } as const
+
+/**
+ * Symbole seul (barre admin, 2FA, écrans d'authentification). Le nom `FruitMark` est
+ * conservé pour les appelants : c'était la marque seule de Lam.
+ */
 export function FruitMark({
   size = 28,
   tone = 'light',
@@ -41,48 +35,48 @@ export function FruitMark({
   className?: string
 }) {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={tone === 'dark' ? '/brand/Lam_Marque_Klinik_FondFonce.svg' : '/brand/Lam_Marque_Klinik.svg'}
-      alt=""
-      aria-hidden
-      width={Math.round(size * FRUIT_RATIO)}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 32 32"
+      width={size}
       height={size}
+      aria-hidden="true"
+      focusable="false"
       className={className}
-    />
+    >
+      <path
+        d="M6 26V14a10 10 0 0 1 20 0v12M10 26V16a6 6 0 0 1 12 0v10"
+        fill="none"
+        stroke={ENCRE[tone]}
+        strokeWidth={2.4}
+        strokeLinecap="butt"
+      />
+    </svg>
   )
 }
 
-/** Logotype complet « fruit + lam » ; baseline=true ajoute « LE FRUIT DU SAVOIR ». */
+/** Logotype complet « symbole + agora.ht ». `size` garde le sens de l'ancienne API (hauteur de la marque). */
 export function Logo({
   size = 28,
   withWordmark = true,
-  baseline = false,
   tone = 'light',
   className = '',
 }: {
   size?: number
   withWordmark?: boolean
-  baseline?: boolean
   tone?: 'light' | 'dark'
   className?: string
 }) {
   if (!withWordmark) return <FruitMark size={size} tone={tone} className={className} />
-  const src = baseline
-    ? '/brand/Lam_Logo_Principal_Baseline.svg'
-    : tone === 'dark'
-      ? '/brand/Lam_Logo_FondFonce.svg'
-      : '/brand/Lam_Logo_Principal.svg'
-  const ratio = baseline ? BASELINE_RATIO : LOGO_RATIO
-  // Le fruit occupe ~88 % de la hauteur du logotype : on majore légèrement pour
-  // garder la même présence visuelle que l'ancienne API (size = hauteur du fruit).
-  const height = Math.round(size * 1.15)
+  // Le fichier du kit a des marges : le lettrage n'occupe qu'environ 60 % de sa hauteur. On
+  // majore donc pour que « agora.ht » garde la présence qu'avait « lam » à la même taille.
+  const height = Math.round(size * 1.6)
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={src}
-      alt="Lam"
-      width={Math.round(height * ratio)}
+      src={tone === 'dark' ? '/brand/agora/logo-white.png' : '/brand/agora/logo.png'}
+      alt="agora.ht"
+      width={Math.round(height * LOGO_RATIO)}
       height={height}
       className={className}
     />

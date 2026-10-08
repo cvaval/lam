@@ -12,16 +12,7 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
     : params.locale === 'ht'
       ? 'Agora — Kat jidisyè Ayiti a'
       : 'Agora — Carte judiciaire haïtienne'
-  return {
-    title,
-    icons: {
-      icon: [
-        { url: '/brand/agora/favicon.svg?v=agora2', type: 'image/svg+xml' },
-        { url: '/brand/agora/favicon.ico?v=agora2', sizes: 'any' },
-      ],
-      apple: '/brand/agora/apple-touch-icon.png?v=agora2',
-    },
-  }
+  return { title }
 }
 
 /** Public judicial-map presentation; authenticated users enter the secure workspace. */
