@@ -45,10 +45,10 @@ import { BRAND_COLORS } from '@/lib/brand-colors'
 import { formatDate } from '@/lib/i18n/format'
 import type { Locale } from '@/lib/types'
 
-// Palette « Klinik » v3.0. Le filet de titre est en SITWON, couleur de l'usage : un fichier
-// d'annexes est produit à la demande du lecteur. WOUJ reste au certificateur.
+// Palette Agora (brand-colors.ts). Le filet de titre est en TERRE CUITE (jeton `wouj`),
+// l'accent éditorial de la charte ; `sitwon` est devenu un fond pâle, invisible en filet.
 const CHABON = BRAND_COLORS.chabon.replace('#', '') // 414042
-const SITWON = BRAND_COLORS.sitwon.replace('#', '') // FDD228
+const WOUJ = BRAND_COLORS.wouj.replace('#', '') // terre cuite 9B422C
 const ANK = BRAND_COLORS.ank.replace('#', '') // 3F4043
 const HEADER_FILL = BRAND_COLORS.pil.replace('#', '') // F2F1EE — en-têtes de tableau
 
@@ -219,7 +219,7 @@ export async function buildAnnexesDocx(input: AnnexeInput): Promise<Buffer> {
     }),
     new Paragraph({
       spacing: { after: 200 },
-      border: { bottom: { style: BorderStyle.SINGLE, size: 12, color: SITWON } },
+      border: { bottom: { style: BorderStyle.SINGLE, size: 12, color: WOUJ } },
       children: [new TextRun({ text: input.titleFr, color: '6E6D8E', size: 20 })],
     }),
   ]

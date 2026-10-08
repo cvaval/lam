@@ -149,10 +149,18 @@ describe('AV-02 — les feuilles de style suivent la doctrine, pas seulement les
     expect(fautifs).toEqual([])
   })
 
-  it('le surlignage du terme exact est en Wouj, pas en Sitwon (AV-02, art. 1)', () => {
+  /**
+   * Charte Agora (oct. 2026) : la palette n'a plus de jaune ni de rouge vif. Le terme EXACT se
+   * marque en aplat « attention » pâle, texte ENCRE, et un SOULIGNÉ terre cuite le rend
+   * visible sans sa couleur de fond (règle : rien par la couleur seule). Les anciens aplats
+   * Klinik (#D21034 rouge, #FDD228 jaune) ne doivent pas revenir.
+   */
+  it('le surlignage du terme exact : fond pâle, texte encre, souligné terre cuite (charte Agora)', () => {
     const css = STYLES.find((f) => f.p.endsWith('globals.css'))!.s
     const bloc = /mark\.hl\s*\{([^}]*)\}/.exec(css)?.[1] ?? ''
-    expect(bloc).toMatch(/#D21034/i)
-    expect(bloc).not.toMatch(/#FDD228/i)
+    expect(bloc).toMatch(/background-color:\s*#FFF4DB/i)
+    expect(bloc).toMatch(/color:\s*#152E38/i)
+    expect(bloc).toMatch(/box-shadow:\s*inset 0 -2px 0 #9B422C/i)
+    expect(bloc).not.toMatch(/#D21034|#FDD228/i)
   })
 })

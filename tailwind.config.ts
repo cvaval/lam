@@ -2,20 +2,18 @@ import type { Config } from 'tailwindcss'
 import { BRAND_COLORS as C } from './src/lib/brand-colors'
 
 /**
- * Lam — système chromatique « Klinik » v3.0, CHARTE GELÉE (LAM-BRAND-2026-08-V3).
+ * Agora — palette du kit de marque v2, posée sur les jetons Klinik (voir la table de
+ * correspondance en tête de src/lib/brand-colors.ts : les noms créoles ne disent plus la
+ * teinte).
  *
- * Le codage des types par la TEINTE, qui traversait la v1.0, a été remplacé par un codage
- * TYPOGRAPHIQUE : pastilles uniformes portant un code en IBM Plex Mono (LÉG · BRH · JUR ·
- * DOC · FIN · MRK · IDX · TAR) — voir src/lib/brand.ts.
+ * ⚠️ `wouj` A DEUX VALEURS, ET C'EST VOULU. La charte Agora sépare ce que Klinik confondait :
+ * le BOUTON PRINCIPAL est bleu encre, texte blanc ; la TERRE CUITE est l'accent (lien actif,
+ * filet, bordure, focus). `bg-wouj` (50 boutons, tous texte blanc — brand-accents.test.ts)
+ * se résout donc en encre via `backgroundColor`, et toutes les autres utilités `*-wouj` en
+ * terre cuite via `colors`.
  *
- * ⚠️ DEUX ACCENTS, DEUX RÉCITS — ne pas les intervertir :
- *   (INVERSÉS par l'avenant AV-02 du 11 août 2026 — ne pas revenir à l'ancien récit)
- *   WOUJ   la couleur de l'USAGE — CTA principal (fond Wouj, TEXTE BLAN), badge « Dokiman
- *          verifye », surlignage du terme exact, soulignement de navigation active.
- *          Le logotype garde son trait Wouj, hors quota (AV-02bis).
- *   SITWON le trait du CERTIFICATEUR — statut « Abrogé » (pastille fond Sitwon, texte
- *          Chabon), alerte de certification. Rationné à UNE occurrence d'interface par
- *          écran. JAMAIS en couleur de texte, jamais un trait : 1,46:1 sur Blan.
+ * Le codage des types reste TYPOGRAPHIQUE : pastilles uniformes portant un code en IBM Plex
+ * Mono (LÉG · BRH · JUR · DOC · FIN · MRK · IDX · TAR) — voir src/lib/brand.ts.
  */
 const config: Config = {
   content: ['./src/**/*.{ts,tsx,mdx}'],
@@ -45,10 +43,14 @@ const config: Config = {
         // Texte sur fond sombre (Chabon / Adwaz).
         inverse: C.inverse,
       },
+      backgroundColor: {
+        // Bouton principal = encre (charte Agora § 6). Voir l'en-tête.
+        wouj: C.action,
+      },
       // Trois familles NORMATIVES, toutes embarquées (variables posées au layout racine).
       // Aucune police système : la typographie est un élément de marque.
       fontFamily: {
-        sans: ['var(--font-franklin)', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['var(--font-inter)', 'Arial', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
         // Corpus juridique — Source Serif 4, axe optique. Remplace Georgia.
         serif: ['var(--font-source-serif)', 'Georgia', 'Cambria', 'serif'],
         // Codes de type des pastilles, références du Moniteur, montants, empreintes.

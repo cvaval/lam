@@ -291,7 +291,7 @@ export function racinesReserveesHors(slug: string): string[] {
  * codage TYPOGRAPHIQUE, conforme au rationnement de la couleur (une seule reste
  * signifiante : Wouj, et elle est rationnée à une occurrence par écran).
  *
- * fond Pil · bordure #C7C6C1 · texte Chabon · IBM Plex Mono, approche +14 %.
+ * fond Pil (sauge) · bordure liy-fonse #C5CDC7 · texte Chabon (encre) · IBM Plex Mono, approche +14 %.
  */
 export const TYPE_CHIP =
   // `shrink-0` : la pastille est presque toujours un enfant de flex, à côté d'un intitulé

@@ -2,16 +2,14 @@ import { PDFDocument, StandardFonts, rgb, degrees } from 'pdf-lib'
 import { BRAND } from '../brand'
 import { BRAND_COLORS, hexToRgb01 } from '../brand-colors'
 
-// Palette « Klinik » v3.0, dérivée de la source unique (brand-colors.ts).
-// Deux accents, deux récits : SITWON est la couleur de l'USAGE — un document exporté est un
-// acte du lecteur, d'où le filet de titre. WOUJ est le trait du CERTIFICATEUR, réservé au
-// statut « Abrogé » et aux alertes ; il ne paraît donc pas sur un sceau ordinaire.
-// Tout le reste — bandeau, wordmark, pieds de page — se tient en Chabon et Ank.
+// Palette Agora, dérivée de la source unique (brand-colors.ts). Le filet de titre est en
+// TERRE CUITE (jeton `wouj`), l'accent éditorial de la charte ; tout le reste — bandeau,
+// wordmark, pieds de page — se tient en encre (`chabon`, `ank`). `sitwon` est devenu un
+// FOND pâle (#FFF4DB) : en filet, il serait invisible sur le blanc de la page.
 const CHABON = rgb(...hexToRgb01(BRAND_COLORS.chabon))
 const ANK = rgb(...hexToRgb01(BRAND_COLORS.ank))
 const KOTON = rgb(...hexToRgb01(BRAND_COLORS.koton))
 const WOUJ = rgb(...hexToRgb01(BRAND_COLORS.wouj))
-const SITWON = rgb(...hexToRgb01(BRAND_COLORS.sitwon))
 
 export interface SealInput {
   title: string
@@ -126,7 +124,7 @@ export async function buildSealedPdf(input: SealInput): Promise<Uint8Array> {
     page.drawText(metaBits, { x: margin, y, size: 9, font, color: CHABON, opacity: 0.8 })
     y -= 22
   }
-  page.drawLine({ start: { x: margin, y }, end: { x: A4[0] - margin, y }, thickness: 1.4, color: SITWON }) // Sitwon — le document exporté est un acte d'usage
+  page.drawLine({ start: { x: margin, y }, end: { x: A4[0] - margin, y }, thickness: 1.4, color: WOUJ }) // terre cuite — accent éditorial (charte Agora)
   y -= 18
 
   let pageNo = 1

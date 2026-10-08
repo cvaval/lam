@@ -1,24 +1,15 @@
 /* ============================================================
-   LAM — système chromatique « Klinik » v3.0, CHARTE GELÉE
-   Réf. LAM-BRAND-2026-08-V3 · « Le fruit du savoir »
+   AGORA — palette du kit de marque v2 (octobre 2026)
+   Valeurs posées sur les jetons Klinik : voir la table de correspondance en
+   tête de src/lib/brand-colors.ts (les noms créoles ne disent plus la teinte).
 
-   LE RÉCIT (inversé par l'AVENANT AV-02 du 11 août 2026) :
-       « Le rouge est la couleur de l'USAGE ;
-         le jaune Sitwon est le trait du CERTIFICATEUR. »
-
-   1. WOUJ #D21034 — l'USAGE : CTA principal (fond Wouj, TEXTE BLAN), badge
-      « Dokiman verifye », surlignage du terme exact, navigation active.
-      Le logotype garde son trait Wouj, hors quota (AV-02bis).
-   2. SITWON #FDD228 — le CERTIFICATEUR : statut « Abrogé » (pastille fond
-      Sitwon, texte Chabon), alerte de certification. Rationné à UNE occurrence
-      d'interface par écran. JAMAIS un texte, JAMAIS un trait, JAMAIS un fond de
-      page — sur Blan il ne rend que 1,46:1.
-   2 bis. WOUJ PAL #FCE1E4 — surlignage étendu et fond de sélection, texte Ank
-      (8,41:1). Remplace Sitwon Pal #FFF3C6, retiré par l'AV-02.
-   3. Tout texte juridique se lit sur Blan ; Koton n'accueille jamais plus
-      de deux lignes de texte continu.
-   4. Noir pur #000000 interdit — bornes sombres : Chabon et Ank.
-   5. Aucune information par la couleur seule (Vèt/Wouj : 1,05:1).
+   1. ENCRE #152E38 — texte, titres, BOUTON PRINCIPAL (texte blanc, 14,19:1).
+   2. TERRE CUITE #9B422C — liens, accents éditoriaux, focus (6,00:1 sur ivoire).
+      Jamais en fond de page ni en grande surface.
+   3. IVOIRE #F7F5EF — fond de page ; tout texte juridique se lit sur BLANC.
+   4. États (succès #23665D / attention #855810 / erreur #B13D35) : TOUJOURS avec
+      leur libellé ou leur pictogramme — jamais par la couleur seule.
+   5. Noir pur #000000 interdit.
    ============================================================ */
 @tailwind base;
 @tailwind components;
@@ -32,29 +23,28 @@ body {
   @apply bg-koton text-ank antialiased;
 }
 
-/* Surlignage — WOUJ, la couleur de l'USAGE (AV-02, art. 1). Chercher est un acte
-   d'usage : le terme EXACT se marque en aplat Wouj à texte Blan (5,43:1), le passage
-   ÉTENDU — ligne de résultat, citation, sélection — en Wouj Pal à texte Ank (8,41:1).
-   ⚠ Sitwon n'a plus rien à faire ici : il appartient au certificateur, et il est
-   rationné à UNE occurrence par écran là où une page de résultats en compte autant
-   que de termes trouvés. */
+/* Surlignage du terme recherché — la palette Agora n'a pas de jaune : le terme EXACT
+   se marque en aplat « attention » pâle, texte encre (13:1), souligné de terre cuite
+   pour rester visible sans la couleur de fond ; le passage ÉTENDU — ligne de résultat,
+   citation, sélection — en terre cuite pâle, texte encre. */
 mark.hl {
-  background-color: #D21034;
-  color: #FFFFFF;
+  background-color: #FFF4DB;
+  color: #152E38;
+  box-shadow: inset 0 -2px 0 #9B422C;
   border-radius: 2px;
   padding: 0 2px;
 }
 mark.hl-ext,
 ::selection {
-  background-color: #FCE1E4;
-  color: #3F4043;
+  background-color: #F1E2DA;
+  color: #152E38;
 }
 
-/* Focus — outline 2 px Chabon, offset 2 px (--lam-focus). Il ne peut être ni Wouj ni
-   Sitwon : le focus se déplace partout, les deux accents sont rationnés. */
+/* Focus — charte Agora § 6 : contour terre cuite de 3 px, décalé de 3 px. Le liseré est
+   UNIQUE dans tout le produit (brand-accents.test.ts : personne ne l'éteint). */
 *:focus-visible {
-  outline: 2px solid #414042;
-  outline-offset: 2px;
+  outline: 3px solid #9B422C;
+  outline-offset: 3px;
   border-radius: 6px;
 }
 
@@ -62,7 +52,7 @@ mark.hl-ext,
 .skeleton {
   position: relative;
   overflow: hidden;
-  background: #EAE9E5;
+  background: #F7F5EF;
 }
 .skeleton::after {
   content: '';
@@ -85,7 +75,7 @@ mark.hl-ext,
   font-family: var(--font-source-serif), Georgia, Cambria, serif;
   font-size: 17px;
   line-height: 1.7;
-  color: #3F4043;
+  color: #152E38;
 }
 
 /* Tableaux : neutraliser le pre-wrap hérité (rafales d'espaces OCR → colonnes
@@ -143,7 +133,7 @@ mark.hl-ext,
 /* Passage trouvé par la recherche du Code (CSS Custom Highlight API — voir CodeSidebar.goToHit) :
    surligné sans toucher au DOM du texte officiel. */
 ::highlight(lv-passage) {
-  background-color: #F2F1EE;
+  background-color: #E7ECE7;
   color: inherit;
 }
 
