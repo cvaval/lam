@@ -21,7 +21,7 @@ export const fr = {
 
     // ─── Identité et navigation ────────────────────────────────────────────────
     navLabel: 'Calculateur de délais',
-    metaTitle: 'Calculateur de jours francs — Lam',
+    metaTitle: 'Calculateur de jours francs — Agora',
     /**
      * LA NOTE DU PORTAIL — elle dit ce que l’outil FAIT (Me Vaval, 20 août 2026).
      *
@@ -727,7 +727,7 @@ export const fr = {
     openPdf: 'Consulter le fascicule (PDF)',
     pdfNotIncluded: 'La consultation du PDF n’est pas incluse dans votre offre.',
     annexes: 'Télécharger les annexes',
-    annexesHint: 'Formulaires et tableaux à compléter — filigrane Lam, à vérifier avant usage.',
+    annexesHint: 'Formulaires et tableaux à compléter — filigrane Agora, à vérifier avant usage.',
     moniteur: 'Publié au',
     adopted: 'Adopté le',
     published: 'Publié le',
@@ -1136,7 +1136,7 @@ export const fr = {
       note: 'Cliquez pour commencer la recherche.',
     },
     carousel: {
-      label: "Présentation de Lam",
+      label: "Présentation d’Agora",
       slideLegislation: 'Législation',
       slideMap: 'Carte judiciaire',
       prev: 'Diapositive précédente',
@@ -1146,7 +1146,7 @@ export const fr = {
   },
   // Carte judiciaire publique (/juridictions).
   judicial: {
-    metaTitle: "Carte judiciaire d'Haïti — Tribunaux et codes postaux | Lam",
+    metaTitle: "Carte judiciaire d'Haïti — Tribunaux et codes postaux | Agora",
     metaDescription: "Recherchez une commune d'Haïti pour identifier les tribunaux compétents, la cour d'appel, la Cour de cassation et les codes postaux associés.",
     breadcrumbHome: 'Accueil',
     breadcrumbHere: 'Carte judiciaire',
@@ -1402,7 +1402,7 @@ export const fr = {
   },
   errorPage: {
     title: 'Une erreur est survenue',
-    body: 'Réessayez dans un instant. Si le problème persiste, contactez legal@lam.ht.',
+    body: 'Réessayez dans un instant. Si le problème persiste, contactez legal@agora.ht.',
     retry: 'Réessayer',
     notFoundTitle: 'Page introuvable',
     notFoundBody: 'La page demandée n’existe pas ou a été déplacée.',
@@ -1432,7 +1432,7 @@ export const fr = {
     suspended: 'Votre compte est suspendu. Contactez un administrateur.',
     locked: 'Trop de tentatives. Compte verrouillé 15 minutes.',
     badCode: 'Code invalide ou expiré.',
-    wrongSecret: "Ce code ne provient pas du QR affiché ici. Si « Lam » figure déjà dans votre application d’authentification, SUPPRIMEZ cette ancienne entrée, puis scannez le QR ci-dessus : la clé a changé.",
+    wrongSecret: "Ce code ne provient pas du QR affiché ici. Si « Lam » ou « Agora » figure déjà dans votre application d’authentification, SUPPRIMEZ cette ancienne entrée, puis scannez le QR ci-dessus : la clé a changé.",
     clockSkew: "L’horloge de votre téléphone est décalée de plus d’une minute. Activez le réglage automatique de la date et de l’heure, puis réessayez.",
     clockSkewFast: "L’horloge de votre téléphone avance d’environ {n} min. Activez le réglage automatique de la date et de l’heure, puis réessayez.",
     clockSkewSlow: "L’horloge de votre téléphone retarde d’environ {n} min. Activez le réglage automatique de la date et de l’heure, puis réessayez.",

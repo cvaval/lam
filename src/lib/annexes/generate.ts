@@ -6,9 +6,9 @@
  *   • formulaires / tableaux à compléter → Word (.docx)
  *   • tableaux de données                → Excel (.xlsx)
  *
- * Chaque fichier porte le filigrane (logo Lam, public/brand/Lam_Watermark.png)
+ * Chaque fichier porte le filigrane (symbole Agora, public/brand/Agora_Watermark.png)
  * et, en pied de page, la mention légale : le fichier a été téléchargé depuis
- * Lam et l'utilisateur a l'obligation de vérifier l'exactitude des informations.
+ * Agora et l'utilisateur a l'obligation de vérifier l'exactitude des informations.
  *
  * AFFICHAGE seulement : bodyOriginal reste le texte officiel (§02). On ne
  * télécharge QUE les annexes (tableaux + encadrés), pas le corps de la circulaire.
@@ -80,27 +80,30 @@ export function hasAnnexes(rich: RichBlock[]): boolean {
 function disclaimer(locale: Locale): { line1: string; line2: string } {
   if (locale === 'en') {
     return {
-      line1: 'This file was downloaded from Lam.',
+      line1: `This file was downloaded from ${BRAND.name}.`,
       line2: 'The user is required to verify and ensure the accuracy of the information it contains.',
     }
   }
   if (locale === 'ht') {
     return {
-      line1: 'Fichye sa a te telechaje sou Lam.',
+      line1: `Fichye sa a te telechaje sou ${BRAND.name}.`,
       line2: "Itilizatè a gen obligasyon pou l verifye e asire l de egzaktitid enfòmasyon ki ladan l.",
     }
   }
   return {
-    line1: 'Ce fichier a été téléchargé depuis Lam.',
+    line1: `Ce fichier a été téléchargé depuis ${BRAND.name}.`,
     line2: "L'utilisateur a l'obligation de vérifier et de s'assurer de l'exactitude des informations qu'il contient.",
   }
 }
 
 let _watermark: Buffer | null = null
-/** Filigrane (logo Lam déjà aminci à ~10 % d'opacité). Lu une fois par process. */
+/**
+ * Filigrane (symbole Agora déjà aminci à ~10 % d'opacité). Lu une fois par process.
+ * L'ancien `Lam_Watermark.png` reste dans `public/brand/` six mois après la bascule.
+ */
 function watermarkPng(): Buffer {
   if (!_watermark) {
-    _watermark = fs.readFileSync(path.join(process.cwd(), 'public', 'brand', 'Lam_Watermark.png'))
+    _watermark = fs.readFileSync(path.join(process.cwd(), 'public', 'brand', 'Agora_Watermark.png'))
   }
   return _watermark
 }

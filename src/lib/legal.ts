@@ -28,10 +28,11 @@ export interface LegalDocData {
 export const CGU: LegalDocData = {
   slug: 'cgu',
   title: "Conditions Générales d'Utilisation",
-  updated: '14 juin 2026',
+  updated: '8 octobre 2026',
   blocks: [
     { t: 'h2', id: 'art1', s: 'Article 1 — Objet' },
-    { t: 'p', s: "Les présentes Conditions Générales d'Utilisation (ci-après « CGU ») régissent l'accès et l'utilisation de la plateforme Lam, accessible à l'adresse lam.ht (ci-après « la Plateforme »), exploitée par Lam (ci-après « l'Opérateur »)." },
+    { t: 'p', s: "Les présentes Conditions Générales d'Utilisation (ci-après « CGU ») régissent l'accès et l'utilisation de la plateforme Agora, accessible à l'adresse agora.ht (ci-après « la Plateforme »), exploitée par Agora (ci-après « l'Opérateur »)." },
+    { t: 'p', s: "La Plateforme s'appelait auparavant Lam et était accessible à l'adresse lam.ht. Cette adresse reste valable : elle redirige vers agora.ht, et les comptes, les documents et les liens existants sont conservés." },
     { t: 'p', s: "La Plateforme est un service de recherche en ligne (SaaS) offrant un accès numérique au contenu et à l'index du Journal Officiel de la République d'Haïti (Le Moniteur) et au contenu des circulaires de la Banque de la République d'Haïti." },
     { t: 'p', s: "Toute utilisation de la Plateforme implique l'acceptation sans réserve des présentes CGU. L'Utilisateur est invité à les lire attentivement avant toute utilisation." },
 
@@ -51,7 +52,7 @@ export const CGU: LegalDocData = {
     { t: 'h3', s: '3.2 Inscription' },
     { t: 'p', s: "L'accès aux fonctionnalités complètes de la Plateforme nécessite la création d'un Compte. L'Utilisateur fournit les informations suivantes lors de l'inscription : nom et prénom(s), adresse électronique, mot de passe, et, le cas échéant, la dénomination sociale et le numéro d'identification fiscale (NIF) de la personne morale qu'il représente. L'Utilisateur s'engage à fournir des informations exactes et à les maintenir à jour." },
     { t: 'h3', s: '3.3 Identifiants de connexion' },
-    { t: 'p', s: "L'Utilisateur est seul responsable de la confidentialité de ses identifiants de connexion. Toute utilisation de la Plateforme effectuée au moyen de ses identifiants est réputée avoir été effectuée par lui. En cas de perte, de vol ou d'utilisation non autorisée de ses identifiants, l'Utilisateur s'engage à en informer l'Opérateur sans délai à l'adresse contact@lam.ht." },
+    { t: 'p', s: "L'Utilisateur est seul responsable de la confidentialité de ses identifiants de connexion. Toute utilisation de la Plateforme effectuée au moyen de ses identifiants est réputée avoir été effectuée par lui. En cas de perte, de vol ou d'utilisation non autorisée de ses identifiants, l'Utilisateur s'engage à en informer l'Opérateur sans délai à l'adresse contact@agora.ht." },
     { t: 'h3', s: '3.4 Disponibilité' },
     { t: 'p', s: "L'Opérateur s'efforce d'assurer la disponibilité continue de la Plateforme. Toutefois, l'accès peut être temporairement interrompu pour des raisons de maintenance, de mise à jour ou en cas de force majeure. L'Opérateur ne saurait être tenu responsable des interruptions de service indépendantes de sa volonté." },
 
@@ -90,7 +91,7 @@ export const CGU: LegalDocData = {
     { t: 'h3', s: '7.1 Contenu législatif et réglementaire' },
     { t: 'p', s: "Les textes législatifs, réglementaires et officiels publiés dans Le Moniteur sont des actes de l'autorité publique et ne sont pas, en tant que tels, susceptibles d'appropriation par le droit d'auteur. Leur reproduction et leur diffusion sont libres, sous réserve du respect de leur intégrité." },
     { t: 'h3', s: "7.2 Apport de l'Opérateur" },
-    { t: 'p', s: "La structuration, l'indexation, les métadonnées, les outils de recherche, l'architecture de la base de données, le design, le code source, les éléments graphiques, la marque Lam, le logo et la charte graphique constituent des œuvres protégées par le droit de la propriété intellectuelle. Toute reproduction, représentation, modification ou exploitation non autorisée de ces éléments est interdite." },
+    { t: 'p', s: "La structuration, l'indexation, les métadonnées, les outils de recherche, l'architecture de la base de données, le design, le code source, les éléments graphiques, la marque Agora, le logo et la charte graphique constituent des œuvres protégées par le droit de la propriété intellectuelle. Toute reproduction, représentation, modification ou exploitation non autorisée de ces éléments est interdite." },
     { t: 'h3', s: "7.3 Licence d'utilisation" },
     { t: 'p', s: "L'Opérateur accorde à l'Abonné, pour la durée de son abonnement, une licence personnelle, non exclusive, non transférable et non cessible d'utilisation des Services. Cette licence autorise la consultation, le téléchargement et l'impression de documents à des fins de recherche personnelle ou professionnelle. Elle n'autorise pas la reproduction systématique, la redistribution commerciale ou la constitution de bases de données concurrentes à partir du Contenu." },
 
@@ -144,7 +145,7 @@ export const CGU: LegalDocData = {
       "Droit de suppression : demander l'effacement de ses données, sous réserve des obligations légales de conservation.",
       'Droit à la portabilité : recevoir ses données dans un format structuré, couramment utilisé et lisible par machine.',
     ] },
-    { t: 'p', s: "Ces droits peuvent être exercés par courrier électronique à l'adresse legal@lam.ht ou par courrier postal à l'adresse du siège social de l'Opérateur. L'Opérateur s'engage à répondre à toute demande dans un délai de trente (30) jours." },
+    { t: 'p', s: "Ces droits peuvent être exercés par courrier électronique à l'adresse legal@agora.ht ou par courrier postal à l'adresse du siège social de l'Opérateur. L'Opérateur s'engage à répondre à toute demande dans un délai de trente (30) jours." },
     { t: 'h3', s: '8.10 Cookies' },
     { t: 'p', s: "La Plateforme utilise des cookies strictement nécessaires au fonctionnement du service (cookies de session et d'authentification). Des cookies d'analyse peuvent être utilisés pour améliorer la Plateforme, sous réserve du consentement préalable de l'Utilisateur. L'Utilisateur peut gérer ses préférences en matière de cookies via le panneau de configuration accessible depuis la Plateforme." },
 
@@ -170,7 +171,7 @@ export const CGU: LegalDocData = {
     { t: 'h3', s: '12.1 Droit applicable' },
     { t: 'p', s: 'Les présentes CGU sont régies par le droit haïtien.' },
     { t: 'h3', s: '12.2 Médiation' },
-    { t: 'p', s: "En cas de différend relatif à l'interprétation ou à l'exécution des présentes CGU, les parties s'efforceront de le résoudre à l'amiable. L'Utilisateur peut, à cet effet, adresser une réclamation écrite à l'Opérateur à l'adresse legal@lam.ht. L'Opérateur s'engage à y répondre dans un délai de trente (30) jours." },
+    { t: 'p', s: "En cas de différend relatif à l'interprétation ou à l'exécution des présentes CGU, les parties s'efforceront de le résoudre à l'amiable. L'Utilisateur peut, à cet effet, adresser une réclamation écrite à l'Opérateur à l'adresse legal@agora.ht. L'Opérateur s'engage à y répondre dans un délai de trente (30) jours." },
     { t: 'h3', s: '12.3 Juridiction compétente' },
     { t: 'p', s: "À défaut de résolution amiable, tout litige sera soumis à la compétence exclusive des tribunaux haïtiens." },
 
@@ -188,22 +189,22 @@ export const CGU: LegalDocData = {
     { t: 'p', s: 'Les présentes CGU sont rédigées en français. En cas de traduction, seule la version française fait foi.' },
 
     { t: 'h2', id: 'art15', s: 'Article 15 — Contact' },
-    { t: 'p', s: "Pour toute question relative aux présentes CGU, à la protection des données personnelles ou au fonctionnement de la Plateforme, l'Utilisateur peut contacter l'Opérateur par courrier électronique : legal@lam.ht." },
+    { t: 'p', s: "Pour toute question relative aux présentes CGU, à la protection des données personnelles ou au fonctionnement de la Plateforme, l'Utilisateur peut contacter l'Opérateur par courrier électronique : legal@agora.ht." },
   ],
 }
 
 export const CONFIDENTIALITE: LegalDocData = {
   slug: 'confidentialite',
   title: 'Politique de confidentialité',
-  updated: '14 juin 2026',
+  updated: '8 octobre 2026',
   intro: [
-    "La présente Politique de confidentialité décrit la manière dont Lam (ci-après « l'Opérateur »), exploitant la plateforme Lam accessible à l'adresse lam.ht (ci-après « la Plateforme »), collecte, utilise, conserve et protège les données à caractère personnel de ses utilisateurs.",
+    "La présente Politique de confidentialité décrit la manière dont Agora (ci-après « l'Opérateur »), exploitant la plateforme Agora accessible à l'adresse agora.ht (ci-après « la Plateforme »), collecte, utilise, conserve et protège les données à caractère personnel de ses utilisateurs.",
     "Cette Politique est établie conformément au Décret du 6 janvier 2016 reconnaissant le droit de tout administré à s'adresser à l'Administration Publique par des moyens électroniques, et à l'Arrêté du 30 avril 2018 fixant les règles relatives à la protection des données à caractère personnel.",
     "L'Opérateur s'engage à protéger la vie privée de ses utilisateurs et à traiter leurs données personnelles avec le plus haut degré de sécurité et de transparence.",
   ],
   blocks: [
     { t: 'h2', id: 's1', s: '1. Responsable du traitement' },
-    { t: 'p', s: 'Le responsable du traitement des données à caractère personnel collectées via la Plateforme est : Lam — Siège social : 62, rue Geffrard, Pétion-Ville, Haïti — Contact : legal@lam.ht.' },
+    { t: 'p', s: 'Le responsable du traitement des données à caractère personnel collectées via la Plateforme est : Agora — Siège social : 62, rue Geffrard, Pétion-Ville, Haïti — Contact : legal@agora.ht.' },
 
     { t: 'h2', id: 's2', s: '2. Données collectées' },
     { t: 'p', s: "L'Opérateur collecte uniquement les données strictement nécessaires aux finalités déclarées, conformément au principe de minimisation prévu par l'Article 3, alinéas 1 et 2, de l'Arrêté du 30 avril 2018." },
@@ -267,7 +268,7 @@ export const CONFIDENTIALITE: LegalDocData = {
       'Hachage des mots de passe : les mots de passe sont stockés sous forme de hash cryptographique irréversible.',
       "Contrôle d'accès : l'accès aux données est restreint aux seuls membres du personnel autorisés, selon le principe du moindre privilège.",
       'Journalisation : les accès aux données sont journalisés à des fins de traçabilité et d\'audit.',
-      "DNSSEC : le nom de domaine lam.ht est protégé par DNSSEC pour garantir l'authenticité des résolutions DNS.",
+      "DNSSEC : le nom de domaine agora.ht est protégé par DNSSEC pour garantir l'authenticité des résolutions DNS.",
       'Sauvegardes : des sauvegardes régulières et chiffrées sont effectuées pour prévenir toute perte de données.',
     ] },
 
@@ -288,7 +289,7 @@ export const CONFIDENTIALITE: LegalDocData = {
       "Droit d'opposition : s'opposer au traitement de ses données pour les finalités fondées sur l'intérêt légitime de l'Opérateur.",
       'Droit de retrait du consentement : retirer à tout moment le consentement donné pour les cookies non essentiels ou les communications informatives.',
     ] },
-    { t: 'p', s: "Toute demande peut être adressée par courrier électronique à l'adresse legal@lam.ht. L'Opérateur s'engage à accuser réception de toute demande dans un délai de cinq (5) jours ouvrables et à y répondre dans un délai maximum de trente (30) jours. L'Opérateur pourra demander une preuve d'identité pour s'assurer que la demande émane bien de la personne concernée." },
+    { t: 'p', s: "Toute demande peut être adressée par courrier électronique à l'adresse legal@agora.ht. L'Opérateur s'engage à accuser réception de toute demande dans un délai de cinq (5) jours ouvrables et à y répondre dans un délai maximum de trente (30) jours. L'Opérateur pourra demander une preuve d'identité pour s'assurer que la demande émane bien de la personne concernée." },
 
     { t: 'h2', id: 's11', s: '11. Notification des violations de données' },
     { t: 'p', s: "En cas de violation de données à caractère personnel susceptible d'engendrer un risque pour les droits et libertés des utilisateurs, l'Opérateur s'engage à notifier les utilisateurs concernés dans les meilleurs délais, et au plus tard dans les soixante-douze (72) heures suivant la découverte de l'incident, en communiquant la nature de la violation, les catégories de données concernées, les conséquences probables, les mesures prises et des recommandations." },
@@ -300,7 +301,7 @@ export const CONFIDENTIALITE: LegalDocData = {
     { t: 'p', s: "L'Opérateur se réserve le droit de modifier la présente Politique à tout moment. Toute modification substantielle sera notifiée aux utilisateurs par courrier électronique et signalée de manière visible sur la Plateforme. La date de dernière mise à jour est indiquée en tête du présent document." },
 
     { t: 'h2', id: 's14', s: '14. Contact' },
-    { t: 'p', s: "Pour toute question relative à la présente Politique de confidentialité ou à l'exercice de vos droits : legal@lam.ht." },
+    { t: 'p', s: "Pour toute question relative à la présente Politique de confidentialité ou à l'exercice de vos droits : legal@agora.ht." },
   ],
 }
 
@@ -309,13 +310,14 @@ export const MENTIONS: LegalDocData = {
   title: 'Avertissement légal & mentions légales',
   blocks: [
     { t: 'h2', id: 'm1', s: '1. Éditeur du site' },
-    { t: 'p', s: 'Le site lam.ht est édité par : Lam — Siège social : 62, rue Geffrard, Pétion-Ville, Haïti — Contact : legal@lam.ht.' },
+    { t: 'p', s: 'Le site agora.ht est édité par : Agora — Siège social : 62, rue Geffrard, Pétion-Ville, Haïti — Contact : legal@agora.ht.' },
+    { t: 'p', s: "Agora s'appelait auparavant Lam (lam.ht). L'adresse lam.ht redirige vers agora.ht." },
 
     { t: 'h2', id: 'm2', s: '2. Hébergeur' },
     { t: 'p', s: 'Vercel Inc. — 440 N. Barranca Avenue, #4133, Covina, CA 91723 — Localisation des serveurs : États-Unis.' },
 
     { t: 'h2', id: 'm3', s: '3. Objet du site' },
-    { t: 'p', s: "Lam est une plateforme de recherche juridique en ligne (SaaS) offrant un accès numérique aux index de la législation haïtienne." },
+    { t: 'p', s: "Agora est une plateforme de recherche juridique en ligne (SaaS) offrant un accès numérique aux index de la législation haïtienne." },
 
     { t: 'h2', id: 'm4', s: '4. Avertissement juridique' },
     { t: 'warn', paras: [
@@ -329,7 +331,7 @@ export const MENTIONS: LegalDocData = {
     { t: 'h3', s: '5.1 Textes législatifs et réglementaires' },
     { t: 'p', s: "Les textes législatifs, réglementaires et officiels publiés dans Le Moniteur sont des actes de l'autorité publique. Leur reproduction et leur diffusion sont libres, sous réserve du respect de leur intégrité." },
     { t: 'h3', s: '5.2 Éléments protégés' },
-    { t: 'p', s: "Sont protégés et appartiennent exclusivement à l'Opérateur : la marque Lam, le logo, la charte graphique et la baseline « Le fruit du savoir » ; la structuration, l'indexation et les métadonnées de la base de données ; les outils de recherche, les algorithmes et l'architecture technique ; le design et l'interface utilisateur ; le code source de la Plateforme. Toute reproduction, représentation, modification, extraction, réutilisation ou exploitation non autorisée de ces éléments est interdite et constitue une contrefaçon susceptible de poursuites." },
+    { t: 'p', s: "Sont protégés et appartiennent exclusivement à l'Opérateur : la marque Agora, le logo, la charte graphique et la signature « Le droit haïtien, accessible à tous. » ; la structuration, l'indexation et les métadonnées de la base de données ; les outils de recherche, les algorithmes et l'architecture technique ; le design et l'interface utilisateur ; le code source de la Plateforme. Toute reproduction, représentation, modification, extraction, réutilisation ou exploitation non autorisée de ces éléments est interdite et constitue une contrefaçon susceptible de poursuites." },
 
     { t: 'h2', id: 'm6', s: '6. Liens hypertextes' },
     { t: 'p', s: "La Plateforme peut contenir des liens vers des sites tiers. L'Opérateur n'exerce aucun contrôle sur le contenu de ces sites et décline toute responsabilité quant à leur contenu, leurs pratiques en matière de protection des données, ou tout dommage résultant de leur consultation. La création de liens hypertextes vers la Plateforme est libre, sous réserve qu'elle n'induise pas le public en erreur quant à l'identité de l'éditeur ou à la nature du site." },
@@ -341,7 +343,7 @@ export const MENTIONS: LegalDocData = {
     { t: 'p', s: "Le présent Avertissement légal est régi par le droit haïtien. Tout litige relatif à l'utilisation de la Plateforme sera soumis à la compétence exclusive des tribunaux de Port-au-Prince, Haïti." },
 
     { t: 'h2', id: 'm9', s: '9. Contact' },
-    { t: 'p', s: 'Pour toute question relative aux présentes mentions légales : legal@lam.ht — Adresse postale : 62, rue Geffrard, Pétion-Ville, Haïti.' },
+    { t: 'p', s: 'Pour toute question relative aux présentes mentions légales : legal@agora.ht — Adresse postale : 62, rue Geffrard, Pétion-Ville, Haïti.' },
   ],
 }
 

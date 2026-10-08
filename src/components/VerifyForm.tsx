@@ -123,10 +123,10 @@ export function VerifyForm({
             <span aria-hidden="true">⚠</span>
             <span>
               {locale === 'en'
-                ? 'If “Lam” already appears in your app, delete that entry first — its key is no longer valid.'
+                ? 'If “Lam” or “Agora” already appears in your app, delete that entry first — its key is no longer valid.'
                 : locale === 'ht'
-                ? 'Si « Lam » deja parèt nan aplikasyon ou, efase ansyen antre a anvan — kle li pa bon ankò.'
-                : "Si « Lam » figure déjà dans votre application, supprimez d'abord cette entrée — sa clé n'est plus valable."}
+                ? 'Si « Lam » oswa « Agora » deja parèt nan aplikasyon ou, efase ansyen antre a anvan — kle li pa bon ankò.'
+                : "Si « Lam » ou « Agora » figure déjà dans votre application, supprimez d'abord cette entrée — sa clé n'est plus valable."}
             </span>
           </p>
           {/* eslint-disable-next-line @next/next/no-img-element */}

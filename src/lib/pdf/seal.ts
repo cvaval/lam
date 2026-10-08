@@ -51,8 +51,8 @@ function wrap(text: string, font: any, fontSize: number, maxWidth: number): stri
 export async function buildSealedPdf(input: SealInput): Promise<Uint8Array> {
   const pdf = await PDFDocument.create()
   pdf.setTitle(input.title)
-  pdf.setProducer('Lam')
-  pdf.setCreator(`Lam · ${BRAND.seal}`)
+  pdf.setProducer(BRAND.name)
+  pdf.setCreator(`${BRAND.name} · ${BRAND.seal}`)
 
   const font = await pdf.embedFont(StandardFonts.TimesRoman)
   const bold = await pdf.embedFont(StandardFonts.TimesRomanBold)
@@ -78,7 +78,7 @@ export async function buildSealedPdf(input: SealInput): Promise<Uint8Array> {
 
   const watermark = (p: any) => {
     // Filigrane diagonal répété : identité exportateur + identifiant unique.
-    const tag = `Lam · ${input.exporterEmail} · ${input.watermarkId}`
+    const tag = `${BRAND.name} · ${input.exporterEmail} · ${input.watermarkId}`
     p.drawText(tag, {
       x: 70,
       y: 250,

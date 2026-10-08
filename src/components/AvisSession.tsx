@@ -50,9 +50,9 @@ const L = {
     ht: 'Administratè a fèmen sesyon ou a.',
   },
   SUSPENDED: {
-    fr: 'Votre compte a été suspendu. Écrivez à contact@lam.ht.',
-    en: 'Your account has been suspended. Write to contact@lam.ht.',
-    ht: 'Kont ou a sispann. Ekri contact@lam.ht.',
+    fr: 'Votre compte a été suspendu. Écrivez à contact@agora.ht.',
+    en: 'Your account has been suspended. Write to contact@agora.ht.',
+    ht: 'Kont ou a sispann. Ekri contact@agora.ht.',
   },
   TWOFA_RESET: {
     fr: 'Votre authentification à deux facteurs a été réinitialisée : reconnectez-vous pour l’enregistrer à nouveau.',

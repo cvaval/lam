@@ -53,7 +53,7 @@ export default async function AppLayout({
             <Link className="hover:text-ank" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
             <Link className="hover:text-ank" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
             <Link className="hover:text-ank" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
-            <a className="hover:text-ank" href="mailto:legal@lam.ht">Contact</a>
+            <a className="hover:text-ank" href="mailto:legal@agora.ht">Contact</a>
           </nav>
           <p className="text-center text-[11px] leading-relaxed text-ank/80">{t.doc.unofficialNote}</p>
         </div>

@@ -443,7 +443,7 @@ const FR: Table = {
     'lire la règle en lieues du Code civil ou celle en kilomètres de l’article 987 du Code de ' +
     'procédure civile. La plateforme ne calcule pas cette augmentation. La date ci-dessus est ' +
     'celle sans augmentation : c’est la plus précoce, donc la plus sûre.',
-  a3: 'Ce calcul ne remplace pas la vérification du texte. Lam Veritab ne garantit aucun délai de recours.',
+  a3: 'Ce calcul ne remplace pas la vérification du texte. Agora ne garantit aucun délai de recours.',
   a6Phrase1: (d, l) => `Le ${d} est un jour à surveiller : ${l}.`,
   a6Phrase3: (a) =>
     `Si un arrêté a été pris pour ${a.annee}, le délai est prorogé d’un jour et la date limite ` +
@@ -677,7 +677,7 @@ const EN: Table = {
     'platform does not compute that increase. The date above is the one without it: the ' +
     'earliest, therefore the safest.',
   a3:
-    'This computation does not replace checking the text. Lam Veritab guarantees no appeal period.',
+    'This computation does not replace checking the text. Agora guarantees no appeal period.',
   a6Phrase1: (d, l) => `${d} is a day to watch: ${l}.`,
   a6Phrase3: (a) =>
     `If an order was made for ${a.annee}, the period is extended by one day and the deadline ` +
@@ -904,7 +904,7 @@ const HT: Table = {
     'Platfòm nan pa kalkile ogmantasyon sa a. Dat ki anwo a se sa san ogmantasyon : se sa ki pi ' +
     'bonè, donk sa ki pi si.',
   a3:
-    'Kalkil sa a pa ranplase verifikasyon tèks la. Lam Veritab pa garanti okenn delè rekou.',
+    'Kalkil sa a pa ranplase verifikasyon tèks la. Agora pa garanti okenn delè rekou.',
   a6Phrase1: (d, l) => `${d} se yon jou pou siveye : ${l}.`,
   a6Phrase3: (a) =>
     `Si yo te pran yon arete pou ${a.annee}, delè a pwolonje yon jou epi dat limit la vin ` +

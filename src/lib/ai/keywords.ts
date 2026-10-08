@@ -129,7 +129,7 @@ export function heuristicKeywords(input: { titleFr?: string | null; matiere?: st
 
 const MAX_BODY_CHARS = 24_000 // ~6k tokens : largement assez pour les thèmes
 
-const PROMPT = `Tu es documentaliste juridique pour Lam, plateforme de recherche du droit haïtien.
+const PROMPT = `Tu es documentaliste juridique pour Agora, plateforme de recherche du droit haïtien.
 Extrais les mots-clés THÉMATIQUES de ce document (loi, circulaire BRH, arrêt, doctrine, loi de finances ou marque) pour son indexation : matières juridiques, notions, institutions et objets centraux du texte.
 Règles : en français ; 5 à 10 mots-clés, du plus au moins central ; courts (1 à 5 mots, jamais de phrase) ; minuscules sauf noms propres et sigles (BRH, UCREF, KYC…) ; ne reprends pas le numéro ni la date du document.`
 

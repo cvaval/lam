@@ -98,7 +98,7 @@ export function PublicationArticle({
 
       <footer className="border-t border-chabon/10 bg-white">
         <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 px-4 py-6 text-sm text-ank/80">
-          <span>© 2026 Lam · {t.brand.baseline}</span>
+          <span>© 2026 Agora · {t.brand.baseline}</span>
           <nav className="flex flex-wrap gap-x-5 gap-y-2">
             <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/publications`}>Publications</Link>
             <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>

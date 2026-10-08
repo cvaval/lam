@@ -13,7 +13,7 @@ export const ht: Dictionary = {
     mois: MOIS.ht,
 
     navLabel: 'Kalkilatè delè',
-    metaTitle: 'Kalkilatè jou fran — Lam',
+    metaTitle: 'Kalkilatè jou fran — Agora',
     // La note du PORTAIL — elle dit ce que l'outil FAIT. Voir fr.ts : l'ancienne rédaction
     // promettait la prorogation, alors que la date affichée est la plus PRÉCOCE et ne proroge
     // pas ; la prorogation se lit à côté, nommée, avec son fondement.
@@ -417,7 +417,7 @@ export const ht: Dictionary = {
     openPdf: 'Gade nimewo a (PDF)',
     pdfNotIncluded: 'Konsiltasyon PDF la pa nan òf ou a.',
     annexes: 'Telechaje anèks yo',
-    annexesHint: 'Fòmilè ak tablo pou ranpli — filigran Lam, verifye anvan itilizasyon.',
+    annexesHint: 'Fòmilè ak tablo pou ranpli — filigran Agora, verifye anvan itilizasyon.',
     moniteur: 'Pibliye nan',
     adopted: 'Adopte le',
     published: 'Pibliye le',
@@ -823,7 +823,7 @@ export const ht: Dictionary = {
       note: 'Chwazi pou kòmanse rechèch la.',
     },
     carousel: {
-      label: 'Prezantasyon Lam',
+      label: 'Prezantasyon Agora',
       slideLegislation: 'Lejislasyon',
       slideMap: 'Kat jidisyè',
       prev: 'Diapozitiv anvan an',
@@ -832,7 +832,7 @@ export const ht: Dictionary = {
     },
   },
   judicial: {
-    metaTitle: 'Kat jidisyè Ayiti — Tribinal ak kòd postal | Lam',
+    metaTitle: 'Kat jidisyè Ayiti — Tribinal ak kòd postal | Agora',
     metaDescription: 'Chèche yon komin Ayiti pou jwenn tribinal ki konpetan yo, Lakou dapèl, Lakou Kasasyon ak kòd postal ki asosye yo.',
     breadcrumbHome: 'Akèy',
     breadcrumbHere: 'Kat jidisyè',
@@ -1076,7 +1076,7 @@ export const ht: Dictionary = {
   },
   errorPage: {
     title: 'Gen yon erè ki fèt',
-    body: 'Tanpri eseye ankò talè. Si pwoblèm nan kontinye, kontakte legal@lam.ht.',
+    body: 'Tanpri eseye ankò talè. Si pwoblèm nan kontinye, kontakte legal@agora.ht.',
     retry: 'Eseye ankò',
     notFoundTitle: 'Paj la pa egziste',
     notFoundBody: 'Paj ou mande a pa egziste oswa li deplase.',
@@ -1104,7 +1104,7 @@ export const ht: Dictionary = {
     suspended: 'Kont ou sispann. Kontakte yon administratè.',
     locked: 'Twòp tantativ. Kont lan bloke pou 15 minit.',
     badCode: 'Kòd pa valab oswa li ekspire.',
-    wrongSecret: "Kòd sa a pa soti nan QR ki afiche la a. Si « Lam » deja nan aplikasyon otantifikasyon ou, EFASE ansyen antre a, epi eskane QR ki anwo a : kle a chanje.",
+    wrongSecret: "Kòd sa a pa soti nan QR ki afiche la a. Si « Lam » oswa « Agora » deja nan aplikasyon otantifikasyon ou, EFASE ansyen antre a, epi eskane QR ki anwo a : kle a chanje.",
     clockSkew: "Lè telefòn ou an dekale plis pase yon minit. Mete dat ak lè otomatik, epi eseye ankò.",
     clockSkewFast: "Lè telefòn ou an avanse anviwon {n} min. Mete dat ak lè otomatik, epi eseye ankò.",
     clockSkewSlow: "Lè telefòn ou an an reta anviwon {n} min. Mete dat ak lè otomatik, epi eseye ankò.",

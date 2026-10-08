@@ -75,12 +75,12 @@ export function LegalDoc({ doc, locale, t }: { doc: LegalDocData; locale: Locale
 
       <footer className="border-t border-chabon/10 bg-white">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-4 py-6 text-sm">
-          <span className="text-ank/80">© 2026 Lam · {t.brand.baseline}</span>
+          <span className="text-ank/80">© 2026 Agora · {t.brand.baseline}</span>
           <nav className="flex flex-wrap gap-x-5 gap-y-2 text-grafit">
             <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
             <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
             <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
-            <a className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href="mailto:legal@lam.ht">legal@lam.ht</a>
+            <a className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href="mailto:legal@agora.ht">legal@agora.ht</a>
           </nav>
         </div>
       </footer>

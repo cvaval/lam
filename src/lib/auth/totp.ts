@@ -13,7 +13,7 @@ const TOTP_WINDOW = 2
 const STEP_SECONDS = 30
 authenticator.options = { window: TOTP_WINDOW }
 
-const ISSUER = process.env.TOTP_ISSUER ?? 'Lam'
+const ISSUER = process.env.TOTP_ISSUER ?? 'Agora'
 
 export function generateTotpSecret(): string {
   return authenticator.generateSecret()

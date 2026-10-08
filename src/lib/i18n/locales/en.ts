@@ -10,7 +10,7 @@ export const en: Dictionary = {
     mois: MOIS.en,
 
     navLabel: 'Deadline calculator',
-    metaTitle: 'Clear-day calculator — Lam',
+    metaTitle: 'Clear-day calculator — Agora',
     // La note du PORTAIL — elle dit ce que l'outil FAIT. Voir fr.ts : l'ancienne rédaction
     // promettait la prorogation, alors que la date affichée est la plus PRÉCOCE et ne proroge
     // pas ; la prorogation se lit à côté, nommée, avec son fondement.
@@ -417,7 +417,7 @@ export const en: Dictionary = {
     openPdf: 'View the issue (PDF)',
     pdfNotIncluded: 'PDF viewing is not included in your plan.',
     annexes: 'Download annexes',
-    annexesHint: 'Forms and tables to complete — Lam watermark, verify before use.',
+    annexesHint: 'Forms and tables to complete — Agora watermark, verify before use.',
     moniteur: 'Published in',
     adopted: 'Adopted on',
     published: 'Published on',
@@ -824,7 +824,7 @@ export const en: Dictionary = {
       note: 'Select to start the search.',
     },
     carousel: {
-      label: 'Lam introduction',
+      label: 'About Agora',
       slideLegislation: 'Legislation',
       slideMap: 'Judicial map',
       prev: 'Previous slide',
@@ -833,7 +833,7 @@ export const en: Dictionary = {
     },
   },
   judicial: {
-    metaTitle: 'Judicial map of Haiti — Courts and postal codes | Lam',
+    metaTitle: 'Judicial map of Haiti — Courts and postal codes | Agora',
     metaDescription: 'Search a Haitian commune to identify the competent courts, the court of appeal, the Supreme Court (Cour de cassation) and the related postal codes.',
     breadcrumbHome: 'Home',
     breadcrumbHere: 'Judicial map',
@@ -1077,7 +1077,7 @@ export const en: Dictionary = {
   },
   errorPage: {
     title: 'Something went wrong',
-    body: 'Please try again in a moment. If the problem persists, contact legal@lam.ht.',
+    body: 'Please try again in a moment. If the problem persists, contact legal@agora.ht.',
     retry: 'Try again',
     notFoundTitle: 'Page not found',
     notFoundBody: 'The requested page does not exist or has moved.',
@@ -1105,7 +1105,7 @@ export const en: Dictionary = {
     suspended: 'Your account is suspended. Contact an administrator.',
     locked: 'Too many attempts. Account locked for 15 minutes.',
     badCode: 'Invalid or expired code.',
-    wrongSecret: "This code does not come from the QR shown here. If “Lam” is already listed in your authenticator app, DELETE that older entry, then scan the QR above: the key has changed.",
+    wrongSecret: "This code does not come from the QR shown here. If “Lam” or “Agora” is already listed in your authenticator app, DELETE that older entry, then scan the QR above: the key has changed.",
     clockSkew: "Your phone clock is more than a minute off. Turn on automatic date and time, then try again.",
     clockSkewFast: "Your phone clock is about {n} min fast. Turn on automatic date and time, then try again.",
     clockSkewSlow: "Your phone clock is about {n} min slow. Turn on automatic date and time, then try again.",

@@ -9,6 +9,15 @@ import { resolveLocale } from './i18n/config'
  */
 const MAIL_FROM = process.env.MAIL_FROM || `${BRAND.name} <no-reply@${BRAND.domain}>`
 
+/**
+ * Pied des e-mails. La mention « Agora, anciennement Lam » y reste six mois au moins après
+ * la bascule (D7) : un abonné qui reçoit un message d'un nom qu'il ne connaît pas doit pouvoir
+ * le relier à celui qu'il connaît — sinon il le prend pour de l'hameçonnage.
+ */
+function signature(langues: readonly ('fr' | 'en' | 'ht')[] = ['fr', 'en']): string {
+  return [`— ${BRAND.name} · ${BRAND.domain}`, langues.map((l) => BRAND.transition[l]).join(' · ')].join('\n')
+}
+
 export async function sendMail(opts: { to: string; subject: string; text: string }) {
   const key = process.env.RESEND_API_KEY
   if (!key) {
@@ -35,17 +44,18 @@ export async function sendMail(opts: { to: string; subject: string; text: string
 export function welcomeEmail(email: string, role: string) {
   return {
     to: email,
-    subject: 'Bienvenue sur Lam · Welcome to Lam',
+    subject: `Bienvenue sur ${BRAND.name} · Welcome to ${BRAND.name}`,
     text: [
       `Bonjou,`,
       ``,
-      `Votre accès Lam (${role}) a été activé. À votre première connexion, vous`,
+      `Votre accès ${BRAND.name} (${role}) a été activé. À votre première connexion, vous`,
       `configurerez l'authentification à deux facteurs (2FA) obligatoire.`,
       ``,
-      `Your Lam access (${role}) has been activated. On your first sign-in, you`,
+      `Your ${BRAND.name} access (${role}) has been activated. On your first sign-in, you`,
       `will set up mandatory two-factor authentication (2FA).`,
       ``,
-      `— ${BRAND.name} · ${BRAND.baseline.fr} · ${BRAND.domain}`,
+      `${BRAND.baseline.fr}`,
+      signature(),
     ].join('\n'),
   }
 }
@@ -63,7 +73,7 @@ export function accountRequestEmail(to: string, demandeur: { email: string; name
   const base = (process.env.NEXT_PUBLIC_APP_URL ?? `https://${BRAND.domain}`).replace(/\/$/, '')
   return {
     to,
-    subject: `Demande d'accès Lam — ${demandeur.name ?? demandeur.email}`,
+    subject: `Demande d'accès ${BRAND.name} — ${demandeur.name ?? demandeur.email}`,
     text: [
       `Une nouvelle demande d'accès vient d'être déposée sur ${BRAND.name}.`,
       ``,
@@ -81,7 +91,7 @@ export function accountRequestEmail(to: string, demandeur: { email: string; name
       `tentative de connexion : « Votre compte est en attente d'activation par un`,
       `administrateur. »`,
       ``,
-      `— ${BRAND.name} · ${BRAND.domain}`,
+      signature(['fr']),
     ].join('\n'),
   }
 }
@@ -96,15 +106,17 @@ export function evictionEmail(email: string, nouvelle: { quandFr: string; quandE
   const base = process.env.NEXT_PUBLIC_APP_URL || `https://${BRAND.domain}`
   return {
     to: email,
-    subject: 'Nouvelle connexion à votre compte Lam · New sign-in to your Lam account',
+    subject: `Nouvelle connexion à votre compte ${BRAND.name} · New sign-in to your ${BRAND.name} account`,
     text: [
-      `Une nouvelle connexion à votre compte Lam a été ouverte le ${nouvelle.quandFr} (heure de Port-au-Prince) depuis ${nouvelle.appareil}${nouvelle.ip ? `, adresse ${nouvelle.ip}` : ''}.`,
+      `Une nouvelle connexion à votre compte ${BRAND.name} a été ouverte le ${nouvelle.quandFr} (heure de Port-au-Prince) depuis ${nouvelle.appareil}${nouvelle.ip ? `, adresse ${nouvelle.ip}` : ''}.`,
       `Votre session précédente, encore active, a été fermée : un seul appareil à la fois par compte.`,
       `Si ce n'est pas vous, réinitialisez votre mot de passe dès maintenant : ${base}/fr/forgot`,
       '',
-      `A new sign-in to your Lam account was opened on ${nouvelle.quandEn} (Port-au-Prince time) from ${nouvelle.appareil}${nouvelle.ip ? `, address ${nouvelle.ip}` : ''}.`,
+      `A new sign-in to your ${BRAND.name} account was opened on ${nouvelle.quandEn} (Port-au-Prince time) from ${nouvelle.appareil}${nouvelle.ip ? `, address ${nouvelle.ip}` : ''}.`,
       `Your previous, still active session has been closed: one device at a time per account.`,
       `If this was not you, reset your password now: ${base}/en/forgot`,
+      '',
+      signature(),
     ].join('\n'),
   }
 }
@@ -112,10 +124,11 @@ export function evictionEmail(email: string, nouvelle: { quandFr: string; quandE
 export function lockoutEmail(email: string, minutes: number) {
   return {
     to: email,
-    subject: 'Alerte de sécurité Lam · Security alert',
+    subject: `Alerte de sécurité ${BRAND.name} · Security alert`,
     text:
       `Plusieurs tentatives de connexion ont échoué sur votre compte. Il est verrouillé ${minutes} minutes.\n` +
-      `Several sign-in attempts failed on your account. It is locked for ${minutes} minutes.`,
+      `Several sign-in attempts failed on your account. It is locked for ${minutes} minutes.\n\n` +
+      signature(),
   }
 }
 
@@ -136,21 +149,21 @@ export function alertDigestEmail(to: string, locale: string, items: AlertDigestI
   const L = (
     {
       fr: {
-        subject: 'Veille Lam — nouveaux documents',
+        subject: `Veille ${BRAND.name} — nouveaux documents`,
         intro: 'De nouveaux documents correspondent à vos alertes de veille :',
         alert: 'Alerte',
         more: (n: number) => `  … et ${n} autre${n > 1 ? 's' : ''} — voyez la recherche`,
         manage: 'Gérer vos alertes : ',
       },
       en: {
-        subject: 'Lam watch — new documents',
+        subject: `${BRAND.name} watch — new documents`,
         intro: 'New documents match your watch alerts:',
         alert: 'Alert',
         more: (n: number) => `  … and ${n} more — see search`,
         manage: 'Manage your alerts: ',
       },
       ht: {
-        subject: 'Veyè Lam — nouvo dokiman',
+        subject: `Veyè ${BRAND.name} — nouvo dokiman`,
         intro: 'Nouvo dokiman koresponn ak alèt veyè ou yo:',
         alert: 'Alèt',
         more: (n: number) => `  … ak ${n} lòt ankò — gade rechèch la`,
@@ -170,18 +183,18 @@ export function alertDigestEmail(to: string, locale: string, items: AlertDigestI
     if (item.more > 0) lines.push(L.more(item.more))
     lines.push(``)
   }
-  lines.push(`${L.manage}${base}/${lang}/account`, ``, `— ${BRAND.name} · ${BRAND.domain}`)
+  lines.push(`${L.manage}${base}/${lang}/account`, ``, signature([lang]))
   return { to, subject: L.subject, text: lines.join('\n') }
 }
 
 export function resetPasswordEmail(email: string, link: string, minutes: number) {
   return {
     to: email,
-    subject: 'Réinitialisation de votre mot de passe Lam · Password reset',
+    subject: `Réinitialisation de votre mot de passe ${BRAND.name} · Password reset`,
     text: [
       `Bonjou,`,
       ``,
-      `Vous avez demandé à réinitialiser votre mot de passe Lam. Ouvrez ce lien`,
+      `Vous avez demandé à réinitialiser votre mot de passe ${BRAND.name}. Ouvrez ce lien`,
       `(valable ${minutes} minutes) pour choisir un nouveau mot de passe :`,
       link,
       ``,
@@ -190,13 +203,13 @@ export function resetPasswordEmail(email: string, link: string, minutes: number)
       ``,
       `— — —`,
       ``,
-      `You requested a password reset for your Lam account. Open this link`,
+      `You requested a password reset for your ${BRAND.name} account. Open this link`,
       `(valid for ${minutes} minutes) to choose a new password:`,
       link,
       ``,
       `If you didn't request this, ignore this email — your password stays unchanged.`,
       ``,
-      `— ${BRAND.name} · ${BRAND.domain}`,
+      signature(),
     ].join('\n'),
   }
 }

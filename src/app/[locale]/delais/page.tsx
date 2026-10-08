@@ -118,7 +118,7 @@ export default async function DelaisPage({
 
       <footer className="no-print border-t border-chabon/10 bg-white">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-6 text-xs text-ank/80">
-          <span>© 2026 Lam</span>
+          <span>© 2026 Agora</span>
           <nav className="flex gap-4">
             <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
             <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
@@ -129,10 +129,10 @@ export default async function DelaisPage({
 
       <CookieBanner
         text={locale === 'en'
-          ? 'Lam uses strictly necessary cookies (session, authentication, language). With your consent, analytics cookies help us improve the Platform.'
+          ? 'Agora uses strictly necessary cookies (session, authentication, language). With your consent, analytics cookies help us improve the Platform.'
           : locale === 'ht'
-            ? 'Lam itilize cookies ki estrikteman nesesè (sesyon, otantifikasyon, lang). Ak akò ou, cookies analiz ede nou amelyore Platfòm nan.'
-            : "Lam utilise des cookies strictement nécessaires (session, authentification, langue). Avec votre accord, des cookies d'analyse nous aident à améliorer la Plateforme."}
+            ? 'Agora itilize cookies ki estrikteman nesesè (sesyon, otantifikasyon, lang). Ak akò ou, cookies analiz ede nou amelyore Platfòm nan.'
+            : "Agora utilise des cookies strictement nécessaires (session, authentification, langue). Avec votre accord, des cookies d'analyse nous aident à améliorer la Plateforme."}
         accept={locale === 'en' ? 'Accept all' : locale === 'ht' ? 'Aksepte tout' : 'Tout accepter'}
         reject={locale === 'en' ? 'Reject non-essential' : locale === 'ht' ? 'Refize sa ki pa esansyèl' : 'Refuser les non essentiels'}
         manage={locale === 'en' ? 'Manage' : locale === 'ht' ? 'Jere' : 'Gérer'}

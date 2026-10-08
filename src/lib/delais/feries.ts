@@ -143,7 +143,7 @@ const TRONC_REDACTION =
  * phrase, un écran qui ne trouve rien laisse croire qu'il n'y a rien.
  */
 export const OBSERVATIONS_BORNE_FR =
-  'L’Index du Moniteur de Lam s’arrête au 20 juin 2023 (27 234 entrées, de 1900 à 2023) : la ' +
+  'L’Index du Moniteur d’Agora s’arrête au 20 juin 2023 (27 234 entrées, de 1900 à 2023) : la ' +
   'plateforme n’a rien pour 2024, 2025 et 2026. Cette absence n’est pas une absence d’arrêté.'
 
 /** Source d'une entrée A_SURVEILLER : une OBSERVATION de série, jamais un texte. */
