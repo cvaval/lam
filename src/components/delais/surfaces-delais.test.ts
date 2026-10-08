@@ -223,10 +223,16 @@ describe('§ 6.1 — la surface publique n’atteint plus l’appareil du raison
     for (const f of APPAREIL) expect(accueil.has(composant(f)), f).toBe(false)
   })
 
-  /** Les deux surfaces publiques rendent le MÊME écran de résultat : une date, une mention. */
-  it('… et toutes deux passent par le même `DelaiDatePublique`', () => {
+  /**
+   * La page publique rend une date et une mention, par `DelaiDatePublique`.
+   *
+   * ⚠️ L'ACCUEIL N'A PLUS DE BANDE DES DÉLAIS depuis le portail Agora (maquette de la
+   * cliente, 8 oct. 2026) : il présente la carte judiciaire et ne porte aucun formulaire
+   * (`Landing.test.tsx`). Il ne doit donc plus atteindre l'écran de résultat du tout.
+   */
+  it('… la page publique passe par `DelaiDatePublique`, l’accueil ne l’atteint plus', () => {
     expect(publique.has(composant('DelaiDatePublique.tsx'))).toBe(true)
-    expect(accueil.has(composant('DelaiDatePublique.tsx'))).toBe(true)
+    expect(accueil.has(composant('DelaiDatePublique.tsx'))).toBe(false)
     // Le portail, lui, ne le rend pas : il a `DelaiResult`, qui dit tout.
     expect(connectee.has(composant('DelaiDatePublique.tsx'))).toBe(false)
   })

@@ -1,0 +1,100 @@
+[
+  {
+    "d": "01-01",
+    "fr": "Jour de l'Indépendance",
+    "en": "Independence Day",
+    "es": "Día de la Independencia",
+    "type": "national"
+  },
+  {
+    "d": "01-02",
+    "fr": "Jour des Aïeux",
+    "en": "Ancestors Day",
+    "es": "Día de los Ancestros",
+    "type": "national"
+  },
+  {
+    "d": "MOVABLE_LUNDI_GRAS",
+    "fr": "Lundi Gras",
+    "en": "Shrove Monday",
+    "es": "Lunes de Carnaval",
+    "type": "legal",
+    "religious": true
+  },
+  {
+    "d": "MOVABLE_MARDI_GRAS",
+    "fr": "Mardi Gras",
+    "en": "Shrove Tuesday",
+    "es": "Martes de Carnaval",
+    "type": "legal",
+    "religious": true
+  },
+  {
+    "d": "MOVABLE_GOOD_FRIDAY",
+    "fr": "Vendredi Saint",
+    "en": "Good Friday",
+    "es": "Viernes Santo",
+    "type": "legal",
+    "religious": true
+  },
+  {
+    "d": "05-01",
+    "fr": "Fête du Travail",
+    "en": "Labor Day",
+    "es": "Día del Trabajo",
+    "type": "national"
+  },
+  {
+    "d": "05-18",
+    "fr": "Fête du Drapeau",
+    "en": "Flag Day",
+    "es": "Día de la Bandera",
+    "type": "national"
+  },
+  {
+    "d": "MOVABLE_CORPUS",
+    "fr": "Fête-Dieu (Corpus Christi)",
+    "en": "Corpus Christi",
+    "es": "Corpus Christi",
+    "type": "legal",
+    "religious": true
+  },
+  {
+    "d": "08-15",
+    "fr": "Assomption",
+    "en": "Assumption",
+    "es": "Asunción",
+    "type": "legal",
+    "religious": true
+  },
+  {
+    "d": "10-17",
+    "fr": "Mort de Dessalines",
+    "en": "Death of Dessalines",
+    "es": "Muerte de Dessalines",
+    "type": "legal"
+  },
+  {
+    "d": "11-02",
+    "fr": "Jour des Morts",
+    "en": "All Souls’ Day",
+    "es": "Día de los Muertos",
+    "type": "legal",
+    "religious": true
+  },
+  {
+    "d": "11-18",
+    "fr": "Bataille de Vertières",
+    "en": "Vertières' Battle",
+    "es": "Batalla de Vertières",
+    "type": "national"
+  },
+  {
+    "d": "12-25",
+    "fr": "Noël",
+    "en": "Christmas",
+    "es": "Navidad",
+    "type": "legal",
+    "religious": true
+  }
+]

@@ -134,11 +134,11 @@ export function CourtCard({ court, kind, t }: { court: CourtView; kind: CourtTyp
       </div>
       {court.observation && <p className="mt-2 text-[11px] leading-relaxed text-ank/80">{court.observation}</p>}
       {(court.sources.length > 0 || court.verifiedAt) && (
-        <p className="mt-2 truncate text-[10px] text-ank/80">
+        <p className="mt-2 break-words text-[12px] text-ank/80">
           {court.sources.length > 0 && (
             <>
               {j.sources} :{' '}
-              {court.sources.slice(0, 2).map((s, i) => (
+              {court.sources.map((s, i) => (
                 <span key={i}>
                   {i > 0 && ' · '}
                   {s.type === 'url' ? (
@@ -146,7 +146,7 @@ export function CourtCard({ court, kind, t }: { court: CourtView; kind: CourtTyp
                       {(() => { try { return new URL(s.value).hostname } catch { return s.value.slice(0, 40) } })()}
                     </a>
                   ) : (
-                    s.value.slice(0, 44)
+                    s.value
                   )}
                 </span>
               ))}

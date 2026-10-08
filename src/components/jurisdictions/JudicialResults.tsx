@@ -79,7 +79,7 @@ export function JudicialResults({ record, locale, t }: { record: CommuneRecord; 
               <h3 className="font-mono text-[11px] uppercase tracking-wider text-ank/80">{j.sources}</h3>
               <ul className="mt-1.5 flex flex-col gap-1">
                 {commune.sources.map((s, i) => (
-                  <li key={i} className="truncate">
+                  <li key={i} className="break-words">
                     {s.type === 'url' ? (
                       <a href={s.value} target="_blank" rel="noopener noreferrer" className="text-chabon underline underline-offset-2 hover:text-chabon">
                         {s.value}

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { PublicHeader } from '@/components/PublicHeader'
+import { AgoraPublicHeader } from '@/components/AgoraPublicHeader'
+import '@/components/agora-portal.css'
 import { LocaleSwitcher } from '@/components/LocaleSwitcher'
 import { CookieBanner } from '@/components/CookieBanner'
 import { dictFor } from '@/lib/i18n/server'
@@ -91,8 +92,8 @@ export default async function JuridictionsPage({
   )
 
   return (
-    <div className="min-h-screen bg-koton">
-      <PublicHeader locale={locale} t={t} width="max-w-7xl" />
+    <div className="agora-portal ag-judicial-page min-h-screen bg-koton">
+      <AgoraPublicHeader locale={locale} />
 
       <main className="mx-auto max-w-7xl px-4 pb-16 pt-6">
         <nav aria-label="Fil d’Ariane" className="text-sm text-ank/80">
@@ -111,13 +112,14 @@ export default async function JuridictionsPage({
           <JudicialFilters locale={locale} t={t} active={layers} commune={record?.commune.id ?? null} />
         </div>
 
+        <nav className="ag-map-shortcuts" aria-label={locale === 'en' ? 'Map navigation' : locale === 'ht' ? 'Navigasyon kat la' : 'Navigation de la carte'}><a href="#ag-judicial-map">{locale === 'en' ? 'Map' : locale === 'ht' ? 'Kat' : 'Carte'}</a><a href="#ag-commune-list">{locale === 'en' ? 'Commune list' : locale === 'ht' ? 'Lis komin yo' : 'Liste des communes'}</a></nav>
         {/* Ordinateur : panneau (380–440 px) + carte. Mobile : carte puis feuille de résultats. */}
         <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(380px,440px)_minmax(0,1fr)] lg:items-start">
           <div className="order-2 hidden lg:block">
             <div className="lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto lg:pr-1">{resultsPanel}</div>
           </div>
 
-          <div className="order-1 min-w-0 lg:order-2">
+          <div id="ag-judicial-map" className="order-1 min-w-0 lg:order-2">
             <div className="overflow-hidden rounded-2xl border border-chabon/10 bg-white">
               <JudicialMapClient
                 locale={locale}
@@ -153,7 +155,7 @@ export default async function JuridictionsPage({
         </div>
 
         {/* Liste textuelle COMPLÈTE et accessible (la carte n'est jamais le seul accès). */}
-        <section className="mt-10" aria-label={t.judicial.communeList}>
+        <section id="ag-commune-list" className="mt-10" aria-label={t.judicial.communeList}>
           <details className="rounded-2xl border border-chabon/10 bg-white" open={!record}>
             <summary className="cursor-pointer px-5 py-4 font-serif text-lg font-semibold text-ank">
               {t.judicial.communeList} ({directory.length})
@@ -181,7 +183,7 @@ export default async function JuridictionsPage({
 
       <footer className="border-t border-chabon/10 bg-white">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-6 text-xs text-ank/80">
-          <span>© 2026 Lam</span>
+          <span>© 2026 Agora</span>
           <nav className="flex gap-4">
             <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
             <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
@@ -192,10 +194,10 @@ export default async function JuridictionsPage({
 
       <CookieBanner
         text={locale === 'en'
-          ? 'Lam uses strictly necessary cookies (session, authentication, language). With your consent, analytics cookies help us improve the Platform.'
+          ? 'Agora uses strictly necessary cookies (session, authentication, language). With your consent, analytics cookies help us improve the Platform.'
           : locale === 'ht'
-            ? 'Lam itilize cookies ki estrikteman nesesè (sesyon, otantifikasyon, lang). Ak akò ou, cookies analiz ede nou amelyore Platfòm nan.'
-            : "Lam utilise des cookies strictement nécessaires (session, authentification, langue). Avec votre accord, des cookies d'analyse nous aident à améliorer la Plateforme."}
+            ? 'Agora itilize cookies ki estrikteman nesesè (sesyon, otantifikasyon, lang). Ak akò ou, cookies analiz ede nou amelyore Platfòm nan.'
+            : "Agora utilise des cookies strictement nécessaires (session, authentification, langue). Avec votre accord, des cookies d'analyse nous aident à améliorer la Plateforme."}
         accept={locale === 'en' ? 'Accept all' : locale === 'ht' ? 'Aksepte tout' : 'Tout accepter'}
         reject={locale === 'en' ? 'Reject non-essential' : locale === 'ht' ? 'Refize sa ki pa esansyèl' : 'Refuser les non essentiels'}
         manage={locale === 'en' ? 'Manage' : locale === 'ht' ? 'Jere' : 'Gérer'}

@@ -46,9 +46,13 @@ export function JudicialSearch({ locale, t, layersQs }: { locale: Locale; t: Dic
           setActive(list.length ? 0 : -1)
           setAnnounce(list.length ? `${list.length} ${j.resultsAnnounce}` : j.noResults)
         })
-        .catch(() => { /* requête annulée ou réseau — on garde l'état courant */ })
+        .catch(() => {
+          if (ctl.signal.aborted) return
+          const message = locale === 'en' ? 'Connection unavailable. Use the commune list below or try again.' : locale === 'ht' ? 'Koneksyon pa disponib. Sèvi ak lis komin yo oswa eseye ankò.' : 'Connexion indisponible. Utilisez la liste des communes ou réessayez.'
+          setOpen(false); setAnnounce(message)
+        })
     },
-    [j.noResults, j.resultsAnnounce],
+    [j.noResults, j.resultsAnnounce, locale],
   )
 
   useEffect(() => {
@@ -106,7 +110,7 @@ export function JudicialSearch({ locale, t, layersQs }: { locale: Locale; t: Dic
           className="absolute z-30 mt-1 max-h-80 w-full overflow-y-auto rounded-xl border border-chabon/10 bg-white py-1 shadow-flottant"
         >
           {items.length === 0 ? (
-            <li role="presentation" className="px-4 py-2 text-sm text-ank/80">{j.noResults}</li>
+            <li role="presentation" className="px-4 py-2 text-sm text-ank/80">{j.noResults} {locale === 'en' ? 'Try another spelling or use the commune list.' : locale === 'ht' ? 'Eseye yon lòt òtograf oswa sèvi ak lis komin yo.' : 'Essayez une autre orthographe ou utilisez la liste des communes.'}</li>
           ) : (
             items.map((s, i) => (
               <li
