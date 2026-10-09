@@ -30,3 +30,12 @@
 @media(min-width:1000px){.ag-hero-grid{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr)}.ag-map-body{grid-template-columns:minmax(0,1fr) 14rem;margin-top:10px}.agora-portal .ag-map-art{height:auto;aspect-ratio:1000/764;max-height:520px;margin:0 -6px 6px}.ag-hero-fiche{display:block}.ag-map-place{display:none}}
 @media(min-width:1500px){.ag-map-body{grid-template-columns:minmax(0,1fr) 16rem}}
 .ag-secure-card{width:100%;max-width:560px;justify-self:end}
+/* Frise patrimoniale du héros (de gauche à droite : Marché en Fer, Citadelle, Marron inconnu, tour monumentale,
+   bâtiment à arcades, Cour de cassation, église à deux tours) : décor derrière le contenu, sans clic ni focus.
+   La ligne de sol est au ras du bord inférieur du héros. L'image (2172 × 724) garde 139 px de marge sous le sol,
+   soit 92 px à 1 440 px d'affichage et 64 px à 1 000 px : À RECALCULER si la taille d'affichage change.
+   Pas d'overflow:hidden : un fond n'est peint que dans sa boîte, rien ne déborde, et rien ne rogne les
+   suggestions de communes ni les contours de focus. */
+.agora-portal .ag-hero{position:relative;isolation:isolate}
+.agora-portal .ag-hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:url('/brand/agora/landmarks-haiti-market-first.png');background-repeat:repeat-x;background-size:1440px auto;background-position:center bottom -92px;opacity:.10}
+@media(max-width:700px){.agora-portal .ag-hero::before{background-size:1000px auto;background-position:center bottom -64px;opacity:.07}}
