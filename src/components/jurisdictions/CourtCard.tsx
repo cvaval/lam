@@ -10,7 +10,7 @@ import { BRAND_COLORS } from '@/lib/brand-colors'
  * ces teintes avant l'avenant AV-02.
  *
  * Palette en vigueur depuis le 9 oct. 2026 (voir la fin du commentaire de `COURT_STYLE`) :
- * paix bleu, TPI rouge, appel ardoise, Cassation encre — la FORME double toujours la teinte,
+ * paix terre cuite, TPI ocre, appel bleu océan, Cassation encre — la FORME double toujours la teinte,
  * et la règle 5 tient : aucune information portée par la teinte seule (légende, fiche nommée).
  *
  * ⚠️ Le contour Chabon reste CONSTITUTIF de chaque marqueur. Voir `shapeIcon` dans
@@ -46,18 +46,20 @@ export const COURT_STYLE: Record<CourtType, { color: string; shape: 'circle' | '
   // avait été jugée, pas le Vèt.
   //
   // ⚠️ 9 OCTOBRE 2026 — CE QUI PRÉCÈDE EST L'HISTOIRE, PAS LA RÈGLE EN VIGUEUR. Sous Agora, le
-  // cercle blanc des paix et le triangle vert des TPI se lisaient mal, et Me Vaval a retenu (après
-  // trois propositions mesurées) le BICOLORE HAÏTIEN pour les deux couches les plus nombreuses :
-  //   paix = Ble (12,3:1 sur la terre blanche ; chiffres blancs des agrégats à 12,3:1),
-  //   TPI = carteRouge, le rouge du kit (5,9:1), appel = Grafit (6,1:1), Cassation = Chabon (14,2:1).
-  // Écart ΔE paix/TPI : 85 (18 auparavant). Paire la plus proche : appel/Cassation, ΔE 24 en
-  // vision normale comme pour les daltoniens, et la forme les sépare (carré, losange). La règle
-  // AV-05 (« la valeur porte le degré ») est donc abandonnée au profit de la TEINTE + FORME —
-  // jamais la teinte seule : la légende et la fiche nomment toujours la juridiction.
-  // Le Wouj (terre cuite) reste hors des marqueurs : la sélection est l'aplat woujPal.
-  PAIX: { color: BRAND_COLORS.ble, shape: 'circle' },
-  PREMIERE_INSTANCE: { color: BRAND_COLORS.carteRouge, shape: 'triangle' },
-  APPEL: { color: BRAND_COLORS.grafit, shape: 'square' },
+  // cercle blanc des paix se fondait dans la terre blanche et appel/Cassation étaient deux marqueurs
+  // très foncés (1,15:1 entre eux). Me Vaval a retenu, après trois propositions mesurées (dont un
+  // bicolore bleu/rouge brièvement en ligne, `70869f7`), la PROPOSITION 1 — chaque couche sa teinte
+  // ET sa luminosité, sur l'axe orangé-bleu, le plus sûr pour les daltoniens :
+  //   paix = Wouj, la terre cuite accent de la marque (6,5:1 sur la terre ; chiffres blancs des
+  //          agrégats à 6,5:1), TPI = carteOcre (3,9:1), appel = carteOcean (6,0:1),
+  //   Cassation = Chabon, la plus foncée, au sommet (14,2:1).
+  // Paire la plus proche : paix/TPI, ΔE 32 (25 en deutéranopie), luminance 1,68:1, et la forme
+  // les sépare (cercle, triangle). La règle AV-05 (« la valeur porte le degré ») cède à
+  // TEINTE + VALEUR + FORME — jamais la teinte seule : la légende et la fiche nomment toujours la
+  // juridiction. La sélection reste un APLAT woujPal (5,2:1 sous le marqueur terre cuite).
+  PAIX: { color: BRAND_COLORS.wouj, shape: 'circle' },
+  PREMIERE_INSTANCE: { color: BRAND_COLORS.carteOcre, shape: 'triangle' },
+  APPEL: { color: BRAND_COLORS.carteOcean, shape: 'square' },
   CASSATION: { color: BRAND_COLORS.chabon, shape: 'diamond' },
 }
 

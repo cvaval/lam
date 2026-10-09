@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale } from '@/lib/types'
 import { BRAND_COLORS as C } from '@/lib/brand-colors'
+import { COURT_STYLE } from '@/components/jurisdictions/CourtCard'
 import { HeroJudicialMapArt } from './HeroJudicialMapArt'
 import { HERO_MAP_FOCUS, HERO_MAP_VIEWBOX } from './hero-map-data'
 
@@ -50,8 +51,8 @@ function CourtGlyph({ tone }: { tone: 'cassation' | 'appel' | 'tpi' | 'paix' }) 
   // blanche, Vèt et Chabon ne rendent que 1,16:1 — la pastille du héros ne DISTINGUE donc
   // rien à elle seule. C'est sans conséquence et c'est la règle du composant : le NOM du
   // tribunal est juste à côté, la teinte n'a jamais porté l'information ici.
-  // 9 oct. 2026 : palette de la carte = paix bleu, TPI rouge, appel ardoise, Cassation encre.
-  const teinte = { cassation: C.chabon, appel: C.grafit, tpi: C.carteRouge, paix: C.ble }[tone]
+  // Lit `COURT_STYLE` (/juridictions) : la palette de la carte n'est définie qu'une fois.
+  const teinte = { cassation: COURT_STYLE.CASSATION.color, appel: COURT_STYLE.APPEL.color, tpi: COURT_STYLE.PREMIERE_INSTANCE.color, paix: COURT_STYLE.PAIX.color }[tone]
   return (
     <span
       aria-hidden="true"

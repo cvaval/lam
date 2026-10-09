@@ -308,7 +308,7 @@ export function JudicialMap({
         map.addLayer({
           id: 'paix-clusters', type: 'circle', source: 'courts-paix', filter: ['has', 'point_count'],
           paint: {
-            // Même teinte que le point isolé (bleu des paix) : l'agrégat se lit comme « des paix ».
+            // Même teinte que le point isolé (terre cuite des paix) : l'agrégat se lit comme « des paix ».
             'circle-color': COURT_STYLE.PAIX.color, 'circle-stroke-color': BRAND_COLORS.blan, 'circle-stroke-width': 2,
             'circle-radius': ['step', ['get', 'point_count'], 10, 5, 14, 15, 18],
             'circle-opacity': 0.9,

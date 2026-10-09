@@ -22,7 +22,8 @@
  *   vet        succès                                   #23665D
  *   ble        gamme CARTOGRAPHIQUE seule (AV-02)       inchangé #00209F
  *   carteMer   mer de la carte judiciaire (cartographie) ardoise diluée #DCE5E8 (terre en blanc)
- *   carteRouge première instance sur la carte (cartographie) rouge du kit #B13D35
+ *   carteOcre  première instance sur la carte (cartographie) ocre #B5721A
+ *   carteOcean cours d'appel sur la carte (cartographie)    bleu océan #1D6A8A
  *
  * Consommée par tailwind.config.ts, le sceau PDF et les annexes générées. Module-feuille SANS
  * import : utilisable partout, y compris par tailwind.config.ts (chargé hors du bundle).
@@ -75,12 +76,10 @@ export const BRAND_COLORS = {
    * n'existait que par ses filets.
    */
   carteMer: '#DCE5E8',
-  /**
-   * Rouge du kit Agora (état « erreur », #B13D35), employé ici en gamme CARTOGRAPHIQUE seule : il
-   * code la première instance sur la carte judiciaire (5,9:1 sur la terre blanche). Avec `ble`
-   * pour les tribunaux de paix, les deux couches les plus nombreuses portent le bicolore haïtien.
-   */
-  carteRouge: '#B13D35',
+  /** Première instance sur la carte judiciaire — ocre (gamme cartographique seule). 3,9:1 sur la terre blanche. */
+  carteOcre: '#B5721A',
+  /** Cours d'appel sur la carte judiciaire — bleu océan (gamme cartographique seule). 6,0:1 sur la terre blanche. */
+  carteOcean: '#1D6A8A',
   /** Texte sur Chabon / Adwaz */
   inverse: '#F7F5EF',
   /** Fond du BOUTON PRINCIPAL (utilité de fond du jeton wouj) — encre, charte Agora § 6. */

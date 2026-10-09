@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale } from '@/lib/types'
 import { BRAND_COLORS as C } from '@/lib/brand-colors'
+import { COURT_STYLE } from '@/components/jurisdictions/CourtCard'
 
 /**
  * La fiche de commune du héros — APERÇU de Port-au-Prince, telle que l'affichait l'accueil de Lam
@@ -14,8 +15,8 @@ import { BRAND_COLORS as C } from '@/lib/brand-colors'
 const COMMUNE_ID = 'commune-ouest-port-au-prince'
 
 function CourtGlyph({ tone }: { tone: 'cassation' | 'appel' | 'tpi' | 'paix' }) {
-  // Suit `COURT_STYLE` (/juridictions), palette du 9 oct. 2026 : paix bleu, TPI rouge, appel ardoise.
-  const teinte = { cassation: C.chabon, appel: C.grafit, tpi: C.carteRouge, paix: C.ble }[tone]
+  // Lit `COURT_STYLE` (/juridictions) : la palette de la carte n'est définie qu'une fois.
+  const teinte = { cassation: COURT_STYLE.CASSATION.color, appel: COURT_STYLE.APPEL.color, tpi: COURT_STYLE.PREMIERE_INSTANCE.color, paix: COURT_STYLE.PAIX.color }[tone]
   return (
     <span aria-hidden="true" className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md" style={{ backgroundColor: `${teinte}33` }}>
       <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke={C.chabon} strokeWidth="2" strokeLinecap="round">
