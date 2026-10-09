@@ -49,6 +49,14 @@ describe('page d’un notaire', () => {
     expect(html).toContain('href="mailto:etudeanglade@gmail.com"')
     expect(html).toContain('Coordonnées communiquées à la rédaction d’Agora, à jour au 9 octobre 2026.')
     expect(html).toContain('href="mailto:erreur@agora.ht?subject=')
+    // Boutons d'appel : un par numéro, nommés pour les lecteurs d'écran, rangée alignée.
+    expect(html).toContain('aria-label="Appeler le +509 2998-4747"')
+    expect(html).toContain('aria-label="Appeler le +509 4643-0503"')
+    expect(html).toContain('aria-label="Écrire à etudeanglade@gmail.com"')
+    // L'adresse s'ouvre dans une carte : son TEXTE (plus « , Haïti »), jamais une coordonnée.
+    expect(html).toContain(`href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent('394, route de Bourdon, Port-au-Prince, Haïti')}"`)
+    expect(html).toMatch(/target="_blank" rel="noopener noreferrer" aria-label="Ouvrir l’adresse dans une carte : 394, route de Bourdon, Port-au-Prince"/)
+    expect(html).toContain('sm:grid-cols-[auto_1fr] sm:items-center')
   })
   it('coordonnées partielles (n° 21) : aucune ligne de téléphone, rien d’inventé', async () => {
     prisma.notary.findUnique.mockResolvedValue(ligne({

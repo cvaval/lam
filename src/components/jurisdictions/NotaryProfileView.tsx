@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Mail, MapPin, Phone } from 'lucide-react'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale } from '@/lib/types'
 import type { NotaryProfile } from '@/lib/jurisdictions/data'
@@ -15,6 +16,13 @@ export function NotaryProfileView({ p, locale, t }: { p: NotaryProfile; locale: 
   const j = t.judicial
   const mention = mentionAsPrinted(p.mention)
   const signaler = `mailto:erreur@agora.ht?subject=${encodeURIComponent(`Notaire — ${p.name} (${p.id})`)}`
+  // L'adresse s'ouvre dans l'application de cartes du visiteur (Google Maps : l'application sur
+  // téléphone, le site sinon) — même lien que l'« Itinéraire » des tribunaux. On transmet le
+  // TEXTE de l'adresse, jamais une coordonnée : Agora ne géolocalise rien. « , Haïti » lève
+  // l'ambiguïté d'une adresse courte (« 390, ave John Brown, Bourdon ») sans changer l'affichage.
+  const carte = p.contact?.address
+    ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${p.contact.address}, Haïti`)}`
+    : null
   return (
     <>
       <h1 className="mt-3 font-serif text-3xl font-semibold text-ank">
@@ -55,19 +63,43 @@ export function NotaryProfileView({ p, locale, t }: { p: NotaryProfile; locale: 
         <h2 id="ag-coordonnees" className="font-mono text-[11px] uppercase tracking-wider text-ank/80">{j.notaryContactsTitle}</h2>
         {p.contact ? (
           <>
-            <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-sm">
+            {/* Libellés CENTRÉS sur leur rangée : les boutons font 44 px de haut (cible tactile),
+                un libellé calé en haut se retrouvait décalé par rapport au numéro. Sur téléphone,
+                le libellé passe AU-DESSUS de sa valeur, qui prend toute la largeur. */}
+            <dl className="mt-3 grid grid-cols-1 gap-y-1 text-sm sm:grid-cols-[auto_1fr] sm:items-center sm:gap-x-4 sm:gap-y-3">
               {p.contact.address && (
                 <>
-                  <dt className="text-ank/80">{j.address}</dt>
-                  <dd className="text-ank">{p.contact.address}</dd>
+                  <dt className="text-xs text-ank/80 sm:text-sm">{j.address}</dt>
+                  <dd>
+                    <a
+                      href={carte!}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${j.notaryOpenAddress} : ${p.contact.address}`}
+                      className="inline-flex min-h-[44px] max-w-full items-center gap-2 rounded-xl border border-chabon/20 bg-white px-4 py-2 text-sm text-ank transition hover:border-chabon hover:bg-pil"
+                    >
+                      <MapPin aria-hidden="true" className="h-4 w-4 shrink-0" />
+                      <span>{p.contact.address}</span>
+                      <span aria-hidden="true" className="text-xs text-ank/70">↗</span>
+                    </a>
+                  </dd>
                 </>
               )}
               {p.contact.phones.length > 0 && (
                 <>
-                  <dt className="text-ank/80">{j.notaryPhone}</dt>
-                  <dd className="flex flex-col">
+                  <dt className="mt-2 text-xs text-ank/80 sm:mt-0 sm:text-sm">{j.notaryPhone}</dt>
+                  <dd className="flex flex-wrap gap-2">
+                    {/* `tel:` : un toucher compose le numéro sur un téléphone ; sur ordinateur, le
+                        système propose l'application d'appel. Bouton visible — la feuille du
+                        portail retire le soulignement de tous les liens. */}
                     {p.contact.phones.map((tel) => (
-                      <a key={tel} href={`tel:${tel}`} className="inline-flex min-h-[44px] items-center font-mono text-ank underline underline-offset-2 hover:text-chabon">
+                      <a
+                        key={tel}
+                        href={`tel:${tel}`}
+                        aria-label={`${j.notaryCall} ${formatPhone(tel)}`}
+                        className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-chabon/20 bg-white px-4 font-mono text-sm text-ank transition hover:border-chabon hover:bg-pil"
+                      >
+                        <Phone aria-hidden="true" className="h-4 w-4 shrink-0" />
                         {formatPhone(tel)}
                       </a>
                     ))}
@@ -76,10 +108,15 @@ export function NotaryProfileView({ p, locale, t }: { p: NotaryProfile; locale: 
               )}
               {p.contact.email && (
                 <>
-                  <dt className="text-ank/80">{j.notaryEmail}</dt>
+                  <dt className="mt-2 text-xs text-ank/80 sm:mt-0 sm:text-sm">{j.notaryEmail}</dt>
                   <dd>
-                    <a href={`mailto:${p.contact.email}`} className="inline-flex min-h-[44px] items-center break-all text-ank underline underline-offset-2 hover:text-chabon">
-                      {p.contact.email}
+                    <a
+                      href={`mailto:${p.contact.email}`}
+                      aria-label={`${j.notaryWrite} ${p.contact.email}`}
+                      className="inline-flex min-h-[44px] max-w-full items-center gap-2 rounded-full border border-chabon/20 bg-white px-4 text-sm text-ank transition hover:border-chabon hover:bg-pil"
+                    >
+                      <Mail aria-hidden="true" className="h-4 w-4 shrink-0" />
+                      <span className="[overflow-wrap:anywhere]">{p.contact.email}</span>
                     </a>
                   </dd>
                 </>
