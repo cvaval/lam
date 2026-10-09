@@ -1,8 +1,15 @@
 # Livraison : le fond de rues de la carte judiciaire (option A)
 
 9 octobre 2026. Spécification : `docs/prompt-production-notaires-et-fond-de-rues.md`, partie 2.
-Code commité en local, **pas poussé** : le fichier de tuiles et les polices partiront avec le
-prochain déploiement, sur instruction de Me Vaval.
+
+**EN LIGNE le 9 octobre 2026** : push `fe3ea1f..2ea9e45` sur instruction de Me Vaval, Vercel
+« Ready ». Contrôlé sur agora.ht :
+- mention « © contributeurs OpenStreetMap » ;
+- `routes-hti.pmtiles` servi en requêtes partielles (206, `accept-ranges: bytes`) ;
+- glyphes servis ;
+- **0 requête externe**, à l'ouverture comme zoomé ;
+- à l'ouverture, une seule lecture (l'en-tête) et aucun glyphe ;
+- Port-au-Prince zoomé : noms lisibles.
 
 ## Ce qui est fait
 
