@@ -53,9 +53,11 @@ describe('page d’un notaire', () => {
     expect(html).toContain('aria-label="Appeler le +509 2998-4747"')
     expect(html).toContain('aria-label="Appeler le +509 4643-0503"')
     expect(html).toContain('aria-label="Écrire à etudeanglade@gmail.com"')
-    // L'adresse s'ouvre dans une carte : son TEXTE (plus « , Haïti »), jamais une coordonnée.
-    expect(html).toContain(`href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent('394, route de Bourdon, Port-au-Prince, Haïti')}"`)
-    expect(html).toMatch(/target="_blank" rel="noopener noreferrer" aria-label="Ouvrir l’adresse dans une carte : 394, route de Bourdon, Port-au-Prince"/)
+    // L'adresse mène à la carte JUDICIAIRE de la plateforme (aucune carte tierce), sur la
+    // commune du notaire, couche « notaires » allumée — le nom accessible dit « commune ».
+    expect(html).toContain('href="/fr/juridictions?commune=commune-ouest-port-au-prince&amp;layers=paix,tpi,appel,cassation,notaires"')
+    expect(html).toContain('aria-label="394, route de Bourdon, Port-au-Prince — Voir sur la carte judiciaire : commune de Port-au-Prince"')
+    expect(html).not.toMatch(/google|target="_blank"/)
     expect(html).toContain('sm:grid-cols-[auto_1fr] sm:items-center')
   })
   it('coordonnées partielles (n° 21) : aucune ligne de téléphone, rien d’inventé', async () => {

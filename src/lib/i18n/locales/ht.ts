@@ -885,7 +885,7 @@ export const ht: Dictionary = {
     notaryEmail: 'Imel',
     notaryCall: 'Rele',
     notaryWrite: 'Ekri',
-    notaryOpenAddress: 'Louvri adrès la nan yon kat',
+    notaryOpenAddress: 'Gade sou kat jidisyè a : komin',
     notaryNoContacts: 'Kontak yo poko kominike.',
     notaryContactsSource: 'Kontak yo te kominike bay redaksyon Agora, ajou {date}.',
     notaryReportError: 'Siyale yon erè',

@@ -886,7 +886,7 @@ export const en: Dictionary = {
     notaryEmail: 'Email',
     notaryCall: 'Call',
     notaryWrite: 'Email',
-    notaryOpenAddress: 'Open the address in a map',
+    notaryOpenAddress: 'See on the judicial map: commune of',
     notaryNoContacts: 'Contact details not provided.',
     notaryContactsSource: 'Contact details provided to the Agora editorial team, up to date as of {date}.',
     notaryReportError: 'Report an error',

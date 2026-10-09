@@ -6,6 +6,7 @@ import type { NotaryProfile } from '@/lib/jurisdictions/data'
 import { mentionAsPrinted } from '@/lib/jurisdictions/notaires-source'
 import { dateLongue } from '@/lib/jurisdictions/notaires-format'
 import { formatPhone } from '@/lib/jurisdictions/coordonnees'
+import { DEFAULT_LAYERS, serializeLayers } from '@/lib/jurisdictions/layers'
 import { notarySourceLine } from './NotariesSection'
 
 /**
@@ -16,12 +17,12 @@ export function NotaryProfileView({ p, locale, t }: { p: NotaryProfile; locale: 
   const j = t.judicial
   const mention = mentionAsPrinted(p.mention)
   const signaler = `mailto:erreur@agora.ht?subject=${encodeURIComponent(`Notaire — ${p.name} (${p.id})`)}`
-  // L'adresse s'ouvre dans l'application de cartes du visiteur (Google Maps : l'application sur
-  // téléphone, le site sinon) — même lien que l'« Itinéraire » des tribunaux. On transmet le
-  // TEXTE de l'adresse, jamais une coordonnée : Agora ne géolocalise rien. « , Haïti » lève
-  // l'ambiguïté d'une adresse courte (« 390, ave John Brown, Bourdon ») sans changer l'affichage.
-  const carte = p.contact?.address
-    ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${p.contact.address}, Haïti`)}`
+  // L'adresse mène à la CARTE JUDICIAIRE de la plateforme (choix de Me Vaval, 9 oct. 2026 : pas
+  // de carte tierce), centrée sur la commune du notaire, couche « notaires » allumée. Agora ne
+  // géolocalise aucune adresse : la carte montre la COMMUNE, où se trouve le 👤 — le nom
+  // accessible du lien le dit.
+  const surLaCarte = p.commune
+    ? `/${locale}/juridictions?commune=${p.commune.id}&layers=${serializeLayers([...DEFAULT_LAYERS, 'notaires'])}`
     : null
   return (
     <>
@@ -71,17 +72,19 @@ export function NotaryProfileView({ p, locale, t }: { p: NotaryProfile; locale: 
                 <>
                   <dt className="text-xs text-ank/80 sm:text-sm">{j.address}</dt>
                   <dd>
-                    <a
-                      href={carte!}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${j.notaryOpenAddress} : ${p.contact.address}`}
-                      className="inline-flex min-h-[44px] max-w-full items-center gap-2 rounded-xl border border-chabon/20 bg-white px-4 py-2 text-sm text-ank transition hover:border-chabon hover:bg-pil"
-                    >
-                      <MapPin aria-hidden="true" className="h-4 w-4 shrink-0" />
-                      <span>{p.contact.address}</span>
-                      <span aria-hidden="true" className="text-xs text-ank/70">↗</span>
-                    </a>
+                    {surLaCarte && p.commune ? (
+                      <Link
+                        href={surLaCarte}
+                        title={`${j.notaryOpenAddress} ${p.commune.name}`}
+                        aria-label={`${p.contact.address} — ${j.notaryOpenAddress} ${p.commune.name}`}
+                        className="inline-flex min-h-[44px] max-w-full items-center gap-2 rounded-xl border border-chabon/20 bg-white px-4 py-2 text-sm text-ank transition hover:border-chabon hover:bg-pil"
+                      >
+                        <MapPin aria-hidden="true" className="h-4 w-4 shrink-0" />
+                        <span>{p.contact.address}</span>
+                      </Link>
+                    ) : (
+                      <span className="text-ank">{p.contact.address}</span>
+                    )}
                   </dd>
                 </>
               )}
@@ -135,7 +138,7 @@ export function NotaryProfileView({ p, locale, t }: { p: NotaryProfile; locale: 
 
       <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-1 text-sm">
         {p.commune && (
-          <Link href={`/${locale}/juridictions?commune=${p.commune.id}&layers=paix,tpi,appel,cassation,notaires`} className="inline-flex min-h-[44px] items-center font-medium text-ank underline underline-offset-2 hover:text-chabon">
+          <Link href={surLaCarte!} className="inline-flex min-h-[44px] items-center font-medium text-ank underline underline-offset-2 hover:text-chabon">
             {j.notaryOnMap}
           </Link>
         )}

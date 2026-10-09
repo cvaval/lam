@@ -1199,7 +1199,7 @@ export const fr = {
     notaryEmail: 'Courriel',
     notaryCall: 'Appeler le',
     notaryWrite: 'Écrire à',
-    notaryOpenAddress: 'Ouvrir l’adresse dans une carte',
+    notaryOpenAddress: 'Voir sur la carte judiciaire : commune de',
     notaryNoContacts: 'Coordonnées non communiquées.',
     notaryContactsSource: 'Coordonnées communiquées à la rédaction d’Agora, à jour au {date}.',
     notaryReportError: 'Signaler une erreur',
