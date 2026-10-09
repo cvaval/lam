@@ -15,7 +15,8 @@ const JURIDICTIONS = ['paix', 'tpi', 'appel', 'cassation']
 describe('contrat d’URL — `parseLayers` sur toute la table', () => {
   const table: Array<[string, string | undefined, string[]]> = [
     ['paramètre absent ⇒ le DÉFAUT (et non plus « toutes »)', undefined, [...DEFAULT_LAYERS]],
-    ['?layers=paix,tpi ⇒ paix + tpi, comme avant', 'paix,tpi', ['paix', 'tpi']],
+    ['?layers=paix,tpi ⇒ paix + tpi, SANS notaires, comme avant', 'paix,tpi', ['paix', 'tpi']],
+    ['?layers=notaires ⇒ notaires seuls', 'notaires', ['notaires']],
     ['?layers=tpi,tpi ⇒ dédoublonné', 'tpi,tpi', ['tpi']],
     ['?layers=paix,xyz ⇒ le slug inconnu est ignoré', 'paix,xyz', ['paix']],
     ['?layers=xyz ⇒ rien de valide ⇒ le défaut', 'xyz', [...DEFAULT_LAYERS]],
@@ -66,8 +67,27 @@ describe('registre de la plateforme', () => {
     expect(ALL_LAYERS.slice(0, 4)).toEqual(JURIDICTIONS)
     expect(MAP_LAYERS.slice(0, 4).every((l) => l.group === 'juridictions')).toBe(true)
   })
-  it('les quatre juridictions restent le défaut', () => {
+  it('les quatre juridictions restent le défaut ; les notaires sont masqués (question 3)', () => {
     expect(DEFAULT_LAYERS).toEqual(JURIDICTIONS)
+    expect(ALL_LAYERS).toEqual([...JURIDICTIONS, 'notaires'])
+  })
+  it('notaires : groupe « professions », 👤, trois tailles, décalé pour ne masquer aucun tribunal', () => {
+    const n = LAYER_REGISTRY.bySlug('notaires')!
+    expect(n.group).toBe('professions')
+    expect(n.marker).toMatchObject({ kind: 'emoji', glyph: '👤', imagePrefix: 'notaire' })
+    expect(emojiImageExpression(n.marker as Extract<MapLayerDef['marker'], { kind: 'emoji' }>)).toEqual(
+      ['step', ['get', 'count'], 'notaire-s', 3, 'notaire-m', 7, 'notaire-l'],
+    )
+    expect(n.iconOffset).toEqual([14, -14])
+    expect(n.source.url).toBe('/api/public/jurisdictions/notaires/map-points')
+  })
+  it('notaires : peints SOUS les tribunaux (ne masquent jamais un tribunal), boutons dans l’ordre du registre', () => {
+    expect(LAYER_REGISTRY.stackOrder).toEqual(['notaires', ...JURIDICTIONS])
+    expect(ALL_LAYERS.at(-1)).toBe('notaires')
+  })
+  it('notaires : chargés seulement à la première activation', () => {
+    expect(LAYER_REGISTRY.toLoad(DEFAULT_LAYERS)).toEqual(JURIDICTIONS)
+    expect(LAYER_REGISTRY.toLoad(['notaires'])).toEqual([...JURIDICTIONS, 'notaires'])
   })
   it('les tribunaux de paix gouvernent DEUX couches MapLibre (agrégat + points)', () => {
     const v = LAYER_REGISTRY.visibility(['paix']).filter((x) => x.slug === 'paix')
@@ -139,7 +159,7 @@ describe('couche fictive — prise en charge de bout en bout sans autre code', (
   it('groupes : un second groupe apparaît, dans l’ordre de LAYER_GROUPS', () => {
     expect(r.sections().map((s) => [s.group.id, s.layers.map((l) => l.slug)])).toEqual([
       ['juridictions', JURIDICTIONS],
-      ['professions', ['huissiers']],
+      ['professions', ['notaires', 'huissiers']],
     ])
   })
   it('marqueur : trois images nettes selon le nombre, jamais une image étirée', () => {

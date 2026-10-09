@@ -1,0 +1,863 @@
+Ministère de la Justice et de la Sécurité Publique
+Liste des Notaires de la République d'Haïti
+423 notaires
+
+ #     Prénoms et Nom                           Département   Commune
+
+ 1     Guy Mario GAY                            Ouest         PORT-AU-PRINCE
+
+ 2     Danielle Giordani ADÉ                    Ouest         PORT-AU-PRINCE
+
+ 3     Sanozier FRANCOIS                        Ouest         PORT-AU-PRINCE
+
+ 4     Jean Beaubrun L. RONY                    Ouest         PORT-AU-PRINCE
+
+ 5     Garry BRISSON CASSAGNOL                  Ouest         PORT-AU-PRINCE
+
+ 6     Alliette N . S . BALTHAZAR               Ouest         PORT-AU-PRINCE
+
+ 7     Sabine MORPEAU                           Ouest         PORT-AU-PRINCE
+
+ 8     Jean Dupuy CADET                         Ouest         PORT-AU-PRINCE
+
+ 9     Gamma ANGLADE GILLES                     Ouest         PORT-AU-PRINCE
+
+ 10    Mrie Alice C. B. BEAULIEU                Ouest         PORT-AU-PRINCE
+
+ 11    Patrick VICTOR                           Ouest         PORT-AU-PRINCE
+
+ 12    Clermont DOSSOUS                         Ouest         PORT-AU-PRINCE
+
+ 13    Jean-Joseph Frantz CÉANT                 Ouest         PORT-AU-PRINCE
+
+ 14    Guerly LERICHE                           Ouest         PORT-AU-PRINCE
+
+ 15    Ange LADOUCEUR                           Ouest         PORT-AU-PRINCE
+
+ 16    Ernst Maurice AVIN                       Ouest         PORT-AU-PRINCE
+
+ 17    Marilyn Merceron CHARLES                 Ouest         PORT-AU-PRINCE
+
+ 18    Yves Rose VIELOT                         Ouest         PORT-AU-PRINCE
+
+ 19    Jean Claude CORIOLAN                     Ouest         PORT-AU-PRINCE
+
+ 20    Jean J. Maurice AVIN                     Ouest         PORT-AU-PRINCE
+
+ 21    Gilbert Emile GIORDANI                   Ouest         PORT-AU-PRINCE
+
+ 22    Jacques Béniçoit CHARLOTIN               Ouest         DELMAS
+
+ 23    Tranquilor MATHIEU                       Ouest         DELMAS
+
+ 24    Mrie Lourdes B. BAUDIN FRANCILLON        Ouest         DELMAS
+
+ 25    Jean Pressage A. S. CAJOU                Ouest         DELMAS
+
+ 26    Claudèle BERNARD                         Ouest         DELMAS
+
+ 27    Charles Pedro MARCELYN                   Ouest         DELMAS
+
+ 28    Mrie-Ange LOUISSAINT HENRY               Ouest         DELMAS
+
+ 29    Hérol DIEUDONNÉ                          Ouest         PÉTION-VILLE
+
+ 30    Dina SEIDE                               Ouest         PÉTION-VILLE
+
+ 31    Horatius Junior FRANCOIS                 Ouest         PÉTION-VILLE
+
+ 32    Jean M. E. Lesly ALPHONSE                Ouest         PÉTION-VILLE
+
+ 33    Marie Carline GEORGES                    Ouest         PÉTION-VILLE
+#    Prénoms et Nom                  Département   Commune
+
+34   Milot Fénélon CAJOU             Ouest         PÉTION-VILLE
+
+35   Romuald ÉTIENNE                 Ouest         CITÉ-SOLEIL
+
+36   Alex DEMOSTHENES                Ouest         CITÉ-SOLEIL
+
+37   Gilbert Emile GIORDANI          Ouest         CITÉ-SOLEIL
+
+38   Jean Renoune CHERY              Ouest         CITÉ-SOLEIL
+
+39   Ronald E. PIERRE-LOUIS          Ouest         TABARRE
+
+40   Ranel Raphaël DORISCA           Ouest         TABARRE
+
+41   Yves CADET                      Ouest         TABARRE
+
+42   Gérald L. ZIDOR                 Ouest         TABARRE
+
+43   Yvon ELIE                       Ouest         TABARRE
+
+44   Jean Claude ISRAEL              Ouest         TABARRE
+
+45   Jean Rico AUGUSTIN              Ouest         TABARRE
+
+46   Lafontaine JOSEPH               Ouest         CARREFOUR
+
+47   Gerard Margella Frantz DOUYON   Ouest         CARREFOUR
+
+48   Emmanuel LEBRUN                 Ouest         CARREFOUR
+
+49   Garry LOCHARD                   Ouest         CARREFOUR
+
+50   Jean Anthony LOUISSAINT         Ouest         CARREFOUR
+
+51   Jean DORLUS                     Ouest         KENSCOFF
+
+52   Joe Arnaud DESILE               Ouest         KENSCOFF
+
+53   Jean Montès MIRVILLE            Ouest         KENSCOFF
+
+54   Oben PIERRE                     Ouest         KENSCOFF
+
+55   Walto AUGUSTIN                  Ouest         CABARET
+
+56   Michel VINCENT                  Ouest         CABARET
+
+57   Mitsou GAUTHIER                 Ouest         CABARET
+
+58   Jean Robert SAINTIL             Ouest         CABARET
+
+59   Carlène GERBIER THERMESI        Ouest         GRESSIER
+
+60   Jean Robert HENRI SATURNE       Ouest         GRESSIER
+
+61   Léonard VAILLANT                Ouest         GRESSIER
+
+62   Jerry CHAMPAGNE                 Ouest         GRESSIER
+
+63   Rameau Etienne BEAUBRUN         Ouest         ANSE-A-GALETS
+
+64   Jean Fitzner                    Ouest         ANSE-A-GALETS
+
+65   Pierre Hermann RÉMÉDOR          Ouest         ARCAHAIE
+
+66   Pierre PHILIPPE                 Ouest         ARCAHAIE
+
+67   Yvel CASSÉUS                    Ouest         ARCAHAIE
+
+68   Ulrick JÉROME                   Ouest         POINTE-A-RAQUETTE
+
+69   Fédé ENEL                       Ouest         POINTE-A-RAQUETTE
+#     Prénoms et Nom                     Département   Commune
+
+70    Georges André LABISSIERE           Ouest         CROIX DES BOUQUETS
+
+71    Jean Mario Serge COLIMON           Ouest         CROIX DES BOUQUETS
+
+72    Vilma MATHIEU                      Ouest         CROIX DES BOUQUETS
+
+73    Jean Valéry LUBIN                  Ouest         CROIX DES BOUQUETS
+
+74    Pierre Marie K. K. DIEUDONNÉ       Ouest         CROIX DES BOUQUETS
+
+75    Jean Garry Georges NORMIL          Ouest         GANTHIER
+
+76    Yvon VAL                           Ouest         GANTHIER
+
+77    Marie Lissa CHAM                   Ouest         GANTHIER
+
+78    Théodor MARCEAU                    Ouest         THOMAZEAU
+
+79    Abner REGUNA                       Ouest         THOMAZEAU
+
+80    Adelson THOMAS                     Ouest         THOMAZEAU
+
+81    Emmanuel LEBRUN                    Ouest         THOMAZEAU
+
+82    Raynold MARCEAU (PDD)              Ouest         THOMAZEAU
+
+83    Jean Ostel BASTIEN                 Ouest         THOMAZEAU
+
+84    Faustin Luders JEANTY              Ouest         THOMAZEAU
+
+85    Jean Yves DELCINÉ (PDD)            Ouest         CORNILLON
+
+86    François JEAN                      Ouest         CORNILLON
+
+87    Cadet TOUSSAINT                    Ouest         CORNILLON
+
+88    Jean Wilner DOR                    Ouest         CORNILLON
+
+89    Duvelson FLEURY                    Ouest         CORNILLON
+
+90    Jean Aubert PAULYNICE              Ouest         CORNILLON
+
+91    Jean Rico AUGUSTIN                 Ouest         CORNILLON
+
+92    Jean Pierre Richard BASTIEN        Ouest         CORNILLON
+
+93    Alain PIERRE-SAINT                 Ouest         FONDS-VERRETTES
+
+94    Joseph Ernst FANFAN                Ouest         FONDS-VERRETTES
+
+95    Claude JÉROME                      Ouest         FONDS-VERRETTES
+
+96    Jean Olnick THELISMA               Ouest         FONDS-VERRETTES
+
+97    Shoubert LOUIS (PDD)               Ouest         FONDS-VERRETTES
+
+98    Claude PLACIDE                     Ouest         PETIT-GOAVE
+
+99    Antonius MOISE                     Ouest         PETIT-GOAVE
+
+100   Lionel Yves-Marie FOUCAULT         Ouest         PETIT-GOAVE
+
+101   Frantz Batista LOUIS               Ouest         PETIT-GOAVE
+
+102   Myriam Fabien SEIDE                Ouest         PETIT-GOAVE
+
+103   Daniel Georges Carlet DURANDISSE   Ouest         PETIT-GOAVE
+
+104   Edward DUPRAT                      Ouest         PETIT-GOAVE
+
+105   Anthony DUMONT                     Ouest         LÉOGANE
+#     Prénoms et Nom                    Département   Commune
+
+106   Nasser KERNISANT                  Ouest         LÉOGANE
+
+107   Daniel G. C. DURANDISSE           Ouest         LÉOGANE
+
+108   Gumps BAZILE                      Ouest         LÉOGANE
+
+109   Jean-Mary Claudel DELVA           Ouest         LÉOGANE
+
+110   Mauclair DESIR                    Ouest         LÉOGANE
+
+111   Myriam Fabien SEIDE               Ouest         LÉOGANE
+
+112   Philomise Guerrier KERNISANT      Ouest         GRAND-GOAVE
+
+113   Anglade GABEAUD                   Ouest         GRAND-GOAVE
+
+114   Yves JEAN                         Nord          CAP-HAITIEN
+
+115   Duvot PAUL                        Nord          CAP-HAITIEN
+
+116   Pierre Jérome COLAS               Nord          CAP-HAITIEN
+
+117   Marie Mercie C. ALABRÉ (PDD)      Nord          CAP-HAITIEN
+
+118   Molière ANGRAND (PDD)             Nord          CAP-HAITIEN
+
+119   Frisner ESTIMÉ                    Nord          CAP-HAITIEN
+
+120   Louis BLOT (PDD)                  Nord          CAP-HAITIEN
+
+121   Frantz. Marc MARTHOL              Nord          CAP-HAITIEN
+
+122   Joseph Michel MATHIEU             Nord          CAP-HAITIEN
+
+123   Augustin Miguel JEAN              Nord          CAP-HAITIEN
+
+124   Sandra METELLUS                   Nord          CAP-HAITIEN
+
+125   Schmidt PIERROT                   Nord          CAP-HAITIEN
+
+126   Maude Antoine SALNAVE             Nord          CAP-HAITIEN
+
+127   Arry PIERRE                       Nord          QUARTIER MORIN
+
+128   Jean-Baptiste MÉNARD (PDD)        Nord          QUARTIER MORIN
+
+129   Lincoln HYPPOLITE (PDD)           Nord          QUARTIER MORIN
+
+130   Raymond PROPHETE (PDD)            Nord          QUARTIER MORIN
+
+131   Willy NEMORIN                     Nord          QUARTIER MORIN
+
+132   Raymond THERMIDOR                 Nord          QUARTIER MORIN
+
+133   Willy OSWALD                      Nord          LIMONADE
+
+134   Arnault JEAN-PHILIPPE             Nord          LIMONADE
+
+135   Louis MICHEL (PDD)                Nord          LIMONADE
+
+136   Christini D.M.Jr.Quesnel ISRAEL   Nord          LIMONADE
+
+137   Frantzy PIERRE                    Nord          LIMBE
+
+138   Maxidoine ALLIANCE                Nord          LIMBE
+
+139   Charles Pierre THONY (PDD)        Nord          LIMBE
+
+140   Armand ZEPHIRIN                   Nord          LIMBE
+
+141   Ally JEANTY                       Nord          MILOT
+#     Prénoms et Nom                       Département   Commune
+
+142   Jacques VINCENT                      Nord          MILOT
+
+143   Dominique DUMAS                      Nord          MILOT
+
+144   Max Joseph ALLONCE (PDD)             Nord          BORGNE
+
+145   Tacite JADOTTE (PDD)                 Nord          BORGNE
+
+146   Achille SAUREL                       Nord          BORGNE
+
+147   Molière PAUL                         Nord          PLAISANCE
+
+148   Renaud JEAN BAPTISTE                 Nord          PLAISANCE
+
+149   Lawrence SAINT JEAN (PDD)            Nord          PLAISANCE
+
+150   Joseph Bercius DÉRONVIL (PDD)        Nord          PLAISANCE
+
+151   Yvon BELOTTE                         Nord          PORT-MARGOT
+
+152   Osias ESTIVAINE                      Nord          PORT-MARGOT
+
+153   Michel Oldieu CÉLESTIN (PDD)         Nord          PORT-MARGOT
+
+154   Rille MÉSIDOR                        Nord          PETIT-BOURG DE PORT MARGOT
+
+155   Nemours Antoine JACQUES (PDD)        Nord          PILATE
+
+156   Adrien BORDENAVE (PDD)               Nord          PILATE
+
+157   Alcès PÉAN (PDD)                     Nord          PILATE
+
+158   Jean-Baptiste PIERRE                 Nord          PLAINE DU NORD
+
+159   Sammuel FANFAN                       Nord          PLAINE DU NORD
+
+160   Wisky SAUREL                         Nord          PLAINE DU NORD
+
+161   Michelet FELIMA                      Nord          PLAINE DU NORD
+
+162   Daniel Elvecius CHARLES              Nord          BAS-LIMBE
+
+163   Édouard MONTREUIL (PDD)              Nord          BAS-LIMBE
+
+164   Armand ZÉPHIRIN                      Nord          BAS-LIMBE
+
+165   Edy BASTIEN                          Nord          ACUL DU NORD
+
+166   Joseph Hérault DESIR                 Nord          ACUL DU NORD
+
+167   Raphael Lefranc JEROME (PDD)         Nord          GRANDE RIVIERE DU NORD (PDD)
+
+168   Joseph Connel SAINT-VIL (PDD)        Nord          GRANDE RIVIERE DU NORD (PDD)
+
+169   Emmanuel PLUVIOSE (PDD)              Nord          GRANDE RIVIERE DU NORD (PDD)
+
+170   Rock LEFENE (PDD)                    Nord          GRANDE RIVIERE DU NORD (PDD)
+
+171   Moreneau EZECHIAS (PDD)              Nord          SAINT RAPHAEL
+
+172   Ducangé Raphael MOISE (PDD)          Nord          SAINT RAPHAEL
+
+173   Obercio dit Robespierre BELL (PDD)   Nord          PIGNON
+
+174   Marceau VALCIN (PDD)                 Nord          PIGNON
+
+175   Françoise DEJOIE                     Nord          BAHON
+
+176   André Jean-Baptiste ALMONOR (PDD)    Nord          BAHON
+
+177   Ereck V. MENARD (PDD)                Nord          BAHON
+#     Prénoms et Nom                   Département   Commune
+
+178   Bernard SAINTELLUS (PDD)         Nord          LA VICTOIRE
+
+179   Abraham RAYMOND (PDD)            Nord          RANQUITTE
+
+180   Vilméus DIMANCHE                 Nord          RANQUITTE
+
+181   Marc B. CHARLES (PDD)            Nord          DONDON
+
+182   Edouard G. SAINT-JEAN (PDD)      Nord          DONDON
+
+183   Monod CHERY                      Sud           CAYES
+
+184   Yves Hervé JOCELYN               Sud           CAYES
+
+185   Louis JEAN-FRANCOIS              Sud           CAYES
+
+186   Cécile M. L. Coulanges BANATTE   Sud           CAYES
+
+187   Feranor BOLIVAR                  Sud           CAYES
+
+188   Jean Romain NEI                  Sud           CAYES
+
+189   Marie Elizabeth Karyne ALEXIS    Sud           CAYES
+
+190   Jean Vener MERCIER               Sud           CAYES
+
+191   Dominique ZÉPHIR                 Sud           CAYES
+
+192   Joseph Banel RENÉ                Sud           CAYES
+
+193   Godfred TOUSSAINT                Sud           CAYES
+
+194   Marie Yolande DAMAS              Sud           CAYES
+
+195   Jean Clergé DURAND               Sud           CAYES
+
+196   Pierre Josué SIMON               Sud           CHANTAL
+
+197   Duval JOSEPH                     Sud           TORBECK
+
+198   Joseph Linot GABRIEL             Sud           TORBECK
+
+199   Armand PIERRE-LOUIS (PDD)        Sud           TORBECK
+
+200   Joseph DESJARDINS                Sud           TORBECK
+
+201   Arnold SENAT                     Sud           TORBECK
+
+202   Bélizaire BERGER                 Sud           ARNIQUET
+
+203   Anael JOSEPH                     Sud           ARNIQUET
+
+204   Cadet JEAN-BAPTISTE (PDD)        Sud           SAINT JEAN DU SUD
+
+205   Maresco GIRADIN (PDD)            Sud           SAINT JEAN DU SUD
+
+206   Nicolas Closel VIAUD             Sud           PORT-SALUT
+
+207   Charles GUSTAVE (PDD)            Sud           PORT-SALUT
+
+208   Jean Baptiste Fred TOUSSAINT     Sud           PORT-SALUT
+
+209   Rony PIERRE                      Sud           PORT-SALUT
+
+210   Harry JEAN                       Sud           CAMP-PERRIN
+
+211   Maurice JEAN (PDD)               Sud           CAMP-PERRIN
+
+212   Harold DARIVAGER                 Sud           CAMP-PERRIN
+
+213   Clausel LAFLEUR                  Sud           MANICHE
+#     Prénoms et Nom                       Département   Commune
+
+214   François William CHERESTAL           Sud           MANICHE
+
+215   Jean SAINT-LOUIS                     Sud           LA CHAPELLE
+
+216   Bernadin POTEAU                      Sud           AQUIN
+
+217   Rony RAMEAU                          Sud           AQUIN
+
+218   Daguilard CAMBRY                     Sud           AQUIN
+
+219   Joseph Raymond SEIDE                 Sud           AQUIN
+
+220   Anthony COMEAU (PDD)                 Sud           AQUIN
+
+221   Hugues DANGER                        Sud           AQUIN
+
+222   Paul Henri NOEL                      Sud           SAINT LOUIS DU SUD
+
+223   Félix-Jean MERVIUS                   Sud           SAINT LOUIS DU SUD
+
+224   Homère LEFRANC                       Sud           SAINT LOUIS DU SUD
+
+225   Célorge SAINVILNOR                   Sud           CAVAILLON
+
+226   Jean-Baptiste S. DESCOLLINES (PDD)   Sud           CAVAILLON
+
+227   Guy ROMAIN                           Sud           CAVAILLON
+
+228   Marie Carmel BEAULIEU                Sud-Est       JACMEL
+
+229   Wilfrid NELSON                       Sud-Est       JACMEL
+
+230   Philippe Jean Marc DIEUMERCIE        Sud-Est       JACMEL
+
+231   Emile PENN (PDD)                     Sud-Est       JACMEL
+
+232   Serge Marceau RATJEN                 Sud-Est       JACMEL
+
+233   Pélissier BAPTISTE                   Sud-Est       JACMEL
+
+234   Favard CHÉRISMÉ                      Sud-Est       JACMEL
+
+235   Donald MARDY                         Sud-Est       JACMEL
+
+236   Hoche PIERRE-LOUIS                   Sud-Est       JACMEL
+
+237   Florise PROPHETE                     Sud-Est       JACMEL
+
+238   Jean Hector ANACACIS                 Sud-Est       JACMEL
+
+239   Jean Paul DUMERCY                    Sud-Est       JACMEL
+
+240   Yves J . DUPLAN                      Sud-Est       BAINET
+
+241   René THEARD (PDD)                    Sud-Est       BAINET
+
+242   Pierre-Richard JEAN                  Sud-Est       CAYES-JACMEL
+
+243   Rosy JANVIER                         Sud-Est       CAYES-JACMEL
+
+244   Archange AGELLA                      Sud-Est       LA VALLÉE DE JACMEL
+
+245   Sanon JEAN                           Sud-Est       LA VALLÉE DE JACMEL
+
+246   Michel Thomas SIGUINEAU (PDD)        Sud-Est       COTE DE FER
+
+247   Lanno LADOUCEUR (PDD)                Sud-Est       COTE DE FER
+
+248   Moïse JACQUES (PDD)                  Sud-Est       COTE DE FER
+
+249   Moris G. MASSÉNA                     Sud-Est       MARIGOT
+#     Prénoms et Nom                   Département   Commune
+
+250   Yanick SMITH                     Sud-Est       MARIGOT
+
+251   Bénito DESCOLLINES               Sud-Est       MARIGOT
+
+252   Antonin BALTHAZAR                Sud-Est       BELLANSE
+
+253   Marie José RIVAL (PDD)           Sud-Est       BELLANSE
+
+254   Rosemond MICHEL (PDD)            Sud-Est       BELLANSE
+
+255   Marc Ali Revil MOISE             Sud-Est       GRAND GOSIER
+
+256   Jean-Yves SAINT-CYR              Sud-Est       COTEAUX
+
+257   Moise Jeanel SAINT-VIL           Sud-Est       CHARDONNIERE
+
+258   Bernadin Th. BOIS (PDD)          Sud-Est       ROCHE A BATEAU
+
+259   Mickerlange ELIE                 Sud-Est       ROCHE A BATEAU
+
+260   Jean-Marie Bernato CHARLES       Sud-Est       LES ANGLAIS
+
+261   Bélizaire LOUIS (PDD)            Sud-Est       TIBURON
+
+262   Boujolly JEAN CHARLES            Sud-Est       TIBURON
+
+263   Julenor VITAL                    Sud-Est       PORT-A-PIMENT
+
+264   Harry Dickens JEAN-BAPTISTE      Centre        HINCHE
+
+265   Pierre Rony BEAUFORT             Centre        HINCHE
+
+266   Mme Rolès DONATIEN (PDD)         Centre        HINCHE
+
+267   Antoine H. JEAN-BAPTISTE (PDD)   Centre        HINCHE
+
+268   Adèle RAPHAEL                    Centre        HINCHE
+
+269   Mauril ALTIDOR                   Centre        THOMONDE
+
+270   Bertha Elie DOMINIQUE (PDD)      Centre        THOMONDE
+
+271   Mme Gabriel Esty GEORGES (PDD)   Centre        THOMONDE
+
+272   Saint-Louis Pèdre BALDÉ          Centre        MAISSADE
+
+273   Ketlie JULSAIN                   Centre        MAISSADE
+
+274   David NIVARD                     Centre        MAISSADE
+
+275   Charles GUESLIN (PDD)            Centre        THOMASSIQUE
+
+276   Zachary PREVILUS                 Centre        THOMASSIQUE
+
+277   Lucson ELY                       Centre        CERCA CARVAJAL
+
+278   Vernet SIMON (PDD)               Centre        CERCA CARVAJAL
+
+279   Prétois VAL                      Centre        CERCA CARVAJAL
+
+280   Macksen DORVIL                   Centre        CERCA LA SOURCE
+
+281   Cléonne Thyma REMY (PDD)         Centre        CERCA LA SOURCE
+
+282   Joséphat PROSPERE (PDD)          Centre        CERCA LA SOURCE
+
+283   Phanor VÉLIUS (PDD)              Centre        CERCA LA SOURCE
+
+284   Anne L. M. Estinfil NAPOLÉON     Centre        MIREBALAIS
+
+285   Ovil LUBIN                       Centre        MIREBALAIS
+#     Prénoms et Nom                      Département   Commune
+
+286   Tholand NOISETTE                    Centre        MIREBALAIS
+
+287   Jean Nedson Danton JOSEPH (PDD)     Centre        MIREBALAIS
+
+288   Anne JEAN BAPTISTE                  Centre        MIREBALAIS
+
+289   Lucien PIERRE-TOUSSAINT             Centre        LASCAHOBAS
+
+290   Fritz JOUTE                         Centre        LASCAHOBAS
+
+291   Jn-Baptiste Valérius JOSEPH (PDD)   Centre        LASCAHOBAS
+
+292   Bayard KERCY (PDD)                  Centre        BELLADERE
+
+293   Jean Pierre MÉSULMÉ                 Centre        BELLADERE
+
+294   Louis Scypion JEAN-BAPTISTE         Centre        BOUCAN-CARRÉ
+
+295   Guy Robert AUGUSTIN                 Centre        SAUT D'EAU
+
+296   Denizard CHARLES                    Centre        SAUT D'EAU
+
+297   Mother AUGUSTE                      Centre        SAVANETTE
+
+298   Lovius ROBENSON (PDD)               Centre        SAVANETTE
+
+299   Jules Elie BOSQUET (PDD)            Centre        SAVANETTE
+
+300   Carmelot F. M. CH. MOLAIRE          Artibonite    ST MARC
+
+301   Yolène DALENCOUR SAIEH              Artibonite    ST MARC
+
+302   Charlemagne SAINT-FLEUR             Artibonite    ST MARC
+
+303   Mirabeau ASSÉ (PDD)                 Artibonite    ST MARC
+
+304   Jean Simon Lucien PHILIPPE          Artibonite    ST MARC
+
+305   Thomas Eddy DUPITON                 Artibonite    ST MARC
+
+306   Robert Simon SAIEH                  Artibonite    ST MARC
+
+307   Charlemagne C. Joseph ANDRE         Artibonite    ST MARC
+
+308   Rosental DUVELSAINT                 Artibonite    VERETTE
+
+309   Joseph Nosius DAMIER                Artibonite    DESSALINES
+
+310   Bermingham PIERRE                   Artibonite    DESSALINES
+
+311   Saint Facile PHILOGENE              Artibonite    PETITE RIVIERE DE L'ARTIBONITE
+
+312   Bruno TOUSSAINT                     Artibonite    PETITE RIVIERE DE L'ARTIBONITE
+
+313   Dieuberny Celinor CENOT             Artibonite    PETITE RIVIERE DE L'ARTIBONITE
+
+314   Kenley VITAL                        Artibonite    DESDUNES
+
+315   Fritz GERMAIN (PDD)                 Artibonite    DESDUNES
+
+316   Joseph CAMILLE (PDD)                Artibonite    GRANDE SALINE
+
+317   Dorvilier POULARD                   Nippes        MIRAGOANE
+
+318   Mario JOSEPH                        Nippes        MIRAGOANE
+
+319   Louicène Aristilde HENRY            Nippes        MIRAGOANE
+
+320   Yves Gertha ZEPHIR                  Nippes        MIRAGOANE
+
+321   Wesler Musset GUERRIER              Nippes        MIRAGOANE
+#     Prénoms et Nom                        Département   Commune
+
+322   Albéric MICHEL                        Nippes        PETITE RIVIERE DE NIPPES
+
+323   James Meck Charly BALZORA             Nippes        FONDS DES NEGRES
+
+324   Guima GOIN                            Nippes        FONDS DES NEGRES
+
+325   Etzer TELUSMA                         Nippes        PAILLANT
+
+326   Jude LECONTE                          Nippes        ANSE-A-VEAU
+
+327   Mercidieu JEAN LOUIS (PDD)            Nippes        ANSE-A-VEAU
+
+328   Albert LARIONNE (PDD)                 Nippes        ANSE-A-VEAU
+
+329   Gérard CADET (PDD)                    Nippes        ANSE-A-VEAU
+
+330   Estona LAPAIX                         Nippes        L'AZILE
+
+331   Vital DESSOURCES                      Nippes        L'AZILE
+
+332   Acénito JOURDAN (PDD)                 Nippes        L'AZILE
+
+333   Jean Kettlin MONLINARD (PDD)          Nippes        BARADERE
+
+334   Yves Arthur CAMILIEN                  Nippes        PETIT TROU DE NIPPES
+
+335   Christophe LERICHE                    Nippes        PETIT TROU DE NIPPES
+
+336   Brignol MONDESIR (PDD)                Nippes        PETIT TROU DE NIPPES
+
+337   Alphonse Alfred CAMILIEN              Nippes        PETIT TROU DE NIPPES
+
+338   Jacques VINCENT PD/CMM                Nippes        GONAIVES
+
+339   Honide Pierre Charles BIEN-AIMÉ       Nippes        GONAIVES
+
+340   Emmania S. JEAN-NOEL                  Nippes        GONAIVES
+
+341   Lucanesse ALESSE                      Nippes        GONAIVES
+
+342   Serge NORCEIDE                        Nippes        GONAIVES
+
+343   Rostand BERTHAUD (PDD)                Nippes        GONAIVES
+
+344   Marc-Henry MOISE                      Nippes        GONAIVES
+
+345   Emmanuel FAUSTIN                      Nippes        GONAIVES
+
+346   Jean Claude A. Gracia RICHARD (PDD)   Nippes        GONAIVES
+
+347   Marie Scherlly Laurent LAVAUD         Nippes        GONAIVES
+
+348   Joseph François Max COQ               Nippes        GONAIVES
+
+349   Rémus RÉGIS                           Nippes        GONAIVES
+
+350   Wedler DEMEZIER                       Nippes        GONAIVES
+
+351   Cariot BIEN-AIME                      Nippes        GONAIVES
+
+352   Pierre Gracia DUMONT                  Nippes        SAINT-MICHEL DE L'ATTALAYE
+
+353   Romuald Yves ANTOINE                  Nippes        SAINT-MICHEL DE L'ATTALAYE
+
+354   Vladimir Hiram ANTOINE                Nippes        SAINT-MICHEL DE L'ATTALAYE
+
+355   Jacques Radel SIMÉON                  Nippes        MARMELADE
+
+356   Jean-Winston MACAJOUX                 Nippes        MARMELADE
+
+357   Jean-Michel LUCIEN                    Nippes        GROS MORNE
+#     Prénoms et Nom                 Département   Commune
+
+358   Marc Antoine ADOLPHE (PDD)     Nippes        GROS MORNE
+
+359   Rener DERISSON                 Nippes        GROS MORNE
+
+360   Prévilien SICERON              Nippes        ENERY
+
+361   Jocelyn AUGUSTIN               Grand'Anse    L'ESTERE
+
+362   Prosper DESTINVILLE            Grand'Anse    JEREMIE
+
+363   Jean Ouston LESTIN             Grand'Anse    JEREMIE
+
+364   Jean Claude CLAIRONNE          Grand'Anse    JEREMIE
+
+365   Jean Marie M. PIERRE (PDD)     Grand'Anse    JEREMIE
+
+366   Louis Joseph CAYEMITTE         Grand'Anse    JEREMIE
+
+367   Jean Ernst THEANO              Grand'Anse    JEREMIE
+
+368   Ulrick BIEN-AIMÉ               Grand'Anse    DAME-MARIE
+
+369   Dunord JEUNE                   Grand'Anse    DAME-MARIE
+
+370   Hermann SAINT-CLOUD (PDD)      Grand'Anse    ANSE D'HAINAULT
+
+371   Jean Félix JEANTY (PDD)        Grand'Anse    ANSE D'HAINAULT
+
+372   Pradel PH. ÉTIENNE (PDD)       Grand'Anse    CORAIL
+
+373   Eddy NOEL                      Grand'Anse    CORAIL
+
+374   Rouzier POLYCARPE (PDD)        Grand'Anse    ABRICOTS
+
+375   Phitéas MICHEL (PDD)           Grand'Anse    BEAUMONT
+
+376   Jean Bernard WESH              Grand'Anse    BEAUMONT
+
+377   Félix LEVEQUE (PDD)            Grand'Anse    MORON
+
+378   Dominique DUVERT (PDD)         Grand'Anse    MORON
+
+379   Edner ÉTIENNE (PDD)            Grand'Anse    LES ROSEAUX
+
+380   Antoine N. GILLES (PDD)        Grand'Anse    PESTEL
+
+381   Raguel CADIO (PDD)             Grand'Anse    LES IROIS
+
+382   Fortune MEDY                   Grand'Anse    CHAMBELAIN
+
+383   Rossini BLAISE                 Nord-Est      FORT-LIBERTÉ
+
+384   Stefen Jacques ANTOINE (PDD)   Nord-Est      FORT-LIBERTÉ
+
+385   Saint-Louis CHARLES            Nord-Est      FORT-LIBERTÉ
+
+386   Dienjuste DALISMA (PDD)        Nord-Est      CARICE
+
+387   Joseph Octave ALBERT (PDD)     Nord-Est      CARICE
+
+388   Armand JOSEPH                  Nord-Est      OUANAMINTHE
+
+389   Jacques Louis DUMAY (PDD)      Nord-Est      OUANAMINTHE
+
+390   Adèle BERNARD                  Nord-Est      OUANAMINTHE
+
+391   Jean Rodolphe JOAZILE          Nord-Est      OUANAMINTHE
+
+392   Gabriel CODIO (PDD)            Nord-Est      MONT-ORGANISÉ
+
+393   Délinois JOSEPH (PDD)          Nord-Est      FERRIER
+#     Prénoms et Nom                                  Département   Commune
+
+394   Franklin PÉTION                                 Nord-Est      LES PERCHES
+
+395   Luina MANIGAT (PDD)                             Nord-Est      LES PERCHES
+
+396   Wilnique JOSEPH (PDD)                           Nord-Est      LES PERCHES
+
+397   Joseph BRUNO (PDD)                              Nord-Est      TERRIER-ROUGE
+
+398   Miguel FUCIEN (PDD)                             Nord-Est      TERRIER-ROUGE
+
+399   Chrisne BAPTISTE                                Nord-Est      TERRIER-ROUGE
+
+400   Mécéjour FLORVILUS (PDD)                        Nord-Est      VALLIERES
+
+401   Kency PIERRE (PDD)                              Nord-Est      TROU DU NORD
+
+402   Edelin Etienne JOSEPH                           Nord-Est      TROU DU NORD
+
+403   Duvignol JEAN (PDD)                             Nord-Est      MONBIN CROCHU
+
+404   Décius DÉJOIE                                   Nord-Est      SAINTE SUZANNE
+
+405   Darnick Christonia Irvinn Dorval JEAN-CHARLES   Nord-Ouest    PORT-DE-PAIX
+
+406   Nickenson VASSOR                                Nord-Ouest    PORT-DE-PAIX
+
+407   Jean Robert DOCTEUR (PDD)                       Nord-Ouest    PORT-DE-PAIX
+
+408   Fresnel AUGUSTE (PDD)                           Nord-Ouest    PORT-DE-PAIX
+
+409   Levelt PHILAMA                                  Nord-Ouest    PORT-DE-PAIX
+
+410   Gadyel NAISSANCE                                Nord-Ouest    PORT-DE-PAIX
+
+411   Junnior BOUQUETTE                               Nord-Ouest    PORT-DE-PAIX
+
+412   Théojuste GASPARD (PDD)                         Nord-Ouest    ANSE A FOLEUR
+
+413   Emmanuel A. LOUIS (PDD)                         Nord-Ouest    ANSE A FOLEUR
+
+414   François HENRY (PDD)                            Nord-Ouest    JEAN RABEL
+
+415   Bergenson Christian JEAN MARY                   Nord-Ouest    JEAN RABEL
+
+416   Ramires Tournier TOUSSAINT                      Nord-Ouest    SAINT LOUIS DU NORD
+
+417   Herby LOUISSAINT                                Nord-Ouest    SAINT LOUIS DU NORD
+
+418   Délile PIERRE-LOUIS                             Nord-Ouest    SAINT LOUIS DU NORD
+
+419   Nelfrar NORD                                    Nord-Ouest    SAINT LOUIS DU NORD
+
+420   Eddy LOUIS JOSEPH                               Nord-Ouest    BASSIN BLEU
+
+421   Carnovil BARTHÉLUS (PDD)                        Nord-Ouest    BASSIN BLEU
+
+422   Louis C. NELSON (PDD)                           Nord-Ouest    BASSIN BLEU
+
+423   Fretchner ANTOINE                               Nord-Ouest    MOLE SAINT NICOLAS
+

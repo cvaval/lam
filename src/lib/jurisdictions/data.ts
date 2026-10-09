@@ -11,7 +11,9 @@
  *  - la Cour de cassation vit dans un bloc « Recours national » séparé.
  */
 import { prisma } from '../db'
+import { estSchemaAbsent } from '../delais/service-base'
 import { buildPlaceIndex, type PlaceIndex } from './search-places'
+import { normalizePlaceName } from './normalize-place'
 import type { CourtType } from './constants'
 
 export interface SourceRef { type: 'url' | 'file'; value: string }
@@ -46,6 +48,24 @@ export interface CourtView {
   verifiedAt: string | null
 }
 
+/** Un notaire tel que la fiche le publie : ni commune imprimée, ni observation interne. */
+export interface NotaryView {
+  ordinal: number
+  fullName: string
+  /** « PDD », « PD/CMM » ou null — affiché tel qu'imprimé, jamais interprété. */
+  mention: string | null
+}
+
+/** Communes du ressort d'un TPI et nombre de notaires actifs de chacune. */
+export interface RessortCount { communeId: string; communeName: string; count: number }
+
+/**
+ * Provenance de la liste, en langage clair : l'éditeur et les dates de consultation. Les URL,
+ * noms de fichier et empreintes restent en base (`sourceJson`) — jamais sur une page publique
+ * (demande de la cliente du 9 oct. 2026).
+ */
+export interface NotaryProvenance { consultations: string[] }
+
 export interface CommuneRecord {
   commune: {
     id: string
@@ -67,10 +87,17 @@ export interface CommuneRecord {
   }
   courts: {
     peace: CourtView[]
-    firstInstance: CourtView | null
+    /** `notairesDuRessort` : null tant que la liste des notaires n'est pas en base. */
+    firstInstance: (CourtView & { notairesDuRessort: RessortCount[] | null }) | null
     appeal: CourtView | null
     cassation: (CourtView & { scope: string }) | null
   }
+  /**
+   * Notaires commissionnés pour la commune (actifs, par numéro de liste). La fiche n'est PAS
+   * filtrée par les couches de la carte. null = liste indisponible (table pas encore migrée).
+   */
+  notaires: NotaryView[] | null
+  notairesSource: NotaryProvenance | null
   lastVerified: string | null
 }
 
@@ -146,19 +173,25 @@ export async function getCommuneRecord(communeId: string): Promise<CommuneRecord
     appealJ && appealJ.court.department && appealJ.court.city ? `${appealJ.court.department}|${appealJ.court.city}` : null,
   ].filter((k): k is string => k !== null)
 
-  const sieges = clesSieges.length
-    ? await prisma.judicialCommune.findMany({
-        where: { key: { in: [...new Set(clesSieges)] } },
-        select: { key: true, centroidLat: true, centroidLng: true },
-      })
-    : []
+  // Notaires : en PARALLÈLE des sièges — un aller-retour de plus en latence, pas quatre.
+  const [sieges, notaires] = await Promise.all([
+    clesSieges.length
+      ? prisma.judicialCommune.findMany({
+          where: { key: { in: [...new Set(clesSieges)] } },
+          select: { key: true, centroidLat: true, centroidLng: true },
+        })
+      : Promise.resolve([]),
+    chargerNotairesCommune(commune.id, tpiJ?.court.id ?? null),
+  ])
 
   const centroidSiege = (dept: string | null, name: string | null) => {
     if (!dept || !name) return null
     const s = sieges.find((x) => x.key === `${dept}|${name}`)
     return s?.centroidLat != null && s.centroidLng != null ? { lat: s.centroidLat, lng: s.centroidLng } : null
   }
-  const tpi = tpiJ ? toView(tpiJ.court, centroidSiege(tpiJ.court.department, tpiJ.court.commune)) : null
+  const tpi = tpiJ
+    ? { ...toView(tpiJ.court, centroidSiege(tpiJ.court.department, tpiJ.court.commune)), notairesDuRessort: notaires?.ressort ?? null }
+    : null
   const appeal = appealJ ? toView(appealJ.court, centroidSiege(appealJ.court.department, appealJ.court.city)) : null
   const cassation = cassJ ? { ...toView(cassJ.court, null), scope: cassJ.court.scope } : null
 
@@ -185,7 +218,183 @@ export async function getCommuneRecord(communeId: string): Promise<CommuneRecord
       sources: parseSources(primary?.sourceJson ?? null),
     },
     courts: { peace, firstInstance: tpi, appeal, cassation },
+    notaires: notaires?.liste ?? null,
+    notairesSource: notaires?.provenance ?? null,
     lastVerified: verifiedDates.sort().at(-1) ?? null,
+  }
+}
+
+// ── Notaires (liste du MJSP) ─────────────────────────────────────────────────
+// Le notaire est rattaché à une COMMUNE ; son TPI se DÉDUIT du rattachement
+// `TPI_COMPETENT` de cette commune — jamais stocké sur le notaire.
+
+const lireProvenance = (json: string | null | undefined): NotaryProvenance | null => {
+  try {
+    const v = JSON.parse(json ?? 'null') as { consultations?: Array<{ date?: unknown }> } | null
+    const dates = (v?.consultations ?? []).map((c) => c.date).filter((d): d is string => typeof d === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(d))
+    return dates.length ? { consultations: [...new Set(dates)].sort() } : null
+  } catch { return null }
+}
+
+/**
+ * Notaires d'une commune + comptes du ressort de son TPI + provenance. `null` si la table
+ * n'existe pas encore (code déployé avant la migration) : la fiche reste servie, sans section.
+ */
+async function chargerNotairesCommune(communeId: string, tpiId: string | null) {
+  try {
+    const [liste, ressortCommunes, comptes, source] = await Promise.all([
+      prisma.notary.findMany({
+        where: { communeId, active: true },
+        orderBy: { ordinal: 'asc' },
+        select: { ordinal: true, fullName: true, mention: true },
+      }),
+      tpiId
+        ? prisma.courtCommuneJurisdiction.findMany({
+            where: { courtId: tpiId, relationship: 'TPI_COMPETENT' },
+            select: { commune: { select: { id: true, name: true } } },
+          })
+        : Promise.resolve([]),
+      tpiId
+        ? prisma.notary.groupBy({
+            by: ['communeId'],
+            where: { active: true, commune: { jurisdictions: { some: { courtId: tpiId, relationship: 'TPI_COMPETENT' } } } },
+            _count: { _all: true },
+          })
+        : Promise.resolve([]),
+      prisma.notary.findFirst({ select: { sourceJson: true }, orderBy: { updatedAt: 'desc' } }),
+    ])
+    const n = new Map(comptes.map((c) => [c.communeId, c._count._all]))
+    const ressort: RessortCount[] | null = tpiId
+      ? ressortCommunes
+          .map((j) => ({ communeId: j.commune.id, communeName: j.commune.name, count: n.get(j.commune.id) ?? 0 }))
+          .sort((a, b) => a.communeName.localeCompare(b.communeName, 'fr'))
+      : null
+    return { liste, ressort, provenance: lireProvenance(source?.sourceJson) }
+  } catch (e) {
+    if (estSchemaAbsent(e)) return null
+    throw e
+  }
+}
+
+export interface NotaryPointsResult {
+  type: 'FeatureCollection'
+  features: Array<{
+    type: 'Feature'
+    properties: { communeId: string; communeName: string; count: number }
+    geometry: { type: 'Point'; coordinates: [number, number] }
+  }>
+}
+
+/**
+ * UN point par commune pourvue, au centroïde, avec le NOMBRE de notaires actifs — jamais de
+ * nom (la liste nominative passe par la fiche, comme les adresses des tribunaux). Une commune
+ * sans centroïde documenté n'est pas publiée (aucune n'est dans ce cas : l'import le refuse).
+ * Lève l'erreur Prisma si la table n'existe pas : la route la traduit en 503.
+ */
+export async function getNotaryPoints(): Promise<NotaryPointsResult> {
+  const [groupes, communes] = await Promise.all([
+    prisma.notary.groupBy({ by: ['communeId'], where: { active: true, communeId: { not: null } }, _count: { _all: true } }),
+    prisma.judicialCommune.findMany({ select: { id: true, name: true, centroidLat: true, centroidLng: true } }),
+  ])
+  const byId = new Map(communes.map((c) => [c.id, c]))
+  const features: NotaryPointsResult['features'] = []
+  for (const g of groupes) {
+    const c = g.communeId ? byId.get(g.communeId) : undefined
+    if (!c || c.centroidLat == null || c.centroidLng == null) continue
+    // Liste BLANCHE des propriétés : identifiant, nom de la commune, nombre. Rien d'autre.
+    features.push({
+      type: 'Feature',
+      properties: { communeId: c.id, communeName: c.name, count: g._count._all },
+      geometry: { type: 'Point', coordinates: [c.centroidLng, c.centroidLat] },
+    })
+  }
+  features.sort((a, b) => a.properties.communeId.localeCompare(b.properties.communeId))
+  return { type: 'FeatureCollection', features }
+}
+
+export interface NotaryDirectory {
+  /** Entrées de la liste (actives ou retirées). */
+  totalEntries: number
+  /** Entrées affichées (actives), commune reconnue ou non. */
+  activeEntries: number
+  provenance: NotaryProvenance | null
+  tpis: Array<{
+    id: string
+    name: string
+    total: number
+    communes: Array<{
+      id: string
+      name: string
+      department: string
+      notaires: Array<NotaryView & { printedDepartment: string | null }>
+    }>
+  }>
+  /** Entrées dont la commune imprimée n'est pas une commune du référentiel. */
+  unmatched: Array<NotaryView & { sourceCommune: string; sourceDepartment: string }>
+}
+
+/** Clé de tri d'un TPI : son siège, sans « TPI de / du / des … ». */
+const cleTpi = (name: string) => name.replace(/^TPI\s+(de la |de l’|de l'|des |du |de |d’|d')?/i, '')
+
+/**
+ * La liste textuelle par juridiction : par TPI, puis par commune, puis par numéro. Toutes
+ * les communes du ressort y figurent, même sans notaire. `null` = liste pas encore en base.
+ */
+export async function getNotaryDirectory(): Promise<NotaryDirectory | null> {
+  try {
+    const [notaires, communes, source] = await Promise.all([
+      prisma.notary.findMany({
+        orderBy: { ordinal: 'asc' },
+        select: { ordinal: true, fullName: true, mention: true, communeId: true, sourceDepartment: true, sourceCommune: true, active: true },
+      }),
+      prisma.judicialCommune.findMany({
+        select: {
+          id: true, name: true,
+          department: { select: { name: true } },
+          jurisdictions: { where: { relationship: 'TPI_COMPETENT' }, select: { court: { select: { id: true, name: true, active: true } } } },
+        },
+      }),
+      prisma.notary.findFirst({ select: { sourceJson: true }, orderBy: { updatedAt: 'desc' } }),
+    ])
+    const actifs = notaires.filter((n) => n.active)
+    const parCommune = new Map<string, typeof actifs>()
+    for (const n of actifs) if (n.communeId) parCommune.set(n.communeId, [...(parCommune.get(n.communeId) ?? []), n])
+
+    const tpis = new Map<string, NotaryDirectory['tpis'][number]>()
+    for (const c of communes) {
+      const court = c.jurisdictions.find((j) => j.court.active)?.court
+      if (!court) continue
+      const t = tpis.get(court.id) ?? { id: court.id, name: court.name, total: 0, communes: [] }
+      const liste = parCommune.get(c.id) ?? []
+      const dept = c.department.name
+      t.communes.push({
+        id: c.id,
+        name: c.name,
+        department: dept,
+        notaires: liste.map((n) => ({
+          ordinal: n.ordinal, fullName: n.fullName, mention: n.mention,
+          // Désaccord de département, signalé discrètement : la colonne imprimée telle quelle.
+          printedDepartment: normalizePlaceName(n.sourceDepartment) === normalizePlaceName(dept) ? null : n.sourceDepartment,
+        })),
+      })
+      t.total += liste.length
+      tpis.set(court.id, t)
+    }
+    const sorted = [...tpis.values()].sort((a, b) => cleTpi(a.name).localeCompare(cleTpi(b.name), 'fr'))
+    for (const t of sorted) t.communes.sort((a, b) => a.name.localeCompare(b.name, 'fr'))
+
+    return {
+      totalEntries: notaires.length,
+      activeEntries: actifs.length,
+      provenance: lireProvenance(source?.sourceJson),
+      tpis: sorted,
+      unmatched: actifs.filter((n) => !n.communeId).map((n) => ({
+        ordinal: n.ordinal, fullName: n.fullName, mention: n.mention, sourceCommune: n.sourceCommune, sourceDepartment: n.sourceDepartment,
+      })),
+    }
+  } catch (e) {
+    if (estSchemaAbsent(e)) return null
+    throw e
   }
 }
 

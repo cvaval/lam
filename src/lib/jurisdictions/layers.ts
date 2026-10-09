@@ -72,6 +72,11 @@ export interface MapLayerDef {
   source: PointSource
   /** Décalage de l'icône en px CSS — pour ne pas masquer ce qui est posé au même point. */
   iconOffset?: readonly [number, number]
+  /**
+   * Plan d'empilement sur la carte (0 par défaut ; plus petit = plus bas). À plan égal, l'ordre
+   * du registre. Indépendant de l'ordre des boutons.
+   */
+  drawOrder?: number
 }
 
 /** Longueur maximale acceptée pour `?layers=` ; au-delà, le défaut. */
@@ -85,6 +90,12 @@ export const LAYER_GROUPS: readonly LayerGroup[] = [
 ]
 
 const SLUG_RE = /^[a-z][a-z0-9-]{0,23}$/
+
+/**
+ * Seuils des trois tailles du 👤 des notaires (1-2, 3-6, 7 et plus) — fixés sur la répartition
+ * réelle des 125 communes pourvues (59 / 53 / 13). Lus aussi par le plan d'import.
+ */
+export const NOTARY_SIZE_STEPS = { medium: 3, large: 7 } as const
 
 export const MAP_LAYERS = [
   {
@@ -128,6 +139,27 @@ export const MAP_LAYERS = [
     mapLayers: { points: 'courts-CASSATION' },
     source: { url: COURT_POINTS_URL, where: { courtType: 'CASSATION' } },
   },
+  {
+    // Première couche qui n'est pas une juridiction. Masquée par défaut : la demande parle
+    // d'« ajouter » des données, les quatre juridictions restent le défaut (question 3 à la
+    // cliente). 👤 : choix de Me Vaval du 9 oct. 2026. Un point par commune, au centroïde ;
+    // la taille dit le nombre (1-2, 3-6, 7 et plus) ; décalé en haut à droite et peint sous
+    // les tribunaux, pour ne jamais en masquer un.
+    slug: 'notaires',
+    group: 'professions',
+    defaultOn: false,
+    marker: { kind: 'emoji', glyph: '👤', imagePrefix: 'notaire', sizeBy: { property: 'count', ...NOTARY_SIZE_STEPS } },
+    labelKey: 'layerNotaires',
+    legendKey: 'legendNotaires',
+    mapLayers: { points: 'notaires-points' },
+    source: { url: '/api/public/jurisdictions/notaires/map-points' },
+    // 14 px CSS en haut à droite : à 10 px, la grande pastille de Port-au-Prince (27 px) restait
+    // presque entièrement sous le carré de la cour d'appel et l'agrégat des paix.
+    iconOffset: [14, -14],
+    // SOUS les tribunaux : à l'échelle du pays, les pastilles de communes voisines se
+    // chevauchent ; peintes dessous, elles ne masquent jamais un tribunal.
+    drawOrder: -1,
+  },
 ] as const satisfies readonly MapLayerDef[]
 
 export type LayerSlug = (typeof MAP_LAYERS)[number]['slug']
@@ -152,6 +184,8 @@ export interface LayerRegistry {
   visibility(active: Iterable<string>): Array<{ slug: string; mapLayerId: string; visible: boolean }>
   /** Couches dont il faut avoir chargé les points : celles du défaut, plus celles qu'on affiche. */
   toLoad(active: Iterable<string>): string[]
+  /** Slugs du plus BAS au plus HAUT sur la carte (`drawOrder`, puis ordre du registre). */
+  stackOrder: readonly string[]
   /** Couches MapLibre de POINTS (cliquables : sélectionnent la commune). */
   pointLayerIds: readonly string[]
   /** Couches MapLibre d'AGRÉGATS (dénombrés ; un clic zoome). */
@@ -231,6 +265,10 @@ export function createLayerRegistry(
       const on = new Set(canon(active))
       return layers.filter((l) => l.defaultOn || on.has(l.slug)).map((l) => l.slug)
     },
+    stackOrder: layers
+      .map((l, i) => ({ slug: l.slug, k: l.drawOrder ?? 0, i }))
+      .sort((a, b) => a.k - b.k || a.i - b.i)
+      .map((x) => x.slug),
     pointLayerIds: layers.map((l) => l.mapLayers.points),
     clusterLayerIds: layers.flatMap((l) => (l.mapLayers.clusters ? [l.mapLayers.clusters] : [])),
     sections() {

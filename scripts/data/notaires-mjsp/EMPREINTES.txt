@@ -1,0 +1,29 @@
+Liste des Notaires de la République d'Haïti — Ministère de la Justice et de la Sécurité Publique
+Page : https://www.mjsp.gouv.ht/page/notaires (bouton « Télécharger en PDF »)
+Annonce en tête de liste : « 423 notaires ». Ni la page ni le fichier ne datent la liste.
+
+Téléchargement 1 — 8 septembre 2026
+  fichier   notaires-mjsp.pdf (hors dépôt)
+  SHA-256   4d77f08495b117acef80dd947b3cd7a93037971770e0c754035373e0dd0ce716
+  taille    372 060 octets, 12 pages A4
+  produit   jsPDF 4.2.1, CreationDate Tue Sep  8 12:09:51 2026 EDT
+
+Téléchargement 2 — 9 octobre 2026 (fichier importé)
+  fichier   notaires-mjsp-2.pdf (hors dépôt)
+  SHA-256   cf0b0f15d2b78d30fab3ca28ae629167ffaaaedab5a0035885bdd444e9dc226e
+  taille    372 060 octets, 12 pages A4
+  produit   jsPDF 4.2.1, CreationDate Fri Oct  9 09:01:15 2026 EDT
+
+Texte extrait (pdftotext -layout, Poppler 26.07.0) — IDENTIQUE octet pour octet pour les deux :
+  liste-mjsp-2026-10-09.txt
+  SHA-256   23ed19913d792547cca235670e4a8c5232c72dc2c2c714ee0bec460c5e6c9bba
+  29 972 octets
+
+Seuls l'horodatage et les métadonnées de jsPDF diffèrent entre les deux PDF : la liste n'a
+pas bougé en un mois. Avant tout nouvel import, revérifier que la page annonce toujours
+« 423 notaires trouvés » ; un autre nombre veut dire que la liste a changé — retélécharger,
+ne pas importer l'ancienne.
+
+Régénérer les entrées de l'amorçage :
+  pdftotext -layout notaires-mjsp-2.pdf scripts/data/notaires-mjsp/liste-mjsp-2026-10-09.txt
+  npx tsx scripts/data/notaires-mjsp/extraire-liste.ts --write

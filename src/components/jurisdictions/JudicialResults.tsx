@@ -1,19 +1,25 @@
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale } from '@/lib/types'
 import type { CommuneRecord } from '@/lib/jurisdictions/data'
+import Link from 'next/link'
+import { compte } from '@/lib/jurisdictions/notaires-format'
 import { CourtCard } from './CourtCard'
 import { PostalCodeCard } from './PostalCodeCard'
+import { NotariesSection } from './NotariesSection'
 
 /**
  * Fiche d'une commune (rendu SERVEUR — lisible sans JavaScript).
  * Ordre imposé (§6) : commune, département, arrondissement, codes postaux,
  * tribunaux de paix (chacun sa carte, JAMAIS regroupés), TPI, cour d'appel,
- * bloc distinct « Recours national », notes, dernière vérification (la section « Sources »
- * de la commune a été retirée le 9 oct. 2026, à la demande de la cliente).
+ * bloc distinct « Recours national », notaires (liste du MJSP), notes, dernière vérification
+ * (la section « Sources » de la commune a été retirée le 9 oct. 2026, à la demande de la
+ * cliente).
  */
 export function JudicialResults({ record, locale, t }: { record: CommuneRecord; locale: Locale; t: Dictionary }) {
   const j = t.judicial
   const { commune, postal, courts } = record
+  const ressort = courts.firstInstance?.notairesDuRessort ?? null
+  const totalRessort = ressort?.reduce((s, c) => s + c.count, 0) ?? 0
   return (
     <article className="flex flex-col gap-4" aria-live="polite">
       <header className="rounded-2xl border border-chabon/10 bg-white p-5">
@@ -49,7 +55,23 @@ export function JudicialResults({ record, locale, t }: { record: CommuneRecord; 
       {courts.firstInstance && (
         <section aria-label={j.firstInstance}>
           <h3 className="mb-2 font-mono text-[11px] uppercase tracking-wider text-ank/80">{j.firstInstance}</h3>
-          <CourtCard court={courts.firstInstance} kind="PREMIERE_INSTANCE" locale={locale} t={t} />
+          <CourtCard
+            court={courts.firstInstance}
+            kind="PREMIERE_INSTANCE"
+            locale={locale}
+            t={t}
+            footer={ressort && (
+              // Le ressort se DÉDUIT des rattachements TPI_COMPETENT : la ligne mène à la liste
+              // textuelle, ancrée sur ce TPI.
+              <Link
+                href={`/${locale}/juridictions/notaires#${courts.firstInstance.id}`}
+                className="mt-1 inline-flex min-h-[44px] items-center gap-1.5 text-xs font-medium text-ank underline underline-offset-2 transition hover:text-chabon"
+              >
+                <span aria-hidden="true">👤</span>
+                {compte(totalRessort, locale, j.notariesInRessortOne, j.notariesInRessortMany)}
+              </Link>
+            )}
+          />
         </section>
       )}
 
@@ -71,6 +93,16 @@ export function JudicialResults({ record, locale, t }: { record: CommuneRecord; 
             <CourtCard court={courts.cassation} kind="CASSATION" locale={locale} t={t} />
           </div>
         </section>
+      )}
+
+      {record.notaires && (
+        <NotariesSection
+          notaires={record.notaires}
+          provenance={record.notairesSource}
+          tpiId={courts.firstInstance?.id ?? null}
+          locale={locale}
+          t={t}
+        />
       )}
 
       {/* Section « Sources » de la commune RETIRÉE à la demande de Me Vaval (9 oct. 2026) : la

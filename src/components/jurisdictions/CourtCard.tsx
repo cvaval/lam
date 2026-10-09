@@ -86,7 +86,9 @@ export function ShapeIcon({ kind, size = 12 }: { kind: CourtType; size?: number 
  * Adresse affichée seulement si vérifiée ; position au centroïde signalée
  * « position indicative » et JAMAIS accompagnée d'un itinéraire.
  */
-export function CourtCard({ court, kind, t }: { court: CourtView; kind: CourtType; locale: Locale; t: Dictionary }) {
+export function CourtCard({
+  court, kind, t, footer,
+}: { court: CourtView; kind: CourtType; locale: Locale; t: Dictionary; footer?: React.ReactNode }) {
   const j = t.judicial
   const exactAddress = Boolean(court.address) && !court.indicative && court.locationPrecision === 'EXACT_ADDRESS'
   const mapsHref =
@@ -167,6 +169,7 @@ export function CourtCard({ court, kind, t }: { court: CourtView; kind: CourtTyp
           {court.verifiedAt && <> · {j.lastVerified} : {court.verifiedAt}</>}
         </p>
       )}
+      {footer}
     </div>
   )
 }

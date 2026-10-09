@@ -1,0 +1,109 @@
+import Link from 'next/link'
+import type { Dictionary } from '@/lib/i18n/dictionaries'
+import type { Locale } from '@/lib/types'
+import type { NotaryDirectory } from '@/lib/jurisdictions/data'
+import { compte } from '@/lib/jurisdictions/notaires-format'
+import { NotaryName, notarySourceLine } from './NotariesSection'
+
+/**
+ * Corps de la liste « notaires par juridiction » : par TPI, puis par commune, puis par numéro.
+ * Toutes les communes du ressort y figurent, même sans notaire ; les entrées dont la commune
+ * imprimée n'est pas reconnue ont leur section. Rendu serveur, sans JavaScript, imprimable.
+ */
+export function NotaryDirectoryView({ dir, locale, t }: { dir: NotaryDirectory | null; locale: Locale; t: Dictionary }) {
+  const j = t.judicial
+  const nb = (n: number) => compte(n, locale, j.notaryCountOne, j.notaryCountMany)
+  return (
+    <>
+      {!dir ? (
+        <p role="status" className="mt-6 rounded-xl border border-chabon/10 bg-white px-4 py-3 text-sm text-grafit">{j.notariesUnavailable}</p>
+      ) : (
+        <>
+          <div className="mt-4 rounded-xl border border-chabon/10 bg-white px-4 py-3 text-sm text-grafit">
+            <p className="font-medium text-ank">
+              {j.notariesCount.replace('{active}', String(dir.activeEntries)).replace('{total}', String(dir.totalEntries))}
+            </p>
+            {dir.activeEntries < dir.totalEntries && <p className="mt-1">{j.notariesCountNote}</p>}
+            <p className="mt-1 text-[12px] text-ank/80">{notarySourceLine(dir.provenance, locale, t)}</p>
+          </div>
+
+          <nav aria-labelledby="ag-notaires-sommaire" className="mt-6">
+            <h2 id="ag-notaires-sommaire" className="font-mono text-[11px] uppercase tracking-wider text-ank/80">{j.notariesTocLabel}</h2>
+            <ul className="mt-2 grid gap-x-6 sm:grid-cols-2 lg:grid-cols-3">
+              {dir.tpis.map((tpi) => (
+                <li key={tpi.id}>
+                  <a href={`#${tpi.id}`} className="flex min-h-[44px] items-center justify-between gap-2 rounded-lg px-2 text-sm text-ank/80 transition hover:bg-pil">
+                    <span>{tpi.name}</span>
+                    <span className="font-mono text-xs">{tpi.total}</span>
+                  </a>
+                </li>
+              ))}
+              {dir.unmatched.length > 0 && (
+                <li>
+                  <a href="#commune-non-reconnue" className="flex min-h-[44px] items-center justify-between gap-2 rounded-lg px-2 text-sm text-ank/80 transition hover:bg-pil">
+                    <span>{j.notariesUnmatchedTitle}</span>
+                    <span className="font-mono text-xs">{dir.unmatched.length}</span>
+                  </a>
+                </li>
+              )}
+            </ul>
+          </nav>
+
+          <div className="mt-8 flex flex-col gap-6">
+            {dir.tpis.map((tpi) => (
+              <section key={tpi.id} id={tpi.id} aria-labelledby={`${tpi.id}-titre`} className="scroll-mt-24 rounded-2xl border border-chabon/10 bg-white p-5">
+                <h2 id={`${tpi.id}-titre`} className="font-serif text-xl font-semibold text-ank">
+                  {tpi.name} <span className="font-sans text-sm font-normal text-grafit">— {nb(tpi.total)}</span>
+                </h2>
+                <div className="mt-3 grid gap-x-8 gap-y-4 md:grid-cols-2">
+                  {tpi.communes.map((c) => (
+                    <div key={c.id}>
+                      <h3 className="text-sm font-semibold text-ank">
+                        <Link href={`/${locale}/juridictions?commune=${c.id}`} className="underline-offset-2 hover:text-chabon hover:underline">{c.name}</Link>
+                        <span className="ml-1.5 text-xs font-normal text-ank/80">{c.department} · {nb(c.notaires.length)}</span>
+                      </h3>
+                      {c.notaires.length === 0 ? (
+                        <p className="mt-1 text-xs text-ank/80">{j.notariesNoneHere}</p>
+                      ) : (
+                        <ol className="mt-1 flex flex-col gap-0.5 text-sm text-grafit">
+                          {c.notaires.map((n) => (
+                            <li key={n.ordinal}>
+                              <NotaryName n={n} />
+                              {/* Désaccord de département de la source : signalé discrètement. */}
+                              {n.printedDepartment && (
+                                <span className="ml-1.5 text-[11px] text-ank/70">({j.notariesPrintedDepartment} : {n.printedDepartment})</span>
+                              )}
+                            </li>
+                          ))}
+                        </ol>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </section>
+            ))}
+
+            {dir.unmatched.length > 0 && (
+              <section id="commune-non-reconnue" aria-labelledby="commune-non-reconnue-titre" className="scroll-mt-24 rounded-2xl border border-chabon/10 bg-white p-5">
+                <h2 id="commune-non-reconnue-titre" className="font-serif text-xl font-semibold text-ank">
+                  {j.notariesUnmatchedTitle} <span className="font-sans text-sm font-normal text-grafit">— {nb(dir.unmatched.length)}</span>
+                </h2>
+                <p className="mt-1 text-xs leading-relaxed text-ank/80">{j.notariesUnmatchedNote}</p>
+                <ol className="mt-2 flex flex-col gap-0.5 text-sm text-grafit">
+                  {dir.unmatched.map((n) => (
+                    <li key={n.ordinal}>
+                      <NotaryName n={n} />
+                      <span className="ml-1.5 text-[11px] text-ank/70">
+                        ({j.notariesPrintedCommune} : {n.sourceCommune} · {j.notariesPrintedDepartment} : {n.sourceDepartment})
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            )}
+          </div>
+        </>
+      )}
+    </>
+  )
+}

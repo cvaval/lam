@@ -8,28 +8,42 @@ import { MapLegend } from './MapLegend'
 
 /**
  * Boutons et légende LISENT le registre : ce que ces tests prouvent, c'est (1) qu'avec le
- * registre de la plateforme le rendu des boutons est celui d'avant le registre — mêmes
- * quatre boutons, mêmes liens — et (2) qu'une couche fictive déclarée dans un registre de
- * test y apparaît sans une ligne de plus dans les composants.
+ * registre de la plateforme les quatre boutons de juridictions gardent les liens d'avant le
+ * registre — la couche « notaires » s'ajoute dans un second groupe, sans rien déplacer — et
+ * (2) qu'une couche fictive déclarée dans un registre de test y apparaît sans une ligne de
+ * plus dans les composants.
+ *
+ * ⚠️ Ces attentes ont changé UNE fois, au chantier B : livré seul, le chantier A n'avait
+ * qu'un groupe et quatre boutons (commit 234f6af) ; l'entrée « notaires » du registre en
+ * ajoute un cinquième et fait apparaître les intitulés de groupe. Les quatre liens des
+ * juridictions, eux, n'ont pas bougé d'un octet.
  */
 const t = getDictionary('fr')
 const hrefs = (html: string) => [...html.matchAll(/href="([^"]*)"/g)].map((m) => m[1].replace(/&amp;/g, '&'))
 const pressed = (html: string) => [...html.matchAll(/aria-pressed="(true|false)"/g)].map((m) => m[1])
 
 describe('boutons de couches — registre de la plateforme', () => {
-  it('par défaut : les quatre boutons et leurs liens, à l’octet près d’avant le registre', () => {
+  it('par défaut : les quatre liens des juridictions d’avant le registre, puis « Notaires » éteint', () => {
     const html = renderToStaticMarkup(<JudicialFilters locale="fr" t={t} active={[...DEFAULT_LAYERS]} commune={null} />)
     expect(hrefs(html)).toEqual([
       '/fr/juridictions?layers=tpi%2Cappel%2Ccassation',
       '/fr/juridictions?layers=paix%2Cappel%2Ccassation',
       '/fr/juridictions?layers=paix%2Ctpi%2Ccassation',
       '/fr/juridictions?layers=paix%2Ctpi%2Cappel',
+      '/fr/juridictions?layers=paix%2Ctpi%2Cappel%2Ccassation%2Cnotaires',
       '/fr/juridictions',
     ])
-    expect(pressed(html)).toEqual(['true', 'true', 'true', 'true'])
-    // Un seul groupe pourvu : pas de sous-titre de groupe redondant.
-    expect(html).not.toContain('ag-layer-group-')
-    expect(html.match(/role="group"/g)).toHaveLength(1)
+    expect(pressed(html)).toEqual(['true', 'true', 'true', 'true', 'false'])
+    // Deux groupes, chacun son intitulé visible, plus le groupe d'ensemble.
+    expect(html.match(/role="group"/g)).toHaveLength(3)
+    expect(html).toContain(`>${t.judicial.layerGroupJuridictions}</span>`)
+    expect(html).toContain(`>${t.judicial.layerGroupProfessions}</span>`)
+    expect(html).toContain(`>${t.judicial.filtersLabel}</span>`)
+  })
+
+  it('« Notaires » : l’emoji sur sa pastille blanche, puis le libellé en clair', () => {
+    const html = renderToStaticMarkup(<JudicialFilters locale="fr" t={t} active={[...DEFAULT_LAYERS]} commune={null} />)
+    expect(html).toMatch(/rounded-full bg-white"><span aria-hidden="true"[^>]*>👤<\/span><\/span> Notaires<\/a>/)
   })
 
   it('?layers=paix,tpi : rallumer une couche revient au défaut (paramètre omis)', () => {
@@ -39,9 +53,10 @@ describe('boutons de couches — registre de la plateforme', () => {
       '/fr/juridictions?layers=paix',
       '/fr/juridictions?layers=paix%2Ctpi%2Cappel',
       '/fr/juridictions?layers=paix%2Ctpi%2Ccassation',
+      '/fr/juridictions?layers=paix%2Ctpi%2Cnotaires',
       '/fr/juridictions',
     ])
-    expect(pressed(html)).toEqual(['true', 'true', 'false', 'false'])
+    expect(pressed(html)).toEqual(['true', 'true', 'false', 'false', 'false'])
   })
 
   it('décocher la dernière couche donne une carte VIDE (`layers=`), plus « toutes »', () => {
@@ -52,9 +67,10 @@ describe('boutons de couches — registre de la plateforme', () => {
   it('chaque bouton reste un lien (sans JavaScript), cible ≥ 44 px, marqueur sur pastille blanche', () => {
     const html = renderToStaticMarkup(<JudicialFilters locale="fr" t={t} active={[...DEFAULT_LAYERS]} commune={null} />)
     const liens = html.match(/<a [^>]*aria-pressed[^>]*>/g) ?? []
-    expect(liens).toHaveLength(4)
+    expect(liens).toHaveLength(5)
     for (const a of liens) expect(a).toContain('min-h-[44px]')
     expect(html.match(/rounded-full bg-white"><svg/g)).toHaveLength(4)
+    expect(html.match(/rounded-full bg-white"><span aria-hidden="true"/g)).toHaveLength(1)
   })
 })
 
@@ -62,8 +78,8 @@ describe('couche fictive — boutons et légende sans autre code', () => {
   const r = AVEC_HUISSIERS
   it('un bouton de plus, non pressé, dans un SECOND groupe à l’intitulé visible', () => {
     const html = renderToStaticMarkup(<JudicialFilters locale="fr" t={t} active={[...r.defaults]} commune={null} registry={r} />)
-    expect(pressed(html)).toEqual(['true', 'true', 'true', 'true', 'false'])
-    expect(hrefs(html)[4]).toBe('/fr/juridictions?layers=paix%2Ctpi%2Cappel%2Ccassation%2Chuissiers')
+    expect(pressed(html)).toEqual(['true', 'true', 'true', 'true', 'false', 'false'])
+    expect(hrefs(html)[5]).toBe('/fr/juridictions?layers=paix%2Ctpi%2Cappel%2Ccassation%2Chuissiers')
     // Un role="group" par groupe, relié à son intitulé visible.
     expect(html).toContain('role="group" aria-labelledby="ag-layer-group-juridictions"')
     expect(html).toContain('id="ag-layer-group-juridictions"')
@@ -88,6 +104,12 @@ describe('légende — registre de la plateforme', () => {
     expect(textes).toEqual([
       t.judicial.peace, t.judicial.firstInstance, t.judicial.appeal, t.judicial.cassation, t.judicial.commune,
     ])
+  })
+  it('les notaires n’y figurent que s’ils sont affichés', () => {
+    expect(renderToStaticMarkup(<MapLegend t={t} active={[...DEFAULT_LAYERS]} />)).not.toContain('👤')
+    const avec = renderToStaticMarkup(<MapLegend t={t} active={[...DEFAULT_LAYERS, 'notaires']} />)
+    expect(avec).toContain('👤')
+    expect(avec).toContain(t.judicial.legendNotaires)
   })
   it('elle montre les couches AFFICHÉES : ?layers=paix,tpi n’en garde que deux', () => {
     const html = renderToStaticMarkup(<MapLegend t={t} active={['paix', 'tpi']} />)

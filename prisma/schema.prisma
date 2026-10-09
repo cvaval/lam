@@ -747,6 +747,7 @@ model JudicialCommune {
   arrondissement JudicialArrondissement     @relation(fields: [arrondissementId], references: [id])
   postalCodes    JudicialPostalCode[]
   jurisdictions  CourtCommuneJurisdiction[]
+  notaries       Notary[]
 
   @@index([departmentId])
   @@index([arrondissementId])
@@ -818,6 +819,38 @@ model CourtCommuneJurisdiction {
 
   @@unique([courtId, communeId, relationship])
   @@index([communeId, relationship])
+}
+
+/// Notaire inscrit sur la liste du ministère de la Justice (MJSP) — PAS une juridiction : il
+/// n'a pas de ressort propre. Commissionné POUR UNE COMMUNE (décret-loi du 27 novembre 1969,
+/// art. 3 et 47) ; sa juridiction est le TPI compétent pour cette commune, DÉDUIT du
+/// rattachement `TPI_COMPETENT` et jamais stocké ici (si le ressort change, ses notaires suivent).
+///
+/// Une ligne = une ENTRÉE de la liste, pas une personne : « 423 » compte des entrées, et des
+/// noms y figurent deux fois. Rien n'est fusionné ; une entrée retirée reste, `active: false`.
+/// Amorçage : data/judicial-map/notaires-mjsp-v1.json ; import : scripts/import-notaires-mjsp.ts.
+///
+/// ⚠️ RLS à activer DÈS LA CRÉATION de la table (`npm run db:rls`) : l'import refuse d'écrire
+/// dans une table sans sécurité par ligne.
+model Notary {
+  id               String   @id // mjsp-<édition>-<n>
+  edition          String // date d'arrêté de la liste, à défaut date de première consultation
+  ordinal          Int // numéro dans la liste
+  fullName         String // nom verbatim, marqueur retiré
+  mention          String? // « PDD », « PD/CMM » ou null — affiché, jamais interprété
+  communeId        String? // commune appariée ; null = commune non reconnue
+  sourceDepartment String // colonne telle qu'imprimée (souvent FAUSSE en géographie)
+  sourceCommune    String // colonne telle qu'imprimée
+  observation      String? // désaccords et décisions
+  sourceJson       String   @default("{}") // URL, téléchargements, empreintes, ligne imprimée
+  active           Boolean  @default(true)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  commune JudicialCommune? @relation(fields: [communeId], references: [id])
+
+  @@unique([edition, ordinal])
+  @@index([communeId, active])
 }
 
 /// Note d'un lecteur au sujet d'un document — décisions judiciaires en premier lieu.

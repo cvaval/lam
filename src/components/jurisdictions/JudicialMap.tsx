@@ -238,9 +238,9 @@ export function JudicialMap({
 
   /**
    * Pose une couche du registre : sa source (filtrée par `where`, regroupée si `cluster`),
-   * ses couches MapLibre, ses clics. L'ordre d'empilement est TOUJOURS celui du registre,
-   * même quand une couche arrive tard (chargement paresseux) : on l'insère sous la première
-   * couche déjà posée qui la suit.
+   * ses couches MapLibre, ses clics. L'empilement suit TOUJOURS `stackOrder` (le `drawOrder`
+   * du registre, puis son ordre), même quand une couche arrive tard (chargement paresseux) :
+   * on l'insère sous la première couche déjà posée qui doit être au-dessus d'elle.
    */
   const installLayer = (map: MlMap, layer: MapLayerDef): Promise<void> => {
     if (installedRef.current.has(layer.slug)) return Promise.resolve()
@@ -257,8 +257,9 @@ export function JudicialMap({
         type: 'geojson', data: { type: 'FeatureCollection', features },
         ...(cluster ? { cluster: true, clusterRadius: cluster.radius, clusterMaxZoom: cluster.maxZoom } : {}),
       })
-      const ix = REGISTRY.layers.indexOf(layer)
-      const after = REGISTRY.layers.slice(ix + 1).find((l) => installedRef.current.has(l.slug))
+      const pile = REGISTRY.stackOrder
+      const audessus = pile.slice(pile.indexOf(layer.slug) + 1).find((s) => installedRef.current.has(s))
+      const after = audessus ? REGISTRY.bySlug(audessus) : undefined
       const beforeId = after ? (after.mapLayers.clusters ?? after.mapLayers.points) : undefined
 
       const marker = layer.marker
@@ -295,6 +296,12 @@ export function JudicialMap({
       }, beforeId)
       const layerId = layer.mapLayers.points
       map.on('click', layerId, (e: MapLayerMouseEvent) => {
+        // Marqueurs superposés (tribunal et 👤 d'une commune voisine) : c'est celui que l'on
+        // VOIT au-dessus qui l'emporte — les gestionnaires, eux, s'exécutent dans l'ordre où
+        // les couches ont été chargées, pas dans l'ordre d'empilement.
+        const points = REGISTRY.pointLayerIds.filter((pid) => map.getLayer(pid))
+        const dessus = map.queryRenderedFeatures(e.point, { layers: points })[0]
+        if (dessus && dessus.layer.id !== layerId) return
         const f = e.features?.[0]
         const communeId = f?.properties?.communeId as string | undefined
         if (communeId) { e.preventDefault?.(); selectCommune(communeId) }

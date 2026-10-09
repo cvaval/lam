@@ -109,7 +109,7 @@ export default async function JuridictionsPage({
           <JudicialFilters locale={locale} t={t} active={layers} commune={record?.commune.id ?? null} />
         </div>
 
-        <nav className="ag-map-shortcuts" aria-label={locale === 'en' ? 'Map navigation' : locale === 'ht' ? 'Navigasyon kat la' : 'Navigation de la carte'}><a href="#ag-judicial-map">{locale === 'en' ? 'Map' : locale === 'ht' ? 'Kat' : 'Carte'}</a><a href="#ag-commune-list">{locale === 'en' ? 'Commune list' : locale === 'ht' ? 'Lis komin yo' : 'Liste des communes'}</a></nav>
+        <nav className="ag-map-shortcuts" aria-label={locale === 'en' ? 'Map navigation' : locale === 'ht' ? 'Navigasyon kat la' : 'Navigation de la carte'}><a href="#ag-judicial-map">{locale === 'en' ? 'Map' : locale === 'ht' ? 'Kat' : 'Carte'}</a><a href="#ag-commune-list">{locale === 'en' ? 'Commune list' : locale === 'ht' ? 'Lis komin yo' : 'Liste des communes'}</a><Link href={`/${locale}/juridictions/notaires`}><span aria-hidden="true" className="mr-1.5">👤</span>{t.judicial.notariesByJurisdiction}</Link></nav>
         {/* Ordinateur : panneau (380–440 px) + carte. Mobile : carte puis feuille de résultats. */}
         <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(380px,440px)_minmax(0,1fr)] lg:items-start">
           <div className="order-2 hidden lg:block">

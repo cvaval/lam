@@ -1,0 +1,2744 @@
+{
+  "schemaVersion": "1",
+  "description": "Liste des notaires de la République d’Haïti telle que publiée par le MJSP. Reproduite, jamais corrigée : la commune s’apparie par son nom (liste fermée), le département se déduit du référentiel de la plateforme.",
+  "edition": "2026-09-08",
+  "editionNote": "Ni la page du MJSP ni le fichier ne datent la liste : l’édition est la date de première consultation (8 sept. 2026), à remplacer par la date d’arrêté de la liste si la cliente la fournit.",
+  "source": {
+    "publisher": "Ministère de la Justice et de la Sécurité Publique (MJSP)",
+    "title": "Liste des Notaires de la République d’Haïti",
+    "url": "https://www.mjsp.gouv.ht/page/notaires",
+    "announcedCount": 423,
+    "extraction": "pdftotext -layout (Poppler 26.07.0), motif MJSP_LINE_RE de notaires-source.ts",
+    "consultations": [
+      {
+        "date": "2026-09-08",
+        "file": "notaires-mjsp.pdf",
+        "sha256": "4d77f08495b117acef80dd947b3cd7a93037971770e0c754035373e0dd0ce716",
+        "bytes": 372060,
+        "producer": "jsPDF 4.2.1",
+        "pdfCreatedAt": "2026-09-08T12:09:51-04:00"
+      },
+      {
+        "date": "2026-10-09",
+        "file": "notaires-mjsp-2.pdf",
+        "sha256": "cf0b0f15d2b78d30fab3ca28ae629167ffaaaedab5a0035885bdd444e9dc226e",
+        "bytes": 372060,
+        "producer": "jsPDF 4.2.1",
+        "pdfCreatedAt": "2026-10-09T09:01:15-04:00"
+      }
+    ],
+    "textIdenticalAcrossConsultations": true
+  },
+  "communeAliases": [
+    {
+      "source": "BARADERE",
+      "communeId": "commune-nippes-baraderes",
+      "communeName": "Baradères"
+    },
+    {
+      "source": "BELLANSE",
+      "communeId": "commune-sud-est-belle-anse",
+      "communeName": "Belle-Anse"
+    },
+    {
+      "source": "CAYES",
+      "communeId": "commune-sud-les-cayes",
+      "communeName": "Les Cayes"
+    },
+    {
+      "source": "CHAMBELAIN",
+      "communeId": "commune-grand-anse-chambellan",
+      "communeName": "Chambellan"
+    },
+    {
+      "source": "CHARDONNIERE",
+      "communeId": "commune-sud-chardonnieres",
+      "communeName": "Chardonnières"
+    },
+    {
+      "source": "COTE DE FER",
+      "communeId": "commune-sud-est-cotes-de-fer",
+      "communeName": "Côtes-de-Fer"
+    },
+    {
+      "source": "COTEAUX",
+      "communeId": "commune-sud-les-coteaux",
+      "communeName": "Les Côteaux"
+    },
+    {
+      "source": "ENERY",
+      "communeId": "commune-artibonite-ennery",
+      "communeName": "Ennery"
+    },
+    {
+      "source": "GONAIVES",
+      "communeId": "commune-artibonite-les-gonaives",
+      "communeName": "Les Gonaïves"
+    },
+    {
+      "source": "L'AZILE",
+      "communeId": "commune-nippes-l-asile",
+      "communeName": "L’Asile"
+    },
+    {
+      "source": "LES PERCHES",
+      "communeId": "commune-nord-est-perches",
+      "communeName": "Perches"
+    },
+    {
+      "source": "LES ROSEAUX",
+      "communeId": "commune-grand-anse-roseaux",
+      "communeName": "Roseaux"
+    },
+    {
+      "source": "MONBIN CROCHU",
+      "communeId": "commune-nord-est-mombin-crochu",
+      "communeName": "Mombin-Crochu"
+    },
+    {
+      "source": "ST MARC",
+      "communeId": "commune-artibonite-saint-marc",
+      "communeName": "Saint-Marc"
+    },
+    {
+      "source": "VERETTE",
+      "communeId": "commune-artibonite-verrettes",
+      "communeName": "Verrettes"
+    }
+  ],
+  "unresolvedCommunes": [
+    {
+      "source": "PETIT-BOURG DE PORT MARGOT",
+      "observation": "commune non reconnue : « Petit-Bourg de Port-Margot » n’est ni une commune du référentiel ni le nom de ville d’aucune ; Port-Margot a ses propres entrées (n° 151-153). Non rattachée faute de source citée."
+    }
+  ],
+  "decisions": [
+    {
+      "ordinal": 37,
+      "active": false,
+      "decidedOn": "2026-09-08",
+      "observation": "retirée sur décision de la cliente — n’exerce qu’à Port-au-Prince (n° 21)"
+    }
+  ],
+  "knownPairs": [
+    {
+      "ordinals": [
+        103,
+        107
+      ],
+      "observation": "Daniel Georges Carlet DURANDISSE / Daniel G. C. DURANDISSE"
+    }
+  ],
+  "sourceQuirks": [
+    {
+      "ordinal": 6,
+      "mustContain": "N . S .",
+      "observation": "points espacés « N . S . » tels qu’imprimés"
+    },
+    {
+      "ordinal": 10,
+      "mustContain": "Mrie ",
+      "observation": "abréviation « Mrie » telle qu’imprimée"
+    },
+    {
+      "ordinal": 24,
+      "mustContain": "Mrie ",
+      "observation": "abréviation « Mrie » telle qu’imprimée"
+    },
+    {
+      "ordinal": 28,
+      "mustContain": "Mrie-Ange",
+      "observation": "abréviation « Mrie-Ange » telle qu’imprimée"
+    },
+    {
+      "ordinal": 64,
+      "mustContain": "Jean Fitzner",
+      "observation": "aucun patronyme en capitales dans la source"
+    },
+    {
+      "ordinal": 266,
+      "mustContain": "Mme ",
+      "observation": "civilité « Mme » imprimée dans le nom"
+    },
+    {
+      "ordinal": 271,
+      "mustContain": "Mme ",
+      "observation": "civilité « Mme » imprimée dans le nom"
+    }
+  ],
+  "expected": {
+    "entries": 423,
+    "inactive": 1,
+    "sourceCommunes": 126,
+    "directCommunes": 110,
+    "matchedCommunes": 125,
+    "unmatchedEntries": 1,
+    "departmentDisagreements": 33,
+    "placedActive": 421,
+    "tpiTotals": {
+      "court-tpi-tpi-de-port-au-prince": 57,
+      "court-tpi-tpi-de-la-croix-des-bouquets": 35,
+      "court-tpi-tpi-du-cap-haitien": 32,
+      "court-tpi-tpi-des-cayes": 32,
+      "court-tpi-tpi-de-jacmel": 28,
+      "court-tpi-tpi-des-gonaives": 24,
+      "court-tpi-tpi-de-jeremie": 21,
+      "court-tpi-tpi-de-limbe": 20,
+      "court-tpi-tpi-de-hinche": 20,
+      "court-tpi-tpi-de-saint-marc": 18,
+      "court-tpi-tpi-de-petit-goave": 16,
+      "court-tpi-tpi-de-la-grande-riviere-du-nord": 16,
+      "court-tpi-tpi-de-port-de-paix": 16,
+      "court-tpi-tpi-de-fort-liberte": 13,
+      "court-tpi-tpi-d-aquin": 12,
+      "court-tpi-tpi-de-l-anse-a-veau": 12,
+      "court-tpi-tpi-de-miragoane": 9,
+      "court-tpi-tpi-de-ouanaminthe": 9,
+      "court-tpi-tpi-des-coteaux": 8,
+      "court-tpi-tpi-de-mirebalais": 8,
+      "court-tpi-tpi-de-belladere": 8,
+      "court-tpi-tpi-de-la-gonave": 4,
+      "court-tpi-tpi-de-jean-rabel": 3
+    }
+  },
+  "entries": [
+    {
+      "ordinal": 1,
+      "name": "Guy Mario GAY",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 2,
+      "name": "Danielle Giordani ADÉ",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 3,
+      "name": "Sanozier FRANCOIS",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 4,
+      "name": "Jean Beaubrun L. RONY",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 5,
+      "name": "Garry BRISSON CASSAGNOL",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 6,
+      "name": "Alliette N . S . BALTHAZAR",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 7,
+      "name": "Sabine MORPEAU",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 8,
+      "name": "Jean Dupuy CADET",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 9,
+      "name": "Gamma ANGLADE GILLES",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 10,
+      "name": "Mrie Alice C. B. BEAULIEU",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 11,
+      "name": "Patrick VICTOR",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 12,
+      "name": "Clermont DOSSOUS",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 13,
+      "name": "Jean-Joseph Frantz CÉANT",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 14,
+      "name": "Guerly LERICHE",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 15,
+      "name": "Ange LADOUCEUR",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 16,
+      "name": "Ernst Maurice AVIN",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 17,
+      "name": "Marilyn Merceron CHARLES",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 18,
+      "name": "Yves Rose VIELOT",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 19,
+      "name": "Jean Claude CORIOLAN",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 20,
+      "name": "Jean J. Maurice AVIN",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 21,
+      "name": "Gilbert Emile GIORDANI",
+      "department": "Ouest",
+      "commune": "PORT-AU-PRINCE"
+    },
+    {
+      "ordinal": 22,
+      "name": "Jacques Béniçoit CHARLOTIN",
+      "department": "Ouest",
+      "commune": "DELMAS"
+    },
+    {
+      "ordinal": 23,
+      "name": "Tranquilor MATHIEU",
+      "department": "Ouest",
+      "commune": "DELMAS"
+    },
+    {
+      "ordinal": 24,
+      "name": "Mrie Lourdes B. BAUDIN FRANCILLON",
+      "department": "Ouest",
+      "commune": "DELMAS"
+    },
+    {
+      "ordinal": 25,
+      "name": "Jean Pressage A. S. CAJOU",
+      "department": "Ouest",
+      "commune": "DELMAS"
+    },
+    {
+      "ordinal": 26,
+      "name": "Claudèle BERNARD",
+      "department": "Ouest",
+      "commune": "DELMAS"
+    },
+    {
+      "ordinal": 27,
+      "name": "Charles Pedro MARCELYN",
+      "department": "Ouest",
+      "commune": "DELMAS"
+    },
+    {
+      "ordinal": 28,
+      "name": "Mrie-Ange LOUISSAINT HENRY",
+      "department": "Ouest",
+      "commune": "DELMAS"
+    },
+    {
+      "ordinal": 29,
+      "name": "Hérol DIEUDONNÉ",
+      "department": "Ouest",
+      "commune": "PÉTION-VILLE"
+    },
+    {
+      "ordinal": 30,
+      "name": "Dina SEIDE",
+      "department": "Ouest",
+      "commune": "PÉTION-VILLE"
+    },
+    {
+      "ordinal": 31,
+      "name": "Horatius Junior FRANCOIS",
+      "department": "Ouest",
+      "commune": "PÉTION-VILLE"
+    },
+    {
+      "ordinal": 32,
+      "name": "Jean M. E. Lesly ALPHONSE",
+      "department": "Ouest",
+      "commune": "PÉTION-VILLE"
+    },
+    {
+      "ordinal": 33,
+      "name": "Marie Carline GEORGES",
+      "department": "Ouest",
+      "commune": "PÉTION-VILLE"
+    },
+    {
+      "ordinal": 34,
+      "name": "Milot Fénélon CAJOU",
+      "department": "Ouest",
+      "commune": "PÉTION-VILLE"
+    },
+    {
+      "ordinal": 35,
+      "name": "Romuald ÉTIENNE",
+      "department": "Ouest",
+      "commune": "CITÉ-SOLEIL"
+    },
+    {
+      "ordinal": 36,
+      "name": "Alex DEMOSTHENES",
+      "department": "Ouest",
+      "commune": "CITÉ-SOLEIL"
+    },
+    {
+      "ordinal": 37,
+      "name": "Gilbert Emile GIORDANI",
+      "department": "Ouest",
+      "commune": "CITÉ-SOLEIL"
+    },
+    {
+      "ordinal": 38,
+      "name": "Jean Renoune CHERY",
+      "department": "Ouest",
+      "commune": "CITÉ-SOLEIL"
+    },
+    {
+      "ordinal": 39,
+      "name": "Ronald E. PIERRE-LOUIS",
+      "department": "Ouest",
+      "commune": "TABARRE"
+    },
+    {
+      "ordinal": 40,
+      "name": "Ranel Raphaël DORISCA",
+      "department": "Ouest",
+      "commune": "TABARRE"
+    },
+    {
+      "ordinal": 41,
+      "name": "Yves CADET",
+      "department": "Ouest",
+      "commune": "TABARRE"
+    },
+    {
+      "ordinal": 42,
+      "name": "Gérald L. ZIDOR",
+      "department": "Ouest",
+      "commune": "TABARRE"
+    },
+    {
+      "ordinal": 43,
+      "name": "Yvon ELIE",
+      "department": "Ouest",
+      "commune": "TABARRE"
+    },
+    {
+      "ordinal": 44,
+      "name": "Jean Claude ISRAEL",
+      "department": "Ouest",
+      "commune": "TABARRE"
+    },
+    {
+      "ordinal": 45,
+      "name": "Jean Rico AUGUSTIN",
+      "department": "Ouest",
+      "commune": "TABARRE"
+    },
+    {
+      "ordinal": 46,
+      "name": "Lafontaine JOSEPH",
+      "department": "Ouest",
+      "commune": "CARREFOUR"
+    },
+    {
+      "ordinal": 47,
+      "name": "Gerard Margella Frantz DOUYON",
+      "department": "Ouest",
+      "commune": "CARREFOUR"
+    },
+    {
+      "ordinal": 48,
+      "name": "Emmanuel LEBRUN",
+      "department": "Ouest",
+      "commune": "CARREFOUR"
+    },
+    {
+      "ordinal": 49,
+      "name": "Garry LOCHARD",
+      "department": "Ouest",
+      "commune": "CARREFOUR"
+    },
+    {
+      "ordinal": 50,
+      "name": "Jean Anthony LOUISSAINT",
+      "department": "Ouest",
+      "commune": "CARREFOUR"
+    },
+    {
+      "ordinal": 51,
+      "name": "Jean DORLUS",
+      "department": "Ouest",
+      "commune": "KENSCOFF"
+    },
+    {
+      "ordinal": 52,
+      "name": "Joe Arnaud DESILE",
+      "department": "Ouest",
+      "commune": "KENSCOFF"
+    },
+    {
+      "ordinal": 53,
+      "name": "Jean Montès MIRVILLE",
+      "department": "Ouest",
+      "commune": "KENSCOFF"
+    },
+    {
+      "ordinal": 54,
+      "name": "Oben PIERRE",
+      "department": "Ouest",
+      "commune": "KENSCOFF"
+    },
+    {
+      "ordinal": 55,
+      "name": "Walto AUGUSTIN",
+      "department": "Ouest",
+      "commune": "CABARET"
+    },
+    {
+      "ordinal": 56,
+      "name": "Michel VINCENT",
+      "department": "Ouest",
+      "commune": "CABARET"
+    },
+    {
+      "ordinal": 57,
+      "name": "Mitsou GAUTHIER",
+      "department": "Ouest",
+      "commune": "CABARET"
+    },
+    {
+      "ordinal": 58,
+      "name": "Jean Robert SAINTIL",
+      "department": "Ouest",
+      "commune": "CABARET"
+    },
+    {
+      "ordinal": 59,
+      "name": "Carlène GERBIER THERMESI",
+      "department": "Ouest",
+      "commune": "GRESSIER"
+    },
+    {
+      "ordinal": 60,
+      "name": "Jean Robert HENRI SATURNE",
+      "department": "Ouest",
+      "commune": "GRESSIER"
+    },
+    {
+      "ordinal": 61,
+      "name": "Léonard VAILLANT",
+      "department": "Ouest",
+      "commune": "GRESSIER"
+    },
+    {
+      "ordinal": 62,
+      "name": "Jerry CHAMPAGNE",
+      "department": "Ouest",
+      "commune": "GRESSIER"
+    },
+    {
+      "ordinal": 63,
+      "name": "Rameau Etienne BEAUBRUN",
+      "department": "Ouest",
+      "commune": "ANSE-A-GALETS"
+    },
+    {
+      "ordinal": 64,
+      "name": "Jean Fitzner",
+      "department": "Ouest",
+      "commune": "ANSE-A-GALETS"
+    },
+    {
+      "ordinal": 65,
+      "name": "Pierre Hermann RÉMÉDOR",
+      "department": "Ouest",
+      "commune": "ARCAHAIE"
+    },
+    {
+      "ordinal": 66,
+      "name": "Pierre PHILIPPE",
+      "department": "Ouest",
+      "commune": "ARCAHAIE"
+    },
+    {
+      "ordinal": 67,
+      "name": "Yvel CASSÉUS",
+      "department": "Ouest",
+      "commune": "ARCAHAIE"
+    },
+    {
+      "ordinal": 68,
+      "name": "Ulrick JÉROME",
+      "department": "Ouest",
+      "commune": "POINTE-A-RAQUETTE"
+    },
+    {
+      "ordinal": 69,
+      "name": "Fédé ENEL",
+      "department": "Ouest",
+      "commune": "POINTE-A-RAQUETTE"
+    },
+    {
+      "ordinal": 70,
+      "name": "Georges André LABISSIERE",
+      "department": "Ouest",
+      "commune": "CROIX DES BOUQUETS"
+    },
+    {
+      "ordinal": 71,
+      "name": "Jean Mario Serge COLIMON",
+      "department": "Ouest",
+      "commune": "CROIX DES BOUQUETS"
+    },
+    {
+      "ordinal": 72,
+      "name": "Vilma MATHIEU",
+      "department": "Ouest",
+      "commune": "CROIX DES BOUQUETS"
+    },
+    {
+      "ordinal": 73,
+      "name": "Jean Valéry LUBIN",
+      "department": "Ouest",
+      "commune": "CROIX DES BOUQUETS"
+    },
+    {
+      "ordinal": 74,
+      "name": "Pierre Marie K. K. DIEUDONNÉ",
+      "department": "Ouest",
+      "commune": "CROIX DES BOUQUETS"
+    },
+    {
+      "ordinal": 75,
+      "name": "Jean Garry Georges NORMIL",
+      "department": "Ouest",
+      "commune": "GANTHIER"
+    },
+    {
+      "ordinal": 76,
+      "name": "Yvon VAL",
+      "department": "Ouest",
+      "commune": "GANTHIER"
+    },
+    {
+      "ordinal": 77,
+      "name": "Marie Lissa CHAM",
+      "department": "Ouest",
+      "commune": "GANTHIER"
+    },
+    {
+      "ordinal": 78,
+      "name": "Théodor MARCEAU",
+      "department": "Ouest",
+      "commune": "THOMAZEAU"
+    },
+    {
+      "ordinal": 79,
+      "name": "Abner REGUNA",
+      "department": "Ouest",
+      "commune": "THOMAZEAU"
+    },
+    {
+      "ordinal": 80,
+      "name": "Adelson THOMAS",
+      "department": "Ouest",
+      "commune": "THOMAZEAU"
+    },
+    {
+      "ordinal": 81,
+      "name": "Emmanuel LEBRUN",
+      "department": "Ouest",
+      "commune": "THOMAZEAU"
+    },
+    {
+      "ordinal": 82,
+      "name": "Raynold MARCEAU (PDD)",
+      "department": "Ouest",
+      "commune": "THOMAZEAU"
+    },
+    {
+      "ordinal": 83,
+      "name": "Jean Ostel BASTIEN",
+      "department": "Ouest",
+      "commune": "THOMAZEAU"
+    },
+    {
+      "ordinal": 84,
+      "name": "Faustin Luders JEANTY",
+      "department": "Ouest",
+      "commune": "THOMAZEAU"
+    },
+    {
+      "ordinal": 85,
+      "name": "Jean Yves DELCINÉ (PDD)",
+      "department": "Ouest",
+      "commune": "CORNILLON"
+    },
+    {
+      "ordinal": 86,
+      "name": "François JEAN",
+      "department": "Ouest",
+      "commune": "CORNILLON"
+    },
+    {
+      "ordinal": 87,
+      "name": "Cadet TOUSSAINT",
+      "department": "Ouest",
+      "commune": "CORNILLON"
+    },
+    {
+      "ordinal": 88,
+      "name": "Jean Wilner DOR",
+      "department": "Ouest",
+      "commune": "CORNILLON"
+    },
+    {
+      "ordinal": 89,
+      "name": "Duvelson FLEURY",
+      "department": "Ouest",
+      "commune": "CORNILLON"
+    },
+    {
+      "ordinal": 90,
+      "name": "Jean Aubert PAULYNICE",
+      "department": "Ouest",
+      "commune": "CORNILLON"
+    },
+    {
+      "ordinal": 91,
+      "name": "Jean Rico AUGUSTIN",
+      "department": "Ouest",
+      "commune": "CORNILLON"
+    },
+    {
+      "ordinal": 92,
+      "name": "Jean Pierre Richard BASTIEN",
+      "department": "Ouest",
+      "commune": "CORNILLON"
+    },
+    {
+      "ordinal": 93,
+      "name": "Alain PIERRE-SAINT",
+      "department": "Ouest",
+      "commune": "FONDS-VERRETTES"
+    },
+    {
+      "ordinal": 94,
+      "name": "Joseph Ernst FANFAN",
+      "department": "Ouest",
+      "commune": "FONDS-VERRETTES"
+    },
+    {
+      "ordinal": 95,
+      "name": "Claude JÉROME",
+      "department": "Ouest",
+      "commune": "FONDS-VERRETTES"
+    },
+    {
+      "ordinal": 96,
+      "name": "Jean Olnick THELISMA",
+      "department": "Ouest",
+      "commune": "FONDS-VERRETTES"
+    },
+    {
+      "ordinal": 97,
+      "name": "Shoubert LOUIS (PDD)",
+      "department": "Ouest",
+      "commune": "FONDS-VERRETTES"
+    },
+    {
+      "ordinal": 98,
+      "name": "Claude PLACIDE",
+      "department": "Ouest",
+      "commune": "PETIT-GOAVE"
+    },
+    {
+      "ordinal": 99,
+      "name": "Antonius MOISE",
+      "department": "Ouest",
+      "commune": "PETIT-GOAVE"
+    },
+    {
+      "ordinal": 100,
+      "name": "Lionel Yves-Marie FOUCAULT",
+      "department": "Ouest",
+      "commune": "PETIT-GOAVE"
+    },
+    {
+      "ordinal": 101,
+      "name": "Frantz Batista LOUIS",
+      "department": "Ouest",
+      "commune": "PETIT-GOAVE"
+    },
+    {
+      "ordinal": 102,
+      "name": "Myriam Fabien SEIDE",
+      "department": "Ouest",
+      "commune": "PETIT-GOAVE"
+    },
+    {
+      "ordinal": 103,
+      "name": "Daniel Georges Carlet DURANDISSE",
+      "department": "Ouest",
+      "commune": "PETIT-GOAVE"
+    },
+    {
+      "ordinal": 104,
+      "name": "Edward DUPRAT",
+      "department": "Ouest",
+      "commune": "PETIT-GOAVE"
+    },
+    {
+      "ordinal": 105,
+      "name": "Anthony DUMONT",
+      "department": "Ouest",
+      "commune": "LÉOGANE"
+    },
+    {
+      "ordinal": 106,
+      "name": "Nasser KERNISANT",
+      "department": "Ouest",
+      "commune": "LÉOGANE"
+    },
+    {
+      "ordinal": 107,
+      "name": "Daniel G. C. DURANDISSE",
+      "department": "Ouest",
+      "commune": "LÉOGANE"
+    },
+    {
+      "ordinal": 108,
+      "name": "Gumps BAZILE",
+      "department": "Ouest",
+      "commune": "LÉOGANE"
+    },
+    {
+      "ordinal": 109,
+      "name": "Jean-Mary Claudel DELVA",
+      "department": "Ouest",
+      "commune": "LÉOGANE"
+    },
+    {
+      "ordinal": 110,
+      "name": "Mauclair DESIR",
+      "department": "Ouest",
+      "commune": "LÉOGANE"
+    },
+    {
+      "ordinal": 111,
+      "name": "Myriam Fabien SEIDE",
+      "department": "Ouest",
+      "commune": "LÉOGANE"
+    },
+    {
+      "ordinal": 112,
+      "name": "Philomise Guerrier KERNISANT",
+      "department": "Ouest",
+      "commune": "GRAND-GOAVE"
+    },
+    {
+      "ordinal": 113,
+      "name": "Anglade GABEAUD",
+      "department": "Ouest",
+      "commune": "GRAND-GOAVE"
+    },
+    {
+      "ordinal": 114,
+      "name": "Yves JEAN",
+      "department": "Nord",
+      "commune": "CAP-HAITIEN"
+    },
+    {
+      "ordinal": 115,
+      "name": "Duvot PAUL",
+      "department": "Nord",
+      "commune": "CAP-HAITIEN"
+    },
+    {
+      "ordinal": 116,
+      "name": "Pierre Jérome COLAS",
+      "department": "Nord",
+      "commune": "CAP-HAITIEN"
+    },
+    {
+      "ordinal": 117,
+      "name": "Marie Mercie C. ALABRÉ (PDD)",
+      "department": "Nord",
+      "commune": "CAP-HAITIEN"
+    },
+    {
+      "ordinal": 118,
+      "name": "Molière ANGRAND (PDD)",
+      "department": "Nord",
+      "commune": "CAP-HAITIEN"
+    },
+    {
+      "ordinal": 119,
+      "name": "Frisner ESTIMÉ",
+      "department": "Nord",
+      "commune": "CAP-HAITIEN"
+    },
+    {
+      "ordinal": 120,
+      "name": "Louis BLOT (PDD)",
+      "department": "Nord",
+      "commune": "CAP-HAITIEN"
+    },
+    {
+      "ordinal": 121,
+      "name": "Frantz. Marc MARTHOL",
+      "department": "Nord",
+      "commune": "CAP-HAITIEN"
+    },
+    {
+      "ordinal": 122,
+      "name": "Joseph Michel MATHIEU",
+      "department": "Nord",
+      "commune": "CAP-HAITIEN"
+    },
+    {
+      "ordinal": 123,
+      "name": "Augustin Miguel JEAN",
+      "department": "Nord",
+      "commune": "CAP-HAITIEN"
+    },
+    {
+      "ordinal": 124,
+      "name": "Sandra METELLUS",
+      "department": "Nord",
+      "commune": "CAP-HAITIEN"
+    },
+    {
+      "ordinal": 125,
+      "name": "Schmidt PIERROT",
+      "department": "Nord",
+      "commune": "CAP-HAITIEN"
+    },
+    {
+      "ordinal": 126,
+      "name": "Maude Antoine SALNAVE",
+      "department": "Nord",
+      "commune": "CAP-HAITIEN"
+    },
+    {
+      "ordinal": 127,
+      "name": "Arry PIERRE",
+      "department": "Nord",
+      "commune": "QUARTIER MORIN"
+    },
+    {
+      "ordinal": 128,
+      "name": "Jean-Baptiste MÉNARD (PDD)",
+      "department": "Nord",
+      "commune": "QUARTIER MORIN"
+    },
+    {
+      "ordinal": 129,
+      "name": "Lincoln HYPPOLITE (PDD)",
+      "department": "Nord",
+      "commune": "QUARTIER MORIN"
+    },
+    {
+      "ordinal": 130,
+      "name": "Raymond PROPHETE (PDD)",
+      "department": "Nord",
+      "commune": "QUARTIER MORIN"
+    },
+    {
+      "ordinal": 131,
+      "name": "Willy NEMORIN",
+      "department": "Nord",
+      "commune": "QUARTIER MORIN"
+    },
+    {
+      "ordinal": 132,
+      "name": "Raymond THERMIDOR",
+      "department": "Nord",
+      "commune": "QUARTIER MORIN"
+    },
+    {
+      "ordinal": 133,
+      "name": "Willy OSWALD",
+      "department": "Nord",
+      "commune": "LIMONADE"
+    },
+    {
+      "ordinal": 134,
+      "name": "Arnault JEAN-PHILIPPE",
+      "department": "Nord",
+      "commune": "LIMONADE"
+    },
+    {
+      "ordinal": 135,
+      "name": "Louis MICHEL (PDD)",
+      "department": "Nord",
+      "commune": "LIMONADE"
+    },
+    {
+      "ordinal": 136,
+      "name": "Christini D.M.Jr.Quesnel ISRAEL",
+      "department": "Nord",
+      "commune": "LIMONADE"
+    },
+    {
+      "ordinal": 137,
+      "name": "Frantzy PIERRE",
+      "department": "Nord",
+      "commune": "LIMBE"
+    },
+    {
+      "ordinal": 138,
+      "name": "Maxidoine ALLIANCE",
+      "department": "Nord",
+      "commune": "LIMBE"
+    },
+    {
+      "ordinal": 139,
+      "name": "Charles Pierre THONY (PDD)",
+      "department": "Nord",
+      "commune": "LIMBE"
+    },
+    {
+      "ordinal": 140,
+      "name": "Armand ZEPHIRIN",
+      "department": "Nord",
+      "commune": "LIMBE"
+    },
+    {
+      "ordinal": 141,
+      "name": "Ally JEANTY",
+      "department": "Nord",
+      "commune": "MILOT"
+    },
+    {
+      "ordinal": 142,
+      "name": "Jacques VINCENT",
+      "department": "Nord",
+      "commune": "MILOT"
+    },
+    {
+      "ordinal": 143,
+      "name": "Dominique DUMAS",
+      "department": "Nord",
+      "commune": "MILOT"
+    },
+    {
+      "ordinal": 144,
+      "name": "Max Joseph ALLONCE (PDD)",
+      "department": "Nord",
+      "commune": "BORGNE"
+    },
+    {
+      "ordinal": 145,
+      "name": "Tacite JADOTTE (PDD)",
+      "department": "Nord",
+      "commune": "BORGNE"
+    },
+    {
+      "ordinal": 146,
+      "name": "Achille SAUREL",
+      "department": "Nord",
+      "commune": "BORGNE"
+    },
+    {
+      "ordinal": 147,
+      "name": "Molière PAUL",
+      "department": "Nord",
+      "commune": "PLAISANCE"
+    },
+    {
+      "ordinal": 148,
+      "name": "Renaud JEAN BAPTISTE",
+      "department": "Nord",
+      "commune": "PLAISANCE"
+    },
+    {
+      "ordinal": 149,
+      "name": "Lawrence SAINT JEAN (PDD)",
+      "department": "Nord",
+      "commune": "PLAISANCE"
+    },
+    {
+      "ordinal": 150,
+      "name": "Joseph Bercius DÉRONVIL (PDD)",
+      "department": "Nord",
+      "commune": "PLAISANCE"
+    },
+    {
+      "ordinal": 151,
+      "name": "Yvon BELOTTE",
+      "department": "Nord",
+      "commune": "PORT-MARGOT"
+    },
+    {
+      "ordinal": 152,
+      "name": "Osias ESTIVAINE",
+      "department": "Nord",
+      "commune": "PORT-MARGOT"
+    },
+    {
+      "ordinal": 153,
+      "name": "Michel Oldieu CÉLESTIN (PDD)",
+      "department": "Nord",
+      "commune": "PORT-MARGOT"
+    },
+    {
+      "ordinal": 154,
+      "name": "Rille MÉSIDOR",
+      "department": "Nord",
+      "commune": "PETIT-BOURG DE PORT MARGOT"
+    },
+    {
+      "ordinal": 155,
+      "name": "Nemours Antoine JACQUES (PDD)",
+      "department": "Nord",
+      "commune": "PILATE"
+    },
+    {
+      "ordinal": 156,
+      "name": "Adrien BORDENAVE (PDD)",
+      "department": "Nord",
+      "commune": "PILATE"
+    },
+    {
+      "ordinal": 157,
+      "name": "Alcès PÉAN (PDD)",
+      "department": "Nord",
+      "commune": "PILATE"
+    },
+    {
+      "ordinal": 158,
+      "name": "Jean-Baptiste PIERRE",
+      "department": "Nord",
+      "commune": "PLAINE DU NORD"
+    },
+    {
+      "ordinal": 159,
+      "name": "Sammuel FANFAN",
+      "department": "Nord",
+      "commune": "PLAINE DU NORD"
+    },
+    {
+      "ordinal": 160,
+      "name": "Wisky SAUREL",
+      "department": "Nord",
+      "commune": "PLAINE DU NORD"
+    },
+    {
+      "ordinal": 161,
+      "name": "Michelet FELIMA",
+      "department": "Nord",
+      "commune": "PLAINE DU NORD"
+    },
+    {
+      "ordinal": 162,
+      "name": "Daniel Elvecius CHARLES",
+      "department": "Nord",
+      "commune": "BAS-LIMBE"
+    },
+    {
+      "ordinal": 163,
+      "name": "Édouard MONTREUIL (PDD)",
+      "department": "Nord",
+      "commune": "BAS-LIMBE"
+    },
+    {
+      "ordinal": 164,
+      "name": "Armand ZÉPHIRIN",
+      "department": "Nord",
+      "commune": "BAS-LIMBE"
+    },
+    {
+      "ordinal": 165,
+      "name": "Edy BASTIEN",
+      "department": "Nord",
+      "commune": "ACUL DU NORD"
+    },
+    {
+      "ordinal": 166,
+      "name": "Joseph Hérault DESIR",
+      "department": "Nord",
+      "commune": "ACUL DU NORD"
+    },
+    {
+      "ordinal": 167,
+      "name": "Raphael Lefranc JEROME (PDD)",
+      "department": "Nord",
+      "commune": "GRANDE RIVIERE DU NORD (PDD)"
+    },
+    {
+      "ordinal": 168,
+      "name": "Joseph Connel SAINT-VIL (PDD)",
+      "department": "Nord",
+      "commune": "GRANDE RIVIERE DU NORD (PDD)"
+    },
+    {
+      "ordinal": 169,
+      "name": "Emmanuel PLUVIOSE (PDD)",
+      "department": "Nord",
+      "commune": "GRANDE RIVIERE DU NORD (PDD)"
+    },
+    {
+      "ordinal": 170,
+      "name": "Rock LEFENE (PDD)",
+      "department": "Nord",
+      "commune": "GRANDE RIVIERE DU NORD (PDD)"
+    },
+    {
+      "ordinal": 171,
+      "name": "Moreneau EZECHIAS (PDD)",
+      "department": "Nord",
+      "commune": "SAINT RAPHAEL"
+    },
+    {
+      "ordinal": 172,
+      "name": "Ducangé Raphael MOISE (PDD)",
+      "department": "Nord",
+      "commune": "SAINT RAPHAEL"
+    },
+    {
+      "ordinal": 173,
+      "name": "Obercio dit Robespierre BELL (PDD)",
+      "department": "Nord",
+      "commune": "PIGNON"
+    },
+    {
+      "ordinal": 174,
+      "name": "Marceau VALCIN (PDD)",
+      "department": "Nord",
+      "commune": "PIGNON"
+    },
+    {
+      "ordinal": 175,
+      "name": "Françoise DEJOIE",
+      "department": "Nord",
+      "commune": "BAHON"
+    },
+    {
+      "ordinal": 176,
+      "name": "André Jean-Baptiste ALMONOR (PDD)",
+      "department": "Nord",
+      "commune": "BAHON"
+    },
+    {
+      "ordinal": 177,
+      "name": "Ereck V. MENARD (PDD)",
+      "department": "Nord",
+      "commune": "BAHON"
+    },
+    {
+      "ordinal": 178,
+      "name": "Bernard SAINTELLUS (PDD)",
+      "department": "Nord",
+      "commune": "LA VICTOIRE"
+    },
+    {
+      "ordinal": 179,
+      "name": "Abraham RAYMOND (PDD)",
+      "department": "Nord",
+      "commune": "RANQUITTE"
+    },
+    {
+      "ordinal": 180,
+      "name": "Vilméus DIMANCHE",
+      "department": "Nord",
+      "commune": "RANQUITTE"
+    },
+    {
+      "ordinal": 181,
+      "name": "Marc B. CHARLES (PDD)",
+      "department": "Nord",
+      "commune": "DONDON"
+    },
+    {
+      "ordinal": 182,
+      "name": "Edouard G. SAINT-JEAN (PDD)",
+      "department": "Nord",
+      "commune": "DONDON"
+    },
+    {
+      "ordinal": 183,
+      "name": "Monod CHERY",
+      "department": "Sud",
+      "commune": "CAYES"
+    },
+    {
+      "ordinal": 184,
+      "name": "Yves Hervé JOCELYN",
+      "department": "Sud",
+      "commune": "CAYES"
+    },
+    {
+      "ordinal": 185,
+      "name": "Louis JEAN-FRANCOIS",
+      "department": "Sud",
+      "commune": "CAYES"
+    },
+    {
+      "ordinal": 186,
+      "name": "Cécile M. L. Coulanges BANATTE",
+      "department": "Sud",
+      "commune": "CAYES"
+    },
+    {
+      "ordinal": 187,
+      "name": "Feranor BOLIVAR",
+      "department": "Sud",
+      "commune": "CAYES"
+    },
+    {
+      "ordinal": 188,
+      "name": "Jean Romain NEI",
+      "department": "Sud",
+      "commune": "CAYES"
+    },
+    {
+      "ordinal": 189,
+      "name": "Marie Elizabeth Karyne ALEXIS",
+      "department": "Sud",
+      "commune": "CAYES"
+    },
+    {
+      "ordinal": 190,
+      "name": "Jean Vener MERCIER",
+      "department": "Sud",
+      "commune": "CAYES"
+    },
+    {
+      "ordinal": 191,
+      "name": "Dominique ZÉPHIR",
+      "department": "Sud",
+      "commune": "CAYES"
+    },
+    {
+      "ordinal": 192,
+      "name": "Joseph Banel RENÉ",
+      "department": "Sud",
+      "commune": "CAYES"
+    },
+    {
+      "ordinal": 193,
+      "name": "Godfred TOUSSAINT",
+      "department": "Sud",
+      "commune": "CAYES"
+    },
+    {
+      "ordinal": 194,
+      "name": "Marie Yolande DAMAS",
+      "department": "Sud",
+      "commune": "CAYES"
+    },
+    {
+      "ordinal": 195,
+      "name": "Jean Clergé DURAND",
+      "department": "Sud",
+      "commune": "CAYES"
+    },
+    {
+      "ordinal": 196,
+      "name": "Pierre Josué SIMON",
+      "department": "Sud",
+      "commune": "CHANTAL"
+    },
+    {
+      "ordinal": 197,
+      "name": "Duval JOSEPH",
+      "department": "Sud",
+      "commune": "TORBECK"
+    },
+    {
+      "ordinal": 198,
+      "name": "Joseph Linot GABRIEL",
+      "department": "Sud",
+      "commune": "TORBECK"
+    },
+    {
+      "ordinal": 199,
+      "name": "Armand PIERRE-LOUIS (PDD)",
+      "department": "Sud",
+      "commune": "TORBECK"
+    },
+    {
+      "ordinal": 200,
+      "name": "Joseph DESJARDINS",
+      "department": "Sud",
+      "commune": "TORBECK"
+    },
+    {
+      "ordinal": 201,
+      "name": "Arnold SENAT",
+      "department": "Sud",
+      "commune": "TORBECK"
+    },
+    {
+      "ordinal": 202,
+      "name": "Bélizaire BERGER",
+      "department": "Sud",
+      "commune": "ARNIQUET"
+    },
+    {
+      "ordinal": 203,
+      "name": "Anael JOSEPH",
+      "department": "Sud",
+      "commune": "ARNIQUET"
+    },
+    {
+      "ordinal": 204,
+      "name": "Cadet JEAN-BAPTISTE (PDD)",
+      "department": "Sud",
+      "commune": "SAINT JEAN DU SUD"
+    },
+    {
+      "ordinal": 205,
+      "name": "Maresco GIRADIN (PDD)",
+      "department": "Sud",
+      "commune": "SAINT JEAN DU SUD"
+    },
+    {
+      "ordinal": 206,
+      "name": "Nicolas Closel VIAUD",
+      "department": "Sud",
+      "commune": "PORT-SALUT"
+    },
+    {
+      "ordinal": 207,
+      "name": "Charles GUSTAVE (PDD)",
+      "department": "Sud",
+      "commune": "PORT-SALUT"
+    },
+    {
+      "ordinal": 208,
+      "name": "Jean Baptiste Fred TOUSSAINT",
+      "department": "Sud",
+      "commune": "PORT-SALUT"
+    },
+    {
+      "ordinal": 209,
+      "name": "Rony PIERRE",
+      "department": "Sud",
+      "commune": "PORT-SALUT"
+    },
+    {
+      "ordinal": 210,
+      "name": "Harry JEAN",
+      "department": "Sud",
+      "commune": "CAMP-PERRIN"
+    },
+    {
+      "ordinal": 211,
+      "name": "Maurice JEAN (PDD)",
+      "department": "Sud",
+      "commune": "CAMP-PERRIN"
+    },
+    {
+      "ordinal": 212,
+      "name": "Harold DARIVAGER",
+      "department": "Sud",
+      "commune": "CAMP-PERRIN"
+    },
+    {
+      "ordinal": 213,
+      "name": "Clausel LAFLEUR",
+      "department": "Sud",
+      "commune": "MANICHE"
+    },
+    {
+      "ordinal": 214,
+      "name": "François William CHERESTAL",
+      "department": "Sud",
+      "commune": "MANICHE"
+    },
+    {
+      "ordinal": 215,
+      "name": "Jean SAINT-LOUIS",
+      "department": "Sud",
+      "commune": "LA CHAPELLE"
+    },
+    {
+      "ordinal": 216,
+      "name": "Bernadin POTEAU",
+      "department": "Sud",
+      "commune": "AQUIN"
+    },
+    {
+      "ordinal": 217,
+      "name": "Rony RAMEAU",
+      "department": "Sud",
+      "commune": "AQUIN"
+    },
+    {
+      "ordinal": 218,
+      "name": "Daguilard CAMBRY",
+      "department": "Sud",
+      "commune": "AQUIN"
+    },
+    {
+      "ordinal": 219,
+      "name": "Joseph Raymond SEIDE",
+      "department": "Sud",
+      "commune": "AQUIN"
+    },
+    {
+      "ordinal": 220,
+      "name": "Anthony COMEAU (PDD)",
+      "department": "Sud",
+      "commune": "AQUIN"
+    },
+    {
+      "ordinal": 221,
+      "name": "Hugues DANGER",
+      "department": "Sud",
+      "commune": "AQUIN"
+    },
+    {
+      "ordinal": 222,
+      "name": "Paul Henri NOEL",
+      "department": "Sud",
+      "commune": "SAINT LOUIS DU SUD"
+    },
+    {
+      "ordinal": 223,
+      "name": "Félix-Jean MERVIUS",
+      "department": "Sud",
+      "commune": "SAINT LOUIS DU SUD"
+    },
+    {
+      "ordinal": 224,
+      "name": "Homère LEFRANC",
+      "department": "Sud",
+      "commune": "SAINT LOUIS DU SUD"
+    },
+    {
+      "ordinal": 225,
+      "name": "Célorge SAINVILNOR",
+      "department": "Sud",
+      "commune": "CAVAILLON"
+    },
+    {
+      "ordinal": 226,
+      "name": "Jean-Baptiste S. DESCOLLINES (PDD)",
+      "department": "Sud",
+      "commune": "CAVAILLON"
+    },
+    {
+      "ordinal": 227,
+      "name": "Guy ROMAIN",
+      "department": "Sud",
+      "commune": "CAVAILLON"
+    },
+    {
+      "ordinal": 228,
+      "name": "Marie Carmel BEAULIEU",
+      "department": "Sud-Est",
+      "commune": "JACMEL"
+    },
+    {
+      "ordinal": 229,
+      "name": "Wilfrid NELSON",
+      "department": "Sud-Est",
+      "commune": "JACMEL"
+    },
+    {
+      "ordinal": 230,
+      "name": "Philippe Jean Marc DIEUMERCIE",
+      "department": "Sud-Est",
+      "commune": "JACMEL"
+    },
+    {
+      "ordinal": 231,
+      "name": "Emile PENN (PDD)",
+      "department": "Sud-Est",
+      "commune": "JACMEL"
+    },
+    {
+      "ordinal": 232,
+      "name": "Serge Marceau RATJEN",
+      "department": "Sud-Est",
+      "commune": "JACMEL"
+    },
+    {
+      "ordinal": 233,
+      "name": "Pélissier BAPTISTE",
+      "department": "Sud-Est",
+      "commune": "JACMEL"
+    },
+    {
+      "ordinal": 234,
+      "name": "Favard CHÉRISMÉ",
+      "department": "Sud-Est",
+      "commune": "JACMEL"
+    },
+    {
+      "ordinal": 235,
+      "name": "Donald MARDY",
+      "department": "Sud-Est",
+      "commune": "JACMEL"
+    },
+    {
+      "ordinal": 236,
+      "name": "Hoche PIERRE-LOUIS",
+      "department": "Sud-Est",
+      "commune": "JACMEL"
+    },
+    {
+      "ordinal": 237,
+      "name": "Florise PROPHETE",
+      "department": "Sud-Est",
+      "commune": "JACMEL"
+    },
+    {
+      "ordinal": 238,
+      "name": "Jean Hector ANACACIS",
+      "department": "Sud-Est",
+      "commune": "JACMEL"
+    },
+    {
+      "ordinal": 239,
+      "name": "Jean Paul DUMERCY",
+      "department": "Sud-Est",
+      "commune": "JACMEL"
+    },
+    {
+      "ordinal": 240,
+      "name": "Yves J . DUPLAN",
+      "department": "Sud-Est",
+      "commune": "BAINET"
+    },
+    {
+      "ordinal": 241,
+      "name": "René THEARD (PDD)",
+      "department": "Sud-Est",
+      "commune": "BAINET"
+    },
+    {
+      "ordinal": 242,
+      "name": "Pierre-Richard JEAN",
+      "department": "Sud-Est",
+      "commune": "CAYES-JACMEL"
+    },
+    {
+      "ordinal": 243,
+      "name": "Rosy JANVIER",
+      "department": "Sud-Est",
+      "commune": "CAYES-JACMEL"
+    },
+    {
+      "ordinal": 244,
+      "name": "Archange AGELLA",
+      "department": "Sud-Est",
+      "commune": "LA VALLÉE DE JACMEL"
+    },
+    {
+      "ordinal": 245,
+      "name": "Sanon JEAN",
+      "department": "Sud-Est",
+      "commune": "LA VALLÉE DE JACMEL"
+    },
+    {
+      "ordinal": 246,
+      "name": "Michel Thomas SIGUINEAU (PDD)",
+      "department": "Sud-Est",
+      "commune": "COTE DE FER"
+    },
+    {
+      "ordinal": 247,
+      "name": "Lanno LADOUCEUR (PDD)",
+      "department": "Sud-Est",
+      "commune": "COTE DE FER"
+    },
+    {
+      "ordinal": 248,
+      "name": "Moïse JACQUES (PDD)",
+      "department": "Sud-Est",
+      "commune": "COTE DE FER"
+    },
+    {
+      "ordinal": 249,
+      "name": "Moris G. MASSÉNA",
+      "department": "Sud-Est",
+      "commune": "MARIGOT"
+    },
+    {
+      "ordinal": 250,
+      "name": "Yanick SMITH",
+      "department": "Sud-Est",
+      "commune": "MARIGOT"
+    },
+    {
+      "ordinal": 251,
+      "name": "Bénito DESCOLLINES",
+      "department": "Sud-Est",
+      "commune": "MARIGOT"
+    },
+    {
+      "ordinal": 252,
+      "name": "Antonin BALTHAZAR",
+      "department": "Sud-Est",
+      "commune": "BELLANSE"
+    },
+    {
+      "ordinal": 253,
+      "name": "Marie José RIVAL (PDD)",
+      "department": "Sud-Est",
+      "commune": "BELLANSE"
+    },
+    {
+      "ordinal": 254,
+      "name": "Rosemond MICHEL (PDD)",
+      "department": "Sud-Est",
+      "commune": "BELLANSE"
+    },
+    {
+      "ordinal": 255,
+      "name": "Marc Ali Revil MOISE",
+      "department": "Sud-Est",
+      "commune": "GRAND GOSIER"
+    },
+    {
+      "ordinal": 256,
+      "name": "Jean-Yves SAINT-CYR",
+      "department": "Sud-Est",
+      "commune": "COTEAUX"
+    },
+    {
+      "ordinal": 257,
+      "name": "Moise Jeanel SAINT-VIL",
+      "department": "Sud-Est",
+      "commune": "CHARDONNIERE"
+    },
+    {
+      "ordinal": 258,
+      "name": "Bernadin Th. BOIS (PDD)",
+      "department": "Sud-Est",
+      "commune": "ROCHE A BATEAU"
+    },
+    {
+      "ordinal": 259,
+      "name": "Mickerlange ELIE",
+      "department": "Sud-Est",
+      "commune": "ROCHE A BATEAU"
+    },
+    {
+      "ordinal": 260,
+      "name": "Jean-Marie Bernato CHARLES",
+      "department": "Sud-Est",
+      "commune": "LES ANGLAIS"
+    },
+    {
+      "ordinal": 261,
+      "name": "Bélizaire LOUIS (PDD)",
+      "department": "Sud-Est",
+      "commune": "TIBURON"
+    },
+    {
+      "ordinal": 262,
+      "name": "Boujolly JEAN CHARLES",
+      "department": "Sud-Est",
+      "commune": "TIBURON"
+    },
+    {
+      "ordinal": 263,
+      "name": "Julenor VITAL",
+      "department": "Sud-Est",
+      "commune": "PORT-A-PIMENT"
+    },
+    {
+      "ordinal": 264,
+      "name": "Harry Dickens JEAN-BAPTISTE",
+      "department": "Centre",
+      "commune": "HINCHE"
+    },
+    {
+      "ordinal": 265,
+      "name": "Pierre Rony BEAUFORT",
+      "department": "Centre",
+      "commune": "HINCHE"
+    },
+    {
+      "ordinal": 266,
+      "name": "Mme Rolès DONATIEN (PDD)",
+      "department": "Centre",
+      "commune": "HINCHE"
+    },
+    {
+      "ordinal": 267,
+      "name": "Antoine H. JEAN-BAPTISTE (PDD)",
+      "department": "Centre",
+      "commune": "HINCHE"
+    },
+    {
+      "ordinal": 268,
+      "name": "Adèle RAPHAEL",
+      "department": "Centre",
+      "commune": "HINCHE"
+    },
+    {
+      "ordinal": 269,
+      "name": "Mauril ALTIDOR",
+      "department": "Centre",
+      "commune": "THOMONDE"
+    },
+    {
+      "ordinal": 270,
+      "name": "Bertha Elie DOMINIQUE (PDD)",
+      "department": "Centre",
+      "commune": "THOMONDE"
+    },
+    {
+      "ordinal": 271,
+      "name": "Mme Gabriel Esty GEORGES (PDD)",
+      "department": "Centre",
+      "commune": "THOMONDE"
+    },
+    {
+      "ordinal": 272,
+      "name": "Saint-Louis Pèdre BALDÉ",
+      "department": "Centre",
+      "commune": "MAISSADE"
+    },
+    {
+      "ordinal": 273,
+      "name": "Ketlie JULSAIN",
+      "department": "Centre",
+      "commune": "MAISSADE"
+    },
+    {
+      "ordinal": 274,
+      "name": "David NIVARD",
+      "department": "Centre",
+      "commune": "MAISSADE"
+    },
+    {
+      "ordinal": 275,
+      "name": "Charles GUESLIN (PDD)",
+      "department": "Centre",
+      "commune": "THOMASSIQUE"
+    },
+    {
+      "ordinal": 276,
+      "name": "Zachary PREVILUS",
+      "department": "Centre",
+      "commune": "THOMASSIQUE"
+    },
+    {
+      "ordinal": 277,
+      "name": "Lucson ELY",
+      "department": "Centre",
+      "commune": "CERCA CARVAJAL"
+    },
+    {
+      "ordinal": 278,
+      "name": "Vernet SIMON (PDD)",
+      "department": "Centre",
+      "commune": "CERCA CARVAJAL"
+    },
+    {
+      "ordinal": 279,
+      "name": "Prétois VAL",
+      "department": "Centre",
+      "commune": "CERCA CARVAJAL"
+    },
+    {
+      "ordinal": 280,
+      "name": "Macksen DORVIL",
+      "department": "Centre",
+      "commune": "CERCA LA SOURCE"
+    },
+    {
+      "ordinal": 281,
+      "name": "Cléonne Thyma REMY (PDD)",
+      "department": "Centre",
+      "commune": "CERCA LA SOURCE"
+    },
+    {
+      "ordinal": 282,
+      "name": "Joséphat PROSPERE (PDD)",
+      "department": "Centre",
+      "commune": "CERCA LA SOURCE"
+    },
+    {
+      "ordinal": 283,
+      "name": "Phanor VÉLIUS (PDD)",
+      "department": "Centre",
+      "commune": "CERCA LA SOURCE"
+    },
+    {
+      "ordinal": 284,
+      "name": "Anne L. M. Estinfil NAPOLÉON",
+      "department": "Centre",
+      "commune": "MIREBALAIS"
+    },
+    {
+      "ordinal": 285,
+      "name": "Ovil LUBIN",
+      "department": "Centre",
+      "commune": "MIREBALAIS"
+    },
+    {
+      "ordinal": 286,
+      "name": "Tholand NOISETTE",
+      "department": "Centre",
+      "commune": "MIREBALAIS"
+    },
+    {
+      "ordinal": 287,
+      "name": "Jean Nedson Danton JOSEPH (PDD)",
+      "department": "Centre",
+      "commune": "MIREBALAIS"
+    },
+    {
+      "ordinal": 288,
+      "name": "Anne JEAN BAPTISTE",
+      "department": "Centre",
+      "commune": "MIREBALAIS"
+    },
+    {
+      "ordinal": 289,
+      "name": "Lucien PIERRE-TOUSSAINT",
+      "department": "Centre",
+      "commune": "LASCAHOBAS"
+    },
+    {
+      "ordinal": 290,
+      "name": "Fritz JOUTE",
+      "department": "Centre",
+      "commune": "LASCAHOBAS"
+    },
+    {
+      "ordinal": 291,
+      "name": "Jn-Baptiste Valérius JOSEPH (PDD)",
+      "department": "Centre",
+      "commune": "LASCAHOBAS"
+    },
+    {
+      "ordinal": 292,
+      "name": "Bayard KERCY (PDD)",
+      "department": "Centre",
+      "commune": "BELLADERE"
+    },
+    {
+      "ordinal": 293,
+      "name": "Jean Pierre MÉSULMÉ",
+      "department": "Centre",
+      "commune": "BELLADERE"
+    },
+    {
+      "ordinal": 294,
+      "name": "Louis Scypion JEAN-BAPTISTE",
+      "department": "Centre",
+      "commune": "BOUCAN-CARRÉ"
+    },
+    {
+      "ordinal": 295,
+      "name": "Guy Robert AUGUSTIN",
+      "department": "Centre",
+      "commune": "SAUT D'EAU"
+    },
+    {
+      "ordinal": 296,
+      "name": "Denizard CHARLES",
+      "department": "Centre",
+      "commune": "SAUT D'EAU"
+    },
+    {
+      "ordinal": 297,
+      "name": "Mother AUGUSTE",
+      "department": "Centre",
+      "commune": "SAVANETTE"
+    },
+    {
+      "ordinal": 298,
+      "name": "Lovius ROBENSON (PDD)",
+      "department": "Centre",
+      "commune": "SAVANETTE"
+    },
+    {
+      "ordinal": 299,
+      "name": "Jules Elie BOSQUET (PDD)",
+      "department": "Centre",
+      "commune": "SAVANETTE"
+    },
+    {
+      "ordinal": 300,
+      "name": "Carmelot F. M. CH. MOLAIRE",
+      "department": "Artibonite",
+      "commune": "ST MARC"
+    },
+    {
+      "ordinal": 301,
+      "name": "Yolène DALENCOUR SAIEH",
+      "department": "Artibonite",
+      "commune": "ST MARC"
+    },
+    {
+      "ordinal": 302,
+      "name": "Charlemagne SAINT-FLEUR",
+      "department": "Artibonite",
+      "commune": "ST MARC"
+    },
+    {
+      "ordinal": 303,
+      "name": "Mirabeau ASSÉ (PDD)",
+      "department": "Artibonite",
+      "commune": "ST MARC"
+    },
+    {
+      "ordinal": 304,
+      "name": "Jean Simon Lucien PHILIPPE",
+      "department": "Artibonite",
+      "commune": "ST MARC"
+    },
+    {
+      "ordinal": 305,
+      "name": "Thomas Eddy DUPITON",
+      "department": "Artibonite",
+      "commune": "ST MARC"
+    },
+    {
+      "ordinal": 306,
+      "name": "Robert Simon SAIEH",
+      "department": "Artibonite",
+      "commune": "ST MARC"
+    },
+    {
+      "ordinal": 307,
+      "name": "Charlemagne C. Joseph ANDRE",
+      "department": "Artibonite",
+      "commune": "ST MARC"
+    },
+    {
+      "ordinal": 308,
+      "name": "Rosental DUVELSAINT",
+      "department": "Artibonite",
+      "commune": "VERETTE"
+    },
+    {
+      "ordinal": 309,
+      "name": "Joseph Nosius DAMIER",
+      "department": "Artibonite",
+      "commune": "DESSALINES"
+    },
+    {
+      "ordinal": 310,
+      "name": "Bermingham PIERRE",
+      "department": "Artibonite",
+      "commune": "DESSALINES"
+    },
+    {
+      "ordinal": 311,
+      "name": "Saint Facile PHILOGENE",
+      "department": "Artibonite",
+      "commune": "PETITE RIVIERE DE L'ARTIBONITE"
+    },
+    {
+      "ordinal": 312,
+      "name": "Bruno TOUSSAINT",
+      "department": "Artibonite",
+      "commune": "PETITE RIVIERE DE L'ARTIBONITE"
+    },
+    {
+      "ordinal": 313,
+      "name": "Dieuberny Celinor CENOT",
+      "department": "Artibonite",
+      "commune": "PETITE RIVIERE DE L'ARTIBONITE"
+    },
+    {
+      "ordinal": 314,
+      "name": "Kenley VITAL",
+      "department": "Artibonite",
+      "commune": "DESDUNES"
+    },
+    {
+      "ordinal": 315,
+      "name": "Fritz GERMAIN (PDD)",
+      "department": "Artibonite",
+      "commune": "DESDUNES"
+    },
+    {
+      "ordinal": 316,
+      "name": "Joseph CAMILLE (PDD)",
+      "department": "Artibonite",
+      "commune": "GRANDE SALINE"
+    },
+    {
+      "ordinal": 317,
+      "name": "Dorvilier POULARD",
+      "department": "Nippes",
+      "commune": "MIRAGOANE"
+    },
+    {
+      "ordinal": 318,
+      "name": "Mario JOSEPH",
+      "department": "Nippes",
+      "commune": "MIRAGOANE"
+    },
+    {
+      "ordinal": 319,
+      "name": "Louicène Aristilde HENRY",
+      "department": "Nippes",
+      "commune": "MIRAGOANE"
+    },
+    {
+      "ordinal": 320,
+      "name": "Yves Gertha ZEPHIR",
+      "department": "Nippes",
+      "commune": "MIRAGOANE"
+    },
+    {
+      "ordinal": 321,
+      "name": "Wesler Musset GUERRIER",
+      "department": "Nippes",
+      "commune": "MIRAGOANE"
+    },
+    {
+      "ordinal": 322,
+      "name": "Albéric MICHEL",
+      "department": "Nippes",
+      "commune": "PETITE RIVIERE DE NIPPES"
+    },
+    {
+      "ordinal": 323,
+      "name": "James Meck Charly BALZORA",
+      "department": "Nippes",
+      "commune": "FONDS DES NEGRES"
+    },
+    {
+      "ordinal": 324,
+      "name": "Guima GOIN",
+      "department": "Nippes",
+      "commune": "FONDS DES NEGRES"
+    },
+    {
+      "ordinal": 325,
+      "name": "Etzer TELUSMA",
+      "department": "Nippes",
+      "commune": "PAILLANT"
+    },
+    {
+      "ordinal": 326,
+      "name": "Jude LECONTE",
+      "department": "Nippes",
+      "commune": "ANSE-A-VEAU"
+    },
+    {
+      "ordinal": 327,
+      "name": "Mercidieu JEAN LOUIS (PDD)",
+      "department": "Nippes",
+      "commune": "ANSE-A-VEAU"
+    },
+    {
+      "ordinal": 328,
+      "name": "Albert LARIONNE (PDD)",
+      "department": "Nippes",
+      "commune": "ANSE-A-VEAU"
+    },
+    {
+      "ordinal": 329,
+      "name": "Gérard CADET (PDD)",
+      "department": "Nippes",
+      "commune": "ANSE-A-VEAU"
+    },
+    {
+      "ordinal": 330,
+      "name": "Estona LAPAIX",
+      "department": "Nippes",
+      "commune": "L'AZILE"
+    },
+    {
+      "ordinal": 331,
+      "name": "Vital DESSOURCES",
+      "department": "Nippes",
+      "commune": "L'AZILE"
+    },
+    {
+      "ordinal": 332,
+      "name": "Acénito JOURDAN (PDD)",
+      "department": "Nippes",
+      "commune": "L'AZILE"
+    },
+    {
+      "ordinal": 333,
+      "name": "Jean Kettlin MONLINARD (PDD)",
+      "department": "Nippes",
+      "commune": "BARADERE"
+    },
+    {
+      "ordinal": 334,
+      "name": "Yves Arthur CAMILIEN",
+      "department": "Nippes",
+      "commune": "PETIT TROU DE NIPPES"
+    },
+    {
+      "ordinal": 335,
+      "name": "Christophe LERICHE",
+      "department": "Nippes",
+      "commune": "PETIT TROU DE NIPPES"
+    },
+    {
+      "ordinal": 336,
+      "name": "Brignol MONDESIR (PDD)",
+      "department": "Nippes",
+      "commune": "PETIT TROU DE NIPPES"
+    },
+    {
+      "ordinal": 337,
+      "name": "Alphonse Alfred CAMILIEN",
+      "department": "Nippes",
+      "commune": "PETIT TROU DE NIPPES"
+    },
+    {
+      "ordinal": 338,
+      "name": "Jacques VINCENT PD/CMM",
+      "department": "Nippes",
+      "commune": "GONAIVES"
+    },
+    {
+      "ordinal": 339,
+      "name": "Honide Pierre Charles BIEN-AIMÉ",
+      "department": "Nippes",
+      "commune": "GONAIVES"
+    },
+    {
+      "ordinal": 340,
+      "name": "Emmania S. JEAN-NOEL",
+      "department": "Nippes",
+      "commune": "GONAIVES"
+    },
+    {
+      "ordinal": 341,
+      "name": "Lucanesse ALESSE",
+      "department": "Nippes",
+      "commune": "GONAIVES"
+    },
+    {
+      "ordinal": 342,
+      "name": "Serge NORCEIDE",
+      "department": "Nippes",
+      "commune": "GONAIVES"
+    },
+    {
+      "ordinal": 343,
+      "name": "Rostand BERTHAUD (PDD)",
+      "department": "Nippes",
+      "commune": "GONAIVES"
+    },
+    {
+      "ordinal": 344,
+      "name": "Marc-Henry MOISE",
+      "department": "Nippes",
+      "commune": "GONAIVES"
+    },
+    {
+      "ordinal": 345,
+      "name": "Emmanuel FAUSTIN",
+      "department": "Nippes",
+      "commune": "GONAIVES"
+    },
+    {
+      "ordinal": 346,
+      "name": "Jean Claude A. Gracia RICHARD (PDD)",
+      "department": "Nippes",
+      "commune": "GONAIVES"
+    },
+    {
+      "ordinal": 347,
+      "name": "Marie Scherlly Laurent LAVAUD",
+      "department": "Nippes",
+      "commune": "GONAIVES"
+    },
+    {
+      "ordinal": 348,
+      "name": "Joseph François Max COQ",
+      "department": "Nippes",
+      "commune": "GONAIVES"
+    },
+    {
+      "ordinal": 349,
+      "name": "Rémus RÉGIS",
+      "department": "Nippes",
+      "commune": "GONAIVES"
+    },
+    {
+      "ordinal": 350,
+      "name": "Wedler DEMEZIER",
+      "department": "Nippes",
+      "commune": "GONAIVES"
+    },
+    {
+      "ordinal": 351,
+      "name": "Cariot BIEN-AIME",
+      "department": "Nippes",
+      "commune": "GONAIVES"
+    },
+    {
+      "ordinal": 352,
+      "name": "Pierre Gracia DUMONT",
+      "department": "Nippes",
+      "commune": "SAINT-MICHEL DE L'ATTALAYE"
+    },
+    {
+      "ordinal": 353,
+      "name": "Romuald Yves ANTOINE",
+      "department": "Nippes",
+      "commune": "SAINT-MICHEL DE L'ATTALAYE"
+    },
+    {
+      "ordinal": 354,
+      "name": "Vladimir Hiram ANTOINE",
+      "department": "Nippes",
+      "commune": "SAINT-MICHEL DE L'ATTALAYE"
+    },
+    {
+      "ordinal": 355,
+      "name": "Jacques Radel SIMÉON",
+      "department": "Nippes",
+      "commune": "MARMELADE"
+    },
+    {
+      "ordinal": 356,
+      "name": "Jean-Winston MACAJOUX",
+      "department": "Nippes",
+      "commune": "MARMELADE"
+    },
+    {
+      "ordinal": 357,
+      "name": "Jean-Michel LUCIEN",
+      "department": "Nippes",
+      "commune": "GROS MORNE"
+    },
+    {
+      "ordinal": 358,
+      "name": "Marc Antoine ADOLPHE (PDD)",
+      "department": "Nippes",
+      "commune": "GROS MORNE"
+    },
+    {
+      "ordinal": 359,
+      "name": "Rener DERISSON",
+      "department": "Nippes",
+      "commune": "GROS MORNE"
+    },
+    {
+      "ordinal": 360,
+      "name": "Prévilien SICERON",
+      "department": "Nippes",
+      "commune": "ENERY"
+    },
+    {
+      "ordinal": 361,
+      "name": "Jocelyn AUGUSTIN",
+      "department": "Grand'Anse",
+      "commune": "L'ESTERE"
+    },
+    {
+      "ordinal": 362,
+      "name": "Prosper DESTINVILLE",
+      "department": "Grand'Anse",
+      "commune": "JEREMIE"
+    },
+    {
+      "ordinal": 363,
+      "name": "Jean Ouston LESTIN",
+      "department": "Grand'Anse",
+      "commune": "JEREMIE"
+    },
+    {
+      "ordinal": 364,
+      "name": "Jean Claude CLAIRONNE",
+      "department": "Grand'Anse",
+      "commune": "JEREMIE"
+    },
+    {
+      "ordinal": 365,
+      "name": "Jean Marie M. PIERRE (PDD)",
+      "department": "Grand'Anse",
+      "commune": "JEREMIE"
+    },
+    {
+      "ordinal": 366,
+      "name": "Louis Joseph CAYEMITTE",
+      "department": "Grand'Anse",
+      "commune": "JEREMIE"
+    },
+    {
+      "ordinal": 367,
+      "name": "Jean Ernst THEANO",
+      "department": "Grand'Anse",
+      "commune": "JEREMIE"
+    },
+    {
+      "ordinal": 368,
+      "name": "Ulrick BIEN-AIMÉ",
+      "department": "Grand'Anse",
+      "commune": "DAME-MARIE"
+    },
+    {
+      "ordinal": 369,
+      "name": "Dunord JEUNE",
+      "department": "Grand'Anse",
+      "commune": "DAME-MARIE"
+    },
+    {
+      "ordinal": 370,
+      "name": "Hermann SAINT-CLOUD (PDD)",
+      "department": "Grand'Anse",
+      "commune": "ANSE D'HAINAULT"
+    },
+    {
+      "ordinal": 371,
+      "name": "Jean Félix JEANTY (PDD)",
+      "department": "Grand'Anse",
+      "commune": "ANSE D'HAINAULT"
+    },
+    {
+      "ordinal": 372,
+      "name": "Pradel PH. ÉTIENNE (PDD)",
+      "department": "Grand'Anse",
+      "commune": "CORAIL"
+    },
+    {
+      "ordinal": 373,
+      "name": "Eddy NOEL",
+      "department": "Grand'Anse",
+      "commune": "CORAIL"
+    },
+    {
+      "ordinal": 374,
+      "name": "Rouzier POLYCARPE (PDD)",
+      "department": "Grand'Anse",
+      "commune": "ABRICOTS"
+    },
+    {
+      "ordinal": 375,
+      "name": "Phitéas MICHEL (PDD)",
+      "department": "Grand'Anse",
+      "commune": "BEAUMONT"
+    },
+    {
+      "ordinal": 376,
+      "name": "Jean Bernard WESH",
+      "department": "Grand'Anse",
+      "commune": "BEAUMONT"
+    },
+    {
+      "ordinal": 377,
+      "name": "Félix LEVEQUE (PDD)",
+      "department": "Grand'Anse",
+      "commune": "MORON"
+    },
+    {
+      "ordinal": 378,
+      "name": "Dominique DUVERT (PDD)",
+      "department": "Grand'Anse",
+      "commune": "MORON"
+    },
+    {
+      "ordinal": 379,
+      "name": "Edner ÉTIENNE (PDD)",
+      "department": "Grand'Anse",
+      "commune": "LES ROSEAUX"
+    },
+    {
+      "ordinal": 380,
+      "name": "Antoine N. GILLES (PDD)",
+      "department": "Grand'Anse",
+      "commune": "PESTEL"
+    },
+    {
+      "ordinal": 381,
+      "name": "Raguel CADIO (PDD)",
+      "department": "Grand'Anse",
+      "commune": "LES IROIS"
+    },
+    {
+      "ordinal": 382,
+      "name": "Fortune MEDY",
+      "department": "Grand'Anse",
+      "commune": "CHAMBELAIN"
+    },
+    {
+      "ordinal": 383,
+      "name": "Rossini BLAISE",
+      "department": "Nord-Est",
+      "commune": "FORT-LIBERTÉ"
+    },
+    {
+      "ordinal": 384,
+      "name": "Stefen Jacques ANTOINE (PDD)",
+      "department": "Nord-Est",
+      "commune": "FORT-LIBERTÉ"
+    },
+    {
+      "ordinal": 385,
+      "name": "Saint-Louis CHARLES",
+      "department": "Nord-Est",
+      "commune": "FORT-LIBERTÉ"
+    },
+    {
+      "ordinal": 386,
+      "name": "Dienjuste DALISMA (PDD)",
+      "department": "Nord-Est",
+      "commune": "CARICE"
+    },
+    {
+      "ordinal": 387,
+      "name": "Joseph Octave ALBERT (PDD)",
+      "department": "Nord-Est",
+      "commune": "CARICE"
+    },
+    {
+      "ordinal": 388,
+      "name": "Armand JOSEPH",
+      "department": "Nord-Est",
+      "commune": "OUANAMINTHE"
+    },
+    {
+      "ordinal": 389,
+      "name": "Jacques Louis DUMAY (PDD)",
+      "department": "Nord-Est",
+      "commune": "OUANAMINTHE"
+    },
+    {
+      "ordinal": 390,
+      "name": "Adèle BERNARD",
+      "department": "Nord-Est",
+      "commune": "OUANAMINTHE"
+    },
+    {
+      "ordinal": 391,
+      "name": "Jean Rodolphe JOAZILE",
+      "department": "Nord-Est",
+      "commune": "OUANAMINTHE"
+    },
+    {
+      "ordinal": 392,
+      "name": "Gabriel CODIO (PDD)",
+      "department": "Nord-Est",
+      "commune": "MONT-ORGANISÉ"
+    },
+    {
+      "ordinal": 393,
+      "name": "Délinois JOSEPH (PDD)",
+      "department": "Nord-Est",
+      "commune": "FERRIER"
+    },
+    {
+      "ordinal": 394,
+      "name": "Franklin PÉTION",
+      "department": "Nord-Est",
+      "commune": "LES PERCHES"
+    },
+    {
+      "ordinal": 395,
+      "name": "Luina MANIGAT (PDD)",
+      "department": "Nord-Est",
+      "commune": "LES PERCHES"
+    },
+    {
+      "ordinal": 396,
+      "name": "Wilnique JOSEPH (PDD)",
+      "department": "Nord-Est",
+      "commune": "LES PERCHES"
+    },
+    {
+      "ordinal": 397,
+      "name": "Joseph BRUNO (PDD)",
+      "department": "Nord-Est",
+      "commune": "TERRIER-ROUGE"
+    },
+    {
+      "ordinal": 398,
+      "name": "Miguel FUCIEN (PDD)",
+      "department": "Nord-Est",
+      "commune": "TERRIER-ROUGE"
+    },
+    {
+      "ordinal": 399,
+      "name": "Chrisne BAPTISTE",
+      "department": "Nord-Est",
+      "commune": "TERRIER-ROUGE"
+    },
+    {
+      "ordinal": 400,
+      "name": "Mécéjour FLORVILUS (PDD)",
+      "department": "Nord-Est",
+      "commune": "VALLIERES"
+    },
+    {
+      "ordinal": 401,
+      "name": "Kency PIERRE (PDD)",
+      "department": "Nord-Est",
+      "commune": "TROU DU NORD"
+    },
+    {
+      "ordinal": 402,
+      "name": "Edelin Etienne JOSEPH",
+      "department": "Nord-Est",
+      "commune": "TROU DU NORD"
+    },
+    {
+      "ordinal": 403,
+      "name": "Duvignol JEAN (PDD)",
+      "department": "Nord-Est",
+      "commune": "MONBIN CROCHU"
+    },
+    {
+      "ordinal": 404,
+      "name": "Décius DÉJOIE",
+      "department": "Nord-Est",
+      "commune": "SAINTE SUZANNE"
+    },
+    {
+      "ordinal": 405,
+      "name": "Darnick Christonia Irvinn Dorval JEAN-CHARLES",
+      "department": "Nord-Ouest",
+      "commune": "PORT-DE-PAIX"
+    },
+    {
+      "ordinal": 406,
+      "name": "Nickenson VASSOR",
+      "department": "Nord-Ouest",
+      "commune": "PORT-DE-PAIX"
+    },
+    {
+      "ordinal": 407,
+      "name": "Jean Robert DOCTEUR (PDD)",
+      "department": "Nord-Ouest",
+      "commune": "PORT-DE-PAIX"
+    },
+    {
+      "ordinal": 408,
+      "name": "Fresnel AUGUSTE (PDD)",
+      "department": "Nord-Ouest",
+      "commune": "PORT-DE-PAIX"
+    },
+    {
+      "ordinal": 409,
+      "name": "Levelt PHILAMA",
+      "department": "Nord-Ouest",
+      "commune": "PORT-DE-PAIX"
+    },
+    {
+      "ordinal": 410,
+      "name": "Gadyel NAISSANCE",
+      "department": "Nord-Ouest",
+      "commune": "PORT-DE-PAIX"
+    },
+    {
+      "ordinal": 411,
+      "name": "Junnior BOUQUETTE",
+      "department": "Nord-Ouest",
+      "commune": "PORT-DE-PAIX"
+    },
+    {
+      "ordinal": 412,
+      "name": "Théojuste GASPARD (PDD)",
+      "department": "Nord-Ouest",
+      "commune": "ANSE A FOLEUR"
+    },
+    {
+      "ordinal": 413,
+      "name": "Emmanuel A. LOUIS (PDD)",
+      "department": "Nord-Ouest",
+      "commune": "ANSE A FOLEUR"
+    },
+    {
+      "ordinal": 414,
+      "name": "François HENRY (PDD)",
+      "department": "Nord-Ouest",
+      "commune": "JEAN RABEL"
+    },
+    {
+      "ordinal": 415,
+      "name": "Bergenson Christian JEAN MARY",
+      "department": "Nord-Ouest",
+      "commune": "JEAN RABEL"
+    },
+    {
+      "ordinal": 416,
+      "name": "Ramires Tournier TOUSSAINT",
+      "department": "Nord-Ouest",
+      "commune": "SAINT LOUIS DU NORD"
+    },
+    {
+      "ordinal": 417,
+      "name": "Herby LOUISSAINT",
+      "department": "Nord-Ouest",
+      "commune": "SAINT LOUIS DU NORD"
+    },
+    {
+      "ordinal": 418,
+      "name": "Délile PIERRE-LOUIS",
+      "department": "Nord-Ouest",
+      "commune": "SAINT LOUIS DU NORD"
+    },
+    {
+      "ordinal": 419,
+      "name": "Nelfrar NORD",
+      "department": "Nord-Ouest",
+      "commune": "SAINT LOUIS DU NORD"
+    },
+    {
+      "ordinal": 420,
+      "name": "Eddy LOUIS JOSEPH",
+      "department": "Nord-Ouest",
+      "commune": "BASSIN BLEU"
+    },
+    {
+      "ordinal": 421,
+      "name": "Carnovil BARTHÉLUS (PDD)",
+      "department": "Nord-Ouest",
+      "commune": "BASSIN BLEU"
+    },
+    {
+      "ordinal": 422,
+      "name": "Louis C. NELSON (PDD)",
+      "department": "Nord-Ouest",
+      "commune": "BASSIN BLEU"
+    },
+    {
+      "ordinal": 423,
+      "name": "Fretchner ANTOINE",
+      "department": "Nord-Ouest",
+      "commune": "MOLE SAINT NICOLAS"
+    }
+  ]
+}
