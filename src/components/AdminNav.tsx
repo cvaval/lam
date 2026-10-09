@@ -6,7 +6,7 @@ import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale, Role } from '@/lib/types'
 import { can } from '@/lib/rbac'
 
-export function AdminNav({ locale, t, role, enAttente = 0 }: { locale: Locale; t: Dictionary; role: Role; enAttente?: number }) {
+export function AdminNav({ locale, t, role, enAttente = 0, demandesNotaires = 0 }: { locale: Locale; t: Dictionary; role: Role; enAttente?: number; demandesNotaires?: number }) {
   const pathname = usePathname() || ''
   // Deux natures de travail, deux groupes : la CURATION du corpus, ouverte à la rédaction,
   // et la GOUVERNANCE — comptes, facturation, journaux — réservée au master admin.
@@ -25,6 +25,7 @@ export function AdminNav({ locale, t, role, enAttente = 0 }: { locale: Locale; t
         { href: `/${locale}/admin/brh`, label: t.admin.brhNav },
         { href: `/${locale}/admin/tarifs`, label: t.admin.tarifsNav },
         { href: `/${locale}/admin/juridictions`, label: t.admin.juridictionsNav },
+        { href: `/${locale}/admin/notaires`, label: t.admin.notairesNav },
         { href: `/${locale}/admin/delais`, label: t.delaisAdmin.nav },
         { href: `/${locale}/admin/themes`, label: t.admin.themesNav },
         { href: `/${locale}/admin/jurisprudence`, label: 'Jurisprudence' },
@@ -36,6 +37,7 @@ export function AdminNav({ locale, t, role, enAttente = 0 }: { locale: Locale; t
   const gouvernance = estMaster
     ? [
         { href: `/${locale}/admin`, label: t.admin.overview, exact: true, badge: enAttente },
+        { href: `/${locale}/admin/notaires/demandes`, label: t.admin.notaryRequestsNav, badge: demandesNotaires, badgeTitle: t.admin.notaryRequestsBadge },
         { href: `/${locale}/admin/users`, label: t.admin.users },
         { href: `/${locale}/admin/connexions`, label: 'Connexions' },
         { href: `/${locale}/admin/recherches`, label: 'Recherches' },
@@ -44,7 +46,7 @@ export function AdminNav({ locale, t, role, enAttente = 0 }: { locale: Locale; t
       ]
     : []
 
-  const groupes: { titre: string; items: { href: string; label: string; exact?: boolean; badge?: number }[] }[] = [
+  const groupes: { titre: string; items: { href: string; label: string; exact?: boolean; badge?: number; badgeTitle?: string }[] }[] = [
     { titre: 'Corpus', items: curation },
     { titre: 'Administration', items: gouvernance },
   ].filter((g) => g.items.length)
@@ -58,7 +60,9 @@ export function AdminNav({ locale, t, role, enAttente = 0 }: { locale: Locale; t
             <p className="px-3 pb-1 text-[10px] font-semibold uppercase tracking-widest text-koton/70">{g.titre}</p>
           )}
           {g.items.map((it) => {
-            const active = it.exact ? pathname === it.href : pathname.startsWith(it.href)
+            // Le lien le plus PRÉCIS l'emporte : « Notaires » ne s'allume pas sur « Demandes de notaires ».
+            const plusPrecis = groupes.some((x) => x.items.some((o) => o.href.length > it.href.length && o.href.startsWith(it.href) && pathname.startsWith(o.href)))
+            const active = it.exact ? pathname === it.href : pathname.startsWith(it.href) && !plusPrecis
             return (
               <Link
                 key={it.href}
@@ -75,10 +79,10 @@ export function AdminNav({ locale, t, role, enAttente = 0 }: { locale: Locale; t
                 {it.badge ? (
                   <span
                     className="ml-2 inline-flex min-w-[1.25rem] justify-center rounded-full bg-wouj px-1.5 py-0.5 align-middle font-mono text-[10px] font-semibold text-white"
-                    title={t.admin.kpiPending}
+                    title={it.badgeTitle ?? t.admin.kpiPending}
                   >
                     {it.badge}
-                    <span className="sr-only"> {t.admin.kpiPending}</span>
+                    <span className="sr-only"> {it.badgeTitle ?? t.admin.kpiPending}</span>
                   </span>
                 ) : null}
               </Link>

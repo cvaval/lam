@@ -7,6 +7,7 @@ import { isLocale, LOCALES } from '@/lib/types'
 import { getNotaryDirectory, getNotaryIndex } from '@/lib/jurisdictions/data'
 import { searchNotaries } from '@/lib/jurisdictions/search-notaries'
 import { NotaryDirectoryView } from '@/components/jurisdictions/NotaryDirectoryView'
+import { demandesOuvertes } from '@/lib/jurisdictions/notaires-demandes'
 
 export const dynamic = 'force-dynamic'
 
@@ -59,7 +60,7 @@ export default async function NotairesParJuridictionPage({
         </h1>
         <p className="mt-2 max-w-3xl leading-relaxed text-grafit">{j.notariesIntro}</p>
 
-        <NotaryDirectoryView dir={dir} locale={locale} t={t} filter={filter} />
+        <NotaryDirectoryView dir={dir} locale={locale} t={t} filter={filter} demandes={demandesOuvertes()} />
 
         <p className="mt-8">
           <Link href={`/${locale}/juridictions`} className="inline-flex min-h-[44px] items-center text-sm font-medium text-ank underline underline-offset-2 transition hover:text-chabon">

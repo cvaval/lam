@@ -25,6 +25,10 @@ export default async function AdminLayout({
   // on la voit. Elle ne concerne que le master admin, seul à pouvoir activer un compte.
   const enAttente =
     user.role === 'MASTER_ADMIN' ? await prisma.user.count({ where: { status: 'PENDING' } }) : 0
+  // Demandes de tiers sur les notaires : même logique. Table absente (code déployé avant la
+  // migration) → 0, jamais une console en erreur.
+  const demandesNotaires =
+    user.role === 'MASTER_ADMIN' ? await prisma.notaryRequest.count({ where: { status: 'NOUVELLE' } }).catch(() => 0) : 0
 
   return (
     <div className="flex min-h-screen bg-koton">
@@ -40,7 +44,7 @@ export default async function AdminLayout({
         <p className="mb-6 px-2 text-[10px] font-semibold uppercase tracking-widest text-koton/70">
           {user.role === 'MASTER_ADMIN' ? 'Master Admin' : t.roles.EDITEUR}
         </p>
-        <AdminNav locale={locale} t={t} role={user.role} enAttente={enAttente} />
+        <AdminNav locale={locale} t={t} role={user.role} enAttente={enAttente} demandesNotaires={demandesNotaires} />
         <div className="mt-auto px-2 pt-6">
           <Link href={`/${locale}/dashboard`} className="text-xs text-white/70 hover:text-white">
             ← {t.nav.dashboard}

@@ -12,6 +12,7 @@ import { attributionsCarte } from '@/lib/jurisdictions/fond-de-rues'
 import { JudicialSearch } from '@/components/jurisdictions/JudicialSearch'
 import { JudicialFilters } from '@/components/jurisdictions/JudicialFilters'
 import { JudicialResults } from '@/components/jurisdictions/JudicialResults'
+import { demandesOuvertes } from '@/lib/jurisdictions/notaires-demandes'
 import { MapLegend } from '@/components/jurisdictions/MapLegend'
 import { JudicialMapClient } from '@/components/jurisdictions/JudicialMapClient'
 import { MobileResultsSheet } from '@/components/jurisdictions/MobileResultsSheet'
@@ -82,7 +83,7 @@ export default async function JuridictionsPage({
         </p>
       )}
       {record ? (
-        <JudicialResults record={record} locale={locale} t={t} />
+        <JudicialResults record={record} locale={locale} t={t} demandes={demandesOuvertes()} />
       ) : (
         !notFound && <p className="rounded-xl border border-chabon/10 bg-white px-4 py-3 text-sm text-grafit">{t.judicial.selectPrompt}</p>
       )}

@@ -38,6 +38,7 @@ for (const k of ['DATABASE_URL', 'DIRECT_URL']) if (env[k]) process.env[k] = env
 
 import { prisma } from '../src/lib/db'
 import { audit } from '../src/lib/auth/audit'
+import { EDITION_TIERS } from '../src/lib/jurisdictions/notaires-demandes'
 import {
   buildNotaryPlan, diffNotaries, notarySeedSchema, type CommuneRef, type NotaryPlan,
 } from '../src/lib/jurisdictions/notaires-plan'
@@ -174,7 +175,9 @@ async function main() {
   if (tableAbsente) {
     console.log('  ⚠ table « Notary » absente : `prisma db push` puis `npm run db:rls` requis avant --apply')
   } else {
-    existing = await prisma.notary.findMany()
+    // Les entrées ajoutées par la rédaction (édition `tiers`) ne viennent pas de la liste :
+    // elles ne sont ni comparées ni signalées comme orphelines.
+    existing = await prisma.notary.findMany({ where: { edition: { not: EDITION_TIERS } } })
     console.log(`  ${rls ? '✓' : '✗'} sécurité par ligne (RLS) sur « Notary » : ${rls ? 'active' : 'INACTIVE — lancer `npm run db:rls`'}`)
   }
 

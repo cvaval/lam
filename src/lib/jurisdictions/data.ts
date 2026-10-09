@@ -17,6 +17,7 @@ import { normalizePlaceName } from './normalize-place'
 import { nomJuridiction } from './notaires-format'
 import { readPhones } from './coordonnees'
 import { buildNotaryIndex, type NotaryIndex } from './search-notaries'
+import { EDITION_TIERS } from './notaires-demandes'
 import type { CourtType } from './constants'
 
 export interface SourceRef { type: 'url' | 'file'; value: string }
@@ -62,6 +63,8 @@ export interface NotaryView {
   mention: string | null
   /** Une fiche de coordonnées active existe (elles ne s'affichent que sur la page du notaire). */
   hasContact: boolean
+  /** Entrée AJOUTÉE par la rédaction après vérification (édition `tiers`), hors de la liste du MJSP. */
+  addedByEditors: boolean
 }
 
 /**
@@ -69,20 +72,26 @@ export interface NotaryView {
  * encore créée (P2021, 42P01), client Prisma antérieur au modèle, ou colonne pas encore migrée
  * (P2022 — le code déployé avant `prisma db push`). La page se sert alors sans les notaires.
  */
-const lectureNotairesImpossible = (e: unknown) =>
+export const lectureNotairesImpossible = (e: unknown) =>
   estSchemaAbsent(e) || (typeof e === 'object' && e !== null && (e as { code?: unknown }).code === 'P2022')
 
 const NOTAIRE_VUE = {
-  id: true, ordinal: true, fullName: true, displayName: true, mention: true,
+  id: true, ordinal: true, edition: true, fullName: true, displayName: true, mention: true,
   contact: { select: { active: true } },
 } as const
 
 const versVue = (n: {
-  id: string; ordinal: number; fullName: string; displayName: string | null; mention: string | null
+  id: string; ordinal: number; edition: string; fullName: string; displayName: string | null; mention: string | null
   contact: { active: boolean } | null
 }): NotaryView => ({
   id: n.id, ordinal: n.ordinal, fullName: n.displayName ?? n.fullName, mention: n.mention, hasContact: Boolean(n.contact?.active),
+  addedByEditors: n.edition === EDITION_TIERS,
 })
+
+/** Les inscriptions de la liste d'abord (par numéro), puis celles ajoutées par la rédaction. */
+const ORDRE_NOTAIRES = [{ edition: 'asc' as const }, { ordinal: 'asc' as const }]
+/** La provenance de la LISTE se lit sur une entrée de la liste, jamais sur une entrée ajoutée. */
+const SOURCE_LISTE = { where: { edition: { not: EDITION_TIERS } }, select: { sourceJson: true }, orderBy: { updatedAt: 'desc' as const } }
 
 /** Communes du ressort d'un TPI et nombre de notaires actifs de chacune. */
 export interface RessortCount { communeId: string; communeName: string; count: number }
@@ -264,6 +273,14 @@ const lireProvenance = (json: string | null | undefined): NotaryProvenance | nul
   } catch { return null }
 }
 
+/** Date de la vérification consignée d'une entrée ajoutée par la rédaction (`sourceJson.verifiedOn`). */
+const lireVerification = (json: string | null | undefined): string | null => {
+  try {
+    const v = (JSON.parse(json ?? 'null') as { verifiedOn?: unknown } | null)?.verifiedOn
+    return typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v) ? v : null
+  } catch { return null }
+}
+
 /**
  * Notaires d'une commune + comptes du ressort de son TPI + provenance. `null` si la table
  * n'existe pas encore (code déployé avant la migration) : la fiche reste servie, sans section.
@@ -273,7 +290,7 @@ async function chargerNotairesCommune(communeId: string, tpiId: string | null) {
     const [liste, ressortCommunes, comptes, source] = await Promise.all([
       prisma.notary.findMany({
         where: { communeId, active: true },
-        orderBy: { ordinal: 'asc' },
+        orderBy: ORDRE_NOTAIRES,
         select: NOTAIRE_VUE,
       }),
       tpiId
@@ -289,7 +306,7 @@ async function chargerNotairesCommune(communeId: string, tpiId: string | null) {
             _count: { _all: true },
           })
         : Promise.resolve([]),
-      prisma.notary.findFirst({ select: { sourceJson: true }, orderBy: { updatedAt: 'desc' } }),
+      prisma.notary.findFirst(SOURCE_LISTE),
     ])
     const n = new Map(comptes.map((c) => [c.communeId, c._count._all]))
     const ressort: RessortCount[] | null = tpiId
@@ -341,10 +358,12 @@ export async function getNotaryPoints(): Promise<NotaryPointsResult> {
 }
 
 export interface NotaryDirectory {
-  /** Entrées de la liste (actives ou retirées). */
+  /** Entrées de la LISTE DU MJSP (actives ou retirées). */
   totalEntries: number
-  /** Entrées affichées (actives), commune reconnue ou non. */
+  /** Entrées de la liste affichées (actives), commune reconnue ou non. */
   activeEntries: number
+  /** Entrées actives AJOUTÉES par la rédaction après vérification (hors liste). */
+  addedEntries: number
   provenance: NotaryProvenance | null
   tpis: Array<{
     id: string
@@ -375,7 +394,7 @@ export async function getNotaryDirectory(): Promise<NotaryDirectory | null> {
   try {
     const [notaires, communes, source] = await Promise.all([
       prisma.notary.findMany({
-        orderBy: { ordinal: 'asc' },
+        orderBy: ORDRE_NOTAIRES,
         select: { ...NOTAIRE_VUE, communeId: true, sourceDepartment: true, sourceCommune: true, active: true },
       }),
       prisma.judicialCommune.findMany({
@@ -385,7 +404,7 @@ export async function getNotaryDirectory(): Promise<NotaryDirectory | null> {
           jurisdictions: { where: { relationship: 'TPI_COMPETENT' }, select: { court: { select: { id: true, name: true, active: true } } } },
         },
       }),
-      prisma.notary.findFirst({ select: { sourceJson: true }, orderBy: { updatedAt: 'desc' } }),
+      prisma.notary.findFirst(SOURCE_LISTE),
     ])
     const actifs = notaires.filter((n) => n.active)
     const parCommune = new Map<string, typeof actifs>()
@@ -414,9 +433,11 @@ export async function getNotaryDirectory(): Promise<NotaryDirectory | null> {
     const sorted = [...tpis.values()].sort((a, b) => a.label.localeCompare(b.label, 'fr'))
     for (const t of sorted) t.communes.sort((a, b) => a.name.localeCompare(b.name, 'fr'))
 
+    const deLaListe = (n: { edition: string }) => n.edition !== EDITION_TIERS
     return {
-      totalEntries: notaires.length,
-      activeEntries: actifs.length,
+      totalEntries: notaires.filter(deLaListe).length,
+      activeEntries: actifs.filter(deLaListe).length,
+      addedEntries: actifs.filter((n) => !deLaListe(n)).length,
       provenance: lireProvenance(source?.sourceJson),
       tpis: sorted,
       unmatched: actifs.filter((n) => !n.communeId).map((n) => ({
@@ -444,8 +465,11 @@ export interface NotaryProfile {
   sourceCommune: string
   /** Juridiction déduite de la commune, affichée SANS « TPI » (`nomJuridiction`). */
   jurisdiction: { id: string; label: string } | null
-  contact: { address: string | null; phones: string[]; email: string | null; upToDateOn: string | null } | null
+  /** `viaRequest` : fiche issue de la demande d'un tiers, vérifiée par la rédaction (`sourceJson.requestId`). */
+  contact: { address: string | null; phones: string[]; email: string | null; upToDateOn: string | null; viaRequest: boolean } | null
   provenance: NotaryProvenance | null
+  /** Entrée ajoutée par la rédaction (hors liste du MJSP) : date de la vérification consignée. */
+  addedByEditors: { verifiedOn: string | null } | null
 }
 
 const NOTARY_ID_RE = /^[a-z0-9][a-z0-9-]{2,119}$/
@@ -460,7 +484,7 @@ export async function getNotaryProfile(id: string): Promise<NotaryProfile | null
     const n = await prisma.notary.findUnique({
       where: { id },
       select: {
-        id: true, ordinal: true, fullName: true, displayName: true, mention: true, active: true,
+        id: true, ordinal: true, edition: true, fullName: true, displayName: true, mention: true, active: true,
         sourceCommune: true, sourceJson: true,
         commune: {
           select: {
@@ -468,7 +492,7 @@ export async function getNotaryProfile(id: string): Promise<NotaryProfile | null
             jurisdictions: { where: { relationship: 'TPI_COMPETENT' }, select: { court: { select: { id: true, name: true, active: true } } } },
           },
         },
-        contact: { select: { address: true, phonesJson: true, email: true, upToDateOn: true, active: true } },
+        contact: { select: { address: true, phonesJson: true, email: true, upToDateOn: true, active: true, sourceJson: true } },
       },
     })
     if (!n || !n.active) return null
@@ -484,9 +508,14 @@ export async function getNotaryProfile(id: string): Promise<NotaryProfile | null
       sourceCommune: n.sourceCommune,
       jurisdiction: court ? { id: court.id, label: nomJuridiction(court.name) } : null,
       contact: c
-        ? { address: c.address, phones: readPhones(c.phonesJson), email: c.email, upToDateOn: c.upToDateOn ? c.upToDateOn.toISOString().slice(0, 10) : null }
+        ? {
+            address: c.address, phones: readPhones(c.phonesJson), email: c.email,
+            upToDateOn: c.upToDateOn ? c.upToDateOn.toISOString().slice(0, 10) : null,
+            viaRequest: ((): boolean => { try { return Boolean((JSON.parse(c.sourceJson ?? '{}') as { requestId?: unknown }).requestId) } catch { return false } })(),
+          }
         : null,
-      provenance: lireProvenance(n.sourceJson),
+      provenance: n.edition === EDITION_TIERS ? null : lireProvenance(n.sourceJson),
+      addedByEditors: n.edition === EDITION_TIERS ? { verifiedOn: lireVerification(n.sourceJson) } : null,
     }
   } catch (e) {
     if (lectureNotairesImpossible(e)) return null

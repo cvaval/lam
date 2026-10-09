@@ -25,8 +25,15 @@ export function NotaryName({ n, locale, t }: { n: NotaryView; locale: Locale; t:
       </Link>
       {m && <span className="ml-1 font-mono text-[11px] text-ank/80">{m}</span>}
       {n.hasContact && <span className="ml-1.5 text-[11px] text-ank/70">· {t.judicial.notaryContactBadge}</span>}
+      {n.addedByEditors && <span className="ml-1.5 text-[11px] text-ank/70">· {t.judicial.notaryAddedBadge}</span>}
     </>
   )
+}
+
+/** Lien DISCRET vers le formulaire des tiers — rendu seulement quand il est ouvert. */
+export function lienDemande(locale: Locale, params: { notaire?: string; type?: 'inscription' }): string {
+  const qs = params.notaire ? `?notaire=${params.notaire}` : params.type ? `?type=${params.type}` : ''
+  return `/${locale}/juridictions/notaires/demande${qs}`
 }
 
 /**
@@ -35,8 +42,8 @@ export function NotaryName({ n, locale, t }: { n: NotaryView; locale: Locale; t:
  * fiche). Une commune sans notaire le dit en toutes lettres : la section n'est jamais vide.
  */
 export function NotariesSection({
-  notaires, provenance, tpiId, locale, t,
-}: { notaires: NotaryView[]; provenance: NotaryProvenance | null; tpiId: string | null; locale: Locale; t: Dictionary }) {
+  notaires, provenance, tpiId, locale, t, demandes = false,
+}: { notaires: NotaryView[]; provenance: NotaryProvenance | null; tpiId: string | null; locale: Locale; t: Dictionary; demandes?: boolean }) {
   const j = t.judicial
   return (
     <section aria-labelledby="ag-notaires-titre">
@@ -50,7 +57,7 @@ export function NotariesSection({
         ) : (
           <ol className="flex flex-col gap-1 text-sm text-ank">
             {notaires.map((n) => (
-              <li key={n.ordinal}><NotaryName n={n} locale={locale} t={t} /></li>
+              <li key={n.id}><NotaryName n={n} locale={locale} t={t} /></li>
             ))}
           </ol>
         )}
@@ -61,6 +68,13 @@ export function NotariesSection({
         >
           {j.notariesByJurisdiction} →
         </Link>
+        {demandes && (
+          <p className="text-[12px] text-ank/80">
+            <Link href={lienDemande(locale, { type: 'inscription' })} className="inline-flex min-h-[44px] items-center underline underline-offset-2 transition hover:text-chabon">
+              {j.notaryRequestLinkListing}
+            </Link>
+          </p>
+        )}
       </div>
     </section>
   )

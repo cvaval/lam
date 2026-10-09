@@ -878,6 +878,31 @@ model NotaryContact {
   notary Notary @relation(fields: [notaryId], references: [id])
 }
 
+/// Demande d'un TIERS (notaire, étude) : ajouter ou corriger des coordonnées, ou figurer sur la
+/// carte. Une demande n'est qu'une DÉCLARATION : rien de publié ne change avant la décision du
+/// master admin. `requesterEmail` n'est JAMAIS publié et ne reçoit JAMAIS de courriel automatique
+/// (le site ne doit pas servir de relais pour écrire à n'importe qui). Purgée 12 mois après la
+/// décision (cron des sessions). RLS exigée, comme toute table.
+model NotaryRequest {
+  id             String    @id @default(cuid())
+  kind           String // CONTACT | LISTING
+  notaryId       String? // entrée visée (CONTACT)
+  payloadJson    String // champs validés et normalisés
+  requesterName  String
+  requesterRole  String // NOTAIRE | ETUDE | AUTRE
+  requesterEmail String // jamais publié
+  locale         String
+  status         String    @default("NOUVELLE") // NOUVELLE | EN_COURS | ACCEPTEE | REFUSEE
+  decidedById    String?
+  decidedAt      DateTime?
+  decisionNote   String?
+  notifiedAt     DateTime? // courriel à legal@ accepté par le service d'envoi
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@index([status, createdAt])
+}
+
 /// Note d'un lecteur au sujet d'un document — décisions judiciaires en premier lieu.
 ///
 /// ⚠️ RIEN N'EST PUBLIÉ SANS VALIDATION. Une note naît EN_ATTENTE et n'est visible que de

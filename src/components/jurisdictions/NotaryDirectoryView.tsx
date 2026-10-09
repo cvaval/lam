@@ -3,7 +3,7 @@ import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale } from '@/lib/types'
 import type { NotaryDirectory } from '@/lib/jurisdictions/data'
 import { compte } from '@/lib/jurisdictions/notaires-format'
-import { NotaryName, notarySourceLine } from './NotariesSection'
+import { NotaryName, lienDemande, notarySourceLine } from './NotariesSection'
 
 /**
  * Corps de la liste « notaires par juridiction » : par juridiction (sans « TPI » : les notaires
@@ -12,8 +12,8 @@ import { NotaryName, notarySourceLine } from './NotariesSection'
  * imprimée n'est pas reconnue ont leur section. Rendu serveur, sans JavaScript, imprimable.
  */
 export function NotaryDirectoryView({
-  dir: complet, locale, t, filter = null,
-}: { dir: NotaryDirectory | null; locale: Locale; t: Dictionary; filter?: { q: string; ids: Set<string> } | null }) {
+  dir: complet, locale, t, filter = null, demandes = false,
+}: { dir: NotaryDirectory | null; locale: Locale; t: Dictionary; filter?: { q: string; ids: Set<string> } | null; demandes?: boolean }) {
   const j = t.judicial
   const nb = (n: number) => compte(n, locale, j.notaryCountOne, j.notaryCountMany)
   const dir = complet && filter ? filtrer(complet, filter.ids) : complet
@@ -56,6 +56,7 @@ export function NotaryDirectoryView({
               {j.notariesCount.replace('{active}', String(dir.activeEntries)).replace('{total}', String(dir.totalEntries))}
             </p>
             {dir.activeEntries < dir.totalEntries && <p className="mt-1">{j.notariesCountNote}</p>}
+            {dir.addedEntries > 0 && <p className="mt-1">{compte(dir.addedEntries, locale, j.notariesAddedOne, j.notariesAddedMany)}</p>}
             <p className="mt-1 text-[12px] text-ank/80">{notarySourceLine(dir.provenance, locale, t)}</p>
           </div>
 
@@ -99,7 +100,7 @@ export function NotaryDirectoryView({
                       ) : (
                         <ol className="mt-1 flex flex-col gap-0.5 text-sm text-grafit">
                           {c.notaires.map((n) => (
-                            <li key={n.ordinal}>
+                            <li key={n.id}>
                               <NotaryName n={n} locale={locale} t={t} />
                               {/* Désaccord de département de la source : signalé discrètement. */}
                               {n.printedDepartment && (
@@ -123,7 +124,7 @@ export function NotaryDirectoryView({
                 <p className="mt-1 text-xs leading-relaxed text-ank/80">{j.notariesUnmatchedNote}</p>
                 <ol className="mt-2 flex flex-col gap-0.5 text-sm text-grafit">
                   {dir.unmatched.map((n) => (
-                    <li key={n.ordinal}>
+                    <li key={n.id}>
                       <NotaryName n={n} locale={locale} t={t} />
                       <span className="ml-1.5 text-[11px] text-ank/70">
                         ({j.notariesPrintedCommune} : {n.sourceCommune} · {j.notariesPrintedDepartment} : {n.sourceDepartment})
@@ -134,6 +135,13 @@ export function NotaryDirectoryView({
               </section>
             )}
           </div>
+          {demandes && (
+            <p className="mt-6 text-[12px] text-ank/80">
+              <Link href={lienDemande(locale, { type: 'inscription' })} className="inline-flex min-h-[44px] items-center underline underline-offset-2 transition hover:text-chabon">
+                {j.notaryRequestLinkListing}
+              </Link>
+            </p>
+          )}
         </>
       )}
     </>

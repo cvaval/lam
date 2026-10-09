@@ -14,12 +14,17 @@ function signature(): string {
   return `— ${BRAND.name} · ${BRAND.domain}`
 }
 
-export async function sendMail(opts: { to: string; subject: string; text: string }) {
+/**
+ * Renvoie `true` si le service d'envoi a ACCEPTÉ le message (ou, en développement, s'il a été
+ * journalisé), `false` sinon — sans jamais lever. Les appelants qui l'ignoraient ne changent pas ;
+ * ceux qui doivent savoir (demandes des tiers : `notifiedAt`) le lisent.
+ */
+export async function sendMail(opts: { to: string; subject: string; text: string }): Promise<boolean> {
   const key = process.env.RESEND_API_KEY
   if (!key) {
     // eslint-disable-next-line no-console
     console.log(`\n📧  [MAIL → ${opts.to}] ${opts.subject}\n${opts.text}\n`)
-    return
+    return true
   }
   try {
     const res = await fetch('https://api.resend.com/emails', {
@@ -30,10 +35,13 @@ export async function sendMail(opts: { to: string; subject: string; text: string
     if (!res.ok) {
       // eslint-disable-next-line no-console
       console.warn(`[mail] Resend ${res.status} pour ${opts.to} : ${(await res.text()).slice(0, 200)}`)
+      return false
     }
+    return true
   } catch (e) {
     // eslint-disable-next-line no-console
     console.warn(`[mail] échec d'envoi à ${opts.to} :`, (e as Error).message)
+    return false
   }
 }
 
@@ -204,6 +212,60 @@ export function resetPasswordEmail(email: string, link: string, minutes: number)
       link,
       ``,
       `If you didn't request this, ignore this email — your password stays unchanged.`,
+      ``,
+      signature(),
+    ].join('\n'),
+  }
+}
+
+/**
+ * Demande d'un tiers (notaire, étude) sur la carte judiciaire — notification à la RÉDACTION
+ * (legal@agora.ht, ou `NOTARY_REQUEST_ALERT_TO`), jamais au demandeur.
+ *
+ *  - OBJET FIXE : aucun texte saisi par le public n'y entre (ni retour à la ligne, ni
+ *    tentative d'en-tête) ; le numéro vient de l'identifiant généré par la base.
+ *  - RÉSUMÉ ET LIEN : nom du demandeur, qualité, notaire ou commune visés, date. Téléphones,
+ *    courriels et message se lisent dans le back-office, derrière l'authentification.
+ */
+export function notaryRequestEmail(
+  to: string,
+  d: { id: string; kind: 'CONTACT' | 'LISTING'; requesterName: string; requesterRole: string; cible: string; createdAt: Date },
+) {
+  const base = (process.env.NEXT_PUBLIC_APP_URL ?? `https://${BRAND.domain}`).replace(/\/$/, '')
+  const objet = d.kind === 'CONTACT' ? 'coordonnées' : 'inscription'
+  return {
+    to,
+    subject: `[${BRAND.name}] Demande n° ${d.id.slice(-8)} — ${objet}`,
+    text: [
+      `Une demande vient d'arriver par le formulaire de la carte judiciaire.`,
+      ``,
+      `  Nature    : ${d.kind === 'CONTACT' ? 'ajouter ou corriger des coordonnées' : 'figurer sur la carte (notaire absent de la liste du MJSP)'}`,
+      `  Demandeur : ${d.requesterName} (${d.requesterRole})`,
+      `  Visé      : ${d.cible}`,
+      `  Reçue le  : ${d.createdAt.toISOString().slice(0, 16).replace('T', ' ')} UTC`,
+      ``,
+      `Coordonnées complètes, message et décision : ${base}/fr/admin/notaires/demandes/${d.id}`,
+      ``,
+      `Rien n'est publié avant la décision du master admin. Aucun courriel n'a été envoyé au`,
+      `demandeur : la réponse se fait à la main.`,
+      ``,
+      signature(),
+    ].join('\n'),
+  }
+}
+
+/** Plafond quotidien dépassé : UN seul message, les demandes restent enregistrées. */
+export function notaryRequestVolumeEmail(to: string, nombre: number) {
+  const base = (process.env.NEXT_PUBLIC_APP_URL ?? `https://${BRAND.domain}`).replace(/\/$/, '')
+  return {
+    to,
+    subject: `[${BRAND.name}] Volume anormal de demandes sur la carte judiciaire`,
+    text: [
+      `${nombre} demandes ont été déposées aujourd'hui par le formulaire des notaires.`,
+      `Au-delà de ce seuil, plus aucune notification n'est envoyée aujourd'hui ; toutes les`,
+      `demandes restent enregistrées et visibles dans la file.`,
+      ``,
+      `File : ${base}/fr/admin/notaires/demandes`,
       ``,
       signature(),
     ].join('\n'),

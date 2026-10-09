@@ -15,7 +15,7 @@ import { NotariesSection } from './NotariesSection'
  * (la section « Sources » de la commune a été retirée le 9 oct. 2026, à la demande de la
  * cliente).
  */
-export function JudicialResults({ record, locale, t }: { record: CommuneRecord; locale: Locale; t: Dictionary }) {
+export function JudicialResults({ record, locale, t, demandes = false }: { record: CommuneRecord; locale: Locale; t: Dictionary; demandes?: boolean }) {
   const j = t.judicial
   const { commune, postal, courts } = record
   const ressort = courts.firstInstance?.notairesDuRessort ?? null
@@ -102,6 +102,7 @@ export function JudicialResults({ record, locale, t }: { record: CommuneRecord; 
           tpiId={courts.firstInstance?.id ?? null}
           locale={locale}
           t={t}
+          demandes={demandes}
         />
       )}
 

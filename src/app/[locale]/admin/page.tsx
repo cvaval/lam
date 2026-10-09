@@ -6,6 +6,7 @@ import { redirect } from 'next/navigation'
 import { requireCapability } from '@/lib/auth/guard'
 import { prisma } from '@/lib/db'
 import { debutDeJourneeHaiti } from '@/lib/i18n/format'
+import { demandesOuvertes } from '@/lib/jurisdictions/notaires-demandes'
 
 export default async function AdminOverview({ params }: { params: { locale: string } }) {
   const { locale, t } = dictFor(params.locale)
@@ -15,13 +16,17 @@ export default async function AdminOverview({ params }: { params: { locale: stri
   const user = await requireCapability(locale, 'upload.publish')
   if (user.role !== 'MASTER_ADMIN') redirect(`/${locale}/admin/jurisprudence`)
 
-  const [registered, searchesToday, scrapingAlerts, pending] = await Promise.all([
+  const [registered, searchesToday, scrapingAlerts, pending, notaires] = await Promise.all([
     prisma.user.count(),
     // « Aujourd'hui » = la journée de Port-au-Prince, pas celle de Vercel (UTC) : à 20 h à
     // Port-au-Prince, le compteur affichait 0 pendant que 92 recherches avaient été faites.
     prisma.searchLog.count({ where: { createdAt: { gte: debutDeJourneeHaiti() } } }),
     prisma.auditLog.count({ where: { action: 'SCRAPING_ALERT' } }),
     prisma.user.findMany({ where: { status: 'PENDING' }, orderBy: { requestedAt: 'asc' } }),
+    // Demandes de tiers sur les notaires (table absente avant la migration → rien).
+    prisma.notaryRequest
+      .findMany({ where: { status: { in: ['NOUVELLE', 'EN_COURS'] } }, orderBy: { createdAt: 'asc' }, select: { createdAt: true } })
+      .catch(() => null),
   ])
 
   // ⚠️ LA FILE D'ATTENTE EST LE SEUL KPI QUI COÛTE À QUELQU'UN. Les trois autres se
@@ -45,6 +50,16 @@ export default async function AdminOverview({ params }: { params: { locale: stri
       alerte: pending.length > 0,
       href: '#comptes-en-attente',
     },
+    // Visible dès que le formulaire est ouvert, ou qu'une demande attend.
+    ...(notaires && (demandesOuvertes() || notaires.length)
+      ? [{
+          label: t.admin.kpiNotaryRequests,
+          value: notaires.length,
+          note: notaires.length ? t.admin.pendingOldest.replace('{n}', String(jours(notaires[0].createdAt))) : t.admin.pendingNone,
+          alerte: notaires.length > 0,
+          href: `/${locale}/admin/notaires/demandes`,
+        }]
+      : []),
   ]
 
   const pendingUsers: AdminUser[] = pending.map(toAdminUser)

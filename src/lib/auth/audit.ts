@@ -47,6 +47,11 @@ export type AuditAction =
   // Carte judiciaire : import du référentiel + modifications administratives
   | 'JUDICIAL_IMPORT'
   | 'JUDICIAL_UPDATED'
+  // Notaires (9 oct. 2026) : fiche de coordonnées saisie par la rédaction (avant / après),
+  // demande d'un tiers reçue (SANS son contenu), décision du master admin sur une demande.
+  | 'NOTARY_CONTACT_UPDATED'
+  | 'NOTARY_REQUEST_CREATED'
+  | 'NOTARY_REQUEST_DECIDED'
   // Calculateur de délais (§ 7) : répertoire, calendrier des fêtes, fenêtres de
   // signification. MASQUER et SUPPRIMER sont deux actions distinctes parce que ce sont
   // deux décisions distinctes — la première est réversible, la seconde est réservée au

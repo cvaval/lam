@@ -7,13 +7,13 @@ import { mentionAsPrinted } from '@/lib/jurisdictions/notaires-source'
 import { dateLongue } from '@/lib/jurisdictions/notaires-format'
 import { formatPhone } from '@/lib/jurisdictions/coordonnees'
 import { DEFAULT_LAYERS, serializeLayers } from '@/lib/jurisdictions/layers'
-import { notarySourceLine } from './NotariesSection'
+import { lienDemande, notarySourceLine } from './NotariesSection'
 
 /**
  * Corps de la page d'un notaire : identité, commune, juridiction (sans « TPI »), coordonnées de
  * l'étude — le SEUL endroit où elles s'affichent — et provenances en clair. Rendu serveur.
  */
-export function NotaryProfileView({ p, locale, t }: { p: NotaryProfile; locale: Locale; t: Dictionary }) {
+export function NotaryProfileView({ p, locale, t, demandes = false }: { p: NotaryProfile; locale: Locale; t: Dictionary; demandes?: boolean }) {
   const j = t.judicial
   const mention = mentionAsPrinted(p.mention)
   const signaler = `mailto:erreur@agora.ht?subject=${encodeURIComponent(`Notaire — ${p.name} (${p.id})`)}`
@@ -126,7 +126,7 @@ export function NotaryProfileView({ p, locale, t }: { p: NotaryProfile; locale: 
               )}
             </dl>
             {p.contact.upToDateOn && (
-              <p className="mt-3 text-[12px] text-ank/80">{j.notaryContactsSource.replace('{date}', dateLongue(p.contact.upToDateOn, locale))}</p>
+              <p className="mt-3 text-[12px] text-ank/80">{(p.contact.viaRequest ? j.notaryContactsSourceRequest : j.notaryContactsSource).replace('{date}', dateLongue(p.contact.upToDateOn, locale))}</p>
             )}
           </>
         ) : (
@@ -134,7 +134,13 @@ export function NotaryProfileView({ p, locale, t }: { p: NotaryProfile; locale: 
         )}
       </section>
 
-      <p className="mt-4 text-[12px] leading-relaxed text-ank/80">{notarySourceLine(p.provenance, locale, t)}</p>
+      <p className="mt-4 text-[12px] leading-relaxed text-ank/80">
+        {p.addedByEditors
+          ? p.addedByEditors.verifiedOn
+            ? j.notaryAddedSource.replace('{date}', dateLongue(p.addedByEditors.verifiedOn, locale))
+            : j.notaryAddedSourceUndated
+          : notarySourceLine(p.provenance, locale, t)}
+      </p>
 
       <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-1 text-sm">
         {p.commune && (
@@ -148,6 +154,11 @@ export function NotaryProfileView({ p, locale, t }: { p: NotaryProfile; locale: 
         <a href={signaler} className="inline-flex min-h-[44px] items-center text-xs text-ank/80 underline underline-offset-2 hover:text-chabon">
           {j.notaryReportError}
         </a>
+        {demandes && (
+          <Link href={lienDemande(locale, { notaire: p.id })} className="inline-flex min-h-[44px] items-center text-xs text-ank/80 underline underline-offset-2 hover:text-chabon">
+            {j.notaryRequestLinkContact}
+          </Link>
+        )}
       </div>
     </>
   )

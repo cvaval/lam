@@ -7,6 +7,7 @@ import { dictFor } from '@/lib/i18n/server'
 import { isLocale, LOCALES } from '@/lib/types'
 import { getNotaryProfile } from '@/lib/jurisdictions/data'
 import { NotaryProfileView } from '@/components/jurisdictions/NotaryProfileView'
+import { demandesOuvertes } from '@/lib/jurisdictions/notaires-demandes'
 
 export const dynamic = 'force-dynamic'
 
@@ -53,7 +54,7 @@ export default async function NotairePage({ params }: { params: { locale: string
           </ol>
         </nav>
 
-        <NotaryProfileView p={p} locale={locale} t={t} />
+        <NotaryProfileView p={p} locale={locale} t={t} demandes={demandesOuvertes()} />
       </main>
 
       <footer className="border-t border-chabon/10 bg-white">

@@ -71,12 +71,15 @@ beforeEach(() => {
 })
 
 describe('fiche de la commune — lecture', () => {
-  it('notaires ACTIFS de la commune, par numéro ; ressort du TPI déduit des rattachements', async () => {
+  it('notaires ACTIFS de la commune, ceux de la liste par numéro puis ceux ajoutés par la rédaction ; ressort du TPI déduit des rattachements', async () => {
     const r = (await getCommuneRecord('commune-ouest-cite-soleil'))!
     expect(r.notaires).toHaveLength(3)
+    // `edition` d'abord : une date (« 2026-09-08 ») se classe avant « tiers ».
     expect(prisma.notary.findMany).toHaveBeenCalledWith(expect.objectContaining({
-      where: { communeId: 'commune-ouest-cite-soleil', active: true }, orderBy: { ordinal: 'asc' },
+      where: { communeId: 'commune-ouest-cite-soleil', active: true }, orderBy: [{ edition: 'asc' }, { ordinal: 'asc' }],
     }))
+    // La provenance de la LISTE ne se lit jamais sur une entrée ajoutée par la rédaction.
+    expect(prisma.notary.findFirst).toHaveBeenCalledWith(expect.objectContaining({ where: { edition: { not: 'tiers' } } }))
     expect(prisma.courtCommuneJurisdiction.findMany).toHaveBeenCalledWith(expect.objectContaining({
       where: { courtId: TPI, relationship: 'TPI_COMPETENT' },
     }))
