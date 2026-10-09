@@ -61,6 +61,17 @@ dis-le dans la note de livraison.
 
 ## Côté Cloudflare : la procédure (faite par la titulaire du compte, pas par la session)
 
+> **FAIT le 9 octobre 2026 par Me Vaval.**
+> - Widget créé : hôtes `agora.ht` et `www.agora.ht`, mode Managed, *pre-clearance* désactivée.
+> - Clé secrète remplacée aussitôt (rotation), car la première avait été montrée dans une
+>   conversation.
+> - `TURNSTILE_SITE_KEY` et `TURNSTILE_SECRET_KEY` présentes dans Vercel, en **Production**
+>   seulement (vérifié par `vercel env ls`, noms uniquement).
+> - Preview et Development n'ont pas de clés : le formulaire y reste fermé. Le banc local
+>   utilise les clés de test.
+>
+> La procédure reste ci-dessous pour mémoire, et pour une future rotation.
+
 La session **ne crée rien chez Cloudflare** et **ne demande jamais la clé secrète** : en local
 et sur le banc, elle travaille avec les clés de test publiques (plus bas).
 
