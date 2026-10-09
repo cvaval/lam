@@ -52,6 +52,9 @@ export type AuditAction =
   | 'NOTARY_CONTACT_UPDATED'
   | 'NOTARY_REQUEST_CREATED'
   | 'NOTARY_REQUEST_DECIDED'
+  // Vérification humaine (Turnstile) refusée sur une demande publique : IP, motif, codes —
+  // jamais le jeton, jamais le contenu de la demande.
+  | 'HUMAN_CHECK_FAILED'
   // Calculateur de délais (§ 7) : répertoire, calendrier des fêtes, fenêtres de
   // signification. MASQUER et SUPPRIMER sont deux actions distinctes parce que ce sont
   // deux décisions distinctes — la première est réversible, la seconde est réservée au

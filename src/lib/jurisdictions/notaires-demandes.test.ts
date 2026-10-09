@@ -26,11 +26,19 @@ const inscription = (o: Record<string, string | undefined> = {}) => ({
 })
 
 describe('interrupteur et destinataires', () => {
-  it('le formulaire est FERMÉ tant que la variable ne dit pas exactement « true »', () => {
+  it('le formulaire est FERMÉ tant que la variable ne dit pas exactement « true » ET que les clés Turnstile manquent', () => {
+    const cles = { TURNSTILE_SITE_KEY: '0x4AAAAAAAvraiecle', TURNSTILE_SECRET_KEY: '0x4AAAAAAAvraisecret' }
     expect(demandesOuvertes({})).toBe(false)
-    expect(demandesOuvertes({ NOTARY_REQUESTS_ENABLED: '1' })).toBe(false)
-    expect(demandesOuvertes({ NOTARY_REQUESTS_ENABLED: 'TRUE' })).toBe(false)
-    expect(demandesOuvertes({ NOTARY_REQUESTS_ENABLED: 'true' })).toBe(true)
+    expect(demandesOuvertes({ ...cles, NOTARY_REQUESTS_ENABLED: '1' })).toBe(false)
+    expect(demandesOuvertes({ ...cles, NOTARY_REQUESTS_ENABLED: 'TRUE' })).toBe(false)
+    expect(demandesOuvertes({ ...cles, NOTARY_REQUESTS_ENABLED: 'true' })).toBe(true)
+    // Ouvert SANS protection : refusé.
+    expect(demandesOuvertes({ NOTARY_REQUESTS_ENABLED: 'true' })).toBe(false)
+    // En production Vercel, des clés de test ne protègent rien : fermé.
+    expect(demandesOuvertes({
+      NOTARY_REQUESTS_ENABLED: 'true', VERCEL_ENV: 'production',
+      TURNSTILE_SITE_KEY: '1x00000000000000000000AA', TURNSTILE_SECRET_KEY: '1x0000000000000000000000000000000AA',
+    })).toBe(false)
   })
   it('legal@agora.ht par défaut ; la variable peut en nommer plusieurs ; une adresse illisible est écartée', () => {
     expect(destinatairesAlerte({})).toEqual(['legal@agora.ht'])

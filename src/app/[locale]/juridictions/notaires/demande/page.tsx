@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { headers } from 'next/headers'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { AgoraPublicHeader } from '@/components/AgoraPublicHeader'
@@ -7,6 +8,7 @@ import { dictFor } from '@/lib/i18n/server'
 import { isLocale } from '@/lib/types'
 import { getCommuneDirectory, getNotaryProfile } from '@/lib/jurisdictions/data'
 import { demandesOuvertes } from '@/lib/jurisdictions/notaires-demandes'
+import { ACTIONS_HUMAIN, clesTurnstile, langueTurnstile } from '@/lib/security/turnstile'
 import { NotaryRequestForm } from '@/components/jurisdictions/NotaryRequestForm'
 import { libellesDemande } from '@/components/jurisdictions/notary-request-labels'
 
@@ -18,8 +20,9 @@ const premier = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] :
  * Demande d'un TIERS (chantier D) : proposer ou corriger les coordonnées d'un notaire, ou
  * signaler un notaire absent de la liste. Fonctionnalité DISCRÈTE — on n'y arrive que par les
  * liens de la page d'un notaire et de la liste — et FERMÉE par défaut : 404 tant que
- * `NOTARY_REQUESTS_ENABLED` ne vaut pas `true` (la cliente valide d'abord l'addition à la
- * politique de confidentialité). `noindex`.
+ * `NOTARY_REQUESTS_ENABLED` ne vaut pas `true` ou que les clés Turnstile manquent (la cliente
+ * valide d'abord l'addition à la politique de confidentialité). `noindex`. La vérification
+ * humaine (Turnstile) précède tout envoi ; la CSP de CETTE page seule l'autorise.
  *
  *  - `?notaire=<id>` : notaire visé (pré-sélection « coordonnées ») ;
  *  - `?type=inscription` : notaire absent de la liste ;
@@ -34,8 +37,11 @@ export async function generateMetadata({ params }: { params: { locale: string } 
 export default async function DemandeNotairePage({
   params, searchParams,
 }: { params: { locale: string }; searchParams: Record<string, string | string[] | undefined> }) {
-  if (!demandesOuvertes()) notFound()
+  const cles = clesTurnstile()
+  if (!demandesOuvertes() || !cles) notFound()
   const { locale, t } = dictFor(isLocale(params.locale) ? params.locale : 'fr')
+  // Nonce de la requête (middleware) : le script de Cloudflare le porte, la CSP l'autorise.
+  const nonce = headers().get('x-nonce') ?? undefined
   const j = t.judicial
 
   const envoyee = premier(searchParams.envoyee) === '1'
@@ -76,6 +82,7 @@ export default async function DemandeNotairePage({
               communes={communes.map((c) => ({ id: c.id, name: c.name, department: c.department }))}
               erreurs={erreurs}
               type={type}
+              verification={{ siteKey: cles.siteKey, action: ACTIONS_HUMAIN.notaryRequest, langue: langueTurnstile(locale), nonce }}
             />
           </>
         )}

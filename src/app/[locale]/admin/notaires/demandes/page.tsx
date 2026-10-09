@@ -4,6 +4,7 @@ import { requireAdmin } from '@/lib/auth/guard'
 import { prisma } from '@/lib/db'
 import { estSchemaAbsent } from '@/lib/delais/service-base'
 import { DEMANDE_STATUTS, LIBELLE_KIND, LIBELLE_STATUT, demandesOuvertes, destinatairesAlerte } from '@/lib/jurisdictions/notaires-demandes'
+import { clesTurnstile } from '@/lib/security/turnstile'
 
 export const dynamic = 'force-dynamic'
 
@@ -58,6 +59,13 @@ export default async function DemandesNotairesPage({
         Formulaire public {demandesOuvertes() ? <strong className="text-ank">ouvert</strong> : <strong className="text-ank">fermé</strong>}
         {' '}(variable <code className="font-mono text-xs">NOTARY_REQUESTS_ENABLED</code>). Notification à : {destinatairesAlerte().join(', ') || '—'}.
         Une demande n’est qu’une déclaration : rien n’est publié avant votre décision.
+      </p>
+      <p className="mt-1 max-w-2xl text-sm text-grafit">
+        Vérification humaine (Cloudflare Turnstile) :{' '}
+        {clesTurnstile()
+          ? <strong className="text-ank">active</strong>
+          : <><strong className="text-ank">clés absentes</strong> — le formulaire reste fermé</>}
+        . Échecs : <Link href={`/${locale}/admin/logs?action=HUMAN_CHECK_FAILED`} className="underline underline-offset-2">journal</Link>.
       </p>
 
       <nav aria-label="Statut" className="mt-4 flex flex-wrap gap-2">

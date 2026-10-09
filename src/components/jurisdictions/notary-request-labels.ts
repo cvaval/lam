@@ -34,6 +34,14 @@ export function libellesDemande(t: Dictionary) {
     submit: j.notaryRequestSubmit,
     sending: j.notaryRequestSending,
     errorIntro: j.notaryRequestErrorIntro,
+    /** Vérification humaine (Turnstile). */
+    humain: {
+      titre: j.humanCheckTitle,
+      aide: j.humanCheckHint,
+      mention: j.humanCheckNotice,
+      sansJs: j.humanCheckNoscript,
+      politique: j.notaryRequestPrivacy,
+    },
     /** Code d'erreur renvoyé par la route → message. Un code inconnu est ignoré. */
     erreurs: {
       type: j.notaryRequestErrType,
@@ -50,6 +58,8 @@ export function libellesDemande(t: Dictionary) {
       consentement: j.notaryRequestErrConsentement,
       frein: j.notaryRequestErrFrein,
       indisponible: j.notaryRequestErrIndisponible,
+      humain: j.notaryRequestErrHumain,
+      verification: j.notaryRequestErrVerification,
     } as Record<string, string>,
   }
 }

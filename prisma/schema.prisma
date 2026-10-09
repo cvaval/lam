@@ -897,6 +897,7 @@ model NotaryRequest {
   decidedAt      DateTime?
   decisionNote   String?
   notifiedAt     DateTime? // courriel à legal@ accepté par le service d'envoi
+  humanVerifiedAt DateTime? // vérification humaine Turnstile réussie (heure du défi) ; null = demande antérieure
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
 

@@ -10,12 +10,13 @@
  * pour écrire à n'importe quelle adresse saisie dans le formulaire. Seule l'adresse FIXE de la
  * rédaction (legal@agora.ht, ou `NOTARY_REQUEST_ALERT_TO`) est prévenue.
  *
- * ⚠️ LE FORMULAIRE EST FERMÉ PAR DÉFAUT (`NOTARY_REQUESTS_ENABLED`). Il collecte des données
+ * ⚠️ LE FORMULAIRE EST FERMÉ PAR DÉFAUT (`NOTARY_REQUESTS_ENABLED`, et les clés Turnstile). Il collecte des données
  * personnelles : la cliente valide d'abord l'addition à la politique de confidentialité
  * (docs/confidentialite-demandes-notaires.md).
  */
 import { z } from 'zod'
 import { EMAIL_RE, normalizePhone } from './coordonnees'
+import { clesTurnstile } from '../security/turnstile'
 
 export const DEMANDE_KINDS = ['CONTACT', 'LISTING'] as const
 export type DemandeKind = (typeof DEMANDE_KINDS)[number]
@@ -42,9 +43,13 @@ function isoDateSchema() {
   return z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine((v) => !Number.isNaN(Date.parse(`${v}T00:00:00Z`)) && new Date(`${v}T00:00:00Z`).toISOString().startsWith(v))
 }
 
-/** Le formulaire public est-il ouvert ? Fermé tant que la variable ne dit pas exactement `true`. */
+/**
+ * Le formulaire public est-il ouvert ? Il faut DEUX conditions : la variable dit exactement
+ * `true`, ET les clés de la vérification humaine (Turnstile) sont là. Mieux vaut un formulaire
+ * fermé qu'un formulaire ouvert sans protection (docs/prompt-verification-humaine-turnstile.md).
+ */
 export function demandesOuvertes(env: Record<string, string | undefined> = process.env): boolean {
-  return env.NOTARY_REQUESTS_ENABLED === 'true'
+  return env.NOTARY_REQUESTS_ENABLED === 'true' && clesTurnstile(env) !== null
 }
 
 /** Destinataires de la notification : JAMAIS une adresse saisie par le public. */

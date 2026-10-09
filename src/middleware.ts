@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { LOCALES, DEFAULT_LOCALE, isLocale } from './lib/types'
 import { LOCALE_COOKIE } from './lib/i18n/config'
+import { TURNSTILE_ORIGIN, pageAvecVerificationHumaine } from './lib/security/turnstile'
 
 const PUBLIC_FILE = /\.(.*)$/
 
@@ -11,18 +12,23 @@ const PUBLIC_FILE = /\.(.*)$/
  *  - object-src 'self' blob: → REQUIS par l'aperçu PDF de l'admin (<object data=blob:>).
  *  - style-src 'unsafe-inline' → React/Next injectent du style en ligne (risque faible).
  *  - En développement : 'unsafe-eval' + ws: sont ajoutés (compilation/HMR de Next).
+ *  - Vérification humaine (Turnstile) : sur les SEULES pages qui affichent le widget,
+ *    `script-src` (repli des navigateurs sans 'strict-dynamic') et `frame-src` (l'iframe du
+ *    défi) s'ouvrent à challenges.cloudflare.com. `connect-src` ne change JAMAIS : sans
+ *    « pre-clearance », Turnstile n'en a pas besoin.
  */
-function buildCsp(nonce: string): string {
+export function buildCsp(nonce: string, opts: { turnstile?: boolean } = {}): string {
   const dev = process.env.NODE_ENV === 'development'
+  const cf = opts.turnstile ? [TURNSTILE_ORIGIN] : []
   const directives: Record<string, string[]> = {
     'default-src': ["'self'"],
-    'script-src': ["'self'", `'nonce-${nonce}'`, "'strict-dynamic'", ...(dev ? ["'unsafe-eval'"] : [])],
+    'script-src': ["'self'", `'nonce-${nonce}'`, "'strict-dynamic'", ...cf, ...(dev ? ["'unsafe-eval'"] : [])],
     'style-src': ["'self'", "'unsafe-inline'"],
     'img-src': ["'self'", 'data:', 'blob:', 'https:'],
     'font-src': ["'self'", 'data:'],
     'connect-src': ["'self'", ...(dev ? ['ws:', 'wss:'] : [])],
     'object-src': ["'self'", 'blob:'],
-    'frame-src': ["'self'", 'blob:'],
+    'frame-src': ["'self'", 'blob:', ...cf],
     'frame-ancestors': ["'none'"],
     'base-uri': ["'self'"],
     'form-action': ["'self'"],
@@ -55,7 +61,7 @@ export function middleware(req: NextRequest) {
   // en-têtes de requête (Next l'applique automatiquement à ses balises <script>) et
   // renvoyé au navigateur dans l'en-tête de réponse.
   const nonce = crypto.randomUUID().replace(/-/g, '')
-  const csp = buildCsp(nonce)
+  const csp = buildCsp(nonce, { turnstile: pageAvecVerificationHumaine(pathname) })
 
   const hasLocale = LOCALES.some((l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`))
   if (hasLocale) {

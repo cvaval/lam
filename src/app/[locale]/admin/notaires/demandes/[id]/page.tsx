@@ -80,6 +80,9 @@ export default async function DemandeNotairePage({ params }: { params: { locale:
         {ligne('Précisions', p.message ? <span className="whitespace-pre-line">{p.message}</span> : null)}
         {ligne('Demandeur', `${d.requesterName} — ${d.requesterRole === 'AUTRE' ? `autre : ${p.requesterRoleOther ?? '?'}` : LIBELLE_ROLE[d.requesterRole] ?? d.requesterRole}`)}
         {ligne('Courriel du demandeur', <a href={`mailto:${d.requesterEmail}`} className="underline underline-offset-2">{d.requesterEmail}</a>)}
+        {ligne('Vérification humaine', d.humanVerifiedAt
+          ? `réussie le ${d.humanVerifiedAt.toISOString().slice(0, 16).replace('T', ' ')} UTC`
+          : 'non vérifiée (demande antérieure à la vérification)')}
         {d.decidedAt && ligne('Décision', `${LIBELLE_STATUT[d.status]} le ${d.decidedAt.toISOString().slice(0, 10)} par ${decideur?.email ?? '?'}${d.decisionNote ? ` — ${d.decisionNote}` : ''}`)}
       </dl>
 

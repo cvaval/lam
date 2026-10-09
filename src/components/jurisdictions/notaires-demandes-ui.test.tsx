@@ -55,7 +55,8 @@ describe('liens discrets vers le formulaire', () => {
 describe('le formulaire', () => {
   const rendu = (o: Partial<Parameters<typeof NotaryRequestForm>[0]> = {}) => renderToStaticMarkup(
     <NotaryRequestForm
-      locale="fr" l={libellesDemande(t)} renderedAt={1_760_000_000_000} notary={null} erreurs={[]} type="coordonnees"
+      locale="fr" l={libellesDemande(t)} renderedAt={1_760_000_000_000}
+      verification={{ siteKey: '1x00000000000000000000AA', action: 'notary-request', langue: 'fr', nonce: 'n0nce' }} notary={null} erreurs={[]} type="coordonnees"
       communes={[{ id: 'commune-nord-port-margot', name: 'Port-Margot', department: 'Nord' }]}
       {...o}
     />,
@@ -92,6 +93,21 @@ describe('le formulaire', () => {
     expect(html).toMatch(/name="consentement"[^>]*aria-invalid="true"[^>]*aria-describedby="err-consentement"/)
     // Sans erreur : ni aria-invalid ni message.
     expect(rendu()).not.toContain('aria-invalid')
+  })
+  it('vérification humaine : intitulé, conteneur du widget, mention Cloudflare et lien vers la politique, avis sans JavaScript', () => {
+    const html = rendu()
+    expect(html).toContain(`>${j.humanCheckTitle}</p>`)
+    expect(html).toMatch(/<div class="mt-2 min-h-\[65px\]" aria-describedby="aide-verification"><\/div>/)
+    expect(html).toContain(`${j.humanCheckNotice} <a href="/fr/confidentialite"`)
+    expect(html).toContain('<noscript>')
+    // Le widget est AVANT le bouton d'envoi.
+    expect(html.indexOf('aide-verification')).toBeLessThan(html.indexOf(j.notaryRequestSubmit))
+  })
+  it('échec de la vérification : message sous le widget, relié à lui, et dans le résumé', () => {
+    const html = rendu({ erreurs: ['humain'] })
+    expect(html).toContain('aria-describedby="aide-verification err-humain"')
+    expect(html).toContain(`<span id="err-humain" class="mt-1 block text-sm text-ank">— ${j.notaryRequestErrHumain}</span>`)
+    expect(html.split(j.notaryRequestErrHumain).length - 1).toBe(2)
   })
   it('les trois langues ont tous les libellés', () => {
     for (const l of ['fr', 'en', 'ht'] as const) {

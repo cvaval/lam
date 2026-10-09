@@ -229,7 +229,7 @@ export function resetPasswordEmail(email: string, link: string, minutes: number)
  */
 export function notaryRequestEmail(
   to: string,
-  d: { id: string; kind: 'CONTACT' | 'LISTING'; requesterName: string; requesterRole: string; cible: string; createdAt: Date },
+  d: { id: string; kind: 'CONTACT' | 'LISTING'; requesterName: string; requesterRole: string; cible: string; createdAt: Date; humanVerifiedAt?: Date | null },
 ) {
   const base = (process.env.NEXT_PUBLIC_APP_URL ?? `https://${BRAND.domain}`).replace(/\/$/, '')
   const objet = d.kind === 'CONTACT' ? 'coordonnées' : 'inscription'
@@ -243,6 +243,7 @@ export function notaryRequestEmail(
       `  Demandeur : ${d.requesterName} (${d.requesterRole})`,
       `  Visé      : ${d.cible}`,
       `  Reçue le  : ${d.createdAt.toISOString().slice(0, 16).replace('T', ' ')} UTC`,
+      `  Vérification humaine : ${d.humanVerifiedAt ? 'réussie' : 'non vérifiée'}`,
       ``,
       `Coordonnées complètes, message et décision : ${base}/fr/admin/notaires/demandes/${d.id}`,
       ``,
