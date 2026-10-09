@@ -38,17 +38,23 @@ const HAITI_BOUNDS: [[number, number], [number, number]] = [[-75.0, 17.9], [-71.
  * sa propre légende. Une seule définition, désormais.
  */
 const COLORS = {
-  bg: BRAND_COLORS.koton,
-  land: BRAND_COLORS.koton,
-  deptLine: BRAND_COLORS.chabon,
-  arrLine: BRAND_COLORS.chabon,
-  communeLine: BRAND_COLORS.chabon,
   /**
-   * Wouj Pal #FCE1E4 — l'avenant AV-02 le crée en remplacement de Sitwon Pal et le
-   * désigne nommément comme « fond de sélection » (texte Ank, 8,41:1, AAA). La commune
-   * choisie doit se lire comme une SURFACE teintée et non comme un simple liseré, sinon
-   * son contour se confond avec le marqueur d'une juridiction posée à l'intérieur. Une
-   * aire remplie et un marqueur cerné ne se confondent pas.
+   * ⚠️ TERRE ET MER NE SE CONFONDENT PLUS (9 oct. 2026). Au passage à Agora, `koton` est devenu
+   * l'ivoire de la page, et les DEUX étaient en `koton` : l'île n'existait que par ses filets.
+   * Terre blanche sur mer ardoise diluée (`carteMer`), trait de côte et départements en encre
+   * (14:1 sur la terre, 11:1 sur la mer). Sur la terre blanche, les marqueurs tiennent tous plus
+   * de 6:1 (vert TPI 6,7, encre appel 14,2, bleu Cassation 12,3) ; les tribunaux de paix gardent
+   * leur cerne d'encre.
+   */
+  bg: BRAND_COLORS.carteMer,
+  land: BRAND_COLORS.blan,
+  deptLine: BRAND_COLORS.chabon,
+  arrLine: BRAND_COLORS.grafit,
+  communeLine: BRAND_COLORS.grafit,
+  /**
+   * Fond de sélection (`woujPal`, terre cuite pâle sous Agora). La commune choisie doit se lire
+   * comme une SURFACE teintée et non comme un simple liseré, sinon son contour se confond avec le
+   * marqueur d'une juridiction posée à l'intérieur ; son contour d'encre (2,5 px) la cerne.
    */
   selected: BRAND_COLORS.woujPal,
 } as const
@@ -240,15 +246,15 @@ export function JudicialMap({
       })
       map.addLayer({
         id: 'commune-line', type: 'line', source: 'communes',
-        paint: { 'line-color': COLORS.communeLine, 'line-width': 0.4, 'line-opacity': 0.35 },
+        paint: { 'line-color': COLORS.communeLine, 'line-width': 0.5, 'line-opacity': 0.45 },
       })
       map.addLayer({
         id: 'arr-line', type: 'line', source: 'arrondissements',
-        paint: { 'line-color': COLORS.arrLine, 'line-width': 0.7, 'line-opacity': 0.4, 'line-dasharray': [3, 2] },
+        paint: { 'line-color': COLORS.arrLine, 'line-width': 0.8, 'line-opacity': 0.6, 'line-dasharray': [3, 2] },
       })
       map.addLayer({
         id: 'dept-line', type: 'line', source: 'departments',
-        paint: { 'line-color': COLORS.deptLine, 'line-width': 1.4, 'line-opacity': 0.75 },
+        paint: { 'line-color': COLORS.deptLine, 'line-width': 1.5, 'line-opacity': 0.9 },
       })
       map.addLayer({
         id: 'commune-selected-fill', type: 'fill', source: 'communes',

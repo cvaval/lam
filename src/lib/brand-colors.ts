@@ -21,6 +21,7 @@
  *   woujPal    sélection, surlignage étendu             terre cuite pâle #F1E2DA
  *   vet        succès                                   #23665D
  *   ble        gamme CARTOGRAPHIQUE seule (AV-02)       inchangé #00209F
+ *   carteMer   mer de la carte judiciaire (cartographie) ardoise diluée #DCE5E8 (terre en blanc)
  *
  * Consommée par tailwind.config.ts, le sceau PDF et les annexes générées. Module-feuille SANS
  * import : utilisable partout, y compris par tailwind.config.ts (chargé hors du bundle).
@@ -66,6 +67,13 @@ export const BRAND_COLORS = {
    * RÉSERVÉ à la gamme cartographique : ni CTA, ni lien, ni état. 10,1:1 sur Koton.
    */
   ble: '#00209F',
+  /**
+   * Mer de la carte judiciaire — gamme CARTOGRAPHIQUE seule (comme `ble`). Ardoise très diluée :
+   * la terre (blanc) s'en détache (1,28:1, figure sur fond) et le trait de côte en encre la borde
+   * à plus de 11:1. Depuis le passage à Agora, terre et mer étaient toutes deux en ivoire : l'île
+   * n'existait que par ses filets.
+   */
+  carteMer: '#DCE5E8',
   /** Texte sur Chabon / Adwaz */
   inverse: '#F7F5EF',
   /** Fond du BOUTON PRINCIPAL (utilité de fond du jeton wouj) — encre, charte Agora § 6. */

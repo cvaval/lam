@@ -36,7 +36,12 @@ export function JudicialFilters({
               isOn ? 'border-liy bg-chabon text-koton' : 'border-chabon/20 bg-white text-grafit hover:border-chabon/40'
             }`}
           >
-            <ShapeIcon kind={LAYER_SLUGS[slug]} /> {labels[slug]}
+            {/* Pastille blanche : sur le bouton actif (fond encre), le marqueur cerné d'encre
+                disparaissait — le carré des cours d'appel était encre sur encre. */}
+            <span aria-hidden="true" className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white">
+              <ShapeIcon kind={LAYER_SLUGS[slug]} />
+            </span>{' '}
+            {labels[slug]}
           </Link>
         )
       })}
