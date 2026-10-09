@@ -1159,6 +1159,9 @@ export const fr = {
     layerTpi: 'Première instance',
     layerAppel: "Cours d'appel",
     layerCassation: 'Cour de cassation',
+    // Groupes de couches (registre layers.ts) — intitulés À VALIDER par la cliente.
+    layerGroupJuridictions: 'Juridictions',
+    layerGroupProfessions: 'Professions juridiques',
     reset: 'Réinitialiser',
     mapUsage: "Cliquez sur une commune de la carte, ou choisissez-la dans la liste ci-dessous : les tribunaux compétents s'affichent aussitôt.",
     legend: 'Légende',

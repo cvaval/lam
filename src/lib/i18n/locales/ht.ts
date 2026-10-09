@@ -845,6 +845,9 @@ export const ht: Dictionary = {
     layerTpi: 'Premye enstans',
     layerAppel: 'Lakou dapèl',
     layerCassation: 'Lakou Kasasyon',
+    // Groupes de couches (registre layers.ts) — intitulés À VALIDER par la cliente.
+    layerGroupJuridictions: 'Jiridiksyon',
+    layerGroupProfessions: 'Pwofesyon jiridik',
     reset: 'Reyinisyalize',
     mapUsage: 'Klike sou yon komin sou kat la, oswa chwazi li nan lis ki anba a: tribinal ki konpetan yo ap parèt touswit.',
     legend: 'Lejand',

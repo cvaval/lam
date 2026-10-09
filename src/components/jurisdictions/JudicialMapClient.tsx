@@ -1,7 +1,6 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import type { LayerSlug } from '@/lib/jurisdictions/constants'
 import type { Locale } from '@/lib/types'
 
 /**
@@ -22,7 +21,7 @@ const JudicialMap = dynamic(() => import('./JudicialMap').then((m) => m.Judicial
 export function JudicialMapClient(props: {
   locale: Locale
   selectedCommuneId: string | null
-  layers: LayerSlug[]
+  layers: readonly string[]
   attribution: string
   loadingLabel: string
   fallback: React.ReactNode

@@ -21,10 +21,7 @@ export type LocationPrecision = (typeof LOCATION_PRECISIONS)[number]
 export const VERIFICATION_STATUSES = ['CONFIRMED_OFFICIAL', 'CORROBORATED', 'TO_VERIFY', 'UNMAPPED'] as const
 export type VerificationStatus = (typeof VERIFICATION_STATUSES)[number]
 
-/** Couches affichables ↔ paramètre `layers` de l'URL (slugs courts, stables). */
-export const LAYER_SLUGS = { paix: 'PAIX', tpi: 'PREMIERE_INSTANCE', appel: 'APPEL', cassation: 'CASSATION' } as const
-export type LayerSlug = keyof typeof LAYER_SLUGS
-export const ALL_LAYER_SLUGS = Object.keys(LAYER_SLUGS) as LayerSlug[]
+// Les couches affichables (et le paramètre `?layers=`) vivent dans le REGISTRE : layers.ts.
 
 export function isCourtType(v: string): v is CourtType {
   return (COURT_TYPES as readonly string[]).includes(v)

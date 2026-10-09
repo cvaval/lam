@@ -7,7 +7,7 @@ import { CookieBanner } from '@/components/CookieBanner'
 import { dictFor } from '@/lib/i18n/server'
 import { isLocale, LOCALES } from '@/lib/types'
 import { getCommuneRecord, getCommuneDirectory, type CommuneRecord } from '@/lib/jurisdictions/data'
-import { ALL_LAYER_SLUGS, type LayerSlug } from '@/lib/jurisdictions/constants'
+import { parseLayers, serializeLayers } from '@/lib/jurisdictions/layers'
 import { JudicialSearch } from '@/components/jurisdictions/JudicialSearch'
 import { JudicialFilters } from '@/components/jurisdictions/JudicialFilters'
 import { JudicialResults } from '@/components/jurisdictions/JudicialResults'
@@ -29,13 +29,9 @@ const COMMUNE_RE = /^[a-z0-9][a-z0-9-]{2,119}$/
 function readParams(searchParams: { commune?: string | string[]; layers?: string | string[] }) {
   const rawCommune = Array.isArray(searchParams.commune) ? searchParams.commune[0] : searchParams.commune
   const commune = rawCommune && COMMUNE_RE.test(rawCommune) ? rawCommune : null
+  // Le registre est le SEUL lecteur de `?layers=` (absent ⇒ défaut, vide ⇒ aucune couche).
   const rawLayers = Array.isArray(searchParams.layers) ? searchParams.layers[0] : searchParams.layers
-  let layers: LayerSlug[] = [...ALL_LAYER_SLUGS]
-  if (rawLayers != null && rawLayers.length <= 60) {
-    const asked = rawLayers.split(',').filter((s): s is LayerSlug => (ALL_LAYER_SLUGS as string[]).includes(s))
-    if (asked.length) layers = [...new Set(asked)]
-  }
-  return { commune, layers }
+  return { commune, layers: parseLayers(rawLayers) }
 }
 
 export async function generateMetadata({
@@ -73,7 +69,8 @@ export default async function JuridictionsPage({
   const notFound = Boolean(commune && !record)
   const attribution = process.env.NEXT_PUBLIC_MAP_ATTRIBUTION || 'Limites administratives : CNIGS / OCHA (COD-AB Haïti, CC BY-IGO)'
   const reportIssueUrl = process.env.NEXT_PUBLIC_MAP_REPORT_ISSUE_URL || 'https://www.openstreetmap.org/fixthemap'
-  const layersQs = layers.length === ALL_LAYER_SLUGS.length ? '' : `&layers=${layers.join(',')}`
+  const layersParam = serializeLayers(layers)
+  const layersQs = layersParam === null ? '' : `&layers=${layersParam}`
 
   const resultsPanel = (
     <section aria-label={t.judicial.resultsRegion} className="flex min-w-0 flex-col gap-4">
@@ -143,7 +140,7 @@ export default async function JuridictionsPage({
               </div>
             </div>
             <p className="mt-2 text-sm text-ank/80">{t.judicial.mapUsage}</p>
-            <MapLegend t={t} />
+            <MapLegend t={t} active={layers} />
 
             {/* Mobile : résultats dans une feuille repliable sous la carte. */}
             <div className="mt-4 lg:hidden">

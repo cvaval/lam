@@ -846,6 +846,9 @@ export const en: Dictionary = {
     layerTpi: 'First instance',
     layerAppel: 'Courts of appeal',
     layerCassation: 'Cour de cassation',
+    // Groupes de couches (registre layers.ts) — intitulés À VALIDER par la cliente.
+    layerGroupJuridictions: 'Jurisdictions',
+    layerGroupProfessions: 'Legal professions',
     reset: 'Reset',
     mapUsage: 'Click a commune on the map, or pick it in the list below: the competent courts appear immediately.',
     legend: 'Legend',

@@ -15,6 +15,10 @@
  * avec la légende et les fiches. Des couches `symbol`/`circle`, avec regroupement
  * (cluster) des tribunaux de paix : pas 185 nœuds DOM.
  *
+ * COUCHES : toutes viennent du REGISTRE (`src/lib/jurisdictions/layers.ts`) — visibilité,
+ * couches cliquables, sources, agrégats et chargement paresseux en découlent. Rien n'est
+ * câblé ici pour une couche particulière.
+ *
  * SEULE EXCEPTION AU « ZÉRO DOM » : le nombre porté par chaque agrégat (quelques nœuds,
  * un par agrégat visible). Le style ne déclare aucune source de glyphes PBF, donc une
  * couche `text-field` ne rendrait rien — voir `syncClusterLabels`.
@@ -24,10 +28,10 @@ import { useRouter } from 'next/navigation'
 import * as maplibregl from 'maplibre-gl'
 import type { Map as MlMap, MapLayerMouseEvent, StyleSpecification } from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
-import type { LayerSlug } from '@/lib/jurisdictions/constants'
-import { LAYER_SLUGS } from '@/lib/jurisdictions/constants'
 import type { Locale } from '@/lib/types'
 import { BRAND_COLORS } from '@/lib/brand-colors'
+import { LAYER_REGISTRY, emojiImageExpression, type MapLayerDef } from '@/lib/jurisdictions/layers'
+import { EMOJI_SIZES, emojiPuckImage, type CanvasFactory } from '@/lib/jurisdictions/marker-canvas'
 import { COURT_STYLE, MARKER_STROKE } from './CourtCard'
 
 const HAITI_BOUNDS: [[number, number], [number, number]] = [[-75.0, 17.9], [-71.5, 20.2]]
@@ -90,17 +94,24 @@ function shapeIcon(shape: 'circle' | 'triangle' | 'square' | 'diamond', color: s
 
 interface PointFeature {
   type: 'Feature'
-  properties: { id: string; courtType: keyof typeof LAYER_ICON; name: string; communeId: string | null; indicative: boolean }
+  properties: Record<string, unknown> & { communeId?: string | null }
   geometry: { type: 'Point'; coordinates: [number, number] }
 }
-const LAYER_ICON = { PAIX: 'circle', PREMIERE_INSTANCE: 'triangle', APPEL: 'square', CASSATION: 'diamond' } as const
+
+const REGISTRY = LAYER_REGISTRY
+const canvasFactory: CanvasFactory = (w, h) => {
+  const c = document.createElement('canvas')
+  c.width = w
+  c.height = h
+  return c as unknown as ReturnType<CanvasFactory>
+}
 
 export function JudicialMap({
   locale, selectedCommuneId, layers, attribution, loadingLabel,
 }: {
   locale: Locale
   selectedCommuneId: string | null
-  layers: LayerSlug[]
+  layers: readonly string[]
   attribution: string
   loadingLabel: string
 }) {
@@ -113,10 +124,19 @@ export function JudicialMap({
   selectedRef.current = selectedCommuneId
   const layersRef = useRef(layers)
   layersRef.current = layers
-  /** Étiquettes de dénombrement des agrégats, indexées par `cluster_id`. */
-  const clusterLabelsRef = useRef<globalThis.Map<number, maplibregl.Marker>>(new globalThis.Map())
+  /** Étiquettes de dénombrement des agrégats, indexées par `<couche>:<cluster_id>`. */
+  const clusterLabelsRef = useRef<globalThis.Map<string, maplibregl.Marker>>(new globalThis.Map())
   /** Demande une resynchronisation des étiquettes depuis l'extérieur du gestionnaire `load`. */
   const resyncRef = useRef<(() => void) | null>(null)
+  /**
+   * Couches du registre dont les points sont chargés et les couches MapLibre posées, et
+   * chargements en cours. Une couche masquée par défaut ne charge ses points qu'à sa
+   * PREMIÈRE activation, puis les garde : la carte n'est pas démontée par la navigation.
+   */
+  const installedRef = useRef<Set<string>>(new Set())
+  const pendingRef = useRef<globalThis.Map<string, Promise<void>>>(new globalThis.Map())
+  /** Réponses GeoJSON par URL : les quatre couches de juridictions partagent la même. */
+  const fetchedRef = useRef<globalThis.Map<string, Promise<PointFeature[]>>>(new globalThis.Map())
   const reduceMotion = useMemo(
     () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches,
     [],
@@ -142,23 +162,27 @@ export function JudicialMap({
    * retourne que ce qui est réellement à l'écran et respecte la visibilité de la couche :
    * décocher « Tribunaux de paix » vide donc les étiquettes sans code supplémentaire.
    * `querySourceFeatures` retournait en plus des agrégats hors cadre (20 contre 15).
+   *
+   * Les couches d'agrégats sont celles que déclare le registre (`clusterLayerIds`).
    */
   const syncClusterLabels = (map: MlMap) => {
     const labels = clusterLabelsRef.current
-    const drop = (id: number) => { labels.get(id)?.remove(); labels.delete(id) }
-    if (!map.getLayer('paix-clusters')) {
+    const drop = (id: string) => { labels.get(id)?.remove(); labels.delete(id) }
+    const clusterLayers = REGISTRY.clusterLayerIds.filter((id) => map.getLayer(id))
+    if (!clusterLayers.length) {
       for (const id of [...labels.keys()]) drop(id)
       return
     }
     let feats: ReturnType<MlMap['queryRenderedFeatures']> = []
-    try { feats = map.queryRenderedFeatures({ layers: ['paix-clusters'] }) } catch { return }
+    try { feats = map.queryRenderedFeatures({ layers: clusterLayers }) } catch { return }
 
-    const vus = new Set<number>()
+    const vus = new Set<string>()
     for (const f of feats) {
       const n = f.properties?.point_count as number | undefined
-      const id = f.properties?.cluster_id as number | undefined
+      const cid = f.properties?.cluster_id as number | undefined
+      const id = `${f.layer?.id}:${cid}`
       // Un agrégat chevauchant deux tuiles revient deux fois : une seule étiquette.
-      if (!n || id == null || vus.has(id) || f.geometry.type !== 'Point') continue
+      if (!n || cid == null || vus.has(id) || f.geometry.type !== 'Point') continue
       vus.add(id)
       const at = f.geometry.coordinates as [number, number]
       const existant = labels.get(id)
@@ -182,14 +206,118 @@ export function JudicialMap({
     for (const id of [...labels.keys()]) if (!vus.has(id)) drop(id)
   }
 
-  // Navigation déclenchée par la carte : l'URL reste la source de vérité.
+  // Navigation déclenchée par la carte : l'URL reste la source de vérité. Le registre
+  // sérialise (paramètre omis quand la sélection est le défaut).
   const selectCommune = (id: string | null) => {
     const params = new URLSearchParams()
     if (id) params.set('commune', id)
-    const l = layersRef.current
-    if (l.length && l.length < 4) params.set('layers', l.join(','))
+    const layersParam = REGISTRY.serialize(layersRef.current)
+    if (layersParam !== null) params.set('layers', layersParam)
     const qs = params.toString()
     router.push(`/${locale}/juridictions${qs ? `?${qs}` : ''}`, { scroll: false })
+  }
+
+  // URL absolue : MapLibre parse le GeoJSON dans un worker `blob:` (voir plus bas).
+  const asset = (path: string) => new URL(path, window.location.origin).toString()
+
+  const fetchPoints = (url: string): Promise<PointFeature[]> => {
+    let p = fetchedRef.current.get(url)
+    if (!p) {
+      p = fetch(asset(url))
+        .then(async (res) => {
+          if (!res.ok) throw new Error(`${url} : HTTP ${res.status}`)
+          const collection = (await res.json()) as { features?: PointFeature[] }
+          return Array.isArray(collection.features) ? collection.features : []
+        })
+      // Un échec n'est pas mémorisé : la prochaine activation retentera.
+      p.catch(() => fetchedRef.current.delete(url))
+      fetchedRef.current.set(url, p)
+    }
+    return p
+  }
+
+  /**
+   * Pose une couche du registre : sa source (filtrée par `where`, regroupée si `cluster`),
+   * ses couches MapLibre, ses clics. L'ordre d'empilement est TOUJOURS celui du registre,
+   * même quand une couche arrive tard (chargement paresseux) : on l'insère sous la première
+   * couche déjà posée qui la suit.
+   */
+  const installLayer = (map: MlMap, layer: MapLayerDef): Promise<void> => {
+    if (installedRef.current.has(layer.slug)) return Promise.resolve()
+    const pending = pendingRef.current.get(layer.slug)
+    if (pending) return pending
+    const run = (async () => {
+      const all = await fetchPoints(layer.source.url)
+      if (mapRef.current !== map) return // carte démontée entre-temps
+      const where = Object.entries(layer.source.where ?? {})
+      const features = where.length ? all.filter((f) => where.every(([k, v]) => f.properties?.[k] === v)) : all
+      const sourceId = `pts-${layer.slug}`
+      const cluster = layer.source.cluster
+      map.addSource(sourceId, {
+        type: 'geojson', data: { type: 'FeatureCollection', features },
+        ...(cluster ? { cluster: true, clusterRadius: cluster.radius, clusterMaxZoom: cluster.maxZoom } : {}),
+      })
+      const ix = REGISTRY.layers.indexOf(layer)
+      const after = REGISTRY.layers.slice(ix + 1).find((l) => installedRef.current.has(l.slug))
+      const beforeId = after ? (after.mapLayers.clusters ?? after.mapLayers.points) : undefined
+
+      const marker = layer.marker
+      if (layer.mapLayers.clusters) {
+        map.addLayer({
+          id: layer.mapLayers.clusters, type: 'circle', source: sourceId, filter: ['has', 'point_count'],
+          paint: {
+            // Même teinte que le point isolé (terre cuite des paix) : l'agrégat se lit comme « des paix ».
+            'circle-color': marker.kind === 'court' ? COURT_STYLE[marker.courtType].color : BRAND_COLORS.chabon,
+            'circle-stroke-color': BRAND_COLORS.blan, 'circle-stroke-width': 2,
+            'circle-radius': ['step', ['get', 'point_count'], 10, 5, 14, 15, 18],
+            'circle-opacity': 0.9,
+          },
+        }, beforeId)
+        map.on('click', layer.mapLayers.clusters, (e: MapLayerMouseEvent) => {
+          const f = e.features?.[0]
+          if (!f) return
+          if (f.geometry.type !== 'Point') return
+          map.easeTo({ center: f.geometry.coordinates as [number, number], zoom: map.getZoom() + 1.5, duration: reduceMotion ? 0 : 400 })
+        })
+      }
+      map.addLayer({
+        id: layer.mapLayers.points, type: 'symbol', source: sourceId,
+        ...(cluster ? { filter: ['!', ['has', 'point_count']] as maplibregl.FilterSpecification } : {}),
+        layout: marker.kind === 'court'
+          ? {
+              'icon-image': `court-${COURT_STYLE[marker.courtType].shape}`, 'icon-size': 1, 'icon-allow-overlap': true,
+            }
+          : {
+              'icon-image': emojiImageExpression(marker) as maplibregl.ExpressionSpecification,
+              'icon-allow-overlap': true,
+              ...(layer.iconOffset ? { 'icon-offset': [...layer.iconOffset] as [number, number] } : {}),
+            },
+      }, beforeId)
+      const layerId = layer.mapLayers.points
+      map.on('click', layerId, (e: MapLayerMouseEvent) => {
+        const f = e.features?.[0]
+        const communeId = f?.properties?.communeId as string | undefined
+        if (communeId) { e.preventDefault?.(); selectCommune(communeId) }
+      })
+      map.on('mouseenter', layerId, () => { map.getCanvas().style.cursor = 'pointer' })
+      map.on('mouseleave', layerId, () => { map.getCanvas().style.cursor = '' })
+
+      installedRef.current.add(layer.slug)
+      const visible = new Set(layersRef.current)
+      for (const v of REGISTRY.visibility(visible)) {
+        if (v.slug === layer.slug && map.getLayer(v.mapLayerId)) {
+          map.setLayoutProperty(v.mapLayerId, 'visibility', v.visible ? 'visible' : 'none')
+        }
+      }
+      resyncRef.current?.()
+    })()
+      .catch((err) => {
+        // Points indisponibles → la carte reste utilisable (limites + liste) ; retentable.
+        console.error(`[carte judiciaire] couche « ${layer.slug} »`, err)
+      })
+      .finally(() => pendingRef.current.delete(layer.slug))
+    pendingRef.current.set(layer.slug, run)
+    return run
   }
 
   useEffect(() => {
@@ -223,8 +351,8 @@ export function JudicialMap({
     // ⚠ MapLibre parse le GeoJSON dans un Web Worker créé depuis une URL `blob:` :
     // la base du worker est donc `blob:…`, et une URL RELATIVE y est irrésolvable
     // (« Failed to parse URL from /maps/… »). La source reste alors éternellement non
-    // chargée, SANS erreur — carte vide et silencieuse. Les URL doivent être absolues.
-    const asset = (path: string) => new URL(path, window.location.origin).toString()
+    // chargée, SANS erreur — carte vide et silencieuse. Les URL doivent être absolues
+    // (`asset`, ci-dessus).
 
     map.on('load', async () => {
       try {
@@ -233,6 +361,21 @@ export function JudicialMap({
       const TAILLE: Record<string, number> = { circle: 24, triangle: 32, square: 36, diamond: 44 }
       for (const { shape, color } of Object.values(COURT_STYLE)) {
         map.addImage(`court-${shape}`, shapeIcon(shape, color, TAILLE[shape]), { pixelRatio: 2 })
+      }
+      // Marqueurs `emoji` du registre : pastille blanche cernée d'encre, trois tailles nettes
+      // (une image étirée par `icon-size` rendrait l'emoji flou). Repli silhouette si le
+      // système n'a pas de police emoji — voir marker-canvas.ts.
+      for (const l of REGISTRY.layers) {
+        if (l.marker.kind !== 'emoji') continue
+        try {
+          for (const [k, css] of Object.entries(EMOJI_SIZES)) {
+            const img = emojiPuckImage(canvasFactory, l.marker.glyph, css, { paper: BRAND_COLORS.blan, ink: MARKER_STROKE })
+            map.addImage(`${l.marker.imagePrefix}-${k}`, { width: img.width, height: img.height, data: img.data }, { pixelRatio: 2 })
+          }
+        } catch (err) {
+          // Une image manquante ne doit pas emporter la carte : la couche restera sans icône.
+          console.error(`[carte judiciaire] marqueur « ${l.slug} »`, err)
+        }
       }
 
       map.addSource('departments', { type: 'geojson', data: asset('/maps/hti/hti-adm1-departments.geojson') })
@@ -292,91 +435,52 @@ export function JudicialMap({
         }
       } catch { /* emprise indisponible → pas de recentrage automatique */ }
 
-      // Points : une source clusterisée pour les 175 tribunaux de paix, une source
-      // simple pour TPI / appel / cassation (29 points).
-      try {
-        const res = await fetch(asset('/api/public/jurisdictions/map-points'))
-        const collection = (await res.json()) as { features?: PointFeature[] }
-        const feats = Array.isArray(collection.features) ? collection.features : []
-        const paix = feats.filter((f) => f.properties.courtType === 'PAIX')
-        const others = feats.filter((f) => f.properties.courtType !== 'PAIX')
-        map.addSource('courts-paix', {
-          type: 'geojson', data: { type: 'FeatureCollection', features: paix },
-          cluster: true, clusterRadius: 34, clusterMaxZoom: 11,
-        })
-        map.addSource('courts-others', { type: 'geojson', data: { type: 'FeatureCollection', features: others } })
-        map.addLayer({
-          id: 'paix-clusters', type: 'circle', source: 'courts-paix', filter: ['has', 'point_count'],
-          paint: {
-            // Même teinte que le point isolé (terre cuite des paix) : l'agrégat se lit comme « des paix ».
-            'circle-color': COURT_STYLE.PAIX.color, 'circle-stroke-color': BRAND_COLORS.blan, 'circle-stroke-width': 2,
-            'circle-radius': ['step', ['get', 'point_count'], 10, 5, 14, 15, 18],
-            'circle-opacity': 0.9,
-          },
-        })
-        map.addLayer({
-          id: 'paix-points', type: 'symbol', source: 'courts-paix', filter: ['!', ['has', 'point_count']],
-          layout: { 'icon-image': 'court-circle', 'icon-size': 1, 'icon-allow-overlap': true },
-        })
-        for (const [type, icon] of Object.entries(LAYER_ICON)) {
-          if (type === 'PAIX') continue
-          map.addLayer({
-            id: `courts-${type}`, type: 'symbol', source: 'courts-others',
-            filter: ['==', ['get', 'courtType'], type],
-            layout: {
-              'icon-image': `court-${icon}`, 'icon-allow-overlap': true,
-            },
-          })
-        }
+      /*
+       * QUAND RESYNCHRONISER LES ÉTIQUETTES D'AGRÉGATS — le point délicat.
+       *
+       * `idle` serait l'événement naturel : il NE SE DÉCLENCHE JAMAIS sur cette carte
+       * (vérifié, 0 occurrence après déplacement). Et sur `sourcedata` la source est
+       * chargée mais pas encore découpée en tuiles : la requête revient vide.
+       *
+       * D'où le substitut usuel : les événements qui, eux, arrivent, lèvent un drapeau ;
+       * `render` le consomme à la première frame où les tuiles sont prêtes. Une requête
+       * par stabilisation, jamais une par frame.
+       */
+      let aResynchroniser = true
+      const marquer = () => { aResynchroniser = true }
+      const sourcesAgregees = new Set(REGISTRY.layers.filter((l) => l.source.cluster).map((l) => `pts-${l.slug}`))
+      map.on('moveend', marquer)
+      map.on('zoomend', marquer)
+      map.on('sourcedata', (e) => {
+        if (sourcesAgregees.has(e.sourceId) && e.isSourceLoaded) marquer()
+      })
+      map.on('render', () => {
+        // ⚠️ Le drapeau se RÉARME tant que les tuiles chargent. Sans cela il était
+        // consommé à la première frame venue — avant que le moindre agrégat soit
+        // dessiné — et plus rien ne le relevait : aucune étiquette n'apparaissait.
+        if (!map.areTilesLoaded()) { aResynchroniser = true; return }
+        if (!aResynchroniser) return
+        aResynchroniser = false
+        syncClusterLabels(map)
+      })
+      resyncRef.current = marquer
 
-        map.on('click', 'paix-clusters', (e: MapLayerMouseEvent) => {
-          const f = e.features?.[0]
-          if (!f) return
-          if (f.geometry.type !== 'Point') return
-          map.easeTo({ center: f.geometry.coordinates as [number, number], zoom: map.getZoom() + 1.5, duration: reduceMotion ? 0 : 400 })
-        })
-        const pointLayers = ['paix-points', 'courts-PREMIERE_INSTANCE', 'courts-APPEL', 'courts-CASSATION']
-        for (const layerId of pointLayers) {
-          map.on('click', layerId, (e: MapLayerMouseEvent) => {
-            const f = e.features?.[0]
-            const communeId = f?.properties?.communeId as string | undefined
-            if (communeId) { e.preventDefault?.(); selectCommune(communeId) }
-          })
-          map.on('mouseenter', layerId, () => { map.getCanvas().style.cursor = 'pointer' })
-          map.on('mouseleave', layerId, () => { map.getCanvas().style.cursor = '' })
-        }
-        /*
-         * QUAND RESYNCHRONISER — le point délicat.
-         *
-         * `idle` serait l'événement naturel : il NE SE DÉCLENCHE JAMAIS sur cette carte
-         * (vérifié, 0 occurrence après déplacement). Et sur `sourcedata` la source est
-         * chargée mais pas encore découpée en tuiles : la requête revient vide.
-         *
-         * D'où le substitut usuel : les événements qui, eux, arrivent, lèvent un drapeau ;
-         * `render` le consomme à la première frame où les tuiles sont prêtes. Une requête
-         * par stabilisation, jamais une par frame.
-         */
-        let aResynchroniser = true
-        const marquer = () => { aResynchroniser = true }
-        map.on('moveend', marquer)
-        map.on('zoomend', marquer)
-        map.on('sourcedata', (e) => {
-          if (e.sourceId === 'courts-paix' && e.isSourceLoaded) marquer()
-        })
-        map.on('render', () => {
-          // ⚠️ Le drapeau se RÉARME tant que les tuiles chargent. Sans cela il était
-          // consommé à la première frame venue — avant que le moindre agrégat soit
-          // dessiné — et plus rien ne le relevait : aucune étiquette n'apparaissait.
-          if (!map.areTilesLoaded()) { aResynchroniser = true; return }
-          if (!aResynchroniser) return
-          aResynchroniser = false
-          syncClusterLabels(map)
-        })
-        resyncRef.current = marquer
-      } catch { /* points indisponibles → la carte reste utilisable (limites + liste) */ }
+      // Points : les couches du défaut et celles que l'URL affiche ; les autres attendront
+      // leur première activation (chargement paresseux). Échecs isolés par couche.
+      await Promise.all(
+        REGISTRY.toLoad(layersRef.current)
+          .map((slug) => REGISTRY.bySlug(slug))
+          .filter((l): l is MapLayerDef => Boolean(l))
+          .map((l) => installLayer(map, l)),
+      )
 
       map.on('click', 'commune-fill', (e: MapLayerMouseEvent) => {
         if (e.defaultPrevented) return
+        // Un point (tribunal, notaire…) sous le curseur l'emporte sur l'aplat communal, quel
+        // que soit l'ordre d'enregistrement des gestionnaires — une couche chargée tard
+        // enregistre son clic APRÈS celui-ci.
+        const points = REGISTRY.pointLayerIds.filter((pid) => map.getLayer(pid))
+        if (points.length && map.queryRenderedFeatures(e.point, { layers: points }).length) return
         const id = e.features?.[0]?.properties?.lamId as string | undefined
         if (id) selectCommune(id)
       })
@@ -413,19 +517,19 @@ export function JudicialMap({
       map.setFilter('commune-selected-fill', ['==', ['get', 'lamId'], selected ?? ''])
       map.setFilter('commune-selected-line', ['==', ['get', 'lamId'], selected ?? ''])
     }
-    const visible = new Set(layersRef.current.map((s) => LAYER_SLUGS[s]))
-    const setVis = (layerId: string, on: boolean) => {
-      if (map.getLayer(layerId)) map.setLayoutProperty(layerId, 'visibility', on ? 'visible' : 'none')
+    // Une boucle sur le registre : chaque couche bascule ses propres identifiants MapLibre.
+    for (const v of REGISTRY.visibility(layersRef.current)) {
+      if (map.getLayer(v.mapLayerId)) map.setLayoutProperty(v.mapLayerId, 'visibility', v.visible ? 'visible' : 'none')
     }
-    setVis('paix-clusters', visible.has('PAIX'))
-    setVis('paix-points', visible.has('PAIX'))
     // Les étiquettes de dénombrement sont du DOM : `visibility` ne les atteint pas.
     // On lève le drapeau — `queryRenderedFeatures` ne verra la couche masquée qu'APRÈS
     // le prochain rendu, un appel immédiat lirait l'état d'avant.
     resyncRef.current?.()
-    setVis('courts-PREMIERE_INSTANCE', visible.has('PREMIERE_INSTANCE'))
-    setVis('courts-APPEL', visible.has('APPEL'))
-    setVis('courts-CASSATION', visible.has('CASSATION'))
+    // Première activation d'une couche masquée par défaut : on charge ses points maintenant.
+    for (const slug of REGISTRY.toLoad(layersRef.current)) {
+      const l = REGISTRY.bySlug(slug)
+      if (l && !installedRef.current.has(slug)) void installLayer(map, l)
+    }
     if (selected) {
       const bbox = bboxRef.current.get(selected)
       if (bbox) map.fitBounds(bbox, { padding: 60, maxZoom: 11.5, duration: reduceMotion ? 0 : 600 })
