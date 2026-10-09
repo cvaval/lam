@@ -228,7 +228,20 @@ C — saisie par la rédaction — et D — demandes des tiers — restent à fa
 - les noms de la fiche de la commune et de la liste deviennent des liens.
 
 Vérifié sur la base locale : « Gemma » → sa page (deux `tel:`), « Giordani » → n° 2 et n° 21,
-« Ceant » → n° 13, n° 37 → 404. **Production : schéma et imports à passer** (colonne
-`Notary.displayName`, table `NotaryContact`, RLS, réimport des notaires, import des fiches)
-**avant** le déploiement de ce code.
+« Ceant » → n° 13, n° 37 → 404.
+
+**EN PRODUCTION le 9 octobre 2026**, sur instruction de Me Vaval, dans l'ordre :
+1. diff de schéma vérifié (colonne `displayName`, table `NotaryContact`, rien d'autre) ;
+2. `db push`, puis RLS sur 38/38 tables ;
+3. réimport des notaires (1 modification : n° 9) ;
+4. import des 5 fiches ; second passage sans changement ;
+5. push `7fe3f98..fe3ea1f`, déploiement Vercel « Ready ».
+
+Contrôlé sur agora.ht :
+- « Gemma » → sa page, deux boutons d'appel, `noindex` ;
+- n° 37 → 404 ;
+- fiche de Port-au-Prince : 21 liens, 5 mentions « coordonnées », aucune coordonnée en clair.
+
+Depuis, les boutons d'appel, de courriel et d'adresse sont alignés, et l'adresse mène à la carte
+judiciaire d'Agora (commits `39cd714`, `8ad68bd`, en ligne).
 
