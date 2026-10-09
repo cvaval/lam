@@ -54,3 +54,9 @@ export function nomJuridiction(nomTribunal: string): string {
   const m = /^(?:du |de la |de l[’']|d[’']|de )/.exec(s)
   return m ? s.slice(m[0].length) : s
 }
+
+/** « 9 octobre 2026 » · « 9 October 2026 » · « 9 oktòb 2026 » (« 1er » en français). */
+export function dateLongue(iso: string, locale: Locale): string {
+  const { y, m, d } = civil(iso)
+  return `${locale === 'fr' && d === 1 ? '1er' : d} ${nomMois(m, locale)} ${y}`
+}

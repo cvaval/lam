@@ -837,6 +837,7 @@ model Notary {
   edition          String // date d'arrêté de la liste, à défaut date de première consultation
   ordinal          Int // numéro dans la liste
   fullName         String // nom verbatim, marqueur retiré
+  displayName      String? // nom affiché quand la cliente a tranché une coquille de la source (n° 9 : « Gemma »)
   mention          String? // « PDD », « PD/CMM » ou null — affiché, jamais interprété
   communeId        String? // commune appariée ; null = commune non reconnue
   sourceDepartment String // colonne telle qu'imprimée (souvent FAUSSE en géographie)
@@ -848,9 +849,33 @@ model Notary {
   updatedAt        DateTime @updatedAt
 
   commune JudicialCommune? @relation(fields: [communeId], references: [id])
+  contact NotaryContact?
 
   @@unique([edition, ordinal])
   @@index([communeId, active])
+}
+
+/// Coordonnées de l'étude d'un notaire — une SECONDE source, distincte de la liste du MJSP :
+/// leur provenance et leur date sont les leurs. L'import du MJSP n'y touche jamais, et
+/// l'inverse non plus. Publiées sur la seule page du notaire (jamais dans les points de la
+/// carte, les suggestions de recherche ni la liste). Aucune géolocalisation de l'adresse.
+/// Amorçage : data/judicial-map/notaires-coordonnees-v1.json ; import :
+/// scripts/import-coordonnees-notaires.ts (RLS exigée).
+model NotaryContact {
+  id                String    @id // contact-<notaryId>
+  notaryId          String    @unique
+  address           String? // telle que communiquée, une ligne
+  phonesJson        String    @default("[]") // E.164 : ["+50929423848"]
+  email             String? // tel que communiqué
+  searchAliasesJson String    @default("[]")
+  observation       String?
+  sourceJson        String    @default("{}") // providedBy, providedOn, channel, evidence
+  upToDateOn        DateTime? // « à jour au »
+  active            Boolean   @default(true)
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  notary Notary @relation(fields: [notaryId], references: [id])
 }
 
 /// Note d'un lecteur au sujet d'un document — décisions judiciaires en premier lieu.

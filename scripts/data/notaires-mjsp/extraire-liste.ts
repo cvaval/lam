@@ -89,6 +89,12 @@ const MODELE: Omit<NotarySeed, 'entries'> = {
       observation: 'retirée sur décision de la cliente — n’exerce qu’à Port-au-Prince (n° 21)',
     },
   ],
+  nameDecisions: [
+    {
+      ordinal: 9, printedName: 'Gamma ANGLADE GILLES', displayName: 'Gemma ANGLADE GILLES', decidedOn: '2026-10-09',
+      observation: 'prénom « Gemma » confirmé par la cliente le 9 oct. 2026 ; la liste du MJSP imprime « Gamma »',
+    },
+  ],
   knownPairs: [
     { ordinals: [103, 107], observation: 'Daniel Georges Carlet DURANDISSE / Daniel G. C. DURANDISSE' },
   ],

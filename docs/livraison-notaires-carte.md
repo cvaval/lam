@@ -214,3 +214,21 @@ déclaré, avec la décision et la référence** dans l'amorçage ; la colonne i
 cour d'appel du Cap-Haïtien 91, **422 actifs placés**, plus aucune « Commune non reconnue ».
 Simulation contre la production (lecture seule) : 0 anomalie.
 
+## Coordonnées au clic — 9 octobre 2026
+
+Réalisé en suivant `docs/prompt-coordonnees-notaires.md` (chantiers A0, A et B ; les chantiers
+C — saisie par la rédaction — et D — demandes des tiers — restent à faire) :
+
+- **n° 9 « Gemma ANGLADE GILLES »** affiché partout, « Gamma » gardé comme nom imprimé ;
+- **cinq fiches** (n° 9, 11, 13, 17, 21) dans `NotaryContact`, provenance « communiquées à la
+  rédaction d'Agora, à jour au 9 octobre 2026 » ;
+- **page de chaque notaire** (`/{locale}/juridictions/notaires/{id}`) : commune, juridiction sans
+  « TPI », adresse, téléphones cliquables, courriel, « Signaler une erreur » ;
+- **recherche par nom** dans la barre de la carte et sur la liste (`?q=`) ;
+- les noms de la fiche de la commune et de la liste deviennent des liens.
+
+Vérifié sur la base locale : « Gemma » → sa page (deux `tel:`), « Giordani » → n° 2 et n° 21,
+« Ceant » → n° 13, n° 37 → 404. **Production : schéma et imports à passer** (colonne
+`Notary.displayName`, table `NotaryContact`, RLS, réimport des notaires, import des fiches)
+**avant** le déploiement de ce code.
+

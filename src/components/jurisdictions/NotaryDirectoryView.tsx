@@ -11,11 +11,42 @@ import { NotaryName, notarySourceLine } from './NotariesSection'
  * Toutes les communes du ressort y figurent, même sans notaire ; les entrées dont la commune
  * imprimée n'est pas reconnue ont leur section. Rendu serveur, sans JavaScript, imprimable.
  */
-export function NotaryDirectoryView({ dir, locale, t }: { dir: NotaryDirectory | null; locale: Locale; t: Dictionary }) {
+export function NotaryDirectoryView({
+  dir: complet, locale, t, filter = null,
+}: { dir: NotaryDirectory | null; locale: Locale; t: Dictionary; filter?: { q: string; ids: Set<string> } | null }) {
   const j = t.judicial
   const nb = (n: number) => compte(n, locale, j.notaryCountOne, j.notaryCountMany)
+  const dir = complet && filter ? filtrer(complet, filter.ids) : complet
+  const trouves = dir && filter ? dir.tpis.reduce((s, x) => s + x.total, 0) + dir.unmatched.length : 0
   return (
     <>
+      {complet && (
+        <form method="get" role="search" action={`/${locale}/juridictions/notaires`} className="mt-4 flex flex-wrap items-end gap-2">
+          <label className="flex min-w-0 flex-1 flex-col gap-1 text-sm font-medium text-grafit">
+            {j.notarySearchLabel}
+            <input
+              type="search"
+              name="q"
+              defaultValue={filter?.q ?? ''}
+              maxLength={80}
+              autoComplete="off"
+              placeholder="Ex. Victor, Céant, Gemma…"
+              className="min-h-[44px] w-full rounded-xl border border-chabon/15 bg-white px-4 py-2 text-sm text-ank"
+            />
+          </label>
+          <button type="submit" className="min-h-[44px] rounded-full bg-chabon px-5 text-sm font-medium text-koton">{j.notarySearchSubmit}</button>
+          {filter && (
+            <a href={`/${locale}/juridictions/notaires`} className="inline-flex min-h-[44px] items-center text-sm text-ank underline underline-offset-2">{j.notarySearchClear}</a>
+          )}
+        </form>
+      )}
+      {filter && dir && (
+        <p role="status" className="mt-3 text-sm font-medium text-ank">
+          {trouves === 0
+            ? j.notarySearchNone.replace('{q}', filter.q)
+            : compte(trouves, locale, j.notarySearchResultsOne, j.notarySearchResultsMany).replace('{q}', filter.q)}
+        </p>
+      )}
       {!dir ? (
         <p role="status" className="mt-6 rounded-xl border border-chabon/10 bg-white px-4 py-3 text-sm text-grafit">{j.notariesUnavailable}</p>
       ) : (
@@ -69,7 +100,7 @@ export function NotaryDirectoryView({ dir, locale, t }: { dir: NotaryDirectory |
                         <ol className="mt-1 flex flex-col gap-0.5 text-sm text-grafit">
                           {c.notaires.map((n) => (
                             <li key={n.ordinal}>
-                              <NotaryName n={n} />
+                              <NotaryName n={n} locale={locale} t={t} />
                               {/* Désaccord de département de la source : signalé discrètement. */}
                               {n.printedDepartment && (
                                 <span className="ml-1.5 text-[11px] text-ank/70">({j.notariesPrintedDepartment} : {n.printedDepartment})</span>
@@ -93,7 +124,7 @@ export function NotaryDirectoryView({ dir, locale, t }: { dir: NotaryDirectory |
                 <ol className="mt-2 flex flex-col gap-0.5 text-sm text-grafit">
                   {dir.unmatched.map((n) => (
                     <li key={n.ordinal}>
-                      <NotaryName n={n} />
+                      <NotaryName n={n} locale={locale} t={t} />
                       <span className="ml-1.5 text-[11px] text-ank/70">
                         ({j.notariesPrintedCommune} : {n.sourceCommune} · {j.notariesPrintedDepartment} : {n.sourceDepartment})
                       </span>
@@ -107,4 +138,17 @@ export function NotaryDirectoryView({ dir, locale, t }: { dir: NotaryDirectory |
       )}
     </>
   )
+}
+
+/** Ne garde que les notaires trouvés, et les juridictions et communes qui en ont. */
+function filtrer(dir: NotaryDirectory, ids: Set<string>): NotaryDirectory {
+  const tpis = dir.tpis
+    .map((x) => {
+      const communes = x.communes
+        .map((c) => ({ ...c, notaires: c.notaires.filter((n) => ids.has(n.id)) }))
+        .filter((c) => c.notaires.length > 0)
+      return { ...x, communes, total: communes.reduce((s, c) => s + c.notaires.length, 0) }
+    })
+    .filter((x) => x.total > 0)
+  return { ...dir, tpis, unmatched: dir.unmatched.filter((n) => ids.has(n.id)) }
 }

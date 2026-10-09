@@ -221,6 +221,21 @@ describe('reproduire tel quel, et signaler', () => {
     for (const n of [6, 10, 24, 28, 64, 266, 271]) expect(row(n).observation, String(n)).toBeTruthy()
   })
 
+  it('n° 9 : « Gemma » s’affiche (décision de la cliente), « Gamma » reste le nom imprimé', () => {
+    expect(row(9).fullName).toBe('Gamma ANGLADE GILLES')
+    expect(row(9).displayName).toBe('Gemma ANGLADE GILLES')
+    expect(row(9).observation).toMatch(/prénom « Gemma » confirmé par la cliente/)
+    expect(plan.rows.filter((r) => r.displayName)).toHaveLength(1)
+  })
+
+  it('une décision de nom dont l’imprimé a changé est SIGNALÉE (la liste a pu être corrigée)', () => {
+    const s = fraisSeed()
+    s.nameDecisions = [{ ...s.nameDecisions[0], printedName: 'Autre NOM' }]
+    const a = buildNotaryPlan(s, communes()).anomalies
+    expect(a.some((x) => x.level === 'AVERTISSEMENT' && /décision de nom à revoir/.test(x.message))).toBe(true)
+    expect(a.some((x) => x.level === 'BLOQUANT')).toBe(false)
+  })
+
   it('identifiant stable mjsp-<édition>-<n>', () => {
     expect(row(1).id).toBe('mjsp-2026-09-08-1')
     expect(new Set(plan.rows.map((r) => r.id)).size).toBe(423)

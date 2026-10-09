@@ -54,9 +54,9 @@ beforeEach(() => {
   prisma.judicialCommune.findUnique.mockResolvedValue(COMMUNE)
   prisma.judicialCommune.findMany.mockResolvedValue([])
   prisma.notary.findMany.mockResolvedValue([
-    { ordinal: 32, fullName: 'Jean EXEMPLE', mention: null },
-    { ordinal: 33, fullName: 'Marie TEST', mention: 'PDD' },
-    { ordinal: 35, fullName: 'Paul ESSAI', mention: null },
+    { id: 'mjsp-2026-09-08-32', ordinal: 32, fullName: 'Jean EXEMPLE', displayName: null, mention: null, contact: { active: true } },
+    { id: 'mjsp-2026-09-08-33', ordinal: 33, fullName: 'Marie TEST', displayName: null, mention: 'PDD', contact: null },
+    { id: 'mjsp-2026-09-08-35', ordinal: 35, fullName: 'Gamma ESSAI', displayName: 'Gemma ESSAI', mention: null, contact: null },
   ])
   prisma.courtCommuneJurisdiction.findMany.mockResolvedValue([
     { commune: { id: 'commune-ouest-port-au-prince', name: 'Port-au-Prince' } },
@@ -109,7 +109,14 @@ describe('fiche de la commune — rendu', () => {
   it('section « Notaires (3) » : 👤, noms tels qu’imprimés, marqueur, provenance EN CLAIR', async () => {
     const html = renderToStaticMarkup(<JudicialResults record={(await getCommuneRecord('commune-ouest-cite-soleil'))!} locale="fr" t={t} />)
     expect(html).toContain('<span aria-hidden="true" class="mr-1">👤</span>Notaires (3)</h3>')
-    expect(html).toContain('Marie TEST<span class="ml-1 font-mono text-[11px] text-ank/80">(PDD)</span>')
+    // Chaque nom mène à la page du notaire ; le marqueur suit, tel qu'imprimé.
+    expect(html).toMatch(/href="\/fr\/juridictions\/notaires\/mjsp-2026-09-08-33"[^>]*>Marie TEST<\/a><span class="ml-1 font-mono text-\[11px\] text-ank\/80">\(PDD\)<\/span>/)
+    // Le nom AFFICHÉ (décision de la cliente) remplace l'imprimé ; l'imprimé n'apparaît pas ici.
+    expect(html).toContain('>Gemma ESSAI</a>')
+    expect(html).not.toContain('Gamma ESSAI')
+    // Une fiche de coordonnées s'annonce discrètement… sans qu'aucune coordonnée ne s'affiche.
+    expect(html).toMatch(/>Jean EXEMPLE<\/a><span class="ml-1\.5 text-\[11px\] text-ank\/70">· coordonnées<\/span>/)
+    expect(html).not.toMatch(/tel:|mailto:(?!erreur)/)
     expect(html).toContain('Liste publiée par le ministère de la Justice et de la Sécurité publique (MJSP), consultée le 8 septembre et le 9 octobre 2026.')
     // Rien de brut : ni URL, ni fichier, ni empreinte.
     expect(html).not.toMatch(/mjsp\.gouv|\.pdf|cf0b0f15|4d77f084|sha/i)

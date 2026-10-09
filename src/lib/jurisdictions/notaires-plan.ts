@@ -65,6 +65,17 @@ export const notarySeedSchema = z.object({
     decidedOn: isoDate,
     observation: z.string().min(1),
   })),
+  /**
+   * Coquille de la source tranchée par la cliente : le nom imprimé reste dans `fullName`, le
+   * nom correct s'affiche (`displayName`). n° 9 : « Gamma » imprimé, « Gemma » confirmé.
+   */
+  nameDecisions: z.array(z.object({
+    ordinal: z.number().int().positive(),
+    printedName: z.string().min(1),
+    displayName: z.string().min(1),
+    decidedOn: isoDate,
+    observation: z.string().min(1),
+  })).default([]),
   /** Paires que la comparaison exacte des noms ne voit pas (noms abrégés). */
   knownPairs: z.array(z.object({ ordinals: z.tuple([z.number().int(), z.number().int()]), observation: z.string() })),
   /** Civilités et coquilles de la source, reproduites et signalées sans correction. */
@@ -106,6 +117,8 @@ export interface NotaryRow {
   edition: string
   ordinal: number
   fullName: string
+  /** Nom affiché quand la cliente a tranché une coquille de la source ; null sinon. */
+  displayName: string | null
   mention: NotaryMention | null
   communeId: string | null
   sourceDepartment: string
@@ -216,6 +229,15 @@ export function buildNotaryPlan(seed: NotarySeed, communes: CommuneRef[]): Notar
   // ── 3. Décisions (entrées retirées), paires, particularités ──────────────────
   const decisionByOrdinal = new Map(seed.decisions.map((d) => [d.ordinal, d]))
   for (const d of seed.decisions) if (!byOrdinal.has(d.ordinal)) bloque(`décision sur l’entrée n° ${d.ordinal}, absente de la liste`)
+  const nameDecisionByOrdinal = new Map(seed.nameDecisions.map((d) => [d.ordinal, d]))
+  for (const d of seed.nameDecisions) {
+    const e = byOrdinal.get(d.ordinal)
+    if (!e) { bloque(`décision de nom sur l’entrée n° ${d.ordinal}, absente de la liste`); continue }
+    // La liste a peut-être été corrigée à la source : on le signale, on n'arrête rien.
+    if (splitMention(e.name).fullName !== d.printedName) {
+      signale(`n° ${d.ordinal} : le nom imprimé n’est plus « ${d.printedName} » mais « ${splitMention(e.name).fullName} » — décision de nom à revoir`)
+    }
+  }
   const quirksByOrdinal = new Map<number, string[]>()
   for (const q of seed.sourceQuirks) {
     const e = byOrdinal.get(q.ordinal)
@@ -296,11 +318,14 @@ export function buildNotaryPlan(seed: NotarySeed, communes: CommuneRef[]): Notar
     notes.push(...(quirksByOrdinal.get(e.ordinal) ?? []), ...(pairNotes.get(e.ordinal) ?? []))
     const decision = decisionByOrdinal.get(e.ordinal)
     if (decision) notes.push(decision.observation)
+    const nom = nameDecisionByOrdinal.get(e.ordinal)
+    if (nom) notes.push(nom.observation)
     return {
       id: notaryId(seed.edition, e.ordinal),
       edition: seed.edition,
       ordinal: e.ordinal,
       fullName,
+      displayName: nom && nom.displayName !== fullName ? nom.displayName : null,
       // Un débordement de colonne porte aussi le marqueur : il appartient au nom.
       mention: mention ?? overflow,
       communeId: commune?.id ?? null,
@@ -430,7 +455,7 @@ export function communeRefsFromImportPlan(plan: {
 
 /** Champs comparés pour décider « inchangé » — tous ceux que l'import écrit. */
 export const NOTARY_FIELDS = [
-  'edition', 'ordinal', 'fullName', 'mention', 'communeId', 'sourceDepartment', 'sourceCommune',
+  'edition', 'ordinal', 'fullName', 'displayName', 'mention', 'communeId', 'sourceDepartment', 'sourceCommune',
   'observation', 'sourceJson', 'active',
 ] as const satisfies readonly (keyof NotaryRow)[]
 

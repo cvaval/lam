@@ -11,13 +11,20 @@ export function notarySourceLine(provenance: NotaryProvenance | null, locale: Lo
   return dates ? t.judicial.notariesSource.replace('{dates}', dates) : t.judicial.notariesSourceUndated
 }
 
-/** Nom tel qu'imprimé, puis le marqueur (« (PDD) », « PD/CMM ») — affiché, jamais interprété. */
-export function NotaryName({ n }: { n: NotaryView }) {
+/**
+ * Le nom (lien vers la page du notaire), puis le marqueur (« (PDD) », « PD/CMM ») — affiché,
+ * jamais interprété — et, s'il y a une fiche, une mention discrète « coordonnées ». Les
+ * coordonnées elles-mêmes ne s'affichent QUE sur la page du notaire.
+ */
+export function NotaryName({ n, locale, t }: { n: NotaryView; locale: Locale; t: Dictionary }) {
   const m = mentionAsPrinted(n.mention)
   return (
     <>
-      {n.fullName}
+      <Link href={`/${locale}/juridictions/notaires/${n.id}`} className="underline-offset-2 hover:text-chabon hover:underline">
+        {n.fullName}
+      </Link>
       {m && <span className="ml-1 font-mono text-[11px] text-ank/80">{m}</span>}
+      {n.hasContact && <span className="ml-1.5 text-[11px] text-ank/70">· {t.judicial.notaryContactBadge}</span>}
     </>
   )
 }
@@ -43,7 +50,7 @@ export function NotariesSection({
         ) : (
           <ol className="flex flex-col gap-1 text-sm text-ank">
             {notaires.map((n) => (
-              <li key={n.ordinal}><NotaryName n={n} /></li>
+              <li key={n.ordinal}><NotaryName n={n} locale={locale} t={t} /></li>
             ))}
           </ol>
         )}

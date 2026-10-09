@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1",
+  "description": "Coordonnées d'études de notaires communiquées à la rédaction d'Agora. Seconde source, distincte de la liste du MJSP : adresse et courriel tels que communiqués, téléphones normalisés en E.164 à l'import. Rattachement par identifiant d'entrée, verrouillé par le nom imprimé.",
+  "entries": [
+    {
+      "notaryId": "mjsp-2026-09-08-9",
+      "expectedName": "Gamma ANGLADE GILLES",
+      "address": "394, route de Bourdon, Port-au-Prince",
+      "phones": [
+        "+509 2998-47-47",
+        "+509 4643-05-03"
+      ],
+      "email": "etudeanglade@gmail.com",
+      "searchAliases": [],
+      "observation": "deux numéros communiqués ; le second (46…) pourrait être un portable — usage professionnel à confirmer",
+      "upToDateOn": "2026-10-09",
+      "source": {
+        "providedBy": "Me Christelle Vaval",
+        "providedOn": "2026-10-09",
+        "channel": "message à la rédaction",
+        "evidence": null
+      }
+    },
+    {
+      "notaryId": "mjsp-2026-09-08-11",
+      "expectedName": "Patrick VICTOR",
+      "address": "14 rue Marcadieux, Bourdon, Port-au-Prince",
+      "phones": [
+        "+509 2942-3848"
+      ],
+      "email": "patrickvictor@etudevictor.com",
+      "searchAliases": [],
+      "observation": null,
+      "upToDateOn": "2026-10-09",
+      "source": {
+        "providedBy": "Me Christelle Vaval",
+        "providedOn": "2026-10-09",
+        "channel": "message à la rédaction",
+        "evidence": null
+      }
+    },
+    {
+      "notaryId": "mjsp-2026-09-08-13",
+      "expectedName": "Jean-Joseph Frantz CÉANT",
+      "address": "390, ave John Brown, Bourdon",
+      "phones": [
+        "+509 2813-1299"
+      ],
+      "email": "secretariat@etudenotaireceant.com",
+      "searchAliases": [],
+      "observation": "adresse communiquée sans commune ; reproduite telle quelle",
+      "upToDateOn": "2026-10-09",
+      "source": {
+        "providedBy": "Me Christelle Vaval",
+        "providedOn": "2026-10-09",
+        "channel": "message à la rédaction",
+        "evidence": null
+      }
+    },
+    {
+      "notaryId": "mjsp-2026-09-08-17",
+      "expectedName": "Marilyn Merceron CHARLES",
+      "address": "#52, Avenue Lamartinière, Bois-Verna, Port-au-Prince",
+      "phones": [
+        "+509 2940-4134"
+      ],
+      "email": "etude_charles@yahoo.com",
+      "searchAliases": [],
+      "observation": null,
+      "upToDateOn": "2026-10-09",
+      "source": {
+        "providedBy": "Me Christelle Vaval",
+        "providedOn": "2026-10-09",
+        "channel": "message à la rédaction",
+        "evidence": null
+      }
+    },
+    {
+      "notaryId": "mjsp-2026-09-08-21",
+      "expectedName": "Gilbert Emile GIORDANI",
+      "address": "#3, rue Théodule, Bourdon, Port-au-Prince",
+      "phones": [],
+      "email": "Contact@etudegilbertgiordani.net",
+      "searchAliases": [],
+      "observation": "aucun téléphone communiqué ; la pièce jointe écrit « Theodule », le message de la cliente « Théodule » (retenu) ; entrée n° 21 (Port-au-Prince), pas n° 37 (retirée)",
+      "upToDateOn": "2026-10-09",
+      "source": {
+        "providedBy": "Me Christelle Vaval",
+        "providedOn": "2026-10-09",
+        "channel": "message à la rédaction",
+        "evidence": "scripts/data/notaires-coordonnees/piece-giordani-adresse.png"
+      }
+    }
+  ]
+}

@@ -4,7 +4,8 @@ import { AgoraPublicHeader } from '@/components/AgoraPublicHeader'
 import '@/components/agora-portal.css'
 import { dictFor } from '@/lib/i18n/server'
 import { isLocale, LOCALES } from '@/lib/types'
-import { getNotaryDirectory } from '@/lib/jurisdictions/data'
+import { getNotaryDirectory, getNotaryIndex } from '@/lib/jurisdictions/data'
+import { searchNotaries } from '@/lib/jurisdictions/search-notaries'
 import { NotaryDirectoryView } from '@/components/jurisdictions/NotaryDirectoryView'
 
 export const dynamic = 'force-dynamic'
@@ -12,9 +13,11 @@ export const dynamic = 'force-dynamic'
 /**
  * Notaires PAR JURIDICTION — la liste textuelle de la couche « notaires ». La carte n'est
  * jamais le seul accès à l'information : cette page est COMPLÈTE, lisible sans JavaScript et
- * imprimable. Classement : par TPI (déduit du rattachement TPI_COMPETENT de la commune), puis
- * par commune, puis par numéro de liste. Une ancre par TPI (l'identifiant de la juridiction),
- * visée depuis la carte du TPI de chaque fiche.
+ * imprimable. Classement : par juridiction (déduite du rattachement de la commune, affichée
+ * sans « TPI »), puis par commune, puis par numéro de liste. Une ancre par juridiction.
+ *
+ * RECHERCHE PAR NOM : formulaire `GET ?q=`, traité ici, côté serveur — elle fonctionne sans
+ * JavaScript et garde le classement par juridiction.
  */
 export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
   const { locale, t } = dictFor(params.locale)
@@ -26,10 +29,15 @@ export async function generateMetadata({ params }: { params: { locale: string } 
   }
 }
 
-export default async function NotairesParJuridictionPage({ params }: { params: { locale: string } }) {
+export default async function NotairesParJuridictionPage({
+  params, searchParams,
+}: { params: { locale: string }; searchParams: { q?: string | string[] } }) {
   const { locale, t } = dictFor(isLocale(params.locale) ? params.locale : 'fr')
   const j = t.judicial
-  const dir = await getNotaryDirectory()
+  const rawQ = Array.isArray(searchParams.q) ? searchParams.q[0] : searchParams.q
+  const q = (rawQ ?? '').trim().slice(0, 80)
+  const [dir, index] = await Promise.all([getNotaryDirectory(), q ? getNotaryIndex() : Promise.resolve(null)])
+  const filter = q && index ? { q, ids: new Set(searchNotaries(index, q).map((h) => h.id)) } : null
 
   return (
     <div className="agora-portal min-h-screen bg-koton">
@@ -51,7 +59,7 @@ export default async function NotairesParJuridictionPage({ params }: { params: {
         </h1>
         <p className="mt-2 max-w-3xl leading-relaxed text-grafit">{j.notariesIntro}</p>
 
-        <NotaryDirectoryView dir={dir} locale={locale} t={t} />
+        <NotaryDirectoryView dir={dir} locale={locale} t={t} filter={filter} />
 
         <p className="mt-8">
           <Link href={`/${locale}/juridictions`} className="inline-flex min-h-[44px] items-center text-sm font-medium text-ank underline underline-offset-2 transition hover:text-chabon">

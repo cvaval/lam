@@ -165,6 +165,27 @@ Pour brancher un fournisseur approuvé : renseigner `NEXT_PUBLIC_MAP_STYLE_URL` 
 attribution), puis ajouter les origines EXACTES du style/tuiles/sprites à `connect-src`
 et `img-src` dans `src/middleware.ts` — jamais de joker. Documenter chaque domaine.
 
+## Coordonnées des notaires et recherche par nom
+
+Seconde source, distincte de la liste du MJSP : `NotaryContact` (une fiche par entrée), amorçage
+`data/judicial-map/notaires-coordonnees-v1.json`, import `scripts/import-coordonnees-notaires.ts`
+(simulation par défaut ; `--apply` refusé sans RLS ; verrou : le nom imprimé en base doit égaler
+`expectedName`, l'entrée doit être active). Module pur : `src/lib/jurisdictions/coordonnees.ts`
+(téléphones en E.164, affichés « +509 XXXX-XXXX » ; adresse et courriel tels que communiqués).
+
+- **Où elles s'affichent** : sur la SEULE page du notaire, `/{locale}/juridictions/notaires/{id}`
+  (`noindex`, 404 pour une entrée retirée). Ailleurs (fiche de la commune, liste), le nom est un
+  lien et une mention discrète « coordonnées » signale la fiche ; jamais dans les points de la
+  carte, les suggestions de recherche ni l'API `communes/[id]`.
+- **Recherche par nom** : `src/lib/jurisdictions/search-notaries.ts` (accents et casse
+  neutralisés, tous les mots, dernier mot en début de mot, une lettre de tolérance au-delà de
+  5 lettres ; la mention n'est pas cherchable). Barre de la carte : suggestions typées
+  `commune` / `notaire`, 5 places au plus par sorte, 8 en tout. Liste : `?q=` côté serveur.
+- **Nom affiché** : `Notary.displayName` porte une décision de la cliente sur une coquille de la
+  source (n° 9 : « Gemma », la liste imprime « Gamma » — `nameDecisions` de l'amorçage) ; le
+  nom imprimé reste dans `fullName` et s'affiche en mention sur la page du notaire.
+- **Ajouter une fiche** : une entrée dans l'amorçage, puis simulation et `--apply`.
+
 ## Variables d'environnement (`.env.example`)
 
 | Variable | Rôle |

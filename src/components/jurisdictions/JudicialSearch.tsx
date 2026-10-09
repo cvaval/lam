@@ -5,16 +5,14 @@ import { useRouter } from 'next/navigation'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale } from '@/lib/types'
 
-interface Suggestion {
-  id: string
-  name: string
-  department: string
-  arrondissement: string
-  postalCode: string | null
-}
+type Suggestion =
+  | { kind?: 'commune'; id: string; name: string; department: string; arrondissement: string; postalCode: string | null }
+  | { kind: 'notaire'; id: string; name: string; mention: string | null; communeId: string | null; communeName: string | null }
 
 /**
- * Recherche d'une commune — combobox ARIA complète (rôles combobox/listbox/option,
+ * Recherche d'une commune ou d'un NOTAIRE (par son nom) — choisir un notaire ouvre sa page,
+ * seul endroit où s'affichent ses coordonnées (aucune n'arrive dans les suggestions).
+ * Combobox ARIA complète (rôles combobox/listbox/option,
  * aria-activedescendant, annonces aria-live), clavier ↑ ↓ Entrée Échap.
  * Débouncée (200 ms), 8 suggestions au plus, AUCUN géocodeur externe.
  * Les suggestions sont rendues en TEXTE (jamais de HTML injecté).
@@ -63,7 +61,8 @@ export function JudicialSearch({ locale, t, layersQs }: { locale: Locale; t: Dic
   const select = (s: Suggestion) => {
     setOpen(false)
     setQ(s.name)
-    router.push(`/${locale}/juridictions?commune=${encodeURIComponent(s.id)}${layersQs}`, { scroll: false })
+    if (s.kind === 'notaire') router.push(`/${locale}/juridictions/notaires/${encodeURIComponent(s.id)}`)
+    else router.push(`/${locale}/juridictions?commune=${encodeURIComponent(s.id)}${layersQs}`, { scroll: false })
   }
 
   const onKeyDown = (e: React.KeyboardEvent) => {
@@ -114,7 +113,7 @@ export function JudicialSearch({ locale, t, layersQs }: { locale: Locale; t: Dic
           ) : (
             items.map((s, i) => (
               <li
-                key={s.id}
+                key={`${s.kind ?? 'commune'}-${s.id}`}
                 id={`${listId}-opt-${i}`}
                 role="option"
                 aria-selected={i === active}
@@ -122,9 +121,20 @@ export function JudicialSearch({ locale, t, layersQs }: { locale: Locale; t: Dic
                 onMouseEnter={() => setActive(i)}
                 className={`cursor-pointer px-4 py-2 text-sm ${i === active ? 'bg-pil text-ank' : 'text-ank/80'}`}
               >
-                <span className="font-medium">{s.name}</span>
-                <span className="ml-2 text-xs text-ank/80">{s.department} · {s.arrondissement}</span>
-                {s.postalCode && <span className="ml-2 font-mono text-xs text-ank/80">{s.postalCode}</span>}
+                {s.kind === 'notaire' ? (
+                  <>
+                    <span aria-hidden="true" className="mr-1.5">👤</span>
+                    <span className="font-medium">{s.name}</span>
+                    {s.mention && <span className="ml-1 font-mono text-[11px] text-ank/80">{s.mention === 'PDD' ? '(PDD)' : s.mention}</span>}
+                    <span className="ml-2 text-xs text-ank/80">{j.notaryKind}{s.communeName ? ` · ${s.communeName}` : ''}</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="font-medium">{s.name}</span>
+                    <span className="ml-2 text-xs text-ank/80">{s.department} · {s.arrondissement}</span>
+                    {s.postalCode && <span className="ml-2 font-mono text-xs text-ank/80">{s.postalCode}</span>}
+                  </>
+                )}
               </li>
             ))
           )}
