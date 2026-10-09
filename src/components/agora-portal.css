@@ -25,9 +25,10 @@
    la marge latérale suit la fenêtre (24 à 96 px). Sur grand écran, la carte du héros grandit avec sa colonne. */
 /* Héros : Haïti agrandie et fiche de Port-au-Prince rétablie (8 oct. 2026). À partir de 1 000 px, la carte
    prend la plus grande part du héros, l'île suit la largeur de sa colonne (proportions du viewBox 1000 × 764,
-   520 px de haut au plus) et la fiche se range à sa droite ; la ligne « Port-au-Prince · HT6110 » ferait doublon. */
+   jusqu'à 78 % de la hauteur de la fenêtre, 820 px au plus, centrée dans sa colonne) et la fiche se range à sa
+   droite ; la ligne « Port-au-Prince · HT6110 » ferait doublon. */
 .ag-map-body{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:center}.ag-hero-fiche{display:none}
-@media(min-width:1000px){.ag-hero-grid{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr)}.ag-map-body{grid-template-columns:minmax(0,1fr) 14rem;margin-top:10px}.agora-portal .ag-map-art{height:auto;aspect-ratio:1000/764;max-height:520px;margin:0 -6px 6px}.ag-hero-fiche{display:block}.ag-map-place{display:none}}
+@media(min-width:1000px){.ag-hero-grid{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr)}.ag-map-body{grid-template-columns:minmax(0,1fr) 14rem;margin-top:10px}.agora-portal .ag-map-art{width:100%;height:auto;aspect-ratio:1000/764;max-height:min(78vh,820px);margin:0 0 6px}.ag-hero-fiche{display:block}.ag-map-place{display:none}}
 @media(min-width:1500px){.ag-map-body{grid-template-columns:minmax(0,1fr) 16rem}}
 .ag-secure-card{width:100%;max-width:560px;justify-self:end}
 /* Frise patrimoniale du héros (de gauche à droite : Marché en Fer, Citadelle, Marron inconnu, tour monumentale,
