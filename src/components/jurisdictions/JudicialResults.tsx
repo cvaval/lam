@@ -8,7 +8,8 @@ import { PostalCodeCard } from './PostalCodeCard'
  * Fiche d'une commune (rendu SERVEUR — lisible sans JavaScript).
  * Ordre imposé (§6) : commune, département, arrondissement, codes postaux,
  * tribunaux de paix (chacun sa carte, JAMAIS regroupés), TPI, cour d'appel,
- * bloc distinct « Recours national », notes, sources, dernière vérification.
+ * bloc distinct « Recours national », notes, dernière vérification (la section « Sources »
+ * de la commune a été retirée le 9 oct. 2026, à la demande de la cliente).
  */
 export function JudicialResults({ record, locale, t }: { record: CommuneRecord; locale: Locale; t: Dictionary }) {
   const j = t.judicial
@@ -72,32 +73,13 @@ export function JudicialResults({ record, locale, t }: { record: CommuneRecord; 
         </section>
       )}
 
-      {(commune.sources.length > 0 || record.lastVerified) && (
-        <footer className="rounded-2xl border border-chabon/10 bg-white p-4 text-xs text-grafit">
-          {commune.sources.length > 0 && (
-            <>
-              <h3 className="font-mono text-[11px] uppercase tracking-wider text-ank/80">{j.sources}</h3>
-              <ul className="mt-1.5 flex flex-col gap-1">
-                {commune.sources.map((s, i) => (
-                  <li key={i} className="break-words">
-                    {s.type === 'url' ? (
-                      <a href={s.value} target="_blank" rel="noopener noreferrer" className="text-chabon underline underline-offset-2 hover:text-chabon">
-                        {s.value}
-                      </a>
-                    ) : (
-                      <span className="font-mono">{s.value}</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </>
-          )}
-          {record.lastVerified && (
-            <p className="mt-2">
-              {j.lastVerified} : <time dateTime={record.lastVerified}>{record.lastVerified}</time>
-            </p>
-          )}
-        </footer>
+      {/* Section « Sources » de la commune RETIRÉE à la demande de Me Vaval (9 oct. 2026) : la
+          liste brute d'URL et de fichiers de travail n'a pas sa place sur la fiche publique.
+          Les sources restent en base (`sourceJson` de la commune). */}
+      {record.lastVerified && (
+        <p className="px-1 text-xs text-grafit">
+          {j.lastVerified} : <time dateTime={record.lastVerified}>{record.lastVerified}</time>
+        </p>
       )}
     </article>
   )
