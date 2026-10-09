@@ -50,9 +50,9 @@ Vérifié sur une **base locale** (`lam_banc`, référentiel de la carte import�
 - import : 423 créations ; second passage **0 création, 0 modification, 423 inchangées** ;
   `--apply` **refusé** tant que la table n'a pas la sécurité par ligne ; audit `JUDICIAL_IMPORT`
   tracé et recompté ;
-- route : **125 points, total 421**, propriétés `communeId`, `communeName`, `count` seulement ;
-- liste textuelle : **422 inscriptions affichées sur 423**, 23 juridictions, Petit-Bourg sous
-  « Commune non reconnue », 33 désaccords signalés, 24 communes « aucun notaire inscrit » ;
+- route : **125 points, total 422** (421 avant le rattachement de Petit-Bourg, voir plus bas), propriétés `communeId`, `communeName`, `count` seulement ;
+- liste textuelle : **422 inscriptions affichées sur 423**, 23 juridictions, 33 désaccords
+  signalés, 24 communes « aucun notaire inscrit » ;
 - fiches : Gonaïves **14, département Artibonite** ; Tiburon **2, département Sud** ;
   Port-au-Prince **21** ; Cité Soleil **3** ; TPI de Port-au-Prince « **57 notaires dans le
   ressort** » ; Baptiste : « Aucun notaire inscrit dans cette commune sur la liste du MJSP » ;
@@ -92,14 +92,15 @@ tombent juste, aucun constat bloquant.
 | Jacmel | 28 | 8 | | Aquin | 12 | 3 |
 | Gonaïves | 24 | 6 | | Anse-à-Veau | 12 | 4 |
 | Jérémie | 21 | 11 | | Miragoâne | 9 | 4 |
-| Limbé | 20 | 6 | | Ouanaminthe | 9 | 5 |
+| Limbé | **21** | 6 | | Ouanaminthe | 9 | 5 |
 | Hinche | 20 | 6 | | Côteaux | 8 | 6 |
 | Saint-Marc | 18 | 7 | | Mirebalais | 8 | 3 |
 | | | | | Belladère | 8 | 3 |
 | | | | | La Gonâve | 4 | 2 |
 | | | | | Jean-Rabel | 3 | 2 |
 
-Par cour d'appel : Port-au-Prince 140, Cayes 94, Cap-Haïtien 90, Gonaïves 61, Hinche 36.
+Par cour d'appel : Port-au-Prince 140, Cayes 94, Cap-Haïtien **91**, Gonaïves 61, Hinche 36.
+(Limbé et Cap-Haïtien comptent Petit-Bourg-de-Port-Margot depuis la décision du 9 octobre, plus bas.)
 Tailles du 👤 : 59 communes à 1-2, 53 à 3-6, 13 à 7 et plus.
 
 ### Les 33 désaccords de département (la carte place selon le référentiel)
@@ -134,7 +135,7 @@ Le détail ligne à ligne est dans le rapport de l'import (`--rapport fichier.md
 | 3 | Couche notaires visible par défaut ? | **non** : les quatre juridictions restent le défaut |
 | 4 | Repli sans emoji : silhouette en encre (capture ci-dessus) | silhouette tête-épaules |
 | 5 | Libellé du groupe « Professions juridiques » (en : *Legal professions*, ht : *Pwofesyon jiridik*), et « Juridictions / Jurisdictions / Jiridiksyon » | ceux-là |
-| 6 | Petit-Bourg-de-Port-Margot (n° 154) : rattacher à Port-Margot ? | non, sans source citée — « Commune non reconnue » |
+| 6 | Petit-Bourg-de-Port-Margot (n° 154) : rattacher à Port-Margot ? | **tranché le 9 oct. : oui** (voir plus bas) |
 | 7 | Le chiffre sur le marqueur ? | non en v1 (taille + fiche + liste) |
 | 8 | Comparer à l'effectif légal de l'art. 3 ? | hors périmètre |
 
@@ -202,4 +203,14 @@ ressort de La Gonâve siège à Anse-à-Galets (`nomJuridiction`, testé sur les
 **Reste à trancher** : la fiche d'une commune affiche toujours, sur la carte du TPI, la ligne
 « 👤 N notaires dans le ressort ». Faut-il la retirer, ou la déplacer dans la section
 « Notaires (N) » (« N notaires dans la juridiction de … ») ?
+
+**Petit-Bourg-de-Port-Margot (n° 154, Rille MÉSIDOR) — tranché le 9 octobre.** Me Vaval :
+Petit-Bourg-de-Port-Margot se trouve dans la commune de Port-Margot (source citée : ADN Haïti,
+fiche « Commune de Port-Margot »). Le référentiel le corrobore : il rattache déjà à Port-Margot
+le tribunal de paix « PETIT B. DE PORT MARGOT » ; arrondissement du Borgne et département du
+Nord concordent (code postal du référentiel : HT1520, inchangé). Le rattachement est un **alias
+déclaré, avec la décision et la référence** dans l'amorçage ; la colonne imprimée reste
+« PETIT-BOURG DE PORT MARGOT ». Conséquences : Port-Margot 4 notaires, juridiction de Limbé 21,
+cour d'appel du Cap-Haïtien 91, **422 actifs placés**, plus aucune « Commune non reconnue ».
+Simulation contre la production (lecture seule) : 0 anomalie.
 

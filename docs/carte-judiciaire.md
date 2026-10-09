@@ -132,10 +132,11 @@ Sécurité publique (page `mjsp.gouv.ht/page/notaires`, export PDF), consultée 
 - **Deux autorités** : la liste dit qui et où, le référentiel dit où est où. Commune appariée
   par son nom sur **liste fermée** (nom, alias du référentiel, ou alias DÉCLARÉ dans
   l'amorçage) ; département déduit ; colonne imprimée conservée (`sourceDepartment`) et chaque
-  désaccord consigné (33). Petit-Bourg-de-Port-Margot (n° 154) reste sans commune.
+  désaccord consigné (33). Petit-Bourg-de-Port-Margot (n° 154) est rattaché à Port-Margot
+  (décision de la cliente du 9 oct. 2026, source citée, corroborée par le référentiel).
 - Rien n'est corrigé ni fusionné : marqueurs « (PDD) » / « PD/CMM » dans `mention`, affichés
   tels quels ; doublons gardés ; n° 37 (Cité Soleil) `active: false` sur décision de la cliente.
-- Publication : un point par commune (125, total 421), JAMAIS de nom dans les points ; liste
+- Publication : un point par commune (125, total 422), JAMAIS de nom dans les points ; liste
   nominative dans la fiche (« Notaires (N) ») et dans `/{locale}/juridictions/notaires` (par
   TPI, puis commune, puis numéro). Provenance dite **en clair** — ni URL brute, ni fichier, ni
   empreinte sur une page publique.
@@ -155,7 +156,7 @@ npx tsx scripts/import-notaires-mjsp.ts --apply
 ```
 
 L'import refuse d'écrire si un contrôle tombe faux (423 entrées, 1 inactive, 126 communes
-dont 125 appariées, 15 alias tous consommés, 33 désaccords, 0 commune sans centroïde, totaux
+dont 125 appariées, 16 alias tous consommés, 33 désaccords, 0 commune sans centroïde, totaux
 des 23 TPI), si la table n'existe pas, ou si elle n'a pas la RLS. Tant que la table n'existe
 pas, la carte, la fiche et la liste se dégradent proprement (route 503, section absente, page
 « liste pas encore disponible »).

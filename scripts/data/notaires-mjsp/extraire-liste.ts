@@ -68,17 +68,19 @@ const MODELE: Omit<NotarySeed, 'entries'> = {
     { source: 'LES PERCHES', communeId: 'commune-nord-est-perches', communeName: 'Perches' },
     { source: 'LES ROSEAUX', communeId: 'commune-grand-anse-roseaux', communeName: 'Roseaux' },
     { source: 'MONBIN CROCHU', communeId: 'commune-nord-est-mombin-crochu', communeName: 'Mombin-Crochu' },
+    {
+      // Décision de la cliente du 9 oct. 2026, source citée (n° 154). Ce n'est pas une variante
+      // d'orthographe : Petit-Bourg est une localité de la commune de Port-Margot.
+      source: 'PETIT-BOURG DE PORT MARGOT', communeId: 'commune-nord-port-margot', communeName: 'Port-Margot',
+      note: 'Petit-Bourg-de-Port-Margot se trouve dans la commune de Port-Margot (arrondissement du Borgne, Nord) : '
+        + 'décision de la cliente du 9 oct. 2026, source citée ; corroboré par le référentiel, qui rattache à '
+        + 'Port-Margot le tribunal de paix « PETIT B. DE PORT MARGOT »',
+      reference: { title: 'ADN Haïti — Commune de Port-Margot', url: 'https://www.adnhaiti.ht/commune-de-port-margot/', consultedOn: '2026-10-09' },
+    },
     { source: 'ST MARC', communeId: 'commune-artibonite-saint-marc', communeName: 'Saint-Marc' },
     { source: 'VERETTE', communeId: 'commune-artibonite-verrettes', communeName: 'Verrettes' },
   ],
-  unresolvedCommunes: [
-    {
-      source: 'PETIT-BOURG DE PORT MARGOT',
-      observation:
-        'commune non reconnue : « Petit-Bourg de Port-Margot » n’est ni une commune du référentiel ni le nom de ville '
-        + 'd’aucune ; Port-Margot a ses propres entrées (n° 151-153). Non rattachée faute de source citée.',
-    },
-  ],
+  unresolvedCommunes: [],
   decisions: [
     {
       ordinal: 37,
@@ -105,9 +107,9 @@ const MODELE: Omit<NotarySeed, 'entries'> = {
     sourceCommunes: 126,
     directCommunes: 110,
     matchedCommunes: 125,
-    unmatchedEntries: 1,
+    unmatchedEntries: 0,
     departmentDisagreements: 33,
-    placedActive: 421,
+    placedActive: 422,
     // Totaux par TPI de la spécification (actifs seulement, n° 37 exclu) — recomptés à l'import.
     tpiTotals: {
       'court-tpi-tpi-de-port-au-prince': 57,
@@ -117,7 +119,7 @@ const MODELE: Omit<NotarySeed, 'entries'> = {
       'court-tpi-tpi-de-jacmel': 28,
       'court-tpi-tpi-des-gonaives': 24,
       'court-tpi-tpi-de-jeremie': 21,
-      'court-tpi-tpi-de-limbe': 20,
+      'court-tpi-tpi-de-limbe': 21,
       'court-tpi-tpi-de-hinche': 20,
       'court-tpi-tpi-de-saint-marc': 18,
       'court-tpi-tpi-de-petit-goave': 16,

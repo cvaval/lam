@@ -94,19 +94,36 @@ describe('appariement des communes : liste fermée', () => {
     expect(bloquants()).toEqual([])
   })
 
-  it('110 communes se reconnaissent d’elles-mêmes, 15 par alias déclaré, 1 non reconnue', () => {
+  it('110 communes se reconnaissent d’elles-mêmes, 16 par alias déclaré, aucune non reconnue', () => {
     expect(plan.report.sourceCommunes).toBe(126)
     expect(plan.report.direct).toBe(110)
-    expect(plan.report.aliasesUsed).toHaveLength(15)
+    expect(plan.report.aliasesUsed).toHaveLength(16)
     expect(plan.report.aliasesUsed.every((a) => a.entries > 0)).toBe(true)
-    expect(plan.report.unresolved).toEqual([{ source: 'PETIT-BOURG DE PORT MARGOT', ordinals: [154] }])
+    expect(plan.report.unresolved).toEqual([])
     expect(plan.report.matchedCommunes).toBe(125)
   })
 
-  it('Petit-Bourg-de-Port-Margot (n° 154) reste SANS commune, signalé', () => {
-    expect(row(154).communeId).toBeNull()
-    expect(row(154).observation).toMatch(/non reconnue/)
-    expect(plan.report.placedEntries).toBe(422)
+  it('Petit-Bourg-de-Port-Margot (n° 154) : à Port-Margot, décision de la cliente du 9 oct. 2026, source citée', () => {
+    // La spécification le laissait sans commune « faute de source citée ». La cliente a tranché,
+    // source à l'appui ; le référentiel le corrobore (tribunal de paix « PETIT B. DE PORT MARGOT »
+    // rattaché à Port-Margot). La colonne imprimée reste telle quelle.
+    expect(row(154).communeId).toBe('commune-nord-port-margot')
+    expect(row(154).sourceCommune).toBe('PETIT-BOURG DE PORT MARGOT')
+    expect(row(154).observation).toMatch(/décision de la cliente du 9 oct\. 2026, source citée/)
+    expect(plan.report.placedEntries).toBe(423)
+    expect(plan.rows.filter((r) => r.communeId === 'commune-nord-port-margot' && r.active)).toHaveLength(4)
+    // Même département imprimé que le référentiel (Nord) : aucun désaccord de plus.
+    expect(plan.report.disagreements.some((d) => d.ordinal === 154)).toBe(false)
+  })
+
+  it('une commune non reconnue reste possible : déclarée, elle n’est jamais placée', () => {
+    const s = fraisSeed()
+    s.communeAliases = s.communeAliases.filter((a) => a.source !== 'PETIT-BOURG DE PORT MARGOT')
+    s.unresolvedCommunes = [{ source: 'PETIT-BOURG DE PORT MARGOT', observation: 'commune non reconnue' }]
+    s.expected = { ...s.expected, unmatchedEntries: 1, placedActive: 421, tpiTotals: { ...s.expected.tpiTotals, 'court-tpi-tpi-de-limbe': 20 } }
+    const p = buildNotaryPlan(s, communes())
+    expect(bloquants(p)).toEqual([])
+    expect(p.rows.find((r) => r.ordinal === 154)!.communeId).toBeNull()
   })
 
   it('les « (PDD) » de colonne s’apparient à Grande-Rivière-du-Nord, la mention conservée', () => {
@@ -220,16 +237,17 @@ describe('reproduire tel quel, et signaler', () => {
 })
 
 describe('rattachement par juridiction — déduit, jamais stocké', () => {
-  it('421 actifs placés, les 23 TPI pourvus, totaux de la spécification', () => {
-    expect(plan.report.placedActive).toBe(421)
+  it('422 actifs placés, les 23 TPI pourvus, totaux de la spécification (Limbé 21 avec Petit-Bourg)', () => {
+    expect(plan.report.placedActive).toBe(422)
     expect(plan.report.tpiTotals).toHaveLength(23)
-    expect(plan.report.tpiTotals.reduce((s, t) => s + t.notaries, 0)).toBe(421)
+    expect(plan.report.tpiTotals.reduce((s, t) => s + t.notaries, 0)).toBe(422)
+    expect(plan.report.tpiTotals.find((t) => t.tpiId === 'court-tpi-tpi-de-limbe')!.notaries).toBe(21)
     const pap = plan.report.tpiTotals.find((t) => t.tpiId === 'court-tpi-tpi-de-port-au-prince')!
     expect([pap.notaries, pap.communes]).toEqual([57, 9])
   })
 
-  it('par cour d’appel : 140 / 94 / 90 / 61 / 36', () => {
-    expect(plan.report.appealTotals.map((a) => a.notaries)).toEqual([140, 94, 90, 61, 36])
+  it('par cour d’appel : 140 / 94 / 91 / 61 / 36', () => {
+    expect(plan.report.appealTotals.map((a) => a.notaries)).toEqual([140, 94, 91, 61, 36])
   })
 
   it('24 communes sans notaire', () => {

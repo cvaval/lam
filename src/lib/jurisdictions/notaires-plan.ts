@@ -50,7 +50,14 @@ export const notarySeedSchema = z.object({
     })).min(1),
     textIdenticalAcrossConsultations: z.boolean(),
   }),
-  communeAliases: z.array(z.object({ source: z.string().min(1), communeId: stableId, communeName: z.string().min(1) })),
+  communeAliases: z.array(z.object({
+    source: z.string().min(1),
+    communeId: stableId,
+    communeName: z.string().min(1),
+    /** Rattachement qui n'est pas une simple variante d'orthographe : décision et source citée. */
+    note: z.string().min(1).optional(),
+    reference: z.object({ title: z.string().min(1), url: z.string().url(), consultedOn: isoDate }).optional(),
+  })),
   unresolvedCommunes: z.array(z.object({ source: z.string().min(1), observation: z.string().min(1) })),
   decisions: z.array(z.object({
     ordinal: z.number().int().positive(),
@@ -276,7 +283,11 @@ export function buildNotaryPlan(seed: NotarySeed, communes: CommuneRef[]): Notar
       columnOverflow.push(e.ordinal)
       notes.push(`« (${overflow}) » imprimé dans la colonne Commune (débordement de colonne) ; retiré pour l’appariement`)
     }
-    if (r.how === 'alias') notes.push(`commune imprimée « ${sourceCommune} », appariée à ${commune?.name} par alias déclaré`)
+    if (r.how === 'alias') {
+      const alias = aliasBySource.get(sourceCommune)
+      notes.push(`commune imprimée « ${sourceCommune} », appariée à ${commune?.name} par alias déclaré`)
+      if (alias?.note) notes.push(alias.note)
+    }
     if (r.how === 'unresolved') notes.push(unresolvedBySource.get(sourceCommune)?.observation ?? `commune « ${sourceCommune} » non reconnue`)
     if (commune && deptKey(commune.department) !== deptKey(e.department)) {
       disagreements.push({ ordinal: e.ordinal, name: e.name, commune: commune.name, printed: e.department, actual: commune.department })
