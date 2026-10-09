@@ -38,3 +38,19 @@ export function compte(n: number, locale: Locale, un: string, plusieurs: string)
   const singulier = locale === 'fr' ? n < 2 : n === 1
   return (singulier ? un : plusieurs).replace('{n}', String(n))
 }
+
+/**
+ * Nom de la JURIDICTION à partir du nom du tribunal, sans « TPI » : les notaires ne dépendent
+ * pas des tribunaux de première instance (Me Vaval, 9 oct. 2026). La liste reste regroupée par
+ * ressort ; seul le libellé change.
+ *
+ * ⚠️ Pas le siège : le ressort « de La Gonâve » siège à Anse-à-Galets. On retire « TPI » et la
+ * préposition ; l'article contracté « des » redevient « Les » (« des Cayes » → « Les Cayes »,
+ * comme le nom de la commune) ; un article en capitale fait partie du nom (« La Gonâve »).
+ */
+export function nomJuridiction(nomTribunal: string): string {
+  const s = nomTribunal.replace(/^TPI\s+/, '')
+  if (s.startsWith('des ')) return `Les ${s.slice(4)}`
+  const m = /^(?:du |de la |de l[’']|d[’']|de )/.exec(s)
+  return m ? s.slice(m[0].length) : s
+}

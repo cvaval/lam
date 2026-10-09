@@ -156,11 +156,11 @@ describe('liste par juridiction', () => {
     prisma.judicialCommune.findMany.mockResolvedValue(COMMUNES)
   })
 
-  it('par TPI (ordre du siège), puis par commune ; communes sans notaire comprises ; inactifs exclus', async () => {
+  it('par juridiction (nom sans « TPI »), puis par commune ; communes sans notaire comprises ; inactifs exclus', async () => {
     const d = (await getNotaryDirectory())!
     expect(d.totalEntries).toBe(4)
     expect(d.activeEntries).toBe(3)
-    expect(d.tpis.map((x) => [x.name, x.total])).toEqual([['TPI des Gonaïves', 1], ['TPI de Port-au-Prince', 1]])
+    expect(d.tpis.map((x) => [x.label, x.total])).toEqual([['Les Gonaïves', 1], ['Port-au-Prince', 1]])
     const pap = d.tpis[1]
     expect(pap.communes.map((c) => [c.name, c.notaires.length])).toEqual([['Cité Soleil', 0], ['Port-au-Prince', 1]])
     expect(d.unmatched.map((n) => n.ordinal)).toEqual([154])
@@ -175,6 +175,10 @@ describe('liste par juridiction', () => {
   it('rendu : une ancre par TPI, comptes, « Commune non reconnue », provenance en clair', async () => {
     const html = renderToStaticMarkup(<NotaryDirectoryView dir={await getNotaryDirectory()} locale="fr" t={t} />)
     expect(html).toContain(`id="${TPI}"`)
+    // Les notaires ne dépendent pas des TPI : le mot n'apparaît nulle part dans la liste.
+    expect(html).not.toMatch(/\bTPI\b|première instance/)
+    expect(html).toContain('>Port-au-Prince <span')
+    expect(html).toContain('>Juridictions</h2>')
     expect(html).toContain(`href="#${TPI}"`)
     expect(html).toContain('3 inscriptions affichées sur les 4 de la liste.')
     expect(html).toContain('id="commune-non-reconnue"')

@@ -51,7 +51,7 @@ Vérifié sur une **base locale** (`lam_banc`, référentiel de la carte import�
   `--apply` **refusé** tant que la table n'a pas la sécurité par ligne ; audit `JUDICIAL_IMPORT`
   tracé et recompté ;
 - route : **125 points, total 421**, propriétés `communeId`, `communeName`, `count` seulement ;
-- liste textuelle : **422 inscriptions affichées sur 423**, 23 TPI, Petit-Bourg sous
+- liste textuelle : **422 inscriptions affichées sur 423**, 23 juridictions, Petit-Bourg sous
   « Commune non reconnue », 33 désaccords signalés, 24 communes « aucun notaire inscrit » ;
 - fiches : Gonaïves **14, département Artibonite** ; Tiburon **2, département Sud** ;
   Port-au-Prince **21** ; Cité Soleil **3** ; TPI de Port-au-Prince « **57 notaires dans le
@@ -67,7 +67,7 @@ Vérifié sur une **base locale** (`lam_banc`, référentiel de la carte import�
 ![](livraison-notaires-carte/b-cinq-couches-ordinateur.jpg)
 
 ![](livraison-notaires-carte/b-fiches-cite-soleil-baptiste.jpg)
-![](livraison-notaires-carte/b-liste-par-tpi.jpg)
+![](livraison-notaires-carte/b-liste-par-juridiction.jpg)
 ![](livraison-notaires-carte/b-mobile.jpg)
 
 **Le 👤 selon le système.** Capture faite sur Mac (Apple Color Emoji, buste gris-bleu) ; à
@@ -158,7 +158,7 @@ jiridiksyon tribinal la », la ligne de provenance « Lis Ministè Lajistis ak S
 3. La page publique annonce « 422 inscriptions affichées sur les 423 » et dit qu'« une
    inscription en double n'est pas reprise » — **sans nommer** le notaire concerné.
 4. La liste par juridiction montre **toutes** les communes de chaque ressort, y compris celles
-   sans notaire ; les TPI sont classés par siège (« Anse-à-Veau », « Aquin »…).
+   sans notaire ; les juridictions sont classées par ordre alphabétique de leur nom.
 5. Les intitulés de groupe n'apparaissent que lorsqu'au moins deux groupes ont des couches
    (sinon une rangée unique, comme avant) — c'est ce qui rend le chantier A iso-fonctionnel.
 6. La fiche publique ne montre pas l'`observation` interne d'un notaire (désaccords, alias,
@@ -188,3 +188,18 @@ npx tsx scripts/import-notaires-mjsp.ts --apply
 
 Puis `git push` et déploiement. Avant l'import, revérifier que la page du MJSP annonce
 toujours « 423 notaires trouvés ».
+
+## Après livraison — décision de la cliente (9 octobre 2026)
+
+**Les notaires ne dépendent pas des tribunaux de première instance.** Dans la liste
+« Notaires par juridiction », les juridictions s'affichent donc **sans « TPI »**
+(« Port-au-Prince », « Les Cayes », « La Gonâve »…), le sommaire s'intitule « Juridictions »
+et l'introduction ne rattache plus le notaire à un tribunal : elle dit seulement qu'il est
+commissionné pour une commune (décret-loi de 1969, art. 3 et 47). Le regroupement par ressort
+est inchangé. Le nom vient du tribunal sans « TPI » ni préposition, et non de son siège : le
+ressort de La Gonâve siège à Anse-à-Galets (`nomJuridiction`, testé sur les 23).
+
+**Reste à trancher** : la fiche d'une commune affiche toujours, sur la carte du TPI, la ligne
+« 👤 N notaires dans le ressort ». Faut-il la retirer, ou la déplacer dans la section
+« Notaires (N) » (« N notaires dans la juridiction de … ») ?
+

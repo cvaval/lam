@@ -14,6 +14,7 @@ import { prisma } from '../db'
 import { estSchemaAbsent } from '../delais/service-base'
 import { buildPlaceIndex, type PlaceIndex } from './search-places'
 import { normalizePlaceName } from './normalize-place'
+import { nomJuridiction } from './notaires-format'
 import type { CourtType } from './constants'
 
 export interface SourceRef { type: 'url' | 'file'; value: string }
@@ -320,7 +321,10 @@ export interface NotaryDirectory {
   provenance: NotaryProvenance | null
   tpis: Array<{
     id: string
+    /** Nom du tribunal en base (« TPI de Port-au-Prince ») — jamais affiché dans cette liste. */
     name: string
+    /** Nom de la juridiction affiché, sans « TPI » (« Port-au-Prince », « Les Cayes »). */
+    label: string
     total: number
     communes: Array<{
       id: string
@@ -333,12 +337,12 @@ export interface NotaryDirectory {
   unmatched: Array<NotaryView & { sourceCommune: string; sourceDepartment: string }>
 }
 
-/** Clé de tri d'un TPI : son siège, sans « TPI de / du / des … ». */
-const cleTpi = (name: string) => name.replace(/^TPI\s+(de la |de l’|de l'|des |du |de |d’|d')?/i, '')
-
 /**
- * La liste textuelle par juridiction : par TPI, puis par commune, puis par numéro. Toutes
- * les communes du ressort y figurent, même sans notaire. `null` = liste pas encore en base.
+ * La liste textuelle par juridiction : par ressort, puis par commune, puis par numéro. Le
+ * ressort est celui du rattachement TPI_COMPETENT de la commune, mais il s'AFFICHE sans
+ * « TPI » : les notaires ne dépendent pas des tribunaux de première instance (Me Vaval,
+ * 9 oct. 2026). Toutes les communes du ressort y figurent, même sans notaire.
+ * `null` = liste pas encore en base.
  */
 export async function getNotaryDirectory(): Promise<NotaryDirectory | null> {
   try {
@@ -364,7 +368,7 @@ export async function getNotaryDirectory(): Promise<NotaryDirectory | null> {
     for (const c of communes) {
       const court = c.jurisdictions.find((j) => j.court.active)?.court
       if (!court) continue
-      const t = tpis.get(court.id) ?? { id: court.id, name: court.name, total: 0, communes: [] }
+      const t = tpis.get(court.id) ?? { id: court.id, name: court.name, label: nomJuridiction(court.name), total: 0, communes: [] }
       const liste = parCommune.get(c.id) ?? []
       const dept = c.department.name
       t.communes.push({
@@ -380,7 +384,7 @@ export async function getNotaryDirectory(): Promise<NotaryDirectory | null> {
       t.total += liste.length
       tpis.set(court.id, t)
     }
-    const sorted = [...tpis.values()].sort((a, b) => cleTpi(a.name).localeCompare(cleTpi(b.name), 'fr'))
+    const sorted = [...tpis.values()].sort((a, b) => a.label.localeCompare(b.label, 'fr'))
     for (const t of sorted) t.communes.sort((a, b) => a.name.localeCompare(b.name, 'fr'))
 
     return {

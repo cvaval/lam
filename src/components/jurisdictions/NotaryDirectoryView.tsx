@@ -6,7 +6,8 @@ import { compte } from '@/lib/jurisdictions/notaires-format'
 import { NotaryName, notarySourceLine } from './NotariesSection'
 
 /**
- * Corps de la liste « notaires par juridiction » : par TPI, puis par commune, puis par numéro.
+ * Corps de la liste « notaires par juridiction » : par juridiction (sans « TPI » : les notaires
+ * ne dépendent pas des tribunaux de première instance), puis par commune, puis par numéro.
  * Toutes les communes du ressort y figurent, même sans notaire ; les entrées dont la commune
  * imprimée n'est pas reconnue ont leur section. Rendu serveur, sans JavaScript, imprimable.
  */
@@ -33,7 +34,7 @@ export function NotaryDirectoryView({ dir, locale, t }: { dir: NotaryDirectory |
               {dir.tpis.map((tpi) => (
                 <li key={tpi.id}>
                   <a href={`#${tpi.id}`} className="flex min-h-[44px] items-center justify-between gap-2 rounded-lg px-2 text-sm text-ank/80 transition hover:bg-pil">
-                    <span>{tpi.name}</span>
+                    <span>{tpi.label}</span>
                     <span className="font-mono text-xs">{tpi.total}</span>
                   </a>
                 </li>
@@ -53,7 +54,7 @@ export function NotaryDirectoryView({ dir, locale, t }: { dir: NotaryDirectory |
             {dir.tpis.map((tpi) => (
               <section key={tpi.id} id={tpi.id} aria-labelledby={`${tpi.id}-titre`} className="scroll-mt-24 rounded-2xl border border-chabon/10 bg-white p-5">
                 <h2 id={`${tpi.id}-titre`} className="font-serif text-xl font-semibold text-ank">
-                  {tpi.name} <span className="font-sans text-sm font-normal text-grafit">— {nb(tpi.total)}</span>
+                  {tpi.label} <span className="font-sans text-sm font-normal text-grafit">— {nb(tpi.total)}</span>
                 </h2>
                 <div className="mt-3 grid gap-x-8 gap-y-4 md:grid-cols-2">
                   {tpi.communes.map((c) => (

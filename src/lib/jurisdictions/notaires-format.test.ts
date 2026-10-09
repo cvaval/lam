@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { compte, formatConsultations } from './notaires-format'
+import { compte, formatConsultations, nomJuridiction } from './notaires-format'
 
 describe('provenance en clair', () => {
   const deux = ['2026-10-09', '2026-09-08']
@@ -27,5 +27,25 @@ describe('singulier / pluriel', () => {
   })
   it('anglais : 1 seul au singulier', () => {
     expect(compte(0, 'en', '{n} notary', '{n} notaries')).toBe('0 notaries')
+  })
+})
+
+describe('nom de la juridiction, sans « TPI »', () => {
+  it('les 23 ressorts', () => {
+    const attendu: Record<string, string> = {
+      'TPI de l’Anse-à-Veau': 'Anse-à-Veau', 'TPI d’Aquin': 'Aquin', 'TPI de Belladère': 'Belladère',
+      'TPI du Cap-Haïtien': 'Cap-Haïtien', 'TPI des Cayes': 'Les Cayes', 'TPI des Côteaux': 'Les Côteaux',
+      'TPI de la Croix-des-Bouquets': 'Croix-des-Bouquets', 'TPI de Fort-Liberté': 'Fort-Liberté',
+      'TPI des Gonaïves': 'Les Gonaïves', 'TPI de La Gonâve': 'La Gonâve',
+      'TPI de la Grande-Rivière-du-Nord': 'Grande-Rivière-du-Nord', 'TPI de Hinche': 'Hinche',
+      'TPI de Jacmel': 'Jacmel', 'TPI de Jean-Rabel': 'Jean-Rabel', 'TPI de Jérémie': 'Jérémie',
+      'TPI de Limbé': 'Limbé', 'TPI de Miragoâne': 'Miragoâne', 'TPI de Mirebalais': 'Mirebalais',
+      'TPI de Ouanaminthe': 'Ouanaminthe', 'TPI de Petit-Goâve': 'Petit-Goâve', 'TPI de Port-de-Paix': 'Port-de-Paix',
+      'TPI de Port-au-Prince': 'Port-au-Prince', 'TPI de Saint-Marc': 'Saint-Marc',
+    }
+    for (const [tribunal, juridiction] of Object.entries(attendu)) expect(nomJuridiction(tribunal), tribunal).toBe(juridiction)
+  })
+  it('La Gonâve : le nom du ressort, pas son siège (Anse-à-Galets)', () => {
+    expect(nomJuridiction('TPI de La Gonâve')).toBe('La Gonâve')
   })
 })
