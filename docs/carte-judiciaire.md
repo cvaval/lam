@@ -165,6 +165,24 @@ Pour brancher un fournisseur approuvé : renseigner `NEXT_PUBLIC_MAP_STYLE_URL` 
 attribution), puis ajouter les origines EXACTES du style/tuiles/sprites à `connect-src`
 et `img-src` dans `src/middleware.ts` — jamais de joker. Documenter chaque domaine.
 
+## Fond de rues (OpenStreetMap, hébergé par Agora)
+
+Les routes d'Haïti et leurs noms apparaissent en zoomant : lignes dès le zoom 11, noms dès le 14,
+sous les marqueurs. Tout est servi par agora.ht (CSP inchangée).
+
+- Données : `public/maps/hti/routes-hti.pmtiles` (PMTiles, routes seules, Haïti seule, ~8 Mo),
+  métadonnées et empreintes dans `public/maps/hti/routes-metadata.json`, lues par le protocole
+  `pmtiles://` (dépendance `pmtiles`, épinglée) en requêtes partielles (`Range`).
+- Polices de la carte : glyphes Inter Regular dans `public/maps/fonts/Inter-Regular/` (OFL).
+- Couches, source, gabarit des glyphes et mentions : `src/lib/jurisdictions/fond-de-rues.ts`
+  (pur, testé). ⚠️ URL absolues (worker `blob:`) ; le gabarit `{fontstack}/{range}` ne passe pas
+  par `new URL()`, qui encode les accolades.
+- Licence ODbL : « © contributeurs OpenStreetMap » s'affiche toujours, séparément de
+  `NEXT_PUBLIC_MAP_ATTRIBUTION`.
+- Mise à jour : retélécharger l'extrait Geofabrik « Haiti and Dominican Republic » hors du dépôt,
+  puis `python3 scripts/build-routes-haiti.py --pbf … --extrait-date AAAA-MM-JJ` (outils :
+  `brew install osmium-tool tippecanoe`). Budget : 15 Mo, contrôlé par le script et par un test.
+
 ## Coordonnées des notaires et recherche par nom
 
 Seconde source, distincte de la liste du MJSP : `NotaryContact` (une fiche par entrée), amorçage

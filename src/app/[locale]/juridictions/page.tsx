@@ -8,6 +8,7 @@ import { dictFor } from '@/lib/i18n/server'
 import { isLocale, LOCALES } from '@/lib/types'
 import { getCommuneRecord, getCommuneDirectory, type CommuneRecord } from '@/lib/jurisdictions/data'
 import { parseLayers, serializeLayers } from '@/lib/jurisdictions/layers'
+import { attributionsCarte } from '@/lib/jurisdictions/fond-de-rues'
 import { JudicialSearch } from '@/components/jurisdictions/JudicialSearch'
 import { JudicialFilters } from '@/components/jurisdictions/JudicialFilters'
 import { JudicialResults } from '@/components/jurisdictions/JudicialResults'
@@ -67,7 +68,8 @@ export default async function JuridictionsPage({
     getCommuneDirectory(),
   ])
   const notFound = Boolean(commune && !record)
-  const attribution = process.env.NEXT_PUBLIC_MAP_ATTRIBUTION || 'Limites administratives : CNIGS / OCHA (COD-AB Haïti, CC BY-IGO)'
+  // La mention OpenStreetMap (ODbL) s'ajoute TOUJOURS : la variable ne remplace que celle des limites.
+  const attribution = attributionsCarte(process.env.NEXT_PUBLIC_MAP_ATTRIBUTION).join(' · ')
   const reportIssueUrl = process.env.NEXT_PUBLIC_MAP_REPORT_ISSUE_URL || 'https://www.openstreetmap.org/fixthemap'
   const layersParam = serializeLayers(layers)
   const layersQs = layersParam === null ? '' : `&layers=${layersParam}`

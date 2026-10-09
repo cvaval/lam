@@ -1,0 +1,39 @@
+{
+  "description": "Routes d’Haïti (OpenStreetMap) pour le fond de rues de la carte judiciaire",
+  "source": "https://download.geofabrik.de/central-america/haiti-and-domrep-latest.osm.pbf",
+  "extractDate": "2026-10-08",
+  "sourceSha256": "78c65f69fb99cad618a37b63c0f07b5a9aa5691113dd1ca13d0c379197128010",
+  "sourceBytes": 88735560,
+  "license": "ODbL 1.0 — © contributeurs OpenStreetMap",
+  "builtAt": "2026-10-09T20:43:31Z",
+  "tool": "scripts/build-routes-haiti.py (osmium, tippecanoe)",
+  "zooms": [
+    11,
+    15
+  ],
+  "classes": {
+    "majeure": {
+      "features": 1213,
+      "named": 1052,
+      "minzoom": 11
+    },
+    "secondaire": {
+      "features": 3063,
+      "named": 2154,
+      "minzoom": 11
+    },
+    "locale": {
+      "features": 56352,
+      "named": 11689,
+      "minzoom": 13
+    },
+    "service": {
+      "features": 1291,
+      "named": 1291,
+      "minzoom": 13
+    }
+  },
+  "file": "public/maps/hti/routes-hti.pmtiles",
+  "bytes": 8839579,
+  "sha256": "2daf5674099d5cf3924ae7d87a5249bcf7cbecce817897e5d508050728c9f839"
+}

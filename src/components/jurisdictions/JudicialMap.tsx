@@ -32,6 +32,8 @@ import type { Locale } from '@/lib/types'
 import { BRAND_COLORS } from '@/lib/brand-colors'
 import { LAYER_REGISTRY, emojiImageExpression, type MapLayerDef } from '@/lib/jurisdictions/layers'
 import { EMOJI_SIZES, emojiPuckImage, type CanvasFactory } from '@/lib/jurisdictions/marker-canvas'
+import { ROUTES_SOURCE_ID, glyphsTemplate, routesLayers, routesSource } from '@/lib/jurisdictions/fond-de-rues'
+import { Protocol } from 'pmtiles'
 import { COURT_STYLE, MARKER_STROKE } from './CourtCard'
 
 const HAITI_BOUNDS: [[number, number], [number, number]] = [[-75.0, 17.9], [-71.5, 20.2]]
@@ -99,6 +101,17 @@ interface PointFeature {
 }
 
 const REGISTRY = LAYER_REGISTRY
+
+/**
+ * Protocole `pmtiles://` du fond de rues, enregistré UNE fois pour toute la page : un seul
+ * fichier servi par agora.ht, lu par requêtes partielles (`Range`), sans serveur de tuiles.
+ */
+let protocolePmtiles = false
+function enregistrerPmtiles() {
+  if (protocolePmtiles) return
+  maplibregl.addProtocol('pmtiles', new Protocol().tile)
+  protocolePmtiles = true
+}
 const canvasFactory: CanvasFactory = (w, h) => {
   const c = document.createElement('canvas')
   c.width = w
@@ -330,8 +343,12 @@ export function JudicialMap({
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return
     const styleUrl = process.env.NEXT_PUBLIC_MAP_STYLE_URL
+    enregistrerPmtiles()
     const style: StyleSpecification | string = styleUrl || {
       version: 8,
+      // Polices de la carte (noms de rues) : glyphes Inter servis par agora.ht. Gabarit en
+      // URL absolue, `{fontstack}`/`{range}` littéraux — voir fond-de-rues.ts.
+      glyphs: glyphsTemplate(window.location.origin),
       sources: {},
       layers: [{ id: 'bg', type: 'background', paint: { 'background-color': COLORS.bg } }],
     }
@@ -421,6 +438,21 @@ export function JudicialMap({
         // (8,49:1) ; c'est l'AIRE en Wouj Pal qui signale la commune choisie.
         paint: { 'line-color': BRAND_COLORS.chabon, 'line-width': 2.5 },
       })
+
+      // FOND DE RUES (OpenStreetMap, hébergé par Agora) — invisible sous le zoom 11 : la vue
+      // d'ouverture ne charge aucune tuile de rues. Les lignes passent SOUS les limites et
+      // l'aplat de sélection ; les noms au-dessus d'eux mais SOUS toute couche de points du
+      // registre, posées ensuite. Un échec ici ne doit pas emporter la carte.
+      if (!styleUrl) {
+        try {
+          map.addSource(ROUTES_SOURCE_ID, routesSource(window.location.origin))
+          const [lignes, noms] = routesLayers({ line: BRAND_COLORS.grafit, text: BRAND_COLORS.ank, halo: BRAND_COLORS.blan })
+          map.addLayer(lignes, 'commune-fill')
+          map.addLayer(noms)
+        } catch (err) {
+          console.error('[carte judiciaire] fond de rues', err)
+        }
+      }
 
       // Emprises par commune (survol clavier/centrage) calculées UNE fois du GeoJSON servi.
       try {
