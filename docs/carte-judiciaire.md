@@ -214,7 +214,17 @@ Seconde source, distincte de la liste du MJSP : `NotaryContact` (une fiche par e
   admin (pour retirer sans perdre : décocher « Publiée »). Audit `NOTARY_CONTACT_UPDATED`
   avec l'avant et l'après. Module pur : `src/lib/jurisdictions/notaires-demandes.ts`.
 - **Formulaire des tiers** : `/{locale}/juridictions/notaires/demande`, **FERMÉ par défaut**
-  (404 tant que `NOTARY_REQUESTS_ENABLED` ne vaut pas `true`). Ouvert, trois liens discrets
+  (404 tant que `NOTARY_REQUESTS_ENABLED` ne vaut pas `true`, ou que les clés Turnstile
+  manquent).
+- **Vérification humaine** (Cloudflare Turnstile, `src/lib/security/turnstile.ts`, composant
+  `src/components/security/VerificationHumaine.tsx`) : rien ne part sans elle. La route valide
+  d'abord la saisie (une faute ne consomme pas le jeton), puis interroge siteverify (action
+  `notary-request`, hôte `agora.ht`/`www.agora.ht`, jeton de moins de 300 s), refuse si
+  Cloudflare ne répond pas, et journalise les échecs `HUMAN_CHECK_FAILED` (ni jeton ni
+  contenu). La CSP ne s'ouvre à `challenges.cloudflare.com` (`script-src`, `frame-src`) que sur
+  cette page ; `connect-src` ne change pas. Un test sentinelle impose `verifierHumain` à toute
+  route publique de demande (futur formulaire des avocats compris). Sans JavaScript, le
+  formulaire ne peut pas aboutir : un `<noscript>` renvoie à legal@agora.ht. Ouvert, trois liens discrets
   y mènent (page du notaire, section « Notaires » d'une commune, bas de la liste). `POST
   /api/public/jurisdictions/notaires/demandes` : sans JavaScript, redirection 303 ; avec, JSON
   (la saisie reste à l'écran, chaque erreur sous son champ). Champ piège + délai de 3 s, frein
@@ -246,6 +256,7 @@ Seconde source, distincte de la liste du MJSP : `NotaryContact` (une fiche par e
 | `NEXT_PUBLIC_MAP_REPORT_ISSUE_URL` | lien « Signaler une erreur de carte » |
 | `NOTARY_REQUESTS_ENABLED` | `true` ouvre le formulaire des tiers ; toute autre valeur (ou absente) : fermé, 404 |
 | `NOTARY_REQUEST_ALERT_TO` | destinataires de la notification (virgules) ; défaut `legal@agora.ht` |
+| `TURNSTILE_SITE_KEY` / `TURNSTILE_SECRET_KEY` | clés du widget Turnstile (Vercel, Production seulement) ; local et banc : clés de test `1x…` ; refusées en production Vercel |
 
 Aucune clé secrète : si un fournisseur exige une clé publique, elle doit être restreinte
 par domaine, ses quotas surveillés, sa rotation documentée — jamais une clé serveur.

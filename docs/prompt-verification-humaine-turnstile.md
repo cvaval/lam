@@ -8,6 +8,7 @@
 > - Fait suite à `docs/prompt-coordonnees-notaires.md` (chantier D, demandes des tiers), livré
 >   en local le 9 octobre : commits `5e3d715` (code) et `3b726f9` (docs), **ni poussés ni
 >   migrés**. Note de livraison : `docs/livraison-coordonnees-notaires-saisie-et-demandes.md`.
+> - **RÉALISÉ le 9 octobre 2026** : `docs/livraison-verification-humaine.md`.
 > - **Revient sur une décision** du chantier D : « Sans captcha tiers : la CSP n'autorise que
 >   `connect-src 'self'` ». La cliente demande désormais une vérification humaine explicite.
 >   L'outil retenu est **Cloudflare Turnstile**.
