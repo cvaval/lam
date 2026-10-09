@@ -202,7 +202,40 @@ Seconde source, distincte de la liste du MJSP : `NotaryContact` (une fiche par e
 - **Nom affiché** : `Notary.displayName` porte une décision de la cliente sur une coquille de la
   source (n° 9 : « Gemma », la liste imprime « Gamma » — `nameDecisions` de l'amorçage) ; le
   nom imprimé reste dans `fullName` et s'affiche en mention sur la page du notaire.
-- **Ajouter une fiche** : une entrée dans l'amorçage, puis simulation et `--apply`.
+- **Ajouter une fiche** : par l'écran de la rédaction (ci-dessous), ou par une entrée dans
+  l'amorçage, puis simulation et `--apply`.
+
+## Saisie par la rédaction et demandes des tiers (chantiers C et D)
+
+- **Écran de la rédaction** : `/{locale}/admin/notaires` (`corpus.manage`, éditeur et master
+  admin). Chercher un notaire, ouvrir sa fiche (`/admin/notaires/{id}`), saisir ou corriger :
+  mêmes règles que l'import (E.164, numéro illisible REFUSÉ et nommé), source et canal
+  obligatoires. Route `PUT /api/admin/notaires/{id}/coordonnees` ; `DELETE` réservé au master
+  admin (pour retirer sans perdre : décocher « Publiée »). Audit `NOTARY_CONTACT_UPDATED`
+  avec l'avant et l'après. Module pur : `src/lib/jurisdictions/notaires-demandes.ts`.
+- **Formulaire des tiers** : `/{locale}/juridictions/notaires/demande`, **FERMÉ par défaut**
+  (404 tant que `NOTARY_REQUESTS_ENABLED` ne vaut pas `true`). Ouvert, trois liens discrets
+  y mènent (page du notaire, section « Notaires » d'une commune, bas de la liste). `POST
+  /api/public/jurisdictions/notaires/demandes` : sans JavaScript, redirection 303 ; avec, JSON
+  (la saisie reste à l'écran, chaque erreur sous son champ). Champ piège + délai de 3 s, frein
+  de 3 demandes par heure et par IP, plafond de 30 courriels par jour (un seul courriel de
+  volume au-delà). La demande est ENREGISTRÉE avant le courriel ; le courriel part vers
+  `legal@agora.ht` (ou `NOTARY_REQUEST_ALERT_TO`), **jamais** vers le demandeur, sans son
+  adresse.
+- **File du master admin** : `/{locale}/admin/notaires/demandes` (pastille des NOUVELLES dans
+  le menu, tuile sur la vue d'ensemble dès que le formulaire est ouvert ou qu'une demande
+  attend). Coordonnées : « Ouvrir la fiche pré-remplie », l'enregistrement accepte la demande
+  (et la rattache au notaire si le tiers n'en avait choisi aucun). Inscription d'un notaire
+  absent de la liste : vérification CONSIGNÉE (comment, quand) obligatoire, crée l'entrée
+  `tiers-AAAAMMJJ-n` (édition `tiers`). Refus : motif interne. Route `PATCH
+  /api/admin/notaires/demandes/{id}`, audit `NOTARY_REQUEST_DECIDED`.
+- **Entrées `tiers`** : jamais comptées dans « N inscriptions de la liste » (ligne à part),
+  jamais source de la provenance du MJSP, ignorées par l'import du MJSP (ni comparées ni
+  orphelines) ; leur page dit « ajouté par la rédaction d'Agora après vérification, le … ».
+- **Purge** : les demandes décidées depuis plus de 12 mois sont supprimées par le cron des
+  sessions (`/api/cron/sessions`, `?simulation=1` pour compter).
+- **Avant d'ouvrir le formulaire** : valider l'addition à la politique de confidentialité
+  (`docs/confidentialite-demandes-notaires.md`).
 
 ## Variables d'environnement (`.env.example`)
 
@@ -211,6 +244,8 @@ Seconde source, distincte de la liste du MJSP : `NotaryContact` (une fiche par e
 | `NEXT_PUBLIC_MAP_STYLE_URL` | vide = style auto-hébergé (défaut) ; sinon URL de style MapLibre d'un fournisseur approuvé |
 | `NEXT_PUBLIC_MAP_ATTRIBUTION` | attribution affichée (défaut : CNIGS / OCHA, CC BY-IGO) |
 | `NEXT_PUBLIC_MAP_REPORT_ISSUE_URL` | lien « Signaler une erreur de carte » |
+| `NOTARY_REQUESTS_ENABLED` | `true` ouvre le formulaire des tiers ; toute autre valeur (ou absente) : fermé, 404 |
+| `NOTARY_REQUEST_ALERT_TO` | destinataires de la notification (virgules) ; défaut `legal@agora.ht` |
 
 Aucune clé secrète : si un fournisseur exige une clé publique, elle doit être restreinte
 par domaine, ses quotas surveillés, sa rotation documentée — jamais une clé serveur.

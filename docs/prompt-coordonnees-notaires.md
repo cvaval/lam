@@ -8,8 +8,11 @@
 > - Fait suite à `docs/prompt-notaires-et-couches-carte-judiciaire.md`, livré en local le même
 >   jour (commits `234f6af` et `5a305ad`), **ni poussé ni migré**.
 > - Note de livraison du chantier précédent : `docs/livraison-notaires-carte.md`.
-> - **9 oct. 2026, soir : chantiers A0, A et B RÉALISÉS** (voir la note de livraison). Restent C
->   (saisie par la rédaction) et D (demandes des tiers).
+> - **9 oct. 2026, soir : chantiers A0, A et B RÉALISÉS** (voir la note de livraison).
+> - **9 oct. 2026, nuit : chantiers C et D RÉALISÉS en local**
+>   (`docs/livraison-coordonnees-notaires-saisie-et-demandes.md`). D est **fermé** par défaut
+>   (`NOTARY_REQUESTS_ENABLED`) jusqu'à la validation de l'addition à la politique de
+>   confidentialité (`docs/confidentialite-demandes-notaires.md`).
 
 ---
 
