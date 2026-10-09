@@ -50,7 +50,8 @@ function CourtGlyph({ tone }: { tone: 'cassation' | 'appel' | 'tpi' | 'paix' }) 
   // blanche, Vèt et Chabon ne rendent que 1,16:1 — la pastille du héros ne DISTINGUE donc
   // rien à elle seule. C'est sans conséquence et c'est la règle du composant : le NOM du
   // tribunal est juste à côté, la teinte n'a jamais porté l'information ici.
-  const teinte = { cassation: C.ble, appel: C.chabon, tpi: C.vet, paix: C.blan }[tone]
+  // 9 oct. 2026 : palette de la carte = paix bleu, TPI rouge, appel ardoise, Cassation encre.
+  const teinte = { cassation: C.chabon, appel: C.grafit, tpi: C.carteRouge, paix: C.ble }[tone]
   return (
     <span
       aria-hidden="true"

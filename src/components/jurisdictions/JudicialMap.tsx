@@ -11,7 +11,7 @@
  * style — les origines correspondantes devront alors être listées dans la CSP.
  *
  * Icônes : formes distinctes dessinées sur canvas (cercle/triangle/carré/losange),
- * différenciées par la VALEUR et non par la teinte (AV-05, ch. 3), via `COURT_STYLE` — une seule définition, partagée
+ * différenciées par la FORME et la teinte (palette du 9 oct. 2026), via `COURT_STYLE` — une seule définition, partagée
  * avec la légende et les fiches. Des couches `symbol`/`circle`, avec regroupement
  * (cluster) des tribunaux de paix : pas 185 nœuds DOM.
  *
@@ -308,7 +308,8 @@ export function JudicialMap({
         map.addLayer({
           id: 'paix-clusters', type: 'circle', source: 'courts-paix', filter: ['has', 'point_count'],
           paint: {
-            'circle-color': BRAND_COLORS.chabon, 'circle-stroke-color': BRAND_COLORS.blan, 'circle-stroke-width': 2,
+            // Même teinte que le point isolé (bleu des paix) : l'agrégat se lit comme « des paix ».
+            'circle-color': COURT_STYLE.PAIX.color, 'circle-stroke-color': BRAND_COLORS.blan, 'circle-stroke-width': 2,
             'circle-radius': ['step', ['get', 'point_count'], 10, 5, 14, 15, 18],
             'circle-opacity': 0.9,
           },

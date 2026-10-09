@@ -9,13 +9,12 @@ import { BRAND_COLORS } from '@/lib/brand-colors'
  * filtres de couche, les fiches et la toile MapLibre (`JudicialMap`), qui recopiait
  * ces teintes avant l'avenant AV-02.
  *
- * Gamme AV-05 : la VALEUR (blanc → Chabon) et la FORME portent le degré ; la couleur est
- * réservée à l'état (Wouj = sélectionné) et à la seule Cassation (Ble). La règle 5 interdit
- * l'information portée par la teinte seule — ici, la teinte n'en porte aucune.
+ * Palette en vigueur depuis le 9 oct. 2026 (voir la fin du commentaire de `COURT_STYLE`) :
+ * paix bleu, TPI rouge, appel ardoise, Cassation encre — la FORME double toujours la teinte,
+ * et la règle 5 tient : aucune information portée par la teinte seule (légende, fiche nommée).
  *
- * ⚠️ Le contour Chabon est CONSTITUTIF : le cercle des tribunaux de paix est BLANC, il
- * n'existe que par son cerne. Voir `shapeIcon` dans JudicialMap — ce cerne était naguère
- * rendu à 0,69 px, donc absent.
+ * ⚠️ Le contour Chabon reste CONSTITUTIF de chaque marqueur. Voir `shapeIcon` dans
+ * JudicialMap — ce cerne était naguère rendu à 0,69 px, donc absent.
  */
 export const COURT_STYLE: Record<CourtType, { color: string; shape: 'circle' | 'triangle' | 'square' | 'diamond' }> = {
   // AV-05, ch. 3 — LA VALEUR ET LA FORME PORTENT LE DEGRÉ, LA COULEUR PORTE L'ÉTAT.
@@ -45,10 +44,21 @@ export const COURT_STYLE: Record<CourtType, { color: string; shape: 'circle' | '
   // de MARQUEUR : la sélection se rend par un aplat woujPal sur la commune (`COLORS.selected`),
   // jamais en recolorant le point. C'est la cohabitation Vèt/Wouj SUR DEUX MARQUEURS qui
   // avait été jugée, pas le Vèt.
-  PAIX: { color: BRAND_COLORS.blan, shape: 'circle' },
-  PREMIERE_INSTANCE: { color: BRAND_COLORS.vet, shape: 'triangle' },
-  APPEL: { color: BRAND_COLORS.chabon, shape: 'square' },
-  CASSATION: { color: BRAND_COLORS.ble, shape: 'diamond' },
+  //
+  // ⚠️ 9 OCTOBRE 2026 — CE QUI PRÉCÈDE EST L'HISTOIRE, PAS LA RÈGLE EN VIGUEUR. Sous Agora, le
+  // cercle blanc des paix et le triangle vert des TPI se lisaient mal, et Me Vaval a retenu (après
+  // trois propositions mesurées) le BICOLORE HAÏTIEN pour les deux couches les plus nombreuses :
+  //   paix = Ble (12,3:1 sur la terre blanche ; chiffres blancs des agrégats à 12,3:1),
+  //   TPI = carteRouge, le rouge du kit (5,9:1), appel = Grafit (6,1:1), Cassation = Chabon (14,2:1).
+  // Écart ΔE paix/TPI : 85 (18 auparavant). Paire la plus proche : appel/Cassation, ΔE 24 en
+  // vision normale comme pour les daltoniens, et la forme les sépare (carré, losange). La règle
+  // AV-05 (« la valeur porte le degré ») est donc abandonnée au profit de la TEINTE + FORME —
+  // jamais la teinte seule : la légende et la fiche nomment toujours la juridiction.
+  // Le Wouj (terre cuite) reste hors des marqueurs : la sélection est l'aplat woujPal.
+  PAIX: { color: BRAND_COLORS.ble, shape: 'circle' },
+  PREMIERE_INSTANCE: { color: BRAND_COLORS.carteRouge, shape: 'triangle' },
+  APPEL: { color: BRAND_COLORS.grafit, shape: 'square' },
+  CASSATION: { color: BRAND_COLORS.chabon, shape: 'diamond' },
 }
 
 /** Contour de tout marqueur de juridiction — voir l'avertissement ci-dessus. */

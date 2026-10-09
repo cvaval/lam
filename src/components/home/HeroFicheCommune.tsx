@@ -14,7 +14,8 @@ import { BRAND_COLORS as C } from '@/lib/brand-colors'
 const COMMUNE_ID = 'commune-ouest-port-au-prince'
 
 function CourtGlyph({ tone }: { tone: 'cassation' | 'appel' | 'tpi' | 'paix' }) {
-  const teinte = { cassation: C.ble, appel: C.chabon, tpi: C.vet, paix: C.pil }[tone]
+  // Suit `COURT_STYLE` (/juridictions), palette du 9 oct. 2026 : paix bleu, TPI rouge, appel ardoise.
+  const teinte = { cassation: C.chabon, appel: C.grafit, tpi: C.carteRouge, paix: C.ble }[tone]
   return (
     <span aria-hidden="true" className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md" style={{ backgroundColor: `${teinte}33` }}>
       <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke={C.chabon} strokeWidth="2" strokeLinecap="round">
