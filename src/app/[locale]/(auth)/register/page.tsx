@@ -10,7 +10,7 @@ export default function RegisterPage({ params }: { params: { locale: string } })
     <main className="flex min-h-screen items-center justify-center bg-koton px-6 py-10">
       <div className="w-full max-w-sm">
         <div className="mb-5 flex items-center justify-between">
-          <Logo size={28} />
+          <Logo size={36} className="h-auto w-[170px]" />
           <LocaleSwitcher current={locale} />
         </div>
         <div className="rounded-2xl bg-white p-7">

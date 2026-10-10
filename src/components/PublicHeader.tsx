@@ -36,7 +36,7 @@ export function PublicHeader({
     <header className="sticky top-0 z-40 border-b border-liy bg-white/95 backdrop-blur">
       <div className={`mx-auto flex ${width} items-center justify-between px-4 py-4`}>
  <Link href={`/${locale}`} aria-label="Agora" className="inline-flex min-h-[44px] items-center rounded-lg transition hover:opacity-80">
-          <Logo size={30} />
+          <Logo size={36} className="h-auto w-[132px] sm:w-[170px]" />
         </Link>
         <div className="flex items-center gap-2 sm:gap-4">
           <LocaleSwitcher current={locale} />
