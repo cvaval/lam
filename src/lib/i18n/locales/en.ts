@@ -10,6 +10,9 @@ export const en: Dictionary = {
     mois: MOIS.en,
 
     navLabel: 'Deadline calculator',
+    dashboardCardDescription: 'Enter the date the document was received and the number of clear days to calculate the deadline.',
+    dashboardCardDetail: 'See the calculation steps',
+    dashboardCardAction: 'Calculate a deadline',
     metaTitle: 'Clear-day calculator — Agora',
     // La note du PORTAIL — elle dit ce que l'outil FAIT. Voir fr.ts : l'ancienne rédaction
     // promettait la prorogation, alors que la date affichée est la plus PRÉCOCE et ne proroge
@@ -308,6 +311,10 @@ export const en: Dictionary = {
     reorderOf: 'of',
     reorderSaveError: 'Save failed — order restored',
     viewAll: 'View all',
+    workspaceTitle: 'Your document workspace',
+    workspaceSub: 'Search your sources or explore a collection.',
+    searchPlaceholder: 'A text, a reference, a keyword…',
+    favoritesEmptyHint: 'Save a document to find it easily here.',
   },
   search: {
     placeholder: 'Search…',

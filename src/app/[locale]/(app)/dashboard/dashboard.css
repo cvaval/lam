@@ -1,0 +1,90 @@
+/* Tableau de bord authentifié — mise en forme PROPRE À CET ÉCRAN (Me Vaval, 9 oct. 2026).
+   Toutes les règles sont préfixées `.ag-dashboard…` ou `body:has(.ag-dashboard)` : même si la
+   feuille reste chargée après une navigation côté client, elle ne touche aucun autre écran.
+   Palette Agora : ivoire #F7F5EF, encre #152E38, terre cuite #9B422C, texte secondaire #52656B,
+   sauge #E9EDE7, filets #D7DCD7. Le FOCUS reste celui de la maison (globals.css, charte § 6 :
+   terre cuite 3 px, décalé de 3 px) : aucune redéfinition ici. */
+
+.ag-dashboard{--dash-ink:#152e38;--dash-muted:#52656b;--dash-line:#d7dcd7;--dash-sauge:#e9ede7;--dash-ivoire:#f7f5ef;--dash-terre:#9b422c;padding:8px 0 24px}
+
+/* ── Accueil et recherche ───────────────────────────────────────────────────── */
+.ag-dashboard-hero{padding:32px 36px 28px;border:1px solid var(--dash-line);border-radius:10px;background:var(--dash-sauge)}
+.ag-dashboard-hero>p:first-child{color:var(--dash-terre);font-size:13px;font-weight:500}
+.ag-dashboard-hero h1{font-family:var(--font-source-serif),Georgia,serif;font-size:clamp(28px,3vw,38px);font-weight:600;letter-spacing:-.5px;line-height:1.2;color:var(--dash-ink);margin:8px 0 8px}
+.ag-dashboard-subtitle{font-size:14px;color:var(--dash-muted)}
+.ag-dashboard-search{max-width:820px;margin-top:22px}
+.ag-dashboard-search input{min-height:52px;border-radius:6px!important;border-color:#a1afae!important;background:#fff}
+.ag-dashboard-search button[type=submit]{min-height:52px;border-radius:6px!important}
+
+/* Titres de section : sobres, en encre. */
+.ag-dashboard section>h2,.ag-dashboard section>div:first-child>h2,.ag-dashboard-personal>div>h2{font-size:14px;font-weight:600;text-transform:none;letter-spacing:0;color:var(--dash-ink)}
+
+/* ── Accès rapides (tuiles de SectionTiles : réorganisation inchangée) ─────── */
+.ag-dashboard-collections>[class*=grid]{gap:16px}
+.ag-dashboard-collections [data-tile]{border-radius:8px;padding:22px;border-color:var(--dash-line);transition:border-color .15s,box-shadow .15s,transform .15s}
+.ag-dashboard-collections [data-tile]>span:first-child{height:2px;background:var(--dash-line)}
+.ag-dashboard-collections [data-tile]:hover{border-color:var(--dash-terre);box-shadow:0 4px 16px rgba(21,46,56,.06)}
+.ag-dashboard-collections [data-tile] h3{margin-top:18px;font-size:16px;font-weight:600}
+.ag-dashboard-collections [data-tile] p{margin-top:8px;font-size:13px;line-height:1.65;color:var(--dash-muted)}
+.ag-dashboard-collections [data-tile] a>div>span:first-child{color:var(--dash-terre)}
+.ag-dashboard-collections [data-tile]>button{min-width:36px;min-height:40px;top:4px;right:4px}
+
+/* ── Calculateur de délais : la carte entière est UN lien ──────────────────── */
+.ag-deadline-card{display:flex;align-items:center;gap:20px;padding:24px;border:1px solid var(--dash-line);border-left:3px solid var(--dash-terre);border-radius:8px;background:var(--dash-sauge);color:var(--dash-ink);text-decoration:none;transition:border-color .15s,box-shadow .15s}
+.ag-deadline-card:hover{border-color:var(--dash-terre);box-shadow:0 4px 16px rgba(21,46,56,.06)}
+.ag-deadline-icon{display:flex;flex:0 0 52px;align-items:center;justify-content:center;width:52px;height:52px;border:1px solid var(--dash-line);border-radius:8px;background:var(--dash-ivoire);color:var(--dash-terre)}
+.ag-deadline-copy{flex:1 1 auto;min-width:0}
+.ag-deadline-title{display:block;font-size:18px;font-weight:600;line-height:1.35;color:var(--dash-ink)}
+.ag-deadline-description{display:block;max-width:65ch;margin-top:6px;font-size:14px;line-height:1.6;color:var(--dash-muted)}
+.ag-deadline-detail{display:block;margin-top:6px;font-size:13px;color:var(--dash-muted)}
+.ag-deadline-action{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:0 20px;border-radius:6px;background:var(--dash-ink);color:#fff;font-size:14px;font-weight:600;white-space:nowrap;transition:background-color .15s}
+.ag-deadline-card:hover .ag-deadline-action{background:#22404c}
+
+/* ── Recherches récentes et favoris ─────────────────────────────────────────── */
+.ag-dashboard-personal>div{display:flex;flex-direction:column}
+.ag-dashboard-personal>div>div{flex:1;min-height:220px;padding:8px;border-color:var(--dash-line);border-radius:8px}
+.ag-dashboard-personal a{min-height:44px;gap:12px;border-radius:4px;border-bottom:1px solid #eef0ed}
+.ag-dashboard-personal a:last-child{border-bottom:0}
+.ag-result-count{display:inline-flex;align-items:center;justify-content:center;min-width:28px;min-height:22px;padding:2px 6px;border-radius:4px;background:#eef1ec;color:var(--dash-ink);font-variant-numeric:tabular-nums}
+.ag-favorites-empty{display:flex;height:100%;min-height:200px;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:24px;text-align:center}
+.ag-favorites-empty>span{font-size:28px;line-height:1;color:var(--dash-terre)}
+.ag-favorites-empty p{font-size:14px;color:var(--dash-ink)}
+.ag-favorites-empty p:last-child{max-width:32ch;font-size:13px;line-height:1.6;color:var(--dash-muted)}
+
+/* ── Pied de page et FRISE des monuments ────────────────────────────────────── */
+/* Frise : même image que l'accueil, la connexion et les autres pages (ordre conservé : Marché en
+   fer, Citadelle…), sur toute la largeur, ligne de sol AU BORD INFÉRIEUR (dessin mesuré : 249 px
+   de haut et 92 px de vide dessous à 1 440 px, 173 et 64 px à 1 000 px). Elle est peinte par la
+   mise en page (`div` parent du pied de page), sous le contenu, sans intercepter de clic. Le pied
+   de page est posé DEVANT, tout en bas, SANS filet au-dessus. La frise commune
+   (CadreAvecFrise) exclut le tableau de bord : jamais deux frises. */
+body:has(.ag-dashboard) div:has(>footer){position:relative;isolation:isolate}
+body:has(.ag-dashboard) div:has(>footer)::after{content:"";position:absolute;inset:auto 0 0;height:260px;z-index:-1;pointer-events:none;background:url('/brand/agora/landmarks-haiti-market-first.png') repeat-x center bottom -91px/1440px auto;opacity:.15}
+body:has(.ag-dashboard) footer{padding-top:160px;padding-bottom:12px}
+body:has(.ag-dashboard) footer>div{border-top:0;padding-top:0}
+body:has(.ag-dashboard) footer a,body:has(.ag-dashboard) footer p{color:var(--dash-ink,#152e38);text-shadow:0 0 6px #f7f5ef,0 0 2px #f7f5ef}
+body:has(.ag-dashboard) footer a:hover{text-decoration:underline}
+
+/* ── Téléphone ──────────────────────────────────────────────────────────────── */
+@media(max-width:640px){
+  .ag-dashboard-hero{padding:24px 20px}
+  .ag-dashboard-collections>div:first-child{flex-direction:column;align-items:flex-start;gap:6px}
+  .ag-dashboard-search form{flex-wrap:wrap}
+  .ag-dashboard-search form>div{flex-basis:100%;min-width:0}
+  .ag-dashboard-search input{width:100%}
+  .ag-dashboard-search button[type=submit]{width:100%}
+  .ag-dashboard-collections [data-tile]{padding:20px}
+  .ag-deadline-card{flex-wrap:wrap;gap:14px;padding:20px}
+  .ag-deadline-icon{flex-basis:44px;width:44px;height:44px}
+  .ag-deadline-copy{flex:1 1 0}
+  .ag-deadline-title{font-size:17px}
+  .ag-deadline-action{flex-basis:100%;width:100%}
+  .ag-dashboard-personal>div>div{min-height:0}
+  .ag-favorites-empty{min-height:150px}
+  body:has(.ag-dashboard) div:has(>footer)::after{height:180px;background-size:1000px auto;background-position:center bottom -63px;opacity:.12}
+  body:has(.ag-dashboard) footer{padding-top:50px}
+}
+
+/* ── Réduction des animations, impression ───────────────────────────────────── */
+@media(prefers-reduced-motion:reduce){.ag-dashboard-collections [data-tile],.ag-deadline-card,.ag-deadline-action{transition:none}.ag-dashboard-collections [data-tile]{transform:none!important}}
+@media print{body:has(.ag-dashboard) div:has(>footer)::after{display:none}}

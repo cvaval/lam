@@ -16,12 +16,12 @@ const { CadreAvecFrise } = await import('@/components/CadreAvecFrise')
 describe('pages qui reçoivent la frise commune', () => {
   it('toutes les pages internes, publiques, connectées ou d’administration', () => {
     for (const c of ['/fr/juridictions', '/en/juridictions/notaires', '/ht/juridictions/notaires/mjsp-2026-09-08-11', '/fr/cgu',
-      '/fr/fetes-legales', '/fr/register', '/fr/dashboard', '/fr/search', '/fr/doc/abc', '/fr/admin', '/fr/admin/notaires/demandes']) {
+      '/fr/fetes-legales', '/fr/register', '/fr/search', '/fr/doc/abc', '/fr/admin', '/fr/admin/notaires/demandes']) {
       expect(pageAvecFrise(c), c).toBe(true)
     }
   })
-  it('pas l’accueil, ni la connexion, ni la demande de coordonnées (elles ont leur propre frise)', () => {
-    for (const c of ['/', '/fr', '/en/', '/ht', '/fr/login', '/en/login/', '/fr/juridictions/notaires/demande', null, undefined, '']) {
+  it('pas l’accueil, ni la connexion, ni la demande de coordonnées, ni le tableau de bord (ils ont leur propre frise)', () => {
+    for (const c of ['/', '/fr', '/en/', '/ht', '/fr/login', '/en/login/', '/fr/juridictions/notaires/demande', '/fr/dashboard', '/ht/dashboard', null, undefined, '']) {
       expect(pageAvecFrise(c as string), String(c)).toBe(false)
     }
   })

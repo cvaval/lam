@@ -1,3 +1,4 @@
+import './dashboard.css'
 import Link from 'next/link'
 import { SearchBox } from '@/components/SearchBox'
 import { Pastille, TypeBadge } from '@/components/TypeBadge'
@@ -11,7 +12,9 @@ import { DOC_TYPE_LIST } from '@/lib/brand'
 import { accessibleTypes, orderTypes } from '@/lib/access'
 import type { DocType } from '@/lib/types'
 
-// Écran 3 — Tableau de bord : accès rapides + Nouveauté (§07).
+// Écran 3 — Tableau de bord : accès rapides + Nouveauté (§07). Mise en forme propre au tableau
+// de bord dans dashboard.css (classes `ag-dashboard*`, pied de page et frise via
+// `body:has(.ag-dashboard)`) : aucun autre écran n'est touché.
 export default async function DashboardPage({ params }: { params: { locale: string } }) {
   const { locale, t } = dictFor(params.locale)
   const user = await requireUser(locale)
@@ -62,14 +65,16 @@ export default async function DashboardPage({ params }: { params: { locale: stri
   })
 
   return (
-    <div className="space-y-8">
-      <div className="mx-auto max-w-2xl pt-2 text-center">
+    <div className="ag-dashboard space-y-8">
+      <div className="ag-dashboard-hero">
         <p className="text-sm text-ank/80">
           {t.dashboard.greeting}
           {user.name ? `, ${user.name.split(' ')[0]}` : ''}.
         </p>
-        <div className="mt-3">
-          <SearchBox locale={locale} placeholder={t.dashboard.omnibox} advancedLabel={t.search.advanced} size="lg" />
+        <h1>{t.dashboard.workspaceTitle}</h1>
+        <p className="ag-dashboard-subtitle">{t.dashboard.workspaceSub}</p>
+        <div className="ag-dashboard-search mt-3">
+          <SearchBox locale={locale} placeholder={t.dashboard.searchPlaceholder} advancedLabel={t.search.advanced} size="lg" />
         </div>
         {/* Quota Sitwayen : visible AVANT d'atteindre le mur (audit UX 15 juil.).
             La puce ne rend rien pour les paliers illimités. */}
@@ -78,7 +83,7 @@ export default async function DashboardPage({ params }: { params: { locale: stri
         </div>
       </div>
 
-      <section>
+      <section className="ag-dashboard-collections">
         <div className="mb-3 flex items-center justify-between gap-3">
           <h2 className="text-xs font-semibold uppercase tracking-wide text-ank/80">{t.dashboard.quickAccess}</h2>
           <span className="text-[11px] text-ank/80">{t.dashboard.reorderTip}</span>
@@ -99,20 +104,21 @@ export default async function DashboardPage({ params }: { params: { locale: stri
       </section>
 
       {/* Outils — hors des tuiles de corpus : `User.sectionOrder` / `orderTypes` ne
-          concernent que les TYPES de documents, et le calculateur n'en est pas un (§ 6.4). */}
-      <section>
+          concernent que les TYPES de documents, et le calculateur n'en est pas un (§ 6.4).
+          La carte entière est UN lien ; « Calculer une échéance » n'est qu'une présentation
+          (span), jamais un bouton dans un lien. L'icône est décorative. */}
+      <section className="ag-dashboard-tools">
         <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-ank/80">{t.delais.toolsTitle}</h2>
-        <Link
-          href={`/${locale}/outils/delais`}
-          className="flex items-start gap-3 rounded-xl border border-chabon/10 bg-white px-4 py-3 transition hover:border-chabon"
-        >
-          <span className="mt-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-grafit">DÉL</span>
-          <span className="min-w-0">
-            <span className="block text-sm font-medium text-ank">{t.delais.navLabel}</span>
-            {/* Anciennement `heroSubtitle` : le héros a perdu son sous-titre le 20 août 2026,
-                la tuile garde la phrase — d'où la clé renommée. */}
-            <span className="mt-0.5 block text-xs leading-relaxed text-ank/80">{t.delais.toolsSubtitle}</span>
+        <Link href={`/${locale}/outils/delais`} className="ag-deadline-card">
+          <span className="ag-deadline-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" focusable="false"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18m-12 4 2 2 4-4"/></svg>
           </span>
+          <span className="ag-deadline-copy">
+            <span className="ag-deadline-title">{t.delais.navLabel}</span>
+            <span className="ag-deadline-description">{t.delais.dashboardCardDescription}</span>
+            <span className="ag-deadline-detail">{t.delais.dashboardCardDetail}</span>
+          </span>
+          <span className="ag-deadline-action">{t.delais.dashboardCardAction}<span aria-hidden="true"> →</span></span>
         </Link>
       </section>
 
@@ -153,7 +159,7 @@ export default async function DashboardPage({ params }: { params: { locale: stri
         </section>
       )}
 
-      <section className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <section className="ag-dashboard-personal grid grid-cols-1 gap-6 md:grid-cols-2">
         <div>
           <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-ank/80">{t.dashboard.recent}</h2>
           <div className="rounded-2xl border border-chabon/10 bg-white p-2">
@@ -165,7 +171,7 @@ export default async function DashboardPage({ params }: { params: { locale: stri
                 className="flex items-center justify-between rounded-lg px-3 py-2 text-sm text-ank hover:bg-koton"
               >
                 <span className="truncate">{r.query}</span>
-                <span className="ml-2 shrink-0 text-xs text-ank/80">{r.resultsCount}</span>
+                <span className="ag-result-count ml-2 shrink-0 text-xs text-ank/80">{r.resultsCount}</span>
               </Link>
             ))}
           </div>
@@ -174,7 +180,7 @@ export default async function DashboardPage({ params }: { params: { locale: stri
           <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-ank/80">{t.dashboard.favorites}</h2>
           <div className="rounded-2xl border border-chabon/10 bg-white p-2">
             {favorites.length === 0 && (
-              <p className="px-3 py-6 text-center text-sm text-ank/80">{t.dashboard.empty}</p>
+              <div className="ag-favorites-empty"><span aria-hidden="true">☆</span><p>{t.dashboard.empty}</p><p>{t.dashboard.favoritesEmptyHint}</p></div>
             )}
             {favorites.map((f) => (
               <Link

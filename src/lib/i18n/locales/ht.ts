@@ -13,6 +13,9 @@ export const ht: Dictionary = {
     mois: MOIS.ht,
 
     navLabel: 'Kalkilatè delè',
+    dashboardCardDescription: 'Bay dat ou resevwa zak la ak kantite jou fran yo pou kalkile dat limit la.',
+    dashboardCardDetail: 'Gade etap kalkil yo',
+    dashboardCardAction: 'Kalkile yon dat limit',
     metaTitle: 'Kalkilatè jou fran — Agora',
     // La note du PORTAIL — elle dit ce que l'outil FAIT. Voir fr.ts : l'ancienne rédaction
     // promettait la prorogation, alors que la date affichée est la plus PRÉCOCE et ne proroge
@@ -308,6 +311,10 @@ export const ht: Dictionary = {
     reorderOf: 'sou',
     reorderSaveError: 'Echèk anrejistreman — lòd retabli',
     viewAll: 'Gade tout',
+    workspaceTitle: 'Espas dokiman ou',
+    workspaceSub: 'Chèche sous ou yo oswa eksplore yon koleksyon.',
+    searchPlaceholder: 'Yon tèks, yon referans, yon mo kle…',
+    favoritesEmptyHint: 'Anrejistre yon dokiman pou w jwenn li fasilman isit la.',
   },
   search: {
     placeholder: 'Chèche…',

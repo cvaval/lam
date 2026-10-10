@@ -8,7 +8,8 @@
  * ligne de sol AU BORD INFÉRIEUR, sans bande vide.
  *
  * Pages SANS la frise commune : l'accueil (frise du héros), la connexion (frise en filigrane sur
- * tout l'écran) et la demande de coordonnées d'un notaire (frise propre, pied de page devant).
+ * tout l'écran), la demande de coordonnées d'un notaire et le tableau de bord (frises propres,
+ * pied de page devant) — jamais deux frises sur une page.
  */
 export const FRISE_IMAGE = '/brand/agora/landmarks-haiti-market-first.png'
 
@@ -16,6 +17,7 @@ const SANS_FRISE: readonly RegExp[] = [
   /^\/(fr|en|ht)\/?$/, // accueil
   /^\/(fr|en|ht)\/login\/?$/, // connexion
   /^\/(fr|en|ht)\/juridictions\/notaires\/demande\/?$/, // demande de coordonnées d'un notaire
+  /^\/(fr|en|ht)\/dashboard\/?$/, // tableau de bord (frise propre, dashboard.css)
 ]
 
 /** La page reçoit-elle la frise commune ? Chemin inconnu ou racine : non. */

@@ -21,6 +21,9 @@ export const fr = {
 
     // ─── Identité et navigation ────────────────────────────────────────────────
     navLabel: 'Calculateur de délais',
+    dashboardCardDescription: 'Indiquez la date de réception de l’acte et le nombre de jours francs pour calculer l’échéance.',
+    dashboardCardDetail: 'Consultez les étapes du calcul',
+    dashboardCardAction: 'Calculer une échéance',
     metaTitle: 'Calculateur de jours francs — Agora',
     /**
      * LA NOTE DU PORTAIL — elle dit ce que l’outil FAIT (Me Vaval, 20 août 2026).
@@ -618,6 +621,10 @@ export const fr = {
     reorderOf: 'sur',
     reorderSaveError: "Échec de l'enregistrement — ordre rétabli",
     viewAll: 'Voir tout',
+    workspaceTitle: 'Votre espace documentaire',
+    workspaceSub: 'Recherchez vos sources ou explorez une collection.',
+    searchPlaceholder: 'Un texte, une référence, un mot-clé…',
+    favoritesEmptyHint: 'Enregistrez un document pour le retrouver facilement ici.',
   },
   search: {
     placeholder: 'Rechercher…',
