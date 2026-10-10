@@ -29,7 +29,7 @@ const LBL = {
     en: 'Too many attempts. Try again in a few minutes.',
     ht: 'Twòp tantativ. Reseye nan kèk minit.',
   },
-  generic: { fr: 'Une erreur est survenue. Réessayez.', en: 'Something went wrong. Try again.', ht: 'Yon erè rive. Reseye.' },
+  generic: { fr: 'Le mot de passe n’a pas pu être enregistré. Réessayez dans un instant.', en: 'The password could not be saved. Try again in a moment.', ht: 'Nou pa t ka anrejistre modpas la. Eseye ankò nan yon ti moman.' },
   done: {
     fr: 'Mot de passe réinitialisé. Vous pouvez maintenant vous connecter.',
     en: 'Password reset. You can now sign in.',

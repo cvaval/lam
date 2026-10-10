@@ -36,6 +36,7 @@ export default async function AccountPage({ params }: { params: { locale: string
     <div className="mx-auto max-w-2xl space-y-6">
       <header className="rounded-2xl border border-chabon/10 bg-white p-6">
         <h1 className="text-xl font-semibold text-ank">{t.nav.account}</h1>
+        <p className="mt-1 text-sm text-ank/80">{t.account.intro}</p>
         <p className="mt-1 text-sm text-grafit">{user.email}</p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <span className="rounded-full bg-chabon px-3 py-1 text-sm font-semibold text-white">{t.roles[user.role]}</span>

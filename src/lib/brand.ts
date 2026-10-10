@@ -95,9 +95,9 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
       ht: 'Edisyon Le Moniteur',
     },
     feature: {
-      fr: 'Versions consolidées + historique des modifications ; statut En vigueur / Abrogé.',
-      en: 'Consolidated versions + amendment history; status In force / Repealed.',
-      ht: 'Vèsyon konsolide + istorik modifikasyon ; estati An vigè / Abowje.',
+      fr: "Consultez les éditions du Moniteur par année, numéro et date de publication.",
+      en: "Browse Le Moniteur editions by year, number and publication date.",
+      ht: "Konsilte edisyon Monitè a pa ane, nimewo ak dat piblikasyon.",
     },
   },
   CIRCULAIRE_BRH: {
@@ -123,9 +123,9 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
       ht: 'Sikilè BRH yo',
     },
     feature: {
-      fr: 'Tri par numéro de circulaire ; alertes de veille réglementaire (palier Pro).',
-      en: 'Sort by circular number; regulatory-watch alerts (Pro tier).',
-      ht: 'Triye pa nimewo sikilè ; alèt sou règleman (palye Pro).',
+      fr: "Retrouvez les circulaires de la BRH par matière, établissement ou numéro.",
+      en: "Find BRH circulars by subject, institution or number.",
+      ht: "Jwenn sikilè BRH yo pa matyè, enstitisyon oswa nimewo.",
     },
   },
   JURISPRUDENCE: {
@@ -156,9 +156,9 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
       ht: 'Rekèy jirispridans',
     },
     feature: {
-      fr: "Filtres par juridiction (Cassation, Appel) et par matière ; sommaires d'arrêts.",
-      en: 'Filters by court (Cassation, Appeal) and by subject; case summaries.',
-      ht: 'Filtè pa jiridiksyon (Kasasyon, Apèl) ak pa matyè ; rezime desizyon yo.',
+      fr: "Consultez les décisions par volume ou par notion juridique.",
+      en: "Browse decisions by volume or legal topic.",
+      ht: "Konsilte desizyon yo pa volim oswa nosyon jiridik.",
     },
   },
   DOCTRINE: {
@@ -184,9 +184,9 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
       ht: 'Lejislasyon anote',
     },
     feature: {
-      fr: 'Auteur, revue, année ; citations croisées vers la législation commentée.',
-      en: 'Author, journal, year; cross-citations to the commented legislation.',
-      ht: 'Otè, revi, ane ; sitasyon kwaze sou lejislasyon yo komante a.',
+      fr: "Explorez les lois, décrets et arrêtés classés par domaine juridique.",
+      en: "Browse laws, decrees and orders by area of law.",
+      ht: "Eksplore lwa, dekrè ak arete yo klase pa domèn dwa.",
     },
   },
   LOI_FINANCES: {
@@ -202,9 +202,9 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
       ht: 'Lwa finans ayisyen yo',
     },
     feature: {
-      fr: "Navigation par exercice fiscal ; comparateur d'articles entre exercices.",
-      en: 'Navigation by fiscal year; article comparator across budgets.',
-      ht: 'Navigasyon pa ane fiskal ; konparatè atik ant egzèsis yo.',
+      fr: "Consultez les lois de finances par exercice fiscal.",
+      en: "Browse finance acts by fiscal year.",
+      ht: "Konsilte lwa finans yo pa ane fiskal.",
     },
   },
   MARQUE: {
@@ -220,9 +220,9 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
       ht: 'Mak komès ak fabrik',
     },
     feature: {
-      fr: "Recherche d'antériorité : nom, classe de Nice, titulaire, n° BHDA, date de publication au Moniteur. Vue grille avec reproduction de la marque si publiée.",
-      en: 'Prior-art search: name, Nice class, holder, BHDA no., Moniteur publication date. Grid view with mark reproduction when published.',
-      ht: 'Rechèch antèryorite : non, klas Nice, titilè, nimewo BHDA, dat piblikasyon nan Monitè a. Vi griyaj ak repwodiksyon mak la si li pibliye.',
+      fr: "Recherchez les marques par nom, titulaire, classe de Nice ou référence BHDA.",
+      en: "Find marks by name, holder, Nice class or BHDA reference.",
+      ht: "Chèche mak yo pa non, titilè, klas Nice oswa referans BHDA.",
     },
   },
   INDEX: {
@@ -239,9 +239,9 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
       ht: 'Endèks Monitè a',
     },
     feature: {
-      fr: 'Références des textes publiés au Moniteur (1900-2023) — lois, sociétés, marques. Référence et date de publication ; sans texte intégral.',
-      en: 'References to texts published in the Moniteur (1900-2023) — laws, companies, marks. Reference and publication date; no full text.',
-      ht: 'Referans tèks ki pibliye nan Monitè a (1900-2023) — lwa, konpayi, mak. Referans ak dat piblikasyon ; san tèks konplè.',
+      fr: "Retrouvez les références des lois, sociétés et marques publiées au Moniteur de 1900 à 2023. Sans texte intégral.",
+      en: "Find references to laws, companies and marks published in Le Moniteur from 1900 to 2023. Full text not included.",
+      ht: "Jwenn referans lwa, konpayi ak mak ki pibliye nan Monitè a soti 1900 rive 2023. Pa gen tèks konplè.",
     },
   },
   TARIF_DOUANIER: {
@@ -257,9 +257,9 @@ export const DOC_TYPE_META: Record<DocType, DocTypeMeta> = {
       ht: 'Tarif ladwàn',
     },
     feature: {
-      fr: 'Table des positions tarifaires (codes SH) et de leurs taux — droit de douane, TCA, accises ; recherche par code ou produit. Plus le corpus douanier : Tarif AGD, décrets et circulaires des douanes.',
-      en: 'Tariff schedule (HS codes) and their rates — customs duty, sales tax, excise; search by code or product. Plus the customs corpus: AGD tariff, decrees and customs circulars.',
-      ht: 'Tablo pozisyon tarifè yo (kòd SH) ak to yo — dwa ladwàn, TCA, aksiz ; chèche pa kòd oswa pwodwi. Plis dokiman ladwàn yo : Tarif AGD, dekrè ak sikilè ladwàn.',
+      fr: "Recherchez un produit ou un code SH pour consulter ses taux, et retrouvez les textes douaniers.",
+      en: "Search a product or HS code to view its rates, and find the customs documents.",
+      ht: "Chèche yon pwodwi oswa yon kòd SH pou wè to li yo, epi jwenn dokiman ladwàn yo.",
     },
   },
 }

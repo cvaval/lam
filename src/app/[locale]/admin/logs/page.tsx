@@ -143,6 +143,7 @@ export default async function AdminLogsPage({ params, searchParams }: { params: 
       <div>
         <Link href={`/${locale}/admin`} className="text-xs text-chabon hover:underline">{lt(L.retour)}</Link>
         <h1 className="mt-1 text-xl font-semibold text-ank">{t.admin.logs}</h1>
+        <p className="mt-1 text-sm text-ank/80">{t.admin.logsIntro}</p>
         {/* Un événement est un INSTANT : heure de Port-au-Prince, nommée une fois. La page
             affichait l'UTC sans le dire — 19 h 49 pour une connexion faite à 15 h 49. */}
         <p className="mt-1 font-mono text-[11px] uppercase tracking-wide text-grafit">{lt(L.zone)}</p>

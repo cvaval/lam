@@ -321,8 +321,13 @@ export default async function SearchPage({
       )}
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div>
-          <p className="text-sm text-ank/80">
-            {result.total} {t.search.results} {q && <>· {t.search.resultsFor} « {q} »</>}
+          {/* Titre de la page : la requête quand il y en a une, sinon la section filtrée,
+              sinon « Recherche » — l'utilisateur sait toujours où il est. */}
+          <h1 className="text-lg font-semibold text-ank">
+            {q ? <>{t.search.resultsFor} « {q} »</> : selectedType ? DOC_TYPE_META[selectedType].label[locale] : t.nav.search}
+          </h1>
+          <p className="mt-0.5 text-sm text-ank/80">
+            {result.total} {result.total === 1 ? t.search.resultOne : t.search.results}
           </p>
           <p className="mt-0.5 text-xs text-ank/80">{t.search.translingualNote}</p>
         </div>

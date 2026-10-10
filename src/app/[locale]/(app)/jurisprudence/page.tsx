@@ -36,16 +36,16 @@ export const dynamic = 'force-dynamic'
  */
 const L = {
   sousTitre: {
-    fr: 'Parcourez les arrêts de la Cour de Cassation par notion juridique, selon le Recueil alphabétique d’extraits de jurisprudence haïtienne (J.-F. Salès, 1963-1989) — ou ouvrez un arrêt pour lire ses extraits.',
-    en: 'Browse the rulings of the Court of Cassation by legal notion, following the Alphabetical Digest of Haitian Case-Law Extracts (J.-F. Salès, 1963-1989) — or open a ruling to read its extracts.',
-    ht: 'Gade desizyon Kou Kasasyon yo dapre nosyon jiridik, dapre Rekèy alfabetik ekstrè jirispridans ayisyen an (J.-F. Salès, 1963-1989) — oswa ouvri yon desizyon pou li ekstrè li yo.',
+    fr: 'Consultez les arrêts de la Cour de cassation par volume ou par notion juridique, puis ouvrez un arrêt pour lire son texte ou ses extraits.',
+    en: 'Browse the rulings of the Court of Cassation by volume or by legal notion, then open a ruling to read its text or extracts.',
+    ht: 'Konsilte desizyon Kou Kasasyon yo pa volim oswa pa nosyon jiridik, epi louvri yon desizyon pou li tèks li oswa ekstrè li yo.',
   },
   searchAll: { fr: 'Rechercher dans tous les arrêts', en: 'Search all rulings', ht: 'Chèche nan tout desizyon yo' },
   unite: { fr: 'arrêt', en: 'ruling', ht: 'desizyon' },
   unites: { fr: 'arrêts', en: 'rulings', ht: 'desizyon' },
   sousTheme: { fr: 'notion', en: 'notion', ht: 'nosyon' },
   sousThemes: { fr: 'notions', en: 'notions', ht: 'nosyon' },
-  vide: { fr: 'Aucun arrêt pour le moment', en: 'No ruling yet', ht: 'Pa gen desizyon pou kounye a' },
+  vide: { fr: 'Aucun arrêt pour le moment.', en: 'No rulings yet.', ht: 'Poko gen desizyon.' },
   videTheme: {
     fr: 'Aucun arrêt accessible sous cette notion pour le moment.',
     en: 'No accessible ruling under this notion yet.',
@@ -54,9 +54,9 @@ const L = {
   videPlat: { fr: 'Aucun arrêt accessible pour le moment.', en: 'No accessible ruling yet.', ht: 'Pa gen desizyon aksesib pou kounye a.' },
   volumes: { fr: 'Les volumes', en: 'The volumes', ht: 'Volim yo' },
   volumesSub: {
-    fr: 'Un volume par exercice judiciaire, arrêt par arrêt, dans l’ordre des décisions — textes intégraux et extraits du Répertoire alphabétique (J.-F. Salès) confondus. Les notions du Répertoire sont une seconde entrée, plus bas.',
-    en: 'One volume per judicial year, ruling by ruling, in the order of the decisions — full texts and extracts from the Alphabetical Digest (J.-F. Salès) together. The notions of the Digest are a second entry, below.',
-    ht: 'Yon volim pou chak ane jidisyè, desizyon pa desizyon, nan lòd desizyon yo — tèks konplè ak ekstrè Repètwa alfabetik la (J.-F. Salès) ansanm. Nosyon Repètwa a se yon dezyèm antre, anba.',
+    fr: 'Un volume par exercice judiciaire, avec les arrêts dans l’ordre des décisions : textes intégraux et extraits du Répertoire alphabétique (J.-F. Salès).',
+    en: 'One volume per judicial year, with the rulings in the order of the decisions: full texts and extracts from the Alphabetical Digest (J.-F. Salès).',
+    ht: 'Yon volim pou chak ane jidisyè, ak desizyon yo nan lòd yo te rann yo : tèks konplè ak ekstrè Repètwa alfabetik la (J.-F. Salès).',
   },
   parNotion: { fr: 'Par notion', en: 'By notion', ht: 'Pa nosyon' },
   parNotionSub: {

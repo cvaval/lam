@@ -250,7 +250,7 @@ export function ThemeManager({
     <div className="mx-auto max-w-3xl">
       <div className="mb-4 flex items-center justify-between">
         <div>
-          <h1 className="text-lg font-bold text-ank">Législation — thèmes</h1>
+          <h1 className="text-lg font-bold text-ank">Législation annotée : thèmes</h1>
           <p className="text-sm text-ank/80">Classez les textes (lois, décrets, arrêtés) par thèmes. La liste est librement modifiable.</p>
         </div>
         <button onClick={() => startAdd(null)} className="rounded-lg bg-chabon px-3 py-2 text-sm font-semibold text-koton transition hover:bg-chabon">

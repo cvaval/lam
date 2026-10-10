@@ -6,11 +6,11 @@ import type { Locale } from '@/lib/types'
 
 // Libellés trilingues en ligne (même approche que IdleTimer) — pas de dépendance i18n.
 const LBL = {
-  email: { fr: 'Adresse courriel / Email', en: 'Email address', ht: 'Adrès imèl' },
+  email: { fr: 'Adresse courriel', en: 'Email address', ht: 'Adrès imèl' },
   submit: { fr: 'Envoyer le lien', en: 'Send reset link', ht: 'Voye lyen an' },
   sending: { fr: 'Envoi…', en: 'Sending…', ht: 'N ap voye…' },
   done: {
-    fr: "Si un compte existe pour cette adresse, un e-mail de réinitialisation vient d'être envoyé. Vérifiez votre boîte de réception (et les indésirables).",
+    fr: 'Si un compte correspond à cette adresse, un lien de réinitialisation vient d’y être envoyé. Vérifiez votre boîte de réception et vos courriels indésirables.',
     en: 'If an account exists for this address, a reset email has just been sent. Check your inbox (and spam).',
     ht: 'Si gen yon kont pou adrès sa a, nou fèk voye yon imèl pou reyinisyalize. Tcheke bwat resepsyon w (ak spam).',
   },

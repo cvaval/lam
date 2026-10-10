@@ -17,7 +17,8 @@ interface Month {
 }
 
 interface Sommaire {
-  source: 'text' | 'index' | 'excerpt' | 'ocr' | 'none'
+  /** 'erreur' = le sommaire n'a pas pu être LU (réseau, refus, incident) — jamais « pas de sommaire ». */
+  source: 'text' | 'index' | 'excerpt' | 'ocr' | 'none' | 'erreur'
   text?: string | null
   items?: { title: string; category: string | null }[]
 }
@@ -35,11 +36,17 @@ const LBL = {
   loading: { fr: 'Lecture du sommaire…', en: 'Reading summary…', ht: 'N ap li somè a…' },
   fullText: { fr: 'Lire le texte intégral', en: 'Read full text', ht: 'Li tèks konplè a' },
   none: { fr: 'Sommaire non disponible pour cette édition.', en: 'No summary available for this edition.', ht: 'Pa gen somè pou edisyon sa a.' },
+  erreur: {
+    fr: 'Le sommaire n’a pas pu être chargé. Fermez puis rouvrez l’aperçu pour réessayer.',
+    en: 'The summary could not be loaded. Close and reopen the preview to try again.',
+    ht: 'Nou pa t ka chaje somè a. Fèmen apèsi a epi louvri l ankò pou eseye ankò.',
+  },
 } as const
 
 /** Aperçu (sommaire) d'une édition — texte verbatim, liste d'index, ou extrait. */
 function SommairePreview({ som, locale }: { som: Sommaire; locale: Locale }) {
   if (som.source === 'none') return <p className="text-sm text-ank/80">{LBL.none[locale]}</p>
+  if (som.source === 'erreur') return <p role="status" className="text-sm text-ank">{LBL.erreur[locale]}</p>
   if (som.source === 'index' && som.items?.length) {
     return (
       <ul className="space-y-1">
@@ -68,14 +75,15 @@ export function LegislationYearView({ locale, year, months }: { locale: Locale; 
   async function togglePreview(id: string) {
     if (preview === id) { setPreview(null); return }
     setPreview(id)
-    if (!cache[id]) {
+    // Un échec de lecture n'est pas mis en cache comme une réponse : rouvrir l'aperçu relance la lecture.
+    if (!cache[id] || cache[id].source === 'erreur') {
       setLoadingId(id)
       try {
         const res = await fetch(`/api/doc/${id}/sommaire`)
         const data = res.ok ? await res.json() : null
-        setCache((c) => ({ ...c, [id]: data?.ok ? data : { source: 'none' } }))
+        setCache((c) => ({ ...c, [id]: data?.ok ? data : { source: 'erreur' } }))
       } catch {
-        setCache((c) => ({ ...c, [id]: { source: 'none' } }))
+        setCache((c) => ({ ...c, [id]: { source: 'erreur' } }))
       } finally {
         setLoadingId(null)
       }

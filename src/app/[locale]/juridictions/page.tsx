@@ -194,14 +194,10 @@ export default async function JuridictionsPage({
       </footer>
 
       <CookieBanner
-        text={locale === 'en'
-          ? 'Agora uses strictly necessary cookies (session, authentication, language). With your consent, analytics cookies help us improve the Platform.'
-          : locale === 'ht'
-            ? 'Agora itilize cookies ki estrikteman nesesè (sesyon, otantifikasyon, lang). Ak akò ou, cookies analiz ede nou amelyore Platfòm nan.'
-            : "Agora utilise des cookies strictement nécessaires (session, authentification, langue). Avec votre accord, des cookies d'analyse nous aident à améliorer la Plateforme."}
-        accept={locale === 'en' ? 'Accept all' : locale === 'ht' ? 'Aksepte tout' : 'Tout accepter'}
-        reject={locale === 'en' ? 'Reject non-essential' : locale === 'ht' ? 'Refize sa ki pa esansyèl' : 'Refuser les non essentiels'}
-        manage={locale === 'en' ? 'Manage' : locale === 'ht' ? 'Jere' : 'Gérer'}
+        text={t.cookies.text}
+        accept={t.cookies.accept}
+        reject={t.cookies.reject}
+        manage={t.cookies.manage}
         manageHref={`/${locale}/confidentialite#s9`}
       />
     </div>

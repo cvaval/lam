@@ -132,7 +132,7 @@ export default async function DashboardPage({ params }: { params: { locale: stri
                   {t.dashboard.whatsNew}
                 </span>
                 <span className="text-ank/80">
-                  {newCount.toLocaleString('fr')} {t.dashboard.newEntries}
+                  {newCount.toLocaleString('fr')} {newCount === 1 ? t.dashboard.newEntryOne : t.dashboard.newEntries}
                 </span>
               </h2>
               <p className="mt-1 text-xs text-ank/80">{t.dashboard.whatsNewSub}</p>
@@ -163,7 +163,7 @@ export default async function DashboardPage({ params }: { params: { locale: stri
         <div>
           <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-ank/80">{t.dashboard.recent}</h2>
           <div className="rounded-2xl border border-chabon/10 bg-white p-2">
-            {recent.length === 0 && <p className="px-3 py-6 text-center text-sm text-ank/80">{t.dashboard.empty}</p>}
+            {recent.length === 0 && <p className="px-3 py-6 text-center text-sm text-ank/80">{t.dashboard.recentEmpty}</p>}
             {recent.map((r) => (
               <Link
                 key={r.id}
@@ -180,7 +180,7 @@ export default async function DashboardPage({ params }: { params: { locale: stri
           <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-ank/80">{t.dashboard.favorites}</h2>
           <div className="rounded-2xl border border-chabon/10 bg-white p-2">
             {favorites.length === 0 && (
-              <div className="ag-favorites-empty"><span aria-hidden="true">☆</span><p>{t.dashboard.empty}</p><p>{t.dashboard.favoritesEmptyHint}</p></div>
+              <div className="ag-favorites-empty"><span aria-hidden="true">☆</span><p>{t.dashboard.favoritesEmpty}</p><p>{t.dashboard.favoritesEmptyHint}</p></div>
             )}
             {favorites.map((f) => (
               <Link

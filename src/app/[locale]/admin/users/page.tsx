@@ -20,7 +20,10 @@ export default async function AdminUsersPage({ params }: { params: { locale: str
 
   return (
     <div className="space-y-8">
-      <h1 className="text-xl font-semibold text-ank">{t.admin.users}</h1>
+      <div>
+        <h1 className="text-xl font-semibold text-ank">{t.admin.users}</h1>
+        <p className="mt-1 text-sm text-ank/80">{t.admin.usersIntro}</p>
+      </div>
 
       <CreateUserForm t={t} />
 

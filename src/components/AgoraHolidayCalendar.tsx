@@ -62,7 +62,16 @@ export function AgoraHolidayCalendar({
         <div className="ag-section-heading">
           <div>
             <p className="ag-eyebrow">{tr('Les repères du calendrier', 'Calendar references', 'Referans kalandriye a')}</p>
-            <h2>{tr('Fêtes légales haïtiennes', 'Haitian public holidays', 'Jou ferye ayisyen yo')}</h2>
+            {/* Titre DE LA PAGE (/fetes-legales, seul appelant) : h1, à la taille des titres de
+                section du portail (32 px, 29 px sur téléphone), plus une phrase d'introduction. */}
+            <h1 className="mt-[9px] text-[32px] tracking-[-.6px] max-[700px]:text-[29px]">{tr('Fêtes légales haïtiennes', 'Haitian public holidays', 'Jou ferye ayisyen yo')}</h1>
+            <p className="mt-2 max-w-[560px] text-sm leading-relaxed text-[color:var(--ag-muted)]">
+              {tr(
+                'Consultez les fêtes légales et les jours chômés de l’année choisie, avec la source de chacun.',
+                'See the public holidays and days off of the selected year, with the source of each one.',
+                'Gade jou ferye ak jou konje ane ou chwazi a, ak sous chak jou.',
+              )}
+            </p>
           </div>
           <button className="ag-button ag-calendar-export" onClick={exportCalendar}>
             <Download size={17} aria-hidden="true" />

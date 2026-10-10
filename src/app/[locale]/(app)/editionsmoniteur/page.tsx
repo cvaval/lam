@@ -12,9 +12,9 @@ export const dynamic = 'force-dynamic'
 const L = {
   title: { fr: 'Éditions Le Moniteur', en: 'Le Moniteur editions', ht: 'Edisyon Le Moniteur' },
   sub: {
-    fr: 'Le Moniteur — journal officiel. Choisissez une année pour parcourir les éditions par mois et par numéro.',
-    en: 'Le Moniteur — official journal. Pick a year to browse editions by month and number.',
-    ht: 'Le Moniteur — jounal ofisyèl. Chwazi yon ane pou gade edisyon yo pa mwa ak pa nimewo.',
+    fr: 'Consultez les éditions du journal officiel Le Moniteur. Choisissez une année, puis un mois, pour voir les éditions par numéro et date de publication.',
+    en: 'Browse the editions of the official journal Le Moniteur. Choose a year, then a month, to see the editions by number and publication date.',
+    ht: 'Konsilte edisyon jounal ofisyèl Le Moniteur. Chwazi yon ane, epi yon mwa, pou wè edisyon yo pa nimewo ak dat piblikasyon.',
   },
   editions: { fr: 'éditions', en: 'editions', ht: 'edisyon' },
   empty: { fr: 'Aucune année disponible pour le moment.', en: 'No year available yet.', ht: 'Pa gen ane disponib pou kounye a.' },

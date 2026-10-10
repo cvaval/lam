@@ -46,6 +46,7 @@ export default async function AdminJuridictionsPage({ params }: { params: { loca
   return (
     <div className="p-6">
       <h1 className="font-serif text-2xl font-semibold text-ank">{t.admin.juridictionsNav}</h1>
+      <p className="mt-1 max-w-2xl text-sm text-grafit">{t.admin.juridictionsIntro}</p>
       <div className="mt-4 grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
         {[
           ['Juridictions', kpis.total], ['UNMAPPED', kpis.unmapped], ['À vérifier', kpis.toVerify],

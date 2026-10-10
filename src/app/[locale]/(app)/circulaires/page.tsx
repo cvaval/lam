@@ -31,9 +31,9 @@ export const dynamic = 'force-dynamic'
  */
 const L = {
   sousTitre: {
-    fr: 'Parcourez les circulaires de la Banque de la République d’Haïti selon le classement de la BRH : par matière, ou par établissement assujetti.',
-    en: 'Browse the circulars of the Bank of the Republic of Haiti using the BRH’s own classification: by subject, or by regulated institution.',
-    ht: 'Gade sikilè Bank Repiblik d Ayiti yo dapre klasman BRH la : dapre matyè, oswa dapre enstitisyon ki konsène.',
+    fr: 'Retrouvez les circulaires de la BRH par matière ou par établissement assujetti.',
+    en: 'Find BRH circulars by subject or regulated institution.',
+    ht: 'Jwenn sikilè BRH yo pa matyè oswa enstitisyon ki konsène.',
   },
   searchAll: {
     fr: 'Rechercher dans toutes les circulaires',

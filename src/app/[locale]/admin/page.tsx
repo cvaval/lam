@@ -66,7 +66,10 @@ export default async function AdminOverview({ params }: { params: { locale: stri
 
   return (
     <div className="space-y-8">
-      <h1 className="text-xl font-semibold text-ank">{t.admin.overview}</h1>
+      <div>
+        <h1 className="text-xl font-semibold text-ank">{t.admin.overview}</h1>
+        <p className="mt-1 text-sm text-ank/80">{t.admin.overviewIntro}</p>
+      </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {kpis.map((k) => (
