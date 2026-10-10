@@ -13,6 +13,7 @@ import type { Theme } from '@prisma/client'
 import { prisma } from '../db'
 import { accessibleTypes } from '../access'
 import { DOC_TYPE_META } from '../brand'
+import { debutNouveautes } from '../nouveautes'
 import type { DocType, Role } from '../types'
 
 export interface ThemeNode extends Theme {
@@ -247,10 +248,12 @@ export interface NavigationThemes {
  */
 export async function navigationThemes(
   user: { role: Role; services: DocType[] },
-  opts: { corpus?: readonly DocType[]; racines?: readonly string[]; racinesExclues?: readonly string[]; recentDays?: number } = {},
+  opts: { corpus?: readonly DocType[]; racines?: readonly string[]; racinesExclues?: readonly string[] } = {},
 ): Promise<NavigationThemes> {
   const types = typesDeLaSection(user, opts.corpus)
-  const cutoff = new Date(Date.now() - (opts.recentDays ?? 14) * 86400_000)
+  // Pastille « Nouveau » : document AJOUTÉ depuis moins de JOURS_NOUVEAUTE jours, jamais
+  // simplement modifié (voir `src/lib/nouveautes.ts`).
+  const cutoff = debutNouveautes()
   const themes = await listThemes({ activeOnly: true })
 
   // Un seul balayage des rattachements du corpus : il fournit à la fois les compteurs, les
@@ -259,7 +262,7 @@ export async function navigationThemes(
   const liens = types.length
     ? await prisma.documentTheme.findMany({
         where: { document: { type: { in: types } }, theme: { active: true } },
-        select: { themeId: true, documentId: true, document: { select: { updatedAt: true } } },
+        select: { themeId: true, documentId: true, document: { select: { createdAt: true } } },
       })
     : []
 
@@ -268,7 +271,7 @@ export async function navigationThemes(
   const docsParTheme = new Map<string, Set<string>>()
   for (const l of liens) {
     counts[l.themeId] = (counts[l.themeId] ?? 0) + 1
-    if (l.document.updatedAt >= cutoff) recents.add(l.themeId)
+    if (l.document.createdAt >= cutoff) recents.add(l.themeId)
     let s = docsParTheme.get(l.themeId)
     if (!s) docsParTheme.set(l.themeId, (s = new Set()))
     s.add(l.documentId)

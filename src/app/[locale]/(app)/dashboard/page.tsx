@@ -9,6 +9,7 @@ import { dictFor } from '@/lib/i18n/server'
 import { requireUser } from '@/lib/auth/guard'
 import { prisma } from '@/lib/db'
 import { DOC_TYPE_LIST } from '@/lib/brand'
+import { debutNouveautes } from '@/lib/nouveautes'
 import { accessibleTypes, orderTypes } from '@/lib/access'
 import type { DocType } from '@/lib/types'
 
@@ -19,7 +20,8 @@ export default async function DashboardPage({ params }: { params: { locale: stri
   const { locale, t } = dictFor(params.locale)
   const user = await requireUser(locale)
 
-  const fifteenDaysAgo = new Date(Date.now() - 15 * 86400_000)
+  // Nouveautés : documents AJOUTÉS pendant la fenêtre commune (`src/lib/nouveautes.ts`).
+  const fifteenDaysAgo = debutNouveautes()
   // Accès par service (§03) : on ne montre que les types accordés (l'Index toujours).
   const allowed = accessibleTypes(user)
   const newWhere = { createdAt: { gte: fifteenDaysAgo }, type: { in: allowed } }
