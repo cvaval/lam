@@ -53,7 +53,8 @@ export default async function DemandeNotairePage({
   const type = premier(searchParams.type) === 'inscription' && !profil ? 'inscription' : 'coordonnees'
 
   return (
-    <div className="agora-portal min-h-screen bg-koton">
+    // `ag-frise-pied` : frise des monuments haïtiens en filigrane au bas de la page (agora-portal.css).
+    <div className="agora-portal ag-frise-pied bg-koton">
       <AgoraPublicHeader locale={locale} />
 
       <main className="mx-auto max-w-2xl px-4 pb-16 pt-6 md:px-8">
@@ -93,6 +94,18 @@ export default async function DemandeNotairePage({
           </Link>
         </p>
       </main>
+
+      {/* Pied de page TRANSPARENT : la frise se lit dessous (pas de fond blanc, contrairement aux autres pages des notaires). */}
+      <footer>
+        <div className="mx-auto flex max-w-2xl flex-wrap items-center justify-between gap-3 px-4 py-6 text-xs text-ank/80 md:px-8">
+          <span>© 2026 Agora</span>
+          <nav className="flex gap-4">
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
+            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
+          </nav>
+        </div>
+      </footer>
     </div>
   )
 }
