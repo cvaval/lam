@@ -70,7 +70,7 @@ export const MOIS: Record<Locale, readonly string[]> = {
     'me',
     'jen',
     'jiyè',
-    'out',
+    'dawout', // Me Vaval, 9 oct. 2026 : « Dawout », non « Out »
     'septanm',
     'oktòb',
     'novanm',

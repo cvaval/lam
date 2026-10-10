@@ -1136,7 +1136,7 @@ export const ht: Dictionary = {
     calendarCorpusNote:
       'Dènye tèks ki detèmine fèt legal yo se Dekrè 11 desanm 2024 la (Le Moniteur, Espesyal n° 66-A) : atik 2 li bay onz ladan yo.',
     calendarCorpusNoteDetail:
-      'Li vin apre Dekrè 23 me 1989 la, li kenbe sèt fèt li yo epi li ajoute kat : Lendi Gra (apati midi), 14 out, 20 septanm, 1ye novanm. Koperasyon an gen tou 182 arete chomaj endekse : se chomaj ponktyèl, se pa detèminasyon fèt legal.',
+      'Li vin apre Dekrè 23 me 1989 la, li kenbe sèt fèt li yo epi li ajoute kat : Lendi Gra (apati midi), 14 dawout, 20 septanm, 1ye novanm. Koperasyon an gen tou 182 arete chomaj endekse : se chomaj ponktyèl, se pa detèminasyon fèt legal.',
     calendarNoTextNote:
       'Antre sa a pa pwolonje dat ki an tèt afich la : okenn tèks nan kòpis la pa etabli l. Li parèt sèlman nan lekti ki pi laj la.',
     tablePermanentTitle: 'Jou pèmanan',

@@ -577,7 +577,7 @@ describe('§ 8.2 — l’écran d’une langue ne porte jamais la phrase d’une
       attendu: {
         fr: 'Le vendredi 15 août 2025 est un jour de fête légale (Fête de l’Assomption).',
         en: 'Friday 15 August 2025 is a legal holiday (Fête de l’Assomption).',
-        ht: 'vandredi 15 out 2025 se yon jou fèt legal (Fête de l’Assomption).',
+        ht: 'vandredi 15 dawout 2025 se yon jou fèt legal (Fête de l’Assomption).',
       },
     },
     {
@@ -586,7 +586,7 @@ describe('§ 8.2 — l’écran d’une langue ne porte jamais la phrase d’une
       attendu: {
         fr: 'Le délai est prorogé au samedi 16 août 2025 — droit commun de la computation, C. pr. civ., art. 991 al. 3.',
         en: 'The period is extended to Saturday 16 August 2025 — general law of computation, C. pr. civ., art. 991 al. 3.',
-        ht: 'Delè a pwolonje jiska samdi 16 out 2025 — dwa komen pou konte delè, C. pr. civ., art. 991 al. 3.',
+        ht: 'Delè a pwolonje jiska samdi 16 dawout 2025 — dwa komen pou konte delè, C. pr. civ., art. 991 al. 3.',
       },
     },
     {

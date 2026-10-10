@@ -26,7 +26,7 @@ interface Sommaire {
 const MONTHS: Record<Locale, string[]> = {
   fr: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
   en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-  ht: ['Janvye', 'Fevriye', 'Mas', 'Avril', 'Me', 'Jen', 'Jiyè', 'Out', 'Septanm', 'Oktòb', 'Novanm', 'Desanm'],
+  ht: ['Janvye', 'Fevriye', 'Mas', 'Avril', 'Me', 'Jen', 'Jiyè', 'Dawout', 'Septanm', 'Oktòb', 'Novanm', 'Desanm'],
 }
 const LBL = {
   back: { fr: '← Toutes les années', en: '← All years', ht: '← Tout ane yo' },
