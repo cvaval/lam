@@ -47,6 +47,45 @@ des notaires ; demain, le formulaire des avocats devra l'utiliser lui aussi.
 - **Schéma** : colonne `NotaryRequest.humanVerifiedAt`, ajoutée avant la première migration
   de la table, qui reste donc unique.
 
+## La page de demande, refaite (9 octobre 2026, soir)
+
+Consignes de Me Vaval : une page simple, fidèle à la marque, sans répétition.
+
+- **Notaire choisi** :
+  - titre « Mettre à jour les coordonnées d'un notaire », avec l'introduction demandée ;
+  - nom affiché une seule fois ;
+  - commune de commission préremplie et modifiable ;
+  - objet de la demande passé en champ caché.
+- **Sans notaire choisi** : le parcours d'origine est conservé (choix de l'objet, nom à saisir).
+- **Trois blocs numérotés** :
+  1. objet de la demande ;
+  2. coordonnées PUBLIQUES de l'étude, avec téléphone et courriel côte à côte sur ordinateur ;
+  3. coordonnées PRIVÉES du demandeur, où « Précisez votre qualité » n'apparaît que pour
+     « Autre ».
+- **« Courriel public de l'étude » et « Votre courriel de contact »** sont deux champs
+  distincts.
+- **Mise en forme** : champs de 48 px ; bouton bleu encre en pleine largeur ; un seul lien vers
+  la politique ; colonne de 768 px ; jetons et polices de la marque.
+- **Frise** limitée à cette page.
+  - Sa ligne de sol est posée au bord inférieur, d'après le dessin réel de l'image (lignes 209
+    à 584 sur 724).
+  - Les monuments commencent juste sous le bouton.
+  - Le pied de page (© 2026 Agora, CGU, politique de confidentialité, mentions légales) est
+    collé tout en bas, devant la frise.
+- **Un premier jet d'un autre outil** a été repris et corrigé : traductions écrites en dur,
+  message d'erreur « coordonnées » perdu, polices et couleurs codées en dur. Son aperçu
+  `public/agora-notary-design-preview.html` et sa modification de `tsconfig.json` ne sont PAS
+  commités (l'aperçu serait public).
+
+| ordinateur | téléphone | confirmation |
+|---|---|---|
+| ![](livraison-verification-humaine/page-demande-ordinateur.png) | ![](livraison-verification-humaine/page-demande-telephone.png) | ![](livraison-verification-humaine/page-demande-confirmation.png) |
+
+Le bas de page en détail :
+[ordinateur](livraison-verification-humaine/pied-de-page-ordinateur.png) ·
+[téléphone](livraison-verification-humaine/pied-de-page-telephone.png).
+La case Cloudflare n'apparaît pas dans une capture automatique.
+
 ## Découvert en vérifiant
 
 **La clé secrète de test « passe toujours » (`1x…AA`) accepte N'IMPORTE QUEL jeton**, pas
