@@ -75,6 +75,7 @@ type Dir = 'asc' | 'desc'
 export interface Rubrique {
   /** Slug de la rubrique : transmis à l'API (corpus) et préfixe des clés de stockage. */
   slug: string
+  enhanced?: boolean
   titre: string
   sousTitre: string
   /**
@@ -131,6 +132,27 @@ const L = {
     ht: 'Nou pa t ka chaje lis la. Sa pa vle di pa gen dokiman.',
   },
   reessayer: { fr: 'Réessayer', en: 'Try again', ht: 'Eseye ankò' },
+  // Présentation enrichie (`rubrique.enhanced`, Législation annotée) : filtre des domaines,
+  // fil d'Ariane et accès à la recherche dans la rubrique.
+  filtre: { fr: 'Rechercher un domaine ou un thème…', en: 'Find a domain or topic…', ht: 'Chèche yon domèn oswa yon tèm…' },
+  effacer: { fr: 'Effacer', en: 'Clear', ht: 'Efase' },
+  voirTextes: { fr: 'Voir les textes', en: 'View texts', ht: 'Wè tèks yo' },
+  tousTextes: { fr: 'Tous les textes du domaine', en: 'All texts in this domain', ht: 'Tout tèks nan domèn sa a' },
+  aucunDomaine: {
+    fr: 'Aucun domaine ni thème ne correspond à votre recherche.',
+    en: 'No domain or topic matches your search.',
+    ht: 'Pa gen domèn ni tèm ki koresponn ak rechèch ou a.',
+  },
+  rechercherTextes: { fr: 'Rechercher dans les textes', en: 'Search the texts', ht: 'Chèche nan tèks yo' },
+  espace: { fr: 'Espace documentaire', en: 'Document workspace', ht: 'Espas dokimantè' },
+  filAriane: { fr: 'Fil d’Ariane', en: 'Breadcrumb', ht: 'Chemen navigasyon' },
+  // Arbre vide : la rubrique n'a encore aucun domaine (ce n'est PAS un échec de chargement,
+  // l'arbre arrive avec la page).
+  arbreVide: {
+    fr: 'Aucun domaine n’est encore classé dans cette rubrique.',
+    en: 'No domain has been classified in this section yet.',
+    ht: 'Poko gen okenn domèn ki klase nan seksyon sa a.',
+  },
 } as const
 
 /** Liste chargée, échec de chargement, ou rien de demandé encore. */
@@ -194,6 +216,8 @@ export function ThemeBrowser({
   const [docs, setDocs] = useState<EtatDocs>(null)
   const [loading, setLoading] = useState(false)
   const [sortOpen, setSortOpen] = useState(false)
+  const [themeQuery, setThemeQuery] = useState('')
+  const enhanced = rubrique.enhanced === true
   const sortRef = useRef<HTMLDivElement>(null)
 
   // Menu de tri : fermeture au clic extérieur et à Échap (comme SearchBox).
@@ -293,6 +317,17 @@ export function ThemeBrowser({
       [...nodes].sort((a, b) => cmp(label(a), label(b))).map((n) => ({ ...n, children: rec(n.children) }))
     return rec(tree)
   }, [tree, cmp, label, rubrique.ordre])
+
+  const filteredTree = useMemo(() => {
+    if (!enhanced || !themeQuery.trim()) return displayTree
+    const q = fold(themeQuery.trim())
+    const filter = (nodes: ThemeNode[]): ThemeNode[] => nodes.flatMap(n => {
+      if (fold(label(n)).includes(q)) return [n]
+      const children = filter(n.children)
+      return children.length ? [{ ...n, children }] : []
+    })
+    return filter(displayTree)
+  }, [displayTree, themeQuery, enhanced, label])
 
   const subtotal = useMemo(() => {
     const memo = new Map<string, number>()
@@ -578,12 +613,21 @@ export function ThemeBrowser({
    * qu'on retire, pas la donnée.)
    */
   function DomainCard({ node }: { node: ThemeNode }) {
-    const open = expanded.has(node.id)
+    const open = expanded.has(node.id) || (enhanced && !!themeQuery.trim())
     const hasChildren = node.children.length > 0
     const empty = isEmpty(node)
     return (
       <li>
         <div className={`overflow-hidden rounded-2xl border border-chabon/10 bg-white transition hover: ${empty ? 'opacity-55' : ''}`}>
+          {enhanced ? (
+            <div className="ag-domain-heading">
+              <button type="button" disabled={empty && !hasChildren} aria-expanded={hasChildren ? open : undefined} onClick={() => hasChildren ? toggleExpand(node.id) : select(node.id)} className="ag-domain-trigger">
+                <span><span className="ag-domain-name">{label(node)}</span><span className="ag-domain-meta">{empty ? lex.vide : countText(node)}</span></span>
+                <span className="ag-domain-action" aria-hidden="true">{hasChildren ? <span>{open ? '−' : '+'}</span> : <span>{lt(L.voirTextes)} →</span>}</span>
+              </button>
+              <NewBadge node={node} />
+            </div>
+          ) : (
           <div className="flex items-center gap-1">
             {hasChildren ? (
               <button type="button" onClick={() => toggleExpand(node.id)} aria-expanded={open} aria-label={open ? lt(L.replier) : lt(L.deplier)} className="flex h-12 w-9 items-center justify-center text-ank/80 hover:text-ank">
@@ -600,8 +644,10 @@ export function ThemeBrowser({
             </button>
             <NewBadge node={node} />
           </div>
+          )}
           {(open || selected === node.id) && (
-            <div className="border-t border-chabon/5 px-3 pb-3 pt-1">
+            <div className="ag-domain-content border-t border-chabon/5 px-3 pb-3 pt-1">
+              {enhanced && hasChildren && !empty && <button type="button" onClick={() => select(node.id)} className="ag-domain-all">{lt(L.tousTextes)} →</button>}
               <DocList themeId={node.id} />
               {open && hasChildren && (
                 <ul className="mt-1">
@@ -620,7 +666,7 @@ export function ThemeBrowser({
   // Sous-thème (niveau ≥ 1) : ligne nette. Sans point de couleur non plus — hérité du
   // domaine, il aurait survécu à la pastille qui lui donnait son sens.
   function SubRow({ node, depth }: { node: ThemeNode; depth: number }) {
-    const open = expanded.has(node.id)
+    const open = expanded.has(node.id) || (enhanced && !!themeQuery.trim())
     const isSel = selected === node.id
     const hasChildren = node.children.length > 0
     const empty = isEmpty(node)
@@ -783,27 +829,31 @@ export function ThemeBrowser({
   }
 
   return (
-    <div className="space-y-5">
+    <div className={enhanced ? "ag-legislation-browser space-y-5" : "space-y-5"}>
       {/* Même règle qu'en dessous : pas de carré de couleur. Celui-ci ne portait pas même
           une teinte de domaine — un gris sur gris, qui ne disait rien du tout. */}
       <header>
+        {enhanced && <nav className="ag-legislation-breadcrumb" aria-label={lt(L.filAriane)}><Link href={`/${locale}/dashboard`}>{lt(L.espace)}</Link><span aria-hidden="true">›</span><span>{rubrique.titre}</span></nav>}
         <h1 className="text-2xl font-bold text-ank">{rubrique.titre}</h1>
         <p className="mt-0.5 max-w-2xl text-sm text-ank/80">{rubrique.sousTitre}</p>
+        {enhanced && <Link className="ag-legislation-search-link" href={`/${locale}/search?type=${rubrique.slug}`}>{lt(L.rechercherTextes)} →</Link>}
       </header>
 
       {/* UN SEUL contrôle (demande cliente 20 juil.) : le menu « Tri » porte à la fois
           le mode de présentation (par thème / par type) et le sens (A→Z, Z→A, dates).
           Le sélecteur d'onglets séparé a été supprimé. */}
-      <div className="flex flex-wrap items-center gap-2">
+      <div className="ag-legislation-toolbar flex flex-wrap items-center gap-2">
+        {enhanced && view === 'tree' && <div className="ag-theme-filter"><input aria-label={lt(L.filtre)} placeholder={lt(L.filtre)} value={themeQuery} onChange={e => setThemeQuery(e.target.value)} type="search" />{themeQuery && <button type="button" onClick={() => setThemeQuery('')}>{lt(L.effacer)}</button>}</div>}
         <SortMenu />
       </div>
 
       {view === 'tree' &&
         (tree.length === 0 ? (
-          <p className="rounded-2xl border border-chabon/10 bg-white px-4 py-10 text-center text-sm text-ank/80">—</p>
+          <p className="rounded-2xl border border-chabon/10 bg-white px-4 py-10 text-center text-sm text-ank/80">{lt(L.arbreVide)}</p>
         ) : (
           <ul className="space-y-2.5">
-            {displayTree.map((n) => (
+            {enhanced && filteredTree.length === 0 && <li className="ag-theme-empty" role="status">{lt(L.aucunDomaine)}</li>}
+            {filteredTree.map((n) => (
               <DomainCard key={n.id} node={n} />
             ))}
           </ul>

@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import './legislation.css'
 import { redirect } from 'next/navigation'
 import { dictFor } from '@/lib/i18n/server'
 import { requireUser } from '@/lib/auth/guard'
@@ -19,9 +19,9 @@ const L = {
     ht: 'Chèche nan tout lejislasyon anote a',
   },
   sousTitre: {
-    fr: 'Explorez les lois, décrets et arrêtés par domaine. Dépliez un domaine, puis ouvrez un thème pour voir ses textes.',
-    en: 'Browse laws, decrees and orders by domain. Expand a domain, then open a theme to see its texts.',
-    ht: 'Gade lwa, dekrè ak arete pa domèn. Louvri yon domèn, epi louvri yon tèm pou wè tèks li yo.',
+    fr: 'Retrouvez les textes de loi classés par domaine juridique.',
+    en: 'Find legislation organized by area of law.',
+    ht: 'Jwenn tèks lwa yo klase pa domèn dwa.',
   },
   unite: { fr: 'texte', en: 'text', ht: 'tèks' },
   unites: { fr: 'textes', en: 'texts', ht: 'tèks' },
@@ -80,6 +80,7 @@ export default async function DoctrinePage({ params }: { params: { locale: strin
         locale={locale}
         rubrique={{
           slug: META.slug,
+          enhanced: true,
           titre: META.label[locale],
           sousTitre: L.sousTitre[locale],
           lexique: {
@@ -95,9 +96,7 @@ export default async function DoctrinePage({ params }: { params: { locale: strin
         recentThemeIds={nav.recentThemeIds}
         allDocs={flatDocs}
       />
-      <Link href={`/${locale}/search?type=${META.slug}`} className="inline-block text-sm font-medium text-chabon hover:underline">
-        {L.searchAll[locale]} →
-      </Link>
+
     </div>
   )
 }
