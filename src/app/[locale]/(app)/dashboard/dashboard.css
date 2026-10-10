@@ -22,7 +22,9 @@
 /* ── Accès rapides (tuiles de SectionTiles : réorganisation inchangée) ─────── */
 .ag-dashboard-collections>[class*=grid]{gap:16px}
 .ag-dashboard-collections [data-tile]{border-radius:8px;padding:22px;border-color:var(--dash-line);transition:border-color .15s,box-shadow .15s,transform .15s}
-.ag-dashboard-collections [data-tile]>span:first-child{height:2px;background:var(--dash-line)}
+/* Une seule bordure fine : la barre décorative du haut de la tuile (SectionTiles) doublait le filet
+   supérieur — 1 px de bordure + 2 px de barre droite sous un coin arrondi (Me Vaval, 9 oct. 2026). */
+.ag-dashboard-collections [data-tile]>span:first-child{display:none}
 .ag-dashboard-collections [data-tile]:hover{border-color:var(--dash-terre);box-shadow:0 4px 16px rgba(21,46,56,.06)}
 .ag-dashboard-collections [data-tile] h3{margin-top:18px;font-size:16px;font-weight:600}
 .ag-dashboard-collections [data-tile] p{margin-top:8px;font-size:13px;line-height:1.65;color:var(--dash-muted)}
