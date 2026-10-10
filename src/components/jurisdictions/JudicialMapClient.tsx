@@ -24,6 +24,8 @@ export function JudicialMapClient(props: {
   layers: readonly string[]
   attribution: string
   loadingLabel: string
+  /** Libellés des bulles de couche (voir `MapLayerDef.popup`), et « voir dans la liste ». */
+  popupLabels: Record<string, string>
   fallback: React.ReactNode
 }) {
   return (
@@ -35,6 +37,7 @@ export function JudicialMapClient(props: {
         layers={props.layers}
         attribution={props.attribution}
         loadingLabel={props.loadingLabel}
+        popupLabels={props.popupLabels}
       />
     </>
   )

@@ -127,6 +127,7 @@ export default async function JuridictionsPage({
                 layers={layers}
                 attribution={attribution}
                 loadingLabel={t.judicial.loadingMap}
+                popupLabels={{ notaryCountOne: t.judicial.notaryCountOne, notaryCountMany: t.judicial.notaryCountMany, seeList: t.judicial.notaryPopupSeeList }}
                 fallback={
                   <div className="p-6">
                     <p className="text-sm leading-relaxed text-grafit">{t.judicial.mapFallback}</p>

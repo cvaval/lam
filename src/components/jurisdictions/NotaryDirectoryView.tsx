@@ -90,7 +90,9 @@ export function NotaryDirectoryView({
                 </h2>
                 <div className="mt-3 grid gap-x-8 gap-y-4 md:grid-cols-2">
                   {tpi.communes.map((c) => (
-                    <div key={c.id}>
+                    // Ancre de la commune : la bulle du 👤 de la carte y mène (`#<communeId>`) ; la
+                    // section visée est mise en évidence, et ne passe pas sous l'en-tête.
+                    <div key={c.id} id={c.id} className="-mx-2 scroll-mt-24 rounded-md px-2 py-1 target:bg-pil target:outline target:outline-1 target:outline-liy">
                       <h3 className="text-sm font-semibold text-ank">
                         <Link href={`/${locale}/juridictions?commune=${c.id}`} className="underline-offset-2 hover:text-chabon hover:underline">{c.name}</Link>
                         <span className="ml-1.5 text-xs font-normal text-ank/80">{c.department} · {nb(c.notaires.length)}</span>

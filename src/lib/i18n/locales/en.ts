@@ -896,6 +896,7 @@ export const en: Dictionary = {
     notaryContactsSourceRequest: 'Contact details provided by the office and checked by the Agora editors, up to date as of {date}.',
     notaryReportError: 'Report an error',
     notaryOnMap: 'See the commune on the map',
+    notaryPopupSeeList: 'See in “Notaries by jurisdiction”',
     notarySearchLabel: 'Search for a notary',
     notarySearchSubmit: 'Search',
     notarySearchResultsOne: '{n} notary for “{q}”',

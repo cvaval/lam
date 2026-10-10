@@ -50,6 +50,10 @@ describe('liens discrets vers le formulaire', () => {
     const liste = renderToStaticMarkup(<NotaryDirectoryView dir={DIR} locale="fr" t={t} demandes />)
     expect(liste).toContain(`href="${LIEN}?type=inscription"`)
   })
+  it('chaque commune de la liste porte une ancre (`#<communeId>`) : la bulle du 👤 de la carte y mène', () => {
+    const liste = renderToStaticMarkup(<NotaryDirectoryView dir={DIR} locale="fr" t={t} />)
+    expect(liste).toMatch(/<div id="commune-ouest-port-au-prince" class="[^"]*scroll-mt-24[^"]*target:bg-pil/)
+  })
 })
 
 describe('le formulaire', () => {

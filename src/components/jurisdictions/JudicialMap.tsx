@@ -35,6 +35,7 @@ import { EMOJI_SIZES, emojiPuckImage, type CanvasFactory } from '@/lib/jurisdict
 import { ROUTES_SOURCE_ID, glyphsTemplate, routesLayers, routesSource } from '@/lib/jurisdictions/fond-de-rues'
 import { Protocol } from 'pmtiles'
 import { COURT_STYLE, MARKER_STROKE } from './CourtCard'
+import { compte } from '@/lib/jurisdictions/notaires-format'
 
 const HAITI_BOUNDS: [[number, number], [number, number]] = [[-75.0, 17.9], [-71.5, 20.2]]
 
@@ -120,13 +121,15 @@ const canvasFactory: CanvasFactory = (w, h) => {
 }
 
 export function JudicialMap({
-  locale, selectedCommuneId, layers, attribution, loadingLabel,
+  locale, selectedCommuneId, layers, attribution, loadingLabel, popupLabels = {},
 }: {
   locale: Locale
   selectedCommuneId: string | null
   layers: readonly string[]
   attribution: string
   loadingLabel: string
+  /** Libellés des bulles de couche (`MapLayerDef.popup`) et `seeList`. */
+  popupLabels?: Record<string, string>
 }) {
   const router = useRouter()
   const containerRef = useRef<HTMLDivElement>(null)
@@ -148,6 +151,8 @@ export function JudicialMap({
    */
   const installedRef = useRef<Set<string>>(new Set())
   const pendingRef = useRef<globalThis.Map<string, Promise<void>>>(new globalThis.Map())
+  /** Bulle ouverte au clic sur un point (une seule à la fois). */
+  const popupRef = useRef<maplibregl.Popup | null>(null)
   /** Réponses GeoJSON par URL : les quatre couches de juridictions partagent la même. */
   const fetchedRef = useRef<globalThis.Map<string, Promise<PointFeature[]>>>(new globalThis.Map())
   const reduceMotion = useMemo(
@@ -228,6 +233,41 @@ export function JudicialMap({
     if (layersParam !== null) params.set('layers', layersParam)
     const qs = params.toString()
     router.push(`/${locale}/juridictions${qs ? `?${qs}` : ''}`, { scroll: false })
+  }
+
+  /**
+   * Bulle d'un point de couche : nom de la commune et « N notaires → », lien vers
+   * `/{locale}{listPath}#{communeId}` (section ancrée de la liste). DOM construit nœud par nœud
+   * (`textContent`, jamais de HTML). ⚠️ Lien CLASSIQUE, pas `router.push` : la navigation interne
+   * (pushState) ne met pas à jour `:target`, et la section visée ne serait pas mise en évidence.
+   */
+  const openPopup = (map: MlMap, layer: MapLayerDef, at: [number, number], communeId: string, props: Record<string, unknown>) => {
+    const conf = layer.popup
+    if (!conf) return
+    const n = Number(props.count) || 0
+    const nom = typeof props.communeName === 'string' ? props.communeName : ''
+    const nombre = compte(n, locale, popupLabels[conf.countOneKey] ?? '{n}', popupLabels[conf.countManyKey] ?? '{n}')
+    const href = `/${locale}${conf.listPath}#${encodeURIComponent(communeId)}`
+    const box = document.createElement('div')
+    box.className = 'pr-5 text-ank'
+    if (nom) {
+      const titre = document.createElement('p')
+      titre.className = 'font-serif text-body-sm font-semibold text-ank'
+      titre.textContent = nom
+      box.append(titre)
+    }
+    const lien = document.createElement('a')
+    lien.href = href
+    lien.className = 'mt-1 inline-flex min-h-[32px] items-center text-body-sm font-semibold text-ank !underline underline-offset-2 hover:text-chabon'
+    lien.textContent = `${nombre} →`
+    if (popupLabels.seeList) lien.title = popupLabels.seeList
+    lien.setAttribute('aria-label', [nombre, nom, popupLabels.seeList].filter(Boolean).join(' — '))
+    box.append(lien)
+    popupRef.current?.remove()
+    popupRef.current = new maplibregl.Popup({ closeButton: true, maxWidth: '260px', offset: layer.iconOffset ? [layer.iconOffset[0], layer.iconOffset[1] - 12] : 14 })
+      .setLngLat(at)
+      .setDOMContent(box)
+      .addTo(map)
   }
 
   // URL absolue : MapLibre parse le GeoJSON dans un worker `blob:` (voir plus bas).
@@ -317,7 +357,12 @@ export function JudicialMap({
         if (dessus && dessus.layer.id !== layerId) return
         const f = e.features?.[0]
         const communeId = f?.properties?.communeId as string | undefined
-        if (communeId) { e.preventDefault?.(); selectCommune(communeId) }
+        if (!communeId) return
+        e.preventDefault?.()
+        // Couche à bulle (notaires) : le NOMBRE, en lien vers la section de la commune dans la
+        // liste textuelle. La commune est sélectionnée comme avant (fiche à côté de la carte).
+        if (layer.popup && f?.geometry.type === 'Point') openPopup(map, layer, f.geometry.coordinates as [number, number], communeId, f.properties ?? {})
+        selectCommune(communeId)
       })
       map.on('mouseenter', layerId, () => { map.getCanvas().style.cursor = 'pointer' })
       map.on('mouseleave', layerId, () => { map.getCanvas().style.cursor = '' })
@@ -543,6 +588,8 @@ export function JudicialMap({
     return () => {
       for (const m of etiquettes.values()) m.remove()
       etiquettes.clear()
+      popupRef.current?.remove()
+      popupRef.current = null
       map.remove()
       mapRef.current = null
       readyRef.current = false

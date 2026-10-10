@@ -168,3 +168,21 @@ describe('couche fictive — prise en charge de bout en bout sans autre code', (
     )
   })
 })
+
+describe('bulle au clic (couche des notaires)', () => {
+  it('le 👤 ouvre « N notaires » en lien vers la liste, ancrée sur la commune ; libellés présents en fr/en/ht', async () => {
+    const { getDictionary } = await import('@/lib/i18n/dictionaries')
+    const notaires = MAP_LAYERS.find((l) => l.slug === 'notaires')!
+    expect(notaires.popup).toEqual({ listPath: '/juridictions/notaires', countOneKey: 'notaryCountOne', countManyKey: 'notaryCountMany' })
+    for (const loc of ['fr', 'en', 'ht'] as const) {
+      const j = getDictionary(loc).judicial
+      expect(j[notaires.popup.countOneKey]).toContain('{n}')
+      expect(j[notaires.popup.countManyKey]).toContain('{n}')
+      expect(j.notaryPopupSeeList).toContain(j.notariesByJurisdiction)
+    }
+  })
+  it('les couches de juridictions n’ont pas de bulle (leur clic ouvre la fiche de la commune)', () => {
+    expect(MAP_LAYERS.filter((l) => 'popup' in l && l.popup).map((l) => l.slug)).toEqual(['notaires'])
+  })
+})
+

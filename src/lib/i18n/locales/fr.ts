@@ -1209,6 +1209,7 @@ export const fr = {
     notaryContactsSourceRequest: 'Coordonnées communiquées par l’étude, vérifiées par la rédaction d’Agora, à jour au {date}.',
     notaryReportError: 'Signaler une erreur',
     notaryOnMap: 'Voir la commune sur la carte',
+    notaryPopupSeeList: 'Voir dans « Notaires par juridiction »',
     notarySearchLabel: 'Rechercher un notaire',
     notarySearchSubmit: 'Rechercher',
     notarySearchResultsOne: '{n} notaire pour « {q} »',

@@ -895,6 +895,7 @@ export const ht: Dictionary = {
     notaryContactsSourceRequest: 'Etid la kominike kontak yo, redaksyon Agora verifye yo, ajou {date}.',
     notaryReportError: 'Siyale yon erè',
     notaryOnMap: 'Gade komin nan sou kat la',
+    notaryPopupSeeList: 'Gade nan « Notè yo pa jiridiksyon »',
     notarySearchLabel: 'Chèche yon notè',
     notarySearchSubmit: 'Chèche',
     notarySearchResultsOne: '{n} notè pou « {q} »',
