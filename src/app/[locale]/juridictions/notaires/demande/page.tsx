@@ -63,7 +63,7 @@ export default async function DemandeNotairePage({
     <div className="agora-portal ag-notary-request-page bg-koton text-ank">
       <AgoraPublicHeader locale={locale} />
 
-      <main className="mx-auto w-full max-w-3xl px-5 pb-10 pt-6 sm:px-8">
+      <main className="mx-auto w-full max-w-3xl px-5 pb-4 pt-6 sm:px-8">
         <nav aria-label="Fil d’Ariane" className="text-body-sm text-grafit">
           <ol className="flex flex-wrap items-center gap-1.5">
             <li><Link href={`/${locale}/juridictions`} className="inline-flex min-h-[44px] items-center transition hover:text-chabon hover:!underline">{j.breadcrumbHere}</Link></li>
@@ -102,15 +102,17 @@ export default async function DemandeNotairePage({
         )}
       </main>
 
-      {/* Pied de page TRANSPARENT : la frise se lit dessous. Le fil d'Ariane suffit au retour :
-          pas de second lien « Retour » sous le formulaire. */}
-      <footer>
-        <div className="mx-auto flex w-full max-w-3xl flex-wrap items-center justify-between gap-x-6 gap-y-1 px-5 py-4 text-body-sm text-ank sm:px-8">
-          <span>© 2026 Agora</span>
+      {/* Pied de page TRANSPARENT, collé au BORD INFÉRIEUR de la page, DEVANT la frise (Me Vaval,
+          9 oct. 2026) : rien ne s'intercale entre le formulaire et les monuments. Un halo couleur
+          papier garde le texte lisible sur les traits du dessin. Le fil d'Ariane suffit au
+          retour : pas de second lien « Retour » sous le formulaire. */}
+      <footer className="absolute inset-x-0 bottom-0">
+        <div className="mx-auto flex w-full max-w-3xl flex-wrap items-center justify-between gap-x-6 px-5 py-2 text-meta text-ank [text-shadow:0_0_6px_var(--ag-paper),0_0_2px_var(--ag-paper)] sm:px-8 sm:text-body-sm">
+          <span className="inline-flex min-h-[32px] items-center">© 2026 Agora</span>
           <nav className="flex flex-wrap gap-x-5">
-            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon hover:!underline" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
-            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon hover:!underline" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
-            <Link className="inline-flex min-h-[44px] items-center transition hover:text-chabon hover:!underline" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
+            <Link className="inline-flex min-h-[32px] items-center font-medium transition hover:text-chabon hover:!underline" href={`/${locale}/cgu`}>{t.legal.cgu}</Link>
+            <Link className="inline-flex min-h-[32px] items-center font-medium transition hover:text-chabon hover:!underline" href={`/${locale}/confidentialite`}>{t.legal.confidentialite}</Link>
+            <Link className="inline-flex min-h-[32px] items-center font-medium transition hover:text-chabon hover:!underline" href={`/${locale}/mentions-legales`}>{t.legal.mentions}</Link>
           </nav>
         </div>
       </footer>
