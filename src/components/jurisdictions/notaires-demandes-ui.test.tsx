@@ -69,11 +69,47 @@ describe('le formulaire', () => {
     expect(html).toMatch(/name="consentement" required="" [^>]*value="oui"/)
     expect(html).toContain('<option value="commune-nord-port-margot">Port-Margot (Nord)</option>')
   })
-  it('notaire pré-choisi : son nom affiché, identifiant caché, pas de champ « nom du notaire »', () => {
-    const html = rendu({ notary: { id: 'mjsp-2026-09-08-11', name: 'Patrick VICTOR', communeName: 'Port-au-Prince' } })
+  const VICTOR = { id: 'mjsp-2026-09-08-11', name: 'Patrick VICTOR', communeId: 'commune-ouest-port-au-prince' }
+  const COMMUNES = [
+    { id: 'commune-nord-port-margot', name: 'Port-Margot', department: 'Nord' },
+    { id: 'commune-ouest-port-au-prince', name: 'Port-au-Prince', department: 'Ouest' },
+  ]
+  it('notaire pré-choisi : nom affiché UNE fois, identifiant et objet en champs cachés, plus de choix d’objet ni de « nom du notaire »', () => {
+    const html = rendu({ notary: VICTOR, communes: COMMUNES })
     expect(html).toContain('name="notaire" value="mjsp-2026-09-08-11"')
-    expect(html).toContain('Patrick VICTOR')
+    expect(html).toContain('<input type="hidden" name="type" value="coordonnees"/>')
+    expect(html).not.toContain('type="radio" name="type"')
+    expect(html.split('Patrick VICTOR').length - 1).toBe(1)
     expect(html).not.toContain('name="nomNotaire"')
+  })
+  it('notaire pré-choisi : sa commune de commission est PRÉREMPLIE, et reste modifiable', () => {
+    const html = rendu({ notary: VICTOR, communes: COMMUNES })
+    expect(html).toContain('<option value="commune-ouest-port-au-prince" selected="">Port-au-Prince (Ouest)</option>')
+    expect(html).toContain('<option value="commune-nord-port-margot">Port-Margot (Nord)</option>')
+  })
+  it('sans notaire : le parcours d’origine garde le choix de l’objet et le nom à saisir, aucune commune présélectionnée', () => {
+    const html = rendu()
+    expect(html).toMatch(/type="radio" name="type"[^>]*value="coordonnees"/)
+    expect(html).toMatch(/type="radio" name="type"[^>]*value="inscription"/)
+    expect(html).toContain('name="nomNotaire"')
+    expect(html).toContain('<option value="" selected="">')
+  })
+  it('trois blocs numérotés, titres en clair ; courriel PUBLIC de l’étude et courriel PRIVÉ du demandeur bien distincts', () => {
+    const html = rendu({ notary: VICTOR, communes: COMMUNES })
+    for (const [id, n, titre] of [['bloc-objet', 1, j.notaryRequestType], ['bloc-etude', 2, j.notaryRequestContactSection], ['bloc-vous', 3, j.notaryRequestYou]] as const) {
+      expect(html).toMatch(new RegExp(`<h2 id="${id}"[^>]*><span aria-hidden="true"[^>]*>${n}</span>${titre.replace(/[’']/g, '.')}</h2>`))
+    }
+    expect(html).toContain(j.notaryRequestContactHint)
+    expect(html).toContain(j.notaryRequestYouHint)
+    expect(html).toMatch(new RegExp(`${j.notaryRequestOfficeEmail.replace(/[’']/g, '.')}<input name="courriel" type="email"`))
+    expect(html).toMatch(new RegExp(`${j.notaryRequestReplyEmail}<input name="courrielContact" type="email"[^>]*aria-describedby="bloc-vous-note"`))
+  })
+  it('« Précisez votre qualité » n’apparaît que pour « Autre » (ou quand il faut le corriger)', () => {
+    expect(rendu()).not.toContain('name="qualiteAutre"')
+    expect(rendu({ erreurs: ['qualiteAutre'] })).toMatch(/<input name="qualiteAutre" required=""/)
+  })
+  it('bouton principal : bleu encre, pleine largeur, « Envoyer la demande »', () => {
+    expect(rendu()).toMatch(new RegExp(`<button type="submit" class="[^"]*\\bw-full\\b[^"]*bg-wouj[^"]*text-white[^"]*">${j.notaryRequestSubmit}</button>`))
   })
   it('erreurs : des phrases, sans doublon ; un code inconnu (URL bricolée) est ignoré', () => {
     const html = rendu({ erreurs: ['telephones', 'telephones', '<script>', 'constructor'] })
@@ -89,16 +125,17 @@ describe('le formulaire', () => {
   it('chaque erreur s’affiche AUSSI sous son champ, reliée par aria-describedby, champ marqué invalide', () => {
     const html = rendu({ erreurs: ['telephones', 'consentement'] })
     expect(html).toMatch(/<input name="telephones"[^>]*aria-invalid="true"[^>]*aria-describedby="err-telephones aide-telephones"/)
-    expect(html).toContain(`<span id="err-telephones" class="mt-1 block text-sm font-normal text-ank">— ${j.notaryRequestErrTelephones}</span>`)
+    expect(html).toContain(`<span id="err-telephones" class="mt-1.5 block text-body-sm font-medium text-wouj">${j.notaryRequestErrTelephones}</span>`)
     expect(html).toMatch(/name="consentement"[^>]*aria-invalid="true"[^>]*aria-describedby="err-consentement"/)
     // Sans erreur : ni aria-invalid ni message.
     expect(rendu()).not.toContain('aria-invalid')
   })
-  it('vérification humaine : intitulé, conteneur du widget, mention Cloudflare et lien vers la politique, avis sans JavaScript', () => {
+  it('vérification humaine : intitulé, conteneur du widget, mention Cloudflare, UN SEUL lien vers la politique (celui du consentement), avis sans JavaScript', () => {
     const html = rendu()
     expect(html).toContain(`>${j.humanCheckTitle}</p>`)
     expect(html).toMatch(/<div class="mt-2 min-h-\[65px\]" aria-describedby="aide-verification"><\/div>/)
-    expect(html).toContain(`${j.humanCheckNotice} <a href="/fr/confidentialite"`)
+    expect(html).toContain(`>${j.humanCheckNotice}</p>`)
+    expect(html.split('href="/fr/confidentialite"').length - 1).toBe(1)
     expect(html).toContain('<noscript>')
     // Le widget est AVANT le bouton d'envoi.
     expect(html.indexOf('aide-verification')).toBeLessThan(html.indexOf(j.notaryRequestSubmit))
@@ -106,7 +143,7 @@ describe('le formulaire', () => {
   it('échec de la vérification : message sous le widget, relié à lui, et dans le résumé', () => {
     const html = rendu({ erreurs: ['humain'] })
     expect(html).toContain('aria-describedby="aide-verification err-humain"')
-    expect(html).toContain(`<span id="err-humain" class="mt-1 block text-sm text-ank">— ${j.notaryRequestErrHumain}</span>`)
+    expect(html).toContain(`<span id="err-humain" class="mt-1.5 block text-body-sm font-medium text-wouj">${j.notaryRequestErrHumain}</span>`)
     expect(html.split(j.notaryRequestErrHumain).length - 1).toBe(2)
   })
   it('les trois langues ont tous les libellés', () => {

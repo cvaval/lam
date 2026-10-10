@@ -36,7 +36,8 @@ export const VerificationHumaine = forwardRef<VerificationHumaineHandle, {
   langue: 'fr' | 'en'
   nonce?: string
   libelles: { titre: string; aide: string; mention: string; sansJs: string; politique: string }
-  lienPolitique: string
+  /** Lien vers la politique de confidentialité ; à omettre si le formulaire le donne déjà. */
+  lienPolitique?: string
   /** Message d'erreur affiché sous le widget (et relié à lui). */
   erreur?: ReactNode
 }>(function VerificationHumaine({ siteKey, action, langue, nonce, libelles, lienPolitique, erreur }, ref) {
@@ -73,20 +74,22 @@ export const VerificationHumaine = forwardRef<VerificationHumaineHandle, {
   return (
     <div>
       <Script src={TURNSTILE_SCRIPT_URL} nonce={nonce} strategy="afterInteractive" onReady={rendre} />
-      <p className="text-sm font-medium text-ank">{libelles.titre}</p>
-      <p id="aide-verification" className="mt-1 text-xs text-ank/80">{libelles.aide}</p>
+      <p className="text-body-sm font-medium text-ank">{libelles.titre}</p>
+      <p id="aide-verification" className="mt-1 text-meta text-grafit">{libelles.aide}</p>
       <div
         ref={conteneur}
         className="mt-2 min-h-[65px]"
         aria-describedby={['aide-verification', erreur ? 'err-humain' : ''].filter(Boolean).join(' ')}
       />
-      {erreur ? <span id="err-humain" className="mt-1 block text-sm text-ank">— {erreur}</span> : null}
+      {erreur ? <span id="err-humain" className="mt-1.5 block text-body-sm font-medium text-wouj">{erreur}</span> : null}
       <noscript>
         <p className="mt-2 text-sm text-ank">{libelles.sansJs}</p>
       </noscript>
-      <p className="mt-2 text-[11px] text-ank/80">
-        {libelles.mention}{' '}
-        <a href={lienPolitique} className="underline underline-offset-2 hover:text-chabon">{libelles.politique}</a>
+      <p className="mt-2 text-meta text-grafit">
+        {libelles.mention}
+        {lienPolitique && (
+          <>{' '}<a href={lienPolitique} className="!underline underline-offset-2 hover:text-chabon">{libelles.politique}</a></>
+        )}
       </p>
     </div>
   )

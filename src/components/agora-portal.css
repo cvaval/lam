@@ -21,14 +21,6 @@
    contexte isolé de la page), sans clic ni focus. Débute sous l'en-tête de 94 px. */
 .ag-secure-page::before{content:"";position:absolute;inset:94px 0 0;z-index:-1;pointer-events:none;background-image:url('/brand/agora/landmarks-haiti-market-first.png');background-repeat:repeat-x;background-position:center bottom 25px;background-size:1440px auto;opacity:.19}
 @media(max-width:700px){.ag-secure-page::before{background-size:1000px auto;background-position:center bottom 15px;opacity:.11}}
-/* Frise de PIED DE PAGE (Me Vaval, 9 oct. 2026) : la même frise de monuments, en filigrane au bas de la page
-   « Proposer des coordonnées ou signaler un notaire » (formulaire des tiers). Le conteneur réserve sous le
-   contenu la place des monuments, pour qu'ils se lisent sous le pied de page et non derrière le formulaire.
-   Ligne de sol à ~30 px du bas (l'image garde 92 px sous le sol à 1 440 px, 64 px à 1 000 px : d'où -60 / -40 px).
-   Décorative : pseudo-élément sans clic ni focus. Réutilisable sur toute page publique du portail. */
-.ag-frise-pied{position:relative;isolation:isolate;min-height:100vh;padding-bottom:400px}
-.ag-frise-pied::before{content:"";position:absolute;inset:auto 0 0;height:520px;z-index:-1;pointer-events:none;background-image:url('/brand/agora/landmarks-haiti-market-first.png');background-repeat:repeat-x;background-position:center bottom -60px;background-size:1440px auto;opacity:.19}
-@media(max-width:700px){.ag-frise-pied{padding-bottom:290px}.ag-frise-pied::before{height:360px;background-size:1000px auto;background-position:center bottom -40px;opacity:.15}}
 /* Pleine largeur (Me Vaval, 8 oct. 2026) : le portail occupe tout l'écran au lieu d'une colonne de 1 240 px ;
    la marge latérale suit la fenêtre (24 à 96 px). Sur grand écran, la carte du héros grandit avec sa colonne. */
 /* Héros : Haïti agrandie et fiche de Port-au-Prince rétablie (8 oct. 2026). À partir de 1 000 px, la carte
@@ -48,3 +40,14 @@
 .agora-portal .ag-hero{position:relative;isolation:isolate}
 .agora-portal .ag-hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:url('/brand/agora/landmarks-haiti-market-first.png');background-repeat:repeat-x;background-size:1440px auto;background-position:center bottom -92px;opacity:.10}
 @media(max-width:700px){.agora-portal .ag-hero::before{background-size:1000px auto;background-position:center bottom -64px;opacity:.07}}
+/* Demande de coordonnées d'un notaire (Me Vaval, 9 oct. 2026) — styles LIMITÉS à cette page
+   (`.ag-notary-request-page`) ; la mise en forme du formulaire est en classes utilitaires dans le
+   composant. Ici, la seule FRISE DE MONUMENTS au bas de la page, même image que la connexion et le
+   héros (dessin et ordre conservés : Marché en fer, Citadelle…). Mesures du dessin dans l'image
+   (2172 × 724) : lignes 209 à 584, soit 249 px de haut et 92 px de vide dessous à 1 440 px
+   d'affichage, 173 px et 64 px à 1 000 px. D'où la position (-91 / -63 px) qui pose la ligne de
+   sol AU BORD INFÉRIEUR, sans bande vide, et la place réservée sous le pied de page (265 / 185 px)
+   qui garde les monuments hors du formulaire et du bouton. Pseudo-élément décoratif, sans clic. */
+.ag-notary-request-page{position:relative;isolation:isolate;min-height:100vh;padding-bottom:265px}
+.ag-notary-request-page::before{content:"";position:absolute;inset:auto 0 0;height:255px;z-index:-1;pointer-events:none;background-image:url('/brand/agora/landmarks-haiti-market-first.png');background-repeat:repeat-x;background-size:1440px auto;background-position:center bottom -91px;opacity:.19}
+@media(max-width:700px){.ag-notary-request-page{padding-bottom:185px}.ag-notary-request-page::before{height:180px;background-size:1000px auto;background-position:center bottom -63px;opacity:.15}}
