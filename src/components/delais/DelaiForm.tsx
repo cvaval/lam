@@ -220,7 +220,7 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
   const departEstSignification = /significat/i.test(libelleDepart)
 
   return (
-    <form method="get" action={action} className="flex flex-col gap-5">
+    <form method="get" action={action} className="ag-calculator-form flex flex-col gap-4 pl-9 sm:pl-[42px]">
       {erreur && (
         <ChampErreur prefixe={t.common.erreur} id="delai-erreur">
           {messageErreur(t, erreur)}
@@ -228,7 +228,11 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
       )}
 
       {/* 1 — LE POINT DE DÉPART, avec le libellé de l'entrée choisie. */}
-      <div ref={champDate}>
+      <div
+        ref={champDate}
+        className="ag-calculator-date relative min-w-0 rounded-[10px] border border-liy bg-white p-[18px] sm:p-6 [&_input]:min-h-[46px] [&_input]:max-w-[20rem]"
+      >
+        <Etape n="01" className="top-[15px] sm:top-5" />
         <DelaiDateField
           t={t}
           valeur={dateTexte}
@@ -273,8 +277,9 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
              son contenu ne peut pas rétrécir. Mesuré ici : 155 px et 258 px de min-content pour
              une colonne de 272 px au plus étroit — ça passe aujourd'hui, ça ne passerait plus
              au premier libellé un peu long. */}
-      <div role="group" aria-labelledby="delai-grp-code" className="min-w-0 rounded-xl border border-liy bg-white p-4">
-        <p id="delai-grp-code" className="mb-3 text-sm font-medium text-ank">{d.codeLabel}</p>
+      <div role="group" aria-labelledby="delai-grp-code" className="min-w-0 relative rounded-[10px] border border-liy bg-white p-[18px] sm:p-6">
+        <Etape n="02" className="top-4 sm:top-[21px]" />
+        <p id="delai-grp-code" className="mb-4 text-[15px] font-semibold text-ank">{d.codeLabel}</p>
         {/* ⚠️ **Des BOUTONS, pas des radios.** Trois `<input type="radio">` sans `name` ne
             forment aucun groupe : les flèches ne les parcourent pas et chacun est tabulable
             séparément. Ce filtre ne se soumet pas — il ne fait que réduire la liste —, donc
@@ -286,7 +291,7 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
               type="button"
               aria-pressed={script && c.code === code}
               onClick={() => setCode(c.code)}
-              className={`inline-flex min-h-[44px] items-center gap-2 rounded-lg border px-3 text-sm transition ${
+              className={`inline-flex min-h-[46px] items-center gap-2 rounded-lg border px-3 text-sm transition ${
                 script && c.code === code ? 'border-chabon bg-pil font-semibold text-ank' : 'border-liy text-grafit hover:bg-pil'
               }`}
             >
@@ -306,7 +311,7 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
             value={filtre}
             onChange={(e) => setFiltre(e.target.value)}
             placeholder={d.entryFilterPlaceholder}
-            className="mt-1 min-h-[44px] w-full rounded-lg border border-liy bg-white px-3 text-sm text-ank"
+            className="mt-1 min-h-[46px] w-full rounded-lg border border-liy bg-white px-3 text-sm text-ank"
           />
           <p aria-live="polite" className="mt-1 text-xs text-grafit">
             {remplacer(d.entryResultsCount, { n: nbFiltrees })}
@@ -322,7 +327,7 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
             name="e"
             value={slug}
             onChange={(e) => setSlug(e.target.value)}
-            className="mt-1 min-h-[44px] w-full rounded-lg border border-liy bg-white px-2 text-sm text-ank"
+            className="mt-1 min-h-[46px] w-full rounded-lg border border-liy bg-white px-2 text-sm text-ank"
           >
             {/* § 3 — LA SAISIE MANUELLE EN TÊTE, avant tout groupe de code, et hors
                 `optgroup` : elle n'appartient à aucun code. C'est aussi l'option retenue
@@ -369,8 +374,8 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
 
       {/* 4 — LE(S) KILOMÉTRAGE(S). Deux champs pour les art. 517 et 586. */}
       {entree && entree.nbDistances > 0 && (
-        <div role="group" aria-labelledby="delai-grp-km" className="min-w-0 rounded-xl border border-liy bg-white p-4">
-          <p id="delai-grp-km" className="mb-3 text-sm font-medium text-ank">{d.kmLabel}</p>
+        <div role="group" aria-labelledby="delai-grp-km" className="min-w-0 relative rounded-[10px] border border-liy bg-white p-[18px] sm:p-6">
+          <p id="delai-grp-km" className="mb-4 text-[15px] font-semibold text-ank">{d.kmLabel}</p>
           {entree.distanceAideFr && <p className="text-xs leading-relaxed text-grafit">{entree.distanceAideFr}</p>}
           {entree.nbDistances === 2 && entree.distanceDoubleFr && (
             <p className="mt-1 text-xs leading-relaxed text-grafit">{entree.distanceDoubleFr}</p>
@@ -395,7 +400,7 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
                   value={km[i]}
                   onChange={(e) => setKm((v) => v.map((x, j) => (j === i ? e.target.value : x)))}
                   aria-describedby="delai-km-aide"
-                  className="mt-1 min-h-[44px] w-32 rounded-lg border border-liy bg-white px-3 font-mono text-sm text-ank"
+                  className="mt-1 min-h-[46px] w-32 rounded-lg border border-liy bg-white px-3 font-mono text-sm text-ank"
                 />
               </div>
             ))}
@@ -408,12 +413,12 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
 
       {/* 5 — LA QUESTION DE SUITE (art. 74, § 4.5). */}
       {entree?.supplement && (
-        <div role="group" aria-labelledby="delai-grp-sup" className="min-w-0 rounded-xl border border-liy bg-white p-4">
-          <p id="delai-grp-sup" className="mb-3 text-sm font-medium text-ank">{d.supplementLegend}</p>
+        <div role="group" aria-labelledby="delai-grp-sup" className="min-w-0 relative rounded-[10px] border border-liy bg-white p-[18px] sm:p-6">
+          <p id="delai-grp-sup" className="mb-4 text-[15px] font-semibold text-ank">{d.supplementLegend}</p>
           <p className="text-sm text-ank">{entree.supplement.questionFr}</p>
           <div className="mt-2 flex flex-col gap-1.5">
             {entree.supplement.options.map((o) => (
-              <label key={o.cle} className="flex min-h-[44px] cursor-pointer items-center gap-2 text-sm text-ank">
+              <label key={o.cle} className="flex min-h-[46px] cursor-pointer items-center gap-2 text-sm text-ank">
                 <input
                   type="radio"
                   name="sup"
@@ -441,8 +446,8 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
              soumis. Ce n'est pas la garde qui compte — `calculPublic()` refuse un `f`
              fabriqué à la main —, mais c'en est la moitié visible. */}
       {estAutre && (
-        <div role="group" aria-labelledby="delai-grp-autre" className="min-w-0 rounded-xl border border-liy bg-white p-4">
-          <p id="delai-grp-autre" className="mb-3 text-sm font-medium text-ank">{d.otherLegend}</p>
+        <div role="group" aria-labelledby="delai-grp-autre" className="min-w-0 relative rounded-[10px] border border-liy bg-white p-[18px] sm:p-6">
+          <p id="delai-grp-autre" className="mb-4 text-[15px] font-semibold text-ank">{d.otherLegend}</p>
           <div className="flex flex-wrap gap-4">
             <div>
               <label htmlFor="delai-n" className="block text-xs font-medium text-ank">{d.otherDaysLabel}</label>
@@ -456,7 +461,7 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
                 step={1}
                 value={nJours}
                 onChange={(e) => setNJours(e.target.value)}
-                className="mt-1 min-h-[44px] w-28 rounded-lg border border-liy bg-white px-3 font-mono text-sm text-ank"
+                className="mt-1 min-h-[46px] w-28 rounded-lg border border-liy bg-white px-3 font-mono text-sm text-ank"
               />
             </div>
             {/* ⚠️ `basis-56` et non `min-w-[14rem]` : une largeur PLANCHER ne cède jamais, et sous
@@ -472,7 +477,7 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
                 value={source}
                 onChange={(e) => setSource(e.target.value)}
                 aria-describedby="delai-src-aide"
-                className="mt-1 min-h-[44px] w-full rounded-lg border border-liy bg-white px-3 text-sm text-ank"
+                className="mt-1 min-h-[46px] w-full rounded-lg border border-liy bg-white px-3 text-sm text-ank"
               />
               <p id="delai-src-aide" className="mt-1 text-xs text-grafit">{d.otherSourceHint}</p>
             </div>
@@ -492,7 +497,7 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
             })).map((o) => (
               <label
                 key={o.v}
-                className={`flex min-h-[44px] cursor-pointer items-start gap-2.5 rounded-lg border px-3 py-2.5 transition ${
+                className={`flex min-h-[46px] cursor-pointer items-start gap-2.5 rounded-lg border px-3 py-2.5 transition ${
                   franc === o.v ? 'border-chabon bg-pil' : 'border-liy bg-white hover:bg-pil'
                 }`}
               >
@@ -529,19 +534,40 @@ export function DelaiForm({ locale, t, action, codes, valeurs, erreur }: Props) 
       )}
 
       {/* 7 — CALCULER. Le bouton dit ce qui manque ; il ne se contente pas de griser. */}
-      <div>
+      <div className="relative">
+        <Etape n="03" className="top-[14px] sm:top-[13px]" />
         <button
           type="submit"
-          className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-wouj px-6 text-[15px] font-semibold text-white transition hover:brightness-95"
+          className="inline-flex min-h-[54px] w-full items-center justify-center rounded-[10px] bg-wouj px-6 text-[15px] font-semibold text-white transition hover:bg-[#244551]"
         >
           {d.submit}
         </button>
         {manque.length > 0 && (
-          <p className="mt-2 text-sm text-ank">
+          <p className="mt-3 rounded-md bg-[#EEEFE8] px-3.5 py-3 text-xs leading-relaxed text-ank">
             <span className="font-semibold">{d.submitMissingPrefix}</span> {manque.join(' · ')}
           </p>
         )}
       </div>
     </form>
+  )
+}
+
+/**
+ * REPÈRE D'ÉTAPE (01, 02, 03), dans la marge gauche du formulaire, aligné sur l'élément qu'il
+ * désigne — le point de départ, le choix du code, le bouton Calculer — et jamais dans un titre
+ * ni dans le bouton (aperçu Agora, 9 oct. 2026). La marge est réservée par le formulaire
+ * (`pl-9`, `sm:pl-[42px]`) : aucun chevauchement, téléphone compris.
+ *
+ * Décoratif : `aria-hidden`. L'ordre se lit déjà dans celui des champs, et un « 01 » annoncé
+ * avant chaque libellé n'apprendrait rien à qui navigue au lecteur d'écran.
+ */
+function Etape({ n, className }: { n: string; className: string }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`absolute -left-9 flex h-[26px] w-[26px] items-center justify-center rounded-full bg-chabon text-[11px] font-semibold tabular-nums text-white sm:-left-[42px] sm:h-7 sm:w-7 ${className}`}
+    >
+      {n}
+    </span>
   )
 }

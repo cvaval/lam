@@ -39,7 +39,18 @@ export type {
   ValeursCalculateur,
 } from './noyau-calculateur'
 
-/** La colonne de saisie à gauche, le résultat (ou le cadre pédagogique) à droite. */
+/**
+ * La colonne de saisie à gauche ; à droite, la colonne d'aide — et le résultat quand il existe.
+ *
+ * DEUX DISPOSITIONS (aperçu Agora, 9 oct. 2026), sous `lg` une seule colonne dans les deux cas,
+ * la saisie d'abord (§ 6.5) :
+ *  - **sans résultat** : saisie (≈ 57 %) | colonne d'aide (≈ 43 %), 36 px d'écart. L'aide peut
+ *    rester visible au défilement (`lg:sticky`), bornée à la hauteur de l'écran et défilante
+ *    elle-même : elle ne cache jamais son propre contenu ;
+ *  - **avec résultat** : la saisie reprend une colonne fixe et le RÉSULTAT ENTIER a toute la
+ *    largeur restante, comme avant — la colonne d'aide passe SOUS lui, repliée, jamais collante.
+ *    Le résultat n'hérite donc ni de la colonne étroite ni du fond sauge de l'aide.
+ */
 export function CadreCalculateur({
   locale,
   t,
@@ -54,42 +65,53 @@ export function CadreCalculateur({
   /** Le formulaire de la surface — le SEUL point où les deux enveloppes diffèrent. */
   saisie: ReactNode
 }) {
+  const resultat = calcul && calcul.ok ? calcul : null
   return (
-    // Une seule colonne sous `lg` : saisie d'abord, résultat ensuite (§ 6.5). Aucun
-    // défilement horizontal, aucune barre latérale collante sur téléphone.
-    <div className="grid gap-6 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] lg:items-start">
+    // Aucun défilement horizontal, aucune barre latérale collante sur téléphone.
+    <div
+      className={`ag-calculator-grid grid gap-9 lg:items-start ${
+        resultat ? 'lg:grid-cols-[minmax(0,28rem)_minmax(0,1fr)]' : 'lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)]'
+      }`}
+    >
       <div className="no-print order-1 min-w-0">{saisie}</div>
-      <section
-        aria-labelledby={calcul && calcul.ok ? 'delai-resultat-titre' : 'delai-pedagogie'}
-        aria-live="polite"
-        className="order-2 min-w-0"
-      >
-        {calcul && calcul.ok ? (
-          <DelaiResult
-            locale={locale}
-            t={t}
-            resultat={calcul.resultat}
-            entree={calcul.entree}
-            permalien={calcul.permalien}
-            versionCalendrier={calcul.versionCalendrier}
-            versionFenetres={calcul.versionFenetres}
-            fenetres={calcul.fenetres}
-            bandeau={calcul.bandeau}
-            avertissementsSaisie={calcul.avertissementsSaisie}
-            connecte={connecte}
-          />
-        ) : (
-          // Une erreur de paramètre est déjà rendue SOUS le champ fautif par le formulaire ;
-          // ici on ne remet que le cadre pédagogique, jamais une seconde copie du message.
-          //
-          // ⚠️ **Un seul titre.** La section porte `aria-labelledby="delai-resultat-titre"`
-          // et rendait un `<h2 sr-only>{d.emptyTitle}</h2>` juste avant le `<h2>` VISIBLE de
-          // `DelaiPedagogie`, qui porte exactement le même texte : un lecteur d'écran
-          // annonçait « How this calculator counts How this calculator counts ». La région
-          // est désormais nommée par le titre visible.
+      {resultat ? (
+        <div className="order-2 flex min-w-0 flex-col gap-8">
+          <section aria-labelledby="delai-resultat-titre" aria-live="polite" className="min-w-0">
+            <DelaiResult
+              locale={locale}
+              t={t}
+              resultat={resultat.resultat}
+              entree={resultat.entree}
+              permalien={resultat.permalien}
+              versionCalendrier={resultat.versionCalendrier}
+              versionFenetres={resultat.versionFenetres}
+              fenetres={resultat.fenetres}
+              bandeau={resultat.bandeau}
+              avertissementsSaisie={resultat.avertissementsSaisie}
+              connecte={connecte}
+            />
+          </section>
           <DelaiPedagogie t={t} />
-        )}
-      </section>
+        </div>
+      ) : (
+        // Une erreur de paramètre est déjà rendue SOUS le champ fautif par le formulaire ;
+        // ici on ne remet que la colonne d'aide, jamais une seconde copie du message.
+        //
+        // ⚠️ **Un seul titre.** La section portait `aria-labelledby="delai-resultat-titre"`
+        // et rendait un `<h2 sr-only>{d.emptyTitle}</h2>` juste avant le titre VISIBLE de
+        // `DelaiPedagogie`, qui porte exactement le même texte : un lecteur d'écran
+        // annonçait « How this calculator counts How this calculator counts ». La région
+        // est désormais nommée par le titre visible.
+        <section
+          aria-labelledby="delai-pedagogie"
+          aria-live="polite"
+          // Collante sous l’en-tête applicatif (lui-même collant, ≈ 78 px) : 22 px d’air au-dessus.
+          // Bornée à la hauteur de l'écran et défilante : dépliée, l'aide ne masque jamais sa fin.
+          className="ag-calculator-aside order-2 min-w-0 lg:sticky lg:top-[100px] lg:max-h-[calc(100vh-124px)] lg:overflow-y-auto"
+        >
+          <DelaiPedagogie t={t} />
+        </section>
+      )}
     </div>
   )
 }

@@ -209,9 +209,11 @@ describe('§ 6.1 — la surface publique n’atteint plus l’appareil du raison
     'DelaiResult.tsx',
     'DelaiPedagogie.tsx',
     'DelaiActions.tsx',
+    // Client (9 oct. 2026) : déplie la colonne d'aide à l'impression — portail seulement.
+    'DelaiAideImpression.tsx',
   ]
 
-  it('la sonde tient : le PORTAIL, lui, atteint bien les quatre', () => {
+  it('la sonde tient : le PORTAIL, lui, les atteint tous', () => {
     for (const f of APPAREIL) expect(connectee.has(composant(f)), f).toBe(true)
   })
 

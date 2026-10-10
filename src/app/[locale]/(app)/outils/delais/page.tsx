@@ -1,3 +1,4 @@
+import './calculateur.css'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { DelaiCalculateurConnecte } from '@/components/delais/DelaiCalculateurConnecte'
@@ -52,30 +53,35 @@ export default async function OutilDelaisPage({
   await requireUser(locale)
   const d = t.delais
 
-
+  // Mise en page du portail (9 oct. 2026, aperçu Agora) : fil d'Ariane, titre en Source Serif 4,
+  // une phrase d'orientation et un filet. La note de prudence (`d.intro`) n'est plus ici : elle
+  // ouvre la colonne d'aide (« Avant de commencer : comment lire la date »), au mot près.
+  // Styles propres à cette page : `calculateur.css` (préfixe `.ag-calculator-`).
   return (
-    <div className="space-y-6">
-      <nav aria-label="Fil d’Ariane" className="no-print text-sm text-ank/80">
-        <ol className="flex flex-wrap items-center gap-1.5">
+    <div className="ag-calculator-page">
+      <nav aria-label={t.common.breadcrumb} className="no-print text-[13px] text-grafit">
+        <ol className="flex flex-wrap items-center gap-2">
           <li>
-            <Link href={`/${locale}/dashboard`} className="inline-flex min-h-[44px] items-center transition hover:text-chabon hover:underline">
+            <Link href={`/${locale}/dashboard`} className="inline-flex min-h-[44px] items-center transition hover:text-ank hover:underline">
               {t.nav.dashboard}
             </Link>
           </li>
-          <li aria-hidden="true">/</li>
-          <li aria-current="page" className="font-medium text-ank">{d.breadcrumbHere}</li>
+          <li aria-hidden="true">›</li>
+          <li aria-current="page" className="text-ank">{d.breadcrumbHere}</li>
         </ol>
       </nav>
 
-      <div>
-        <h1 className="font-serif text-2xl font-semibold text-ank lg:text-3xl">{d.title}</h1>
-        <p className="mt-2 max-w-3xl leading-relaxed text-grafit">{d.intro}</p>
-      </div>
+      <header className="ag-calculator-heading border-b border-liy pb-6">
+        <h1 className="font-serif text-[30px] font-semibold leading-tight tracking-[-0.5px] text-ank lg:text-[38px]">{d.title}</h1>
+        <p className="mt-2 text-[15px] leading-relaxed text-grafit">{d.portalSubtitle}</p>
+      </header>
 
       {/* Composant serveur asynchrone, rendu en JSX : `@types/react` 18.3.31 le type. */}
-      <DelaiCalculateurConnecte locale={locale} t={t} recherche={searchParams} action={`/${locale}/outils/delais`} />
+      <div className="mt-8">
+        <DelaiCalculateurConnecte locale={locale} t={t} recherche={searchParams} action={`/${locale}/outils/delais`} />
+      </div>
 
-      <p className="max-w-3xl text-xs leading-relaxed text-ank/80">{d.disclaimer}</p>
+      <p className="mt-10 max-w-3xl text-xs leading-relaxed text-ank/80">{d.disclaimer}</p>
     </div>
   )
 }

@@ -1275,3 +1275,83 @@ describe('§ 09 — le nombre d’allers-retours à la base, par requête publiq
     expect(html).toContain('Date limite')
   })
 })
+
+// ===========================================================================
+// LA MISE EN PAGE DU PORTAIL (aperçu Agora, 9 oct. 2026)
+// ===========================================================================
+
+/** Ce que `renderToStaticMarkup` fait d'un texte : les cinq caractères échappés. */
+const echappe = (s: string) =>
+  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;')
+
+/**
+ * La colonne d'aide : trois blocs `<details>` natifs, fermés, dans l'ordre de l'aperçu ; la note
+ * de prudence (`d.intro`) y est AU MOT PRÈS, et nulle part ailleurs ; le résultat n'est jamais
+ * logé dans la colonne étroite ni collant.
+ */
+describe('portail — la colonne d’aide repliable', () => {
+  it('trois blocs <details> natifs, FERMÉS par défaut, dans l’ordre de l’aperçu', async () => {
+    const html = await pageConnectee({})
+    const aide = html.slice(html.indexOf('ag-calculator-help'))
+    const blocs = aide.match(/<details[^>]*>/g) ?? []
+    expect(blocs).toHaveLength(3)
+    for (const b of blocs) expect(b).not.toMatch(/\sopen[\s=>]/)
+    const [i1, i2, i3] = [t.delais.introTitle, t.delais.emptyTitle, t.delais.emptyGermeilTitle].map((x) => aide.indexOf(echappe(x)))
+    expect(i1).toBeGreaterThan(-1)
+    expect(i2).toBeGreaterThan(i1)
+    expect(i3).toBeGreaterThan(i2)
+    // Le résumé ne contient que du texte : aucun contrôle imbriqué.
+    for (const resume of aide.match(/<summary[\s\S]*?<\/summary>/g) ?? []) {
+      expect(resume).not.toMatch(/<(a|button|input|select)\b/)
+    }
+  })
+
+  it('« Avant de commencer » porte la note de prudence au mot près — une seule fois sur la page', async () => {
+    const html = await pageConnectee({})
+    expect(html.split(echappe(t.delais.intro)).length - 1).toBe(1)
+    const bloc = html.slice(html.indexOf(echappe(t.delais.introTitle)))
+    expect(bloc.indexOf(echappe(t.delais.intro))).toBeLessThan(bloc.indexOf('</details>'))
+    // Filet terracotta sur ce premier bloc.
+    expect(html).toMatch(/<details class="[^"]*border-l-wouj[^"]*"><summary[^>]*>[\s\S]*?Avant de commencer/)
+  })
+
+  it('l’article 987 cité intégralement avec sa source, et Germeil avec sa mention historique', async () => {
+    const html = await pageConnectee({})
+    expect(html).toContain('Tous les délais prévus au Code de procédure civile sont francs.')
+    expect(html).toContain(echappe(t.delais.emptyGermeilBody))
+    expect(html).toContain(echappe(t.delais.emptyGermeilHistorical))
+  })
+
+  it('sans résultat : saisie ≈ 57 % | aide ≈ 43 %, l’aide collante mais bornée et défilante', async () => {
+    const html = await pageConnectee({})
+    expect(html).toContain('lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)]')
+    expect(html).toMatch(/class="ag-calculator-aside[^"]*lg:sticky[^"]*lg:max-h-\[calc\(100vh-124px\)\][^"]*lg:overflow-y-auto/)
+  })
+
+  it('avec un résultat : il garde la colonne large, n’est pas collant, et l’aide le SUIT', async () => {
+    const html = await pageConnectee({ d: '2026-06-04', e: SLUG, r: '1', c: '1', w: '1', km: '0' })
+    expect(html).toContain('lg:grid-cols-[minmax(0,28rem)_minmax(0,1fr)]')
+    const titre = html.indexOf('id="delai-resultat-titre"')
+    const aide = html.indexOf('ag-calculator-help')
+    expect(titre).toBeGreaterThan(-1)
+    expect(aide).toBeGreaterThan(titre)
+    const section = html.slice(html.lastIndexOf('<section', titre), titre)
+    expect(section).not.toContain('sticky')
+    expect(section).not.toContain('ag-calculator-help')
+  })
+})
+
+describe('portail — les repères 01, 02, 03', () => {
+  it('trois repères décoratifs dans la marge, jamais dans un titre ni dans le bouton', async () => {
+    const html = await pageConnectee({})
+    const reperes = html.match(/<span aria-hidden="true" class="absolute -left-9[^"]*">(0[123])<\/span>/g) ?? []
+    expect(reperes.map((r) => r.slice(-9, -7))).toEqual(['01', '02', '03'])
+    const debut = html.indexOf('type="submit"')
+    const bouton = html.slice(debut, html.indexOf('</button>', debut))
+    expect(bouton).not.toMatch(/>0[123]</)
+    expect(bouton).toContain('w-full')
+    expect(bouton).toContain('min-h-[54px]')
+    // La marge est réservée par le formulaire, téléphone compris.
+    expect(html).toMatch(/<form[^>]*class="[^"]*pl-9 sm:pl-\[42px\]/)
+  })
+})

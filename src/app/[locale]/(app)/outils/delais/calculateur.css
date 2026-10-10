@@ -1,0 +1,31 @@
+/* Calculateur de délais — PORTAIL (/[locale]/outils/delais) seulement (aperçu Agora, 9 oct. 2026).
+   La mise en forme vit dans les composants du portail (DelaiForm, DelaiPedagogie,
+   CadreCalculateur), qui ne sont pas rendus par la surface publique. Cette feuille ne porte que ce
+   que les utilitaires ne savent pas dire, toujours sous `.ag-calculator-page` : même chargée
+   après une navigation côté client, elle ne touche aucun autre écran. Ni focus propre (celui de
+   la maison, globals.css, charte § 6), ni couleur de bouton, ni frise. */
+
+@media print {
+  /* Jamais d'élément collant ni de colonne bornée sur papier : l'aide suit le résultat, entière. */
+  .ag-calculator-page .ag-calculator-aside {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+  .ag-calculator-page .ag-calculator-help {
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+  /* Blocs dépliés même SANS script (DelaiAideImpression les ouvre quand le script tourne) :
+     `::details-content` est l'emplacement du contenu d'un <details> fermé. Règle isolée — un
+     navigateur qui ignore ce pseudo-élément ignore la règle, pas la feuille. */
+  .ag-calculator-page .ag-calculator-help details::details-content {
+    content-visibility: visible;
+    display: block;
+  }
+  /* L'indicateur d'ouverture n'a pas de sens sur papier. */
+  .ag-calculator-page .ag-calculator-help summary > span[aria-hidden='true'] {
+    display: none;
+  }
+}

@@ -33,6 +33,8 @@ export const ht: Dictionary = {
     breadcrumbHome: 'Akèy',
     breadcrumbHere: 'Kalkilatè delè',
     title: 'Kalkilatè jou fran',
+    portalSubtitle: "Antre enfòmasyon ou yo, epi konsilte dat la ak baz legal li.",
+    introTitle: "Anvan ou kòmanse : kijan pou li dat la",
     // La note VISIBLE du portail — voir fr.ts : elle énonce la règle de prudence (la tête
     // d'affiche est la plus précoce et ne proroge pas) au lieu d'inventorier ce que la page rend.
     // ⚠️ Voir fr.ts : la note rangeait la prorogation de l'art. 991 parmi les lectures à
@@ -1230,6 +1232,7 @@ export const ht: Dictionary = {
     cancel: 'Anile',
     close: 'Fèmen',
     back: 'Tounen',
+    breadcrumb: "Chemen navigasyon",
     all: 'Tout',
     yes: 'Wi',
     no: 'Non',

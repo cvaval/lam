@@ -30,6 +30,8 @@ export const en: Dictionary = {
     breadcrumbHome: 'Home',
     breadcrumbHere: 'Deadline calculator',
     title: 'Clear-day calculator',
+    portalSubtitle: "Enter your situation, then review the date and its legal basis.",
+    introTitle: "Before you start: how to read the date",
     // La note VISIBLE du portail — voir fr.ts : elle énonce la règle de prudence (la tête
     // d'affiche est la plus précoce et ne proroge pas) au lieu d'inventorier ce que la page rend.
     // ⚠️ Voir fr.ts : la note rangeait la prorogation de l'art. 991 parmi les lectures à
@@ -1230,6 +1232,7 @@ export const en: Dictionary = {
     cancel: 'Cancel',
     close: 'Close',
     back: 'Back',
+    breadcrumb: "Breadcrumb",
     all: 'All',
     yes: 'Yes',
     no: 'No',

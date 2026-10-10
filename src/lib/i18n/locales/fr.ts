@@ -63,7 +63,13 @@ export const fr = {
     breadcrumbHome: 'Accueil',
     breadcrumbHere: 'Calculateur de délais',
     title: 'Calculateur de jours francs',
+    portalSubtitle: "Renseignez votre situation, puis consultez la date et son fondement.",
+    introTitle: "Avant de commencer : comment lire la date",
     /**
+     * ⚠️ **9 oct. 2026 — ELLE N'EST PLUS SOUS LE TITRE** : le portail l'affiche, au mot près,
+     * dans le premier bloc de la colonne d'aide, « Avant de commencer : comment lire la date »
+     * (`introTitle`, `DelaiPedagogie`). Sous le titre, la page porte désormais `portalSubtitle`.
+     *
      * LA NOTE VISIBLE DU PORTAIL, sous le titre — celle que l’avocate lit vraiment, quand
      * `metaDescription` ne sort que dans un résultat de recherche. Elle dit désormais la même
      * chose, et c’est la demande de Me Vaval du 20 août 2026.
@@ -1558,6 +1564,7 @@ export const fr = {
     cancel: 'Annuler',
     close: 'Fermer',
     back: 'Retour',
+    breadcrumb: "Fil d’Ariane",
     all: 'Tous',
     yes: 'Oui',
     no: 'Non',
