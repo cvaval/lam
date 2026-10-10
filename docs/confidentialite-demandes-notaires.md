@@ -1,6 +1,15 @@
 # Politique de confidentialité : addition pour les demandes des notaires (PROJET)
 
-**À valider par Me Vaval. Rien de ce texte n'est publié.** Le formulaire public reste fermé
+**VALIDÉ par Me Vaval le 9 octobre 2026**, au regard de l'Arrêté du 30 avril 2018 fixant les
+règles relatives à la protection des données à caractère personnel, et **versé dans
+`src/lib/legal.ts`** (`CONFIDENTIALITE`, mise à jour du 9 octobre 2026), §§ 2.1, 2.2, 3, 4, 5,
+6, 7, 9.1 et 10, avec les renvois à l'art. 3 de l'arrêté (al. 3 : durée selon la finalité ;
+al. 5 : accès réservé aux habilités ; al. 8 et 9 : accès et rectification, y compris après
+transmission à un tiers). Défauts retenus pour les questions ci-dessous : consentement (case à
+cocher) ; 12 mois ; coordonnées dites professionnelles ; français seulement ; Turnstile classé
+« strictement nécessaire » (§ 9.1).
+
+~~À valider par Me Vaval. Rien de ce texte n'est publié.~~ Le formulaire public reste fermé
 (`NOTARY_REQUESTS_ENABLED` absent) tant que cette addition n'est pas validée **et** versée dans
 `src/lib/legal.ts` (`CONFIDENTIALITE`).
 

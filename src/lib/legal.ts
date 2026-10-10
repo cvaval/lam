@@ -195,7 +195,7 @@ export const CGU: LegalDocData = {
 export const CONFIDENTIALITE: LegalDocData = {
   slug: 'confidentialite',
   title: 'Politique de confidentialité',
-  updated: '8 octobre 2026',
+  updated: '9 octobre 2026',
   intro: [
     "La présente Politique de confidentialité décrit la manière dont Agora (ci-après « l'Opérateur »), exploitant la plateforme Agora accessible à l'adresse agora.ht (ci-après « la Plateforme »), collecte, utilise, conserve et protège les données à caractère personnel de ses utilisateurs.",
     "Cette Politique est établie conformément au Décret du 6 janvier 2016 reconnaissant le droit de tout administré à s'adresser à l'Administration Publique par des moyens électroniques, et à l'Arrêté du 30 avril 2018 fixant les règles relatives à la protection des données à caractère personnel.",
@@ -212,11 +212,13 @@ export const CONFIDENTIALITE: LegalDocData = {
       "Données d'identification : nom, prénom(s), adresse électronique.",
       "Données professionnelles : dénomination sociale, Numéro d'Identification Fiscale (NIF), profession (le cas échéant).",
       "Mot de passe : stocké sous forme chiffrée (hashée). L'Opérateur n'a pas accès au mot de passe en clair.",
+      "Demandes relatives aux notaires : nom, qualité et adresse électronique de la personne qui écrit ; nom, commune et coordonnées professionnelles de l'étude notariale (adresse, téléphones, adresse électronique) ; précisions éventuelles. L'adresse électronique de la personne qui écrit ne sert qu'à lui répondre : elle n'est jamais publiée.",
     ] },
     { t: 'h3', s: '2.2 Données collectées automatiquement' },
     { t: 'ul', items: [
       "Données de connexion : adresse IP, type et version du navigateur, système d'exploitation, dates et heures de connexion.",
       "Données d'utilisation : pages consultées, recherches effectuées, documents téléchargés, durée des sessions.",
+      "Vérification anti-robot : sur la seule page du formulaire de demande relatif aux notaires, des signaux techniques du navigateur (adresse IP, empreinte TLS, en-tête User-Agent) sont traités par Cloudflare, Inc. (service Turnstile) afin de vérifier que la demande émane d'une personne et non d'un programme automatisé.",
     ] },
     { t: 'h3', s: '2.3 Données non collectées' },
     { t: 'p', s: "L'Opérateur ne collecte ni ne stocke les coordonnées de cartes de crédit ou de débit, ni de données biométriques." },
@@ -229,6 +231,7 @@ export const CONFIDENTIALITE: LegalDocData = {
       "Communication de service : notifications techniques, alertes de sécurité, mises à jour des Conditions Générales d'Utilisation.",
       "Amélioration de la Plateforme : analyse anonymisée de l'utilisation, détection et correction d'anomalies techniques.",
       'Sécurité : prévention des fraudes, détection des accès non autorisés, protection de l\'intégrité de la Plateforme.',
+      "Tenue de la liste des notaires de la carte judiciaire : examen des demandes d'ajout ou de correction des coordonnées d'une étude notariale, ou d'inscription d'un notaire absent de la liste publiée par le ministère de la Justice et de la Sécurité publique, et vérification que ces demandes émanent d'une personne. Les coordonnées de l'étude ne sont publiées qu'après vérification par l'Opérateur.",
     ] },
     { t: 'p', s: 'Les données ne sont en aucun cas utilisées à des fins de publicité ciblée, de profilage commercial, ou de revente à des tiers.' },
 
@@ -237,7 +240,7 @@ export const CONFIDENTIALITE: LegalDocData = {
       "Exécution contractuelle : le traitement est nécessaire à l'exécution du contrat d'abonnement entre l'Utilisateur et l'Opérateur.",
       "Obligation légale : le traitement est nécessaire au respect des obligations de l'Opérateur.",
       "Intérêt légitime : le traitement est nécessaire à la sécurité de la Plateforme et à l'amélioration des Services.",
-      'Consentement : pour les cookies non essentiels et, le cas échéant, pour les communications informatives.',
+      "Consentement : pour les cookies non essentiels, pour les demandes relatives aux notaires (case à cocher avant l'envoi) et, le cas échéant, pour les communications informatives.",
     ] },
 
     { t: 'h2', id: 's5', s: '5. Durée de conservation' },
@@ -246,6 +249,7 @@ export const CONFIDENTIALITE: LegalDocData = {
       'Données de connexion : douze (12) mois à compter de leur collecte.',
       "Données d'utilisation : six (6) mois sous forme identifiable, puis conservées sous forme irréversiblement anonymisée à des fins statistiques.",
       'Données de facturation : durée requise par la législation fiscale haïtienne en vigueur.',
+      "Demandes relatives aux notaires : jusqu'à la décision de l'Opérateur, puis douze (12) mois après cette décision, durée établie en fonction de la finalité conformément à l'Article 3, alinéa 3, de l'Arrêté du 30 avril 2018. Les coordonnées professionnelles publiées le restent tant que l'étude n'en demande pas la correction ou le retrait.",
     ] },
     { t: 'p', s: "À l'expiration de ces délais, les données sont définitivement supprimées ou irréversiblement anonymisées." },
 
@@ -254,11 +258,13 @@ export const CONFIDENTIALITE: LegalDocData = {
     { t: 'ul', items: [
       "Prestataire d'hébergement : Vercel Inc., pour le stockage sécurisé des données.",
       "Prestataire d'e-mails transactionnels, pour l'envoi des notifications de service.",
+      "Prestataire de vérification anti-robot : Cloudflare, Inc. (Turnstile), sur la seule page du formulaire de demande relatif aux notaires, pour distinguer une personne d'un programme automatisé. Selon Cloudflare, ces signaux servent uniquement à détecter et bloquer les robots et à améliorer ce service.",
     ] },
+    { t: 'p', s: "Une demande relative aux notaires n'est consultée que par l'administrateur habilité de la Plateforme (Article 3, alinéa 5, de l'Arrêté du 30 avril 2018). Une notification, qui ne contient pas l'adresse électronique de la personne qui écrit, est adressée à legal@agora.ht." },
     { t: 'p', s: "L'Opérateur ne vend, ne loue et ne cède en aucun cas les données personnelles de ses utilisateurs à des tiers à des fins commerciales ou publicitaires. En cas de demande d'une autorité judiciaire compétente, l'Opérateur pourra être tenu de communiquer certaines données, dans le strict respect de la législation applicable." },
 
     { t: 'h2', id: 's7', s: '7. Localisation et hébergement des données' },
-    { t: 'p', s: "Les données collectées via la Plateforme sont hébergées sur des serveurs situés à l'étranger (États-Unis — Vercel Inc., Covina, Californie). L'Opérateur s'engage à procéder à une évaluation des risques avant tout transfert de données vers un pays ne disposant pas d'une législation de protection des données équivalente." },
+    { t: 'p', s: "Les données collectées via la Plateforme sont hébergées sur des serveurs situés à l'étranger (États-Unis — Vercel Inc., Covina, Californie). L'Opérateur s'engage à procéder à une évaluation des risques avant tout transfert de données vers un pays ne disposant pas d'une législation de protection des données équivalente. La vérification anti-robot du formulaire de demande relatif aux notaires est assurée par Cloudflare, Inc. (États-Unis)." },
 
     { t: 'h2', id: 's8', s: '8. Mesures de sécurité' },
     { t: 'ul', items: [
@@ -274,6 +280,7 @@ export const CONFIDENTIALITE: LegalDocData = {
     { t: 'h2', id: 's9', s: '9. Cookies' },
     { t: 'h3', s: '9.1 Cookies strictement nécessaires' },
     { t: 'p', s: "La Plateforme utilise des cookies strictement nécessaires au fonctionnement du service, qui ne nécessitent pas le consentement préalable de l'utilisateur : un cookie de session (expire à la fermeture du navigateur), un cookie d'authentification (expiration : trente (30) jours) et un cookie de préférences (enregistre la langue)." },
+    { t: 'p', s: "Sur la seule page du formulaire de demande relatif aux notaires, le service de vérification anti-robot de Cloudflare (Turnstile) est strictement nécessaire à la sécurité de ce formulaire : sans lui, la demande ne peut pas être envoyée. Il n'est chargé sur aucune autre page de la Plateforme." },
     { t: 'h3', s: "9.2 Cookies d'analyse" },
     { t: 'p', s: "La Plateforme peut utiliser des cookies d'analyse pour comprendre comment les utilisateurs interagissent avec le service. Ces cookies ne sont déposés qu'après le consentement explicite de l'utilisateur, recueilli via le bandeau de gestion des cookies affiché lors de la première visite." },
     { t: 'h3', s: '9.3 Gestion des cookies' },
@@ -288,6 +295,7 @@ export const CONFIDENTIALITE: LegalDocData = {
       "Droit d'opposition : s'opposer au traitement de ses données pour les finalités fondées sur l'intérêt légitime de l'Opérateur.",
       'Droit de retrait du consentement : retirer à tout moment le consentement donné pour les cookies non essentiels ou les communications informatives.',
     ] },
+    { t: 'p', s: "Ces droits s'exercent aussi sur les données transmises à des tiers (Article 3, alinéas 8 et 9, de l'Arrêté du 30 avril 2018). Une étude notariale peut en outre demander la correction ou le retrait de ses coordonnées au moyen du formulaire de demande relatif aux notaires." },
     { t: 'p', s: "Toute demande peut être adressée par courrier électronique à l'adresse legal@agora.ht. L'Opérateur s'engage à accuser réception de toute demande dans un délai de cinq (5) jours ouvrables et à y répondre dans un délai maximum de trente (30) jours. L'Opérateur pourra demander une preuve d'identité pour s'assurer que la demande émane bien de la personne concernée." },
 
     { t: 'h2', id: 's11', s: '11. Notification des violations de données' },
