@@ -180,7 +180,10 @@ export function societes(titre: string): string[] {
  * « Avis divers ») : l'écrire ferait une entrée qui ne désigne aucun acte. Toujours à relire.
  */
 export function enTeteSeul(titre: string): boolean {
-  return /\b(suivante?s?|divers(es)?)\s*:?\s*$/i.test(titre.trim()) && !noyau(titre)
+  const t = titre.trim()
+  // Un mot de rubrique seul (« Avis », « Erratum », « Procès-verbal y annexé ») ne désigne rien.
+  if (/^(avis|erratum|errata|communiqu[ée]s?|proc[eè]s-verbal( y annex[ée])?|arr[êe]t[ée]s?|d[ée]crets?|lois?|notes?|annexes?|rectificatifs?)\s*[.:]?$/i.test(t)) return true
+  return /\b(suivante?s?|divers(es)?)\s*:?\s*$/i.test(t) && !noyau(t)
 }
 
 export type Statut = 'deja-a-l-index' | 'a-creer' | 'a-relire'

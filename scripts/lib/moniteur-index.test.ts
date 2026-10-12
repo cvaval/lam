@@ -75,6 +75,9 @@ describe('rapprocher — un titre du sommaire face à l’Index existant', () =>
   it('un en-tête de rubrique nu se reconnaît, et retrouve l’entrée groupée qui le développe', () => {
     expect(enTeteSeul("Arrêtés autorisant l'adoption des mineurs suivants")).toBe(true)
     expect(enTeteSeul("Arrêté autorisant l'adoption du mineur Jacques EXALUS")).toBe(false)
+    expect(enTeteSeul('Avis')).toBe(true)
+    expect(enTeteSeul('Procès-verbal y annexé')).toBe(true)
+    expect(enTeteSeul('Décret électoral')).toBe(false)
     expect(rapprocher("Arrêtés autorisant l'adoption des mineurs suivants", ["Arrêtés autorisant l'adoption des mineurs suivants: Edson François, Michaël François"]).statut).toBe('deja-a-l-index')
   })
   it('ressemblance symétrique et bornée', () => {
