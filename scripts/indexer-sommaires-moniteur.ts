@@ -6,6 +6,8 @@
  *   npx tsx scripts/indexer-sommaires-moniteur.ts --sortie <dossier> --lot <nom>
  *       [--annees 2013,2017] [--refs LM2021-SP22,…] [--sans-entree] [--limit N] [--concurrence 6]
  *       [--locaux <dossier d'inventaires>]   (PDF lus au Bureau plutôt que retéléchargés de Blob)
+ *       [--image]   (lire l'IMAGE même quand une transcription existe : l'OCR de 2026 estropie les
+ *                    noms propres — « SONOOR FOOD ? » — et l'IA, prudente, n'y met qu'une confiance moyenne)
  *   # 1 bis. Refaire le seul rapprochement d'un lot déjà lu (aucun appel IA) :
  *   npx tsx scripts/indexer-sommaires-moniteur.ts --rapprocher <dossier>/<lot>.json
  *   # 2. Écriture des seules lignes validées (colonne « decision » = « créer ») :
@@ -259,7 +261,8 @@ async function proposer(args: string[], opt: (n: string) => string | undefined) 
   let selection = fascicules
   if (args.includes('--sans-entree')) selection = selection.filter((f) => !parFascicule.get(cleFascicule(f.number))?.length)
   selection = selection.slice(0, limit)
-  const parTexte = selection.filter((f) => transcription(f)).length
+  const image = args.includes('--image')
+  const parTexte = image ? 0 : selection.filter((f) => transcription(f)).length
   console.log(`${selection.length} fascicule(s) · ${parTexte} lus sur transcription, ${selection.length - parTexte} sur image (pages 1-2) · modèle ${MODELE}`)
 
   const client = new Anthropic()
@@ -273,7 +276,7 @@ async function proposer(args: string[], opt: (n: string) => string | undefined) 
         const f = selection[i++]
         const date = f.publicationDate.toISOString().slice(0, 10)
         try {
-          const texte = transcription(f)
+          const texte = image ? null : transcription(f)
           const contenu: Anthropic.ContentBlockParam[] = texte
             ? [{ type: 'text', text: `Transcription OCR du début du fascicule ${f.number} :\n\n${texte}` }]
             : (await imagesDebut(f.sourcePdfUrl!, locaux.get(cleFascicule(f.number)))).map((data) => ({ type: 'image' as const, source: { type: 'base64' as const, media_type: 'image/jpeg' as const, data } }))
