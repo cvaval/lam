@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { classify, cleFascicule, enTeteSeul, lireCsv, rapprocher, ressemblance, versCsv } from './moniteur-index'
+import { classify, cleFascicule, enTeteSeul, harmoniser, lireCsv, rapprocher, ressemblance, versCsv } from './moniteur-index'
 
 describe('classify — copie du classifieur de l’Index', () => {
   it.each([
@@ -12,6 +12,16 @@ describe('classify — copie du classifieur de l’Index', () => {
     ['SOGEBANK - Bilan consolidé au 31 décembre 2019', 'AUTRE'],
   ])('%s → %s', (titre, cat) => {
     expect(classify(titre).category).toBe(cat)
+  })
+})
+
+describe('harmoniser — la casse des formules suit l’Index existant', () => {
+  it.each([
+    ['Avis autorisant le fonctionnement de la Société Anonyme dénommée « CARIBBEAN REAL ESTATE, S.A. » — Acte constitutif et Statuts y annexés.', 'Avis autorisant le fonctionnement de la société anonyme dénommée « CARIBBEAN REAL ESTATE, S.A. » — Acte constitutif et statuts y annexés'],
+    ['Avis approuvant la modification apportée aux Statuts de la Société Anonyme Dénommée « WINGAZ S.A. » — Procès-verbal y annexé.', 'Avis approuvant la modification apportée aux statuts de la société anonyme dénommée « WINGAZ S.A. » — Procès-verbal y annexé'],
+    ['Décret électoral', 'Décret électoral'],
+  ])('%s', (avant, apres) => {
+    expect(harmoniser(avant)).toBe(apres)
   })
 })
 

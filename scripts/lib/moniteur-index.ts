@@ -37,6 +37,24 @@ export function classify(text: string): { category: IndexCategory; company?: 'ST
   return { category: 'AUTRE' }
 }
 
+/**
+ * Harmonise la casse des formules sur l'usage de l'Index existant (« de la société anonyme
+ * dénommée … — Acte constitutif et statuts y annexés ») : l'IA recopie les capitales du
+ * sommaire (« Société Anonyme », « Statuts »), d'un fascicule à l'autre. Les noms propres et
+ * les sigles ne sont pas touchés. Point final retiré, comme dans l'Index.
+ */
+export function harmoniser(titre: string): string {
+  return titre
+    .replace(/\s+/g, ' ')
+    .replace(/\b(la|des|les|une) Soci[ée]t[ée]s? Anonymes?\b/g, (m) => m.toLowerCase())
+    .replace(/\bD[ée]nomm[ée]e(s?)\b/g, (m) => m.toLowerCase())
+    .replace(/\bet Statuts y annex[ée]s\b/g, 'et statuts y annexés')
+    .replace(/\baux Statuts\b/g, 'aux statuts')
+    .replace(/\bActes? [Cc]onstitutifs? et [Ss]tatuts\b/g, (m) => m.charAt(0) + m.slice(1).toLowerCase())
+    .replace(/[.\s]+$/, '')
+    .trim()
+}
+
 /** Clé de fascicule comparable quelle que soit l'écriture : « LM2020-99-A » = « LM2020-99A » = « lm2020-99a ». */
 export function cleFascicule(ref: string): string {
   return ref.toUpperCase().replace(/-/g, '')

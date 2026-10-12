@@ -41,7 +41,7 @@ import { buildSearchText, fold } from '../src/lib/search/normalize'
 import { companyId, extractCompanies } from '../src/lib/moniteur/companies'
 import { getPrivateBlob, isBlobUrl } from '../src/lib/storage/blob'
 import { audit } from '../src/lib/auth/audit'
-import { classify, cleFascicule, enTeteSeul, lireCsv, rapprocher, titreNormalise, versCsv } from './lib/moniteur-index'
+import { classify, cleFascicule, enTeteSeul, harmoniser, lireCsv, rapprocher, titreNormalise, versCsv } from './lib/moniteur-index'
 
 const prisma = new PrismaClient()
 const MODELE = process.env.LV_AI_MODEL || 'claude-haiku-5-5'
@@ -177,7 +177,7 @@ function rapprocherTout(lus: Lu[], parFascicule: Map<string, string[]>) {
     const retrouvees = new Set<string>()
     const vus = new Set<string>()
     for (const a of f.actes) {
-      const titre = a.titre.replace(/\s+/g, ' ').trim()
+      const titre = harmoniser(a.titre)
       if (!titre || vus.has(titreNormalise(titre))) continue
       vus.add(titreNormalise(titre))
       const rap = rapprocher(titre, existantes)
