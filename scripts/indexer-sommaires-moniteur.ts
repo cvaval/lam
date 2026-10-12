@@ -6,6 +6,8 @@
  *   npx tsx scripts/indexer-sommaires-moniteur.ts --sortie <dossier> --lot <nom>
  *       [--annees 2013,2017] [--refs LM2021-SP22,…] [--sans-entree] [--limit N] [--concurrence 6]
  *       [--locaux <dossier d'inventaires>]   (PDF lus au Bureau plutôt que retéléchargés de Blob)
+ *       [--archive <dossier>]   (répétable : PDF retrouvés par le nom que cite l'en-tête de la fiche,
+ *                    « Fichier : 19831107 No 77.pdf » — pour le fonds 1981-2000, hors inventaire)
  *       [--image]   (lire l'IMAGE même quand une transcription existe : l'OCR de 2026 estropie les
  *                    noms propres — « SONOOR FOOD ? » — et l'IA, prudente, n'y met qu'une confiance moyenne)
  *   # 1 bis. Refaire le seul rapprochement d'un lot déjà lu (aucun appel IA) :
@@ -235,6 +237,17 @@ async function proposer(args: string[], opt: (n: string) => string | undefined) 
   const refs = opt('--refs')?.split(',')
   const limit = Number(opt('--limit') ?? Infinity)
   const concurrence = Number(opt('--concurrence') ?? 6)
+  // Fonds d'archive : nom de fichier (NFC) → chemin, pour les fiches que l'inventaire ne couvre pas.
+  const archive = new Map<string, string>()
+  const parcourir = (dir: string) => {
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      const p = join(dir, e.name)
+      if (e.isDirectory()) parcourir(p)
+      else if (/\.pdf$/i.test(e.name)) archive.set(e.name.normalize('NFC'), p)
+    }
+  }
+  args.forEach((a, k) => a === '--archive' && parcourir(args[k + 1]))
+  const fichierCite = (f: Fascicule) => /Fichier : ([^;\]]+\.pdf)/i.exec(f.bodyOriginal.slice(0, 2000))?.[1]?.trim().normalize('NFC')
   const locaux = new Map<string, string>()
   const dossierLocaux = opt('--locaux')
   if (dossierLocaux) {
@@ -279,7 +292,7 @@ async function proposer(args: string[], opt: (n: string) => string | undefined) 
           const texte = image ? null : transcription(f)
           const contenu: Anthropic.ContentBlockParam[] = texte
             ? [{ type: 'text', text: `Transcription OCR du début du fascicule ${f.number} :\n\n${texte}` }]
-            : (await imagesDebut(f.sourcePdfUrl!, locaux.get(cleFascicule(f.number)))).map((data) => ({ type: 'image' as const, source: { type: 'base64' as const, media_type: 'image/jpeg' as const, data } }))
+            : (await imagesDebut(f.sourcePdfUrl!, locaux.get(cleFascicule(f.number)) ?? archive.get(fichierCite(f) ?? ''))).map((data) => ({ type: 'image' as const, source: { type: 'base64' as const, media_type: 'image/jpeg' as const, data } }))
           const r = await appel(() =>
             client.messages.parse({
               model: MODELE,
