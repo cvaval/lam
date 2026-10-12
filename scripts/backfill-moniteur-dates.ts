@@ -11,11 +11,32 @@
  * dateSource='ocr') sauf --force. Garde-fou : une date dont l'année diffère de
  * celle du fascicule est rejetée (probable date du corps de texte) — on conserve
  * alors la date approximative et on journalise.
+ *
+ * ⚠️ 12 oct. 2026 : le PDF se lit aussi sur Blob. Le script ne lisait que des chemins
+ * locaux : une fois les fiches migrées (`migrate-pdfs-to-blob`), chaque lecture échouait
+ * en « PDF illisible » — d'où l'obligation de dater AVANT de migrer, fiches affichées entre-
+ * temps sans PDF servable. `--concurrence N` (défaut 4) : lectures en parallèle.
  */
 import { readFileSync } from 'node:fs'
 import { PrismaClient } from '@prisma/client'
 import { extractMoniteurDate } from '../src/lib/ai/extract'
 import { isAiConfigured } from '../src/lib/ai/provider'
+import { getPrivateBlob, isBlobUrl } from '../src/lib/storage/blob'
+
+/** Octets du PDF, qu'il soit encore au Bureau (chemin local) ou déjà sur Blob (privé). */
+async function lirePdf(url: string): Promise<Uint8Array> {
+  if (!isBlobUrl(url)) return new Uint8Array(readFileSync(url))
+  const blob = await getPrivateBlob(url)
+  if (!blob?.stream) throw new Error('blob introuvable')
+  return new Uint8Array(await new Response(blob.stream).arrayBuffer())
+}
+
+async function pool<T>(items: T[], n: number, fn: (it: T) => Promise<void>) {
+  let i = 0
+  await Promise.all(Array.from({ length: Math.min(n, items.length) }, async () => {
+    while (i < items.length) await fn(items[i++])
+  }))
+}
 
 const prisma = new PrismaClient()
 
@@ -30,6 +51,7 @@ async function main() {
   const limit = args.indexOf('--limit') >= 0 ? Number(args[args.indexOf('--limit') + 1]) : Infinity
   const commit = args.includes('--commit')
   const force = args.includes('--force')
+  const concurrence = args.indexOf('--concurrence') >= 0 ? Number(args[args.indexOf('--concurrence') + 1]) : 4
 
   if (!isAiConfigured()) {
     console.error('Aucune clé IA configurée (GEMINI_API_KEY / ANTHROPIC_API_KEY) — impossible de lire les dates.')
@@ -45,38 +67,41 @@ async function main() {
     orderBy: { number: 'asc' },
   })
 
-  let processed = 0
   let updated = 0
   let skipped = 0
   let rejected = 0
   let failed = 0
 
-  for (const d of docs) {
-    if (processed >= limit) break
-    let meta: any = {}
+  const metaDe = (d: (typeof docs)[number]): any => {
     try {
-      meta = d.metaJson ? JSON.parse(d.metaJson) : {}
+      return d.metaJson ? JSON.parse(d.metaJson) : {}
     } catch {
-      meta = {}
+      return {}
     }
-    if (meta.dateSource === 'ocr' && !force) {
+  }
+  const aLire = docs.filter((d) => {
+    if (metaDe(d).dateSource === 'ocr' && !force) {
       skipped++
-      continue
+      return false
     }
+    return true
+  })
+
+  await pool(aLire.slice(0, limit === Infinity ? undefined : limit), concurrence, async (d) => {
+    const meta = metaDe(d)
     if (!d.sourcePdfUrl) {
       console.warn(`⚠ ${d.number} : pas de chemin PDF`)
       failed++
-      continue
+      return
     }
-    processed++
     const docYear = yearOf(d.number)
     let bytes: Uint8Array
     try {
-      bytes = new Uint8Array(readFileSync(d.sourcePdfUrl))
+      bytes = await lirePdf(d.sourcePdfUrl)
     } catch (e) {
       console.warn(`⚠ ${d.number} : PDF illisible (${d.sourcePdfUrl})`)
       failed++
-      continue
+      return
     }
 
     let date: string | null = null
@@ -85,18 +110,18 @@ async function main() {
     } catch (e) {
       console.warn(`⚠ ${d.number} : échec IA — ${(e as Error).message.slice(0, 100)}`)
       failed++
-      continue
+      return
     }
 
     if (!date) {
       console.log(`·  ${d.number} : date illisible`)
       failed++
-      continue
+      return
     }
     if (docYear && Number(date.slice(0, 4)) !== docYear) {
       console.log(`✗  ${d.number} : date lue ${date} ≠ année ${docYear} → rejetée (probable date du corps)`)
       rejected++
-      continue
+      return
     }
 
     console.log(`✔  ${d.number} : ${d.publicationDate?.toISOString().slice(0, 10)} → ${date}`)
@@ -108,7 +133,7 @@ async function main() {
       })
     }
     updated++
-  }
+  })
 
   console.log(
     `\n${commit ? '✅ ' : '(simulation) '}${updated} dates ${commit ? 'mises à jour' : 'lues'} · ${skipped} déjà faites · ${rejected} rejetées · ${failed} échecs · sur ${docs.length} fiches`,

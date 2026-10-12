@@ -270,7 +270,15 @@ async function pageCount(file: string): Promise<number> {
     const doc = await PDFDocument.load(readFileSync(file), { ignoreEncryption: true, updateMetadata: false })
     return doc.getPageCount()
   } catch {
-    return 0
+    // ⚠️ pdf-lib refuse certains scans (tables xref mal formées) que poppler lit sans peine :
+    // en oct. 2026, 24 fascicules à verser sortaient à « 0 page » (2020 Spécial n° 8 : 185
+    // au lieu de 201). On demande alors à `pdfinfo`.
+    try {
+      const m = execFileSync('pdfinfo', [file], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).match(/^Pages:\s+(\d+)/m)
+      return m ? Number(m[1]) : 0
+    } catch {
+      return 0
+    }
   }
 }
 
