@@ -21,13 +21,14 @@
  * jamais affiché) et NON `bodyOriginal` : un texte montré est un texte qu'on cite, et
  * c'est le fac-similé qui fait foi.
  */
-import { readdirSync, statSync, readFileSync, realpathSync } from 'node:fs'
+import { readdirSync, statSync, readFileSync, realpathSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { execFileSync } from 'node:child_process'
 import { join, basename } from 'node:path'
 import { PrismaClient } from '@prisma/client'
 import { PDFDocument } from 'pdf-lib'
 import { buildSearchText, fold } from '../src/lib/search/normalize'
 import { audit } from '../src/lib/auth/audit'
+import { jourDuNom, decouperEnEditions } from './lib/moniteur-parties'
 
 const prisma = new PrismaClient()
 
@@ -138,6 +139,8 @@ interface Edition {
   monthIdx: number
   day: number | null // jour de parution lu dans le nom de fichier (ex. « 2Avril » → 2)
   files: string[]
+  /** PDF unique issu de la fusion des parties (`--fusion-dir`), qui devient `sourcePdfUrl`. */
+  fusion?: string
 }
 
 /** « Le Moniteur [Spécial] No. 30-A … » → { special, num, suffix }.
@@ -158,7 +161,11 @@ function parseEditionName(name: string): { special: boolean; num: number; num2: 
   // 1994 « No 73 74 » — un simple espace. Les fascicules disent tous la même chose :
   // « Nos. 73 et 74, Lundi 19 et jeudi 22 septembre ». Un analyseur qui ne connaîtrait que
   // le « + » aurait perdu six numéros de 1992-1993 et le n° 74 de 1994.
-  const m = s.match(/No\.?s?\s*(\d+)\s*(?:[+&]\s*(\d+))?\s*(?:-\s*([A-Za-z])\b)?/i)
+  //
+  // ⚠️ LE SUFFIXE PEUT PORTER UN CHIFFRE. Février 2025 : après « Spécial No. 12-A » à « 12-Z »,
+  // la série reprend à « 12-A1 » … « 12-M1 » et « 12-E2 » — la manchette dit « Spécial N° 12-A1 ».
+  // Le `\b` collé à la lettre refusait « A1 » : les quatorze se fondaient dans le n° 12.
+  const m = s.match(/No\.?s?\s*(\d+)\s*(?:[+&]\s*(\d+))?\s*(?:-\s*([A-Za-z]\d?)\b)?/i)
   if (!m) return null
   const num = Number(m[1])
   let num2 = m[2] ? Number(m[2]) : null
@@ -181,14 +188,11 @@ function monthFromName(name: string): number | null {
 }
 
 /** « … No.44 2Avril 2026.pdf » → 2. Le jour précède le nom du mois dans le fichier
- *  (best-effort : null si absent — ex. « No.50 Avril 2026 » → date approx. au 1er). */
+ *  (best-effort : null si absent — ex. « No.50 Avril 2026 » → date approx. au 1er).
+ *  ⚠️ 12 oct. 2026 : le NUMÉRO n'est plus lu comme jour (« No. 4 Janvier 2022 » donnait le
+ *  4 janvier) — voir `jourDuNom` dans `lib/moniteur-parties.ts`, et ses tests. */
 function dayFromName(name: string): number | null {
-  const m = name
-    .normalize('NFC')
-    .match(/(\d{1,2})\s*(?:janvier|f[ée]vrier|mars|avril|mai|juin|juillet|ao[ûu]t|septembre|octobre|novembre|d[ée]cembre)/i)
-  if (!m) return null
-  const d = Number(m[1])
-  return d >= 1 && d <= 31 ? d : null
+  return jourDuNom(name)
 }
 
 /** « 20190104 No 1.pdf » → { monthIdx: 0, day: 4 }. Fascicules classés « par numéro » (dossier
@@ -357,14 +361,35 @@ function collectEditions(dir: string): Edition[] {
       const entryPath = join(monthPath, entry)
       const isDir = statSync(entryPath).isDirectory()
       if (isDir) {
-        // Sous-dossier = une édition multi-parties (plusieurs PDF de pages).
+        // Sous-dossier = une ou plusieurs éditions en plusieurs parties (plusieurs PDF de pages).
+        // ⚠️ 12 oct. 2026 : parties dans l'ORDRE DES PAGES (l'alphabet mettait « 101-130 » avant
+        // « 25-40 »), et un dossier peut porter plusieurs éditions — ou des parties au nom
+        // trompeur. Règle et cas réels : `decouperEnEditions` (lib/moniteur-parties.ts).
         const parsed = parseEditionName(entry)
         if (!parsed) {
           console.warn(`⚠ sous-dossier non reconnu : ${entry}`)
           continue
         }
-        const sub = readdirSync(entryPath).filter((f) => f.toLowerCase().endsWith('.pdf')).map((f) => realpathSync(join(entryPath, f)))
-        addEdition(byKey, { ...parsed, monthIdx, day: dayFromName(sub[0] ?? entry), files: sub })
+        const noms = readdirSync(entryPath).filter((f) => f.toLowerCase().endsWith('.pdf'))
+        const cleDe = (nom: string) => {
+          const pp = parseEditionName(nom)
+          return pp ? editionKey(pp) : null
+        }
+        const parCle = new Map<string, ReturnType<typeof parseEditionName>>()
+        for (const nom of noms) {
+          const k = cleDe(nom)
+          if (k && !parCle.has(k)) parCle.set(k, parseEditionName(nom))
+        }
+        for (const ed of decouperEnEditions(editionKey(parsed), noms.map((nom) => ({ nom, cle: cleDe(nom) })))) {
+          for (const r of ed.rectifications) rectifies.push(`${entry} : ${r}`)
+          const base = parCle.get(ed.cle) ?? parsed
+          addEdition(byKey, {
+            ...base!,
+            monthIdx,
+            day: dayFromName(ed.parties[0]),
+            files: ed.parties.map((f) => realpathSync(join(entryPath, f))),
+          })
+        }
       } else if (entry.toLowerCase().endsWith('.pdf')) {
         const motif = motifExclusion(entry, EXCLUSIONS_CLI)
         if (motif) {
@@ -427,6 +452,13 @@ async function main() {
   // `--exclure "<fragment de nom>"`, répétable : écarte un fascicule pour cette exécution.
   EXCLUSIONS_CLI = args.map((a, i) => (a === '--exclure' ? args[i + 1] : null)).filter((x): x is string => !!x)
   const doPurge = args.includes('--purge-demo')
+  // `--fusion-dir <dossier>` : une édition en PLUSIEURS parties est fusionnée (pdfunite, parties
+  // dans l'ordre des pages) en UN PDF, qui devient `sourcePdfUrl`. Sans lui, seule la 1re partie
+  // était conservée — 5 éditions en base n'ont que leur début en ligne (constat du 12 oct. 2026).
+  const fusionDir = args.includes('--fusion-dir') ? args[args.indexOf('--fusion-dir') + 1] : null
+  // `--inventaire-json <fichier>` : l'inventaire (et, avec --completer, le statut de chaque
+  // fascicule face à la base) écrit en JSON pour le rapport Word. Lecture seule.
+  const inventaireJson = args.includes('--inventaire-json') ? args[args.indexOf('--inventaire-json') + 1] : null
   if (!dir || args.indexOf('--dir') < 0) {
     console.error('Usage: npx tsx scripts/import-moniteur-pdf.ts --dir "<dossier>" --year 2021 [--commit] [--force] [--purge-demo]')
     process.exit(1)
@@ -509,9 +541,77 @@ async function main() {
     process.exit(1)
   }
 
+  const multiParties = editions.filter((e) => e.files.length > 1)
+  if (multiParties.length) {
+    console.log(`\n⧉ ${multiParties.length} édition(s) en plusieurs parties — fusionnées en un PDF au versement (--fusion-dir) :`)
+    for (const e of multiParties) console.log(`   ${editionRef(e, year).padEnd(16)} ${e.files.length} parties : ${e.files.map((f) => basename(f)).join(' | ')}`)
+  }
+
+  // ⚠️ 12 oct. 2026 : `--completer` À BLANC compare enfin à la base. Avant, le script s'arrêtait
+  // avant de la lire : l'inventaire « à blanc » ne disait jamais ce qui serait créé, et
+  // `--completer --commit` écrivait aussitôt après l'avoir affiché. Lecture seule.
+  const cleRef = (ref: string) => ref.toUpperCase().replace(/-/g, '')
+  const enBase = args.includes('--completer')
+    ? new Set((await prisma.document.findMany({ where: { source: SOURCE }, select: { number: true } })).map((x) => cleRef(x.number!)))
+    : new Set<string>()
+  if (args.includes('--completer') && !commit) {
+    const deja = rows.filter((r) => enBase.has(cleRef(r.ref)))
+    const aCreerBlanc = rows.filter((r) => !enBase.has(cleRef(r.ref)))
+    console.log(`\nComplément (à blanc) : ${enBase.size} fiches déjà en base · ${deja.length}/${rows.length} déjà présentes (seraient SAUTÉES) · ${aCreerBlanc.length} à créer :`)
+    for (const r of aCreerBlanc) console.log(`   + ${r.ref}`)
+  }
+  if (inventaireJson) {
+    writeFileSync(
+      inventaireJson,
+      JSON.stringify(
+        {
+          annee: year,
+          source: SOURCE,
+          completer: args.includes('--completer'),
+          ecartes,
+          rectifies,
+          fascicules: rows.map((r, i) => {
+            const e = editions[i]
+            return {
+              ref: r.ref,
+              type: r.type,
+              special: e.special,
+              num: e.num,
+              suffix: e.suffix,
+              monthIdx: e.monthIdx,
+              day: e.day ?? null,
+              pages: r.pages,
+              parts: r.parts,
+              label: r.label,
+              texteCaracteres: r.texte.length,
+              fichiers: e.files,
+              statut: enBase.has(cleRef(r.ref)) ? 'deja-en-base' : 'a-verser',
+            }
+          }),
+        },
+        null,
+        2,
+      ),
+    )
+    console.log(`\n→ inventaire écrit : ${inventaireJson}`)
+  }
+
   if (!commit) {
     console.log('\n(Inventaire seul — relancer avec --commit pour écrire, et --purge-demo pour effacer la démo)')
     return
+  }
+
+  if (multiParties.length && !fusionDir) {
+    console.error(`\n⛔ ARRÊT — ${multiParties.length} édition(s) en plusieurs parties et pas de --fusion-dir : seule la 1re partie serait en ligne.`)
+    process.exit(1)
+  }
+  if (fusionDir) {
+    if (!existsSync(fusionDir)) mkdirSync(fusionDir, { recursive: true })
+    for (const e of multiParties) {
+      const sortie = join(fusionDir, `${editionRef(e, year)}.pdf`)
+      execFileSync('pdfunite', [...e.files, sortie])
+      e.fusion = sortie
+    }
   }
 
   const admin = await prisma.user.findFirst({ where: { role: 'MASTER_ADMIN' }, select: { id: true } })
@@ -606,7 +706,7 @@ async function main() {
         // Jour lu dans le nom de fichier quand disponible (sinon 1er du mois, approx.).
         publicationDate: new Date(Date.UTC(year, e.monthIdx, e.day ?? 1)),
         editionType: e.special ? 'SPECIALE' : 'REGULIERE',
-        sourcePdfUrl: e.files[0],
+        sourcePdfUrl: e.fusion ?? e.files[0],
         source: SOURCE,
         sealed: true,
         // Année de parution dérivée (Le Moniteur, fondé en 1845 : année = millésime − 1845).
