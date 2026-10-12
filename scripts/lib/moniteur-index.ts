@@ -42,9 +42,15 @@ export function cleFascicule(ref: string): string {
   return ref.toUpperCase().replace(/-/g, '')
 }
 
-/** Titre réduit à ses mots : sans accents, casse, ponctuation ni guillemets. */
+/**
+ * Titre réduit à ses mots : sans accents, casse, ponctuation ni guillemets.
+ * ⚠️ « œ » et « æ » ne se décomposent pas : sans ce remplacement, « Cœur » ≠ « Coeur » et
+ * « Bœufs » ≠ « Boeufs » — le même acte, écrit par l'IA et par l'ancien Index, se dédoublait.
+ */
 export function titreNormalise(titre: string): string {
   return fold(titre)
+    .replace(/œ/g, 'oe')
+    .replace(/æ/g, 'ae')
     .replace(/[^a-z0-9]+/g, ' ')
     .trim()
 }
@@ -60,19 +66,32 @@ const FORMULES = [
   /actes? constitutifs? et statuts? y annexes?/g,
   /proces verbal y annexe/g,
   /extraits? du registre des marques de fabrique et de commerce/g,
+  /arretes? autorisant l adoption (?:des |du |de la |de l |d )?(?:mineure?s?\b ?)?(?:suivante?s?\b ?)?(?:de |d )?/g,
 ]
 
-/** Le titre sans ses formules ; le titre entier s'il n'en reste presque rien (« Extraits du registre… »). */
+/** Le titre sans ses formules — chaîne vide s'il n'en reste presque rien (« Extraits du registre… »). */
 export function noyau(titre: string): string {
-  const n = titreNormalise(titre)
-  let r = n
+  let r = titreNormalise(titre)
   for (const f of FORMULES) r = r.replace(f, ' ')
   r = r.replace(/\s+/g, ' ').trim()
-  return r.length >= 4 ? r : n
+  return r.length >= 4 ? r : ''
+}
+
+/** Mots qui n'identifient rien : on ne les compte pas pour dire qu'un acte est « dans » une entrée groupée. */
+const MOTS_VIDES = new Set(
+  ('le la les de du des d l et a au aux en un une pour par sur dans avec ou suivant suivants suivante suivantes ' +
+    'arrete arretes avis decret decrets loi lois nommant nomme autorisant approuvant portant relatif relative ' +
+    'mineur mineure mineurs mineures adoption citoyen citoyenne madame monsieur societe societes anonyme anonymes ' +
+    'denommee denommees sa s haiti haitien republique commune departement arrondissement').split(' '),
+)
+
+/** Mots distinctifs d'un titre : les noms (propres, de lieux, de sociétés), hors mots vides. */
+function motsDistinctifs(titre: string): string[] {
+  return [...new Set(noyau(titre).split(' '))].filter((m) => m.length >= 3 && !MOTS_VIDES.has(m) && !/^\d+$/.test(m))
 }
 
 function trigrammes(s: string): Set<string> {
-  const t = `  ${noyau(s)} `
+  const t = `  ${s} `
   const out = new Set<string>()
   for (let i = 0; i < t.length - 2; i++) out.add(t.slice(i, i + 3))
   return out
@@ -84,8 +103,13 @@ function trigrammes(s: string): Set<string> {
  * existante est souvent l'abrégé du titre du sommaire (« Extraits du registre des marques »).
  */
 export function ressemblance(a: string, b: string): number {
-  const A = trigrammes(a)
-  const B = trigrammes(b)
+  // Une formule seule (« Extraits du registre des marques… ») n'a pas de noyau : on compare alors
+  // les titres ENTIERS des deux côtés — sinon l'un serait réduit et l'autre non.
+  const na = noyau(a)
+  const nb2 = noyau(b)
+  const [ta, tb] = na && nb2 ? [na, nb2] : [titreNormalise(a), titreNormalise(b)]
+  const A = trigrammes(ta)
+  const B = trigrammes(tb)
   if (!A.size || !B.size) return 0
   let commun = 0
   for (const x of A) if (B.has(x)) commun++
@@ -98,9 +122,28 @@ export function ressemblance(a: string, b: string): number {
   // même acte ; toutes celles de `a` présentes dans `b`, c'est le même avis — y compris quand
   // l'Index existant les a groupées en une entrée (« … dénommées : 1) « A » ; 2) « B » »).
   const sa = societes(a)
-  const sb = new Set(societes(b))
-  if (sa.length && sb.size) return sa.every((k) => sb.has(k)) ? Math.max(score, 0.95) : Math.min(score, 0.3)
+  const sb = societes(b)
+  if (sa.length && sb.length) return sa.every((k) => sb.some((l) => memeSociete(k, l))) ? Math.max(score, 0.95) : Math.min(score, 0.3)
+  // Entrée GROUPÉE de l'ancien Index (« Arrêtés autorisant l'adoption des mineurs suivants : A ;
+  // B ; C … ») : un acte individuel y figure si tous ses noms distinctifs s'y trouvent.
+  const da = motsDistinctifs(a)
+  if (da.length >= 2) {
+    const motsB = new Set(titreNormalise(b).split(' '))
+    if (da.filter((m) => motsB.has(m)).length / da.length >= 0.85) return Math.max(score, 0.9)
+  }
   return score
+}
+
+/** Deux clés lâches de société désignent la même si l'une contient l'autre (sigle, « Services »…) ou presque. */
+function memeSociete(k: string, l: string): boolean {
+  if (k === l) return true
+  const [court, long] = k.length <= l.length ? [k, l] : [l, k]
+  if (court.length >= 6 && long.includes(court)) return true
+  const K = trigrammes(k)
+  const L = trigrammes(l)
+  let commun = 0
+  for (const x of K) if (L.has(x)) commun++
+  return (2 * commun) / (K.size + L.size) >= 0.8
 }
 
 /**
@@ -112,6 +155,14 @@ export function societes(titre: string): string[] {
   return extractCompanies(titre)
     .map((n) => titreNormalise(n).replace(/\b(s a r l|sarl|s a|sa|s a s|sas|inc|ltd|llc)\b/g, ' ').replace(/\s+/g, ''))
     .filter((k) => k.length >= 3)
+}
+
+/**
+ * Un intitulé de RUBRIQUE sans contenu (« Arrêtés autorisant l'adoption des mineurs suivants »,
+ * « Avis divers ») : l'écrire ferait une entrée qui ne désigne aucun acte. Toujours à relire.
+ */
+export function enTeteSeul(titre: string): boolean {
+  return /\b(suivante?s?|divers(es)?)\s*:?\s*$/i.test(titre.trim()) && !noyau(titre)
 }
 
 export type Statut = 'deja-a-l-index' | 'a-creer' | 'a-relire'

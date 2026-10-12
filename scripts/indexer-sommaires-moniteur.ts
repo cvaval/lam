@@ -6,6 +6,8 @@
  *   npx tsx scripts/indexer-sommaires-moniteur.ts --sortie <dossier> --lot <nom>
  *       [--annees 2013,2017] [--refs LM2021-SP22,…] [--sans-entree] [--limit N] [--concurrence 6]
  *       [--locaux <dossier d'inventaires>]   (PDF lus au Bureau plutôt que retéléchargés de Blob)
+ *   # 1 bis. Refaire le seul rapprochement d'un lot déjà lu (aucun appel IA) :
+ *   npx tsx scripts/indexer-sommaires-moniteur.ts --rapprocher <dossier>/<lot>.json
  *   # 2. Écriture des seules lignes validées (colonne « decision » = « créer ») :
  *   npx tsx scripts/indexer-sommaires-moniteur.ts --commit --valide <dossier>/<lot>.csv
  *
@@ -29,7 +31,7 @@
 import { execFileSync } from 'node:child_process'
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 import { randomUUID } from 'node:crypto'
 import Anthropic from '@anthropic-ai/sdk'
 import { zodOutputFormat } from '@anthropic-ai/sdk/helpers/zod'
@@ -39,7 +41,7 @@ import { buildSearchText, fold } from '../src/lib/search/normalize'
 import { companyId, extractCompanies } from '../src/lib/moniteur/companies'
 import { getPrivateBlob, isBlobUrl } from '../src/lib/storage/blob'
 import { audit } from '../src/lib/auth/audit'
-import { classify, cleFascicule, lireCsv, rapprocher, titreNormalise, versCsv } from './lib/moniteur-index'
+import { classify, cleFascicule, enTeteSeul, lireCsv, rapprocher, titreNormalise, versCsv } from './lib/moniteur-index'
 
 const prisma = new PrismaClient()
 const MODELE = process.env.LV_AI_MODEL || 'claude-haiku-5-5'
@@ -144,6 +146,85 @@ function moniteurRef(number: string, d: Date): string {
   return `Le Moniteur · ${number} · ${JOURS[d.getUTCDay()]} ${d.getUTCDate()} ${MOIS[d.getUTCMonth()]} ${d.getUTCFullYear()}`
 }
 
+/** L'Index existant pour ces fascicules, par clé de fascicule (sans tirets). */
+async function indexExistant(refs: string[]): Promise<Map<string, string[]>> {
+  const annees = [...new Set(refs.map((r) => r.slice(2, 6)))]
+  const index = await prisma.document.findMany({
+    where: { type: 'INDEX', OR: annees.map((a) => ({ number: { startsWith: `LM${a}` } })) },
+    select: { number: true, titleFr: true },
+  })
+  const parFascicule = new Map<string, string[]>()
+  for (const e of index) {
+    if (!e.number) continue
+    const k = cleFascicule(e.number)
+    parFascicule.set(k, [...(parFascicule.get(k) ?? []), e.titleFr])
+  }
+  return parFascicule
+}
+
+interface Lu {
+  ref: string
+  date: string
+  actes: { titre: string; langue: string; confiance: string }[]
+}
+
+/** Rapprochement d'actes lus avec l'Index existant → propositions + entrées existantes non retrouvées. */
+function rapprocherTout(lus: Lu[], parFascicule: Map<string, string[]>) {
+  const propositions: Proposition[] = []
+  const signalees: { ref: string; titre: string }[] = []
+  for (const f of lus) {
+    const existantes = parFascicule.get(cleFascicule(f.ref)) ?? []
+    const retrouvees = new Set<string>()
+    const vus = new Set<string>()
+    for (const a of f.actes) {
+      const titre = a.titre.replace(/\s+/g, ' ').trim()
+      if (!titre || vus.has(titreNormalise(titre))) continue
+      vus.add(titreNormalise(titre))
+      const rap = rapprocher(titre, existantes)
+      if (rap.proche && rap.statut !== 'a-creer') retrouvees.add(rap.proche)
+      const decision =
+        rap.statut === 'deja-a-l-index' ? '' : rap.statut === 'a-creer' && a.confiance === 'haute' && !enTeteSeul(titre) ? 'créer' : 'relire'
+      propositions.push({ ref: f.ref, date: f.date, titre, langue: a.langue, confiance: a.confiance, categorie: classify(titre).category, statut: rap.statut, score: rap.score, proche: rap.proche, decision })
+    }
+    if (f.actes.length) for (const e of existantes) if (!retrouvees.has(e)) signalees.push({ ref: f.ref, titre: e })
+  }
+  const ordre = (p: Proposition) => (p.decision === 'relire' ? 0 : p.decision === 'créer' ? 1 : 2)
+  propositions.sort((a, b) => a.date.localeCompare(b.date) || a.ref.localeCompare(b.ref, 'fr', { numeric: true }) || ordre(a) - ordre(b))
+  return { propositions, signalees }
+}
+
+function ecrireLot(sortie: string, lot: string, contenu: { jetons: number; fascicules: string[]; propositions: Proposition[]; signalees: { ref: string; titre: string }[]; illisibles: string[] }) {
+  mkdirSync(sortie, { recursive: true })
+  writeFileSync(join(sortie, `${lot}.json`), JSON.stringify({ lot, modele: MODELE, ...contenu }, null, 1))
+  writeFileSync(
+    join(sortie, `${lot}.csv`),
+    versCsv([
+      ['decision', 'reference', 'date', 'categorie', 'titre', 'langue', 'confiance', 'statut', 'score', 'entree_proche'],
+      ...contenu.propositions.map((p) => [p.decision, p.ref, p.date, p.categorie, p.titre, p.langue, p.confiance, p.statut, p.score, p.proche]),
+    ]),
+  )
+  const { propositions: ps } = contenu
+  const n = (s: string) => ps.filter((p) => p.statut === s).length
+  console.log(
+    `${ps.length} actes · ${n('a-creer')} à créer (${ps.filter((p) => p.decision === 'créer').length} en confiance haute) · ${n('a-relire')} à relire · ` +
+      `${n('deja-a-l-index')} déjà à l'Index · ${contenu.signalees.length} entrée(s) existante(s) introuvable(s) au sommaire · ` +
+      `${contenu.illisibles.length} fascicule(s) sans sommaire lisible · ${contenu.jetons.toLocaleString('fr-FR')} jetons → ${join(sortie, lot)}.{csv,json}`,
+  )
+}
+
+async function rerapprocher(fichier: string) {
+  const l = JSON.parse(readFileSync(fichier, 'utf8')) as { lot: string; jetons: number; fascicules: string[]; propositions: Proposition[]; illisibles: string[] }
+  const parRef = new Map<string, Lu>()
+  for (const p of l.propositions) {
+    const lu = parRef.get(p.ref) ?? { ref: p.ref, date: p.date, actes: [] }
+    lu.actes.push({ titre: p.titre, langue: p.langue, confiance: p.confiance })
+    parRef.set(p.ref, lu)
+  }
+  const parFascicule = await indexExistant(l.fascicules)
+  const { propositions, signalees } = rapprocherTout([...parRef.values()], parFascicule)
+  ecrireLot(dirname(fichier), l.lot, { jetons: l.jetons, fascicules: l.fascicules, propositions, signalees, illisibles: l.illisibles })
+}
+
 async function proposer(args: string[], opt: (n: string) => string | undefined) {
   const sortie = opt('--sortie')
   const lot = opt('--lot')
@@ -173,17 +254,7 @@ async function proposer(args: string[], opt: (n: string) => string | undefined) 
   })) as Fascicule[]
 
   // L'Index existant, par fascicule (clé sans tirets).
-  const annesIndex = [...new Set(fascicules.map((f) => f.number.slice(2, 6)))]
-  const index = await prisma.document.findMany({
-    where: { type: 'INDEX', OR: annesIndex.map((a) => ({ number: { startsWith: `LM${a}` } })) },
-    select: { number: true, titleFr: true },
-  })
-  const parFascicule = new Map<string, string[]>()
-  for (const e of index) {
-    if (!e.number) continue
-    const k = cleFascicule(e.number)
-    parFascicule.set(k, [...(parFascicule.get(k) ?? []), e.titleFr])
-  }
+  const parFascicule = await indexExistant(fascicules.map((f) => f.number))
 
   let selection = fascicules
   if (args.includes('--sans-entree')) selection = selection.filter((f) => !parFascicule.get(cleFascicule(f.number))?.length)
@@ -192,8 +263,7 @@ async function proposer(args: string[], opt: (n: string) => string | undefined) 
   console.log(`${selection.length} fascicule(s) · ${parTexte} lus sur transcription, ${selection.length - parTexte} sur image (pages 1-2) · modèle ${MODELE}`)
 
   const client = new Anthropic()
-  const propositions: Proposition[] = []
-  const signalees: { ref: string; titre: string }[] = []
+  const lus: Lu[] = []
   const illisibles: string[] = []
   let jetons = 0
   let i = 0
@@ -218,19 +288,7 @@ async function proposer(args: string[], opt: (n: string) => string | undefined) 
           jetons += r.usage.input_tokens + r.usage.output_tokens
           const l = r.parsed_output!
           if (!l.sommaireLisible || !l.actes.length) illisibles.push(f.number)
-          const existantes = parFascicule.get(cleFascicule(f.number)) ?? []
-          const retrouvees = new Set<string>()
-          const vus = new Set<string>()
-          for (const a of l.actes) {
-            const titre = a.titre.replace(/\s+/g, ' ').trim()
-            if (!titre || vus.has(titreNormalise(titre))) continue
-            vus.add(titreNormalise(titre))
-            const rap = rapprocher(titre, existantes)
-            if (rap.proche && rap.statut !== 'a-creer') retrouvees.add(rap.proche)
-            const decision = rap.statut === 'a-creer' && a.confiance === 'haute' ? 'créer' : rap.statut === 'deja-a-l-index' ? '' : 'relire'
-            propositions.push({ ref: f.number, date, titre, langue: a.langue, confiance: a.confiance, categorie: classify(titre).category, statut: rap.statut, score: rap.score, proche: rap.proche, decision })
-          }
-          for (const e of existantes) if (!retrouvees.has(e) && l.actes.length) signalees.push({ ref: f.number, titre: e })
+          lus.push({ ref: f.number, date, actes: l.actes })
         } catch (e) {
           illisibles.push(f.number)
           console.log(`✗ ${f.number} : ${(e as Error).message.slice(0, 140)}`)
@@ -239,23 +297,8 @@ async function proposer(args: string[], opt: (n: string) => string | undefined) 
     }),
   )
 
-  const ordre = (p: Proposition) => (p.decision === 'relire' ? 0 : p.decision === 'créer' ? 1 : 2)
-  propositions.sort((a, b) => a.date.localeCompare(b.date) || a.ref.localeCompare(b.ref, 'fr', { numeric: true }) || ordre(a) - ordre(b))
-  mkdirSync(sortie, { recursive: true })
-  writeFileSync(join(sortie, `${lot}.json`), JSON.stringify({ lot, modele: MODELE, jetons, fascicules: selection.map((f) => f.number), propositions, signalees, illisibles }, null, 1))
-  writeFileSync(
-    join(sortie, `${lot}.csv`),
-    versCsv([
-      ['decision', 'reference', 'date', 'categorie', 'titre', 'langue', 'confiance', 'statut', 'score', 'entree_proche'],
-      ...propositions.map((p) => [p.decision, p.ref, p.date, p.categorie, p.titre, p.langue, p.confiance, p.statut, p.score, p.proche]),
-    ]),
-  )
-  const n = (s: string) => propositions.filter((p) => p.statut === s).length
-  console.log(
-    `\n${propositions.length} actes lus · ${n('a-creer')} à créer (${propositions.filter((p) => p.decision === 'créer').length} en confiance haute) · ` +
-      `${n('a-relire')} à relire · ${n('deja-a-l-index')} déjà à l'Index · ${signalees.length} entrée(s) existante(s) introuvable(s) au sommaire · ` +
-      `${illisibles.length} fascicule(s) sans sommaire lisible · ${jetons.toLocaleString('fr-FR')} jetons → ${join(sortie, lot)}.{csv,json}`,
-  )
+  const { propositions, signalees } = rapprocherTout(lus, parFascicule)
+  ecrireLot(sortie, lot, { jetons, fascicules: selection.map((f) => f.number), propositions, signalees, illisibles })
 }
 
 async function ecrire(opt: (n: string) => string | undefined) {
@@ -334,6 +377,7 @@ async function main() {
   const args = process.argv.slice(2)
   const opt = (nom: string) => (args.includes(nom) ? args[args.indexOf(nom) + 1] : undefined)
   if (args.includes('--commit')) await ecrire(opt)
+  else if (opt('--rapprocher')) await rerapprocher(opt('--rapprocher')!)
   else await proposer(args, opt)
 }
 
