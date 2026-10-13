@@ -9,6 +9,8 @@
  *   # 3. Écriture : à blanc, puis --commit :
  *   npx tsx scripts/ocr-combine-moniteur.ts --ecrire --travail <dossier> [--commit]
  *   Options : --annees 2019,2020 · --refs LM2019-81 · --limit N · --concurrence N
+ *   --relire-faibles (avec --moteur claude) : relit les pages où Claude a rendu moins de 60 % des
+ *   mots de Tesseract (réponse vide ou tronquée — 4 pages sur les 2 100 premières).
  *
  * CIBLE : les fiches d'Éditions (source MONITEUR_PDF_*) qui n'ont NI transcription dans le corps
  * NI couche de texte cherchable (< 200 c./page — le seuil de la fiche). 1 968 au 12 oct. 2026.
@@ -33,7 +35,7 @@ import { PrismaClient } from '@prisma/client'
 import { OCR_PROMPT, cleanOcrText } from '../src/lib/ai/extract'
 import { buildSearchText, fold } from '../src/lib/search/normalize'
 import { getPrivateBlob, isBlobUrl } from '../src/lib/storage/blob'
-import { fusionner } from './lib/fusion-ocr'
+import { fusionner, tesseractPropre } from './lib/fusion-ocr'
 
 const prisma = new PrismaClient()
 // ⚠️ ASYNCHRONE, OU LE « PARALLÈLE » EST UN LEURRE : `execFileSync` bloque la boucle d'événements,
@@ -54,6 +56,22 @@ const travail = opt('--travail')
 if (!travail) throw new Error('--travail <dossier> requis')
 mkdirSync(travail, { recursive: true })
 const p3 = (k: number) => String(k).padStart(3, '0')
+const nbMots = (s: string) => (s.match(/\p{L}{3,}/gu) ?? []).length
+
+/**
+ * Lecture de Claude manifestement incomplète face à celle de Tesseract.
+ * ⚠️ AUDIT DU 12 OCT. 2026 : trois pages de 2013 avaient une réponse VIDE (Claude avait pourtant
+ * produit ~2 000 jetons, sans bloc de texte exploitable) et une quatrième la moitié du texte. La
+ * fusion part du texte de Claude : une base vide aurait donné une page vide, alors que Tesseract
+ * en avait lu 480 mots.
+ */
+function claudeFaible(dossier: string, k: string): boolean {
+  const c = join(dossier, `p${k}.claude.txt`)
+  const t = join(dossier, `p${k}.tesseract.txt`)
+  if (!existsSync(c) || !existsSync(t)) return false
+  const mt = nbMots(readFileSync(t, 'utf8'))
+  return mt >= 80 && nbMots(readFileSync(c, 'utf8')) < 0.6 * mt
+}
 
 /** Les fiches sans aucun texte (corps = en-tête seul, index < 200 c./page). */
 async function cibles(): Promise<Cible[]> {
@@ -132,7 +150,9 @@ async function lire(moteur: 'tesseract' | 'claude') {
       const n = nbPages(part)
       for (let p = 1; p <= n; p++) {
         k++
-        if (!existsSync(join(travail!, c.number, `p${p3(k)}.${moteur}.txt`))) travaux.push({ ref: c.number, part, page: p, k })
+        const dejaLue = existsSync(join(travail!, c.number, `p${p3(k)}.${moteur}.txt`))
+        const aRelire = moteur === 'claude' && args.includes('--relire-faibles') && claudeFaible(join(travail!, c.number), p3(k))
+        if (!dejaLue || aRelire) travaux.push({ ref: c.number, part, page: p, k })
       }
     }
   }
@@ -154,18 +174,24 @@ async function lire(moteur: 'tesseract' | 'claude') {
       } else {
         await executer('pdfseparate', ['-f', String(t.page), '-l', String(t.page), t.part, join(tmp, 'p.pdf')])
         const data = readFileSync(join(tmp, 'p.pdf')).toString('base64')
-        const m = await appel(() =>
-          client!.messages
-            .stream({
-              model: MODELE,
-              max_tokens: 16000,
-              output_config: { effort: 'low' },
-              messages: [{ role: 'user', content: [{ type: 'document', source: { type: 'base64', media_type: 'application/pdf', data } }, { type: 'text', text: OCR_PROMPT }] }],
-            })
-            .finalMessage(),
-        )
-        appendFileSync(join(travail!, '_usage.jsonl'), JSON.stringify({ ref: t.ref, k: t.k, in: m.usage.input_tokens, out: m.usage.output_tokens }) + '\n')
-        texte = cleanOcrText(m.content.filter((b): b is Anthropic.TextBlock => b.type === 'text').map((b) => b.text).join('\n'))
+        texte = ''
+        // Une réponse sans texte exploitable est redemandée une fois, puis tenue pour un échec :
+        // rien n'est écrit, et la relance la reprendra.
+        for (let essai = 1; essai <= 2 && texte.trim().length < 40; essai++) {
+          const m = await appel(() =>
+            client!.messages
+              .stream({
+                model: MODELE,
+                max_tokens: 16000,
+                output_config: { effort: 'low' },
+                messages: [{ role: 'user', content: [{ type: 'document', source: { type: 'base64', media_type: 'application/pdf', data } }, { type: 'text', text: OCR_PROMPT }] }],
+              })
+              .finalMessage(),
+          )
+          appendFileSync(join(travail!, '_usage.jsonl'), JSON.stringify({ ref: t.ref, k: t.k, in: m.usage.input_tokens, out: m.usage.output_tokens }) + '\n')
+          texte = cleanOcrText(m.content.filter((b): b is Anthropic.TextBlock => b.type === 'text').map((b) => b.text).join('\n'))
+        }
+        if (texte.trim().length < 40) throw new Error(`réponse sans texte (${texte.trim().length} c.)`)
       }
       writeFileSync(join(dir, `p${p3(t.k)}.${moteur}.txt`), texte)
       faites++
@@ -185,16 +211,20 @@ async function lire(moteur: 'tesseract' | 'claude') {
 
 /** Fusionne page à page ; une page lue par un seul moteur garde cette lecture (et c'est noté). */
 async function fusionnerTout() {
-  const rapport: Record<string, { pages: number; reinseres: number; desaccords: number; claudeSeul: number; tesseractSeul: number; manquantes: number }> = {}
+  const rapport: Record<string, { pages: number; reinseres: number; desaccords: number; claudeSeul: number; tesseractSeul: number; repliTesseract: number; manquantes: number }> = {}
   for (const ref of readdirSync(travail!).filter((x) => /^LM\d{4}-/.test(x))) {
     const dir = join(travail!, ref)
     const ks = [...new Set(readdirSync(dir).map((f) => /^p(\d{3})\.(claude|tesseract)\.txt$/.exec(f)?.[1]).filter(Boolean))].sort() as string[]
-    const r = { pages: ks.length, reinseres: 0, desaccords: 0, claudeSeul: 0, tesseractSeul: 0, manquantes: 0 }
+    const r = { pages: ks.length, reinseres: 0, desaccords: 0, claudeSeul: 0, tesseractSeul: 0, repliTesseract: 0, manquantes: 0 }
     for (const k of ks) {
       const c = join(dir, `p${k}.claude.txt`)
       const t = join(dir, `p${k}.tesseract.txt`)
       let texte: string
-      if (existsSync(c) && existsSync(t)) {
+      if (claudeFaible(dir, k)) {
+        // Claude vide ou tronqué même après relecture : Tesseract complet vaut mieux qu'une page vide.
+        texte = tesseractPropre(readFileSync(t, 'utf8'))
+        r.repliTesseract++
+      } else if (existsSync(c) && existsSync(t)) {
         const f = fusionner(readFileSync(c, 'utf8'), readFileSync(t, 'utf8'))
         texte = f.texte
         r.reinseres += f.reinseres.length
@@ -213,7 +243,7 @@ async function fusionnerTout() {
   writeFileSync(join(travail!, '_fusion.json'), JSON.stringify(rapport, null, 1))
   const v = Object.values(rapport)
   const s = (k: keyof (typeof v)[number]) => v.reduce((n, x) => n + x[k], 0)
-  console.log(`${v.length} fascicule(s) · ${s('pages')} page(s) · ${s('reinseres')} passage(s) réinséré(s) depuis Tesseract · ${s('desaccords')} désaccord(s) · ${s('claudeSeul')} page(s) Claude seul · ${s('tesseractSeul')} Tesseract seul`)
+  console.log(`${v.length} fascicule(s) · ${s('pages')} page(s) · ${s('reinseres')} passage(s) réinséré(s) depuis Tesseract · ${s('desaccords')} désaccord(s) · ${s('claudeSeul')} page(s) Claude seul · ${s('tesseractSeul')} Tesseract seul · ${s('repliTesseract')} repli(s) sur Tesseract (Claude incomplet)`)
 }
 
 /** L'en-tête de provenance, débarrassé de sa clause devenue fausse (cf. verser-texte-moniteur-dans-corps). */
