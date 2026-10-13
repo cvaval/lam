@@ -327,7 +327,7 @@ async function geminiExtract(pdfBytes: Uint8Array, model: string): Promise<Extra
 
 // ── OCR intégral ──
 
-const OCR_PROMPT = `Tu es un moteur de reconnaissance de caractères (OCR) pour des documents juridiques officiels de la République d'Haïti (circulaires de la Banque de la République d'Haïti, Le Moniteur).
+export const OCR_PROMPT = `Tu es un moteur de reconnaissance de caractères (OCR) pour des documents juridiques officiels de la République d'Haïti (circulaires de la Banque de la République d'Haïti, Le Moniteur).
 Transcris FIDÈLEMENT et INTÉGRALEMENT le texte de ce document, page après page, dans l'ordre.
 Règles :
 - Restitue le texte tel qu'il apparaît : ne résume pas, ne reformule pas, ne traduis pas.
