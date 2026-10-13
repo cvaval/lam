@@ -26,6 +26,7 @@ import { parseRichBlocks, buildBodySegments, tableShortCaption, type RichTable }
 import { CodeThemeBrowser, type ThemeArticle } from '@/components/CodeThemeBrowser'
 import { expandQuery } from '@/lib/search/synonyms'
 import { parseEditionHeader } from '@/lib/doc/edition-meta'
+import { actesDuFascicule, editionDuFascicule } from '@/lib/moniteur/renvois-index'
 import { pickLocale } from '@/lib/i18n/pick'
 import { DOC_TYPE_META } from '@/lib/brand'
 import type { DocType, DocStatus, Locale } from '@/lib/types'
@@ -496,6 +497,20 @@ export default async function DocPage({
 
   const editionHeader = parseEditionHeader(doc.metaJson)
 
+  /**
+   * RENVOIS INDEX ⇄ ÉDITIONS. Une entrée d'Index désigne un acte publié dans un fascicule ; le
+   * fascicule porte le fac-similé et la transcription. Sans ce renvoi, la fiche d'Index annonçait
+   * « sans le texte intégral » alors que le fascicule était en ligne (demande du 12 oct. 2026), et
+   * la fiche du fascicule ne disait pas quels actes il publie. Références comparées sans tirets ni
+   * casse (cf. renvois-index.ts) : l'Index écrit « LM2020-99A », les Éditions « LM2020-99-A ».
+   */
+  const [editionIndex, actesFascicule] = await Promise.all([
+    isIndex ? editionDuFascicule(doc.number) : Promise.resolve(null),
+    isScannedEdition ? actesDuFascicule(doc.number) : Promise.resolve([]),
+  ])
+  // Les fascicules relèvent du service « Législation » (Éditions Le Moniteur) ; l'Index, lui, est ouvert à tous.
+  const lireEditions = canReadService(user, 'LEGISLATION')
+
   return (
     <article className={`mx-auto space-y-6 ${annotations ? 'max-w-6xl' : 'max-w-3xl'}`}>
       <BackLink fallback={`/${locale}/search?type=${meta.slug}`} label={meta.label[locale]} />
@@ -671,7 +686,21 @@ export default async function DocPage({
 
       {isIndex && (
         <div className="rounded-xl border border-chabon/30 bg-pil px-4 py-2.5 text-sm text-chabon">
-          {t.doc.indexNote}
+          {editionIndex ? t.doc.indexNoteWithEdition : t.doc.indexNote}
+          {editionIndex &&
+            (lireEditions ? (
+              <div className="mt-2">
+                <Link
+                  href={`/${locale}/doc/${editionIndex.id}#${ANCRE_TEXTE}`}
+                  className="inline-flex items-center gap-2 rounded-lg bg-chabon px-3 py-1.5 text-sm font-semibold text-white hover:bg-chabon"
+                >
+                  → {t.doc.indexOpenEdition} ({editionIndex.number})
+                </Link>
+              </div>
+            ) : (
+              <p className="mt-1 text-xs text-ank/80">{t.doc.indexEditionRestricted}</p>
+            ))}
+          {!editionIndex && doc.number && <p className="mt-1 text-xs text-ank/80">{t.doc.indexEditionMissing}</p>}
         </div>
       )}
 
@@ -769,6 +798,21 @@ export default async function DocPage({
               <p className="text-xs text-ank/80">{t.doc.pdfNotIncluded}</p>
             )}
           </div>
+          {actesFascicule.length > 0 && (
+            <div className="mt-6 border-t border-chabon/10 pt-5">
+              <h2 className="mb-1 text-sm font-semibold text-ank">{t.doc.editionActsHeading}</h2>
+              <p className="mb-3 text-xs text-ank/80">{t.doc.editionActsNote}</p>
+              <ul className="space-y-1.5">
+                {actesFascicule.map((a) => (
+                  <li key={a.id}>
+                    <Link href={`/${locale}/doc/${a.id}`} className="text-sm text-chabon hover:underline">
+                      {a.titleFr}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           {transcription && (
             <div id={ANCRE_TEXTE} className="mt-6 scroll-mt-4 border-t border-chabon/10 pt-5">
               <h2 className="mb-3 text-sm font-semibold text-ank">{t.doc.transcriptionHeading}</h2>

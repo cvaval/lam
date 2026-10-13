@@ -438,6 +438,12 @@ export const ht: Dictionary = {
     keywords: 'Mo kle',
     verified: 'Dokiman verifye',
     indexNote: "Fich Endèks Monitè a : li bay referans ak dat piblikasyon an, san tèks konplè a.",
+    indexNoteWithEdition: "Fich Endèks Monitè a : li bay referans ak dat piblikasyon an. Tèks konplè a nan nimewo a.",
+    indexOpenEdition: 'Li tèks konplè a nan nimewo a',
+    indexEditionMissing: 'Nimewo ki pibliye tèks sa a poko eskane sou platfòm nan.',
+    indexEditionRestricted: 'Tèks konplè a nan Edisyon Monitè yo, ki pa fè pati abònman ou.',
+    editionActsHeading: 'Tèks ki pibliye nan nimewo sa a',
+    editionActsNote: 'Dapre Endèks Monitè a — chak tit louvri fich li.',
   },
   legal: {
     back: 'Retounen nan akèy',

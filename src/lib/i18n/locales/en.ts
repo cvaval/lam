@@ -438,6 +438,12 @@ export const en: Dictionary = {
     keywords: 'Keywords',
     verified: 'Verified document',
     indexNote: "Moniteur Index entry: it gives the publication reference and date, without the full text.",
+    indexNoteWithEdition: "Moniteur Index entry: it gives the publication reference and date. The full text is in the issue.",
+    indexOpenEdition: 'Read the full text in the issue',
+    indexEditionMissing: 'The issue publishing this act is not yet digitized on the platform.',
+    indexEditionRestricted: 'The full text is in Éditions Le Moniteur, which is not part of your subscription.',
+    editionActsHeading: 'Texts published in this issue',
+    editionActsNote: 'From the Moniteur Index — each title opens its entry.',
   },
   legal: {
     back: 'Back to home',

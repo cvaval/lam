@@ -752,6 +752,12 @@ export const fr = {
     keywords: 'Mots-clés',
     verified: 'Dokiman verifye',
     indexNote: "Fiche de l’Index du Moniteur : elle donne la référence et la date de publication, sans le texte intégral.",
+    indexNoteWithEdition: "Fiche de l’Index du Moniteur : elle donne la référence et la date de publication. Le texte intégral se lit dans le fascicule.",
+    indexOpenEdition: 'Lire le texte intégral dans le fascicule',
+    indexEditionMissing: 'Le fascicule qui publie cet acte n’est pas encore numérisé sur la plateforme.',
+    indexEditionRestricted: 'Le texte intégral se lit dans les Éditions Le Moniteur, qui ne font pas partie de votre abonnement.',
+    editionActsHeading: 'Textes publiés dans ce numéro',
+    editionActsNote: 'D’après l’Index du Moniteur — chaque titre ouvre sa fiche.',
   },
   legal: {
     back: 'Retour à l’accueil',
