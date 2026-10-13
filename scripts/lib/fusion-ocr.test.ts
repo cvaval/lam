@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { aligner, debris, fusionner, tesseractPropre } from './fusion-ocr'
+import { SEUIL_LISIBLE, aligner, debris, fusionner, partLisible, tesseractPropre } from './fusion-ocr'
 
 describe('fusionner — Claude complété par Tesseract', () => {
   it('réinsère deux mots que Claude a sautés (LM2020-50 : « sur ordinateur »)', () => {
@@ -70,6 +70,13 @@ describe('outils', () => {
     expect(debris('No. 50 - Mardi 15 Mars 2016')).toBe(true)
     expect(debris('æ,wä ’æ._')).toBe(true)
     expect(debris('sur ordinateur')).toBe(false)
+  })
+  it('partLisible : un tableau lu à l’envers par Tesseract n’est pas un texte', () => {
+    const voc = new Set(['titre', 'depenses', 'personnel', 'biens', 'services', 'ministere', 'budget', 'general'])
+    expect(partLisible('TITRE I Dépenses de Personnel · TITRE II Dépenses de Biens et Services', voc)).toBeGreaterThanOrEqual(SEUIL_LISIBLE)
+    // Ligne réelle de Tesseract, Spécial n° 8 de 2020, p. 27 :
+    expect(partLisible('Jeuuosiad ap sasuadag | 3H1IL sao|AJ9S }9 SU3IG ap sesuedaa || 3HLIL', voc)).toBeLessThan(0.2)
+    expect(partLisible('', voc)).toBe(0)
   })
   it('aligner rend des opérations à la difflib', () => {
     const ops = aligner(['a', 'b', 'c', 'd'], ['a', 'c', 'd', 'e'])

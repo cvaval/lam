@@ -123,6 +123,22 @@ export function formeVocabulaire(w: string): string {
 }
 
 /**
+ * Part des mots (3 lettres et plus) d'un texte que Claude écrit ailleurs dans le corpus.
+ *
+ * ⚠️ LE NOMBRE DE MOTS DE TESSERACT NE DIT PAS QU'IL A LU. Sur les tableaux budgétaires imprimés en
+ * travers (Spéciaux 2019-2024), Tesseract lit le texte à l'envers — « sasuadaq » pour « dépenses » —
+ * et rend 400 « mots » là où Claude, honnête, en transcrit 150 et signale le reste illisible. Le
+ * repli sur Tesseract y aurait versé du charabia (13 oct. 2026 : 42 pages sur 44). Mesures : page
+ * ordinaire ≥ 0,95 ; tableau tourné 0,04-0,10 ; coupon d'abonnement à pointillés ≈ 0,78.
+ */
+export function partLisible(texte: string, vocabulaire: Set<string>): number {
+  const mots = (texte.match(/\p{L}{3,}/gu) ?? []).map(formeVocabulaire)
+  return mots.length ? mots.filter((m) => vocabulaire.has(m)).length / mots.length : 0
+}
+/** Seuil au-dessus duquel la lecture de Tesseract peut remplacer une lecture de Claude incomplète. */
+export const SEUIL_LISIBLE = 0.9
+
+/**
  * Texte de Claude, complété des mots que Tesseract a lus et que Claude a sautés.
  * `vocabulaire` (facultatif) : les mots que Claude emploie dans tout le corpus. Fourni, il exige
  * que chaque mot réinséré y figure — un mot que Claude n'écrit NULLE PART est une faute ou un débris

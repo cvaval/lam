@@ -39,7 +39,7 @@ import { PrismaClient } from '@prisma/client'
 import { OCR_PROMPT, cleanOcrText } from '../src/lib/ai/extract'
 import { buildSearchText, fold } from '../src/lib/search/normalize'
 import { getPrivateBlob, isBlobUrl } from '../src/lib/storage/blob'
-import { formeVocabulaire, fusionner, tesseractPropre } from './lib/fusion-ocr'
+import { SEUIL_LISIBLE, formeVocabulaire, fusionner, partLisible, tesseractPropre } from './lib/fusion-ocr'
 
 const prisma = new PrismaClient()
 // ⚠️ ASYNCHRONE, OU LE « PARALLÈLE » EST UN LEURRE : `execFileSync` bloque la boucle d'événements,
@@ -218,7 +218,7 @@ async function lire(moteur: 'tesseract' | 'claude') {
   console.log(`✅ ${moteur} : ${faites} page(s) lue(s), ${echecs} échec(s) (relancer : les pages lues sont sautées)`)
 }
 
-type ModeFusion = 'fusion' | 'claudeSeul' | 'tesseractSeul' | 'repliTesseract'
+type ModeFusion = 'fusion' | 'claudeSeul' | 'tesseractSeul' | 'repliTesseract' | 'claudeGarde' | 'illisible'
 type StatPage = { mode: ModeFusion; reinseres: number; desaccords: number }
 const lireStats = (dir: string): Record<string, StatPage> => (existsSync(join(dir, '_fusion.json')) ? JSON.parse(readFileSync(join(dir, '_fusion.json'), 'utf8')) : {})
 const mtime = (f: string) => (existsSync(f) ? statSync(f).mtimeMs : 0)
@@ -235,7 +235,7 @@ const fusionAJour = (dir: string, k: string) => {
  */
 async function fusionnerTout() {
   const tout = args.includes('--tout')
-  const rapport: Record<string, { pages: number; reinseres: number; desaccords: number; claudeSeul: number; tesseractSeul: number; repliTesseract: number }> = {}
+  const rapport: Record<string, { pages: number; reinseres: number; desaccords: number; claudeSeul: number; tesseractSeul: number; repliTesseract: number; claudeGarde: number; illisible: number }> = {}
   // Vocabulaire de Claude sur TOUT le corpus lu : un mot que Claude n'écrit nulle part n'est pas une
   // omission mais une faute ou un débris de Tesseract (audit du 12 oct. : 271 → 55 réinsertions).
   const refs = readdirSync(travail!).filter((x) => /^LM\d{4}-/.test(x))
@@ -257,9 +257,17 @@ async function fusionnerTout() {
       let texte: string
       let s: StatPage = { mode: 'fusion', reinseres: 0, desaccords: 0 }
       if (claudeFaible(dir, k)) {
-        // Claude vide ou tronqué même après relecture : Tesseract complet vaut mieux qu'une page vide.
-        texte = tesseractPropre(readFileSync(t, 'utf8'))
-        s.mode = 'repliTesseract'
+        // Claude vide ou tronqué même après relecture : Tesseract complet vaut mieux qu'une page vide —
+        // À CONDITION QU'IL AIT LU. Sur un tableau imprimé en travers, ses « mots » sont du texte à
+        // l'envers (cf. `partLisible`) : la lecture partielle de Claude, qui le signale, est gardée.
+        const tt = tesseractPropre(readFileSync(t, 'utf8'))
+        if (partLisible(tt, vocabulaire) >= SEUIL_LISIBLE) {
+          texte = tt
+          s.mode = 'repliTesseract'
+        } else {
+          texte = readFileSync(c, 'utf8')
+          s.mode = 'claudeGarde'
+        }
       } else if (existsSync(c) && existsSync(t)) {
         const f = fusionner(readFileSync(c, 'utf8'), readFileSync(t, 'utf8'), vocabulaire)
         texte = f.texte
@@ -268,9 +276,16 @@ async function fusionnerTout() {
         texte = readFileSync(c, 'utf8')
         s.mode = 'claudeSeul'
       } else {
-        // Tesseract brut porte les débris de marge : la même toilette que pour le repli.
-        texte = tesseractPropre(readFileSync(t, 'utf8'))
-        s.mode = 'tesseractSeul'
+        // Tesseract brut porte les débris de marge : la même toilette que pour le repli. Illisible
+        // (Claude refusé — filtre de contenu — sur un tableau tourné), on le dit plutôt que de le verser.
+        const tt = tesseractPropre(readFileSync(t, 'utf8'))
+        if (partLisible(tt, vocabulaire) >= SEUIL_LISIBLE) {
+          texte = tt
+          s.mode = 'tesseractSeul'
+        } else {
+          texte = `[Page ${Number(k)} non transcrite : se reporter au fac-similé.]`
+          s.mode = 'illisible'
+        }
       }
       writeFileSync(join(dir, `p${k}.fusion.txt`), texte)
       stats[k] = s
@@ -285,12 +300,14 @@ async function fusionnerTout() {
       claudeSeul: n('claudeSeul'),
       tesseractSeul: n('tesseractSeul'),
       repliTesseract: n('repliTesseract'),
+      claudeGarde: n('claudeGarde'),
+      illisible: n('illisible'),
     }
   }
   writeFileSync(join(travail!, '_fusion.json'), JSON.stringify(rapport, null, 1))
   const v = Object.values(rapport)
   const s = (k: keyof (typeof v)[number]) => v.reduce((n, x) => n + x[k], 0)
-  console.log(`${v.length} fascicule(s) · ${s('pages')} page(s) · ${s('reinseres')} passage(s) réinséré(s) depuis Tesseract · ${s('desaccords')} désaccord(s) · ${s('claudeSeul')} page(s) Claude seul · ${s('tesseractSeul')} Tesseract seul · ${s('repliTesseract')} repli(s) sur Tesseract (Claude incomplet)`)
+  console.log(`${v.length} fascicule(s) · ${s('pages')} page(s) · ${s('reinseres')} passage(s) réinséré(s) depuis Tesseract · ${s('desaccords')} désaccord(s) · ${s('claudeSeul')} page(s) Claude seul · ${s('tesseractSeul')} Tesseract seul · ${s('repliTesseract')} repli(s) sur Tesseract (Claude incomplet) · ${s('claudeGarde')} page(s) où Claude est gardé (Tesseract illisible) · ${s('illisible')} illisible(s)`)
 }
 
 /** L'en-tête de provenance, débarrassé de sa clause devenue fausse (cf. verser-texte-moniteur-dans-corps). */
