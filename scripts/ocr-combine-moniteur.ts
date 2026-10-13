@@ -23,7 +23,8 @@
  * transcription. L'index (`searchText`) est reconstruit du même texte, jamais à la baisse.
  * `metaJson.ocr` garde la provenance. Le fac-similé reste la source citable.
  */
-import { execFileSync } from 'node:child_process'
+import { execFile, execFileSync } from 'node:child_process'
+import { promisify } from 'node:util'
 import { appendFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -35,6 +36,9 @@ import { getPrivateBlob, isBlobUrl } from '../src/lib/storage/blob'
 import { fusionner } from './lib/fusion-ocr'
 
 const prisma = new PrismaClient()
+// ⚠️ ASYNCHRONE, OU LE « PARALLÈLE » EST UN LEURRE : `execFileSync` bloque la boucle d'événements,
+// et huit « travailleurs » s'exécutaient alors un par un — 23 pages/min au lieu de 300.
+const executer = promisify(execFile)
 const MODELE = process.env.LV_AI_MODEL || 'claude-haiku-5-5'
 
 interface Cible {
@@ -144,11 +148,11 @@ async function lire(moteur: 'tesseract' | 'claude') {
     try {
       let texte: string
       if (moteur === 'tesseract') {
-        execFileSync('pdftoppm', ['-f', String(t.page), '-l', String(t.page), '-r', '300', '-gray', '-png', '-singlefile', t.part, join(tmp, 'p')], { stdio: 'ignore' })
-        execFileSync('tesseract', [join(tmp, 'p.png'), join(tmp, 'p'), '-l', 'fra', '--psm', '3'], { stdio: 'ignore' })
+        await executer('pdftoppm', ['-f', String(t.page), '-l', String(t.page), '-r', '300', '-gray', '-png', '-singlefile', t.part, join(tmp, 'p')])
+        await executer('tesseract', [join(tmp, 'p.png'), join(tmp, 'p'), '-l', 'fra', '--psm', '3'])
         texte = readFileSync(join(tmp, 'p.txt'), 'utf8')
       } else {
-        execFileSync('pdfseparate', ['-f', String(t.page), '-l', String(t.page), t.part, join(tmp, 'p.pdf')], { stdio: 'ignore' })
+        await executer('pdfseparate', ['-f', String(t.page), '-l', String(t.page), t.part, join(tmp, 'p.pdf')])
         const data = readFileSync(join(tmp, 'p.pdf')).toString('base64')
         const m = await appel(() =>
           client!.messages
