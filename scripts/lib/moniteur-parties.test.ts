@@ -64,6 +64,15 @@ describe('decouperEnEditions — ordre des pages et noms trompeurs', () => {
     expect(eds.every((e) => e.rectifications.length === 0)).toBe(true)
   })
 
+  it('une partie mal nommée prolonge l’édition qu’elle pagine, pas la dernière ouverte', () => {
+    const eds = decouperEnEditions('SP-13-', [
+      { nom: 'Spécial No. 13 (1-20 pages).pdf', cle: 'SP-13-' },
+      { nom: 'Spécial No. 13-A (1-10 pages).pdf', cle: 'SP-13-A' },
+      { nom: 'Spécial No. 14 (21-40 pages).pdf', cle: 'SP-14-' },
+    ])
+    expect(eds.map((e) => [e.cle, e.parties.length])).toEqual([['SP-13-', 2], ['SP-13-A', 1]])
+  })
+
   it('une première partie qui ne commence pas à la page 1 est une anomalie', () => {
     expect(() => decouperEnEditions('SP-9-', [{ nom: 'No. 9 (21-40 pages).pdf', cle: 'SP-9-' }])).toThrow(/page 21/)
   })

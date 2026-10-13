@@ -178,7 +178,11 @@ async function main() {
     process.exit(1)
   }
   const indexDepuis = Number(opt('--index-depuis') ?? 2001)
-  const debutSeance = opt('--depuis') ? new Date(opt('--depuis')!) : new Date(new Date().toISOString().slice(0, 10))
+  // ⚠️ AUDIT DU 12 OCT. 2026 : « aujourd'hui » pris à minuit UTC basculait au lendemain dès 20 h à
+  // Port-au-Prince (UTC-4) — un rapport tiré le soir annonçait « 0 versé ». Le statut « versé » se
+  // lit désormais dans l'inventaire (« à verser » ET présent en base) ; `--depuis` ne sert plus qu'à
+  // repérer les fiches versées HORS inventaire (ex. le n° 18 de 2022, scindé du n° 17).
+  const debutSeance = opt('--depuis') ? new Date(opt('--depuis')!) : null
   const lots = new Map<number, LotIndex>()
   const dossierIndex = opt('--index')
   if (dossierIndex) {
@@ -253,8 +257,17 @@ async function main() {
     if (final) {
       // ── RAPPORT FINAL : la base fait foi ──
       const dansDossier = new Map(inv.fascicules.map((f) => [sansTiret(f.ref), f]))
-      const versees = [...base.values()].filter((b) => b.creeLe >= debutSeance)
-      const ecartees = inv.fascicules.filter((f) => f.statut === 'a-verser' && !base.has(sansTiret(f.ref)))
+      const versesInventaire = inv.fascicules.filter((f) => f.statut === 'a-verser' && base.has(sansTiret(f.ref))).map((f) => base.get(sansTiret(f.ref))!)
+      // À défaut de --depuis : le plus ancien versement de l'inventaire marque le début de la séance.
+      const debut = debutSeance ?? (versesInventaire.length ? new Date(Math.min(...versesInventaire.map((b) => b.creeLe.getTime()))) : null)
+      const horsInventaire = [...base.values()].filter((b) => !dansDossier.has(sansTiret(b.number)) && debut && b.creeLe >= debut)
+      const versees = [...versesInventaire, ...horsInventaire]
+      const absentes = inv.fascicules.filter((f) => f.statut === 'a-verser' && !base.has(sansTiret(f.ref)))
+      // « Écarté » se dit d'un fascicule dont l'écart est MOTIVÉ (--ecarts) ; un absent sans motif
+      // (millésime pas encore versé, fiche sautée) est seulement « non versé ».
+      const motive = (f: Fascicule) => ecarts.some((e) => e.annee === an && e.objet.startsWith(`${f.ref} `) && /ÉCARTÉ/.test(e.objet))
+      const ecartees = absentes.filter(motive)
+      const nonVersees = absentes.filter((f) => !motive(f))
       const deja = inv.fascicules.filter((f) => f.statut === 'deja-en-base')
       const lot = lots.get(an)
       // « Proposées » = décision « créer » ; « à relire » = tout le reste qui n'est pas déjà à l'Index.
@@ -265,10 +278,8 @@ async function main() {
       const toutes = new Set([...dansDossier.keys(), ...base.keys()])
       const sansIndex = [...toutes].filter((k) => !entreesIndex.get(k)).length
       const lignesAnnee: Ecart[] = [
-        // Un écart déjà motivé dans --ecarts (ex. « LM2022-111 — ÉCARTÉ (règle des 20 %) ») n'est pas répété.
-        ...ecartees
-          .filter((f) => !ecarts.some((e) => e.annee === an && e.objet.startsWith(`${f.ref} `)))
-          .map((f) => ({ annee: an, objet: `${numero(f, an)} — ÉCARTÉ, non versé`, detail: basename(f.fichiers[0]) })),
+        // Les écartés sont motivés dans --ecarts (repris plus bas) ; les absents sans motif sont signalés ici.
+        ...nonVersees.map((f) => ({ annee: an, objet: `${numero(f, an)} — NON VERSÉ`, detail: `${basename(f.fichiers[0])} — absent de la base, sans motif d'écart : à verser` })),
         ...versees.filter((b) => !b.enLigne).map((b) => ({ annee: an, objet: `${b.number} — PDF pas encore en ligne`, detail: 'téléversement vers Blob à reprendre' })),
         ...versees.filter((b) => b.dateSource !== 'ocr').map((b) => ({ annee: an, objet: `${b.number} — date provisoire`, detail: 'la manchette n’a pas pu être lue ; date du nom de fichier ou 1er du mois' })),
         ...(lot?.illisibles.length ? [{ annee: an, objet: `${lot.illisibles.length} fascicule(s) au sommaire illisible — Index à compléter à la main`, detail: lot.illisibles.join(', ') }] : []),
@@ -313,7 +324,7 @@ async function main() {
         const b = base.get(k)
         vues.add(k)
         if (b) lignes.push(ligneBase(b, f, f.statut === 'a-verser' ? `versé${b.enLigne ? '' : ' (PDF hors ligne)'}` : 'déjà en base'))
-        else lignes.push({ cle: k, date: null, tri: f.num, cells: [[numero(f, an)], [`${MOIS[f.monthIdx]} ${an}`], [f.label, [run(basename(f.fichiers[0]), { size: 14, color: GRIS })]], [f.ref], [String(f.pages)], ['écarté (incomplet)']] })
+        else lignes.push({ cle: k, date: null, tri: f.num, cells: [[numero(f, an)], [`${MOIS[f.monthIdx]} ${an}`], [f.label, [run(basename(f.fichiers[0]), { size: 14, color: GRIS })]], [f.ref], [String(f.pages)], [motive(f) ? 'écarté (incomplet)' : 'non versé']] })
       }
       for (const b of versees) if (!vues.has(sansTiret(b.number))) lignes.push(ligneBase(b, undefined, 'versé (retrouvé)'))
       lignes.sort((a, b) => (a.date?.getTime() ?? 0) - (b.date?.getTime() ?? 0) || a.cle.localeCompare(b.cle, 'fr', { numeric: true }))
@@ -322,7 +333,7 @@ async function main() {
       corps.push(
         para(
           `${inv.fascicules.length} fascicule(s) dans le dossier · ${deja.length} déjà en base · ${versees.length} versé(s) · ` +
-            `${ecartees.length} écarté(s) · ${versees.filter((b) => b.dateSource === 'ocr').length} date(s) lue(s) sur la manchette · ` +
+            `${ecartees.length} écarté(s)${nonVersees.length ? ` · ${nonVersees.length} non versé(s)` : ''} · ${versees.filter((b) => b.dateSource === 'ocr').length} date(s) lue(s) sur la manchette · ` +
             `${sansIndex} fascicule(s) sans entrée d'Index` +
             (lot ? ` · Index : ${aCreer.length} entrée(s) proposée(s), ${aRelire.length} à relire.` : '.'),
           160,

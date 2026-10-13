@@ -35,6 +35,12 @@ export function debutDePlage(nom: string): number | null {
   return m ? Number(m[1]) : null
 }
 
+/** Dernière page de la plage écrite dans le nom, ou null. */
+export function finDePlage(nom: string): number | null {
+  const m = nom.normalize('NFC').match(/\(\s*\d+\s*-\s*(\d+)\s*pages?\s*\)/i)
+  return m ? Number(m[1]) : null
+}
+
 export interface PartieNommee {
   /** Nom du fichier (sans chemin). */
   nom: string
@@ -88,9 +94,15 @@ export function decouperEnEditions(cleDossier: string, parties: PartieNommee[]):
       editions.push({ cle: p.cle ?? cleDossier, parties: [p.nom], rectifications: [] })
       continue
     }
-    courante.parties.push(p.nom)
-    if (p.cle && p.cle !== courante.cle) {
-      courante.rectifications.push(`« ${p.nom} » nommé ${p.cle} : pages ${debut} et suivantes de ${courante.cle}`)
+    // La suite va à l'édition dont la dernière page précède la sienne (« 13 (1-20) » ← « 14 (21-40) »),
+    // pas forcément à la dernière ouverte : dans un dossier « 13, 13-A (1-10), 14 (21-40) », la partie
+    // mal nommée prolonge le n° 13, pas le 13-A (relecture du 12 oct. 2026).
+    const suivie =
+      editions.find((e) => finDePlage(e.parties[e.parties.length - 1]) === debut - 1 && (e.cle === p.cle || !editions.some((x) => x.cle === p.cle && finDePlage(x.parties[x.parties.length - 1]) === debut - 1))) ??
+      courante
+    suivie.parties.push(p.nom)
+    if (p.cle && p.cle !== suivie.cle) {
+      suivie.rectifications.push(`« ${p.nom} » nommé ${p.cle} : pages ${debut} et suivantes de ${suivie.cle}`)
     }
   }
   return editions

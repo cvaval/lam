@@ -27,7 +27,7 @@
  */
 import { execFile, execFileSync } from 'node:child_process'
 import { promisify } from 'node:util'
-import { appendFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
+import { appendFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import Anthropic from '@anthropic-ai/sdk'
@@ -35,7 +35,7 @@ import { PrismaClient } from '@prisma/client'
 import { OCR_PROMPT, cleanOcrText } from '../src/lib/ai/extract'
 import { buildSearchText, fold } from '../src/lib/search/normalize'
 import { getPrivateBlob, isBlobUrl } from '../src/lib/storage/blob'
-import { fusionner, tesseractPropre } from './lib/fusion-ocr'
+import { formeVocabulaire, fusionner, tesseractPropre } from './lib/fusion-ocr'
 
 const prisma = new PrismaClient()
 // ⚠️ ASYNCHRONE, OU LE « PARALLÈLE » EST UN LEURRE : `execFileSync` bloque la boucle d'événements,
@@ -83,7 +83,9 @@ async function cibles(): Promise<Cible[]> {
     FROM "Document"
     WHERE type = 'LEGISLATION' AND source LIKE 'MONITEUR_PDF_%'
       AND length(btrim(regexp_replace("bodyOriginal", '^\\[[^]]*\\]', ''))) = 0
-      AND coalesce(length("searchText"), 0) < 200 * coalesce(nullif(substring("metaJson" from '"pages":(\\d+)'), '')::int, 1)
+      -- ⚠️ « pages »: 0 (ancien compteur, avant le repli pdfinfo) rendait le seuil nul : 15 fiches
+      -- sans texte se croyaient cherchables. On compte au moins une page.
+      AND coalesce(length("searchText"), 0) < 200 * greatest(coalesce(nullif(substring("metaJson" from '"pages":(\\d+)'), '')::int, 1), 1)
     ORDER BY "publicationDate", number`
   return lignes
     .filter((l) => (!annees || annees.includes(l.source.slice(13))) && (!refs || refs.includes(l.number)))
@@ -110,7 +112,10 @@ function localiser(): (c: Cible) => Promise<string[]> {
       const b = await getPrivateBlob(c.sourcePdfUrl)
       if (!b?.stream) throw new Error(`${c.number} : blob introuvable`)
       mkdirSync(join(travail!, c.number), { recursive: true })
-      writeFileSync(cache, Buffer.from(await new Response(b.stream).arrayBuffer()))
+      // Écrit puis renommé : l'autre moteur, qui tourne en parallèle, ne lit jamais un fichier à moitié écrit.
+      const partiel = `${cache}.${process.pid}.part`
+      writeFileSync(partiel, Buffer.from(await new Response(b.stream).arrayBuffer()))
+      renameSync(partiel, cache)
     }
     return [cache]
   }
@@ -212,7 +217,17 @@ async function lire(moteur: 'tesseract' | 'claude') {
 /** Fusionne page à page ; une page lue par un seul moteur garde cette lecture (et c'est noté). */
 async function fusionnerTout() {
   const rapport: Record<string, { pages: number; reinseres: number; desaccords: number; claudeSeul: number; tesseractSeul: number; repliTesseract: number; manquantes: number }> = {}
-  for (const ref of readdirSync(travail!).filter((x) => /^LM\d{4}-/.test(x))) {
+  // Vocabulaire de Claude sur TOUT le corpus lu : un mot que Claude n'écrit nulle part n'est pas une
+  // omission mais une faute ou un débris de Tesseract (audit du 12 oct. : 271 → 55 réinsertions).
+  const refs = readdirSync(travail!).filter((x) => /^LM\d{4}-/.test(x))
+  const vocabulaire = new Set<string>()
+  for (const ref of refs)
+    for (const f of readdirSync(join(travail!, ref)).filter((x) => x.endsWith('.claude.txt')))
+      for (const w of readFileSync(join(travail!, ref, f), 'utf8').split(/\s+/)) {
+        const v = formeVocabulaire(w)
+        if (v) vocabulaire.add(v)
+      }
+  for (const ref of refs) {
     const dir = join(travail!, ref)
     const ks = [...new Set(readdirSync(dir).map((f) => /^p(\d{3})\.(claude|tesseract)\.txt$/.exec(f)?.[1]).filter(Boolean))].sort() as string[]
     const r = { pages: ks.length, reinseres: 0, desaccords: 0, claudeSeul: 0, tesseractSeul: 0, repliTesseract: 0, manquantes: 0 }
@@ -225,7 +240,7 @@ async function fusionnerTout() {
         texte = tesseractPropre(readFileSync(t, 'utf8'))
         r.repliTesseract++
       } else if (existsSync(c) && existsSync(t)) {
-        const f = fusionner(readFileSync(c, 'utf8'), readFileSync(t, 'utf8'))
+        const f = fusionner(readFileSync(c, 'utf8'), readFileSync(t, 'utf8'), vocabulaire)
         texte = f.texte
         r.reinseres += f.reinseres.length
         r.desaccords += f.desaccords.length
@@ -257,6 +272,7 @@ const mots = (s: string) => (s.match(/\S+/g) ?? []).length
 async function ecrire() {
   const commit = args.includes('--commit')
   const liste = await cibles()
+  const loc = localiser()
   const rapport = JSON.parse(readFileSync(join(travail!, '_fusion.json'), 'utf8')) as Record<string, { pages: number }>
   let ecrites = 0
   let incompletes = 0
@@ -265,8 +281,10 @@ async function ecrire() {
     const dir = join(travail!, c.number)
     const r = rapport[c.number]
     // Toutes les pages doivent être lues : un fascicule à moitié transcrit ferait croire au lecteur
-    // que la fiche est complète.
-    if (!r || r.pages < c.pages) {
+    // que la fiche est complète. ⚠️ On compte les pages des FICHIERS, pas `metaJson.pages`, qui vaut
+    // 0 ou manque sur des fiches anciennes (audit du 12 oct.).
+    const pagesReelles = (await loc(c)).reduce((n, f) => n + nbPages(f), 0)
+    if (!r || r.pages < pagesReelles) {
       incompletes++
       continue
     }
@@ -278,6 +296,7 @@ async function ecrire() {
     const indexe = [buildSearchText({ titleFr: d.titleFr, number: c.number, moniteurRef: d.moniteurRef }), fold(texte)].filter(Boolean).join(' ')
     const meta = JSON.parse(d.metaJson ?? '{}')
     meta.ocr = { moteurs: `${MODELE} + tesseract-fra`, date: new Date().toISOString().slice(0, 10), pages: ks.length }
+    if (!meta.pages) meta.pages = pagesReelles
     if (exemples.length < 3) exemples.push(`${c.number} · ${ks.length} p. · ${texte.length.toLocaleString('fr-FR')} c. · « ${texte.slice(0, 160).replace(/\s+/g, ' ')}… »`)
     if (commit) {
       await prisma.document.update({

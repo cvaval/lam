@@ -34,6 +34,14 @@ const MOIS = 'janvier|f[ée]vrier|mars|avril|mai|juin|juillet|ao[ûu]t|septembre
 
 /** Ce que Tesseract lit et que Claude omet à raison : titre courant, bruit de numérisation. */
 export function debris(txt: string): boolean {
+  // Un caractère hors du français imprimé (« ÿUÀŒCM‘ », « Ér#t/ », « ®'f'ﬁ ») trahit une lecture de
+  // signature ou de tampon : jamais repris.
+  if (/[^\p{L}\p{N}\s'’\-.,;:()«»"°/&%]|[ÿŒœ®©#|_~^<>{}[\]\\]/u.test(txt)) return true
+  // Un même mot répété (« Nicolas Nicolas ») : cellule de tableau lue deux fois, pas une phrase.
+  const ws = txt.split(/\s+/).filter(Boolean)
+  if (ws.length >= 2 && ws.every((w) => w.toLowerCase() === ws[0].toLowerCase())) return true
+  // Lettres isolées (« m W e ») : bruit, pas des mots — hormis « à », « a », « y ».
+  if (txt.split(/\s+/).some((w) => /^\p{L}$/u.test(w) && !/^[àay]$/i.test(w))) return true
   // Titre courant (« N° 50 - Mardi 17 Mars 2020 ») : Claude l'omet exprès.
   if (new RegExp(`(lundi|mardi|mercredi|jeudi|vendredi)\\s+\\d{1,2}\\s+(${MOIS})\\s+\\d{4}`, 'i').test(txt)) return true
   // Pied d'imprimeur (« Tirage : 850 exemplaires », « PRESSES NATIONALES D'HAÏTI ») : déplacé, jamais omis.
@@ -109,8 +117,18 @@ export interface Fusion {
   desaccords: { tesseract: string; claude: string }[]
 }
 
-/** Texte de Claude, complété des mots que Tesseract a lus et que Claude a sautés. */
-export function fusionner(claude: string, tesseract: string): Fusion {
+/** Forme de vocabulaire d'un mot : minuscules, sans accents ni ponctuation de bord. */
+export function formeVocabulaire(w: string): string {
+  return w.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/’/g, "'").replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '')
+}
+
+/**
+ * Texte de Claude, complété des mots que Tesseract a lus et que Claude a sautés.
+ * `vocabulaire` (facultatif) : les mots que Claude emploie dans tout le corpus. Fourni, il exige
+ * que chaque mot réinséré y figure — un mot que Claude n'écrit NULLE PART est une faute ou un débris
+ * de Tesseract (« Coillationnée », « SHETETEENTE », « ASSAGNOL »), pas une omission.
+ */
+export function fusionner(claude: string, tesseract: string, vocabulaire?: Set<string>): Fusion {
   const base = claude.normalize('NFC')
   const H = jetons(base)
   const T = jetons(tesseractPropre(tesseract))
@@ -126,6 +144,17 @@ export function fusionner(claude: string, tesseract: string): Fusion {
   const occurrences = (meule: string, aiguille: string) => meule.split(aiguille).length - 1
   const basePlate = plat(base)
   const tessPlate = plat(T.map((x) => x.mot).join(' '))
+  // Couverture par PAIRES de mots pleins (≥ 3 lettres) : une paire est « couverte » si Claude l'a
+  // au moins autant de fois que Tesseract. Une lettre fausse ne casse qu'une ou deux paires.
+  const paires = (s: string) => {
+    const m = plat(s).trim().split(' ').filter((w) => (w.match(/\p{L}/gu) ?? []).length >= 3)
+    return m.slice(1).map((w, i) => ` ${m[i]} ${w} `)
+  }
+  const dejaCouvert = (txt: string) => {
+    const p = paires(txt)
+    if (!p.length) return false
+    return p.filter((x) => occurrences(basePlate, x) >= occurrences(tessPlate, x)).length / p.length >= 0.5
+  }
   // ⚠️ L'ORDRE DE LECTURE DIFFÈRE SUR LES PAGES À COLONNES ET LES MANCHETTES. Un bloc que les deux
   // moteurs placent à des endroits différents paraît « omis » à l'un d'eux : le réinsérer le
   // DOUBLE (essai du 12 oct. 2026 : « URGENCE » treize fois, la manchette deux fois). On ne
@@ -142,6 +171,17 @@ export function fusionner(claude: string, tesseract: string): Fusion {
       // Un mot isolé n'est repris que s'il en est un vrai (« également ») — pas un débris (« LLe) »).
       if (o.a2 - o.a1 === 1 && !/^[\p{L}'’-]{4,}[.,;:]?$/u.test(txt)) continue
       if (o.a2 - o.a1 >= 2 && debris(txt)) continue
+      // ⚠️ AUDIT DU 12 OCT. 2026 : sur 3 576 pages, 271 réinsertions, dont une bonne part de blocs
+      // DÉJÀ présents chez Claude mais lus par Tesseract avec une lettre fausse ou du bruit (listes
+      // de signataires, « PS Léonel CHARLES Trésorier m W e Diony CHARLES ») — l'égalité exacte ne
+      // les voyait pas. Les omissions avérées de Claude font un ou deux mots : au-delà de huit, ce
+      // n'est plus une omission mais un bloc lu ailleurs — signalé, jamais réinséré.
+      if (o.a2 - o.a1 > 8) {
+        desaccords.push({ tesseract: txt, claude: '' })
+        continue
+      }
+      if (o.a2 - o.a1 >= 2 && dejaCouvert(txt)) continue
+      if (vocabulaire && !txt.split(/\s+/).map(formeVocabulaire).filter(Boolean).every((w) => vocabulaire.has(w))) continue
       // Déjà chez Claude autant de fois que chez Tesseract : c'est un déplacement, pas une omission.
       if (occurrences(basePlate, plat(txt)) >= occurrences(tessPlate, plat(txt))) continue
       insertions.push({ pos: o.b1 > 0 ? H[o.b1 - 1].fin : 0, txt })

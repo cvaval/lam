@@ -327,9 +327,24 @@ async function ecrire(opt: (n: string) => string | undefined) {
 
   const editions = await prisma.document.findMany({
     where: { type: 'LEGISLATION', source: { startsWith: 'MONITEUR_PDF_' }, number: { in: [...new Set(aEcrire.map((l) => l[col('reference')]))] } },
-    select: { number: true, publicationDate: true },
+    select: { number: true, publicationDate: true, metaJson: true },
   })
   const dateDe = new Map(editions.map((e) => [e.number!, e.publicationDate!]))
+  // ⚠️ AUDIT DU 12 OCT. 2026 : l'entrée copie la date de l'Édition et en tire le JOUR de la semaine
+  // (« Samedi 1 mai 2021 ») — le champ même qui sert d'oracle de date au corpus. Une date encore
+  // provisoire (1er du mois, nom de fichier) ne s'écrit donc pas sans --dates-provisoires.
+  const provisoire = new Set(
+    editions
+      .filter((e) => {
+        try {
+          return JSON.parse(e.metaJson ?? '{}').dateSource !== 'ocr'
+        } catch {
+          return true
+        }
+      })
+      .map((e) => e.number!),
+  )
+  const accepterProvisoires = process.argv.includes('--dates-provisoires')
   const avant = await prisma.document.count({ where: { type: 'INDEX' } })
 
   let crees = 0
@@ -342,6 +357,11 @@ async function ecrire(opt: (n: string) => string | undefined) {
     // ⚠️ L'entrée doit renvoyer à un fascicule des Éditions — une référence morte est pire que rien.
     if (!d) {
       console.log(`⛔ ${number} absent des Éditions — ligne sautée`)
+      sautes++
+      continue
+    }
+    if (provisoire.has(number) && !accepterProvisoires) {
+      console.log(`⛔ ${number} : date de l'Édition provisoire (non lue sur la manchette) — ligne sautée`)
       sautes++
       continue
     }

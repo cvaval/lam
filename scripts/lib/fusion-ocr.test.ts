@@ -30,6 +30,26 @@ describe('fusionner — Claude complété par Tesseract', () => {
     expect(fusionner('URGENCE URGENCE affiche du ministère de la santé', 'affiche du ministère URGENCE URGENCE de la santé').reinseres).toEqual([])
   })
 
+  it('un bloc de signataires déjà chez Claude, lu avec du bruit, n’est pas repris (LM2013-10 p13)', () => {
+    const claude = 'Ont signé : Rony CHARLES Président\nLéonel CHARLES Trésorier\nDiony CHARLES Secrétaire\nFait à Port-au-Prince le 2 janvier 2013.'
+    const tess = 'Ont signé : Rony CHARLES Président\nPS Léonel CHARLES Trésorier m W e Diony CHARLES Secrétaire\nFait à Port-au-Prince le 2 janvier 2013.'
+    expect(fusionner(claude, tess).reinseres).toEqual([])
+  })
+
+  it('un long bloc absent chez Claude est signalé, pas réinséré', () => {
+    const claude = 'Article premier. Le présent décret entre en vigueur dès sa publication au journal officiel.'
+    const tess = 'Article premier. Le présent décret, pris en Conseil des ministres sur le rapport du ministre des Finances, entre en vigueur dès sa publication au journal officiel.'
+    const f = fusionner(claude, tess)
+    expect(f.reinseres).toEqual([])
+    expect(f.desaccords.length).toBeGreaterThan(0)
+  })
+
+  it('avec un vocabulaire, un mot inconnu de Claude n’est pas réinséré', () => {
+    const voc = new Set(['elle', 'effectue', 'egalement', 'des', 'prelevements', 'et', 'analyses'])
+    expect(fusionner('Elle effectue des prélèvements et des analyses', 'Elle effectue également des prélèvements et des analyses', voc).reinseres).toEqual(['également'])
+    expect(fusionner('Elle effectue des prélèvements et des analyses', 'Elle effectue SHETETEENTE des prélèvements et des analyses', voc).reinseres).toEqual([])
+  })
+
   it('les fautes de lettres de Tesseract ne remplacent jamais le texte de Claude', () => {
     const f = fusionner('Vu le Décret du 17 mai 2005 ; Ils ont vingt-cinq ans', 'Vu le Décrèt du 17 mai 2005 ; IIs ont vint-cinq ans')
     expect(f.texte).toBe('Vu le Décret du 17 mai 2005 ; Ils ont vingt-cinq ans')
