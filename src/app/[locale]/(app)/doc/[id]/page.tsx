@@ -445,6 +445,19 @@ export default async function DocPage({
   const transcription = isScannedEdition
     ? (doc.bodyOriginal ?? '').replace(/^\[.*?\]/s, '').trim() || null
     : null
+  /**
+   * ⚠️ DEUX SORTES DE TRANSCRIPTION. Celle de `pdftotext -layout` restitue les colonnes du journal
+   * par des espaces : chasse fixe, blancs conservés, pas de retour à la ligne. Celle de l'OCR
+   * combiné (Claude + Tesseract, `metaJson.ocr`, oct. 2026) est faite de PARAGRAPHES d'une ligne —
+   * jusqu'à 1 400 caractères : dans le bloc à chasse fixe, le lecteur devrait défiler en largeur.
+   */
+  const transcriptionEnParagraphes = (() => {
+    try {
+      return Boolean(JSON.parse(String(doc.metaJson))?.ocr)
+    } catch {
+      return false
+    }
+  })()
   const canViewPdf = type === 'CIRCULAIRE_BRH' || canSeeSourcePdf(user)
   // Citation juridique copiable : désignation + référence Moniteur / numéro + date.
   const citation =
@@ -820,9 +833,15 @@ export default async function DocPage({
                   restitue par des espaces. Un rendu qui replie les blancs entrelacerait les
                   deux colonnes du Moniteur ligne à ligne : d'où la chasse fixe, les blancs
                   conservés, et le défilement propre au bloc plutôt qu'à la page. */}
-              <pre className="max-h-[70vh] overflow-auto whitespace-pre rounded-lg bg-pil p-4 font-mono text-[12px] leading-relaxed text-chabon">
-                {transcription}
-              </pre>
+              {transcriptionEnParagraphes ? (
+                <div className="max-h-[70vh] overflow-auto whitespace-pre-wrap rounded-lg bg-pil p-4 font-serif text-[15px] leading-relaxed text-chabon">
+                  {transcription}
+                </div>
+              ) : (
+                <pre className="max-h-[70vh] overflow-auto whitespace-pre rounded-lg bg-pil p-4 font-mono text-[12px] leading-relaxed text-chabon">
+                  {transcription}
+                </pre>
+              )}
             </div>
           )}
         </section>
