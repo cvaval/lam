@@ -4,10 +4,14 @@
  *   # 1. Lectures, page par page, reprenables (rien n'est écrit en base) — les deux en parallèle :
  *   npx tsx scripts/ocr-combine-moniteur.ts --moteur tesseract --travail <dossier> [--locaux <inventaires>]
  *   npx tsx scripts/ocr-combine-moniteur.ts --moteur claude    --travail <dossier> [--locaux <inventaires>]
- *   # 2. Fusion (aucun appel IA) :
+ *   # 2. Fusion (aucun appel IA ; incrémentale — `--tout` refait toutes les pages) :
  *   npx tsx scripts/ocr-combine-moniteur.ts --fusionner --travail <dossier>
- *   # 3. Écriture : à blanc, puis --commit :
- *   npx tsx scripts/ocr-combine-moniteur.ts --ecrire --travail <dossier> [--commit]
+ *   # 3. Écriture : à blanc, puis --commit. Rejouable PAR LOTS pendant que les moteurs tournent :
+ *   #    n'est écrit qu'un fascicule dont CHAQUE page a ses deux lectures et une fusion à jour.
+ *   npx tsx scripts/ocr-combine-moniteur.ts --ecrire --travail <dossier> [--final] [--commit]
+ *   --final (une fois les moteurs ET la relecture des pages faibles terminés) : accepte qu'une page
+ *   n'ait qu'une lecture (Claude en échec sur une page blanche, Tesseract sur une page illisible) ou
+ *   que Claude y reste incomplet — le repli est compté dans `metaJson.ocr`.
  *   Options : --annees 2019,2020 · --refs LM2019-81 · --limit N · --concurrence N
  *   --relire-faibles (avec --moteur claude) : relit les pages où Claude a rendu moins de 60 % des
  *   mots de Tesseract (réponse vide ou tronquée — 4 pages sur les 2 100 premières).
@@ -27,7 +31,7 @@
  */
 import { execFile, execFileSync } from 'node:child_process'
 import { promisify } from 'node:util'
-import { appendFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync } from 'node:fs'
+import { appendFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import Anthropic from '@anthropic-ai/sdk'
@@ -214,9 +218,24 @@ async function lire(moteur: 'tesseract' | 'claude') {
   console.log(`✅ ${moteur} : ${faites} page(s) lue(s), ${echecs} échec(s) (relancer : les pages lues sont sautées)`)
 }
 
-/** Fusionne page à page ; une page lue par un seul moteur garde cette lecture (et c'est noté). */
+type ModeFusion = 'fusion' | 'claudeSeul' | 'tesseractSeul' | 'repliTesseract'
+type StatPage = { mode: ModeFusion; reinseres: number; desaccords: number }
+const lireStats = (dir: string): Record<string, StatPage> => (existsSync(join(dir, '_fusion.json')) ? JSON.parse(readFileSync(join(dir, '_fusion.json'), 'utf8')) : {})
+const mtime = (f: string) => (existsSync(f) ? statSync(f).mtimeMs : 0)
+/** La fusion de la page est postérieure à ses deux lectures (une relecture la rend périmée). */
+const fusionAJour = (dir: string, k: string) => {
+  const f = mtime(join(dir, `p${k}.fusion.txt`))
+  return f > 0 && f >= mtime(join(dir, `p${k}.claude.txt`)) && f >= mtime(join(dir, `p${k}.tesseract.txt`))
+}
+
+/**
+ * Fusionne page à page ; une page lue par un seul moteur garde cette lecture (et c'est noté).
+ * INCRÉMENTALE : une page dont la fusion est postérieure à ses deux lectures est sautée (28 000 pages
+ * d'alignement mot à mot à chaque lot, sinon). Les comptes par page restent dans `<ref>/_fusion.json`.
+ */
 async function fusionnerTout() {
-  const rapport: Record<string, { pages: number; reinseres: number; desaccords: number; claudeSeul: number; tesseractSeul: number; repliTesseract: number; manquantes: number }> = {}
+  const tout = args.includes('--tout')
+  const rapport: Record<string, { pages: number; reinseres: number; desaccords: number; claudeSeul: number; tesseractSeul: number; repliTesseract: number }> = {}
   // Vocabulaire de Claude sur TOUT le corpus lu : un mot que Claude n'écrit nulle part n'est pas une
   // omission mais une faute ou un débris de Tesseract (audit du 12 oct. : 271 → 55 réinsertions).
   const refs = readdirSync(travail!).filter((x) => /^LM\d{4}-/.test(x))
@@ -230,30 +249,43 @@ async function fusionnerTout() {
   for (const ref of refs) {
     const dir = join(travail!, ref)
     const ks = [...new Set(readdirSync(dir).map((f) => /^p(\d{3})\.(claude|tesseract)\.txt$/.exec(f)?.[1]).filter(Boolean))].sort() as string[]
-    const r = { pages: ks.length, reinseres: 0, desaccords: 0, claudeSeul: 0, tesseractSeul: 0, repliTesseract: 0, manquantes: 0 }
+    const stats = lireStats(dir)
     for (const k of ks) {
+      if (!tout && stats[k] && fusionAJour(dir, k)) continue
       const c = join(dir, `p${k}.claude.txt`)
       const t = join(dir, `p${k}.tesseract.txt`)
       let texte: string
+      let s: StatPage = { mode: 'fusion', reinseres: 0, desaccords: 0 }
       if (claudeFaible(dir, k)) {
         // Claude vide ou tronqué même après relecture : Tesseract complet vaut mieux qu'une page vide.
         texte = tesseractPropre(readFileSync(t, 'utf8'))
-        r.repliTesseract++
+        s.mode = 'repliTesseract'
       } else if (existsSync(c) && existsSync(t)) {
         const f = fusionner(readFileSync(c, 'utf8'), readFileSync(t, 'utf8'), vocabulaire)
         texte = f.texte
-        r.reinseres += f.reinseres.length
-        r.desaccords += f.desaccords.length
+        s = { mode: 'fusion', reinseres: f.reinseres.length, desaccords: f.desaccords.length }
       } else if (existsSync(c)) {
         texte = readFileSync(c, 'utf8')
-        r.claudeSeul++
+        s.mode = 'claudeSeul'
       } else {
-        texte = readFileSync(t, 'utf8')
-        r.tesseractSeul++
+        // Tesseract brut porte les débris de marge : la même toilette que pour le repli.
+        texte = tesseractPropre(readFileSync(t, 'utf8'))
+        s.mode = 'tesseractSeul'
       }
       writeFileSync(join(dir, `p${k}.fusion.txt`), texte)
+      stats[k] = s
     }
-    rapport[ref] = r
+    writeFileSync(join(dir, '_fusion.json'), JSON.stringify(stats))
+    const v = Object.values(stats)
+    const n = (m: ModeFusion) => v.filter((x) => x.mode === m).length
+    rapport[ref] = {
+      pages: v.length,
+      reinseres: v.reduce((a, x) => a + x.reinseres, 0),
+      desaccords: v.reduce((a, x) => a + x.desaccords, 0),
+      claudeSeul: n('claudeSeul'),
+      tesseractSeul: n('tesseractSeul'),
+      repliTesseract: n('repliTesseract'),
+    }
   }
   writeFileSync(join(travail!, '_fusion.json'), JSON.stringify(rapport, null, 1))
   const v = Object.values(rapport)
@@ -271,31 +303,45 @@ const mots = (s: string) => (s.match(/\S+/g) ?? []).length
 
 async function ecrire() {
   const commit = args.includes('--commit')
+  const final = args.includes('--final')
   const liste = await cibles()
   const loc = localiser()
-  const rapport = JSON.parse(readFileSync(join(travail!, '_fusion.json'), 'utf8')) as Record<string, { pages: number }>
   let ecrites = 0
-  let incompletes = 0
+  const sautees = { pagesNonLues: 0, uneSeuleLecture: 0, claudeIncomplet: 0, fusionPerimee: 0 }
   const exemples: string[] = []
   for (const c of liste) {
     const dir = join(travail!, c.number)
-    const r = rapport[c.number]
     // Toutes les pages doivent être lues : un fascicule à moitié transcrit ferait croire au lecteur
     // que la fiche est complète. ⚠️ On compte les pages des FICHIERS, pas `metaJson.pages`, qui vaut
     // 0 ou manque sur des fiches anciennes (audit du 12 oct.).
+    // ⚠️ ET PAR LES DEUX MOTEURS : écrit par lots pendant que les lectures tournent, un fascicule déjà lu
+    // par Claude mais pas encore par Tesseract partirait en base sans la fusion — et, sorti des cibles
+    // (il a désormais un texte), ne serait jamais repris.
     const pagesReelles = (await loc(c)).reduce((n, f) => n + nbPages(f), 0)
-    if (!r || r.pages < pagesReelles) {
-      incompletes++
+    const ks = Array.from({ length: pagesReelles }, (_, i) => p3(i + 1))
+    const stats = lireStats(dir)
+    const motif = (k: string): keyof typeof sautees | null => {
+      const aC = existsSync(join(dir, `p${k}.claude.txt`))
+      const aT = existsSync(join(dir, `p${k}.tesseract.txt`))
+      if (!aC && !aT) return 'pagesNonLues'
+      if (!(aC && aT) && !final) return 'uneSeuleLecture'
+      if (claudeFaible(dir, k) && !final) return 'claudeIncomplet'
+      if (!stats[k] || !fusionAJour(dir, k)) return 'fusionPerimee'
+      return null
+    }
+    const motifs = ks.map(motif).filter((m): m is keyof typeof sautees => m !== null)
+    if (pagesReelles === 0 || motifs.length) {
+      sautees[motifs[0] ?? 'pagesNonLues']++
       continue
     }
-    const ks = readdirSync(dir).filter((f) => /^p\d{3}\.fusion\.txt$/.test(f)).sort()
-    const texte = ks.map((f) => readFileSync(join(dir, f), 'utf8').trim()).filter(Boolean).join('\n\n')
+    const texte = ks.map((k) => readFileSync(join(dir, `p${k}.fusion.txt`), 'utf8').trim()).filter(Boolean).join('\n\n')
+    const replis = ks.filter((k) => stats[k].mode !== 'fusion').length
     const d = await prisma.document.findUnique({ where: { id: c.id }, select: { bodyOriginal: true, titleFr: true, moniteurRef: true, searchText: true, metaJson: true } })
     if (!d) continue
     const corps = `${entete(d.bodyOriginal)}\n\n${texte}`
     const indexe = [buildSearchText({ titleFr: d.titleFr, number: c.number, moniteurRef: d.moniteurRef }), fold(texte)].filter(Boolean).join(' ')
     const meta = JSON.parse(d.metaJson ?? '{}')
-    meta.ocr = { moteurs: `${MODELE} + tesseract-fra`, date: new Date().toISOString().slice(0, 10), pages: ks.length }
+    meta.ocr = { moteurs: `${MODELE} + tesseract-fra`, date: new Date().toISOString().slice(0, 10), pages: ks.length, ...(replis ? { pagesUnMoteur: replis } : {}) }
     if (!meta.pages) meta.pages = pagesReelles
     if (exemples.length < 3) exemples.push(`${c.number} · ${ks.length} p. · ${texte.length.toLocaleString('fr-FR')} c. · « ${texte.slice(0, 160).replace(/\s+/g, ' ')}… »`)
     if (commit) {
@@ -307,7 +353,7 @@ async function ecrire() {
     ecrites++
   }
   for (const e of exemples) console.log(`   ${e}`)
-  console.log(`\n${commit ? '✅' : '(à blanc)'} ${ecrites} fiche(s) ${commit ? 'écrites' : 'à écrire'} · ${incompletes} sautée(s) faute de toutes leurs pages lues`)
+  console.log(`\n${commit ? '✅' : '(à blanc)'} ${ecrites} fiche(s) ${commit ? 'écrites' : 'à écrire'} · sautées : ${sautees.pagesNonLues} pages non lues, ${sautees.uneSeuleLecture} une seule lecture, ${sautees.claudeIncomplet} Claude incomplet (à relire), ${sautees.fusionPerimee} fusion à refaire`)
 }
 
 async function main() {
