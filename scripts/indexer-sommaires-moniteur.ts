@@ -48,6 +48,26 @@ import { audit } from '../src/lib/auth/audit'
 import { classify, cleFascicule, enTeteSeul, harmoniser, lireCsv, rapprocher, titreNormalise, versCsv } from './lib/moniteur-index'
 
 const prisma = new PrismaClient()
+
+/**
+ * Rejoue une opération sur une coupure de connexion (P1001 injoignable, P1017 fermée par le
+ * serveur, P2024 file d'attente). ⚠️ 13 oct. 2026 : deux coupures ont arrêté l'écriture de 2024 et
+ * de 2025 en plein lot — sans gravité pour les entrées (rejouable, l'existant est sauté) mais une
+ * entrée pouvait naître SANS ses liens Société, qu'un nouveau passage ne crée plus (titre déjà là).
+ */
+async function tenace<T>(fn: () => Promise<T>): Promise<T> {
+  for (let essai = 1; ; essai++) {
+    try {
+      return await fn()
+    } catch (e) {
+      const code = (e as { code?: string; errorCode?: string }).code ?? (e as { errorCode?: string }).errorCode
+      const coupure = ['P1001', 'P1017', 'P2024'].includes(code ?? '') || /Can't reach database|closed the connection|Timed out fetching/i.test(String((e as Error).message))
+      if (!coupure || essai >= 8) throw e
+      console.log(`   … coupure de connexion (${code ?? '?'}), nouvel essai ${essai + 1}/8`)
+      await new Promise((r) => setTimeout(r, Math.min(2000 * 2 ** (essai - 1), 60000)))
+    }
+  }
+}
 const MODELE = process.env.LV_AI_MODEL || 'claude-haiku-5-5'
 const JOURS = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi']
 const MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
@@ -365,7 +385,7 @@ async function ecrire(opt: (n: string) => string | undefined) {
       sautes++
       continue
     }
-    const deja = await prisma.document.findMany({ where: { type: 'INDEX', OR: [{ number }, { number: number.replace(/-(?=[A-Z]\d?$)/, '') }] }, select: { titleFr: true } })
+    const deja = await tenace(() => prisma.document.findMany({ where: { type: 'INDEX', OR: [{ number }, { number: number.replace(/-(?=[A-Z]\d?$)/, '') }] }, select: { titleFr: true } }))
     if (deja.some((x) => titreNormalise(x.titleFr) === titreNormalise(titre))) {
       sautes++
       continue
@@ -374,38 +394,45 @@ async function ecrire(opt: (n: string) => string | undefined) {
     const ref = moniteurRef(number, d)
     const ht = l[col('langue')] === 'ht'
     const id = randomUUID()
-    await prisma.document.create({
-      data: {
-        id,
-        type: 'INDEX',
-        source: 'MONITEUR',
-        status: 'PUBLIE',
-        sealed: false,
-        number,
-        titleFr: titre.slice(0, 400),
-        titleHt: ht ? titre.slice(0, 400) : null,
-        originalLang: ht ? 'ht' : 'fr',
-        bodyOriginal: titre,
-        moniteurRef: ref,
-        category,
-        editionType: /-SP/i.test(number) ? 'SPECIALE' : 'REGULIERE',
-        publicationDate: d,
-        metaJson: JSON.stringify({ category, reference: number, year: d.getUTCFullYear(), via: 'indexer-sommaires-moniteur' }),
-        searchText: buildSearchText({ titleFr: titre, number, moniteurRef: ref, bodyOriginal: titre }),
-      },
-    })
-    if (company) {
-      for (const name of extractCompanies(titre)) {
-        const cid = companyId(name)
-        await prisma.company.upsert({ where: { id: cid }, update: {}, create: { id: cid, name, searchName: fold(name) } })
-        await prisma.companyPublication.create({ data: { id: `idx-p-${randomUUID()}`, companyId: cid, documentId: id, kind: company, label: titre.slice(0, 160), date: d, moniteurRef: ref } })
-      }
-    }
+    // L'entrée et ses liens Société dans UNE transaction : une coupure n'en laisse jamais la moitié.
+    // L'`id` est tiré AVANT : si la coupure survient après la validation, le nouvel essai la retrouve.
+    await tenace(() =>
+      prisma.$transaction(async (tx) => {
+        if (await tx.document.findUnique({ where: { id }, select: { id: true } })) return
+        await tx.document.create({
+          data: {
+            id,
+            type: 'INDEX',
+            source: 'MONITEUR',
+            status: 'PUBLIE',
+            sealed: false,
+            number,
+            titleFr: titre.slice(0, 400),
+            titleHt: ht ? titre.slice(0, 400) : null,
+            originalLang: ht ? 'ht' : 'fr',
+            bodyOriginal: titre,
+            moniteurRef: ref,
+            category,
+            editionType: /-SP/i.test(number) ? 'SPECIALE' : 'REGULIERE',
+            publicationDate: d,
+            metaJson: JSON.stringify({ category, reference: number, year: d.getUTCFullYear(), via: 'indexer-sommaires-moniteur' }),
+            searchText: buildSearchText({ titleFr: titre, number, moniteurRef: ref, bodyOriginal: titre }),
+          },
+        })
+        if (company) {
+          for (const name of extractCompanies(titre)) {
+            const cid = companyId(name)
+            await tx.company.upsert({ where: { id: cid }, update: {}, create: { id: cid, name, searchName: fold(name) } })
+            await tx.companyPublication.create({ data: { id: `idx-p-${randomUUID()}`, companyId: cid, documentId: id, kind: company, label: titre.slice(0, 160), date: d, moniteurRef: ref } })
+          }
+        }
+      }),
+    )
     refsEcrites.add(number)
     crees++
   }
   await audit({ action: 'DOC_PUBLISHED', targetType: 'DOCUMENT', meta: { via: 'indexer-sommaires-moniteur', lot: valide, entrees: crees, fascicules: refsEcrites.size } })
-  const apres = await prisma.document.count({ where: { type: 'INDEX' } })
+  const apres = await tenace(() => prisma.document.count({ where: { type: 'INDEX' } }))
   console.log(`\n✅ ${crees} entrée(s) créée(s), ${sautes} sautée(s) · Index : ${avant} → ${apres}${apres - avant !== crees ? ' ⚠️ ÉCART' : ''}`)
 }
 
