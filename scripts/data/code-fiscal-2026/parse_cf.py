@@ -302,16 +302,31 @@ def main(f_decret, f_toc, f_index):
         for n in nums:
             couples.append((partie, vedette, sujet if sous else None, n))
     ancres = {a for (_l, _n, a) in tetes}
+    # Renvois vers un numéro que le J.O. n'imprime pas, REDIRIGÉS vers le bon texte (décision de
+    # Me Vaval, 13 oct. 2026 : « renvoyer vers le bon texte ») :
+    #  - « 405 » : le premier « Article 406 » (B. Avis de vérification) EST l'article 405 — le second
+    #    « Article 406 » le cite ainsi (« Par exception au 2. de l'article 405 ») ;
+    #  - « 406 » : dès lors, le second « Article 406 » (C. Vérification inopinée), ancre art-406-2 ;
+    #  - « 294 » : les alinéas « 2. » et « 3. » qui suivent le tableau de l'art. 293 (droit
+    #    d'affichage, montant reversé à la Commune), que l'index tenait pour un art. 294.
+    # Chaque couple redirigé est listé dans index-a-valider.csv.
+    REDIRECTION = {'405': '406', '406': '406-2', '294': '293'}
+    rediriges = [c for c in couples if c[3] in REDIRECTION]
+    est_redirige = [c[3] in REDIRECTION for c in couples]
+    couples = [(p, v, s, REDIRECTION.get(n, n)) for (p, v, s, n) in couples]
     retires = [c for c in couples if f'art-{c[3]}' not in ancres]
-    gardes = [c for c in couples if f'art-{c[3]}' in ancres]
+    if retires:
+        sys.exit(f'⛔ renvois sans ancre après redirection : {sorted(set(c[3] for c in retires))}')
+    gardes = couples
     entrees_index = {}
     for (p, v, s, n) in gardes:
         sujet = f'{v} — {s}' if s else v
         e = entrees_index.setdefault(fold(sujet), {'subject': sujet, 'ctRefs': []})
         if n not in e['ctRefs']:
             e['ctRefs'].append(n)
+    cle_num = lambda r: [int(x) for x in r.split('-')]
     for e in entrees_index.values():
-        e['ctRefs'].sort(key=int)
+        e['ctRefs'].sort(key=cle_num)
     index = sorted(entrees_index.values(), key=lambda e: fold(e['subject']))
 
     # ── 6. Contrôle des couples (entrée, article) sur le TEXTE de l'article ──────────────────
@@ -331,6 +346,7 @@ def main(f_decret, f_toc, f_index):
     for i, (l, n, a) in enumerate(tetes):
         fin_l = tetes[i + 1][0] if i + 1 < len(tetes) else len(textes)
         texte_art[a] = fold(' '.join(textes[l:fin_l]) + ' ' + ancetres[a])
+    # (les couples REDIRIGÉS sont listés à part dans le CSV, et pas contrôlés ici)
     MOTS_VIDES = set("les des une est que qui par sur aux son ses pour dans avec sont cette ces leur leurs tout tous art article articles autres autre lors dont sans plus non entre ainsi droit droits".split())
 
     def mots(s):
@@ -360,7 +376,9 @@ def main(f_decret, f_toc, f_index):
                 return True
         return False
     douteux = []
-    for (p, v, s, n) in couples:
+    for k_, (p, v, s, n) in enumerate(couples):
+        if est_redirige[k_]:
+            continue
         a = f'art-{n}'
         if a not in ancres:
             continue
@@ -390,7 +408,9 @@ def main(f_decret, f_toc, f_index):
     cross = [{'anchor': a, 'articles': [], 'note': n} for a, n in notes]
 
     annotations = {
-        'title': 'Décret du 30 septembre 2026 remplaçant le Décret du 19 décembre 2022 portant Code Fiscal',
+        # Le titre TEL QUE DANS LE TEXTE (décision de Me Vaval, 13 oct. 2026) : l'intitulé imprimé,
+        # « DÉCRET REMPLACANT LE DÉCRET DU 19 DÉCEMBRE 2022 PORTANT CODE FISCAL », en casse ordinaire.
+        'title': 'Décret remplaçant le Décret du 19 décembre 2022 portant Code Fiscal',
         'annotationAuthor': '',
         'navToc': nav,
         'toc': toc,
@@ -400,6 +420,7 @@ def main(f_decret, f_toc, f_index):
         'labels': labels,
         'crossRefs': cross,
         'repeatedHeads': repetees,
+        'refDisplay': {f'{n}-{j}': f'{n} (2ᵉ)' if j == 2 else f'{n} ({j}ᵉ)' for a, l in repetees.items() for n in [a[4:]] for j in range(2, len(l) + 2)},
     }
 
     # ── 8. Écritures ─────────────────────────────────────────────────────────────────────────
@@ -417,8 +438,11 @@ def main(f_decret, f_toc, f_index):
     with open(os.path.join(LIVRAISON, 'index-a-valider.csv'), 'w', newline='', encoding='utf-8-sig') as fh:
         w = csv.writer(fh, delimiter=';')
         w.writerow(['partie', 'vedette', 'sous-entrée', 'article', 'motif', 'sort'])
-        for (p, v, s, n) in retires:
-            w.writerow([p, v, s or '', n, f'le Journal officiel n’imprime aucun article {n}', 'RETIRÉ du panneau (aucune ancre) — à trancher par la cliente'])
+        CIBLE = {'405': 'le 1er « Article 406 » (B. Avis de vérification) — art-406',
+                 '406': 'le 2nd « Article 406 » (C. Vérification inopinée) — art-406-2, affiché « 406 (2ᵉ) »',
+                 '294': 'l’art. 293 (alinéas 2. et 3. qui suivent le tableau)'}
+        for (p, v, s, n) in rediriges:
+            w.writerow([p, v, s or '', n, f'redirigé vers {CIBLE[n]}', 'REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)'])
         for (p, v, s, n, motif) in douteux:
             w.writerow([p, v, s or '', n, motif, 'reproduit tel quel — à valider par la cliente'])
 
@@ -439,7 +463,7 @@ def main(f_decret, f_toc, f_index):
     print(f'têtes : {len(tetes)} — 1er.- {formes["1er.-"]} · N.- {formes["N.-"]} · « N. » {formes["N."]} · collée {formes["collée"]} · répétées {repetees}')
     print(f'sommaire : {len(divisions)}/419 divisions · toc {len(toc)} entrées ({sum(1 for t in toc if t["kind"] == "title")} titre, {sum(1 for t in toc if t["kind"] == "suite")} lignes de suite)')
     print(f'tableaux : {len(rich)} · rangées {sum(len(t["rows"]) for t in rich)}')
-    print(f'index : {len(brut)} lignes · {len(couples)} renvois dépliés · {len(retires)} retirés ({sorted(set(c[3] for c in retires))}) · {len(index)} sujets · couverture {len(cites)}/{len(ancres)} — non cités : {sorted((a for a in ancres if a[4:] not in cites), key=lambda x: [int(p) for p in x[4:].split("-")])}')
+    print(f'index : {len(brut)} lignes · {len(couples)} renvois dépliés · {len(rediriges)} redirigés ({dict((k, sum(1 for c in rediriges if c[3] == k)) for k in REDIRECTION)}) · {len(index)} sujets · couverture {len(cites)}/{len(ancres)} — non cités : {sorted((a for a in ancres if a[4:] not in cites), key=lambda x: [int(p) for p in x[4:].split("-")])}')
     print(f'couples douteux : {len(douteux)} (dont {sum(1 for d in douteux if not d[2])} vedettes, {sum(1 for d in douteux if d[2] and d[4].startswith("ni"))} sous-entrées sans vedette, {sum(1 for d in douteux if d[2] and d[4].startswith("la sous"))} sous-entrées seules) sur {len(gardes)} couples')
 
 

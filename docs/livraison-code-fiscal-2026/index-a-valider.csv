@@ -1,26 +1,35 @@
 ﻿partie;vedette;sous-entrée;article;motif;sort
-Livre I;Affichage (droit d’), publicité;;294;le Journal officiel n’imprime aucun article 294;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre I;Collectivités territoriales, communes;;294;le Journal officiel n’imprime aucun article 294;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre I;Collectivités territoriales, communes;répartition des recettes;294;le Journal officiel n’imprime aucun article 294;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre II;Avis de vérification;;405;le Journal officiel n’imprime aucun article 405;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre II;Banques, institutions financières;;405;le Journal officiel n’imprime aucun article 405;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre II;Comptabilité;;405;le Journal officiel n’imprime aucun article 405;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre II;Comptabilité;vérification de comptabilité;405;le Journal officiel n’imprime aucun article 405;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre II;Computation des délais;;405;le Journal officiel n’imprime aucun article 405;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre II;Débat oral et contradictoire;;405;le Journal officiel n’imprime aucun article 405;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre II;Déclaration;;405;le Journal officiel n’imprime aucun article 405;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre II;Déficit, résultat déficitaire;;405;le Journal officiel n’imprime aucun article 405;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre II;Délai de reprise, prescription du droit de reprise;;405;le Journal officiel n’imprime aucun article 405;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre II;Droits et garanties du contribuable;;405;le Journal officiel n’imprime aucun article 405;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre II;Intérêt de retard;;405;le Journal officiel n’imprime aucun article 405;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre II;Matricule fiscal, Numéro d’Immatriculation Fiscale (NIF);;405;le Journal officiel n’imprime aucun article 405;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre II;Pénalités fiscales;;405;le Journal officiel n’imprime aucun article 405;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre II;Rescrit fiscal;;405;le Journal officiel n’imprime aucun article 405;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre II;Taxe sur le Chiffre d’Affaires (TCA);;405;le Journal officiel n’imprime aucun article 405;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre II;Taxe sur le Chiffre d’Affaires (TCA);crédit de TCA, remboursement;405;le Journal officiel n’imprime aucun article 405;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre II;Vérification de comptabilité;;405;le Journal officiel n’imprime aucun article 405;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre II;Vérification de comptabilité;durée;405;le Journal officiel n’imprime aucun article 405;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
-Livre II;Vérification de comptabilité;lieu;405;le Journal officiel n’imprime aucun article 405;RETIRÉ du panneau (aucune ancre) — à trancher par la cliente
+Livre I;Affichage (droit d’), publicité;;294;redirigé vers l’art. 293 (alinéas 2. et 3. qui suivent le tableau);REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre I;Collectivités territoriales, communes;;294;redirigé vers l’art. 293 (alinéas 2. et 3. qui suivent le tableau);REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre I;Collectivités territoriales, communes;répartition des recettes;294;redirigé vers l’art. 293 (alinéas 2. et 3. qui suivent le tableau);REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Avis de vérification;;405;redirigé vers le 1er « Article 406 » (B. Avis de vérification) — art-406;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Avis de vérification;;406;redirigé vers le 2nd « Article 406 » (C. Vérification inopinée) — art-406-2, affiché « 406 (2ᵉ) »;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Banques, institutions financières;;405;redirigé vers le 1er « Article 406 » (B. Avis de vérification) — art-406;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Comptabilité;;405;redirigé vers le 1er « Article 406 » (B. Avis de vérification) — art-406;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Comptabilité;;406;redirigé vers le 2nd « Article 406 » (C. Vérification inopinée) — art-406-2, affiché « 406 (2ᵉ) »;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Comptabilité;vérification de comptabilité;405;redirigé vers le 1er « Article 406 » (B. Avis de vérification) — art-406;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Comptabilité;vérification de comptabilité;406;redirigé vers le 2nd « Article 406 » (C. Vérification inopinée) — art-406-2, affiché « 406 (2ᵉ) »;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Computation des délais;;405;redirigé vers le 1er « Article 406 » (B. Avis de vérification) — art-406;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Computation des délais;;406;redirigé vers le 2nd « Article 406 » (C. Vérification inopinée) — art-406-2, affiché « 406 (2ᵉ) »;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Débat oral et contradictoire;;405;redirigé vers le 1er « Article 406 » (B. Avis de vérification) — art-406;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Déclaration;;405;redirigé vers le 1er « Article 406 » (B. Avis de vérification) — art-406;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Déficit, résultat déficitaire;;405;redirigé vers le 1er « Article 406 » (B. Avis de vérification) — art-406;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Délai de reprise, prescription du droit de reprise;;405;redirigé vers le 1er « Article 406 » (B. Avis de vérification) — art-406;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Documents (obligation de présentation et de conservation);;406;redirigé vers le 2nd « Article 406 » (C. Vérification inopinée) — art-406-2, affiché « 406 (2ᵉ) »;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Droits et garanties du contribuable;;405;redirigé vers le 1er « Article 406 » (B. Avis de vérification) — art-406;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Droits et garanties du contribuable;;406;redirigé vers le 2nd « Article 406 » (C. Vérification inopinée) — art-406-2, affiché « 406 (2ᵉ) »;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Intérêt de retard;;405;redirigé vers le 1er « Article 406 » (B. Avis de vérification) — art-406;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Matricule fiscal, Numéro d’Immatriculation Fiscale (NIF);;405;redirigé vers le 1er « Article 406 » (B. Avis de vérification) — art-406;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Pénalités fiscales;;405;redirigé vers le 1er « Article 406 » (B. Avis de vérification) — art-406;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Procès-verbal;;406;redirigé vers le 2nd « Article 406 » (C. Vérification inopinée) — art-406-2, affiché « 406 (2ᵉ) »;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Rescrit fiscal;;405;redirigé vers le 1er « Article 406 » (B. Avis de vérification) — art-406;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Taxe sur le Chiffre d’Affaires (TCA);;405;redirigé vers le 1er « Article 406 » (B. Avis de vérification) — art-406;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Taxe sur le Chiffre d’Affaires (TCA);crédit de TCA, remboursement;405;redirigé vers le 1er « Article 406 » (B. Avis de vérification) — art-406;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Vérification de comptabilité;;405;redirigé vers le 1er « Article 406 » (B. Avis de vérification) — art-406;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Vérification de comptabilité;;406;redirigé vers le 2nd « Article 406 » (C. Vérification inopinée) — art-406-2, affiché « 406 (2ᵉ) »;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Vérification de comptabilité;durée;405;redirigé vers le 1er « Article 406 » (B. Avis de vérification) — art-406;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Vérification de comptabilité;lieu;405;redirigé vers le 1er « Article 406 » (B. Avis de vérification) — art-406;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
+Livre II;Vérification de comptabilité;vérification inopinée;406;redirigé vers le 2nd « Article 406 » (C. Vérification inopinée) — art-406-2, affiché « 406 (2ᵉ) »;REDIRIGÉ (décision du 13 oct. : « renvoyer vers le bon texte »)
 Livre I;Accises (droits d’);tabac;211;la sous-entrée ne se lit pas dans l’article (la vedette, si);reproduit tel quel — à valider par la cliente
 Livre I;Accises (droits d’);tabac;240;la sous-entrée ne se lit pas dans l’article (la vedette, si);reproduit tel quel — à valider par la cliente
 Livre I;Assistance administrative internationale;;48;l’entrée ne se lit pas dans l’article;reproduit tel quel — à valider par la cliente
@@ -88,14 +97,12 @@ Livre II;Codébiteurs, responsabilité solidaire;;472;l’entrée ne se lit pas 
 Livre II;Codébiteurs, responsabilité solidaire;;480;l’entrée ne se lit pas dans l’article;reproduit tel quel — à valider par la cliente
 Livre II;Codébiteurs, responsabilité solidaire;;484;l’entrée ne se lit pas dans l’article;reproduit tel quel — à valider par la cliente
 Livre II;Computation des délais;;400;l’entrée ne se lit pas dans l’article;reproduit tel quel — à valider par la cliente
-Livre II;Computation des délais;;406;l’entrée ne se lit pas dans l’article;reproduit tel quel — à valider par la cliente
 Livre II;Computation des délais;;409;l’entrée ne se lit pas dans l’article;reproduit tel quel — à valider par la cliente
 Livre II;Computation des délais;;425;l’entrée ne se lit pas dans l’article;reproduit tel quel — à valider par la cliente
 Livre II;Computation des délais;;493;l’entrée ne se lit pas dans l’article;reproduit tel quel — à valider par la cliente
 Livre II;Correspondances (envoi), notifications;;409;l’entrée ne se lit pas dans l’article;reproduit tel quel — à valider par la cliente
 Livre II;Correspondances (envoi), notifications;;443;l’entrée ne se lit pas dans l’article;reproduit tel quel — à valider par la cliente
 Livre II;Droits et garanties du contribuable;;400;l’entrée ne se lit pas dans l’article;reproduit tel quel — à valider par la cliente
-Livre II;Droits et garanties du contribuable;;406;l’entrée ne se lit pas dans l’article;reproduit tel quel — à valider par la cliente
 Livre II;Force publique;;327;l’entrée ne se lit pas dans l’article;reproduit tel quel — à valider par la cliente
 Livre II;Fusion, scission, apport partiel d’actif;;477;l’entrée ne se lit pas dans l’article;reproduit tel quel — à valider par la cliente
 Livre II;Fusion, scission, apport partiel d’actif;;485;l’entrée ne se lit pas dans l’article;reproduit tel quel — à valider par la cliente

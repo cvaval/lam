@@ -39,7 +39,10 @@ const COMMIT = process.argv.includes('--commit')
 const DIR = join(process.cwd(), 'scripts/data/code-fiscal-2026')
 const LIVRAISON = join(process.cwd(), 'docs/livraison-code-fiscal-2026')
 const SOURCE = 'CODE_FISCAL_2026'
-const TITRE = 'Décret du 30 septembre 2026 remplaçant le Décret du 19 décembre 2022 portant Code Fiscal'
+// Le titre TEL QUE DANS LE TEXTE (décision de Me Vaval, 13 oct. 2026) : l'intitulé imprimé, en casse
+// ordinaire. La référence (`number`) garde la désignation complète, nature + date + objet.
+const TITRE = 'Décret remplaçant le Décret du 19 décembre 2022 portant Code Fiscal'
+const REFERENCE = 'Décret du 30 septembre 2026 remplaçant le Décret du 19 décembre 2022 portant Code Fiscal'
 const DOCX = '/Users/cvaval/Downloads/Code_Fiscal_2026_Moniteur_48-A.docx'
 const DOCX_SHA = '02193031afd76a0a2ea4b605a0ae788b42e01fc44d6174d35b1897164f8be074'
 const PDF = '/Users/cvaval/Library/CloudStorage/Dropbox/Moniteur/Code Fiscal_2026_small.pdf'
@@ -132,6 +135,7 @@ async function main() {
   // § 11.4 — index : 0 lien mort
   const renvois = a.indexEntries.flatMap((e) => e.ctRefs.map(String))
   const morts = renvois.filter((r) => !arts.includes(`art-${r}`))
+  ok(a.refDisplay?.['406-2'] === '406 (2ᵉ)' && renvois.includes('406-2') && !renvois.some((r) => r === '405' || r === '294'), 'index : redirection 405 → 406, 406 → 406 (2ᵉ), 294 → 293')
   ok(!morts.length, `index : ${morts.length} lien(s) mort(s) (${[...new Set(morts)].join(', ')})`)
   const couverts = new Set(renvois)
 
@@ -151,7 +155,7 @@ async function main() {
   log(`✓ têtes : 542 — « 1er.- » 1 · « N.- » ${formes.tiret} · « N. » ${formes.sansTiret.length} (${formes.sansTiret.join(', ')}) · « Article129.- » · 406 ×2 (art-406, art-406-2) · pas de 294`)
   log(`✓ collation : ${collation.length} lignes tranchées · ${corrections.length} corrections dans le corps`)
   log(`✓ segmentation : ${sections.length}/${a.toc.length} en-têtes (419 divisions) · ${noeuds.length} entrées au sommaire, toutes à plage · 0 page`)
-  log(`✓ index : ${a.indexEntries.length} sujets · ${renvois.length} renvois · 0 mort · couverture ${couverts.size}/542`)
+  log(`✓ index : ${a.indexEntries.length} sujets · ${renvois.length} renvois · 0 mort · 405/406/294 redirigés · couverture ${couverts.size}/542`)
   log(`✓ tableaux : 9 au bon article (154 ×2, 202, 230, 274, 293, 403 ×3) · ${rangees} rangées`)
 
   // ══════════════════════════════════════════════════════════════════════════════════════════
@@ -186,10 +190,10 @@ async function main() {
     status: 'EN_VIGUEUR',
     source: SOURCE,
     titleFr: TITRE,
-    titleEn: 'Decree of September 30, 2026 replacing the Decree of December 19, 2022 on the Tax Code',
+    titleEn: 'Decree replacing the Decree of December 19, 2022 on the Tax Code',
     // Créole : convention de la cliente, sans accent grave (« refere », « Mache piblik »).
-    titleHt: 'Dekre 30 septanm 2026 ki ranplase Dekre 19 desanm 2022 sou Kod Fiskal la',
-    number: TITRE,
+    titleHt: 'Dekre ki ranplase Dekre 19 desanm 2022 sou Kod Fiskal la',
+    number: REFERENCE,
     matiere: 'fiscal',
     moniteurRef: 'Le Moniteur, 181ᵉ Année – Spécial N° 48-A, mercredi 30 septembre 2026',
     adoptionDate: new Date('2026-09-30T00:00:00Z'),

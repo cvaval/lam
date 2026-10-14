@@ -3,7 +3,7 @@
 # Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
 # ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
 50ca468060b1352750ad7f87845aa2abe4dc87b57a405e2b93b78f51697e9d4c  PIECES.txt
-7608c6d4eebbf87910afef99907eb066639db3f25dd13b2b99701b659a71baf3  annotations.json
+30fbfe7e559a938a6aca1d0e45fe56b5c0e26b8dd7aecf0211606930f61e47e0  annotations.json
 569dd0db890d36e64ba20f43e4cd6e41ee11c7482034be0aff6c8503c35c64e5  bodyOriginal.txt
 1ce616a33a45b6808658535031c6e4715120f742ed5d8cd8d9689a72f1365358  collation/angles.py
 54250f209adf838417d8e889ca1d60227bfdbb39207d33d1cd2e83acdfc4d5a5  collation/coll2.py
@@ -16,11 +16,11 @@ ee2e558e800f52b4105da42f23cd7c7010b2a5bde12b08ada920988e9034bf52  collation/plan
 35702fff78fbdcc19dfa47bce5eb220a0920971c670e269d6f53dc3c32a32428  collation/tocmatch.py
 cf5476671c0b1febe9c63a0822f62123a5ef842d524a5bcfba8e03b7c26cf038  corrections-jo.json
 abf1903a34415c047a961ea92511a0e9fefd66285005086ebdf071c6b4d44836  extraire_docx.py
-7fe6921a70aa1ddea937d0ca163d7394ae245704b108f2a217532876f650117b  parse_cf.py
+a40a5cdfdb6a7e0d3dc215b61dcbcd62a83ec0b278e4497dddb2927cd0a5b67d  parse_cf.py
 2a76e0d298699aab64a1990d565b4e4e4dee7edc16a6c1f131d81579db89dbb7  piece-index-cliente.txt
 bb1b3ef957e308b14cb478a0579d80f984ca3ecf1813415f8e2ea5a4503f0951  piece-sommaire-cliente.txt
 5ffb3e6f5f1142af2560a4db268b3ae21c3ea54c5ec6c188e15b1d7d9f7363ec  rich.json
-03eefdcbaacdd055b4df6cebfa325d4ac11499685e896aadd01485b2bd631c84  visas.json
+b3989bade44238753dcc24e695a2e6aa4647b36444173806222ce649f1e76728  visas.json
 # Pièces sources (non versionnées) — voir PIECES.txt :
 # 02193031afd76a0a2ea4b605a0ae788b42e01fc44d6174d35b1897164f8be074  ~/Downloads/Code_Fiscal_2026_Moniteur_48-A.docx  (264589 o)
 # 5e58a5ab6341d4e3a1a4d0f8206571ff4ef0ddd22a82e92609d934dd8c9fa0cf  ~/Downloads/TABLES DES MATIÈRES.docx  (34920 o)
