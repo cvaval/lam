@@ -1,0 +1,27 @@
+{
+  "_note": "Corrections du Word d'après le fac-similé (Le Moniteur Spécial N° 48-A). Chaque ligne a été tranchée sur l'IMAGE de la page (docs/livraison-code-fiscal-2026/collation.csv). Clé : rang du paragraphe dans l'extraction de extraire_docx.py (docx sha256 02193031…). Chaque remplacement doit s'appliquer EXACTEMENT une fois, sinon l'import s'arrête.",
+  "corrections": [
+    { "id": "A01", "page": 5, "para": 116, "avant": "massive en Haïti ;", "apres": "massive en Haiti ;" },
+    { "id": "A08", "page": 28, "para": 704, "avant": "établis en Haïti,", "apres": "établis en Haiti," },
+    { "id": "A13", "page": 43, "para": 1086, "avant": "établie en Haïti,", "apres": "établie en Haiti," },
+    { "id": "G14", "page": 45, "para": 1110, "avant": "Article 129.-", "apres": "Article129.-" },
+    { "id": "C088", "page": 53, "para": 1323, "avant": "(½%)", "apres": "(1/2%)" },
+    { "id": "C120", "page": 68, "para": 1680, "avant": "b. être remplacée", "apres": "b être remplacée" },
+    { "id": "C124", "page": 71, "para": 1764, "avant": "b. proportionnels.", "apres": "b proportionnels." },
+    { "id": "C174", "page": 89, "para": 2225, "avant": "Article 296.- 1.", "apres": "Article 296. 1." },
+    { "id": "C177", "page": 95, "para": 2330, "avant": "ayant entraîné", "apres": "ayant entrainé" },
+    { "id": "G37", "page": 95, "para": 2331, "avant": "présentées par les entreprises", "apres": "présentées parles entreprises" },
+    { "id": "C187", "page": 111, "para": 2686, "avant": "communication, entraîne", "apres": "communication, entraine" },
+    { "id": "C188", "page": 112, "para": 2710, "avant": "1. À l’issue", "apres": "1. A l’issue" },
+    { "id": "C193", "page": 117, "para": 2840, "avant": "procédure entraîne la main", "apres": "procédure entraine la main" },
+    { "id": "C237", "page": 127, "para": 3055, "avant": "2. À défaut", "apres": "2. A défaut" },
+    { "id": "C238", "page": 128, "para": 3082, "avant": "1. À l’issue", "apres": "1. A l’issue" },
+    { "id": "C241", "page": 131, "para": 3151, "avant": "prévus au 1. Ceux-ci", "apres": "prévus au 1.. Ceux-ci" },
+    { "id": "C274", "page": 135, "para": 3226, "avant": "délai prévu au 3.", "apres": "délai prévu au 3.." },
+    { "id": "C275", "page": 137, "para": 3292, "avant": "Article 442.- 1.", "apres": "Article 442. 1." },
+    { "id": "C277", "page": 138, "para": 3299, "avant": "Article 443.- 1.", "apres": "Article 443. 1." },
+    { "id": "C278", "page": 139, "para": 3317, "avant": "Article 444.- 1.", "apres": "Article 444. 1." },
+    { "id": "C287", "page": 154, "para": 3677, "avant": "Article 492.- 1.", "apres": "Article 492. 1." },
+    { "id": "C288", "page": 154, "para": 3681, "avant": "délais entraîne", "apres": "délais entraine" }
+  ]
+}

@@ -1,0 +1,834 @@
+[
+ {
+  "type": "table",
+  "rows": [
+   [
+    {
+     "text": "Nature du véhicule",
+     "header": true
+    },
+    {
+     "text": "Montant annuel",
+     "header": true
+    }
+   ],
+   [
+    {
+     "text": "Véhicule de 2 à 4 cylindres jusqu’à 1300 cc"
+    },
+    {
+     "text": "2 000 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Véhicule de 2 à 4 cylindres compris entre 1301 et 1800 cc"
+    },
+    {
+     "text": "3 000 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Véhicule de 4 cylindres de plus de 1800 cc"
+    },
+    {
+     "text": "4 000 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Véhicule de 6 cylindres jusqu’à 2750 cc"
+    },
+    {
+     "text": "5 000 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Véhicule de 6 cylindres de plus de 2750 cc"
+    },
+    {
+     "text": "6 000 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Véhicule de 8 cylindres de plus de 2750 cc"
+    },
+    {
+     "text": "8 000 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Véhicule de 12 cylindres de plus de 2750 cc"
+    },
+    {
+     "text": "10 000 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Plaques de démonstration"
+    },
+    {
+     "text": "2 000 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Tracteurs agricoles"
+    },
+    {
+     "text": "3 000 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Remorque (trailer) et semi-remorque (semi-trailer)"
+    },
+    {
+     "text": "3 000 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Engins de génie civil (Compacteurs, Bulldozers, Grues, Graders, Chargeurs) et toutes autres machines auto-propulsées"
+    },
+    {
+     "text": "3 500 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Motocyclettes (1 à 2 cylindres ne dépassant pas 125 cc)"
+    },
+    {
+     "text": "1 000 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Motocyclettes (2 à 4 cylindres de plus 125 cc)"
+    },
+    {
+     "text": "1 400 Gourdes"
+    }
+   ]
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    {
+     "text": "Nature du véhicule",
+     "header": true
+    },
+    {
+     "text": "Montant annuel",
+     "header": true
+    }
+   ],
+   [
+    {
+     "text": "Véhicule de 2 à 4 cylindres jusqu’à 1300 cc"
+    },
+    {
+     "text": "1 000 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Véhicule de 2 à 4 cylindres compris entre 1301 et 1800 cc"
+    },
+    {
+     "text": "1 300 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Véhicule de 4 cylindres de plus de 1800 cc"
+    },
+    {
+     "text": "1 600 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Véhicule de 6 cylindres jusqu’à 2750 cc"
+    },
+    {
+     "text": "2 000 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Véhicule de 6 cylindres de plus de 2750 cc"
+    },
+    {
+     "text": "2 800 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Véhicule de 8 cylindres de plus de 2750 cc"
+    },
+    {
+     "text": "3 400 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Véhicule de 12 cylindres de 2750 cc et plus"
+    },
+    {
+     "text": "5 400 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Moto-taxi (toutes catégories)"
+    },
+    {
+     "text": "500 Gourdes"
+    }
+   ]
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    {
+     "text": "Produits",
+     "header": true
+    },
+    {
+     "text": "Droits ad valorem à l’importation",
+     "header": true
+    },
+    {
+     "text": "Droits ad valorem production locale",
+     "header": true
+    }
+   ],
+   [
+    {
+     "text": "Produits du tabac, produits et dispositifs de vaporisation, de vapotage et d’inhalationautres que ceux des positions tarifaires 2401 10 et 2401 20"
+    },
+    {
+     "text": "80%"
+    },
+    {
+     "text": "45%"
+    }
+   ],
+   [
+    {
+     "text": "Bières"
+    },
+    {
+     "text": "20%"
+    },
+    {
+     "text": "6%"
+    }
+   ],
+   [
+    {
+     "text": "Boissons maltées sans alcool (Malta)"
+    },
+    {
+     "text": "10%"
+    },
+    {
+     "text": "2%"
+    }
+   ],
+   [
+    {
+     "text": "Tafia, clairin"
+    },
+    {
+     "text": "40%"
+    },
+    {
+     "text": "10%"
+    }
+   ],
+   [
+    {
+     "text": "Spiritueux, à l’exception du tafia et du clairin"
+    },
+    {
+     "text": "30%"
+    },
+    {
+     "text": "6%"
+    }
+   ],
+   [
+    {
+     "text": "Boissons alcoolisées autres que les bières, boissons maltées (malta), vins et spiritueux"
+    },
+    {
+     "text": "30%"
+    },
+    {
+     "text": "6%"
+    }
+   ],
+   [
+    {
+     "text": "Boissons avec sucre ajouté, sodas et jus de fruit"
+    },
+    {
+     "text": "10%"
+    },
+    {
+     "text": "3%"
+    }
+   ],
+   [
+    {
+     "text": "Boissons énergisantes"
+    },
+    {
+     "text": "30%"
+    },
+    {
+     "text": "10%"
+    }
+   ]
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    {
+     "text": "Âge de l’usufruitier",
+     "header": true
+    },
+    {
+     "text": "Valeur de l’usufruit",
+     "header": true
+    },
+    {
+     "text": "Valeur de la nue-propriété",
+     "header": true
+    }
+   ],
+   [
+    {
+     "text": "Moins de 21 ans révolus"
+    },
+    {
+     "text": "80%"
+    },
+    {
+     "text": "20%"
+    }
+   ],
+   [
+    {
+     "text": "De 21 à moins 31 ans révolus"
+    },
+    {
+     "text": "70%"
+    },
+    {
+     "text": "30%"
+    }
+   ],
+   [
+    {
+     "text": "De 31 à moins de 41 ans révolus"
+    },
+    {
+     "text": "60%"
+    },
+    {
+     "text": "40%"
+    }
+   ],
+   [
+    {
+     "text": "De 41 à moins de 51 ans révolus"
+    },
+    {
+     "text": "50%"
+    },
+    {
+     "text": "50%"
+    }
+   ],
+   [
+    {
+     "text": "De 51 à moins de 61 ans révolus"
+    },
+    {
+     "text": "35%"
+    },
+    {
+     "text": "65%"
+    }
+   ],
+   [
+    {
+     "text": "De 61 à moins 71 ans révolus"
+    },
+    {
+     "text": "20%"
+    },
+    {
+     "text": "80%"
+    }
+   ],
+   [
+    {
+     "text": "De 71 à moins de 81 ans révolus"
+    },
+    {
+     "text": "5%"
+    },
+    {
+     "text": "95%"
+    }
+   ]
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    {
+     "text": "jusqu’à 50 000 Gourdes"
+    },
+    {
+     "text": "6, 6%"
+    }
+   ],
+   [
+    {
+     "text": "de 50 001 à 100 000 Gourdes"
+    },
+    {
+     "text": "7, 7%"
+    }
+   ],
+   [
+    {
+     "text": "de 100 001 à 150 000 Gourdes"
+    },
+    {
+     "text": "8, 8%"
+    }
+   ],
+   [
+    {
+     "text": "de 150 001 à 200 000 Gourdes"
+    },
+    {
+     "text": "9, 9%"
+    }
+   ],
+   [
+    {
+     "text": "plus de 200 000 Gourdes"
+    },
+    {
+     "text": "11%"
+    }
+   ]
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    {
+     "text": "Tarif des affiches publicitaires (en Gourdes)",
+     "header": true,
+     "colSpan": 2
+    }
+   ],
+   [
+    {
+     "text": "Droit d’emplacement pour des zones stratégiques"
+    },
+    {
+     "text": "150 000 / an"
+    }
+   ],
+   [
+    {
+     "text": "Droit d’emplacement pour les autres zones"
+    },
+    {
+     "text": "50 000 / an"
+    }
+   ],
+   [
+    {
+     "text": "Bill board"
+    },
+    {
+     "text": "750 / m2 / an"
+    }
+   ],
+   [
+    {
+     "text": "Affiche électronique"
+    },
+    {
+     "text": "50 000 / an"
+    }
+   ],
+   [
+    {
+     "text": "Publicité sonore catégorie A"
+    },
+    {
+     "text": "60 000 / an"
+    }
+   ],
+   [
+    {
+     "text": "Publicité sonore catégorie B"
+    },
+    {
+     "text": "35 000 / an"
+    }
+   ],
+   [
+    {
+     "text": "Enseignes lumineuses catégorie A"
+    },
+    {
+     "text": "15 000 / an"
+    }
+   ],
+   [
+    {
+     "text": "Enseignes lumineuses catégorie B"
+    },
+    {
+     "text": "10 000 / an"
+    }
+   ],
+   [
+    {
+     "text": "Droit d’emplacement pour des enseignes"
+    },
+    {
+     "text": "2 500 / an"
+    }
+   ],
+   [
+    {
+     "text": "Enseignes simples catégorie A"
+    },
+    {
+     "text": "7 000 / an"
+    }
+   ],
+   [
+    {
+     "text": "Enseignes simples catégorie B"
+    },
+    {
+     "text": "5 000 / an"
+    }
+   ],
+   [
+    {
+     "text": "Affiches murales (dont la dimension la plus longue ne dépasse pas 2 mètres)"
+    },
+    {
+     "text": "5 000 / an"
+    }
+   ],
+   [
+    {
+     "text": "Affiches murales (dont la dimension la plus longue dépasse 2 mètres)"
+    },
+    {
+     "text": "15 000 / an"
+    }
+   ],
+   [
+    {
+     "text": "Banderole double"
+    },
+    {
+     "text": "1 000 / 15 jours"
+    }
+   ],
+   [
+    {
+     "text": "Banderole simple"
+    },
+    {
+     "text": "750 / 15 jours"
+    }
+   ],
+   [
+    {
+     "text": "Oriflamme"
+    },
+    {
+     "text": "250 / 15 jours"
+    }
+   ],
+   [
+    {
+     "text": "Pancarte fixe"
+    },
+    {
+     "text": "3 500 / an"
+    }
+   ],
+   [
+    {
+     "text": "Pancarte catégorie A"
+    },
+    {
+     "text": "1 000 / semaine"
+    }
+   ],
+   [
+    {
+     "text": "Pancarte catégorie B"
+    },
+    {
+     "text": "750 / semaine"
+    }
+   ],
+   [
+    {
+     "text": "Plaquette (8x11 ou plus)"
+    },
+    {
+     "text": "2 500 / an"
+    }
+   ]
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    {
+     "text": "Gardien"
+    },
+    {
+     "text": "165 000 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Jardinier"
+    },
+    {
+     "text": "165 000 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Gens de maison"
+    },
+    {
+     "text": "180 000 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Cuisinier"
+    },
+    {
+     "text": "210 000 Gourdes"
+    }
+   ]
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    {
+     "text": "Nombre de pièces",
+     "header": true
+    },
+    {
+     "text": "Résidence",
+     "header": true
+    },
+    {
+     "text": "Mobilier",
+     "header": true
+    },
+    {
+     "text": "Électricité/eau",
+     "header": true
+    }
+   ],
+   [
+    {
+     "text": "1"
+    },
+    {
+     "text": "200 000 Gourdes"
+    },
+    {
+     "text": "30 000 Gourdes"
+    },
+    {
+     "text": "100 000 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "2"
+    },
+    {
+     "text": "300 000 Gourdes"
+    },
+    {
+     "text": "60 000 Gourdes"
+    },
+    {
+     "text": "200 000 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Pour chaque pièce en sus de la 2ème"
+    },
+    {
+     "text": "+ 100 000 Gourdes"
+    },
+    {
+     "text": "+ 30 000 Gourdes"
+    },
+    {
+     "text": "+ 100 000 Gourdes"
+    }
+   ]
+  ]
+ },
+ {
+  "type": "table",
+  "rows": [
+   [
+    {
+     "text": "Types de véhicules",
+     "header": true
+    },
+    {
+     "text": "Achevé depuis moins de 5 ans",
+     "header": true
+    },
+    {
+     "text": "Achevé depuis 5 ans jusqu’à moins de 15 ans",
+     "header": true
+    },
+    {
+     "text": "Achevé depuis 15 ans jusqu’à moins de 25 ans",
+     "header": true
+    },
+    {
+     "text": "Achevé depuis 25 ans ou plus",
+     "header": true
+    }
+   ],
+   [
+    {
+     "text": "Pour les 3 premiers tonneaux de jauge internationale"
+    },
+    {
+     "text": "100 000 Gourdes"
+    },
+    {
+     "text": "75 000 Gourdes"
+    },
+    {
+     "text": "50 000 Gourdes"
+    },
+    {
+     "text": "25 000 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "Pour chaque tonneau supplémentaire de jauge internationale :"
+    },
+    {
+     "text": ""
+    },
+    {
+     "text": ""
+    },
+    {
+     "text": ""
+    },
+    {
+     "text": ""
+    }
+   ],
+   [
+    {
+     "text": "- de 4 à 10 tonneaux"
+    },
+    {
+     "text": "30 000 Gourdes"
+    },
+    {
+     "text": "22 500 Gourdes"
+    },
+    {
+     "text": "15 000 Gourdes"
+    },
+    {
+     "text": "7 500 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "- de 10 à 25 tonneaux"
+    },
+    {
+     "text": "50 000 Gourdes"
+    },
+    {
+     "text": "37 500 Gourdes"
+    },
+    {
+     "text": "25 000 Gourdes"
+    },
+    {
+     "text": "12 500 Gourdes"
+    }
+   ],
+   [
+    {
+     "text": "- au-dessus de 25 tonneaux"
+    },
+    {
+     "text": "150 000 Gourdes"
+    },
+    {
+     "text": "112 500 Gourdes"
+    },
+    {
+     "text": "75 000 Gourdes"
+    },
+    {
+     "text": "37 500 Gourdes"
+    }
+   ]
+  ]
+ }
+]

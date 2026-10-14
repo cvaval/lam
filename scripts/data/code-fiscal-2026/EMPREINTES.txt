@@ -1,0 +1,32 @@
+# Empreintes SHA-256 du jeu « code-fiscal-2026 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts code-fiscal-2026
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+50ca468060b1352750ad7f87845aa2abe4dc87b57a405e2b93b78f51697e9d4c  PIECES.txt
+7608c6d4eebbf87910afef99907eb066639db3f25dd13b2b99701b659a71baf3  annotations.json
+569dd0db890d36e64ba20f43e4cd6e41ee11c7482034be0aff6c8503c35c64e5  bodyOriginal.txt
+1ce616a33a45b6808658535031c6e4715120f742ed5d8cd8d9689a72f1365358  collation/angles.py
+54250f209adf838417d8e889ca1d60227bfdbb39207d33d1cd2e83acdfc4d5a5  collation/coll2.py
+862fb2aa8f8b98becf98d71633e49854fa90c805689966a4b37fb362455daa9e  collation/coll3.py
+3efa643348d5d9c9a6bdf5d7c8f5c819720d16e63db00b194f0df38bd68b1127  collation/decisions-angles-morts.tsv
+16c2465427a2f0431b7e94b23fcab28a34f7e44b559c779d288270aca0e6fa57  collation/decisions-lieux.tsv
+6c001e3fb08076e7e1dfe833efb1792e1d104e9f5b05354052e3eccdfb40fb3f  collation/planches.py
+ee2e558e800f52b4105da42f23cd7c7010b2a5bde12b08ada920988e9034bf52  collation/planches2.py
+376c13c11c73822ad1a71b83886dcbe867d3ac4acaea765405fec2ccb995ebbd  collation/ponct.py
+35702fff78fbdcc19dfa47bce5eb220a0920971c670e269d6f53dc3c32a32428  collation/tocmatch.py
+cf5476671c0b1febe9c63a0822f62123a5ef842d524a5bcfba8e03b7c26cf038  corrections-jo.json
+abf1903a34415c047a961ea92511a0e9fefd66285005086ebdf071c6b4d44836  extraire_docx.py
+7fe6921a70aa1ddea937d0ca163d7394ae245704b108f2a217532876f650117b  parse_cf.py
+2a76e0d298699aab64a1990d565b4e4e4dee7edc16a6c1f131d81579db89dbb7  piece-index-cliente.txt
+bb1b3ef957e308b14cb478a0579d80f984ca3ecf1813415f8e2ea5a4503f0951  piece-sommaire-cliente.txt
+5ffb3e6f5f1142af2560a4db268b3ae21c3ea54c5ec6c188e15b1d7d9f7363ec  rich.json
+03eefdcbaacdd055b4df6cebfa325d4ac11499685e896aadd01485b2bd631c84  visas.json
+# Pièces sources (non versionnées) — voir PIECES.txt :
+# 02193031afd76a0a2ea4b605a0ae788b42e01fc44d6174d35b1897164f8be074  ~/Downloads/Code_Fiscal_2026_Moniteur_48-A.docx  (264589 o)
+# 5e58a5ab6341d4e3a1a4d0f8206571ff4ef0ddd22a82e92609d934dd8c9fa0cf  ~/Downloads/TABLES DES MATIÈRES.docx  (34920 o)
+# d07522fcb24f3ce0f62c7a04d3b9a0b8fbd41a1d09d7cb2ed1adffea808590dc  ~/Downloads/Code_Fiscal_2026_Index_mots-cles.docx  (42344 o)
+# 4de4e837f1a58b9e495b5cd2e08c3406c50ef513e6a74b0b2b1b0dca05153ae6  ~/Library/CloudStorage/Dropbox/Moniteur/Code Fiscal_2026_small.pdf  (38359555 o)
+# 203bea27edb62855a720359717353bfde59e79b6e6e24e6f2a11cb092935ef9a  ~/Downloads/Code_Fiscal_2026_LM48-A_Septembre 2026.pdf  (38727831 o)
+# ddb6416469e4f34153ec042a5422b88d8f4ed6e4133bf2d993954b8cf41e6836  ~/Downloads/Moniteur_48A_p43-89.docx  (66875 o)
+# 68b51f056f60c45f9e63dd2efddfe2c0ca5aa48f6bc655ae0c76cb5feed0e952  ~/Downloads/Moniteur_48A_p121-156.docx  (55295 o)
+# 953c358cc0c270a47331f69c3d52f7e1f6d38143d085f19db5adf6410b819b0f  ~/Downloads/Code_fiscal_art_502-543_Moniteur_48-A.docx  (35808 o)

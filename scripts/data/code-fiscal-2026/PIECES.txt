@@ -1,0 +1,14 @@
+# Pièces du Code fiscal 2026 (Le Moniteur Spécial N° 48-A) — empreintes SHA-256 relevées le 13 oct. 2026.
+# Les .docx de la cliente et le fac-similé ne sont PAS versionnés (dépôt public) : seuls leurs extraits
+# texte (piece-*.txt) et les données dérivées le sont. Le .docx d'origine est archivé sur le Blob privé
+# (sourceFileUrl de la fiche), le fac-similé aussi (sourcePdfUrl + fascicule d'Éditions LM2026-SP48-A).
+02193031afd76a0a2ea4b605a0ae788b42e01fc44d6174d35b1897164f8be074  ~/Downloads/Code_Fiscal_2026_Moniteur_48-A.docx  (264589 o)
+5e58a5ab6341d4e3a1a4d0f8206571ff4ef0ddd22a82e92609d934dd8c9fa0cf  ~/Downloads/TABLES DES MATIÈRES.docx  (34920 o)
+d07522fcb24f3ce0f62c7a04d3b9a0b8fbd41a1d09d7cb2ed1adffea808590dc  ~/Downloads/Code_Fiscal_2026_Index_mots-cles.docx  (42344 o)
+4de4e837f1a58b9e495b5cd2e08c3406c50ef513e6a74b0b2b1b0dca05153ae6  ~/Library/CloudStorage/Dropbox/Moniteur/Code Fiscal_2026_small.pdf  (38359555 o)
+203bea27edb62855a720359717353bfde59e79b6e6e24e6f2a11cb092935ef9a  ~/Downloads/Code_Fiscal_2026_LM48-A_Septembre 2026.pdf  (38727831 o)
+ddb6416469e4f34153ec042a5422b88d8f4ed6e4133bf2d993954b8cf41e6836  ~/Downloads/Moniteur_48A_p43-89.docx  (66875 o)
+68b51f056f60c45f9e63dd2efddfe2c0ca5aa48f6bc655ae0c76cb5feed0e952  ~/Downloads/Moniteur_48A_p121-156.docx  (55295 o)
+953c358cc0c270a47331f69c3d52f7e1f6d38143d085f19db5adf6410b819b0f  ~/Downloads/Code_fiscal_art_502-543_Moniteur_48-A.docx  (35808 o)
+# Le second PDF (Downloads, 13 oct. 13 h 38) est le MÊME scan, recadré autrement (pages de 892 pt au lieu de 785) :
+# vérifié sur l'art. 230 (p. 73), même image. Le fac-similé de référence reste le fichier Dropbox « _small ».

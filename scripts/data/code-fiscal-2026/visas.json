@@ -1,0 +1,829 @@
+{
+ "_note": "Table FERMÉE visa → source (§ 5). Seuls les visas identifiés avec certitude donnent un CrossRef CITE, résolu par `source` (et `type`), jamais par le titre. Vérifiée ligne à ligne le 13 oct. 2026 contre les fiches en base.",
+ "visas": [
+  {
+   "n": 1,
+   "visa": "Vu la Constitution de la République ;",
+   "source": "CONSTITUTION_1987",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": ""
+  },
+  {
+   "n": 2,
+   "visa": "Vu le Pacte National pour la Stabilité et l’Organisation des Élections du 21 février 2026, publié au Journal Officiel « Le Moniteur » Spécial N° 7 du 23 février 2026 ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus (Pacte National du 21 février 2026, Spécial N° 7)"
+  },
+  {
+   "n": 3,
+   "visa": "Vu la Convention des Nations-Unies du 13 février 1946 sur les privilèges et immunités des fonctionnaires des Nations Unies à laquelle Haïti a adhéré le 4 juillet 1947 ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 4,
+   "visa": "Vu le Protocole d’Annecy sur les conditions d’adhésion à l’Accord général sur les tarifs douaniers et le commerce sanctionné par le Décret du 4 septembre 1951 ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 5,
+   "visa": "Vu la Convention de Vienne du 18 avril 1961 sur les relations diplomatiques et consulaires à laquelle Haïti a adhéré le 2 février 1978 ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 6,
+   "visa": "Vu la Convention américaine des Droits de l’Homme dite : « Pacte San Jose de Costa Rica » sanctionnée par la Loi du 18 août 1979 ;",
+   "source": "CPC_APPENDICE_IV_22_1",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "la cible est la Loi du 18 août 1979 sanctionnant la Convention (Appendice IV.22 du CPC, extrait : art. 7)"
+  },
+  {
+   "n": 7,
+   "visa": "Vu la Convention internationale sur le système harmonisé de désignation et de codification des marchandises ratifiée par le Décret du 2 juillet 1997 ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 8,
+   "visa": "Vu la Convention interaméricaine contre la corruption ratifiée par le Décret du 19 décembre 2000 ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 9,
+   "visa": "Vu la Convention des Nations Unies contre la corruption ratifiée par le Décret du 14 mai 2007 ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 10,
+   "visa": "Vu le Code Pénal ;",
+   "source": "CODE_PENAL_ANNOTE",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": ""
+  },
+  {
+   "n": 11,
+   "visa": "Vu le Code Civil ;",
+   "source": "CODE_CIVIL_ANNOTE",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": ""
+  },
+  {
+   "n": 12,
+   "visa": "Vu le Code de Procédure Civile ;",
+   "source": "CODE_PROCEDURE_CIVILE",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": ""
+  },
+  {
+   "n": 13,
+   "visa": "Vu le Code de Commerce ;",
+   "source": "CODE_COMMERCE_ANNOTE",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": ""
+  },
+  {
+   "n": 14,
+   "visa": "Vu le Code du Travail ;",
+   "source": "CODE_TRAVAIL_ANNOTE",
+   "type": "DOCTRINE",
+   "certitude": "certaine",
+   "note": "Code du travail (Décret du 24 février 1984), édition annotée J.-F. Salès — seule fiche du Code au corpus"
+  },
+  {
+   "n": 15,
+   "visa": "Vu le Code Maritime et de Navigation ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 16,
+   "visa": "Vu le Code de l’Aviation Civile ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 17,
+   "visa": "Vu la Loi du 22 février 1948 frappant d’un droit spécial les primes d’assurance ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 18,
+   "visa": "Vu la Loi du 3 août 1955 réglementant les conditions dans lesquelles les Sociétés Anonymes peuvent se constituer, s’installer et fonctionner sur le territoire de la République ;",
+   "source": "CC_VANDAL_IV-A-1",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "extrait de l’édition Vandal"
+  },
+  {
+   "n": 19,
+   "visa": "Vu le Décret du 26 septembre 1960 définissant la profession de Commerçant ;",
+   "source": "CC_VANDAL_I-G",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "le Décret du 26 septembre 1960 « sur le livret de licence » (CC_VANDAL_VII-A-2) est un AUTRE décret du même jour"
+  },
+  {
+   "n": 20,
+   "visa": "Vu la Loi du 28 août 1962 créant le Code Douanier ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 21,
+   "visa": "Vu la Loi du 16 septembre 1963 formulant les principes généraux devant régir les Sociétés Anonymes Mixtes de capitaux ;",
+   "source": "CC_VANDAL_IV-C",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": ""
+  },
+  {
+   "n": 22,
+   "visa": "Vu le Décret du 22 septembre 1964 adoptant une base plus équitable et plus rationnelle pour la fixation des loyers et fermage des Biens du domaine privé de l’État ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 23,
+   "visa": "Vu la Loi du 16 septembre 1966 créant le Fonds d’Urgence ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 24,
+   "visa": "Vu le Décret du 21 septembre 1967 créant l’Office d’Assurance Véhicules ContreTiers et le confiant à un Service autonome ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 25,
+   "visa": "Vu le Décret du 9 janvier 1968 sur les droits d’Auteur d’œuvres littéraires, scientifiques et artistiques ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 26,
+   "visa": "Vu le Décret du 23 janvier 1968 autorisant l’émission de timbres mobiles spéciaux en vue de mettre le Département de la Justice en mesure d’assurer une nouvelle impulsion à la politique de justice sociale ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 27,
+   "visa": "Vu le Décret du 7 février 1968 confiant à l’Office d’Assurance Véhicules Contre Tiers le monopole de l’assurance de voyage ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 28,
+   "visa": "Vu le Décret du 27 novembre 1969 harmonisant les dispositions de la Loi du 24 février 1919 sur le Notariat ;",
+   "source": "DECRET_LOI_NOTARIAT_1969",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "le visa dit « Décret », la fiche « Décret-loi » : même acte"
+  },
+  {
+   "n": 29,
+   "visa": "Vu la Loi du 3 septembre 1971 concernant les droits d’accises sur les cigarettes et les boissons alcoolisées, modifié par les Décrets du 6 mars 1985, du 31 août 1988 et du 28 septembre 1990 ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 30,
+   "visa": "Vu le Décret du 14 janvier 1974 révisant la Loi du 4 décembre 1959 en vue de faciliter les investissements privés ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus (les fiches qui citent un « D. 14 janvier 1974 » portent sur le droit de timbre, pas sur les investissements)"
+  },
+  {
+   "n": 31,
+   "visa": "Vu la Loi du 18 juillet 1974 instituant et réglementant sur le territoire de la République d’Haïti des zones clôturées dénommées : « Parcs Industriels » ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 32,
+   "visa": "Vu le Décret du 26 février 1975 définissant les attributions de l’Arpenteur et réglementant la profession d’Arpentage ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 33,
+   "visa": "Vu le Décret du 28 septembre 1977 sur l’Enregistrement et la Conservation foncière ;",
+   "source": "DECRET_ENREGISTREMENT_1977",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "la fiche CPC_APPENDICE_V_4_1 porte le même décret (appendice) ; on vise la fiche consolidée"
+  },
+  {
+   "n": 34,
+   "visa": "Vu le Décret du 27 octobre 1978 règlementant l’Exercice du droit de Pêche ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 35,
+   "visa": "Vu le Décret du 29 novembre 1978 réunissant en une seule Loi tous les textes épars relatifs au Droit de timbre ;",
+   "source": "DECRET_TIMBRE_1978_CONSOLIDE",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "CC_VANDAL_VII-B-2 porte le même décret ; on vise la fiche consolidée"
+  },
+  {
+   "n": 36,
+   "visa": "Vu le Décret du 29 mars 1979 révisant la Loi du 24 juin 1932, le Décret du 21 janvier 1946 et réglementant sur de nouvelles bases la profession d’Avocat ;",
+   "source": "CPC_APPENDICE_III_2_1",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "⚠️ le visa dit « révisant la Loi du 24 juin 1932 », la fiche « la loi du 6 mai 1932 » : même décret du 29 mars 1979 (profession d’avocat), la date interne diverge"
+  },
+  {
+   "n": 37,
+   "visa": "Vu le Décret du 5 avril 1979 abrogeant les Décrets des 14 septembre 1964 et 4 novembre 1974 en vue d’adopter une nouvelle imposition plus rationnelle à la Contribution Foncière des Propriétés Bâties ;",
+   "source": "DECRET_CFPB_1979_CONSOLIDE",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "CPC_APPENDICE_V_2_2 porte le même décret ; on vise la fiche consolidée"
+  },
+  {
+   "n": 38,
+   "visa": "Vu la Loi du 17 août 1979 créant la Banque de la République d’Haïti ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "AMBIGU : deux lois du 17 août 1979 sur la BRH au corpus (CC_VANDAL_II-A « remplaçant la BNRH par la BRH » et II-B-1 « organisant la BRH ») — « créant » ne tranche pas"
+  },
+  {
+   "n": 39,
+   "visa": "Vu le Décret du 20 mars 1981, modifiant la Loi du 13 juillet 1956 sur les Compagnies d’assurances ;",
+   "source": "CC_VANDAL_IV-D-2",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": ""
+  },
+  {
+   "n": 40,
+   "visa": "Vu le Décret du 23 décembre 1981 modifiant les articles 3 et 16 du Décret du 5 avril 1979 sur la Contribution Foncière des Propriétés Bâties ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 41,
+   "visa": "Vu la Loi du 30 août 1982, modifiant les dispositions du Décret du 10 octobre 1979 sur les Sociétés financières de développement ;",
+   "source": "CC_VANDAL_II-J",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": ""
+  },
+  {
+   "n": 42,
+   "visa": "Vu la Loi du 22 août 1983 remplaçant le système des contraintes par un système plus dynamique sur le recouvrement des créances de l’État ;",
+   "source": "CPC_APPENDICE_V_7_1",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "l’autre Loi du 22 août 1983 (franchise douanière, visa 43) n’est pas au corpus"
+  },
+  {
+   "n": 43,
+   "visa": "Vu la Loi du 22 août 1983 modifiant les dispositions règlementant la franchise douanière en général ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus (l’autre loi du 22 août 1983, contraintes, est le visa 42)"
+  },
+  {
+   "n": 44,
+   "visa": "Vu le Décret du 4 novembre 1983 portant Organisation et fonctionnement de la Cour Supérieure des Comptes et du Contentieux Administratif, et fixant la procédure à suivre devant ladite Cour ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 45,
+   "visa": "Vu le Décret du 1er août 1986 par lequel le Département des Mines et des Ressources Énergétiques devient Bureau des Mines et de l’Énergie ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 46,
+   "visa": "Vu le Décret du 10 février 1987 assujettissant les véhicules automobiles importés, neufs ou usagés, à une taxe de première immatriculation basée sur la valeur CIF ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 47,
+   "visa": "Vu le Décret du 5 mars 1987 organisant sur de nouvelles bases l’Office du Budget ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 48,
+   "visa": "Vu le Décret du 5 mars 1987 relatif au Code douanier ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 49,
+   "visa": "Vu le Décret du 13 mars 1987 modifiant celui du 31 octobre1983 portant réorganisation du Ministère de l’Économie et des Finances ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 50,
+   "visa": "Vu le Décret du 13 mars 1987 portant organisation du Ministère du Commerce et de l’Industrie ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 51,
+   "visa": "Vu le Décret du 28 septembre 1987 modifiant les structures de la Direction Générale des Impôts de manière qu’elle puisse remplir efficacement le rôle qui lui est dévolu au sein de l’Administration publique ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus (l’autre décret du 28 septembre 1987, patente, est le visa 52)"
+  },
+  {
+   "n": 52,
+   "visa": "Vu le Décret du 28 septembre 1987 adoptant de nouvelles dispositions légales sur la patente de façon à concilier les intérêts du Fisc avec ceux des contribuables ;",
+   "source": "CC_VANDAL_VII-E",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "l’autre Décret du 28 septembre 1987 (structures de la DGI, visa 51) n’est pas au corpus"
+  },
+  {
+   "n": 53,
+   "visa": "Vu le Décret du 12 octobre 1987 modifiant l’article 10 du Décret du 13 janvier 1978 sur la licence des étrangers ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 54,
+   "visa": "Vu le Décret du 14 octobre 1988 supprimant la taxe dite : « Taxe d’Apprentissage » pour la remplacer par une autre taxe dite: « Taxe sur la Masse Salariale » ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 55,
+   "visa": "Vu la Loi du 29 novembre 1994 portant création d’une Force de Police Civile dénommée : «Police Nationale d’Haïti» et organisant son fonctionnement ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 56,
+   "visa": "Vu la Loi du 5 février 1995 modifiant certains tarifs et positions tarifaires du Code douanier ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus (les deux lois du 5 février 1995 au corpus ont d’autres objets)"
+  },
+  {
+   "n": 57,
+   "visa": "Vu le Décret du 19 mai 1995 modifiant l’article 36 de la Loi du 11 août 1903 sur le droit de timbre proportionnel, sur le capital social et le droit de transmission des titres ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 58,
+   "visa": "Vu le Décret du 22 août 1995 modifiant la Loi du 18 septembre 1985 en vue de l’adapter aux exigences de la réforme judiciaire en cours ;",
+   "source": "CPC_APPENDICE_I_B_1",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": ""
+  },
+  {
+   "n": 59,
+   "visa": "Vu la Loi du 5 juin 1996 modifiant le Décret du 22 janvier 1990 relatif à la taxe sur les billets de voyage ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 60,
+   "visa": "Vu la Loi du 5 juin 1996 établissant un nouveau tarif d’immatriculation de tous les véhicules utilisant les voies terrestres ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 61,
+   "visa": "Vu la Loi du 10 juin 1996 portant ajustement du droit de passeport ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus (l’autre loi du 10 juin 1996, patente, est le visa 62)"
+  },
+  {
+   "n": 62,
+   "visa": "Vu la Loi du 10 juin 1996 modifiant l’article 15 du Décret du 28 septembre 1987 relatif à la patente ;",
+   "source": "LOI_PATENTE_1996_CONSOLIDE",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "deux lois du 10 juin 1996 : celle-ci (patente) est au corpus, celle du droit de passeport (visa 61) non"
+  },
+  {
+   "n": 63,
+   "visa": "Vu la Loi du 18 juin 1996 créant un Fonds de Gestion et de Développement des Collectivités Territoriales ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 64,
+   "visa": "Vu la Loi du 20 août 1996 établissant, en complément des recettes communales, des droits internes dénommés : « Contribution au Fonds de Gestion et de Développement des Collectivités Territoriales (CFGDCT) » ;",
+   "source": "LOI_CFGDCT_1996_CONSOLIDE",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": ""
+  },
+  {
+   "n": 65,
+   "visa": "Vu la Loi du 9 juillet 2002 portant sur les Zones Franches ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 66,
+   "visa": "Vu la Loi du 9 septembre 2002 portant sur le Code des Investissements, modifiant le Décret du 30 octobre 1989 relatif au Code des investissements ;",
+   "source": "CODE_INVESTISSEMENTS_2002",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": ""
+  },
+  {
+   "n": 67,
+   "visa": "Vu la Loi du 13 décembre 2002 modifiant la Loi du 19 septembre 1982 relative à la Taxe sur le Chiffre d’Affaires ;",
+   "source": "LOI_TCA_2002",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": ""
+  },
+  {
+   "n": 68,
+   "visa": "Vu la Loi du 18 décembre 2002 portant création d’un organisme à caractère financier dénommé: « Fonds d’Entretien Routier » ayant pour sigle : « FER » ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 69,
+   "visa": "Vu la Loi du 8 septembre 2003 portant révision de la Loi sur l’Assurance Véhicule Contre Tiers ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 70,
+   "visa": "Vu le Décret du 8 septembre 2004 créant un Organisme à caractère administratif dénommé : « Unité de Lutte Contre la Corruption » ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 71,
+   "visa": "Vu le Décret du 17 mai 2005 portant organisation de l’Administration centrale de l’État amendé par ceux du 6 janvier 2016 et du 9 septembre 2020 ;",
+   "source": "DECRET_ADMIN_CENTRALE_2005",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "deux décrets du 17 mai 2005 : l’objet les distingue ; CPC_APPENDICE_II_A_4 porte le même décret"
+  },
+  {
+   "n": 72,
+   "visa": "Vu le Décret du 17 mai 2005 portant révision du Statut général de la Fonction publique ;",
+   "source": "CPC_APPENDICE_II_A_3",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "deux décrets du 17 mai 2005 : l’objet les distingue (extrait, art. 201 s.)"
+  },
+  {
+   "n": 73,
+   "visa": "Vu le Décret du 1er juin 2005 relatif à l’immatriculation et la circulation des véhicules ;",
+   "source": "DECRET_CIRCULATION_VEHICULES_2005",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "le Décret du 1er juin 2005 sur la carte d’identification nationale (CPC_APPENDICE_V_1_2) est un autre acte"
+  },
+  {
+   "n": 74,
+   "visa": "Vu le Décret du 29 septembre 2005 modifiant celui du 29 septembre 1986 relatif à l’Impôt sur le Revenu ;",
+   "source": "DECRET_IMPOT_REVENU_2005",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "deux décrets du 29 septembre 2005 : l’objet les distingue"
+  },
+  {
+   "n": 75,
+   "visa": "Vu le Décret du 29 septembre 2005 modifiant celui du 28 septembre 1987 relatif à la Carte d’Identité Fiscale ;",
+   "source": "CPC_APPENDICE_V_1_1",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "deux décrets du 29 septembre 2005 : l’objet les distingue"
+  },
+  {
+   "n": 76,
+   "visa": "Vu le Décret du 23 novembre 2005 établissant l’Organisation et le Fonctionnement de la Cour Supérieure des Comptes et du Contentieux Administratif désignée sous le sigle : « CSCCA » ;",
+   "source": "CPC_APPENDICE_II_A_2",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": ""
+  },
+  {
+   "n": 77,
+   "visa": "Vu le Décret du 1er février 2006 fixant le cadre général de la décentralisation ainsi que les principes d’organisation et de fonctionnement des Collectivités Territoriales haïtiennes ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 78,
+   "visa": "Vu le Décret du 17 mars 2006 créant au Ministère de l’Économie et des Finances un Service techniquement déconcentré dénommé : « Inspection Générale des Finances » ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 79,
+   "visa": "Vu la Loi du 13 novembre 2007 créant le Conseil Supérieur du Pouvoir Judiciaire ;",
+   "source": "CPC_APPENDICE_I_A_7_3",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": ""
+  },
+  {
+   "n": 80,
+   "visa": "Vu la Loi du 12 février 2008 portant déclaration de patrimoine par certaines catégories de personnalités politiques, de fonctionnaires et autres agents publics ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 81,
+   "visa": "Vu la Loi du 10 juin 2009 fixant les règles générales relatives aux Marchés Publics et aux Conventions de Concession d’Ouvrage de Service Public ;",
+   "source": "MARCHES_LOI_2009",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": ""
+  },
+  {
+   "n": 82,
+   "visa": "Vu la Loi de Finances du 29 septembre 2009 portant modification de certains taux et positions tarifaires ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 83,
+   "visa": "Vu la Loi du 14 mai 2012 sur les banques et autres institutions financières ;",
+   "source": "LOI_BANQUES_2012",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": ""
+  },
+  {
+   "n": 84,
+   "visa": "Vu la Loi du 12 mars 2014 portant prévention et répression de la corruption ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 85,
+   "visa": "Vu le Décret du 6 janvier 2016 reconnaissant le droit de tout administré à s’adresser à l’Administration publique par des moyens électroniques ;",
+   "source": "DECRET_ADMINISTRATION_ELECTRONIQUE_2016",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "six décrets du 6 janvier 2016 au corpus : l’objet les distingue"
+  },
+  {
+   "n": 86,
+   "visa": "Vu la Loi du 4 mai 2016 remplaçant le Décret du 16 février 2005 sur le processus d’élaboration et d’exécution des Lois de finances ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 87,
+   "visa": "Vu la Loi du 14 février 2017 sur la signature électronique ;",
+   "source": "LOI_SIGNATURE_ELECTRONIQUE_2017",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": ""
+  },
+  {
+   "n": 88,
+   "visa": "Vu la Loi du 16 février 2017 sur les échanges électroniques ;",
+   "source": "LOI_ECHANGES_ELECTRONIQUES_2017",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "⚠️ DATE DIVERGENTE : le visa dit « Loi du 16 février 2017 », la fiche « Loi du 14 février 2017 » ; seule loi du corpus sur les échanges électroniques — à signaler à la cliente"
+  },
+  {
+   "n": 89,
+   "visa": "Vu la Loi du 3 avril 2018 portant Réforme du Statut de Commerçant et des Actes de commerce et organisant le Registre du commerce ;",
+   "source": "LOI_STATUT_COMMERCANT_2018",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "⚠️ DATE DIVERGENTE : le visa dit « Loi du 3 avril 2018 », la fiche « Loi du 23 avril 2018 » (Loi n° 002-2018) ; objet identique — à signaler à la cliente"
+  },
+  {
+   "n": 90,
+   "visa": "Vu le Décret du 11 mars 2020 sur les Ordres Professionnels ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus (les décrets du 11 mars 2020 au corpus ont d’autres objets)"
+  },
+  {
+   "n": 91,
+   "visa": "Vu le Décret du 11 mars 2020 portant sur le Numéro d’Identification Nationale Unique et la Carte d’Identification Nationale ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 92,
+   "visa": "Vu le Décret du 11 mars 2020 établissant un système de taxation couvrant les carrières, les matériaux de carrières et les transporteurs de matériaux de carrières ;",
+   "source": "DECRET_TAXATION_CARRIERES_2020",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "quatre décrets du 11 mars 2020 sont visés : l’objet les distingue"
+  },
+  {
+   "n": 93,
+   "visa": "Vu le Décret du 11 mars 2020 fixant les règles relatives à la sécurité des biens et services, la loyauté des transactions économiques et la protection du consommateur ;",
+   "source": "DECRET_PROTECTION_CONSOMMATEUR_2020",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "quatre décrets du 11 mars 2020 sont visés : l’objet les distingue"
+  },
+  {
+   "n": 94,
+   "visa": "Vu le Décret du 9 avril 2020 sur le Droit des sûretés ;",
+   "source": "DECRET_SURETES",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "trois décrets du 9 avril 2020 au corpus : l’objet les distingue"
+  },
+  {
+   "n": 95,
+   "visa": "Vu le Décret du 23 décembre 2020 accordant l’Assurance vieillesse aux agriculteurs à faibles revenus et fixant les règles générales de sauvegarde des moyens de production ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 96,
+   "visa": "Vu le Décret du 21 janvier 2021 modifiant l’Article 1er de la Loi du 10 juin 1996 portant ajustement du droit de passeport ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 97,
+   "visa": "Vu le Décret du 13 septembre 2022 modifiant l’article 6 de la Loi du 18 décembre 2002 portant création d’un organisme à caractère financier dénommé: « Fonds d’Entretien Routier » ayant pour sigle: « FER » ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 98,
+   "visa": "Vu le Décret du 19 décembre 2022 portant Code Fiscal ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "texte REMPLACÉ : renvoi ABROGE nominatif (non résolu) + VOIR vers le fascicule LM2023-SP3 — pas de CITE"
+  },
+  {
+   "n": 99,
+   "visa": "Vu le Décret du 23 décembre 2022 portant Code des Douanes ;",
+   "source": "CODE_DOUANES_ANNOTE",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "le titre de la fiche ne porte pas la date (« Le Moniteur — Édition spéciale n° 11 — 21 mars 2023 — Décret portant Code des Douanes ») ; une copie DOCTRINE existe, on vise la fiche LEGISLATION"
+  },
+  {
+   "n": 100,
+   "visa": "Vu le Décret du 30 avril 2023 sanctionnant le blanchiment des capitaux, le financement du terrorisme et le financement de la prolifération des armes de destruction massive en Haiti ;",
+   "source": "DECRET_BLANCHIMENT_2023",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": ""
+  },
+  {
+   "n": 101,
+   "visa": "Vu le Décret du 29 septembre 2023 portant réorganisation de l’Unité Centrale de Renseignements Financiers ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 102,
+   "visa": "Vu le Décret du 29 mars 2026 déterminant les modalités de fixation des prix des produits pétroliers ;",
+   "source": null,
+   "type": null,
+   "certitude": "non identifié",
+   "note": "absent du corpus"
+  },
+  {
+   "n": 103,
+   "visa": "Vu le Décret du 11 août 2026 établissant le régime d’imposition applicable aux jeux de hasard et d’argent ;",
+   "source": "DECRET_JEUX_IMPOSITION_2026",
+   "type": "LEGISLATION",
+   "certitude": "certaine",
+   "note": "trois décrets du 11 août 2026 : l’objet les distingue"
+  }
+ ]
+}

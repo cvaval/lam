@@ -1,0 +1,305 @@
+C001	HORS_CORPS	manchette p. 1 (mise en page en cartouches) ; coupée du corps, reprise dans moniteurRef
+C002	HORS_CORPS	manchette p. 1 : le tiret du Word joint deux cartouches ; coupée du corps
+C003	HORS_CORPS	manchette p. 1 : « Directeur Général / Ronald Saint Jean » sur deux lignes, sans deux-points ; coupée du corps
+C004	HORS_CORPS	manchette p. 1 : cartouches séparés par des filets ; coupée du corps
+C005	HORS_CORPS	manchette p. 1 : cartouches séparés par des filets ; coupée du corps
+C006	CONFORME	« SOMMAIRE » imprimé (Tesseract l'a sauté) ; front matter coupé du corps
+C007	CONFORME	J.O. « San Jose » sans accent
+C008	CONFORME	J.O. « ContreTiers » collé
+C009	CONFORME	J.O. « modifié » (masculin)
+C010	CONFORME	J.O. « règlementant »
+C011	CONFORME	J.O. « octobre1983 » collé
+C012	CONFORME	un seul intitulé « LIVRE I : CODE GÉNÉRAL DES IMPÔTS » sur la page (Haiku l'a doublé)
+C013	CONFORME	J.O. « règlementée »
+C014	CONFORME	J.O. « iii. » (Tesseract a lu « ii »)
+C015	CONFORME	J.O. « par la Décret » (sic)
+C016	CONFORME	J.O. « Section II. »
+C017	CONFORME	J.O. « Fort-liberté » (minuscule)
+C018	CONFORME	J.O. « règlementée »
+C019	CONFORME	J.O. « sur les quels » en deux mots
+C020	CONFORME	J.O. « SOUS-TITRE II. »
+C021	CONFORME	J.O. « règlementées »
+C022	CONFORME	énumération « a. … b. » imprimée comme au Word (le « a » de Tesseract est un doublon de lecture)
+C023	CONFORME	J.O. « Le droit de licence visés » (sic)
+C024	CONFORME	J.O. « (10, 000, 000.00) »
+C025	CONFORME	J.O. « (10, 000, 000.00) »
+C026	CONFORME	J.O. « (5, 000, 000.00) »
+C027	CONFORME	J.O. « (5, 000, 000.00) »
+C028	CONFORME	J.O. « (2, 500, 000.00) »
+C029	CONFORME	J.O. « (2, 500, 000.00) »
+C030	CONFORME	J.O. : énumération « c. d. c. d. e. » (sic, la lettre c revient) — le Word la suit
+C031	CONFORME	J.O. : second « d. » (sic) — le Word le suit
+C032	CONFORME	J.O. « d. e. f. » (suite de l'énumération irrégulière) — le Word la suit
+C033	CONFORME	J.O. « f. » — le Word le suit
+C034	CONFORME	J.O. « g. Le montant » (majuscule)
+C035	CONFORME	J.O. « 2. Les rémunérations… » (Haiku a omis le numéro)
+C036	CONFORME	J.O. « … en nature. / 3. Pour l'application… »
+C037	CONFORME	J.O. « 5. Aux fins du 4. »
+C038	CONFORME	J.O. « 6. Aux fins du 4. »
+C039	CONFORME	J.O. « pour centage » en deux mots
+C040	CONFORME	J.O. « a. le bilan »
+C041	CONFORME	J.O. « pour centage » en deux mots (les deux Claude ont soudé)
+C042	CONFORME	J.O. « partout moyen » (sic, en un mot)
+C043	CONFORME	J.O. « l'avant dernier exercice » sans trait d'union
+C044	CONFORME	J.O. « compte-courants »
+C045	CONFORME	J.O. « c. le prix pratiqué »
+C046	CONFORME	J.O. « (3000 000) »
+C047	CONFORME	J.O. « d. d'arrérages ; e. de tantièmes … » (Haiku a ajouté un commentaire étranger au texte)
+C048	CONFORME	J.O. « l'État »
+C049	CONFORME	J.O. « 15. À ce titre » (sic, numérotation)
+C050	CONFORME	J.O. « visée au r. du 1. de l'article 71 »
+C051	CONFORME	J.O. « quelque soit » (sic)
+C052	CONFORME	J.O. « du taux de10% » collé
+C053	CONFORME	J.O. « 2. Les entreprises… » (Haiku a omis le numéro)
+C054	CONFORME	J.O. « 3. L'Impôt sur les Sociétés… »
+C055	CONFORME	J.O. « Section II. »
+C056	CONFORME	tableau art. 154 : cellule d'en-tête « Montant annuel » ; le « — » / « : » des témoins est un séparateur de cellule, pas du texte
+C057	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C058	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C059	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C060	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C061	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C062	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C063	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C064	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C065	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C066	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C067	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C068	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C069	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C070	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C071	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C072	CONFORME	tableau art. 154 : J.O. « auto-» en fin de ligne puis « propulsées » — trait d’union imprimé, conservé comme au Word
+C073	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C074	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C075	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C076	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C077	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C078	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C079	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C080	CONFORME	tableau art. 154 : J.O. « cc » (Tesseract a lu « ce »)
+C081	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C082	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C083	CONFORME	tableau art. 154 : J.O. « cc » (Tesseract a lu « ce »)
+C084	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C085	CONFORME	tableau art. 154 : cellule conforme au Word ; « : », « — » ou l’en-tête répété (« Nature du véhicule », « Montant annuel ») sont des séparateurs ajoutés par les lecteurs, absents du J.O.
+C086	CONFORME	J.O. « Section II. »
+C087	CONFORME	J.O. « bancs d'empoint » (sic)
+C088	CORRIGER	J.O. « (1/2%) » en chiffres pleins et barre oblique, non le glyphe « ½ » du Word → « 1/2 »
+C089	CONFORME	J.O. « Section II. »
+C090	CONFORME	J.O. signe de multiplication « × »
+C091	CONFORME	J.O. signe de multiplication « × »
+C092	CONFORME	J.O. signe de multiplication « × »
+C093	CONFORME	J.O. « Boisson maltée »
+C094	CONFORME	J.O. « pour centage » en deux mots (les deux Claude ont soudé)
+C095	CONFORME	J.O. « 2. Son considérés » (sic)
+C096	CONFORME	énumération « a. … b. » imprimée comme au Word (le « a » de Tesseract est un doublon de lecture)
+C097	CONFORME	tableau art. 202 : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs
+C098	CONFORME	tableau art. 202 : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs
+C099	CONFORME	tableau art. 202 : J.O. « d’inhalationautres » collé (§ 2 H)
+C100	CONFORME	tableau art. 202 : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs
+C101	CONFORME	tableau art. 202 : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs
+C102	CONFORME	tableau art. 202 : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs
+C103	CONFORME	tableau art. 202 : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs
+C104	CONFORME	tableau art. 202 : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs
+C105	CONFORME	tableau art. 202 : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs
+C106	CONFORME	tableau art. 202 : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs
+C107	CONFORME	tableau art. 202 : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs
+C108	CONFORME	tableau art. 202 : J.O. « Spiritueux, à l’exception du tafia et du clairin » (Tesseract a sauté la 2e ligne de la cellule)
+C109	CONFORME	tableau art. 202 : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs
+C110	CONFORME	tableau art. 202 : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs
+C111	CONFORME	tableau art. 202 : cellule sur deux lignes, lue dans un autre ordre par Tesseract ; texte identique au Word
+C112	CONFORME	tableau art. 202 : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs
+C113	CONFORME	tableau art. 202 : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs
+C114	CONFORME	tableau art. 202 : cellule sur deux lignes, lue dans un autre ordre par Tesseract ; texte identique au Word
+C115	CONFORME	tableau art. 202 : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs
+C116	CONFORME	tableau art. 202 : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs
+C117	CONFORME	tableau art. 202 : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs
+C118	CONFORME	tableau art. 202 : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs
+C119	CONFORME	J.O. « Lorsque, l’emballage » (virgule imprimée)
+C120	CORRIGER	J.O. « b être remplacée » : repère « b » SANS point (vérifié à l’agrandissement) ; le Word ajoute « b. » → « b être »
+C121	CONFORME	J.O. « fuvial » (sic)
+C122	CONFORME	J.O. « i. … ii. » (le « A » de Tesseract est un débris)
+C123	CONFORME	J.O. « entraine » sans circonflexe
+C124	CORRIGER	J.O. « b proportionnels. » : repère « b » SANS point ; le Word ajoute « b. » → « b proportionnels. »
+C125	CONFORME	J.O. « … visé à l'article 227. / Article 225.- » (le « a » de Tesseract est un débris)
+C126	CONFORME	J.O. « est déterminer » (sic)
+C127	CONFORME	tableau art. 230 (vu en entier, 8 rangées × 3 colonnes) : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs. ⚠️ 2e rangée « De 21 à moins 31 ans révolus » SANS « de » au J.O. : le Word est fidèle, le « de » du § 2 F n’est PAS rétabli
+C128	CONFORME	tableau art. 230 (vu en entier, 8 rangées × 3 colonnes) : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs. ⚠️ 2e rangée « De 21 à moins 31 ans révolus » SANS « de » au J.O. : le Word est fidèle, le « de » du § 2 F n’est PAS rétabli
+C129	CONFORME	tableau art. 230 (vu en entier, 8 rangées × 3 colonnes) : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs. ⚠️ 2e rangée « De 21 à moins 31 ans révolus » SANS « de » au J.O. : le Word est fidèle, le « de » du § 2 F n’est PAS rétabli
+C130	CONFORME	tableau art. 230 (vu en entier, 8 rangées × 3 colonnes) : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs. ⚠️ 2e rangée « De 21 à moins 31 ans révolus » SANS « de » au J.O. : le Word est fidèle, le « de » du § 2 F n’est PAS rétabli
+C131	CONFORME	tableau art. 230 (vu en entier, 8 rangées × 3 colonnes) : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs. ⚠️ 2e rangée « De 21 à moins 31 ans révolus » SANS « de » au J.O. : le Word est fidèle, le « de » du § 2 F n’est PAS rétabli
+C132	CONFORME	tableau art. 230 (vu en entier, 8 rangées × 3 colonnes) : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs. ⚠️ 2e rangée « De 21 à moins 31 ans révolus » SANS « de » au J.O. : le Word est fidèle, le « de » du § 2 F n’est PAS rétabli
+C133	CONFORME	tableau art. 230 (vu en entier, 8 rangées × 3 colonnes) : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs. ⚠️ 2e rangée « De 21 à moins 31 ans révolus » SANS « de » au J.O. : le Word est fidèle, le « de » du § 2 F n’est PAS rétabli
+C134	CONFORME	tableau art. 230 (vu en entier, 8 rangées × 3 colonnes) : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs. ⚠️ 2e rangée « De 21 à moins 31 ans révolus » SANS « de » au J.O. : le Word est fidèle, le « de » du § 2 F n’est PAS rétabli
+C135	CONFORME	tableau art. 230 (vu en entier, 8 rangées × 3 colonnes) : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs. ⚠️ 2e rangée « De 21 à moins 31 ans révolus » SANS « de » au J.O. : le Word est fidèle, le « de » du § 2 F n’est PAS rétabli
+C136	CONFORME	tableau art. 230 (vu en entier, 8 rangées × 3 colonnes) : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs. ⚠️ 2e rangée « De 21 à moins 31 ans révolus » SANS « de » au J.O. : le Word est fidèle, le « de » du § 2 F n’est PAS rétabli
+C137	CONFORME	tableau art. 230 (vu en entier, 8 rangées × 3 colonnes) : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs. ⚠️ 2e rangée « De 21 à moins 31 ans révolus » SANS « de » au J.O. : le Word est fidèle, le « de » du § 2 F n’est PAS rétabli
+C138	CONFORME	tableau art. 230 (vu en entier, 8 rangées × 3 colonnes) : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs. ⚠️ 2e rangée « De 21 à moins 31 ans révolus » SANS « de » au J.O. : le Word est fidèle, le « de » du § 2 F n’est PAS rétabli
+C139	CONFORME	tableau art. 230 (vu en entier, 8 rangées × 3 colonnes) : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs. ⚠️ 2e rangée « De 21 à moins 31 ans révolus » SANS « de » au J.O. : le Word est fidèle, le « de » du § 2 F n’est PAS rétabli
+C140	CONFORME	tableau art. 230 (vu en entier, 8 rangées × 3 colonnes) : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs. ⚠️ 2e rangée « De 21 à moins 31 ans révolus » SANS « de » au J.O. : le Word est fidèle, le « de » du § 2 F n’est PAS rétabli
+C141	CONFORME	tableau art. 230 (vu en entier, 8 rangées × 3 colonnes) : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs. ⚠️ 2e rangée « De 21 à moins 31 ans révolus » SANS « de » au J.O. : le Word est fidèle, le « de » du § 2 F n’est PAS rétabli
+C142	CONFORME	tableau art. 230 (vu en entier, 8 rangées × 3 colonnes) : cellule conforme au Word ; « - » / « | » sont des séparateurs ajoutés par les lecteurs. ⚠️ 2e rangée « De 21 à moins 31 ans révolus » SANS « de » au J.O. : le Word est fidèle, le « de » du § 2 F n’est PAS rétabli
+C143	CONFORME	J.O. « b. le lieu et la date du décès »
+C144	CONFORME	J.O. « Transcription des actes enregistrés »
+C145	CONFORME	J.O. « CHAPITRE 1 » (chiffre arabe)
+C146	CONFORME	J.O. « visée au d. du 1.. » (double point, sic)
+C147	CONFORME	J.O. « pour centage » en deux mots
+C148	CONFORME	J.O. « pour centage » en deux mots
+C149	CONFORME	J.O. « pour centage » en deux mots
+C150	CONFORME	J.O. « pour centage » en deux mots
+C151	CONFORME	J.O. « pour centage » en deux mots
+C152	CONFORME	J.O. « pour centage » en deux mots
+C153	CONFORME	J.O. « pour centage » en deux mots
+C154	CONFORME	J.O. « l. d'une taxe spéciale… »
+C155	CONFORME	J.O. « Domaine Public »
+C156	CONFORME	J.O. « pour un moi sentier » (sic — coquille du J.O., les deux Claude l'ont « corrigée »)
+C157	CONFORME	J.O. « parait » sans circonflexe
+C158	CONFORME	J.O. « Dans les cas en visagés » (sic, en deux mots)
+C159	CONFORME	J.O. « l'Administration Comunale » (sic)
+C160	CONFORME	J.O. « Est, néanmoins écarté » (virgule imprimée)
+C161	CONFORME	J.O. « par comparais on » (sic, coupé)
+C162	CONFORME	tableau art. 274 (barème CFPB) : cellule conforme au Word (« 6, 6% »… « 11% », § 2 D) ; le « : » des témoins est un séparateur ajouté
+C163	CONFORME	tableau art. 274 (barème CFPB) : cellule conforme au Word (« 6, 6% »… « 11% », § 2 D) ; le « : » des témoins est un séparateur ajouté
+C164	CONFORME	tableau art. 274 (barème CFPB) : cellule conforme au Word (« 6, 6% »… « 11% », § 2 D) ; le « : » des témoins est un séparateur ajouté
+C165	CONFORME	tableau art. 274 (barème CFPB) : cellule conforme au Word (« 6, 6% »… « 11% », § 2 D) ; le « : » des témoins est un séparateur ajouté
+C166	CONFORME	tableau art. 274 (barème CFPB) : cellule conforme au Word (« 6, 6% »… « 11% », § 2 D) ; le « : » des témoins est un séparateur ajouté
+C167	CONFORME	J.O. « Balances à deux plates aux utilisées » (sic)
+C168	CONFORME	J.O. « Camions citernes utilisées »
+C169	CONFORME	J.O. « Les personnes qui, possèdent, à » (virgules imprimées)
+C170	CONFORME	J.O. « visées au 1. et au 2.. » (double point imprimé, vu à l'agrandissement)
+C171	CONFORME	tableau art. 293 vu en entier (titre + 20 rangées) : identique au Word cellule par cellule ; les « : / » des témoins sont des séparateurs
+C172	CONFORME	tableau art. 293 : Haiku l'a recopié une seconde fois après le texte ; un seul tableau au J.O.
+C173	CONFORME	J.O. « entraine » sans circonflexe
+C174	CORRIGER	J.O. « Article 296. 1. Les acheteurs » SANS tiret (§ 2 E) ; le Word ajoute « .- » → « Article 296. »
+C175	CONFORME	J.O. « au quel cas » en deux mots
+C176	CONFORME	J.O. « en a été fait la première présentation »
+C177	CORRIGER	J.O. « ayant entrainé » SANS circonflexe (vu à l'agrandissement) ; le Word écrit « entraîné » → « entrainé »
+C178	CONFORME	J.O. « surseoir au paiement il introduit » (sic, sans « où » ; Haiku l'a ajouté)
+C179	CONFORME	J.O. « h. la date ; »
+C180	CONFORME	J.O. « des sommes restant dues. » (vu à l'agrandissement)
+C181	CONFORME	J.O. « Section II. »
+C182	CONFORME	J.O. « par le redevable pour suivi. » (sic, en deux mots ; « poursuivi » plus bas)
+C183	CONFORME	J.O. « à l'article 3 la suspension » sans virgule
+C184	CONFORME	J.O. « 2. le juge de l'exécution » (minuscule)
+C185	CONFORME	J.O. « Section II. Conservation des documents… » (Tesseract a sauté deux mots)
+C186	CONFORME	J.O. « visée au 1.. » (double point imprimé)
+C187	CORRIGER	J.O. « la communication, entraine l'application » SANS circonflexe (agrandissement) ; Word « entraîne » → « entraine »
+C188	CORRIGER	J.O. « 1. A l'issue de l'enquête » : « A » sans accent (agrandissement) ; Word « À » → « A »
+C189	CONFORME	J.O. « visé au 1.. Ledit procès-verbal » (double point imprimé)
+C190	CONFORME	J.O. « dans le ressort du quel » en deux mots
+C191	CONFORME	J.O. « visé au 1.. Ledit » (double point imprimé)
+C192	CONFORME	J.O. « qu'il sont été amenés » (sic)
+C193	CORRIGER	J.O. « à la procédure entraine la main levée » SANS circonflexe (agrandissement) ; Word « entraîne » → « entraine »
+C194	CONFORME	tableau art. 403 a (gardien…) vu en entier : identique au Word ; « : » est un séparateur ajouté
+C195	CONFORME	tableau art. 403 a (gardien…) vu en entier : identique au Word ; « : » est un séparateur ajouté
+C196	CONFORME	tableau art. 403 a (gardien…) vu en entier : identique au Word ; « : » est un séparateur ajouté
+C197	CONFORME	tableau art. 403 a (gardien…) vu en entier : identique au Word ; « : » est un séparateur ajouté
+C198	CONFORME	tableau art. 403 b (nombre de pièces) vu en entier : identique au Word ; « - » est un séparateur ajouté
+C199	CONFORME	tableau art. 403 b (nombre de pièces) vu en entier : identique au Word ; « - » est un séparateur ajouté
+C200	CONFORME	tableau art. 403 b (nombre de pièces) vu en entier : identique au Word ; « - » est un séparateur ajouté
+C201	CONFORME	tableau art. 403 b (nombre de pièces) vu en entier : identique au Word ; « - » est un séparateur ajouté
+C202	CONFORME	tableau art. 403 b (nombre de pièces) vu en entier : identique au Word ; « - » est un séparateur ajouté
+C203	CONFORME	tableau art. 403 b (nombre de pièces) vu en entier : identique au Word ; « - » est un séparateur ajouté
+C204	CONFORME	tableau art. 403 b (nombre de pièces) vu en entier : identique au Word ; « - » est un séparateur ajouté
+C205	CONFORME	tableau art. 403 b (nombre de pièces) vu en entier : identique au Word ; « - » est un séparateur ajouté
+C206	CONFORME	tableau art. 403 b (nombre de pièces) vu en entier : identique au Word ; « - » est un séparateur ajouté
+C207	CONFORME	tableau art. 403 b (nombre de pièces) vu en entier : identique au Word ; « - » est un séparateur ajouté
+C208	CONFORME	tableau art. 403 b (nombre de pièces) vu en entier : identique au Word ; « - » est un séparateur ajouté
+C209	CONFORME	tableau art. 403 b (nombre de pièces) vu en entier : identique au Word ; « - » est un séparateur ajouté
+C210	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C211	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C212	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C213	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C214	CONFORME	tableau art. 403 c : le J.O. réunit les trois tranches de tonnage (« - de 4 à 10 tonneaux » …) et leurs montants dans une seule rangée ; le Word les sépare en rangées. Texte identique, mise en forme seule (§ 2) — conservé
+C215	CONFORME	tableau art. 403 c : « jauge internationale » bien imprimé (cellule sur trois lignes, lue dans un autre ordre par Tesseract)
+C216	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C217	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C218	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C219	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C220	CONFORME	tableau art. 403 c : « jauge internationale » bien imprimé (cellule sur trois lignes, lue dans un autre ordre par Tesseract)
+C221	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C222	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C223	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C224	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C225	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C226	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C227	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C228	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C229	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C230	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C231	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C232	CONFORME	tableau art. 403 c (bateaux de plaisance) vu en entier : identique au Word ; « / », « : », « | » sont des séparateurs ajoutés
+C233	CONFORME	J.O. « c. … ; d. d'Impôt sur le Revenu des Personnes Morales »
+C234	CONFORME	J.O. « sur les quels » en deux mots
+C235	CONFORME	J.O. « … au 2. de l'article 406. / 2. La vérification… »
+C236	CONFORME	J.O. « … de rectification. / 3. Sous peine de nullité… »
+C237	CORRIGER	J.O. « 2. A défaut, l'Administration » : « A » sans accent ; Word « À » → « A »
+C238	CORRIGER	J.O. « Article 423.- 1. A l'issue » : « A » sans accent (agrandissement) ; Word « À » → « A »
+C239	CONFORME	J.O. « le montant des fux de tout nature » (sic)
+C240	CONFORME	J.O. « après mise en demeure, entraîne » (avec circonflexe ici)
+C241	CORRIGER	J.O. « prévus au 1.. Ceux-ci » : double point (agrandissement) ; le Word n'en a qu'un → « au 1.. Ceux-ci »
+C242	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C243	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C244	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C245	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C246	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C247	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C248	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C249	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C250	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C251	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C252	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C253	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C254	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C255	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C256	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C257	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C258	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C259	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C260	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C261	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C262	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C263	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C264	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C265	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C266	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C267	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C268	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C269	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C270	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C271	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C272	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C273	CONFORME	p. 132-133 : texte du Word imprimé à sa place (vu sur l’image) ; Haiku a lu les p. 132-133 dans le désordre (art. 428-429 après 433), Opus concorde mot pour mot avec le Word
+C274	CORRIGER	J.O. « prévu au 3.. » : double point (agrandissement, et les deux Claude) ; le Word n'en a qu'un → « au 3.. »
+C275	CORRIGER	J.O. « Article 442. 1. Doivent » SANS tiret (§ 2 E) ; Word « 442.- » → « 442. »
+C276	CONFORME	J.O. « 2. Le représentant fiscal… » en tête de p. 138 (Opus a omis le numéro)
+C277	CORRIGER	J.O. « Article 443. 1. Les bases » SANS tiret (§ 2 E) ; Word « 443.- » → « 443. »
+C278	CORRIGER	J.O. « Article 444. 1. Lorsque » SANS tiret (§ 2 E) ; Word « 444.- » → « 444. »
+C279	CONFORME	J.O. « a. les mentions prévues au 3. de l'article 433 » (le « a » de Tesseract est un doublon)
+C280	CONFORME	J.O. « qui révèleraient »
+C281	CONFORME	J.O. « 3. À cet intérêt de retard » avec accent (p. 146, agrandissement ; Opus a omis « 3. » et l'accent)
+C282	CONFORME	J.O. « présent Code fiscale » (sic)
+C283	CONFORME	J.O. « d'une domiciliation fiscale fictive »
+C284	CONFORME	J.O. « vii. … à l'étranger. / 7. Les complices… » (Haiku a sauté)
+C285	CONFORME	J.O. « 8. Lorsque le délit… »
+C286	CONFORME	J.O. « Article 485.- 1. Sans préjudice… » : l'article est imprimé (Haiku l'avait sauté en entier)
+C287	CORRIGER	J.O. « Article 492. 1. En cas » SANS tiret (§ 2 E) ; Word « 492.- » → « 492. »
+C288	CORRIGER	J.O. « de ces délais entraine la nullité » SANS circonflexe (agrandissement) ; Word « entraîne » → « entraine »
+C289	CONFORME	J.O. « Code de Procédure Pénal » (sic)
+C290	CONFORME	J.O. « Section II. »
+C291	CONFORME	J.O. « Article 519. 1. » sans tiret, comme le Word (§ 1)
+C292	CONFORME	J.O. « Section II. Pourvoi en Cassation »
+C293	CONFORME	J.O. « Article 527. 1. » sans tiret, comme le Word (§ 1)
+C294	CONFORME	J.O. « 2. A défaut, il est éligible » sans accent, comme le Word
+C295	CONFORME	J.O. « 2. Peuvent faire l'objet… »
+C296	CONFORME	J.O. « 3. La demande, appuyée… »
+C297	CONFORME	J.O. « … l'Arrêt de la Cour. / 4. Les frais… » (Haiku a ajouté des numéros)
+C298	CONFORME	J.O. « dispositions du Code fiscale » (sic)
+C299	CONFORME	J.O. « Sandra PAULEMON » : le trait au-dessus du E est la queue du paraphe qui traverse le nom, pas un accent (agrandissement)
+C300	CONFORME	J.O. « Paul Antoine BIEN-AIME » sans accent (agrandissement)
+C301	CONFORME	p. 170 : signataire imprimé à droite de son titre, nom identique au Word (page vue en entier : 11 signataires, dernier « Pr. Vijonet DEMERO »)
+C302	CONFORME	p. 170 : signataire imprimé à droite de son titre, nom identique au Word (page vue en entier : 11 signataires, dernier « Pr. Vijonet DEMERO »)
+C303	CONFORME	p. 170 : signataire imprimé à droite de son titre, nom identique au Word (page vue en entier : 11 signataires, dernier « Pr. Vijonet DEMERO »)
+C304	CONFORME	p. 170 : signataire imprimé à droite de son titre, nom identique au Word (page vue en entier : 11 signataires, dernier « Pr. Vijonet DEMERO »)
+C305	CONFORME	p. 170 : signataire imprimé à droite de son titre, nom identique au Word (page vue en entier : 11 signataires, dernier « Pr. Vijonet DEMERO »)
