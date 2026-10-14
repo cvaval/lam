@@ -9,7 +9,8 @@ production et compléter la relecture ».
 | --- | --- | --- |
 | **Éditions Le Moniteur** — fascicule `LM2026-SP48-A`, spéciale, mercredi 30 septembre 2026, 184 p. | ✅ écrit en production, PDF sur le Blob privé, transcription « OCR combiné » écrite (583 026 c.) | `cmv7jyh2x0000sz8i5zsubbf5` |
 | **Index du Moniteur** — « Décret remplaçant le Décret du 19 décembre 2022 portant Code Fiscal », `DECRET`, `SPECIALE` | ✅ écrit (Index 28 955 → 28 956), audit écrit | `cmv7k1guo0000mm7kbti7pazr` |
-| **Législation annotée** — `CODE_FISCAL_2026`, thèmes `fiscalite` (principal) + `fiscalite-impots` | ⏸ **prête, NON écrite** : tous les contrôles du § 11 passent à blanc ; elle attend le déploiement du code (voir § 6) et trois validations (voir § 7) | — |
+| **Législation annotée** — « Décret remplaçant le Décret du 19 décembre 2022 portant Code Fiscal » (`CODE_FISCAL_2026`), thèmes `fiscalite` (principal) + `fiscalite-impots` | ✅ écrite le 14 oct. après déploiement (`36d4e36`, agora.ht), recomptée : 1 ABROGE non résolu, 2 VOIR, 43 CITE ; Word et fac-similé sur le Blob privé ; recherche FTS : rang 1 sur « code fiscal », « livre des procédures fiscales », « matricule fiscal », « vérification de comptabilité » | `cmv7ldx9r0001soj2gggluol8` |
+| **Index** — les 3 entrées `LM2023-SP3` du Code de 2022 | ✅ abrogées, « remplacé par » la fiche de 2026 (décision du 14 oct.) | — |
 
 Le fascicule a été catalogué par `import-moniteur-pdf.ts --completer --commit`, depuis un lien symbolique
 au nom attendu (`Le Moniteur Spécial No.48-A Mercredi 30 Septembre 2026.pdf`) : **le fichier de la cliente
@@ -101,18 +102,22 @@ Aucune de ces lectures n'a été reprise.
 
 **Index.** Liste plate, au format « Vedette — sous-entrée », Livres I et II fondus.
 - 354 sujets ; 105 vedettes communes aux deux Livres ont été réunies.
-- 3 715 renvois une fois les plages dépliées.
+- 3 715 renvois une fois les plages dépliées (3 713 distincts après redirection).
 - **0 lien mort**.
-- 22 renvois retirés du panneau, faute d'article : 19 vers 405, 3 vers 294.
-- **98 couples douteux**, reproduits tels quels. Le contrôle compare chaque entrée au texte de l'article et
+- **31 renvois redirigés vers le bon texte** (décision du 14 oct.) ; aucun n'est retiré :
+  - les 19 « 405 » vont au premier « Article 406 » (B. Avis de vérification) : le second « Article 406 »
+    le cite lui-même comme « l'article 405 » ;
+  - les 9 « 406 » vont au second (C. Vérification inopinée, ancre `art-406-2`), affiché « 406 (2ᵉ) » ;
+  - les 3 « 294 » vont à l'art. 293, dont les alinéas 2 et 3 (après le tableau) portent la matière.
+- **96 couples douteux**, reproduits tels quels. Le contrôle compare chaque entrée au texte de l'article et
   aux intitulés de ses divisions, sur des radicaux et des mots distinctifs. L'exemple
   « Assistance administrative internationale : 48 » est bien relevé.
 
-Les deux listes sont dans `docs/livraison-code-fiscal-2026/index-a-valider.csv`.
+Les deux listes (couples redirigés, couples douteux) sont dans
+`docs/livraison-code-fiscal-2026/index-a-valider.csv`.
 
-Couverture :
-- 540 numéros sur 543. Les art. 289, 290 et 541 ne sont jamais cités.
-- 538 ancres sur 542 une fois 405 et 294 retirés. Le second « 406 » n'est pas distinguable dans l'index.
+Couverture : 539 articles sur 542. Les art. 289, 290 et 541 ne sont jamais cités (comme dans l'index de la
+cliente : 540 numéros sur 543, dont 294).
 
 ## 5. Table des visas (`scripts/data/code-fiscal-2026/visas.json`)
 
@@ -121,14 +126,22 @@ Les 103 visas ont été vérifiés un par un.
 - 60 restent du texte : 57 sont absents du corpus, 1 est ambigu (les deux lois BRH du 17 août 1979), 1 vise le
   Décret de 2022 (renvois ABROGE et VOIR à la place), 1 vise le Pacte National du 21 février 2026.
 
-Trois visas sont à signaler :
-- **visa 88** : « Loi du 16 février 2017 sur les échanges électroniques ». La fiche du corpus porte le
-  14 février 2017.
-- **visa 89** : « Loi du 3 avril 2018 » sur le statut du commerçant. La fiche porte le 23 avril 2018.
+**Visas 88 et 89 : la date du visa fait foi, corrigée sur toute la plateforme** (décision du 14 oct.,
+`scripts/corriger-dates-lois-2017-2018.ts`, état antérieur dans `docs/livraison-code-fiscal-2026/`).
+- « Loi du **16 février 2017** sur les échanges électroniques » : la fiche disait 14 février. Le 16 février
+  est le vote du Sénat, que la fiche notait déjà.
+- « Loi du **3 avril 2018** portant Réforme du statut du commerçant… » : la fiche disait 23 avril. Le 3 avril
+  est le dernier vote (Sénat), le 23 avril la promulgation.
+- Corrigés : titres fr/en/ht, référence, résumé, date d'adoption, ligne de titre éditoriale du corps de 2017,
+  65 marques « (L. du 3 avril 2018) » du Code de commerce, 8 `ArticleVersion`, importeurs et données.
+- Non touchés : le texte officiel (la promulgation du 23 avril reste dans le corps de 2018), les visas des
+  autres textes, les transcriptions d'Éditions, l'Index (aucune de ses entrées ne porte ces dates).
+
+Reste à signaler :
 - **visa 36** : le décret de 1979 sur la profession d'avocat est dit « révisant la Loi du 24 juin 1932 ». La
   fiche dit « du 6 mai 1932 ».
 
-## 6. Code (commits locaux, non poussés)
+## 6. Code (poussé le 14 oct. 2026)
 
 - `anchors.ts` reconnaît « Article129.- » (tête collée), **avec « .- » seulement**. Mesuré sur les 33 752
   corps : les 190 lignes de cette forme sont toutes dans des transcriptions d'Éditions, rendues sans ancre.
@@ -145,36 +158,44 @@ Trois visas sont à signaler :
   - les 542 ancres, une fois chacune ;
   - les 9 tableaux, chacun dans son article et à la place de ses rangées ;
   - les plages du sommaire, sans aucune page.
-- `typecheck`, `lint` et `vitest` passent : 1 719 tests verts. `build:check` compile.
+- **Version Word** (décision du 14 oct.) : bouton « Version Word » sur toute fiche de la Législation annotée,
+  route `/api/doc/[id]/word`. Le fichier est **généré du texte officiel de la fiche**
+  (`src/lib/legislation/word.ts`), jamais tiré du .docx d'origine, qui garde les 22 écarts au J.O. Même
+  habillage et mêmes gardes que les annexes BRH : filigrane, mention légale, palier d'export, journal.
+- `annotationsJson.refDisplay` (facultatif) : libellé d'un renvoi d'index (« 406 (2ᵉ) »).
+- Bandeau d'abrogation : résolu aussi hors BRH, formule neutre « abrogé et remplacé par : ».
+- `typecheck`, `lint` et `vitest` passent : 1 721 tests verts. `build:check` compile.
 
-**Le code en production rendrait mal la fiche** (aucune de ces retouches n'y est). Il faut donc déployer avant
-d'écrire la fiche de Législation, puis :
+Déployé après autorisation (« oui », 14 oct.), puis la fiche a été écrite :
 
 ```bash
 npx tsx scripts/_import-code-fiscal-2026.ts --commit
+npx tsx scripts/remplacement-code-fiscal-2022.ts --commit
 ```
 
-Il reste ensuite le contrôle visuel en fr/en/ht et la recherche FTS (§ 11.10).
+## 7. Décisions du 14 octobre 2026, et ce qui reste ouvert
 
-## 7. Questions ouvertes (à Me Vaval)
+Tranché par Me Vaval :
+- **art. 230** : texte du J.O. sans « de » (confirmé) ;
+- **les trois notes de section** : validées ;
+- **déploiement** : autorisé, puis écriture de la fiche ;
+- **renvois 405/294** : redirigés vers le bon texte (§ 4) ;
+- **visas 88/89** : la date du visa, corrigée sur toute la plateforme (§ 5) ;
+- **titre** : tel que dans le texte, « Décret remplaçant le Décret du 19 décembre 2022 portant Code Fiscal »
+  (la référence garde « Décret du 30 septembre 2026 … ») ;
+- **version Word** : ajoutée pour la Législation annotée (§ 6) ;
+- **conflits Dropbox** : corrigés (48 copies supprimées, dossiers de compilation exclus de Dropbox,
+  manifestes reposés) ;
+- **Code de 2022** : remplacé par celui de 2026. Les trois entrées d'Index `LM2023-SP3` passent au statut
+  abrogé, avec lien vers la fiche de 2026 ;
+- **Spéciaux 44 à 48** : pour plus tard.
 
-1. **Art. 230, 2ᵉ rangée.** Le J.O. n'imprime pas « de ». Le texte est conservé tel quel, et non « corrigé »
-   comme le prévoyait le § 2 F. À confirmer.
-2. **Les trois notes de section** (§ 6 bis), à valider. Elles portent sur le Droit d'affichage, les deux
-   « Article 406 » et la patente A → C.
-3. **Déploiement.** Puis-je pousser `main` et écrire la fiche de Législation ?
-4. **Spéciaux 44 à 48.** Existe-t-il un Spécial n° 48 sans « -A » le même jour ? Les Spéciaux 44 à 48
-   manquent en base.
-5. **Titre de la fiche.** Recommandé : le nom de l'acte (« Décret du 30 septembre 2026 remplaçant… »).
-   L'autre voie est « Code fiscal (2026) ».
-6. **Index à valider** : 98 couples douteux et 22 renvois retirés.
-7. **Textes fiscaux antérieurs** : faut-il un renvoi VOIR de chacun vers le Code ? Par défaut, rien, et aucun
-   statut n'a été changé.
-8. **Version Word pour les abonnés.** Par défaut, non : elle reste archivée sur le Blob privé.
-9. **Code fiscal de 2022 en Législation annotée.** Par défaut, non.
-10. **Visas 88 et 89.** Les dates divergent entre le visa et la fiche (14/16 février 2017 ; 3/23 avril 2018).
-    Laquelle fait foi ?
-11. **Créole du titre.** Proposé sans accent grave : « Dekre 30 septanm 2026 ki ranplase Dekre 19 desanm 2022
-    sou Kod Fiskal la ».
-12. **Index `LM2023-SP3`.** Il porte **trois** entrées pour le Code de 2022 (Décret, CGI, LPF), et non deux.
-    Rien n'y a été touché.
+Encore ouvert :
+0. **Contrôle visuel en fr/en/ht** de la fiche en ligne : la page exige une connexion, que je ne fais pas à
+   votre place. Le rendu est vérifié par les tests sur les données versées (542 ancres, 9 tableaux en place,
+   sommaire à plages, renvois d'index).
+1. **Index à valider** : 96 couples douteux, et les 31 renvois redirigés (`index-a-valider.csv`).
+2. **Visa 36** : « Loi du 24 juin 1932 » (visa) contre « loi du 6 mai 1932 » (fiche de l'Appendice III.2).
+3. **Textes fiscaux antérieurs** : un renvoi VOIR de chacun vers le Code ? Par défaut, rien.
+4. **Créole du titre** : « Dekre ki ranplase Dekre 19 desanm 2022 sou Kod Fiskal la », sans accent grave, à
+   valider.
