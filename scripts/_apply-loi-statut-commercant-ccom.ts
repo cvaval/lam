@@ -25,8 +25,10 @@ import { reindexDocument } from '../src/lib/search/reindex'
 
 type BodyBlock = Extract<AnnBlock, { kind: 'body' }>
 const DIR = 'scripts/data/loi-statut-commercant-2018'
-const REF = 'Loi N° 002-2018 du 23 avril 2018 (Le Moniteur, Spécial n° 5 du 21 mai 2018)'
-const REF_COURT = 'L. du 23 avril 2018'
+// Date du DERNIER VOTE (Sénat, 3 avril 2018), celle du visa — corrigée sur toute la plateforme le
+// 14 oct. 2026 (scripts/corriger-dates-lois-2017-2018.ts) ; le 23 avril est la promulgation.
+const REF = 'Loi N° 002-2018 du 3 avril 2018 (Le Moniteur, Spécial n° 5 du 21 mai 2018)'
+const REF_COURT = 'L. du 3 avril 2018'
 const MONITEUR = 'Le Moniteur, Spécial n° 5 du 21 mai 2018'
 const TITLE_LOI = 'Loi portant Réforme du statut du commerçant et des actes de commerce et organisant le registre du Commerce'
 const OLD_ARTS = ['1', '2', '3', '4', '5', '6', '7', '8']

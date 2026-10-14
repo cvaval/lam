@@ -5,7 +5,7 @@ Extrait les 5 textes du dossier « électronique » et CONSOLIDE la loi de 2017.
   T1  Décret du 9 décembre 2015 sur la signature électronique          17 art.
   T2  Décret du 6 janvier 2016 sur l'administration électronique       51 art.
   T3  Loi du 14 février 2017 sur la signature électronique      17 → 25 art.
-  T4  Loi du 14 février 2017 sur les échanges électroniques           18 têtes
+  T4  Loi du 16 février 2017 sur les échanges électroniques           18 têtes
   T5  Décret du 20 août 2025 amendant la loi de 2017                    3 art.
 
 ⚠️ CONSOLIDATION (T3) : le décret de 2025 AJOUTE 8 articles (1.1, 2.1→2.5, 8.1, 8.2),

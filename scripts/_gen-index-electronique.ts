@@ -2,7 +2,7 @@
  * Génération des INDEX ALPHABÉTIQUES manquants — corpus « électronique » :
  *   · Décret du 9 décembre 2015 sur la signature électronique
  *   · Décret du 6 janvier 2016 sur l'administration électronique
- *   · Loi du 14 février 2017 sur les échanges électroniques
+ *   · Loi du 16 février 2017 sur les échanges électroniques
  *
  * (La loi de 2017 sur la signature et le décret de 2025 ont déjà leur index, fourni par la
  * cliente — ils ne sont pas retraités ici.)

@@ -1,6 +1,6 @@
 /**
  * Téléversement de la LOI N° 002-2018 PORTANT RÉFORME DU STATUT DU COMMERÇANT ET DES ACTES
- * DE COMMERCE ET ORGANISANT LE REGISTRE DU COMMERCE (23 avril 2018, Le Moniteur Spécial
+ * DE COMMERCE ET ORGANISANT LE REGISTRE DU COMMERCE (3 avril 2018 — dernier vote, au Sénat ; promulguée le 23 avril — Le Moniteur Spécial
  * n° 5 du 21 mai 2018) en « Législation annotée » → thème « Droit commercial » (à côté du
  * Code de commerce) — lecteur annoté (patron Décret sûretés) : sommaire, index, renvois
  * inline « article N » (anti-lien-mort).
@@ -41,14 +41,14 @@ async function main() {
     titleFr: TITLE,
     titleEn: 'Act reforming the status of merchants and commercial acts and organizing the Trade Register',
     titleHt: 'Lwa ki refòme estati komèsan yo ak zak komès yo epi ki òganize Rejis Komès la',
-    number: 'Loi N° 002-2018 du 23 avril 2018',
+    number: 'Loi N° 002-2018 du 3 avril 2018',
     matiere: 'commercial',
     moniteurRef: 'Le Moniteur, Spécial N° 5 du 21 mai 2018',
     publicationDate: new Date('2018-05-21'),
     effectiveDate: new Date('2018-05-21'),
     keywords: 'commerçant; actes de commerce; registre du commerce; immatriculation; prescription commerciale; fichier national; capacité; CARICOM; voie électronique',
     summaryFr:
-      'Loi N° 002-2018 du 23 avril 2018 (Le Moniteur, Spécial N° 5 du 21 mai 2018) : recompose le Titre 1er du Livre premier ' +
+      'Loi N° 002-2018 du 3 avril 2018 (Le Moniteur, Spécial N° 5 du 21 mai 2018) : recompose le Titre 1er du Livre premier ' +
       'du Code de commerce — « Des Commerçants, des Actes de Commerce et du Registre du Commerce » (65 articles : statut du ' +
       'commerçant, capacité, égalité femme/homme et étrangers-CARICOM, prescription commerciale de 5 ans, Registre du Commerce, ' +
       'immatriculation, Fichier National, formalités électroniques, contentieux) et abroge toutes dispositions contraires.',

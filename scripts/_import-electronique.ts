@@ -7,7 +7,7 @@
  *    L'index de la cliente le dit : « les renvois s'entendent des articles de la Loi du
  *    14 février 2017 TELLE QU'AMENDÉE ».
  *  · Décret du 20 août 2025 — texte autonome (3 articles), instrument de l'amendement.
- *  · Loi du 14 février 2017 sur les échanges électroniques (18 têtes, dont l'art. 9-1).
+ *  · Loi du 16 février 2017 sur les échanges électroniques (18 têtes, dont l'art. 9-1).
  *  · Décret du 6 janvier 2016 sur l'administration électronique (51 art.) → DROIT PUBLIC.
  *  · Décret du 9 décembre 2015 — ABROGÉ, supplanté par la loi de 2017 (décision cliente).
  *
@@ -65,9 +65,9 @@ const META: Record<string, Meta> = {
   },
   'loi-2017-echanges': {
     source: 'LOI_ECHANGES_ELECTRONIQUES_2017',
-    titleFr: 'Loi du 14 février 2017 sur les échanges électroniques',
-    titleEn: 'Law of 14 February 2017 on electronic exchanges',
-    titleHt: 'Lwa 14 fevriye 2017 sou echanj elektwonik',
+    titleFr: 'Loi du 16 février 2017 sur les échanges électroniques',
+    titleEn: 'Law of 16 February 2017 on electronic exchanges',
+    titleHt: 'Lwa 16 fevriye 2017 sou echanj elektwonik',
     number: 'Loi du 14 février 2017', date: '2017-04-11',
     moniteurRef: 'Le Moniteur, 172e Année, Spécial No 12 du 11 avril 2017',
     statut: 'EN_VIGUEUR', themes: ['signature-electronique'],

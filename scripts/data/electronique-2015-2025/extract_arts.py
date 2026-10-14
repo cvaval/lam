@@ -10,7 +10,7 @@ TEXTES = [
      'Decret_signature_electronique_09-12-2015.docx'),
     ('decret-2016-administration', 'Décret du 6 janvier 2016 sur l’administration électronique',
      'Decret_administration_electronique_06-01-2016.docx'),
-    ('loi-2017-echanges', 'Loi du 14 février 2017 sur les échanges électroniques',
+    ('loi-2017-echanges', 'Loi du 16 février 2017 sur les échanges électroniques',
      'Moniteur_Special_12_2017_Echanges_Electroniques.docx'),
 ]
 # Tête d'article : « Article 1er.- », « Article 12.- », « Article 9-1.- »

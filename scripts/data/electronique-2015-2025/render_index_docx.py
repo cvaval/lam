@@ -39,7 +39,7 @@ TEXTES = {
         'Index_Decret_Administration_Electronique_2016.docx',
     ),
     'loi-2017-echanges': (
-        'Loi du 14 février 2017 sur les échanges électroniques',
+        'Loi du 16 février 2017 sur les échanges électroniques',
         'Le Moniteur, 172e Année, Spécial No 12, 11 avril 2017',
         'Les renvois sont faits aux articles de la Loi.',
         'Index_Loi_2017_Echanges_Electroniques.docx',

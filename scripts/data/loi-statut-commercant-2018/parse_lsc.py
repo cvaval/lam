@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Loi N° 002-2018 portant Réforme du statut du commerçant (23 avril 2018, Le Moniteur
+"""Loi N° 002-2018 portant Réforme du statut du commerçant (3 avril 2018 — dernier vote ; promulguée le 23 avril —, Le Moniteur
 Spécial n° 5 du 21 mai 2018) → corps + annotations pour le lecteur annoté Lam.
 
 SOURCE : docx vérifié (consigne cliente — le PDF du Moniteur ne sert qu'à la collation).

@@ -80,7 +80,7 @@ async function main() {
       // la référence est PLUS riche que le titre : le titre prend la référence
       cas.push({ id: d.id, source: d.source ?? '', type: d.type, titre, ref, neuf: ref, motif: 'titre = référence, plus complète' })
     } else if (TETE_ACTE.test(titre) && !A_UNE_DATE.test(titre) && ref && DATE_DEDANS.test(ref)) {
-      // la référence porte la date AILLEURS qu'en tête (« Loi N° 002-2018 du 23 avril 2018 »,
+      // la référence porte la date AILLEURS qu'en tête (« Loi N° 002-2018 du 3 avril 2018 »,
       // « Décret du 25 novembre 2020 (affichage des prix) ») : on la porte au titre.
       const dt = DATE_DEDANS.exec(ref)![1]
       cas.push({ id: d.id, source: d.source ?? '', type: d.type, titre, ref, neuf: titre.replace(TETE_ACTE, (t) => `${t} du ${dt}`), motif: 'date de la référence portée au titre, puis référence = titre' })
