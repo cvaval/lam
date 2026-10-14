@@ -151,6 +151,12 @@ export interface Annotations {
    * sur les deux. Absent = comportement historique : la répétition perd son ancre.
    */
   repeatedHeads?: Record<string, string[]>
+  /**
+   * Libellé d'AFFICHAGE d'un renvoi d'index dont l'ancre ne dit pas le numéro imprimé — renvoi
+   * (tel qu'écrit dans `ctRefs`) → libellé. Code fiscal 2026 : `{ "406-2": "406 (2ᵉ)" }`, le
+   * second « Article 406 » du J.O. Absent : `prettyRef`, comme avant.
+   */
+  refDisplay?: Record<string, string>
   // Code civil : législation connexe (ancre art-N) + commentaires doctrinaux (clé sec-K|art-N).
   connexe?: Record<string, ConnexeBlock[]>
   commentaires?: Record<string, string[]>
@@ -216,6 +222,10 @@ export function parseAnnotations(json: string | null | undefined): Annotations |
                 .filter((e): e is [string, string[]] => Array.isArray(e[1]))
                 .map(([k, v]) => [k, v.filter((x): x is string => typeof x === 'string')]),
             )
+          : undefined,
+      refDisplay:
+        a.refDisplay && typeof a.refDisplay === 'object'
+          ? Object.fromEntries(Object.entries(a.refDisplay).filter((e): e is [string, string] => typeof e[1] === 'string'))
           : undefined,
     }
   } catch {

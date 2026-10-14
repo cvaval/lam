@@ -67,4 +67,16 @@ describe('Code fiscal 2026 — rendu du lecteur annoté', () => {
     for (const p of ['art. 1 à 297', 'art. 298 à 543', 'art. 1 à 44', 'art. 1 à 12']) expect(menu).toContain(p)
     expect(menu).not.toMatch(/\bp\.\s?\d/)
   })
+
+  it('l’index renvoie au bon texte : « 405 » → 1er « Article 406 », « 406 » → le second, affiché « 406 (2ᵉ) »', () => {
+    const tous = annotations.indexEntries.flatMap((e) => e.ctRefs.map(String))
+    expect(tous).toContain('406-2')
+    expect(tous.some((r) => r === '405' || r === '294')).toBe(false)
+    // Rendu de l'index sous l'article 409 (« vérification inopinée : 406, 409, 414 ») : le renvoi
+    // vers le second « Article 406 » porte son ancre propre et le libellé « 406 (2ᵉ) ».
+    const avecIndex = renderToStaticMarkup(<AnnotatedText text={corps} annotations={annotations} rich={rich} locale="fr" linkArtRefs />)
+    const i = avecIndex.indexOf('id="art-409"')
+    const a409 = avecIndex.slice(i, avecIndex.indexOf('<article', i))
+    expect(a409).toMatch(/<a href="#art-406-2"[^>]*>406 \(2ᵉ\)<\/a>/)
+  })
 })

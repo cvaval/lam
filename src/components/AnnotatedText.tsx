@@ -348,7 +348,7 @@ export function AnnotatedText({
                     {s.refs.slice(0, 4).map((r, j, a) => (
                       <span key={String(r)}>
                         <a href={`#art-${r}`} className="font-semibold text-chabon hover:underline">
-                          {prettyRef(r)}
+                          {annotations.refDisplay?.[String(r)] ?? prettyRef(r)}
                         </a>
                         {j < a.length - 1 ? ', ' : s.refs.length > 4 ? '…' : ''}
                       </span>

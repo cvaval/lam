@@ -76,8 +76,8 @@ export function hasAnnexes(rich: RichBlock[]): boolean {
   return rich.some((b) => b.type === 'table')
 }
 
-/** Mention légale de pied de page, par langue. */
-function disclaimer(locale: Locale): { line1: string; line2: string } {
+/** Mention légale de pied de page, par langue (partagée avec la version Word de la Législation annotée). */
+export function disclaimer(locale: Locale): { line1: string; line2: string } {
   if (locale === 'en') {
     return {
       line1: `This file was downloaded from ${BRAND.name}.`,
@@ -101,7 +101,7 @@ let _watermark: Buffer | null = null
  * Filigrane (symbole Agora déjà aminci à ~10 % d'opacité). Lu une fois par process.
  * L'ancien `Lam_Watermark.png` reste dans `public/brand/` six mois après la bascule.
  */
-function watermarkPng(): Buffer {
+export function watermarkPng(): Buffer {
   if (!_watermark) {
     _watermark = fs.readFileSync(path.join(process.cwd(), 'public', 'brand', 'Agora_Watermark.png'))
   }
@@ -141,7 +141,7 @@ function docCell(cell: RichCell): TableCell {
   })
 }
 
-function docTable(table: RichTable): Table {
+export function docTable(table: RichTable): Table {
   const border = { style: BorderStyle.SINGLE, size: 3, color: 'B8B7C6' }
   return new Table({
     width: { size: 100, type: WidthType.PERCENTAGE },

@@ -200,12 +200,18 @@ export default async function DocPage({
   })
 
   // Renvoi d'abrogation : le texte qui abroge celui-ci, résolu par NUMÉRO (robuste au
-  // ré-import qui change les id) → note + lien sur la fiche (statut ABROGE).
+  // ré-import qui change les id) → note + lien sur la fiche (statut ABROGE). Circulaire BRH :
+  // une autre circulaire ; tout autre texte : une fiche de la Législation (ex. les entrées
+  // d'Index du Code fiscal de 2022, remplacé par le Décret du 30 septembre 2026).
   const abrogatedBy =
     doc.status === 'ABROGE' && doc.abrogatedByNumber
       ? await prisma.document
           .findMany({
-            where: { type: 'CIRCULAIRE_BRH', number: doc.abrogatedByNumber },
+            where: {
+              type: type === 'CIRCULAIRE_BRH' ? 'CIRCULAIRE_BRH' : 'LEGISLATION',
+              number: doc.abrogatedByNumber,
+              NOT: { source: { startsWith: 'MONITEUR_PDF_' } },
+            },
             select: { id: true, number: true, titleFr: true, publicationDate: true },
             orderBy: { publicationDate: 'asc' },
           })
@@ -638,6 +644,17 @@ export default async function DocPage({
             ↓ {t.doc.export}
           </a>
         ) : null}
+        {/* Version Word d'un texte de la Législation annotée (consigne du 13 oct. 2026) : générée
+            du texte officiel de la fiche, jamais du .docx d'origine (src/lib/legislation/word.ts). */}
+        {annotations && type === 'LEGISLATION' && !(doc.source ?? '').startsWith('MONITEUR_PDF_') && can(user.role, 'export.sealed') ? (
+          <a
+            href={`/api/doc/${doc.id}/word?locale=${locale}`}
+            title={t.doc.wordVersionHint}
+            className="inline-flex items-center gap-1.5 rounded-lg border border-chabon/15 bg-white px-3 py-1.5 text-sm font-medium text-ank hover:bg-pil"
+          >
+            ↓ {t.doc.wordVersion}
+          </a>
+        ) : null}
         {/* PDF original — servi par une route authentifiée depuis le Blob privé, seulement
             si migré (URL Blob). Circulaires BRH : TÉLÉCHARGEMENT ouvert à tout lecteur de
             circulaires. Autres types : lien « source » réservé (canSeeSourcePdf). */}
@@ -684,7 +701,8 @@ export default async function DocPage({
         <div className="rounded-xl border border-liy bg-pil px-4 py-2.5 text-sm text-ank">
           {abrogatedBy ? (
             <>
-              {t.doc.abrogatedByPrefix}{' '}
+              {/* « abrogé par la » s'accorde à « la Circulaire n° … » ; ailleurs, formule neutre. */}
+              {type === 'CIRCULAIRE_BRH' ? t.doc.abrogatedByPrefix : t.doc.replacedByPrefix}{' '}
               <Link
                 href={`/${locale}/doc/${abrogatedBy.id}`}
                 className="font-semibold underline underline-offset-2 hover:text-chabon"
@@ -694,7 +712,7 @@ export default async function DocPage({
               .
             </>
           ) : doc.abrogatedByNumber ? (
-            `${t.doc.abrogatedByPrefix} ${doc.abrogatedByNumber}.`
+            `${type === 'CIRCULAIRE_BRH' ? t.doc.abrogatedByPrefix : t.doc.replacedByPrefix} ${doc.abrogatedByNumber}.`
           ) : (
             t.doc.abrogatedBanner
           )}
@@ -759,7 +777,7 @@ export default async function DocPage({
           grille redevient un bloc simple — le texte occupe toute la largeur. */}
       {annotations ? (
         <div className="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:items-start print:block">
-          <CodeSidebar docId={doc.id} groups={annotations.navToc} indexEntries={annotations.indexEntries} locale={locale} />
+          <CodeSidebar docId={doc.id} groups={annotations.navToc} indexEntries={annotations.indexEntries} locale={locale} refDisplay={annotations.refDisplay} />
           <section id={ANCRE_TEXTE} className="min-w-0 scroll-mt-4 rounded-2xl border border-chabon/10 bg-white p-5">
             <div className="mb-3 border-b border-chabon/10 pb-3">
               <h2 className="text-sm font-semibold text-ank">{t.doc.officialText}</h2>
