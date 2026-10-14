@@ -54,5 +54,12 @@ export function articleAnchorFromHeading(textLine: string): string | undefined {
   // (« Articles 185 à 188 », « Articles 137, 138… ») ne devient jamais une tête.
   const p = textLine.match(/^articles\s+(\d{1,4}(?:[.\-]\d+)*)\.-/i)
   if (p) return anchorFromDesignation(p[1])
+  // Forme SANS ESPACE « Article129.- » : coquille du Journal officiel (Code fiscal, Spécial
+  // N° 48-A du 30 septembre 2026) conservée VERBATIM. Tolérée UNIQUEMENT avec « .- », comme
+  // le pluriel. Mesuré le 13 oct. 2026 sur les 33 752 corps : 190 lignes de cette forme, toutes
+  // dans des transcriptions d'Éditions (rendues en texte brut, sans ancre) ; aucune dans un
+  // texte annoté. Sans le « .- », « Article2- » ou « ARTICLE10 » restent du texte.
+  const n = textLine.match(/^article(\d{1,4})\.-/i)
+  if (n) return anchorFromDesignation(n[1])
   return undefined
 }

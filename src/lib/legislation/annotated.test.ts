@@ -83,3 +83,38 @@ describe('parseAnnotations — acheminement des champs', () => {
     expect(blocks.filter((b) => b.kind === 'body' && b.anchor).map((b) => b.anchor)).toEqual(['art-1', 'art-9-1'])
   })
 })
+
+/**
+ * Code fiscal 2026 : le Journal officiel imprime DEUX FOIS « Article 406.- » (Spécial N° 48-A,
+ * p. 123-124), et « Article129.- » sans espace. Le texte reste tel quel ; la fiche déclare une
+ * ancre technique pour la 2ᵉ occurrence.
+ */
+describe('segmentAnnotated — têtes répétées et têtes collées (Code fiscal 2026)', () => {
+  const corps = [
+    'Article 128.- Premier.',
+    'Article129.- Sont soumis à la taxe…',
+    'Article 405.- Avant.',
+    'Article 406.- 1. Le contribuable…',
+    'Article 406.- 1. Lorsque la vérification… au 2. de l’article 405.',
+    'Article 407.- Après.',
+  ].join('\n')
+  const ancres = (b: ReturnType<typeof segmentAnnotated>) =>
+    b.filter((x) => x.kind === 'body' && x.anchor && !x.noAnchors).map((x) => (x.kind === 'body' ? x.anchor : ''))
+  it('sans déclaration : la répétition perd son ancre (comportement historique)', () => {
+    const b = segmentAnnotated(corps, [])
+    expect(ancres(b)).toEqual(['art-128', 'art-129', 'art-405', 'art-406', 'art-407'])
+    expect(b.filter((x) => x.kind === 'body').length).toBe(6) // le second 406 reste un bloc, sans ancre
+  })
+  it('avec repeatedHeads : deux ancres distinctes, texte inchangé', () => {
+    const b = segmentAnnotated(corps, [], undefined, { 'art-406': ['art-406-2'] })
+    expect(ancres(b)).toEqual(['art-128', 'art-129', 'art-405', 'art-406', 'art-406-2', 'art-407'])
+    expect(b.map((x) => x.text).join('\n')).toBe(corps)
+    const second = b.find((x) => x.kind === 'body' && x.anchor === 'art-406-2')
+    expect(second?.kind === 'body' && second.jurisKey).toBe('sec-0|art-406-2')
+  })
+  it('parseAnnotations conserve repeatedHeads (liste blanche)', () => {
+    const a = parseAnnotations(JSON.stringify({ toc: [], repeatedHeads: { 'art-406': ['art-406-2', 7] } }))!
+    expect(a.repeatedHeads).toEqual({ 'art-406': ['art-406-2'] })
+    expect(parseAnnotations(JSON.stringify({ toc: [] }))!.repeatedHeads).toBeUndefined()
+  })
+})

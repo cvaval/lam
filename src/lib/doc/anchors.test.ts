@@ -64,4 +64,14 @@ describe('numérotation à cinq chiffres (Livre III de l’insolvabilité)', () 
     expect(articleAnchorFromHeading('Art. 1774-1 x')).toBe('art-1774-1')
     expect(articleAnchorFromHeading('Article 95 bis.- x')).toBe('art-95-bis')
   })
+
+  it('les têtes du Code fiscal 2026 : sans tiret, et « Article129.- » sans espace', () => {
+    expect(articleAnchorFromHeading('Article 296. Les ventes d’animaux')).toBe('art-296')
+    expect(articleAnchorFromHeading('Article 519. 1. L’Administration')).toBe('art-519')
+    expect(articleAnchorFromHeading('Article129.- Sont soumis')).toBe('art-129')
+    // sans « .- », la forme collée n'est pas une tête
+    expect(articleAnchorFromHeading('Article2- x')).toBeUndefined()
+    expect(articleAnchorFromHeading('ARTICLE10 La Direction')).toBeUndefined()
+    expect(articleAnchorFromHeading('Articles129.- x')).toBeUndefined()
+  })
 })

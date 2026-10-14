@@ -16,8 +16,10 @@ const INDEX_LBL: Record<Locale, string> = { fr: 'Index', en: 'Index', ht: 'Endè
 // « articles? » : tolère la forme plurielle « Articles 27.- » (coquille du Journal
 // officiel, Décret minier p. 12) — reconnue comme tête UNIQUEMENT suivie de « .- »
 // par anchors.ts ; ici le pluriel ne s'applique qu'au retrait du libellé en tête de bloc.
+// « Article129.- » : tête collée du Journal officiel (Code fiscal 2026), reconnue par
+// `articleAnchorFromHeading` avec « .- » seulement — même condition ici.
 const LEAD_ART =
-  /^(?:art(?:icle)?s?\.?|section)\s+(?:premier|\d{1,4}(?:\s*(?:er|ère))?(?:\s*(?:bis|ter|quater))?(?:[.\-]\d+)*)\s*[.)\-–]*\s*/i
+  /^(?:(?:art(?:icle)?s?\.?|section)\s+|article(?=\d{1,4}\.-))(?:premier|\d{1,4}(?:\s*(?:er|ère))?(?:\s*(?:bis|ter|quater))?(?:[.\-]\d+)*)\s*[.)\-–]*\s*/i
 // Tête de division numérotée des circulaires BRH (« 1.- », « 9.1. », « 4.2.1 ») — retirée
 // du corps du bloc, le libellé étant affiché en badge. N'est consultée que lorsque le
 // document déclare `pointAnchors` (sinon aucun texte n'est modifié).
@@ -124,7 +126,16 @@ export function AnnotatedText({
   // quatre tableaux « Abréviation type de crédit » — dont les rangées sont identiques — sont
   // réclamés par chacun des quatre blocs qui les contiennent (16 rendus au lieu de 4).
   let richCursor = 0
-  function splitRich(text: string): { text: string; rich: RichBlock[] } {
+  /**
+   * `enPlace` (blocs d'ARTICLE — Code fiscal 2026) : le tableau est posé là où étaient ses
+   * rangées, et non en fin de bloc. Un article peut porter plusieurs tableaux et du texte
+   * après eux (art. 293 : « 2. Le montant de l'impôt… » ; art. 403 : trois barèmes séparés
+   * par leurs alinéas) — rendus en fin d'article, ils se liraient sous le mauvais alinéa.
+   * L'ancre est le texte qui PRÉCÈDE les rangées dans ce bloc, allongé jusqu'à ce que sa
+   * première occurrence finisse exactement à leur place. Sans texte avant (rangées en tête
+   * de bloc), comportement historique : rendu à la suite.
+   */
+  function splitRich(text: string, enPlace = false): { text: string; rich: RichBlock[] } {
     if (richCursor >= rich.length) return { text, rich: [] }
     let out = text
     const mine: RichBlock[] = []
@@ -133,6 +144,22 @@ export function AnnotatedText({
       const rows = rowsOf(b)
       if (!rows.length || !out.includes(rows[0])) break
       richCursor++
+      if (enPlace) {
+        const bloc = rows.join('\n')
+        const at = out.indexOf(bloc)
+        const avant = at >= 0 ? out.slice(0, at).trimEnd() : ''
+        let ancre = ''
+        for (let n = 40; n <= avant.length + 40 && avant; n += 40) {
+          ancre = avant.slice(Math.max(0, avant.length - n))
+          if (out.indexOf(ancre) + ancre.length === avant.length) break
+        }
+        if (at >= 0 && ancre.length >= 6) {
+          out = (avant + '\n' + out.slice(at + bloc.length).replace(/^\n+/, '')).trim()
+          const { afterText: _a, untilText: _u, ...sansAncres } = b as unknown as Record<string, unknown>
+          mine.push({ ...sansAncres, afterText: ancre } as unknown as RichBlock)
+          continue
+        }
+      }
       // Les ancres afterText/untilText ont été calculées sur le corps ENTIER : dans un bloc
       // isolé elles se résolvent mal (zones qui se recoupent → tableau « orphelin » et
       // rangées laissées en double). On retire donc toujours les rangées ici, et le tableau
@@ -144,7 +171,7 @@ export function AnnotatedText({
     }
     return { text: out, rich: mine }
   }
-  const blocks = segmentAnnotated(text, annotations.toc ?? [], annotations.pointAnchors)
+  const blocks = segmentAnnotated(text, annotations.toc ?? [], annotations.pointAnchors, annotations.repeatedHeads)
   const juris = annotations.jurisprudence ?? {}
   const backlinks = indexBacklinks(annotations.indexEntries ?? [])
   const crossRefMap = new Map((annotations.crossRefs ?? []).map((c) => [c.anchor, c]))
@@ -341,6 +368,10 @@ export function AnnotatedText({
         const leadPoint = pointMode && b.anchor && !LEAD_ART.test(b.text) && LEAD_POINT.test(b.text)
         if (b.anchor && (LEAD_ART.test(b.text) || leadPoint)) {
           const body = b.text.replace(leadPoint ? LEAD_POINT : LEAD_ART, '').trimStart()
+          // Tableaux DANS l'article (Code fiscal 2026 : 154, 202, 230, 274, 293, 403) — aucun des
+          // textes annotés antérieurs n'en porte (mesuré le 13 oct. 2026 : 2 fiches à tableaux,
+          // circulaires 105-2 et 127, tous hors blocs d'article) : leur rendu ne change pas.
+          const artSplit = splitRich(body, true)
           const label = labelsMap[b.anchor] ?? labelFromAnchor(b.anchor)
           const st = statusMap[b.anchor]
           const badge = st ? STATUS_BADGE[st] : undefined
@@ -375,7 +406,7 @@ export function AnnotatedText({
                   </span>
                 )}
               </h4>
-              <OfficialText text={body} hrefFor={hrefFor} locale={locale} terms={terms} noAnchors civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} codeHrefs={codeHrefs} ownCode={ownCode} />
+              <OfficialText text={artSplit.text} rich={artSplit.rich} hrefFor={hrefFor} locale={locale} terms={terms} noAnchors civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} codeHrefs={codeHrefs} ownCode={ownCode} />
               {(cx && cx.length > 0) || (old && annotationsVariant === 'annotations') ? (
                 // Code civil : ancienne version + législation connexe dans un même pliable
                 // (même sans bloc connexe — le libellé d'OldVersion est propre à la Constitution).

@@ -53,7 +53,7 @@ export async function getCodeArticles(docId: string): Promise<CodeArticle[]> {
     // Même texte que l'affichage (bodyClean si présent) pour éviter la divergence (constat audit §3).
     // pointAnchors : circulaires BRH (divisions « 1.- » / « 4.2.1 »). Sans ce 3ᵉ argument,
     // aucune tête n'est reconnue et la recherche du menu latéral ne renvoie JAMAIS rien.
-    for (const b of segmentAnnotated(doc.bodyClean ?? doc.bodyOriginal, ann.toc, ann.pointAnchors)) {
+    for (const b of segmentAnnotated(doc.bodyClean ?? doc.bodyOriginal, ann.toc, ann.pointAnchors, ann.repeatedHeads)) {
       // Articles du Code uniquement (1ʳᵉ occurrence — noAnchors écarte les homonymes d'annexes).
       if (b.kind !== 'body' || !b.anchor || b.noAnchors || seen.has(b.anchor)) continue
       const m = b.anchor.match(/^art-(\d+)/)
@@ -62,7 +62,7 @@ export async function getCodeArticles(docId: string): Promise<CodeArticle[]> {
       // Extrait sans la tête d'article : « Article 12.- … » (Code du travail) puis, à défaut,
       // « Art. 1415 … » (Code civil — tête abrégée, sans ponctuation avant le texte).
       const body = b.text
-        .replace(/^Article\s+[^\n.]*[.\-–]\s*/i, '')
+        .replace(/^Article\s*[^\n.]*[.\-–]\s*/i, '') // « \s* » : « Article129.- » (Code fiscal 2026)
         .replace(/^Art\.?\s+\d+(?:er)?\s*[.\-–]*\s*/i, '')
         .replace(/\s+/g, ' ')
         .trim()

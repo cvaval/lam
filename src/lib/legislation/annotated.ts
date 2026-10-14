@@ -14,11 +14,22 @@ export interface NavItem {
   label: string
   anchor: string // sec-N
   children?: NavItem[] // sous-niveau (chapitres d'un livre, divisions d'une annexe)
+  /**
+   * Plage d'articles de la division (« art. 13 à 31 », « art. 15 et 16 », « art. 13 ») et
+   * l'ancre de son premier article. FACULTATIFS : CALCULÉS sur le corps versé par l'import,
+   * jamais saisis — et une fiche qui ne les porte pas s'affiche comme avant. Consigne de
+   * Me Vaval (13 oct. 2026, Code fiscal) : le sommaire HTML indique des ARTICLES, jamais des
+   * pages. ⚠️ Jamais dans `toc.label`, qui doit s'apparier au corps.
+   */
+  articles?: string
+  articlesAnchor?: string
 }
 export interface NavGroup {
   label: string
   anchor: string
   children: NavItem[]
+  articles?: string
+  articlesAnchor?: string
 }
 export interface TocEntry {
   level: number
@@ -132,6 +143,14 @@ export interface Annotations {
   // lieu d'articles (liste blanche, ordre du corps). Active l'ancrage art-… sur ces têtes et
   // les renvois internes « la section 7 ». Absent = comportement historique inchangé.
   pointAnchors?: string[]
+  /**
+   * Tête d'article IMPRIMÉE PLUSIEURS FOIS par le Journal officiel, à conserver telle quelle —
+   * ancre de la 1ʳᵉ occurrence → ancres TECHNIQUES des suivantes, dans l'ordre du corps.
+   * Code fiscal 2026 : « Article 406.- » deux fois (Spécial N° 48-A, p. 123-124) →
+   * `{ "art-406": ["art-406-2"] }`. Le texte n'est pas touché ; `labels` affiche « Article 406 »
+   * sur les deux. Absent = comportement historique : la répétition perd son ancre.
+   */
+  repeatedHeads?: Record<string, string[]>
   // Code civil : législation connexe (ancre art-N) + commentaires doctrinaux (clé sec-K|art-N).
   connexe?: Record<string, ConnexeBlock[]>
   commentaires?: Record<string, string[]>
@@ -190,6 +209,14 @@ export function parseAnnotations(json: string | null | undefined): Annotations |
       // le lecteur annoté est INERTE (aucune ancre, aucune carte, aucun renvoi) — la
       // coercition est une liste blanche, tout champ oublié ici disparaît silencieusement.
       pointAnchors: Array.isArray(a.pointAnchors) ? a.pointAnchors.filter((x): x is string => typeof x === 'string') : undefined,
+      repeatedHeads:
+        a.repeatedHeads && typeof a.repeatedHeads === 'object'
+          ? Object.fromEntries(
+              Object.entries(a.repeatedHeads)
+                .filter((e): e is [string, string[]] => Array.isArray(e[1]))
+                .map(([k, v]) => [k, v.filter((x): x is string => typeof x === 'string')]),
+            )
+          : undefined,
     }
   } catch {
     return null
@@ -244,7 +271,12 @@ export function pointAnchorFromHeading(line: string, allow: ReadonlySet<string>)
  * récupérerait à tort la jurisprudence de l'article 5 du Code. Le parseur (parse_ct.py)
  * produit la même clé en parcourant le corps dans le même ordre.
  */
-export function segmentAnnotated(body: string, toc: TocEntry[], pointAnchors?: readonly string[]): AnnBlock[] {
+export function segmentAnnotated(
+  body: string,
+  toc: TocEntry[],
+  pointAnchors?: readonly string[],
+  repeatedHeads?: Readonly<Record<string, readonly string[]>>,
+): AnnBlock[] {
   // Circulaires BRH : divisions numérotées « N.- » / « N.M.P » au lieu de « Article N ».
   // Sans liste blanche, la fonction est STRICTEMENT inchangée (les documents existants ne
   // passent pas ce 3ᵉ argument).
@@ -261,6 +293,9 @@ export function segmentAnnotated(body: string, toc: TocEntry[], pointAnchors?: r
   let inAnnexe = false
   let curNoAnchors = false
   const seenArt = new Set<string>()
+  // Occurrences suivantes d'une tête répétée par le J.O. : leurs ancres techniques, consommées
+  // dans l'ordre du corps (copie locale — la fonction reste pure).
+  const repeats = new Map(Object.entries(repeatedHeads ?? {}).map(([k, v]) => [k, [...v]]))
   const flush = () => {
     if (cur.length)
       blocks.push({
@@ -300,8 +335,15 @@ export function segmentAnnotated(body: string, toc: TocEntry[], pointAnchors?: r
     const art = articleAnchorFromHeading(line)
     if (art) {
       flush()
-      curAnchor = art
-      curNoAnchors = inAnnexe || seenArt.has(art) // 2ᵉ occurrence → pas d'ancre (déjà émise)
+      const alias = !inAnnexe && seenArt.has(art) ? repeats.get(art)?.shift() : undefined
+      if (alias) {
+        curAnchor = alias
+        curNoAnchors = seenArt.has(alias)
+        seenArt.add(alias)
+      } else {
+        curAnchor = art
+        curNoAnchors = inAnnexe || seenArt.has(art) // 2ᵉ occurrence → pas d'ancre (déjà émise)
+      }
       seenArt.add(art)
       cur = [raw]
       continue

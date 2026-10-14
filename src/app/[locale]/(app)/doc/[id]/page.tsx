@@ -75,6 +75,8 @@ const HIDE_INLINE_INDEX_SOURCES = new Set([
   // conventions de numérotation dans le seul texte de 2005 : entière, décimale, et cinq
   // articles À TIRET (163-1 à 163-3, 169-1, 169-2).
   'DECRET_ADMIN_CENTRALE_2005', 'DECRET_ADMIN_CENTRALE_AMEND_2016',
+  // Code fiscal de 2026 (CGI + LPF, Spécial N° 48-A) : 542 têtes, sommaire à plages d'articles.
+  'CODE_FISCAL_2026',
 ])
 const ART_REFS_SOURCES = new Set([
   // Le Code civil renvoie en toutes lettres à ses propres articles (« conformément à
@@ -108,6 +110,8 @@ const ART_REFS_SOURCES = new Set([
   // conventions de numérotation dans le seul texte de 2005 : entière, décimale, et cinq
   // articles À TIRET (163-1 à 163-3, 169-1, 169-2).
   'DECRET_ADMIN_CENTRALE_2005', 'DECRET_ADMIN_CENTRALE_AMEND_2016',
+  // Code fiscal de 2026 (CGI + LPF, Spécial N° 48-A) : 542 têtes, sommaire à plages d'articles.
+  'CODE_FISCAL_2026',
 ])
 /** Pliable intitulé « Annotations » plutôt que « Jurisprudence » : le bloc ne porte pas que
  *  des arrêts. Code civil et Code de commerce y joignent les commentaires de l'auteur ; le
