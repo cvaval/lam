@@ -195,7 +195,26 @@ Encore ouvert :
    votre place. Le rendu est vérifié par les tests sur les données versées (542 ancres, 9 tableaux en place,
    sommaire à plages, renvois d'index).
 1. **Index à valider** : 96 couples douteux, et les 31 renvois redirigés (`index-a-valider.csv`).
-2. **Visa 36** : « Loi du 24 juin 1932 » (visa) contre « loi du 6 mai 1932 » (fiche de l'Appendice III.2).
+2. ~~**Visa 36**~~ : réglé le 17 oct. (§ 8).
 3. **Textes fiscaux antérieurs** : un renvoi VOIR de chacun vers le Code ? Par défaut, rien.
 4. **Créole du titre** : « Dekre ki ranplase Dekre 19 desanm 2022 sou Kod Fiskal la », sans accent grave, à
    valider.
+
+## 8. Décisions du 17 octobre 2026
+
+- **Code du travail** (« déclassez-le et rangez-le dans législation annotée ») : passé du type `DOCTRINE` au
+  type `LEGISLATION`, comme les autres codes de la rubrique, **même id** (174 thèmes, notes, favoris
+  intacts) ; le `CITE` du visa 14 suit. Script `scripts/reclasser-code-travail-legislation.ts` ; état
+  antérieur dans `docs/livraison-code-fiscal-2026/etat-anterieur-reclassement-code-travail-*.json`. La fiche a
+  désormais le bouton « Version Word ».
+- **Visa 36** (« la date d'entrée effective de la loi est celle du vote de la dernière chambre ») : le Bulletin
+  des lois et actes de 1932 (édition officielle, p. 172), lu sur l'image, donne le **Sénat le 6 mai 1932**, la
+  **Chambre des députés le 24 juin 1932** (dernier vote) et la **promulgation le 29 juillet 1932**. Le visa du
+  Code fiscal est juste ; la fiche de l'Appendice III.2 du Code de procédure civile, qui portait la date du
+  Sénat, est corrigée (titre, résumé, appareil, libellé du renvoi). Script
+  `scripts/corriger-date-loi-avocats-1932.ts`.
+- **Renvois externes** : visa 98 et visas sans fiche → entrée d'Index quand elle est certaine (« oui ») ; le
+  **Code pénal et le Code de procédure pénale révisés** (décrets du 24 juin 2025) doivent être téléversés en
+  Législation annotée **avant** les renvois. Ils n'entrent en vigueur intégralement que le **1er janvier
+  2027** (décret du 24 déc. 2025, Spécial n° 5 du 16 févr. 2026). Le prompt
+  `docs/prompt-code-fiscal-2026-renvois.md` est mis à jour (§ 0, § 6).

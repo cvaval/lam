@@ -1,0 +1,29 @@
+{
+ "document": {
+  "id": "cmr102ish0012ttoijkh8f31e",
+  "type": "DOCTRINE",
+  "titleFr": "Code du Travail",
+  "number": "Décret du 24 février 1984",
+  "status": "EN_VIGUEUR"
+ },
+ "renvois": [
+  {
+   "id": "cmt1x4g4h0005m0c33ahqkivz",
+   "fromId": "cmt1x4eza0001m0c3gp6996w7",
+   "toType": null,
+   "kind": "CITE"
+  },
+  {
+   "id": "cmv7ldyur000lsoj28fgz29w3",
+   "fromId": "cmv7ldx9r0001soj2gggluol8",
+   "toType": "DOCTRINE",
+   "kind": "CITE"
+  },
+  {
+   "id": "cmtfco7j400031jqfelbqynh8",
+   "fromId": "cmtfco6ju00011jqfxb89a132",
+   "toType": "LEGISLATION",
+   "kind": "CITE"
+  }
+ ]
+}

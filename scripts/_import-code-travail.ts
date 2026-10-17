@@ -82,8 +82,9 @@ async function main() {
     await prisma.articleVersion.deleteMany({ where: { documentId: old.id } }).catch(() => {})
     await prisma.crossRef.deleteMany({ where: { fromId: old.id } }).catch(() => {})
     await prisma.document.delete({ where: { id: old.id } })
-    // DÉSINDEXE d'OpenSearch (DOCTRINE → lam_doctrine) : sinon l'ancien id reste dans la
-    // recherche et un clic mène à un doc supprimé (notFound). Cf. incident « impossible d'ouvrir ».
+    // DÉSINDEXE d'OpenSearch (index de l'ancien type : lam_doctrine jusqu'au 17 oct. 2026) : sinon
+    // l'ancien id reste dans la recherche et un clic mène à un doc supprimé (notFound). Cf. incident
+    // « impossible d'ouvrir ».
     const osNode = process.env.OPENSEARCH_NODE
     if (osNode) {
       const auth = 'Basic ' + Buffer.from(`${process.env.OPENSEARCH_USERNAME ?? ''}:${process.env.OPENSEARCH_PASSWORD ?? ''}`).toString('base64')
@@ -95,7 +96,9 @@ async function main() {
   const searchText = buildSearchText({ titleFr: struct.title, author: struct.annotationAuthor, matiere: 'social travail', bodyOriginal: body })
   const doc = await prisma.document.create({
     data: {
-      type: 'DOCTRINE',
+      // LEGISLATION, comme les autres codes de la Législation annotée : reclassé de DOCTRINE le
+      // 17 oct. 2026 (scripts/reclasser-code-travail-legislation.ts), sur décision de Me Vaval.
+      type: 'LEGISLATION',
       status: 'EN_VIGUEUR',
       titleFr: struct.title,
       number: 'Décret du 24 février 1984',

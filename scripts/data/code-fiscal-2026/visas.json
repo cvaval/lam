@@ -109,9 +109,9 @@
    "n": 14,
    "visa": "Vu le Code du Travail ;",
    "source": "CODE_TRAVAIL_ANNOTE",
-   "type": "DOCTRINE",
+   "type": "LEGISLATION",
    "certitude": "certaine",
-   "note": "Code du travail (Décret du 24 février 1984), édition annotée J.-F. Salès — seule fiche du Code au corpus"
+   "note": "Code du travail (Décret du 24 février 1984), édition annotée J.-F. Salès — seule fiche du Code au corpus ; type LEGISLATION depuis le 17 oct. 2026 (reclassé de DOCTRINE)"
   },
   {
    "n": 15,
@@ -287,7 +287,7 @@
    "source": "CPC_APPENDICE_III_2_1",
    "type": "LEGISLATION",
    "certitude": "certaine",
-   "note": "⚠️ le visa dit « révisant la Loi du 24 juin 1932 », la fiche « la loi du 6 mai 1932 » : même décret du 29 mars 1979 (profession d’avocat), la date interne diverge"
+   "note": "le visa dit « Loi du 24 juin 1932 » : c’est le dernier vote (Chambre des députés, 24 juin 1932 ; Sénat le 6 mai ; promulgation le 29 juillet — Bulletin des lois et actes 1932, p. 172) ; la fiche, qui portait « 6 mai 1932 » (date du Sénat), est corrigée le 17 oct. 2026 (scripts/corriger-date-loi-avocats-1932.ts)"
   },
   {
    "n": 37,

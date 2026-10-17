@@ -20,7 +20,7 @@ a40a5cdfdb6a7e0d3dc215b61dcbcd62a83ec0b278e4497dddb2927cd0a5b67d  parse_cf.py
 2a76e0d298699aab64a1990d565b4e4e4dee7edc16a6c1f131d81579db89dbb7  piece-index-cliente.txt
 bb1b3ef957e308b14cb478a0579d80f984ca3ecf1813415f8e2ea5a4503f0951  piece-sommaire-cliente.txt
 5ffb3e6f5f1142af2560a4db268b3ae21c3ea54c5ec6c188e15b1d7d9f7363ec  rich.json
-b3989bade44238753dcc24e695a2e6aa4647b36444173806222ce649f1e76728  visas.json
+461046cbaed4d50f449a81ae7f9bf8893e5a64aae8d90a356d3d38d3df2780d5  visas.json
 # Pièces sources (non versionnées) — voir PIECES.txt :
 # 02193031afd76a0a2ea4b605a0ae788b42e01fc44d6174d35b1897164f8be074  ~/Downloads/Code_Fiscal_2026_Moniteur_48-A.docx  (264589 o)
 # 5e58a5ab6341d4e3a1a4d0f8206571ff4ef0ddd22a82e92609d934dd8c9fa0cf  ~/Downloads/TABLES DES MATIÈRES.docx  (34920 o)
