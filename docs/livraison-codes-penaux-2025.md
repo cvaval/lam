@@ -101,8 +101,9 @@ réponses brutes sont versionnées (`index-ia.jsonl`) : l'index se reconstruit s
    (art. 120), « le pourvoi, sous peine de nullité » (art. 840, où le sens appelle « le pouvoir ») ? Par défaut : non, comme au Code fiscal
    (« inhalationautres »).
 2. **Index** : validation des deux CSV.
-3. **Titres créoles** : « Dekre ki revize Dekre 11 mas 2020 sou Kod Penal la » et « … sou Kod Pwosedi Penal la », sans
-   accent grave.
+3. ~~**Titres créoles**~~ : réglé le 17 oct. — dicté par Me Vaval : « Dekrè ki revize Dekrè 11 mas 2020 sou Kòd Penal
+   la » ; le Code de procédure pénale suit : « Dekrè ki revize Dekrè 11 mas 2020 sou Kòd Pwosedi Penal la »
+   (`scripts/corriger-titres-creoles-codes-penaux-2025.ts`).
 4. **Visa 10 du Code fiscal** : le `CITE` peut désormais être re-ciblé vers le Code pénal révisé (chantier des renvois).
 
 ## 6. Contrôles

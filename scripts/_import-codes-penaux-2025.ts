@@ -53,8 +53,8 @@ const CFG = {
     titre: 'Décret révisant celui du 11 mars 2020 portant Code pénal',
     reference: 'Décret du 24 juin 2025 révisant celui du 11 mars 2020 portant Code pénal',
     titleEn: 'Decree of June 24, 2025 revising the Decree of March 11, 2020 on the Penal Code',
-    // Créole : convention de la cliente, sans accent grave.
-    titleHt: 'Dekre ki revize Dekre 11 mas 2020 sou Kod Penal la',
+    // Créole : dicté par Me Vaval le 17 oct. 2026 (« Dekrè », « Kòd »).
+    titleHt: 'Dekrè ki revize Dekrè 11 mas 2020 sou Kòd Penal la',
     revise: 'Décret du 11 mars 2020 portant Code pénal',
     index2020: 'LM2020-SP10',
     fascicule: 'LM2025-SP44',
@@ -77,7 +77,7 @@ const CFG = {
     titre: 'Décret révisant celui du 11 mars 2020 portant Code de procédure pénale',
     reference: 'Décret du 24 juin 2025 révisant celui du 11 mars 2020 portant Code de procédure pénale',
     titleEn: 'Decree of June 24, 2025 revising the Decree of March 11, 2020 on the Code of Criminal Procedure',
-    titleHt: 'Dekre ki revize Dekre 11 mas 2020 sou Kod Pwosedi Penal la',
+    titleHt: 'Dekrè ki revize Dekrè 11 mas 2020 sou Kòd Pwosedi Penal la',
     revise: 'Décret du 11 mars 2020 portant Code de procédure pénale',
     index2020: null,
     fascicule: 'LM2025-SP44-A',
