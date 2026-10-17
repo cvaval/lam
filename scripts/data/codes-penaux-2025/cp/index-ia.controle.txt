@@ -1,0 +1,31 @@
+2430 retenues, 55 rejetées, 0 lots illisibles
+[111] Responsabilité pénale — personne mineure de moins de treize ans
+[73] Interdiction des droits civiques, civils et de famille — exécution
+[166] Révocation du sursis — nouvelle condamnation
+[175] Obligation particulière — énumération
+[181] Exécution par provision — révocation du sursis
+[251] Exemption de peine — tentative d'assassinat ou d'empoisonnement
+[256] Homicide involontaire — personne morale
+[269] Exemption de peine — avertissement de l'autorité administrative ou judiciaire
+[269] Réduction de peine — torture
+[325] Abstention volontaire — empêcher un crime ou un délit contre l'intégrité corporelle
+[326] Abstention volontaire — mesures permettant de combattre un sinistre
+[351] Exemption de peine — prise d'otage
+[348] Exemption de peine — enlèvement et séquestration
+[348] Réduction de peine — avertissement de l'autorité
+[359] Exemption de peine — détournement d'aéronef, de navire ou de tout autre moyen de transport
+[359] Réduction de peine — détournement d'aéronef, de navire ou de tout autre moyen de transport
+[381] Exemption de peine — proxénétisme
+[381] Réduction de peine — proxénétisme
+[383] Responsabilité pénale — personne morale
+[406] Sépulture — violation ou profanation à raison de l'appartenance des personnes décédées
+[497] Exemption de peine — vol en bande organisée
+[497] Réduction de peine — vol en bande organisée
+[463] Privation de soins — mort de la victime
+[469] Provocation — personne mineure à commettre un crime ou un délit
+[503] Se faire passer pour une autre personne — définition
+[575] Engins de destruction — mutilation ou infirmité permanente
+[576] Engins de destruction — mort d'autrui
+[578] Substances explosives — détention ou transport
+[602] Exemption de peine — blanchiment
+[602] Réduction de peine — blanchiment

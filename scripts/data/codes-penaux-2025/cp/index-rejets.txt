@@ -1,0 +1,56 @@
+[111] Responsabilité pénale — personne mineure de moins de treize ans
+[73] Interdiction des droits civiques, civils et de famille — exécution
+[166] Révocation du sursis — nouvelle condamnation
+[175] Obligation particulière — énumération
+[181] Exécution par provision — révocation du sursis
+[251] Exemption de peine — tentative d'assassinat ou d'empoisonnement
+[256] Homicide involontaire — personne morale
+[269] Exemption de peine — avertissement de l'autorité administrative ou judiciaire
+[269] Réduction de peine — torture
+[325] Abstention volontaire — empêcher un crime ou un délit contre l'intégrité corporelle
+[326] Abstention volontaire — mesures permettant de combattre un sinistre
+[351] Exemption de peine — prise d'otage
+[348] Exemption de peine — enlèvement et séquestration
+[348] Réduction de peine — avertissement de l'autorité
+[359] Exemption de peine — détournement d'aéronef, de navire ou de tout autre moyen de transport
+[359] Réduction de peine — détournement d'aéronef, de navire ou de tout autre moyen de transport
+[381] Exemption de peine — proxénétisme
+[381] Réduction de peine — proxénétisme
+[383] Responsabilité pénale — personne morale
+[406] Sépulture — violation ou profanation à raison de l'appartenance des personnes décédées
+[497] Exemption de peine — vol en bande organisée
+[497] Réduction de peine — vol en bande organisée
+[463] Privation de soins — mort de la victime
+[469] Provocation — personne mineure à commettre un crime ou un délit
+[503] Se faire passer pour une autre personne — définition
+[575] Engins de destruction — mutilation ou infirmité permanente
+[576] Engins de destruction — mort d'autrui
+[578] Substances explosives — détention ou transport
+[602] Exemption de peine — blanchiment
+[602] Réduction de peine — blanchiment
+[652] Financement d'une entreprise terroriste — peines
+[652] Financement d'une entreprise terroriste — tentative
+[641] Exemption de peine — avertissement de l'autorité administrative ou judiciaire
+[641] Tentative — exemption de peine
+[694] Exécution de la loi — mesures destinées à y faire échec suivies d'effet
+[769] Dénonciation mensongère
+[783] Exemption de peine — évasion
+[848] Exemption de peine — association de malfaiteurs
+[816] Tentative — fausse monnaie
+[831] Timbre national — contrefaçon ou falsification
+[832] Timbre national — usage frauduleux
+[877] Stupéfiants — justification mensongère de l'origine des biens ou des revenus
+[879] Stupéfiants — relations habituelles avec des personnes se livrant au trafic
+[881] Stupéfiants — réduction de peine
+[882] Exemption de peine — trafic illicite de la drogue
+[882] Tentative — exemption de peine
+[900] Végétal légalement protégé — destruction
+[915] Responsabilité pénale — personne morale
+[918] Prélèvement de cellules ou de gamètes — délit commis à l'étranger
+[949] Recherche biomédicale — personne morale
+[941] Tissu ou cellule embryonnaire ou fœtal — prélèvement, conservation ou utilisation
+[943] Tissu ou cellule embryonnaire ou fœtal — importation ou exportation à des fins de recherche
+[921] Prélèvement d'organe — consentement exprès, libre et éclairé
+[921] Prélèvement d'organe — personne vivante mineure
+[923] Prélèvement de tissu ou de cellules — consentement exprès, libre et éclairé
+[1030] Code pénal — entrée en vigueur

@@ -1,0 +1,147 @@
+{
+ "source": "collation Opus 5.5 / Tesseract sur le fac-similé, Le Moniteur Spécial N° 44-A du 24 juin 2025, tranchée sur l'image (17 oct. 2026) ; p. 199-200 relues intégralement sur l'image (Tesseract illisible : défaut d'impression)",
+ "regle": "le J.O. fait foi à la lettre : seules les leçons établies sur l'image ; les coquilles du J.O. sont reproduites",
+ "corrections": [
+  {
+   "id": "cpp-022-0105",
+   "page": 22,
+   "avant": "de leur mise sous scellés définitifs",
+   "apres": "de leur mises ou scellés définitifs",
+   "motif": "le J.O. imprime « mises ou » (coquille pour « mise sous », reproduite)"
+  },
+  {
+   "id": "cpp-028-0128",
+   "page": 28,
+   "avant": "À l'issue de l'entretien",
+   "apres": "A l'issue de l'entretien",
+   "motif": "le J.O. imprime « A » sans accent"
+  },
+  {
+   "id": "cpp-031-0137",
+   "page": 31,
+   "avant": "par le parquet ou en citant",
+   "apres": "par le par que tout en citant",
+   "motif": "le J.O. imprime « par le par que tout » (coquille pour « par le parquet ou », reproduite)"
+  },
+  {
+   "id": "cpp-041-0171",
+   "page": 41,
+   "avant": "adressée à un État étranger",
+   "apres": "adressée à un Etat étranger",
+   "motif": "le J.O. imprime « Etat » sans accent à cet endroit"
+  },
+  {
+   "id": "cpp-044-0181",
+   "page": 44,
+   "avant": "À peine de nullité",
+   "apres": "A peine de nullité",
+   "motif": "le J.O. imprime « A » sans accent"
+  },
+  {
+   "id": "cpp-052-0200",
+   "page": 52,
+   "avant": "À défaut, la personne est remise",
+   "apres": "A défaut, la personne est remise",
+   "motif": "le J.O. imprime « A » sans accent"
+  },
+  {
+   "id": "cpp-071-0257",
+   "page": 71,
+   "avant": "À l'issue du délai de dix",
+   "apres": "A l'issue du délai de dix",
+   "motif": "le J.O. imprime « A » sans accent"
+  },
+  {
+   "id": "cpp-076-0265",
+   "page": 76,
+   "avant": "pour connaître de l'appel interjeté",
+   "apres": "pour connaitre de l'appel interjeté",
+   "motif": "le J.O. imprime « connaitre » sans circonflexe"
+  },
+  {
+   "id": "cpp-076-0266",
+   "page": 76,
+   "avant": "pour connaître des crimes",
+   "apres": "pour connaitre des crimes",
+   "motif": "le J.O. imprime « connaitre » sans circonflexe — 1re des deux occurrences de la page (la 2de est imprimée « connaître »)",
+   "occurrence": 1
+  },
+  {
+   "id": "cpp-076-0267",
+   "page": 76,
+   "avant": "ne peut connaître d'aucune",
+   "apres": "ne peut connaitre d'aucune",
+   "motif": "le J.O. imprime « connaitre » sans circonflexe"
+  },
+  {
+   "id": "cpp-108-0295",
+   "page": 108,
+   "avant": "sur appel, a la faculté",
+   "apres": "sur appel, à la faculté",
+   "motif": "le J.O. imprime « à » (coquille reproduite)"
+  },
+  {
+   "id": "cpp-141-0331",
+   "page": 141,
+   "avant": "dans ce dernier cas, le pouvoir,",
+   "apres": "dans ce dernier cas, le pourvoi,",
+   "motif": "le J.O. imprime « le pourvoi » (Opus avait lu « le pouvoir »)"
+  },
+  {
+   "id": "cpp-144-0332",
+   "page": 144,
+   "avant": "non payés par l'État et exposés",
+   "apres": "non payés par l'Etat et exposés",
+   "motif": "le J.O. imprime « Etat » sans accent à cet endroit"
+  },
+  {
+   "id": "cpp-148-0338",
+   "page": 148,
+   "avant": "PUISSANCES ÉTRANGÈRES",
+   "apres": "PUISSANCES ÈTRANGÈRES",
+   "motif": "le J.O. imprime « ÈTRANGÈRES » (accent grave, reproduit)"
+  },
+  {
+   "id": "cpp-157-0355",
+   "page": 157,
+   "avant": "par lequel un État livre",
+   "apres": "par lequel un Etat livre",
+   "motif": "le J.O. imprime « Etat » sans accent à cet endroit"
+  },
+  {
+   "id": "cpp-157-0356",
+   "page": 157,
+   "avant": "au nom de l'État requérant",
+   "apres": "au nom de l'Etat requérant",
+   "motif": "le J.O. imprime « Etat » sans accent à cet endroit"
+  },
+  {
+   "id": "cpp-158-0361",
+   "page": 158,
+   "avant": "par plusieurs États, elle",
+   "apres": "par plusieurs Etats, elle",
+   "motif": "le J.O. imprime « Etats » sans accent à cet endroit"
+  },
+  {
+   "id": "cpp-158-0362",
+   "page": 158,
+   "avant": "des États requérants de procéder",
+   "apres": "des Etats requérants de procéder",
+   "motif": "le J.O. imprime « Etats » sans accent à cet endroit"
+  },
+  {
+   "id": "cpp-229-0485",
+   "page": 229,
+   "avant": "de procédure fixées par",
+   "apres": "de procédure fixée par",
+   "motif": "le J.O. imprime « fixée » (accord reproduit)"
+  },
+  {
+   "id": "cpp-238-0516",
+   "page": 238,
+   "avant": "de la loi martial,",
+   "apres": "de la loi martiale,",
+   "motif": "le J.O. imprime « martiale » (Opus avait lu « martial »)"
+  }
+ ]
+}

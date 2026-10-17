@@ -1,0 +1,101 @@
+[2] Égalité — mêmes règles de jugement
+[8] Acquittement — nouvelle poursuite
+[17] Interrogatoire — présence de l'avocat
+[30-1] Reconnaissance des faits — phase de la procédure
+[39] Imprescriptibilité — action publique
+[39] Imprescriptibilité — peine
+[68] Procès-verbal — transmission
+[68] Procès-verbal — mentions
+[104] Compétence — lieu de l'infraction
+[114] Connexité — cas
+[89] Classement sans suite — conditions
+[129] Rétention sur place — durée
+[201] Plainte avec constitution de partie civile — communication au procureur de la République
+[202] Plainte avec constitution de partie civile — plainte insuffisamment motivée
+[190] Examen médical — demande d'une partie
+[191] Demande d'acte — déclaration au greffier
+[212] Transport sur les lieux — territoire d'un État étranger
+[262] Procès-verbal — interrogatoire et confrontation
+[303] Cautionnement — restitution
+[303] Cautionnement — condamnation
+[375] Détention provisoire — prolongation
+[406] Liste annuelle des jurés — commission
+[435] Juré — parents ou alliés
+[416] Interrogatoire — personne accusée
+[418] Interrogatoire — identité de la personne accusée
+[467] Expulsion de la salle — personne accusée
+[516] Acquittement — qualification différente
+[508] Culpabilité — déclaration
+[526] Solidarité — restitutions et dommages-intérêts
+[526] Solidarité — amendes
+[473] Interrogatoire — personne accusée
+[480] Témoin — parents et alliés
+[538] Connexité — délits et contraventions
+[545] Connexité — jonction des procédures
+[575] Expulsion — personne prévenue
+[645] Ajournement du prononcé de la peine
+[649] Exécution par provision — sanctions pénales
+[656] Solidarité — restitutions et dommages-intérêts
+[656] Solidarité — amendes
+[602] Procès-verbal — simples renseignements
+[603] Procès-verbal — preuve contraire
+[716] Détention provisoire — état spécial des affaires
+[717] Évocation — chambre de l’instruction
+[731] Ordonnance de mise en accusation — appel
+[732] Ordonnance de renvoi devant le tribunal correctionnel — appel
+[735] Détention provisoire — examen direct de l'appel par la chambre de l'instruction
+[695] Évocation — après annulation
+[765] Désistement d'appel
+[768] Appel immédiatement recevable — ordonnance du président
+[769] Effet dévolutif de l'appel — limite fixée par l'acte d'appel
+[787] Ordonnance pénale — opposition
+[787] Ordonnance pénale — défaut d'opposition
+[798] Procès-verbal — tribunal de simple police
+[801] Procès-verbal — foi jusqu'à preuve contraire
+[848] Nullité — nombre de juges
+[848] Nullité — ministère public non entendu
+[849] Nullité — omission de prononcer
+[821] Exploit d'huissier — recherches
+[825] Exploit d'huissier — nullité
+[865] Renvoi après cassation — matière correctionnelle ou de police
+[865] Annulation — juridiction de même ordre et degré
+[866] Renvoi après cassation — chambre de l'instruction
+[867] Renvoi après cassation — matière criminelle
+[868] Renvoi après cassation — incompétence
+[868] Annulation — annulation partielle
+[870] Renvoi après cassation — délibération spéciale
+[891] Inscription en faux — ordonnance du président de la Cour
+[891] Inscription en faux — amende
+[891] Inscription en faux — ordonnance de rejet
+[892] Inscription en faux — signification de l'ordonnance
+[892] Inscription en faux — sommation à la partie défenderesse
+[893] Inscription en faux — réponse de la partie défenderesse
+[893] Inscription en faux — délai
+[912] Requête aux fins de renvoi — mémoire
+[964] Transfèrement — personnes qui purgent leur peine
+[996] Relèvement — demande
+[996] Relèvement — chambre du conseil
+[1012] Prescription — trafic de stupéfiants
+[1000] Dessaisissement — juge d'instruction
+[1000] Dessaisissement — ordonnance
+[1000] Dessaisissement — chambre de l'instruction
+[1001] Incompétence — juge d'instruction de Port-au-Prince
+[1001] Incompétence — observations des parties
+[1001] Incompétence — chambre de l'instruction
+[1002] Incompétence — tribunal correctionnel
+[1002] Incompétence — tribunal pour enfants
+[1053] Prélèvement biologique — personne condamnée
+[1068] Dessaisissement — juge d'instruction
+[1094] Enregistrement sonore ou audiovisuel — transcription
+[1105] Classement de l'affaire — information de la personne
+[1106] Déferrement — désignation d'un avocat
+[1134] Exécution des peines — force publique
+[1165] Libération — jour de fête légale ou dimanche
+[1208] Proposition d'aménagement — défaut de réponse du juge
+[1222] Personne détenue — acte d'écrou
+[1265] Incarcération provisoire — personne condamnée
+[1300] Clémence — recommandation par le juge pénal
+[1356] Déferrement — comparution le jour suivant
+[1358] Code de procédure pénale — entrée en application
+[1358] Entrée en application — délai de six mois après publication
+[1365] Abrogation — dispositions contraires

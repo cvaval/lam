@@ -1,0 +1,31 @@
+3144 retenues, 113 rejetées, 0 lots illisibles
+[2] Égalité — mêmes règles de jugement
+[8] Acquittement — nouvelle poursuite
+[17] Interrogatoire — présence de l'avocat
+[30-1] Reconnaissance des faits — phase de la procédure
+[39] Imprescriptibilité — action publique
+[39] Imprescriptibilité — peine
+[68] Procès-verbal — transmission
+[68] Procès-verbal — mentions
+[104] Compétence — lieu de l'infraction
+[114] Connexité — cas
+[89] Classement sans suite — conditions
+[129] Rétention sur place — durée
+[201] Plainte avec constitution de partie civile — communication au procureur de la République
+[202] Plainte avec constitution de partie civile — plainte insuffisamment motivée
+[190] Examen médical — demande d'une partie
+[191] Demande d'acte — déclaration au greffier
+[212] Transport sur les lieux — territoire d'un État étranger
+[262] Procès-verbal — interrogatoire et confrontation
+[303] Cautionnement — restitution
+[303] Cautionnement — condamnation
+[375] Détention provisoire — prolongation
+[406] Liste annuelle des jurés — commission
+[435] Juré — parents ou alliés
+[416] Interrogatoire — personne accusée
+[418] Interrogatoire — identité de la personne accusée
+[467] Expulsion de la salle — personne accusée
+[516] Acquittement — qualification différente
+[508] Culpabilité — déclaration
+[526] Solidarité — restitutions et dommages-intérêts
+[526] Solidarité — amendes

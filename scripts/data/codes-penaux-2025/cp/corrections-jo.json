@@ -1,0 +1,90 @@
+{
+ "source": "collation Opus 5.5 / Tesseract sur le fac-similé, Le Moniteur Spécial N° 44 du 24 juin 2025, tranchée sur l'image (17 oct. 2026)",
+ "regle": "le J.O. fait foi à la lettre : seules les leçons établies sur l'image ; les coquilles du J.O. sont reproduites",
+ "corrections": [
+  {
+   "id": "cp-010-0021",
+   "page": 10,
+   "avant": "modalités fixées par le tribunal, à l'indemnisation",
+   "apres": "modalités fixées par le tribunal, l'indemnisation",
+   "motif": "le J.O. n'imprime pas « à » (Opus l'avait ajouté)"
+  },
+  {
+   "id": "cp-014-0025",
+   "page": 14,
+   "avant": "la personne condamnée a sa résidence habituelle",
+   "apres": "la personne condamnée à sa résidence habituelle",
+   "motif": "le J.O. imprime « à » (coquille reproduite)"
+  },
+  {
+   "id": "cp-031-0051",
+   "page": 31,
+   "avant": "pendant le temps où la personne condamnée",
+   "apres": "pendant le temps ou la personne condamnée",
+   "motif": "le J.O. imprime « ou » sans accent"
+  },
+  {
+   "id": "cp-035-0060",
+   "page": 35,
+   "avant": "À l'audience de renvoi",
+   "apres": "A l'audience de renvoi",
+   "motif": "le J.O. imprime « A » sans accent"
+  },
+  {
+   "id": "cp-040-0071",
+   "page": 40,
+   "avant": "calculées pour entraîner la destruction",
+   "apres": "calculées pour entrainer la destruction",
+   "motif": "le J.O. imprime « entrainer » sans circonflexe"
+  },
+  {
+   "id": "cp-042-0078",
+   "page": 42,
+   "avant": "À raison de l'appartenance",
+   "apres": "A raison de l'appartenance",
+   "motif": "le J.O. imprime « A » sans accent"
+  },
+  {
+   "id": "cp-052-0110",
+   "page": 52,
+   "avant": "lorsqu'elles ont entraîné une mutilation",
+   "apres": "lorsqu'elles ont entraîne une mutilation",
+   "motif": "le J.O. imprime « entraîne » (coquille reproduite)"
+  },
+  {
+   "id": "cp-065-0142",
+   "page": 65,
+   "avant": "de quinze (15) ans à vingt-cinq (25) ans",
+   "apres": "de quinze (15) ans a vingt-cinq (25) ans",
+   "motif": "le J.O. imprime « a » (coquille reproduite)"
+  },
+  {
+   "id": "cp-070-0155",
+   "page": 70,
+   "avant": "de nature à entraîner une mutilation",
+   "apres": "de nature à entrainer une mutilation",
+   "motif": "le J.O. imprime « entrainer » sans circonflexe"
+  },
+  {
+   "id": "cp-105-0236",
+   "page": 105,
+   "avant": "exposer les personnes à un dommage corporel",
+   "apres": "exposer les personnes a un dommage corporel",
+   "motif": "le J.O. imprime « a » (coquille reproduite)"
+  },
+  {
+   "id": "cp-148-0344",
+   "page": 148,
+   "avant": "envoyée en mission par un État, de prendre",
+   "apres": "envoyée en mission par un Etat, de prendre",
+   "motif": "le J.O. imprime « Etat » sans accent à cet endroit (« l'État », « dudit État » ailleurs dans la phrase)"
+  },
+  {
+   "id": "cp-168-0410",
+   "page": 168,
+   "avant": "permettant de connaître et de contester",
+   "apres": "permettant de connaitre et de contester",
+   "motif": "le J.O. imprime « connaitre » sans circonflexe"
+  }
+ ]
+}
