@@ -89,7 +89,15 @@ du Sénat. Son titre, son résumé, son appareil et le libellé du `CITE` du vis
 La transcription du Moniteur n° 212 de 2013, qui écrit « 6 mai 1932 » dans un visa, est du J.O. :
 on n'y touche pas.
 
-### 0.3 Code pénal et Code de procédure pénale : les téléverser AVANT les renvois — À FAIRE
+### 0.3 Code pénal et Code de procédure pénale : les téléverser AVANT les renvois — FAIT le 17 oct.
+
+Versés en Législation annotée le 17 oct. 2026 (`docs/livraison-codes-penaux-2025.md`) :
+- Code pénal révisé : `{ source: "CODE_PENAL_2025", type: "LEGISLATION" }`, fiche `cmvca7xta0001hyd6lalpffe9` ;
+- Code de procédure pénale révisé : `{ source: "CODE_PROCEDURE_PENALE_2025", type: "LEGISLATION" }`, fiche
+  `cmvca9r4u0001efbcf2rog8o3`.
+
+Statut « Publié », entrée en vigueur au 1er janvier 2027, aucun `ABROGE`. Ce qui suit est l'état d'avant le versement,
+gardé pour mémoire.
 
 « Nous devons les téléverser dans législation annotée avant de faire les cross references. »
 
@@ -106,7 +114,7 @@ codes du 11 mars 2020, **révisés par deux décrets du 24 juin 2025**. Aucun n'
 ⚠️ **Ces codes ne sont pas encore en vigueur.** Le décret du 24 décembre 2025 (Spécial n° 5 du
 16 février 2026) fixe leur « entrée en vigueur intégrale » au **1er janvier 2027**, au terme de trois
 phases. D'ici là :
-- le Code pénal de 1835 (`CODE_PENAL_ANNOTE`) et le Code d'instruction criminelle (`CIC`) restent
+- le Code pénal de 1835 (`CODE_PENAL_ANNOTE`) et le Code d'instruction criminelle (`CODE_INSTRUCTION_CRIMINELLE`) restent
   **en vigueur**. Aucune pastille « Abrogé », aucun `ABROGE` vers eux avant cette date ;
 - les deux fiches nouvelles ne se présentent pas comme en vigueur. Elles mentionnent le décret de
   report et la date du 1er janvier 2027.
@@ -122,7 +130,7 @@ sur le modèle de `docs/prompt-code-fiscal-2026.md` :
   Code pénal ») ; `adoptionDate` = 24 juin 2025 (date du décret) ;
 - liens Éditions ↔ fiche ↔ Index, comme pour le Code fiscal.
 
-**Ce chantier-ci (les renvois) attend que les deux fiches soient en ligne.** Ensuite :
+**Les deux fiches sont en ligne : ce chantier-ci peut commencer.** À faire :
 - le `CITE` du visa 10, qui vise aujourd'hui le Code pénal de **1835**, est **re-ciblé** vers le Code
   pénal révisé. D'ici là, il affirme une citation inexacte : c'est connu, ne le « corrige » pas vers
   l'Index ;
@@ -169,7 +177,7 @@ Points d'attention déjà relevés :
 
 | Visa | Cible | À savoir |
 | --- | --- | --- |
-| 10 « le Code Pénal » | le **Code pénal révisé** (décret du 24 juin 2025), à téléverser (§ 0.3) | le `CITE` posé le 14 oct. vise le Code de 1835 : à **re-cibler** une fois la fiche en ligne |
+| 10 « le Code Pénal » | `CODE_PENAL_2025` (Code pénal révisé, en ligne depuis le 17 oct.) | le `CITE` posé le 14 oct. vise le Code de 1835 : à **re-cibler** |
 | 14 « le Code du Travail » | `CODE_TRAVAIL_ANNOTE`, type **LEGISLATION** depuis le 17 oct. (§ 0.1) | — |
 | 36 Décret du 29 mars 1979 (avocats) | `CPC_APPENDICE_III_2_1` | **réglé** (§ 0.2) : loi du 24 juin 1932, la fiche est corrigée |
 | 6 Pacte de San José, 72 Statut général de la fonction publique | appendices du Code de procédure civile | la fiche n'est qu'un **extrait** (art. 7, art. 201 s.) : lien vers la fiche, sans ancre d'article |
@@ -221,8 +229,8 @@ Relevé exhaustif des art. 1 à 543, à refaire et compléter :
 | --- | --- | --- | --- | --- |
 | 250 (4.) | « Les articles 1539 et 1540 du Code Civil » | `CODE_CIVIL_ANNOTE` | `art-1539`, `art-1540` | ✅ : bail de plusieurs années / d'une année, perte par cas fortuits — c'est la matière de l'art. 250 |
 | 524 | « l'article 200.2 de la Constitution de la République d'Haïti » | `CONSTITUTION_1987` | `art-200-2` | ✅ : « Ses décisions ne sont susceptibles d'aucun recours sauf, de pourvoi en cassation » (Cour supérieure des comptes) |
-| 12 (3.), 482 (×2), 485, 486, 494 | « le Code Pénal » | Code pénal révisé (§ 0.3) | — | ⏸ attend la fiche ; **jamais** le Code de 1835 |
-| 218, 489, 494 | « Code de Procédure Pénale » / « Code de Procédure Pénal » | Code de procédure pénale révisé (§ 0.3) | — | ⏸ attend la fiche. **Jamais** le Code d'instruction criminelle |
+| 12 (3.), 482 (×2), 485, 486, 494 | « le Code Pénal » | `CODE_PENAL_2025` | — | ✅ fiche en ligne ; **jamais** le Code de 1835 |
+| 218, 489, 494 | « Code de Procédure Pénale » / « Code de Procédure Pénal » | `CODE_PROCEDURE_PENALE_2025` | — | ✅ fiche en ligne. **Jamais** le Code d'instruction criminelle |
 | 218, 490, 521 | « le Code de Procédure Civile » | `CODE_PROCEDURE_CIVILE` | — | ✅ |
 | 54 | « le Code du Travail » | `CODE_TRAVAIL_ANNOTE` (LEGISLATION) | — | ✅ |
 | 203 (×2), 481 | « du décret portant Code des douanes », « le Code des Douanes » | `CODE_DOUANES_ANNOTE` (LEGISLATION) | — | ✅ |
