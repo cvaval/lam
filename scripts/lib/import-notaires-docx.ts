@@ -24,7 +24,7 @@
  * absent (null, vide, espaces) ; une valeur différente devient une proposition ; l'écriture
  * revérifie la condition (voir le script). Aucun badge « Confirmé » n'est jamais attribué.
  */
-import { EMAIL_RE, normalizePhone } from '../../src/lib/jurisdictions/coordonnees'
+import { EMAIL_RE, MAX_COURRIELS, normalizePhone } from '../../src/lib/jurisdictions/coordonnees'
 import { adresseExacte, cleTri } from '../../src/lib/jurisdictions/annuaire-notaires'
 
 // ── Lecture du document ──────────────────────────────────────────────────────
@@ -268,11 +268,11 @@ export function rapprocher(nomDoc: string, notaires: readonly NotaireRef[]): Rap
 
 export const MAX_TELEPHONES = 4
 
-export interface Existant { address: string | null; phones: string[]; email: string | null; active: boolean }
+export interface Existant { address: string | null; phones: string[]; emails: string[]; active: boolean }
 
-export interface Proposition { champ: 'address' | 'phones' | 'email' | 'inscription'; existant: string | null; propose: string; motif: string }
+export interface Proposition { champ: 'address' | 'phones' | 'emails' | 'inscription'; existant: string | null; propose: string; motif: string }
 export interface Anomalie { type: string; brut: string; note: string }
-export interface Completion { champ: 'address' | 'phones' | 'email'; valeur: string | string[] }
+export interface Completion { champ: 'address' | 'phones' | 'emails'; valeur: string | string[] }
 
 export interface PlanEntree {
   rang: number
@@ -342,13 +342,18 @@ export function planifier(e: EntreeDocx, notaires: readonly NotaireRef[], exista
     }
   }
 
-  // Courriel : un seul champ publié. Complété si absent ET si le document n'en donne qu'un.
+  // Courriels : TOUS ceux du document sont publiés (décision de Me Vaval, 18 oct. 2026), quatre au
+  // plus, si la fiche n'en a aucun ; sinon, les nouveaux sont proposés — comme les téléphones.
   if (emails.length) {
-    if (vide(ex?.email)) {
-      if (emails.length === 1) completions.push({ champ: 'email', valeur: emails[0] })
-      else propositions.push({ champ: 'email', existant: null, propose: emails.join(' ; '), motif: 'plusieurs courriels : le choix revient au master admin' })
+    if (!ex?.emails.length) {
+      completions.push({ champ: 'emails', valeur: emails.slice(0, MAX_COURRIELS) })
+      for (const m of emails.slice(MAX_COURRIELS)) {
+        anomalies.push({ type: 'COURRIEL_AU_DELA', brut: m, note: `au-delà de ${MAX_COURRIELS} courriels publiés` })
+        propositions.push({ champ: 'emails', existant: null, propose: m, motif: `courriel supplémentaire (au-delà de ${MAX_COURRIELS})` })
+      }
     } else {
-      for (const m of emails.filter((x) => x.toLowerCase() !== ex!.email!.toLowerCase())) propositions.push({ champ: 'email', existant: ex!.email, propose: m, motif: 'courriel différent : le courriel publié prévaut' })
+      const connus = new Set(ex.emails.map((x) => x.toLowerCase()))
+      for (const m of emails.filter((x) => !connus.has(x.toLowerCase()))) propositions.push({ champ: 'emails', existant: ex.emails.join(' ; '), propose: m, motif: 'courriel absent de la fiche : les courriels publiés prévalent' })
     }
   }
 

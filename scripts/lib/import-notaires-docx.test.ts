@@ -124,34 +124,45 @@ describe('rapprochement — avant toute création, jamais de fusion d’office',
 describe('plan — l’existant prévaut, l’import ne fait que compléter', () => {
   const [victor, cassagnol, ceant] = lireEntrees(DOC).entrees
 
-  it('fiche sans coordonnées : adresse, téléphones (4 au plus) et courriel unique complétés', () => {
+  it('fiche sans coordonnées : adresse, téléphones (4 au plus) et courriels complétés', () => {
     const p = planifier(victor, NOTAIRES, () => null)
     expect(p.completions).toEqual([
       { champ: 'address', valeur: '14, Rue Fictive, Bourdon, Port-au-Prince' },
       { champ: 'phones', valeur: ['+50920000001', '+50930000002', '+50920000003'] },
-      { champ: 'email', valeur: 'etude@exemple.ht' },
+      { champ: 'emails', valeur: ['etude@exemple.ht'] },
     ])
   })
 
   it('adresse existante : jamais écrasée, la différence devient une proposition', () => {
-    const p = planifier(ceant, NOTAIRES, () => ({ address: '390, ave Existante, Bourdon', phones: ['+50920000021'], email: 'existant@exemple.ht', active: true }))
+    const p = planifier(ceant, NOTAIRES, () => ({ address: '390, ave Existante, Bourdon', phones: ['+50920000021'], emails: ['existant@exemple.ht'], active: true }))
     expect(p.completions).toEqual([])
-    expect(p.propositions.map((x) => x.champ)).toEqual(['address', 'email'])
+    expect(p.propositions.map((x) => x.champ)).toEqual(['address', 'emails'])
     expect(p.propositions[0]).toMatchObject({ existant: '390, ave Existante, Bourdon', motif: expect.stringContaining('prévaut') })
   })
 
   it('adresse vide ou faite d’espaces : complétée', () => {
-    const p = planifier(ceant, NOTAIRES, () => ({ address: '   ', phones: [], email: null, active: true }))
-    expect(p.completions.map((c) => c.champ)).toEqual(['address', 'phones', 'email'])
+    const p = planifier(ceant, NOTAIRES, () => ({ address: '   ', phones: [], emails: [], active: true }))
+    expect(p.completions.map((c) => c.champ)).toEqual(['address', 'phones', 'emails'])
   })
 
-  it('plusieurs courriels, numéro personnel, au-delà de 4 numéros : rien de publié d’office', () => {
+  it('plusieurs courriels : TOUS publiés (décision du 18 oct.) ; numéro personnel ou au-delà de 4 : jamais publié d’office', () => {
     const p = planifier(cassagnol, NOTAIRES, () => null)
-    expect(p.completions.find((c) => c.champ === 'email')).toBeUndefined()
+    expect(p.completions.find((c) => c.champ === 'emails')?.valeur).toEqual(['a@exemple.ht', 'b@exemple.ht'])
     expect(p.completions.find((c) => c.champ === 'phones')?.valeur).toHaveLength(4)
     expect(p.completions.find((c) => c.champ === 'phones')?.valeur).not.toContain('+50930000016')
     expect(p.anomalies.map((a) => a.type)).toEqual(expect.arrayContaining(['TELEPHONE_PERSONNEL', 'TELEPHONE_ININTERPRETABLE', 'TELEPHONE_DOUBLON', 'TELEPHONE_AU_DELA']))
-    expect(p.propositions.map((x) => x.champ)).toEqual(expect.arrayContaining(['email', 'phones']))
+    expect(p.propositions.map((x) => x.champ)).toEqual(['phones'])
+  })
+
+  it('courriels : 4 au plus publiés (le reste proposé) ; une fiche qui en a déjà se voit PROPOSER les nouveaux', () => {
+    const cinq = { ...victor, email: ['a@exemple.ht; b@exemple.ht; c@exemple.ht; d@exemple.ht; e@exemple.ht'] }
+    const p = planifier(cinq, NOTAIRES, () => null)
+    expect(p.completions.find((c) => c.champ === 'emails')?.valeur).toEqual(['a@exemple.ht', 'b@exemple.ht', 'c@exemple.ht', 'd@exemple.ht'])
+    expect(p.propositions).toEqual([expect.objectContaining({ champ: 'emails', propose: 'e@exemple.ht' })])
+    expect(p.anomalies.map((a) => a.type)).toContain('COURRIEL_AU_DELA')
+    const q = planifier(cassagnol, NOTAIRES, () => ({ address: 'x 1', phones: ['+50920000011'], emails: ['A@exemple.ht'], active: true }))
+    expect(q.completions.find((c) => c.champ === 'emails')).toBeUndefined()
+    expect(q.propositions.filter((x) => x.champ === 'emails')).toEqual([expect.objectContaining({ propose: 'b@exemple.ht', existant: 'A@exemple.ht' })])
   })
 
   it('rapprochement incertain : une proposition, aucune complétion', () => {
@@ -162,7 +173,7 @@ describe('plan — l’existant prévaut, l’import ne fait que compléter', ()
   })
 
   it('idempotence : relancé sur une fiche déjà complétée, rien à faire', () => {
-    const p = planifier(victor, NOTAIRES, () => ({ address: '14, Rue Fictive, Bourdon, Port-au-Prince', phones: ['+50920000001', '+50930000002', '+50920000003'], email: 'etude@exemple.ht', active: true }))
+    const p = planifier(victor, NOTAIRES, () => ({ address: '14, Rue Fictive, Bourdon, Port-au-Prince', phones: ['+50920000001', '+50930000002', '+50920000003'], emails: ['etude@exemple.ht'], active: true }))
     expect(p).toMatchObject({ completions: [], propositions: [], action: 'RIEN (déjà à jour)' })
   })
 

@@ -25,7 +25,7 @@ import { basename, join, relative, resolve } from 'node:path'
 import mammoth from 'mammoth'
 import { PrismaClient } from '@prisma/client'
 import { audit } from '../src/lib/auth/audit'
-import { formatPhone, readPhones } from '../src/lib/jurisdictions/coordonnees'
+import { formatPhone, readEmails, readPhones } from '../src/lib/jurisdictions/coordonnees'
 import { lireEntrees, planifier, texteDepuisHtml, type Existant, type NotaireRef, type PlanEntree } from './lib/import-notaires-docx'
 import { appliquer, type Resultat } from './lib/import-notaires-docx-ecriture'
 
@@ -70,7 +70,7 @@ function rapportMarkdown(plans: PlanEntree[], meta: Record<string, string>, resu
     l.push('', `## ${p.rang}. ${p.nom} — ${p.rapprochement.niveau}`)
     for (const c of p.rapprochement.candidats) l.push(`- candidat **${c.nom}** (${c.commune ?? '?'}, \`${c.id}\`) — ${c.niveau} : ${c.motif}`)
     if (!p.rapprochement.candidats.length) l.push('- aucun candidat dans la liste')
-    l.push(`- **existant** : adresse ${aff(p.existant?.address)} · téléphones ${aff(p.existant?.phones)} · courriel ${aff(p.existant?.email)}${p.existant && !p.existant.active ? ' · fiche RETIRÉE' : ''}`)
+    l.push(`- **existant** : adresse ${aff(p.existant?.address)} · téléphones ${aff(p.existant?.phones)} · courriels ${aff(p.existant?.emails)}${p.existant && !p.existant.active ? ' · fiche RETIRÉE' : ''}`)
     l.push(`- **proposé (document)** : adresse ${aff(p.propose.address)} · téléphones ${aff(p.propose.phones)} · courriels ${aff(p.propose.emails)}`)
     l.push(`- **action** : ${p.action}${p.completions.length ? ` — ${p.completions.map((c) => `${c.champ} = ${aff(c.valeur)}`).join(' · ')}` : ''}`)
     for (const x of p.propositions) l.push(`- proposition (${x.champ}) : « ${aff(x.propose)} » ; en base : ${aff(x.existant)} — ${x.motif}`)
@@ -100,13 +100,13 @@ async function main() {
   const { entrees, orphelins } = lireEntrees(texte)
   const [notaires, fiches] = await Promise.all([
     prisma.notary.findMany({ select: { id: true, fullName: true, displayName: true, active: true, commune: { select: { name: true } } } }),
-    prisma.notaryContact.findMany({ select: { notaryId: true, address: true, phonesJson: true, email: true, active: true } }),
+    prisma.notaryContact.findMany({ select: { notaryId: true, address: true, phonesJson: true, email: true, emailsJson: true, active: true } }),
   ])
   const refs: NotaireRef[] = notaires.map((n) => ({ id: n.id, fullName: n.fullName, displayName: n.displayName, active: n.active, communeName: n.commune?.name ?? null }))
   const parId = new Map(fiches.map((f) => [f.notaryId, f]))
   const existant = (id: string): Existant | null => {
     const f = parId.get(id)
-    return f ? { address: f.address, phones: readPhones(f.phonesJson), email: f.email, active: f.active } : null
+    return f ? { address: f.address, phones: readPhones(f.phonesJson), emails: readEmails(f.emailsJson, f.email), active: f.active } : null
   }
   const plans = entrees.map((e) => planifier(e, refs, existant))
 

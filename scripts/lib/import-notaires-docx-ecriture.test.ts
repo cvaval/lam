@@ -17,13 +17,13 @@ const plan = (o: Partial<PlanEntree> = {}): PlanEntree => ({
   completions: [
     { champ: 'address', valeur: '80, Ave Exemple, Port-au-Prince' },
     { champ: 'phones', valeur: ['+50920000001'] },
-    { champ: 'email', valeur: 'etude@exemple.ht' },
+    { champ: 'emails', valeur: ['etude@exemple.ht'] },
   ],
   propositions: [], anomalies: [], action: 'COMPLÉTER',
   ...o,
 })
 
-type Existante = { status: string; notaryId: string | null; niveau: string }
+type Existante = { status: string; notaryId: string | null; niveau: string; champs?: string[] }
 function base(o: { fiche?: boolean; misesAJour?: number[]; propositionExiste?: Existante; creationConcurrente?: boolean } = {}) {
   const maj = [...(o.misesAJour ?? [1, 1, 1])]
   const tx = {
@@ -43,7 +43,7 @@ function base(o: { fiche?: boolean; misesAJour?: number[]; propositionExiste?: E
     notaryRequest: {
       findUnique: vi.fn().mockResolvedValue(o.propositionExiste ? {
         id: 'req-1', status: o.propositionExiste.status, notaryId: o.propositionExiste.notaryId,
-        payloadJson: JSON.stringify({ rapprochement: { niveau: o.propositionExiste.niveau } }),
+        payloadJson: JSON.stringify({ rapprochement: { niveau: o.propositionExiste.niveau }, propositions: (o.propositionExiste.champs ?? []).map((champ) => ({ champ })) }),
       } : null),
       create: vi.fn().mockResolvedValue({ id: 'req-2' }),
       update: vi.fn().mockResolvedValue({ id: 'req-1' }),
@@ -56,16 +56,16 @@ describe('appliquer — écriture conditionnelle, jamais d’écrasement', () =>
   it('fiche absente : créée avec les trois compléments et la provenance du document', async () => {
     const { prisma, tx } = base()
     const r = await appliquer(prisma as never, plan(), CTX)
-    expect(r.ecrit).toEqual(['address', 'phones', 'email'])
+    expect(r.ecrit).toEqual(['address', 'phones', 'emails'])
     const data = tx.notaryContact.create.mock.calls[0][0].data
-    expect(data).toMatchObject({ id: 'contact-n12', address: '80, Ave Exemple, Port-au-Prince', phonesJson: '["+50920000001"]', email: 'etude@exemple.ht', active: true })
+    expect(data).toMatchObject({ id: 'contact-n12', address: '80, Ave Exemple, Port-au-Prince', phonesJson: '["+50920000001"]', email: 'etude@exemple.ht', emailsJson: '["etude@exemple.ht"]', active: true })
     expect(JSON.parse(data.sourceJson)).toMatchObject({ file: 'Notaires.docx', sha256: 'f'.repeat(64), rang: 6, providedOn: '2026-10-18' })
   })
 
   it('ADRESSE AJOUTÉE APRÈS LA SIMULATION : la mise à jour conditionnelle ne touche rien, l’écart devient une proposition', async () => {
     const { prisma, tx } = base({ fiche: true, misesAJour: [0, 1, 1] })
     const r = await appliquer(prisma as never, plan(), CTX)
-    expect(r.ecrit).toEqual(['phones', 'email'])
+    expect(r.ecrit).toEqual(['phones', 'emails'])
     expect(r.concurrence).toEqual(['address'])
     // La requête ne remplace QU'UNE valeur absente (null, vide ou espaces).
     const sql = (tx.$executeRaw.mock.calls[0][0] as TemplateStringsArray).join('?')
@@ -78,11 +78,11 @@ describe('appliquer — écriture conditionnelle, jamais d’écrasement', () =>
     const { prisma, tx } = base({ creationConcurrente: true, misesAJour: [0, 0, 0] })
     const r = await appliquer(prisma as never, plan(), CTX)
     expect(tx.$executeRaw).toHaveBeenCalledTimes(3)
-    expect(r).toMatchObject({ ecrit: [], concurrence: ['address', 'phones', 'email'] })
+    expect(r).toMatchObject({ ecrit: [], concurrence: ['address', 'phones', 'emails'] })
   })
 
   it('idempotence : la proposition existe déjà (même fichier, même entrée, même rapprochement) → rien de créé ni de modifié', async () => {
-    const { prisma } = base({ propositionExiste: { status: 'NOUVELLE', notaryId: 'n12', niveau: 'EXACT' } })
+    const { prisma } = base({ propositionExiste: { status: 'NOUVELLE', notaryId: 'n12', niveau: 'EXACT', champs: ['address'] } })
     const r = await appliquer(prisma as never, plan({ completions: [], propositions: [{ champ: 'address', existant: 'x', propose: 'y', motif: 'm' }] }), CTX)
     expect(r.proposition).toBe('existante')
     expect(prisma.notaryRequest.create).not.toHaveBeenCalled()
@@ -92,12 +92,19 @@ describe('appliquer — écriture conditionnelle, jamais d’écrasement', () =>
 
   it('rapprochement ÉTABLI depuis (décision de nom) : la proposition ouverte reprend la nouvelle lecture', async () => {
     const { prisma } = base({ propositionExiste: { status: 'NOUVELLE', notaryId: null, niveau: 'PARTIEL' } })
-    const r = await appliquer(prisma as never, plan({ propositions: [{ champ: 'email', existant: null, propose: 'a@exemple.ht ; b@exemple.ht', motif: 'plusieurs courriels' }] }), CTX)
+    const r = await appliquer(prisma as never, plan({ propositions: [{ champ: 'emails', existant: null, propose: 'e@exemple.ht', motif: 'courriel supplémentaire' }] }), CTX)
     expect(r.proposition).toBe('mise-a-jour')
     const data = prisma.notaryRequest.update.mock.calls[0][0].data
     expect(data.notaryId).toBe('n12')
-    expect(JSON.parse(data.payloadJson)).toMatchObject({ rapprochement: { niveau: 'EXACT', notaryId: 'n12' }, propositions: [{ champ: 'email' }] })
+    expect(JSON.parse(data.payloadJson)).toMatchObject({ rapprochement: { niveau: 'EXACT', notaryId: 'n12' }, propositions: [{ champ: 'emails' }] })
     expect(prisma.notaryRequest.create).not.toHaveBeenCalled()
+  })
+
+  it('champs proposés changés (courriels désormais publiés) : la proposition ouverte est remise à jour, même vide', async () => {
+    const { prisma } = base({ propositionExiste: { status: 'NOUVELLE', notaryId: 'n12', niveau: 'EXACT', champs: ['emails'] } })
+    const r = await appliquer(prisma as never, plan(), CTX)
+    expect(r.proposition).toBe('mise-a-jour')
+    expect(JSON.parse(prisma.notaryRequest.update.mock.calls[0][0].data.payloadJson).propositions).toEqual([])
   })
 
   it('une proposition TRANCHÉE n’est jamais modifiée, même si le rapprochement a changé', async () => {
