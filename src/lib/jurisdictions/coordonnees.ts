@@ -154,23 +154,35 @@ const same = (a: unknown, b: unknown) =>
     ? new Date(a as Date).getTime() === new Date(b as Date).getTime()
     : (a ?? null) === (b ?? null)
 
-/** Plan contre base, par identifiant stable ; AUCUNE suppression implicite (orphelines signalées). */
+/** `providedOn` (AAAA-MM-JJ) d'une provenance ; '' si illisible. */
+const fourniLe = (sourceJson: unknown): string => {
+  try { const v = (JSON.parse(String(sourceJson ?? '{}')) as { providedOn?: unknown }).providedOn; return typeof v === 'string' ? v : '' } catch { return '' }
+}
+
+/**
+ * Plan contre base, par identifiant stable ; AUCUNE suppression implicite (orphelines signalées).
+ * Une fiche mise à jour en base APRÈS la date de l'amorçage (décision de la cliente, demande
+ * acceptée, import d'un document plus récent) n'est JAMAIS ramenée à l'amorçage : elle est
+ * signalée (`plusRecentes`) et laissée telle quelle.
+ */
 export function diffContacts(
   rows: ContactRow[],
   existing: Array<Partial<Record<keyof ContactRow, unknown>> & { id: string }>,
-): { create: ContactRow[]; update: ContactRow[]; unchanged: number; orphans: string[] } {
+): { create: ContactRow[]; update: ContactRow[]; unchanged: number; orphans: string[]; plusRecentes: string[] } {
   const cur = new Map(existing.map((e) => [e.id, e]))
   const create: ContactRow[] = []
   const update: ContactRow[] = []
+  const plusRecentes: string[] = []
   let unchanged = 0
   for (const r of rows) {
     const e = cur.get(r.id)
     if (!e) create.push(r)
     else if (CONTACT_FIELDS.every((k) => same(e[k], r[k]))) unchanged++
+    else if (fourniLe(e.sourceJson) > fourniLe(r.sourceJson)) plusRecentes.push(r.id)
     else update.push(r)
   }
   const ids = new Set(rows.map((r) => r.id))
-  return { create, update, unchanged, orphans: existing.filter((e) => !ids.has(e.id)).map((e) => e.id) }
+  return { create, update, unchanged, orphans: existing.filter((e) => !ids.has(e.id)).map((e) => e.id), plusRecentes }
 }
 
 /** Lecture tolérante de `phonesJson` (E.164) pour l'affichage. */

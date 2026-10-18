@@ -118,6 +118,15 @@ describe('plan d’import : idempotence, aucune suppression', () => {
     const d = diffContacts(buildContactPlan(fraisSeed(), refs).rows, base)
     expect([d.create.length, d.update.length, d.unchanged]).toEqual([0, 0, 5])
   })
+  it('une fiche mise à jour APRÈS l’amorçage (décision, demande acceptée) n’est jamais ramenée à l’amorçage', () => {
+    const recente = { ...plan.rows[0], address: 'Adresse décidée depuis', sourceJson: JSON.stringify({ providedBy: 'Me Exemple', providedOn: '2099-01-01' }) }
+    const d = diffContacts(plan.rows, [recente, ...plan.rows.slice(1)])
+    expect(d.update.map((r) => r.id)).not.toContain(recente.id)
+    expect(d.plusRecentes).toEqual([recente.id])
+    // Plus ancienne ou de même date : l'amorçage s'applique comme avant.
+    const ancienne = { ...recente, sourceJson: plan.rows[0].sourceJson }
+    expect(diffContacts(plan.rows, [ancienne]).update.map((r) => r.id)).toEqual([recente.id])
+  })
   it('une fiche en base absente du fichier est SIGNALÉE, jamais retirée', () => {
     const d = diffContacts(plan.rows, [...plan.rows, { ...plan.rows[0], id: 'contact-mjsp-2026-09-08-999' }])
     expect(d.orphans).toEqual(['contact-mjsp-2026-09-08-999'])

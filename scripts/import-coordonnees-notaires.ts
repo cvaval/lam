@@ -93,7 +93,8 @@ async function main() {
 
   const diff = diffContacts(plan.rows, existing)
   for (const o of diff.orphans) console.log(`  ⚠ en base mais absente du fichier (CONSERVÉE) : ${o}`)
-  console.log(`\n  créations : ${diff.create.length} · modifications : ${diff.update.length} · inchangées : ${diff.unchanged} · orphelines conservées : ${diff.orphans.length}`)
+  for (const o of diff.plusRecentes) console.log(`  ⚠ mise à jour en base APRÈS l'amorçage (décision, demande, document) — NON ramenée à l'amorçage : ${o}`)
+  console.log(`\n  créations : ${diff.create.length} · modifications : ${diff.update.length} · inchangées : ${diff.unchanged} · plus récentes conservées : ${diff.plusRecentes.length} · orphelines conservées : ${diff.orphans.length}`)
 
   if (!apply) {
     console.log('\n(simulation — rien n’a été écrit ; relancer avec --apply, sur instruction explicite seulement)')
