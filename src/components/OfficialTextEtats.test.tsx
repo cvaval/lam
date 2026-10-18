@@ -18,6 +18,11 @@ import { OfficialText, type ArticleMark } from './OfficialText'
  * 6 janvier 2016 — l'amendement à l'Administration Centrale et celui sur l'administration
  * électronique, publiés dans deux Moniteurs consécutifs. La date seule ne désigne donc RIEN :
  * le titre complet est dans l'infobulle, et la destination lève l'ambiguïté pour de bon.
+ *
+ * ⚠️ VOCABULAIRE ET GAMMES DU 17 OCT. 2026. Me Vaval : « Nouveau pour un texte nouveau et Abrogé pour
+ * une section éliminée. Amendé pour un texte modifié. » — et « les codes couleurs doivent être
+ * identiques pour le même type de situation ». Les pastilles, neutres depuis le 27 août, prennent la
+ * gamme de leur situation (registre `src/lib/legislation/situations.ts`).
  */
 const CORPS = [
   'Article 23.- Le Secrétariat Général de la Primature est un organe de coordination.',
@@ -28,9 +33,9 @@ const CORPS = [
 const TITRE = 'Décret du 6 janvier 2016 portant amendement du Décret du 17 mai 2005 portant organisation de l’Administration Centrale de l’État'
 
 const MARQUES = new Map<string, ArticleMark>([
-  ['art-23', { kind: 'modifie', label: 'Modifié', title: `Article amendé par : ${TITRE} — voir l’ancienne rédaction`, href: '#hist-art-23' }],
-  ['art-23-1', { kind: 'ajout', label: 'Ajout — Décret du 6 janvier 2016', title: `Article ajouté par : ${TITRE}`, href: '/fr/doc/cmtest' }],
-  ['art-110', { kind: 'abroge', label: 'Texte abrogé', title: `Article abrogé par : ${TITRE} — voir le texte abrogé`, href: '#hist-art-110' }],
+  ['art-23', { kind: 'modifie', label: 'Amendé', title: `Article amendé par : ${TITRE} — voir l’ancienne rédaction`, href: '#hist-art-23' }],
+  ['art-23-1', { kind: 'ajout', label: 'Nouveau — Décret du 6 janvier 2016', title: `Article ajouté par : ${TITRE}`, href: '/fr/doc/cmtest' }],
+  ['art-110', { kind: 'abroge', label: 'Abrogé', title: `Article abrogé par : ${TITRE} — voir le texte abrogé`, href: '#hist-art-110' }],
 ])
 
 const rendu = (props: Parameters<typeof OfficialText>[0]) => renderToStaticMarkup(<OfficialText {...props} />)
@@ -46,16 +51,16 @@ const bloc = (h: string, id: string) => {
 describe('les trois pastilles d’état', () => {
   it('chaque état porte SON libellé, et un seul', () => {
     const h = html()
-    expect(bloc(h, 'art-23')).toContain('Modifié')
-    expect(bloc(h, 'art-23-1')).toContain('Ajout — Décret du 6 janvier 2016')
-    expect(bloc(h, 'art-110')).toContain('Texte abrogé')
+    expect(bloc(h, 'art-23')).toContain('Amendé')
+    expect(bloc(h, 'art-23-1')).toContain('Nouveau — Décret du 6 janvier 2016')
+    expect(bloc(h, 'art-110')).toContain('>Abrogé<')
   })
 
   /** ⚠️ LE DÉFAUT CORRIGÉ : « Article 110.- [Abrogé] ✎ modifié » se contredisait. */
-  it('un article ABROGÉ ne se dit jamais « modifié »', () => {
+  it('un article ABROGÉ ne se dit jamais « amendé »', () => {
     const b = bloc(html(), 'art-110')
     expect(b).toContain('[Abrogé — Décret du 6 janvier 2016]')
-    expect(b).not.toContain('Modifié')
+    expect(b).not.toContain('Amendé')
     expect(b).not.toContain('✎')
   })
 
@@ -77,7 +82,7 @@ describe('les trois pastilles d’état', () => {
    */
   it('la pastille suit le NUMÉRO de l’article, pas la fin du paragraphe', () => {
     const h = html()
-    const i = h.indexOf('Ajout —')
+    const i = h.indexOf('Nouveau —')
     expect(h.slice(0, i)).toContain('Article 23.1.-')
     expect(h.slice(0, i)).not.toContain('Le Secrétariat Général comprend')
     expect(h.slice(i)).toContain('Le Secrétariat Général comprend')
@@ -85,13 +90,21 @@ describe('les trois pastilles d’état', () => {
 
   /**
    * ⚠️ SITWON EST RATIONNÉ À UNE OCCURRENCE PAR ÉCRAN (charte Klinik v3, avenant AV-02) et
-   * appartient au CERTIFICATEUR. Le Code civil afficherait à lui seul 60 articles abrogés.
+   * appartient au CERTIFICATEUR. Le Code civil afficherait à lui seul 60 articles abrogés : les
+   * états ont leur PROPRE palette (`ETAT_COLORS`), jamais un accent de marque.
    */
   it('aucune pastille n’emprunte d’accent de marque', () => {
+    expect(html()).not.toMatch(/bg-sitwon|bg-wouj|text-sitwon|text-wouj/)
+  })
+
+  /** ⚠️ LA DEMANDE : même situation, même couleur — et trois situations, trois couleurs. */
+  it('chaque état a SA gamme, la même partout', () => {
     const h = html()
-    expect(h).not.toMatch(/bg-sitwon|bg-wouj|text-sitwon|text-wouj/)
-    expect(h).toContain('border-liy-fonse')
-    expect(h).toContain('bg-pil')
+    expect(bloc(h, 'art-23')).toContain('bg-etat-amendement-fond')
+    expect(bloc(h, 'art-23-1')).toContain('bg-etat-nouveau-fond')
+    expect(bloc(h, 'art-110')).toContain('bg-etat-radie-fond')
+    expect(bloc(h, 'art-110')).not.toContain('etat-amendement')
+    expect(bloc(h, 'art-23')).toContain('data-situation="amende"')
   })
 
   /**
@@ -134,10 +147,11 @@ describe('placement de la pastille sur les quatre formes de tête', () => {
       const h = renderToStaticMarkup(
         <OfficialText
           text={ligne}
-          articleMarks={new Map([[`art-${anchor}`, { kind: 'modifie', label: 'Modifié', title: 't', href: '#h' }]])}
+          articleMarks={new Map([[`art-${anchor}`, { kind: 'modifie', label: 'Amendé', title: 't', href: '#h' }]])}
         />,
       )
-      const i = h.indexOf('Modifié')
+      // Début de la pastille (son pictogramme précède le libellé).
+      const i = h.lastIndexOf('<a ', h.indexOf('data-situation'))
       const avant = h.slice(0, i).replace(/<[^>]+>/g, '')
       // La pastille suit la tête ENTIÈRE, et rien de plus.
       expect(avant.trim()).toBe(tete)

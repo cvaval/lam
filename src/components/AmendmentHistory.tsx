@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import type { Locale } from '@/lib/types'
+import { classes } from '@/lib/legislation/situations'
 
 export interface HistEntry {
   heading: string // ex. « Version d'origine — 1ᵉʳ janvier 1980 »
@@ -26,7 +27,6 @@ const LBL = {
   hideAll: { fr: 'Tout replier', en: 'Collapse all', ht: 'Fèmen tout' },
   showOld: { fr: '▸ Voir l’ancienne version', en: '▸ Show previous version', ht: '▸ Wè ansyen vèsyon' },
   hideOld: { fr: '▾ Masquer l’ancienne version', en: '▾ Hide previous version', ht: '▾ Kache ansyen vèsyon' },
-  abrogated: { fr: 'Abrogé', en: 'Repealed', ht: 'Abwoje' },
 } as const
 
 export function AmendmentHistory({ items, locale }: { items: AmendItem[]; locale: Locale }) {
@@ -54,18 +54,18 @@ export function AmendmentHistory({ items, locale }: { items: AmendItem[]; locale
       <p className="mb-3 text-xs text-ank/80">{LBL.intro[locale]}</p>
       <ul className="space-y-2">
         {items.map((it) => (
-          <li key={it.anchor} id={`hist-${it.anchor}`} className="scroll-mt-24 rounded-lg border border-chabon/10 p-3">
+          // ⚠️ PAS DE PASTILLE ICI (registre des situations, 17 oct. 2026). L'état se dit en tête
+          // d'article — pastille « Amendé » / « Abrogé » et, pour l'abrogé, la ligne « [Abrogé — acte] »
+          // du corps ; l'historique porte le TEXTE d'avant, sa ligne datée le dit en toutes lettres, et
+          // le filet de gauche reprend la gamme de l'état (ocre amendé, bordeaux abrogé). Une pastille
+          // de plus faisait le troisième signal des 80 articles abrogés.
+          <li
+            key={it.anchor}
+            id={`hist-${it.anchor}`}
+            className={`scroll-mt-24 rounded-r-lg border border-l-[3px] border-chabon/10 p-3 ${classes(it.abrogated ? 'abroge' : 'amende').barre}`}
+          >
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-sm font-semibold text-ank">{it.label}</span>
-              {/* ⚠️ PAS DE SITWON ICI NON PLUS. L'accent du certificateur est rationné à UNE
-                  occurrence d'interface par écran (charte Klinik v3, avenant AV-02) — et le
-                  Code civil aligne 60 articles abrogés dans cette seule liste. Même
-                  vocabulaire neutre que les pastilles d'état du lecteur. */}
-              {it.abrogated && (
-                <span className="inline-flex items-center whitespace-nowrap rounded-md border border-liy-fonse bg-pil px-2 py-0.5 text-[11px] font-semibold leading-[1.45] text-chabon">
-                  {LBL.abrogated[locale]}
-                </span>
-              )}
               <span className="text-xs text-ank/80">{it.statusLine}</span>
               {it.history.length > 0 && (
                 <button type="button" onClick={() => toggle(it.anchor)} className="ml-auto text-xs font-medium text-chabon hover:underline">
@@ -75,7 +75,7 @@ export function AmendmentHistory({ items, locale }: { items: AmendItem[]; locale
             </div>
             {open.has(it.anchor) &&
               it.history.map((h, i) => (
-                <div key={i} className="mt-2 border-l-2 border-chabon/15 pl-3">
+                <div key={i} className={`mt-2 border-l-[3px] pl-3 ${classes(it.abrogated ? 'texte_abroge' : 'ancienne_redaction').barre}`}>
                   <p className="text-xs font-medium text-ank/80">{h.heading}</p>
                   <p className="mt-0.5 whitespace-pre-wrap text-sm leading-relaxed text-ank/80">{h.body}</p>
                 </div>

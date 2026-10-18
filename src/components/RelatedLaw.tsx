@@ -1,80 +1,95 @@
-'use client'
-
-import { useState } from 'react'
 import Link from 'next/link'
 import type { Locale } from '@/lib/types'
 import type { ConnexeBlock } from '@/lib/legislation/annotated'
+import { natureDuConnexe, situationDuConnexe, NATURES_CONNEXE, type NatureConnexe, type Situation } from '@/lib/legislation/situations'
 import { CodeRefText, type CodeHrefs } from './CodeRefText'
-
-const LBL = {
-  title: {
-    fr: 'Ancienne version & législation connexe',
-    en: 'Former version & related legislation',
-    ht: 'Ansyen vèsyon & lejislasyon ki gen rapò',
-  },
-  old: { fr: 'Ancienne version', en: 'Former version', ht: 'Ansyen vèsyon' },
-  show: { fr: 'afficher', en: 'show', ht: 'montre' },
-  hide: { fr: 'masquer', en: 'hide', ht: 'kache' },
-} as const
+import { Repli } from './Repli'
 
 /**
- * Pliable « Ancienne version & législation connexe » sous un article (Code civil) : ancienne
- * version de l'article quand elle existe (les amendements prévalent dans le texte principal)
- * + décrets/lois intégrés qui le modifient ou s'y rattachent. Fermé par défaut, petits
- * caractères — même patron visuel qu'OldVersion (Constitution).
+ * Sous un article : son ancienne rédaction et ses blocs de législation connexe, UN REPLI PAR NATURE,
+ * chacun dans sa gamme (registre des situations, 17 oct. 2026).
+ *
+ * ⚠️ LE PLIABLE UNIQUE « ANCIENNE VERSION & LÉGISLATION CONNEXE » MÊLAIT HUIT SITUATIONS : acte qui
+ * amende l'article, acte qui l'abroge, dérogation (bail professionnel), lien vers le texte à jour,
+ * ancienne rédaction d'un autre texte, source, et 24 notes « sic » (« Anomalie du texte imprimé »,
+ * « Lacune de la source »…) — sous un titre qui annonçait une ancienne version même quand il n'y en
+ * avait pas. La nature d'un bloc est son champ `kind` (posé par
+ * `scripts/classer-replis-legislation-annotee.ts`), à défaut sa classification par `natureDuConnexe`.
  */
-export function RelatedLaw({ old, blocks = [], locale, codeHrefs }: { old?: string; blocks?: ConnexeBlock[]; locale: Locale; codeHrefs?: CodeHrefs }) {
-  const [open, setOpen] = useState(false)
-  const lt = (o: Record<Locale, string>) => o[locale] ?? o.fr
-  const count = blocks.length + (old ? 1 : 0)
-  if (!count) return null
+export function RelatedLaw({
+  old,
+  oldTitre,
+  oldId,
+  oldSituation = 'ancienne_redaction',
+  oldEntete,
+  blocks = [],
+  locale,
+  codeHrefs,
+}: {
+  old?: string
+  /** Titre de l'ancienne rédaction, s'il diffère du registre (Constitution : « Ancienne version (1987) »). */
+  oldTitre?: string
+  /** Ancre du repli d'ancienne rédaction (`hist-art-N` quand il tient lieu d'historique). */
+  oldId?: string
+  /** Article abrogé : son texte d'avant se titre « Texte abrogé », en gamme radié. */
+  oldSituation?: Extract<Situation, 'ancienne_redaction' | 'texte_abroge'>
+  /** Ligne datée de l'historique (« En vigueur depuis le … (acte) ») quand le repli tient lieu
+   *  de l'entrée de bas de page. */
+  oldEntete?: string
+  blocks?: ConnexeBlock[]
+  locale: Locale
+  codeHrefs?: CodeHrefs
+}) {
+  const parNature = new Map<NatureConnexe, ConnexeBlock[]>()
+  for (const b of blocks) {
+    const n = natureDuConnexe(b)
+    parNature.set(n, [...(parNature.get(n) ?? []), b])
+  }
+  if (!old && !parNature.size) return null
   return (
-    <div data-nocopy className="mt-2.5 overflow-hidden rounded-lg border border-chabon/30 bg-pil/40">
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        className="flex w-full items-center gap-2 px-3.5 py-2 text-left text-xs transition hover:bg-pil"
-      >
-        <span aria-hidden className="select-none text-chabon">{open ? '▾' : '▸'}</span>
-        <span className="font-semibold text-ank">{lt(LBL.title)}</span>
-        <span className="rounded-full bg-chabon/15 px-1.5 py-0.5 text-[10px] font-bold tabular-nums text-chabon">{count}</span>
-        <span className="ml-auto text-[11px] font-medium text-chabon">{open ? lt(LBL.hide) : lt(LBL.show)}</span>
-      </button>
-      {open && (
-        <div className="space-y-3 border-t border-chabon/20 bg-white/60 px-4 py-3">
-          {old && (
-            <div>
-              <p className="text-[10px] font-bold uppercase tracking-wide text-chabon">{lt(LBL.old)}</p>
-              <p className="mt-1 whitespace-pre-wrap text-[11.5px] italic leading-relaxed text-grafit"><CodeRefText text={old} codeHrefs={codeHrefs} /></p>
-            </div>
-          )}
-          {blocks.map((b, i) => (
-            <div key={i}>
-              {b.label &&
-                (b.docId ? (
-                  // Décret/loi modificateur téléversé → intitulé cliquable vers sa fiche
-                  // (ancre optionnelle : ex. « Constitution de 1987 » → article 35).
-                  <Link href={`/${locale}/doc/${b.docId}${b.anchor ? `#${b.anchor}` : ''}`} className="text-[11.5px] font-semibold leading-snug text-chabon underline decoration-chabon/40 underline-offset-2 hover:decoration-chabon">
-                    {b.label}
-                  </Link>
-                ) : (
-                  <p className="text-[11.5px] font-semibold leading-snug text-ank/80">
-                    <CodeRefText text={b.label} codeHrefs={codeHrefs} />
-                  </p>
-                ))}
-              {/* Le contenu d'un texte connexe cite les codes comme n'importe quelle
-                  disposition (« - C. civ., 1728 »). Il était rendu BRUT, alors que
-                  l'ancienne version juste au-dessus et tout le pliable des annotations
-                  passent par le linkificateur : le même renvoi était cliquable au corps et
-                  mort dans le pliable. */}
-              <p className="mt-1 whitespace-pre-wrap text-[11.5px] leading-relaxed text-grafit">
-                <CodeRefText text={b.text} codeHrefs={codeHrefs} />
-              </p>
-            </div>
-          ))}
-        </div>
+    <>
+      {old && (
+        <Repli situation={oldSituation} locale={locale} titre={oldSituation === 'ancienne_redaction' ? oldTitre : undefined} id={oldId}>
+          {oldEntete && <p className="mb-1.5 text-[11px] font-medium text-ank/80">{oldEntete}</p>}
+          <p className="whitespace-pre-wrap text-[11.5px] italic leading-relaxed text-grafit">
+            <CodeRefText text={old} codeHrefs={codeHrefs} />
+          </p>
+        </Repli>
       )}
-    </div>
+      {NATURES_CONNEXE.filter((n) => parNature.has(n)).map((n) => {
+        const bs = parNature.get(n)!
+        const situation: Situation = situationDuConnexe(n)
+        return (
+          <Repli key={n} situation={situation} locale={locale} compteur={bs.length > 1 ? bs.length : undefined}>
+            <div className="space-y-3">
+              {bs.map((b, i) => (
+                <div key={i}>
+                  {b.label &&
+                    (b.docId ? (
+                      // Décret/loi téléversé → intitulé cliquable vers sa fiche (ancre optionnelle :
+                      // « Constitution de 1987 » → article 35).
+                      <Link
+                        href={`/${locale}/doc/${b.docId}${b.anchor ? `#${b.anchor}` : ''}`}
+                        className="text-[11.5px] font-semibold leading-snug text-chabon underline decoration-chabon/40 underline-offset-2 hover:decoration-chabon"
+                      >
+                        {b.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[11.5px] font-semibold leading-snug text-ank/80">
+                        <CodeRefText text={b.label} codeHrefs={codeHrefs} />
+                      </p>
+                    ))}
+                  {/* Le contenu d'un texte connexe cite les codes comme n'importe quelle
+                      disposition (« - C. civ., 1728 ») : il passe par le linkificateur. */}
+                  <p className="mt-1 whitespace-pre-wrap text-[11.5px] leading-relaxed text-grafit">
+                    <CodeRefText text={b.text} codeHrefs={codeHrefs} />
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Repli>
+        )
+      })}
+    </>
   )
 }

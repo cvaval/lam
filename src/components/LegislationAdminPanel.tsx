@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { postJson } from '@/lib/http'
 import { TRAITEMENTS, PORTEES, GLYPHE_TRAITEMENT, GLYPHE_PORTEE } from '@/lib/jurisprudence/constants'
+import { kindCitation } from '@/lib/legislation/situations'
+import { PastilleEtat } from './PastilleEtat'
 
 interface ThemeNode {
   id: string
@@ -219,7 +221,8 @@ export function LegislationAdminPanel({
             <ul className="space-y-1">
               {refs.map((r) => (
                 <li key={r.refId} className="flex items-center gap-2 text-sm">
-                  <span className="rounded bg-chabon/5 px-1.5 text-[11px] text-grafit">{r.kind}</span>
+                  {/* Même mot, même gamme qu'au bloc « Citations » de la fiche (registre, 17 oct. 2026). */}
+                  <TypeRenvoi kind={r.kind} />
                   <span className="text-ank">{r.label}</span>
                   {r.anchor && <span className="font-mono text-[11px] text-ank/80">#{r.anchor}</span>}
                   {r.pending && <span className="text-[11px] text-chabon">(cible non importée)</span>}
@@ -233,7 +236,7 @@ export function LegislationAdminPanel({
           <div className="grid gap-2 sm:grid-cols-2">
             <select value={rk} onChange={(e) => setRk(e.target.value)} className={inputCls}>
               {KINDS.map((k) => (
-                <option key={k} value={k}>{k}</option>
+                <option key={k} value={k}>{kindCitation(k, 'sortant', 'fr').label}</option>
               ))}
             </select>
             <select value={rtype} onChange={(e) => setRtype(e.target.value)} className={inputCls}>
@@ -272,10 +275,14 @@ export function LegislationAdminPanel({
           <textarea value={oldBody} onChange={(e) => setOldBody(e.target.value)} rows={2} placeholder="Ancien texte (à conserver dans l’historique — utile au 1ᵉʳ amendement)" className={`${inputCls} w-full`} />
           <textarea value={newBody} onChange={(e) => setNewBody(e.target.value)} rows={3} placeholder="Nouveau texte en vigueur *" className={`${inputCls} w-full`} />
           <div className="grid gap-2 sm:grid-cols-3">
-            <input value={aby} onChange={(e) => setAby(e.target.value)} placeholder="Modifié par (ex. « Loi du … »)" className={inputCls} />
+            <input value={aby} onChange={(e) => setAby(e.target.value)} placeholder="Amendé par (ex. « Loi du … »)" className={inputCls} />
             <input type="date" value={eff} onChange={(e) => setEff(e.target.value)} className={inputCls} title="Entrée en vigueur" />
             <input value={anote} onChange={(e) => setAnote(e.target.value)} placeholder="Note" className={inputCls} />
           </div>
+          {/* Aperçu : ce que le lecteur verra en tête d'article — la pastille du registre. */}
+          <p className="flex flex-wrap items-center gap-1.5 text-[11px] text-ank/80">
+            Le lecteur verra : <PastilleEtat situation="amende" /> après un amendement, <PastilleEtat situation="abroge" /> après une abrogation.
+          </p>
           <div className="flex gap-2">
             <button type="button" disabled={busy || !anchor.trim() || !newBody.trim()} onClick={amend} className="rounded-md bg-chabon px-3 py-1.5 text-xs font-semibold text-koton hover:bg-chabon disabled:opacity-50">
               Enregistrer l’amendement
@@ -326,4 +333,11 @@ export function LegislationAdminPanel({
       )}
     </section>
   )
+}
+
+/** Type d'un renvoi : amender et abroger sont des situations (pastille), les autres un libellé neutre. */
+function TypeRenvoi({ kind }: { kind: string }) {
+  const k = kindCitation(kind, 'sortant', 'fr')
+  if (k.situation === 'amende' || k.situation === 'abroge') return <PastilleEtat situation={k.situation} label={k.label} />
+  return <span className="rounded bg-chabon/5 px-1.5 text-[11px] text-grafit">{k.label}</span>
 }

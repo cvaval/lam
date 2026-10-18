@@ -16,16 +16,23 @@
 import { AlignmentType, BorderStyle, Document, Footer, Header, HorizontalPositionAlign, HorizontalPositionRelativeFrom, ImageRun, Packer, PageNumber, Paragraph, Table, TextRun, TextWrappingType, VerticalPositionAlign, VerticalPositionRelativeFrom } from 'docx'
 import type { RichBlock, RichTable } from '@/lib/doc/richblocks'
 import { BRAND } from '@/lib/brand'
-import { BRAND_COLORS } from '@/lib/brand-colors'
+import { BRAND_COLORS, ETAT_COLORS } from '@/lib/brand-colors'
 import { formatDate } from '@/lib/i18n/format'
 import type { Locale } from '@/lib/types'
 import { disclaimer, docTable, watermarkPng } from '@/lib/annexes/generate'
-import { segmentAnnotated, type Annotations } from './annotated'
+import { segmentAnnotated, type Annotations, type CrossRefEntry } from './annotated'
+import { libelle, MARQUEUR_TETE, natureDuBandeau, situationDuBandeau, situationDuMarqueur, situationDuStatutArticle, SITUATIONS, type Situation } from './situations'
 
 const CHABON = BRAND_COLORS.chabon.replace('#', '')
 const WOUJ = BRAND_COLORS.wouj.replace('#', '')
 const ANK = BRAND_COLORS.ank.replace('#', '')
 const GRIS = '6E6D8E'
+
+/** Couleur de TEXTE d'une situation (le filet de sa gamme) — la même qu'au lecteur. Le libellé est
+ *  toujours écrit : la couleur ne porte jamais seule l'information (charte, critère bloquant). */
+const couleurDe = (s: Situation): string => (ETAT_COLORS[SITUATIONS[s].gamme as keyof typeof ETAT_COLORS]?.filet ?? `#${GRIS}`).replace('#', '')
+/** Marqueur d'état écrit dans le corps en tête d'article : « (D. du …) », « [Abrogé — acte] ». */
+const MARQUEUR_CORPS = new RegExp(`${MARQUEUR_TETE.source}|^\\[Abrog[ée][^\\]]{0,200}\\]`)
 
 /** Tête d'article en début de bloc (« Article 1er.- », « Article 296. », « Article129.- », « Art. 12 »). */
 const TETE = /^((?:(?:art(?:icle)?s?\.?|section)\s+|article(?=\d{1,4}\.-))(?:premier|\d{1,5}(?:\s*(?:er|ère))?(?:\s*(?:bis|ter|quater))?(?:[.\-]\d+)*)\s*[.)\-–]*)\s*/i
@@ -98,7 +105,7 @@ export async function buildLegislationDocx(input: LegislationWordInput): Promise
   )
 
   const a = input.annotations
-  const notes = new Map((a.crossRefs ?? []).filter((c) => c.note && !c.docs?.length && !c.insertedArticles?.length).map((c) => [c.anchor, c.note!]))
+  const notes = new Map<string, CrossRefEntry>((a.crossRefs ?? []).filter((c) => c.note && !c.docs?.length && !c.insertedArticles?.length).map((c) => [c.anchor, c]))
   const tables = input.rich.filter((b): b is RichTable => b.type === 'table')
   let curseur = 0
 
@@ -114,8 +121,18 @@ export async function buildLegislationDocx(input: LegislationWordInput): Promise
           children: [new TextRun({ text: b.text, bold: b.tocKind !== 'plan', italics: b.level >= 4, color: CHABON, size: taille })],
         }),
       )
+      // La note dit sa NATURE (irrégularité du J.O., consolidation, provenance…) comme au lecteur,
+      // et non plus « Note de la rédaction » pour tout (registre des situations, 17 oct. 2026).
       const note = notes.get(b.anchor)
-      if (note) children.push(new Paragraph({ spacing: { after: 120 }, children: [new TextRun({ text: `Note de la rédaction — ${note}`, italics: true, color: GRIS, size: 18 })] }))
+      if (note) {
+        const sit = situationDuBandeau(natureDuBandeau(note))
+        children.push(
+          new Paragraph({
+            spacing: { after: 120 },
+            children: [new TextRun({ text: `${libelle(sit, 'fr')} — `, bold: true, color: couleurDe(sit), size: 18 }), new TextRun({ text: note.note!, italics: true, color: GRIS, size: 18 })],
+          }),
+        )
+      }
       continue
     }
     const lignes = b.text.split('\n')
@@ -139,9 +156,7 @@ export async function buildLegislationDocx(input: LegislationWordInput): Promise
         new Paragraph({
           alignment: AlignmentType.JUSTIFIED,
           spacing: { before: m ? 160 : 0, after: 80 },
-          children: m
-            ? [new TextRun({ text: m[1], bold: true, color: CHABON, size: 21 }), new TextRun({ text: ' ' + ligne.slice(m[0].length), color: ANK, size: 21 })]
-            : [new TextRun({ text: ligne, color: ANK, size: 21 })],
+          children: m ? teteArticle(m[1], ligne.slice(m[0].length), situationDuStatutArticle(a.status?.[b.anchor!])) : [new TextRun({ text: ligne, color: ANK, size: 21 })],
         }),
       )
     }
@@ -153,4 +168,22 @@ export async function buildLegislationDocx(input: LegislationWordInput): Promise
     sections: [{ properties: { page: { margin: { top: 1000, bottom: 1000, left: 1000, right: 1000 } } }, headers: { default: header }, footers: { default: footer }, children }],
   })
   return Packer.toBuffer(doc)
+}
+
+/**
+ * Tête d'article en gras, l'état de l'article (« [Amendé] », « [Nouveau] », « [Abrogé] » — la pastille
+ * du lecteur, en toutes lettres et dans sa couleur), puis le corps. Un marqueur d'état écrit en tête du
+ * corps (« (D. du 14 novembre 1988, art. 1) », « [Abrogé — acte] ») prend la couleur de sa situation ;
+ * le TEXTE ne change pas d'un caractère. Un article dont le corps dit déjà son abrogation ne la redit pas.
+ */
+function teteArticle(tete: string, reste: string, etat: Situation | null): TextRun[] {
+  const runs = [new TextRun({ text: tete, bold: true, color: CHABON, size: 21 })]
+  const mk = MARQUEUR_CORPS.exec(reste)
+  const dejaDit = mk && etat && situationDuMarqueur(mk[0]) === 'abroge' && etat === 'abroge'
+  if (etat && !dejaDit) runs.push(new TextRun({ text: ` [${libelle(etat, 'fr')}]`, bold: true, color: couleurDe(etat), size: 18 }))
+  if (!mk) return [...runs, new TextRun({ text: ' ' + reste, color: ANK, size: 21 })]
+  const sit: Situation = situationDuMarqueur(mk[0])
+  runs.push(new TextRun({ text: ' ' + mk[0], color: couleurDe(sit), size: 21 }))
+  if (reste.length > mk[0].length) runs.push(new TextRun({ text: reste.slice(mk[0].length), color: ANK, size: 21 }))
+  return runs
 }

@@ -1,39 +1,37 @@
-'use client'
-
-import { useState } from 'react'
 import type { Locale } from '@/lib/types'
+import type { Situation } from '@/lib/legislation/situations'
 import { CodeRefText, type CodeHrefs } from './CodeRefText'
-
-const LBL = {
-  title: { fr: 'Ancienne version (1987)', en: 'Former version (1987)', ht: 'Ansyen vèsyon (1987)' },
-  show: { fr: 'afficher', en: 'show', ht: 'montre' },
-  hide: { fr: 'masquer', en: 'hide', ht: 'kache' },
-} as const
+import { Repli } from './Repli'
 
 /**
- * Ancienne version (1987) d'un article amendé — repliable, fermée par défaut. La version
- * en vigueur (amendée) reste le texte principal ; celle-ci est l'ancienne, à titre historique.
+ * Ancienne rédaction d'un article amendé (ou texte d'un article abrogé) — repli fermé par défaut, au
+ * gabarit commun. La version en vigueur reste le texte principal (règle du 26 août 2026).
+ *
+ * ⚠️ « ANCIENNE VERSION (1987) » ÉTAIT ÉCRIT EN DUR ICI. Le libellé, propre à la Constitution,
+ * s'affichait sur cinq autres textes (TCA 2002, Code pénal de 1835, Arrêté marchés 2009, Loi
+ * fondations 1934, Signature électronique 2017 — 23 articles). Le titre vient désormais du registre
+ * (« Ancienne rédaction ») ou de la fiche (`annotations.oldVersionsLabel`, Constitution).
  */
-export function OldVersion({ text, locale, codeHrefs }: { text: string; locale: Locale; codeHrefs?: CodeHrefs }) {
-  const [open, setOpen] = useState(false)
-  const lt = (o: Record<Locale, string>) => o[locale] ?? o.fr
+export function OldVersion({
+  text,
+  locale,
+  codeHrefs,
+  titre,
+  situation = 'ancienne_redaction',
+  id,
+}: {
+  text: string
+  locale: Locale
+  codeHrefs?: CodeHrefs
+  titre?: string
+  situation?: Extract<Situation, 'ancienne_redaction' | 'texte_abroge'>
+  id?: string
+}) {
   return (
-    <div data-nocopy className="mt-2.5 overflow-hidden rounded-lg border border-chabon/30 bg-pil/40">
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        className="flex w-full items-center gap-2 px-3.5 py-2 text-left text-xs transition hover:bg-pil"
-      >
-        <span aria-hidden className="select-none text-chabon">{open ? '▾' : '▸'}</span>
-        <span className="font-semibold text-ank">{lt(LBL.title)}</span>
-        <span className="ml-auto text-[11px] font-medium text-chabon">{open ? lt(LBL.hide) : lt(LBL.show)}</span>
-      </button>
-      {open && (
-        <p className="whitespace-pre-wrap border-t border-chabon/20 bg-white/60 px-4 py-2.5 text-[11.5px] italic leading-relaxed text-grafit">
-          <CodeRefText text={text} codeHrefs={codeHrefs} />
-        </p>
-      )}
-    </div>
+    <Repli situation={situation} locale={locale} titre={titre} id={id}>
+      <p className="whitespace-pre-wrap text-[11.5px] italic leading-relaxed text-grafit">
+        <CodeRefText text={text} codeHrefs={codeHrefs} />
+      </p>
+    </Repli>
   )
 }

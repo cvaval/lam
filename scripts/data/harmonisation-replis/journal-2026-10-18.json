@@ -1,0 +1,4568 @@
+[
+ {
+  "docId": "cms44buwc0000l3ru6aypo0vd",
+  "source": "LOI_PATENTE_1996_CONSOLIDE",
+  "chemin": "crossRefs[0].kind",
+  "apres": "consolidation"
+ },
+ {
+  "docId": "cms442pmz00008e3gecnevdfu",
+  "source": "DECRET_TIMBRE_1978_CONSOLIDE",
+  "chemin": "crossRefs[0].kind",
+  "apres": "consolidation"
+ },
+ {
+  "docId": "cms1b7se9000213pmtu7n66jz",
+  "source": "DECRET_MINIER_2026",
+  "chemin": "crossRefs[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms1b7se9000213pmtu7n66jz",
+  "source": "DECRET_MINIER_2026",
+  "chemin": "crossRefs[1].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms4san2s0001dcuiweb6dput",
+  "source": "DECRET_CFPB_1979_CONSOLIDE",
+  "chemin": "crossRefs[0].kind",
+  "apres": "consolidation"
+ },
+ {
+  "docId": "cms4smmsc000092ro2c4gjpam",
+  "source": "DECRET_ENREGISTREMENT_1977",
+  "chemin": "crossRefs[0].kind",
+  "apres": "consolidation"
+ },
+ {
+  "docId": "cmv7ldx9r0001soj2gggluol8",
+  "source": "CODE_FISCAL_2026",
+  "chemin": "crossRefs[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cmv7ldx9r0001soj2gggluol8",
+  "source": "CODE_FISCAL_2026",
+  "chemin": "crossRefs[1].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cmv7ldx9r0001soj2gggluol8",
+  "source": "CODE_FISCAL_2026",
+  "chemin": "crossRefs[2].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cmvca7xta0001hyd6lalpffe9",
+  "source": "CODE_PENAL_2025",
+  "chemin": "crossRefs[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cmvca7xta0001hyd6lalpffe9",
+  "source": "CODE_PENAL_2025",
+  "chemin": "crossRefs[1].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cmrhdnzvm0000ywp2v4amq505",
+  "source": "CODE_PENAL_ANNOTE",
+  "chemin": "crossRefs[0].kind",
+  "apres": "modification"
+ },
+ {
+  "docId": "cmrhdnzvm0000ywp2v4amq505",
+  "source": "CODE_PENAL_ANNOTE",
+  "chemin": "crossRefs[1].kind",
+  "apres": "modification"
+ },
+ {
+  "docId": "cmrhdnzvm0000ywp2v4amq505",
+  "source": "CODE_PENAL_ANNOTE",
+  "chemin": "crossRefs[2].kind",
+  "apres": "modification"
+ },
+ {
+  "docId": "cmrhdnzvm0000ywp2v4amq505",
+  "source": "CODE_PENAL_ANNOTE",
+  "chemin": "connexe.art-269[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrhdnzvm0000ywp2v4amq505",
+  "source": "CODE_PENAL_ANNOTE",
+  "chemin": "connexe.art-270[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrhdnzvm0000ywp2v4amq505",
+  "source": "CODE_PENAL_ANNOTE",
+  "chemin": "connexe.art-278[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrhdnzvm0000ywp2v4amq505",
+  "source": "CODE_PENAL_ANNOTE",
+  "chemin": "connexe.art-279[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrhdnzvm0000ywp2v4amq505",
+  "source": "CODE_PENAL_ANNOTE",
+  "chemin": "connexe.art-280[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrhdnzvm0000ywp2v4amq505",
+  "source": "CODE_PENAL_ANNOTE",
+  "chemin": "connexe.art-281[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrhdnzvm0000ywp2v4amq505",
+  "source": "CODE_PENAL_ANNOTE",
+  "chemin": "connexe.art-282[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrhdnzvm0000ywp2v4amq505",
+  "source": "CODE_PENAL_ANNOTE",
+  "chemin": "connexe.art-283[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrhdnzvm0000ywp2v4amq505",
+  "source": "CODE_PENAL_ANNOTE",
+  "chemin": "connexe.art-284[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrhdnzvm0000ywp2v4amq505",
+  "source": "CODE_PENAL_ANNOTE",
+  "chemin": "connexe.art-285[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrhdnzvm0000ywp2v4amq505",
+  "source": "CODE_PENAL_ANNOTE",
+  "chemin": "connexe.art-286[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrhdnzvm0000ywp2v4amq505",
+  "source": "CODE_PENAL_ANNOTE",
+  "chemin": "connexe.art-287[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms8dvitg000cqt1voidx7fj9",
+  "source": "CPC_APPENDICE_I_A_5_1",
+  "chemin": "connexe.art-269[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cms8dvitg000cqt1voidx7fj9",
+  "source": "CPC_APPENDICE_I_A_5_1",
+  "chemin": "connexe.art-269-1[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cms8dvitg000cqt1voidx7fj9",
+  "source": "CPC_APPENDICE_I_A_5_1",
+  "chemin": "connexe.art-270[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cms8dvitg000cqt1voidx7fj9",
+  "source": "CPC_APPENDICE_I_A_5_1",
+  "chemin": "connexe.art-271[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cms8dvitg000cqt1voidx7fj9",
+  "source": "CPC_APPENDICE_I_A_5_1",
+  "chemin": "connexe.art-272[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cms8dvitg000cqt1voidx7fj9",
+  "source": "CPC_APPENDICE_I_A_5_1",
+  "chemin": "connexe.art-273[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cms8dvitg000cqt1voidx7fj9",
+  "source": "CPC_APPENDICE_I_A_5_1",
+  "chemin": "connexe.art-274[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cms8dvsxw000qqt1vihmqx6ey",
+  "source": "CPC_APPENDICE_I_C_1_1",
+  "chemin": "connexe.art-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms8dvsxw000qqt1vihmqx6ey",
+  "source": "CPC_APPENDICE_I_C_1_1",
+  "chemin": "connexe.art-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms8dwicx001oqt1vyeyyfi2x",
+  "source": "CPC_APPENDICE_III_4_1",
+  "chemin": "connexe.art-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms8dwicx001oqt1vyeyyfi2x",
+  "source": "CPC_APPENDICE_III_4_1",
+  "chemin": "connexe.art-76[0].kind",
+  "apres": "abrogatif"
+ },
+ {
+  "docId": "cms8dwl5c001sqt1v1c2hvv0w",
+  "source": "CPC_APPENDICE_IV_1_1",
+  "chemin": "connexe.art-26[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms8dx2t4002hqt1v87z2hso6",
+  "source": "CPC_APPENDICE_IV_13_1",
+  "chemin": "connexe.art-4[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms8dx7r5002oqt1venp0movd",
+  "source": "CPC_APPENDICE_IV_16_1",
+  "chemin": "connexe.art-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms8dx7r5002oqt1venp0movd",
+  "source": "CPC_APPENDICE_IV_16_1",
+  "chemin": "connexe.art-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms8dx7r5002oqt1venp0movd",
+  "source": "CPC_APPENDICE_IV_16_1",
+  "chemin": "connexe.art-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms8dx7r5002oqt1venp0movd",
+  "source": "CPC_APPENDICE_IV_16_1",
+  "chemin": "connexe.art-5[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms8dx7r5002oqt1venp0movd",
+  "source": "CPC_APPENDICE_IV_16_1",
+  "chemin": "connexe.art-6[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms8dxc07002uqt1v2nircd9z",
+  "source": "CPC_APPENDICE_IV_21_1",
+  "chemin": "connexe.art-26[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cms8dxc07002uqt1v2nircd9z",
+  "source": "CPC_APPENDICE_IV_21_1",
+  "chemin": "connexe.art-26-1[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cms8dxc07002uqt1v2nircd9z",
+  "source": "CPC_APPENDICE_IV_21_1",
+  "chemin": "connexe.art-26-2[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cms8dxc07002uqt1v2nircd9z",
+  "source": "CPC_APPENDICE_IV_21_1",
+  "chemin": "connexe.art-27[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cms8dxc07002uqt1v2nircd9z",
+  "source": "CPC_APPENDICE_IV_21_1",
+  "chemin": "connexe.art-27-1[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cms8dxcoq002vqt1vin2qujd7",
+  "source": "CPC_APPENDICE_IV_22_1",
+  "chemin": "connexe.art-7[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms8dxgqs0030qt1vyxo0cqog",
+  "source": "CPC_APPENDICE_V_2_2",
+  "chemin": "connexe.art-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms8dxgqs0030qt1vyxo0cqog",
+  "source": "CPC_APPENDICE_V_2_2",
+  "chemin": "connexe.art-16[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms8dxhmr0031qt1v2nm3dr47",
+  "source": "CPC_APPENDICE_V_3_1",
+  "chemin": "connexe.art-15[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms8dvk9t000eqt1v44bqdvr3",
+  "source": "CPC_APPENDICE_I_A_7_1",
+  "chemin": "connexe.art-68[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dvk9t000eqt1v44bqdvr3",
+  "source": "CPC_APPENDICE_I_A_7_1",
+  "chemin": "connexe.art-70[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dvk9t000eqt1v44bqdvr3",
+  "source": "CPC_APPENDICE_I_A_7_1",
+  "chemin": "connexe.art-29[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dvk9t000eqt1v44bqdvr3",
+  "source": "CPC_APPENDICE_I_A_7_1",
+  "chemin": "connexe.art-30[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dvk9t000eqt1v44bqdvr3",
+  "source": "CPC_APPENDICE_I_A_7_1",
+  "chemin": "connexe.art-43[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dvk9t000eqt1v44bqdvr3",
+  "source": "CPC_APPENDICE_I_A_7_1",
+  "chemin": "connexe.art-48[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dvk9t000eqt1v44bqdvr3",
+  "source": "CPC_APPENDICE_I_A_7_1",
+  "chemin": "connexe.art-51[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dvl35000fqt1vf0s5h4q4",
+  "source": "CPC_APPENDICE_I_A_7_2",
+  "chemin": "connexe.art-20[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dvl35000fqt1vf0s5h4q4",
+  "source": "CPC_APPENDICE_I_A_7_2",
+  "chemin": "connexe.art-49[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dvl35000fqt1vf0s5h4q4",
+  "source": "CPC_APPENDICE_I_A_7_2",
+  "chemin": "connexe.art-9[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dvl35000fqt1vf0s5h4q4",
+  "source": "CPC_APPENDICE_I_A_7_2",
+  "chemin": "connexe.art-22[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dvlsw000gqt1vn5twmh50",
+  "source": "CPC_APPENDICE_I_A_7_3",
+  "chemin": "connexe.art-9[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dvlsw000gqt1vn5twmh50",
+  "source": "CPC_APPENDICE_I_A_7_3",
+  "chemin": "connexe.art-12[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dvlsw000gqt1vn5twmh50",
+  "source": "CPC_APPENDICE_I_A_7_3",
+  "chemin": "connexe.art-41[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dvlsw000gqt1vn5twmh50",
+  "source": "CPC_APPENDICE_I_A_7_3",
+  "chemin": "connexe.art-4[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dvlsw000gqt1vn5twmh50",
+  "source": "CPC_APPENDICE_I_A_7_3",
+  "chemin": "connexe.art-16[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dvlsw000gqt1vn5twmh50",
+  "source": "CPC_APPENDICE_I_A_7_3",
+  "chemin": "connexe.art-22[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dwaaw001fqt1v13tc1q0k",
+  "source": "CPC_APPENDICE_I_E_1",
+  "chemin": "connexe.art-10[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dwaaw001fqt1v13tc1q0k",
+  "source": "CPC_APPENDICE_I_E_1",
+  "chemin": "connexe.art-48[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dwaaw001fqt1v13tc1q0k",
+  "source": "CPC_APPENDICE_I_E_1",
+  "chemin": "connexe.art-148[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms8dwhnz001nqt1vv517m5bp",
+  "source": "CPC_APPENDICE_III_3_1",
+  "chemin": "connexe.art-5[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms8dwhnz001nqt1vv517m5bp",
+  "source": "CPC_APPENDICE_III_3_1",
+  "chemin": "connexe.art-6[0].kind",
+  "apres": "abrogatif"
+ },
+ {
+  "docId": "cms8dwhnz001nqt1vv517m5bp",
+  "source": "CPC_APPENDICE_III_3_1",
+  "chemin": "connexe.art-7[0].kind",
+  "apres": "abrogatif"
+ },
+ {
+  "docId": "cms8dwhnz001nqt1vv517m5bp",
+  "source": "CPC_APPENDICE_III_3_1",
+  "chemin": "connexe.art-8[0].kind",
+  "apres": "abrogatif"
+ },
+ {
+  "docId": "cms8dwhnz001nqt1vv517m5bp",
+  "source": "CPC_APPENDICE_III_3_1",
+  "chemin": "connexe.art-9[0].kind",
+  "apres": "abrogatif"
+ },
+ {
+  "docId": "cms8dwhnz001nqt1vv517m5bp",
+  "source": "CPC_APPENDICE_III_3_1",
+  "chemin": "connexe.art-10[0].kind",
+  "apres": "abrogatif"
+ },
+ {
+  "docId": "cms8dwhnz001nqt1vv517m5bp",
+  "source": "CPC_APPENDICE_III_3_1",
+  "chemin": "connexe.art-11[0].kind",
+  "apres": "abrogatif"
+ },
+ {
+  "docId": "cmrtix3ia0008sa3zg91rpcg3",
+  "source": "CC_VANDAL_IV-D-1",
+  "chemin": "connexe.art-21[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cmrtix3ia0008sa3zg91rpcg3",
+  "source": "CC_VANDAL_IV-D-1",
+  "chemin": "connexe.art-23[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cmri2w7c70002xr5kdj5q1now",
+  "source": "LOI_FILIATION_2014",
+  "chemin": "connexe.art-3[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmri2w7c70002xr5kdj5q1now",
+  "source": "LOI_FILIATION_2014",
+  "chemin": "connexe.art-4[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmri2w7c70002xr5kdj5q1now",
+  "source": "LOI_FILIATION_2014",
+  "chemin": "connexe.art-8[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmri2w7c70002xr5kdj5q1now",
+  "source": "LOI_FILIATION_2014",
+  "chemin": "connexe.art-9[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmri2w7c70002xr5kdj5q1now",
+  "source": "LOI_FILIATION_2014",
+  "chemin": "connexe.art-10[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmri2w7c70002xr5kdj5q1now",
+  "source": "LOI_FILIATION_2014",
+  "chemin": "connexe.art-11[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmri2w7c70002xr5kdj5q1now",
+  "source": "LOI_FILIATION_2014",
+  "chemin": "connexe.art-12[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmsia011p0001umyqr1ih88tp",
+  "source": "ARRETE_PDP_2018",
+  "chemin": "connexe.art-1[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmsia011p0001umyqr1ih88tp",
+  "source": "ARRETE_PDP_2018",
+  "chemin": "connexe.art-1[1].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmsia011p0001umyqr1ih88tp",
+  "source": "ARRETE_PDP_2018",
+  "chemin": "connexe.art-1[2].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmsia011p0001umyqr1ih88tp",
+  "source": "ARRETE_PDP_2018",
+  "chemin": "connexe.art-1[3].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr102ish0012ttoijkh8f31e",
+  "source": "CODE_TRAVAIL_ANNOTE",
+  "chemin": "connexe.art-6[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "crossRefs[0].kind",
+  "apres": "modification"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "crossRefs[1].kind",
+  "apres": "modification"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-18[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-34[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-55[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-57[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-63[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-87[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-90[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-95[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-136[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-151[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-199[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-199[1].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-211[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-254[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-254[1].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-259[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-304[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-304[1].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-313[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-313[1].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-331[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-457[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-740[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-740[1].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1043[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1439[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1529[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1529[1].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1995[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-293[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-311[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-606[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-294[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-295[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-302[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-303[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-306[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-308[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-309[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-611[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1174[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1181[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1186[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1187[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1188[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1189[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1190[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1191[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1192[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1193[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1194[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1195[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1196[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1197[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1198[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1199[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1200[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1201[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1202[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1203[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1204[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1205[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1206[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1207[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1208[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1209[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1210[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1211[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1213[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1214[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1215[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1216[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1217[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1218[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1219[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1220[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1221[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1222[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1223[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1224[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1225[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1226[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1227[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1228[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1229[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1230[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1231[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1232[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1233[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1234[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1235[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1236[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1237[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1238[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1239[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1240[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1241[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1242[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1243[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1244[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1245[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1246[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1247[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1248[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1282[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1283[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1284[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1285[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1286[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1287[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1288[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1289[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1290[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1291[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1292[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1293[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1294[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1295[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1296[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1297[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1298[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1299[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1300[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1301[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1302[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1303[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1304[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1305[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1306[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1307[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1308[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1309[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1888[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1249[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1250[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1251[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1252[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1253[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1254[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1255[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1256[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1257[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1258[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1259[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1260[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1261[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1262[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1263[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1264[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1265[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1266[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1267[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1268[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1269[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1270[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1271[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1272[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1273[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1274[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1275[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1276[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1277[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1278[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1279[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1280[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1281[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1311[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1312[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1313[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1314[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1315[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1316[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1317[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1318[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1319[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1320[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1321[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1322[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1323[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1324[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1902[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1903[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1905[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1906[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1909[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1912[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1920[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1960[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1961[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1962[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1310[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1181-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1184-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1184-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1907[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1911[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1780[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1782[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1838[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1839[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1840[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1841[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1842[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1843[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1844[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1845[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1846[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1847[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1848[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1849[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1850[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1851[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1852[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1853[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1854[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1855[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1856[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1857[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1774-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1774-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1774-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1774-4[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1774-5[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1774-6[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1774-7[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1774-8[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1774-9[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1774-10[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1809-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1809-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1809-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1809-4[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1809-5[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1809-6[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1809-7[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1809-8[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1809-9[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1809-10[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1849-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1849-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1851-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-4[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-5[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-6[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-7[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-8[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-9[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-10[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-11[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-12[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-13[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-14[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-15[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-16[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-17[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-18[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-19[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-20[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1858-21[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1859-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1869-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1869-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1869-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1970-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1970-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1970-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1970-4[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1970-5[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1970-6[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1970-7[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1970-8[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1970-9[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1484[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1485[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1486[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1487[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1488[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1489[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1490[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1491[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1492[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1493[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1494[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1495[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1496[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1497[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1498[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1499[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1500[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1501[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1502[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1503[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1504[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1505[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1506[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1507[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1508[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1509[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1510[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1511[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1512[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1513[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1514[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1515[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1516[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1517[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1518[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1519[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1520[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1521[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1522[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1523[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1524[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1525[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1526[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1527[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1528[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1530[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1531[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1532[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1533[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1534[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1535[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1536[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1537[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1538[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1539[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1540[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1541[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1542[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1543[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1544[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1545[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1546[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1547[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1548[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1549[0].kind",
+  "apres": "derogation"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1101[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1101[1].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1102[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1102[1].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1111[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1111[1].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1112[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1112[1].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1110[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-25[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-26[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-29[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-38[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-82[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-99[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-106[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-146[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-148[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-150[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-189[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-195[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-196[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-197[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-198[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-200[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-201[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-202[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-203[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-204[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-206[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-207[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-208[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-209[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-210[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-212[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-216[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-218[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-219[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-260[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-263[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-282[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-283[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-286[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-289[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-292[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-324[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-324[1].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-328[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-355[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-398[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-489[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-578[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-583[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-586[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-604[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-625[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-635[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-677[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-735[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-753[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-759[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-761[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-781[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-835[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-896[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1089[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1170[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1212[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1334[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1341[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1361[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1363[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1754[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1833[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1975[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-1976[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-2022[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr4b6f3v0000iz56asjmwrlg",
+  "source": "CODE_CIVIL_ANNOTE",
+  "chemin": "connexe.art-2024[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmr1it23a0000b4r0l6r1xp5l",
+  "source": "CONSTITUTION_1987",
+  "chemin": "oldVersionsLabel",
+  "apres": "Ancienne version (1987)"
+ },
+ {
+  "docId": "cmt1x4eza0001m0c3gp6996w7",
+  "source": "DECRET_FETES_LEGALES_2024",
+  "chemin": "crossRefs[0].kind",
+  "apres": "provenance"
+ },
+ {
+  "docId": "cms43ptub00008lo8tv3y25kk",
+  "source": "DECRET_IMPOT_REVENU_2005",
+  "chemin": "crossRefs[0].kind",
+  "apres": "consolidation"
+ },
+ {
+  "docId": "cms43ptub00008lo8tv3y25kk",
+  "source": "DECRET_IMPOT_REVENU_2005",
+  "chemin": "crossRefs[1].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-4[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-5[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-6[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-7[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-8[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1000-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1111-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1111-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1111-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1111-4[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1112-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1112-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1112-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1112-4[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1112-5[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1112-6[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1112-7[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1112-8[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1112-9[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1120-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1120-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1120-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1120-4[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1120-5[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1120-6[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1120-7[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1120-8[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1120-9[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1120-10[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1120-11[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1120-12[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1120-13[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1131-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1131-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1132-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1132-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1132-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1132-4[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1133-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1133-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1133-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1133-4[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1133-5[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1133-6[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1133-7[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1133-8[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1133-9[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1134-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1134-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1134-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1135-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1135-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1135-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1136-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1136-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1136-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1136-4[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1136-5[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1136-6[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1136-7[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1136-8[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1136-9[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1136-10[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1136-11[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1136-12[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1136-13[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1136-14[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1136-15[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1137-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1137-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1710-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1721-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1721-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1721-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1722-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1722-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1722-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1723-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1723-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1723-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1723-4[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1723-5[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1723-6[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1723-7[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1723-8[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1724-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1724-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1724-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1724-4[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1725-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1725-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1726-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1726-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1727-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1727-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1727-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1727-4[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1727-5[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1727-6[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1728-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1728-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1729-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1729-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1729-3[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1611-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-1611-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-91[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-92[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-93[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-94[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-95[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtnrxhu0000hg04ggz2lw0f",
+  "source": "CODE_COMMERCE_ANNOTE",
+  "chemin": "connexe.art-600[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmrtix4hv0009sa3z8tz9ss9n",
+  "source": "CC_VANDAL_IV-D-2",
+  "chemin": "connexe.art-1[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cmrtix4hv0009sa3z8tz9ss9n",
+  "source": "CC_VANDAL_IV-D-2",
+  "chemin": "connexe.art-6[0].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms6bhh0t000411j6ahh6g65o",
+  "source": "DECRET_SIGNATURE_ELECTRONIQUE_2015",
+  "chemin": "connexe.art-1[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmtdm152i0007vkwtil7yya4q",
+  "source": "MARCHES_ARR_MODALITES_2009",
+  "chemin": "connexe.art-227[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmtdm152i0007vkwtil7yya4q",
+  "source": "MARCHES_ARR_MODALITES_2009",
+  "chemin": "connexe.art-227-1[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cmtdm1lff001jvkwtcucc840u",
+  "source": "MARCHES_ARR_DEFENSE_2020",
+  "chemin": "connexe.art-2[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms5hgrnl0000h5t2ihfy2d37",
+  "source": "LOI_UCREF_2017",
+  "chemin": "crossRefs[0].kind",
+  "apres": "provenance"
+ },
+ {
+  "docId": "cms5d6tp200002695mv8c5bdb",
+  "source": "DECRET_IMF_2020",
+  "chemin": "crossRefs[0].kind",
+  "apres": "provenance"
+ },
+ {
+  "docId": "cms5d6tp200002695mv8c5bdb",
+  "source": "DECRET_IMF_2020",
+  "chemin": "crossRefs[1].kind",
+  "apres": "sic"
+ },
+ {
+  "docId": "cms5d6tp200002695mv8c5bdb",
+  "source": "DECRET_IMF_2020",
+  "chemin": "connexe.art-80[0].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cms5d6tp200002695mv8c5bdb",
+  "source": "DECRET_IMF_2020",
+  "chemin": "connexe.art-80[1].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cms5d6tp200002695mv8c5bdb",
+  "source": "DECRET_IMF_2020",
+  "chemin": "connexe.art-80[2].kind",
+  "apres": "source"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1780[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1782[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1838[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1839[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1840[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1841[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1842[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1843[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1844[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1845[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1846[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1847[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1848[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1849[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1850[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1851[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1852[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1853[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1854[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1855[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1856[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1857[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1774-1[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1774-2[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1774-3[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1774-4[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1774-5[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1774-6[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1774-7[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1774-8[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1774-9[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1774-10[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1809-1[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1809-2[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1809-3[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1809-4[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1809-5[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1809-6[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1809-7[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1809-8[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1809-9[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1809-10[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1849-1[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1849-2[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1851-1[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-1[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-2[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-3[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-4[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-5[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-6[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-7[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-8[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-9[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-10[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-11[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-12[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-13[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-14[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-15[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-16[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-17[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-18[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-19[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-20[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1858-21[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1859-1[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1869-1[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1869-2[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1869-3[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1970-1[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1970-2[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1970-3[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1970-4[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1970-5[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1970-6[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1970-7[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1970-8[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1970-9[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1611-1[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-1611-2[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-600[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-17[0].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-17[1].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-17[2].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-17[3].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cmrspgd9h0000yn8emki3dtw6",
+  "source": "DECRET_SURETES",
+  "chemin": "connexe.art-17[4].kind",
+  "apres": "texte_a_jour"
+ },
+ {
+  "docId": "cms6bgx48000011j6a5wcb1ru",
+  "source": "LOI_SIGNATURE_ELECTRONIQUE_2017",
+  "chemin": "connexe.art-1[0].kind",
+  "apres": "ancienne_redaction"
+ },
+ {
+  "docId": "cms6bgx48000011j6a5wcb1ru",
+  "source": "LOI_SIGNATURE_ELECTRONIQUE_2017",
+  "chemin": "connexe.art-2[0].kind",
+  "apres": "ancienne_redaction"
+ },
+ {
+  "docId": "cms6bgx48000011j6a5wcb1ru",
+  "source": "LOI_SIGNATURE_ELECTRONIQUE_2017",
+  "chemin": "connexe.art-3[0].kind",
+  "apres": "ancienne_redaction"
+ },
+ {
+  "docId": "cms6bgx48000011j6a5wcb1ru",
+  "source": "LOI_SIGNATURE_ELECTRONIQUE_2017",
+  "chemin": "connexe.art-4[0].kind",
+  "apres": "ancienne_redaction"
+ },
+ {
+  "docId": "cmrtiwzqw0004sa3zf6olqpbb",
+  "source": "CC_VANDAL_IV-A-5",
+  "chemin": "crossRefs[0].kind",
+  "apres": "rectification"
+ },
+ {
+  "docId": "cmtf7kcz1000573cxunjqppcn",
+  "source": "DECRET_ENERGIE_ELECTRIQUE_2016",
+  "chemin": "crossRefs[0].kind",
+  "apres": "rectification"
+ },
+ {
+  "docId": "cmtfcpvyl00078z5zf2ggpx94",
+  "source": "DECRET_TNT_2026",
+  "chemin": "crossRefs[0].kind",
+  "apres": "annexe"
+ },
+ {
+  "docId": "cmtfco6ju00011jqfxb89a132",
+  "source": "CODE_INVESTISSEMENTS_2002",
+  "chemin": "crossRefs[0].kind",
+  "apres": "annexe"
+ },
+ {
+  "docId": "cmtfcoj3s0001a5xyy4ur8t9w",
+  "source": "DECRET_DENREES_ALIMENTAIRES_2020",
+  "chemin": "crossRefs[0].kind",
+  "apres": "annexe"
+ },
+ {
+  "docId": "cmtfcoz8l0001tkluxhzik4bn",
+  "source": "DECRET_GESTION_ENVIRONNEMENT_2005",
+  "chemin": "crossRefs[0].kind",
+  "apres": "annexe"
+ },
+ {
+  "docId": "cmtgm3yg5000161lrxw607cfa",
+  "source": "DECRET_EDH_2016",
+  "chemin": "crossRefs[0].kind",
+  "apres": "annexe"
+ },
+ {
+  "docId": "cms7u9239000212wwoddflgnu",
+  "source": "CODE_PROCEDURE_CIVILE",
+  "chemin": "crossRefs[0].kind",
+  "apres": "modification"
+ },
+ {
+  "docId": "cms7u9239000212wwoddflgnu",
+  "source": "CODE_PROCEDURE_CIVILE",
+  "chemin": "connexe.art-18[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms7u9239000212wwoddflgnu",
+  "source": "CODE_PROCEDURE_CIVILE",
+  "chemin": "connexe.art-717[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms7u9239000212wwoddflgnu",
+  "source": "CODE_PROCEDURE_CIVILE",
+  "chemin": "connexe.art-718[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms7u9239000212wwoddflgnu",
+  "source": "CODE_PROCEDURE_CIVILE",
+  "chemin": "connexe.art-719[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms7u9239000212wwoddflgnu",
+  "source": "CODE_PROCEDURE_CIVILE",
+  "chemin": "connexe.art-720[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms7u9239000212wwoddflgnu",
+  "source": "CODE_PROCEDURE_CIVILE",
+  "chemin": "connexe.art-721[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms7u9239000212wwoddflgnu",
+  "source": "CODE_PROCEDURE_CIVILE",
+  "chemin": "connexe.art-722[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms7u9239000212wwoddflgnu",
+  "source": "CODE_PROCEDURE_CIVILE",
+  "chemin": "connexe.art-723[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms7u9239000212wwoddflgnu",
+  "source": "CODE_PROCEDURE_CIVILE",
+  "chemin": "connexe.art-724[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms7u9239000212wwoddflgnu",
+  "source": "CODE_PROCEDURE_CIVILE",
+  "chemin": "connexe.art-725[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms7u9239000212wwoddflgnu",
+  "source": "CODE_PROCEDURE_CIVILE",
+  "chemin": "connexe.art-726[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms7u9239000212wwoddflgnu",
+  "source": "CODE_PROCEDURE_CIVILE",
+  "chemin": "connexe.art-727[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms7u9239000212wwoddflgnu",
+  "source": "CODE_PROCEDURE_CIVILE",
+  "chemin": "connexe.art-728[0].kind",
+  "apres": "modificatif"
+ },
+ {
+  "docId": "cms7u9239000212wwoddflgnu",
+  "source": "CODE_PROCEDURE_CIVILE",
+  "chemin": "connexe.art-813[0].kind",
+  "apres": "modificatif"
+ }
+]

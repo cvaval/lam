@@ -80,6 +80,9 @@ export interface CrossRefEntry {
   /** Dispositions générales d'une loi modificatrice à AFFICHER sous l'en-tête de section
    *  (ex. principes posés par la loi de filiation sous la LOI Nº 8 du Code civil). */
   insertedArticles?: { label: string; body: string }[]
+  /** Nature du bandeau (registre des situations, 17 oct. 2026) : `renvoi` · `sic` · `consolidation` ·
+   *  `provenance` · `annexe` · `rectification` · `modification`. Absent → `natureDuBandeau()`. */
+  kind?: string
 }
 /** Bloc de législation connexe (décret intégré, loi liée, citation) replié sous un article. */
 export interface ConnexeBlock {
@@ -91,6 +94,9 @@ export interface ConnexeBlock {
   /** Ancre optionnelle dans le document cible (#art-N) — ex. renvoyer l'intitulé
    *  « Constitution de 1987 » directement à l'article 35 de la Constitution téléversée. */
   anchor?: string
+  /** Nature du bloc (registre des situations, 17 oct. 2026) : `modificatif` · `abrogatif` ·
+   *  `derogation` · `texte_a_jour` · `ancienne_redaction` · `source` · `sic`. Absent → `natureDuConnexe()`. */
+  kind?: string
 }
 export interface Annotations {
   title: string
@@ -117,6 +123,10 @@ export interface Annotations {
   reserve?: string
   // Constitution : ancienne version (1987) par article, statut d'amendement, libellé d'article.
   oldVersions?: Record<string, string> // ancre → texte de l'ancienne version (repliable)
+  /** Titre des replis d'ancienne rédaction, s'il diffère du registre (« Ancienne rédaction ») :
+   *  la Constitution porte « Ancienne version (1987) ». Ce libellé était écrit EN DUR dans
+   *  OldVersion et s'affichait sur cinq autres textes (17 oct. 2026). */
+  oldVersionsLabel?: string
   status?: Record<string, string | null> // ancre → « modifié » | « nouveau » | « abrogé »
   labels?: Record<string, string> // ancre → « Article 12.1 » (numérotation complexe)
   /**
@@ -205,6 +215,7 @@ export function parseAnnotations(json: string | null | undefined): Annotations |
       crossRefs: Array.isArray(a.crossRefs) ? a.crossRefs : [],
       reserve: typeof a.reserve === 'string' && a.reserve.trim() ? a.reserve : undefined,
       oldVersions: a.oldVersions && typeof a.oldVersions === 'object' ? a.oldVersions : {},
+      oldVersionsLabel: typeof a.oldVersionsLabel === 'string' && a.oldVersionsLabel.trim() ? a.oldVersionsLabel : undefined,
       status: a.status && typeof a.status === 'object' ? a.status : {},
       labels: a.labels && typeof a.labels === 'object' ? a.labels : {},
       concordance: a.concordance && typeof a.concordance === 'object' ? a.concordance : {},

@@ -71,6 +71,7 @@ export default async function DoctrinePage({ params }: { params: { locale: strin
     id: d.id, type: d.type, titleFr: d.titleFr, titleEn: d.titleEn, titleHt: d.titleHt,
     number: d.number, status: d.status,
     publicationDate: d.publicationDate ? d.publicationDate.toISOString() : null,
+    effectiveDate: d.effectiveDate ? d.effectiveDate.toISOString() : null,
     updatedAt: d.updatedAt.toISOString(),
   }))
 

@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss'
-import { BRAND_COLORS as C } from './src/lib/brand-colors'
+import { BRAND_COLORS as C, ETAT_COLORS } from './src/lib/brand-colors'
 
 /**
  * Agora — palette du kit de marque v2, posée sur les jetons Klinik (voir la table de
@@ -42,6 +42,14 @@ const config: Config = {
         ble: C.ble,
         // Texte sur fond sombre (Chabon / Adwaz).
         inverse: C.inverse,
+        // ── Gamme des états juridiques (17 oct. 2026) : signalement seul, jamais une action ──
+        // → bg-etat-amendement-fond, border-etat-radie-filet, text-etat-nouveau-filet…
+        etat: Object.fromEntries(
+          Object.entries(ETAT_COLORS).flatMap(([g, v]) => [
+            [`${g}-fond`, v.fond],
+            [`${g}-filet`, v.filet],
+          ]),
+        ),
       },
       backgroundColor: {
         // Bouton principal = encre (charte Agora § 6). Voir l'en-tête.

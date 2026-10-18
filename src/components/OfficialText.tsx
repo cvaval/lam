@@ -10,6 +10,8 @@ import { buildBodySegments, tableShortCaption, type RichBlock, type RichTable, t
 import { TableActions } from './TableActions'
 import { TableFilter } from './TableFilter'
 import { highlightRegex } from '@/lib/search/highlight'
+import { PastilleEtat } from './PastilleEtat'
+import { classes, MARQUEUR_TETE, situationDeMarque, situationDuMarqueur } from '@/lib/legislation/situations'
 import type { Locale } from '@/lib/types'
 
 const TABLE_LABEL: Record<Locale, string> = { fr: 'Tableau', en: 'Table', ht: 'Tablo' }
@@ -89,6 +91,7 @@ export function OfficialText({
   loiAnchors,
   codeHrefs,
   ownCode,
+  marqueurTete = false,
 }: {
   text: string
   hrefFor?: (ref: CircRef) => string | null
@@ -122,8 +125,15 @@ export function OfficialText({
   /** Dénomination du code courant (« civil », « pénal ») : « l'article N du Code civil »
    *  lu DANS le Code civil est un renvoi interne, pas un renvoi à un autre texte. */
   ownCode?: string
+  /** Lecteur annoté : le corps d'un article commence, numéro retiré, par le marqueur de l'éditeur
+   *  ou de l'acte — « (D. du 14 novembre 1988, art. 1) », « (L. du 3 avril 2018) », « (Abrogé par
+   *  … ) », « [Abrogé — acte] ». Il prend la gamme de sa situation (Amendé, Abrogé) : décision de
+   *  Me Vaval du 17 oct. 2026. Le TEXTE est inchangé, caractère pour caractère : un style, rien de
+   *  plus. En tête d'article seulement — au milieu d'une phrase, « (Loi du … ) » est une citation. */
+  marqueurTete?: boolean
 }) {
   const segments = buildBodySegments(text, rich)
+  let marqueurVu = false
   const usedAnchors = new Set<string>()
   const hlRe = terms && terms.length ? highlightRegex(terms) : null
 
@@ -170,33 +180,16 @@ export function OfficialText({
    * de redire ce qui est écrit une ligne plus haut. Le réécrit, lui, n'annonce rien dans le
    * corps : sa pastille doit porter l'état.
    *
-   * ⚠️ AUCUNE N'EMPRUNTE D'ACCENT DE MARQUE. Sitwon est le trait du CERTIFICATEUR, RATIONNÉ à
-   * une occurrence d'interface par écran (charte Klinik v3, avenant AV-02) — et le Code civil
-   * afficherait à lui seul 60 articles abrogés. Toutes reprennent donc le vocabulaire NEUTRE
-   * des pastilles de type : filet Liy fonsé, fond Pil, texte Chabon.
+   * ⚠️ UNE SITUATION, UNE GAMME (17 oct. 2026). Elles étaient toutes neutres (règle du 27 août) ;
+   * Me Vaval veut « les codes couleurs identiques pour le même type de situation » : la pastille vient
+   * du registre (`PastilleEtat`), la même qu'au lecteur annoté, à l'historique et au statut de fiche.
+   * La cible tactile (~40 px) et l'anneau de focus sont dans `PastilleEtat`.
    */
-  const CHIP_ETAT =
-    'ml-2 inline-flex items-center whitespace-nowrap rounded-md border border-liy-fonse bg-pil ' +
-    'px-2 py-0.5 align-middle text-[11px] font-semibold leading-[1.45] text-chabon no-underline ' +
-    // ⚠️ CIBLE TACTILE. La pastille mesure 11 px de texte : à 17 px de haut, elle se manque au
-    // doigt. Le pseudo-élément étend la zone cliquable à ~40 px SANS toucher au rythme des
-    // lignes — un `py` suffisant, lui, écarterait les lignes de tout le corpus.
-    'relative after:absolute after:inset-x-0 after:-inset-y-[11px] after:content-[""] ' +
-    'hover:border-chabon hover:underline ' +
-    // ⚠️ ET ELLE SE PREND AU CLAVIER. Aucun des marqueurs n'avait d'anneau de focus : à la
-    // tabulation, le lecteur ne voyait pas où il était.
-    'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-chabon'
-
   function chipEtat(m: ArticleMark, key: string) {
-    const inner = <>{m.label}</>
-    return m.href.startsWith('#') ? (
-      <a key={key} href={m.href} className={CHIP_ETAT} title={m.title}>
-        {inner}
-      </a>
-    ) : (
-      <Link key={key} href={m.href} className={CHIP_ETAT} title={m.title}>
-        {inner}
-      </Link>
+    return (
+      <span key={key} className="ml-2">
+        <PastilleEtat situation={situationDeMarque(m.kind)} locale={locale} label={m.label} title={m.title} href={m.href} />
+      </span>
     )
   }
 
@@ -230,6 +223,19 @@ export function OfficialText({
    * têtes d'articles ne la voyait pas, et c'est précisément à lui qu'elle s'adresse.
    */
   function articleBody(textValue: string, id: string | undefined) {
+    if (marqueurTete && !marqueurVu) {
+      marqueurVu = true
+      const mq = MARQUEUR_TETE.exec(textValue) ?? /^\[Abrog[ée][^\]]{0,160}\]/.exec(textValue)
+      if (mq) {
+        const g = classes(situationDuMarqueur(mq[0]))
+        return [
+          <span key="mq" data-marqueur className={`rounded-sm border-b-2 ${g.filet} ${g.fond} px-0.5 [box-decoration-break:clone] [print-color-adjust:exact]`}>
+            {hl(mq[0])}
+          </span>,
+          <span key="mr">{render(textValue.slice(mq[0].length))}</span>,
+        ]
+      }
+    }
     const chip = etatMark(id)
     if (!chip) return render(textValue)
     const m = TETE_ART.exec(textValue)

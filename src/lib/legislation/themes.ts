@@ -113,7 +113,7 @@ export async function documentsInTheme(
       // rattachement lui-même soit lu au même périmètre que `allThemedDocuments`.
       themes: { some: { themeId: { in: ids }, theme: { active: true } } },
     },
-    select: { id: true, type: true, titleFr: true, titleEn: true, titleHt: true, number: true, status: true, publicationDate: true },
+    select: { id: true, type: true, titleFr: true, titleEn: true, titleHt: true, number: true, status: true, publicationDate: true, effectiveDate: true },
     orderBy: [{ publicationDate: 'desc' }, { titleFr: 'asc' }],
     skip: opts.skip,
     take: opts.take,
@@ -179,7 +179,7 @@ export async function allThemedDocuments(
     },
     select: {
       id: true, type: true, titleFr: true, titleEn: true, titleHt: true,
-      number: true, status: true, publicationDate: true, updatedAt: true,
+      number: true, status: true, publicationDate: true, effectiveDate: true, updatedAt: true,
     },
     orderBy: [{ titleFr: 'asc' }],
     take: opts.take ?? 3000,

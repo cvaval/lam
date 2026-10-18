@@ -1,10 +1,22 @@
 import Link from 'next/link'
-import { OfficialText } from './OfficialText'
+import { OfficialText, type ArticleMark } from './OfficialText'
 import type { RichBlock } from '@/lib/doc/richblocks'
 import type { CircRef } from '@/lib/doc/crossref'
 import { Jurisprudence } from './Jurisprudence'
 import { OldVersion } from './OldVersion'
 import { RelatedLaw } from './RelatedLaw'
+import { PastilleEtat } from './PastilleEtat'
+import { BandeauSection } from './BandeauSection'
+import {
+  classes,
+  libelle,
+  LIBELLES_REPLI,
+  natureDuBandeau,
+  situationDeMarque,
+  situationDuBandeau,
+  situationDuStatutArticle,
+  type Situation,
+} from '@/lib/legislation/situations'
 import { segmentAnnotated, indexBacklinks, cleanIndexSubject, prettyRef, type Annotations, type Backlink, type ArtRef } from '@/lib/legislation/annotated'
 import { labelFromAnchor } from '@/lib/legislation/articles'
 import type { Locale } from '@/lib/types'
@@ -25,35 +37,12 @@ const LEAD_ART =
 // document déclare `pointAnchors` (sinon aucun texte n'est modifié).
 const LEAD_POINT = /^(\d{1,2}(?:\.\d{1,2})*)\s*\.?\s*-?\s+/
 /**
- * Statut d'amendement → pastille.
+ * Statut d'amendement → pastille : par le REGISTRE DES SITUATIONS (`src/lib/legislation/situations.ts`,
+ * 17 oct. 2026). Une situation = une gamme = un libellé, ici comme dans `OfficialText`, l'historique,
+ * le statut de fiche et le bloc « Citations ». Les cinq pastilles d'ici étaient NEUTRES et en français
+ * seulement (`badge.fr`) — décision du 27 août 2026 sur laquelle Me Vaval est revenue :
+ * « Nouveau pour un texte nouveau et Abrogé pour une section éliminée. Amendé pour un texte modifié. »
  *
- * ⚠️ AUCUNE N'EST EN SITWON. « abrogé » et « partiellement abrogé » l'étaient : or Sitwon est
- * le trait du CERTIFICATEUR, rationné à UNE occurrence d'interface par écran (charte Klinik
- * v3, avenant AV-02), et le Code civil aligne à lui seul 68 articles abrogés. Même vocabulaire
- * neutre que les pastilles d'état du lecteur — filet Liy fonsé, fond Pil, texte Chabon.
- */
-const CHIP =
-  'inline-flex items-center whitespace-nowrap rounded-md border border-liy-fonse bg-pil px-2 py-0.5 ' +
-  'text-[11px] font-semibold leading-[1.45] text-chabon'
-const STATUS_BADGE: Record<string, { fr: string; cls: string }> = {
-  modifié: { fr: 'Modifié', cls: CHIP },
-  nouveau: { fr: 'Nouveau', cls: CHIP },
-  abrogé: { fr: 'Abrogé', cls: CHIP },
-  // Abrogation PARTIELLE (ex. art. 7 du Décret régimes matrimoniaux : seules les dispositions
-  // relatives à l'hypothèque légale de la femme mariée tombent — le reste demeure en vigueur).
-  'partiellement abrogé': { fr: 'Partiellement abrogé', cls: CHIP },
-  // ERRATA — l'article a été rectifié par une lettre ministérielle que le tirage du Journal
-  // officiel n'a pas incorporée. Le corps affiche la rédaction rectifiée ; le texte publié se
-  // replie dessous (oldVersions).
-  //
-  // ⚠️ MÊME CHAPEAU NEUTRE QUE LES QUATRE AUTRES. La source de l'errata prescrivait un fond plein
-  // #F2A93B ; la charte gelée d'août 2026 a rendu les pastilles d'état neutres et retiré leurs
-  // ombres, et réserve le Sitwon à l'attestation — jamais en fond de pastille d'état. Un orange
-  // plein réintroduirait pour un seul cas ce que la charte a retiré partout.
-  errata: { fr: 'Errata', cls: CHIP },
-}
-
-/**
  * Note de CONCORDANCE de l'éditeur — « Nouveau », « Anc. art. 42 fr. ».
  *
  * ⚠️ ELLE NE DIT PAS LA MÊME CHOSE QU'UN STATUT, et il faut que cela se voie. Dans l'édition
@@ -63,6 +52,8 @@ const STATUS_BADGE: Record<string, { fr: string; cls: string }> = {
  * contrediraient. La concordance est donc en retrait, sans cadre, et se nomme.
  */
 const CONCORDANCE_CLS = 'text-[11px] font-normal italic text-grafit'
+const LBL_ART: Record<Locale, string> = { fr: 'article', en: 'article', ht: 'atik' }
+const LBL_RENVOI_CODE: Record<Locale, string> = { fr: 'Renvoi au Code', en: 'See the Code', ht: 'Gade Kòd la' }
 
 /**
  * Lecteur d'un texte annoté (Code du travail) : chapitres et articles en unités visuelles
@@ -82,6 +73,8 @@ export function AnnotatedText({
   rich = [],
   hrefFor,
   codeHrefs,
+  articleMarks,
+  historiqueEnRepli,
 }: {
   text: string
   annotations: Annotations
@@ -109,6 +102,14 @@ export function AnnotatedText({
   /** Code civil : chemin du Code de procédure civile, pour rendre cliquables ses 348
    *  renvois « C. p. c. » — corps, annotations, commentaires et anciennes rédactions. */
   codeHrefs?: CodeHrefs
+  /** Pastilles des versions d'article (`ArticleVersion`) : elles PRÉVALENT sur `annotations.status`
+   *  pour leur ancre — donnée datée et liée à l'acte. Avant le 17 oct. 2026, le lecteur annoté ne les
+   *  recevait pas : six fiches montraient deux systèmes d'état pour le même article. */
+  articleMarks?: Map<string, ArticleMark>
+  /** Ancres dont l'ancienne rédaction se lit dans le repli de l'article PLUTÔT que dans l'historique
+   *  de bas de page (ancre → ligne datée de l'historique). Le repli prend l'id `hist-art-N` : les
+   *  liens existants y mènent toujours. 137 anciennes rédactions s'affichaient deux fois. */
+  historiqueEnRepli?: Map<string, string>
 }) {
   // Circulaires BRH : les divisions sont numérotées « 1.- » / « 4.2.1 » ; la liste blanche
   // `pointAnchors` les fait porter les ancres art-… (et le rendu en carte d'article).
@@ -270,16 +271,22 @@ export function AnnotatedText({
               </p>
             )
           if (!xref) return header
-          // Renvoi croisé éditorial : vers des articles du Code (ex. Liberté syndicale → art. 225)
-          // et/ou vers un AUTRE document de la plateforme (ex. loi modificatrice → /doc/{id}).
+          // Bandeau de note sous l'intitulé : sa NATURE (sic, consolidation, provenance, annexe,
+          // rectification, modification, renvoi) le titre et le colore. Il disait « ↪ Renvoi » pour
+          // tout, alors qu'aucun des 30 bandeaux du corpus ne renvoyait à un article (17 oct. 2026).
           const hasDocs = !!xref.docs?.length
+          const nature = natureDuBandeau(xref)
+          const situationBandeau = situationDuBandeau(nature)
           return (
             <div key={i}>
               {header}
-              <p className="mt-2 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5 rounded-md border border-chabon/30 bg-pil px-3 py-1.5 text-[11.5px] text-ank/80">
-                <span className="font-bold uppercase tracking-wide text-chabon">↪ Renvoi{xref.articles.length > 0 ? ' au Code' : ''}&nbsp;:</span>
+              <BandeauSection
+                situation={situationBandeau}
+                locale={locale}
+                titre={nature === 'renvoi' && xref.articles.length > 0 ? LBL_RENVOI_CODE[locale] ?? LBL_RENVOI_CODE.fr : undefined}
+              >
                 {hasDocs && xref.note && <span className="text-ank/80">{xref.note}</span>}
-                {xref.docs!== undefined && xref.docs.map((d, k) => (
+                {xref.docs !== undefined && xref.docs.map((d, k) => (
                   <Link key={d.id + k} href={`/${locale}/doc/${d.id}`} className="font-semibold text-chabon underline decoration-chabon/40 underline-offset-2 hover:decoration-chabon">
                     {d.label}
                   </Link>
@@ -287,18 +294,23 @@ export function AnnotatedText({
                 {xref.articles.map((n, k, arr) => (
                   <span key={n}>
                     <a href={`#art-${n}`} className="font-semibold text-chabon hover:underline">
-                      article {n}
+                      {LBL_ART[locale] ?? LBL_ART.fr} {n}
                     </a>
                     {k < arr.length - 1 && <span className="text-ank/80">, </span>}
                   </span>
                 ))}
                 {!hasDocs && xref.note && <span className="text-ank/80">— {xref.note}</span>}
-              </p>
+              </BandeauSection>
               {/* Dispositions générales insérées par une loi modificatrice sous cet en-tête
                   (ex. principes d'égalité des filiations posés sous la LOI Nº 8 du Code civil). */}
               {xref.insertedArticles?.map((a, k) => (
                 <article key={`ins-${k}`} className="mt-2 rounded-r-lg border-l-2 border-chabon/30 pl-4">
-                  <h4 className="mb-1 font-serif text-[15px] font-bold text-chabon">{a.label}</h4>
+                  {/* Articles INSÉRÉS par une loi modificatrice : ce sont des ajouts — pastille
+                      « Nouveau », comme tout article nouveau (ils n'en avaient aucune). */}
+                  <h4 className="mb-1 flex flex-wrap items-center gap-2 font-serif text-[15px] font-bold text-chabon">
+                    {a.label}
+                    <PastilleEtat situation="nouveau" locale={locale} />
+                  </h4>
                   {a.body.split('\n').map((p, j) => (
                     <p key={j} className="text-[15px] leading-relaxed text-ank/90">{p}</p>
                   ))}
@@ -373,47 +385,74 @@ export function AnnotatedText({
           // circulaires 105-2 et 127, tous hors blocs d'article) : leur rendu ne change pas.
           const artSplit = splitRich(body, true)
           const label = labelsMap[b.anchor] ?? labelFromAnchor(b.anchor)
-          const st = statusMap[b.anchor]
-          const badge = st ? STATUS_BADGE[st] : undefined
           const conc = concordanceMap[b.anchor]
           const acte = acteMap[b.anchor]
           const old = oldVersions[b.anchor]
           const cx = connexeMap[b.anchor]
+          // État de l'article : la version d'article (datée, liée à l'acte) prévaut ; à défaut,
+          // le statut de l'appareil. Une seule pastille.
+          const marque = articleMarks?.get(b.anchor)
+          const situationArt: Situation | null = marque ? situationDeMarque(marque.kind) : situationDuStatutArticle(statusMap[b.anchor])
+          const enRepli = historiqueEnRepli?.get(b.anchor)
+          const idOld = old ? (enRepli !== undefined ? `hist-${b.anchor}` : `anc-${b.anchor}`) : undefined
+          const situationOld = situationArt === 'abroge' || situationArt === 'partiellement_abroge' ? 'texte_abroge' : 'ancienne_redaction'
+          // Destination de la pastille : l'acte (Nouveau), l'ancienne rédaction (Amendé, Abrogé).
+          // ⚠️ Sans destination — 249 « modifié » du corpus —, elle reste une étiquette et le dit.
+          const hrefEtat = marque
+            ? marque.kind === 'modifie' && old && enRepli !== undefined
+              ? `#hist-${b.anchor}`
+              : marque.href
+            : situationArt === 'nouveau' && acte?.href
+              ? acte.href
+              : old && idOld
+                ? `#${idOld}`
+                : undefined
+          const titreEtat = marque
+            ? marque.title
+            : situationArt === 'amende' && !old && !cx?.length && !acte
+              ? LIBELLES_REPLI.indisponible[locale] ?? LIBELLES_REPLI.indisponible.fr
+              : acte?.label
           return (
             <article key={i} className="scroll-mt-24 rounded-r-lg border-l-2 border-chabon/20 pl-4 transition-colors hover:border-chabon/60">
               <h4 id={b.noAnchors ? undefined : b.anchor} className="mb-1 flex scroll-mt-24 flex-wrap items-center gap-2">
                 <span className="font-serif text-[15px] font-bold text-chabon">{label}</span>
-                {badge && <span className={badge.cls}>{badge.fr}</span>}
+                {situationArt && <PastilleEtat situation={situationArt} locale={locale} label={marque?.label} title={titreEtat} href={hrefEtat} />}
                 {/* ⚠️ LA PASTILLE SEULE NE DIT PAS DE QUI. Trois réformes distinctes ont
                     marqué des articles « nouveau » dans ce Code : l'acte se nomme, et se
-                    clique. */}
+                    clique — dans la gamme de l'état qu'il a produit. */}
                 {/* ⚠️ UN ACTE SANS FICHE NE SE LIE PAS. Le Décret du 23 novembre 2005 qui
                     réécrit les articles 34 à 36 de la loi TCA n'est pas au corpus : un `href`
                     vide ferait un lien qui ramène à la page courante. Il se NOMME quand même —
                     savoir d'où vient une rédaction ne suppose pas de pouvoir l'ouvrir. */}
                 {acte && (acte.href ? (
-                  <Link href={acte.href} className="text-[11px] font-medium text-chabon hover:underline" title={acte.label}>
+                  <Link href={acte.href} className={`text-[11px] font-medium hover:underline ${situationArt ? classes(situationArt).texte : 'text-chabon'}`} title={acte.label}>
                     {acte.label}
                   </Link>
                 ) : (
-                  <span className="text-[11px] font-medium text-grafit" title={acte.label}>
+                  <span className={`text-[11px] font-medium ${situationArt ? classes(situationArt).texte : 'text-grafit'}`} title={acte.label}>
                     {acte.label}
                   </span>
                 ))}
                 {conc && (
                   <span className={CONCORDANCE_CLS} title="Concordance de l’édition : correspondance de cet article avec l’ancienne numérotation. Ce n’est pas un statut d’amendement.">
-                    concordance : {conc}
+                    {libelle('concordance', locale).toLowerCase()} : {conc}
                   </span>
                 )}
               </h4>
-              <OfficialText text={artSplit.text} rich={artSplit.rich} hrefFor={hrefFor} locale={locale} terms={terms} noAnchors civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} codeHrefs={codeHrefs} ownCode={ownCode} />
-              {(cx && cx.length > 0) || (old && annotationsVariant === 'annotations') ? (
-                // Code civil : ancienne version + législation connexe dans un même pliable
-                // (même sans bloc connexe — le libellé d'OldVersion est propre à la Constitution).
-                <RelatedLaw old={old} blocks={cx} locale={locale} codeHrefs={codeHrefs} />
-              ) : (
-                old && <OldVersion text={old} locale={locale} codeHrefs={codeHrefs} />
-              )}
+              <OfficialText text={artSplit.text} rich={artSplit.rich} hrefFor={hrefFor} locale={locale} terms={terms} noAnchors civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} codeHrefs={codeHrefs} ownCode={ownCode} marqueurTete />
+              {/* Ancienne rédaction et blocs connexes : un repli par NATURE, au gabarit commun.
+                  L'ancien choix OldVersion/RelatedLaw rendait la même situation de deux façons
+                  dans une même fiche (Code pénal de 1835, Signature électronique 2017…). */}
+              <RelatedLaw
+                old={old}
+                oldTitre={annotations.oldVersionsLabel}
+                oldId={idOld}
+                oldSituation={situationOld}
+                oldEntete={enRepli || undefined}
+                blocks={cx}
+                locale={locale}
+                codeHrefs={codeHrefs}
+              />
               {extra}
             </article>
           )
@@ -422,7 +461,7 @@ export function AnnotatedText({
         return (
           <div key={i} className="scroll-mt-24">
             <OfficialText text={split.text} rich={split.rich} hrefFor={hrefFor} locale={locale} terms={terms} noAnchors={b.noAnchors} civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} codeHrefs={codeHrefs} ownCode={ownCode} />
-            {showOldPreamble && oldPreamble && <OldVersion text={oldPreamble} locale={locale} codeHrefs={codeHrefs} />}
+            {showOldPreamble && oldPreamble && <OldVersion text={oldPreamble} locale={locale} codeHrefs={codeHrefs} titre={annotations.oldVersionsLabel} />}
             {extra}
           </div>
         )

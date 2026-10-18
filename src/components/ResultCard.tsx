@@ -67,7 +67,7 @@ export function ResultCard({
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <TypeBadge type={type} />
-            {hit.status && <StatusChip status={hit.status} label={t.statuses[hit.status]} />}
+            {hit.status && <StatusChip status={hit.status} label={t.statuses[hit.status]} effectiveDate={hit.effectiveDate} locale={locale} />}
             {hit.status === 'ABROGE' && abrogatedByNumber && (
               <span className="text-[11px] font-medium text-ank/80">
                 {t.search.abrogatedBy} {abrogatedByNumber}

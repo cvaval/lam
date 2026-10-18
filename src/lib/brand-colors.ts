@@ -88,6 +88,45 @@ export const BRAND_COLORS = {
   badgeBorder: '#C5CDC7',
 } as const
 
+/**
+ * GAMME DES ÉTATS JURIDIQUES — Législation annotée (décision de Me Vaval, 17 oct. 2026 : « les codes
+ * couleurs doivent être identiques pour le même type de situation : amendement, nouveau texte, radier,
+ * jurisprudence, etc. »). Elle REVIENT sur la règle du 27 août 2026 (pastilles d'état neutres).
+ *
+ * Comme la gamme cartographique (AV-02), elle est RÉSERVÉE au signalement d'une situation — jamais à
+ * une action (bouton, lien de navigation). Le texte s'y écrit toujours en encre (`ank`) ; la couleur
+ * s'ajoute au libellé et au pictogramme, elle ne les remplace jamais (règle 1 ci-dessus).
+ *
+ * ⚠️ Les FONDS, pâles, se ressemblent (ΔE 5 à 10) : c'est le FILET (3 px, bordure de pastille), le
+ * libellé et le pictogramme qui distinguent les états — filets à ΔE ≥ 15 entre eux, ≥ 10 de la terre
+ * cuite d'action, du succès et du bleu cartographique. Les fonds ne reprennent ni le surligneur de
+ * recherche (#FFF4DB) ni la sélection (#F1E2DA) : c'était le défaut de la première proposition.
+ * Contrastes et écarts sous test : src/lib/legislation/situations.test.ts.
+ *
+ * Lu par tailwind.config.ts (`bg-etat-<gamme>-fond`, `border-etat-<gamme>-filet`…) et par la
+ * version Word. Les classes sont écrites EN ENTIER dans src/lib/legislation/situations.ts (JIT).
+ */
+export const ETAT_COLORS = {
+  /** Amendé — ocre */
+  amendement: { fond: '#FBEBCB', filet: '#8C5A0B' },
+  /** Nouveau — vert */
+  nouveau: { fond: '#DDF0E6', filet: '#1F6B4F' },
+  /** Abrogé — bordeaux (et non la terre cuite d'action : ΔE 18,9) */
+  radie: { fond: '#F8E0E3', filet: '#8A2232' },
+  /** Dérogation (bail professionnel…) — prune */
+  derogation: { fond: '#F2E2F0', filet: '#7A3B6E' },
+  /** Jurisprudence — bleu */
+  jurisprudence: { fond: '#DCEAF5', filet: '#245E86' },
+  /** Annotations de l'auteur — ardoise */
+  annotations: { fond: '#ECEFF1', filet: '#4E6168' },
+  /** Législation connexe — violet */
+  connexe: { fond: '#E6E3F5', filet: '#55479A' },
+  /** Note de l'éditeur (sic, consolidation, provenance…) — sable */
+  note: { fond: '#F0ECDC', filet: '#6B5A1E' },
+  /** Pas encore en vigueur — sarcelle */
+  avenir: { fond: '#DFF1F3', filet: '#1B6A75' },
+} as const
+
 /** Convertit un hex `#RRGGBB` en triplet 0–1 (pour pdf-lib `rgb()`). */
 export function hexToRgb01(hex: string): [number, number, number] {
   const n = parseInt(hex.replace('#', ''), 16)

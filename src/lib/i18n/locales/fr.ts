@@ -1138,7 +1138,7 @@ export const fr = {
   statuses: {
     EN_VIGUEUR: 'En vigueur',
     ABROGE: 'Abrogé',
-    MODIFIE: 'Modifié',
+    MODIFIE: 'Amendé',
     PUBLIE: 'Publié',
     PENDING: 'En attente',
     ACTIVE: 'Actif',

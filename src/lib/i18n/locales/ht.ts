@@ -822,8 +822,8 @@ export const ht: Dictionary = {
   },
   statuses: {
     EN_VIGUEUR: 'An vigè',
-    ABROGE: 'Abowje',
-    MODIFIE: 'Modifye',
+    ABROGE: 'Abwoje',
+    MODIFIE: 'Amande',
     PUBLIE: 'Pibliye',
     PENDING: 'An atant',
     ACTIVE: 'Aktif',

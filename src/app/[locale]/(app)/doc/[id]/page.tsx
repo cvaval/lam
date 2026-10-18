@@ -41,6 +41,10 @@ import { parseAnnotations } from '@/lib/legislation/annotated'
 import { AnnotatedText } from '@/components/AnnotatedText'
 import { CodeSidebar } from '@/components/CodeSidebar'
 import type { CodeHrefs } from '@/components/CodeRefText'
+import { PastilleEtat } from '@/components/PastilleEtat'
+import { Repli } from '@/components/Repli'
+import { BandeauSection } from '@/components/BandeauSection'
+import { classes, kindCitation, situationDuStatutFiche } from '@/lib/legislation/situations'
 
 // Sources du lecteur annoté (listes devenues illisibles en conditions inline) :
 // index inline masqué (le panneau latéral l'affiche) et renvois « article N »
@@ -284,9 +288,11 @@ export default async function DocPage({
     return ACTE_COURT.exec(t)?.[1] ?? (sansRef.length > 52 ? `${sansRef.slice(0, 50)}…` : sansRef)
   }
   const LBL = {
-    ajout: { fr: 'Ajout', en: 'Added', ht: 'Ajoute' },
-    modifie: { fr: 'Modifié', en: 'Amended', ht: 'Modifye' },
-    abroge: { fr: 'Texte abrogé', en: 'Repealed text', ht: 'Tèks abwoje' },
+    // Vocabulaire de Me Vaval (17 oct. 2026) : « Nouveau pour un texte nouveau et Abrogé pour une
+    // section éliminée. Amendé pour un texte modifié. »
+    ajout: { fr: 'Nouveau', en: 'New', ht: 'Nouvo' },
+    modifie: { fr: 'Amendé', en: 'Amended', ht: 'Amande' },
+    abroge: { fr: 'Abrogé', en: 'Repealed', ht: 'Abwoje' },
     parAjout: { fr: 'Article ajouté par', en: 'Article added by', ht: 'Atik ajoute pa' },
     parModif: { fr: "Article amendé par", en: 'Article amended by', ht: 'Atik modifye pa' },
     parAbrog: { fr: 'Article abrogé par', en: 'Article repealed by', ht: 'Atik abwoje pa' },
@@ -327,7 +333,12 @@ export default async function DocPage({
         }),
       )
     : undefined
-  const amendItems: AmendItem[] = [...amendments.values()].filter((ov) => ov.amended).map((ov) => {
+  // ⚠️ UNE ANCIENNE RÉDACTION SE MONTRE UNE FOIS. Au lecteur annoté, l'article qui a son ancienne
+  // rédaction dans l'appareil (`oldVersions`) la montre DANS SON REPLI, sous l'article, avec la ligne
+  // datée de l'historique ; l'historique de bas de page ne la répète plus (137 doublons mesurés le
+  // 17 oct. 2026). Le repli porte l'id `hist-art-N` : les liens existants y mènent toujours.
+  const histDansRepli = new Map<string, string>()
+  const amendItemsTous: AmendItem[] = [...amendments.values()].filter((ov) => ov.amended).map((ov) => {
     const ab = ov.history.find((v) => v.status === 'ABROGE')
     const statusLine = ov.abrogated
       ? `Abrogé${ab?.effectiveDate ? ' le ' + formatDate(locale, ab.effectiveDate) : ''}${ab?.amendedByNumber ? ' — ' + ab.amendedByNumber : ''}`
@@ -343,6 +354,9 @@ export default async function DocPage({
       })),
     }
   })
+  for (const it of amendItemsTous) if (annotations?.oldVersions?.[it.anchor]) histDansRepli.set(it.anchor, it.statusLine)
+  const amendItems = amendItemsTous.filter((it) => !histDansRepli.has(it.anchor))
+  const situationFiche = doc.status ? situationDuStatutFiche(doc.status, doc.effectiveDate) : null
 
   // Tableaux & encadrés colorés (reproduction du rendu visuel du PDF).
   const richBlocks = parseRichBlocks(doc.richBlocksJson)
@@ -542,7 +556,7 @@ export default async function DocPage({
         <div className="flex flex-wrap items-center gap-2">
           <TypeBadge type={type} />
           {doc.number && <span className="text-sm font-medium text-ank/80">{doc.number}</span>}
-          {doc.status && <StatusChip status={doc.status} label={t.statuses[doc.status as DocStatus]} />}
+          {doc.status && <StatusChip status={doc.status} label={t.statuses[doc.status as DocStatus]} effectiveDate={doc.effectiveDate} locale={locale} />}
           {doc.sealed && (
             <span className="inline-flex items-center gap-1 rounded-full bg-wouj px-2.5 py-0.5 text-[11px] font-semibold text-white">
               <span aria-hidden>✓</span> {t.doc.verified}
@@ -697,8 +711,19 @@ export default async function DocPage({
         </div>
       )}
 
+      {situationFiche === 'a_venir' && doc.effectiveDate && (
+        // Texte PUBLIÉ dont l'entrée en vigueur est future (codes pénaux révisés de 2025) : le dire
+        // en tête, dans la gamme « à venir » — la seule ligne « Entrée en vigueur : … » ne suffisait pas.
+        <BandeauSection situation="a_venir" locale={locale}>
+          <span>
+            {{ fr: 'entrée en vigueur le', en: 'entry into force on', ht: 'antre an vigè' }[locale] ?? 'entrée en vigueur le'} {formatDate(locale, doc.effectiveDate)}
+          </span>
+        </BandeauSection>
+      )}
+
       {doc.status === 'ABROGE' && (
-        <div className="rounded-xl border border-liy bg-pil px-4 py-2.5 text-sm text-ank">
+        // Même gamme que la pastille « Abrogé » partout ailleurs (registre des situations).
+        <div className={`rounded-r-xl border-l-[3px] ${classes('abroge').barre} ${classes('abroge').fond} px-4 py-2.5 text-sm text-ank`}>
           {abrogatedBy ? (
             <>
               {/* « abrogé par la » s'accorde à « la Circulaire n° … » ; ailleurs, formule neutre. */}
@@ -807,6 +832,8 @@ export default async function DocPage({
               linkArtRefs={lecture.linkArtRefs}
               annotationsVariant={lecture.annotationsVariant}
               codeHrefs={codeHrefs}
+              articleMarks={articleMarks}
+              historiqueEnRepli={histDansRepli}
             />
           </section>
         </div>
@@ -875,22 +902,21 @@ export default async function DocPage({
           <p className="mb-3 rounded-lg bg-pil px-3 py-2 text-[11px] leading-relaxed text-grafit">{t.doc.unofficialNote}</p>
           {themeIndex.length > 0 && <div className="mb-4"><CodeThemeBrowser index={themeIndex} t={t} /></div>}
           {tableEntries.length >= 2 && (
-            <details className="mb-4 rounded-xl border border-chabon/10 bg-koton/40 px-4 py-2.5">
-              <summary className="cursor-pointer select-none text-xs font-semibold uppercase tracking-wide text-ank/80">
-                {TLBL.heading} ({tableEntries.length})
-              </summary>
-              <ul className="mt-2 grid gap-1 sm:grid-cols-2">
-                {tableEntries.map((e) => (
-                  <li key={e.num}>
-                    <a href={`#tableau-${e.num}`} className="text-sm text-chabon hover:underline">
-                      {TLBL.table} {e.num}
-                      {e.cap && <span className="text-grafit"> — {e.cap}</span>}
-                      {e.orphan && <span className="text-ank/80"> ({TLBL.orphan})</span>}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </details>
+            <div className="mb-4">
+              <Repli situation="navigation" locale={locale} titre={TLBL.heading} compteur={tableEntries.length}>
+                <ul className="grid gap-1 sm:grid-cols-2">
+                  {tableEntries.map((e) => (
+                    <li key={e.num}>
+                      <a href={`#tableau-${e.num}`} className="text-sm text-chabon hover:underline">
+                        {TLBL.table} {e.num}
+                        {e.cap && <span className="text-grafit"> — {e.cap}</span>}
+                        {e.orphan && <span className="text-ank/80"> ({TLBL.orphan})</span>}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </Repli>
+            </div>
           )}
           <div className="relative">
             <OfficialText text={effectiveBody} hrefFor={hrefFor} rich={richBlocks} locale={locale} terms={hlTerms} articleMarks={articleMarks} />
@@ -924,7 +950,7 @@ export default async function DocPage({
               const inner = (
                 <>
                   {r.type && <Pastille type={r.type} />}
-                  <span className="text-ank/80">{r.kind} →</span> {r.label}
+                  <KindCitation kind={r.kind} sens="sortant" locale={locale} /> {r.label}
                   {r.anchor && <span className="text-xs text-ank/80">(art. {r.anchor.replace('art-', '')})</span>}
                   {r.pending && <span className="text-xs text-chabon">· cible non importée</span>}
                 </>
@@ -945,7 +971,7 @@ export default async function DocPage({
               <li key={c.id}>
                 <Link href={`/${locale}/doc/${c.to.id}`} className="flex items-center gap-2 text-sm text-ank hover:underline">
                   <Pastille type={c.to.type as DocType} />
-                  <span className="text-ank/80">{c.kind} →</span> {c.to.titleFr}
+                  <KindCitation kind={c.kind} sens="sortant" locale={locale} /> {c.to.titleFr}
                 </Link>
               </li>
             ))}
@@ -953,7 +979,7 @@ export default async function DocPage({
               const inner = (
                 <>
                   <Pastille type={b.fromType} />
-                  <span className="text-ank/80">← {b.kind}</span> {b.fromTitleFr || t.doc.otherService}
+                  <KindCitation kind={b.kind} sens="entrant" locale={locale} /> {b.fromTitleFr || t.doc.otherService}
                 </>
               )
               return (
@@ -972,7 +998,7 @@ export default async function DocPage({
               <li key={c.id}>
                 <Link href={`/${locale}/doc/${c.from.id}`} className="flex items-center gap-2 text-sm text-ank hover:underline">
                   <Pastille type={c.from.type as DocType} />
-                  <span className="text-ank/80">← {c.kind}</span> {c.from.titleFr}
+                  <KindCitation kind={c.kind} sens="entrant" locale={locale} /> {c.from.titleFr}
                 </Link>
               </li>
             ))}
@@ -1006,4 +1032,15 @@ export default async function DocPage({
       )}
     </article>
   )
+}
+
+/**
+ * Type d'un renvoi du bloc « Citations », traduit et orienté — il s'affichait en code brut
+ * (« MODIFIE → », « ← ABROGE »). Amender et abroger sont des SITUATIONS : même pastille, même gamme
+ * qu'au lecteur ; les autres types (cite, voir, applique, commente) restent un libellé neutre.
+ */
+function KindCitation({ kind, sens, locale }: { kind: string; sens: 'sortant' | 'entrant'; locale: Locale }) {
+  const k = kindCitation(kind, sens, locale)
+  if (k.situation === 'amende' || k.situation === 'abroge') return <PastilleEtat situation={k.situation} locale={locale} label={k.label} />
+  return <span className="text-ank/80">{sens === 'sortant' ? `${k.label} →` : `← ${k.label}`}</span>
 }

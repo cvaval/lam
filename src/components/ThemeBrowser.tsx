@@ -25,6 +25,8 @@ interface DocRow {
   titleHt: string | null
   number: string | null
   status: string
+  /** Entrée en vigueur (ISO) : une date future → « Pas encore en vigueur ». */
+  effectiveDate?: string | null
   /** Ancre interne (ex. "sec-44") quand le thème pointe vers une section d'un document unique. */
   anchor?: string | null
 }
@@ -37,6 +39,7 @@ interface FlatDoc {
   titleHt: string | null
   number: string | null
   status: string
+  effectiveDate?: string | null
   /** Date DU TEXTE (publication au Moniteur) — base du tri chronologique ; null si inconnue. */
   publicationDate: string | null
   updatedAt: string
@@ -556,7 +559,7 @@ export function ThemeBrowser({
                 142 circulaires de la BRH, 24 sont dans ce cas. Le libellé accompagne
                 toujours la pastille : la couleur seule ne porte jamais l'information. */}
             {d.status && d.status !== 'EN_VIGUEUR' && (
-              <StatusChip status={d.status} label={rubrique.statuts[d.status] ?? d.status} />
+              <StatusChip status={d.status} label={rubrique.statuts[d.status] ?? d.status} effectiveDate={d.effectiveDate} locale={locale} />
             )}
           </span>
         </span>
