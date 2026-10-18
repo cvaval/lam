@@ -37,6 +37,15 @@ export function libellesDemande(t: Dictionary) {
     submit: j.notaryRequestSubmit,
     sending: j.notaryRequestSending,
     errorIntro: j.notaryRequestErrorIntro,
+    /** Demande sur une fiche désignée : correction OU confirmation des informations affichées. */
+    objCorrection: j.notaryRequestObjCorrection,
+    objConfirmation: j.notaryRequestObjConfirmation,
+    correctionHint: j.notaryRequestCorrectionHint,
+    confirmIntro: j.notaryRequestConfirmIntro,
+    currentInfo: j.notaryRequestCurrentInfo,
+    confirmCheckbox: j.notaryRequestConfirmCheckbox,
+    none: j.notaryRequestNone,
+    commission: j.annuaireCommission,
     /** Vérification humaine (Turnstile). */
     humain: {
       titre: j.humanCheckTitle,
@@ -63,6 +72,8 @@ export function libellesDemande(t: Dictionary) {
       indisponible: j.notaryRequestErrIndisponible,
       humain: j.notaryRequestErrHumain,
       verification: j.notaryRequestErrVerification,
+      confirme: j.notaryRequestErrConfirme,
+      version: j.notaryRequestErrVersion,
     } as Record<string, string>,
   }
 }

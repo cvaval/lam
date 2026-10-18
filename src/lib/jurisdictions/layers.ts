@@ -79,7 +79,9 @@ export interface MapLayerDef {
   drawOrder?: number
   /**
    * Bulle au clic sur un point (Me Vaval, 9 oct. 2026) : le NOMBRE (propriété `count` du point)
-   * en lien vers la liste textuelle, ANCRÉE sur la commune : `/{locale}{listPath}#{communeId}`.
+   * en lien vers l'ANNUAIRE de l'onglet « Notaires », filtré sur la commune :
+   * `/{locale}{listPath}?vue=notaires&commune={communeId}` (17 oct. 2026 ; avant : une ancre de la
+   * liste par juridiction, devenue paginée).
    * Libellés « {n} notaire » / « {n} notaires » : `t.judicial[countOneKey | countManyKey]`.
    */
   popup?: { listPath: string; countOneKey: JudicialKey; countManyKey: JudicialKey }
@@ -166,7 +168,7 @@ export const MAP_LAYERS = [
     // chevauchent ; peintes dessous, elles ne masquent jamais un tribunal.
     drawOrder: -1,
     // Au clic : « N notaires → », vers la section de la commune dans « Notaires par juridiction ».
-    popup: { listPath: '/juridictions/notaires', countOneKey: 'notaryCountOne', countManyKey: 'notaryCountMany' },
+    popup: { listPath: '/juridictions', countOneKey: 'notaryCountOne', countManyKey: 'notaryCountMany' },
   },
 ] as const satisfies readonly MapLayerDef[]
 

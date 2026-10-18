@@ -12,6 +12,9 @@ const ERREURS: Record<string, string> = {
   commune_not_found: 'Commune introuvable.',
   forbidden: 'Réservé au master admin.',
   unavailable: 'La table des demandes n’existe pas encore dans cette base.',
+  version_changed: 'Les informations publiées ont changé depuis la demande : la confirmation ne porte plus sur la version affichée. Refusez-la ; le notaire pourra confirmer la nouvelle version.',
+  request_mismatch: 'Cette demande ne désigne aucune inscription.',
+  notFound: 'Inscription introuvable ou retirée.',
 }
 
 /**
@@ -20,7 +23,7 @@ const ERREURS: Record<string, string> = {
  * et quand. Elle est publiée sur la page du notaire.
  */
 export function NotaryRequestActions({
-  locale, requestId, kind, status, prefill, communes,
+  locale, requestId, kind, status, prefill, communes, methodes = [], versionAJour = false,
 }: {
   locale: string
   requestId: string
@@ -28,6 +31,10 @@ export function NotaryRequestActions({
   status: string
   prefill: { fullName: string; communeId: string }
   communes: Array<{ id: string; name: string; department: string }>
+  /** Méthodes de vérification de la provenance (CONFIRMATION) : [code, libellé]. */
+  methodes?: Array<[string, string]>
+  /** CONFIRMATION : la version confirmée est-elle toujours celle publiée ? */
+  versionAJour?: boolean
 }) {
   const router = useRouter()
   const [busy, setBusy] = useState(false)
@@ -99,6 +106,55 @@ export function NotaryRequestActions({
           </div>
           <button type="submit" disabled={busy} className="mt-3 rounded-full bg-chabon px-4 py-2 text-xs font-semibold text-koton disabled:opacity-50">
             Inscrire et accepter la demande
+          </button>
+        </form>
+      )}
+
+      {kind === 'CONFIRMATION' && (
+        <form
+          action={(f) => envoyer({
+            action: 'VALIDER_CONFIRMATION',
+            confirmedOn: String(f.get('confirmedOn') ?? ''),
+            method: String(f.get('method') ?? ''),
+            evidenceRef: String(f.get('evidenceRef') ?? '').trim(),
+            note: String(f.get('note') ?? '').trim(),
+          })}
+          className="rounded-xl border border-chabon/10 bg-white p-4"
+        >
+          <h2 className="font-serif text-lg font-semibold text-ank">Valider la confirmation (badge « Confirmé »)</h2>
+          <p className="mt-1 text-xs text-grafit">
+            Décision distincte de l’acceptation d’une correction. N’affichez le badge que si la PROVENANCE est établie :
+            la demande vient bien du notaire. Une connexion, la case cochée par le demandeur ou la possession du nom ne
+            suffisent pas. La méthode et la référence des justificatifs restent dans l’administration.
+          </p>
+          {!versionAJour && (
+            <p className="mt-2 rounded-lg border-l-2 border-wouj bg-white px-3 py-2 text-xs font-medium text-ank">
+              Les informations publiées ont changé depuis la demande : la validation sera refusée.
+            </p>
+          )}
+          <div className="mt-3 grid gap-3">
+            <label className={etiquette}>
+              Date de la confirmation par le notaire
+              <input name="confirmedOn" type="date" required defaultValue={aujourdHui} max={aujourdHui} className={champ} />
+            </label>
+            <label className={etiquette}>
+              Méthode de vérification de la provenance
+              <select name="method" required defaultValue="" className={champ}>
+                <option value="" disabled>—</option>
+                {methodes.map(([code, libelle]) => <option key={code} value={code}>{libelle}</option>)}
+              </select>
+            </label>
+            <label className={etiquette}>
+              Référence PRIVÉE des justificatifs (dossier, courriel archivé, n° d’appel…)
+              <input name="evidenceRef" required minLength={3} maxLength={300} className={champ} />
+            </label>
+            <label className={etiquette}>
+              Éléments de vérification consignés (obligatoire, 10 caractères au moins)
+              <textarea name="note" required minLength={10} maxLength={1000} rows={3} className={champ} />
+            </label>
+          </div>
+          <button type="submit" disabled={busy || !versionAJour} className="mt-3 rounded-full bg-chabon px-4 py-2 text-xs font-semibold text-koton disabled:opacity-50">
+            Valider la confirmation
           </button>
         </form>
       )}

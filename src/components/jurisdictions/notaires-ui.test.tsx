@@ -123,7 +123,7 @@ describe('fiche de la commune — rendu', () => {
     expect(html).toContain('Liste publiée par le ministère de la Justice et de la Sécurité publique (MJSP), consultée le 8 septembre et le 9 octobre 2026.')
     // Rien de brut : ni URL, ni fichier, ni empreinte.
     expect(html).not.toMatch(/mjsp\.gouv|\.pdf|cf0b0f15|4d77f084|sha/i)
-    expect(html).toContain(`href="/fr/juridictions/notaires#${TPI}"`)
+    expect(html).toContain(`href="/fr/juridictions?vue=notaires&amp;juridiction=${TPI}#ag-annuaire"`)
   })
 
   it('aucun notaire : la section le dit en toutes lettres', async () => {
@@ -135,7 +135,7 @@ describe('fiche de la commune — rendu', () => {
 
   it('carte du TPI : « 24 notaires dans le ressort », vers la liste ancrée sur ce TPI', async () => {
     const html = renderToStaticMarkup(<JudicialResults record={(await getCommuneRecord('commune-ouest-cite-soleil'))!} locale="fr" t={t} />)
-    expect(html).toMatch(new RegExp(`href="/fr/juridictions/notaires#${TPI}"[^>]*><span aria-hidden="true">👤</span>24 notaires dans le ressort</a>`))
+    expect(html).toMatch(new RegExp(`href="/fr/juridictions\\?vue=notaires&amp;juridiction=${TPI}#ag-annuaire"[^>]*><span aria-hidden="true">👤</span>24 notaires dans le ressort</a>`))
   })
 
   it('trois langues', async () => {

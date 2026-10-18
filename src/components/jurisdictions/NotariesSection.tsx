@@ -64,7 +64,7 @@ export function NotariesSection({
         )}
         <p className="mt-3 text-[12px] leading-relaxed text-ank/80">{notarySourceLine(provenance, locale, t)}</p>
         <Link
-          href={`/${locale}/juridictions/notaires${tpiId ? `#${tpiId}` : ''}`}
+          href={`/${locale}/juridictions?vue=notaires${tpiId ? `&juridiction=${tpiId}` : ''}#ag-annuaire`}
           className="mt-1 inline-flex min-h-[44px] items-center text-xs font-medium text-ank underline underline-offset-2 transition hover:text-chabon"
         >
           {j.notariesByJurisdiction} →

@@ -19,6 +19,7 @@ import { readPhones } from './coordonnees'
 import { buildNotaryIndex, type NotaryIndex } from './search-notaries'
 import { EDITION_TIERS } from './notaires-demandes'
 import { adresseExacte, classerAnnuaire, type AnnuaireEntry } from './annuaire-notaires'
+import { confirmationPublique, empreinte, instantane } from './notaires-confirmation'
 import type { CourtType } from './constants'
 
 export interface SourceRef { type: 'url' | 'file'; value: string }
@@ -66,6 +67,12 @@ export interface NotaryView {
   hasContact: boolean
   /** Entrée AJOUTÉE par la rédaction après vérification (édition `tiers`), hors de la liste du MJSP. */
   addedByEditors: boolean
+  /**
+   * Badge « Confirmé » : date de la confirmation par le notaire (AAAA-MM-JJ), seulement si une
+   * confirmation ACTIVE, validée par le master admin, porte sur la version ACTUELLE des
+   * informations. Rien d'autre de la confirmation n'est public (`notaires-confirmation.ts`).
+   */
+  confirmedOn: string | null
 }
 
 /**
@@ -76,18 +83,41 @@ export interface NotaryView {
 export const lectureNotairesImpossible = (e: unknown) =>
   estSchemaAbsent(e) || (typeof e === 'object' && e !== null && (e as { code?: unknown }).code === 'P2022')
 
+// Les champs de la fiche servent à calculer la VERSION des informations (badge) ; ils ne sortent
+// pas de `versVue` — la vue publique d'un notaire ne porte aucune coordonnée.
 const NOTAIRE_VUE = {
-  id: true, ordinal: true, edition: true, fullName: true, displayName: true, mention: true,
-  contact: { select: { active: true } },
+  id: true, ordinal: true, edition: true, fullName: true, displayName: true, mention: true, communeId: true,
+  contact: { select: { active: true, address: true, phonesJson: true, email: true } },
 } as const
 
+type ConfirmationActive = { status: string; snapshotHash: string; confirmedOn: Date }
+
 const versVue = (n: {
-  id: string; ordinal: number; edition: string; fullName: string; displayName: string | null; mention: string | null
-  contact: { active: boolean } | null
-}): NotaryView => ({
+  id: string; ordinal: number; edition: string; fullName: string; displayName: string | null; mention: string | null; communeId: string | null
+  contact: { active: boolean; address: string | null; phonesJson: string; email: string | null } | null
+}, confirmations?: Map<string, ConfirmationActive>): NotaryView => ({
   id: n.id, ordinal: n.ordinal, fullName: n.displayName ?? n.fullName, mention: n.mention, hasContact: Boolean(n.contact?.active),
   addedByEditors: n.edition === EDITION_TIERS,
+  confirmedOn: confirmationPublique(confirmations?.get(n.id), empreinte(instantane(n, n.contact)))?.on ?? null,
 })
+
+/**
+ * Confirmations ACTIVES des inscriptions données — lecture À PART : tant que la table n'existe pas
+ * (code déployé avant la migration), aucun badge, et rien d'autre ne casse.
+ */
+async function confirmationsActives(ids: readonly string[]): Promise<Map<string, ConfirmationActive>> {
+  if (!ids.length) return new Map()
+  try {
+    const rows = await prisma.notaryConfirmation.findMany({
+      where: { notaryId: { in: [...ids] }, status: 'ACTIVE' },
+      select: { notaryId: true, status: true, snapshotHash: true, confirmedOn: true },
+    })
+    return new Map(rows.map((r) => [r.notaryId, r]))
+  } catch (e) {
+    if (lectureNotairesImpossible(e)) return new Map()
+    throw e
+  }
+}
 
 /** Les inscriptions de la liste d'abord (par numéro), puis celles ajoutées par la rédaction. */
 const ORDRE_NOTAIRES = [{ edition: 'asc' as const }, { ordinal: 'asc' as const }]
@@ -315,7 +345,8 @@ async function chargerNotairesCommune(communeId: string, tpiId: string | null) {
           .map((j) => ({ communeId: j.commune.id, communeName: j.commune.name, count: n.get(j.commune.id) ?? 0 }))
           .sort((a, b) => a.communeName.localeCompare(b.communeName, 'fr'))
       : null
-    return { liste: liste.map(versVue), ressort, provenance: lireProvenance(source?.sourceJson) }
+    const confs = await confirmationsActives(liste.map((n) => n.id))
+    return { liste: liste.map((n) => versVue(n, confs)), ressort, provenance: lireProvenance(source?.sourceJson) }
   } catch (e) {
     if (lectureNotairesImpossible(e)) return null
     throw e
@@ -414,6 +445,7 @@ export async function getNotaryDirectory(): Promise<NotaryDirectory | null> {
       prisma.notary.findFirst(SOURCE_LISTE),
     ])
     const actifs = notaires.filter((n) => n.active)
+    const confs = await confirmationsActives(actifs.map((n) => n.id))
     const parCommune = new Map<string, typeof actifs>()
     for (const n of actifs) if (n.communeId) parCommune.set(n.communeId, [...(parCommune.get(n.communeId) ?? []), n])
 
@@ -429,7 +461,7 @@ export async function getNotaryDirectory(): Promise<NotaryDirectory | null> {
         name: c.name,
         department: dept,
         notaires: liste.map((n) => ({
-          ...versVue(n),
+          ...versVue(n, confs),
           // Désaccord de département, signalé discrètement : la colonne imprimée telle quelle.
           printedDepartment: normalizePlaceName(n.sourceDepartment) === normalizePlaceName(dept) ? null : n.sourceDepartment,
         })),
@@ -450,13 +482,13 @@ export async function getNotaryDirectory(): Promise<NotaryDirectory | null> {
       provenance: lireProvenance(source?.sourceJson),
       tpis: sorted,
       unmatched: actifs.filter((n) => !n.communeId).map((n) => ({
-        ...versVue(n), sourceCommune: n.sourceCommune, sourceDepartment: n.sourceDepartment,
+        ...versVue(n, confs), sourceCommune: n.sourceCommune, sourceDepartment: n.sourceDepartment,
       })),
       withoutJurisdiction: actifs
         .filter((n) => n.communeId && !places.has(n.communeId) && communeDe.has(n.communeId))
         .map((n) => {
           const c = communeDe.get(n.communeId!)!
-          return { ...versVue(n), communeId: c.id, communeName: c.name, department: c.department.name }
+          return { ...versVue(n, confs), communeId: c.id, communeName: c.name, department: c.department.name }
         }),
     }
   } catch (e) {
@@ -513,7 +545,7 @@ export async function getNotaryAnnuaire(): Promise<NotaryAnnuaire | null> {
       id: n.id, name: n.fullName, mention: n.mention, ...lieu,
       jurisdictionId: j?.id ?? null, jurisdictionLabel: j?.label ?? null,
       address: brute && adresseExacte(brute, [lieu.communeName, lieu.department]) ? brute.trim() : null,
-      hasContact: n.hasContact, addedByEditors: n.addedByEditors,
+      hasContact: n.hasContact, addedByEditors: n.addedByEditors, confirmedOn: n.confirmedOn,
     }
   }
   for (const t of dir.tpis)
@@ -552,6 +584,10 @@ export interface NotaryProfile {
   provenance: NotaryProvenance | null
   /** Entrée ajoutée par la rédaction (hors liste du MJSP) : date de la vérification consignée. */
   addedByEditors: { verifiedOn: string | null } | null
+  /** Badge « Confirmé » : date de la confirmation par le notaire, sur la version actuelle. */
+  confirmedOn: string | null
+  /** Empreinte des informations publiées (la VERSION qu'une demande de confirmation désigne). */
+  version: string
 }
 
 const NOTARY_ID_RE = /^[a-z0-9][a-z0-9-]{2,119}$/
@@ -567,7 +603,7 @@ export async function getNotaryProfile(id: string): Promise<NotaryProfile | null
       where: { id },
       select: {
         id: true, ordinal: true, edition: true, fullName: true, displayName: true, mention: true, active: true,
-        sourceCommune: true, sourceJson: true,
+        sourceCommune: true, sourceJson: true, communeId: true,
         commune: {
           select: {
             id: true, name: true, department: { select: { name: true } },
@@ -578,6 +614,8 @@ export async function getNotaryProfile(id: string): Promise<NotaryProfile | null
       },
     })
     if (!n || !n.active) return null
+    const conf = (await confirmationsActives([n.id])).get(n.id)
+    const version = empreinte(instantane(n, n.contact))
     const court = n.commune?.jurisdictions.find((j) => j.court.active)?.court ?? null
     const c = n.contact?.active ? n.contact : null
     return {
@@ -598,6 +636,8 @@ export async function getNotaryProfile(id: string): Promise<NotaryProfile | null
         : null,
       provenance: n.edition === EDITION_TIERS ? null : lireProvenance(n.sourceJson),
       addedByEditors: n.edition === EDITION_TIERS ? { verifiedOn: lireVerification(n.sourceJson) } : null,
+      confirmedOn: confirmationPublique(conf, version)?.on ?? null,
+      version,
     }
   } catch (e) {
     if (lectureNotairesImpossible(e)) return null

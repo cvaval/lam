@@ -31,6 +31,7 @@ vi.mock('@/lib/security/ratelimit', () => ({ guard, guardPersistent }))
 vi.mock('@/lib/mail', async (orig) => ({ ...(await orig<typeof import('@/lib/mail')>()), sendMail }))
 
 const { POST } = await import('./route')
+const { empreinte, instantane } = await import('@/lib/jurisdictions/notaires-confirmation')
 
 const champs = (o: Record<string, string> = {}) => ({
   locale: 'fr', t: String(Date.now() - 60_000), site: '', type: 'coordonnees', notaire: 'mjsp-2026-09-08-9',
@@ -212,5 +213,47 @@ describe('vérification humaine (Turnstile)', () => {
     vi.stubEnv('TURNSTILE_SECRET_KEY', '')
     expect((await envoyer(champs())).status).toBe(404)
     expect(prisma.judicialCommune.findMany).not.toHaveBeenCalled()
+  })
+})
+
+describe('demande de CONFIRMATION des informations affichées', () => {
+  const NOTAIRE = {
+    id: 'mjsp-2026-09-08-9', fullName: 'Gamma ANGLADE GILLES', displayName: 'Gemma ANGLADE GILLES', communeId: 'commune-ouest-port-au-prince',
+    contact: { address: '394, route Exemple, Port-au-Prince', phonesJson: '["+50920000001"]', email: 'etude@exemple.ht', active: true },
+  }
+  const VERSION = empreinte(instantane(NOTAIRE, NOTAIRE.contact))
+  const conf = (o: Record<string, string> = {}) => champs({ type: 'confirmation', version: VERSION, confirme: 'oui', telephones: '', ...o })
+  beforeEach(() => { prisma.notary.findFirst.mockResolvedValue(NOTAIRE) })
+
+  it('enregistrée avec l’INSTANTANÉ confirmé ; aucune confirmation créée, aucun badge (seul le master admin valide)', async () => {
+    const res = await envoyer(conf())
+    expect(res.status).toBe(303)
+    const data = prisma.notaryRequest.create.mock.calls[0][0].data
+    expect(data).toMatchObject({ kind: 'CONFIRMATION', notaryId: 'mjsp-2026-09-08-9' })
+    const payload = JSON.parse(data.payloadJson)
+    expect(payload).toMatchObject({ version: VERSION, snapshot: { adresse: '394, route Exemple, Port-au-Prince', courriel: 'etude@exemple.ht' } })
+    expect(payload.address).toBeNull()
+    expect('notaryConfirmation' in prisma).toBe(false)
+  })
+
+  it('informations changées depuis l’affichage : `version`, rien d’enregistré, jeton NON consommé', async () => {
+    const res = await envoyer(conf({ version: 'b'.repeat(64) }), 'application/json')
+    expect(res.status).toBe(409)
+    expect(await res.json()).toEqual({ ok: false, erreurs: ['version'], jetonConsomme: false })
+    expect(siteverify).not.toHaveBeenCalled()
+    expect(prisma.notaryRequest.create).not.toHaveBeenCalled()
+  })
+
+  it('case non cochée ou notaire non désigné : refus avant la vérification humaine', async () => {
+    const r1 = await envoyer(conf({ confirme: '' }), 'application/json')
+    expect((await r1.json()).erreurs).toContain('confirme')
+    const r2 = await envoyer(conf({ notaire: '' }), 'application/json')
+    expect((await r2.json()).erreurs).toContain('notaire')
+    expect(siteverify).not.toHaveBeenCalled()
+  })
+
+  it('sans JavaScript, une erreur ramène au même objet (« confirmation »)', async () => {
+    const res = await envoyer(conf({ confirme: '' }))
+    expect(res.headers.get('location')).toContain('objet=confirmation')
   })
 })

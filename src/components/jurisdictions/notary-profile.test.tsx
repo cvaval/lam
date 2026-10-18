@@ -6,9 +6,10 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 
-const prisma = { notary: { findUnique: vi.fn() } }
+const prisma = { notary: { findUnique: vi.fn() }, notaryConfirmation: { findMany: vi.fn() } }
 vi.mock('@/lib/db', () => ({ prisma }))
 const { getNotaryProfile } = await import('@/lib/jurisdictions/data')
+const { empreinte, instantane } = await import('@/lib/jurisdictions/notaires-confirmation')
 const { NotaryProfileView } = await import('./NotaryProfileView')
 const { getDictionary } = await import('@/lib/i18n/dictionaries')
 const t = getDictionary('fr')
@@ -30,14 +31,17 @@ const ligne = (o: Record<string, unknown>) => ({
 const rendu = async (id = 'mjsp-2026-09-08-9', locale: 'fr' | 'en' | 'ht' = 'fr') =>
   renderToStaticMarkup(<NotaryProfileView p={(await getNotaryProfile(id))!} locale={locale} t={getDictionary(locale)} />)
 
-beforeEach(() => { vi.resetAllMocks(); prisma.notary.findUnique.mockResolvedValue(ligne({})) })
+beforeEach(() => { vi.resetAllMocks(); prisma.notary.findUnique.mockResolvedValue(ligne({})); prisma.notaryConfirmation.findMany.mockResolvedValue([]) })
 
 describe('page d’un notaire', () => {
   it('n° 9 : « Gemma » affiché, « Gamma » signalé, juridiction SANS « TPI »', async () => {
     const html = await rendu()
-    expect(html).toContain('👤</span>Gemma ANGLADE GILLES')
+    // Titre de la page « Notaire » ; le nom titre la carte.
+    expect(html).toMatch(/<h1[^>]*>Notaire<\/h1>/)
+    expect(html).toMatch(/<h2 id="ag-notaire-nom"[^>]*><span>Gemma ANGLADE GILLES<\/span>/)
+    expect(html).not.toContain('Fiche du notaire')
     expect(html).toContain(`${t.judicial.notaryPrintedName} : « Gamma ANGLADE GILLES »`)
-    expect(html).toMatch(/href="\/fr\/juridictions\/notaires#court-tpi-tpi-de-port-au-prince"[^>]*>Port-au-Prince<\/a>/)
+    expect(html).toMatch(/href="\/fr\/juridictions\?vue=notaires&amp;juridiction=court-tpi-tpi-de-port-au-prince#ag-annuaire"[^>]*>Port-au-Prince<\/a>/)
     expect(html).not.toMatch(/\bTPI\b(?! de Port)|première instance/)
   })
   it('coordonnées complètes : adresse, deux téléphones cliquables, courriel, « à jour au »', async () => {
@@ -98,5 +102,44 @@ describe('page d’un notaire', () => {
   it('trois langues', async () => {
     expect(await rendu('mjsp-2026-09-08-9', 'en')).toContain('up to date as of 9 October 2026')
     expect(await rendu('mjsp-2026-09-08-9', 'ht')).toContain('ajou 9 oktòb 2026')
+  })
+})
+
+describe('page d’un notaire — badge « Confirmé »', () => {
+  const N = { fullName: 'Gamma ANGLADE GILLES', displayName: 'Gemma ANGLADE GILLES', communeId: 'commune-ouest-port-au-prince' }
+  const C = { address: '394, route de Bourdon, Port-au-Prince', phonesJson: '["+50929984747","+50946430503"]', email: 'etudeanglade@gmail.com', active: true }
+  const conf = (snapshotHash: string, status = 'ACTIVE') => [{ notaryId: 'mjsp-2026-09-08-9', status, snapshotHash, confirmedOn: new Date('2026-10-18T00:00:00Z') }]
+
+  it('sans confirmation validée : ni coche, ni mention', async () => {
+    const html = await rendu()
+    expect(html).not.toContain(t.judicial.notaryConfirmedNote)
+    expect(html).not.toContain(t.judicial.notaryConfirmedTooltip)
+  })
+
+  it('confirmation ACTIVE sur la version publiée : coche à côté du nom (infobulle et nom accessible), mention datée', async () => {
+    prisma.notary.findUnique.mockResolvedValue(ligne({ communeId: 'commune-ouest-port-au-prince' }))
+    prisma.notaryConfirmation.findMany.mockResolvedValue(conf(empreinte(instantane(N, C))))
+    const html = await rendu()
+    expect(html).toMatch(/<span>Gemma ANGLADE GILLES<\/span><span title="Informations confirmées par le notaire\."/)
+    expect(html).toContain('<span class="sr-only">Informations confirmées par le notaire.</span>')
+    expect(html).toContain(t.judicial.notaryConfirmedNote)
+    expect(html).toContain('Confirmé le 18 octobre 2026')
+  })
+
+  it('informations modifiées depuis : le badge tombe aussitôt (version différente)', async () => {
+    prisma.notary.findUnique.mockResolvedValue(ligne({ communeId: 'commune-ouest-port-au-prince' }))
+    prisma.notaryConfirmation.findMany.mockResolvedValue(conf(empreinte(instantane(N, { ...C, address: 'autre adresse' }))))
+    expect(await rendu()).not.toContain(t.judicial.notaryConfirmedNote)
+  })
+
+  it('crayon discret (formulaire ouvert) : 44 px, nommé, infobulle ; jamais de grand bouton ni de bloc « Votre demande »', async () => {
+    const p = (await getNotaryProfile('mjsp-2026-09-08-9'))!
+    const html = renderToStaticMarkup(<NotaryProfileView p={p} locale="fr" t={t} demandes />)
+    const crayon = /<a [^>]*aria-label="Demander une modification ou une confirmation"[^>]*>/.exec(html)?.[0] ?? ''
+    expect(crayon).toContain('href="/fr/juridictions/notaires/demande?notaire=mjsp-2026-09-08-9"')
+    expect(crayon).toContain('title="Demander une modification ou une confirmation"')
+    expect(crayon).toMatch(/class="[^"]*\bh-11 w-11\b/)
+    expect(html).not.toMatch(/Votre demande|En attente de validation|Voir ma demande|données illustratives/)
+    expect(html).not.toContain(t.judicial.notaryRequestLinkContact)
   })
 })

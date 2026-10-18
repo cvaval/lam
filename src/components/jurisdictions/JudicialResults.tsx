@@ -64,7 +64,7 @@ export function JudicialResults({ record, locale, t, demandes = false }: { recor
               // Le ressort se DÉDUIT des rattachements TPI_COMPETENT : la ligne mène à la liste
               // textuelle, ancrée sur ce TPI.
               <Link
-                href={`/${locale}/juridictions/notaires#${courts.firstInstance.id}`}
+                href={`/${locale}/juridictions?vue=notaires&juridiction=${courts.firstInstance.id}#ag-annuaire`}
                 className="mt-1 inline-flex min-h-[44px] items-center gap-1.5 text-xs font-medium text-ank underline underline-offset-2 transition hover:text-chabon"
               >
                 <span aria-hidden="true">👤</span>

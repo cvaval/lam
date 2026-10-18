@@ -247,10 +247,10 @@ export function JudicialMap({
   }
 
   /**
-   * Bulle d'un point de couche : nom de la commune et « N notaires → », lien vers
-   * `/{locale}{listPath}#{communeId}` (section ancrée de la liste). DOM construit nœud par nœud
-   * (`textContent`, jamais de HTML). ⚠️ Lien CLASSIQUE, pas `router.push` : la navigation interne
-   * (pushState) ne met pas à jour `:target`, et la section visée ne serait pas mise en évidence.
+   * Bulle d'un point de couche : nom de la commune et « N notaires → », lien vers l'annuaire de
+   * l'onglet « Notaires » filtré sur la commune (`/{locale}{listPath}?vue=notaires&commune=…`). DOM
+   * construit nœud par nœud (`textContent`, jamais de HTML). Dans l'onglet « Notaires », navigation
+   * interne (la carte reste montée) ; depuis l'onglet « Juridictions », lien classique.
    */
   const openPopup = (map: MlMap, layer: MapLayerDef, at: [number, number], communeId: string, props: Record<string, unknown>) => {
     const conf = layer.popup
@@ -258,8 +258,11 @@ export function JudicialMap({
     const n = Number(props.count) || 0
     const nom = typeof props.communeName === 'string' ? props.communeName : ''
     const nombre = compte(n, locale, popupLabels[conf.countOneKey] ?? '{n}', popupLabels[conf.countManyKey] ?? '{n}')
-    // Onglet « Notaires » : l'annuaire de la même page, filtré sur la commune.
-    const href = vue === 'notaires' ? urlCommune(communeId) : `/${locale}${conf.listPath}#${encodeURIComponent(communeId)}`
+    // L'annuaire de l'onglet « Notaires », filtré sur la commune (couches gardées dans l'onglet).
+    const qs = new URLSearchParams({ vue: 'notaires', commune: communeId })
+    const couches = vue === 'notaires' ? serializeLayersPour('notaires', layersRef.current) : null
+    if (couches !== null) qs.set('layers', couches)
+    const href = `/${locale}${conf.listPath}?${qs.toString()}`
     const box = document.createElement('div')
     box.className = 'pr-5 text-ank'
     if (nom) {

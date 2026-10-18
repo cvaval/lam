@@ -17,6 +17,7 @@ const prisma = {
   judicialCommune: { findMany: vi.fn() },
   notary: { findMany: vi.fn(), findFirst: vi.fn() },
   notaryContact: { findMany: vi.fn() },
+  notaryConfirmation: { findMany: vi.fn() },
 }
 vi.mock('@/lib/db', () => ({ prisma }))
 vi.mock('next/navigation', () => ({ useRouter: () => ({ push: vi.fn() }), usePathname: () => '/fr/juridictions' }))
@@ -25,6 +26,7 @@ const { getNotaryAnnuaire } = await import('@/lib/jurisdictions/data')
 const { NotaryAnnuaireView } = await import('./NotaryAnnuaireView')
 const { getDictionary } = await import('@/lib/i18n/dictionaries')
 const { lireParamsAnnuaire } = await import('@/lib/jurisdictions/annuaire-notaires')
+const { empreinte, instantane } = await import('@/lib/jurisdictions/notaires-confirmation')
 
 const t = getDictionary('fr')
 const PAP = 'court-tpi-tpi-de-port-au-prince'
@@ -59,6 +61,7 @@ beforeEach(() => {
     { notaryId: 'n2', address: '394, route de Bourdon, Port-au-Prince' },
     { notaryId: 'n5', address: 'Bourdon' },
   ])
+  prisma.notaryConfirmation.findMany.mockResolvedValue([])
 })
 
 const MAP = { locale: 'fr' as const, selectedCommuneId: null, layers: ['notaires'], attribution: 'OSM', loadingLabel: 'Carte', popupLabels: {}, fallback: null }
@@ -110,7 +113,7 @@ describe('annuaire des notaires — classement et présentation', () => {
 
   it('la fiche garde l’état de l’annuaire (recherche, filtres)', async () => {
     const html = await rendre({ vue: 'notaires', juridiction: PAP })
-    expect(html).toContain(`/fr/juridictions/notaires/n2?retour=${encodeURIComponent(`vue=notaires&juridiction=${PAP}`)}`)
+    expect(html).toContain(`/fr/juridictions/notaires/n2?retour=${encodeURIComponent(`onglet:vue=notaires&juridiction=${PAP}`)}`)
   })
 })
 
@@ -166,5 +169,31 @@ describe('annuaire des notaires — états', () => {
     const html = await rendre()
     expect(html).toMatch(/aria-expanded="false"[^>]*>.*Afficher la carte/)
     expect(html.indexOf('Afficher la carte')).toBeLessThan(html.indexOf('Sabine MORPEAU'))
+  })
+})
+
+describe('annuaire des notaires — badge « Confirmé »', () => {
+  it('absent après un simple import ou une simple demande (aucune confirmation validée)', async () => {
+    const html = await rendre()
+    expect(html).not.toContain('Informations confirmées par le notaire.')
+  })
+
+  it('affiché à côté du nom SEULEMENT pour la confirmation active sur la version publiée — sans changer l’ordre', async () => {
+    const avant = ordre(await rendre(), ['Sabine MORPEAU', 'Jean AVIN', 'Patrick VICTOR'])
+    // La fiche n1 (Patrick VICTOR) n'a pas de coordonnées actives : sa version porte nom et commune.
+    const v = empreinte(instantane({ fullName: 'Patrick VICTOR', displayName: null, communeId: 'commune-ouest-port-au-prince' }, null))
+    prisma.notaryConfirmation.findMany.mockResolvedValue([{ notaryId: 'n1', status: 'ACTIVE', snapshotHash: v, confirmedOn: new Date('2026-10-18T00:00:00Z') }])
+    const html = await rendre()
+    expect(html).toMatch(/<span>Patrick VICTOR<\/span><span title="Informations confirmées par le notaire\.[^>]*>/)
+    expect((html.match(/Informations confirmées par le notaire\./g) ?? []).length).toBe(2) // infobulle + nom accessible, une seule carte
+    expect(ordre(html, ['Sabine MORPEAU', 'Jean AVIN', 'Patrick VICTOR'])).toEqual(avant.map(() => expect.any(Number)))
+    const pos = ordre(html, ['Sabine MORPEAU', 'Jean AVIN', 'Patrick VICTOR'])
+    expect([...pos].sort((a, b) => a - b)).toEqual(pos)
+  })
+
+  it('« Voir la fiche → » en bouton bleu profond ; la juridiction titre le groupe sans se répéter sur les cartes', async () => {
+    const html = await rendre()
+    expect(html).toMatch(/class="[^"]*bg-chabon[^"]*text-white[^"]*"[^>]*>Voir la fiche <span aria-hidden="true">→<\/span>/)
+    expect((html.match(/>Port-au-Prince</g) ?? []).length).toBe(1)
   })
 })

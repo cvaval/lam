@@ -52,6 +52,12 @@ export type AuditAction =
   | 'NOTARY_CONTACT_UPDATED'
   | 'NOTARY_REQUEST_CREATED'
   | 'NOTARY_REQUEST_DECIDED'
+  // Badge « Confirmé » (18 oct. 2026) : validation par le master admin, retrait, invalidation
+  // (modification substantielle). La méthode est journalisée ; la référence des justificatifs reste
+  // dans NotaryConfirmation.
+  | 'NOTARY_CONFIRMATION_VALIDATED'
+  | 'NOTARY_CONFIRMATION_WITHDRAWN'
+  | 'NOTARY_CONFIRMATION_INVALIDATED'
   // Vérification humaine (Turnstile) refusée sur une demande publique : IP, motif, codes —
   // jamais le jeton, jamais le contenu de la demande.
   | 'HUMAN_CHECK_FAILED'

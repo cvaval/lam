@@ -13,9 +13,11 @@ import { useRouter } from 'next/navigation'
  * choisit une autre juridiction que la sienne (l'intersection serait vide par construction).
  */
 export function AnnuaireFiltres({
-  locale, q, juridiction, commune, communeJuridiction, juridictions, layers, labels,
+  locale, ou = 'onglet', q, juridiction, commune, communeJuridiction, juridictions, layers, labels,
 }: {
   locale: string
+  /** Onglet de la carte (`/juridictions?vue=notaires`) ou page d'annuaire (`/juridictions/notaires`). */
+  ou?: 'onglet' | 'page'
   q: string
   juridiction: string | null
   commune: string | null
@@ -31,14 +33,16 @@ export function AnnuaireFiltres({
 
   const naviguer = (form: HTMLFormElement) => {
     const data = new FormData(form)
-    const s = new URLSearchParams({ vue: 'notaires' })
+    const s = new URLSearchParams(ou === 'onglet' ? { vue: 'notaires' } : {})
     const qv = String(data.get('q') ?? '').trim().slice(0, 80)
     const jv = String(data.get('juridiction') ?? '')
     if (qv) s.set('q', qv)
     if (jv) s.set('juridiction', jv)
     if (commune && (!jv || jv === communeJuridiction)) s.set('commune', commune)
     if (layers !== null) s.set('layers', layers)
-    startTransition(() => router.push(`/${locale}/juridictions?${s.toString()}#ag-annuaire-resultats`, { scroll: false }))
+    const chemin = ou === 'onglet' ? '/juridictions' : '/juridictions/notaires'
+    const qs = s.toString()
+    startTransition(() => router.push(`/${locale}${chemin}${qs ? `?${qs}` : ''}#ag-annuaire-resultats`, { scroll: false }))
   }
 
   return (
@@ -46,7 +50,7 @@ export function AnnuaireFiltres({
       ref={formRef}
       role="search"
       method="get"
-      action={`/${locale}/juridictions`}
+      action={`/${locale}${ou === 'onglet' ? '/juridictions' : '/juridictions/notaires'}`}
       aria-busy={pending}
       onSubmit={(e) => {
         e.preventDefault()
@@ -54,7 +58,7 @@ export function AnnuaireFiltres({
       }}
       className="flex flex-col gap-3"
     >
-      <input type="hidden" name="vue" value="notaires" />
+      {ou === 'onglet' && <input type="hidden" name="vue" value="notaires" />}
       {commune && <input type="hidden" name="commune" value={commune} />}
       {layers !== null && <input type="hidden" name="layers" value={layers} />}
       <div className="flex flex-col gap-1">

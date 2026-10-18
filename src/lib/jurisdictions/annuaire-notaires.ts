@@ -40,6 +40,8 @@ export interface AnnuaireEntry {
   address: string | null
   hasContact: boolean
   addedByEditors: boolean
+  /** Badge « Confirmé » autorisé (date de confirmation) — n'entre PAS dans le classement. */
+  confirmedOn: string | null
 }
 
 /** Mot écrit en capitales : deux lettres au moins, aucune minuscule (accents, tirets, apostrophes admis). */
@@ -137,9 +139,16 @@ export function lireParamsAnnuaire(sp: Record<string, string | string[] | undefi
   }
 }
 
-/** Chaîne de requête de l'onglet Notaires (`vue=notaires` toujours en tête). */
-export function qsAnnuaire(p: Partial<AnnuaireParams>, extra: Record<string, string | null | undefined> = {}): string {
-  const s = new URLSearchParams({ vue: 'notaires' })
+/**
+ * Où vit l'annuaire : l'onglet « Notaires » de la carte (`/juridictions?vue=notaires`) ou la page
+ * d'annuaire historique (`/juridictions/notaires`). MÊMES données, classement et filtres.
+ */
+export type Emplacement = 'onglet' | 'page'
+export const cheminAnnuaire = (o: Emplacement) => (o === 'onglet' ? '/juridictions' : '/juridictions/notaires')
+
+/** Chaîne de requête de l'annuaire (`vue=notaires` en tête dans l'onglet de la carte). */
+export function qsAnnuaire(p: Partial<AnnuaireParams>, extra: Record<string, string | null | undefined> = {}, ou: Emplacement = 'onglet'): string {
+  const s = new URLSearchParams(ou === 'onglet' ? { vue: 'notaires' } : {})
   if (p.q) s.set('q', p.q)
   if (p.juridiction) s.set('juridiction', p.juridiction)
   if (p.commune) s.set('commune', p.commune)
@@ -148,18 +157,26 @@ export function qsAnnuaire(p: Partial<AnnuaireParams>, extra: Record<string, str
   return s.toString()
 }
 
+/** Valeur de `?retour=` d'un lien « Voir la fiche » : l'emplacement et l'état de l'annuaire. */
+export const retourAnnuaire = (p: AnnuaireParams, ou: Emplacement, layers: string | null = null) =>
+  `${ou}:${qsAnnuaire(p, ou === 'onglet' ? { layers } : {}, ou)}`
+
 /**
- * `?retour=` de la page d'un notaire : l'état de l'annuaire d'où l'on vient, RELU paramètre par
- * paramètre et reconstruit — jamais recopié tel quel dans un lien (ni injection, ni redirection).
+ * `?retour=` de la page d'un notaire : l'annuaire d'où l'on vient, RELU paramètre par paramètre et
+ * reconstruit — jamais recopié tel quel dans un lien (ni injection, ni redirection ouverte). Rend
+ * le CHEMIN sans la langue (« /juridictions?vue=notaires&q=… », « /juridictions/notaires?… »), ou
  * null si absent, trop long ou étranger à l'annuaire.
  */
 export function lireRetourAnnuaire(raw: string | string[] | undefined): string | null {
   const brut = Array.isArray(raw) ? raw[0] : raw
   if (!brut || brut.length > 400) return null
-  const sp = Object.fromEntries(new URLSearchParams(brut))
-  if (sp.vue !== 'notaires') return null
-  const layers = sp.layers !== undefined && /^[a-z,]{0,80}$/.test(sp.layers) ? sp.layers : null
-  return qsAnnuaire(lireParamsAnnuaire(sp), { layers })
+  const m = /^(onglet|page):(.*)$/s.exec(brut)
+  const ou: Emplacement = m?.[1] === 'page' ? 'page' : 'onglet'
+  const sp = Object.fromEntries(new URLSearchParams(m ? m[2] : brut))
+  if (ou === 'onglet' && sp.vue !== 'notaires') return null
+  const layers = ou === 'onglet' && sp.layers !== undefined && /^[a-z,]{0,80}$/.test(sp.layers) ? sp.layers : null
+  const qs = qsAnnuaire(lireParamsAnnuaire(sp), { layers }, ou)
+  return `${cheminAnnuaire(ou)}${qs ? `?${qs}` : ''}`
 }
 
 /** Nombre de filtres actifs (la page n'en est pas un). */

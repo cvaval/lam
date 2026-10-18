@@ -1,13 +1,13 @@
 import { describe, expect, it } from 'vitest'
 import {
-  adresseExacte, classerAnnuaire, filtrerAnnuaire, filtresActifs, lireParamsAnnuaire, lireRetourAnnuaire, nomDeFamille, paginerAnnuaire, qsAnnuaire,
+  adresseExacte, classerAnnuaire, filtrerAnnuaire, filtresActifs, lireParamsAnnuaire, lireRetourAnnuaire, nomDeFamille, paginerAnnuaire, qsAnnuaire, retourAnnuaire,
   type AnnuaireEntry,
 } from './annuaire-notaires'
 
 const e = (id: string, name: string, over: Partial<AnnuaireEntry> = {}): AnnuaireEntry => ({
   id, name, mention: null, communeId: 'port-au-prince', communeName: 'Port-au-Prince', department: 'Ouest',
   jurisdictionId: 'tpi-port-au-prince', jurisdictionLabel: 'Port-au-Prince', address: null, hasContact: false, addedByEditors: false,
-  ...over,
+  confirmedOn: null, ...over,
 })
 
 describe('nomDeFamille — convention du MJSP (capitales finales)', () => {
@@ -82,6 +82,12 @@ describe('classerAnnuaire — juridiction, adresse exacte d’abord, nom de fami
     expect(r).toEqual(['a', 'b', 'z'])
   })
 
+  it('le badge « Confirmé » n’est PAS un critère de classement', () => {
+    const sans = classerAnnuaire([e('a', 'Ange LADOUCEUR'), e('b', 'Patrick VICTOR')]).map((x) => x.id)
+    const avec = classerAnnuaire([e('a', 'Ange LADOUCEUR'), e('b', 'Patrick VICTOR', { confirmedOn: '2026-10-18' })]).map((x) => x.id)
+    expect(avec).toEqual(sans)
+  })
+
   it('ne modifie ni la liste reçue ni les noms affichés', () => {
     const copie = liste.map((x) => ({ ...x }))
     classerAnnuaire(liste)
@@ -154,13 +160,24 @@ describe('filtres et paramètres d’URL', () => {
 })
 
 describe('retour depuis une fiche — état de l’annuaire relu, jamais recopié', () => {
-  it('reconstruit recherche, filtres et page', () => {
-    expect(lireRetourAnnuaire('vue=notaires&q=Victor&juridiction=tpi-jacmel&page=2')).toBe('vue=notaires&q=Victor&juridiction=tpi-jacmel&page=2')
+  it('onglet de la carte : reconstruit recherche, filtres et page', () => {
+    expect(lireRetourAnnuaire('onglet:vue=notaires&q=Victor&juridiction=tpi-jacmel&page=2')).toBe('/juridictions?vue=notaires&q=Victor&juridiction=tpi-jacmel&page=2')
+    // Forme antérieure, sans préfixe : l'onglet.
+    expect(lireRetourAnnuaire('vue=notaires&q=Victor')).toBe('/juridictions?vue=notaires&q=Victor')
+  })
+  it('page d’annuaire historique : même état, sans `vue`', () => {
+    expect(lireRetourAnnuaire('page:q=Victor&commune=delmas')).toBe('/juridictions/notaires?q=Victor&commune=delmas')
+    expect(lireRetourAnnuaire('page:')).toBe('/juridictions/notaires')
   })
   it('écarte ce qui n’appartient pas à l’annuaire', () => {
     expect(lireRetourAnnuaire('https://example.com')).toBeNull()
     expect(lireRetourAnnuaire('vue=juridictions&commune=delmas')).toBeNull()
-    expect(lireRetourAnnuaire('vue=notaires&commune=<x>&redirect=//evil&layers=;drop')).toBe('vue=notaires')
+    expect(lireRetourAnnuaire('onglet:vue=notaires&commune=<x>&redirect=//evil&layers=;drop')).toBe('/juridictions?vue=notaires')
     expect(lireRetourAnnuaire('vue=notaires&' + 'q='.padEnd(500, 'a'))).toBeNull()
+  })
+  it('retourAnnuaire et lireRetourAnnuaire s’accordent', () => {
+    const p = lireParamsAnnuaire({ q: 'Céant', page: '2' })
+    expect(lireRetourAnnuaire(retourAnnuaire(p, 'page'))).toBe('/juridictions/notaires?q=C%C3%A9ant&page=2')
+    expect(lireRetourAnnuaire(retourAnnuaire(p, 'onglet', 'paix,notaires'))).toBe('/juridictions?vue=notaires&q=C%C3%A9ant&layers=paix%2Cnotaires&page=2')
   })
 })

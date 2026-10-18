@@ -50,15 +50,24 @@ function Bloc({ n, id, titre, note, children }: { n: number; id: string; titre: 
  * Le courriel du demandeur n'est jamais publié et ne reçoit aucun envoi automatique.
  */
 export function NotaryRequestForm({
-  locale, l, renderedAt, notary, communes, erreurs: initiales, type, verification,
+  locale, l, renderedAt, notary, communes, erreurs: initiales, type, verification, objet = 'correction',
 }: {
   locale: Locale
   l: LibellesDemande
   /** Clé de site, action, langue du widget, nonce de la requête (CSP). */
   verification: { siteKey: string; action: string; langue: 'fr' | 'en'; nonce?: string }
   renderedAt: number
-  /** Notaire visé (lien « Vous êtes ce notaire ? ») ; sinon le nom se saisit. */
-  notary: { id: string; name: string; communeId?: string | null } | null
+  /**
+   * Notaire visé (crayon de sa fiche) ; sinon le nom se saisit. `version` et `publie` : les
+   * informations AFFICHÉES — reprises dans les champs d'une correction, résumées pour une
+   * confirmation (qui renvoie la version vue).
+   */
+  notary: {
+    id: string; name: string; communeId?: string | null; communeName?: string | null; version?: string
+    publie?: { address: string | null; phones: string[]; email: string | null }
+  } | null
+  /** Sur une fiche désignée : demander une correction, ou confirmer les informations affichées. */
+  objet?: 'correction' | 'confirmation'
   communes: Array<{ id: string; name: string; department: string }>
   erreurs: string[]
   type: 'coordonnees' | 'inscription'
@@ -71,6 +80,7 @@ export function NotaryRequestForm({
   const resume = useRef<HTMLDivElement>(null)
   const humain = useRef<VerificationHumaineHandle>(null)
   const a = (code: string) => erreurs.includes(code)
+  const confirmation = Boolean(notary) && objet === 'confirmation'
   // Message sous le champ ; l'identifiant sert à `aria-describedby`.
   const Err = ({ code }: { code: string }): ReactNode =>
     a(code) ? <span id={`err-${code}`} className="mt-1.5 block text-body-sm font-medium text-wouj">{l.erreurs[code]}</span> : null
@@ -128,9 +138,10 @@ export function NotaryRequestForm({
       <div aria-hidden="true" className="absolute -left-[10000px] h-px w-px overflow-hidden">
         <label>Site web<input type="text" name="site" tabIndex={-1} autoComplete="off" defaultValue="" /></label>
       </div>
-      {/* Notaire choisi : l'objet est connu, il voyage en champ caché. */}
-      {notary && <input type="hidden" name="type" value="coordonnees" />}
+      {/* Notaire choisi : l'objet (correction ou confirmation) voyage en champ caché. */}
+      {notary && <input type="hidden" name="type" value={confirmation ? 'confirmation' : 'coordonnees'} />}
       {notary && <input type="hidden" name="notaire" value={notary.id} />}
+      {notary && confirmation && <input type="hidden" name="version" value={notary.version ?? ''} />}
 
       <Bloc n={1} id="bloc-objet" titre={l.type}>
         {notary ? (
@@ -138,6 +149,20 @@ export function NotaryRequestForm({
             <p className={etiquette}>{l.notary}</p>
             <p className="mt-1 font-serif text-2xl font-semibold text-ank">{notary.name}</p>
             <Err code="notaire" />
+            {/* Deux objets, en LIENS : le choix fonctionne sans JavaScript et se partage. */}
+            <nav aria-label={l.type} className="mt-4 grid gap-2 sm:grid-cols-2">
+              {([['correction', l.objCorrection], ['confirmation', l.objConfirmation]] as const).map(([o, txt]) => (
+                <a
+                  key={o}
+                  href={`/${locale}/juridictions/notaires/demande?notaire=${notary.id}${o === 'confirmation' ? '&objet=confirmation' : ''}`}
+                  aria-current={objet === o ? 'page' : undefined}
+                  className={`flex min-h-[48px] items-center gap-3 rounded-md border px-4 py-2 text-body-sm ${objet === o ? 'border-ank bg-pil font-semibold text-ank' : 'border-liy bg-white text-grafit hover:border-ank'}`}
+                >
+                  <span aria-hidden="true" className={`h-3 w-3 shrink-0 rounded-full border ${objet === o ? 'border-ank bg-ank' : 'border-grafit'}`} />
+                  {txt}
+                </a>
+              ))}
+            </nav>
           </div>
         ) : (
           <>
@@ -162,34 +187,58 @@ export function NotaryRequestForm({
             </label>
           </>
         )}
-        <label className={etiquette}>
-          {l.commune}
-          <select name="commune" defaultValue={notary?.communeId ?? ''} className={champ} {...decrit('commune')}>
-            <option value="">{l.chooseCommune}</option>
-            {communes.map((c) => <option key={c.id} value={c.id}>{c.name} ({c.department})</option>)}
-          </select>
-          <Err code="commune" />
-        </label>
+        {!confirmation && (
+          <label className={etiquette}>
+            {l.commune}
+            <select name="commune" defaultValue={notary?.communeId ?? ''} className={champ} {...decrit('commune')}>
+              <option value="">{l.chooseCommune}</option>
+              {communes.map((c) => <option key={c.id} value={c.id}>{c.name} ({c.department})</option>)}
+            </select>
+            <Err code="commune" />
+          </label>
+        )}
       </Bloc>
 
-      <Bloc n={2} id="bloc-etude" titre={l.contactSection} note={l.contactHint}>
+      {confirmation && notary ? (
+      <Bloc n={2} id="bloc-etude" titre={l.currentInfo} note={l.confirmIntro}>
+        <dl className="grid grid-cols-1 gap-y-1 text-body-sm sm:grid-cols-[auto_1fr] sm:gap-x-4 sm:gap-y-2">
+          <dt className="text-grafit">{l.commission}</dt><dd className="text-ank">{notary.communeName || l.none}</dd>
+          <dt className="text-grafit">{l.address}</dt><dd className="text-ank">{notary.publie?.address || l.none}</dd>
+          <dt className="text-grafit">{l.phone}</dt><dd className="font-mono text-ank">{notary.publie?.phones.length ? notary.publie.phones.join(' · ') : <span className="font-sans">{l.none}</span>}</dd>
+          <dt className="text-grafit">{l.officeEmail}</dt><dd className="text-ank [overflow-wrap:anywhere]">{notary.publie?.email || l.none}</dd>
+        </dl>
+        <Err code="version" />
+        <div>
+          <label className="flex items-start gap-3 text-body-sm text-ank">
+            <input type="checkbox" name="confirme" value="oui" required className="mt-1 h-4 w-4 shrink-0 accent-wouj" {...decrit('confirme')} />
+            <span>{l.confirmCheckbox}</span>
+          </label>
+          <Err code="confirme" />
+        </div>
+        <label className={etiquette}>
+          {l.message}
+          <textarea name="message" rows={3} maxLength={1000} className={champTexte} />
+        </label>
+      </Bloc>
+      ) : (
+      <Bloc n={2} id="bloc-etude" titre={l.contactSection} note={notary ? l.correctionHint : l.contactHint}>
         <Err code="coordonnees" />
         <label className={etiquette}>
           {l.address}
-          <input name="adresse" maxLength={200} autoComplete="street-address" className={champ} {...decrit('coordonnees')} />
+          <input name="adresse" maxLength={200} autoComplete="street-address" defaultValue={notary?.publie?.address ?? ''} className={champ} {...decrit('coordonnees')} />
         </label>
         {/* Téléphone et courriel côte à côte sur ordinateur ; l'aide passe SOUS le champ pour
             que les deux champs restent alignés. */}
         <div className="grid gap-5 sm:grid-cols-2">
           <label className={etiquette}>
             {l.phone}
-            <input name="telephones" type="text" inputMode="tel" maxLength={120} className={champ} {...decrit('telephones', 'aide-telephones')} />
+            <input name="telephones" type="text" inputMode="tel" maxLength={120} defaultValue={notary?.publie?.phones.join(' ; ') ?? ''} className={champ} {...decrit('telephones', 'aide-telephones')} />
             <span id="aide-telephones" className={aide}>{l.phonesHint}</span>
             <Err code="telephones" />
           </label>
           <label className={etiquette}>
             {l.officeEmail}
-            <input name="courriel" type="email" maxLength={120} className={champ} {...decrit('courriel')} />
+            <input name="courriel" type="email" maxLength={120} defaultValue={notary?.publie?.email ?? ''} className={champ} {...decrit('courriel')} />
             <Err code="courriel" />
           </label>
         </div>
@@ -198,6 +247,7 @@ export function NotaryRequestForm({
           <textarea name="message" rows={3} maxLength={1000} className={champTexte} />
         </label>
       </Bloc>
+      )}
 
       <Bloc n={3} id="bloc-vous" titre={l.you} note={l.youHint}>
         <label className={etiquette}>

@@ -6,10 +6,10 @@ import { LocaleSwitcher } from '@/components/LocaleSwitcher'
 import { CookieBanner } from '@/components/CookieBanner'
 import { dictFor } from '@/lib/i18n/server'
 import { isLocale, LOCALES } from '@/lib/types'
-import { getCommuneRecord, getCommuneDirectory, getNotaryAnnuaire, getNotaryIndex, type CommuneRecord } from '@/lib/jurisdictions/data'
+import { getCommuneRecord, getCommuneDirectory, type CommuneRecord } from '@/lib/jurisdictions/data'
 import { parseLayersPour, serializeLayersPour, type VueCarte } from '@/lib/jurisdictions/layers'
 import { lireParamsAnnuaire } from '@/lib/jurisdictions/annuaire-notaires'
-import { searchNotaries } from '@/lib/jurisdictions/search-notaries'
+import { chargerAnnuaire } from '@/lib/jurisdictions/annuaire-chargement'
 import { attributionsCarte } from '@/lib/jurisdictions/fond-de-rues'
 import { JudicialSearch } from '@/components/jurisdictions/JudicialSearch'
 import { JudicialFilters } from '@/components/jurisdictions/JudicialFilters'
@@ -113,23 +113,9 @@ export default async function JuridictionsPage({
   // ── Onglet « Notaires » : l'annuaire ne charge ni la fiche d'une commune ni la liste des 149.
   let annuaire: { etat: EtatAnnuaire; params: ReturnType<typeof lireParamsAnnuaire>; notFound: boolean } | null = null
   if (enNotaires) {
-    const p = lireParamsAnnuaire(searchParams)
-    let etat: EtatAnnuaire
-    try {
-      const a = await getNotaryAnnuaire()
-      if (!a) etat = { kind: 'indisponible' }
-      else {
-        const trouves = p.q ? new Set(searchNotaries(await getNotaryIndex(), p.q, { avecCommune: true }).map((h) => h.id)) : null
-        etat = { kind: 'ok', annuaire: a, trouves }
-      }
-    } catch (e) {
-      // Une PANNE n'est jamais présentée comme une liste vide : message et « Réessayer ».
-      console.error('[annuaire des notaires]', e)
-      etat = { kind: 'erreur' }
-    }
-    // Commune inconnue (identifiant bien formé, mais absent du référentiel) : le filtre est ignoré, et dit.
-    const inconnue = Boolean(p.commune && etat.kind === 'ok' && !etat.annuaire.communes.some((c) => c.id === p.commune))
-    annuaire = { etat, params: inconnue ? { ...p, commune: null } : p, notFound: inconnue }
+    // Même chargement que la page d'annuaire ; une PANNE n'est jamais présentée comme une liste vide.
+    const r = await chargerAnnuaire(lireParamsAnnuaire(searchParams))
+    annuaire = { etat: r.etat, params: r.params, notFound: r.communeInconnue }
   }
 
   const [record, directory] = enNotaires
@@ -172,12 +158,12 @@ export default async function JuridictionsPage({
             <h1 className="font-serif text-3xl font-semibold text-chabon lg:text-4xl">{t.judicial.pageTitle}</h1>
             <p className="mt-2 max-w-3xl leading-relaxed text-[#52656B]">{t.judicial.pageIntro}</p>
           </div>
-          {/* Lien PERMANENT vers l'annuaire : visible sans couche ni clic sur la carte. */}
+          {/* Accès PERMANENT à l'annuaire : visible sans couche ni clic sur la carte. */}
           <Link
             href={`/${locale}/juridictions?vue=notaires#ag-annuaire`}
             className="inline-flex min-h-[44px] shrink-0 items-center gap-2 self-start rounded-lg bg-chabon px-4 text-sm font-medium text-white transition hover:bg-chabon/90 lg:self-auto"
           >
-            <span aria-hidden="true">👤</span>{t.judicial.annuaireLink} <span aria-hidden="true">→</span>
+            {t.judicial.annuaireTitle} <span aria-hidden="true">→</span>
           </Link>
         </div>
 

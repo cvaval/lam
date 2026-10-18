@@ -11,6 +11,7 @@ import { demandesOuvertes } from '@/lib/jurisdictions/notaires-demandes'
 import { ACTIONS_HUMAIN, clesTurnstile, langueTurnstile } from '@/lib/security/turnstile'
 import { NotaryRequestForm } from '@/components/jurisdictions/NotaryRequestForm'
 import { libellesDemande } from '@/components/jurisdictions/notary-request-labels'
+import { formatPhone } from '@/lib/jurisdictions/coordonnees'
 
 export const dynamic = 'force-dynamic'
 
@@ -24,7 +25,8 @@ const premier = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] :
  * valide d'abord l'addition à la politique de confidentialité). `noindex`. La vérification
  * humaine (Turnstile) précède tout envoi ; la CSP de CETTE page seule l'autorise.
  *
- *  - `?notaire=<id>` : notaire visé (pré-sélection « coordonnées ») ;
+ *  - `?notaire=<id>` : notaire visé (crayon de sa fiche) ; `&objet=confirmation` : confirmer les
+ *    informations affichées (sinon : demander une correction, champs repris de la fiche) ;
  *  - `?type=inscription` : notaire absent de la liste ;
  *  - `?envoyee=1` : confirmation, la même dans tous les cas ;
  *  - `?erreur=a,b` : champs à reprendre (la saisie n'est pas renvoyée dans l'URL).
@@ -52,9 +54,10 @@ export default async function DemandeNotairePage({
     : await Promise.all([notaireId ? getNotaryProfile(notaireId) : Promise.resolve(null), getCommuneDirectory()])
   const type = premier(searchParams.type) === 'inscription' && !profil ? 'inscription' : 'coordonnees'
 
-  // Notaire choisi : « Mettre à jour les coordonnées d'un notaire ». Sans notaire, le parcours
+  // Notaire choisi : « Demander une modification ou une confirmation ». Sans notaire, le parcours
   // d'origine (proposer des coordonnées OU signaler un notaire absent) garde ses textes.
-  const titre = profil ? j.notaryRequestUpdateTitle : j.notaryRequestTitle
+  const objet = profil && premier(searchParams.objet) === 'confirmation' ? 'confirmation' : 'correction'
+  const titre = profil ? j.notaryEditRequest : j.notaryRequestTitle
   const intro = profil ? j.notaryRequestUpdateIntro : j.notaryRequestIntro
 
   return (
@@ -68,7 +71,7 @@ export default async function DemandeNotairePage({
           <ol className="flex flex-wrap items-center gap-1.5">
             <li><Link href={`/${locale}/juridictions`} className="inline-flex min-h-[44px] items-center transition hover:text-chabon hover:!underline">{j.breadcrumbHere}</Link></li>
             <li aria-hidden="true">/</li>
-            <li><Link href={`/${locale}/juridictions/notaires`} className="inline-flex min-h-[44px] items-center transition hover:text-chabon hover:!underline">{j.notaries}</Link></li>
+            <li><Link href={`/${locale}/juridictions/notaires`} className="inline-flex min-h-[44px] items-center transition hover:text-chabon hover:!underline">{j.annuaireTitle}</Link></li>
           </ol>
         </nav>
 
@@ -92,7 +95,12 @@ export default async function DemandeNotairePage({
               locale={locale}
               l={libellesDemande(t)}
               renderedAt={Date.now()}
-              notary={profil ? { id: profil.id, name: profil.name, communeId: profil.commune?.id ?? null } : null}
+              notary={profil ? {
+                id: profil.id, name: profil.name, communeId: profil.commune?.id ?? null, communeName: profil.commune?.name ?? null,
+                version: profil.version,
+                publie: { address: profil.contact?.address ?? null, phones: (profil.contact?.phones ?? []).map(formatPhone), email: profil.contact?.email ?? null },
+              } : null}
+              objet={objet}
               communes={communes.map((c) => ({ id: c.id, name: c.name, department: c.department }))}
               erreurs={erreurs}
               type={type}

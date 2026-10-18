@@ -17,8 +17,14 @@
 import { z } from 'zod'
 import { EMAIL_RE, normalizePhone } from './coordonnees'
 import { clesTurnstile } from '../security/turnstile'
+import { METHODES_VERIFICATION } from './notaires-confirmation'
 
-export const DEMANDE_KINDS = ['CONTACT', 'LISTING'] as const
+/**
+ * CONTACT : correction des coordonnées ; LISTING : notaire absent de la liste ; CONFIRMATION : le
+ * notaire confirme les informations AFFICHÉES (badge, après validation du master admin) ; IMPORT :
+ * proposition issue d'un import de document (scripts/import-notaires-docx.ts), jamais du public.
+ */
+export const DEMANDE_KINDS = ['CONTACT', 'LISTING', 'CONFIRMATION', 'IMPORT'] as const
 export type DemandeKind = (typeof DEMANDE_KINDS)[number]
 export const DEMANDEUR_ROLES = ['NOTAIRE', 'ETUDE', 'AUTRE'] as const
 export type DemandeurRole = (typeof DEMANDEUR_ROLES)[number]
@@ -26,7 +32,7 @@ export const DEMANDE_STATUTS = ['NOUVELLE', 'EN_COURS', 'ACCEPTEE', 'REFUSEE'] a
 export type DemandeStatut = (typeof DEMANDE_STATUTS)[number]
 /** Libellés de l'administration (français seulement, comme le reste de la console). */
 export const LIBELLE_STATUT: Record<string, string> = { NOUVELLE: 'Nouvelle', EN_COURS: 'En cours', ACCEPTEE: 'Acceptée', REFUSEE: 'Refusée' }
-export const LIBELLE_KIND: Record<string, string> = { CONTACT: 'Coordonnées', LISTING: 'Inscription' }
+export const LIBELLE_KIND: Record<string, string> = { CONTACT: 'Correction', LISTING: 'Inscription', CONFIRMATION: 'Confirmation', IMPORT: 'Proposition d’import' }
 export const LIBELLE_ROLE: Record<string, string> = { NOTAIRE: 'le notaire', ETUDE: 'son étude', AUTRE: 'autre' }
 
 /** Frein persistant par adresse IP (compté sur l'audit NOTARY_REQUEST_CREATED). */
@@ -85,7 +91,7 @@ export function lireTelephones(brut: string | null): string[] | null {
 
 export type ChampDemande =
   | 'type' | 'notaire' | 'nomNotaire' | 'commune' | 'nom' | 'qualite' | 'qualiteAutre'
-  | 'adresse' | 'telephones' | 'courriel' | 'coordonnees' | 'message' | 'courrielContact' | 'consentement'
+  | 'adresse' | 'telephones' | 'courriel' | 'coordonnees' | 'message' | 'courrielContact' | 'consentement' | 'confirme' | 'version'
 
 export interface DemandeValide {
   kind: DemandeKind
@@ -101,6 +107,8 @@ export interface DemandeValide {
   email: string | null
   message: string | null
   requesterEmail: string
+  /** CONFIRMATION : empreinte de la version AFFICHÉE au demandeur (`notaires-confirmation.ts`). */
+  version: string | null
 }
 
 export type LectureDemande =
@@ -121,7 +129,8 @@ export function lireDemande(
   if (!Number.isFinite(t) || opts.maintenant - t < DELAI_MINIMAL_MS || t > opts.maintenant + 60_000) return { kind: 'piege' }
 
   const erreurs: ChampDemande[] = []
-  const kind: DemandeKind | null = champs.type === 'coordonnees' ? 'CONTACT' : champs.type === 'inscription' ? 'LISTING' : null
+  // Le public ne peut demander que trois choses : IMPORT n'est jamais lu d'un formulaire.
+  const kind: DemandeKind | null = champs.type === 'coordonnees' ? 'CONTACT' : champs.type === 'inscription' ? 'LISTING' : champs.type === 'confirmation' ? 'CONFIRMATION' : null
   if (!kind) erreurs.push('type')
 
   const notaryId = ligne(champs.notaire, 120)
@@ -133,7 +142,15 @@ export function lireDemande(
     if (!communeId || !opts.communesValides.has(communeId)) erreurs.push('commune')
   } else if (kind === 'CONTACT' && !notaryId && !notaryName) {
     erreurs.push('nomNotaire')
+  } else if (kind === 'CONFIRMATION' && !notaryId) {
+    // On ne confirme que les informations d'une fiche publiée, désignée.
+    erreurs.push('notaire')
   }
+  // CONFIRMATION : la version vue, et la case cochée. Ni l'une ni l'autre ne prouve la provenance —
+  // c'est le master admin qui l'établit avant toute validation.
+  const version = kind === 'CONFIRMATION' ? ligne(champs.version, 64) : null
+  if (kind === 'CONFIRMATION' && (!version || !/^[0-9a-f]{64}$/.test(version))) erreurs.push('version')
+  if (kind === 'CONFIRMATION' && champs.confirme !== 'oui') erreurs.push('confirme')
   if (communeId && kind === 'CONTACT' && !opts.communesValides.has(communeId)) erreurs.push('commune')
 
   const requesterName = ligne(champs.nom, 120)
@@ -150,6 +167,8 @@ export function lireDemande(
   if (email && !EMAIL_RE.test(email)) erreurs.push('courriel')
   // Un numéro illisible se signale pour lui-même : pas de second message « aucune coordonnée ».
   if (kind === 'CONTACT' && phones !== null && !address && !phones.length && !email) erreurs.push('coordonnees')
+  // Une confirmation ne propose RIEN : les champs de coordonnées éventuellement envoyés sont ignorés.
+  const confirmation = kind === 'CONFIRMATION'
 
   const message = texte(champs.message, 1000)
   const requesterEmail = ligne(champs.courrielContact, 120)
@@ -164,7 +183,8 @@ export function lireDemande(
     valeur: {
       kind, notaryId, notaryName, communeId: communeId && opts.communesValides.has(communeId) ? communeId : null,
       requesterName, requesterRole: role, requesterRoleOther: role === 'AUTRE' ? roleOther : null,
-      address, phones, email, message, requesterEmail,
+      address: confirmation ? null : address, phones: confirmation ? [] : phones, email: confirmation ? null : email,
+      message, requesterEmail, version,
     },
   }
 }
@@ -201,14 +221,28 @@ export const decisionDemandeSchema = z.discriminatedUnion('action', [
     verifiedOn: isoDateSchema(),
     note: z.string().trim().min(10).max(1000),
   }),
+  // Badge « Confirmé » : décision DISTINCTE de l'acceptation d'une correction. La provenance doit
+  // avoir été ÉTABLIE (méthode + référence privée des justificatifs) : une connexion, une case cochée
+  // ou la possession du nom ne suffisent pas.
+  z.object({
+    action: z.literal('VALIDER_CONFIRMATION'),
+    confirmedOn: isoDateSchema(),
+    method: z.enum(METHODES_VERIFICATION),
+    evidenceRef: z.string().trim().min(3).max(300),
+    note: z.string().trim().min(10).max(1000),
+  }),
 ])
 export type DecisionDemande = z.infer<typeof decisionDemandeSchema>
 
-/** Une demande décidée (acceptée ou refusée) ne se rouvre pas ; INSCRIRE ne vaut que pour une inscription. */
+/**
+ * Une demande décidée (acceptée ou refusée) ne se rouvre pas ; INSCRIRE ne vaut que pour une
+ * inscription, VALIDER_CONFIRMATION que pour une demande de CONFIRMATION.
+ */
 export function decisionPermise(statut: string, kind: string, action: DecisionDemande['action']): boolean {
   if (statut !== 'NOUVELLE' && statut !== 'EN_COURS') return false
   if (action === 'EN_COURS') return statut === 'NOUVELLE'
   if (action === 'INSCRIRE') return kind === 'LISTING'
+  if (action === 'VALIDER_CONFIRMATION') return kind === 'CONFIRMATION'
   return true
 }
 

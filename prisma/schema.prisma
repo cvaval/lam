@@ -848,8 +848,9 @@ model Notary {
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 
-  commune JudicialCommune? @relation(fields: [communeId], references: [id])
-  contact NotaryContact?
+  commune       JudicialCommune?     @relation(fields: [communeId], references: [id])
+  contact       NotaryContact?
+  confirmations NotaryConfirmation[]
 
   @@unique([edition, ordinal])
   @@index([communeId, active])
@@ -887,7 +888,7 @@ model NotaryContact {
 /// décision (cron des sessions). RLS exigée, comme toute table.
 model NotaryRequest {
   id             String    @id @default(cuid())
-  kind           String // CONTACT | LISTING
+  kind           String // CONTACT (correction) | LISTING | CONFIRMATION | IMPORT (proposition d'un import)
   notaryId       String? // entrée visée (CONTACT)
   payloadJson    String // champs validés et normalisés
   requesterName  String
@@ -900,10 +901,42 @@ model NotaryRequest {
   decisionNote   String?
   notifiedAt     DateTime? // courriel à legal@ accepté par le service d'envoi
   humanVerifiedAt DateTime? // vérification humaine Turnstile réussie (heure du défi) ; null = demande antérieure
+  /// Proposition d'IMPORT : clé d'idempotence (fichier + empreinte + entrée). null pour une demande du public.
+  sourceKey      String?   @unique
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
 
   @@index([status, createdAt])
+}
+
+/// CONFIRMATION des informations d'une INSCRIPTION par le notaire — badge « Confirmé ». Validée par
+/// le MASTER ADMIN SEUL, après établissement de la provenance (une connexion, une case cochée ou la
+/// possession du nom ne suffisent pas). Liée à un INSTANTANÉ des informations publiées (la version
+/// confirmée, `snapshotHash`) : une modification substantielle l'INVALIDE. Jamais propagée aux
+/// autres inscriptions d'une même personne. Méthode, justificatifs et validateur ne sortent JAMAIS
+/// de l'administration : le public ne voit que le badge et la date de confirmation.
+model NotaryConfirmation {
+  id            String    @id @default(cuid())
+  notaryId      String
+  status        String // ACTIVE | RETIREE (master admin) | INVALIDEE (modification substantielle) | REMPLACEE
+  snapshotJson  String // informations confirmées : nom, commune, adresse, téléphones, courriel
+  snapshotHash  String // empreinte de l'instantané = VERSION confirmée
+  confirmedOn   DateTime // date de la confirmation par le notaire
+  validatedAt   DateTime // date de la validation administrative
+  validatedById String // master admin validateur
+  method        String // méthode de vérification de la provenance
+  evidenceRef   String // référence PRIVÉE vers les justificatifs
+  note          String?
+  requestId     String? // demande d'origine (CONFIRMATION)
+  endedAt       DateTime?
+  endedById     String? // null = invalidation automatique
+  endReason     String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  notary Notary @relation(fields: [notaryId], references: [id])
+
+  @@index([notaryId, status])
 }
 
 /// Note d'un lecteur au sujet d'un document — décisions judiciaires en premier lieu.

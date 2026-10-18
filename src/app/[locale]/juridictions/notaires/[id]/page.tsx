@@ -56,7 +56,7 @@ export default async function NotairePage({
           <ol className="flex flex-wrap items-center gap-1.5">
             <li><Link href={`/${locale}/juridictions`} className="inline-flex min-h-[44px] items-center transition hover:text-chabon hover:underline">{j.breadcrumbHere}</Link></li>
             <li aria-hidden="true">/</li>
-            <li><Link href={`/${locale}/juridictions?${retour ?? 'vue=notaires'}#ag-annuaire`} className="inline-flex min-h-[44px] items-center transition hover:text-chabon hover:underline">{j.annuaireTitle}</Link></li>
+            <li><Link href={`/${locale}${retour ?? '/juridictions?vue=notaires'}#ag-annuaire`} className="inline-flex min-h-[44px] items-center transition hover:text-chabon hover:underline">{j.annuaireTitle}</Link></li>
             <li aria-hidden="true">/</li>
             <li aria-current="page" className="font-medium text-ank">{p.name}</li>
           </ol>

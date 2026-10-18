@@ -23,9 +23,9 @@ const PROFIL: NotaryProfile = {
   id: 'mjsp-2026-09-08-11', ordinal: 11, name: 'Patrick VICTOR', printedName: null, mention: null,
   commune: { id: 'commune-ouest-port-au-prince', name: 'Port-au-Prince', department: 'Ouest' },
   sourceCommune: 'PORT-AU-PRINCE', jurisdiction: { id: 'court-tpi-tpi-de-port-au-prince', label: 'Port-au-Prince' },
-  contact: null, provenance: { consultations: ['2026-09-08'] }, addedByEditors: null,
+  contact: null, provenance: { consultations: ['2026-09-08'] }, addedByEditors: null, confirmedOn: null, version: '0'.repeat(64),
 }
-const VUE = (o: Partial<NotaryView> = {}): NotaryView => ({ id: 'mjsp-2026-09-08-11', ordinal: 11, fullName: 'Patrick VICTOR', mention: null, hasContact: false, addedByEditors: false, ...o })
+const VUE = (o: Partial<NotaryView> = {}): NotaryView => ({ id: 'mjsp-2026-09-08-11', ordinal: 11, fullName: 'Patrick VICTOR', mention: null, hasContact: false, addedByEditors: false, confirmedOn: null, ...o })
 const DIR: NotaryDirectory = {
   totalEntries: 423, activeEntries: 422, addedEntries: 0, provenance: null, unmatched: [],
   tpis: [{ id: 'court-tpi-tpi-de-port-au-prince', name: 'TPI de Port-au-Prince', label: 'Port-au-Prince', total: 1, communes: [{ id: 'commune-ouest-port-au-prince', name: 'Port-au-Prince', department: 'Ouest', notaires: [{ ...VUE(), printedDepartment: null }] }] }],
@@ -41,10 +41,12 @@ describe('liens discrets vers le formulaire', () => {
     ].join('')
     expect(html).not.toContain(LIEN)
   })
-  it('ouvert : « Vous êtes ce notaire ? » sur sa page (notaire pré-choisi), « absent de la liste ? » ailleurs', () => {
+  it('ouvert : le CRAYON sur sa page (notaire pré-choisi), « absent de la liste ? » ailleurs', () => {
     const profil = renderToStaticMarkup(<NotaryProfileView p={PROFIL} locale="fr" t={t} demandes />)
     expect(profil).toContain(`href="${LIEN}?notaire=mjsp-2026-09-08-11"`)
-    expect(profil).toContain(j.notaryRequestLinkContact.replace('’', '’'))
+    expect(profil).toContain(`aria-label="${j.notaryEditRequest}"`)
+    // Le grand lien « Vous êtes ce notaire ? » a été remplacé par le crayon (18 oct. 2026).
+    expect(profil).not.toContain(j.notaryRequestLinkContact)
     const section = renderToStaticMarkup(<NotariesSection notaires={[]} provenance={null} tpiId={null} locale="fr" t={t} demandes />)
     expect(section).toContain(`href="${LIEN}?type=inscription"`)
     const liste = renderToStaticMarkup(<NotaryDirectoryView dir={DIR} locale="fr" t={t} demandes />)
@@ -103,10 +105,34 @@ describe('le formulaire', () => {
     for (const [id, n, titre] of [['bloc-objet', 1, j.notaryRequestType], ['bloc-etude', 2, j.notaryRequestContactSection], ['bloc-vous', 3, j.notaryRequestYou]] as const) {
       expect(html).toMatch(new RegExp(`<h2 id="${id}"[^>]*><span aria-hidden="true"[^>]*>${n}</span>${titre.replace(/[’']/g, '.')}</h2>`))
     }
-    expect(html).toContain(j.notaryRequestContactHint)
+    // Notaire désigné : les champs reprennent la fiche, à corriger.
+    expect(html).toContain(j.notaryRequestCorrectionHint.replace(/’/g, '’'))
     expect(html).toContain(j.notaryRequestYouHint)
     expect(html).toMatch(new RegExp(`${j.notaryRequestOfficeEmail.replace(/[’']/g, '.')}<input name="courriel" type="email"`))
     expect(html).toMatch(new RegExp(`${j.notaryRequestReplyEmail}<input name="courrielContact" type="email"[^>]*aria-describedby="bloc-vous-note"`))
+  })
+  it('correction : les champs reprennent les informations PUBLIÉES de la fiche', () => {
+    const html = rendu({ notary: { ...VICTOR, publie: { address: '14 rue Exemple, Bourdon', phones: ['+509 2000-0001'], email: 'etude@exemple.ht' } }, communes: COMMUNES })
+    expect(html).toMatch(/<input name="adresse"[^>]*value="14 rue Exemple, Bourdon"/)
+    expect(html).toMatch(/<input name="courriel" type="email"[^>]*value="etude@exemple.ht"/)
+    expect(html).toContain('name="type" value="coordonnees"')
+    expect(html).toMatch(/aria-current="page"[^>]*>.*Demander une correction/)
+  })
+  it('confirmation : résumé des informations publiées, version vue, case à cocher ; aucun champ de coordonnées', () => {
+    const html = rendu({ notary: { ...VICTOR, communeName: 'Port-au-Prince', version: 'd'.repeat(64), publie: { address: '14 rue Exemple, Bourdon', phones: ['+509 2000-0001'], email: null } }, communes: COMMUNES, objet: 'confirmation' })
+    expect(html).toContain('name="type" value="confirmation"')
+    expect(html).toContain(`name="version" value="${'d'.repeat(64)}"`)
+    expect(html).toMatch(/<input type="checkbox" name="confirme" required="" [^>]*value="oui"/)
+    expect(html).toContain('14 rue Exemple, Bourdon')
+    expect(html).toContain(j.notaryRequestNone)
+    expect(html).not.toContain('name="adresse"')
+    expect(html).not.toContain('name="telephones"')
+    // Identité, qualité et contact PRIVÉ du demandeur restent exigés.
+    expect(html).toContain('name="courrielContact"')
+    expect(html).toContain('name="qualite"')
+  })
+  it('après l’envoi : « Votre demande a été transmise au Master Admin pour examen. »', () => {
+    expect(j.notaryRequestSent).toBe('Votre demande a été transmise au Master Admin pour examen.')
   })
   it('« Précisez votre qualité » n’apparaît que pour « Autre » (ou quand il faut le corriger)', () => {
     expect(rendu()).not.toContain('name="qualiteAutre"')

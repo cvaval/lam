@@ -10,6 +10,7 @@ import { ACTIONS_HUMAIN, CHAMP_JETON, jetonConsomme, verifierHumain } from '@/li
 import {
   DEMANDES_PAR_IP, PLAFOND_COURRIELS_JOUR, demandesOuvertes, destinatairesAlerte, lireDemande,
 } from '@/lib/jurisdictions/notaires-demandes'
+import { empreinte, instantane } from '@/lib/jurisdictions/notaires-confirmation'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -23,6 +24,9 @@ export const dynamic = 'force-dynamic'
  *   3. champ piège ou envoi trop rapide → « envoyée » sans RIEN enregistrer ni appeler Cloudflare ;
  *   4. validation de la saisie — AVANT la vérification humaine : une faute de frappe ne consomme
  *      pas le jeton (`jetonConsomme: false`), la personne corrige sans refaire la vérification ;
+ *      CONFIRMATION : la fiche doit être publiée et sa version ACTUELLE être celle qu'a vue le
+ *      demandeur (sinon `version`) — la demande garde l'INSTANTANÉ confirmé. Ni la case cochée ni
+ *      la vérification humaine ne prouvent la provenance : le master admin l'établit, seul ;
  *   5. VÉRIFICATION HUMAINE (Turnstile, action `notary-request`) ; échec → audit
  *      HUMAN_CHECK_FAILED (IP, motif, codes — ni jeton ni contenu) et refus `humain` ;
  *   6. frein persistant par IP (3 par heure, sur l'audit) ;
@@ -43,7 +47,8 @@ export async function POST(req: NextRequest) {
   const champs: Record<string, string> = {}
   form?.forEach((v, k) => { if (typeof v === 'string') champs[k] = v })
   const locale = isLocale(champs.locale ?? '') ? champs.locale : 'fr'
-  const notaireQs = champs.notaire && /^[a-z0-9][a-z0-9-]{2,119}$/.test(champs.notaire) ? `&notaire=${champs.notaire}` : ''
+  const notaireQs = (champs.notaire && /^[a-z0-9][a-z0-9-]{2,119}$/.test(champs.notaire) ? `&notaire=${champs.notaire}` : '')
+    + (champs.type === 'confirmation' ? '&objet=confirmation' : '')
   const enJson = (req.headers.get('accept') ?? '').includes('application/json')
   const redirige = (qs: string) => NextResponse.redirect(new URL(`/${locale}/juridictions/notaires/demande?${qs}`, req.url), 303)
   const envoyee = () => (enJson ? NextResponse.json({ ok: true }) : redirige('envoyee=1'))
@@ -60,6 +65,22 @@ export async function POST(req: NextRequest) {
   if (lecture.kind === 'invalide') return refus(lecture.erreurs, 422, false)
   const d = lecture.valeur
 
+  // L'entrée visée doit exister et être PUBLIÉE ; sinon la demande garde le nom saisi seul.
+  let notaire: { id: string; fullName: string; displayName: string | null; communeId: string | null; contact: { address: string | null; phonesJson: string; email: string | null; active: boolean } | null } | null = null
+  if (d.notaryId) {
+    notaire = await prisma.notary.findFirst({
+      where: { id: d.notaryId, active: true },
+      select: { id: true, fullName: true, displayName: true, communeId: true, contact: { select: { address: true, phonesJson: true, email: true, active: true } } },
+    }).catch(() => null)
+  }
+  let confirme: { version: string; snapshot: ReturnType<typeof instantane> } | null = null
+  if (d.kind === 'CONFIRMATION') {
+    if (!notaire) return refus(['notaire'], 422, false)
+    const snapshot = instantane(notaire, notaire.contact)
+    if (empreinte(snapshot) !== d.version) return refus(['version'], 409, false)
+    confirme = { version: d.version, snapshot }
+  }
+
   const humain = await verifierHumain({ jeton: champs[CHAMP_JETON], ip: ctx.ip, action: ACTIONS_HUMAIN.notaryRequest })
   if (!humain.ok) {
     await audit({ action: 'HUMAN_CHECK_FAILED', ip: ctx.ip, userAgent: ctx.userAgent, meta: { formulaire: 'notaires-demande', motif: humain.motif, codes: humain.codes } })
@@ -73,12 +94,6 @@ export async function POST(req: NextRequest) {
     return refus(['frein'], 429)
   }
 
-  // L'entrée visée doit exister et être PUBLIÉE ; sinon la demande garde le nom saisi seul.
-  let notaire: { id: string; fullName: string; displayName: string | null } | null = null
-  if (d.notaryId) {
-    notaire = await prisma.notary.findFirst({ where: { id: d.notaryId, active: true }, select: { id: true, fullName: true, displayName: true } }).catch(() => null)
-  }
-
   let demande: { id: string; createdAt: Date }
   try {
     demande = await prisma.notaryRequest.create({
@@ -88,6 +103,8 @@ export async function POST(req: NextRequest) {
         payloadJson: JSON.stringify({
           notaryName: d.notaryName, communeId: d.communeId, address: d.address, phones: d.phones,
           email: d.email, message: d.message, requesterRoleOther: d.requesterRoleOther,
+          // CONFIRMATION : la version confirmée et son contenu, figés à la réception.
+          ...(confirme ? { version: confirme.version, snapshot: confirme.snapshot } : {}),
         }),
         requesterName: d.requesterName,
         requesterRole: d.requesterRole,

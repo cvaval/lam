@@ -1,14 +1,15 @@
 import Link from 'next/link'
-import { MapPin } from 'lucide-react'
+import { Building2, MapPin } from 'lucide-react'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale } from '@/lib/types'
 import type { NotaryAnnuaire } from '@/lib/jurisdictions/data'
 import { compte } from '@/lib/jurisdictions/notaires-format'
 import { mentionAsPrinted } from '@/lib/jurisdictions/notaires-source'
 import {
-  filtresActifs, paginerAnnuaire, qsAnnuaire, type AnnuaireEntry, type AnnuaireParams,
+  cheminAnnuaire, filtresActifs, paginerAnnuaire, qsAnnuaire, retourAnnuaire, type AnnuaireEntry, type AnnuaireParams, type Emplacement,
 } from '@/lib/jurisdictions/annuaire-notaires'
 import { AnnuaireFiltres } from './AnnuaireFiltres'
+import { BadgeConfirme } from './BadgeConfirme'
 import { CarteNotaires } from './CarteNotaires'
 import { notarySourceLine } from './NotariesSection'
 
@@ -45,57 +46,94 @@ export function NotaryAnnuaireView({
   carteOuverte: boolean
 }) {
   const j = t.judicial
-  const base = `/${locale}/juridictions`
-  const extra = { layers: layersParam }
-  const lien = (p: Partial<AnnuaireParams>, ancre = '#ag-annuaire-resultats') => `${base}?${qsAnnuaire(p, extra)}${ancre}`
-  // La carte situe la COMMUNE (aucune étude n'est géolocalisée) ; sur téléphone, elle s'ouvre.
-  const lienCarte = (communeId: string) => `${base}?${qsAnnuaire({ commune: communeId }, { ...extra, carte: '1' })}`
   const labelsCarte = { show: j.annuaireShowMap, hide: j.annuaireHideMap, region: j.annuaireMapLabel }
   const portee = <p className="text-xs leading-relaxed text-[#52656B]">{j.annuaireMapScope}</p>
 
   return (
-    <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(400px,500px)] lg:items-start">
+    <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(400px,520px)] lg:items-start">
       {/* Ordinateur : la carte, à gauche, reste visible pendant qu'on parcourt l'annuaire. */}
       <div id="ag-carte-notaires" className="hidden scroll-mt-24 lg:sticky lg:top-24 lg:block">
         <CarteNotaires place="colonne" map={map} labels={labelsCarte} entete={couches} pied={pied} />
         <div className="mt-2">{portee}</div>
       </div>
 
-      <section id="ag-annuaire" aria-labelledby="ag-annuaire-titre" className="flex min-w-0 scroll-mt-24 flex-col gap-4">
-        <div className="rounded-xl border border-[#D7DCD7] bg-white p-4 sm:p-5">
-          <h2 id="ag-annuaire-titre" className="font-serif text-2xl font-semibold text-chabon">
-            <span aria-hidden="true" className="mr-2">👤</span>{j.annuaireTitle}
-          </h2>
-          <div className="mt-4">
-            {etat.kind === 'ok' ? (
-              <AnnuaireFiltres
-                key={`${params.q}|${params.juridiction ?? ''}|${params.commune ?? ''}`}
-                locale={locale}
-                q={params.q}
-                juridiction={params.juridiction}
-                commune={params.commune}
-                communeJuridiction={etat.annuaire.communes.find((c) => c.id === params.commune)?.jurisdictionId ?? null}
-                juridictions={etat.annuaire.juridictions}
-                layers={layersParam}
-                labels={{
-                  search: j.annuaireSearchLabel, placeholder: j.annuaireSearchPlaceholder, submit: j.annuaireSearchSubmit,
-                  jurisdiction: j.annuaireJurisdictionLabel, all: j.annuaireAllJurisdictions, loading: j.annuaireLoading,
-                }}
-              />
-            ) : null}
+      <AnnuaireListe
+        locale={locale}
+        t={t}
+        etat={etat}
+        params={params}
+        ou="onglet"
+        layersParam={layersParam}
+        carteMobile={
+          // Téléphone : la carte sous un bouton, au-dessus des résultats.
+          <div id="ag-carte-notaires-mobile" className="scroll-mt-24 lg:hidden">
+            <CarteNotaires place="mobile" map={map} labels={labelsCarte} entete={couches} pied={pied} ouverteParDefaut={carteOuverte} cle={params.commune} />
+            <div className="mt-2">{portee}</div>
           </div>
-          {etat.kind === 'ok' && <FiltresActifs locale={locale} t={t} params={params} annuaire={etat.annuaire} lien={lien} />}
-        </div>
-
-        {/* Téléphone : la carte sous un bouton, au-dessus des résultats. */}
-        <div id="ag-carte-notaires-mobile" className="scroll-mt-24 lg:hidden">
-          <CarteNotaires place="mobile" map={map} labels={labelsCarte} entete={couches} pied={pied} ouverteParDefaut={carteOuverte} cle={params.commune} />
-          <div className="mt-2">{portee}</div>
-        </div>
-
-        <Resultats locale={locale} t={t} etat={etat} params={params} lien={lien} lienCarte={lienCarte} />
-      </section>
+        }
+      />
     </div>
+  )
+}
+
+/**
+ * L'« Annuaire des notaires » : recherche, juridiction, filtres actifs, résultats, pages. LE MÊME
+ * pour l'onglet de la carte (`ou="onglet"`) et la page d'annuaire (`ou="page"`) : mêmes données,
+ * même classement, mêmes filtres — seuls changent l'adresse des liens et la présence de la carte.
+ */
+export function AnnuaireListe({
+  locale, t, etat, params, ou, layersParam = null, carteMobile = null, sansTitre = false,
+}: {
+  locale: Locale
+  t: Dictionary
+  etat: EtatAnnuaire
+  params: AnnuaireParams
+  ou: Emplacement
+  layersParam?: string | null
+  carteMobile?: React.ReactNode
+  /** La page d'annuaire porte le titre « Annuaire des notaires » en h1 (`id="ag-annuaire-titre"`). */
+  sansTitre?: boolean
+}) {
+  const j = t.judicial
+  const base = `/${locale}${cheminAnnuaire(ou)}`
+  const extra = ou === 'onglet' ? { layers: layersParam } : {}
+  const lien = (p: Partial<AnnuaireParams>, ancre = '#ag-annuaire-resultats') => {
+    const qs = qsAnnuaire(p, extra, ou)
+    return `${base}${qs ? `?${qs}` : ''}${ancre}`
+  }
+  // La carte (onglet) situe la COMMUNE — aucune étude n'est géolocalisée ; sur téléphone, elle s'ouvre.
+  const lienCarte = (communeId: string) => `/${locale}/juridictions?${qsAnnuaire({ commune: communeId }, { ...extra, carte: '1' })}`
+
+  return (
+    <section id="ag-annuaire" aria-labelledby="ag-annuaire-titre" className="flex min-w-0 scroll-mt-24 flex-col gap-4">
+      <div className="rounded-xl border border-[#D7DCD7] bg-white p-4 sm:p-5">
+        {!sansTitre && <h2 id="ag-annuaire-titre" className="font-serif text-2xl font-semibold text-chabon">{j.annuaireTitle}</h2>}
+        <div className={sansTitre ? '' : 'mt-4'}>
+          {etat.kind === 'ok' ? (
+            <AnnuaireFiltres
+              key={`${params.q}|${params.juridiction ?? ''}|${params.commune ?? ''}`}
+              locale={locale}
+              ou={ou}
+              q={params.q}
+              juridiction={params.juridiction}
+              commune={params.commune}
+              communeJuridiction={etat.annuaire.communes.find((c) => c.id === params.commune)?.jurisdictionId ?? null}
+              juridictions={etat.annuaire.juridictions}
+              layers={ou === 'onglet' ? layersParam : null}
+              labels={{
+                search: j.annuaireSearchLabel, placeholder: j.annuaireSearchPlaceholder, submit: j.annuaireSearchSubmit,
+                jurisdiction: j.annuaireJurisdictionLabel, all: j.annuaireAllJurisdictions, loading: j.annuaireLoading,
+              }}
+            />
+          ) : null}
+        </div>
+        {etat.kind === 'ok' && <FiltresActifs locale={locale} t={t} params={params} annuaire={etat.annuaire} lien={lien} />}
+      </div>
+
+      {carteMobile}
+
+      <Resultats locale={locale} t={t} etat={etat} params={params} lien={lien} lienCarte={lienCarte} retour={(p) => retourAnnuaire(p, ou, ou === 'onglet' ? layersParam : null)} />
+    </section>
   )
 }
 
@@ -142,10 +180,11 @@ function FiltresActifs({
 }
 
 function Resultats({
-  locale, t, etat, params, lien, lienCarte,
+  locale, t, etat, params, lien, lienCarte, retour,
 }: {
   locale: Locale; t: Dictionary; etat: EtatAnnuaire; params: AnnuaireParams
   lien: (p: Partial<AnnuaireParams>, ancre?: string) => string; lienCarte: (communeId: string) => string
+  retour: (p: AnnuaireParams) => string
 }) {
   const j = t.judicial
   if (etat.kind === 'erreur') {
@@ -172,7 +211,7 @@ function Resultats({
   const page = paginerAnnuaire(liste, params.page)
   const parJuridiction = new Map<string, number>()
   for (const e of liste) parJuridiction.set(e.jurisdictionId ?? '', (parJuridiction.get(e.jurisdictionId ?? '') ?? 0) + 1)
-  const pourFiche = qsAnnuaire({ ...params, page: page.page })
+  const pourFiche = retour({ ...params, page: page.page })
 
   return (
     <div id="ag-annuaire-resultats" className="flex scroll-mt-24 flex-col gap-4">
@@ -228,6 +267,12 @@ function Resultats({
   )
 }
 
+/**
+ * Une entrée de l'annuaire (présentation du visuel validé du 18 oct. 2026) : le nom en Source Serif,
+ * la coche et « Confirmé » SEULEMENT si le serveur l'autorise, la commune de commission, l'adresse
+ * de l'étude quand elle est connue, et « Voir la fiche → » en bouton bleu profond. La juridiction
+ * n'est pas répétée : elle titre le groupe.
+ */
 function CarteNotaire({
   e, locale, t, retour, lienCarte,
 }: { e: AnnuaireEntry; locale: Locale; t: Dictionary; retour: string; lienCarte: (communeId: string) => string }) {
@@ -236,58 +281,67 @@ function CarteNotaire({
   const surLaCarte = e.communeId ? lienCarte(e.communeId) : null
   const fiche = `/${locale}/juridictions/notaires/${e.id}?retour=${encodeURIComponent(retour)}`
   return (
-    <li className="rounded-lg border border-[#D7DCD7] bg-white p-3.5 sm:p-4">
-      <p className="text-[15px] font-semibold leading-snug text-chabon">
-        {e.name}
-        {mention && <span className="ml-1.5 font-mono text-[11px] font-normal text-[#52656B]">{mention}</span>}
-      </p>
-      <p className="mt-1 text-[13px] text-[#52656B]">
-        <span className="font-medium">{j.annuaireCommission}</span> :{' '}
-        {e.communeId ? (
-          <>{e.communeName}{e.department && <span> ({e.department})</span>}</>
-        ) : (
-          <>{j.annuaireUnmatchedCommune.replace('{name}', e.communeName ?? '')}</>
-        )}
-      </p>
-      {e.address ? (
-        <p className="mt-1.5 text-[13px] text-chabon">
-          <span className="sr-only">{j.annuaireAddress} : </span>
-          {surLaCarte ? (
+    <li className="rounded-lg border border-[#D7DCD7] bg-white p-4">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div className="min-w-0">
+          <p className="flex flex-wrap items-center gap-x-2 gap-y-1 font-serif text-[18px] font-semibold leading-snug text-chabon">
+            <span>{e.name}</span>
+            {mention && <span className="font-mono text-[11px] font-normal text-[#52656B]">{mention}</span>}
+            {e.confirmedOn && <BadgeConfirme libelle={j.notaryConfirmedBadge} infobulle={j.notaryConfirmedTooltip} />}
+          </p>
+          <p className="mt-2 flex items-start gap-2 text-[13px] text-[#52656B]">
+            <MapPin aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0" />
+            <span>
+              {j.annuaireCommission} :{' '}
+              {e.communeId ? (
+                <>{e.communeName}{e.department && <> ({e.department})</>}</>
+              ) : (
+                <>{j.annuaireUnmatchedCommune.replace('{name}', e.communeName ?? '')}</>
+              )}
+            </span>
+          </p>
+          {e.address ? (
+            <p className="mt-1 flex items-start gap-2 text-[13px] text-chabon">
+              <Building2 aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-[#52656B]" />
+              <span className="sr-only">{j.annuaireAddress} : </span>
+              {surLaCarte ? (
+                <Link
+                  href={surLaCarte}
+                  scroll={false}
+                  aria-label={j.annuaireAddressOnMap.replace('{address}', e.address).replace('{commune}', e.communeName ?? '')}
+                  className="underline decoration-[#D7DCD7] underline-offset-2 hover:text-[#9B422C] hover:decoration-[#9B422C]"
+                >
+                  {e.address}
+                </Link>
+              ) : (
+                <span>{e.address}</span>
+              )}
+            </p>
+          ) : (
+            <p className="mt-1 flex items-start gap-2 text-[12px] italic text-[#52656B]/90">
+              <Building2 aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 not-italic" />
+              {j.annuaireNoAddress}
+            </p>
+          )}
+          {surLaCarte && (
             <Link
               href={surLaCarte}
               scroll={false}
-              aria-label={j.annuaireAddressOnMap.replace('{address}', e.address).replace('{commune}', e.communeName ?? '')}
-              className="inline-flex items-start gap-1.5 underline decoration-[#D7DCD7] underline-offset-2 hover:text-[#9B422C] hover:decoration-[#9B422C]"
+              aria-label={j.annuaireLocateLabel.replace('{commune}', e.communeName ?? '').replace('{name}', e.name)}
+              className="mt-1 inline-flex min-h-[36px] items-center text-[12px] text-[#52656B] underline-offset-2 hover:text-[#9B422C] hover:underline"
             >
-              <MapPin aria-hidden="true" className="mt-0.5 h-3.5 w-3.5 shrink-0" />
-              <span>{e.address}</span>
+              {j.annuaireLocate}
             </Link>
-          ) : (
-            <span>{e.address}</span>
           )}
-        </p>
-      ) : (
-        <p className="mt-1.5 text-[12px] italic text-[#52656B]/90">{j.annuaireNoAddress}</p>
-      )}
-      <p className="mt-2.5 flex flex-wrap items-center gap-x-4 gap-y-1">
+        </div>
         <Link
           href={fiche}
           aria-label={j.annuaireSeeProfileLabel.replace('{name}', e.name)}
-          className="inline-flex min-h-[44px] items-center text-sm font-semibold text-chabon underline underline-offset-2 hover:text-[#9B422C]"
+          className="inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 rounded-lg bg-chabon px-4 text-sm font-medium text-white transition hover:bg-chabon/90"
         >
-          {j.annuaireSeeProfile} <span aria-hidden="true" className="ml-1">→</span>
+          {j.annuaireSeeProfile} <span aria-hidden="true">→</span>
         </Link>
-        {surLaCarte && (
-          <Link
-            href={surLaCarte}
-            scroll={false}
-            aria-label={j.annuaireLocateLabel.replace('{commune}', e.communeName ?? '').replace('{name}', e.name)}
-            className="inline-flex min-h-[44px] items-center gap-1 text-[13px] text-[#52656B] underline-offset-2 hover:text-[#9B422C] hover:underline"
-          >
-            <MapPin aria-hidden="true" className="h-3.5 w-3.5" /> {j.annuaireLocate}
-          </Link>
-        )}
-      </p>
+      </div>
     </li>
   )
 }

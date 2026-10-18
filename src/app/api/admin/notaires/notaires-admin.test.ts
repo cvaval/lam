@@ -19,6 +19,7 @@ const prisma = {
   notary: { findUnique: vi.fn(), findMany: vi.fn(), aggregate: vi.fn(), create: vi.fn() },
   notaryContact: { findUnique: vi.fn(), upsert: vi.fn(), delete: vi.fn() },
   notaryRequest: { findUnique: vi.fn(), update: vi.fn() },
+  notaryConfirmation: { findMany: vi.fn(), update: vi.fn(), create: vi.fn() },
   judicialCommune: { findUnique: vi.fn() },
   $transaction: vi.fn(),
 }
@@ -32,6 +33,8 @@ vi.mock('@/lib/auth/audit', () => ({ audit }))
 
 const coordonnees = await import('./[id]/coordonnees/route')
 const decision = await import('./demandes/[id]/route')
+const confirmation = await import('./[id]/confirmation/route')
+const { empreinte, instantane } = await import('@/lib/jurisdictions/notaires-confirmation')
 
 const ADMIN = { id: 'u-1', role: 'MASTER_ADMIN', email: 'admin@agora.ht' }
 const EDITEUR = { id: 'u-2', role: 'EDITEUR', email: 'redaction@agora.ht' }
@@ -48,7 +51,9 @@ const patch = (body: unknown, id = 'clx0demande0000001') => decision.PATCH(req('
 
 beforeEach(() => {
   vi.resetAllMocks()
-  prisma.$transaction.mockImplementation(async (fn: (tx: typeof prisma) => unknown) => fn(prisma))
+  prisma.$transaction.mockImplementation(async (fn: unknown) => (typeof fn === 'function' ? fn(prisma) : Promise.all(fn as Promise<unknown>[])))
+  prisma.notaryConfirmation.findMany.mockResolvedValue([])
+  prisma.notaryConfirmation.create.mockResolvedValue({ id: 'conf-1' })
   prisma.notary.findUnique.mockResolvedValue(NOTAIRE)
   prisma.notaryContact.upsert.mockImplementation(async ({ create }: { create: Record<string, unknown> }) => ({ ...create, createdAt: new Date(), updatedAt: new Date() }))
 })
@@ -175,5 +180,117 @@ describe('décision du master admin', () => {
     prisma.notaryRequest.findUnique.mockResolvedValue({ id: 'clx0demande0000001', status: 'NOUVELLE', kind: 'CONTACT' })
     expect((await patch({ action: 'INSCRIRE', fullName: 'X Y Z', communeId: 'commune-nord-port-margot', verifiedOn: '2026-10-09', note: 'vérifié au téléphone' })).status).toBe(409)
     expect(prisma.notary.create).not.toHaveBeenCalled()
+  })
+})
+
+// ── Badge « Confirmé » (18 oct. 2026) ─────────────────────────────────────────
+
+const NOTAIRE_COMPLET = {
+  id: 'mjsp-2026-09-08-11', active: true, fullName: 'Patrick VICTOR', displayName: null, communeId: 'commune-ouest-port-au-prince',
+  contact: { address: '14 rue Exemple, Bourdon, Port-au-Prince', phonesJson: '["+50920000001"]', email: 'etude@exemple.ht', active: true },
+}
+const VERSION = empreinte(instantane(NOTAIRE_COMPLET, NOTAIRE_COMPLET.contact))
+const VALIDER = { action: 'VALIDER_CONFIRMATION', confirmedOn: '2026-10-18', method: 'APPEL_NUMERO_INDEPENDANT', evidenceRef: 'Dossier N-2026-11, appel du 18/10', note: 'Rappel de l’étude au numéro publié par la Chambre ; le notaire confirme.' }
+const DEMANDE_CONF = (version = VERSION) => ({ id: 'clx0demande0000001', status: 'NOUVELLE', kind: 'CONFIRMATION', notaryId: NOTAIRE_COMPLET.id, payloadJson: JSON.stringify({ version }), createdAt: new Date('2026-10-17T12:00:00Z') })
+const retirer = (body: unknown, id = NOTAIRE_COMPLET.id) => confirmation.POST(req('POST', `/api/admin/notaires/${id}/confirmation`, body), { params: { id } })
+
+describe('badge « Confirmé » — validation réservée au master admin', () => {
+  it('sans être master admin : 403, rien n’est lu ni créé (contrôle côté serveur)', async () => {
+    requireAdminApi.mockResolvedValue(null)
+    expect((await patch(VALIDER)).status).toBe(403)
+    expect(prisma.notaryRequest.findUnique).not.toHaveBeenCalled()
+    expect(prisma.notaryConfirmation.create).not.toHaveBeenCalled()
+  })
+
+  it('validation : confirmation ACTIVE liée à la VERSION publiée, méthode et justificatifs consignés, demande acceptée', async () => {
+    requireAdminApi.mockResolvedValue(ADMIN)
+    prisma.notaryRequest.findUnique.mockResolvedValue(DEMANDE_CONF())
+    prisma.notary.findUnique.mockResolvedValue(NOTAIRE_COMPLET)
+    const res = await patch(VALIDER)
+    expect(res.status).toBe(200)
+    const c = prisma.notaryConfirmation.create.mock.calls[0][0].data
+    expect(c).toMatchObject({ notaryId: NOTAIRE_COMPLET.id, status: 'ACTIVE', snapshotHash: VERSION, validatedById: 'u-1', method: 'APPEL_NUMERO_INDEPENDANT', evidenceRef: 'Dossier N-2026-11, appel du 18/10', requestId: 'clx0demande0000001' })
+    expect(JSON.parse(c.snapshotJson)).toMatchObject({ adresse: '14 rue Exemple, Bourdon, Port-au-Prince', courriel: 'etude@exemple.ht' })
+    expect(prisma.notaryRequest.update.mock.calls[0][0].data).toMatchObject({ status: 'ACCEPTEE', decidedById: 'u-1' })
+    expect(audit.mock.calls.map((a) => a[0].action)).toEqual(['NOTARY_CONFIRMATION_VALIDATED', 'NOTARY_REQUEST_DECIDED'])
+    // La référence des justificatifs ne va pas dans le journal.
+    expect(JSON.stringify(audit.mock.calls)).not.toContain('Dossier N-2026-11')
+  })
+
+  it('informations modifiées depuis la demande : 409 `version_changed`, aucun badge', async () => {
+    requireAdminApi.mockResolvedValue(ADMIN)
+    prisma.notaryRequest.findUnique.mockResolvedValue(DEMANDE_CONF('a'.repeat(64)))
+    prisma.notary.findUnique.mockResolvedValue(NOTAIRE_COMPLET)
+    const res = await patch(VALIDER)
+    expect(res.status).toBe(409)
+    expect((await res.json()).error).toBe('version_changed')
+    expect(prisma.notaryConfirmation.create).not.toHaveBeenCalled()
+  })
+
+  it('correction et confirmation sont deux décisions : VALIDER_CONFIRMATION sur une correction → 409', async () => {
+    requireAdminApi.mockResolvedValue(ADMIN)
+    prisma.notaryRequest.findUnique.mockResolvedValue({ ...DEMANDE_CONF(), kind: 'CONTACT' })
+    expect((await patch(VALIDER)).status).toBe(409)
+    expect(prisma.notaryConfirmation.create).not.toHaveBeenCalled()
+  })
+
+  it('une provenance non établie ne passe pas : méthode inconnue ou justificatifs absents → 400', async () => {
+    requireAdminApi.mockResolvedValue(ADMIN)
+    expect((await patch({ ...VALIDER, method: 'CASE_COCHEE' })).status).toBe(400)
+    expect((await patch({ ...VALIDER, evidenceRef: '' })).status).toBe(400)
+    expect(prisma.notaryConfirmation.create).not.toHaveBeenCalled()
+  })
+
+  it('une confirmation antérieure ACTIVE passe REMPLACÉE', async () => {
+    requireAdminApi.mockResolvedValue(ADMIN)
+    prisma.notaryRequest.findUnique.mockResolvedValue(DEMANDE_CONF())
+    prisma.notary.findUnique.mockResolvedValue(NOTAIRE_COMPLET)
+    prisma.notaryConfirmation.findMany.mockResolvedValue([{ id: 'conf-0' }])
+    await patch(VALIDER)
+    expect(prisma.notaryConfirmation.update).toHaveBeenCalledWith(expect.objectContaining({ where: { id: 'conf-0' }, data: expect.objectContaining({ status: 'REMPLACEE' }) }))
+  })
+})
+
+describe('badge « Confirmé » — correction acceptée et modification substantielle', () => {
+  it('accepter une correction ne crée AUCUNE confirmation, et INVALIDE la confirmation active si la version change', async () => {
+    requireCapabilityApi.mockResolvedValue(ADMIN)
+    prisma.notary.findUnique.mockResolvedValue({ ...NOTAIRE_COMPLET, contact: { ...NOTAIRE_COMPLET.contact, address: '390, Route Exemple' } })
+    prisma.notaryRequest.findUnique.mockResolvedValue({ status: 'NOUVELLE', kind: 'CONTACT', notaryId: NOTAIRE_COMPLET.id })
+    prisma.notaryConfirmation.findMany.mockResolvedValue([{ id: 'conf-1', snapshotHash: VERSION }])
+    const res = await put({ ...SAISIE, requestId: 'clx0demande0000001' })
+    expect(res.status).toBe(200)
+    expect(prisma.notaryConfirmation.create).not.toHaveBeenCalled()
+    expect(prisma.notaryConfirmation.update).toHaveBeenCalledWith(expect.objectContaining({ where: { id: 'conf-1' }, data: expect.objectContaining({ status: 'INVALIDEE', endedById: 'u-1' }) }))
+    expect(audit.mock.calls.map((a) => a[0].action)).toContain('NOTARY_CONFIRMATION_INVALIDATED')
+  })
+
+  it('une proposition d’IMPORT s’accepte par la fiche, comme une correction (master admin)', async () => {
+    requireCapabilityApi.mockResolvedValue(ADMIN)
+    prisma.notaryRequest.findUnique.mockResolvedValue({ status: 'NOUVELLE', kind: 'IMPORT', notaryId: null })
+    expect((await put({ ...SAISIE, requestId: 'clx0demande0000001' })).status).toBe(200)
+    expect(prisma.notaryConfirmation.create).not.toHaveBeenCalled()
+  })
+})
+
+describe('badge « Confirmé » — retrait', () => {
+  it('sans être master admin : 403', async () => {
+    requireAdminApi.mockResolvedValue(null)
+    expect((await retirer({ action: 'RETIRER', motif: 'Le notaire a quitté l’étude.' })).status).toBe(403)
+    expect(prisma.notaryConfirmation.update).not.toHaveBeenCalled()
+  })
+
+  it('motif obligatoire ; sans confirmation active : 404', async () => {
+    requireAdminApi.mockResolvedValue(ADMIN)
+    expect((await retirer({ action: 'RETIRER', motif: 'court' })).status).toBe(400)
+    expect((await retirer({ action: 'RETIRER', motif: 'Le notaire a quitté l’étude.' })).status).toBe(404)
+  })
+
+  it('retrait : RETIRÉE, auteur et motif consignés, audité', async () => {
+    requireAdminApi.mockResolvedValue(ADMIN)
+    prisma.notaryConfirmation.findMany.mockResolvedValue([{ id: 'conf-1' }])
+    prisma.notaryConfirmation.update.mockResolvedValue({})
+    expect((await retirer({ action: 'RETIRER', motif: 'Le notaire a quitté l’étude.' })).status).toBe(200)
+    expect(prisma.notaryConfirmation.update).toHaveBeenCalledWith(expect.objectContaining({ data: expect.objectContaining({ status: 'RETIREE', endedById: 'u-1', endReason: 'Le notaire a quitté l’étude.' }) }))
+    expect(audit.mock.calls[0][0]).toMatchObject({ action: 'NOTARY_CONFIRMATION_WITHDRAWN', targetId: 'conf-1' })
   })
 })

@@ -6,6 +6,7 @@ import { audit } from '@/lib/auth/audit'
 import { getClientCtx } from '@/lib/auth/request'
 import { estSchemaAbsent } from '@/lib/delais/service-base'
 import { normaliserSaisieContact, saisieContactSchema } from '@/lib/jurisdictions/notaires-demandes'
+import { invaliderSiModifie } from '@/lib/jurisdictions/notaires-confirmation'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -26,6 +27,9 @@ const etat = (c: Record<string, unknown> | null) =>
  *           master admin, seul à voir la file.
  *  DELETE → supprime la fiche (master admin). Pour la retirer sans la perdre : `active: false`.
  *
+ * Une demande d'IMPORT (proposition issue d'un document) s'accepte de la même façon. ACCEPTER UNE
+ * CORRECTION NE DONNE AUCUN BADGE ; au contraire, si les informations publiées changent, la
+ * confirmation ACTIVE de l'inscription est INVALIDÉE dans la même transaction (le badge tombe).
  * Chaque écriture laisse un audit NOTARY_CONTACT_UPDATED avec l'état avant/après.
  */
 export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
@@ -51,11 +55,12 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
     if (requestId) {
       // Une demande « coordonnées » sans entrée choisie (nom saisi) se RATTACHE ici au notaire.
       const demande = await prisma.notaryRequest.findUnique({ where: { id: requestId }, select: { status: true, kind: true, notaryId: true } })
-      if (!demande || demande.kind !== 'CONTACT' || (demande.notaryId && demande.notaryId !== notaire.id)) return apiError('request_mismatch', 409)
+      if (!demande || (demande.kind !== 'CONTACT' && demande.kind !== 'IMPORT') || (demande.notaryId && demande.notaryId !== notaire.id)) return apiError('request_mismatch', 409)
       if (demande.status === 'ACCEPTEE' || demande.status === 'REFUSEE') return apiError('request_closed', 409)
     }
 
     const data = norm.valeur
+    let invalideesApresPut: string[] = []
     const apres = await prisma.$transaction(async (tx) => {
       const fiche = await tx.notaryContact.upsert({
         where: { notaryId: notaire.id },
@@ -68,8 +73,9 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
           data: { status: 'ACCEPTEE', notaryId: notaire.id, decidedById: user.id, decidedAt: new Date(), decisionNote: 'Coordonnées enregistrées.' },
         })
       }
-      return fiche
-    })
+      const invalidees = await invaliderSiModifie(tx, notaire.id, user.id, 'Modification substantielle des informations confirmées.')
+      return { fiche, invalidees }
+    }).then(({ fiche, invalidees }) => { invalideesApresPut = invalidees; return fiche })
 
     const { ip, userAgent } = getClientCtx(req)
     await audit({
@@ -79,7 +85,10 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
     if (requestId) {
       await audit({ action: 'NOTARY_REQUEST_DECIDED', actorId: user.id, targetType: 'NotaryRequest', targetId: requestId, ip, userAgent, meta: { decision: 'ACCEPTEE', via: 'coordonnees' } })
     }
-    return NextResponse.json({ ok: true, id: apres.id })
+    for (const c of invalideesApresPut) {
+      await audit({ action: 'NOTARY_CONFIRMATION_INVALIDATED', actorId: user.id, targetType: 'NotaryConfirmation', targetId: c, ip, userAgent, meta: { notaryId: notaire.id, via: 'coordonnees' } })
+    }
+    return NextResponse.json({ ok: true, id: apres.id, confirmationsInvalidees: invalideesApresPut.length })
   } catch (e) {
     if (estSchemaAbsent(e)) return apiError('unavailable', 503)
     throw e
@@ -93,8 +102,14 @@ export async function DELETE(req: NextRequest, { params }: { params: { id: strin
   try {
     const avant = await prisma.notaryContact.findUnique({ where: { notaryId: params.id } })
     if (!avant) return apiError('notFound', 404)
-    await prisma.notaryContact.delete({ where: { notaryId: params.id } })
+    const invalidees = await prisma.$transaction(async (tx) => {
+      await tx.notaryContact.delete({ where: { notaryId: params.id } })
+      return invaliderSiModifie(tx, params.id, user.id, 'Fiche de coordonnées supprimée.')
+    })
     const { ip, userAgent } = getClientCtx(req)
+    for (const c of invalidees) {
+      await audit({ action: 'NOTARY_CONFIRMATION_INVALIDATED', actorId: user.id, targetType: 'NotaryConfirmation', targetId: c, ip, userAgent, meta: { notaryId: params.id, via: 'suppression' } })
+    }
     await audit({
       action: 'NOTARY_CONTACT_UPDATED', actorId: user.id, targetType: 'NotaryContact', targetId: avant.id, ip, userAgent,
       meta: { notaryId: params.id, avant: etat(avant as unknown as Record<string, unknown>), apres: null, supprimee: true },

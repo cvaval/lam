@@ -185,3 +185,23 @@ describe('saisie de la rédaction', () => {
     expect(saisieContactSchema.safeParse({ ...saisie(), channel: '' }).success).toBe(false)
   })
 })
+
+describe('lireDemande — confirmation des informations affichées', () => {
+  const base = { site: '', t: String(Date.now() - 60_000), type: 'confirmation', notaire: 'mjsp-2026-09-08-11', version: 'c'.repeat(64), confirme: 'oui', nom: 'Patrick Victor', qualite: 'NOTAIRE', courrielContact: 'prive@exemple.ht', consentement: 'oui' }
+  const lire = (o: Record<string, string> = {}) => lireDemande({ ...base, ...o }, { maintenant: Date.now(), communesValides: new Set() })
+
+  it('valide : CONFIRMATION, version gardée, AUCUNE coordonnée proposée (même si des champs arrivent)', () => {
+    const r = lire({ adresse: '1, rue Exemple', telephones: '+509 2000-0001', courriel: 'x@exemple.ht' })
+    expect(r).toMatchObject({ kind: 'valide', valeur: { kind: 'CONFIRMATION', version: 'c'.repeat(64), address: null, phones: [], email: null } })
+  })
+
+  it('exige le notaire, la version et la case cochée ; identité, qualité et contact privé restent exigés', () => {
+    expect(lire({ notaire: '', version: 'pas-une-empreinte', confirme: '', nom: '', courrielContact: '' })).toEqual({
+      kind: 'invalide', erreurs: expect.arrayContaining(['notaire', 'version', 'confirme', 'nom', 'courrielContact']),
+    })
+  })
+
+  it('IMPORT ne se demande pas depuis le formulaire public', () => {
+    expect(lire({ type: 'import' })).toMatchObject({ kind: 'invalide', erreurs: expect.arrayContaining(['type']) })
+  })
+})

@@ -229,17 +229,22 @@ export function resetPasswordEmail(email: string, link: string, minutes: number)
  */
 export function notaryRequestEmail(
   to: string,
-  d: { id: string; kind: 'CONTACT' | 'LISTING'; requesterName: string; requesterRole: string; cible: string; createdAt: Date; humanVerifiedAt?: Date | null },
+  d: { id: string; kind: 'CONTACT' | 'LISTING' | 'CONFIRMATION' | 'IMPORT'; requesterName: string; requesterRole: string; cible: string; createdAt: Date; humanVerifiedAt?: Date | null },
 ) {
   const base = (process.env.NEXT_PUBLIC_APP_URL ?? `https://${BRAND.domain}`).replace(/\/$/, '')
-  const objet = d.kind === 'CONTACT' ? 'coordonnées' : 'inscription'
+  const objet = d.kind === 'CONTACT' ? 'coordonnées' : d.kind === 'CONFIRMATION' ? 'confirmation' : d.kind === 'IMPORT' ? 'import' : 'inscription'
+  const nature = d.kind === 'CONTACT'
+    ? 'ajouter ou corriger des coordonnées'
+    : d.kind === 'CONFIRMATION'
+      ? 'confirmer les informations affichées (badge « Confirmé » : provenance à établir avant toute validation)'
+      : d.kind === 'IMPORT' ? 'proposition issue d’un import de document' : 'figurer sur la carte (notaire absent de la liste du MJSP)'
   return {
     to,
     subject: `[${BRAND.name}] Demande n° ${d.id.slice(-8)} — ${objet}`,
     text: [
       `Une demande vient d'arriver par le formulaire de la carte judiciaire.`,
       ``,
-      `  Nature    : ${d.kind === 'CONTACT' ? 'ajouter ou corriger des coordonnées' : 'figurer sur la carte (notaire absent de la liste du MJSP)'}`,
+      `  Nature    : ${nature}`,
       `  Demandeur : ${d.requesterName} (${d.requesterRole})`,
       `  Visé      : ${d.cible}`,
       `  Reçue le  : ${d.createdAt.toISOString().slice(0, 16).replace('T', ' ')} UTC`,
