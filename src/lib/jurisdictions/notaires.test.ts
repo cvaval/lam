@@ -225,7 +225,15 @@ describe('reproduire tel quel, et signaler', () => {
     expect(row(9).fullName).toBe('Gamma ANGLADE GILLES')
     expect(row(9).displayName).toBe('Gemma ANGLADE GILLES')
     expect(row(9).observation).toMatch(/prénom « Gemma » confirmé par la cliente/)
-    expect(plan.rows.filter((r) => r.displayName)).toHaveLength(1)
+    expect(plan.rows.filter((r) => r.displayName).map((r) => r.ordinal)).toEqual([1, 9, 10, 115])
+  })
+
+  it('18 oct. 2026 : GAI, BÉLISAIRE et DUVOT s’affichent (décisions de la cliente), l’imprimé reste', () => {
+    expect([row(1).fullName, row(1).displayName]).toEqual(['Guy Mario GAY', 'Guy Mario GAI'])
+    expect([row(10).fullName, row(10).displayName]).toEqual(['Mrie Alice C. B. BEAULIEU', 'Marie Alice Coradin BÉLISAIRE'])
+    // Ordre inversé dans la liste : le nom de famille (DUVOT) passe en capitales, à la fin.
+    expect([row(115).fullName, row(115).displayName]).toEqual(['Duvot PAUL', 'Paul DUVOT'])
+    for (const n of [1, 10, 115]) expect(row(n).observation, String(n)).toMatch(/par la cliente le 18 oct\. 2026/)
   })
 
   it('une décision de nom dont l’imprimé a changé est SIGNALÉE (la liste a pu être corrigée)', () => {

@@ -133,6 +133,27 @@
       "displayName": "Gemma ANGLADE GILLES",
       "decidedOn": "2026-10-09",
       "observation": "prénom « Gemma » confirmé par la cliente le 9 oct. 2026 ; la liste du MJSP imprime « Gamma »"
+    },
+    {
+      "ordinal": 1,
+      "printedName": "Guy Mario GAY",
+      "displayName": "Guy Mario GAI",
+      "decidedOn": "2026-10-18",
+      "observation": "nom « GAI » confirmé par la cliente le 18 oct. 2026 (« it's Mario Gai ») ; la liste du MJSP imprime « GAY » ; le document « Notaires.docx » écrit « Guy Mario GAI »"
+    },
+    {
+      "ordinal": 10,
+      "printedName": "Mrie Alice C. B. BEAULIEU",
+      "displayName": "Marie Alice Coradin BÉLISAIRE",
+      "decidedOn": "2026-10-18",
+      "observation": "nom « Marie Alice Coradin BÉLISAIRE » retenu par la cliente le 18 oct. 2026, graphie du document « Notaires.docx » ; la liste du MJSP imprime « Mrie Alice C. B. BEAULIEU »"
+    },
+    {
+      "ordinal": 115,
+      "printedName": "Duvot PAUL",
+      "displayName": "Paul DUVOT",
+      "decidedOn": "2026-10-18",
+      "observation": "prénom Paul, nom de famille DUVOT, confirmés par la cliente le 18 oct. 2026 ; la liste du MJSP imprime « Duvot PAUL » (ordre inversé)"
     }
   ],
   "knownPairs": [
