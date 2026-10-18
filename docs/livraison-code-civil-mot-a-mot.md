@@ -170,6 +170,14 @@ est celle du Moniteur quand on la connaît.
     l'art. 350 ; le 3° de l'art. 18. Elles se lisent « [Abrogé] », sans autre mention (les commentaires des mots :
     « Abrogé : « Grand-Juge ». »).
 
+- « D. » = **Décret** (Me Vaval) : développé partout où le lecteur l'affiche (« D. L. » → « Décret-loi »),
+  et les décrets dont le texte ou le Moniteur est en base sont **liés** (`annotations.actesLies`, `3431f0d`) :
+  8 octobre 1982 → Moniteur n° 75 ; 30 août 1988 → n° 78-A ; 14 septembre 1983 → n° 74 ; 6 juillet 2005 et
+  les deux décrets du 9 avril 2020 → leur fiche. Les marques « (D. du 13 mai 2020) » des rédactions de 2020
+  dataient l'acte de sa publication : « (Décret du 9 avril 2020 portant réforme des régimes matrimoniaux) ».
+  ⚠️ Les fiches « Appendice IV.5 » (décrets de 1968 et de 1982, loi de 1949) ne reproduisent pas le texte de
+  ces actes : elles ne sont pas liées.
+
 **Restent ouverts :**
 
 1. **Objet introuvable** pour le Décret-loi du 22 décembre 1944 (art. 625) et la Loi du 13 février 1925 (art. 740) :
