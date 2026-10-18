@@ -1043,7 +1043,7 @@ export const ht: Dictionary = {
     notaryConfirmedTooltip: 'Notè a konfime enfòmasyon an.',
     notaryConfirmedNote: 'Notè a konfime enfòmasyon an',
     notaryConfirmedOn: 'Konfime {date}',
-    // Fich notè a nan yon FENÈT (18 okt. 2026) — fòm nouvo, pou Me Vaval valide
+    // Fich notè a nan yon FENÈT (18 okt. 2026) — Me Vaval valide yo 18 okt. 2026
     ficheClose: 'Fèmen',
     ficheCloseLabel: 'Fèmen fich la',
     ficheLoading: 'N ap chaje fich la…',

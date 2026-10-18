@@ -118,9 +118,9 @@ d'envoyé. `Agora/emails/INTEGRATION.txt` mis à jour.
 
 ## 7. Limites et points à trancher
 
-1. **Message après envoi** : la demande cite « Votre demande a été transmise au Master Admin pour
-   examen. » ; Me Vaval l'a corrigé le 18 oct. en « … à l’Administrateur pour examen. » — la
-   correction est CONSERVÉE (dire s'il faut revenir à « Master Admin »).
+1. **Message après envoi** : « Votre demande a été transmise à l’Administrateur pour examen. » —
+   correction de Me Vaval CONFIRMÉE le 18 oct. (« keep the correction »), malgré « Master Admin »
+   dans la demande.
 2. **« Localiser l'étude → »** n'apparaît jamais : aucune étude n'a de coordonnées précises (aucun
    géocodage, conformément à la demande).
 3. **Tests d'interaction** : le dépôt n'a pas d'environnement DOM de test (ni jsdom ni happy-dom) ; le
@@ -128,7 +128,7 @@ d'envoyé. `Agora/emails/INTEGRATION.txt` mis à jour.
    des tests purs, le rendu par des tests serveur.
 4. **Navigateurs anciens** sans l'attribut `inert` (Safari < 15.5) : l'arrière-plan n'est pas rendu
    inerte, mais le Tab reste piégé dans la fiche.
-5. **Libellés créoles NOUVEAUX à valider** (`fiche*` dans `ht.ts`) : « Fèmen », « Fèmen fich la »,
+5. **Libellés créoles NOUVEAUX — VALIDÉS par Me Vaval le 18 oct. (« c'est ok »)** (`fiche*` dans `ht.ts`) : « Fèmen », « Fèmen fich la »,
    « N ap chaje fich la… », « Nou pa jwenn fich la », « Fich la pa t ka chaje. », « Rele », « Ekri »,
    « Kopye adrès la », « Adrès la kopye », « Notè a konfime enfòmasyon an nan dat {date} ».
 6. Le formulaire de demande reste une page (parcours existant, Turnstile) : pas de modale imbriquée.
