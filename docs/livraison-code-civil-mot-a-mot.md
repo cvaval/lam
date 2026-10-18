@@ -126,14 +126,14 @@ ont été relus sur l'image (étendue exacte de l'italique, mention, encadré).
 
 **Rattachement d'un acte.** Une mention de l'éditeur vaut pour l'article sous lequel elle est imprimée, et pour la
 série en italique qu'elle clôt (231-254, 316-324, 415-416, 1340-1341, 24-25) ; jamais par-delà un intitulé de
-chapitre. L'acte est désigné par son **nom complet**, retrouvé au corpus ou à l'Index du Moniteur. La date d'effet
+chapitre ; sans mention ni encadré, l'abrogation ne nomme aucun acte et se lit « Abrogé ». L'acte est désigné par son **nom complet**, retrouvé au corpus ou à l'Index du Moniteur. La date d'effet
 est celle du Moniteur quand on la connaît.
 
 | Acte | Articles |
 | --- | ---: |
 | Décret du 8 octobre 1982 donnant à la femme un statut conforme à la Constitution… (Moniteur n° 75 du 28 oct. 1982) | 47 |
 | Loi du 29 avril 1949 sur le divorce (Moniteur n° 43 du 5 mai 1949) et Décret du 6 juin 1968 sur la procédure du divorce | 23 |
-| *acte non précisé* (ni mention ni encadré) | 17 |
+| *sans acte* (ni mention ni encadré) — le lecteur affiche « [Abrogé] », rien de plus (Me Vaval) | 17 |
 | Décret du 30 août 1988 abolissant la mort civile (Moniteur n° 78-A du 8 sept. 1988) | 5 |
 | Constitution du 29 mars 1987 | 5 |
 | Décret du 14 septembre 1983 sur les créances d'aliments et la garde des enfants (Moniteur n° 74 du 27 oct. 1983) | 3 |
@@ -166,8 +166,9 @@ est celle du Moniteur quand on la connaît.
   - art. 286, al. 2 → décret du 6 juillet 2005, art. 9 (le livre cite un « D. du 6 juin 2006 », introuvable) ;
   - art. 1995 → nom donné par le livre (« loi du 29 juillet 1929 »), sans date d'effet ; l'Index du Moniteur publie
     une loi de même objet le 8 août 1927 ;
-  - les 17 abrogations « acte non précisé » : 14, 21-23, 27, 214, 255, 1746 ; 354, 1634 ; « Grand-Juge » et les
-    titres de l'art. 350 ; le 3° de l'art. 18.
+  - les 17 abrogations sans acte : 14, 21-23, 27, 214, 255, 1746 ; 354, 1634 ; « Grand-Juge » et les titres de
+    l'art. 350 ; le 3° de l'art. 18. Elles se lisent « [Abrogé] », sans autre mention (les commentaires des mots :
+    « Abrogé : « Grand-Juge ». »).
 
 **Restent ouverts :**
 
