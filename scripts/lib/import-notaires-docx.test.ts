@@ -4,7 +4,7 @@
  * Les noms de notaires sont ceux de la liste publique du MJSP.
  */
 import { describe, expect, it } from 'vitest'
-import { cleProposition, lireAdresse, lireCourriels, lireEntrees, lireTelephones, planifier, rapprocher, texteDepuisHtml, type NotaireRef } from './import-notaires-docx'
+import { cleProposition, lireAdresse, lireCourriels, lireDecisions, lireEntrees, lireTelephones, planifier, rapprocher, texteDepuisHtml, type NotaireRef } from './import-notaires-docx'
 
 const DOC = [
   'Patrick VICTOR',
@@ -179,5 +179,41 @@ describe('plan — l’existant prévaut, l’import ne fait que compléter', ()
 
   it('clé de proposition stable (empreinte du fichier + rang)', () => {
     expect(cleProposition('2ccf77752b001d204ff649a41cc524f5c097c34c6cd425635ffbf2075e31b096', 3)).toBe('notaires-docx:2ccf77752b001d20:3')
+  })
+})
+
+describe('décisions de la cliente (fichier privé, lié au document)', () => {
+  const [victor, , ceant] = lireEntrees(DOC).entrees
+  const D = (o: Record<string, unknown> = {}) => ({ rang: 1, decidedOn: '2026-10-18', par: 'Me Exemple', texte: 'garder ce nom', notaryId: 'n11', remplacer: [] as 'address'[], ajouter: [] as Array<'phones' | 'emails'>, ...o })
+
+  it('le fichier vise CE document (empreinte), des entrées qui existent, une décision par entrée', () => {
+    const brut = (o: Record<string, unknown> = {}) => ({ document: { fichier: 'N.docx', sha256: 'a'.repeat(64) }, decisions: [D(o)] })
+    expect(lireDecisions(brut(), 'a'.repeat(64), [1, 2]).get(1)?.notaryId).toBe('n11')
+    expect(() => lireDecisions(brut(), 'b'.repeat(64), [1])).toThrow(/le document a changé/)
+    expect(() => lireDecisions(brut({ rang: 9 }), 'a'.repeat(64), [1])).toThrow(/aucune entrée n° 9/)
+  })
+
+  it('DÉSIGNE l’inscription parmi les candidats (jamais au-delà) ; l’adresse de la décision remplace celle du document', () => {
+    const lesly = { ...victor, nom: 'Lesly ALPHONSE' }
+    const refs = [...NOTAIRES, { id: 'n32', fullName: 'Jean M. E. Lesly ALPHONSE', displayName: null, active: true, communeName: 'Pétion-Ville' }]
+    const p = planifier(lesly, refs, () => null, D({ notaryId: 'n32', adresse: '67, Rue Exemple (Entrée Fictive), Pétion-Ville' }))
+    expect(p.rapprochement).toMatchObject({ niveau: 'DECISION', notaryId: 'n32' })
+    expect(p.completions[0]).toEqual({ champ: 'address', valeur: '67, Rue Exemple (Entrée Fictive), Pétion-Ville' })
+    expect(p.propositions).toEqual([])
+    expect(() => planifier(lesly, refs, () => null, D({ notaryId: 'n12' }))).toThrow(/pas un candidat/)
+  })
+
+  it('REMPLACER une adresse publiée et AJOUTER des numéros : sur décision seulement, « avant » consigné, publiés d’abord', () => {
+    const ex = { address: '390, ave Existante, Bourdon', phones: ['+50920000021'], emails: ['existant@exemple.ht'], active: true }
+    const sans = planifier(ceant, NOTAIRES, () => ex)
+    expect(sans.modifications).toEqual([])
+    const p = planifier({ ...ceant, tel: ['+(509) 2000-0021 / 3000-0022'] }, NOTAIRES, () => ex, D({ rang: 3, notaryId: 'n13', adresse: '390, Avenue Fictive (Route Fictive), Port-au-Prince', remplacer: ['address'], ajouter: ['phones'] }))
+    expect(p.modifications).toEqual([
+      { champ: 'address', avant: '390, ave Existante, Bourdon', apres: '390, Avenue Fictive (Route Fictive), Port-au-Prince' },
+      { champ: 'phones', avant: ['+50920000021'], apres: ['+50920000021', '+50930000022'] },
+    ])
+    // Le courriel différent n'est pas couvert par la décision : il reste une proposition.
+    expect(p.propositions.map((x) => x.champ)).toEqual(['emails'])
+    expect(p.action).toBe('MODIFIER address, phones (décision) + PROPOSITION')
   })
 })

@@ -3,6 +3,7 @@
  *
  *   npx tsx scripts/import-notaires-docx.ts --file <docx> --rapport <dossier privé>            # SIMULATION
  *   npx tsx scripts/import-notaires-docx.ts --file <docx> --rapport <dossier privé> --apply    # base LOCALE seulement
+ *   … --decisions <fichier privé .json>   # décisions de la cliente sur les entrées (voir decisionsSchema)
  *
  * ⚠️ BASE VISÉE = `DATABASE_URL` DE L'ENVIRONNEMENT, rien d'autre (le script ne lit PAS `.env`,
  * qui pointe sur la PRODUCTION). Elle est affichée en tête de rapport. `--apply` est REFUSÉ hors
@@ -26,7 +27,7 @@ import mammoth from 'mammoth'
 import { PrismaClient } from '@prisma/client'
 import { audit } from '../src/lib/auth/audit'
 import { formatPhone, readEmails, readPhones } from '../src/lib/jurisdictions/coordonnees'
-import { lireEntrees, planifier, texteDepuisHtml, type Existant, type NotaireRef, type PlanEntree } from './lib/import-notaires-docx'
+import { lireDecisions, lireEntrees, planifier, texteDepuisHtml, type Decision, type Existant, type NotaireRef, type PlanEntree } from './lib/import-notaires-docx'
 import { appliquer, type Resultat } from './lib/import-notaires-docx-ecriture'
 
 const prisma = new PrismaClient()
@@ -41,7 +42,10 @@ function args() {
   const dossier = resolve(rapport)
   const rel = relative(DEPOT, dossier)
   if (!rel.startsWith('..') || /(^|\/)public(\/|$)/.test(dossier)) throw new Error(`rapport refusé : « ${dossier} » est dans le dépôt (public) ou un dossier public`)
-  return { file: resolve(file), dossier, apply: a.includes('--apply'), dateDocument: val('--date-document') }
+  // Les décisions portent des coordonnées (adresses rectifiées) : hors du dépôt, comme le rapport.
+  const decisions = val('--decisions') ? resolve(val('--decisions')!) : null
+  if (decisions && !relative(DEPOT, decisions).startsWith('..')) throw new Error(`décisions refusées : « ${decisions} » est dans le dépôt (public)`)
+  return { file: resolve(file), dossier, apply: a.includes('--apply'), dateDocument: val('--date-document'), decisions }
 }
 
 function base(): { libelle: string; locale: boolean } {
@@ -72,16 +76,18 @@ function rapportMarkdown(plans: PlanEntree[], meta: Record<string, string>, resu
     if (!p.rapprochement.candidats.length) l.push('- aucun candidat dans la liste')
     l.push(`- **existant** : adresse ${aff(p.existant?.address)} · téléphones ${aff(p.existant?.phones)} · courriels ${aff(p.existant?.emails)}${p.existant && !p.existant.active ? ' · fiche RETIRÉE' : ''}`)
     l.push(`- **proposé (document)** : adresse ${aff(p.propose.address)} · téléphones ${aff(p.propose.phones)} · courriels ${aff(p.propose.emails)}`)
+    if (p.decision) l.push(`- **décision** (${p.decision.par}, ${p.decision.decidedOn}) : « ${p.decision.texte} »`)
     l.push(`- **action** : ${p.action}${p.completions.length ? ` — ${p.completions.map((c) => `${c.champ} = ${aff(c.valeur)}`).join(' · ')}` : ''}`)
+    for (const m of p.modifications) l.push(`- modification (${m.champ}) : ${aff(m.avant)} → **${aff(m.apres)}**`)
     for (const x of p.propositions) l.push(`- proposition (${x.champ}) : « ${aff(x.propose)} » ; en base : ${aff(x.existant)} — ${x.motif}`)
     for (const a of p.anomalies) l.push(`- anomalie ${a.type} : « ${a.brut} » — ${a.note}`)
-    if (r) l.push(`- **résultat** : écrit ${r.ecrit.join(', ') || '—'} · non écrit (concurrence) ${r.concurrence.join(', ') || '—'} · proposition ${r.proposition ?? '—'}${r.invalidees.length ? ` · confirmations invalidées ${r.invalidees.join(', ')}` : ''}`)
+    if (r) l.push(`- **résultat** : écrit ${r.ecrit.join(', ') || '—'} · modifié ${r.modifie.join(', ') || '—'} · non écrit (concurrence) ${r.concurrence.join(', ') || '—'} · proposition ${r.proposition ?? '—'}${r.invalidees.length ? ` · confirmations invalidées ${r.invalidees.join(', ')}` : ''}`)
   }
   return l.join('\n') + '\n'
 }
 
 async function main() {
-  const { file, dossier, apply, dateDocument } = args()
+  const { file, dossier, apply, dateDocument, decisions: fichierDecisions } = args()
   const b = base()
   const buf = readFileSync(file)
   const sha = createHash('sha256').update(buf).digest('hex')
@@ -108,7 +114,11 @@ async function main() {
     const f = parId.get(id)
     return f ? { address: f.address, phones: readPhones(f.phonesJson), emails: readEmails(f.emailsJson, f.email), active: f.active } : null
   }
-  const plans = entrees.map((e) => planifier(e, refs, existant))
+  const decisions: Map<number, Decision> = fichierDecisions
+    ? lireDecisions(JSON.parse(readFileSync(fichierDecisions, 'utf8')), sha, entrees.map((e) => e.rang))
+    : new Map()
+  if (fichierDecisions) console.log(`  décisions : ${decisions.size} (${basename(fichierDecisions)})`)
+  const plans = entrees.map((e) => planifier(e, refs, existant, decisions.get(e.rang) ?? null))
 
   let resultats: Resultat[] | null = null
   if (apply) {
@@ -127,6 +137,9 @@ async function main() {
       meta: {
         fichier, sha256: sha, entrees: plans.length,
         champsEcrits: resultats.reduce((s, r) => s + r.ecrit.length, 0),
+        champsModifiesSurDecision: resultats.reduce((s, r) => s + r.modifie.length, 0),
+        decisions: decisions.size,
+        propositionsCloses: resultats.filter((r) => r.proposition === 'close').length,
         propositionsCreees: resultats.filter((r) => r.proposition === 'creee').length,
         propositionsMisesAJour: resultats.filter((r) => r.proposition === 'mise-a-jour').length,
         concurrence: resultats.reduce((s, r) => s + r.concurrence.length, 0),

@@ -23,7 +23,15 @@
  * PRIORITÉ DE L'EXISTANT : une valeur déjà en base prévaut. L'import ne COMPLÈTE qu'un champ
  * absent (null, vide, espaces) ; une valeur différente devient une proposition ; l'écriture
  * revérifie la condition (voir le script). Aucun badge « Confirmé » n'est jamais attribué.
+ *
+ * DÉCISIONS DE LA CLIENTE (fichier privé, lié à l'empreinte du document) : elles seules lèvent ces
+ * prudences, entrée par entrée, et sont citées mot pour mot dans la provenance. Une décision peut
+ * DÉSIGNER l'inscription (parmi les candidats du rapprochement, jamais au-delà), rectifier
+ * l'adresse du document, REMPLACER une adresse publiée ou AJOUTER des numéros/courriels à ceux
+ * publiés — chaque modification porte la valeur « avant » qu'elle remplace, et l'écriture la
+ * revérifie (rien n'est écrit si la fiche a changé depuis).
  */
+import { z } from 'zod'
 import { EMAIL_RE, MAX_COURRIELS, normalizePhone } from '../../src/lib/jurisdictions/coordonnees'
 import { adresseExacte, cleTri } from '../../src/lib/jurisdictions/annuaire-notaires'
 
@@ -176,8 +184,9 @@ export interface NotaireRef {
   communeName: string | null
 }
 
-export type Niveau = 'EXACT' | 'MULTIPLE' | 'VARIANTE' | 'PROBABLE' | 'PARTIEL' | 'HYPOTHESE' | 'AUCUN'
-export interface Candidat { id: string; nom: string; commune: string | null; niveau: Exclude<Niveau, 'AUCUN' | 'MULTIPLE'>; motif: string }
+/** `DECISION` : inscription désignée par une décision de la cliente (parmi les candidats). */
+export type Niveau = 'EXACT' | 'DECISION' | 'MULTIPLE' | 'VARIANTE' | 'PROBABLE' | 'PARTIEL' | 'HYPOTHESE' | 'AUCUN'
+export interface Candidat { id: string; nom: string; commune: string | null; niveau: Exclude<Niveau, 'AUCUN' | 'MULTIPLE' | 'DECISION'>; motif: string }
 export interface Rapprochement { niveau: Niveau; notaryId: string | null; candidats: Candidat[] }
 
 const mots = (nom: string) => cleTri(nom.replace(/\./g, ' ')).split(' ').filter(Boolean)
@@ -270,9 +279,43 @@ export const MAX_TELEPHONES = 4
 
 export interface Existant { address: string | null; phones: string[]; emails: string[]; active: boolean }
 
+/** Décisions de la cliente sur les entrées d'UN document (fichier privé : il porte des coordonnées). */
+export const decisionsSchema = z.object({
+  document: z.object({ fichier: z.string().min(1), sha256: z.string().regex(/^[0-9a-f]{64}$/) }),
+  decisions: z.array(z.object({
+    rang: z.number().int().positive(),
+    decidedOn: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    par: z.string().min(3),
+    /** Ses mots, tels quels : la provenance de toute écriture qui en découle. */
+    texte: z.string().min(3),
+    notaryId: z.string().regex(/^[a-z0-9][a-z0-9-]*$/),
+    /** Adresse retenue par la cliente, à la place de celle du document. */
+    adresse: z.string().min(3).max(200).optional(),
+    remplacer: z.array(z.literal('address')).default([]),
+    ajouter: z.array(z.enum(['phones', 'emails'])).default([]),
+  })),
+})
+export type Decisions = z.infer<typeof decisionsSchema>
+export type Decision = Decisions['decisions'][number]
+
+/** Valide le fichier contre le document lu : même empreinte, rangs existants et uniques. */
+export function lireDecisions(brut: unknown, sha256: string, rangs: readonly number[]): Map<number, Decision> {
+  const d = decisionsSchema.parse(brut)
+  if (d.document.sha256 !== sha256) throw new Error(`décisions : elles visent le document ${d.document.sha256.slice(0, 16)}…, pas ${sha256.slice(0, 16)}… (le document a changé : décisions à revoir)`)
+  const parRang = new Map<number, Decision>()
+  for (const x of d.decisions) {
+    if (!rangs.includes(x.rang)) throw new Error(`décisions : aucune entrée n° ${x.rang} dans le document`)
+    if (parRang.has(x.rang)) throw new Error(`décisions : deux décisions pour l'entrée n° ${x.rang}`)
+    parRang.set(x.rang, x)
+  }
+  return parRang
+}
+
 export interface Proposition { champ: 'address' | 'phones' | 'emails' | 'inscription'; existant: string | null; propose: string; motif: string }
 export interface Anomalie { type: string; brut: string; note: string }
 export interface Completion { champ: 'address' | 'phones' | 'emails'; valeur: string | string[] }
+/** Remplacement d'une valeur PUBLIÉE, sur décision seulement ; `avant` est revérifié à l'écriture. */
+export interface Modification { champ: 'address' | 'phones' | 'emails'; avant: string | string[]; apres: string | string[] }
 
 export interface PlanEntree {
   rang: number
@@ -280,8 +323,11 @@ export interface PlanEntree {
   rapprochement: Rapprochement
   existant: Existant | null
   propose: { address: string | null; phones: string[]; emails: string[] }
-  /** Écritures permises (EXACT seulement, champ absent en base). */
+  /** Écritures permises (EXACT ou DÉCISION, champ absent en base). */
   completions: Completion[]
+  /** Valeurs publiées remplacées ou augmentées, sur décision de la cliente seulement. */
+  modifications: Modification[]
+  decision: Decision | null
   propositions: Proposition[]
   anomalies: Anomalie[]
   action: string
@@ -293,8 +339,15 @@ const vide = (s: string | null | undefined) => !s || !s.trim()
  * Plan d'une entrée. N'écrit rien. `existant` : la fiche de coordonnées de l'inscription EXACTE
  * (null si aucune). Les valeurs déjà en base prévalent toujours.
  */
-export function planifier(e: EntreeDocx, notaires: readonly NotaireRef[], existantDe: (notaryId: string) => Existant | null): PlanEntree {
-  const r = rapprocher(e.nom, notaires)
+export function planifier(e: EntreeDocx, notaires: readonly NotaireRef[], existantDe: (notaryId: string) => Existant | null, decision: Decision | null = null): PlanEntree {
+  let r = rapprocher(e.nom, notaires)
+  if (decision) {
+    // La décision DÉSIGNE parmi les candidats ; elle ne fabrique pas un rapprochement.
+    if (r.notaryId !== decision.notaryId && !r.candidats.some((c) => c.id === decision.notaryId)) {
+      throw new Error(`décision n° ${e.rang} : « ${decision.notaryId} » n'est pas un candidat du rapprochement de « ${e.nom} »`)
+    }
+    if (r.notaryId !== decision.notaryId) r = { niveau: 'DECISION', notaryId: decision.notaryId, candidats: r.candidats }
+  }
   const tels = lireTelephones(e.tel)
   const courriels = lireCourriels(e.email)
   const adresse = lireAdresse(e.adresse)
@@ -305,28 +358,33 @@ export function planifier(e: EntreeDocx, notaires: readonly NotaireRef[], exista
 
   const bureaux = tels.filter((t) => t.statut === 'BUREAU').map((t) => t.e164!)
   const emails = courriels.filter((c) => c.statut === 'VALIDE').map((c) => c.valeur!)
-  const propose = { address: adresse.valeur, phones: bureaux, emails }
+  const propose = { address: decision?.adresse ?? adresse.valeur, phones: bureaux, emails }
   const completions: Completion[] = []
+  const modifications: Modification[] = []
   const propositions: Proposition[] = []
+  const base = { rang: e.rang, nom: e.nom, rapprochement: r, propose, completions, modifications, decision, propositions, anomalies }
 
-  if (r.niveau !== 'EXACT' || !r.notaryId) {
+  if ((r.niveau !== 'EXACT' && r.niveau !== 'DECISION') || !r.notaryId) {
     const motif = r.niveau === 'AUCUN'
       ? 'aucune inscription de la liste ne correspond : rien n’est créé'
       : `rapprochement ${r.niveau.toLowerCase()} : à confirmer par le master admin`
     propositions.push({ champ: 'inscription', existant: null, propose: e.nom, motif })
-    return { rang: e.rang, nom: e.nom, rapprochement: r, existant: null, propose, completions, propositions, anomalies, action: 'PROPOSITION (aucune écriture)' }
+    return { ...base, existant: null, action: 'PROPOSITION (aucune écriture)' }
   }
 
   const ex = existantDe(r.notaryId)
   if (ex && !ex.active) {
     propositions.push({ champ: 'inscription', existant: 'fiche de coordonnées retirée', propose: e.nom, motif: 'la rédaction a retiré cette fiche : rien n’est complété d’office' })
-    return { rang: e.rang, nom: e.nom, rapprochement: r, existant: ex, propose, completions, propositions, anomalies, action: 'PROPOSITION (fiche retirée)' }
+    return { ...base, existant: ex, action: 'PROPOSITION (fiche retirée)' }
   }
 
   // Adresse : complétée si absente ; une adresse différente reste une proposition.
   if (propose.address) {
     if (vide(ex?.address)) completions.push({ champ: 'address', valeur: propose.address })
-    else if (cleTri(ex!.address!) !== cleTri(propose.address)) propositions.push({ champ: 'address', existant: ex!.address, propose: propose.address, motif: 'adresse différente : l’adresse publiée prévaut' })
+    else if (cleTri(ex!.address!) !== cleTri(propose.address)) {
+      if (decision?.remplacer.includes('address')) modifications.push({ champ: 'address', avant: ex!.address!, apres: propose.address })
+      else propositions.push({ champ: 'address', existant: ex!.address, propose: propose.address, motif: 'adresse différente : l’adresse publiée prévaut' })
+    }
   }
 
   // Téléphones : complétés si la fiche n'en a aucun (quatre au plus) ; sinon, les nouveaux sont proposés.
@@ -338,7 +396,15 @@ export function planifier(e: EntreeDocx, notaires: readonly NotaireRef[], exista
         propositions.push({ champ: 'phones', existant: null, propose: p, motif: `numéro supplémentaire (au-delà de ${MAX_TELEPHONES})` })
       }
     } else {
-      for (const p of bureaux.filter((x) => !ex.phones.includes(x))) propositions.push({ champ: 'phones', existant: ex.phones.join(' ; '), propose: p, motif: 'numéro absent de la fiche : les numéros publiés prévalent' })
+      const nouveaux = bureaux.filter((x) => !ex.phones.includes(x))
+      if (nouveaux.length && decision?.ajouter.includes('phones')) {
+        // Sur décision : les numéros publiés d'abord, puis les nouveaux ; quatre au plus.
+        const apres = [...ex.phones, ...nouveaux]
+        if (ex.phones.length < MAX_TELEPHONES) modifications.push({ champ: 'phones', avant: ex.phones, apres: apres.slice(0, MAX_TELEPHONES) })
+        for (const p of apres.slice(Math.max(MAX_TELEPHONES, ex.phones.length))) propositions.push({ champ: 'phones', existant: ex.phones.join(' ; '), propose: p, motif: `numéro supplémentaire (au-delà de ${MAX_TELEPHONES})` })
+      } else {
+        for (const p of nouveaux) propositions.push({ champ: 'phones', existant: ex.phones.join(' ; '), propose: p, motif: 'numéro absent de la fiche : les numéros publiés prévalent' })
+      }
     }
   }
 
@@ -353,14 +419,25 @@ export function planifier(e: EntreeDocx, notaires: readonly NotaireRef[], exista
       }
     } else {
       const connus = new Set(ex.emails.map((x) => x.toLowerCase()))
-      for (const m of emails.filter((x) => !connus.has(x.toLowerCase()))) propositions.push({ champ: 'emails', existant: ex.emails.join(' ; '), propose: m, motif: 'courriel absent de la fiche : les courriels publiés prévalent' })
+      const nouveaux = emails.filter((x) => !connus.has(x.toLowerCase()))
+      if (nouveaux.length && decision?.ajouter.includes('emails')) {
+        const apres = [...ex.emails, ...nouveaux]
+        if (ex.emails.length < MAX_COURRIELS) modifications.push({ champ: 'emails', avant: ex.emails, apres: apres.slice(0, MAX_COURRIELS) })
+        for (const m of apres.slice(Math.max(MAX_COURRIELS, ex.emails.length))) propositions.push({ champ: 'emails', existant: ex.emails.join(' ; '), propose: m, motif: `courriel supplémentaire (au-delà de ${MAX_COURRIELS})` })
+      } else {
+        for (const m of nouveaux) propositions.push({ champ: 'emails', existant: ex.emails.join(' ; '), propose: m, motif: 'courriel absent de la fiche : les courriels publiés prévalent' })
+      }
     }
   }
 
-  const action = completions.length
-    ? `COMPLÉTER ${completions.map((c) => c.champ).join(', ')}${propositions.length ? ' + PROPOSITION' : ''}`
+  const ecrit = [
+    ...(completions.length ? [`COMPLÉTER ${completions.map((c) => c.champ).join(', ')}`] : []),
+    ...(modifications.length ? [`MODIFIER ${modifications.map((m) => m.champ).join(', ')} (décision)`] : []),
+  ].join(' + ')
+  const action = ecrit
+    ? `${ecrit}${propositions.length ? ' + PROPOSITION' : ''}`
     : propositions.length ? 'PROPOSITION (rien à compléter)' : 'RIEN (déjà à jour)'
-  return { rang: e.rang, nom: e.nom, rapprochement: r, existant: ex, propose, completions, propositions, anomalies, action }
+  return { ...base, existant: ex, action }
 }
 
 /** Clé d'idempotence d'une proposition : le fichier (empreinte) et le rang de l'entrée. */
