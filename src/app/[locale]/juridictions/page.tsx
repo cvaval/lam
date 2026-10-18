@@ -20,6 +20,9 @@ import { JudicialMapClient } from '@/components/jurisdictions/JudicialMapClient'
 import { MobileResultsSheet } from '@/components/jurisdictions/MobileResultsSheet'
 import { JudicialTabs } from '@/components/jurisdictions/JudicialTabs'
 import { NotaryAnnuaireView, type EtatAnnuaire } from '@/components/jurisdictions/NotaryAnnuaireView'
+import { FicheNotaireModale } from '@/components/jurisdictions/FicheNotaireModale'
+import { libellesModale } from '@/components/jurisdictions/fiche-libelles'
+import { ficheInitiale, metadonneesFiche } from '@/lib/jurisdictions/fiche-chargement'
 
 export const dynamic = 'force-dynamic'
 
@@ -31,6 +34,8 @@ export const dynamic = 'force-dynamic'
  * La carte est un complément visuel : la totalité de l'information existe en texte (fiche,
  * annuaire, liste complète des communes), utilisable sans JavaScript. L'URL porte l'état
  * (?vue=…&commune=…&layers=…&q=…&juridiction=…&page=…) — partageable, historique naturel.
+ * `&notaire=<id>` : la fiche d'un notaire, en fenêtre modale au-dessus de la carte ou de
+ * l'annuaire (`FicheNotaireModale`) — le lien personnalisé des courriels (`lienFicheNotaire`).
  */
 
 const COMMUNE_RE = /^[a-z0-9][a-z0-9-]{2,119}$/
@@ -54,6 +59,8 @@ export async function generateMetadata({
   searchParams: SP
 }): Promise<Metadata> {
   const { locale, t } = dictFor(params.locale)
+  const fiche = await metadonneesFiche(searchParams.notaire, locale, t)
+  if (fiche) return fiche
   const { vue, commune } = readParams(searchParams)
   if (vue === 'notaires') {
     // L'annuaire est une page à part entière, indexable sous sa propre adresse canonique.
@@ -109,6 +116,9 @@ export default async function JuridictionsPage({
       </a>
     </div>
   )
+
+  // Fiche demandée par l'URL (lien direct, courriel) : rendue d'emblée, au-dessus de la page.
+  const initialFiche = await ficheInitiale(searchParams.notaire)
 
   // ── Onglet « Notaires » : l'annuaire ne charge ni la fiche d'une commune ni la liste des 149.
   let annuaire: { etat: EtatAnnuaire; params: ReturnType<typeof lireParamsAnnuaire>; notFound: boolean } | null = null
@@ -290,6 +300,14 @@ export default async function JuridictionsPage({
           </nav>
         </div>
       </footer>
+
+      <FicheNotaireModale
+        locale={locale} l={libellesModale(t)} demandes={demandesOuvertes()} contexte={enNotaires ? 'onglet' : 'juridictions'} initial={initialFiche}
+        titres={{
+          page: enNotaires ? t.judicial.annuaireMetaTitle : record ? `${record.commune.name} — ${t.judicial.metaTitle}` : t.judicial.metaTitle,
+          fiche: t.judicial.notaryMetaTitle,
+        }}
+      />
 
       <CookieBanner
         text={t.cookies.text}

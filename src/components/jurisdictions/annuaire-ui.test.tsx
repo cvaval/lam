@@ -184,8 +184,9 @@ describe('annuaire des notaires — badge « Confirmé »', () => {
     const v = empreinte(instantane({ fullName: 'Patrick VICTOR', displayName: null, communeId: 'commune-ouest-port-au-prince' }, null))
     prisma.notaryConfirmation.findMany.mockResolvedValue([{ notaryId: 'n1', status: 'ACTIVE', snapshotHash: v, confirmedOn: new Date('2026-10-18T00:00:00Z') }])
     const html = await rendre()
-    expect(html).toMatch(/<span>Patrick VICTOR<\/span><span title="Informations confirmées par le notaire\.[^>]*>/)
-    expect((html.match(/Informations confirmées par le notaire\./g) ?? []).length).toBe(2) // infobulle + nom accessible, une seule carte
+    expect(html).toMatch(/<span>Patrick VICTOR<\/span><span class="[^"]*"><span class="relative[^"]*"><button type="button" aria-label="Informations confirmées par le notaire\."/)
+    // Nom accessible de la coche, une seule carte ; l'infobulle ne s'affiche qu'au survol, au focus ou au toucher.
+    expect((html.match(/Informations confirmées par le notaire\./g) ?? []).length).toBe(1)
     expect(ordre(html, ['Sabine MORPEAU', 'Jean AVIN', 'Patrick VICTOR'])).toEqual(avant.map(() => expect.any(Number)))
     const pos = ordre(html, ['Sabine MORPEAU', 'Jean AVIN', 'Patrick VICTOR'])
     expect([...pos].sort((a, b) => a - b)).toEqual(pos)

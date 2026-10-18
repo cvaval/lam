@@ -4,6 +4,7 @@ import type { Locale } from '@/lib/types'
 import type { NotaryProvenance, NotaryView } from '@/lib/jurisdictions/data'
 import { mentionAsPrinted } from '@/lib/jurisdictions/notaires-source'
 import { formatConsultations } from '@/lib/jurisdictions/notaires-format'
+import { lienDemande } from '@/lib/jurisdictions/fiche-notaire'
 
 /** Ligne de provenance EN CLAIR — jamais d'URL brute, de fichier ni d'empreinte (9 oct. 2026). */
 export function notarySourceLine(provenance: NotaryProvenance | null, locale: Locale, t: Dictionary): string {
@@ -21,9 +22,10 @@ export function NotaryName({ n, locale, t }: { n: NotaryView; locale: Locale; t:
   const m = mentionAsPrinted(n.mention)
   return (
     <>
-      <Link href={`/${locale}/juridictions/notaires/${n.id}`} className="underline-offset-2 hover:text-chabon hover:underline">
+      {/* Sans JavaScript : la page de repli. Avec : la fiche s'ouvre en fenêtre modale sur la carte. */}
+      <a href={`/${locale}/juridictions/notaires/${n.id}`} data-fiche-notaire={n.id} className="underline-offset-2 hover:text-chabon hover:underline">
         {n.fullName}
-      </Link>
+      </a>
       {m && <span className="ml-1 font-mono text-[11px] text-ank/80">{m}</span>}
       {n.hasContact && <span className="ml-1.5 text-[11px] text-ank/70">· {t.judicial.notaryContactBadge}</span>}
       {n.addedByEditors && <span className="ml-1.5 text-[11px] text-ank/70">· {t.judicial.notaryAddedBadge}</span>}
@@ -31,11 +33,8 @@ export function NotaryName({ n, locale, t }: { n: NotaryView; locale: Locale; t:
   )
 }
 
-/** Lien DISCRET vers le formulaire des tiers — rendu seulement quand il est ouvert. */
-export function lienDemande(locale: Locale, params: { notaire?: string; type?: 'inscription' }): string {
-  const qs = params.notaire ? `?notaire=${params.notaire}` : params.type ? `?type=${params.type}` : ''
-  return `/${locale}/juridictions/notaires/demande${qs}`
-}
+/** Lien DISCRET vers le formulaire des tiers — rendu seulement quand il est ouvert (fiche-notaire.ts). */
+export { lienDemande }
 
 /**
  * Section « Notaires (N) » de la fiche d'une commune — rendu SERVEUR, lisible sans JavaScript.

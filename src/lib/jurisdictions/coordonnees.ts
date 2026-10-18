@@ -28,11 +28,8 @@ export function normalizePhone(raw: string): string | null {
   return null
 }
 
-/** « +50929984747 » → « +509 2998-4747 » : un seul format affiché, quel que soit celui reçu. */
-export function formatPhone(e164: string): string {
-  const m = /^\+509(\d{4})(\d{4})$/.exec(e164)
-  return m ? `+509 ${m[1]}-${m[2]}` : e164
-}
+// Affichage : module sans dépendance, partagé avec la fiche côté client.
+export { formatPhone } from './format-telephone'
 
 /** Forme d'adresse électronique plausible — on ne vérifie RIEN d'autre (aucun envoi). */
 export const EMAIL_RE = /^[^\s@<>()[\],;:"]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/

@@ -98,6 +98,8 @@ export const LIMITS = {
   jurSearch: { limit: 90, windowMs: 60_000 },
   jurCommune: { limit: 120, windowMs: 60_000 },
   jurMap: { limit: 30, windowMs: 60_000 },
+  // Fiche d'un notaire (fenêtre modale de l'annuaire) : une requête par ouverture.
+  jurNotaire: { limit: 120, windowMs: 60_000 },
   // Calculateur de délais, PUBLIC (par IP — aucune session, aucun quota) : le calcul est
   // recalculé à chaque frappe de kilométrage côté client, d'où un seuil large. La route
   // n'écrit rien ; ce que l'on borne est le travail de base, pas l'usage.

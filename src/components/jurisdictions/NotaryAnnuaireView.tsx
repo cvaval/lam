@@ -107,7 +107,7 @@ export function AnnuaireListe({
   return (
     <section id="ag-annuaire" aria-labelledby="ag-annuaire-titre" className="flex min-w-0 scroll-mt-24 flex-col gap-4">
       <div className="rounded-xl border border-[#D7DCD7] bg-white p-4 sm:p-5">
-        {!sansTitre && <h2 id="ag-annuaire-titre" className="font-serif text-2xl font-semibold text-chabon">{j.annuaireTitle}</h2>}
+        {!sansTitre && <h2 id="ag-annuaire-titre" tabIndex={-1} className="font-serif text-2xl font-semibold text-chabon">{j.annuaireTitle}</h2>}
         <div className={sansTitre ? '' : 'mt-4'}>
           {etat.kind === 'ok' ? (
             <AnnuaireFiltres
@@ -334,13 +334,16 @@ function CarteNotaire({
             </Link>
           )}
         </div>
-        <Link
+        {/* Avec JavaScript, la fiche s'ouvre en FENÊTRE MODALE au-dessus de l'annuaire
+            (`FicheNotaireModale`, `data-fiche-notaire`) ; sans, ce lien mène à la page de repli. */}
+        <a
           href={fiche}
+          data-fiche-notaire={e.id}
           aria-label={j.annuaireSeeProfileLabel.replace('{name}', e.name)}
           className="inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 rounded-lg bg-chabon px-4 text-sm font-medium text-white transition hover:bg-chabon/90"
         >
           {j.annuaireSeeProfile} <span aria-hidden="true">→</span>
-        </Link>
+        </a>
       </div>
     </li>
   )

@@ -36,9 +36,10 @@ beforeEach(() => { vi.resetAllMocks(); prisma.notary.findUnique.mockResolvedValu
 describe('page d’un notaire', () => {
   it('n° 9 : « Gemma » affiché, « Gamma » signalé, juridiction SANS « TPI »', async () => {
     const html = await rendu()
-    // Titre de la page « Notaire » ; le nom titre la carte.
+    // Titre de la page « Notaire » ; le nom titre la fiche (le même composant que la fenêtre modale).
     expect(html).toMatch(/<h1[^>]*>Notaire<\/h1>/)
-    expect(html).toMatch(/<h2 id="ag-notaire-nom"[^>]*><span>Gemma ANGLADE GILLES<\/span>/)
+    expect(html).toMatch(/<h2 id="ag-notaire-nom"[^>]*><span[^>]*>Gemma ANGLADE GILLES<\/span>/)
+    expect(html).toContain('Commune de commission : Port-au-Prince')
     expect(html).not.toContain('Fiche du notaire')
     expect(html).toContain(`${t.judicial.notaryPrintedName} : « Gamma ANGLADE GILLES »`)
     expect(html).toMatch(/href="\/fr\/juridictions\?vue=notaires&amp;juridiction=court-tpi-tpi-de-port-au-prince#ag-annuaire"[^>]*>Port-au-Prince<\/a>/)
@@ -48,7 +49,10 @@ describe('page d’un notaire', () => {
     const html = await rendu()
     expect(html).toContain('394, route de Bourdon, Port-au-Prince')
     expect(html).toContain('href="tel:+50929984747"')
-    expect(html).toContain('>+509 2998-4747</a>')
+    // Chaque numéro en clair, avec son action « Appeler » (lien `tel:`).
+    expect(html).toContain('>+509 2998-4747</span>')
+    expect((html.match(/>Appeler<\/a>/g) ?? []).length).toBe(2)
+    expect(html).toContain('>Écrire</a>')
     expect(html).toContain('href="tel:+50946430503"')
     expect(html).toContain('href="mailto:etudeanglade@gmail.com"')
     expect(html).toContain('Coordonnées communiquées à la rédaction d’Agora, à jour au 9 octobre 2026.')
@@ -57,14 +61,13 @@ describe('page d’un notaire', () => {
     expect(html).toContain('aria-label="Appeler le +509 2998-4747"')
     expect(html).toContain('aria-label="Appeler le +509 4643-0503"')
     expect(html).toContain('aria-label="Écrire à etudeanglade@gmail.com"')
-    // L'adresse mène à la carte JUDICIAIRE de la plateforme (aucune carte tierce), sur la
-    // commune du notaire, couche « notaires » allumée — le nom accessible dit « commune ».
-    // L'adresse ouvre l'onglet « Notaires » centré sur la COMMUNE (aucune étude n'est géolocalisée),
-    // carte ouverte d'office sur téléphone (17 oct. 2026).
+    // L'adresse se COPIE (bouton nommé) ; la carte JUDICIAIRE de la plateforme (aucune carte tierce)
+    // montre la COMMUNE — aucune étude n'est géolocalisée ; carte ouverte d'office sur téléphone.
+    expect(html).toContain('aria-label="Copier l’adresse"')
     expect(html).toContain('href="/fr/juridictions?vue=notaires&amp;commune=commune-ouest-port-au-prince&amp;carte=1"')
-    expect(html).toContain('aria-label="394, route de Bourdon, Port-au-Prince — Voir sur la carte judiciaire : commune de Port-au-Prince"')
     expect(html).not.toMatch(/google|target="_blank"/)
-    expect(html).toContain('sm:grid-cols-[auto_1fr] sm:items-center')
+    // Zone OUVERTE : de légers séparateurs entre les lignes, pas de cadre autour de chacune.
+    expect(html).toContain('divide-y divide-[#D7DCD7]')
   })
   it('coordonnées partielles (n° 21) : aucune ligne de téléphone, rien d’inventé', async () => {
     prisma.notary.findUnique.mockResolvedValue(ligne({
@@ -128,10 +131,14 @@ describe('page d’un notaire — badge « Confirmé »', () => {
     prisma.notary.findUnique.mockResolvedValue(ligne({ communeId: 'commune-ouest-port-au-prince' }))
     prisma.notaryConfirmation.findMany.mockResolvedValue(conf(empreinte(instantane(N, C))))
     const html = await rendu()
-    expect(html).toMatch(/<span>Gemma ANGLADE GILLES<\/span><span title="Informations confirmées par le notaire\."/)
-    expect(html).toContain('<span class="sr-only">Informations confirmées par le notaire.</span>')
-    expect(html).toContain(t.judicial.notaryConfirmedNote)
-    expect(html).toContain('Confirmé le 18 octobre 2026')
+    // La coche IMMÉDIATEMENT après le nom : un bouton nommé (infobulle au survol, au focus, au toucher).
+    expect(html).toMatch(/Gemma ANGLADE GILLES<\/span><span class="[^"]*"><span class="relative[^"]*"><button type="button" aria-label="Informations confirmées par le notaire\."/)
+    // Le libellé « Confirmé » écrit (pastille sauge) et UNE ligne datée — l'infobulle n'est pas affichée d'office.
+    expect(html).toMatch(/bg-\[#E9EDE7\][^"]*">Confirmé<\/span>/)
+    expect(html).toContain('Informations confirmées le 18 octobre 2026')
+    expect((html.match(/Informations confirmées par le notaire\./g) ?? []).length).toBe(1)
+    // Plus de grand encart reprenant la même information.
+    expect(html).not.toContain('Confirmé le 18 octobre 2026')
   })
 
   it('informations modifiées depuis : le badge tombe aussitôt (version différente)', async () => {

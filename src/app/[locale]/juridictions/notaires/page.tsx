@@ -10,6 +10,9 @@ import { AnnuaireListe } from '@/components/jurisdictions/NotaryAnnuaireView'
 import { AncreHeritee } from '@/components/jurisdictions/AncreHeritee'
 import { lienDemande } from '@/components/jurisdictions/NotariesSection'
 import { demandesOuvertes } from '@/lib/jurisdictions/notaires-demandes'
+import { FicheNotaireModale } from '@/components/jurisdictions/FicheNotaireModale'
+import { libellesModale } from '@/components/jurisdictions/fiche-libelles'
+import { ficheInitiale, metadonneesFiche } from '@/lib/jurisdictions/fiche-chargement'
 
 export const dynamic = 'force-dynamic'
 
@@ -19,10 +22,13 @@ export const dynamic = 'force-dynamic'
  * (juridiction, adresse exacte d'abord, nom de famille), mêmes filtres (`?q=`, `?juridiction=`,
  * `?commune=`, `?page=`). La carte n'y figure pas : « Situer la commune » mène à l'onglet. Les
  * anciennes ancres (`#court-…`, `#commune-…`) deviennent le filtre correspondant (`AncreHeritee`).
- * Rendu serveur, lisible sans JavaScript.
+ * `?notaire=<id>` : la fiche de ce notaire, ouverte en fenêtre modale au-dessus de la liste
+ * (`FicheNotaireModale`). Rendu serveur, lisible sans JavaScript.
  */
-export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: { params: { locale: string }; searchParams: Record<string, string | string[] | undefined> }): Promise<Metadata> {
   const { locale, t } = dictFor(params.locale)
+  const fiche = await metadonneesFiche(searchParams.notaire, locale, t)
+  if (fiche) return fiche
   const languages = Object.fromEntries(LOCALES.map((l) => [l, `/${l}/juridictions/notaires`]))
   return {
     title: t.judicial.annuaireMetaTitle,
@@ -36,7 +42,10 @@ export default async function AnnuaireNotairesPage({
 }: { params: { locale: string }; searchParams: Record<string, string | string[] | undefined> }) {
   const { locale, t } = dictFor(isLocale(params.locale) ? params.locale : 'fr')
   const j = t.judicial
-  const { etat, params: p, communeInconnue } = await chargerAnnuaire(lireParamsAnnuaire(searchParams))
+  const [{ etat, params: p, communeInconnue }, initialFiche] = await Promise.all([
+    chargerAnnuaire(lireParamsAnnuaire(searchParams)),
+    ficheInitiale(searchParams.notaire),
+  ])
 
   return (
     <div className="agora-portal min-h-screen bg-koton">
@@ -56,7 +65,7 @@ export default async function AnnuaireNotairesPage({
 
         <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h1 id="ag-annuaire-titre" className="font-serif text-3xl font-semibold text-chabon lg:text-4xl">{j.annuaireTitle}</h1>
+            <h1 id="ag-annuaire-titre" tabIndex={-1} className="font-serif text-3xl font-semibold text-chabon lg:text-4xl">{j.annuaireTitle}</h1>
             <p className="mt-1 font-serif text-lg text-[#52656B]">{j.annuairePageSubtitle}</p>
           </div>
           <Link
@@ -95,6 +104,11 @@ export default async function AnnuaireNotairesPage({
           </nav>
         </div>
       </footer>
+
+      <FicheNotaireModale
+        locale={locale} l={libellesModale(t)} demandes={demandesOuvertes()} contexte="page" initial={initialFiche}
+        titres={{ page: j.annuaireMetaTitle, fiche: j.notaryMetaTitle }}
+      />
     </div>
   )
 }
