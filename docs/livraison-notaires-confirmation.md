@@ -93,12 +93,19 @@ la liste du MJSP conserve ces décisions et signale si l'imprimé a changé.
 - Simulation de l'import du MJSP contre la PRODUCTION (lecture seule) : **3 modifications** (ces
   trois noms), 420 inchangées, 0 anomalie. Rien n'a été écrit.
 - Banc local : les 3 noms appliqués. Puis l'import Word relu : BÉLISAIRE (n° 3 du document) et GAI
-  (n° 9) passent en EXACT → adresse et 4 téléphones complétés ; le CHOIX DU COURRIEL (2 et 3
-  courriels dans le document) reste une proposition au Master Admin. Leurs deux propositions
-  ouvertes ont été remises à jour (rapprochement établi) ; second passage : rien.
+  (n° 9) passent en EXACT → adresse et 4 téléphones complétés ; leurs propositions ouvertes ont été
+  remises à jour (rapprochement établi) ; second passage : rien.
 - DUVOT (n° 13) : coordonnées déjà complétées ; seul le classement change (D, à Cap-Haïtien).
-- Graphie retenue : « BÉLISAIRE » avec l'accent, comme dans le document ; « Guy » est conservé
-  (liste du MJSP et document l'écrivent tous deux).
+- Graphies CONFIRMÉES par Me Vaval : « BÉLISAIRE » avec l'accent, « Guy Mario GAI » avec « Guy ».
+
+### Décision de Me Vaval (18 oct. 2026) : publier TOUS les courriels du document
+
+« publish all in the docx file provides ». Une fiche n'avait qu'un champ `email` : elle porte
+désormais une LISTE (`NotaryContact.emailsJson`, 4 au plus, comme les téléphones), `email` gardant
+le premier pour les lecteurs qui n'en lisent qu'un. Fiche publique (un lien par courriel),
+formulaire public (plusieurs courriels séparés par un point-virgule, comme les numéros), éditeur de
+l'administration, instantané de confirmation et import suivent la liste. Banc local : BÉLISAIRE (2),
+GAI (3) et CASSAGNOL (2) publient tous leurs courriels ; second passage : rien.
 
 ## 3. Règles de rapprochement
 
@@ -133,7 +140,8 @@ La commune de commission ne se déduit JAMAIS de l'adresse de l'étude.
 - **Téléphones** : séparés sur `/ ; ,` et devant `+509` ; normalisés E.164 ; 4 au plus publiés,
   le surplus en proposition. JAMAIS publiés : numéro annoté personnel ou attribué à un tiers,
   numéro incomplet ou ininterprétable, doublon — tous consignés en anomalie dans le rapport privé.
-- **Courriels** : un seul courriel est complété ; plusieurs = le choix revient au Master Admin.
+- **Courriels** : TOUS ceux du document sont complétés (4 au plus, le surplus en proposition) si la
+  fiche n'en a aucun ; sinon les nouveaux sont proposés — la règle des téléphones.
 - **Adresse** : « , Haïti » final retiré ; une valeur vague ou de remplissage est signalée.
 - Une modification qui touche une fiche confirmée INVALIDE la confirmation (voir § 6).
 
@@ -151,7 +159,7 @@ PAS un critère de classement** (testé : un notaire confirmé ne remonte pas).
 - **Ce qu'il dit** : les informations de la fiche ont été confirmées par le notaire, et la
   confirmation validée par le Master Admin. Ni certification professionnelle, ni reconnaissance du
   MJSP, ni garantie ; son absence ne dit rien.
-- **Version** : une confirmation fige un INSTANTANÉ (nom, commune, adresse, téléphones, courriel
+- **Version** : une confirmation fige un INSTANTANÉ (nom, commune, adresse, téléphones, courriels
   publics) et son EMPREINTE sha-256. Le badge n'est affiché que si la confirmation est ACTIVE **et**
   que l'empreinte égale celle des informations actuelles — vérifié À LA LECTURE, à chaque rendu.
 - **Invalidation** : les écritures de coordonnées de l'administration (Master Admin, éditeur) et
@@ -194,13 +202,16 @@ reconnaissent les nouveaux types (CONFIRMATION, IMPORT) — aucun envoi pendant 
 ## 8. Migration
 
 Schéma (`prisma/schema.prisma`) : modèle `NotaryConfirmation`, colonne `NotaryRequest.sourceKey`
-(unique, nullable), types de demande `CONFIRMATION` et `IMPORT`. Convention du dépôt :
+(unique, nullable), colonne `NotaryContact.emailsJson` (liste des courriels, défaut `[]`), types de
+demande `CONFIRMATION` et `IMPORT`. Convention du dépôt :
 `prisma db push` puis `npm run db:rls`.
 
 Appliqué au banc local seulement. **Procédure de production (NON exécutée, sur instruction) :**
 
-1. Revoir le SQL généré en lecture seule (`prisma migrate diff`) : 5 instructions — ajout de
-   `sourceKey`, création de `NotaryConfirmation`, 2 index, 1 clé étrangère. Aucune donnée touchée.
+1. Revoir le SQL généré en lecture seule (`prisma migrate diff`, régénéré le 18 oct. après l'ajout
+   des courriels) : 6 instructions — ajout de `emailsJson` et de `sourceKey`, création de
+   `NotaryConfirmation`, 2 index, 1 clé étrangère — puis UNE reprise : le courriel unique des
+   fiches existantes recopié dans la liste (aucune empreinte ne change, testé).
 2. Appliquer ce SQL, puis `npm run db:rls` (RLS sur la nouvelle table).
 3. Déployer le code (le badge ne s'affiche que s'il existe une confirmation : rien ne change
    visuellement au déploiement).
@@ -215,9 +226,9 @@ Appliqué au banc local seulement. **Procédure de production (NON exécutée, s
 
 ## 9. Vérifications
 
-- `vitest --dir src` : 113 fichiers, **1 871 tests, tous verts** ; `vitest scripts/lib` : 5 fichiers,
-  **95 tests, tous verts**. Fichiers neufs ou étendus : `notaires-confirmation.test.ts` (12),
-  `import-notaires-docx.test.ts` (28, valeurs FICTIVES), `import-notaires-docx-ecriture.test.ts` (9),
+- `vitest --dir src` : 113 fichiers, **1 878 tests, tous verts** ; `vitest scripts/lib` : 5 fichiers,
+  **97 tests, tous verts** (état du 18 oct., après la liste des courriels). Fichiers neufs ou étendus : `notaires-confirmation.test.ts` (13),
+  `import-notaires-docx.test.ts` (29, valeurs FICTIVES), `import-notaires-docx-ecriture.test.ts` (10),
   `notaires-admin.test.ts` (24), `route.test.ts` public (22), `notaires-demandes.test.ts` (27),
   `notary-profile.test.tsx` (12), `notaires-demandes-ui.test.tsx` (22), `annuaire-ui.test.tsx` (15),
   `annuaire-notaires.test.ts` (37).
@@ -227,15 +238,16 @@ Appliqué au banc local seulement. **Procédure de production (NON exécutée, s
 
 ## 10. Limites et décisions humaines
 
-1. **9 propositions `IMPORT`** attendent le Master Admin (banc local ; à recréer en production par
-   la simulation puis la procédure) : ALPHONSE, FRANCILLON, GIORDANI, MORPEAU (rapprochements
-   incertains), BÉLISAIRE et GAI (rapprochement tranché le 18 oct. ; reste le choix du courriel),
-   CASSAGNOL (5ᵉ numéro, choix du courriel), CÉANT et VICTOR (le document diffère de la fiche
-   publiée).
-2. **Tranché par Me Vaval le 18 oct.** : BÉLISAIRE, GAI et DUVOT (voir § 2). Restent à trancher :
-   ALPHONSE, FRANCILLON, GIORDANI, MORPEAU.
-3. **Graphies à confirmer** : « BÉLISAIRE » avec accent (document) plutôt que « Belisaire » ;
-   « Guy Mario GAI » plutôt que « Mario GAI ».
+1. **Propositions `IMPORT` encore ouvertes** (banc local ; à recréer en production par la
+   simulation puis la procédure) : ALPHONSE, FRANCILLON, GIORDANI, MORPEAU (rapprochements
+   incertains), CASSAGNOL (5ᵉ numéro), CÉANT et VICTOR (le document diffère de la fiche publiée,
+   différences soumises à Me Vaval le 18 oct.) ; BÉLISAIRE et GAI n'ont plus rien à proposer — le
+   Master Admin les clôt en enregistrant la fiche pré-remplie.
+2. **Tranché par Me Vaval le 18 oct.** : noms de BÉLISAIRE, GAI et DUVOT (graphies confirmées),
+   publication de tous les courriels du document. Restent à trancher : ALPHONSE, FRANCILLON,
+   GIORDANI, MORPEAU ; CÉANT et VICTOR.
+3. **Corrigé en passant** : « Ouvrir la fiche pré-remplie » d'une proposition d'IMPORT n'ouvrait
+   pas l'éditeur pré-rempli et ne la clôturait pas (seules les demandes du public l'étaient).
 4. **CASSAGNOL** : un numéro annoté comme appartenant à un tiers, un doublon, un numéro incomplet
    et un 5ᵉ numéro ne sont PAS publiés (rapport privé).
 5. **Confirmation** : aucune n'existe ; le badge n'apparaît donc nulle part tant que le Master
@@ -243,4 +255,5 @@ Appliqué au banc local seulement. **Procédure de production (NON exécutée, s
 6. **Préfixe « Me »** : non ajouté devant les noms (la liste du MJSP ne le porte pas).
 7. **`NotaryDirectoryView`** : composant de l'ancienne page « Notaires par juridiction », plus
    rendu par aucune route (encore cité par deux tests) — à retirer dans un lot séparé.
-8. **Libellés anglais et créoles** à valider par Me Vaval.
+8. **Libellés anglais et créoles** à valider par Me Vaval : 74 libellés, tableau
+   `docs/livraison-notaires-confirmation/Libelles-en-ht-a-valider-2026-10-18.xlsx`.
