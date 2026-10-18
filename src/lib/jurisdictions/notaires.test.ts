@@ -225,7 +225,7 @@ describe('reproduire tel quel, et signaler', () => {
     expect(row(9).fullName).toBe('Gamma ANGLADE GILLES')
     expect(row(9).displayName).toBe('Gemma ANGLADE GILLES')
     expect(row(9).observation).toMatch(/prénom « Gemma » confirmé par la cliente/)
-    expect(plan.rows.filter((r) => r.displayName).map((r) => r.ordinal)).toEqual([1, 2, 7, 9, 10, 115])
+    expect(plan.rows.filter((r) => r.displayName).map((r) => r.ordinal)).toEqual([1, 2, 7, 9, 10, 24, 115])
   })
 
   it('18 oct. 2026 : GAI, BÉLISAIRE et DUVOT s’affichent (décisions de la cliente), l’imprimé reste', () => {
@@ -240,6 +240,8 @@ describe('reproduire tel quel, et signaler', () => {
     // Le nom de famille composé passe entier en capitales : il se classe à G, pas à A.
     expect([row(2).fullName, row(2).displayName]).toEqual(['Danielle Giordani ADÉ', 'Danielle GIORDANI ADÉ'])
     expect([row(7).fullName, row(7).displayName]).toEqual(['Sabine MORPEAU', 'Sabine Duvivier MORPEAU'])
+    // « B. » de la liste = Bettina : prénoms complets, nom de famille composé en capitales.
+    expect([row(24).fullName, row(24).displayName]).toEqual(['Mrie Lourdes B. BAUDIN FRANCILLON', 'Marie Lourdes Bettina BAUDIN FRANCILLON'])
   })
 
   it('une décision de nom dont l’imprimé a changé est SIGNALÉE (la liste a pu être corrigée)', () => {
