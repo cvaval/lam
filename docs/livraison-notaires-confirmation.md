@@ -76,6 +76,30 @@ rapprochements incertains (aucune écriture), 0 paragraphe orphelin.
 `IMPORT` créées pour le Master Admin, 0 confirmation. Second passage : rien de créé ni de modifié
 (idempotence vérifiée). Les adresses déjà publiées de CÉANT et VICTOR sont intactes.
 
+### Décisions de Me Vaval (18 oct. 2026) sur les noms
+
+| n° MJSP | Imprimé sur la liste | Nom affiché | Décision |
+|---|---|---|---|
+| 1 | Guy Mario GAY | Guy Mario GAI | « it's Mario Gai » |
+| 10 | Mrie Alice C. B. BEAULIEU | Marie Alice Coradin BÉLISAIRE | « use Marie Alice Coradin Belisaire instead » |
+| 115 | Duvot PAUL | Paul DUVOT | « Duvot is the last name » |
+
+Enregistrées comme la décision « Gemma » du 9 oct. : `nameDecisions` du fichier d'amorçage
+(`data/judicial-map/notaires-mjsp-v1.json`). Le nom IMPRIMÉ reste dans `fullName` (la source), le
+nom décidé s'affiche (`displayName`), la fiche publique dit « Nom imprimé sur la liste du MJSP :
+« … » », et la recherche trouve toujours l'ancien nom (« beaulieu », « gay »). Un nouvel import de
+la liste du MJSP conserve ces décisions et signale si l'imprimé a changé.
+
+- Simulation de l'import du MJSP contre la PRODUCTION (lecture seule) : **3 modifications** (ces
+  trois noms), 420 inchangées, 0 anomalie. Rien n'a été écrit.
+- Banc local : les 3 noms appliqués. Puis l'import Word relu : BÉLISAIRE (n° 3 du document) et GAI
+  (n° 9) passent en EXACT → adresse et 4 téléphones complétés ; le CHOIX DU COURRIEL (2 et 3
+  courriels dans le document) reste une proposition au Master Admin. Leurs deux propositions
+  ouvertes ont été remises à jour (rapprochement établi) ; second passage : rien.
+- DUVOT (n° 13) : coordonnées déjà complétées ; seul le classement change (D, à Cap-Haïtien).
+- Graphie retenue : « BÉLISAIRE » avec l'accent, comme dans le document ; « Guy » est conservé
+  (liste du MJSP et document l'écrivent tous deux).
+
 ## 3. Règles de rapprochement
 
 Noms comparés sans accents, casse, tirets, apostrophes ni points ; ORDRE des mots indifférent
@@ -102,7 +126,9 @@ La commune de commission ne se déduit JAMAIS de l'adresse de l'étude.
   simulation et l'application n'est pas écrasé ; l'écart devient une proposition. Une fiche créée
   entre-temps (P2002) fait retomber sur ces mises à jour conditionnelles.
 - **Idempotence** : propositions identifiées par `sourceKey = notaires-docx:<sha256 16>:<rang>`
-  (unique) ; compléments conditionnels.
+  (unique) ; compléments conditionnels. Une proposition ENCORE OUVERTE est remise à jour quand le
+  RAPPROCHEMENT de l'entrée a changé (décision de nom, par exemple) — jamais pour l'effet des
+  compléments du passage précédent ; une proposition acceptée ou refusée n'est jamais modifiée.
 - **Traçabilité** : `sourceJson` de la fiche (fichier, sha-256, rang, date du document), audit.
 - **Téléphones** : séparés sur `/ ; ,` et devant `+509` ; normalisés E.164 ; 4 au plus publiés,
   le surplus en proposition. JAMAIS publiés : numéro annoté personnel ou attribué à un tiers,
@@ -178,17 +204,20 @@ Appliqué au banc local seulement. **Procédure de production (NON exécutée, s
 2. Appliquer ce SQL, puis `npm run db:rls` (RLS sur la nouvelle table).
 3. Déployer le code (le badge ne s'affiche que s'il existe une confirmation : rien ne change
    visuellement au déploiement).
-4. Relancer la SIMULATION de l'import contre la production (la base a pu bouger) ; comparer avec le
-   rapport du 18 oct.
-5. L'option `--apply` étant réservée à une base locale, les compléments EXACTS se font en
+4. Décisions de nom : `npx tsx scripts/import-notaires-mjsp.ts --apply` (lit `.env` = production ;
+   simulation du 18 oct. : exactement 3 modifications). AVANT l'import Word, sinon BÉLISAIRE et GAI
+   restent incertains.
+5. Relancer la SIMULATION de l'import Word contre la production (la base a pu bouger) ; comparer
+   avec le rapport du 18 oct.
+6. L'option `--apply` étant réservée à une base locale, les compléments EXACTS se font en
    production par le Master Admin depuis l'administration, ou par une autorisation explicite qui
    reste à donner (élargir le garde-fou est une décision, pas un réglage).
 
 ## 9. Vérifications
 
-- `vitest --dir src` : 113 fichiers, **1 870 tests, tous verts** ; `vitest scripts/lib` : 5 fichiers,
-  **92 tests, tous verts**. Fichiers neufs ou étendus : `notaires-confirmation.test.ts` (12),
-  `import-notaires-docx.test.ts` (28, valeurs FICTIVES), `import-notaires-docx-ecriture.test.ts` (6),
+- `vitest --dir src` : 113 fichiers, **1 871 tests, tous verts** ; `vitest scripts/lib` : 5 fichiers,
+  **95 tests, tous verts**. Fichiers neufs ou étendus : `notaires-confirmation.test.ts` (12),
+  `import-notaires-docx.test.ts` (28, valeurs FICTIVES), `import-notaires-docx-ecriture.test.ts` (9),
   `notaires-admin.test.ts` (24), `route.test.ts` public (22), `notaires-demandes.test.ts` (27),
   `notary-profile.test.tsx` (12), `notaires-demandes-ui.test.tsx` (22), `annuaire-ui.test.tsx` (15),
   `annuaire-notaires.test.ts` (37).
@@ -199,20 +228,19 @@ Appliqué au banc local seulement. **Procédure de production (NON exécutée, s
 ## 10. Limites et décisions humaines
 
 1. **9 propositions `IMPORT`** attendent le Master Admin (banc local ; à recréer en production par
-   la simulation puis la procédure) : ALPHONSE, BÉLISAIRE, FRANCILLON, GAI/GAY, GIORDANI, MORPEAU
-   (rapprochements incertains), CASSAGNOL (5ᵉ numéro, choix du courriel), CÉANT et VICTOR (le
-   document diffère de la fiche publiée).
-2. **BÉLISAIRE** : le meilleur candidat est « Mrie Alice C. B. BEAULIEU » (initiales compatibles,
-   nom de famille différent — nom d'usage ?) ; deux autres hypothèses par initiales. Personne
-   n'est rapproché d'office.
-3. **GAI / GAY** : variante d'une lettre ; on ignore laquelle est juste.
-4. **« Paul Duvot » / « Duvot PAUL »** : rapproché EXACT (mêmes mots), mais le nom de famille
-   reste incertain — il pèse sur le classement, pas sur l'écriture.
-5. **CASSAGNOL** : un numéro annoté comme appartenant à un tiers, un doublon, un numéro incomplet
+   la simulation puis la procédure) : ALPHONSE, FRANCILLON, GIORDANI, MORPEAU (rapprochements
+   incertains), BÉLISAIRE et GAI (rapprochement tranché le 18 oct. ; reste le choix du courriel),
+   CASSAGNOL (5ᵉ numéro, choix du courriel), CÉANT et VICTOR (le document diffère de la fiche
+   publiée).
+2. **Tranché par Me Vaval le 18 oct.** : BÉLISAIRE, GAI et DUVOT (voir § 2). Restent à trancher :
+   ALPHONSE, FRANCILLON, GIORDANI, MORPEAU.
+3. **Graphies à confirmer** : « BÉLISAIRE » avec accent (document) plutôt que « Belisaire » ;
+   « Guy Mario GAI » plutôt que « Mario GAI ».
+4. **CASSAGNOL** : un numéro annoté comme appartenant à un tiers, un doublon, un numéro incomplet
    et un 5ᵉ numéro ne sont PAS publiés (rapport privé).
-6. **Confirmation** : aucune n'existe ; le badge n'apparaît donc nulle part tant que le Master
+5. **Confirmation** : aucune n'existe ; le badge n'apparaît donc nulle part tant que le Master
    Admin n'en a pas validé une, preuve à l'appui.
-7. **Préfixe « Me »** : non ajouté devant les noms (la liste du MJSP ne le porte pas).
-8. **`NotaryDirectoryView`** : composant de l'ancienne page « Notaires par juridiction », plus
+6. **Préfixe « Me »** : non ajouté devant les noms (la liste du MJSP ne le porte pas).
+7. **`NotaryDirectoryView`** : composant de l'ancienne page « Notaires par juridiction », plus
    rendu par aucune route (encore cité par deux tests) — à retirer dans un lot séparé.
-9. **Libellés anglais et créoles** à valider par Me Vaval.
+8. **Libellés anglais et créoles** à valider par Me Vaval.
