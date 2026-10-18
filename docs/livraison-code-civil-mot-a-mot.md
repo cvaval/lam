@@ -9,8 +9,8 @@ annotations, typographie harmonisée, Annexe hors périmètre).
 > - corrections des §§ 2 et 4 + art. 1970 : 184 opérations et la passe typographique (journal `ARTICLE_AMENDED`,
 >   06:21 UTC) ;
 > - abrogations du § 7 : 107 articles + « huis clos » (art. 241), soit 108 opérations et 93 versions (07:12 UTC) ;
-> - les 5 intitulés du § 5, avec leurs lignes en double, et les arts 349, 483 et 708 réduits à « [contenu manquant] »
->   (13 opérations, 07:26 UTC).
+> - les 5 intitulés du § 5, avec leurs lignes en double (07:26 UTC) ;
+> - les arts 349, 483 et 708, absents du livre : rétablis d'après quatre autres éditions (07:37 UTC).
 
 ---
 
@@ -153,27 +153,29 @@ est celle du Moniteur quand on la connaît.
 - les abrogations (« appliquer. ») ;
 - l'art. 1970, aligné sur le livre (« de mille à cinq cents gourdes ») : « le contenu du livre prévaut » ;
 - les 5 intitulés du § 5 (« je suis d'accord ») ;
-- les arts 349, 483 et 708 → « [contenu manquant] ».
+- les arts 349, 483 et 708, absents du livre (le folio passe de 348 à 350, de 482 à 484, de 707 à 709). D'abord
+  réduits à « [contenu manquant] », ils ont été **rétablis** d'après quatre éditions concordantes :
+  - Code civil d'Haïti, Paris, Lahure / T. Bouchereau, 1864 ;
+  - Code civil d'Haïti annoté, 1892 ;
+  - Code civil d'Haïti annoté, Éditions Fardin, 1931 et 1986 ;
+  - Linstant Pradine, *Les Codes haïtiens annotés*.
+
+  Les arts 349 et 483 sont identiques à l'ancien texte de la base. Le 708 commence par « **Ils** peuvent demander »
+  dans les quatre éditions : le fichier d'import avait perdu ce premier mot ;
+- confirmés par Me Vaval :
+  - art. 286, al. 2 → décret du 6 juillet 2005, art. 9 (le livre cite un « D. du 6 juin 2006 », introuvable) ;
+  - art. 1995 → nom donné par le livre (« loi du 29 juillet 1929 »), sans date d'effet ; l'Index du Moniteur publie
+    une loi de même objet le 8 août 1927 ;
+  - les 17 abrogations « acte non précisé » : 14, 21-23, 27, 214, 255, 1746 ; 354, 1634 ; « Grand-Juge » et les
+    titres de l'art. 350 ; le 3° de l'art. 18.
 
 **Restent ouverts :**
 
-1. **Arts 349, 483 et 708 : absents du livre** (le folio passe de 348 à 350, de 482 à 484, de 707 à 709). Sur
-   décision de Me Vaval, le texte venu du fichier Word d'import a été **éliminé** ; chacun porte désormais
-   « [contenu manquant] ». Il reste à retrouver leur texte dans une autre édition.
-2. **Art. 286, al. 2** (peine de la femme adultère). Le livre renvoie à « l'art. 9 du D. du 6 juin 2006 ». Aucun acte
-   de cette date n'a été trouvé ; c'est l'art. 9 du **Décret du 6 juillet 2005** (Moniteur n° 60 du 11 août 2005) qui
-   abroge les art. 284 à 287 du Code pénal sur l'adultère. L'abrogation est rattachée à ce décret : à confirmer.
-3. **Art. 1995.** Le livre écrit « loi du 29 juillet 1929 réglementant le service domanial » (mention et encadré).
-   L'Index du Moniteur ne connaît qu'une « Loi réglementant le Service Domanial » publiée le **8 août 1927**. Le nom
-   du livre est gardé, sans date d'effet.
-4. **Objet introuvable** pour le Décret-loi du 22 décembre 1944 (art. 625) et la Loi du 13 février 1925 (art. 740) :
+1. **Objet introuvable** pour le Décret-loi du 22 décembre 1944 (art. 625) et la Loi du 13 février 1925 (art. 740) :
    désignés par la date seule, à compléter.
-5. **17 abrogations sans acte** (ni mention ni encadré) : 14, 21-23, 27, 214, 255, 1746 (articles) ; 354, 1634
-   (alinéas) ; « Grand-Juge » et les titres de l'art. 350 (mots). Pour le 3° de l'art. 18, l'éditeur ne désigne pas
-   non plus d'acte.
-6. **Arts 1769 et 1890** : le livre compose en corps de loi un alinéa qui ressemble à de la jurisprudence (1769) et
+2. **Arts 1769 et 1890** : le livre compose en corps de loi un alinéa qui ressemble à de la jurisprudence (1769) et
    des dispositions modificatives (1890 : « Néanmoins … sont abrogés »). Gardés comme texte.
-7. **Lectures incertaines** :
+3. **Lectures incertaines** :
    - 1262 « privé » (mot taché à l'impression) ;
    - 1458 (points ou virgules) ;
    - la note de 1818, complétée d'après l'image (la colonne droite manquait en base).

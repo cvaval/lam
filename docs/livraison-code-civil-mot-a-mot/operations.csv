@@ -197,3 +197,6 @@ remplacer,corps,art-241,« tribunal buis clos » → « tribunal huis clos » (f
 remplacer,corps,art-349,texte absent du livre (venu du fichier Word d’import de juillet) éliminé → « [contenu manquant] » (décision de Me Vaval),écrit (18 oct. 2026)
 remplacer,corps,art-483,texte absent du livre (venu du fichier Word d’import de juillet) éliminé → « [contenu manquant] » (décision de Me Vaval),écrit (18 oct. 2026)
 remplacer,corps,art-708,texte absent du livre (venu du fichier Word d’import de juillet) éliminé → « [contenu manquant] » (décision de Me Vaval),écrit (18 oct. 2026)
+remplacer,corps,art-349,"« [contenu manquant] » → texte des éditions de 1864, 1892, Fardin (1931, 1986) et Linstant Pradine",écrit (18 oct. 2026)
+remplacer,corps,art-483,"« [contenu manquant] » → texte des éditions de 1864, 1892, Fardin (1931, 1986) et Linstant Pradine",écrit (18 oct. 2026)
+remplacer,corps,art-708,"« [contenu manquant] » → texte des éditions de 1864, 1892, Fardin (1931, 1986) et Linstant Pradine (« Ils peuvent demander… » : le premier mot manquait au fichier d’import)",écrit (18 oct. 2026)
