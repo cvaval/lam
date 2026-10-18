@@ -116,14 +116,20 @@ porte la valeur « avant », revérifiée à l'écriture. Sans décision, rien n
 | 1 | Jean M. E. Lesly ALPHONSE | même personne, nom de la liste gardé ; adresse rectifiée | fiche créée ; proposition close |
 | 3 | Marie Alice Coradin BÉLISAIRE | nom ; tous les courriels | proposition close |
 | 4 | Garry BRISSON CASSAGNOL | tous les courriels | reste ouverte : 5ᵉ numéro |
-| 5 | Jean-Joseph Frantz CÉANT | adresse publiée REMPLACÉE | reste ouverte : 2 numéros, 1 courriel |
+| 5 | Jean-Joseph Frantz CÉANT | adresse publiée REMPLACÉE ; 2 numéros et 1 courriel AJOUTÉS (« the notary can ask to be removed ») | proposition close |
+| 8 | Marie Lourdes Bettina BAUDIN FRANCILLON | même personne ; nom complet (`nameDecisions`) | fiche créée ; proposition close |
 | 9 | Guy Mario GAI | nom ; tous les courriels | proposition close |
 | 10 | Danielle GIORDANI ADÉ | même personne (nom de famille « Giordani Adé ») | fiche créée ; proposition close |
 | 11 | Sabine Duvivier MORPEAU | nom | fiche créée ; proposition close |
-| 12 | Patrick VICTOR | numéros AJOUTÉS (1 → 3) | reste ouverte : graphie « Marcadieu(x) » |
+| 12 | Patrick VICTOR | numéros AJOUTÉS (1 → 3) ; adresse REMPLACÉE (« it is rue Marcadieu ») | proposition close |
 
 Les adresses de la cliente sont reprises sans « , Haïti » final, comme toutes celles de l'annuaire.
-Second passage : rien. FRANCILLON (n° 8) : sans décision, inchangée.
+Second passage : rien. Seule la proposition de CASSAGNOL reste ouverte (5ᵉ numéro, plafond de 4).
+
+**Garde ajoutée à l'ancien amorçage des coordonnées** (`import-coordonnees-notaires.ts`, 9 oct.,
+5 fiches dont CÉANT et VICTOR) : relancé, il aurait ramené ces fiches à leur état du 9 oct. Une
+fiche mise à jour en base APRÈS la date de l'amorçage n'est plus jamais écrasée (`diffContacts`,
+`plusRecentes`) ; vérifié sur le banc : 0 modification, CÉANT et VICTOR signalés et conservés.
 
 ### Décision de Me Vaval (18 oct. 2026) : publier TOUS les courriels du document
 
@@ -243,7 +249,7 @@ Appliqué au banc local seulement. **Procédure de production (NON exécutée, s
 3. Déployer le code (le badge ne s'affiche que s'il existe une confirmation : rien ne change
    visuellement au déploiement).
 4. Décisions de nom : `npx tsx scripts/import-notaires-mjsp.ts --apply` (lit `.env` = production ;
-   simulation du 18 oct. : exactement 5 modifications). AVANT l'import Word, sinon BÉLISAIRE et GAI
+   simulation du 18 oct. : exactement 6 modifications). AVANT l'import Word, sinon BÉLISAIRE et GAI
    restent incertains.
 5. Relancer la SIMULATION de l'import Word contre la production, AVEC le fichier de décisions
    (`--decisions`) ; comparer avec le rapport du 18 oct. (une décision dont la valeur « avant » a
@@ -254,7 +260,7 @@ Appliqué au banc local seulement. **Procédure de production (NON exécutée, s
 
 ## 9. Vérifications
 
-- `vitest --dir src` : 113 fichiers, **1 879 tests, tous verts** ; `vitest scripts/lib` : 5 fichiers,
+- `vitest --dir src` : 113 fichiers, **1 880 tests, tous verts** ; `vitest scripts/lib` : 5 fichiers,
   **104 tests, tous verts** (état du 18 oct., après les décisions). Fichiers neufs ou étendus : `notaires-confirmation.test.ts` (13),
   `import-notaires-docx.test.ts` (29, valeurs FICTIVES), `import-notaires-docx-ecriture.test.ts` (10),
   `notaires-admin.test.ts` (24), `route.test.ts` public (22), `notaires-demandes.test.ts` (27),
@@ -271,10 +277,10 @@ Appliqué au banc local seulement. **Procédure de production (NON exécutée, s
    incertains), CASSAGNOL (5ᵉ numéro), CÉANT et VICTOR (le document diffère de la fiche publiée,
    différences soumises à Me Vaval le 18 oct.) ; BÉLISAIRE et GAI n'ont plus rien à proposer — le
    Master Admin les clôt en enregistrant la fiche pré-remplie.
-2. **Tranché par Me Vaval le 18 oct.** : noms de BÉLISAIRE, GAI, DUVOT, GIORDANI ADÉ et MORPEAU ;
+2. **Tranché par Me Vaval le 18 oct.** : noms de BÉLISAIRE, GAI, DUVOT, GIORDANI ADÉ, MORPEAU et BAUDIN FRANCILLON ;
    ALPHONSE (même personne) ; tous les courriels du document ; adresse de CÉANT ; numéros de
-   VICTOR. Restent : FRANCILLON ; CÉANT (2 numéros, 1 courriel du document) ; VICTOR
-   (« Marcadieux » publié / « Marcadieu » dans le document) ; CASSAGNOL (5ᵉ numéro : plafond de 4).
+   VICTOR ; FRANCILLON (nom complet) ; ajouts de CÉANT ; « rue Marcadieu ». Reste : CASSAGNOL
+   (5ᵉ numéro : plafond de 4).
 3. **Corrigé en passant** : « Ouvrir la fiche pré-remplie » d'une proposition d'IMPORT n'ouvrait
    pas l'éditeur pré-rempli et ne la clôturait pas (seules les demandes du public l'étaient).
 4. **CASSAGNOL** : un numéro annoté comme appartenant à un tiers, un doublon, un numéro incomplet
