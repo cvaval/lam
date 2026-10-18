@@ -86,6 +86,15 @@ describe('chemin de rendu', () => {
     expect(texte(html)).toBe('Abrogé par le Décret du 8 octobre 1982.- C. p. c. 535.')
   })
 
+  it('hors Code civil (CPC : renvois « article N », pas « C. civ. »), l’acte se lie aussi', () => {
+    const D95 = '/fr/doc/cms8dvnw4000jqt1v7p43xsxk'
+    const corps = 'Article 18 (Mod. L. 18 sept 1985 et Décret du 22 août 1995).- La compétence des juges de paix, prévue à l’article 19.'
+    const html = renderToStaticMarkup(<OfficialText text={corps} artRefs={new Set(['art-19'])} codeHrefs={{ actes: { 'Décret du 22 août 1995': D95 } }} />)
+    expect(liens(html)).toEqual([D95])
+    expect(html).toContain('href="#art-19"')
+    expect(texte(html)).toContain('(Mod. L. 18 sept 1985 et Décret du 22 août 1995).- La compétence')
+  })
+
   it('sans table d’actes, aucun lien nouveau (les autres documents ne bougent pas)', () => {
     const html = renderToStaticMarkup(<CodeRefText text="Abrogé par le Décret du 8 octobre 1982." codeHrefs={{ cpc: CPC }} />)
     expect(html).not.toContain('href')

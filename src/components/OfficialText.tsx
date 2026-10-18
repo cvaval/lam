@@ -412,7 +412,12 @@ export function OfficialText({
 
   // Renvois croisés → liens, sinon texte brut ; termes recherchés surlignés (hl).
   function render(textValue: string) {
-    if (!hrefFor) return civRefs ? civ(textValue) : artRefs ? artLinks(textValue) : hl(textValue)
+    if (!hrefFor) {
+      if (civRefs) return civ(textValue) // les actes nommés y passent déjà (cpcLinks)
+      // Hors Code civil (CPC…), les actes nommés se lient aussi : « (Mod. L. 18 sept 1985 et Décret du 22 août 1995) ».
+      const fin = (v: string) => (artRefs ? artLinks(v) : hl(v))
+      return codeHrefs?.actes ? acteLinks(textValue, fin) : fin(textValue)
+    }
     const segs = segmentText(textValue, hrefFor)
     if (segs.length === 1 && !segs[0].href) return hl(textValue)
     return segs.map((s, i) =>

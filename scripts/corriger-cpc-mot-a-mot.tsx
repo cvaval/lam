@@ -16,7 +16,8 @@
  *   - ancienne-numerotation { ancre, numeros }     fixe le texte « Ancienne numérotation : article N. » de l'article
  *   - reclef-commentaires  {}                      les commentaires rangés sous `art-N` passent sous la clé que le
  *                          lecteur lit (`jurisKeyFor`) — sans quoi ils sont invisibles (0/771 le 18 oct. 2026)
- * et `--espaces` : ni insécable, ni cadratin, ni double espace dans le texte des articles.
+ * et `--espaces` : ni insécable, ni cadratin, ni double espace dans le texte des articles ; `--typographie` : en plus,
+ *     apostrophe droite et une espace avant « ; » « : » (convention du Code civil, voir plus bas).
  *
  * Garde-fous — le script REFUSE d'écrire si l'un échoue : l'état en base est celui de l'instantané ; les lignes
  * d'en-tête sont inchangées (hors intitulés promus) ; la suite des ancres de section ne gagne que les intitulés
@@ -41,7 +42,16 @@ const prisma = new PrismaClient()
 const args = process.argv.slice(2)
 const FICHIER = args.find((a) => !a.startsWith('--'))
 const COMMIT = args.includes('--commit')
-const ESPACES = args.includes('--espaces')
+// `--typographie` (Me Vaval, 18 oct. 2026 : « oui uniformiser ») : `--espaces` + la convention du Code civil —
+// apostrophe DROITE dans le texte des articles (les lignes d'en-tête gardent ’ : la table les cite à l'identique),
+// une espace avant « ; » et « : » hors chiffres. `fold()` ne ramène pas ’ à ' : la recherche tapée avec ' trouve.
+const TYPO = args.includes('--typographie')
+const ESPACES = args.includes('--espaces') || TYPO
+function typo(l: string): string {
+  let t = l.replace(/[     ]/g, ' ')
+  if (TYPO) t = t.replace(/[’‘]/g, "'").replace(/(?<=[^\s\d])\s*([;:])(?!\d)/g, ' $1')
+  return t.replace(/ {2,}/g, ' ').replace(/\s+$/, '')
+}
 const sha = (s: string) => createHash('sha256').update(s).digest('hex')
 
 type Op =
@@ -189,11 +199,11 @@ async function main() {
     let n = 0
     lignes = lignes.map((l) => {
       if (l.titre || !l.ancre) return l
-      const t = l.t.replace(/[     ]/g, ' ').replace(/ {2,}/g, ' ').replace(/\s+$/, '')
+      const t = typo(l.t)
       if (t !== l.t) n++
       return { ...l, t }
     })
-    journal.push({ op: 'espaces', apres: `${n} ligne(s)` })
+    journal.push({ op: TYPO ? 'typographie' : 'espaces', apres: `${n} ligne(s)` })
   }
 
   const apresBody = lignes.map((l) => l.t).join('\n')
@@ -253,7 +263,7 @@ async function main() {
   const l0 = liens(avantBody, a0), l1 = liens(apresBody, a1)
   if (l1.length < l0.length) erreurs.push(`${l0.length - l1.length} lien(s) perdu(s) au rendu (${l0.length} → ${l1.length})`)
 
-  const rapport = { operations: operations.length, espaces: ESPACES, journal, liens: [l0.length, l1.length], commentairesOrphelins: [orphC0, orphC.length], erreurs }
+  const rapport = { operations: operations.length, espaces: ESPACES, typographie: TYPO, journal, liens: [l0.length, l1.length], commentairesOrphelins: [orphC0, orphC.length], erreurs }
   writeFileSync(join(dossier, `correction-${COMMIT ? 'ecrite' : 'a-blanc'}.json`), JSON.stringify(rapport, null, 1))
   writeFileSync(join(dossier, 'apres-body.txt'), apresBody)
   writeFileSync(join(dossier, 'apres-ann.json'), apresJson)

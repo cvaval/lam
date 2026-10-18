@@ -3,8 +3,10 @@
 **18 octobre 2026.** Exécution de [prompt-audit-code-procedure-civile-mot-a-mot.md](prompt-audit-code-procedure-civile-mot-a-mot.md)
 contre le fac-similé (éd. 2013, 567 p.), avec les décisions de Me Vaval reprises du Code civil.
 
-> **État : audit terminé, corrections prêtes et éprouvées à blanc — RIEN N'EST ENCORE ÉCRIT EN BASE.**
-> Le prompt exige la validation de ce rapport avant toute écriture (§ 7 ci-dessous).
+> **État : ÉCRIT EN PRODUCTION le 18 oct. 2026** (« oui feu vert », Me Vaval) — 192 opérations (les 189 du § 2 et
+> les 3 numéros repris tels qu'imprimés) et la typographie du Code civil (« oui uniformiser ») sur 1 460 lignes.
+> Contrôle après écriture : 0 tête seule, 134 intitulés (116 + 18), 1 040 têtes, **772 commentaires sur 772 atteints
+> par le lecteur** (0 avant), jurisprudence 317 / 317, 0 apostrophe courbe dans les articles.
 
 ---
 
@@ -78,6 +80,12 @@ Aucune n'est liée.
 - Les libellés des 116 intitulés de la table n'ont été comparés au livre que là où les lecteurs les ont rencontrés.
 
 ## 7. Points à trancher
+
+**Tranchés par Me Vaval (18 oct.)** : appliquer (« oui feu vert ») ; numéros surprenants repris tels qu'imprimés
+(« ok ») ; art. 859 : alinéa séparé, comme le 4°) (« faire séparé si 4 est séparé ») — la base l'était déjà ;
+typographie du Code civil (« oui uniformiser ») ; Appendice : pas de reprise (« non si pas en base »).
+
+**Reste ouvert** : le point 4 (« L. » → « Loi »).
 
 1. **Appliquer les 189 opérations** (§ 2). Elles changent le **sommaire** : 18 intitulés y entrent.
 2. **Anciennes numérotations que le livre imprime de façon surprenante** — la base suivra ce qui est imprimé, sauf avis :
