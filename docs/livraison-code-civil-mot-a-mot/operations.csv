@@ -1,18 +1,18 @@
 type,cible,ancre,resume,etat
-retirer-ligne,,,retrait : « Des effets de l’absence relativement aux biens que l’absent possédait au jour de… » (intitulé en double (§ 6.4)),en attente : validation des intitulés
-retirer-ligne,,,retrait : « Des effets relativement au mariage » (intitulé en double (§ 6.4)),en attente : validation des intitulés
+retirer-ligne,,,retrait : « Des effets de l’absence relativement aux biens que l’absent possédait au jour de… » (intitulé en double (§ 6.4)),"écrit (18 oct. 2026, après validation des intitulés)"
+retirer-ligne,,,retrait : « Des effets relativement au mariage » (intitulé en double (§ 6.4)),"écrit (18 oct. 2026, après validation des intitulés)"
 retirer-ligne,,,"retrait : « De l’administration de la communauté, et de l’effet des actes de l’un ou de l’au… » (intitulé en double (§ 6.4))",écrit (18 oct. 2026)
-retirer-ligne,,,retrait : « DES DIFFÉRENTES MANIÈRES DONT LE MANDAT FINIT » (intitulé en double (§ 6.4)),en attente : validation des intitulés
-retirer-ligne,,,retrait : « DES CAUSES QUI INTERROMPENT OÙ SUSPENDENT » (intitulé en double (§ 6.4)),en attente : validation des intitulés
-retirer-ligne,,,retrait : « LE COURS DE LA PRESCRIPTION » (intitulé en double (§ 6.4)),en attente : validation des intitulés
+retirer-ligne,,,retrait : « DES DIFFÉRENTES MANIÈRES DONT LE MANDAT FINIT » (intitulé en double (§ 6.4)),"écrit (18 oct. 2026, après validation des intitulés)"
+retirer-ligne,,,retrait : « DES CAUSES QUI INTERROMPENT OÙ SUSPENDENT » (intitulé en double (§ 6.4)),"écrit (18 oct. 2026, après validation des intitulés)"
+retirer-ligne,,,retrait : « LE COURS DE LA PRESCRIPTION » (intitulé en double (§ 6.4)),"écrit (18 oct. 2026, après validation des intitulés)"
 retirer-intitule,,sec-304,"intitulé nu en double, retiré de la table, du menu et du corps",écrit (18 oct. 2026)
 retirer-intitule,,sec-306,"intitulé nu en double, retiré de la table, du menu et du corps",écrit (18 oct. 2026)
 retirer-intitule,,sec-308,"intitulé nu en double, retiré de la table, du menu et du corps",écrit (18 oct. 2026)
-renommer-intitule,,sec-19,libellé → « SECTION PREMIÈRE — Des effets de l’absence relativement aux biens que l’absent possédait au jour de … » (livre index 50),en attente : validation des intitulés
-renommer-intitule,,sec-21,libellé → « SECTION III — Des effets relativement au mariage » (livre index 52),en attente : validation des intitulés
-renommer-intitule,,sec-115,libellé → « CHAPITRE II — DE LA CAPACITÉ DE DISPOSER OU DE RECEVOIR PAR DONATION ENTRE VIFS OU PAR TESTAMENT » (livre index 162 (« OU »)),en attente : validation des intitulés
-renommer-intitule,,sec-279,"libellé → « CHAPITRE IV — DES DIFFÉRENTES MANIÈRES DONT LE MANDAT FINIT » (livre index 359 (le livre imprime « CHAPITRE V », coquille : I, II, III, V))",en attente : validation des intitulés
-renommer-intitule,,sec-324,libellé → « CHAPITRE IV — DES CAUSES QUI INTERROMPENT OU SUSPENDENT LE COURS DE LA PRESCRIPTION » (livre index 405),en attente : validation des intitulés
+renommer-intitule,,sec-19,libellé → « SECTION PREMIÈRE — Des effets de l’absence relativement aux biens que l’absent possédait au jour de … » (livre index 50),"écrit (18 oct. 2026, après validation des intitulés)"
+renommer-intitule,,sec-21,libellé → « SECTION III — Des effets relativement au mariage » (livre index 52),"écrit (18 oct. 2026, après validation des intitulés)"
+renommer-intitule,,sec-115,libellé → « CHAPITRE II — DE LA CAPACITÉ DE DISPOSER OU DE RECEVOIR PAR DONATION ENTRE VIFS OU PAR TESTAMENT » (livre index 162 (« OU »)),"écrit (18 oct. 2026, après validation des intitulés)"
+renommer-intitule,,sec-279,"libellé → « CHAPITRE IV — DES DIFFÉRENTES MANIÈRES DONT LE MANDAT FINIT » (livre index 359 (le livre imprime « CHAPITRE V », coquille : I, II, III, V))","écrit (18 oct. 2026, après validation des intitulés)"
+renommer-intitule,,sec-324,libellé → « CHAPITRE IV — DES CAUSES QUI INTERROMPENT OU SUSPENDENT LE COURS DE LA PRESCRIPTION » (livre index 405),"écrit (18 oct. 2026, après validation des intitulés)"
 remplacer,corps,art-41,"Al. 1 : ajout du renvoi omis « .- C. civ., 79. » (livre : « civil.- Civ., 79. », forme harmonisée « C. civ. » retenue), folio 32. NB : l'al. 2 de la base garde « .- Civ., 42, … » non harmonisé — à voir par la passe typographique.",écrit (18 oct. 2026)
 remplacer,corps,art-45,"Retrait de la glose de l'éditeur (petit italique sous l'article) versée comme 3e alinéa, folio 33.",écrit (18 oct. 2026)
 remplacer,corps,art-55,"Al. 2 scindé en 3 alinéas aux bornes du livre (« L'acte de naissance sera rédigé… », « Si deux (2) ans après… »), folio 35. ; « l’article 1 du présent Décret » → « l’article 1er du présent Décret » (livre : 1er, er en exposant), folio 35.",écrit (18 oct. 2026)
@@ -194,3 +194,6 @@ supprimer-commentaire,,sec-289|art-1837,"doublon de renvoi retiré de commentair
 deplacer-commentaire,,art-267,,écrit (18 oct. 2026)
 remplacer,corps,art-1970,« de cinq cents à mille gourdes d'amende » → « de mille à cinq cents gourdes d'amende » (livre index 396 ; le contenu du livre prévaut),écrit (18 oct. 2026)
 remplacer,corps,art-241,« tribunal buis clos » → « tribunal huis clos » (folio 72 ; CCH concorde),écrit (18 oct. 2026)
+remplacer,corps,art-349,texte absent du livre (venu du fichier Word d’import de juillet) éliminé → « [contenu manquant] » (décision de Me Vaval),écrit (18 oct. 2026)
+remplacer,corps,art-483,texte absent du livre (venu du fichier Word d’import de juillet) éliminé → « [contenu manquant] » (décision de Me Vaval),écrit (18 oct. 2026)
+remplacer,corps,art-708,texte absent du livre (venu du fichier Word d’import de juillet) éliminé → « [contenu manquant] » (décision de Me Vaval),écrit (18 oct. 2026)

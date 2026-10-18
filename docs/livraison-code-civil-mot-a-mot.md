@@ -8,9 +8,9 @@ annotations, typographie harmonisée, Annexe hors périmètre).
 > du livre prévaut ») :
 > - corrections des §§ 2 et 4 + art. 1970 : 184 opérations et la passe typographique (journal `ARTICLE_AMENDED`,
 >   06:21 UTC) ;
-> - abrogations du § 7 : 107 articles + « huis clos » (art. 241), soit 108 opérations et 93 versions (07:12 UTC).
->
-> **Restent en attente :** les 5 libellés d'intitulé du § 5 et les 5 lignes en double qui les accompagnent.
+> - abrogations du § 7 : 107 articles + « huis clos » (art. 241), soit 108 opérations et 93 versions (07:12 UTC) ;
+> - les 5 intitulés du § 5, avec leurs lignes en double, et les arts 349, 483 et 708 réduits à « [contenu manquant] »
+>   (13 opérations, 07:26 UTC).
 
 ---
 
@@ -87,8 +87,7 @@ elle que le lecteur rend cliquable.
 ## 5. Intitulés (§ 6.4 du prompt)
 
 Vus sur l'image ; le correctif change table, menu et ligne du corps **ensemble**, sans changer d'ancre.
-**En attente de validation** (les cinq libellés et les lignes en double l. 176, 202, 2883, 3461-3462 ; les intitulés
-nus et la ligne l. 1972 sont écrits) :
+**Écrits** (validés par Me Vaval le 18 oct.) avec leurs lignes en double :
 
 | Intitulé | Correction |
 | --- | --- |
@@ -152,29 +151,29 @@ est celle du Moniteur quand on la connaît.
 **Tranchés et écrits :**
 - les corrections (« oui ») ;
 - les abrogations (« appliquer. ») ;
-- l'art. 1970, aligné sur le livre (« de mille à cinq cents gourdes ») : « le contenu du livre prévaut ».
+- l'art. 1970, aligné sur le livre (« de mille à cinq cents gourdes ») : « le contenu du livre prévaut » ;
+- les 5 intitulés du § 5 (« je suis d'accord ») ;
+- les arts 349, 483 et 708 → « [contenu manquant] ».
 
 **Restent ouverts :**
 
-1. **Les 5 libellés d'intitulé** (§ 5) : ils changent le sommaire. Les opérations sont prêtes, hors dépôt
-   (`corrections-titres-en-attente.json`) ; une écriture exigera un nouvel instantané.
-2. **Arts 349, 483 et 708 : absents du livre.** Le folio passe de 348 à 350, de 482 à 484, de 707 à 709. Leur texte
-   en base vient du fichier Word d'import de juillet, et le 708 commence sans sujet (« Peuvent demander… »). À
-   vérifier sur une autre édition.
-3. **Art. 286, al. 2** (peine de la femme adultère). Le livre renvoie à « l'art. 9 du D. du 6 juin 2006 ». Aucun acte
+1. **Arts 349, 483 et 708 : absents du livre** (le folio passe de 348 à 350, de 482 à 484, de 707 à 709). Sur
+   décision de Me Vaval, le texte venu du fichier Word d'import a été **éliminé** ; chacun porte désormais
+   « [contenu manquant] ». Il reste à retrouver leur texte dans une autre édition.
+2. **Art. 286, al. 2** (peine de la femme adultère). Le livre renvoie à « l'art. 9 du D. du 6 juin 2006 ». Aucun acte
    de cette date n'a été trouvé ; c'est l'art. 9 du **Décret du 6 juillet 2005** (Moniteur n° 60 du 11 août 2005) qui
    abroge les art. 284 à 287 du Code pénal sur l'adultère. L'abrogation est rattachée à ce décret : à confirmer.
-4. **Art. 1995.** Le livre écrit « loi du 29 juillet 1929 réglementant le service domanial » (mention et encadré).
+3. **Art. 1995.** Le livre écrit « loi du 29 juillet 1929 réglementant le service domanial » (mention et encadré).
    L'Index du Moniteur ne connaît qu'une « Loi réglementant le Service Domanial » publiée le **8 août 1927**. Le nom
    du livre est gardé, sans date d'effet.
-5. **Objet introuvable** pour le Décret-loi du 22 décembre 1944 (art. 625) et la Loi du 13 février 1925 (art. 740) :
+4. **Objet introuvable** pour le Décret-loi du 22 décembre 1944 (art. 625) et la Loi du 13 février 1925 (art. 740) :
    désignés par la date seule, à compléter.
-6. **17 abrogations sans acte** (ni mention ni encadré) : 14, 21-23, 27, 214, 255, 1746 (articles) ; 354, 1634
+5. **17 abrogations sans acte** (ni mention ni encadré) : 14, 21-23, 27, 214, 255, 1746 (articles) ; 354, 1634
    (alinéas) ; « Grand-Juge » et les titres de l'art. 350 (mots). Pour le 3° de l'art. 18, l'éditeur ne désigne pas
    non plus d'acte.
-7. **Arts 1769 et 1890** : le livre compose en corps de loi un alinéa qui ressemble à de la jurisprudence (1769) et
+6. **Arts 1769 et 1890** : le livre compose en corps de loi un alinéa qui ressemble à de la jurisprudence (1769) et
    des dispositions modificatives (1890 : « Néanmoins … sont abrogés »). Gardés comme texte.
-8. **Lectures incertaines** :
+7. **Lectures incertaines** :
    - 1262 « privé » (mot taché à l'impression) ;
    - 1458 (points ou virgules) ;
    - la note de 1818, complétée d'après l'image (la colonne droite manquait en base).
