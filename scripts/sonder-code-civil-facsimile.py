@@ -8,7 +8,11 @@ Ce qu'elle mesure, à partir de la GÉOMÉTRIE de la couche texte (jamais de ses
   1. les alinéas du livre, article par article, comparés aux lignes de la base ;
   2. les lignes de LOI composées en italique (convention de l'édition) ;
   3. les gloses de l'éditeur en petit italique sous un article, et si la base les a versées au corps ;
-  4. la confrontation de la base à CCH.docx (fichier de composition), en mots et en alinéas.
+  4. la confrontation de la base à CCH.docx (fichier de composition), en mots et en alinéas ;
+  5. le tableau « composition × mention » : chaque article du livre, romain ou italique (entier, partiel), croisé
+     avec la mention de l'éditeur qui le suit (« Abrogé par… », « V. … », autre glose, aucune). C'est la preuve
+     que l'ITALIQUE signale l'ABROGATION (confirmé le 18 oct. 2026 : « Abrogé par… » ne suit jamais un article
+     en romain).
 
 Anatomie mesurée de la page (pt, repère PDF 398 × 626) :
   loi       Times-Roman 9,5-10,8 · interligne 12,0 · NOUVEL ALINÉA ≈ 14,6-15,0, sans retrait
@@ -231,3 +235,70 @@ print('alinéas, base contre livre :', dict(cmp))
 print('base contre CCH.docx      :', dict(ccmp))
 print(f'articles à lignes de loi en italique : {len(ital)} (entièrement : {sum(1 for i in ital if i["italique"] == i["lignes"])})')
 print(f'gloses candidates : {len(gloses)} (dont trouvées dans le corps : {sum(1 for g in gloses if g["dans_le_corps"])})')
+
+# ── 5. Composition × mention de l'éditeur ──────────────────────────────────────────────────────
+MENTION = re.compile(r'^(V\.?\s|V\s|Abrog|Ainsi|Cet article|Suivant|L.expression|Modifi|Remplac)')
+compo = []
+art = None
+for pi in PAGES:
+    rangs = []
+    for b in doc[pi].get_text('dict')['blocks']:
+        for l in b.get('lines', []):
+            sp = [x for x in l['spans'] if x['text'].strip()]
+            if sp:
+                rangs.append((l['bbox'][3], l['bbox'][0], sp))
+    rangs.sort(key=lambda r: r[0])
+    for y, x0, sp in rangs:
+        t = ''.join(x['text'] for x in sp).strip()
+        tot = sum(len(x['text']) for x in sp)
+        sz = sum(x['size'] * len(x['text']) for x in sp) / tot
+        it = sum(len(x['text']) for x in sp if any(k in x['font'] for k in ITAL)) / tot
+        times = any('Times' in x['font'] for x in sp)
+        if y > 575 and re.fullmatch(r'\d{1,3}', t):
+            continue
+        if HEAD.match(t) and x0 < 60 and sz > 8.3:
+            art = {'n': numero(t), 'page': pi + 1, 'loi': 0, 'ital': 0, 'mentions': []}
+            compo.append(art)
+            reste = sp[2:]
+            if reste:
+                rt = sum(len(x['text']) for x in reste)
+                ri = sum(len(x['text']) for x in reste if any(k in x['font'] for k in ITAL))
+                rsz = sum(x['size'] * len(x['text']) for x in reste) / max(rt, 1)
+                if rsz < 9 and ri / max(rt, 1) > 0.8:
+                    art['mentions'].append(''.join(x['text'] for x in reste).strip())  # « Art. 140 Abrogé par… »
+                else:
+                    art['loi'] += 1
+                    art['ital'] += 1 if ri / max(rt, 1) > 0.9 else 0
+            continue
+        if not art:
+            continue
+        if 9.2 <= sz <= 11.2 and times:
+            if re.match(r'^\W*(C\.|c\.|e\.|Civ|Const)', t):
+                continue
+            art['loi'] += 1
+            art['ital'] += 1 if it > 0.9 else 0
+        elif 6.5 <= sz < 9.2 and times and it > 0.9 and MENTION.match(t):
+            art['mentions'].append(t)
+
+
+def classe_mention(ms):
+    m = ' '.join(ms)
+    if re.search('Abrog', m):
+        return 'Abrogé par…'
+    if re.search(r'harmonie|Suivant|expression|Remplac|Modifi|Ainsi', m):
+        return 'autre glose'
+    if re.search(r'^V\.?|V\s', m):
+        return 'V. …'
+    return 'aucune'
+
+
+tableau = collections.Counter()
+for a in compo:
+    c = ('texte remplacé par la mention' if a['loi'] == 0 else 'romain' if a['ital'] == 0
+         else 'italique entier' if a['ital'] >= a['loi'] else 'italique partiel')
+    a['composition'], a['mention'] = c, classe_mention(a['mentions'])
+    tableau[(c, a['mention'])] += 1
+(OUT / 'composition-mention.json').write_text(json.dumps(compo, ensure_ascii=False, indent=1), encoding='utf-8')
+print('composition × mention :')
+for (c, m), v in sorted(tableau.items()):
+    print(f'  {c:30} {m:12} {v:5}')
