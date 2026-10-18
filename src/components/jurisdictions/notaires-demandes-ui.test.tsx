@@ -134,8 +134,8 @@ describe('le formulaire', () => {
     expect(html).toContain('name="courrielContact"')
     expect(html).toContain('name="qualite"')
   })
-  it('après l’envoi : « Votre demande a été transmise au Master Admin pour examen. »', () => {
-    expect(j.notaryRequestSent).toBe('Votre demande a été transmise au Master Admin pour examen.')
+  it('après l’envoi : « Votre demande a été transmise à l’Administrateur pour examen. » (Me Vaval, 18 oct.)', () => {
+    expect(j.notaryRequestSent).toBe('Votre demande a été transmise à l’Administrateur pour examen.')
   })
   it('« Précisez votre qualité » n’apparaît que pour « Autre » (ou quand il faut le corriger)', () => {
     expect(rendu()).not.toContain('name="qualiteAutre"')
