@@ -179,7 +179,7 @@ async function main() {
       const nouveau = texte ? [...autres, texte] : autres
       if (nouveau.length) brut.commentaires[op.ancre] = nouveau
       else delete brut.commentaires[op.ancre]
-      journal.push({ op: 'ancienne-numerotation', ancre: op.ancre, avant: avant.join(' | '), apres: texte })
+      journal.push({ op: 'ancienne-numerotation', ancre: op.ancre, avant: avant.join(' | '), apres: texte ?? '(aucune)' })
     } else if (op.type === 'reclef-commentaires') {
       reclef = true
     }
