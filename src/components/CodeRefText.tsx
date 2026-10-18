@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { segmentCodeRefs, type CodeKey } from '@/lib/doc/coderefs'
+import { segmentActeRefs } from '@/lib/doc/acterefs'
 
 /**
  * Rend un texte en transformant les renvois à un AUTRE code en liens : l'abréviation
@@ -14,9 +15,18 @@ import { segmentCodeRefs, type CodeKey } from '@/lib/doc/coderefs'
  *
  * Sans `codeHrefs`, le texte est rendu tel quel : le rendu des autres documents ne
  * change pas.
+ *
+ * `actes` (désignation → href) lie les ACTES nommés — « Décret du 8 octobre 1982 » — quand leur
+ * texte ou leur Moniteur est en base (src/lib/doc/acterefs.ts). Il voyage dans le même objet que
+ * les codes : tous les composants qui reçoivent déjà `codeHrefs` le relaient sans changement.
  */
 
-export type CodeHrefs = Partial<Record<CodeKey, string>>
+export type CodeHrefs = Partial<Record<CodeKey, string>> & { actes?: Record<string, string> }
+
+/** Les codes cités qui ont une cible — la clé `actes` n'est pas un code. */
+export function codesActifs(codeHrefs?: CodeHrefs): CodeKey[] {
+  return (Object.keys(codeHrefs ?? {}) as (CodeKey | 'actes')[]).filter((k): k is CodeKey => k !== 'actes' && Boolean(codeHrefs?.[k]))
+}
 
 /** Lien sortant : souligné discret, pour le distinguer d'un renvoi INTERNE (#art-N). */
 const CLS = 'font-medium text-chabon underline decoration-chabon/30 underline-offset-2 hover:decoration-chabon'
@@ -32,7 +42,26 @@ export function codeArticleHref(base: string, article: number | null): string {
 }
 
 export function CodeRefText({ text, codeHrefs }: { text: string; codeHrefs?: CodeHrefs }) {
-  const actifs = (Object.keys(codeHrefs ?? {}) as CodeKey[]).filter((k) => codeHrefs?.[k])
+  const actes = segmentActeRefs(text, codeHrefs?.actes)
+  if (actes)
+    return (
+      <>
+        {actes.map((s, i) =>
+          s.kind === 'text' ? (
+            <CodesSeuls key={i} text={s.text} codeHrefs={codeHrefs} />
+          ) : (
+            <Link key={i} href={s.href} className={CLS} title={s.cle}>
+              {s.text}
+            </Link>
+          ),
+        )}
+      </>
+    )
+  return <CodesSeuls text={text} codeHrefs={codeHrefs} />
+}
+
+function CodesSeuls({ text, codeHrefs }: { text: string; codeHrefs?: CodeHrefs }) {
+  const actifs = codesActifs(codeHrefs)
   if (!actifs.length) return <>{text}</>
   const segs = segmentCodeRefs(text, actifs)
   if (!segs) return <>{text}</>

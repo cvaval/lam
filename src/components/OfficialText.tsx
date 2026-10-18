@@ -4,8 +4,9 @@ import { parseOfficialText } from '@/lib/doc/officiel'
 import { articleAnchorFromHeading, articleAnchorFromNum } from '@/lib/doc/anchors'
 import { ART_REF_RE, ART_OR_SEC_REF_RE, ART_NUM_RE, ART_EXT_AFTER, ART_EXT_BEFORE, ART_EXT_DESIGNATION } from '@/lib/doc/artrefs'
 import { segmentText, type CircRef } from '@/lib/doc/crossref'
-import { segmentCodeRefs, type CodeKey } from '@/lib/doc/coderefs'
-import { codeArticleHref, CODE_LINK_CLS, CODE_NOM, type CodeHrefs } from './CodeRefText'
+import { segmentCodeRefs } from '@/lib/doc/coderefs'
+import { segmentActeRefs } from '@/lib/doc/acterefs'
+import { codeArticleHref, codesActifs, CODE_LINK_CLS, CODE_NOM, type CodeHrefs } from './CodeRefText'
 import { buildBodySegments, tableShortCaption, type RichBlock, type RichTable, type RichNote, type RichCell } from '@/lib/doc/richblocks'
 import { TableActions } from './TableActions'
 import { TableFilter } from './TableFilter'
@@ -230,7 +231,8 @@ export function OfficialText({
         const g = classes(situationDuMarqueur(mq[0]))
         return [
           <span key="mq" data-marqueur className={`rounded-sm border-b-2 ${g.filet} ${g.fond} px-0.5 [box-decoration-break:clone] [print-color-adjust:exact]`}>
-            {hl(mq[0])}
+            {/* « [Abrogé — Décret du 8 octobre 1982 …] » : l'acte se clique, le reste se surligne. */}
+            {acteLinks(mq[0], hl)}
           </span>,
           <span key="mr">{render(textValue.slice(mq[0].length))}</span>,
         ]
@@ -276,12 +278,31 @@ export function OfficialText({
     return out
   }
 
+  // Renvois à un ACTE nommé (« Décret du 8 octobre 1982 ») dont le texte ou le Moniteur est en
+  // base — table `codeHrefs.actes`, posée par la page. Les parts de texte continuent par `suite`.
+  function acteLinks(value: string, suite: (v: string) => ReactNode): ReactNode {
+    const segs = segmentActeRefs(value, codeHrefs?.actes)
+    if (!segs) return suite(value)
+    return segs.map((s, i) =>
+      s.kind === 'text' ? (
+        <span key={i}>{suite(s.text)}</span>
+      ) : (
+        <Link key={i} href={s.href} className={CODE_LINK_CLS} title={s.cle}>
+          {s.text}
+        </Link>
+      ),
+    )
+  }
+
   // Renvois SORTANTS « C. p. c. 956 » → le Code de procédure civile, ancré sur l'article.
   // Le Code civil en porte 348 (corps + annotations), sous onze graphies d'OCR. Les parts
   // de texte continuent leur chemin habituel (loiLinks → hl) : aucune régression ailleurs,
-  // puisque tout dépend de la présence de cpcDocHref.
+  // puisque tout dépend de la présence de cpcDocHref. Les actes nommés passent d'abord.
   function cpcLinks(value: string): ReactNode {
-    const actifs = (Object.keys(codeHrefs ?? {}) as CodeKey[]).filter((k) => codeHrefs?.[k])
+    return acteLinks(value, codeLinks)
+  }
+  function codeLinks(value: string): ReactNode {
+    const actifs = codesActifs(codeHrefs)
     if (!actifs.length) return loiLinks(value)
     const segs = segmentCodeRefs(value, actifs)
     if (!segs) return loiLinks(value)

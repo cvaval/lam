@@ -389,6 +389,17 @@ export default async function DocPage({
       if (cle && cle !== 'civ') codeHrefs[cle] = `/${locale}/doc/${c.id}`
     }
   }
+  // Actes nommés (« Décret du 8 octobre 1982 ») liés à leur texte ou à leur Moniteur : la table
+  // vit dans les annotations ; on ne garde que les cibles encore présentes (un lien mort vaut
+  // moins qu'une désignation en texte simple).
+  const actesLies = annotations?.actesLies
+  if (actesLies && Object.keys(actesLies).length) {
+    const presents = new Set(
+      (await prisma.document.findMany({ where: { id: { in: [...new Set(Object.values(actesLies))] } }, select: { id: true } })).map((d) => d.id),
+    )
+    const actes = Object.fromEntries(Object.entries(actesLies).filter(([, id]) => presents.has(id)).map(([k, id]) => [k, `/${locale}/doc/${id}`]))
+    if (Object.keys(actes).length) codeHrefs.actes = actes
+  }
   // Index thématique IA (codes/lois longs) — alimente le navigateur par thème + renvois.
   let themeIndex: ThemeArticle[] = []
   try { if (doc.themeIndexJson) themeIndex = JSON.parse(doc.themeIndexJson) as ThemeArticle[] } catch { themeIndex = [] }

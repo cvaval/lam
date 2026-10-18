@@ -225,6 +225,7 @@ describe('chaque champ d’annotations est déclaré', () => {
     labels: 'aucune',
     concordance: 'concordance',
     statusActe: 'acte_modificatif',
+    actesLies: 'aucune', // liens sortants vers l'acte nommé, au style neutre des renvois aux codes
     connexe: 'connexe',
     commentaires: 'annotations',
     pointAnchors: 'aucune',

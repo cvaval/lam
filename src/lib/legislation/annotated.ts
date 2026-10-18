@@ -149,6 +149,13 @@ export interface Annotations {
    * distinctes sous un même mot. Le libellé est court, le lien mène à la fiche de l'acte.
    */
   statusActe?: Record<string, { label: string; href: string }>
+  /**
+   * Actes NOMMÉS dans le texte et ses annotations, liés à leur fiche — désignation → id du
+   * document cible (le texte de l'acte, ou à défaut le fascicule du Moniteur qui le publie).
+   * « Décret du 8 octobre 1982 » → Le Moniteur n° 75. Le lecteur lie chaque occurrence de la
+   * désignation (src/lib/doc/acterefs.ts) ; un acte absent de la base n'y figure pas.
+   */
+  actesLies?: Record<string, string>
   // Circulaires BRH : désignations des divisions numérotées « 1.- » / « 4.2.1 » qui tiennent
   // lieu d'articles (liste blanche, ordre du corps). Active l'ancrage art-… sur ces têtes et
   // les renvois internes « la section 7 ». Absent = comportement historique inchangé.
@@ -220,6 +227,10 @@ export function parseAnnotations(json: string | null | undefined): Annotations |
       labels: a.labels && typeof a.labels === 'object' ? a.labels : {},
       concordance: a.concordance && typeof a.concordance === 'object' ? a.concordance : {},
       statusActe: a.statusActe && typeof a.statusActe === 'object' ? a.statusActe : {},
+      actesLies:
+        a.actesLies && typeof a.actesLies === 'object'
+          ? Object.fromEntries(Object.entries(a.actesLies).filter((e): e is [string, string] => typeof e[1] === 'string' && e[1].length > 0))
+          : undefined,
       connexe: a.connexe && typeof a.connexe === 'object' ? a.connexe : {},
       commentaires: a.commentaires && typeof a.commentaires === 'object' ? a.commentaires : {},
       // Circulaires BRH : sans ce champ, la liste blanche n'atteint pas segmentAnnotated et
