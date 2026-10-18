@@ -184,7 +184,7 @@ describe('plan — l’existant prévaut, l’import ne fait que compléter', ()
 
 describe('décisions de la cliente (fichier privé, lié au document)', () => {
   const [victor, , ceant] = lireEntrees(DOC).entrees
-  const D = (o: Record<string, unknown> = {}) => ({ rang: 1, decidedOn: '2026-10-18', par: 'Me Exemple', texte: 'garder ce nom', notaryId: 'n11', remplacer: [] as 'address'[], ajouter: [] as Array<'phones' | 'emails'>, ...o })
+  const D = (o: Record<string, unknown> = {}) => ({ rang: 1, decidedOn: '2026-10-18', par: 'Me Exemple', texte: 'garder ce nom', notaryId: 'n11', remplacer: [] as 'address'[], ajouter: [] as Array<'phones' | 'emails'>, ecarter: [] as Array<'address' | 'phones' | 'emails'>, ...o })
 
   it('le fichier vise CE document (empreinte), des entrées qui existent, une décision par entrée', () => {
     const brut = (o: Record<string, unknown> = {}) => ({ document: { fichier: 'N.docx', sha256: 'a'.repeat(64) }, decisions: [D(o)] })
@@ -215,5 +215,13 @@ describe('décisions de la cliente (fichier privé, lié au document)', () => {
     // Le courriel différent n'est pas couvert par la décision : il reste une proposition.
     expect(p.propositions.map((x) => x.champ)).toEqual(['emails'])
     expect(p.action).toBe('MODIFIER address, phones (décision) + PROPOSITION')
+  })
+
+  it('ÉCARTER sur décision (« do not add the 5th number ») : plus de proposition, une anomalie consignée qui cite la décision', () => {
+    const [, cassagnol] = lireEntrees(DOC).entrees
+    const p = planifier(cassagnol, NOTAIRES, () => null, D({ rang: 2, notaryId: 'n5', texte: 'do not add the 5th number', ecarter: ['phones'] }))
+    expect(p.propositions).toEqual([])
+    expect(p.anomalies).toEqual(expect.arrayContaining([{ type: 'ECARTE_SUR_DECISION', brut: '+50920000015', note: 'écarté sur décision : « do not add the 5th number »' }]))
+    expect(p.completions.find((c) => c.champ === 'phones')?.valeur).toHaveLength(4)
   })
 })

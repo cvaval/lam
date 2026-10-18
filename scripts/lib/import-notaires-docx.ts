@@ -281,7 +281,7 @@ export interface Existant { address: string | null; phones: string[]; emails: st
 
 /** Décisions de la cliente sur les entrées d'UN document (fichier privé : il porte des coordonnées). */
 export const decisionsSchema = z.object({
-  document: z.object({ fichier: z.string().min(1), sha256: z.string().regex(/^[0-9a-f]{64}$/) }),
+  document: z.object({ fichier: z.string().min(1), sha256: z.string().regex(/^[0-9a-f]{64}$/), versionPrecedente: z.string().optional(), note: z.string().optional() }),
   decisions: z.array(z.object({
     rang: z.number().int().positive(),
     decidedOn: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
@@ -293,6 +293,8 @@ export const decisionsSchema = z.object({
     adresse: z.string().min(3).max(200).optional(),
     remplacer: z.array(z.literal('address')).default([]),
     ajouter: z.array(z.enum(['phones', 'emails'])).default([]),
+    /** Ce que la cliente refuse de publier (« do not add the 5th number ») : consigné, jamais proposé. */
+    ecarter: z.array(z.enum(['address', 'phones', 'emails'])).default([]),
   })),
 })
 export type Decisions = z.infer<typeof decisionsSchema>
@@ -430,6 +432,14 @@ export function planifier(e: EntreeDocx, notaires: readonly NotaireRef[], exista
     }
   }
 
+  // Refus de la cliente : la proposition devient une anomalie consignée (« écarté sur décision »).
+  const ecarter: readonly string[] = decision?.ecarter ?? []
+  if (decision && ecarter.length) {
+    for (const x of propositions.filter((y) => y.champ !== 'inscription' && ecarter.includes(y.champ))) {
+      anomalies.push({ type: 'ECARTE_SUR_DECISION', brut: x.propose, note: `écarté sur décision : « ${decision.texte} »` })
+    }
+    propositions.splice(0, propositions.length, ...propositions.filter((y) => y.champ === 'inscription' || !ecarter.includes(y.champ)))
+  }
   const ecrit = [
     ...(completions.length ? [`COMPLÉTER ${completions.map((c) => c.champ).join(', ')}`] : []),
     ...(modifications.length ? [`MODIFIER ${modifications.map((m) => m.champ).join(', ')} (décision)`] : []),

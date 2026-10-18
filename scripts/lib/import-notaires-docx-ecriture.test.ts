@@ -23,7 +23,7 @@ const plan = (o: Partial<PlanEntree> = {}): PlanEntree => ({
   propositions: [], anomalies: [], action: 'COMPLÉTER',
   ...o,
 })
-const DECISION = { rang: 6, decidedOn: '2026-10-18', par: 'Me Exemple', texte: 'l’adresse est : 90, Ave Exemple', notaryId: 'n12', remplacer: ['address' as const], ajouter: [] }
+const DECISION = { rang: 6, decidedOn: '2026-10-18', par: 'Me Exemple', texte: 'l’adresse est : 90, Ave Exemple', notaryId: 'n12', remplacer: ['address' as const], ajouter: [], ecarter: [] }
 
 type Existante = { status: string; notaryId: string | null; niveau: string; champs?: string[] }
 function base(o: { fiche?: boolean; misesAJour?: number[]; propositionExiste?: Existante; creationConcurrente?: boolean } = {}) {

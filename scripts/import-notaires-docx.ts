@@ -4,11 +4,14 @@
  *   npx tsx scripts/import-notaires-docx.ts --file <docx> --rapport <dossier privé>            # SIMULATION
  *   npx tsx scripts/import-notaires-docx.ts --file <docx> --rapport <dossier privé> --apply    # base LOCALE seulement
  *   … --decisions <fichier privé .json>   # décisions de la cliente sur les entrées (voir decisionsSchema)
+ *   … --apply --cible <hôte:port/base> --autorisation "<qui, quand, quoi>"   # base NON locale : sur autorisation écrite seulement
  *
  * ⚠️ BASE VISÉE = `DATABASE_URL` DE L'ENVIRONNEMENT, rien d'autre (le script ne lit PAS `.env`,
  * qui pointe sur la PRODUCTION). Elle est affichée en tête de rapport. `--apply` est REFUSÉ hors
  * d'une base locale clairement identifiée (hôte localhost, base `lam_banc` ou celle que nomme
- * `IMPORT_NOTAIRES_BASE_LOCALE`). Sur la production : simulation, puis la procédure du rapport.
+ * `IMPORT_NOTAIRES_BASE_LOCALE`). Sur la production : simulation, puis — SUR AUTORISATION ÉCRITE de
+ * la cliente — `--cible` (la base visée, recopiée : elle doit être celle qu'affiche la simulation)
+ * et `--autorisation` (citée dans le journal d'audit). Sans les deux, rien n'est écrit.
  *
  * ⚠️ RAPPORT PRIVÉ : le dépôt est public ; le dossier du rapport doit être HORS du dépôt (refusé
  * sinon). Le rapport contient les numéros et courriels du document, y compris ceux qui ne sont
@@ -45,7 +48,7 @@ function args() {
   // Les décisions portent des coordonnées (adresses rectifiées) : hors du dépôt, comme le rapport.
   const decisions = val('--decisions') ? resolve(val('--decisions')!) : null
   if (decisions && !relative(DEPOT, decisions).startsWith('..')) throw new Error(`décisions refusées : « ${decisions} » est dans le dépôt (public)`)
-  return { file: resolve(file), dossier, apply: a.includes('--apply'), dateDocument: val('--date-document'), decisions }
+  return { file: resolve(file), dossier, apply: a.includes('--apply'), dateDocument: val('--date-document'), decisions, cible: val('--cible') ?? null, autorisation: val('--autorisation')?.trim() || null }
 }
 
 function base(): { libelle: string; locale: boolean } {
@@ -87,7 +90,7 @@ function rapportMarkdown(plans: PlanEntree[], meta: Record<string, string>, resu
 }
 
 async function main() {
-  const { file, dossier, apply, dateDocument, decisions: fichierDecisions } = args()
+  const { file, dossier, apply, dateDocument, decisions: fichierDecisions, cible, autorisation } = args()
   const b = base()
   const buf = readFileSync(file)
   const sha = createHash('sha256').update(buf).digest('hex')
@@ -97,8 +100,12 @@ async function main() {
   console.log(`  base     : ${b.libelle} ${b.locale ? '(locale, identifiée)' : '(NON locale : simulation seulement)'}`)
   console.log(`  sha-256  : ${sha}`)
   if (apply && !b.locale) {
-    console.error('✗ --apply refusé : la base n’est pas une base locale clairement identifiée. Fournir la simulation et la procédure.')
-    process.exit(1)
+    if (!cible || cible !== b.libelle || !autorisation || autorisation.length < 10) {
+      console.error('✗ --apply refusé : la base n’est pas une base locale clairement identifiée. Fournir la simulation et la procédure —')
+      console.error('  ou, sur autorisation écrite de la cliente : --cible <la base affichée ci-dessus> --autorisation "<qui, quand, quoi>".')
+      process.exit(1)
+    }
+    console.log(`  ⚠ ÉCRITURE EN BASE NON LOCALE, autorisée : « ${autorisation} »`)
   }
 
   // HTML et non texte brut : `extractRawText` perd les sauts de ligne (voir `texteDepuisHtml`).
@@ -135,7 +142,7 @@ async function main() {
     await audit({
       action: 'JUDICIAL_IMPORT', targetType: 'NotaryContactDocx', targetId: `${fichier}:${sha.slice(0, 16)}`,
       meta: {
-        fichier, sha256: sha, entrees: plans.length,
+        fichier, sha256: sha, entrees: plans.length, base: b.libelle, ...(autorisation && !b.locale ? { autorisation } : {}),
         champsEcrits: resultats.reduce((s, r) => s + r.ecrit.length, 0),
         champsModifiesSurDecision: resultats.reduce((s, r) => s + r.modifie.length, 0),
         decisions: decisions.size,
@@ -152,7 +159,7 @@ async function main() {
   mkdirSync(dossier, { recursive: true })
   const horodatage = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19)
   const meta = {
-    fichier, mode: apply ? 'APPLICATION (base locale)' : 'SIMULATION (aucune écriture)', base: b.libelle, 'sha-256': sha,
+    fichier, mode: apply ? (b.locale ? 'APPLICATION (base locale)' : `APPLICATION (base NON locale — autorisation : « ${autorisation} »)`) : 'SIMULATION (aucune écriture)', base: b.libelle, 'sha-256': sha,
     'date du document': jour, entrées: String(entrees.length), 'paragraphes orphelins': String(orphelins.length),
   }
   const nom = `import-notaires-docx-${apply ? 'application' : 'simulation'}-${horodatage}`
