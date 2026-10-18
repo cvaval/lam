@@ -23,7 +23,8 @@ const plan = (o: Partial<PlanEntree> = {}): PlanEntree => ({
   ...o,
 })
 
-function base(o: { fiche?: boolean; misesAJour?: number[]; propositionExiste?: boolean; creationConcurrente?: boolean } = {}) {
+type Existante = { status: string; notaryId: string | null; niveau: string }
+function base(o: { fiche?: boolean; misesAJour?: number[]; propositionExiste?: Existante; creationConcurrente?: boolean } = {}) {
   const maj = [...(o.misesAJour ?? [1, 1, 1])]
   const tx = {
     notaryContact: {
@@ -40,8 +41,12 @@ function base(o: { fiche?: boolean; misesAJour?: number[]; propositionExiste?: b
   const prisma = {
     $transaction: vi.fn(async (fn: (t: typeof tx) => unknown) => fn(tx)),
     notaryRequest: {
-      findUnique: vi.fn().mockResolvedValue(o.propositionExiste ? { id: 'req-1' } : null),
+      findUnique: vi.fn().mockResolvedValue(o.propositionExiste ? {
+        id: 'req-1', status: o.propositionExiste.status, notaryId: o.propositionExiste.notaryId,
+        payloadJson: JSON.stringify({ rapprochement: { niveau: o.propositionExiste.niveau } }),
+      } : null),
       create: vi.fn().mockResolvedValue({ id: 'req-2' }),
+      update: vi.fn().mockResolvedValue({ id: 'req-1' }),
     },
   }
   return { prisma, tx }
@@ -76,12 +81,39 @@ describe('appliquer — écriture conditionnelle, jamais d’écrasement', () =>
     expect(r).toMatchObject({ ecrit: [], concurrence: ['address', 'phones', 'email'] })
   })
 
-  it('idempotence : la proposition existe déjà (même fichier, même entrée) → rien de créé', async () => {
-    const { prisma } = base({ propositionExiste: true })
+  it('idempotence : la proposition existe déjà (même fichier, même entrée, même rapprochement) → rien de créé ni de modifié', async () => {
+    const { prisma } = base({ propositionExiste: { status: 'NOUVELLE', notaryId: 'n12', niveau: 'EXACT' } })
     const r = await appliquer(prisma as never, plan({ completions: [], propositions: [{ champ: 'address', existant: 'x', propose: 'y', motif: 'm' }] }), CTX)
     expect(r.proposition).toBe('existante')
     expect(prisma.notaryRequest.create).not.toHaveBeenCalled()
-    expect(prisma.notaryRequest.findUnique).toHaveBeenCalledWith({ where: { sourceKey: 'notaires-docx:ffffffffffffffff:6' }, select: { id: true } })
+    expect(prisma.notaryRequest.update).not.toHaveBeenCalled()
+    expect(prisma.notaryRequest.findUnique).toHaveBeenCalledWith({ where: { sourceKey: 'notaires-docx:ffffffffffffffff:6' }, select: { id: true, status: true, notaryId: true, payloadJson: true } })
+  })
+
+  it('rapprochement ÉTABLI depuis (décision de nom) : la proposition ouverte reprend la nouvelle lecture', async () => {
+    const { prisma } = base({ propositionExiste: { status: 'NOUVELLE', notaryId: null, niveau: 'PARTIEL' } })
+    const r = await appliquer(prisma as never, plan({ propositions: [{ champ: 'email', existant: null, propose: 'a@exemple.ht ; b@exemple.ht', motif: 'plusieurs courriels' }] }), CTX)
+    expect(r.proposition).toBe('mise-a-jour')
+    const data = prisma.notaryRequest.update.mock.calls[0][0].data
+    expect(data.notaryId).toBe('n12')
+    expect(JSON.parse(data.payloadJson)).toMatchObject({ rapprochement: { niveau: 'EXACT', notaryId: 'n12' }, propositions: [{ champ: 'email' }] })
+    expect(prisma.notaryRequest.create).not.toHaveBeenCalled()
+  })
+
+  it('une proposition TRANCHÉE n’est jamais modifiée, même si le rapprochement a changé', async () => {
+    for (const status of ['ACCEPTEE', 'REFUSEE']) {
+      const { prisma } = base({ propositionExiste: { status, notaryId: null, niveau: 'PROBABLE' } })
+      const r = await appliquer(prisma as never, plan(), CTX)
+      expect(r.proposition, status).toBe('existante')
+      expect(prisma.notaryRequest.update, status).not.toHaveBeenCalled()
+    }
+  })
+
+  it('rien à proposer et aucune proposition existante : rien n’est créé', async () => {
+    const { prisma } = base()
+    const r = await appliquer(prisma as never, plan(), CTX)
+    expect(r.proposition).toBeNull()
+    expect(prisma.notaryRequest.create).not.toHaveBeenCalled()
   })
 
   it('rapprochement incertain : AUCUNE écriture, une proposition de type IMPORT sans notaire', async () => {

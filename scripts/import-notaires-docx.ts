@@ -128,6 +128,7 @@ async function main() {
         fichier, sha256: sha, entrees: plans.length,
         champsEcrits: resultats.reduce((s, r) => s + r.ecrit.length, 0),
         propositionsCreees: resultats.filter((r) => r.proposition === 'creee').length,
+        propositionsMisesAJour: resultats.filter((r) => r.proposition === 'mise-a-jour').length,
         concurrence: resultats.reduce((s, r) => s + r.concurrence.length, 0),
       },
     })

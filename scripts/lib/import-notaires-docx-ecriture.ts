@@ -5,14 +5,18 @@
  *  - ÉCRITURE CONDITIONNELLE : une fiche absente est créée ; sinon chaque champ n'est écrit que s'il
  *    est TOUJOURS absent au moment d'écrire (SQL `… AND (champ IS NULL OR btrim(champ) = '')`). Ce qui
  *    a été rempli entre la simulation et l'écriture n'est pas écrasé et devient une proposition ;
- *  - propositions idempotentes (`sourceKey`) : un second passage ne crée rien, ne rouvre rien ;
+ *  - propositions idempotentes (`sourceKey`) : un second passage ne crée rien, ne rouvre rien. Une
+ *    proposition ENCORE OUVERTE est remise à jour quand le RAPPROCHEMENT de la même entrée a changé
+ *    (ex. : établi depuis par une décision de nom de la cliente) — pas pour l'effet des compléments
+ *    du passage précédent, sinon un second passage la réécrirait ; une proposition tranchée
+ *    (acceptée ou refusée) n'est jamais modifiée ;
  *  - AUCUNE confirmation n'est créée ; compléter une fiche confirmée l'INVALIDE.
  */
 import { Prisma, type PrismaClient } from '@prisma/client'
 import { invaliderSiModifie } from '../../src/lib/jurisdictions/notaires-confirmation'
 import { cleProposition, type PlanEntree } from './import-notaires-docx'
 
-export type Resultat = { rang: number; ecrit: string[]; concurrence: string[]; proposition: 'creee' | 'existante' | null; invalidees: string[] }
+export type Resultat = { rang: number; ecrit: string[]; concurrence: string[]; proposition: 'creee' | 'mise-a-jour' | 'existante' | null; invalidees: string[] }
 
 export async function appliquer(prisma: PrismaClient, p: PlanEntree, ctx: { sha: string; fichier: string; jour: string }): Promise<Resultat> {
   const res: Resultat = { rang: p.rang, ecrit: [], concurrence: [], proposition: null, invalidees: [] }
@@ -65,36 +69,45 @@ export async function appliquer(prisma: PrismaClient, p: PlanEntree, ctx: { sha:
     const c = p.completions.find((x) => x.champ === champ)!
     p.propositions.push({ champ: champ as 'address' | 'phones' | 'email', existant: '(rempli entre la simulation et l’écriture)', propose: Array.isArray(c.valeur) ? c.valeur.join(' ; ') : c.valeur, motif: 'valeur apparue en base avant l’écriture : non écrasée' })
   }
-  if (p.propositions.length || p.anomalies.length) {
-    const sourceKey = cleProposition(ctx.sha, p.rang)
-    const deja = await prisma.notaryRequest.findUnique({ where: { sourceKey }, select: { id: true } })
-    if (deja) res.proposition = 'existante'
-    else {
-      const emails = p.propose.emails
-      await prisma.notaryRequest.create({
-        data: {
-          kind: 'IMPORT',
-          notaryId: id,
-          sourceKey,
-          payloadJson: JSON.stringify({
-            source: { fichier: ctx.fichier, sha256: ctx.sha, rang: p.rang },
-            notaryName: p.nom,
-            rapprochement: p.rapprochement,
-            address: p.propose.address,
-            phones: p.propose.phones,
-            email: emails.length === 1 ? emails[0] : null,
-            emails,
-            propositions: p.propositions,
-            anomalies: p.anomalies,
-          }),
-          requesterName: `Import — ${ctx.fichier}`,
-          requesterRole: 'AUTRE',
-          requesterEmail: 'legal@agora.ht',
-          locale: 'fr',
-        },
-      })
-      res.proposition = 'creee'
-    }
+  const sourceKey = cleProposition(ctx.sha, p.rang)
+  const deja = await prisma.notaryRequest.findUnique({ where: { sourceKey }, select: { id: true, status: true, notaryId: true, payloadJson: true } })
+  if (!deja && !p.propositions.length && !p.anomalies.length) return res
+  const emails = p.propose.emails
+  const payloadJson = JSON.stringify({
+    source: { fichier: ctx.fichier, sha256: ctx.sha, rang: p.rang },
+    notaryName: p.nom,
+    rapprochement: p.rapprochement,
+    address: p.propose.address,
+    phones: p.propose.phones,
+    email: emails.length === 1 ? emails[0] : null,
+    emails,
+    propositions: p.propositions,
+    anomalies: p.anomalies,
+  })
+  if (deja) {
+    // Ouverte et dont le rapprochement a changé : elle reprend la nouvelle lecture (même si plus rien
+    // n'est à proposer — le master admin la clôt). Tranchée : on n'y touche pas.
+    const ouverte = deja.status === 'NOUVELLE' || deja.status === 'EN_COURS'
+    let niveauAvant: unknown = null
+    try { niveauAvant = (JSON.parse(deja.payloadJson) as { rapprochement?: { niveau?: unknown } }).rapprochement?.niveau ?? null } catch { /* illisible : traité comme changé */ }
+    if (ouverte && (deja.notaryId !== id || niveauAvant !== p.rapprochement.niveau)) {
+      await prisma.notaryRequest.update({ where: { id: deja.id }, data: { payloadJson, notaryId: id } })
+      res.proposition = 'mise-a-jour'
+    } else res.proposition = 'existante'
+    return res
   }
+  await prisma.notaryRequest.create({
+    data: {
+      kind: 'IMPORT',
+      notaryId: id,
+      sourceKey,
+      payloadJson,
+      requesterName: `Import — ${ctx.fichier}`,
+      requesterRole: 'AUTRE',
+      requesterEmail: 'legal@agora.ht',
+      locale: 'fr',
+    },
+  })
+  res.proposition = 'creee'
   return res
 }
