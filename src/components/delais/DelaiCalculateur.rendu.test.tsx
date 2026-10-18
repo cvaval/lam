@@ -607,8 +607,12 @@ describe('la surface publique — 4 juin 2026 + 30 jours francs, à l’écran',
    *     une mesure et non un champ mort : un `lectureStricte` câblé à `null` rendrait le premier
    *     compte identique, et celui-ci rouge.
    *
-   * ⚠️ Le balayage coûte ~0,6 s. C'est le prix d'un chiffre qui, s'il passe de 0 à 1, veut dire
-   * qu'un avocat peut lire deux dates de forclusion sur deux écrans de la même maison.
+   * ⚠️ Le balayage coûte ≈ 1,3 s seul en local, et plus de 5 s sur l'exécuteur de la CI chargé par
+   * les autres fichiers : 14 608 calculs ASYNCHRONES, et le délai par défaut de vitest (5 s) le
+   * coupait (échecs du 18 oct. 2026 sur `1dd5b7e` et `c67890d`). D'où le délai propre de 30 s
+   * ci-dessous — on ne raccourcit pas la population. C'est le prix d'un chiffre qui, s'il passe
+   * de 0 à 1, veut dire qu'un avocat peut lire deux dates de forclusion sur deux écrans de la
+   * même maison.
    */
   it('LE ZÉRO DE LA V2, À LA SURFACE — 7 304 calculs publics, pas une seule seconde date', async () => {
     const { calculPublic, lireParamsCalcul } = await import('@/lib/delais/lecture-publique')
@@ -660,7 +664,7 @@ describe('la surface publique — 4 juin 2026 + 30 jours francs, à l’écran',
     }
     // Le même compte que celui du moteur (`franc-pur.test.ts`, § 0) : la chaîne ne perd rien.
     expect(parDuree).toEqual({ '8': 16, '15': 16, '30': 16, '31': 16 })
-  })
+  }, 30_000)
 })
 
 /**
