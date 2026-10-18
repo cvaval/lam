@@ -10,6 +10,8 @@
  *                          `vers` (par défaut le même)] — art. 997 : les notes de l'éditeur appartiennent à l'art. 987
  *   - retirer-ligne        { ancre, ligne, motif }  débris de mise en page (« Anc » sous l'art. 692) — liste blanche
  *   - actes-lies           { table }               annotations.actesLies (désignation → fiche), § 6.6 du prompt
+ *   - developper-actes     {}                      « L. » → « Loi du », « D. » → « Décret du » devant une date, dans le
+ *                          corps des articles et les blocs `connexe` (Me Vaval, 18 oct. 2026 : « oui remplacer »)
  *   - promouvoir-intitule  { ligne, label, kind }  intertitre composé comme du texte → intitulé de la table (toc +
  *                          navToc, ancre neuve, niveau = celui du parent + 1) ; les annotations des articles qui le
  *                          suivent sont RE-CLEFÉES (`sec-K|art-N` → `sec-K'|art-N`)
@@ -59,6 +61,7 @@ type Op =
   | { type: 'deplacer-commentaire'; ancre: string; ligne: string; vers?: string; preuve?: string }
   | { type: 'retirer-ligne'; ancre: string; ligne: string; motif: string }
   | { type: 'actes-lies'; table: Record<string, string> }
+  | { type: 'developper-actes' }
   | { type: 'promouvoir-intitule'; ligne: string; label: string; kind?: string; preuve?: string }
   | { type: 'ancienne-numerotation'; ancre: string; numeros: string[]; preuve?: string }
   | { type: 'reclef-commentaires' }
@@ -190,6 +193,14 @@ async function main() {
       if (nouveau.length) brut.commentaires[op.ancre] = nouveau
       else delete brut.commentaires[op.ancre]
       journal.push({ op: 'ancienne-numerotation', ancre: op.ancre, avant: avant.join(' | '), apres: texte ?? '(aucune)' })
+    } else if (op.type === 'developper-actes') {
+      // « (L.12 sept 1966) » → « (Loi du 12 sept 1966) » ; « D. 22 août 1995 » → « Décret du 22 août 1995 ».
+      const dev = (x: string) => x.replace(/(?<![\p{L}])([LD])\s*\.\s*(?:du\s+)?(?=\d)/gu, (_m, k) => (k === 'L' ? 'Loi du ' : 'Décret du '))
+      let n = 0
+      lignes = lignes.map((l) => { if (l.titre || !l.ancre) return l; const t = dev(l.t); if (t !== l.t) n++; return { ...l, t } })
+      for (const blocs of Object.values((brut.connexe ?? {}) as Record<string, any[]>))
+        for (const b of blocs) for (const k of ['label', 'text']) if (typeof b[k] === 'string') { const t = dev(b[k]); if (t !== b[k]) { b[k] = t; n++ } }
+      journal.push({ op: 'developper-actes', apres: `${n} ligne(s) ou bloc(s)` })
     } else if (op.type === 'reclef-commentaires') {
       reclef = true
     }

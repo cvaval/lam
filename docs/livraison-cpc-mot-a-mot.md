@@ -85,7 +85,9 @@ Aucune n'est liée.
 (« ok ») ; art. 859 : alinéa séparé, comme le 4°) (« faire séparé si 4 est séparé ») — la base l'était déjà ;
 typographie du Code civil (« oui uniformiser ») ; Appendice : pas de reprise (« non si pas en base »).
 
-**Reste ouvert** : le point 4 (« L. » → « Loi »).
+**« L. » → « Loi »** (« oui remplacer ») : écrit le 18 oct. — 14 marques du corps (« Article 717 (Loi du 12 sept 1966).- »,
+art. 18, art. 61 al. 2) et 26 notes « Article modifié » (où « D. 22 août 1995 » devient aussi « Décret du 22 août 1995 ») ;
+« Loi du 18 sept 1985 » est lié à sa fiche.
 
 1. **Appliquer les 189 opérations** (§ 2). Elles changent le **sommaire** : 18 intitulés y entrent.
 2. **Anciennes numérotations que le livre imprime de façon surprenante** — la base suivra ce qui est imprimé, sauf avis :
