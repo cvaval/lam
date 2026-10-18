@@ -171,13 +171,13 @@ tous les points de rendu du § 2. Liste FERMÉE :
 
 | Clé | Libellé fr (en / ht à valider) | Picto | Gamme | Points de rendu |
 | --- | --- | --- | --- | --- |
-| `modifie` | Modifié | ✎ | amendement | R1, R2, R4, R12 (`MODIFIE`), R14 |
-| `nouveau` | Nouveau (ou « Ajout », § 8) | ＋ | nouveau | R1, R2, R9 |
-| `abroge` | Abrogé | ⊘ | radié | R1, R2, R3, R4, R12, R13, R14 |
+| `modifie` | **Amendé** (décidé le 17 oct.) | ✎ | amendement | R1, R2, R4, R12 (`MODIFIE`), R14 |
+| `nouveau` | **Nouveau** (décidé le 17 oct.) | ＋ | nouveau | R1, R2, R9 |
+| `abroge` | **Abrogé** (décidé le 17 oct.) | ⊘ | radié | R1, R2, R3, R4, R12, R13, R14 |
 | `partiellement_abroge` | Partiellement abrogé | ⊘ | radié, filet pointillé | R1 |
 | `errata` | Errata | ✎ | amendement | R1 |
-| `derogation` | Non applicable — dérogation (libellé à valider) | ⤳ | dérogation | blocs connexes « Bail à usage professionnel » |
-| `ancienne_redaction` | Ancienne rédaction | ↺ | celle de l'état qui l'a produite | R4, R5, R6 ; connexe « rédaction antérieure » |
+| `derogation` | **Dérogation** (proposé, § 8) + ligne de portée « Bail à usage professionnel — C. com., art. 1729-3 » | ⤳ | dérogation | blocs connexes « Bail à usage professionnel » |
+| `ancienne_redaction` | Ancienne rédaction (repli d'un article amendé) · Texte abrogé (repli d'un article abrogé) | ↺ | celle de l'état qui l'a produite | R4, R5, R6 ; connexe « rédaction antérieure » |
 | `acte_modificatif` | Modifié par | ✎ | amendement | connexe « acte qui modifie », bandeau « modification » |
 | `acte_abrogatif` | Abrogé par | ⊘ | radié | connexe « Article abrogé — … » |
 | `texte_a_jour` | Texte modifié, à jour | ⇄ | connexe | connexe « Code civil (texte à jour) » |
@@ -353,9 +353,26 @@ rendu dans la gamme de leur situation, à condition qu'ils soient reconnus en t�
 
 ## § 8 — Questions à Me Vaval (à poser AVANT d'écrire)
 
+**Réponses du 17 octobre 2026** :
+- **Vocabulaire (question 2) — DÉCIDÉ** : « **Nouveau** pour un texte nouveau et **Abrogé** pour une section éliminée.
+  **Amendé** pour un texte modifié. » Le libellé « Modifié » disparaît partout (pastilles R1, R2, R4, statut de fiche
+  R12, Citations R14, administration R19, Word) au profit d'« Amendé » ; « Ajout — <acte> » devient « Nouveau » suivi de
+  l'acte ; « Texte abrogé » ne reste que comme TITRE du repli qui montre le texte retiré, la pastille disant « Abrogé ».
+  Les formes anglaises et créoles sont à soumettre (« Amended / New / Repealed » ; créole : la graphie que Me Vaval
+  écrira).
+- **Gamme (question 1)** : planche montrée le 17 oct. ; validation en attente.
+- **Dérogation (question 8)** : proposition — pastille « **Dérogation** », suivie d'une ligne de portée qui nomme le
+  régime et sa source (« Bail à usage professionnel — C. com., art. 1729-3 ») ; infobulle « Ne s'applique pas au bail
+  à usage professionnel ; demeure applicable aux autres baux ». « Abrogé » serait faux (l'article reste en vigueur
+  pour les autres baux) ; « Non applicable » seul ne dit pas pour qui. Le mot vaut pour toute exclusion sectorielle
+  future, la ligne de portée changeant seule. En attente de validation.
+- **Marqueurs du corps (question 9)** : expliqués le 17 oct. ; mesure de position : sur 310 marqueurs d'acte ou
+  d'abrogation, **298 suivent immédiatement le numéro d'article**, 3 terminent l'article, 9 sont en cours de phrase
+  (les 35 crochets éditoriaux des arrêtés marchés 2017 sont d'une autre nature). En attente de décision.
+
+
 1. **La gamme** : valider les neuf couleurs du § 4 sur la planche, ou en choisir d'autres.
-2. **Vocabulaire** : « Nouveau » ou « Ajout — <acte> » ? « Abrogé » ou « Texte abrogé » ? « Radié » doit-il
-   apparaître ?
+2. ~~**Vocabulaire**~~ : décidé (Nouveau · Amendé · Abrogé), voir ci-dessus.
 3. **Ancienne rédaction** : de la couleur de l'état qui l'a produite (amendement, radié), ou neutre ?
 4. **Jurisprudence et commentaires** : deux couleurs (proposé) ; un repli ou deux quand une fiche a les deux ?
 5. **Ancienne rédaction, acte modificatif, législation connexe** : un repli par nature, ou un repli commun à
