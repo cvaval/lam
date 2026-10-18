@@ -78,6 +78,14 @@ describe('page d’un notaire', () => {
     expect(html).toContain('href="mailto:Contact@etudegilbertgiordani.net"')
     expect(html).not.toContain(t.judicial.notaryPrintedName)
   })
+  it('plusieurs courriels publiés : un lien par courriel, dans l’ordre communiqué', async () => {
+    prisma.notary.findUnique.mockResolvedValue(ligne({
+      contact: { ...ligne({}).contact, email: 'etude@exemple.ht', emailsJson: '["etude@exemple.ht","accueil@exemple.ht"]' },
+    }))
+    const html = await rendu()
+    const liens = [...html.matchAll(/href="mailto:([^"?]+)"/g)].map((m) => m[1])
+    expect(liens.slice(0, 2)).toEqual(['etude@exemple.ht', 'accueil@exemple.ht'])
+  })
   it('sans fiche : une phrase, le reste de la page inchangé', async () => {
     prisma.notary.findUnique.mockResolvedValue(ligne({ contact: null }))
     const html = await rendu()
@@ -107,7 +115,7 @@ describe('page d’un notaire', () => {
 
 describe('page d’un notaire — badge « Confirmé »', () => {
   const N = { fullName: 'Gamma ANGLADE GILLES', displayName: 'Gemma ANGLADE GILLES', communeId: 'commune-ouest-port-au-prince' }
-  const C = { address: '394, route de Bourdon, Port-au-Prince', phonesJson: '["+50929984747","+50946430503"]', email: 'etudeanglade@gmail.com', active: true }
+  const C = { address: '394, route de Bourdon, Port-au-Prince', phonesJson: '["+50929984747","+50946430503"]', email: 'etudeanglade@gmail.com', emailsJson: '["etudeanglade@gmail.com"]', active: true }
   const conf = (snapshotHash: string, status = 'ACTIVE') => [{ notaryId: 'mjsp-2026-09-08-9', status, snapshotHash, confirmedOn: new Date('2026-10-18T00:00:00Z') }]
 
   it('sans confirmation validée : ni coche, ni mention', async () => {

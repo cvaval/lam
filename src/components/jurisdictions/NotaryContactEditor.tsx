@@ -7,7 +7,7 @@ import { ChampErreur } from '../ChampErreur'
 export interface NotaryContactInitial {
   address: string
   phones: string[]
-  email: string
+  emails: string[]
   searchAliases: string[]
   observation: string
   upToDateOn: string
@@ -27,7 +27,9 @@ const LIBELLES_ERREUR: Record<string, string> = {
   unavailable: 'La table des coordonnées n’existe pas encore dans cette base.',
 }
 const libelle = (code: string) =>
-  code.startsWith('telephone:') ? `Numéro illisible : « ${code.slice('telephone:'.length)} » (8 chiffres haïtiens, ou +indicatif).` : LIBELLES_ERREUR[code] ?? code
+  code.startsWith('telephone:') ? `Numéro illisible : « ${code.slice('telephone:'.length)} » (8 chiffres haïtiens, ou +indicatif).`
+    : code.startsWith('courriel:') ? `Courriel illisible : « ${code.slice('courriel:'.length)} ».`
+      : LIBELLES_ERREUR[code] ?? code
 
 const champ = 'mt-1 w-full rounded-lg border border-chabon/15 px-3 py-2 text-sm'
 const etiquette = 'text-xs font-medium text-grafit'
@@ -60,7 +62,7 @@ export function NotaryContactEditor({
     const body = {
       address: String(form.get('address') ?? '').trim() || null,
       phones: liste(form.get('phones')),
-      email: String(form.get('email') ?? '').trim() || null,
+      emails: liste(form.get('emails')),
       searchAliases: liste(form.get('searchAliases')),
       observation: String(form.get('observation') ?? '').trim() || null,
       upToDateOn: String(form.get('upToDateOn') ?? ''),
@@ -108,8 +110,8 @@ export function NotaryContactEditor({
           <textarea name="phones" defaultValue={initial.phones.join('\n')} rows={3} className={`${champ} font-mono`} />
         </label>
         <label className={etiquette}>
-          Courriel
-          <input name="email" type="email" defaultValue={initial.email} maxLength={120} className={champ} />
+          Courriels (un par ligne, 4 au plus — tous sont publiés)
+          <textarea name="emails" defaultValue={initial.emails.join('\n')} rows={2} className={champ} />
         </label>
         <label className={etiquette}>
           Autres noms pour la recherche (un par ligne, 5 au plus : nom d’usage, nom de jeune fille…)

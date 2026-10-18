@@ -64,7 +64,7 @@ export function NotaryRequestForm({
    */
   notary: {
     id: string; name: string; communeId?: string | null; communeName?: string | null; version?: string
-    publie?: { address: string | null; phones: string[]; email: string | null }
+    publie?: { address: string | null; phones: string[]; emails: string[] }
   } | null
   /** Sur une fiche désignée : demander une correction, ou confirmer les informations affichées. */
   objet?: 'correction' | 'confirmation'
@@ -205,7 +205,7 @@ export function NotaryRequestForm({
           <dt className="text-grafit">{l.commission}</dt><dd className="text-ank">{notary.communeName || l.none}</dd>
           <dt className="text-grafit">{l.address}</dt><dd className="text-ank">{notary.publie?.address || l.none}</dd>
           <dt className="text-grafit">{l.phone}</dt><dd className="font-mono text-ank">{notary.publie?.phones.length ? notary.publie.phones.join(' · ') : <span className="font-sans">{l.none}</span>}</dd>
-          <dt className="text-grafit">{l.officeEmail}</dt><dd className="text-ank [overflow-wrap:anywhere]">{notary.publie?.email || l.none}</dd>
+          <dt className="text-grafit">{l.officeEmail}</dt><dd className="text-ank [overflow-wrap:anywhere]">{notary.publie?.emails.length ? notary.publie.emails.join(' · ') : l.none}</dd>
         </dl>
         <Err code="version" />
         <div>
@@ -238,7 +238,10 @@ export function NotaryRequestForm({
           </label>
           <label className={etiquette}>
             {l.officeEmail}
-            <input name="courriel" type="email" maxLength={120} defaultValue={notary?.publie?.email ?? ''} className={champ} {...decrit('courriel')} />
+            {/* Plusieurs courriels admis (séparés comme les numéros) : un champ texte, pas `type="email"`,
+                que le navigateur refuserait avant envoi dès le premier point-virgule. */}
+            <input name="courriel" type="text" inputMode="email" autoComplete="off" maxLength={600} defaultValue={notary?.publie?.emails.join(' ; ') ?? ''} className={champ} {...decrit('courriel', 'aide-courriels')} />
+            <span id="aide-courriels" className={aide}>{l.emailsHint}</span>
             <Err code="courriel" />
           </label>
         </div>

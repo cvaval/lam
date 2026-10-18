@@ -98,7 +98,7 @@ export default async function DemandeNotairePage({
               notary={profil ? {
                 id: profil.id, name: profil.name, communeId: profil.commune?.id ?? null, communeName: profil.commune?.name ?? null,
                 version: profil.version,
-                publie: { address: profil.contact?.address ?? null, phones: (profil.contact?.phones ?? []).map(formatPhone), email: profil.contact?.email ?? null },
+                publie: { address: profil.contact?.address ?? null, phones: (profil.contact?.phones ?? []).map(formatPhone), emails: profil.contact?.emails ?? [] },
               } : null}
               objet={objet}
               communes={communes.map((c) => ({ id: c.id, name: c.name, department: c.department }))}

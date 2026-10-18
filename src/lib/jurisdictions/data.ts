@@ -15,7 +15,7 @@ import { estSchemaAbsent } from '../delais/service-base'
 import { buildPlaceIndex, type PlaceIndex } from './search-places'
 import { normalizePlaceName } from './normalize-place'
 import { nomJuridiction } from './notaires-format'
-import { readPhones } from './coordonnees'
+import { readEmails, readPhones } from './coordonnees'
 import { buildNotaryIndex, type NotaryIndex } from './search-notaries'
 import { EDITION_TIERS } from './notaires-demandes'
 import { adresseExacte, classerAnnuaire, type AnnuaireEntry } from './annuaire-notaires'
@@ -87,14 +87,14 @@ export const lectureNotairesImpossible = (e: unknown) =>
 // pas de `versVue` — la vue publique d'un notaire ne porte aucune coordonnée.
 const NOTAIRE_VUE = {
   id: true, ordinal: true, edition: true, fullName: true, displayName: true, mention: true, communeId: true,
-  contact: { select: { active: true, address: true, phonesJson: true, email: true } },
+  contact: { select: { active: true, address: true, phonesJson: true, email: true, emailsJson: true } },
 } as const
 
 type ConfirmationActive = { status: string; snapshotHash: string; confirmedOn: Date }
 
 const versVue = (n: {
   id: string; ordinal: number; edition: string; fullName: string; displayName: string | null; mention: string | null; communeId: string | null
-  contact: { active: boolean; address: string | null; phonesJson: string; email: string | null } | null
+  contact: { active: boolean; address: string | null; phonesJson: string; email: string | null; emailsJson: string } | null
 }, confirmations?: Map<string, ConfirmationActive>): NotaryView => ({
   id: n.id, ordinal: n.ordinal, fullName: n.displayName ?? n.fullName, mention: n.mention, hasContact: Boolean(n.contact?.active),
   addedByEditors: n.edition === EDITION_TIERS,
@@ -580,7 +580,7 @@ export interface NotaryProfile {
   /** Juridiction déduite de la commune, affichée SANS « TPI » (`nomJuridiction`). */
   jurisdiction: { id: string; label: string } | null
   /** `viaRequest` : fiche issue de la demande d'un tiers, vérifiée par la rédaction (`sourceJson.requestId`). */
-  contact: { address: string | null; phones: string[]; email: string | null; upToDateOn: string | null; viaRequest: boolean } | null
+  contact: { address: string | null; phones: string[]; emails: string[]; upToDateOn: string | null; viaRequest: boolean } | null
   provenance: NotaryProvenance | null
   /** Entrée ajoutée par la rédaction (hors liste du MJSP) : date de la vérification consignée. */
   addedByEditors: { verifiedOn: string | null } | null
@@ -610,7 +610,7 @@ export async function getNotaryProfile(id: string): Promise<NotaryProfile | null
             jurisdictions: { where: { relationship: 'TPI_COMPETENT' }, select: { court: { select: { id: true, name: true, active: true } } } },
           },
         },
-        contact: { select: { address: true, phonesJson: true, email: true, upToDateOn: true, active: true, sourceJson: true } },
+        contact: { select: { address: true, phonesJson: true, email: true, emailsJson: true, upToDateOn: true, active: true, sourceJson: true } },
       },
     })
     if (!n || !n.active) return null
@@ -629,7 +629,7 @@ export async function getNotaryProfile(id: string): Promise<NotaryProfile | null
       jurisdiction: court ? { id: court.id, label: nomJuridiction(court.name) } : null,
       contact: c
         ? {
-            address: c.address, phones: readPhones(c.phonesJson), email: c.email,
+            address: c.address, phones: readPhones(c.phonesJson), emails: readEmails(c.emailsJson, c.email),
             upToDateOn: c.upToDateOn ? c.upToDateOn.toISOString().slice(0, 10) : null,
             viaRequest: ((): boolean => { try { return Boolean((JSON.parse(c.sourceJson ?? '{}') as { requestId?: unknown }).requestId) } catch { return false } })(),
           }

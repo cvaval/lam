@@ -20,6 +20,7 @@ export function libellesDemande(t: Dictionary) {
     address: j.address,
     phone: j.notaryPhone,
     phonesHint: j.notaryRequestPhonesHint,
+    emailsHint: j.notaryRequestEmailsHint,
     /** Courriel PUBLIC de l'étude — à ne pas confondre avec `replyEmail`, privé. */
     officeEmail: j.notaryRequestOfficeEmail,
     message: j.notaryRequestMessage,

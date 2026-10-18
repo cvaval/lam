@@ -869,7 +869,8 @@ model NotaryContact {
   notaryId          String    @unique
   address           String? // telle que communiquée, une ligne
   phonesJson        String    @default("[]") // E.164 : ["+50929423848"]
-  email             String? // tel que communiqué
+  email             String? // le PREMIER de `emailsJson` (lecteurs qui n'en lisent qu'un)
+  emailsJson        String    @default("[]") // tous les courriels publiés, 4 au plus, ordre de communication
   searchAliasesJson String    @default("[]")
   observation       String?
   sourceJson        String    @default("{}") // providedBy, providedOn, channel, evidence

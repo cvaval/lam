@@ -71,7 +71,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
       if (!r?.notaryId) return apiError('request_mismatch', 409)
       const n = await prisma.notary.findUnique({
         where: { id: r.notaryId },
-        select: { id: true, active: true, fullName: true, displayName: true, communeId: true, contact: { select: { address: true, phonesJson: true, email: true, active: true } } },
+        select: { id: true, active: true, fullName: true, displayName: true, communeId: true, contact: { select: { address: true, phonesJson: true, email: true, emailsJson: true, active: true } } },
       })
       if (!n || !n.active) return apiError('notFound', 404)
       const payload = ((): { version?: unknown } => { try { return JSON.parse(r.payloadJson) as { version?: unknown } } catch { return {} } })()

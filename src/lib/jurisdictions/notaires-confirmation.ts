@@ -4,7 +4,7 @@
  *
  * UNE CONFIRMATION EST LIÉE À UNE VERSION. Le master admin valide la confirmation du notaire sur
  * un INSTANTANÉ des informations publiées de l'inscription (nom affiché, commune de commission,
- * adresse de l'étude, téléphones, courriel) ; son empreinte (`snapshotHash`) est la version
+ * adresse de l'étude, téléphones, courriels) ; son empreinte (`snapshotHash`) est la version
  * confirmée. Le badge ne s'affiche que si l'empreinte des informations ACTUELLES est la même : une
  * modification substantielle l'efface aussitôt, à la lecture — et chaque chemin d'écriture connu
  * marque en plus la confirmation INVALIDÉE (`invaliderSiModifie`), pour l'historique.
@@ -13,6 +13,7 @@
  * ni une garantie des prestations. Son absence ne dit rien de la fiabilité d'un notaire.
  */
 import { createHash } from 'node:crypto'
+import { readEmails } from './coordonnees'
 
 export const STATUTS_CONFIRMATION = ['ACTIVE', 'RETIREE', 'INVALIDEE', 'REMPLACEE'] as const
 export type StatutConfirmation = (typeof STATUTS_CONFIRMATION)[number]
@@ -40,7 +41,7 @@ export interface Instantane {
   communeId: string | null
   adresse: string | null
   telephones: string[]
-  courriel: string | null
+  courriels: string[]
 }
 
 const propre = (s: string | null | undefined) => {
@@ -62,7 +63,7 @@ const lireTelephones = (json: string | null | undefined): string[] => {
  */
 export function instantane(
   n: { fullName: string; displayName: string | null; communeId: string | null },
-  c: { address: string | null; phonesJson: string; email: string | null; active: boolean } | null,
+  c: { address: string | null; phonesJson: string; email: string | null; emailsJson: string; active: boolean } | null,
 ): Instantane {
   const fiche = c?.active ? c : null
   return {
@@ -70,13 +71,13 @@ export function instantane(
     communeId: n.communeId,
     adresse: propre(fiche?.address),
     telephones: fiche ? lireTelephones(fiche.phonesJson) : [],
-    courriel: propre(fiche?.email),
+    courriels: fiche ? readEmails(fiche.emailsJson, fiche.email).map((x) => propre(x)).filter((x): x is string => Boolean(x)) : [],
   }
 }
 
 /** Empreinte de l'instantané (SHA-256 d'un JSON à clés ordonnées) — la VERSION confirmée. */
 export function empreinte(i: Instantane): string {
-  const canon = JSON.stringify([i.nom, i.communeId, i.adresse, i.telephones, i.courriel])
+  const canon = JSON.stringify([i.nom, i.communeId, i.adresse, i.telephones, i.courriels])
   return createHash('sha256').update(canon).digest('hex')
 }
 
@@ -95,7 +96,7 @@ export function confirmationPublique(
 
 /** Champs qui diffèrent entre deux instantanés (pour l'historique et la comparaison de l'administration). */
 export function champsModifies(a: Instantane, b: Instantane): Array<keyof Instantane> {
-  const k: Array<keyof Instantane> = ['nom', 'communeId', 'adresse', 'telephones', 'courriel']
+  const k: Array<keyof Instantane> = ['nom', 'communeId', 'adresse', 'telephones', 'courriels']
   return k.filter((x) => JSON.stringify(a[x]) !== JSON.stringify(b[x]))
 }
 
@@ -104,8 +105,8 @@ interface TxConfirmation {
   notary: {
     findUnique(args: {
       where: { id: string }
-      select: { fullName: true; displayName: true; communeId: true; contact: { select: { address: true; phonesJson: true; email: true; active: true } } }
-    }): Promise<{ fullName: string; displayName: string | null; communeId: string | null; contact: { address: string | null; phonesJson: string; email: string | null; active: boolean } | null } | null>
+      select: { fullName: true; displayName: true; communeId: true; contact: { select: { address: true; phonesJson: true; email: true; emailsJson: true; active: true } } }
+    }): Promise<{ fullName: string; displayName: string | null; communeId: string | null; contact: { address: string | null; phonesJson: string; email: string | null; emailsJson: string; active: boolean } | null } | null>
   }
   notaryConfirmation: {
     findMany(args: { where: { notaryId: string; status: 'ACTIVE' }; select: { id: true; snapshotHash: true } }): Promise<Array<{ id: string; snapshotHash: string }>>
@@ -122,7 +123,7 @@ interface TxConfirmation {
 export async function invaliderSiModifie(tx: TxConfirmation, notaryId: string, auteurId: string | null, motif: string): Promise<string[]> {
   const n = await tx.notary.findUnique({
     where: { id: notaryId },
-    select: { fullName: true, displayName: true, communeId: true, contact: { select: { address: true, phonesJson: true, email: true, active: true } } },
+    select: { fullName: true, displayName: true, communeId: true, contact: { select: { address: true, phonesJson: true, email: true, emailsJson: true, active: true } } },
   })
   if (!n) return []
   const actuelle = empreinte(instantane(n, n.contact))

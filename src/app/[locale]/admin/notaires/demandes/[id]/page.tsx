@@ -17,7 +17,8 @@ interface Payload {
   notaryName?: string | null; communeId?: string | null; address?: string | null; phones?: string[]
   email?: string | null; message?: string | null; requesterRoleOther?: string | null
   /** CONFIRMATION : version et contenu confirmés. */
-  version?: string; snapshot?: Instantane
+  /** `courriel` : instantané antérieur à la liste des courriels (18 oct. 2026). */
+  version?: string; snapshot?: Instantane & { courriel?: string | null }
   /** IMPORT : provenance, rapprochement, propositions, anomalies (scripts/import-notaires-docx.ts). */
   source?: { fichier: string; sha256: string; rang: number }
   emails?: string[]
@@ -27,6 +28,7 @@ interface Payload {
 }
 
 const affTel = (xs: string[] | undefined) => (xs?.length ? xs.map(formatPhone).join(' · ') : null)
+const affCourriels = (xs: string[]) => (xs.length ? xs.join(' · ') : null)
 
 /** Publié / proposé, champ par champ ; « ≠ » marque une différence (jamais tranchée d'office). */
 function Comparaison({ publie, propose }: { publie: { adresse: string | null; tels: string | null; courriel: string | null }; propose: { adresse: string | null; tels: string | null; courriel: string | null } }) {
@@ -76,7 +78,7 @@ export default async function DemandeNotairePage({ params }: { params: { locale:
     d.notaryId
       ? prisma.notary.findUnique({
           where: { id: d.notaryId },
-          select: { id: true, fullName: true, displayName: true, active: true, communeId: true, contact: { select: { address: true, phonesJson: true, email: true, active: true } } },
+          select: { id: true, fullName: true, displayName: true, active: true, communeId: true, contact: { select: { address: true, phonesJson: true, email: true, emailsJson: true, active: true } } },
         })
       : Promise.resolve(null),
     d.decidedById ? prisma.user.findUnique({ where: { id: d.decidedById }, select: { email: true } }) : Promise.resolve(null),
@@ -135,8 +137,8 @@ export default async function DemandeNotairePage({ params }: { params: { locale:
         <section className="mt-6 max-w-2xl rounded-xl border border-chabon/10 bg-white p-4">
           <h2 className="font-serif text-lg font-semibold text-ank">Données publiées et proposées</h2>
           <Comparaison
-            publie={{ adresse: publie.adresse, tels: affTel(publie.telephones), courriel: publie.courriel }}
-            propose={{ adresse: p.address ?? null, tels: affTel(p.phones), courriel: p.email ?? (p.emails?.length ? p.emails.join(' ; ') : null) }}
+            publie={{ adresse: publie.adresse, tels: affTel(publie.telephones), courriel: affCourriels(publie.courriels) }}
+            propose={{ adresse: p.address ?? null, tels: affTel(p.phones), courriel: affCourriels(p.emails?.length ? p.emails : p.email ? [p.email] : []) }}
           />
           <p className="mt-2 text-xs text-grafit">Accepter une correction ne donne aucun badge ; si une confirmation est active, elle sera invalidée par toute modification substantielle.</p>
         </section>
@@ -150,8 +152,8 @@ export default async function DemandeNotairePage({ params }: { params: { locale:
           </p>
           {p.snapshot && publie && (
             <Comparaison
-              publie={{ adresse: publie.adresse, tels: affTel(publie.telephones), courriel: publie.courriel }}
-              propose={{ adresse: p.snapshot.adresse, tels: affTel(p.snapshot.telephones), courriel: p.snapshot.courriel }}
+              publie={{ adresse: publie.adresse, tels: affTel(publie.telephones), courriel: affCourriels(publie.courriels) }}
+              propose={{ adresse: p.snapshot.adresse, tels: affTel(p.snapshot.telephones), courriel: affCourriels(p.snapshot.courriels ?? (p.snapshot.courriel ? [p.snapshot.courriel] : [])) }}
             />
           )}
           <p className="mt-3 text-xs text-grafit">

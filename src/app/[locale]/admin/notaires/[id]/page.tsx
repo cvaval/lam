@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { dictFor } from '@/lib/i18n/server'
 import { requireCapability } from '@/lib/auth/guard'
 import { prisma } from '@/lib/db'
-import { formatPhone, readPhones } from '@/lib/jurisdictions/coordonnees'
+import { formatPhone, MAX_COURRIELS, readEmails, readPhones } from '@/lib/jurisdictions/coordonnees'
 import { lectureNotairesImpossible } from '@/lib/jurisdictions/data'
 import { LIBELLE_ROLE } from '@/lib/jurisdictions/notaires-demandes'
 import { NotaryContactEditor, type NotaryContactInitial } from '@/components/jurisdictions/NotaryContactEditor'
@@ -52,11 +52,12 @@ export default async function AdminNotairePage({
   const demande = estMaster && demandeId && /^[a-z0-9]{10,40}$/.test(demandeId)
     ? await prisma.notaryRequest.findUnique({ where: { id: demandeId } }).catch(() => null)
     : null
-  // Pré-remplissage : une demande « coordonnées » qui vise ce notaire, ou qui n'en vise aucun
-  // (nom saisi — elle s'y rattachera à l'enregistrement). Une demande déjà ACCEPTÉE qui l'a
-  // créé (inscription) pré-remplit encore la fiche, sans rien accepter de plus.
+  // Pré-remplissage : une demande « coordonnées » (public) ou une proposition d'import qui vise ce
+  // notaire, ou qui n'en vise aucun (nom saisi, rapprochement incertain — elle s'y rattachera à
+  // l'enregistrement). Une demande déjà ACCEPTÉE qui l'a créé (inscription) pré-remplit encore la
+  // fiche, sans rien accepter de plus.
   const ouverte = (s: string) => s === 'NOUVELLE' || s === 'EN_COURS'
-  const demandeOuverte = demande && demande.kind === 'CONTACT' && ouverte(demande.status) && (!demande.notaryId || demande.notaryId === n.id) ? demande : null
+  const demandeOuverte = demande && (demande.kind === 'CONTACT' || demande.kind === 'IMPORT') && ouverte(demande.status) && (!demande.notaryId || demande.notaryId === n.id) ? demande : null
   const demandeSource = demandeOuverte ?? (demande && demande.status === 'ACCEPTEE' && demande.notaryId === n.id && !n.contact ? demande : null)
 
   const c = n.contact
@@ -65,7 +66,7 @@ export default async function AdminNotairePage({
   let initial: NotaryContactInitial = {
     address: c?.address ?? '',
     phones: readPhones(c?.phonesJson).map(formatPhone),
-    email: c?.email ?? '',
+    emails: readEmails(c?.emailsJson, c?.email),
     searchAliases: lireJson<string[]>(c?.searchAliasesJson, []),
     observation: c?.observation ?? '',
     upToDateOn: c?.upToDateOn?.toISOString().slice(0, 10) ?? aujourdHui,
@@ -74,15 +75,18 @@ export default async function AdminNotairePage({
     active: c?.active ?? true,
   }
   if (demandeSource) {
-    const p = lireJson<{ address?: string | null; phones?: string[]; email?: string | null }>(demandeSource.payloadJson, {})
+    const p = lireJson<{ address?: string | null; phones?: string[]; email?: string | null; emails?: string[] }>(demandeSource.payloadJson, {})
+    const emails = p.emails?.length ? p.emails : p.email ? [p.email] : []
+    const importe = demandeSource.kind === 'IMPORT'
     initial = {
       ...initial,
       address: p.address ?? initial.address,
-      phones: p.phones?.length ? p.phones.map(formatPhone) : initial.phones,
-      email: p.email ?? initial.email,
+      // 4 numéros au plus : au-delà, ils ont été écartés à l'import (voir la proposition).
+      phones: p.phones?.length ? p.phones.slice(0, 4).map(formatPhone) : initial.phones,
+      emails: emails.length ? emails.slice(0, MAX_COURRIELS) : initial.emails,
       upToDateOn: demandeSource.createdAt.toISOString().slice(0, 10),
-      providedBy: `${demandeSource.requesterName} (${LIBELLE_ROLE[demandeSource.requesterRole] ?? demandeSource.requesterRole})`,
-      channel: `Formulaire du site, demande n° ${demandeSource.id.slice(-8)}`,
+      providedBy: importe ? demandeSource.requesterName : `${demandeSource.requesterName} (${LIBELLE_ROLE[demandeSource.requesterRole] ?? demandeSource.requesterRole})`,
+      channel: importe ? `Import d’un document Word, proposition n° ${demandeSource.id.slice(-8)}` : `Formulaire du site, demande n° ${demandeSource.id.slice(-8)}`,
       active: true,
     }
   }

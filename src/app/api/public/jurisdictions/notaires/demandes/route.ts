@@ -66,11 +66,11 @@ export async function POST(req: NextRequest) {
   const d = lecture.valeur
 
   // L'entrée visée doit exister et être PUBLIÉE ; sinon la demande garde le nom saisi seul.
-  let notaire: { id: string; fullName: string; displayName: string | null; communeId: string | null; contact: { address: string | null; phonesJson: string; email: string | null; active: boolean } | null } | null = null
+  let notaire: { id: string; fullName: string; displayName: string | null; communeId: string | null; contact: { address: string | null; phonesJson: string; email: string | null; emailsJson: string; active: boolean } | null } | null = null
   if (d.notaryId) {
     notaire = await prisma.notary.findFirst({
       where: { id: d.notaryId, active: true },
-      select: { id: true, fullName: true, displayName: true, communeId: true, contact: { select: { address: true, phonesJson: true, email: true, active: true } } },
+      select: { id: true, fullName: true, displayName: true, communeId: true, contact: { select: { address: true, phonesJson: true, email: true, emailsJson: true, active: true } } },
     }).catch(() => null)
   }
   let confirme: { version: string; snapshot: ReturnType<typeof instantane> } | null = null
@@ -102,7 +102,7 @@ export async function POST(req: NextRequest) {
         notaryId: notaire?.id ?? null,
         payloadJson: JSON.stringify({
           notaryName: d.notaryName, communeId: d.communeId, address: d.address, phones: d.phones,
-          email: d.email, message: d.message, requesterRoleOther: d.requesterRoleOther,
+          email: d.email, emails: d.emails, message: d.message, requesterRoleOther: d.requesterRoleOther,
           // CONFIRMATION : la version confirmée et son contenu, figés à la réception.
           ...(confirme ? { version: confirme.version, snapshot: confirme.snapshot } : {}),
         }),

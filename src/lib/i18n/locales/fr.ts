@@ -1321,6 +1321,7 @@ export const fr = {
     notaryRequestChooseCommune: 'Choisir une commune',
     notaryRequestContactSection: 'Coordonnées de l’étude',
     notaryRequestPhonesHint: 'Un ou plusieurs numéros, séparés par un point-virgule.',
+    notaryRequestEmailsHint: 'Un ou plusieurs courriels, séparés par un point-virgule.',
     notaryRequestMessage: 'Précisions (facultatif)',
     notaryRequestYou: 'Vos coordonnées',
     notaryRequestName: 'Votre nom',

@@ -108,18 +108,21 @@ describe('le formulaire', () => {
     // Notaire désigné : les champs reprennent la fiche, à corriger.
     expect(html).toContain(j.notaryRequestCorrectionHint.replace(/’/g, '’'))
     expect(html).toContain(j.notaryRequestYouHint)
-    expect(html).toMatch(new RegExp(`${j.notaryRequestOfficeEmail.replace(/[’']/g, '.')}<input name="courriel" type="email"`))
+    expect(html).toMatch(new RegExp(`${j.notaryRequestOfficeEmail.replace(/[’']/g, '.')}<input name="courriel" type="text"`))
     expect(html).toMatch(new RegExp(`${j.notaryRequestReplyEmail}<input name="courrielContact" type="email"[^>]*aria-describedby="bloc-vous-note"`))
   })
   it('correction : les champs reprennent les informations PUBLIÉES de la fiche', () => {
-    const html = rendu({ notary: { ...VICTOR, publie: { address: '14 rue Exemple, Bourdon', phones: ['+509 2000-0001'], email: 'etude@exemple.ht' } }, communes: COMMUNES })
+    const html = rendu({ notary: { ...VICTOR, publie: { address: '14 rue Exemple, Bourdon', phones: ['+509 2000-0001'], emails: ['etude@exemple.ht', 'accueil@exemple.ht'] } }, communes: COMMUNES })
     expect(html).toMatch(/<input name="adresse"[^>]*value="14 rue Exemple, Bourdon"/)
-    expect(html).toMatch(/<input name="courriel" type="email"[^>]*value="etude@exemple.ht"/)
+    // Tous les courriels publiés, séparés comme les numéros ; champ texte (pas `type="email"`, que le
+    // navigateur refuserait dès le point-virgule).
+    expect(html).toMatch(/<input name="courriel" type="text"[^>]*value="etude@exemple.ht ; accueil@exemple.ht"/)
+    expect(html).toContain('Un ou plusieurs courriels, séparés par un point-virgule.')
     expect(html).toContain('name="type" value="coordonnees"')
     expect(html).toMatch(/aria-current="page"[^>]*>.*Demander une correction/)
   })
   it('confirmation : résumé des informations publiées, version vue, case à cocher ; aucun champ de coordonnées', () => {
-    const html = rendu({ notary: { ...VICTOR, communeName: 'Port-au-Prince', version: 'd'.repeat(64), publie: { address: '14 rue Exemple, Bourdon', phones: ['+509 2000-0001'], email: null } }, communes: COMMUNES, objet: 'confirmation' })
+    const html = rendu({ notary: { ...VICTOR, communeName: 'Port-au-Prince', version: 'd'.repeat(64), publie: { address: '14 rue Exemple, Bourdon', phones: ['+509 2000-0001'], emails: [] } }, communes: COMMUNES, objet: 'confirmation' })
     expect(html).toContain('name="type" value="confirmation"')
     expect(html).toContain(`name="version" value="${'d'.repeat(64)}"`)
     expect(html).toMatch(/<input type="checkbox" name="confirme" required="" [^>]*value="oui"/)
@@ -188,7 +191,7 @@ describe('le formulaire', () => {
 
 describe('coordonnées issues de la demande d’un tiers', () => {
   it('la ligne de provenance dit qu’elles viennent de l’étude et ont été vérifiées', () => {
-    const contact = { address: '14 rue Marcadieux', phones: [], email: null, upToDateOn: '2026-10-09' }
+    const contact = { address: '14 rue Marcadieux', phones: [], emails: [], upToDateOn: '2026-10-09' }
     const via = renderToStaticMarkup(<NotaryProfileView p={{ ...PROFIL, contact: { ...contact, viaRequest: true } }} locale="fr" t={t} />)
     expect(via).toContain('Coordonnées communiquées par l’étude, vérifiées par la rédaction d’Agora, à jour au 9 octobre 2026.')
     const directe = renderToStaticMarkup(<NotaryProfileView p={{ ...PROFIL, contact: { ...contact, viaRequest: false } }} locale="fr" t={t} />)

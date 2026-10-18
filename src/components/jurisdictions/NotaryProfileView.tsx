@@ -109,18 +109,21 @@ export function NotaryProfileView({
                   </dd>
                 </>
               )}
-              {p.contact.email && (
+              {p.contact.emails.length > 0 && (
                 <>
                   <dt className="mt-2 text-xs text-ank/80 sm:mt-0 sm:text-sm">{j.notaryEmail}</dt>
-                  <dd>
-                    <a
-                      href={`mailto:${p.contact.email}`}
-                      aria-label={`${j.notaryWrite} ${p.contact.email}`}
-                      className="inline-flex min-h-[44px] max-w-full items-center gap-2 rounded-full border border-chabon/20 bg-white px-4 text-sm text-ank transition hover:border-chabon hover:bg-pil"
-                    >
-                      <Mail aria-hidden="true" className="h-4 w-4 shrink-0" />
-                      <span className="[overflow-wrap:anywhere]">{p.contact.email}</span>
-                    </a>
+                  <dd className="flex flex-wrap gap-2">
+                    {p.contact.emails.map((courriel) => (
+                      <a
+                        key={courriel}
+                        href={`mailto:${courriel}`}
+                        aria-label={`${j.notaryWrite} ${courriel}`}
+                        className="inline-flex min-h-[44px] max-w-full items-center gap-2 rounded-full border border-chabon/20 bg-white px-4 text-sm text-ank transition hover:border-chabon hover:bg-pil"
+                      >
+                        <Mail aria-hidden="true" className="h-4 w-4 shrink-0" />
+                        <span className="[overflow-wrap:anywhere]">{courriel}</span>
+                      </a>
+                    ))}
                   </dd>
                 </>
               )}

@@ -187,7 +187,7 @@ describe('décision du master admin', () => {
 
 const NOTAIRE_COMPLET = {
   id: 'mjsp-2026-09-08-11', active: true, fullName: 'Patrick VICTOR', displayName: null, communeId: 'commune-ouest-port-au-prince',
-  contact: { address: '14 rue Exemple, Bourdon, Port-au-Prince', phonesJson: '["+50920000001"]', email: 'etude@exemple.ht', active: true },
+  contact: { address: '14 rue Exemple, Bourdon, Port-au-Prince', phonesJson: '["+50920000001"]', email: 'etude@exemple.ht', emailsJson: '["etude@exemple.ht"]', active: true },
 }
 const VERSION = empreinte(instantane(NOTAIRE_COMPLET, NOTAIRE_COMPLET.contact))
 const VALIDER = { action: 'VALIDER_CONFIRMATION', confirmedOn: '2026-10-18', method: 'APPEL_NUMERO_INDEPENDANT', evidenceRef: 'Dossier N-2026-11, appel du 18/10', note: 'Rappel de l’étude au numéro publié par la Chambre ; le notaire confirme.' }
@@ -210,7 +210,7 @@ describe('badge « Confirmé » — validation réservée au master admin', () =
     expect(res.status).toBe(200)
     const c = prisma.notaryConfirmation.create.mock.calls[0][0].data
     expect(c).toMatchObject({ notaryId: NOTAIRE_COMPLET.id, status: 'ACTIVE', snapshotHash: VERSION, validatedById: 'u-1', method: 'APPEL_NUMERO_INDEPENDANT', evidenceRef: 'Dossier N-2026-11, appel du 18/10', requestId: 'clx0demande0000001' })
-    expect(JSON.parse(c.snapshotJson)).toMatchObject({ adresse: '14 rue Exemple, Bourdon, Port-au-Prince', courriel: 'etude@exemple.ht' })
+    expect(JSON.parse(c.snapshotJson)).toMatchObject({ adresse: '14 rue Exemple, Bourdon, Port-au-Prince', courriels: ['etude@exemple.ht'] })
     expect(prisma.notaryRequest.update.mock.calls[0][0].data).toMatchObject({ status: 'ACCEPTEE', decidedById: 'u-1' })
     expect(audit.mock.calls.map((a) => a[0].action)).toEqual(['NOTARY_CONFIRMATION_VALIDATED', 'NOTARY_REQUEST_DECIDED'])
     // La référence des justificatifs ne va pas dans le journal.

@@ -1003,6 +1003,7 @@ export const ht: Dictionary = {
     notaryRequestChooseCommune: 'Chwazi yon komin',
     notaryRequestContactSection: 'Kontak etid la',
     notaryRequestPhonesHint: 'Youn oswa plizyè nimewo, separe ak yon pwen-vigil.',
+    notaryRequestEmailsHint: 'Youn oswa plizyè imel, separe ak yon pwen-vigil.',
     notaryRequestMessage: 'Presizyon (si ou vle)',
     notaryRequestYou: 'Enfòmasyon ou',
     notaryRequestName: 'Non ou',

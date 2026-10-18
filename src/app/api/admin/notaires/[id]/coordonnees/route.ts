@@ -12,7 +12,7 @@ export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
 const ID_RE = /^[a-z0-9][a-z0-9-]{2,119}$/
-const CHAMPS = ['address', 'phonesJson', 'email', 'searchAliasesJson', 'observation', 'sourceJson', 'upToDateOn', 'active'] as const
+const CHAMPS = ['address', 'phonesJson', 'email', 'emailsJson', 'searchAliasesJson', 'observation', 'sourceJson', 'upToDateOn', 'active'] as const
 
 /** État comparable d'une fiche, pour l'audit avant/après. */
 const etat = (c: Record<string, unknown> | null) =>

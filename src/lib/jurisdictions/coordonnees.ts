@@ -37,6 +37,23 @@ export function formatPhone(e164: string): string {
 /** Forme d'adresse électronique plausible — on ne vérifie RIEN d'autre (aucun envoi). */
 export const EMAIL_RE = /^[^\s@<>()[\],;:"]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
 
+/** Courriels publiés d'une étude : 4 au plus, comme les téléphones (décision du 18 oct. 2026). */
+export const MAX_COURRIELS = 4
+
+/**
+ * Courriels d'une fiche. `emailsJson` est la liste, dans l'ordre de communication ; `email` en
+ * garde le PREMIER pour les lecteurs qui n'en lisent qu'un. Une fiche antérieure à la liste n'a
+ * que `email` : elle est lue telle quelle.
+ */
+export function readEmails(json: string | null | undefined, email?: string | null): string[] {
+  let v: unknown = []
+  try { v = JSON.parse(json ?? '[]') } catch { /* illisible : repli sur `email` */ }
+  const liste = Array.isArray(v) ? v.filter((x): x is string => typeof x === 'string' && EMAIL_RE.test(x)) : []
+  if (liste.length) return liste
+  const seul = email?.trim()
+  return seul ? [seul] : []
+}
+
 // ── Amorçage ─────────────────────────────────────────────────────────────────
 
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/)
@@ -71,6 +88,7 @@ export interface ContactRow {
   address: string | null
   phonesJson: string
   email: string | null
+  emailsJson: string
   searchAliasesJson: string
   observation: string | null
   sourceJson: string
@@ -116,6 +134,7 @@ export function buildContactPlan(seed: ContactSeed, notaries: NotaryRef[]): { ro
       address: e.address,
       phonesJson: JSON.stringify(phones),
       email: e.email,
+      emailsJson: JSON.stringify(e.email ? [e.email] : []),
       searchAliasesJson: JSON.stringify(e.searchAliases),
       observation: e.observation,
       sourceJson: JSON.stringify(e.source),
@@ -127,7 +146,7 @@ export function buildContactPlan(seed: ContactSeed, notaries: NotaryRef[]): { ro
 }
 
 export const CONTACT_FIELDS = [
-  'notaryId', 'address', 'phonesJson', 'email', 'searchAliasesJson', 'observation', 'sourceJson', 'upToDateOn', 'active',
+  'notaryId', 'address', 'phonesJson', 'email', 'emailsJson', 'searchAliasesJson', 'observation', 'sourceJson', 'upToDateOn', 'active',
 ] as const satisfies readonly (keyof ContactRow)[]
 
 const same = (a: unknown, b: unknown) =>

@@ -219,7 +219,7 @@ describe('vérification humaine (Turnstile)', () => {
 describe('demande de CONFIRMATION des informations affichées', () => {
   const NOTAIRE = {
     id: 'mjsp-2026-09-08-9', fullName: 'Gamma ANGLADE GILLES', displayName: 'Gemma ANGLADE GILLES', communeId: 'commune-ouest-port-au-prince',
-    contact: { address: '394, route Exemple, Port-au-Prince', phonesJson: '["+50920000001"]', email: 'etude@exemple.ht', active: true },
+    contact: { address: '394, route Exemple, Port-au-Prince', phonesJson: '["+50920000001"]', email: 'etude@exemple.ht', emailsJson: '["etude@exemple.ht"]', active: true },
   }
   const VERSION = empreinte(instantane(NOTAIRE, NOTAIRE.contact))
   const conf = (o: Record<string, string> = {}) => champs({ type: 'confirmation', version: VERSION, confirme: 'oui', telephones: '', ...o })
@@ -231,7 +231,7 @@ describe('demande de CONFIRMATION des informations affichées', () => {
     const data = prisma.notaryRequest.create.mock.calls[0][0].data
     expect(data).toMatchObject({ kind: 'CONFIRMATION', notaryId: 'mjsp-2026-09-08-9' })
     const payload = JSON.parse(data.payloadJson)
-    expect(payload).toMatchObject({ version: VERSION, snapshot: { adresse: '394, route Exemple, Port-au-Prince', courriel: 'etude@exemple.ht' } })
+    expect(payload).toMatchObject({ version: VERSION, snapshot: { adresse: '394, route Exemple, Port-au-Prince', courriels: ['etude@exemple.ht'] } })
     expect(payload.address).toBeNull()
     expect('notaryConfirmation' in prisma).toBe(false)
   })

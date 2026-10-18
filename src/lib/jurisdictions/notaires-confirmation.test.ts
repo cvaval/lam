@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { badgeAffichable, champsModifies, confirmationPublique, empreinte, instantane, invaliderSiModifie } from './notaires-confirmation'
 
 const N = { fullName: 'Jean EXEMPLE', displayName: null, communeId: 'commune-ouest-port-au-prince' }
-const C = { address: '10 rue Exemple, Quartier, Port-au-Prince', phonesJson: '["+50920000001"]', email: 'etude@exemple.ht', active: true }
+const C = { address: '10 rue Exemple, Quartier, Port-au-Prince', phonesJson: '["+50920000001"]', email: 'etude@exemple.ht', emailsJson: '["etude@exemple.ht"]', active: true }
 
 describe('instantané et empreinte — la version confirmée', () => {
   it('même information, même empreinte ; espaces normalisés', () => {
@@ -15,7 +15,8 @@ describe('instantané et empreinte — la version confirmée', () => {
     for (const autre of [
       instantane(N, { ...C, address: '20, Route Exemple' }),
       instantane(N, { ...C, phonesJson: '["+50920000001","+50930000002"]' }),
-      instantane(N, { ...C, email: 'autre@exemple.ht' }),
+      instantane(N, { ...C, email: 'autre@exemple.ht', emailsJson: '["autre@exemple.ht"]' }),
+      instantane(N, { ...C, emailsJson: '["etude@exemple.ht","accueil@exemple.ht"]' }),
       instantane({ ...N, displayName: 'Jean J. EXEMPLE' }, C),
       instantane({ ...N, communeId: 'commune-ouest-delmas' }, C),
       instantane(N, { ...C, active: false }),
@@ -23,11 +24,17 @@ describe('instantané et empreinte — la version confirmée', () => {
   })
 
   it('une fiche inactive ne publie rien', () => {
-    expect(instantane(N, { ...C, active: false })).toMatchObject({ adresse: null, telephones: [], courriel: null })
+    expect(instantane(N, { ...C, active: false })).toMatchObject({ adresse: null, telephones: [], courriels: [] })
   })
 
   it('champsModifies nomme les champs touchés', () => {
-    expect(champsModifies(instantane(N, C), instantane(N, { ...C, email: 'x@exemple.ht' }))).toEqual(['courriel'])
+    expect(champsModifies(instantane(N, C), instantane(N, { ...C, emailsJson: '["x@exemple.ht"]' }))).toEqual(['courriels'])
+  })
+
+  it('tous les courriels publiés comptent, dans leur ordre ; une fiche d’avant la liste (seul `email`) garde SA version', () => {
+    expect(instantane(N, { ...C, email: 'a@exemple.ht', emailsJson: '["a@exemple.ht","b@exemple.ht"]' }).courriels).toEqual(['a@exemple.ht', 'b@exemple.ht'])
+    // La reprise (email → emailsJson) ne change pas l'empreinte : aucune confirmation n'en serait invalidée.
+    expect(empreinte(instantane(N, { ...C, emailsJson: '[]' }))).toBe(empreinte(instantane(N, C)))
   })
 })
 

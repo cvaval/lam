@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   DELAI_MINIMAL_MS, decisionDemandeSchema, decisionPermise, demandesOuvertes, destinatairesAlerte, idTiers,
-  lireDemande, lireTelephones, normaliserSaisieContact, prochainIdTiers, saisieContactSchema, seuilPurgeDemandes,
+  lireCourriels, lireDemande, lireTelephones, normaliserSaisieContact, prochainIdTiers, saisieContactSchema, seuilPurgeDemandes,
 } from './notaires-demandes'
 
 /**
@@ -44,6 +44,25 @@ describe('interrupteur et destinataires', () => {
     expect(destinatairesAlerte({})).toEqual(['legal@agora.ht'])
     expect(destinatairesAlerte({ NOTARY_REQUEST_ALERT_TO: ' a@agora.ht, b@agora.ht ' })).toEqual(['a@agora.ht', 'b@agora.ht'])
     expect(destinatairesAlerte({ NOTARY_REQUEST_ALERT_TO: 'pas une adresse' })).toEqual([])
+  })
+})
+
+describe('courriels saisis (plusieurs admis, 18 oct. 2026)', () => {
+  it('séparateurs « ; » « , » espace, ordre gardé, doublons retirés sans égard à la casse', () => {
+    expect(lireCourriels('etude@exemple.ht ; Accueil@exemple.ht, etude@EXEMPLE.ht')).toEqual(['etude@exemple.ht', 'Accueil@exemple.ht'])
+    expect(lireCourriels('')).toEqual([])
+    expect(lireCourriels(null)).toEqual([])
+  })
+  it('UN courriel mal formé, ou plus de 4, invalide la saisie', () => {
+    expect(lireCourriels('etude@exemple.ht ; pas-un-courriel')).toBeNull()
+    expect(lireCourriels('a@exemple.ht;b@exemple.ht;c@exemple.ht;d@exemple.ht;e@exemple.ht')).toBeNull()
+  })
+  it('la demande d’un tiers porte la liste, et le premier en `email`', () => {
+    const r = lireDemande(coordonnees({ courriel: 'etude@exemple.ht; accueil@exemple.ht' }), opts)
+    expect(r.kind).toBe('valide')
+    if (r.kind !== 'valide') return
+    expect(r.valeur).toMatchObject({ email: 'etude@exemple.ht', emails: ['etude@exemple.ht', 'accueil@exemple.ht'] })
+    expect(lireDemande(coordonnees({ courriel: 'etude@exemple.ht; faux' }), opts)).toMatchObject({ kind: 'invalide', erreurs: ['courriel'] })
   })
 })
 
@@ -174,6 +193,17 @@ describe('saisie de la rédaction', () => {
   })
   it('un numéro illisible est NOMMÉ dans l’erreur', () => {
     expect(normaliserSaisieContact(saisie({ phones: ['2942-3848', '12'] }))).toEqual({ ok: false, erreurs: ['telephone:12'] })
+  })
+  it('plusieurs courriels : tous enregistrés (`emailsJson`), le premier aussi dans `email` ; un courriel illisible est NOMMÉ', () => {
+    const r = normaliserSaisieContact(saisie({ email: undefined, emails: ['etude@exemple.ht', 'accueil@exemple.ht', 'ETUDE@exemple.ht'] }))
+    expect(r.ok).toBe(true)
+    if (!r.ok) return
+    expect(r.valeur.email).toBe('etude@exemple.ht')
+    expect(r.valeur.emailsJson).toBe('["etude@exemple.ht","accueil@exemple.ht"]')
+    expect(normaliserSaisieContact(saisie({ emails: ['etude@exemple.ht', 'faux'] }))).toEqual({ ok: false, erreurs: ['courriel:faux'] })
+    // L'ancienne forme (un seul `email`) reste lue.
+    const seul = normaliserSaisieContact(saisie())
+    expect(seul.ok && seul.valeur.emailsJson).toBe('["patrickvictor@etudevictor.com"]')
   })
   it('fiche vide refusée ; la demande d’origine est consignée dans la source', () => {
     expect(normaliserSaisieContact(saisie({ address: null, phones: [], email: null }))).toEqual({ ok: false, erreurs: ['coordonnees'] })

@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import {
-  buildContactPlan, contactSeedSchema, diffContacts, formatPhone, normalizePhone, readPhones,
+  buildContactPlan, contactSeedSchema, diffContacts, formatPhone, normalizePhone, readEmails, readPhones,
   type ContactSeed, type NotaryRef,
 } from './coordonnees'
 import { buildNotaryPlan, communeRefsFromImportPlan, notarySeedSchema } from './notaires-plan'
@@ -121,5 +121,15 @@ describe('plan d’import : idempotence, aucune suppression', () => {
   it('une fiche en base absente du fichier est SIGNALÉE, jamais retirée', () => {
     const d = diffContacts(plan.rows, [...plan.rows, { ...plan.rows[0], id: 'contact-mjsp-2026-09-08-999' }])
     expect(d.orphans).toEqual(['contact-mjsp-2026-09-08-999'])
+  })
+})
+
+describe('courriels d’une fiche (liste, 18 oct. 2026)', () => {
+  it('la liste prévaut ; une fiche d’avant la liste est lue par son seul `email` ; rien d’illisible', () => {
+    expect(readEmails('["etude@exemple.ht","accueil@exemple.ht"]', 'etude@exemple.ht')).toEqual(['etude@exemple.ht', 'accueil@exemple.ht'])
+    expect(readEmails('[]', 'etude@exemple.ht')).toEqual(['etude@exemple.ht'])
+    expect(readEmails('pas du json', ' etude@exemple.ht ')).toEqual(['etude@exemple.ht'])
+    expect(readEmails('["faux", 3]', null)).toEqual([])
+    expect(readEmails(null, null)).toEqual([])
   })
 })

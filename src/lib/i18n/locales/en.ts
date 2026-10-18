@@ -1003,6 +1003,7 @@ export const en: Dictionary = {
     notaryRequestChooseCommune: 'Choose a commune',
     notaryRequestContactSection: 'Office contact details',
     notaryRequestPhonesHint: 'One or more numbers, separated by a semicolon.',
+    notaryRequestEmailsHint: 'One or more email addresses, separated by a semicolon.',
     notaryRequestMessage: 'Details (optional)',
     notaryRequestYou: 'Your details',
     notaryRequestName: 'Your name',

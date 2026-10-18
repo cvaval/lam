@@ -15,7 +15,7 @@
  * (docs/confidentialite-demandes-notaires.md).
  */
 import { z } from 'zod'
-import { EMAIL_RE, normalizePhone } from './coordonnees'
+import { EMAIL_RE, MAX_COURRIELS, normalizePhone } from './coordonnees'
 import { clesTurnstile } from '../security/turnstile'
 import { METHODES_VERIFICATION } from './notaires-confirmation'
 
@@ -87,6 +87,20 @@ export function lireTelephones(brut: string | null): string[] | null {
   return sortie.slice(0, 4)
 }
 
+/**
+ * « a@x.ht ; b@y.ht » → liste (ordre gardé, doublons retirés sans égard à la casse) ; `null` si UN
+ * courriel est mal formé ou s'il y en a plus de 4. Séparateurs : point-virgule, virgule, espace,
+ * retour à la ligne.
+ */
+export function lireCourriels(brut: string | null | undefined): string[] | null {
+  const sortie: string[] = []
+  for (const m of (brut ?? '').split(/[;,\s]+/).filter(Boolean)) {
+    if (!EMAIL_RE.test(m)) return null
+    if (!sortie.some((x) => x.toLowerCase() === m.toLowerCase())) sortie.push(m)
+  }
+  return sortie.length > MAX_COURRIELS ? null : sortie
+}
+
 // ── Chantier D : le formulaire public ─────────────────────────────────────────
 
 export type ChampDemande =
@@ -104,7 +118,9 @@ export interface DemandeValide {
   requesterRoleOther: string | null
   address: string | null
   phones: string[]
+  /** Le premier de `emails`. */
   email: string | null
+  emails: string[]
   message: string | null
   requesterEmail: string
   /** CONFIRMATION : empreinte de la version AFFICHÉE au demandeur (`notaires-confirmation.ts`). */
@@ -163,8 +179,9 @@ export function lireDemande(
   const address = ligne(champs.adresse, 200)
   const phones = lireTelephones(ligne(champs.telephones, 120))
   if (phones === null) erreurs.push('telephones')
-  const email = ligne(champs.courriel, 120)
-  if (email && !EMAIL_RE.test(email)) erreurs.push('courriel')
+  const emails = lireCourriels(ligne(champs.courriel, 600))
+  if (emails === null) erreurs.push('courriel')
+  const email = emails?.[0] ?? null
   // Un numéro illisible se signale pour lui-même : pas de second message « aucune coordonnée ».
   if (kind === 'CONTACT' && phones !== null && !address && !phones.length && !email) erreurs.push('coordonnees')
   // Une confirmation ne propose RIEN : les champs de coordonnées éventuellement envoyés sont ignorés.
@@ -183,7 +200,8 @@ export function lireDemande(
     valeur: {
       kind, notaryId, notaryName, communeId: communeId && opts.communesValides.has(communeId) ? communeId : null,
       requesterName, requesterRole: role, requesterRoleOther: role === 'AUTRE' ? roleOther : null,
-      address: confirmation ? null : address, phones: confirmation ? [] : phones, email: confirmation ? null : email,
+      address: confirmation ? null : address, phones: confirmation ? [] : phones,
+      email: confirmation ? null : email, emails: confirmation ? [] : emails ?? [],
       message, requesterEmail, version,
     },
   }
@@ -259,7 +277,9 @@ export function seuilPurgeDemandes(maintenant: Date): Date {
 export const saisieContactSchema = z.object({
   address: z.string().max(200).nullable(),
   phones: z.array(z.string().max(40)).max(4),
-  email: z.string().max(120).nullable(),
+  /** Un seul courriel (ancienne forme) ou la liste ; la liste l'emporte. */
+  email: z.string().max(120).nullable().optional(),
+  emails: z.array(z.string().max(120)).max(MAX_COURRIELS).optional(),
   searchAliases: z.array(z.string().max(80)).max(5),
   observation: z.string().max(1000).nullable(),
   upToDateOn: isoDateSchema(),
@@ -275,6 +295,7 @@ export interface ContactNormalise {
   address: string | null
   phonesJson: string
   email: string | null
+  emailsJson: string
   searchAliasesJson: string
   observation: string | null
   sourceJson: string
@@ -292,9 +313,12 @@ export function normaliserSaisieContact(s: SaisieContact): { ok: true; valeur: C
     if (!n) erreurs.push(`telephone:${p}`)
     else if (!phones.includes(n)) phones.push(n)
   }
-  const email = ligne(s.email ?? undefined, 120)
-  if (email && !EMAIL_RE.test(email)) erreurs.push('courriel')
-  if (!address && !phones.length && !email) erreurs.push('coordonnees')
+  const emails: string[] = []
+  for (const m of (s.emails ?? (s.email ? [s.email] : [])).map((x) => x.trim()).filter(Boolean)) {
+    if (!EMAIL_RE.test(m)) erreurs.push(`courriel:${m}`)
+    else if (!emails.some((x) => x.toLowerCase() === m.toLowerCase())) emails.push(m)
+  }
+  if (!address && !phones.length && !emails.length) erreurs.push('coordonnees')
   const aliases = [...new Set(s.searchAliases.map((a) => ligne(a, 80)).filter((a): a is string => Boolean(a)))]
   if (erreurs.length) return { ok: false, erreurs }
   return {
@@ -302,7 +326,8 @@ export function normaliserSaisieContact(s: SaisieContact): { ok: true; valeur: C
     valeur: {
       address,
       phonesJson: JSON.stringify(phones),
-      email,
+      email: emails[0] ?? null,
+      emailsJson: JSON.stringify(emails),
       searchAliasesJson: JSON.stringify(aliases),
       observation: texte(s.observation ?? undefined, 1000),
       sourceJson: JSON.stringify({
