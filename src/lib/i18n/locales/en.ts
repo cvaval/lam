@@ -929,7 +929,7 @@ export const en: Dictionary = {
     notarySearchNone: 'No notary matches “{q}”.',
     notarySearchClear: 'Clear search',
     // Page « Carte judiciaire et notaires » et onglet « Notaires » (17 oct. 2026) — libellés À VALIDER par la cliente.
-    pageTitle: 'Judicial map and of notaries',
+    pageTitle: 'Map of courts and notaries',
     pageIntro: 'Find a court or a notary, anywhere in Haiti.',
     tabsLabel: 'Judicial map view',
     tabJurisdictions: 'Courts',
