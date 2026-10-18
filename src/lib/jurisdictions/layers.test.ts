@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import {
   ALL_LAYERS, DEFAULT_LAYERS, LAYER_REGISTRY, MAP_LAYERS, MAX_LAYERS_PARAM,
-  createLayerRegistry, emojiImageExpression, parseLayers, serializeLayers, type MapLayerDef,
+  NOTARY_VIEW_LAYERS, createLayerRegistry, emojiImageExpression, parseLayers, parseLayersPour, serializeLayers, serializeLayersPour,
+  type MapLayerDef,
 } from './layers'
 import { AVEC_HUISSIERS, HUISSIERS } from './layers.fixture'
 
@@ -186,3 +187,19 @@ describe('bulle au clic (couche des notaires)', () => {
   })
 })
 
+describe('couches selon la vue — onglet « Notaires »', () => {
+  it('absent ⇒ défaut de la vue (notaires allumés) ; vide ⇒ aucune couche', () => {
+    expect(parseLayersPour('notaires', undefined)).toEqual([...NOTARY_VIEW_LAYERS])
+    expect(NOTARY_VIEW_LAYERS).toContain('notaires')
+    expect(parseLayersPour('notaires', '')).toEqual([])
+    expect(parseLayersPour('juridictions', undefined)).toEqual([...DEFAULT_LAYERS])
+  })
+
+  it('aller-retour sans perte : le défaut du registre s’écrit en clair dans l’onglet Notaires', () => {
+    expect(serializeLayersPour('notaires', NOTARY_VIEW_LAYERS)).toBeNull()
+    const sansNotaires = serializeLayersPour('notaires', DEFAULT_LAYERS)
+    expect(sansNotaires).not.toBeNull()
+    expect(parseLayersPour('notaires', sansNotaires)).toEqual([...DEFAULT_LAYERS])
+    expect(serializeLayersPour('juridictions', DEFAULT_LAYERS)).toBeNull()
+  })
+})

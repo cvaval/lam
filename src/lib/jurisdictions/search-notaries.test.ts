@@ -71,3 +71,24 @@ describe('recherche par nom — la table de la spécification', () => {
     expect(Object.keys(h).sort()).toEqual(['aliases', 'communeId', 'communeName', 'hasContact', 'id', 'mention', 'name', 'printedName', 'score'])
   })
 })
+
+describe('searchNotaries — option avecCommune (annuaire)', () => {
+  const idx = buildNotaryIndex([
+    { id: 'a', name: 'Patrick VICTOR', printedName: null, mention: null, communeId: 'delmas', communeName: 'Delmas', aliases: [], hasContact: false },
+    { id: 'b', name: 'Anne JOSEPH', printedName: null, mention: null, communeId: 'petion-ville', communeName: 'Pétion-Ville', aliases: [], hasContact: false },
+  ])
+
+  it('par défaut, la commune n’est pas cherchable (comportement inchangé)', () => {
+    expect(searchNotaries(idx, 'Delmas')).toEqual([])
+  })
+
+  it('avec la commune : accents, casse et tirets neutralisés', () => {
+    expect(searchNotaries(idx, 'petion ville', { avecCommune: true }).map((h) => h.id)).toEqual(['b'])
+    expect(searchNotaries(idx, 'DELMAS', { avecCommune: true }).map((h) => h.id)).toEqual(['a'])
+  })
+
+  it('nom et commune se combinent : tous les mots doivent se retrouver', () => {
+    expect(searchNotaries(idx, 'Victor Delmas', { avecCommune: true }).map((h) => h.id)).toEqual(['a'])
+    expect(searchNotaries(idx, 'Victor Pétion', { avecCommune: true })).toEqual([])
+  })
+})

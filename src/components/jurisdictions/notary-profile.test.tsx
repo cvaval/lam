@@ -55,7 +55,9 @@ describe('page d’un notaire', () => {
     expect(html).toContain('aria-label="Écrire à etudeanglade@gmail.com"')
     // L'adresse mène à la carte JUDICIAIRE de la plateforme (aucune carte tierce), sur la
     // commune du notaire, couche « notaires » allumée — le nom accessible dit « commune ».
-    expect(html).toContain('href="/fr/juridictions?commune=commune-ouest-port-au-prince&amp;layers=paix,tpi,appel,cassation,notaires"')
+    // L'adresse ouvre l'onglet « Notaires » centré sur la COMMUNE (aucune étude n'est géolocalisée),
+    // carte ouverte d'office sur téléphone (17 oct. 2026).
+    expect(html).toContain('href="/fr/juridictions?vue=notaires&amp;commune=commune-ouest-port-au-prince&amp;carte=1"')
     expect(html).toContain('aria-label="394, route de Bourdon, Port-au-Prince — Voir sur la carte judiciaire : commune de Port-au-Prince"')
     expect(html).not.toMatch(/google|target="_blank"/)
     expect(html).toContain('sm:grid-cols-[auto_1fr] sm:items-center')

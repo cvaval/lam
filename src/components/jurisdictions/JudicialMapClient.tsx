@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import type { Locale } from '@/lib/types'
+import type { VueCarte } from '@/lib/jurisdictions/layers'
 
 /**
  * Enveloppe client de la carte : MapLibre est importé DYNAMIQUEMENT, sans rendu
@@ -27,6 +28,10 @@ export function JudicialMapClient(props: {
   /** Libellés des bulles de couche (voir `MapLayerDef.popup`), et « voir dans la liste ». */
   popupLabels: Record<string, string>
   fallback: React.ReactNode
+  /** Onglet de la page (voir `JudicialMap`). */
+  vue?: VueCarte
+  /** Hauteur du conteneur de la carte (voir `JudicialMap`). */
+  heightClass?: string
 }) {
   return (
     <>
@@ -38,6 +43,8 @@ export function JudicialMapClient(props: {
         attribution={props.attribution}
         loadingLabel={props.loadingLabel}
         popupLabels={props.popupLabels}
+        vue={props.vue}
+        heightClass={props.heightClass}
       />
     </>
   )

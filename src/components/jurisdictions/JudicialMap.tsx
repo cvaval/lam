@@ -30,7 +30,7 @@ import type { Map as MlMap, MapLayerMouseEvent, StyleSpecification } from 'mapli
 import 'maplibre-gl/dist/maplibre-gl.css'
 import type { Locale } from '@/lib/types'
 import { BRAND_COLORS } from '@/lib/brand-colors'
-import { LAYER_REGISTRY, emojiImageExpression, type MapLayerDef } from '@/lib/jurisdictions/layers'
+import { LAYER_REGISTRY, emojiImageExpression, serializeLayersPour, type MapLayerDef, type VueCarte } from '@/lib/jurisdictions/layers'
 import { EMOJI_SIZES, emojiPuckImage, type CanvasFactory } from '@/lib/jurisdictions/marker-canvas'
 import { ROUTES_SOURCE_ID, glyphsTemplate, routesLayers, routesSource } from '@/lib/jurisdictions/fond-de-rues'
 import { Protocol } from 'pmtiles'
@@ -121,7 +121,7 @@ const canvasFactory: CanvasFactory = (w, h) => {
 }
 
 export function JudicialMap({
-  locale, selectedCommuneId, layers, attribution, loadingLabel, popupLabels = {},
+  locale, selectedCommuneId, layers, attribution, loadingLabel, popupLabels = {}, vue = 'juridictions', heightClass,
 }: {
   locale: Locale
   selectedCommuneId: string | null
@@ -130,6 +130,13 @@ export function JudicialMap({
   loadingLabel: string
   /** Libellés des bulles de couche (`MapLayerDef.popup`) et `seeList`. */
   popupLabels?: Record<string, string>
+  /**
+   * Onglet de la page : dans « Notaires », choisir une commune FILTRE l'annuaire (l'URL garde
+   * `vue=notaires`) et la bulle du 👤 mène à l'annuaire filtré, sans quitter la page.
+   */
+  vue?: VueCarte
+  /** Hauteur du conteneur (classes utilitaires) ; défaut : 46vh, 560 px sur ordinateur. */
+  heightClass?: string
 }) {
   const router = useRouter()
   const containerRef = useRef<HTMLDivElement>(null)
@@ -226,13 +233,17 @@ export function JudicialMap({
 
   // Navigation déclenchée par la carte : l'URL reste la source de vérité. Le registre
   // sérialise (paramètre omis quand la sélection est le défaut).
-  const selectCommune = (id: string | null) => {
+  const urlCommune = (id: string | null) => {
     const params = new URLSearchParams()
+    if (vue === 'notaires') params.set('vue', 'notaires')
     if (id) params.set('commune', id)
-    const layersParam = REGISTRY.serialize(layersRef.current)
+    const layersParam = serializeLayersPour(vue, layersRef.current)
     if (layersParam !== null) params.set('layers', layersParam)
     const qs = params.toString()
-    router.push(`/${locale}/juridictions${qs ? `?${qs}` : ''}`, { scroll: false })
+    return `/${locale}/juridictions${qs ? `?${qs}` : ''}`
+  }
+  const selectCommune = (id: string | null) => {
+    router.push(urlCommune(id), { scroll: false })
   }
 
   /**
@@ -247,7 +258,8 @@ export function JudicialMap({
     const n = Number(props.count) || 0
     const nom = typeof props.communeName === 'string' ? props.communeName : ''
     const nombre = compte(n, locale, popupLabels[conf.countOneKey] ?? '{n}', popupLabels[conf.countManyKey] ?? '{n}')
-    const href = `/${locale}${conf.listPath}#${encodeURIComponent(communeId)}`
+    // Onglet « Notaires » : l'annuaire de la même page, filtré sur la commune.
+    const href = vue === 'notaires' ? urlCommune(communeId) : `/${locale}${conf.listPath}#${encodeURIComponent(communeId)}`
     const box = document.createElement('div')
     box.className = 'pr-5 text-ank'
     if (nom) {
@@ -262,6 +274,15 @@ export function JudicialMap({
     lien.textContent = `${nombre} →`
     if (popupLabels.seeList) lien.title = popupLabels.seeList
     lien.setAttribute('aria-label', [nombre, nom, popupLabels.seeList].filter(Boolean).join(' — '))
+    if (vue === 'notaires') {
+      // Navigation interne : la carte n'est pas démontée, l'annuaire se met à jour (annoncé).
+      lien.addEventListener('click', (ev) => {
+        if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.button !== 0) return
+        ev.preventDefault()
+        popupRef.current?.remove()
+        router.push(href, { scroll: false })
+      })
+    }
     box.append(lien)
     popupRef.current?.remove()
     popupRef.current = new maplibregl.Popup({ closeButton: true, maxWidth: '260px', offset: layer.iconOffset ? [layer.iconOffset[0], layer.iconOffset[1] - 12] : 14 })
@@ -636,7 +657,7 @@ export function JudicialMap({
       role="application"
       aria-label={loadingLabel}
       tabIndex={0}
- className="h-[46vh] w-full lg:h-[560px]"
+      className={`${heightClass ?? 'h-[46vh] lg:h-[560px]'} w-full`}
     />
   )
 }

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Dictionary } from '@/lib/i18n/dictionaries'
 import type { Locale } from '@/lib/types'
-import { LAYER_REGISTRY, type LayerRegistry, type MapLayerDef } from '@/lib/jurisdictions/layers'
+import { LAYER_REGISTRY, NOTARY_VIEW_LAYERS, serializeLayersPour, type LayerRegistry, type MapLayerDef, type VueCarte } from '@/lib/jurisdictions/layers'
 import { LayerMarkerIcon } from './LayerMarkerIcon'
 
 /**
@@ -13,14 +13,23 @@ import { LayerMarkerIcon } from './LayerMarkerIcon'
  * plusieurs ⇒ un `role="group"` par groupe, chacun avec son intitulé visible.
  */
 export function JudicialFilters({
-  locale, t, active, commune, registry = LAYER_REGISTRY,
-}: { locale: Locale; t: Dictionary; active: readonly string[]; commune: string | null; registry?: LayerRegistry }) {
+  locale, t, active, commune, registry = LAYER_REGISTRY, vue = 'juridictions', conserver = {},
+}: {
+  locale: Locale; t: Dictionary; active: readonly string[]; commune: string | null; registry?: LayerRegistry
+  /** Onglet « Notaires » : les liens gardent `vue=notaires` et les filtres de l'annuaire (`conserver`). */
+  vue?: VueCarte
+  conserver?: Record<string, string | null | undefined>
+}) {
   const j = t.judicial
+  // L'onglet « Notaires » a son propre défaut de couches (notaires allumés) : voir `serializeLayersPour`.
+  const serialize = (next: string[]) => (vue === 'notaires' ? serializeLayersPour('notaires', next) : registry.serialize(next))
   const href = (next: string[]) => {
     const params = new URLSearchParams()
+    if (vue === 'notaires') params.set('vue', 'notaires')
+    for (const [k, v] of Object.entries(conserver)) if (v) params.set(k, v)
     if (commune) params.set('commune', commune)
     // `null` : la sélection est le défaut, le paramètre est omis. `''` : aucune couche.
-    const layers = registry.serialize(next)
+    const layers = serialize(next)
     if (layers !== null) params.set('layers', layers)
     const qs = params.toString()
     return `/${locale}/juridictions${qs ? `?${qs}` : ''}`
@@ -47,7 +56,7 @@ export function JudicialFilters({
   }
   const reset = (
     <Link
-      href={`/${locale}/juridictions`}
+      href={vue === 'notaires' ? href([...NOTARY_VIEW_LAYERS]) : `/${locale}/juridictions`}
       className="inline-flex min-h-[44px] items-center rounded-full border border-chabon/20 bg-white px-3.5 py-2 text-xs font-medium text-grafit hover:border-chabon/40"
     >
       ↺ {j.reset}

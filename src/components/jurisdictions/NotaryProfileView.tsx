@@ -6,24 +6,25 @@ import type { NotaryProfile } from '@/lib/jurisdictions/data'
 import { mentionAsPrinted } from '@/lib/jurisdictions/notaires-source'
 import { dateLongue } from '@/lib/jurisdictions/notaires-format'
 import { formatPhone } from '@/lib/jurisdictions/coordonnees'
-import { DEFAULT_LAYERS, serializeLayers } from '@/lib/jurisdictions/layers'
+import { qsAnnuaire } from '@/lib/jurisdictions/annuaire-notaires'
 import { lienDemande, notarySourceLine } from './NotariesSection'
 
 /**
  * Corps de la page d'un notaire : identité, commune, juridiction (sans « TPI »), coordonnées de
- * l'étude — le SEUL endroit où elles s'affichent — et provenances en clair. Rendu serveur.
+ * l'étude (téléphones et courriel n'apparaissent qu'ici ; l'adresse aussi dans l'annuaire) et
+ * provenances en clair. Rendu serveur.
  */
-export function NotaryProfileView({ p, locale, t, demandes = false }: { p: NotaryProfile; locale: Locale; t: Dictionary; demandes?: boolean }) {
+export function NotaryProfileView({
+  p, locale, t, demandes = false, retour = null,
+}: { p: NotaryProfile; locale: Locale; t: Dictionary; demandes?: boolean; retour?: string | null }) {
   const j = t.judicial
   const mention = mentionAsPrinted(p.mention)
   const signaler = `mailto:erreur@agora.ht?subject=${encodeURIComponent(`Notaire — ${p.name} (${p.id})`)}`
   // L'adresse mène à la CARTE JUDICIAIRE de la plateforme (choix de Me Vaval, 9 oct. 2026 : pas
-  // de carte tierce), centrée sur la commune du notaire, couche « notaires » allumée. Agora ne
-  // géolocalise aucune adresse : la carte montre la COMMUNE, où se trouve le 👤 — le nom
-  // accessible du lien le dit.
-  const surLaCarte = p.commune
-    ? `/${locale}/juridictions?commune=${p.commune.id}&layers=${serializeLayers([...DEFAULT_LAYERS, 'notaires'])}`
-    : null
+  // de carte tierce) — l'onglet « Notaires » centré sur la commune du notaire, carte ouverte sur
+  // téléphone (17 oct. 2026). Agora ne géolocalise aucune adresse : la carte montre la COMMUNE, où
+  // se trouve le 👤 — le nom accessible du lien le dit.
+  const surLaCarte = p.commune ? `/${locale}/juridictions?${qsAnnuaire({ commune: p.commune.id }, { carte: '1' })}` : null
   return (
     <>
       <h1 className="mt-3 font-serif text-3xl font-semibold text-ank">
@@ -148,8 +149,11 @@ export function NotaryProfileView({ p, locale, t, demandes = false }: { p: Notar
             {j.notaryOnMap}
           </Link>
         )}
+        <Link href={`/${locale}/juridictions?${retour ?? 'vue=notaires'}#ag-annuaire`} className="inline-flex min-h-[44px] items-center font-medium text-ank underline underline-offset-2 hover:text-chabon">
+          ← {j.annuaireBack}
+        </Link>
         <Link href={`/${locale}/juridictions/notaires`} className="inline-flex min-h-[44px] items-center text-ank underline underline-offset-2 hover:text-chabon">
-          ← {j.notariesByJurisdiction}
+          {j.notariesByJurisdiction}
         </Link>
         <a href={signaler} className="inline-flex min-h-[44px] items-center text-xs text-ank/80 underline underline-offset-2 hover:text-chabon">
           {j.notaryReportError}

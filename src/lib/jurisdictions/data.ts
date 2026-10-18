@@ -18,6 +18,7 @@ import { nomJuridiction } from './notaires-format'
 import { readPhones } from './coordonnees'
 import { buildNotaryIndex, type NotaryIndex } from './search-notaries'
 import { EDITION_TIERS } from './notaires-demandes'
+import { adresseExacte, classerAnnuaire, type AnnuaireEntry } from './annuaire-notaires'
 import type { CourtType } from './constants'
 
 export interface SourceRef { type: 'url' | 'file'; value: string }
@@ -61,7 +62,7 @@ export interface NotaryView {
   fullName: string
   /** « PDD », « PD/CMM » ou null — affiché tel qu'imprimé, jamais interprété. */
   mention: string | null
-  /** Une fiche de coordonnées active existe (elles ne s'affichent que sur la page du notaire). */
+  /** Une fiche de coordonnées active existe (page du notaire ; l'adresse aussi dans l'annuaire). */
   hasContact: boolean
   /** Entrée AJOUTÉE par la rédaction après vérification (édition `tiers`), hors de la liste du MJSP. */
   addedByEditors: boolean
@@ -381,6 +382,12 @@ export interface NotaryDirectory {
   }>
   /** Entrées dont la commune imprimée n'est pas une commune du référentiel. */
   unmatched: Array<NotaryView & { sourceCommune: string; sourceDepartment: string }>
+  /**
+   * Entrées dont la commune n'a AUCUN TPI compétent actif : elles n'entrent dans aucune section de
+   * juridiction. Aucune au 17 oct. 2026 ; l'annuaire les range sous « Juridiction non déterminée »
+   * plutôt que de les perdre. Optionnel pour les jeux d'essai antérieurs.
+   */
+  withoutJurisdiction?: Array<NotaryView & { communeId: string; communeName: string; department: string }>
 }
 
 /**
@@ -432,6 +439,8 @@ export async function getNotaryDirectory(): Promise<NotaryDirectory | null> {
     }
     const sorted = [...tpis.values()].sort((a, b) => a.label.localeCompare(b.label, 'fr'))
     for (const t of sorted) t.communes.sort((a, b) => a.name.localeCompare(b.name, 'fr'))
+    const places = new Set(sorted.flatMap((t) => t.communes.map((c) => c.id)))
+    const communeDe = new Map(communes.map((c) => [c.id, c]))
 
     const deLaListe = (n: { edition: string }) => n.edition !== EDITION_TIERS
     return {
@@ -443,10 +452,83 @@ export async function getNotaryDirectory(): Promise<NotaryDirectory | null> {
       unmatched: actifs.filter((n) => !n.communeId).map((n) => ({
         ...versVue(n), sourceCommune: n.sourceCommune, sourceDepartment: n.sourceDepartment,
       })),
+      withoutJurisdiction: actifs
+        .filter((n) => n.communeId && !places.has(n.communeId) && communeDe.has(n.communeId))
+        .map((n) => {
+          const c = communeDe.get(n.communeId!)!
+          return { ...versVue(n), communeId: c.id, communeName: c.name, department: c.department.name }
+        }),
     }
   } catch (e) {
     if (lectureNotairesImpossible(e)) return null
     throw e
+  }
+}
+
+// ── Annuaire des notaires (onglet « Notaires ») ──────────────────────────────
+
+export interface NotaryAnnuaire {
+  /** Toutes les inscriptions ACTIVES, dans le classement par défaut (`classerAnnuaire`). */
+  entries: AnnuaireEntry[]
+  /** Juridictions de la liste (filtre « Toutes les juridictions »), par ordre alphabétique. */
+  juridictions: Array<{ id: string; label: string; total: number }>
+  /** Toutes les communes du référentiel rattachées à une juridiction (étiquette du filtre communal). */
+  communes: Array<{ id: string; name: string; jurisdictionId: string }>
+  provenance: NotaryProvenance | null
+  totalEntries: number
+  activeEntries: number
+  addedEntries: number
+}
+
+/**
+ * L'annuaire part de `getNotaryDirectory()` — MÊME logique de données que « Notaires par
+ * juridiction » (rattachement TPI_COMPETENT, nom de juridiction sans « TPI », inscriptions
+ * multiples conservées telles quelles) — et y ajoute l'adresse de l'étude quand elle est EXACTE
+ * (`adresseExacte`). Décision de Me Vaval du 17 oct. 2026 : l'adresse figure dans l'annuaire ;
+ * téléphones et courriels restent sur la page du notaire. Aucune coordonnée géographique : la
+ * carte situe la COMMUNE. `null` = liste pas encore en base ; une autre erreur est levée (la page
+ * l'affiche comme une PANNE, jamais comme une liste vide).
+ */
+export async function getNotaryAnnuaire(): Promise<NotaryAnnuaire | null> {
+  const dir = await getNotaryDirectory()
+  if (!dir) return null
+  let adresses = new Map<string, string>()
+  try {
+    const contacts = await prisma.notaryContact.findMany({
+      where: { active: true, notary: { active: true }, address: { not: null } },
+      select: { notaryId: true, address: true },
+    })
+    adresses = new Map(contacts.filter((c) => c.address).map((c) => [c.notaryId, c.address!]))
+  } catch (e) {
+    if (!lectureNotairesImpossible(e)) throw e
+  }
+  const entries: AnnuaireEntry[] = []
+  const vers = (
+    n: NotaryView,
+    lieu: { communeId: string | null; communeName: string | null; department: string | null },
+    j: { id: string; label: string } | null,
+  ): AnnuaireEntry => {
+    const brute = adresses.get(n.id)
+    return {
+      id: n.id, name: n.fullName, mention: n.mention, ...lieu,
+      jurisdictionId: j?.id ?? null, jurisdictionLabel: j?.label ?? null,
+      address: brute && adresseExacte(brute, [lieu.communeName, lieu.department]) ? brute.trim() : null,
+      hasContact: n.hasContact, addedByEditors: n.addedByEditors,
+    }
+  }
+  for (const t of dir.tpis)
+    for (const c of t.communes)
+      for (const n of c.notaires) entries.push(vers(n, { communeId: c.id, communeName: c.name, department: c.department }, t))
+  for (const n of dir.withoutJurisdiction ?? []) entries.push(vers(n, { communeId: n.communeId, communeName: n.communeName, department: n.department }, null))
+  for (const n of dir.unmatched) entries.push(vers(n, { communeId: null, communeName: n.sourceCommune, department: n.sourceDepartment }, null))
+  return {
+    entries: classerAnnuaire(entries),
+    juridictions: dir.tpis.map((t) => ({ id: t.id, label: t.label, total: t.total })),
+    communes: dir.tpis.flatMap((t) => t.communes.map((c) => ({ id: c.id, name: c.name, jurisdictionId: t.id }))),
+    provenance: dir.provenance,
+    totalEntries: dir.totalEntries,
+    activeEntries: dir.activeEntries,
+    addedEntries: dir.addedEntries,
   }
 }
 

@@ -304,6 +304,34 @@ export function serializeLayers(active: Iterable<string>): string | null {
   return LAYER_REGISTRY.serialize(active)
 }
 
+/** Vue de la page des juridictions : la carte des juridictions (défaut) ou l'onglet « Notaires ». */
+export type VueCarte = 'juridictions' | 'notaires'
+
+/**
+ * Couches par défaut de l'onglet « Notaires » : celles du registre, plus les notaires (allumés
+ * d'office — l'onglet existe pour les montrer). Ordre canonique du registre.
+ */
+export const NOTARY_VIEW_LAYERS: readonly LayerSlug[] = ALL_LAYERS.filter((s) => DEFAULT_LAYERS.includes(s) || s === 'notaires')
+
+/** `?layers=` selon la vue : absent ⇒ le défaut DE LA VUE ; vide ⇒ aucune couche. */
+export function parseLayersPour(vue: VueCarte, raw: string | null | undefined): LayerSlug[] {
+  if (vue === 'notaires' && raw == null) return [...NOTARY_VIEW_LAYERS]
+  return parseLayers(raw)
+}
+
+/**
+ * Sérialisation selon la vue : `null` (paramètre omis) quand la sélection est le défaut DE LA VUE.
+ * ⚠️ Dans l'onglet « Notaires », le défaut du registre (sans notaires) s'écrit EN CLAIR : omis,
+ * il serait relu comme le défaut de l'onglet, notaires compris.
+ */
+export function serializeLayersPour(vue: VueCarte, active: Iterable<string>): string | null {
+  if (vue !== 'notaires') return serializeLayers(active)
+  const on = new Set(active)
+  const c = ALL_LAYERS.filter((s) => on.has(s))
+  const estDefautVue = c.length === NOTARY_VIEW_LAYERS.length && c.every((s, i) => s === NOTARY_VIEW_LAYERS[i])
+  return estDefautVue ? null : c.join(',')
+}
+
 /**
  * Image MapLibre d'un marqueur `emoji` pour un point : expression `step` sur `sizeBy`, ou
  * l'image moyenne quand la couche n'a qu'une taille.

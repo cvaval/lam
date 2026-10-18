@@ -14,7 +14,8 @@ export function notarySourceLine(provenance: NotaryProvenance | null, locale: Lo
 /**
  * Le nom (lien vers la page du notaire), puis le marqueur (« (PDD) », « PD/CMM ») — affiché,
  * jamais interprété — et, s'il y a une fiche, une mention discrète « coordonnées ». Les
- * coordonnées elles-mêmes ne s'affichent QUE sur la page du notaire.
+ * coordonnées elles-mêmes ne s'affichent pas ici : page du notaire (et adresse dans l'annuaire
+ * de l'onglet « Notaires », `NotaryAnnuaireView`).
  */
 export function NotaryName({ n, locale, t }: { n: NotaryView; locale: Locale; t: Dictionary }) {
   const m = mentionAsPrinted(n.mention)

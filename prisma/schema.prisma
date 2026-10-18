@@ -857,8 +857,10 @@ model Notary {
 
 /// Coordonnées de l'étude d'un notaire — une SECONDE source, distincte de la liste du MJSP :
 /// leur provenance et leur date sont les leurs. L'import du MJSP n'y touche jamais, et
-/// l'inverse non plus. Publiées sur la seule page du notaire (jamais dans les points de la
-/// carte, les suggestions de recherche ni la liste). Aucune géolocalisation de l'adresse.
+/// l'inverse non plus. Publiées sur la page du notaire (indexée depuis le 17 oct. 2026) ;
+/// l'ADRESSE, quand elle est exacte, aussi dans l'annuaire de l'onglet « Notaires » (décision
+/// de Me Vaval, 17 oct. 2026). Jamais dans les points de la carte, les suggestions de recherche,
+/// la fiche de la commune ni l'API publique. Aucune géolocalisation de l'adresse.
 /// Amorçage : data/judicial-map/notaires-coordonnees-v1.json ; import :
 /// scripts/import-coordonnees-notaires.ts (RLS exigée).
 model NotaryContact {

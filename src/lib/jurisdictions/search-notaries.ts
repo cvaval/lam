@@ -8,7 +8,10 @@
  *  - TOUS les mots de la requête doivent se retrouver dans le nom ; le dernier peut n'être
  *    qu'un début de mot (saisie au fil de la frappe) ; tolérance d'une lettre (distance
  *    d'édition 1) sur les mots de 5 lettres et plus ;
- *  - la mention (« PDD », « PD/CMM ») n'est PAS cherchable : ce n'est pas un nom.
+ *  - la mention (« PDD », « PD/CMM ») n'est PAS cherchable : ce n'est pas un nom ;
+ *  - `avecCommune` (annuaire de l'onglet « Notaires », 17 oct. 2026) : les mots de la COMMUNE
+ *    de commission comptent aussi (« Jacmel », « petion ville », « Victor Delmas »). Par défaut,
+ *    la recherche reste celle du NOM seul (suggestions, liste par juridiction).
  *
  * Le module rend TOUS les résultats, classés ; c'est l'appelant qui tronque.
  */
@@ -27,7 +30,7 @@ export interface NotaryIndexEntry {
   hasContact: boolean
 }
 
-interface Indexed extends NotaryIndexEntry { words: string[]; sortKey: string }
+interface Indexed extends NotaryIndexEntry { words: string[]; communeWords: string[]; sortKey: string }
 export interface NotaryIndex { entries: Indexed[] }
 
 export interface NotaryHit extends NotaryIndexEntry { score: number }
@@ -39,6 +42,7 @@ export function buildNotaryIndex(entries: NotaryIndexEntry[]): NotaryIndex {
     entries: entries.map((e) => ({
       ...e,
       words: [...new Set([e.name, e.printedName ?? '', ...e.aliases].flatMap(words))],
+      communeWords: e.communeName ? words(e.communeName) : [],
       sortKey: normalizePlaceName(e.name),
     })),
   }
@@ -55,7 +59,7 @@ function matchWord(q: string, candidats: string[], dernier: boolean): number {
   return best
 }
 
-export function searchNotaries(index: NotaryIndex, rawQuery: string): NotaryHit[] {
+export function searchNotaries(index: NotaryIndex, rawQuery: string, opts: { avecCommune?: boolean } = {}): NotaryHit[] {
   const q = words(rawQuery.slice(0, 80))
   if (!q.length || q.join('').length < 2) return []
   const hits: Array<NotaryHit & { sortKey: string }> = []
@@ -63,7 +67,7 @@ export function searchNotaries(index: NotaryIndex, rawQuery: string): NotaryHit[
     let score = 0
     let ok = true
     for (let i = 0; i < q.length; i++) {
-      const m = matchWord(q[i], e.words, i === q.length - 1)
+      const m = matchWord(q[i], opts.avecCommune ? [...e.words, ...e.communeWords] : e.words, i === q.length - 1)
       if (!m) { ok = false; break }
       score += m
     }
