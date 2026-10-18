@@ -1,8 +1,8 @@
 # Livraison — Annuaire des notaires : import « Notaires.docx » et badge « Confirmé » (18 oct. 2026)
 
-**Rien n'est déployé ni poussé. Aucune confirmation n'a été attribuée. Aucun courriel n'a été
-envoyé.** L'import a été SIMULÉ sur la production (lecture seule) et APPLIQUÉ sur le banc local
-`lam_banc` (copie de la base : 422 notaires, 149 communes) — nulle part ailleurs.
+**MISE EN PRODUCTION le 18 oct. 2026, sur instruction de Me Vaval (« yes proceed »)** — voir § 11.
+Aucune confirmation n'a été attribuée. Aucun courriel n'a été envoyé. Jusque-là, l'import avait été
+SIMULÉ sur la production (lecture seule) et APPLIQUÉ sur le banc local `lam_banc` seulement.
 
 Le dépôt est public : cette note ne reproduit AUCUNE adresse, aucun numéro ni courriel du document.
 Le rapport détaillé (valeurs du document, anomalies, numéros écartés) est HORS du dépôt, dans le
@@ -294,3 +294,26 @@ Appliqué au banc local seulement. **Procédure de production (NON exécutée, s
    des notaires », « l’Administrateur » au lieu de « Master Admin », badge et « pa kominike » en
    créole) ; les autres à valider, tableau
    `docs/livraison-notaires-confirmation/Libelles-en-ht-a-valider-2026-10-18.xlsx`.
+
+## 11. Mise en production (18 oct. 2026, sur instruction écrite de Me Vaval)
+
+Décisions finales : CASSAGNOL — « do not add the 5th number » (écarté sur décision, consigné) ;
+libellés en/ht — « auto confirm » (tableau validé) ; titre anglais — « leave it as you prefer » →
+« Map of courts and notaries ». Le document a été modifié par Me Vaval à 14 h 13 (adresse d'ALPHONSE
+reportée, identique à sa décision ; aucune autre différence, comparé entrée par entrée) : le fichier
+de décisions vise désormais cette version, gardée en référence dans le dossier privé.
+
+1. **Instantané avant toute écriture** : `Notary` (423), `NotaryContact` (5), `NotaryRequest` (0)
+   exportés hors Dropbox (`~/lam-backups/notaires-avant-2026-10-18/`).
+2. **Schéma** : le SQL revu, régénéré et comparé (identique), appliqué en UNE transaction —
+   6 instructions + reprise des 5 courriels ; `npm run db:rls` (40/40 tables) ; `migrate diff` vide.
+3. **Noms** : `import-notaires-mjsp.ts --apply` — 6 modifications, audit tracé ; resimulé : 0.
+4. **Import Word avec décisions** : simulé, puis écrit avec `--cible` et `--autorisation` (citée dans
+   l'audit) — 11 fiches complétées, CÉANT et VICTOR modifiés sur décision, 0 concurrence, 0
+   proposition ; resimulé : 13 × « déjà à jour ».
+5. **Contrôles** : 16 fiches actives (16 adresses, 15 avec courriels), 0 demande, 0 confirmation ;
+   l'ancien amorçage du 9 oct. relu contre la production : 0 modification, CÉANT et VICTOR
+   « plus récents, conservés ».
+6. **Code poussé** sur `main` (déploiement Vercel) — avec 4 commits d'une autre session (audit du
+   Code civil : documents et scripts seulement, aucun code de l'application).
+

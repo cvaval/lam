@@ -97,7 +97,8 @@ async function main() {
   const fichier = basename(file)
   const jour = dateDocument && /^\d{4}-\d{2}-\d{2}$/.test(dateDocument) ? dateDocument : statSync(file).mtime.toISOString().slice(0, 10)
   console.log(`Import « ${fichier} » — ${apply ? 'APPLICATION' : 'SIMULATION'}`)
-  console.log(`  base     : ${b.libelle} ${b.locale ? '(locale, identifiée)' : '(NON locale : simulation seulement)'}`)
+  const autorisee = apply && !b.locale && cible === b.libelle && Boolean(autorisation)
+  console.log(`  base     : ${b.libelle} ${b.locale ? '(locale, identifiée)' : autorisee ? '(NON locale — écriture sur autorisation)' : '(NON locale : simulation seulement)'}`)
   console.log(`  sha-256  : ${sha}`)
   if (apply && !b.locale) {
     if (!cible || cible !== b.libelle || !autorisation || autorisation.length < 10) {
