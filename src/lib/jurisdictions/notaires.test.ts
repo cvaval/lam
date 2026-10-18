@@ -225,7 +225,7 @@ describe('reproduire tel quel, et signaler', () => {
     expect(row(9).fullName).toBe('Gamma ANGLADE GILLES')
     expect(row(9).displayName).toBe('Gemma ANGLADE GILLES')
     expect(row(9).observation).toMatch(/prénom « Gemma » confirmé par la cliente/)
-    expect(plan.rows.filter((r) => r.displayName).map((r) => r.ordinal)).toEqual([1, 9, 10, 115])
+    expect(plan.rows.filter((r) => r.displayName).map((r) => r.ordinal)).toEqual([1, 2, 7, 9, 10, 115])
   })
 
   it('18 oct. 2026 : GAI, BÉLISAIRE et DUVOT s’affichent (décisions de la cliente), l’imprimé reste', () => {
@@ -234,6 +234,12 @@ describe('reproduire tel quel, et signaler', () => {
     // Ordre inversé dans la liste : le nom de famille (DUVOT) passe en capitales, à la fin.
     expect([row(115).fullName, row(115).displayName]).toEqual(['Duvot PAUL', 'Paul DUVOT'])
     for (const n of [1, 10, 115]) expect(row(n).observation, String(n)).toMatch(/par la cliente le 18 oct\. 2026/)
+  })
+
+  it('18 oct. 2026 : « GIORDANI ADÉ » (nom de famille composé) et « Sabine Duvivier MORPEAU »', () => {
+    // Le nom de famille composé passe entier en capitales : il se classe à G, pas à A.
+    expect([row(2).fullName, row(2).displayName]).toEqual(['Danielle Giordani ADÉ', 'Danielle GIORDANI ADÉ'])
+    expect([row(7).fullName, row(7).displayName]).toEqual(['Sabine MORPEAU', 'Sabine Duvivier MORPEAU'])
   })
 
   it('une décision de nom dont l’imprimé a changé est SIGNALÉE (la liste a pu être corrigée)', () => {

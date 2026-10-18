@@ -154,6 +154,20 @@
       "displayName": "Paul DUVOT",
       "decidedOn": "2026-10-18",
       "observation": "prénom Paul, nom de famille DUVOT, confirmés par la cliente le 18 oct. 2026 ; la liste du MJSP imprime « Duvot PAUL » (ordre inversé)"
+    },
+    {
+      "ordinal": 2,
+      "printedName": "Danielle Giordani ADÉ",
+      "displayName": "Danielle GIORDANI ADÉ",
+      "decidedOn": "2026-10-18",
+      "observation": "nom de famille « Giordani Adé » confirmé par la cliente le 18 oct. 2026 ; la liste du MJSP n'imprime que « ADÉ » en capitales ; le document « Notaires.docx » écrit « Danielle GIORDANI »"
+    },
+    {
+      "ordinal": 7,
+      "printedName": "Sabine MORPEAU",
+      "displayName": "Sabine Duvivier MORPEAU",
+      "decidedOn": "2026-10-18",
+      "observation": "nom « Sabine Duvivier MORPEAU » confirmé par la cliente le 18 oct. 2026, graphie du document « Notaires.docx » ; la liste du MJSP imprime « Sabine MORPEAU »"
     }
   ],
   "knownPairs": [
