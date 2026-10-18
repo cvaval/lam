@@ -1,0 +1,809 @@
+article,folio,nature,base,livre,base_conforme,decision,source
+17,27,bruit-ocr,L,L'Haïtien,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+34,30,bruit-ocr,cinq,cinq,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+41,32,renvoi,,".- Civ., 79.",False,corrigé (voir operations.csv),lecture
+41,32,coquille-du-livre,ou,pou,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+41,32,coquille-du-livre,cotés,côtés,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+45,33,intrus-appareil,L'expression Grand-Juge est archaïque.,L'expression Grand-Juge est archaïque.,False,corrigé (voir operations.csv),lecture
+55,35,alinea-fusionne,La naissance de l'enfant … aura accouché. L'acte de naissance sera rédigé de suite en présence de deux témoins. Si deux …,trois alinéas distincts,False,corrigé (voir operations.csv),lecture
+55,35,ocr,article 1,article 1er,False,corrigé (voir operations.csv),lecture
+70,40,bruit-ocr,C,"C. civ., 143.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+75,41,ponctuation,;,6. les publications dans les divers domiciles,False,corrigé (voir operations.csv),lecture
+75,41,ponctuation,",",noms âges,False,corrigé (voir operations.csv),lecture
+75,41,bruit-ocr,.,"C. civ., 136 et s, 146, 158, 178.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+91,46,ponctuation,"1050;- C. p. c. 7, 99; I. cr. 73, 77;- C. pén. 145.","1050;- C. p. c. 7, 99; I., cr. 73, 77;- C. pén. 145.",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+108,49,bruit-ocr,cinq,cinq,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+120,50,bruit-ocr,,"Art 121 Si l'absent reparaît, ou si son existence est prouvée, même après l'envoi définitif, …",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+151,55,coquille-du-livre,civ.,"C. iv., 49, 73, 91 s, 177, 179.- C. pén. 160, 161, 166",False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+151,55,ponctuation,166.,166,False,corrigé (voir operations.csv),lecture
+171,58,bruit-ocr,.,"C. civ., 133.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+187,60,coquille-du-livre,civ.,"C. vi., 133, 135, 149 et s, 170, 174.",False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+187,60,coquille-du-livre,des enfants,es enfants,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+191,61,bruit-ocr,"ces dispositions sont réciproques.- C. civ., 325, 411, 956, 989, 1005, 1343.","ces dispositions sont réciproques.- C. civ., 325, 411, 956, 989, 1005, 1343.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+220,69,bruit-ocr,et s.,"C. civ., 263 et s.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+228,70,coquille-du-livre,ou,au,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+229,70,bruit-ocr,art,art.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+229,70,bruit-ocr,1),1),True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+237,71,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+237,71,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+237,71,bruit-ocr,"désigner d'autres, mais qu'après ce moment elles n'y seront plus reçues.","désigner d'autres, mais qu'après ce moment elles n'y seront plus reçues.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+301,84,bruit-ocr,,Lorsqu'il,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+302,84,bruit-ocr,.,"C. civ., 187, 188, 300, 305 et s, 742.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+302,84,bruit-ocr,"débat en chambre du conseil, lequel jugement devra constater que l'enfant a","débat en chambre du conseil, lequel jugement devra constater que l'enfant a",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+302,84,intrus-structure,"————————— ""TS",,False,corrigé (voir operations.csv),lecture
+302,84,bruit-ocr,,Art. 303 … Art. 304 …,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+302,84,coquille-du-livre,"(D. L. du 22 décembre 1944,).","(D. L. du 22 décembre1944.,).",False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+304,85,ponctuation,"293, 392 741 et s","293, 392, 741 et s, 747 et s;",False,corrigé (voir operations.csv),lecture
+305,85,ocr,.,(D. L. du 22 décembre 1944).,False,corrigé (voir operations.csv),lecture
+310,87,renvoi,,".- C. civ., 146 et s, 302, 583, 606 et s, 624 et s, 631.",False,corrigé (voir operations.csv),lecture
+310,87,bruit-ocr,,"Un tiers est sans intérêt, à contester la qualité d'héritier prise par une partie.- Cass., 28 mai 1915.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+311,87,bruit-ocr,.,(D. L. du 22 décembre 1944).,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+311,87,bruit-ocr,,l'époque,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+311,87,bruit-ocr,"d'une inconduite notoire, ou a eu commerce avec un autre individu;","d'une inconduite notoire, ou a eu commerce avec un autre individu;",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+311,87,bruit-ocr,,l'impossibilité,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+311,87,bruit-ocr,,jusqu'à,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+311,87,bruit-ocr,celui-ci pourra l'intenter pendant toute l'année qui suivra sa majorité.,celui-ci pourra l'intenter pendant toute l'année qui suivra sa majorité.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+314,92,intrus-appareil,"Décret du 27 janvier 1959, Art. 1. La filiation naturelle … sa sécurité. / Si les parents vivent séparément … Décret du …","Décret du 27 janvier 1959, Art. 1. La filiation naturelle engendre les mêmes droits et les mêmes obligations que ceux dé…",False,corrigé (voir operations.csv),lecture
+315,92,bruit-ocr,.,(D. L. du 22 décembre 1944).,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+315,92,renvoi,C,"Civ. 255, 324, 378.",False,corrigé (voir operations.csv),lecture
+315,92,renvoi,"civ. ,","Civ. 255,",False,corrigé (voir operations.csv),lecture
+325,93,bruit-ocr,.,"C. civ., 212, 386 et s, 478, 483, 591, 1227.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+325,93,ponctuation,(D.L. du,(D. L. du,False,corrigé (voir operations.csv),lecture
+326,93,ponctuation,,"usufruitiers;- C. civ., 492-505.",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+326,93,bruit-ocr,.,"C. civ., 492-505.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+326,93,ponctuation,,"fortune;- C. civ., 189.",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+326,93,bruit-ocr,.,"C. civ., 189.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+326,93,ponctuation,,"capitaux;- C. civ., 481, 1783.",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+326,93,ponctuation,,"maladie.- C. civ., 189, 492 et s, 1868.",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+330,95,intrus-appareil,"Décret du 8 octobre 1982, art. 14. Les père et mère ont l'administration conjointe et la jouissance des biens de leurs e…","Décret du 8 octobre 1982, art. 14. Les père et mère ont l'administration conjointe et la jouissance des biens de leurs e…",False,corrigé (voir operations.csv),lecture
+331,95,alinea-fusionne,… appartient de plein à l'autre époux. La tutelle des enfants naturels … à son autre auteur. La mère seule peut …,3 alinéas : « Art. 331 … l'autre époux. » / « La tutelle des enfants naturels … à son autre auteur. » / « La mère seule …,False,corrigé (voir operations.csv),lecture
+350,98,bruit-ocr,Haïti,Haïti,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+350,98,bruit-ocr,.,"C. civ., 214.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+354,99,bruit-ocr,.,"C. civ., 314, 355, 356, 405, 416.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+428,111,bruit-ocr,1°,388-1º,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+428,111,bruit-ocr,p,C. p. c. 458.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+431,112,renvoi,C,Civ. 1391.,False,corrigé (voir operations.csv),lecture
+431,112,renvoi,"civ. ,",Civ. 1391.,False,corrigé (voir operations.csv),lecture
+438,113,bruit-ocr,1er,1er,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+448,115,coquille-du-livre,"civ. ,","C. 441, 522 et s, 552, 741, 1168, 1169.",False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+452,115,bruit-ocr,.,"C. civ., 481 s.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+466,118,coquille-du-livre,civ.,"C. cvi., 430 et s. 451, 456, 473, 1400, 1044.",False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+466,118,ponctuation,"et s, 451",et s. 451,False,corrigé (voir operations.csv),lecture
+468,118,coquille-du-livre,civ.,"C. cvi., 487.",False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+491,121,coquille-du-livre,civ,"C. cvi. 1169, 2004.",False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+503,123,renvoi,C,"Civ. 939, 1168, 1497, 1538.",False,corrigé (voir operations.csv),lecture
+503,123,renvoi,"civ. ,","Civ. 939,",False,corrigé (voir operations.csv),lecture
+504,123,renvoi,C,"Civ. 506, 510, 1579.",False,corrigé (voir operations.csv),lecture
+504,123,renvoi,"civ. ,","Civ. 506,",False,corrigé (voir operations.csv),lecture
+506,124,bruit-ocr,.,"C. civ., 925.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+506,124,bruit-ocr,.,"C. civ., 19, 20, 566, 1085, 2030.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+510,125,bruit-ocr,civ.,"C.civ., 859, 957, 1973.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+523,127,intrus-appareil,"Les arts. 519, 520, 521, 522 et 523 ont été abrogés par la Constitution de 1946.","Les arts. 519, 520, 521, 522 et 523 ont été abrogés par la Constitution de 1946.",False,corrigé (voir operations.csv),lecture
+549,131,bruit-ocr,"567, 937, 1169, D. P. 82. 4. 7.","567, 937, 1169, D. P. 82. 4. 7.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+568,134,bruit-ocr,"à 521, 551, 555, 568 à 571, 1047, 2030, 2032, 2033.","à 521, 551, 555, 568 à 571, 1047, 2030, 2032, 2033.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+569,134,bruit-ocr,"et de la même manière.- C. civ., 568, 2030.","et de la même manière.- C. civ., 568, 2030.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+586,138,ponctuation,"1. Celui qui n'est pas encore conçu ; - C. civ., 293, 736. 2. L'enfant qui n'est pas né viable ; - C. civ., 295, 736.","1. Celui qui n'est pas encore conçu; C. civ., 293, 736. / 2. L'enfant qui n'est pas né viable; C. civ., 295, 736.",False,corrigé (voir operations.csv),lecture
+586,138,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+586,138,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+586,138,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+586,138,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+586,138,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+586,138,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+588,138,ponctuation,-,"calomnieuse; C. pén., 320.",False,corrigé (voir operations.csv),lecture
+588,138,bruit-ocr,.,"C. civ., 589;",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+588,138,bruit-ocr,i,"C. i. c. 20, 21, 290.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+588,138,ponctuation,": - C. civ., 589 à 591.",": C. civ., 589 à 591.",False,corrigé (voir operations.csv),lecture
+589,138,casse-accent,3o,558-3º,False,corrigé (voir operations.csv),lecture
+589,138,coquille-du-livre,son époux,sons époux,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+598,140,bruit-ocr,"620, 623.","620, 623.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+611,141,intrus-structure,14l,,False,corrigé (voir operations.csv),lecture
+617,142,ocr,ant,art,False,corrigé (voir operations.csv),lecture
+624,143,intrus-appareil,( V . le D . du 27 janvier 1959 consacrant l ' égalité des enfants naturels et légitimes ) .,,False,corrigé (voir operations.csv),lecture
+626,144,bruit-ocr,"sont applicables aux frères , soeurs , ou autres collatéraux naturels , venant , soit","sont applicables aux frères, soeurs, ou autres collatéraux naturels, venant, soit",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+626,144,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+626,144,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+626,144,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+626,144,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+626,144,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+626,144,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+626,144,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+626,144,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+635,145,bruit-ocr,6,6,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+661,148,coquille-du-livre,"succession aux créanciers et aux légataires . - C . civ . , 584 , 662 et s , 704 , 406 .","succession aux créanciers et aux légataires.- C. civ.,. 584, 662 et s, 704, 406.",False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+674,150,casse-accent,3o,3º,False,corrigé (voir operations.csv),lecture
+674,150,coquille-du-livre,"C. civ., 10","C. civ.,. 10",False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+681,152,bruit-ocr,s,s,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+682,152,ocr,ets,et s,False,corrigé (voir operations.csv),lecture
+682,152,ponctuation,C. p. c. 343,"C. p. c., 343",False,corrigé (voir operations.csv),lecture
+683,152,bruit-ocr,Art .,Art.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+684,153,casse-accent,3o,3º,False,corrigé (voir operations.csv),lecture
+709,156,casse-accent,1o,1º,False,corrigé (voir operations.csv),lecture
+715,158,casse-accent,3o,3º,False,corrigé (voir operations.csv),lecture
+727,160,intrus-structure,DE LA CAPACITÉ DE DISPOSER OU DE RECEVOIR PAR DONATION ENTRE VIFS OÙ PAR TESTAMENT,,False,corrigé (voir operations.csv),lecture
+737,162,bruit-ocr,et s .,et s.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+738,162,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+738,162,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+738,162,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+738,162,bruit-ocr,Les mêmes règles seront observées à l ' égard des ministres du culte .,Les mêmes règles seront observées à l'égard des ministres du culte.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+742,164,bruit-ocr,art,art,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+742,164,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+774,168,cesure,donateur .,dona-teur.,True,aucune,lecture
+774,168,bruit-ocr,"C . civ . , 771 , 775 .","C. civ., 771, 775.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+801,172,bruit-ocr,et s .,et s.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+805,173,bruit-ocr,"cet acte sera passé . - C . civ . , 7 , 1102 .","cet acte sera passé.- C. civ., 7, 1102.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+817,175,bruit-ocr,s .,s.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+821,176,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+821,176,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+896,186,bruit-ocr,"même acte . - C . civ . , 777 .","même acte.- C. civ., 777.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+901,187,cesure,présente loi .,pré-sente loi.,True,aucune,lecture
+903,188,bruit-ocr,"1 . Le consentement de la partie qui s ' oblige . – C . civ . , 904 - 914 . 2 . Sa capacité de contracter . – C . civ . …","1. Le consentement de la partie qui s'oblige.- C. civ., 904-914. / 2. Sa capacité de contracter.- C. civ., 915-917.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+903,188,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+903,188,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+903,188,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+903,188,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+903,188,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+903,188,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+903,188,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+903,188,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+903,188,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+903,188,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+903,188,bruit-ocr,"4 . Une cause licite dans l ' obligation . – C . civ . , 922 - 924 .","4. Une cause licite dans l'obligation.- C. civ., 922-924.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+919,191,bruit-ocr,civ .,civ.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+949,200,intrus-appareil,,"C'est seulement lorsque ses termes sont obscurs ou ambigus qu'un contrat est sujet à interprétation.- Cass., 15 juillet …",True,aucune,lecture
+950,200,coquille-du-livre,– C,- Civ,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+950,200,coquille-du-livre,"civ . ,",,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+972,204,bruit-ocr,"– C . civ . , 1021 , 1087 , 1088 .","- C. civ., 1021, 1087, 1088.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+972,204,bruit-ocr,"c . ,","c.,",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+972,204,coquille-du-livre,"débiteur, le","débiteur,le",False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+973,204,coquille-du-livre,l'obligation,L'obligation,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+974,205,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+983,207,bruit-ocr,", 929 , 930 , 1088 , 1168 .",", 929, 930, 1088, 1168.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+986,207,bruit-ocr,1151,1151,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+986,207,bruit-ocr,Tout,Tout,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1008,211,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1008,211,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1008,211,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1008,211,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1008,211,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1008,211,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1008,211,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1008,211,ponctuation,– C,- C,False,corrigé (voir operations.csv),lecture
+1008,211,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1011,211,bruit-ocr,"prix . – C . civ . , 895 , 997 , 1455 , 1706 .","prix.- C. civ., 895, 997, 1455, 1706.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1012,211,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1012,211,coquille-du-livre,"990, 1008","990,. 1008",False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1013,212,coquille-du-livre,pour,pur,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1014,212,bruit-ocr,1014,1014,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1014,212,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1014,212,bruit-ocr,912,912,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1014,212,bruit-ocr,913,913,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1020,212,bruit-ocr,"1005 , 1007 , 1008 - 5 ° .","1005, 1007, 1008-5º.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1022,213,coquille-du-livre,,1162,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1022,213,coquille-du-livre,1162,,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1022,213,ocr,cobligé,coobligé,False,corrigé (voir operations.csv),lecture
+1029,215,intrus-appareil,,"La stipulation, dans un contrat, qu'un prêt fait au numéraire sera remboursé en pareille monnaie, n'a rien de contraire …",True,aucune,lecture
+1036,217,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1036,217,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1036,217,bruit-ocr,°,º,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1036,217,bruit-ocr,°,º,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1037,218,ponctuation,– C,- C,False,corrigé (voir operations.csv),lecture
+1037,218,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1037,218,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1037,218,ponctuation,; –,;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1037,218,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1037,218,ponctuation,"de la dette , avait intérêt de l ' acquitter ; – C . civ . , 704 - 706 , 987 , 1001 , 1775 , 1795 .","de la dette, avait intérêt de l'acquitter ;- C. civ., 704-706, 987, 1001, 1775, 1795.",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1037,218,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1037,218,ponctuation,. –,;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1037,218,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1041,218,bruit-ocr,"et s , 925 .","et s, 925.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1043,219,coquille-du-livre,,civ,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1043,219,ponctuation,1953. –,1953;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1044,221,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1044,221,coquille-du-livre,.,,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1044,221,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1044,221,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1044,221,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1044,221,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1044,221,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1044,221,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1044,221,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1044,221,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1044,221,bruit-ocr,",",",",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1044,221,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1044,221,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1044,221,bruit-ocr,"pour ces sortes d ' actes . – C . p . c . , 351 et s , 710 et s .","pour ces sortes d'actes.- C. p. c., 351 et s, 710 et s.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1045,221,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1045,221,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1045,221,ponctuation,. –,;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1045,221,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1045,221,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1045,221,ponctuation,"sa non - comparution , et enfin du dépôt ; – C . civ . , 1675 . – C . p . c . , 765 et s ;","sa non-comparution, et enfin du dépôt ;- C. civ., 1675;- C. p. c., 765 et s;",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1045,221,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1045,221,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1045,221,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1045,221,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1056,224,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1056,224,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1056,224,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1056,224,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1056,224,coquille-du-livre,",",,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1056,224,coquille-du-livre,"897, 925",897 925,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1074,227,bruit-ocr,civ .,civ.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1077,228,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1077,228,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1077,228,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1077,228,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1077,228,ponctuation,–,-,False,corrigé (voir operations.csv),lecture
+1077,228,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1077,228,ponctuation,. –,;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1077,228,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1095,230,renvoi,"C. i. c., 273",C. i. c. 273,False,corrigé (voir operations.csv),lecture
+1095,230,renvoi,273. –,273;-,False,corrigé (voir operations.csv),lecture
+1095,230,renvoi,1169 et s. –,1169 et s;-,False,corrigé (voir operations.csv),lecture
+1095,230,renvoi,"C. pén., 1, 50-52.","C. pén. 1, 50-52.",False,corrigé (voir operations.csv),lecture
+1101,233,bruit-ocr,Rédaction d’origine (Code civil de 1825) :,Art. 1101,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1101,233,intrus-structure,De la preuve littérale $ ler Du titre authentique,SECTION PREMIÈRE De la preuve littérale § Ier Du titre authentique,False,corrigé (voir operations.csv),lecture
+1101,233,bruit-ocr,"Rédaction issue du décret du 9 décembre 2015 : Les règles qui concernent la preuve littérale, … leur recevabilité comme …",,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1102,233,bruit-ocr,Rédaction d’origine (Code civil de 1825) :,Art. 1102,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1102,233,bruit-ocr,Rédaction issue du décret du 9 décembre 2015 : … Arrêté présidentiel. Rédaction issue de la loi du 14 février 2017 : … f…,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1102,233,renvoi,"1120;- C.p. c, 501.","1120;- C. p. c., 501.",False,corrigé (voir operations.csv),lecture
+1111,239,bruit-ocr,Rédaction d’origine (Code civil de 1825) :,Art. 1111,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1111,239,bruit-ocr,Rédaction issue du décret du 9 décembre 2015 : Le billet ou la promesse … gens de journée et de service.,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1112,239,bruit-ocr,Rédaction d’origine (Code civil de 1825) :,Art. 1112,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1116,240,ponctuation,–,".- C. civ., 48",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1116,240,bruit-ocr,". ,","C. civ., 48",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1116,240,bruit-ocr,°,1133-4°,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1117,240,bruit-ocr,2°,1135-2°,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1118,240,bruit-ocr,"reçoivent en détail. – C. civ., 897, 925, 949, 1135.","reçoivent en détail.- C. civ., 897, 925, 949, 1135.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1120,241,bruit-ocr,"présence des parties et de leur consentement réciproque. – C. civ., 1104.","présence des parties et de leur consentement réciproque.- C. civ., 1104.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1120,241,bruit-ocr,"magistrat,","magistrat,",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1120,241,enumeration,,"Elles sont considérées comme anciennes quand elles ont plus de vingt ans. Si elles ont moins de vingt ans, elles ne peuv…",False,corrigé (voir operations.csv),lecture
+1120,241,ponctuation,–,".- C. civ., 1132",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1120,241,bruit-ocr,.,"C. civ., 1132",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1120,241,enumeration,"Elles sont considérées comme anciennes quand elles ont plus de vingt ans. Si elles ont moins de vingt ans, elles ne peuv…",,False,corrigé (voir operations.csv),lecture
+1121,241,bruit-ocr,la perte de la minute de cet acte a été faite par un accident particulier.,la perte de la minute de cet acte a été faite par un accident particulier.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1121,241,bruit-ocr,"notaire,","notaire,",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1130,244,bruit-ocr,que,que,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1131,244,bruit-ocr,Art,Art.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1131,244,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1133,245,ponctuation,–,".- C. civ., 1156",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1133,245,bruit-ocr,.,"C. civ., 1156",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1133,245,ponctuation,–,.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1133,245,ponctuation,–,.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1135,246,ponctuation,–,".- C. civ., 789",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1135,246,bruit-ocr,.,"C. civ., 789",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1135,246,bruit-ocr,"certaines circonstances déterminées. – C. civ., 1066, 1115, et s, 1118, 1676.","certaines circonstances déterminées.- C. civ., 1066, 1115, et s, 1118, 1676.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1135,246,ponctuation,–,".- C. civ., 1136",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1135,246,bruit-ocr,.,"C. civ., 1136",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1135,246,ponctuation,–,".- C. civ., 1140",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1135,246,bruit-ocr,.,"C. civ., 1140",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1135,246,bruit-ocr,1142 et,1142 et,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1136,246,bruit-ocr,"civ.,","civ.,",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1141,250,bruit-ocr,s,1126 et s.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1143,251,ponctuation,–,".- C. civ., 1144",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1143,251,bruit-ocr,.,"C. civ., 1144",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1143,251,ponctuation,–,".- C. civ., 1152",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1143,251,bruit-ocr,.,"C. civ., 1152",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1143,251,renvoi,. –,"2040;- C. p. c.,",False,corrigé (voir operations.csv),lecture
+1143,251,bruit-ocr,.,"C. p. c., 258",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1144,251,bruit-ocr,1°,1143-1°,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1144,251,renvoi,"C. pén., 312.",C. pén. 312.,False,corrigé (voir operations.csv),lecture
+1151,252,bruit-ocr,civ.,"C. civ., 926",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1164,256,bruit-ocr,C,".- C. civ., 454",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1168,257,bruit-ocr,1°,1133-1°,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1170,259,bruit-ocr,C,".- C. civ., 1209",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1174,261,intrus-appareil,V. l'art. 12 du D. du 8 octobre 1982.,V. l’art. 12 du D. du 8 octobre 1982.,False,corrigé (voir operations.csv),lecture
+1177,261,bruit-ocr,loi.,loi.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1178,261,bruit-ocr,civ.,"C. civ., 1314",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1186,262,intrus-structure,DU RÉGIME EN COMMUNAUTÉ,,False,corrigé (voir operations.csv),lecture
+1187,263,manque,,"1. De tout le mobilier que les époux possédaient au jour de la célébration du mariage, ensemble de tout le mobilier qui …",False,corrigé (voir operations.csv),lecture
+1188,263,ponctuation,"1187-3°,, 1189","1187-3°, 1189",False,corrigé (voir operations.csv),lecture
+1189,263,ponctuation,convention. C.,convention.- C.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1189,263,ocr,dv,"civ.,",False,corrigé (voir operations.csv),lecture
+1189,263,ocr,1282-3,1282-3°,False,corrigé (voir operations.csv),lecture
+1193,264,ocr,€,C.,False,corrigé (voir operations.csv),lecture
+1193,264,ocr,tv,"civ.,",False,corrigé (voir operations.csv),lecture
+1193,264,intrus-appareil,L'acquisition faite pendant le mariage à titre à l'intérieur de la cour … 1906. mais les constructions érigées postérieu…,,False,corrigé (voir operations.csv),lecture
+1194,264,manque,,1.,False,corrigé (voir operations.csv),lecture
+1194,264,manque,,"1. De toutes les dettes mobilières dont les époux étaient grevées au jour de la célébration de leur mariage, ou dont se …",False,corrigé (voir operations.csv),lecture
+1197,265,intrus-appareil,V. l'art. 8 du D. du 8 octobre 1982.,V. l’art. 8 du D. du 8 octobre 1982.,False,corrigé (voir operations.csv),lecture
+1197,265,alinea-fusionne,"1229-1232. Néanmoins,","1229-1232. Néanmoins,",False,corrigé (voir operations.csv),lecture
+1198,265,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1198,265,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1198,265,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1198,265,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1198,265,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1198,265,ocr,êté,été,False,corrigé (voir operations.csv),lecture
+1198,265,intrus-appareil,V. l'art. 2 du D. du 8 octobre 1982.,V. l’art. 2 du D. du 8 octobre 1982.,False,corrigé (voir operations.csv),lecture
+1198,265,ocr,se ‘pourvoir,se pourvoir,False,corrigé (voir operations.csv),lecture
+1198,265,cesure,nuepropriété,nue-propriété,False,corrigé (voir operations.csv),lecture
+1199,265,ocr,"Cp. c.,","C. p. c.,",False,corrigé (voir operations.csv),lecture
+1200,266,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1200,266,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1200,266,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1200,266,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1200,266,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1201,266,intrus-appareil,V. le D. du 8 octobre 1982.,V. le D. du 8 octobre 1982.,False,corrigé (voir operations.csv),lecture
+1201,266,alinea-fusionne,respectives. Il en est,respectives. Il en est,False,corrigé (voir operations.csv),lecture
+1202,266,intrus-appareil,V. l'art. 8 du D. du 8 octobre 1982.,V. l’art. 8 du D. du 8 octobre 1982.,False,corrigé (voir operations.csv),lecture
+1206,267,ocr,bypothéquer,hypothéquer,False,corrigé (voir operations.csv),lecture
+1206,267,intrus-appareil,"Abrogé par les arts. 2, 3, 8, 9 du D. du 8 octobre 1982.","Abrogé par les arts. 2, 3, 8, 9 du D. du 8 octobre 1982.",False,corrigé (voir operations.csv),lecture
+1207,267,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1207,267,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1207,267,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1207,267,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1207,267,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1207,267,intrus-appareil,V. l'art 8 du D. du 8 octobre 1982.,V. l’art 8 du D. du 8 octobre 1982.,False,corrigé (voir operations.csv),lecture
+1211,267,intrus-appareil,"V. les arts. 3, 8, 11 du D. du 8 octobre 1982.","V. les arts. 3, 8, 11 du D. du 8 octobre 1982.",False,corrigé (voir operations.csv),lecture
+1213,267,bruit-ocr,appartiennent à la femme.,appartiennent à la femme.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1213,267,manque,,Il,False,corrigé (voir operations.csv),lecture
+1213,267,intrus-appareil,"V. les arts. 3, 8, 10 du D. du 8 octobre 1982.","V. les arts. 3, 8, 10 du D. du 8 octobre 1982.",False,corrigé (voir operations.csv),lecture
+1213,267,alinea-fusionne,de la femme. Il peut … à la femme. Il ne peut … consentement. est responsable,de la femme. Il peut … à la femme. Il ne peut … consentement. Il est responsable,False,corrigé (voir operations.csv),lecture
+1214,268,intrus-appareil,Abrogé par le D. du 8 octobre 1982. °,Abrogé par le D. du 8 octobre 1982.,False,corrigé (voir operations.csv),lecture
+1215,268,intrus-appareil,Abrogé par le D. du 8 octobre 1982.,Abrogé par le D. du 8 octobre 1982.,False,corrigé (voir operations.csv),lecture
+1216,268,intrus-appareil,"Abrogé par le D. du 8 octobre 1982, art. 3.","Abrogé par le D. du 8 octobre 1982, art. 3.",False,corrigé (voir operations.csv),lecture
+1217,268,casse-accent,à,a,False,corrigé (voir operations.csv),lecture
+1226,269,manque,,"1. Par la mort; 2. Par la perte des droits civils; 3. Par le divorce; 4. Par la séparation de biens.- C. civ., 18, 19, 1…",False,corrigé (voir operations.csv),lecture
+1227,270,ponctuation,"1289. C. p. c.,","1289.- C. p. c.,",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1227,270,intrus-appareil,V. l'art. 1° du D. du 30 août 1988.,V. l’art. 1er du D. du 30 août 1988.,False,corrigé (voir operations.csv),lecture
+1227,270,alinea-fusionne,892 et s. S'il y a,892 et s. S’il y a,False,corrigé (voir operations.csv),lecture
+1228,270,ocr,58-7,58-7°,False,corrigé (voir operations.csv),lecture
+1228,270,ponctuation,"1380. C. p. c.,","1380.- C. p. c.,",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1230,270,ocr,"G.p. c.,","C. p. c.,",False,corrigé (voir operations.csv),lecture
+1230,270,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1230,270,bruit-ocr,", 769 et s.",", 769 et s.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1231,270,ponctuation,1249. C. p. c,1249.- C. p. c,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1231,270,ponctuation,"c,, 768","c., 768",False,corrigé (voir operations.csv),lecture
+1232,270,ponctuation,1249. C. p. c,1249.- C. p. c,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1232,270,ponctuation,"c, 338","c., 338",False,corrigé (voir operations.csv),lecture
+1233,271,alinea-fusionne,1360. Elle doit,1360. Elle doit,False,corrigé (voir operations.csv),lecture
+1234,271,intrus-appareil,"V. les arts. 2, 8, 10 du D. du 8 octobre 1982.","V. les arts. 2, 8, 10 du D. du 8 octobre 1982.",False,corrigé (voir operations.csv),lecture
+1235,271,intrus-appareil,V. le D. du 8 octobre 1982.,V. le D. du 8 octobre 1982.,False,corrigé (voir operations.csv),lecture
+1236,271,alinea-fusionne,"1228 et s. Elle ne peut … 1102. En ce cas, … 74. Toute convention,","1228 et s. Elle ne peut … 1102. En ce cas, … 74. Toute convention,",False,corrigé (voir operations.csv),lecture
+1239,272,alinea-fusionne,1224 Les actes,1224 Les actes,False,corrigé (voir operations.csv),lecture
+1240,272,ocr,béritiers,héritiers,False,corrigé (voir operations.csv),lecture
+1243,272,ocr,béritiers,héritiers,False,corrigé (voir operations.csv),lecture
+1253,273,renvoi,,s,False,corrigé (voir operations.csv),lecture
+1255,274,manque,,"1. Ses biens personnels qui ne sont point entrés en communauté, s’ils existent en nature, ou ceux qui ont été acquis en …",False,corrigé (voir operations.csv),lecture
+1257,274,intrus-appareil,V . le D . du 8 octobre 1982 .,,False,corrigé (voir operations.csv),lecture
+1260,274,ocr,béréditaire,héréditaire,False,corrigé (voir operations.csv),lecture
+1260,274,intrus-appareil,V . le D . du 8 octobre 1982 .,,False,corrigé (voir operations.csv),lecture
+1261,274,ponctuation,,-,False,corrigé (voir operations.csv),lecture
+1262,274,ocr,gfivé,privé,False,corrigé (voir operations.csv),lecture
+1262,274,ocr,dv,civ.,False,corrigé (voir operations.csv),lecture
+1267,275,ocr,L,1°,False,corrigé (voir operations.csv),lecture
+1267,275,ocr,5385,538 s,False,corrigé (voir operations.csv),lecture
+1267,275,ocr,7965,796 s,False,corrigé (voir operations.csv),lecture
+1267,275,ponctuation,"C. p. c,","C. p. c.,",False,corrigé (voir operations.csv),lecture
+1269,275,intrus-appareil,V . l ' art . 8 du D . du 8 octobre 1982 .,,False,corrigé (voir operations.csv),lecture
+1279,276,ocr,renonçanite,renonçante,False,corrigé (voir operations.csv),lecture
+1280,276,ocr,bardes,hardes,False,corrigé (voir operations.csv),lecture
+1280,276,intrus-structure,Disposition relative à la communauté légale lorsque l ' un des époux ou tous deux auront des enfants de précédents maria…,,False,corrigé (voir operations.csv),lecture
+1282,277,manque,,"1. Que la communauté n’embrassera que les acquêts.- C. civ., 1283 et s | 2. que le mobilier présent ou futur n’entrera p…",False,corrigé (voir operations.csv),lecture
+1283,277,ocr,P,1°,False,corrigé (voir operations.csv),lecture
+1284,278,ponctuation,",",".,",False,corrigé (voir operations.csv),lecture
+1289,278,ponctuation,,-,False,corrigé (voir operations.csv),lecture
+1292,279,ocr,Leffet,L’effet,False,corrigé (voir operations.csv),lecture
+1292,279,intrus-appareil,V . l ' art . 10 du D . du 8 octobre 1982 .,,False,corrigé (voir operations.csv),lecture
+1295,279,ponctuation,,-,False,corrigé (voir operations.csv),lecture
+1295,279,ponctuation,"C. p. c,","C. p. c.,",False,corrigé (voir operations.csv),lecture
+1296,280,casse-accent,où,ou,False,corrigé (voir operations.csv),lecture
+1299,280,ocr,maïs,mais,False,corrigé (voir operations.csv),lecture
+1299,280,intrus-appareil,V . le D . du 8 octobre 1982,,False,corrigé (voir operations.csv),lecture
+1307,281,cesure,conve - nue,convenue,False,corrigé (voir operations.csv),lecture
+1313,283,ponctuation,:,;,False,corrigé (voir operations.csv),lecture
+1316,283,intrus-appareil,V . l ' art . 8 du D . du 8 octobre 1982 .,,False,corrigé (voir operations.csv),lecture
+1322,284,ocr,ef,et,False,corrigé (voir operations.csv),lecture
+1323,284,intrus-appareil,V . l ' art . 10 du D . du 8 octobre 1982 .,,False,corrigé (voir operations.csv),lecture
+1333,285,intrus-structure,"Des droits du mari sur les biens dotaux , et de l ' inaliénabilité du fonds dotal",,False,corrigé (voir operations.csv),lecture
+1347,287,bruit-ocr,614,614,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1372,292,bruit-ocr,,"- C. civ., 1585 s.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1372,292,bruit-ocr,", 1585 s .",", 1585 s.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1394,295,bruit-ocr,il,il,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1407,297,bruit-ocr,,"- C. civ., 1617 s.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1407,297,bruit-ocr,", 1617 s .",", 1617 s.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1415,298,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1415,298,bruit-ocr,549 s,549 s,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1415,298,bruit-ocr,1149 s,1149 s,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1426,299,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1435,300,bruit-ocr,4 °,4°,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1443,301,bruit-ocr,"s , 1674 s .","s, 1674 s.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1444,302,bruit-ocr,"s , 1751 , 2085 s .","s, 1751, 2085 s.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1453,303,bruit-ocr,civ,civ.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1453,303,coquille-du-livre,et,35,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1453,303,coquille-du-livre,et,35,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1453,303,bruit-ocr,et,et,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1454,303,bruit-ocr,civ,civ.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1455,303,bruit-ocr,et,et,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1455,303,bruit-ocr,civ,civ,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1456,303,bruit-ocr,civ,civ,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1457,303,bruit-ocr,eux,eux,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1458,303,bruit-ocr,et,et,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1459,304,coquille-du-livre,et,35,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1474,306,bruit-ocr,droit cédé.,droit cédé.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1474,306,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1474,306,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1483,308,bruit-ocr,Ces,Ces,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1491,310,bruit-ocr,1°,1°,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1517,314,bruit-ocr,"1518.- L'indemnité se règlera par experts, s'il s'agit de manufactures, usines, ou autres établissements qui exigent de …","1518.- L'indemnité se règlera par experts, s'il s'agit de manufactures, usines, ou autres établissements qui exigent de …",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1518,314,bruit-ocr,Art,Art.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1518,314,bruit-ocr,1518,1518.-,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1518,314,bruit-ocr,.,"c.,",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1518,314,ponctuation,.,,False,corrigé (voir operations.csv),lecture
+1529,316,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1529,316,coquille-du-livre,sans,ans,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1536,321,bruit-ocr,1,1,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1549,323,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1549,323,bruit-ocr,", 1556 et s.",", 1556 et s.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1554,324,intrus-appareil,"La clause de non-garantie dans un contrat de transport est valable, mais a seulement pour effet de décharger l'entrepren…",,False,corrigé (voir operations.csv),lecture
+1563,325,intrus-appareil,"La disposition relative aux marchés à forfait, qui permet au maître, sous certaines conditions, de résilier le contrat p…",,False,corrigé (voir operations.csv),lecture
+1583,327,bruit-ocr,1°.,1°.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1586,327,bruit-ocr,A,A,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1591,328,bruit-ocr,1,1,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1620,332,bruit-ocr,civ,civ,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1636,335,bruit-ocr,1°,1°,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1640,336,bruit-ocr,1,1,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1640,336,coquille-du-livre,avant,avent,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1641,336,bruit-ocr,3,3,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1644,337,alinea-scinde,1653. | Ce prêt est essentiellement gratuit.,1653. Ce prêt est essentiellement gratuit.,False,corrigé (voir operations.csv),lecture
+1665,339,bruit-ocr,"et s, 1664.","et s, 1664.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1673,340,bruit-ocr,civ,civ,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1699,344,bruit-ocr,"reçue.- C. civ., 1077, 1682, 1700 et s, 2004.","reçue.- C. civ., 1077, 1682, 1700 et s, 2004.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1723,347,bruit-ocr,4°,4°,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1731,350,bruit-ocr,"Le contrat de rente viagère.- C. civ., 1677, 1681, 1832 et s.","Le contrat de rente viagère.- C. civ., 1677, 1681, 1832 et s.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1731,350,bruit-ocr,1,1,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1742,351,intrus-appareil,"Il est généralement admis en doctrine et en jurisprudence que la dérogation de l'art. 1978, au principe de la condition …",,False,corrigé (voir operations.csv),lecture
+1746,352,bruit-ocr,jusqu'à,jusqu'à,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1757,355,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1757,355,bruit-ocr,", 452 et s.",", 452 et s.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1757,355,ponctuation,mandant. C. p. c.,mandant.- C. p. c.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1758,356,ponctuation,"insolvable. C. civ., 1170.","insolvable.- C. civ., 1170.",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1758,356,ponctuation,"substituée. C. civ., 1756.","substituée.- C. civ., 1756.",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1766,358,intrus-appareil,Aucun principe d'ordre constitutionnel ou public ne s'oppose à la rétribution des arbitres … Le fait que les arbitres or…,,False,corrigé (voir operations.csv),lecture
+1766,358,coquille-du-livre,Lorsque,lorsque,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1766,358,ponctuation,"mandat. C. civ., 987 et s.","mandat.- C. civ., 987 et s.",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1767,358,ponctuation,,-,False,corrigé (voir operations.csv),lecture
+1767,358,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1767,358,ponctuation,,-,False,corrigé (voir operations.csv),lecture
+1767,358,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1767,358,ponctuation,"du mandant, soit du mandataire. C. civ., 19, 399, 410, 1159, 1160, 1755, 1785.","du mandant, soit du mandataire.- C. civ., 19, 399, 410, 1159, 1160, 1755, 1785.",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1769,359,bruit-ocr,son,son,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1769,359,ponctuation,"mandataire. C. civ., 955, 1767.","mandataire.- C. civ., 955, 1767.",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1780,360,intrus-appareil,"!. 1 appartient souverainement aux juges du fond d'apprécier … pour l'établir validement.- Cass., 4 mars 1890.",,False,corrigé (voir operations.csv),lecture
+1794,362,coquille-du-livre,civ.,ci.,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1794,362,ponctuation,"débiteur. C. civ., 936","débiteur.- C. civ., 936",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1794,362,ponctuation,"elles. C. civ., 1675.","elles.- C. civ., 1675.",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1794,362,ponctuation,"lieu. C. civ., 939.","lieu.- C. ci., 939.",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1795,363,coquille-du-livre,civ,ci,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1795,363,ponctuation,débiteur. C.,débiteur.-C.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1798,363,ponctuation,,-,False,corrigé (voir operations.csv),lecture
+1798,363,bruit-ocr,975 et,975 et,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1804,364,coquille-du-livre,"en paiement de la dette principale, décharge la caution, encore",,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1804,364,ponctuation,évincé. C. civ.,évincé.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1808,364,ponctuation,"principal. C. civ., 1786.","principal.- C. civ., 1786.",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1818,366,intrus-appareil,Le simple versement par un débiteur d'une somme sur le montant des condamnations prononcées par un jugement par défaut n…,,False,corrigé (voir operations.csv),lecture
+1818,366,ponctuation,"lésion. C. civ., 718","lésion.- C. civ., 718",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1822,366,coquille-du-livre,La,la,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1822,366,ponctuation,"valable. C. civ., 1109","valable.- C. civ., 1109",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1823,366,ponctuation,"droit. C. civ., 359, 390.","droit.- C. civ., 359, 390.",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1824,366,ponctuation,"réparée. C. p. c., 465.","réparée.- C. p. c., 465.",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1826,367,ponctuation,,-,False,corrigé (voir operations.csv),lecture
+1826,367,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1826,367,bruit-ocr,°,°,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1826,367,ponctuation,,-,False,corrigé (voir operations.csv),lecture
+1826,367,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1826,367,bruit-ocr,;,;,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1826,367,ponctuation,,-,False,corrigé (voir operations.csv),lecture
+1826,367,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1826,367,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1826,367,ponctuation,,-,False,corrigé (voir operations.csv),lecture
+1826,367,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1826,367,coquille-du-livre,pour,pou,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1826,367,ponctuation,,-,False,corrigé (voir operations.csv),lecture
+1826,367,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1826,367,bruit-ocr,.,.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1829,368,bruit-ocr,i,i,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1829,368,ponctuation,intérêts. C. civ.,intérêts.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1829,368,coquille-du-livre,"924, 939",924 939,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1829,368,coquille-du-livre,"1837, 1903",1837 1903,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1831,368,ponctuation,"gourdes. C. civ., 1837.","gourdes.- C. civ., 1837.",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1832,368,ponctuation,"stellionat. C. civ., 1825","stellionat.- C. civ., 1825",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1833,368,coquille-du-livre,et s,est,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1833,368,ponctuation,"biens. C. civ., 204, 205","biens.- C. civ., 204 205",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1833,368,coquille-du-livre,"1837, 1903",1837 1903,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1833,368,coquille-du-livre,"700, 794",700. 794,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1833,368,ponctuation,"contrats. C. civ., 1256","contrats.- C. civ., 1256",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1838,370,ponctuation,897 925,"897, 925",False,corrigé (voir operations.csv),lecture
+1843,370,intrus-appareil,"Le créancier gagiste, qu'il soit nanti ou que le gage de son consentement soit aux mains d'un tiers, … Cass., 28 janvier…",,False,corrigé (voir operations.csv),lecture
+1845,370,ponctuation,,-,False,corrigé (voir operations.csv),lecture
+1845,370,ponctuation,",",.,False,corrigé (voir operations.csv),lecture
+1845,370,ocr,,C,False,corrigé (voir operations.csv),lecture
+1845,370,ocr,"ci,","civ.,",False,corrigé (voir operations.csv),lecture
+1846,371,intrus-appareil,"Le créancier cessionnaire, au vu et au su d'un tiers dépositaire … Cass., 6 décembre 1926, Aff. Banque Canada vS.B. N. R…",,False,corrigé (voir operations.csv),lecture
+1849,371,coquille-du-livre,1838 s,18389,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1850,372,alinea-fusionne,1857. L'héritier du débiteur,1857.¶L'héritier du débiteur,False,corrigé (voir operations.csv),lecture
+1852,372,renvoi,355,35 s,False,corrigé (voir operations.csv),lecture
+1854,372,ponctuation,,",",False,corrigé (voir operations.csv),lecture
+1855,372,intrus-structure,DE L ' ANTICHRÈSE,,False,corrigé (voir operations.csv),lecture
+1855,372,ponctuation,"C. p. c,, 473","C. p. c., 473",False,corrigé (voir operations.csv),lecture
+1856,373,bruit-ocr,civ .,civ.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1858,373,ocr,c,C,False,corrigé (voir operations.csv),lecture
+1858,373,ocr,iv,civ.,False,corrigé (voir operations.csv),lecture
+1858,373,cesure,hypo - thèques,hypo-/thèques,False,corrigé (voir operations.csv),lecture
+1868,375,ponctuation,,justice.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1868,375,bruit-ocr,.,"C. civ., 669",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1868,375,bruit-ocr,.,"C. p. c., 130",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1868,375,ponctuation,,dus ;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1868,375,bruit-ocr,.,2037.-,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1868,375,bruit-ocr,.,"C. p. c., 568",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1868,375,ponctuation,,courante ;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1868,375,bruit-ocr,.,"C. civ., 114",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1868,375,bruit-ocr,.,2037.-,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1868,375,bruit-ocr,,"famille, savoir",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1868,375,ponctuation,,gros.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1868,375,bruit-ocr,.,"C. civ., 1114",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1868,375,bruit-ocr,.,2037.-,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1868,375,bruit-ocr,.,"C. p. c., 461",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1868,375,ponctuation,suivant. C. civ.,suivant.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1868,375,ponctuation,Art. 1868. —,Art. 1868,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1869,375,coquille-du-livre,,ce´qui,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1869,375,bruit-ocr,toutefois de payer au propriétaire tout ce qui lui serait encore dû ;,toutefois de payer au propriétaire tout ce qui lui serait encore dû;,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,ponctuation,,bail.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1869,375,bruit-ocr,.,"C. civ., 1491",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,ponctuation,,cas ;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1869,375,bruit-ocr,.,"C. civ., 453",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,ponctuation,,maison.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1869,375,bruit-ocr,.,"C. p. c., 504",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,ponctuation,,saisi ;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1869,375,ponctuation,,chose.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1869,375,bruit-ocr,.,"C. civ., 928",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,bruit-ocr,.,1714.-,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,bruit-ocr,.,"C. p. c., 569",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,ponctuation,,terme ;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1869,375,bruit-ocr,.,"C. civ., 430",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,ponctuation,,faite.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1869,375,bruit-ocr,.,"C. civ., 974",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,bruit-ocr,.,"C. p. c., 724",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,ponctuation,,revendication.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1869,375,bruit-ocr,.,"C. civ., 254",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,bruit-ocr,.,"C. p. c., 402-5°",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,ponctuation,,auberge ;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1869,375,bruit-ocr,.,"C. civ., 1719",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,ponctuation,,transportée ;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1869,375,bruit-ocr,.,"C. civ., 1552",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,ponctuation,,dus.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1869,375,bruit-ocr,.,"C. civ., 1675",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,bruit-ocr,.,"C. p. c., 79-2°",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,bruit-ocr,°,79-2°.-,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1869,375,ponctuation,Art. 1869. —,Art. 1869,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1869,375,coquille-du-livre,"fonctions, sur","fonctions,sur",False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1870,376,coquille-du-livre,.,1 Le vendeur,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1870,376,ponctuation,,prix ;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1870,376,bruit-ocr,.,"C. civ., 974",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1870,376,ponctuation,,empruntés ;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1870,376,bruit-ocr,.,1462.-,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1870,376,bruit-ocr,.,"C. p. c., 605",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1870,376,ponctuation,,lots ;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1870,376,bruit-ocr,.,"C. civ., 674",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1870,376,coquille-du-livre,situés,situes,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1870,376,ponctuation,,d'office.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1870,376,bruit-ocr,.,"C. civ., 1561",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1870,376,bruit-ocr,.,"C. p. c., 302",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1870,376,bruit-ocr,,d'emprunt,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1870,376,ponctuation,,immeuble.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1870,376,bruit-ocr,.,"C. civ., 1036",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1870,376,ponctuation,sont : C. civ.,sont :- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1870,376,ponctuation,Art. 1870. —,Art. 1870,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1873,377,bruit-ocr,"c . , 653 et s .","c., 653 et s.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1873,377,ponctuation,suivent. C. civ.,suivent.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1873,377,ponctuation,Art. 1873. —,Art. 1873,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1877,378,coquille-du-livre,ou,u,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1877,378,ponctuation,procès-verbal. C. civ.,procès-verbal.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1877,378,ponctuation,Art. 1877. —,Art. 1877,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1880,379,ponctuation,expliqué. C. civ.,expliqué.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1880,379,ponctuation,Art. 1880. —,Art. 1880,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1881,379,coquille-du-livre,,"Elle les suit dans quelques mains qu'il passent.- C. civ., 1933 et s.",False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1881,379,ponctuation,obligation. C. civ.,obligation.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1881,379,ponctuation,immeubles. C. civ.,immeubles.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1881,379,ponctuation,passent. C. civ.,passent.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1881,379,ponctuation,Art. 1881. —,Art. 1881,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1884,379,bruit-ocr,civ .,civ.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1884,379,ponctuation,loi. C. civ.,loi.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1884,379,ponctuation,judiciaires. C. civ.,judiciaires.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1884,379,ponctuation,contrats. C. civ.,contrats.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1884,379,ponctuation,Art. 1884. —,Art. 1884,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1885,379,ponctuation,,immeubles.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1885,379,bruit-ocr,.,"C. civ., 426",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1885,379,ponctuation,,durée.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1885,379,ponctuation,d'hypothèques; C. civ.,d'hypothèques ;- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1885,379,ponctuation,Art. 1885. —,Art. 1885,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1887,380,coquille-du-livre,innové,invoqué,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1887,380,ponctuation,Art. 1887. —,Art. 1887,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1888,380,casse-accent,Sont,sont,False,corrigé (voir operations.csv),lecture
+1888,380,alinea-fusionne,1960 et s. Ceux des femmes,1960 et s.¶Ceux des femmes,False,corrigé (voir operations.csv),lecture
+1888,380,ponctuation,tuteurs; C. civ.,tuteurs ;- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1889,380,ponctuation,exprimées. C. civ.,exprimées.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1889,380,ponctuation,Art. 1889. —,Art. 1889,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1890,380,bruit-ocr,"civ . ,","C. civ., 1103",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1890,380,ponctuation,C,exécution.- C. p. c.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1890,380,ponctuation,seing-privé. C. civ.,seing-privé.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1890,380,coquille-du-livre,"exprimées. C. civ., 1884,","exprimées.- C. civ., 184",False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1890,380,ponctuation,traités. C. civ.,traités.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1890,380,coquille-du-livre,par les articles,parles articles,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1890,380,ponctuation,Art. 1890. —,Art. 1890,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1891,381,ponctuation,C,- C,False,corrigé (voir operations.csv),lecture
+1891,381,ponctuation,Art. 1891. —,Art. 1891,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1896,382,ponctuation,C,- C,False,corrigé (voir operations.csv),lecture
+1896,382,ponctuation,hypothéqués. C. civ.,hypothéqués.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1896,382,ponctuation,Art. 1896. —,Art. 1896,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1897,382,intrus-appareil,L ' hypothèque consentie par le débiteur sur ses biens présents et à venir n ' est valable qu ' avec la mention d ' insu…,,False,corrigé (voir operations.csv),lecture
+1897,382,ponctuation,acquisitions. C. civ.,acquisitions.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1897,382,ponctuation,Art. 1897. —,Art. 1897,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1902,383,enumeration,,1. Au profit,False,corrigé (voir operations.csv),lecture
+1902,383,bruit-ocr,.,"C. civ., 329",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1902,383,enumeration,,2 Au profit,False,corrigé (voir operations.csv),lecture
+1902,383,bruit-ocr,.,"C. civ., 74",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1903,383,ocr,div,"civ.,",False,corrigé (voir operations.csv),lecture
+1903,383,ponctuation,"1957- C. p. c, 700","1957.- C. p. c., 700",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1907,384,ocr,5,s,False,corrigé (voir operations.csv),lecture
+1911,384,bruit-ocr,C,femme.- C. civ.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1911,384,ponctuation,",","C. p. c., 69",False,corrigé (voir operations.csv),lecture
+1915,385,ponctuation,,bureau.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1915,385,bruit-ocr,.,"C. civ., 98",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1915,385,bruit-ocr,.,"C. p. c., 69",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1915,385,coquille-du-livre,",",prénom domicile,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1915,385,bruit-ocr,.,3.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1915,385,ponctuation,,exigibilité.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1915,385,bruit-ocr,". ,","C. civ., 958",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1915,385,ponctuation,l'hypothèque. C. civ.,l'hypothèque.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1915,385,ponctuation,"bureau. C. civ., 925","bureau.- C. civ., 925",False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1915,385,ponctuation,Art. 1915. —,Art. 1915,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1917,386,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1917,386,coquille-du-livre,"1953 et s, 1969",1953 et s 1969,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1917,386,ponctuation,l'inscription. C. civ.,l'inscription.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1917,386,ponctuation,Art. 1917. —,Art. 1917,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1918,386,ponctuation,inscription. C. civ.,inscription.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1918,386,ponctuation,Art. 1918. —,Art. 1918,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1920,386,manque,,"1. Les nom, prénom, profession et domicile du créancier, et le domicile qui sera par lui, ou pour lui, élu dans le resso…",False,corrigé (voir operations.csv),lecture
+1922,387,coquille-du-livre,à,,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1922,387,coquille-du-livre,de l ' acquéreur,,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1922,387,ponctuation,l'acquéreur. C. civ.,charge.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1922,387,ponctuation,Art. 1922. —,Art. 1922,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1924,387,bruit-ocr,"p . c . , 672 et s .","p. c., 672 et s.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1924,387,ponctuation,jugée. C. civ.,jugée.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1924,387,ponctuation,Art. 1924. —,Art. 1924,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1931,388,ponctuation,forte. C. civ.,forte.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1931,388,ponctuation,Art. 1931. —,Art. 1931,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1947,390,ponctuation,,principale ;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1947,390,bruit-ocr,.,"C. civ., 925",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1947,390,ponctuation,,l'hypothèque ;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1947,390,bruit-ocr,.,"C. civ., 1924",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1947,390,ponctuation,,acquis ;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1947,390,bruit-ocr,.,"C. civ., 1934",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1947,390,bruit-ocr,,1960 et s.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1947,390,bruit-ocr,.,s.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1947,390,ponctuation,,prescription.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1947,390,bruit-ocr,.,"C. civ., 1987",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1947,390,ponctuation,privilège. C. civ.,privilège.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1947,390,ponctuation,conservateur. C. civ.,conservateur.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1947,390,ponctuation,détenteur. C. civ.,détenteur.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1947,390,ponctuation,Art. 1947. —,Art. 1947,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1950,391,ponctuation,,donnée ;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1950,391,bruit-ocr,.,"C. civ., 750",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1950,391,ponctuation,,vente ;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1950,391,bruit-ocr,.,"C. civ., 1948",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1950,391,ponctuation,,inscrites.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1950,391,bruit-ocr,.,"C. civ., 1915",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1950,391,bruit-ocr,",","T., 28",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1950,391,ponctuation,inscriptions. C. civ.,inscriptions.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1950,391,ponctuation,Art. 1950. —,Art. 1950,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1951,392,coquille-du-livre,,", 1951",False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1951,392,ponctuation,exigibles. C. civ.,exigibles.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1951,392,ponctuation,Art. 1951. —,Art. 1951,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1952,392,ponctuation,,requérant.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1952,392,bruit-ocr,.,"C. civ., 98",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1952,392,coquille-du-livre,déclaré,déclare,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1952,392,ponctuation,,propriétaire ;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1952,392,bruit-ocr,.,"C. civ., 1368",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1952,392,ponctuation,,procuration ;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1952,392,bruit-ocr,.,"C. civ., 1751",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1952,392,ponctuation,,charges.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1952,392,bruit-ocr,.,"C. p. c., 443",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1952,392,ponctuation,T,nullité.- T. 60.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1952,392,ponctuation,charge : C. civ.,charge :- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1952,392,coquille-du-livre,"C. p. c., 620 et s","C. p. c., 62l0 et s",False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1952,392,ponctuation,Art. 1952. —,Art. 1952,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1957,393,coquille-du-livre,"de la soumission , empêcher l ' adjudication publique , si ce n ' est",,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1957,393,ponctuation,hypothécaires. C. civ.,hypothécaires.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1957,393,ponctuation,Art. 1957. —,Art. 1957,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1959,393,coquille-du-livre,celle,cesse,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1959,393,coquille-du-livre,d'étendre,détendre,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1959,393,ponctuation,titre. C. civ.,titre.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1959,393,ponctuation,exploitations. C. civ.,exploitations.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1959,393,ponctuation,Art. 1959. —,Art. 1959,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1961,393,bruit-ocr,A,A,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1961,393,ocr,es,et s,False,corrigé (voir operations.csv),lecture
+1961,393,ocr,*,,False,corrigé (voir operations.csv),lecture
+1961,393,ponctuation,1962.-C.p.c. 674.,1962.- C. p. c. 674.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1964,394,ponctuation,,bureaux ;-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1964,394,bruit-ocr,.,"C. civ., 1913",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1964,394,ponctuation,,imputées.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1964,394,bruit-ocr,.,"C. civ., 1963",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1964,394,ponctuation,résultant. C. civ.,résultant.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1964,394,ponctuation,Art. 1964. —,Art. 1964,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1967,395,coquille-du-livre,jour par,,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1967,395,coquille-du-livre,,remises qui leur en auront été,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1967,395,coquille-du-livre,1915-1917,1915-1017,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1967,395,ponctuation,faites. C. civ.,faites.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1967,395,ponctuation,Art. 1967. —,Art. 1967,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1970,395,coquille-du-livre,,mille à,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1970,395,coquille-du-livre,à mille,,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1970,395,ponctuation,l'amende. C. civ.,l'amende.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1970,395,ponctuation,Art. 1970. —,Art. 1970,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1971,396,ponctuation,,nature.-,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1971,396,bruit-ocr,.,"C. civ., 426",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1971,396,bruit-ocr,426 et,426 et s,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1971,396,coquille-du-livre,1859,1869-1861,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1971,396,ponctuation,Art. 1971. —,Art. 1971,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1977,397,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+1977,397,ponctuation,hypothéqués. C. civ.,hypothéqués.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1977,397,ponctuation,Art. 1977. —,Art. 1977,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1978,397,coquille-du-livre,qu'ils ne fassent,qu'il ne fassent,False,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",lecture
+1978,397,mot,Elle est poursuivie,Elle est suivie,False,corrigé (voir operations.csv),lecture
+1978,397,ponctuation,exploitation. C. civ.,exploitation.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1978,397,ponctuation,Art. 1978. —,Art. 1978,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1979,397,ponctuation,lieu. C. civ.,lieu.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1979,397,ponctuation,Art. 1979. —,Art. 1979,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1980,397,ponctuation,paiement. C. civ.,paiement.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1980,397,ponctuation,Art. 1980. —,Art. 1980,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1981,397,ponctuation,liquidation. C. civ.,liquidation.- C. civ.,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1981,397,ponctuation,Art. 1981. —,Art. 1981,False,"passe typographique (tiret du renvoi, forme de tête)",lecture
+1999,403,bruit-ocr,"et s , 2008 .","et s, 2008.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+2015,405,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+2023,406,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+2023,406,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+2023,406,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+2024,406,bruit-ocr,,1. Dans,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+2024,406,bruit-ocr,option à faire sur l ' acceptation ou la renonciation à la communauté .,option à faire sur l'acceptation ou la renonciation à la communauté.,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+2025,407,bruit-ocr,C,C,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+2025,407,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+2025,407,bruit-ocr,", 975 et s .",", 975 et s.",True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+2036,409,bruit-ocr,leçons qu ' ils donnent au mois ;,leçons qu'ils donnent au mois;,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+2036,409,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+2036,409,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+2036,409,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+2036,409,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+2038,410,bruit-ocr,,,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+2047,411,bruit-ocr,1er,1er,True,"aucune — la base est conforme, seul l’OCR s’était trompé",lecture
+2047,411,intrus-structure,Annexe Loi du 5 septembre 1979 sur l ' expropriation pour cause d ' utilité publique Le Moniteur No . 87 du 8 novembre 1…,,False,corrigé (voir operations.csv),lecture
+2047,411,casse-accent,an 23°:,an 23e:,False,corrigé (voir operations.csv),lecture
+49,,ponctuation,"C. civ., 155 s, 805, 49, 58, 87.","C. civ., 155s, 805, 49, 58, 87.",,corrigé (voir operations.csv),tirage de contrôle
+622,,ponctuation,"propriété. - C. civ., 478,","propriété.- C. civ., 478,",,"passe typographique (tiret du renvoi, forme de tête)",tirage de contrôle
+671,,ponctuation,"public. - C. civ., 97.","public.- C. civ., 97.",,"passe typographique (tiret du renvoi, forme de tête)",tirage de contrôle
+756,,ponctuation,"pouvoir. - C. civ., 724,","pouvoir.- C. civ., 724,",,"passe typographique (tiret du renvoi, forme de tête)",tirage de contrôle
+772,,ponctuation,"droit. - C. civ., 852,","droit.- C. civ., 852,",,"passe typographique (tiret du renvoi, forme de tête)",tirage de contrôle
+980,,ponctuation,"l'obligation. – C. civ., 919, 1008.","l'obligation.- C. civ., 919, 1008.",,"passe typographique (tiret du renvoi, forme de tête)",tirage de contrôle
+1054,,ponctuation,"contraire. – C. civ., 10,","contraire.- C. civ., 10,",,"passe typographique (tiret du renvoi, forme de tête)",tirage de contrôle
+1054,,renvoi,"2035. – C. p. c., 848-853.","2035;- C. p. c., 848-853.",,corrigé (voir operations.csv),tirage de contrôle
+1061,,ponctuation,"délégation. – C. civ., 925,","délégation.- C. civ., 925,",,"passe typographique (tiret du renvoi, forme de tête)",tirage de contrôle
+1061,,coquille-du-livre,"1231, 1398, 1634, 1767, 1798.","1231, 1398 1634 1767, 1798.",,"aucune — coquille du livre, la base garde la forme correcte (décision du 18 oct.)",tirage de contrôle
+1061,,ponctuation,"lui. – C. civ., 1060, 1462.","lui.- C. civ., 1060, 1462.",,"passe typographique (tiret du renvoi, forme de tête)",tirage de contrôle
+1096,,ponctuation,"restitution. – C. civ., 1123.","restitution.- C. civ., 1123.",,"passe typographique (tiret du renvoi, forme de tête)",tirage de contrôle
+1149,,ponctuation,"fausseté. – C. civ., 1135,","fausseté.- C. civ., 1135,",,"passe typographique (tiret du renvoi, forme de tête)",tirage de contrôle
+1750,,ponctuation,"contraire. C. civ., 925, 1756.","contraire.- C. civ., 925, 1756.",,"passe typographique (tiret du renvoi, forme de tête)",tirage de contrôle
+1786,,ponctuation,"solidaires. C. civ., 987 et s,","solidaires.- C. civ., 987 et s,",,"passe typographique (tiret du renvoi, forme de tête)",tirage de contrôle
+1793,,ponctuation,"insolvables. C. civ., 997, 1785,","insolvables.- C. civ., 997, 1785,",,"passe typographique (tiret du renvoi, forme de tête)",tirage de contrôle
+1835,,ponctuation,"corps. C. civ., 1806.- C. p. c., 142.","corps.- C. civ., 1806.- C. p. c., 142.",,"passe typographique (tiret du renvoi, forme de tête)",tirage de contrôle
+1919,,ponctuation,"ressort. C. civ., 98, 1915-1°,","ressort.- C. civ., 98, 1915-1°,",,"passe typographique (tiret du renvoi, forme de tête)",tirage de contrôle
+1939,,ponctuation,"d'aliéner. C. civ., 915-917,","d'aliéner.- C. civ., 915-917,",,"passe typographique (tiret du renvoi, forme de tête)",tirage de contrôle
+1943,,ponctuation,"faite. C. civ., 427, 453,","faite.- C. civ., 427, 453,",,"passe typographique (tiret du renvoi, forme de tête)",tirage de contrôle
+1949,,ponctuation,"chargé. C. civ., 914, 1036,","chargé.- C. civ., 914, 1036,",,"passe typographique (tiret du renvoi, forme de tête)",tirage de contrôle
+1969,,ponctuation,"l'amende. C. civ., 939, 1168-1170,","l'amende.- C. civ., 939, 1168-1170,",,"passe typographique (tiret du renvoi, forme de tête)",tirage de contrôle

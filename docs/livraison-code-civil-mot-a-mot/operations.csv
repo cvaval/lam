@@ -1,0 +1,194 @@
+type,cible,ancre,resume
+retirer-ligne,,,retrait : « Des effets de l’absence relativement aux biens que l’absent possédait au jour de… » (intitulé en double (§ 6.4))
+retirer-ligne,,,retrait : « Des effets relativement au mariage » (intitulé en double (§ 6.4))
+retirer-ligne,,,"retrait : « De l’administration de la communauté, et de l’effet des actes de l’un ou de l’au… » (intitulé en double (§ 6.4))"
+retirer-ligne,,,retrait : « DES DIFFÉRENTES MANIÈRES DONT LE MANDAT FINIT » (intitulé en double (§ 6.4))
+retirer-ligne,,,retrait : « DES CAUSES QUI INTERROMPENT OÙ SUSPENDENT » (intitulé en double (§ 6.4))
+retirer-ligne,,,retrait : « LE COURS DE LA PRESCRIPTION » (intitulé en double (§ 6.4))
+retirer-intitule,,sec-304,"intitulé nu en double, retiré de la table, du menu et du corps"
+retirer-intitule,,sec-306,"intitulé nu en double, retiré de la table, du menu et du corps"
+retirer-intitule,,sec-308,"intitulé nu en double, retiré de la table, du menu et du corps"
+renommer-intitule,,sec-19,libellé → « SECTION PREMIÈRE — Des effets de l’absence relativement aux biens que l’absent possédait au jour de … » (livre index 50)
+renommer-intitule,,sec-21,libellé → « SECTION III — Des effets relativement au mariage » (livre index 52)
+renommer-intitule,,sec-115,libellé → « CHAPITRE II — DE LA CAPACITÉ DE DISPOSER OU DE RECEVOIR PAR DONATION ENTRE VIFS OU PAR TESTAMENT » (livre index 162 (« OU »))
+renommer-intitule,,sec-279,"libellé → « CHAPITRE IV — DES DIFFÉRENTES MANIÈRES DONT LE MANDAT FINIT » (livre index 359 (le livre imprime « CHAPITRE V », coquille : I, II, III, V))"
+renommer-intitule,,sec-324,libellé → « CHAPITRE IV — DES CAUSES QUI INTERROMPENT OU SUSPENDENT LE COURS DE LA PRESCRIPTION » (livre index 405)
+remplacer,corps,art-41,"Al. 1 : ajout du renvoi omis « .- C. civ., 79. » (livre : « civil.- Civ., 79. », forme harmonisée « C. civ. » retenue), folio 32. NB : l'al. 2 de la base garde « .- Civ., 42, … » non harmonisé — à voir par la passe typographique."
+remplacer,corps,art-45,"Retrait de la glose de l'éditeur (petit italique sous l'article) versée comme 3e alinéa, folio 33."
+remplacer,corps,art-55,"Al. 2 scindé en 3 alinéas aux bornes du livre (« L'acte de naissance sera rédigé… », « Si deux (2) ans après… »), folio 35. ; « l’article 1 du présent Décret » → « l’article 1er du présent Décret » (livre : 1er, er en exposant), folio 35."
+remplacer,corps,art-302,"Retrait du résidu « ————————— ""TS » (filet/titre courant du changement de page 84→85) inséré entre « de l'état civil qui » et « aura procédé », folios 84-85. ; Al. 2 scindé : « Toute légitimation sera mentionnée… » est un alinéa distinct au livre, folio 84."
+remplacer,corps,art-304,"Renvoi : « 392 741 » → « 392, 741 » (virgule du livre), folio 85."
+remplacer,corps,art-305,"Mention de tête « (D... du 22 décembre 1944) » → « (D. L. du 22 décembre 1944) », folio 85."
+remplacer,corps,art-310,"Ajout du renvoi omis « .- C. civ., 146 et s, 302, 583, 606 et s, 624 et s, 631. » (livre : « intérêt.- C. civ., 146 et s, 302, 583, 606 et s, 624 et s, 631. »), folio 87. La ligne en corps normal « Un tiers est sans intérêt… - Cass., 28 mai 1915. » qui suit est de la jurisprudence (doublon de la not…"
+remplacer,corps,art-311,"« L'action en déclaration de paternité ne sera pas recevable : » détaché de l'item 2 (alinéa distinct à la marge), folio 87. ; « Tout jugement de déclaration de paternité… » détaché de l'item 2 de la seconde énumération (alinéa distinct à la marge), folio 88."
+remplacer,corps,art-314,"Retrait de l'ENCADRÉ (Décret du 27 janvier 1959 art. 1 ; Décret du 8 octobre 1982 art. 13 ; Décret du 30 août 1988 art. 1) versé à la fin de l'al. 4 et en 5e ligne, folio 92. Destination « commentaires » par défaut : présence dans les blocs connexes non vérifiable en lecture seule — passer à « suppr…"
+remplacer,corps,art-330,"Retrait de l'ENCADRÉ « Décret du 8 octobre 1982, art. 14 » collé à la fin de l'al. 3, folio 95. Destination « commentaires » par défaut : présence dans les blocs connexes non vérifiable en lecture seule — passer à « supprimer » s'il y figure déjà."
+remplacer,corps,art-331,"Article scindé en 3 alinéas aux bornes du livre (« La tutelle des enfants naturels… », « La mère seule peut… »), folio 95."
+remplacer,corps,art-523,"Retrait de la glose de l'éditeur (petit italique en tête du folio 128) versée comme 2e alinéa, folio 127-128."
+remplacer,corps,art-611,"retrait du folio intrus « 14l » (folio 141, bas de page) et rétablissement des 2 alinéas du livre, folio 141-142"
+remplacer,corps,art-617,"« ant. 3 » → « art. 3 » (faute de saisie), folio 142"
+remplacer,corps,art-624,"retrait de la glose de l'éditeur (2e ligne), vers les commentaires, folio 143"
+remplacer,corps,art-682,"renvoi : « C. p. c. 343 » → « C. p. c., 343 » et « ets » → « et s », folio 152"
+remplacer,corps,art-727,"retrait du titre courant de la page suivante (folio 161) pris pour une 2e ligne, folio 160"
+remplacer,corps,art-1022,"al. 3 : « cobligé » → « coobligé » (faute de saisie), folio 213"
+remplacer,corps,art-1037,"item 4, renvoi : séparateur interne « . – » → « ;- » comme le livre, folio 218"
+remplacer,corps,art-1043,"al. 1, renvoi : séparateur interne « . – » → « ;- » comme le livre, folio 219"
+remplacer,corps,art-1045,"item 2, renvoi : séparateur interne « . – » → « ;- » comme le livre, folio 222 ; item 3, renvoi : séparateur interne « . – » → « ;- » comme le livre, folio 222"
+remplacer,corps,art-1077,"item 3, renvoi : séparateur interne « . – » → « ;- » comme le livre, folio 228"
+remplacer,corps,art-1095,"f. 230 : renvoi « et s. – » → « et s;- » (point-virgule entre deux codes) ; f. 230 : renvoi « C. i. c., 273. – » → « C. i. c. 273;- » (pas de virgule, point-virgule entre deux codes) ; f. 230 : renvoi « C. pén., 1 » → « C. pén. 1 » (pas de virgule au livre)"
+remplacer,oldVersions,art-1101,f. 233 : intitulés de section/paragraphe (« SECTION PREMIÈRE / De la preuve littérale / § Ier / Du titre authentique ») retirés de la rédaction de 1825
+remplacer,oldVersions,art-1102,"f. 233 : renvoi « C.p. c, 501 » → « C. p. c., 501 »"
+remplacer,corps,art-1120,"f. 241 : sous-alinéas « Elles sont considérées… » et « Si elles ont moins… » replacés sous le 2, avant le 3 (la base les mettait après le 4)"
+remplacer,corps,art-1143,f. 251 : renvoi « 2040. – » → « 2040;- » (point-virgule entre deux codes)
+remplacer,corps,art-1144,"f. 251 : renvoi « C. pén., 312 » → « C. pén. 312 » (pas de virgule au livre)"
+remplacer,corps,art-1174,f. 261 : glose de l’éditeur retirée du texte
+remplacer,corps,art-1186,f. 262 : titre courant du folio 263 retiré (2e ligne)
+remplacer,corps,art-1187,"f. 263 : items 1 à 3 de l’énumération ajoutés (manquaient), recopiés du livre avec ses deux « à » omis (« pendant le mariage titre de succession », « quelque titre que ce soit »)"
+remplacer,corps,art-1188,"f. 263 : renvoi « 1187-3°,, » → « 1187-3°, » (virgule doublée)"
+remplacer,version,art-1189,"f. 263 : renvoi alinéa 2 « C. dv, » → « C. civ., » et « 1282-3 » → « 1282-3° »"
+remplacer,version,art-1193,"f. 264 : renvoi alinéa 2 « €. tv, » → « C. civ., » ; f. 264 : note de jurisprudence (lue en travers des deux colonnes) retirée de la fin de l’alinéa 2"
+remplacer,corps,art-1194,"f. 264-265 : items 1 à 5 de l’énumération ajoutés (manquaient), recopiés du livre avec « C. ci., » au renvoi du 5 ; la glose « V. l’art. 3 du D. du 8 octobre 1982. » imprimée sous le 5 n’est pas versée au texte"
+remplacer,corps,art-1197,"f. 265 : alinéa « Néanmoins, si la succession… » rétabli ; f. 265 : glose de l’éditeur retirée du texte"
+remplacer,corps,art-1198,f. 265 : « êté » → « été » ; f. 265 : « ‘ » parasite (tache d’impression) retiré devant « pourvoir » ; f. 265 : « nuepropriété » → « nue-propriété » (trait d’union du composé perdu à la coupure de ligne) ; f. 265 : glose de l’éditeur retirée du texte
+remplacer,corps,art-1199,f. 266 : renvoi « Cp. c. » → « C. p. c. »
+remplacer,corps,art-1201,f. 266 : alinéa « Il en est de même… » rétabli ; f. 266 : glose de l’éditeur retirée du texte
+remplacer,corps,art-1202,f. 266 : glose de l’éditeur retirée du texte
+remplacer,corps,art-1206,f. 267 : « bypothéquer » → « hypothéquer » (h italique lu b) ; f. 267 : glose de l’éditeur retirée du texte
+remplacer,corps,art-1207,f. 267 : glose de l’éditeur retirée du texte
+remplacer,corps,art-1211,f. 267 : glose de l’éditeur retirée du texte
+remplacer,corps,art-1213,f. 267 : alinéa « Il peut exercer seul… » rétabli ; f. 268 : alinéa « Il ne peut aliéner… » rétabli ; f. 268 : alinéa « Il est responsable… » rétabli et « Il » manquant ajouté ; f. 268 : glose de l’éditeur retirée du texte
+remplacer,corps,art-1214,f. 268 : glose de l’éditeur retirée (2e ligne ; le « ° » est une tache d’impression)
+remplacer,corps,art-1215,f. 268 : glose de l’éditeur retirée (2e ligne)
+remplacer,corps,art-1216,f. 268 : glose de l’éditeur retirée (2e ligne)
+remplacer,corps,art-1217,f. 268 : « à faite » → « a faite »
+remplacer,corps,art-1226,f. 269-270 : items 1 à 4 de l’énumération ajoutés (manquaient) ; la glose « V. l’art. 1er du D. du 30 août 1988. » n’est pas versée au texte
+remplacer,corps,art-1227,f. 270 : alinéa « S’il y a des enfants mineurs… » rétabli ; f. 270 : glose de l’éditeur retirée du texte
+remplacer,corps,art-1228,f. 270 : renvoi « 58-7 » → « 58-7° »
+remplacer,corps,art-1230,f. 270 : renvoi « G.p. c. » → « C. p. c. »
+remplacer,corps,art-1231,"f. 270 : renvoi « c,, » → « c., »"
+remplacer,corps,art-1232,"f. 270 : renvoi « c, » → « c., »"
+remplacer,corps,art-1233,f. 271 : alinéa « Elle doit supporter… » rétabli
+remplacer,corps,art-1234,f. 271 : glose de l’éditeur retirée du texte
+remplacer,corps,art-1235,f. 271 : glose de l’éditeur retirée du texte
+remplacer,corps,art-1236,f. 271 : alinéa « Elle ne peut l’être… » rétabli ; f. 271 : alinéa « En ce cas… » rétabli ; f. 271 : alinéa « Toute convention… » rétabli
+remplacer,corps,art-1239,f. 272 : alinéa « Les actes purement administratifs… » rétabli
+remplacer,corps,art-1240,"« béritiers » → « héritiers » (ocr, h italique) — f. 272"
+remplacer,corps,art-1243,« béritiers » → « héritiers » (ocr ; imprimé « héri-/tiers ») — f. 272
+remplacer,corps,art-1246,alinéa rétabli avant « Si la veuve meurt ayant » — f. 272
+remplacer,corps,art-1253,renvoi : « 1204 » → « 1204 s » — f. 273
+remplacer,corps,art-1255,"texte manquant : 3 items d'énumération ajoutés (1 alinéa chacun, avec renvois) — f. 274"
+remplacer,corps,art-1256,alinéa rétabli avant « Ils s'exercent » — f. 274
+remplacer,corps,art-1257,glose « V. le D. du 8 octobre 1982. » retirée (→ commentaires) — f. 274
+remplacer,corps,art-1260,"« béréditaire » → « héréditaire » (ocr, h italique) — f. 274 ; glose « V. le D. du 8 octobre 1982. » retirée (→ commentaires) — f. 274"
+remplacer,version,art-1262,"« gfivé » → « privé » (ocr) — f. 274 ; renvoi : « C. dv, » → « C. civ., » (ocr) — f. 274"
+remplacer,corps,art-1266,alinéa rétabli avant « La valeur » — f. 275 ; alinéa rétabli avant « Il est dû » — f. 275
+remplacer,corps,art-1267,"renvoi : « 1868-L » → « 1868-1° » (ocr) — f. 275 ; renvoi : « C. p. c, 5385, 7965 » → « C. p. c., 538 s, 796 s » (ocr : s lu 5 ; point d'abréviation) — f. 275"
+remplacer,corps,art-1269,glose « V. l'art. 8 du D. du 8 octobre 1982. » retirée (→ commentaires) — f. 275
+remplacer,corps,art-1275,alinéa rétabli avant « Toutes les fois » — f. 276
+remplacer,corps,art-1279,« renonçanite » → « renonçante » (ocr) — f. 276
+remplacer,corps,art-1280,"« bardes » → « hardes » (ocr, h italique) — f. 277 ; intitulé « Disposition relative à la communauté légale… » retiré (→ supprimer) — f. 277"
+remplacer,corps,art-1282,"alinéa rétabli avant « Les principales modifications » — f. 277 ; texte manquant : 8 items d'énumération ajoutés tels qu'imprimés (fautes du livre : « que » minuscule, « 1283 et s » sans point, « 1595 ») — f. 277"
+remplacer,corps,art-1283,renvoi : « 1282-P » → « 1282-1° » (ocr) — f. 277
+remplacer,corps,art-1284,"renvoi : « C.p.c, » → « C. p. c., » (point d'abréviation manquant) — f. 278"
+remplacer,corps,art-1287,alinéa rétabli avant « Il est suffisamment justifié » — f. 278
+remplacer,corps,art-1289,"renvoi : « C.p. c., » → « C. p. c., » (espacement de l'abréviation, livre) — f. 278 ; renvoi : « C.p.c., » → « C. p. c., » (espacement de l'abréviation, livre) — f. 278"
+remplacer,corps,art-1291,alinéa rétabli avant « Il est indéterminé » — f. 279
+remplacer,corps,art-1292,« Leffet » → « L'effet » (ocr) — f. 279 ; glose « V. l'art. 10 du D. du 8 octobre 1982. » retirée (→ commentaires) — f. 279
+remplacer,corps,art-1295,"renvoi : « C. p. c, » → « C. p. c., » (point d'abréviation manquant) — f. 280"
+remplacer,corps,art-1296,« où » → « ou » (accent) — f. 280
+remplacer,corps,art-1299,« maïs » → « mais » (ocr) — f. 280 ; alinéa rétabli avant « Ainsi la faculté de reprendre » — f. 280 ; alinéa rétabli avant « Ainsi la faculté accordée » — f. 280 ; glose « V. le D. du 8 octobre 1982 » retirée (→ commentaires) — f. 281
+remplacer,version,art-1307,césure recousue : « conve- nue » → « convenue » — f. 281-282
+remplacer,corps,art-1312,alinéa rétabli avant « Néanmoins » — f. 282
+remplacer,corps,art-1313,"renvoi : « civ.:925 » → « civ.;925 » (ponctuation lue de travers, vérifiée à 600 dpi) — f. 283"
+remplacer,corps,art-1316,glose « V. l'art. 8 du D. du 8 octobre 1982. » retirée (→ commentaires) — f. 283
+remplacer,corps,art-1320,alinéa rétabli avant « Néanmoins » — f. 283
+remplacer,corps,art-1322,« ef » → « et » (ocr) — f. 284
+remplacer,corps,art-1323,glose « V. l'art. 10 du D. du 8 octobre 1982. » retirée (→ commentaires) — f. 284
+remplacer,corps,art-1333,ligne 2 = intitulé de la SECTION II retirée (→ supprimer) — f. 285
+remplacer,corps,art-1517,"f. 314 : retrait de « Art. 1518.- L'indemnité … 955, 956. » soudé en fin d'alinéa (doublon de l'art. 1518, qui a sa propre fiche) ; l'article finit sur « courir. »"
+remplacer,corps,art-1518,"f. 314 : renvoi « 302 et s., 955 » → « 302 et s, 955 » (livre « C. p. c., 302 et s, 955, 956. »)"
+remplacer,corps,art-1554,"f. 324 : retrait de la note de jurisprudence (petit corps, deux colonnes sous filet) reprise comme alinéa 2"
+remplacer,corps,art-1563,"f. 325 : retrait de la note de jurisprudence (petit corps, deux colonnes sous filet) reprise comme alinéa 2"
+remplacer,corps,art-1742,"f. 351 : retrait de la note de jurisprudence (petit corps, deux colonnes sous filet) reprise comme alinéa 2"
+remplacer,corps,art-1766,"f. 358 : retrait de la note de jurisprudence (petit corps, deux colonnes sous filet) reprise comme alinéas 2, 3 ; f. 358 : « Lorsque » (livre « lorsque ») et tiret du renvoi laissés tels quels (coquille du livre / passe typographique)"
+remplacer,corps,art-1818,"f. 366 : retrait de la note de jurisprudence (petit corps, deux colonnes sous filet) reprise comme alinéa 3 ; f. 366 : la colonne droite de la même note (« Le créancier non payé … Cass., 11 mai 1928, Aff. West Indies vs. Claude. ») n'était pas en base ; recopiée du livre dans texte_restitue"
+remplacer,corps,art-1644,f. 337 : alinéas 1 et 2 réunis — au livre « Ce prêt est essentiellement gratuit. » suit le renvoi « 1653. » dans le même alinéa
+remplacer,version,art-1780,"f. 360 : note de jurisprudence n° 1 (« Il appartient souverainement … Cass., 4 mars 1890. ») coupée de la fin de la ligne, après « 1777, 1778. » ; texte_restitue : « !. 1 appartient » → « Il appartient » (n° de note retiré), césure « consti- tutifs » recousue"
+remplacer,version,art-1843,"f. 370 : retrait de la note de jurisprudence (deux colonnes sous filet) reprise comme alinéa 2 ; texte_restitue : ordre des colonnes rétabli d'après l'image (mêmes mots, aucun ajout)"
+remplacer,version,art-1846,"f. 371 : note de jurisprudence (« Le créancier cessionnaire … B. N. R. H. ») coupée de la fin de la ligne, après « 1869-2°. » ; texte_restitue : « vS.B. » → « vs.B. » (livre)"
+remplacer,corps,art-1838,"f. 370 : renvoi « 897 925 » → « 897, 925 » (livre « C. civ., 897, 925, 1682 et s, 1839 et s. ») ; NB : texte identique dans ArticleVersion MODIFIE (texte_base_source) et corps_actuel — même correction à porter sur la version"
+remplacer,corps,art-1845,"f. 370 : renvoi « C. p. c,, 302 » → « C. p. c., 302 » ; f. 370 : 2e alinéa « est nulle. . ci, 10, » → « est nulle. C. civ., 10, » (livre, sans tiret) ; NB : texte identique dans ArticleVersion MODIFIE (texte_base_source) et corps_actuel — même correction à porter sur la version"
+remplacer,corps,art-1850,"f. 372 : alinéa « L'héritier du débiteur, qui a payé… » séparé de l'alinéa 1 (fusion en base)"
+remplacer,corps,art-1852,f. 372 : renvoi « 355 » → « 35 s » (lecture du livre)
+remplacer,corps,art-1854,"f. 372 : virgule rétablie dans le renvoi « 507, 1530 »"
+remplacer,version,art-1855,"f. 372 : « C. p. c,, » → « C. p. c., » (double virgule) ; f. 372-373 : intrus retiré — titre courant « DE L'ANTICHRÈSE » (supprimer)"
+remplacer,version,art-1858,"f. 373 : renvoi « c. iv » → « C. civ., » (faute de saisie) ; f. 373 : césure de composition recousue « hypo- thèques » → « hypothèques »"
+remplacer,corps,art-1888,f. 380 : « Sont » → « sont » (minuscule au livre) ; f. 380 : alinéa « Ceux des femmes mariées… » séparé de l'alinéa d'en-tête (fusion en base)
+remplacer,corps,art-1897,"f. 382 : intrus retiré — note de jurisprudence (petit corps, 2 colonnes sous le filet) → jurisprudence"
+remplacer,corps,art-1902,"f. 383 : numéro « 1. » rétabli devant « Au profit des mineurs » ; f. 383 : numéro « 2 » (sans point, tel que le livre) rétabli devant « Au profit des femmes »"
+remplacer,corps,art-1903,"f. 383 : renvoi « C. div, » → « C. civ., » (faute de saisie) ; f. 384 : « C. p. c, 700 » → « C. p. c., 700 » (point d'abréviation perdu)"
+remplacer,corps,art-1907,f. 384 : renvoi « et 5 » → « et s »
+remplacer,corps,art-1911,"f. 385 : « C.p. c,, 69 » → « C. p. c., 69 » (double virgule, abréviation soudée)"
+remplacer,corps,art-1920,"f. 386 : items 1., 2., 3. de l'énumération ajoutés (absents de la base), recopiés du livre"
+remplacer,corps,art-1961,"f. 394 : renvoi « 1950 es » → « 1950 et s » ; f. 394 : « * » final retiré (tache d'encre au livre, pas un caractère)"
+remplacer,corps,art-1978,f. 397 : « poursuivie » → « suivie » (texte du livre)
+remplacer,corps,art-2047,"f. 411 : intrus retiré — début d'annexe « Annexe Loi du 5 septembre 1979 sur l'expropriation… » absent de la page (supprimer) ; f. 411 : intrus retiré — note de saisie « — Fin du Code civil d'Haïti… — » absente du livre (supprimer) ; f. 411 : « 23° » → « 23e » (e en exposant au livre, pas un degré)"
+remplacer,corps,art-1193,note de jurisprudence entrelacée (déjà dans l’appareil)
+remplacer,corps,art-1028,séparateur interne du renvoi : « ;- » au livre
+remplacer,corps,art-1030,séparateur interne du renvoi : « ;- » au livre
+remplacer,corps,art-1054,séparateur interne du renvoi : « ;- » au livre
+remplacer,corps,art-1055,séparateur interne du renvoi : « ;- » au livre
+remplacer,corps,art-1055,séparateur interne du renvoi : « ;- » au livre
+remplacer,corps,art-1073,séparateur interne du renvoi : « ;- » au livre
+remplacer,corps,art-1083,séparateur interne du renvoi : « ;- » au livre
+remplacer,corps,art-1103,séparateur interne du renvoi : « ;- » au livre
+remplacer,corps,art-1104,séparateur interne du renvoi : « ;- » au livre
+remplacer,corps,art-1107,séparateur interne du renvoi : « ;- » au livre
+remplacer,corps,art-1109,séparateur interne du renvoi : « ;- » au livre
+remplacer,corps,art-1142,séparateur interne du renvoi : « ;- » au livre
+remplacer,corps,art-1147,séparateur interne du renvoi : « ;- » au livre
+remplacer,corps,art-448,mot doublé au livre
+remplacer,corps,art-1903,mot doublé au livre
+remplacer,version,art-1903,« les inscriptions les inscriptions » → « les inscriptions »
+remplacer,corps,art-1189,folio 262
+ajouter-annotation,,art-45,intrus déplacé vers commentaires : « L'expression Grand-Juge est archaïque. »
+ajouter-annotation,,art-314,"intrus déplacé vers commentaires : « Décret du 27 janvier 1959, Art. 1. La filiation naturelle engendre les… »"
+ajouter-annotation,,art-330,"intrus déplacé vers commentaires : « Décret du 8 octobre 1982, art. 14. Les père et mère ont l'administrati… »"
+ajouter-annotation,,art-523,"intrus déplacé vers commentaires : « Les arts. 519, 520, 521, 522 et 523 ont été abrogés par la Constitutio… »"
+ajouter-annotation,,art-624,intrus déplacé vers commentaires : « (V. le D. du 27 janvier 1959 consacrant l’égalité des enfants naturels… »
+ajouter-annotation,,art-1174,intrus déplacé vers commentaires (déjà présent : seul le doublon du corps part) : « V. l'art. 12 du D. du 8 octobre 1982. »
+ajouter-annotation,,art-1193,intrus déplacé vers jurisprudence : « L'acquisition faite pendant le mariage à titre à l'intérieur de la cou… »
+ajouter-annotation,,art-1197,intrus déplacé vers commentaires (déjà présent : seul le doublon du corps part) : « V. l'art. 8 du D. du 8 octobre 1982. »
+ajouter-annotation,,art-1198,intrus déplacé vers commentaires (déjà présent : seul le doublon du corps part) : « V. l'art. 2 du D. du 8 octobre 1982. »
+ajouter-annotation,,art-1201,intrus déplacé vers commentaires (déjà présent : seul le doublon du corps part) : « V. le D. du 8 octobre 1982. »
+ajouter-annotation,,art-1202,intrus déplacé vers commentaires (déjà présent : seul le doublon du corps part) : « V. l'art. 8 du D. du 8 octobre 1982. »
+ajouter-annotation,,art-1206,"intrus déplacé vers commentaires : « Abrogé par les arts. 2, 3, 8, 9 du D. du 8 octobre 1982. »"
+ajouter-annotation,,art-1207,intrus déplacé vers commentaires (déjà présent : seul le doublon du corps part) : « V. l'art 8 du D. du 8 octobre 1982. »
+ajouter-annotation,,art-1211,"intrus déplacé vers commentaires : « V. les arts. 3, 8, 11 du D. du 8 octobre 1982. »"
+ajouter-annotation,,art-1213,"intrus déplacé vers commentaires : « V. les arts. 3, 8, 10 du D. du 8 octobre 1982. »"
+ajouter-annotation,,art-1214,intrus déplacé vers commentaires : « Abrogé par le D. du 8 octobre 1982. ° »
+ajouter-annotation,,art-1215,intrus déplacé vers commentaires : « Abrogé par le D. du 8 octobre 1982. »
+ajouter-annotation,,art-1216,"intrus déplacé vers commentaires : « Abrogé par le D. du 8 octobre 1982, art. 3. »"
+ajouter-annotation,,art-1227,intrus déplacé vers commentaires : « V. l'art. 1° du D. du 30 août 1988. »
+ajouter-annotation,,art-1234,"intrus déplacé vers commentaires : « V. les arts. 2, 8, 10 du D. du 8 octobre 1982. »"
+ajouter-annotation,,art-1235,intrus déplacé vers commentaires (déjà présent : seul le doublon du corps part) : « V. le D. du 8 octobre 1982. »
+ajouter-annotation,,art-1257,intrus déplacé vers commentaires (déjà présent : seul le doublon du corps part) : « V. le D. du 8 octobre 1982. »
+ajouter-annotation,,art-1260,intrus déplacé vers commentaires (déjà présent : seul le doublon du corps part) : « V. le D. du 8 octobre 1982. »
+ajouter-annotation,,art-1269,intrus déplacé vers commentaires (déjà présent : seul le doublon du corps part) : « V. l'art. 8 du D. du 8 octobre 1982. »
+ajouter-annotation,,art-1292,intrus déplacé vers commentaires (déjà présent : seul le doublon du corps part) : « V. l'art. 10 du D. du 8 octobre 1982. »
+ajouter-annotation,,art-1299,intrus déplacé vers commentaires (déjà présent : seul le doublon du corps part) : « V. le D. du 8 octobre 1982 »
+ajouter-annotation,,art-1316,intrus déplacé vers commentaires (déjà présent : seul le doublon du corps part) : « V. l'art. 8 du D. du 8 octobre 1982. »
+ajouter-annotation,,art-1323,intrus déplacé vers commentaires (déjà présent : seul le doublon du corps part) : « V. l'art. 10 du D. du 8 octobre 1982. »
+ajouter-annotation,,art-1554,"intrus déplacé vers jurisprudence (déjà présent : seul le doublon du corps part) : « La clause de non-garantie dans un contrat de transport est valable, ma… »"
+ajouter-annotation,,art-1563,"intrus déplacé vers jurisprudence (déjà présent : seul le doublon du corps part) : « La disposition relative aux marchés à forfait, qui permet au maître, s… »"
+ajouter-annotation,,art-1742,intrus déplacé vers jurisprudence : « Il est généralement admis en doctrine et en jurisprudence que la dérog… »
+ajouter-annotation,,art-1766,intrus déplacé vers jurisprudence : « Aucun principe d'ordre constitutionnel ou public ne s'oppose à la rétr… »
+ajouter-annotation,,art-1818,intrus déplacé vers jurisprudence : « Le simple versement par un débiteur d'une somme sur le montant des con… »
+ajouter-annotation,,art-1780,intrus déplacé vers jurisprudence : « !. 1 appartient souverainement aux juges du fond d'apprécier les faits… »
+ajouter-annotation,,art-1843,"intrus déplacé vers jurisprudence (déjà présent : seul le doublon du corps part) : « Le créancier gagiste, qu'il soit nanti ou que le gage de son consentem… »"
+ajouter-annotation,,art-1846,"intrus déplacé vers jurisprudence (déjà présent : seul le doublon du corps part) : « Le créancier cessionnaire, au vu et au su d'un tiers dépositaire du dé… »"
+ajouter-annotation,,art-1897,intrus déplacé vers jurisprudence (déjà présent : seul le doublon du corps part) : « L'hypothèque consentie par le débiteur sur ses biens présents et à ven… »
+supprimer-commentaire,,sec-72|art-477,"doublon de renvoi retiré de commentaires : « 939. C. p. c. 133, 135, 448; C. pén., 324 et s. »"
+supprimer-commentaire,,sec-264|art-1706,"doublon de renvoi retiré de commentaires : « 914. C. pén., 17. S'il y a plusieurs héritiers, elle doit être rendue … »"
+supprimer-commentaire,,sec-289|art-1837,"doublon de renvoi retiré de commentaires : « 139. C. pén., 54, 386, 388. »"
+deplacer-commentaire,,art-267,
