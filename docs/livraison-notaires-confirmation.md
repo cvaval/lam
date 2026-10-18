@@ -21,7 +21,7 @@ n'existe — son rendu est couvert par les tests.
 | Onglet « Notaires » (`/juridictions?vue=notaires`) | Cartes refaites : nom en serif, badge « Confirmé » s'il est valide, commune de commission, adresse de l'étude, lien « Situer la commune sur la carte », bouton « Voir la fiche → » |
 | `/juridictions/notaires` | Devient la page « Annuaire des notaires » : MÊME liste, mêmes filtres (`AnnuaireListe`, `chargerAnnuaire`), lien « Afficher la carte → ». Les anciennes ancres `#court-…` / `#commune-…` sont converties en filtres (`AncreHeritee`) |
 | Page du notaire | Titre « Notaire » ; carte au nom du notaire, badge à côté du nom ; « Coordonnées de l'étude » avec un crayon discret (infobulle « Demander une modification ou une confirmation ») ; mention « Informations confirmées par le notaire · Confirmé le … » quand le badge est valide |
-| Formulaire de demande | Deux objets : « Demander une correction » (champs pré-remplis avec les informations publiées) et « Confirmer les informations affichées » (liste des informations publiées + case « Je confirme… »). Identité, qualité (le notaire / son étude / autre) et courriel de contact privé OBLIGATOIRES. Après envoi : « Votre demande a été transmise au Master Admin pour examen. » |
+| Formulaire de demande | Deux objets : « Demander une correction » (champs pré-remplis avec les informations publiées) et « Confirmer les informations affichées » (liste des informations publiées + case « Je confirme… »). Identité, qualité (le notaire / son étude / autre) et courriel de contact privé OBLIGATOIRES. Après envoi : « Votre demande a été transmise à l’Administrateur pour examen. » (libellé corrigé par Me Vaval le 18 oct. ; « Master Admin » au départ) |
 | Admin — demande | Tableau « publié / proposé » (≠ signalé) ; section CONFIRMATION (version confirmée vs version actuelle) ; section IMPORT (source, rapprochement, propositions, anomalies) ; formulaire « Valider la confirmation » |
 | Admin — notaire | État de la confirmation et historique complet ; retrait (Master Admin) |
 
@@ -97,6 +97,33 @@ la liste du MJSP conserve ces décisions et signale si l'imprimé a changé.
   remises à jour (rapprochement établi) ; second passage : rien.
 - DUVOT (n° 13) : coordonnées déjà complétées ; seul le classement change (D, à Cap-Haïtien).
 - Graphies CONFIRMÉES par Me Vaval : « BÉLISAIRE » avec l'accent, « Guy Mario GAI » avec « Guy ».
+
+### Décisions de Me Vaval (18 oct. 2026, suite) : rapprochements, adresses, numéros
+
+Deux noms de plus en `nameDecisions` : n° 2 « Danielle GIORDANI ADÉ » (nom de famille composé,
+classé à G) et n° 7 « Sabine Duvivier MORPEAU » ; ALPHONSE garde le nom de la liste. Simulation de
+l'import du MJSP contre la production : 5 modifications (les cinq noms), 418 inchangées.
+
+Les autres décisions vont dans un FICHIER DE DÉCISIONS privé (`--decisions`, à côté du document ;
+schéma `decisionsSchema`) : lié à l'empreinte du document, une décision par entrée, les mots de
+Me Vaval cités dans la provenance de la fiche et dans la note de clôture. Une décision peut
+désigner l'inscription PARMI LES CANDIDATS (niveau `DECISION`), rectifier l'adresse du document,
+REMPLACER une adresse publiée ou AJOUTER des numéros/courriels aux publiés — chaque modification
+porte la valeur « avant », revérifiée à l'écriture. Sans décision, rien ne change aux règles.
+
+| n° | Notaire | Décision | Effet (banc local) |
+|---|---|---|---|
+| 1 | Jean M. E. Lesly ALPHONSE | même personne, nom de la liste gardé ; adresse rectifiée | fiche créée ; proposition close |
+| 3 | Marie Alice Coradin BÉLISAIRE | nom ; tous les courriels | proposition close |
+| 4 | Garry BRISSON CASSAGNOL | tous les courriels | reste ouverte : 5ᵉ numéro |
+| 5 | Jean-Joseph Frantz CÉANT | adresse publiée REMPLACÉE | reste ouverte : 2 numéros, 1 courriel |
+| 9 | Guy Mario GAI | nom ; tous les courriels | proposition close |
+| 10 | Danielle GIORDANI ADÉ | même personne (nom de famille « Giordani Adé ») | fiche créée ; proposition close |
+| 11 | Sabine Duvivier MORPEAU | nom | fiche créée ; proposition close |
+| 12 | Patrick VICTOR | numéros AJOUTÉS (1 → 3) | reste ouverte : graphie « Marcadieu(x) » |
+
+Les adresses de la cliente sont reprises sans « , Haïti » final, comme toutes celles de l'annuaire.
+Second passage : rien. FRANCILLON (n° 8) : sans décision, inchangée.
 
 ### Décision de Me Vaval (18 oct. 2026) : publier TOUS les courriels du document
 
@@ -216,18 +243,19 @@ Appliqué au banc local seulement. **Procédure de production (NON exécutée, s
 3. Déployer le code (le badge ne s'affiche que s'il existe une confirmation : rien ne change
    visuellement au déploiement).
 4. Décisions de nom : `npx tsx scripts/import-notaires-mjsp.ts --apply` (lit `.env` = production ;
-   simulation du 18 oct. : exactement 3 modifications). AVANT l'import Word, sinon BÉLISAIRE et GAI
+   simulation du 18 oct. : exactement 5 modifications). AVANT l'import Word, sinon BÉLISAIRE et GAI
    restent incertains.
-5. Relancer la SIMULATION de l'import Word contre la production (la base a pu bouger) ; comparer
-   avec le rapport du 18 oct.
+5. Relancer la SIMULATION de l'import Word contre la production, AVEC le fichier de décisions
+   (`--decisions`) ; comparer avec le rapport du 18 oct. (une décision dont la valeur « avant » a
+   changé n'écrit rien et le dit).
 6. L'option `--apply` étant réservée à une base locale, les compléments EXACTS se font en
    production par le Master Admin depuis l'administration, ou par une autorisation explicite qui
    reste à donner (élargir le garde-fou est une décision, pas un réglage).
 
 ## 9. Vérifications
 
-- `vitest --dir src` : 113 fichiers, **1 878 tests, tous verts** ; `vitest scripts/lib` : 5 fichiers,
-  **97 tests, tous verts** (état du 18 oct., après la liste des courriels). Fichiers neufs ou étendus : `notaires-confirmation.test.ts` (13),
+- `vitest --dir src` : 113 fichiers, **1 879 tests, tous verts** ; `vitest scripts/lib` : 5 fichiers,
+  **104 tests, tous verts** (état du 18 oct., après les décisions). Fichiers neufs ou étendus : `notaires-confirmation.test.ts` (13),
   `import-notaires-docx.test.ts` (29, valeurs FICTIVES), `import-notaires-docx-ecriture.test.ts` (10),
   `notaires-admin.test.ts` (24), `route.test.ts` public (22), `notaires-demandes.test.ts` (27),
   `notary-profile.test.tsx` (12), `notaires-demandes-ui.test.tsx` (22), `annuaire-ui.test.tsx` (15),
@@ -243,9 +271,10 @@ Appliqué au banc local seulement. **Procédure de production (NON exécutée, s
    incertains), CASSAGNOL (5ᵉ numéro), CÉANT et VICTOR (le document diffère de la fiche publiée,
    différences soumises à Me Vaval le 18 oct.) ; BÉLISAIRE et GAI n'ont plus rien à proposer — le
    Master Admin les clôt en enregistrant la fiche pré-remplie.
-2. **Tranché par Me Vaval le 18 oct.** : noms de BÉLISAIRE, GAI et DUVOT (graphies confirmées),
-   publication de tous les courriels du document. Restent à trancher : ALPHONSE, FRANCILLON,
-   GIORDANI, MORPEAU ; CÉANT et VICTOR.
+2. **Tranché par Me Vaval le 18 oct.** : noms de BÉLISAIRE, GAI, DUVOT, GIORDANI ADÉ et MORPEAU ;
+   ALPHONSE (même personne) ; tous les courriels du document ; adresse de CÉANT ; numéros de
+   VICTOR. Restent : FRANCILLON ; CÉANT (2 numéros, 1 courriel du document) ; VICTOR
+   (« Marcadieux » publié / « Marcadieu » dans le document) ; CASSAGNOL (5ᵉ numéro : plafond de 4).
 3. **Corrigé en passant** : « Ouvrir la fiche pré-remplie » d'une proposition d'IMPORT n'ouvrait
    pas l'éditeur pré-rempli et ne la clôturait pas (seules les demandes du public l'étaient).
 4. **CASSAGNOL** : un numéro annoté comme appartenant à un tiers, un doublon, un numéro incomplet
@@ -255,5 +284,7 @@ Appliqué au banc local seulement. **Procédure de production (NON exécutée, s
 6. **Préfixe « Me »** : non ajouté devant les noms (la liste du MJSP ne le porte pas).
 7. **`NotaryDirectoryView`** : composant de l'ancienne page « Notaires par juridiction », plus
    rendu par aucune route (encore cité par deux tests) — à retirer dans un lot séparé.
-8. **Libellés anglais et créoles** à valider par Me Vaval : 74 libellés, tableau
+8. **Libellés anglais et créoles** : 7 corrigés par Me Vaval le 18 oct. (titre « Carte judiciaire et
+   des notaires », « l’Administrateur » au lieu de « Master Admin », badge et « pa kominike » en
+   créole) ; les autres à valider, tableau
    `docs/livraison-notaires-confirmation/Libelles-en-ht-a-valider-2026-10-18.xlsx`.
