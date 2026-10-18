@@ -11,7 +11,8 @@
  *   - retirer-ligne      { ancre|null, ligne, motif }   intitulé en double, annexe de l'art. 2047 (liste blanche)
  *   - retirer-intitule   { anchor }                « Section II » nu : table + menu + ligne du corps, ensemble
  *   - supprimer-commentaire { cle, texte }         doublon de renvoi dans commentaires
- *   - abroger            { ancre, etendue: 'article'|'alineas'|'mots', acte, date, alineas?, mots?, preuve }
+ *   - abroger            { ancre, etendue: 'article'|'alineas'|'mots', acte, date|null, alineas?, mots?, commentaire?, preuve }
+ *                        date null = acte sans date sûre (deux actes, ou acte non précisé) : la version n'en porte pas
  * et `--typographie` : la convention du § 4.1 (tête « Art. N » + espace, apostrophe droite, ni insécable
  * ni cadratin ni double espace, une espace avant « ; » et « : » hors chiffres) sur le texte des articles.
  *
@@ -51,7 +52,7 @@ type Op =
   | { type: 'retirer-intitule'; anchor: string }
   | { type: 'renommer-intitule'; anchor: string; label: string; preuve?: string }
   | { type: 'supprimer-commentaire'; cle: string; texte: string }
-  | { type: 'abroger'; ancre: string; etendue: 'article' | 'alineas' | 'mots'; acte: string; date: string; alineas?: string[]; mots?: string; preuve?: string }
+  | { type: 'abroger'; ancre: string; etendue: 'article' | 'alineas' | 'mots'; acte: string; date: string | null; alineas?: string[]; mots?: string; commentaire?: string; preuve?: string }
 
 const norm = (s: string) => s.replace(/\s+/g, ' ').trim()
 
@@ -228,7 +229,7 @@ async function main() {
       const texte = lignesArticle(op.ancre).map((l) => l.t).join('\n')
       if (!texte) throw new Error(`⛔ ${op.ancre} : article introuvable`)
       const label = 'Article ' + op.ancre.replace(/^art-/, '').replace('-', '-')
-      const date = new Date(op.date + 'T00:00:00Z')
+      const date = op.date ? new Date(op.date + 'T00:00:00Z') : null
       brut.status = brut.status ?? {}
       if (op.etendue === 'article') {
         nouvellesVersions.push({ documentId: ID, anchor: op.ancre, label, body: texte, status: 'ABROGE', effectiveDate: date, amendedByNumber: op.acte, origin: 'MANUAL', seq: 0, note: op.preuve ?? null })
@@ -236,6 +237,9 @@ async function main() {
       } else if (op.etendue === 'alineas') {
         const garder = texte.split('\n').filter((l) => !(op.alineas ?? []).some((x) => norm(x) === norm(l)))
         if (garder.length !== texte.split('\n').length - (op.alineas ?? []).length) throw new Error(`⛔ ${op.ancre} : alinéa(s) abrogé(s) introuvable(s)`)
+        // 1er alinéa abrogé : la rédaction en vigueur garde la tête « Art. N »
+        const tete = /^Art\.\s*(?:1er|\d{1,4}(?:-\d{1,2})?)\s/.exec(texte)?.[0]
+        if (tete && !garder[0].startsWith(tete.trim())) garder[0] = tete + garder[0]
         nouvellesVersions.push({ documentId: ID, anchor: op.ancre, label, body: texte, status: 'MODIFIE', origin: 'MANUAL', seq: 0 })
         nouvellesVersions.push({ documentId: ID, anchor: op.ancre, label, body: garder.join('\n'), status: 'EN_VIGUEUR', effectiveDate: date, amendedByNumber: op.acte, origin: 'MANUAL', seq: 1, note: op.preuve ?? null })
         brut.status[op.ancre] = 'partiellement abrogé'
@@ -244,7 +248,7 @@ async function main() {
         const bloc = segmentAnnotated(avantBody, a0.toc, a0.pointAnchors, a0.repeatedHeads).find((b) => b.kind === 'body' && b.anchor === op.ancre && b.jurisKey)
         if (!bloc || bloc.kind !== 'body' || !bloc.jurisKey) throw new Error(`⛔ ${op.ancre} : clé d'annotation introuvable`)
         brut.commentaires = brut.commentaires ?? {}
-        brut.commentaires[bloc.jurisKey] = [...(brut.commentaires[bloc.jurisKey] ?? []), `Abrogés par ${op.acte} : ${op.mots}.`]
+        brut.commentaires[bloc.jurisKey] = [...(brut.commentaires[bloc.jurisKey] ?? []), op.commentaire ?? `Abrogés par ${op.acte} : ${op.mots}.`]
       }
       journal.push({ op: `abroger:${op.etendue}`, ancre: op.ancre, apres: op.acte })
     }

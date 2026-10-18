@@ -4,8 +4,13 @@
 avec les décisions de Me Vaval du même jour (coquilles corrigées sans note, italique = abrogé, gloses vers les
 annotations, typographie harmonisée, Annexe hors périmètre).
 
-> **État : audit terminé, corrections prêtes et éprouvées à blanc — RIEN N'EST ENCORE ÉCRIT EN BASE.**
-> Le prompt exige la validation de ce rapport avant toute écriture (§ 9 ci-dessous).
+> **État au 18 oct. 2026 : ÉCRIT EN PRODUCTION**, sur décisions de Me Vaval (« oui », « appliquer. », « le contenu
+> du livre prévaut ») :
+> - corrections des §§ 2 et 4 + art. 1970 : 184 opérations et la passe typographique (journal `ARTICLE_AMENDED`,
+>   06:21 UTC) ;
+> - abrogations du § 7 : 107 articles + « huis clos » (art. 241), soit 108 opérations et 93 versions (07:12 UTC).
+>
+> **Restent en attente :** les 5 libellés d'intitulé du § 5 et les 5 lignes en double qui les accompagnent.
 
 ---
 
@@ -22,7 +27,8 @@ annotations, typographie harmonisée, Annexe hors périmètre).
 | Coquilles du livre que la base avait déjà corrigées | 51 articles — **gardées** (décision) |
 | Passe typographique | 2 628 lignes ou versions harmonisées |
 | Liens de renvoi rendus par le lecteur | 7 366 → **7 426** (« C. dv », « €. tv » redevenus « C. civ. ») |
-| Garde-fous du correctif, à blanc | **tous passés** |
+| Garde-fous du correctif | **tous passés** (à blanc puis à l'écriture) |
+| Abrogations posées (italique) | **77 articles abrogés, 30 partiellement** — 72 portaient déjà un statut, 13 écartés |
 
 ## 2. Ce qui a été trouvé
 
@@ -80,7 +86,9 @@ elle que le lecteur rend cliquable.
 
 ## 5. Intitulés (§ 6.4 du prompt)
 
-Vus sur l'image ; le correctif change table, menu et ligne du corps **ensemble**, sans changer d'ancre :
+Vus sur l'image ; le correctif change table, menu et ligne du corps **ensemble**, sans changer d'ancre.
+**En attente de validation** (les cinq libellés et les lignes en double l. 176, 202, 2883, 3461-3462 ; les intitulés
+nus et la ligne l. 1972 sont écrits) :
 
 | Intitulé | Correction |
 | --- | --- |
@@ -103,38 +111,73 @@ absorbés dans les arts 727 et 1186.
 - 11 lignes `ArticleVersion` « ajouté » embarquent les intitulés qui les suivent — sans effet à l'écran (le lecteur
   affiche le corps) ; signalé, non corrigé.
 
-## 7. Abrogations signalées par l'italique — À VALIDER
+## 7. Abrogations signalées par l'italique — ÉCRITES
 
-[`abrogations.csv`](livraison-code-civil-mot-a-mot/abrogations.csv) — 192 articles dont le texte est imprimé en
-italique, en tout ou en partie :
+Règle (Me Vaval, confirmée sur le livre) : **italique = abrogé**. [`abrogations.csv`](livraison-code-civil-mot-a-mot/abrogations.csv)
+donne, pour les 192 articles en italique, la décision, la partie abrogée, l'acte et la preuve. Les 45 cas douteux
+ont été relus sur l'image (étendue exacte de l'italique, mention, encadré).
 
-| Décision proposée | Articles |
+| Décision | Articles | Ce qui est écrit |
+| --- | ---: | --- |
+| **article entier** | 77 | version `ABROGE` (texte, acte, date) + statut « abrogé » ; le texte reste lisible dans le repli |
+| **alinéas** | 8 | `MODIFIE` (texte entier) + `EN_VIGUEUR` (alinéas restants, acte, date) + « partiellement abrogé » : 18, 282, 286, 354, 586, 635, 1361, 1634 |
+| **mots** | 22 | statut « partiellement abrogé » + commentaire qui cite les mots et l'acte ; texte inchangé |
+| déjà un statut (réformes 2014-2020) | 72 | rien |
+| écartés | 13 | italique hors texte de loi (renvois, jurisprudence, marques d'édition) ; 1915 : accident de composition |
+
+**Rattachement d'un acte.** Une mention de l'éditeur vaut pour l'article sous lequel elle est imprimée, et pour la
+série en italique qu'elle clôt (231-254, 316-324, 415-416, 1340-1341, 24-25) ; jamais par-delà un intitulé de
+chapitre. L'acte est désigné par son **nom complet**, retrouvé au corpus ou à l'Index du Moniteur. La date d'effet
+est celle du Moniteur quand on la connaît.
+
+| Acte | Articles |
 | --- | ---: |
-| rien à écrire : l'article porte déjà un statut (réforme postérieure) | 72 |
-| abroger, acte nommé par l'éditeur (« Abrogé par … », « V. … ») | 41 |
-| à confirmer : acte déduit de la série (marque « (Loi du 5 mai 1949, art. 1) » de l'article voisin) | 38 |
-| à décider : acte introuvable, ou terme désuet seul en italique (« Grand-juge », « tribunal civil ») | 37 |
-| à préciser : partie abrogée à délimiter | 4 |
+| Décret du 8 octobre 1982 donnant à la femme un statut conforme à la Constitution… (Moniteur n° 75 du 28 oct. 1982) | 47 |
+| Loi du 29 avril 1949 sur le divorce (Moniteur n° 43 du 5 mai 1949) et Décret du 6 juin 1968 sur la procédure du divorce | 23 |
+| *acte non précisé* (ni mention ni encadré) | 17 |
+| Décret du 30 août 1988 abolissant la mort civile (Moniteur n° 78-A du 8 sept. 1988) | 5 |
+| Constitution du 29 mars 1987 | 5 |
+| Décret du 14 septembre 1983 sur les créances d'aliments et la garde des enfants (Moniteur n° 74 du 27 oct. 1983) | 3 |
+| Décret du 27 janvier 1959 (égalité des enfants naturels) · Décret du 6 juin 1968 · Décret du 6 juillet 2005 · Décret-loi du 22 décembre 1944 · Loi du 13 février 1925 · Loi du 29 juillet 1929 | 7 |
 
-Actes les plus cités : décret du 8 octobre 1982 (51), décret-loi du 22 décembre 1944 (18), décret-loi du 6 mars
-1940 (13), loi du 5 mai 1949 (11). **Aucun n'a de fiche au corpus** : l'acte sera nommé sans lien. Le correctif ne
-pose aucun statut tant que la liste n'est pas validée.
+**Fautes du livre dans les mentions, redressées** :
+- 202 « D. du 8 octobre 1892 » et 204 « D. du 8 août 1982 » → 8 octobre 1982 ;
+- 1334 : année omise ; 1754 : jour omis ;
+- 586, 604 : « loi » du 30 août 1988, alors que c'est un décret ;
+- 259 : « D. du 14 août 1983 ». Le Moniteur n° 74 porte « Donné au Palais National… le 14 septembre 1983 » ;
+- « loi du 5 mai 1949 » : il s'agit de la loi du 29 avril 1949, publiée le 5 mai.
 
 ## 8. Points à trancher
 
-1. **Appliquer les corrections** des §§ 2, 4 et 5 (193 opérations + typographie) — `--commit` du correctif.
-2. **La liste des abrogations** (§ 7) : en bloc ou ligne à ligne.
-3. **Les 5 libellés d'intitulé** (§ 5) : ils changent le sommaire.
-4. **Arts 349, 483 et 708 : absents du livre** (le folio passe de 348 à 350, de 482 à 484, de 707 à 709) et du
-   fichier de composition. Leur texte en base vient du fichier Word d'import de juillet ; le 708 commence par
-   « Peuvent demander… », sans sujet (l'art. 878 du Code civil français dit « Ils peuvent demander… »). À vérifier
-   sur une autre édition.
-5. **Art. 1970** : le livre imprime « de mille à cinq cents gourdes », la base « de cinq cents à mille ». Non
-   corrigé : à trancher sur la source officielle.
-6. **Arts 1769 et 1890** : le livre compose en corps de loi un alinéa qui ressemble à de la jurisprudence (1769) et
+**Tranchés et écrits :**
+- les corrections (« oui ») ;
+- les abrogations (« appliquer. ») ;
+- l'art. 1970, aligné sur le livre (« de mille à cinq cents gourdes ») : « le contenu du livre prévaut ».
+
+**Restent ouverts :**
+
+1. **Les 5 libellés d'intitulé** (§ 5) : ils changent le sommaire. Les opérations sont prêtes, hors dépôt
+   (`corrections-titres-en-attente.json`) ; une écriture exigera un nouvel instantané.
+2. **Arts 349, 483 et 708 : absents du livre.** Le folio passe de 348 à 350, de 482 à 484, de 707 à 709. Leur texte
+   en base vient du fichier Word d'import de juillet, et le 708 commence sans sujet (« Peuvent demander… »). À
+   vérifier sur une autre édition.
+3. **Art. 286, al. 2** (peine de la femme adultère). Le livre renvoie à « l'art. 9 du D. du 6 juin 2006 ». Aucun acte
+   de cette date n'a été trouvé ; c'est l'art. 9 du **Décret du 6 juillet 2005** (Moniteur n° 60 du 11 août 2005) qui
+   abroge les art. 284 à 287 du Code pénal sur l'adultère. L'abrogation est rattachée à ce décret : à confirmer.
+4. **Art. 1995.** Le livre écrit « loi du 29 juillet 1929 réglementant le service domanial » (mention et encadré).
+   L'Index du Moniteur ne connaît qu'une « Loi réglementant le Service Domanial » publiée le **8 août 1927**. Le nom
+   du livre est gardé, sans date d'effet.
+5. **Objet introuvable** pour le Décret-loi du 22 décembre 1944 (art. 625) et la Loi du 13 février 1925 (art. 740) :
+   désignés par la date seule, à compléter.
+6. **17 abrogations sans acte** (ni mention ni encadré) : 14, 21-23, 27, 214, 255, 1746 (articles) ; 354, 1634
+   (alinéas) ; « Grand-Juge » et les titres de l'art. 350 (mots). Pour le 3° de l'art. 18, l'éditeur ne désigne pas
+   non plus d'acte.
+7. **Arts 1769 et 1890** : le livre compose en corps de loi un alinéa qui ressemble à de la jurisprudence (1769) et
    des dispositions modificatives (1890 : « Néanmoins … sont abrogés »). Gardés comme texte.
-7. **Lectures incertaines** : 1262 « privé » (mot taché à l'impression) ; 1458 (points ou virgules) ; la note de
-   1818 complétée d'après l'image (colonne droite absente de la base).
+8. **Lectures incertaines** :
+   - 1262 « privé » (mot taché à l'impression) ;
+   - 1458 (points ou virgules) ;
+   - la note de 1818, complétée d'après l'image (la colonne droite manquait en base).
 
 ## 9. Limites
 
@@ -152,6 +195,7 @@ python3 scripts/collationner-code-civil-comparer.py <travail> <instantané>     
 python3 scripts/collationner-code-civil-livrables.py <travail> <corrections.json>    # livrables
 npx tsx --tsconfig <tsconfig jsx> scripts/corriger-code-civil-mot-a-mot.tsx <corrections.json> --typographie            # à blanc
 npx tsx --tsconfig <tsconfig jsx> scripts/corriger-code-civil-mot-a-mot.tsx <corrections.json> --typographie --commit   # après validation
+npx tsx --tsconfig <tsconfig jsx> scripts/corriger-code-civil-mot-a-mot.tsx <abrogations/corrections-abrogations.json> --commit   # abrogations
 ```
 
 L'instantané de la base (avant), son empreinte et le fichier `corrections.json` sont **hors du dépôt** (public),
