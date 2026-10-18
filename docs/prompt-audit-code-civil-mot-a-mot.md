@@ -29,8 +29,10 @@ validées.
 - **`.env` pointe sur la base de PRODUCTION** (Supabase). Toute écriture est une écriture en production.
 - **Jamais de ré-import** du Code civil : il purge la fiche et change son id (`cmr4b6f3v0000iz56asjmwrlg`) ;
   favoris, renvois, `ArticleVersion`, liens des autres textes en dépendent. On corrige **en place**.
-- **Ne touche jamais une ligne d'en-tête** (LOI, CHAPITRE, SECTION…). Les clés de jurisprudence `sec-K|art-N`
-  se calculent sur la table parcourue dans l'ordre ; une ligne d'en-tête retouchée orpheline les annotations.
+- **Ne touche pas une ligne d'en-tête** (LOI, CHAPITRE, SECTION…) hors de la procédure du § 6.4. Le lecteur
+  reconnaît un intitulé à l'**égalité exacte** de la ligne et du libellé de table attendu, la table se parcourant
+  dans l'ordre ; les clés de jurisprudence `sec-K|art-N` en découlent. Une ligne retouchée seule cesse d'être un
+  intitulé et orpheline les annotations qui suivent.
 - **L'image prévaut.** La couche texte du PDF a été océrisée en 2016 par Acrobat Paper Capture : elle donne
   « Art. ter » pour « Art. 1er », « c. ctv. » pour « C. civ. », « !'Haïtien », « Ha1'tienne », « Lol » pour « Loi ».
   Elle sert à la **géométrie** (où sont les lignes, quelle taille, quel retrait), **jamais aux mots**.
@@ -38,7 +40,8 @@ validées.
   Aucun mot ne se décide sur une seule lecture par un modèle : il faut un second témoin (§ 2) et, en cas de
   désaccord, l'image regardée.
 - **Le dépôt GitHub est PUBLIC** : aucune image du fac-similé (© Patrick Pierre-Louis, éd. Zémès) n'y entre.
-  Les recadrages de preuve vont dans le scratchpad ou dans `~/Library/CloudStorage/Dropbox/Lam Veritab/`.
+  Les recadrages de preuve vont dans le scratchpad ou dans `~/Library/CloudStorage/Dropbox/Lam Veritab/`, **hors**
+  du dossier `lam-veritab/` (qui est le dépôt).
 - Avant tout `--commit` et tout commit : `npx tsx scripts/verifier-empreintes-donnees.ts` **seul**, sortie lue
   (jamais derrière `| tail`, qui masque le code de sortie). `git add` fichier par fichier ; ne pas embarquer
   `tsconfig.json` ni les fichiers d'une autre session.
@@ -56,9 +59,12 @@ validées.
 | En-têtes | 357 (`toc` = `navToc`, contrôle `reparer-sommaire-code-civil.ts`) |
 | Têtes d'article | **2 107** = 2 047 numéros du Code + 60 articles décimaux insérés en 2020 (1774-1…, 1809-1…) |
 | Statuts (`annotations.status`) | **278** : 140 modifié · 68 abrogé · 60 nouveau · 10 partiellement abrogé |
-| `ArticleVersion` | 318 : `EN_VIGUEUR` 129 (régimes matrimoniaux 103, sûretés 23, filiation 3) · `AJOUTE` 60 (sûretés 57, régimes 3) · `ABROGE` 60 (régimes 50, filiation 10) · `MODIFIE` 129 (rédactions antérieures) |
+| … dont avec `ArticleVersion` | **249** : 119 modifié · 60 abrogé · 60 nouveau (les décimaux) · 10 partiellement abrogé |
+| … dont **statut seul** (appareil) | **29** : 8 abrogés **avant l'édition** (19, 20, 140-143, 145, 479 — le livre imprime « Art. 140 *Abrogé par la loi du 20 juillet 1929.* ») · 21 modifiés (55, 130, 229, 230, 241, 305, 314, 315, 325, 330-333, 335, 608, 617, 742 — rédactions **imprimées par le livre** — et 1101, 1102, 1111, 1112, réécrits par la loi du 14 février 2017, texte en vigueur dans le corps, ancien dans `oldVersions`) |
+| `ArticleVersion` | **378** : `EN_VIGUEUR` 129 (régimes matrimoniaux 103, sûretés 23, filiation 3) · `MODIFIE` 129 (rédactions antérieures, appariées aux précédentes) · `AJOUTE` 60 (sûretés 57, régimes 3) · `ABROGE` 60 (régimes 50, filiation 10) |
 | Anciennes rédactions de l'appareil | `annotations.oldVersions` : 193 ancres |
-| Articles **sans statut** | **1 829** — ce sont eux que le livre gouverne |
+| **Texte gouverné par le livre** | **1 854** articles = 1 829 sans statut + les 25 statuts seuls antérieurs à 2011 |
+| **Texte gouverné par un acte** | **253** articles = 249 à versions + 1101, 1102, 1111, 1112 (loi de 2017) |
 
 ### Ce qui a déjà été fait — et ce qui ne l'a jamais été
 
@@ -93,10 +99,10 @@ du 2 août reposait sur CCH.docx et sur un discriminant typographique ; il a éc
 | la base en a moins | 39 |
 | tête introuvable au relevé (numéro illisible, article abrogé en petit italique) | 40 |
 
-⚠️ **Ce détecteur fait du bruit** : sur 8 écarts examinés (dont 4 sur l'image), **1 défaut réel** (art. 45) et
-7 erreurs du détecteur. Ce sont des intertitres lus comme de la loi, des énumérations composées en petit corps (art. 452), une
+⚠️ **Ce détecteur fait du bruit** : sur 10 écarts examinés (dont 4 sur l'image), **1 défaut réel** (art. 45) et
+9 erreurs du détecteur. Ce sont des intertitres lus comme de la loi, des énumérations composées en petit corps (art. 452), une
 ligne de renvoi décalée (art. 135, 451) et des items d'énumération à interligne normal (art. 75). Il sert à
-**trier**, pas à conclure. Améliore-le (§ 4) avant de t'en servir.
+**trier**, pas à conclure. Remplace-le par les boîtes de lignes de Tesseract (§ 7, étape 3) avant de t'en servir.
 
 **Contrôles mécaniques sur le corps** :
 
@@ -111,7 +117,8 @@ ligne de renvoi décalée (art. 135, 451) et des items d'énumération à interl
 | référence d'arrêt (« Cass. ») dans le corps | 1 | art. 1193 (« pro- deniers de la communauté. Cass., 6 no… » : colonnes de notes lues en travers) |
 | glose de l'éditeur versée au corps | 2 | art. 45, art. 267 |
 | autre texte collé dans un article | 1 | art. 2047 (voir § 6) |
-| intitulé de chapitre devenu alinéa | 1 | art. 727 |
+| **intitulés en double** : titre courant ou ancienne rédaction d'un intitulé, restés dans le corps | 7 lignes | 6 sous un intitulé ou dans un article : l. 176, 202, 1170 (dans l'art. 727), 1942 (dans l'art. 1186), 1972, 2883, 3461-3462 (§ 6.4) |
+| séquelles isolées | 4 | « (D... du 22 décembre 1944) » (art. 305) · « « bon ou un « approuvé, » (art. 1111) · « 16145 » (art. 1654, « 1614 s » ?) · « C. p. c. 343, ets, » (art. 682) |
 
 **Les têtes d'article** (le livre : « Art. N » en gras, puis le texte, sans point ni tiret) :
 
@@ -123,8 +130,7 @@ ligne de renvoi décalée (art. 135, 451) et des items d'énumération à interl
 | « Art. N » + une espace cadratin (U+2003) | 255 | à partir de l'art. 897 |
 | « Art. N. — » (point et tiret cadratin) | 203 | arts 1748-1986 — le livre imprime « Art. 1748 Le mandat… » (folio 353, index 354) |
 
-Ce sont les « 478 doubles espaces » et l'essentiel des « 656 lignes à insécables » de la première mesure : c'est
-la tête, pas le texte.
+Les « doubles espaces » et les « espaces insécables » du corps sont, pour l'essentiel, **dans la tête** : 478 et 584.
 
 ---
 
@@ -135,13 +141,16 @@ la tête, pas le texte.
 | **1 — arbitre** | **image** du fac-similé | `Code Civil.pdf`, rendu par PyMuPDF à `Matrix(3.2, 3.2)` minimum, recadré sur la zone de loi | tout | — |
 | 2 | **CCH.docx**, fichier de composition du recueil | `~/Downloads/CCH.docx` ; extrait : `scripts/data/code-civil/cch-source.json` (`articles[N].paras` / `.notes`) | mots des articles ordinaires (1 640 concordances) | **énumérations** (composées comme l'appareil), encadrés, tout article modifié après sa date (antérieur à 2014 : l'art. 293 y est d'avant la loi Filiation) |
 | 3 | **Tesseract 5.5.2**, langue `fra`, installé | `/opt/homebrew/bin/tesseract`, sur l'image à 300 dpi | second témoin indépendant, mot par mot | ponctuation fine, accents sur capitales, italique |
-| 4 | **l'acte modificatif** (J.O.) | fiches `LOI_FILIATION_2014`, `DECRET_REGIMES_MATRIMONIAUX`, `DECRET_SURETES`, `LOI_SIGNATURE_ELECTRONIQUE_2017` (et tout acte nommé par `ArticleVersion.amendedByDocId` ou un bloc `connexe` de nature `modificatif`) | rédaction **en vigueur** des 278 articles à statut | — |
+| 4 | **l'acte modificatif** (J.O.) | fiches `LOI_FILIATION_2014`, `DECRET_REGIMES_MATRIMONIAUX`, `DECRET_SURETES`, `LOI_SIGNATURE_ELECTRONIQUE_2017` (et tout acte nommé par `ArticleVersion.amendedByDocId` ou un bloc `connexe` de nature `modificatif`) | rédaction **en vigueur** des 253 articles gouvernés par un acte (§ 1) ; pour 1101-1112, la loi du 14 février 2017 (et, pour 1102, le texte de 2025 que porte la fiche — mémoire « Électronique ») | — |
 | ✗ | couche texte du PDF (`page.get_text()`) | — | géométrie seulement | les mots |
 | ✗ | `Dropbox/Moniteur/Code Civil.docx` (juin 2020) | — | rien : c'est la **conversion de la couche OCR** (« hai:tien », « !'Organisation ») | — |
 | ✗ | `Dropbox/Moniteur/Code_civil_Clean.docx` (python-docx, juin 2026) | — | rien : il **dérive de la base** | — |
 
-**Règle de décision** : base = CCH = Tesseract (au bruit d'OCR près, § 4) ⇒ conforme. Tout autre cas ⇒ l'image,
-regardée, recadrée sur l'article, et la décision écrite avec sa preuve.
+**Règle de décision — mots** : base = CCH = Tesseract (au bruit d'OCR près, § 4) ⇒ conforme. Tout autre cas ⇒
+l'image, regardée, recadrée sur l'article, et la décision écrite avec sa preuve.
+
+**Règle de décision — alinéas** : bornes de la base = paragraphes de CCH **et** = alinéas de Tesseract (interligne,
+retrait) ⇒ conforme. CCH ne vaut pas pour les énumérations (§ 1) : un article à énumération va toujours à l'image.
 
 Tire au sort **5 % des articles « conformes »** et vérifie-les sur l'image : c'est la mesure du taux d'erreur
 résiduel du tri. S'il dépasse 0,5 %, le tri est trop lâche : resserre-le avant de continuer.
@@ -150,13 +159,13 @@ résiduel du tri. S'il dépasse 0,5 %, le tri est trop lâche : resserre-le avan
 
 ## § 3. Anatomie du livre (mesurée)
 
-**Le volume** — 481 pages PDF ; **index PDF = folio imprimé + 1** (mesuré sur 7 812 lignes ; la mémoire du 2 août
-disait « p. 219-220, l'index et le folio coïncident » : vérifie sur ces deux pages et corrige l'une des deux
-affirmations).
+**Le volume** — 481 pages PDF ; **index PDF = folio imprimé + 1**, partout (mesuré sur 7 812 lignes ; vérifié aux
+index 219-220, qui portent les folios 218-219 : la note du 2 août qui les disait égaux se trompait).
+Dans ce prompt, « p. N » désigne le **folio** ; « index N », la page du PDF.
 
 | Pages PDF | Contenu |
 | --- | --- |
-| 1-22 | liminaires : table des matières (p. 7-15), introduction critique (p. 17-21), abréviations (p. 22) |
+| 1-22 | liminaires : table des matières (index 7-15), introduction critique (index 17-21), abréviations (index 22) |
 | **23-412** | **le Code** : LOI No 1 à LOI No 35, art. 1er à 2 047 |
 | 413-452 | **Annexe** : loi du 5 sept. 1979 (expropriation), loi du 29 oct. 1984 (copropriété), Convention relative aux droits de l'enfant (Moniteur du 13 mars 1995), décret du 12 oct. 2005 (droit d'auteur), loi du 8 juillet 2008 (gage sans dépossession) |
 | 453-480 | index alphabétique |
@@ -170,8 +179,9 @@ affirmations).
 | énumération | 1re ligne en retrait ≈ 10 pt, suite en retrait suspendu ≈ 20 pt ; parfois en **petit corps** (art. 452 : « Les fruits civils; », « Le croît des animaux; ») | un item = une ligne |
 | renvoi de l'éditeur | italique ≈ 10,5, collé à la fin de l'alinéa : « .- C. civ., 49, 133 et s, 180. » | reste dans le corps, en fin de ligne (convention établie, linkifiée) |
 | article abrogé avant 2011 | « Art. 140 » + Helvetica-Oblique 7 « Abrogé par la loi du 20 juillet 1929. » | « Art. 140 Abrogé par la loi du 20 juillet 1929. » |
-| **texte de loi en italique** | = **abrogé** (§ 6.3) — environ 150 articles, en tout ou en partie | s'affiche **en vigueur** pour ≈ 95 d'entre eux |
-| glose de l'éditeur | petit italique sous l'article : « L'expression Grand-Juge est archaïque. », « Cet article n'est pas en harmonie avec… », « Ainsi modifié par le D. du 30 août 1988… », « V. le D. du 8 octobre 1982. » | `annotations.commentaires` (décision du 18 oct.), **jamais le corps** |
+| **texte de loi en italique** | = **abrogé** (§ 6.3) — 154 articles, en tout ou en partie | s'affiche **en vigueur** pour 93 d'entre eux |
+| glose de l'éditeur (phrase de commentaire) | petit italique sous l'article : « L'expression Grand-Juge est archaïque. », « Cet article n'est pas en harmonie avec… », « Suivant l'art. 174 de la Constitution… » | `annotations.commentaires` (décision du 18 oct.), **jamais le corps** |
+| renvoi éditorial | petit italique : « V. le D. du 8 octobre 1982. », « Ainsi modifié par le D. du 30 août 1988… » | `annotations.connexe`, classé (`kind`, 17 oct.) — **ne pas déplacer** les blocs déjà classés |
 | appareil (jurisprudence) | Helvetica 7,1-7,3, **deux colonnes** (x ≈ 46 et 212) sous un filet court | `annotations.jurisprudence` |
 | encadré (texte connexe) | ≈ 8,2 pt, filet de cadre, retrait ≈ 12 | `annotations.connexe` |
 | titres courants, folio | ≈ 5,8 pt en haut ; folio en bas | ignorés |
@@ -187,7 +197,10 @@ affirmations).
   attesté ailleurs dans le corpus ;
 - le livre imprime des renvois **au-delà de 2 047** (2 075, 2 165, 2 255…) : ce sont des numéros d'éditeur, pas
   des fautes (mémoire du 3 juil.) ;
-- l'art. 2 finit par « C. pén., » **sans numéro** : c'est le livre (p. 22 du folio), ne rien inventer.
+- l'art. 2 finit par « C. pén., » **sans numéro** : c'est le livre (p. 22), ne rien inventer ;
+- les **titres courants** (haut de page : à gauche la division, à droite « Art. N » ou « CODE CIVIL D'HAÏTI ») ont
+  déjà été absorbés au moins une fois dans le corps (art. 727, § 6.4) : compare chaque ligne en capitales de la
+  base aux titres courants des pages (483 distincts).
 
 ---
 
@@ -206,7 +219,7 @@ divergence qui peut changer le sens (mot, nombre, négation) n'est pas une coqui
 | Nature | Définition | Exemple |
 | --- | --- | --- |
 | `mot` | mot manquant, ajouté, remplacé | — |
-| `ocr` | séquelle d'OCR en base | « ets, » pour « et s, » (art. 682, à confirmer) |
+| `ocr` | séquelle d'OCR en base | art. 682 : « C. p. c. 343, ets, » pour « C. p. c., 343, et s, » (vu, p. 152) |
 | `coquille-du-livre` | le livre porte une faute évidente — **corrigée sans note** | art. 41 « pou » |
 | `ponctuation` | signe différent, manquant, ajouté | « blanc.- » en base, « blanc.– » au livre ? (art. 42, à confirmer) |
 | `casse-accent` | majuscule, accent | « Etat » / « État » |
@@ -215,10 +228,11 @@ divergence qui peut changer le sens (mot, nombre, négation) n'est pas une coqui
 | `enumeration` | items réunis ou coupés autrement que le livre | — |
 | `cesure` | césure non recousue, ou trait d'union réel supprimé | art. 1193 « pro- deniers » |
 | `intrus-appareil` | note, glose ou renvoi « V. » dans le corps | arts 45, 267, 1193 |
-| `intrus-structure` | intitulé ou autre texte collé dans un article | arts 727, 2047, 314 |
+| `intrus-structure` | intitulé, titre courant ou autre texte collé dans un article | arts 727, 1186, 2047, 314 |
+| `intitule` | intitulé en double, ou libellé d'intitulé différent du livre (lot du § 6.4) | l. 2883 ; sec-115 « OÙ » |
 | `manque` | alinéa ou partie d'article absente de la base | — |
 | `renvoi` | liste « - C. civ., … » en fin d'alinéa différente | — |
-| `typographie` | apostrophe, espace insécable, double espace | 478 + 656 + mélange d'apostrophes |
+| `typographie` | forme de tête, apostrophe, espace insécable ou cadratin, double espace, espace avant « ; : » | 1 520 têtes ; 1 340 ’ |
 | `italique` | passage de loi en italique au livre = abrogation non portée en base | § 6.3 |
 
 **Comparaison canonique** (pour trier, pas pour publier) : normalise **seulement** les apostrophes (’ → '), les
@@ -237,6 +251,7 @@ celle qui **ne casse pas la recherche** et qui suit la forme majoritaire :
 | espaces | ni insécable (U+00A0, U+202F), ni cadratin (U+2003), ni double espace | même raison : `fold()` ne les normalise pas |
 | avant « ; » et « : » | **une espace normale** | majoritaire dans CCH (291/251 ; 123/43) ; sauf entre chiffres |
 | à ne pas toucher | « .- » devant les renvois, guillemets « », traits d'union, **les lignes d'en-tête** (elles gardent ’ : la table les cite à l'identique) | § 0 |
+| renvois « C. p. c., N » / « C. p. c. N » | **le livre, occurrence par occurrence** — pas d'harmonisation | CCH mêle lui-même les deux (212 / 99) : ce n'est pas de la typographie, c'est le texte de l'éditeur |
 
 Le texte des articles = `bodyOriginal` (lignes d'article) + `ArticleVersion.body` + `annotations.oldVersions`.
 Si tu préfères l'apostrophe typographique, il faut d'abord rendre `fold()` insensible (’ → ') **et réindexer tout
@@ -270,21 +285,21 @@ collée — et seulement si **CCH et la base concordent**. Base ≠ CCH : image,
 
 | Article | Constat | Preuve |
 | --- | --- | --- |
-| **2 047** | *(Annexe hors périmètre : on retire, on ne verse rien)* la ligne de l'article contient, après « …seront abrogés. », le **début de l'Annexe** (« Annexe Loi du 5 septembre 1979 sur l'expropriation pour cause d'utilité publique Le Moniteur No. 87 du 8 novembre 1979 Généralités Art \| L'expropriation… » — 1er article de la loi de 1979, « Art \| » d'OCR compris) et une **note de rédaction** (« — Fin du Code civil d'Haïti (Lois Nº 1 à 35, articles 1 à 2047). Les annexes du volume (…) ne sont pas reproduites ici… — ») : la ligne fait 1 049 caractères, l'article 252. La note omet en outre la Convention des droits de l'enfant. | base, dernière ligne ; index 412-414 |
+| **2 047** | *(Annexe hors périmètre : on retire, on ne verse rien)* la ligne de l'article contient, après « …seront abrogés. », le **début de l'Annexe** (« Annexe Loi du 5 septembre 1979 sur l'expropriation pour cause d'utilité publique Le Moniteur No. 87 du 8 novembre 1979 Généralités Art \| L'expropriation… » — 1er article de la loi de 1979, « Art \| » d'OCR compris) et une **note de rédaction** (« — Fin du Code civil d'Haïti (Lois Nº 1 à 35, articles 1 à 2047). Les annexes du volume (…) ne sont pas reproduites ici… — ») : la ligne fait 1 049 caractères, l'article 252. | base, dernière ligne ; index 412-414 |
 | **45** | « L'expression Grand-Juge est archaïque. » est un **alinéa de loi** en base ; c'est une glose de l'éditeur, en petit italique | folio 33 (index 34) |
-| **267** | « Cet article n'est pas en harmonie avec le Décret du 8 octobre 1982 et celle du 14 septembre 1983. » au corps — même genre que la glose de l'art. 221 que Me Vaval a fait retirer (« RESTE À DÉCIDER » depuis le 2 août) | base l. 386 |
-| **727** | 2ᵉ ligne de l'article = « DE LA CAPACITÉ DE DISPOSER OU DE RECEVOIR PAR DONATION ENTRE VIFS OÙ PAR TESTAMENT » : un **intitulé de chapitre** devenu alinéa (absent du sommaire ? « OÙ » accentué ?) | à vérifier sur l'image |
+| **267** | « Cet article n'est pas en harmonie avec le Décret du 8 octobre 1982 et celle du 14 septembre 1983. » au corps — même genre que la glose de l'art. 221, que Me Vaval a fait sortir du corps (elle est aujourd'hui dans `commentaires["sec-36\|art-221"]`) | base l. 386 |
+| **727** | 2ᵉ ligne de l'article = « DE LA CAPACITÉ DE DISPOSER … OÙ PAR TESTAMENT » : c'est le **titre courant** de l'index 162 (« DE LA CAPACITÉ … » + « Art. 735 »), absorbé ; le vrai intitulé du chapitre II est à sa place (l. 1174, après l'art. 730) | p. 160-161 ; § 6.4 |
 | **314** | trois décrets (27 janv. 1959, 8 oct. 1982, 30 août 1988) collés **en milieu d'alinéa** (« …par la Loi. Décret du 27 janvier 1959, Art. 1. La filiation naturelle… ») | connu depuis le 2 août |
 | **1193** | note de jurisprudence entrelacée dans le corps (« …était pro- deniers de la communauté. Cass., 6 no… ») | base |
-| **682** | « C. p. c. 343, ets, 922. » (CCH : « et s, ») | à vérifier sur l'image |
+| **682** | « C. p. c. 343, ets, 922. » ; le livre : « C. p. c., 343, et s, 922. » (virgule perdue, « et s » soudé) | vu, p. 152 |
 | **41** | coquille du livre corrigée en silence (« pou » → « ou ») — **conforme à la décision**, rien à faire | folio 33 (index 34) |
 | **477, 1706, 1837** | `commentaires` contient un fragment (« 939. C. p. c. 133… », « 914. C. pén., 17… », « 139. C. pén., 54… ») qui **double** la fin du renvoi, intact dans le corps | données |
 | **1748-1986** | 203 têtes « Art. N. — » au lieu de « Art. N » | folio 353 (index 354) |
 
 ### 6.2 Les 24 articles où la base et CCH diffèrent en mots
 
-Sortie de la sonde (`--detail` à ajouter) : 682, 1679, 727, 212, 1153, 1549, 428, 586, 1695, 1758, 25, 1628, 1947,
-1121, 2024, 267, 738, 18, 1380, 1008, 2047, 1915, 1952, 1120. La plupart sont des **énumérations** que CCH range à
+Sortie de la sonde (`cch-mots-differents.json`) : 18, 25, 212, 267, 428, 586, 682, 727, 738, 1008, 1120, 1121, 1153,
+1380, 1549, 1628, 1679, 1695, 1758, 1915, 1947, 1952, 2024, 2047. La plupart sont des **énumérations** que CCH range à
 l'appareil et que la base a rendues au dispositif : CCH n'est **pas** l'arbitre ici, l'image l'est.
 
 ### 6.3 Le texte de loi en italique = abrogé — CONFIRMÉ sur le livre
@@ -297,7 +312,7 @@ texte, article par article, index 23-412) et l'image le confirment :
 | romain | ≈ 1 941 | **jamais** « Abrogé par… » ; 31 renvois « V. … » (simples renvois) ; 3 gloses (45, 212, 221) |
 | italique entier | ≈ 110 | « *Abrogé par le D. du 8 octobre 1982* » (1206, 1214, 1215, 1216) · « *V. le D. du …* » (40) · aucune propre (66) |
 | italique partiel (un alinéa, des mots) | ≈ 44 | « *V. …* » (19) · aucune (25) |
-| texte remplacé par la mention (abrogé avant l'édition) | ≈ 11 + | « Art. 140 *Abrogé par la loi du 20 juillet 1929.* » |
+| texte remplacé par la mention (abrogé avant l'édition) | 8 | 19, 20, 140-143, 145, 479 — **déjà** `abrogé` en base (la sonde en compte 11 : les 3 de plus sont des artefacts) |
 
 Preuves à l'image :
 - **p. 268 du livre** (index 269) : arts 1214, 1215, 1216 en italique, chacun suivi de « *Abrogé par le D. du
@@ -311,12 +326,17 @@ Preuves à l'image :
 - l'introduction critique (index 17-21) et la liste des abréviations (index 22) ne disent rien de la convention : elle
   se prouve par la composition, pas par une légende.
 
-**Blocs** : 14, 18, 21-27 (nationalité, droits civils) · 198-255 (effets du mariage, divorce) · 282-292, 314-324
-(filiation, puissance paternelle) · 1195-1323 (régimes matrimoniaux) · articles isolés (2, 350, 354, 416, 526, 583,
-586, 604, 624-625, 635, 677, 735, 740, 753, 759, 835, 974, 1174, 1746, 1754, 1911, 1995…). Environ **55** portent
-déjà un statut en base (réformes de 2014 et 2020) ; les autres (≈ 95) s'affichent aujourd'hui **en vigueur**.
+**Blocs** (sonde, numéros parfois mal lus — l'art. 2, en romain sur l'image, y figure à tort) : 14, 18, 21-27
+(nationalité, droits civils) · 197-259 (effets du mariage, divorce) · 282-292, 314-331 (filiation, puissance
+paternelle) · 1195-1363 (régimes matrimoniaux) — blocs à trous · isolés : 415-416, 583, 624-625, 635, 677, 735, 740, 753, 759, 835,
+1174, 1746, 1754, 1911, 1995. **61** portent déjà un statut en base (réformes de 2014 et 2020) ; **93** s'affichent
+aujourd'hui **en vigueur** (73 en italique entier, 20 en partie).
+⚠️ **15 « partiels » n'ont qu'une ligne en italique** (350, 354, 479, 526, 586, 604, 974, 1089, 1102, 1252, 1300,
+1303, 1322, 1634, et un numéro illisible p. 312) : une ligne de renvoi ou un mot en italique (« *Grand-Juge* »,
+art. 45) suffit à les y faire entrer. Chacun se tranche sur l'image avant d'être compté.
 
-**Ce que tu relèves, pour chaque passage en italique** (vu sur l'image, pas sur la sonde) : l'**étendue**
+**Ce que tu relèves, pour chaque passage en italique** (vu sur l'image, pas sur la sonde ; la liste définitive
+s'établit page par page, la sonde ne fait que l'amorcer) : l'**étendue**
 (article entier · alinéa(s) · mots) et l'**acte abrogatif**, cherché dans cet ordre : mention « Abrogé par… » sous
 l'article ; renvoi « V. … » sous l'article ; marque de la série (« (Loi du 5 mai 1949, art. 1) » à l'art. 230) ;
 encadré du texte connexe. L'acte se nomme **en entier** — nature, date **et** objet (règle de corpus) — dès
@@ -326,6 +346,33 @@ qu'on peut l'établir.
 Loi du 20 juillet 1929, D. du 30 août 1988, D. du 27 janvier 1959, D. du 14 septembre 1983 — aucune ; seul le
 D. du 6 juin 1968 sur la procédure du divorce existe, en appendice du CPC, `CPC_APPENDICE_IV_5_3`). Un acte sans
 fiche **se nomme sans lien** — jamais de lien vide.
+
+### 6.4 Intitulés en double — et la procédure pour toucher un intitulé
+
+Le lecteur affiche hors de tout article, ou dans un article, **7 lignes d'intitulé** qui ne sont pas des intitulés
+de la table :
+
+| Ligne | Texte | Où | Nature |
+| ---: | --- | --- | --- |
+| 176 | « Des effets de l'absence relativement aux biens que l'absent possédait au jour de sa disparition » | sous `SECTION PREMIÈRE — Des effets de l'absence relativement aux biens` | rédaction longue du même intitulé |
+| 202 | « Des effets relativement au mariage » | sous `SECTION III — Des effets de l'absence relativement au mariage` | variante |
+| 1170 | « DE LA CAPACITÉ DE DISPOSER … OÙ PAR TESTAMENT » | **dans l'art. 727** | titre courant absorbé |
+| 1942 | « DU RÉGIME EN COMMUNAUTÉ » | **dans l'art. 1186** (l'intitulé `CHAPITRE II — DU RÉGIME EN COMMUNAUTÉ` est l. 1939) | doublon |
+| 1972 | « De l'administration de la communauté, et de l'effet des actes de l'un ou de l'autre époux relativement à la société congugale » (sic : « congugale ») | sous `SECTION II — DE L'ADMINISTRATION DE LA COMMUNAUTÉ ET DES BIENS PROPRES` (décret de 2020) | intitulé d'avant 2020 |
+| 2883 | « DES DIFFÉRENTES MANIÈRES DONT LE MANDAT FINIT » | sous `CHAPITRE IV — DES DIFFÉRENTES MANIÈRES DONT FINIT LE MANDAT` | le livre dit-il « dont le mandat finit » ? alors c'est le libellé de table qui est faux |
+| 3461-3462 | « DES CAUSES QUI INTERROMPENT OÙ SUSPENDENT / LE COURS DE LA PRESCRIPTION » | sous `CHAPITRE IV — DES CAUSES QUI INTERROMPENT OU QUI SUSPENDENT LA PRESCRIPTION` | idem, et « OÙ » fautif |
+
+Et le libellé de table `sec-115` porte « … ENTRE VIFS **OÙ** PAR TESTAMENT » (le livre : « OU »).
+
+Pour chacun, l'image dit quel est le libellé du livre. Deux corrections possibles :
+- **la ligne en trop** (hors table) se retire du corps — elle n'est ni un intitulé ni du texte de loi ; si c'est la
+  rédaction du livre qui est la bonne, elle remplace d'abord le libellé de table (ci-dessous) ;
+- **un libellé de table faux** se corrige par une procédure **synchrone** : le libellé dans `toc`, le libellé du
+  nœud de `navToc` et la ligne du corps changent **ensemble**, à l'identique, sans changer d'ordre ni d'ancre ;
+  contrôle avant écriture : `segmentAnnotated` produit la même suite d'ancres de section, 0 clé `sec-K|art-N`
+  orpheline, `ancresDuMenu(navToc)` = ancres de `toc`.
+Le format « CHAPITRE II — Titre » des libellés est une convention de la plateforme : seul le **titre** se compare au
+livre, pas la mise en forme (« LOI No I / SUR LA PROMULGATION… » au livre, « LOI Nº 1 — De la promulgation… » ici).
 
 ---
 
@@ -342,7 +389,7 @@ articles abrogés en petit italique) se placent par la séquence croissante **pu
 
 **Étape 2 — Zone de loi.** Rends chaque page 23-412 à 300 dpi. Pour chaque article, recadre la **zone de loi** :
 de la tête à la fin du dernier alinéa, notes de bas de page et encadrés exclus (géométrie du § 3 : la loi traverse
-la gouttière x ≈ 190-205, l'appareil jamais). Les recadrages restent hors du dépôt (§ 0).
+la gouttière, entre les deux colonnes de notes — x ≈ 200-211 —, l'appareil jamais). Les recadrages restent hors du dépôt (§ 0).
 
 **Étape 3 — Second témoin.** Tesseract (`-l fra --psm 4`, sortie hOCR) sur chaque zone de loi : texte et boîtes de
 lignes. Les boîtes donnent les alinéas (interligne > 13,6 pt au repère PDF, ou retrait d'énumération).
@@ -352,12 +399,15 @@ lignes. Les boîtes donnent les alinéas (interligne > 13,6 pt au repère PDF, o
 - alinéas : nombre et bornes dans la base / CCH / géométrie / Tesseract ;
 - classement : **conforme** (§ 2, règle de décision), sinon **à regarder** ;
 - chaque article « à regarder » est lu sur l'image recadrée, mot à mot, et chaque écart reçoit sa nature (§ 4),
-  le texte du livre, le texte de la base, la page, et la décision proposée ;
+  le texte du livre, le texte de la base, la page, et la décision proposée ; **regroupe la lecture par page** (une
+  image, tous les articles « à regarder » qu'elle porte, et ses passages en italique) ;
 - le tirage de 5 % des conformes est fait et son résultat écrit.
 
 **Étape 5 — Articles à statut** (278) :
-- `EN_VIGUEUR` / `AJOUTE` : comparés à l'article correspondant de la **fiche de l'acte modificatif**, mots et
-  alinéas ; si la fiche de l'acte n'a jamais été collationnée au J.O., le dire (ne pas tenir pour acquis) ;
+- les **25 statuts seuls antérieurs à 2011** (§ 1) : leur texte est celui du livre — ils suivent l'étape 4 ;
+- `EN_VIGUEUR` / `AJOUTE`, et le corps de 1101, 1102, 1111, 1112 : comparés à l'article correspondant de la
+  **fiche de l'acte modificatif**, mots et alinéas ; si la fiche de l'acte n'a jamais été collationnée au J.O., le
+  dire (ne pas tenir pour acquis) ;
 - `MODIFIE`, `ABROGE`, `oldVersions` : comparés **au livre** (rédaction de 2011), comme un article ordinaire ;
 - **le rendu** : pour 10 articles tirés au sort, compose le texte affiché comme la fiche
   (`applyAmendments(bodyOriginal, getAmendments(id), …)`, `src/lib/legislation/segment.ts`) et vérifie qu'aucun
@@ -380,16 +430,24 @@ lignes. Les boîtes donnent les alinéas (interligne > 13,6 pt au repère PDF, o
    (`jurisprudence`, `commentaires` ou `connexe` avec son `kind`) ; journal de chaque ligne avant/après ;
    `reindexDocument(id)` à la fin (sinon `searchText` reste périmé) ; `audit()` ; recompte.
    Règles par nature, selon les décisions du 18 oct. :
+   - **intitulés en double** (§ 6.4) : la ligne hors table se retire ; un libellé de table faux se corrige par la
+     procédure synchrone du § 6.4 ;
    - **glose de l'éditeur** (arts 45, 267, et celles que l'audit trouve) → retirée du corps et ajoutée à
      `annotations.commentaires["sec-K|art-N"]` (clé de l'article : celle de sa jurisprudence s'il en a, sinon la
      section calculée sur la table **parcourue dans l'ordre**) — comme la glose de l'art. 221 l'est déjà ;
-   - **abrogation signalée par l'italique**, article **sans** statut : abrogation **totale** ⇒ une `ArticleVersion`
-     `ABROGE` (corps = texte du livre ; `amendedByNumber` = nom complet de l'acte ; `amendedByDocId` seulement si
-     la fiche existe ; `effectiveDate` = date de l'acte, telle qu'il se nomme) et `status = 'abrogé'` — le lecteur
-     affiche alors « [Abrogé — acte] » et replie le texte, comme pour les 60 abrogés de 2014-2020 ; abrogation
-     **partielle** ⇒ `status = 'partiellement abrogé'` et un commentaire qui nomme l'alinéa ou les mots et l'acte,
-     **texte inchangé** ; **acte introuvable** ⇒ aucun statut posé, l'article va à la liste du § 9 ;
-   - article italique **déjà à statut** (≈ 55) : la réforme postérieure gouverne le texte en vigueur ; l'abrogation
+   - **abrogation signalée par l'italique**, article **sans** statut — sur le modèle des abrogations déjà en base
+     (art. 308, 1249…), et selon la règle du corpus « la version en vigueur s'affiche, l'ancienne se replie » :
+     - article **entier** ⇒ une seule `ArticleVersion` `ABROGE` (`seq` 0 ; `body` = l'article entier, tête comprise,
+       tel que le livre l'imprime ; `amendedByNumber` = nom complet de l'acte avec sa référence au Moniteur si on la
+       connaît ; `amendedByDocId` seulement si la fiche existe ; `effectiveDate` = date de **publication** au
+       Moniteur, comme les 60 existantes — à défaut, la date que porte l'acte, et le rapport le dit) et
+       `status = 'abrogé'` : le lecteur affiche « [Abrogé — acte] » et replie le texte ;
+     - **alinéa(s) entier(s)** ⇒ le modèle de l'art. 1902 : une `MODIFIE` (`seq` 0, texte du livre complet) et une
+       `EN_VIGUEUR` (`seq` 1, le même sans l'alinéa abrogé), et `status = 'partiellement abrogé'` ;
+     - **des mots seulement** (art. 136) ⇒ `status = 'partiellement abrogé'`, un commentaire qui nomme les mots et
+       l'acte, **texte inchangé** — on ne réécrit pas une loi sans le texte qui la remplace ;
+     - **acte introuvable** ⇒ aucun statut posé, l'article va à la liste du § 9 ;
+   - article italique **déjà à statut** (61) : la réforme postérieure gouverne le texte en vigueur ; l'abrogation
      de l'édition se note au rapport, rien n'est écrit ;
    - **typographie** : convention du § 4.1 sur tout le texte des articles ; contrôle que l'**ensemble des
      ancres** (`articleAnchorFromHeading`) et le **nombre de liens** de renvoi (« C. civ. » 5 376, « C. p. c. »,
@@ -401,12 +459,15 @@ lignes. Les boîtes donnent les alinéas (interligne > 13,6 pt au repère PDF, o
      que le fragment est dans le corps.
 5. **Garde-fous du correctif** (à tester avant `--commit`) :
    - **rien ne disparaît** : tout mot ≥ 4 lettres retiré du corps se retrouve dans le nouveau corps ou dans
-     l'appareil, sauf une liste blanche explicite (séquelles d'OCR corrigées) ;
-   - les lignes d'en-tête sont **identiques** octet pour octet avant/après ;
+     l'appareil, sauf une liste blanche explicite (séquelles d'OCR corrigées, Annexe de l'art. 2047, intitulés en
+     double) — les mots se comparent **apostrophes et espaces normalisées**, sinon l'harmonisation typographique
+     déclenche 1 340 fausses alertes ;
+   - les lignes d'en-tête sont **identiques** octet pour octet avant/après, hors corrections du § 6.4 validées ;
    - les clés `sec-K|art-N` de `jurisprudence` restent **toutes** rattachées (0 orpheline) ;
    - `ancresDuMenu(navToc)` = ensemble des ancres de `toc` ;
    - chaque article garde sa tête et son ancre ; nombre de têtes inchangé (2 107) ;
-   - les 278 statuts et les 318 `ArticleVersion` sont intacts, sauf écart validé sur l'un d'eux.
+   - les 278 statuts et les 378 `ArticleVersion` existants sont intacts ; seuls s'y **ajoutent** les abrogations
+     validées de l'italique, et seuls changent les écarts validés.
 
 ---
 
@@ -415,11 +476,14 @@ lignes. Les boîtes donnent les alinéas (interligne > 13,6 pt au repère PDF, o
 Les cinq questions de principe sont tranchées (encadré en tête). Restent, **sur pièces**, avant toute écriture :
 
 1. **La liste des abrogations** tirée de l'italique (§ 6.3) : article, étendue, acte, preuve (page) — elle change
-   l'état affiché d'environ 95 articles ; Me Vaval la valide en bloc ou ligne à ligne.
-2. Les passages en italique **sans acte identifiable** : aucun statut n'est posé tant qu'elle ne l'a pas décidé.
+   l'état affiché de 93 articles au plus ; Me Vaval la valide en bloc ou ligne à ligne.
+2. Les passages en italique **sans acte identifiable**, et les abrogations **de mots** (art. 136) : aucun statut
+   n'est posé tant qu'elle ne l'a pas décidé.
 3. Tout écart de nature `mot`, `manque` ou `enumeration` qui **change le sens** (les 20 plus graves du rapport).
+4. Les **libellés d'intitulé** à corriger (§ 6.4), s'il y en a : ils changent le sommaire.
 
-Le reste — séquelles d'OCR, coquilles évidentes, césures, alinéas, intrus d'appareil, typographie, art. 2047 —
+Le reste — séquelles d'OCR, coquilles évidentes, césures, alinéas, intrus d'appareil, intitulés en double,
+typographie, art. 2047 —
 s'applique sur la seule validation du rapport.
 
 ---
@@ -430,7 +494,8 @@ s'applique sur la seule validation du rapport.
 | --- | --- |
 | articles couverts par la table article → page | 2 047 / 2 047 |
 | articles sans statut triangulés | 1 829 / 1 829 |
-| articles à statut confrontés à leur acte | 278 / 278 |
+| articles gouvernés par un acte, confrontés à l'acte | 253 / 253 |
+| statuts seuls antérieurs à 2011, confrontés au livre | 25 / 25 |
 | écarts « à regarder » vus sur l'image | 100 % |
 | taux d'erreur du tri (tirage de 5 % des conformes) | ≤ 0,5 %, chiffre publié |
 | écarts sans nature, ou à nature hors liste | 0 |
@@ -440,6 +505,8 @@ s'applique sur la seule validation du rapport.
 | après correctif : apostrophes ’, insécables, cadratins, doubles espaces dans le texte des articles | 0 / 0 / 0 / 0 |
 | après correctif : ancres d'article, liens de renvoi | ensembles identiques à l'instantané |
 | après correctif : gloses au corps / doublons de `commentaires` | 0 / 0 |
+| après correctif : lignes du corps hors de tout article | 2 (« RÉPUBLIQUE D'HAÏTI », « CODE CIVIL ») |
+| après correctif : intitulés en double dans le corps | 0 |
 | après correctif : `searchText` reconstruit, vérificateur d'empreintes | oui / « Rien à signaler » |
 
 Ce qui n'a pas pu être tranché se dit, article par article, avec la raison : un audit qui affiche 100 % sans

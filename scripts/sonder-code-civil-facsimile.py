@@ -162,19 +162,24 @@ livre = {}
 for a in arts:
     livre.setdefault(str(a['n']), a)
 
-# ── 2. La base, découpée comme le lecteur ──────────────────────────────────────────────────────
+# ── 2. La base, découpée COMME LE LECTEUR (`segmentAnnotated`) ────────────────────────────────
+# Une ligne est un intitulé si et seulement si elle est ÉGALE (espaces normalisées) au libellé de
+# table ATTENDU — la table se parcourt dans l'ordre. Une ligne en capitales qui n'est pas ce libellé
+# (titre courant absorbé, doublon d'intitulé) reste du texte : c'est ce que le lecteur affiche.
 corps = pathlib.Path(BODY).read_text(encoding='utf-8').split('\n')
 ann = json.loads(pathlib.Path(ANN).read_text(encoding='utf-8'))
-titres = {re.sub(r'\s+', ' ', t['label']).strip() for t in ann['toc']}
-TIT = re.compile(r'^(LOI|CHAPITRE|SECTION|TITRE|PARAGRAPHE|§|DISPOSITIONS?)\b')
+table = [re.sub(r'\s+', ' ', t['label']).strip() for t in ann['toc']]
 ART = re.compile(r'^Art\.\s*(1er|\d{1,4}(?:-\d{1,2})?)\b')
 base = {}
+hors_article = []   # lignes que le lecteur affiche hors de tout article (sous un intitulé)
 cur = None
-for l in corps:
+ptr = 0
+for no, l in enumerate(corps, 1):
     s = re.sub(r'\s+', ' ', l).strip()
     if not s:
         continue
-    if s in titres or TIT.match(s):
+    if ptr < len(table) and s == table[ptr]:
+        ptr += 1
         cur = None
         continue
     m = ART.match(s)
@@ -184,6 +189,8 @@ for l in corps:
         continue
     if cur:
         base[cur].append(s)
+    else:
+        hors_article.append({'ligne': no, 'texte': s})
 statut = ann.get('status', {})
 
 # ── 3. Alinéas : base contre livre (articles sans statut — les autres suivent l'acte modificatif) ──
@@ -207,6 +214,7 @@ for n, ls in base.items():
 cch = json.loads(pathlib.Path(CCH).read_text(encoding='utf-8'))['articles']
 norm = lambda x: re.sub(r'\s+', ' ', x.replace('’', "'").replace(' ', ' ').replace(' ', ' ')).strip()
 ccmp = collections.Counter()
+cch_mots = []
 for n, ls in base.items():
     if '-' in n or statut.get('art-' + n) or n not in cch:
         continue
@@ -220,6 +228,7 @@ for n, ls in base.items():
         ccmp['base a des lignes en plus (énumérations rendues au dispositif)'] += 1
     else:
         ccmp['mots différents'] += 1
+        cch_mots.append(n)
 
 ital = [{'article': k[1], 'page': k[0], 'italique': v[0], 'lignes': v[1]} for k, v in italiques.items() if v[0]]
 txt = '\n'.join(corps)
@@ -227,10 +236,14 @@ cle = lambda s: re.sub(r'[^a-zà-ÿœ]', '', s.lower())
 for g in gloses:
     g['dans_le_corps'] = cle(g['texte'])[:30] in cle(txt) if len(cle(g['texte'])) >= 15 else None
 
+(OUT / 'cch-mots-differents.json').write_text(json.dumps(cch_mots, ensure_ascii=False), encoding='utf-8')
+(OUT / 'hors-article.json').write_text(json.dumps(hors_article, ensure_ascii=False, indent=1), encoding='utf-8')
 (OUT / 'alineas-ecarts.json').write_text(json.dumps(ecarts, ensure_ascii=False, indent=1), encoding='utf-8')
 (OUT / 'italiques.json').write_text(json.dumps(ital, ensure_ascii=False, indent=1), encoding='utf-8')
 (OUT / 'gloses.json').write_text(json.dumps(gloses, ensure_ascii=False, indent=1), encoding='utf-8')
 print(f'têtes d’article relevées au livre : {len(arts)}')
+print(f'lignes de la base hors de tout article : {len(hors_article)} (dont les deux lignes de titre du document)')
+print(f'articles où la base et CCH diffèrent en mots : {", ".join(cch_mots)}')
 print('alinéas, base contre livre :', dict(cmp))
 print('base contre CCH.docx      :', dict(ccmp))
 print(f'articles à lignes de loi en italique : {len(ital)} (entièrement : {sum(1 for i in ital if i["italique"] == i["lignes"])})')
