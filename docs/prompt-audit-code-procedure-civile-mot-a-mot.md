@@ -60,6 +60,7 @@ l'image, des écarts classés par nature, puis un correctif qui ne s'exécute qu
 | Intitulés (`toc` = `navToc`) | **116** : 10 livres · 73 titres · 3 chapitres · 30 sections |
 | Statuts | **83** : 40 « modifié » · 43 « nouveau » (Livre IX, décret du 28 déc. 2005 ; 717-728 loi du 12 sept. 1966 ; 18 ; 813) — **0 `ArticleVersion`** |
 | Annotations | jurisprudence : 317 clés, 1 287 notes · `commentaires` : 771 (« Ancienne numérotation : article N. ») · `connexe` : 14 · index : 1 060 entrées |
+| ⚠️ **commentaires invisibles** | les 771 sont rangés sous la clé `art-N` ; le lecteur les cherche sous `sec-K\|art-N` (`jurisKeyFor`) : **0 / 771 atteints** (la jurisprudence : 317 / 317) |
 | Typographie | apostrophes **’ 3 617 / ' 0** · insécables 45 · « ; » collé 615 / précédé d'une espace 26 · « : » 48 / 22 · doubles espaces, tabulations, lignes vides : 0 |
 
 **Contrôles mécaniques sur le corps** :
@@ -209,7 +210,9 @@ annotations des articles qui suivent dans la section (`sec-K|art-N` → `sec-K'|
 `ancresDuMenu(navToc)` = ancres de `toc`. **Change le sommaire : à valider** (§ 9).
 
 ### 6.3 L'ancienne numérotation (note de marge « Anc art N »)
-69 articles où la note de marge du livre et `commentaires["art-N"]` ne s'accordent pas, dont une **série décalée
+**Aucune n'est affichée** : les 771 entrées sont sous la clé `art-N`, que le lecteur ne lit pas (§ 1). Correction
+mécanique : chaque entrée passe sous la clé de son article (`sec-K|art-N`, celle que `segmentAnnotated` calcule),
+après correction des numéros faux. 69 articles où la note de marge du livre et `commentaires["art-N"]` ne s'accordent pas, dont une **série décalée
 d'un article** au Livre IV (391 → « ancien 415 » en base, « 416 » au livre ; 392 → 416 / 417…). À vérifier sur
 l'image avant toute correction : la note de marge peut être lue sur la ligne voisine.
 

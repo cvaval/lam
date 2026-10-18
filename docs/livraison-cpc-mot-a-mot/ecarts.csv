@@ -1,0 +1,188 @@
+article,pages,nature,base,livre,decision,note
+5,17,coquille-du-livre,Dans les cas prévus,Dans le cas prévus,garder la base,"Le livre imprime « le cas » devant « prévus » (accord fautif) : coquille évidente, la base est correcte."
+10,18 19,coquille-du-livre,les délais prévus à l’article 74,les délai prévus à l'article 74,garder la base,"Le livre imprime « les délai » (s manquant, vérifié à la loupe) : coquille évidente, la base est correcte."
+44,30,coquille-du-livre,ne pourra se pourvoir au pétitoire,ne pourra se pouvoir au pétitoire,garder la base,"Le livre imprime « se pouvoir » (r manquant). « Se pouvoir » n'a pas de sens ici ; coquille sans portée, la base « se pourvoir » est correcte."
+49,32,coquille-du-livre,de l’article 10.,de l'article F10.,garder la base,Le livre imprime bien « F10 » (lettre parasite devant le numéro) ; renvoi évident à l'article 10. Pas une erreur d'OCR.
+52,32,coquille-du-livre,citation au prochain jour d’audience,citation an prochain jour d'audience,garder la base,Le livre imprime « an » (coquille typographique évidente pour « au »).
+96,57 58,coquille-du-livre,d’un Etat lié à la République d’Haïti,d'un Etat lié la République d'Haïti,garder la base,"Le livre omet « à » ; omission typographique sans portée, la base est correcte."
+97,58,intrus-structure,"II.- De l’incompétence, de la litispendance et de la connexité","(intertitre en gras entre deux articles, hors du texte de l'article)",corriger la base,"Intitulé de subdivision du livre, à sortir de l'article (rattacher comme intertitre de structure)."
+102,60,intrus-structure,III.- Des nullités,"(intertitre en gras entre deux articles, hors du texte de l'article)",corriger la base,"Intitulé de subdivision du livre, à sortir de l'article (rattacher comme intertitre de structure)."
+103,60,intrus-structure,IV.- Des exceptions dilatoires,"(intertitre en gras entre deux articles, hors du texte de l'article)",corriger la base,"Intitulé de subdivision du livre, à sortir de l'article (rattacher comme intertitre de structure)."
+117,63,intrus-structure,V.- De l’exception de communication de pièces,"(intertitre en gras entre deux articles, hors du texte de l'article)",corriger la base,"Intitulé de subdivision du livre, à sortir de l'article (rattacher comme intertitre de structure)."
+120,64,intrus-structure,II.- De l’intervention,"(intertitre en gras entre deux articles, hors du texte de l'article)",corriger la base,"Intitulé de subdivision du livre, à sortir de l'article (rattacher comme intertitre de structure)."
+123,65,intrus-structure,III.- Du faux incident civil,"(intertitre en gras entre deux articles, hors du texte de l'article)",corriger la base,"Intitulé de subdivision du livre, à sortir de l'article (rattacher comme intertitre de structure)."
+161,73,intrus-structure,IV.- De la vérification des écritures,"(intertitre en gras entre deux articles, hors du texte de l'article)",corriger la base,"Intitulé de subdivision du livre, à sortir de l'article (rattacher comme intertitre de structure)."
+186,78,intrus-structure,II. Des enquêtes,"(intertitre en gras entre deux articles, hors du texte de l'article)",corriger la base,"Intitulé de subdivision du livre, à sortir de l'article (rattacher comme intertitre de structure)."
+210,81,coquille-du-livre,"par les articles 196, 197, 204 et suivants","par les articles 196. 197, 204 et suivants",garder la base,Le livre imprime un point après 196 (vérifié à la loupe) ; simple coquille de ponctuation dans une énumération.
+229,83,intrus-structure,III.- Des descentes sur les lieux,"(intertitre en gras entre deux articles, hors du texte de l'article)",corriger la base,"Intitulé de subdivision du livre, à sortir de l'article (rattacher comme intertitre de structure)."
+235,84,intrus-structure,IV.- Des rapports d’experts,"(intertitre en gras entre deux articles, hors du texte de l'article)",corriger la base,"Intitulé de subdivision du livre, à sortir de l'article (rattacher comme intertitre de structure)."
+257,87,intrus-structure,V.- De la prestation de serment,(intitulé en gras imprimé entre la jurisprudence de l'art. 257 et la tête de l'art. 258),corriger la base,"Intitulé du livre, pas un alinéa de l'art. 257 : à retirer de l'article et à rétablir comme intertitre avant l'art. 258."
+272,91,coquille-du-livre,Le tribunal pourra aussi compenser les dépens,Le tribunal pourra aussi commen- / cer les dépens,garder la base,« commencer » au livre (coupé « commen-/cer ») : coquille évidente pour « compenser » (cf. alinéa 1 « compensés » et la jurisprudence sur la compensation des dépens).
+386,143,tete-seule,Article 386.- La tierce-opposition formée par,Article 386.- La tierce-opposition formée par,corriger la base,Le livre enchaîne la tête « Article 386.- » et le 1er alinéa sur la même ligne ; la base isole la tête sur sa propre ligne.
+386,143,marge,(aucune note Anc art),Anc art 411,corriger la base,Note de marge « Anc art » de cet article (à hauteur de sa tête ou de sa 2e ligne) : 411 au livre.
+390,144,tete-seule,Article 390.- La partie dont la,Article 390.- La partie dont la,corriger la base,Le livre enchaîne la tête « Article 390.- » et le 1er alinéa sur la même ligne ; la base isole la tête sur sa propre ligne.
+390,144,marge,(aucune note Anc art),Anc art 415,corriger la base,Note de marge « Anc art » de cet article (à hauteur de sa tête ou de sa 2e ligne) : 415 au livre.
+391,144,tete-seule,Article 391.- Les jugements définitifs rendus,Article 391.- Les jugements définitifs rendus,corriger la base,Le livre enchaîne la tête « Article 391.- » et le 1er alinéa sur la même ligne ; la base isole la tête sur sa propre ligne.
+391,144,marge,Anc art 415,Anc art 416,corriger la base,Note de marge « Anc art » de cet article (à hauteur de sa tête ou de sa 2e ligne) : 416 au livre.
+392,146,tete-seule,"Article 392.- L’Etat, les communes, les","Article 392.- L’Etat, les communes, les",corriger la base,Le livre enchaîne la tête « Article 392.- » et le 1er alinéa sur la même ligne ; la base isole la tête sur sa propre ligne.
+392,146,marge,Anc art 416,Anc art 417,corriger la base,Note de marge « Anc art » de cet article (à hauteur de sa tête ou de sa 2e ligne) : 417 au livre.
+393,146,tete-seule,Article 393.- S’il n’y a ouverture,Article 393.- S’il n’y a ouverture,corriger la base,Le livre enchaîne la tête « Article 393.- » et le 1er alinéa sur la même ligne ; la base isole la tête sur sa propre ligne.
+393,146,marge,Anc art 417,Anc art 418,corriger la base,Note de marge « Anc art » de cet article (à hauteur de sa tête ou de sa 2e ligne) : 418 au livre.
+397,146,tete-seule,Article 397.- Ceux qui demeurent hors,Article 397.- Ceux qui demeurent hors,corriger la base,Le livre enchaîne la tête « Article 397.- » et le 1er alinéa sur la même ligne ; la base isole la tête sur sa propre ligne.
+397,146,marge,(aucune note Anc art),Anc art 422,corriger la base,Note de marge « Anc art » de cet article (à hauteur de sa tête ou de sa 2e ligne) : 422 au livre.
+398,146,tete-seule,Article 398.- Si la partie condamnée,Article 398.- Si la partie condamnée,corriger la base,Le livre enchaîne la tête « Article 398.- » et le 1er alinéa sur la même ligne ; la base isole la tête sur sa propre ligne.
+398,146,marge,Anc art 422,Anc art 423,corriger la base,Note de marge « Anc art » de cet article (à hauteur de sa tête ou de sa 2e ligne) : 423 au livre.
+399,146,tete-seule,Article 399.- Lorsque les ouvertures de,Article 399.- Lorsque les ouvertures de,corriger la base,Le livre enchaîne la tête « Article 399.- » et le 1er alinéa sur la même ligne ; la base isole la tête sur sa propre ligne.
+399,146,marge,Anc art 423,Anc art 424,corriger la base,Note de marge « Anc art » de cet article (à hauteur de sa tête ou de sa 2e ligne) : 424 au livre.
+400,146,tete-seule,Article 400.- S’il y a contrariété,Article 400.- S’il y a contrariété,corriger la base,Le livre enchaîne la tête « Article 400.- » et le 1er alinéa sur la même ligne ; la base isole la tête sur sa propre ligne.
+400,146,marge,Anc art 424,Anc art 425,corriger la base,Note de marge « Anc art » de cet article (à hauteur de sa tête ou de sa 2e ligne) : 425 au livre.
+401,146,tete-seule,Article 401.- La requête civile sera,Article 401.- La requête civile sera,corriger la base,Le livre enchaîne la tête « Article 401.- » et le 1er alinéa sur la même ligne ; la base isole la tête sur sa propre ligne.
+401,146,marge,Anc art 425,Anc art 426,corriger la base,Note de marge « Anc art » de cet article (à hauteur de sa tête ou de sa 2e ligne) : 426 au livre.
+402,146,tete-seule,Article 402.- Si une partie veut,Article 402.- Si une partie veut,corriger la base,Le livre enchaîne la tête « Article 402.- » et le 1er alinéa sur la même ligne ; la base isole la tête sur sa propre ligne.
+402,146,marge,Anc art 426,Anc art 427,corriger la base,Note de marge « Anc art » de cet article (à hauteur de sa tête ou de sa 2e ligne) : 427 au livre.
+407,147,tete-seule,Article 407.- Toute requête civile sera,Article 407.- Toute requête civile sera,corriger la base,Le livre enchaîne la tête « Article 407.- » et le 1er alinéa sur la même ligne ; la base isole la tête sur sa propre ligne.
+407,147,marge,(aucune note Anc art),Anc art 433,corriger la base,Note de marge « Anc art » de cet article (à hauteur de sa tête ou de sa 2e ligne) : 433 au livre.
+410,147,tete-seule,Article 410.- Si la requête civile,Article 410.- Si la requête civile,corriger la base,Le livre enchaîne la tête « Article 410.- » et le 1er alinéa sur la même ligne ; la base isole la tête sur sa propre ligne.
+410,147,marge,(aucune note Anc art),Anc art 436,corriger la base,Note de marge « Anc art » de cet article (à hauteur de sa tête ou de sa 2e ligne) : 436 au livre.
+412,147,tete-seule,Article 412.- La Cour de Cassation,Article 412.- La Cour de Cassation,corriger la base,Le livre enchaîne la tête « Article 412.- » et le 1er alinéa sur la même ligne ; la base isole la tête sur sa propre ligne.
+412,147,marge,(aucune note Anc art),Anc art 917,corriger la base,Note de marge « Anc art » de cet article (à hauteur de sa tête ou de sa 2e ligne) : 917 au livre.
+413,150,tete-seule,Article 413.- Les demandes en cassation,Article 413.- Les demandes en cassation,corriger la base,Le livre enchaîne la tête « Article 413.- » et le 1er alinéa sur la même ligne ; la base isole la tête sur sa propre ligne.
+413,150,marge,Anc art 917,Anc art 918,corriger la base,Note de marge « Anc art » de cet article (à hauteur de sa tête ou de sa 2e ligne) : 918 au livre.
+414,150,tete-seule,Article 414.- Le pourvoi régulièrement exercé,Article 414.- Le pourvoi régulièrement exercé,corriger la base,Le livre enchaîne la tête « Article 414.- » et le 1er alinéa sur la même ligne ; la base isole la tête sur sa propre ligne.
+414,150,marge,Anc art 918,Anc art 919,corriger la base,Note de marge « Anc art » de cet article (à hauteur de sa tête ou de sa 2e ligne) : 919 au livre.
+415,152,tete-seule,Article 415.-,Article 415.- La contrariété de décisions …,corriger la base,Au livre la tête « Article 415.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+415,152,marge,Anc art 919,Anc art 921,à trancher,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (919, art. 414). Le livre imprime 921 (doublon avec l’art. 416) ; 920 attendu par la s…"
+417,154,tete-seule,Article 417.-,"Article 417.- Les parties, leurs héritiers …",corriger la base,Au livre la tête « Article 417.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+417,154,marge,Anc art 921,Anc art 922,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (921, art. 416)."
+418,156,tete-seule,Article 418.-,Article 418.- Le Ministère Public près …,corriger la base,Au livre la tête « Article 418.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+418,156,marge,Anc art 922,Anc art 913,à trancher,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (922, art. 417). Le livre imprime 913 ; 923 attendu par la suite numérique (922 / 924)…"
+419,156,tete-seule,Article 419.-,Article 419.- La Cour de cassation …,corriger la base,Au livre la tête « Article 419.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+419,156,marge,Anc art 913,Anc art 924,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (913, art. 418)."
+420,156,tete-seule,Article 420.-,Article 420.- Le Ministère public près …,corriger la base,Au livre la tête « Article 420.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+420,156,marge,Anc art 924,Anc art 925,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (924, art. 419)."
+421,156 157,tete-seule,Article 421.-,Article 421.- Les parties qui veulent …,corriger la base,Au livre la tête « Article 421.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+421,156 157,marge,Anc art 925,Anc art 926,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (925, art. 420)."
+422,158 159,tete-seule,Article 422.-,Article 422.- Il sera tenu au …,corriger la base,Au livre la tête « Article 422.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+422,158 159,marge,Anc art 926,Anc art 927,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (926, art. 421)."
+423,159,tete-seule,Article 423.-,Article 423.- Le pourvoi en cassation …,corriger la base,Au livre la tête « Article 423.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+423,159,marge,Anc art 927,Anc art 928,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (927, art. 422)."
+424,160,tete-seule,Article 424.-,Article 424.- Dans la huitaine de …,corriger la base,Au livre la tête « Article 424.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+424,160,marge,Anc art 928,Anc art 929,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (928, art. 423)."
+425,163 164,tete-seule,Article 425.-,Article 425.- Dans les vingt jours …,corriger la base,Au livre la tête « Article 425.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+425,163 164,marge,Anc art 929,Anc art 930,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (929, art. 424)."
+426,164,tete-seule,Article 426.-,Article 426.- Les dispositions des articles …,corriger la base,Au livre la tête « Article 426.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+426,164,marge,Anc art 930,Anc art 931,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (930, art. 425)."
+427,166,tete-seule,Article 427.-,Article 427.- Dans les délais à …,corriger la base,Au livre la tête « Article 427.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+427,166,marge,Anc art 931,Anc art 932,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (931, art. 426)."
+429,166,tete-seule,Article 429.-,Article 429.- Si l’arrêt rejette le …,corriger la base,Au livre la tête « Article 429.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+429,166,marge,(aucune),Anc art 936,corriger la base,La base n’a aucune note « Anc art » pour cet article (elle porte ce n° 936 sur l’art. 430) ; décalage d’un article.
+430,166,tete-seule,Article 430.-,Article 430.- Si la Cour de …,corriger la base,Au livre la tête « Article 430.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+430,166,marge,Anc art 936,Anc art 937,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (936, art. 429)."
+431,171,tete-seule,Article 431.-,"Article 431.- Lorsque, sur un second …",corriger la base,Au livre la tête « Article 431.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+431,171,marge,Anc art 937,Anc art 938,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (937, art. 430)."
+432,172,tete-seule,Article 432.-,Article 432.- Aucun renvoi n’est ordonné …,corriger la base,Au livre la tête « Article 432.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+432,172,marge,Anc art 938,Anc art 939,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (938, art. 431)."
+433,172,tete-seule,Article 433.-,Article 433.- Tout arrêt portant cassation …,corriger la base,Au livre la tête « Article 433.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+433,172,marge,Anc art 939,Anc art 940,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (939, art. 432)."
+434,172,tete-seule,Article 434.-,Article 434.- La rédaction des arrêts …,corriger la base,Au livre la tête « Article 434.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+434,172,marge,Anc art 940,Anc art 941,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (940, art. 433)."
+435,173,tete-seule,Article 435.-,Article 435.- Les juges de paix …,corriger la base,Au livre la tête « Article 435.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+435,173,marge,Anc art 941,Anc art 52,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (941, art. 434)."
+436,173 174,tete-seule,Article 436.-,Article 436.- Tout autre juge peut …,corriger la base,Au livre la tête « Article 436.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+436,173 174,marge,Anc art 52,Anc art 375,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (52, art. 435)."
+437,175,tete-seule,Article 437.-,Article 437.- Il n’aura pas lieu …,corriger la base,Au livre la tête « Article 437.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+437,175,marge,Anc art 375,Anc art 376,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (375, art. 436)."
+438,175,tete-seule,Article 438.-,Article 438.- Tout juge de paix …,corriger la base,Au livre la tête « Article 438.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+438,175,marge,Anc art 376,Anc art 377,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (376, art. 437)."
+439,176,tete-seule,Article 439.-,Article 439.- Les causes de récusation …,corriger la base,Au livre la tête « Article 439.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+439,176,marge,Anc art 377,Anc art 378,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (377, art. 438)."
+441,176,tete-seule,Article 441.-,"Article 441.- Lorsqu’un juge, autre qu’un …",corriger la base,Au livre la tête « Article 441.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+441,176,intrus-structure,B.- De la récusation des juges de paix,"(intitulé hors de l’article, entre l’art. 441 et l’art. 442)",corriger la base,"Intitulé du livre (italique, en retrait) collé comme dernière ligne de l’article : à sortir de l’article et à replacer en intitulé avant l’art. 442, pas à supprimer."
+441,176,marge,(aucune),Anc art 380,corriger la base,La base n’a aucune note « Anc art » pour cet article (elle porte ce n° 380 sur l’art. 442) ; décalage d’un article. Sous le n° le livre ajoute « mod ».
+442,176,tete-seule,Article 442.-,Article 442.- La partie qui voudra …,corriger la base,Au livre la tête « Article 442.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+442,176,marge,Anc art 380,Anc art 53,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (380, art. 441)."
+443,176,tete-seule,Article 443.-,Article 443.- Le juge sera tenu …,corriger la base,Au livre la tête « Article 443.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+443,176,coquille-du-livre,donner au bas de cet acte,donner au-bas de cet acte,garder la base,Trait d’union imprimé en milieu de ligne (non une coupure de fin de ligne) ; graphie fautive sans portée.
+443,176,marge,Anc art 53,Anc art 54,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (53, art. 442)."
+444,176 177,tete-seule,Article 444.-,Article 444.- Dans les trois jours …,corriger la base,Au livre la tête « Article 444.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+444,176 177,marge,Anc art 54,Anc art 55,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (54, art. 443)."
+446,177,tete-seule,Article 446.-,Article 446.- Celui dont la récusation …,corriger la base,Au livre la tête « Article 446.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+446,177,intrus-structure,"C.- De la récusation des juges des tribunaux civils, des Cours d’appel et de la Cour de Cassation","(intitulé hors de l’article, entre l’art. 446 et l’art. 447)",corriger la base,"Intitulé du livre (italique, en retrait) collé comme dernière ligne de l’article : à sortir de l’article et à replacer en intitulé avant l’art. 447, pas à supprimer."
+447,177,tete-seule,Article 447.-,Article 447.- La récusation sera proposée …,corriger la base,Au livre la tête « Article 447.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+447,177,marge,(aucune),Anc art 381,corriger la base,La base n’a aucune note « Anc art » pour cet article (elle porte ce n° 381 sur l’art. 448) ; décalage d’un article.
+448,177 178,tete-seule,Article 448.-,Article 448.- Sur l’expédition de l’acte …,corriger la base,Au livre la tête « Article 448.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+448,177 178,marge,Anc art 381,Anc art 382,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (381, art. 447)."
+449,178,tete-seule,Article 449.-,Article 449.- Le juge récusé fera …,corriger la base,Au livre la tête « Article 449.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+449,178,marge,Anc art 382,Anc art 383,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (382, art. 448)."
+450,178,tete-seule,Article 450.-,Article 450.- A compter de la …,corriger la base,Au livre la tête « Article 450.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+450,178,marge,Anc art 383,Anc art 384,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (383, art. 449)."
+451,178,tete-seule,Article 451.-,Article 451.- Si le juge récusé …,corriger la base,Au livre la tête « Article 451.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+451,178,marge,Anc art 384,Anc art 385,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (384, art. 450)."
+452,178,tete-seule,Article 452.-,Article 452.- Si le récusant n’apporte …,corriger la base,Au livre la tête « Article 452.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+452,178,intrus-structure,D.- De la récusation en masse des juges des tribunaux et Cours,"(intitulé hors de l’article, entre l’art. 452 et l’art. 453)",corriger la base,"Intitulé du livre (italique, en retrait) collé comme dernière ligne de l’article : à sortir de l’article et à replacer en intitulé avant l’art. 453, pas à supprimer."
+452,178,marge,Anc art 385,Anc art 386,corriger la base,"Décalage systématique d’un article dans la base : la base porte ici le n° imprimé en marge de l’article précédent (385, art. 451)."
+455,179,tete-seule,Article 455.-,Article 455.- N’est pas admissible la …,corriger la base,Au livre la tête « Article 455.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+456,180,tete-seule,Article 456.-,Article 456.- Lorsque le besoin du …,corriger la base,Au livre la tête « Article 456.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+457,180,tete-seule,Article 457.-,Article 457.- La demande en renvoi …,corriger la base,Au livre la tête « Article 457.- » est suivie du 1er alinéa sur la même ligne ; la base l’isole sur une ligne propre.
+458,182,marge,anc_base : [] (aucune note),Anc art 388,corriger la base,Marge imprimée à hauteur de la tête : « Art 391 fr / Anc art 388 ». La base n'a aucun ancien numéro pour 458 ; le 388 a glissé sur l'article 459 (décalage d'un cran sur toute la série 458-474).
+458,182,tete-seule,Article 458.- Tout jugement sur récusation,Article 458.- Tout jugement sur récusation,corriger la base,Le livre enchaîne la tête en gras et le 1er alinéa sur la même ligne.
+459,182,marge,anc_base : 388,Anc art 389,corriger la base,Marge : « Art 392 fr / Anc art 389 / mod ». Le 388 de la base appartient à l'article 458.
+459,182,tete-seule,Article 459.- Le recours en cassation,Article 459.- Le recours en cassation,corriger la base,Le livre enchaîne tête et 1er alinéa.
+460,182,marge,anc_base : 389,Anc art 390,corriger la base,Marge : « Art 393 fr / Anc art 390 / mod ».
+460,182,tete-seule,Article 460.- L’expédition de l’acte,Article 460.- L’expédition de l’acte,corriger la base,Le livre enchaîne tête et 1er alinéa.
+461,182 183,marge,anc_base : 390,Anc art 391,corriger la base,Marge p. 182 col. droite : « Art 394 fr / Anc art 391 / mod ».
+461,182 183,tete-seule,Article 461.- Le greffier de la Cour,Article 461.- Le greffier de la Cour,corriger la base,Le livre enchaîne tête et 1er alinéa.
+462,183,marge,anc_base : 391,Anc art 392,corriger la base,Marge : « Art 395 fr / Anc art 392 / mod ».
+462,183,tete-seule,Article 462.- En cas de cassation,Article 462.- En cas de cassation,corriger la base,Le livre enchaîne tête et 1er alinéa.
+463,183,marge,anc_base : 392,Anc art 387,corriger la base,Marge : « Art 390 fr / Anc art 387 » (sans « mod »).
+463,183,tete-seule,Article 463.- Celui dont la récusation,Article 463.- Celui dont la récusation,corriger la base,Le livre enchaîne tête et 1er alinéa.
+464,183 184,marge,anc_base : 387,Anc art 438,corriger la base,Marge : « Art 464 fr » (lu ainsi) / « Anc art 438 ». Le 387 de la base appartient à l'article 463.
+464,183 184,tete-seule,Article 464.- Les juges et le Ministère public,Article 464.- Les juges et le Ministère public,corriger la base,Le livre enchaîne tête et phrase d'introduction.
+465,185 186,marge,anc_base : 438,Anc art 439,corriger la base,Marge p. 185 col. droite (en bas) : « Art 506 fr / Anc art 439 ».
+465,185 186,tete-seule,Article 465.- Il y a déni de justice,Article 465.- Il y a déni de justice,corriger la base,Le livre enchaîne tête et 1er alinéa.
+466,186,marge,anc_base : 439,Anc art 440,corriger la base,Marge : « Art 507 fr / Anc art 440 / Art 508 fr ».
+466,186,tete-seule,Article 466.- Le déni de justice sera,Article 466.- Le déni de justice sera,corriger la base,Le livre enchaîne tête et 1er alinéa.
+467,186,marge,anc_base : 440,Anc art 441,corriger la base,Marge : « Art 509 fr / Anc art 441 ».
+467,186,tete-seule,Article 467.- Toutes demandes en prise,Article 467.- Toutes demandes en prise,corriger la base,Le livre enchaîne tête et 1er alinéa.
+468,186,marge,anc_base : 441,Anc art 942,corriger la base,"Marge : « Art 511, / 512 fr / Anc art 942 ». Le livre imprime bien 942 (et 943, 944, 945, 947, 948, 949 pour 469-474), alors que la série précédente est 438-441 : vraisemblablement une coquille du liv…"
+468,186,tete-seule,Article 468.- Lorsqu’il y aura lieu,Article 468.- Lorsqu’il y aura lieu,corriger la base,Le livre enchaîne tête et 1er alinéa.
+469,187,marge,anc_base : 942,Anc art 943,corriger la base,Marge : « Anc art 943 » seul (pas de concordance française). Même réserve 9xx/4xx que pour 468.
+469,187,tete-seule,Article 469.- La Cour de Cassation admettra,Article 469.- La Cour de Cassation admettra,corriger la base,Le livre enchaîne tête et texte.
+470,187,marge,anc_base : 943,Anc art 944,corriger la base,Marge : « Art 514 fr / Anc art 944 ».
+470,187,tete-seule,Article 470.- La requête devra être,Article 470.- La requête devra être,corriger la base,Le livre enchaîne tête et 1er alinéa.
+471,187,marge,anc_base : 944,Anc art 945,corriger la base,Marge : « Art 513 fr / Anc art 945 ».
+471,187,tete-seule,Article 471.- Si la requête est rejetée,Article 471.- Si la requête est rejetée,corriger la base,Le livre enchaîne tête et texte.
+472,187,marge,anc_base : 945,Anc art 947,corriger la base,Marge : « Art 516 fr / Anc art 947 ». Le livre saute 946 (945 → 947) : imprimé tel quel.
+472,187,tete-seule,Article 472.- Si le demandeur est débouté,Article 472.- Si le demandeur est débouté,corriger la base,Le livre enchaîne tête et texte.
+473,187,marge,anc_base : 947,Anc art 948,corriger la base,Marge : « Anc art 948 » seul.
+473,187,tete-seule,Article 473.- Si la prise à partie est reconnue,Article 473.- Si la prise à partie est reconnue,corriger la base,Le livre enchaîne tête et 1er alinéa.
+474,187,marge,anc_base : 948,Anc art 949,corriger la base,Marge : « Anc art 949 » seul. Le décalage d'un cran se poursuit vraisemblablement sur 475 (hors lot) : la base y porte sans doute 949.
+474,187,tete-seule,Article 474.- S’il y a recours,Article 474.- S’il y a recours,corriger la base,Le livre enchaîne tête et texte.
+494,192,coquille-du-livre,condamné personnellement,condamner personnellement,garder la base,"Le livre imprime bien « condamner personnelle- / ment » (infinitif) dans « la partie ou son défenseur sera, sur simple sommation pour venir plaider, condamner personnellement ». Faute évidente : le pa…"
+510,194 195,coquille-du-livre,de plein droit spécialement,de plein doit spécialement,garder la base,"Le livre (p. 195, haut de colonne gauche) imprime « reste de plein doit spécialement affectée » : r manquant, faute évidente."
+597,208,coquille-du-livre,2°) Ceux qui statueront,2° Ceux qui statueront,garder la base,"Le livre (p. 208, haut de colonne droite) imprime « 2° » sans parenthèse alors que le « 1°) » qui précède en a une : défaut d'énumération du livre, sans portée."
+692,226,intrus-structure,Anc,(rien : le texte s’arrête à « contestation. »),corriger la base,"La 2e ligne « Anc » de la base n’est pas du texte de loi : c’est un débris de note de marge (le livre imprime « Anc art 661 fr » en marge de l’article 693, juste en dessous). Texte de l’article confor…"
+726,230,coquille-du-livre,Article 726 (L.12 sept 1966).-,Article 726 L.12 sept 1966).-,garder la base,Le livre omet la parenthèse ouvrante (toute la tête en gras) ; l’article 725 juste au-dessus porte bien « (L.12 sept 1966) ».
+734,233,marge,Anc art 684,Anc art 684 / Anc art 685 (deux notes superposées),à trancher,"La marge de 734 porte « Art 785a fr », puis « Anc art 684 » ET « Anc art 685 ». L’art. 733 porte déjà « Anc art 684 » et l’art. 735 « Anc art 686 » : la suite suggère 685 pour 734 (le 684 étant une ré…"
+766,245,marge,Anc art 711,"Anc art 710 (à hauteur de la tête) ; « Anc art 711 » imprimé DANS le corps, 2e ligne : « ou de Anc art 711 l’acceptation…",garder la base,"L’art. 765 porte déjà « Anc art 710 », l’art. 767 « Anc art 712 » : 711 est le bon numéro pour 766. Le livre a laissé tomber la note « Anc art 711 » dans la ligne de texte et répète « Anc art 710 » en…"
+813,252,coquille-du-livre,en marge de l’acte de naissance,en marge de l’ace de naissance,garder la base,Coquille évidente du livre.
+833,254,coquille-du-livre,qui auront été d’avis de la délibération.,qui auront été d’avis de la délibéra- / tion (sans point final),garder la base,Le livre omet le point final.
+859,257,alinea-scinde,"5°) … en séparation de biens judiciaires. ⏎ Dans tous les cas, où il y a lieu d’assurer …","5°) … en séparation de biens judiciaires. Dans tous les cas, où il y a lieu d’assurer la conservation des droits litigie…",à trancher,"Le livre imprime les deux phrases « Dans tous les cas… » à la suite du 5°), dans le même alinéa (p. 257 d, haut). La base les met sur une ligne à part. Fusionner les rattacherait au 5°) (divorce/sépar…"
+859,257,intrus-appareil,,"Les dispositions légales relatives aux scellés supposent l’existence d’un droit de propriété, sinon établi, au moins app…",garder la base,"C’est de la JURISPRUDENCE (sommaire + référence d’arrêt), mais le livre l’a composée en ROMAIN et non en italique : d’où l’écart du tri. La base a raison de l’exclure."
+879,261,coquille-du-livre,il ne sera pas procédé à la levée des scellés,il ne sera pas procédé / la levée des scellés,garder la base,Le livre omet « à » (coquille sans portée).
+957-3,271,coquille-du-livre,Si la clause compromissoire,Si la lause compromissoire,garder la base,Coquille évidente du livre.
+960,273,coquille-du-livre,Les Arbitres règlent la procédure,Les Arbitres règles la procédure,garder la base,Faute d’accord évidente.
+960,273,coquille-du-livre,les principes généraux de procédure,les principaux généraux de procédure,garder la base,« principaux généraux » est agrammatical : coquille du livre.
+960,273,coquille-du-livre,1) L’obligation faite au juge :,1)L’obligation faite au juge :,garder la base,"Espace manquante après « 1) » au livre (ligne en gras, comme « 2) Le pouvoir reconnu au juge : »)."
+960,273,coquille-du-livre,De se prononcer sur tout ce qui est demandé,De se prononcer sur tout de ce qui est demandé,garder la base,« de » parasite au livre.
+960,273,coquille-du-livre,d’un refus ou d’une abstention,d’un refus ou de d’une abstention,garder la base,« de » parasite au livre.
+960,273,coquille-du-livre,De faire respecter et de respecter lui-même,De faire de respecter et de respecter lui-même,garder la base,« de » parasite au livre.
+960,273,coquille-du-livre,L’obligation faite aux parties,L’obligation faire aux parties,garder la base,Coquille évidente du livre.
+960,273,coquille-du-livre,les moyens de fait sur lesquels,les moyes de fait sur lesquels,garder la base,Coquille évidente du livre.
+961-2,274,coquille-du-livre,de Première Instance compétent.,de Première Instance compétent (sans point final),garder la base,Le livre omet le point final.
+961-3,274,coquille-du-livre,lorsque son mandat est révoqué,lorsque son mandat et révoqué,garder la base,Coquille évidente du livre (« et » pour « est »).
+961-4,274,ponctuation,– la perte … ; – le décès …,- la perte … ; - le décès … (tiret court),garder la base,"Le tri a cru les tirets absents (l’OCR les a perdus) : le livre imprime bien les deux tirets de liste. Le glyphe imprimé est court (trait d’union), plus court que le tiret « – » du titre VI p. 277 ; d…"
+961-6,274,casse-accent,la juridiction d’État compétente,la juridiction d’Etat compétente,garder la base,Accent absent sur la majuscule au livre.
+982,279,coquille-du-livre,aux intérêts de la partie qui l’invoque.,aux intérêts de la partie l’invoque.,garder la base,Le livre omet « qui » ; coquille évidente (la jurisprudence n° 1 qui suit dit « la partie qui l’invoque »).
+985,281,coquille-du-livre,Les huissiers des cours et tribunaux,Les huissier des cours et tribunaux,garder la base,Faute d’accord évidente du livre.
+997,284,intrus-appareil,[1] L’art 929 correspond à l’art 424. / [2] L’art 954 correspond à l’art 987.,(rien sous l’art. 997),corriger la base,"Ces deux lignes sont des NOTES DE BAS DE PAGE de l’éditeur imprimées p. 281 (colonne droite, sous le filet) : « 1- L’art 929 correspond à l’art 424 » et « 2- L’art 954 correspond à l’art 987 » (sans p…"
