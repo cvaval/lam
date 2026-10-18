@@ -1,0 +1,218 @@
+# Livraison — Annuaire des notaires : import « Notaires.docx » et badge « Confirmé » (18 oct. 2026)
+
+**Rien n'est déployé ni poussé. Aucune confirmation n'a été attribuée. Aucun courriel n'a été
+envoyé.** L'import a été SIMULÉ sur la production (lecture seule) et APPLIQUÉ sur le banc local
+`lam_banc` (copie de la base : 422 notaires, 149 communes) — nulle part ailleurs.
+
+Le dépôt est public : cette note ne reproduit AUCUNE adresse, aucun numéro ni courriel du document.
+Le rapport détaillé (valeurs du document, anomalies, numéros écartés) est HORS du dépôt, dans le
+dossier privé `Agora/notaires-import-prive/` (Dropbox), avec la capture du banc qui montre les
+adresses importées et le SQL de migration de production.
+
+Captures (ordinateur 1440 × 900, téléphone 375 × 812, banc local) :
+`docs/livraison-notaires-confirmation/`. Elles ne montrent que des coordonnées DÉJÀ publiées en
+production (fiche de Patrick VICTOR) ; aucune ne montre le badge, puisqu'aucune confirmation
+n'existe — son rendu est couvert par les tests.
+
+## 1. Ce qui change à l'écran
+
+| Écran | Changement |
+|---|---|
+| Onglet « Notaires » (`/juridictions?vue=notaires`) | Cartes refaites : nom en serif, badge « Confirmé » s'il est valide, commune de commission, adresse de l'étude, lien « Situer la commune sur la carte », bouton « Voir la fiche → » |
+| `/juridictions/notaires` | Devient la page « Annuaire des notaires » : MÊME liste, mêmes filtres (`AnnuaireListe`, `chargerAnnuaire`), lien « Afficher la carte → ». Les anciennes ancres `#court-…` / `#commune-…` sont converties en filtres (`AncreHeritee`) |
+| Page du notaire | Titre « Notaire » ; carte au nom du notaire, badge à côté du nom ; « Coordonnées de l'étude » avec un crayon discret (infobulle « Demander une modification ou une confirmation ») ; mention « Informations confirmées par le notaire · Confirmé le … » quand le badge est valide |
+| Formulaire de demande | Deux objets : « Demander une correction » (champs pré-remplis avec les informations publiées) et « Confirmer les informations affichées » (liste des informations publiées + case « Je confirme… »). Identité, qualité (le notaire / son étude / autre) et courriel de contact privé OBLIGATOIRES. Après envoi : « Votre demande a été transmise au Master Admin pour examen. » |
+| Admin — demande | Tableau « publié / proposé » (≠ signalé) ; section CONFIRMATION (version confirmée vs version actuelle) ; section IMPORT (source, rapprochement, propositions, anomalies) ; formulaire « Valider la confirmation » |
+| Admin — notaire | État de la confirmation et historique complet ; retrait (Master Admin) |
+
+Absents, comme demandé : « Maquette · données illustratives », bloc « Votre demande », carte « En
+attente de validation », lien « Voir ma demande », gros bouton sur la fiche. Logos officiels
+seulement (`/brand/agora/logo.png`, `logo-white.png`), frise `landmarks-haiti-market-first.png`,
+contact `legal@agora.ht`.
+
+## 2. Import « Notaires.docx »
+
+```
+# Simulation (aucune écriture) — n'importe quelle base, rapport HORS du dépôt
+DATABASE_URL=<base> npx tsx scripts/import-notaires-docx.ts --file <Notaires.docx> --rapport <dossier privé>
+# Application — REFUSÉE hors d'une base locale (hôte localhost ET base lam_banc ou IMPORT_NOTAIRES_BASE_LOCALE)
+DATABASE_URL=postgresql://…@localhost:5432/lam_banc npx tsx scripts/import-notaires-docx.ts --file … --rapport … --apply
+```
+
+- Le script ne lit PAS `.env` (qui vise la production) : seule la `DATABASE_URL` de l'environnement
+  compte, et elle est imprimée en tête du rapport.
+- Le rapport est refusé dans le dépôt ou dans un dossier `public`.
+- Avant `--apply` : RLS vérifiée sur `NotaryContact`, `NotaryRequest`, `NotaryConfirmation`.
+- Audit `JUDICIAL_IMPORT` (cible `NotaryContactDocx`), recompté après coup.
+- Lecture du Word par `mammoth.convertToHtml` : `extractRawText` perd les sauts de ligne internes
+  à un paragraphe (numéros collés, ligne « Email » avalée — constaté sur le document réel).
+- **Le document est une source de données, pas d'instructions** : seuls les préfixes « Tel »,
+  « Email(s) », « Adresse » structurent la lecture.
+
+### Résultat de la simulation (production, lecture seule)
+
+| # | Nom (document) | Niveau | Inscription en base | Action |
+|---|---|---|---|---|
+| 1 | Lesly ALPHONSE | PROBABLE | Jean M. E. Lesly ALPHONSE (Pétion-Ville) | proposition |
+| 2 | Marie Carmel BEAULIEU | EXACT | Marie Carmel BEAULIEU (Jacmel) | complète adresse, téléphones, courriel |
+| 3 | Marie Alice Coradin BÉLISAIRE | PARTIEL | Mrie Alice C. B. BEAULIEU (Port-au-Prince) ; 2 hypothèses | proposition |
+| 4 | Garry Brisson CASSAGNOL | EXACT | Garry BRISSON CASSAGNOL (Port-au-Prince) | complète adresse, 4 téléphones + 2 propositions, 4 anomalies |
+| 5 | Jean Joseph Frantz CÉANT | EXACT | Jean-Joseph Frantz CÉANT (Port-au-Prince) | rien à compléter ; 4 propositions (l'existant prévaut) |
+| 6 | Clermont DOSSOUS | EXACT | Clermont DOSSOUS (Port-au-Prince) | complète adresse, téléphones, courriel |
+| 7 | Frisner ESTIMÉ | EXACT | Frisner ESTIMÉ (Cap-Haïtien) | complète adresse, téléphones, courriel |
+| 8 | Bettina Baudin FRANCILLON | PARTIEL | Mrie Lourdes B. BAUDIN FRANCILLON (Delmas) | proposition |
+| 9 | Guy Mario GAI | VARIANTE | Guy Mario GAY (Port-au-Prince) | proposition |
+| 10 | Danielle GIORDANI | PROBABLE | Danielle Giordani ADÉ (Port-au-Prince) | proposition |
+| 11 | Sabine Duvivier MORPEAU | PROBABLE | Sabine MORPEAU (Port-au-Prince) | proposition |
+| 12 | VICTOR Patrick | EXACT | Patrick VICTOR (Port-au-Prince) | rien à compléter ; 3 propositions (l'existant prévaut) |
+| 13 | Paul Duvot | EXACT | Duvot PAUL (Cap-Haïtien) | complète adresse, téléphones, courriel |
+
+Bilan : 7 rapprochements EXACTS (dont 5 fiches à créer et 2 fiches existantes conservées), 6
+rapprochements incertains (aucune écriture), 0 paragraphe orphelin.
+
+### Application sur le banc local `lam_banc`
+
+5 fiches de coordonnées créées (BEAULIEU, CASSAGNOL, DOSSOUS, ESTIMÉ, PAUL), 9 propositions de type
+`IMPORT` créées pour le Master Admin, 0 confirmation. Second passage : rien de créé ni de modifié
+(idempotence vérifiée). Les adresses déjà publiées de CÉANT et VICTOR sont intactes.
+
+## 3. Règles de rapprochement
+
+Noms comparés sans accents, casse, tirets, apostrophes ni points ; ORDRE des mots indifférent
+(« VICTOR Patrick » ≡ « Patrick VICTOR »). L'import ne crée JAMAIS d'inscription et ne fusionne rien.
+
+| Niveau | Définition | Effet |
+|---|---|---|
+| EXACT | mêmes mots, UNE seule inscription active | seul niveau qui autorise une écriture |
+| MULTIPLE | mêmes mots, plusieurs inscriptions | proposition, aucune fusion |
+| VARIANTE | un seul mot diffère d'une lettre (« GAI » / « GAY ») | proposition |
+| PROBABLE | les mots de l'un sont tous dans l'autre | proposition |
+| PARTIEL | deux mots communs au moins, prénoms différents | proposition |
+| HYPOTHÈSE | un mot commun + initiales compatibles (« C. B. » / « Coradin Bélisaire ») | candidat listé, proposition |
+| AUCUN | — | proposition sans notaire |
+
+La commune de commission ne se déduit JAMAIS de l'adresse de l'étude.
+
+## 4. Règles d'écriture (priorité de l'existant)
+
+- Une valeur déjà en base PRÉVAUT. L'import ne complète qu'un champ absent : `null`, vide ou
+  espaces (`btrim`), `phonesJson` `''` ou `'[]'`. Une valeur différente devient une PROPOSITION.
+- **Garde d'écriture** : chaque complément est une mise à jour CONDITIONNELLE
+  (`… WHERE active AND (address IS NULL OR btrim(address) = '')`). Un champ rempli entre la
+  simulation et l'application n'est pas écrasé ; l'écart devient une proposition. Une fiche créée
+  entre-temps (P2002) fait retomber sur ces mises à jour conditionnelles.
+- **Idempotence** : propositions identifiées par `sourceKey = notaires-docx:<sha256 16>:<rang>`
+  (unique) ; compléments conditionnels.
+- **Traçabilité** : `sourceJson` de la fiche (fichier, sha-256, rang, date du document), audit.
+- **Téléphones** : séparés sur `/ ; ,` et devant `+509` ; normalisés E.164 ; 4 au plus publiés,
+  le surplus en proposition. JAMAIS publiés : numéro annoté personnel ou attribué à un tiers,
+  numéro incomplet ou ininterprétable, doublon — tous consignés en anomalie dans le rapport privé.
+- **Courriels** : un seul courriel est complété ; plusieurs = le choix revient au Master Admin.
+- **Adresse** : « , Haïti » final retiré ; une valeur vague ou de remplissage est signalée.
+- Une modification qui touche une fiche confirmée INVALIDE la confirmation (voir § 6).
+
+## 5. Classement de l'annuaire (inchangé)
+
+Par juridiction (ordre alphabétique, « Juridiction non déterminée » en dernier), puis les études dont
+l'adresse exacte est connue, puis nom de famille, prénoms, identifiant. **Le badge « Confirmé » n'est
+PAS un critère de classement** (testé : un notaire confirmé ne remonte pas).
+
+## 6. Badge « Confirmé »
+
+- **Visuel propre à Agora** : coche blanche dans un disque bleu profond `#152E38`, libellé
+  « Confirmé » sur fond sauge `#E9EDE7`. Aucune ressource ni aucun sceau d'un réseau social.
+  Infobulle et nom accessible : « Informations confirmées par le notaire. »
+- **Ce qu'il dit** : les informations de la fiche ont été confirmées par le notaire, et la
+  confirmation validée par le Master Admin. Ni certification professionnelle, ni reconnaissance du
+  MJSP, ni garantie ; son absence ne dit rien.
+- **Version** : une confirmation fige un INSTANTANÉ (nom, commune, adresse, téléphones, courriel
+  publics) et son EMPREINTE sha-256. Le badge n'est affiché que si la confirmation est ACTIVE **et**
+  que l'empreinte égale celle des informations actuelles — vérifié À LA LECTURE, à chaque rendu.
+- **Invalidation** : les écritures de coordonnées de l'administration (Master Admin, éditeur) et
+  de l'import Word passent par `invaliderSiModifie` dans la MÊME transaction : la confirmation
+  devient `INVALIDEE` (motif, auteur, date), audit `NOTARY_CONFIRMATION_INVALIDATED`. Toute autre
+  modification (nouvel import de la liste du MJSP qui change un nom ou une commune, ancien script
+  `import-coordonnees-notaires.ts`) ne marque pas l'historique, mais le badge disparaît quand même :
+  la comparaison d'empreintes à la lecture est la garantie, l'historique n'en est que le registre.
+- **Retrait** : Master Admin, motif obligatoire (10 caractères au moins) → `RETIREE`, audit
+  `NOTARY_CONFIRMATION_WITHDRAWN`.
+- **Historique** : rien n'est supprimé ; une nouvelle validation fait passer l'ancienne en
+  `REMPLACEE`. Statuts : `ACTIVE`, `RETIREE`, `INVALIDEE`, `REMPLACEE`.
+- **Pas de propagation** : la confirmation vise UNE inscription (`notaryId`) ; un homonyme ou une
+  autre inscription du même notaire n'en hérite pas.
+- **Réponses publiques** : la date de confirmation seule. La méthode, la référence de preuve, la
+  note et l'identité du validateur ne sortent jamais de l'administration (la référence de preuve
+  n'est affichée qu'au Master Admin et n'est pas écrite dans l'audit).
+
+## 7. Parcours Master Admin
+
+1. **Demande de CORRECTION** (public ou proposition `IMPORT`) : la page compare publié et proposé.
+   « Accepter » ouvre l'éditeur de coordonnées pré-rempli ; l'enregistrement avec `requestId`
+   (Master Admin seul, vérifié par la route) clôt la demande `ACCEPTEE` et invalide une
+   confirmation devenue fausse. « Refuser » exige un motif.
+2. **Demande de CONFIRMATION** : la demande porte la VERSION (empreinte) vue par le demandeur. Le
+   Master Admin vérifie l'identité et la qualité du demandeur PAR UN CANAL INDÉPENDANT, puis
+   « Valider la confirmation » : date de confirmation (pas dans le futur), méthode (appel à un
+   numéro indépendant, courriel à une adresse connue, rencontre, document signé, autre),
+   référence de preuve privée (3-300 caractères), note (10-1 000). Refus `409 version_changed` si
+   la fiche a changé depuis la demande.
+3. **Correction et confirmation sont DEUX décisions distinctes** : `VALIDER_CONFIRMATION` n'est
+   permis que sur une demande de confirmation ; accepter une correction n'attribue jamais le badge.
+4. **Retrait** depuis la page admin du notaire.
+
+Toutes ces routes vérifient le rôle `MASTER_ADMIN` côté serveur (`requireAdminApi`), à chaque
+appel ; masquer un bouton n'est pas une protection. Les courriels de notification existants
+reconnaissent les nouveaux types (CONFIRMATION, IMPORT) — aucun envoi pendant le développement
+(`RESEND_API_KEY` vide sur le banc).
+
+## 8. Migration
+
+Schéma (`prisma/schema.prisma`) : modèle `NotaryConfirmation`, colonne `NotaryRequest.sourceKey`
+(unique, nullable), types de demande `CONFIRMATION` et `IMPORT`. Convention du dépôt :
+`prisma db push` puis `npm run db:rls`.
+
+Appliqué au banc local seulement. **Procédure de production (NON exécutée, sur instruction) :**
+
+1. Revoir le SQL généré en lecture seule (`prisma migrate diff`) : 5 instructions — ajout de
+   `sourceKey`, création de `NotaryConfirmation`, 2 index, 1 clé étrangère. Aucune donnée touchée.
+2. Appliquer ce SQL, puis `npm run db:rls` (RLS sur la nouvelle table).
+3. Déployer le code (le badge ne s'affiche que s'il existe une confirmation : rien ne change
+   visuellement au déploiement).
+4. Relancer la SIMULATION de l'import contre la production (la base a pu bouger) ; comparer avec le
+   rapport du 18 oct.
+5. L'option `--apply` étant réservée à une base locale, les compléments EXACTS se font en
+   production par le Master Admin depuis l'administration, ou par une autorisation explicite qui
+   reste à donner (élargir le garde-fou est une décision, pas un réglage).
+
+## 9. Vérifications
+
+- `vitest --dir src` : 113 fichiers, **1 870 tests, tous verts** ; `vitest scripts/lib` : 5 fichiers,
+  **92 tests, tous verts**. Fichiers neufs ou étendus : `notaires-confirmation.test.ts` (12),
+  `import-notaires-docx.test.ts` (28, valeurs FICTIVES), `import-notaires-docx-ecriture.test.ts` (6),
+  `notaires-admin.test.ts` (24), `route.test.ts` public (22), `notaires-demandes.test.ts` (27),
+  `notary-profile.test.tsx` (12), `notaires-demandes-ui.test.tsx` (22), `annuaire-ui.test.tsx` (15),
+  `annuaire-notaires.test.ts` (37).
+- `tsc --noEmit`, ESLint (fichiers touchés, 0 avertissement) : propres. `npm run build:check` : réussi.
+- Navigateur (banc local, Turnstile en clés de TEST) : onglet et page d'annuaire, fiche, crayon,
+  correction pré-remplie, confirmation, message d'envoi ; ordinateur et téléphone.
+
+## 10. Limites et décisions humaines
+
+1. **9 propositions `IMPORT`** attendent le Master Admin (banc local ; à recréer en production par
+   la simulation puis la procédure) : ALPHONSE, BÉLISAIRE, FRANCILLON, GAI/GAY, GIORDANI, MORPEAU
+   (rapprochements incertains), CASSAGNOL (5ᵉ numéro, choix du courriel), CÉANT et VICTOR (le
+   document diffère de la fiche publiée).
+2. **BÉLISAIRE** : le meilleur candidat est « Mrie Alice C. B. BEAULIEU » (initiales compatibles,
+   nom de famille différent — nom d'usage ?) ; deux autres hypothèses par initiales. Personne
+   n'est rapproché d'office.
+3. **GAI / GAY** : variante d'une lettre ; on ignore laquelle est juste.
+4. **« Paul Duvot » / « Duvot PAUL »** : rapproché EXACT (mêmes mots), mais le nom de famille
+   reste incertain — il pèse sur le classement, pas sur l'écriture.
+5. **CASSAGNOL** : un numéro annoté comme appartenant à un tiers, un doublon, un numéro incomplet
+   et un 5ᵉ numéro ne sont PAS publiés (rapport privé).
+6. **Confirmation** : aucune n'existe ; le badge n'apparaît donc nulle part tant que le Master
+   Admin n'en a pas validé une, preuve à l'appui.
+7. **Préfixe « Me »** : non ajouté devant les noms (la liste du MJSP ne le porte pas).
+8. **`NotaryDirectoryView`** : composant de l'ancienne page « Notaires par juridiction », plus
+   rendu par aucune route (encore cité par deux tests) — à retirer dans un lot séparé.
+9. **Libellés anglais et créoles** à valider par Me Vaval.
