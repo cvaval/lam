@@ -59,10 +59,12 @@ export async function getCodeArticles(docId: string): Promise<CodeArticle[]> {
       const m = b.anchor.match(/^art-(\d+)/)
       if (!m) continue
       seen.add(b.anchor)
-      // Extrait sans la tête d'article : « Article 12.- … » (Code du travail) puis, à défaut,
-      // « Art. 1415 … » (Code civil — tête abrégée, sans ponctuation avant le texte).
+      // Extrait sans la tête d'article : « Article 12.- … » (Code du travail), « Article 18 (Mod. Loi du 18 sept
+      // 1985…).- » (CPC), « Article 14 Tous ceux… » (Code civil, sans ponctuation : depuis le 18 oct. 2026, « Art. »
+      // est écrit « Article » partout) ; puis, à défaut, l'ancienne tête abrégée « Art. 1415 … ».
+      // ⚠️ Ancré sur le NUMÉRO : l'ancien motif « jusqu'au premier point » avalait la 1re phrase d'une tête sans « .- ».
       const body = b.text
-        .replace(/^Article\s*[^\n.]*[.\-–]\s*/i, '') // « \s* » : « Article129.- » (Code fiscal 2026)
+        .replace(/^Article\s*(?:premier|\d+(?:\s*(?:er|ère))?(?:\s*(?:bis|ter|quater))?(?:[.\-]\d+)*)\s*(?:\([^)]{0,160}\))?\s*[.\-–]*\s*/i, '') // « \s* » : « Article129.- » (Code fiscal 2026)
         .replace(/^Art\.?\s+\d+(?:er)?\s*[.\-–]*\s*/i, '')
         .replace(/\s+/g, ' ')
         .trim()
