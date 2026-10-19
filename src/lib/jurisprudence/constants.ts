@@ -142,6 +142,9 @@ export function deduireSolution(dispositif: string): Solution | null {
   if (/cassation|\bcasse\b/.test(t)) {
     if (/sans\s+renvoi/.test(t)) return 'CASSATION_SANS_RENVOI'
     if (/renvoi(e|ant)?\s+(de\s+la\s+cause|la\s+cause|les\s+parties|l.affaire|devant)/.test(t)) return 'CASSATION_AVEC_RENVOI'
+    // « renvoi, pour être statué uniquement sur le chef cassé, devant le Tribunal Civil de
+    // Saint-Marc » (1re Section, n° 10, 1965-1966) : l'incise sépare « renvoi » de « devant ».
+    if (/\brenvoi\b[^;.]{0,80}?\bdevant\b/.test(t)) return 'CASSATION_AVEC_RENVOI'
     // La Cour a jugé elle-même : il n'y a personne à qui renvoyer.
     if (/au\s+fond|a\s+fond|art(icle)?\.?\s*116|statuant\s+a\s+nouveau|jugeant\s+a\s+nouveau|retient\s+la\s+cause/.test(t))
       return 'CASSATION_SANS_RENVOI'

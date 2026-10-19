@@ -133,6 +133,8 @@ describe('deduireSolution', () => {
     // « renvoie des liens de la prévention » est une relaxe, pas un renvoi après cassation.
     expect(deduireSolution('Cassation ; au fond, plainte non fondée, renvoi des liens de la prévention.')).toBe('CASSATION_SANS_RENVOI')
     expect(deduireSolution('Cassation du jugement ; renvoi de la cause et des parties devant le Tribunal Civil de Saint-Marc.')).toBe('CASSATION_AVEC_RENVOI')
+    // Une incise entre « renvoi » et « devant » ne doit pas faire perdre le renvoi (1re Section, n° 10, 1965-1966).
+    expect(deduireSolution('Cassation du jugement seulement en sa disposition sur les dommages-intérêts ; rejet du pourvoi contre les autres chefs ; renvoi, pour être statué uniquement sur le chef cassé, devant le Tribunal Civil de Saint-Marc.')).toBe('CASSATION_AVEC_RENVOI')
   })
   it('une cassation muette sur la suite ne se devine pas', () => {
     expect(deduireSolution('Cassation du jugement du 3 mai 1962.')).toBeNull()

@@ -1,0 +1,6 @@
+# Empreintes SHA-256 du jeu « cassation-1965-1966 » — posées à la production des données.
+# Rejouer : npx tsx scripts/verifier-empreintes-donnees.ts cassation-1965-1966
+# Le dépôt vit dans Dropbox : une resynchronisation tardive peut rétablir une version
+# ancienne APRÈS toute vérification. Ce manifeste est le seul contrôle rejouable.
+b12db3d10362dd0a663ae1938c375d9e1fe13106e56fb7ac64cfa3887e4b34af  notices-1re-section-1-15.json
+420018a9afd5acde9996bb5fba6f7ddbb75c0c9e40ac68e3bf5de823d9aa8adf  sommaire-1re-section-1-15.docx

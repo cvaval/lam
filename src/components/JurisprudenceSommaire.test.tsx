@@ -1,6 +1,9 @@
 import { describe, it, expect } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { ANCRE_TEXTE, JurisprudenceSommaire } from './JurisprudenceSommaire'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
+import { separerDispositif } from '../lib/jurisprudence/notices'
 
 /**
  * ⚠️ LE CAS LE PLUS DANGEREUX N'EST PLUS OBSERVABLE À L'ÉCRAN. Les 80 décisions du
@@ -103,5 +106,50 @@ describe('JurisprudenceSommaire', () => {
     const ht = renderToStaticMarkup(<JurisprudenceSommaire doc={complete} resume={null} locale="ht" />)
     expect(ht).toContain('Somè')
     expect(ht).toContain('Règ dwa')
+  })
+})
+
+/**
+ * CHEMIN DE RENDU RÉEL — les notices de la 1re Section 1965-1966 (n° 1-15, écrites en base le
+ * 19 oct. 2026) passent par `separerDispositif` puis par ce composant. On rend deux fiches
+ * réelles : la n° 1 (dispositif détaché, anomalies de source gardées dans les motifs) et la
+ * n° 13 (la rédaction n'a pas posé de sous-mention « Dispositif » : la ligne ne doit pas
+ * apparaître). Les données viennent du jeu `scripts/data/cassation-1965-1966`, pas d'une copie.
+ */
+describe('JurisprudenceSommaire — notices 1965-1966, 1re Section', () => {
+  const notices = JSON.parse(readFileSync(resolve(__dirname, '../../scripts/data/cassation-1965-1966/notices-1re-section-1-15.json'), 'utf8')) as {
+    numero: string; rubriques: Record<string, string>
+  }[]
+  const fiche = (numero: string) => {
+    const r = notices.find((n) => n.numero === numero)!.rubriques
+    const s = separerDispositif(r['Solution et motifs (Holding and Reasoning)'])
+    return {
+      doc: {
+        matiere: r['Domaines du droit'], decisionAttaquee: r['Décision attaquée / objet de la saisine'],
+        questionDroit: r['Question de droit (Issue)'], regleDroit: r['Règle de droit (Rule of Law)'],
+        motifs: s.anomalies ? `${s.motifs}\n\n${s.libelleAnomalies} : ${s.anomalies}` : s.motifs,
+        dispositif: s.dispositif,
+      },
+      resume: r.Analyse,
+    }
+  }
+
+  it('n° 1 : sept lignes, le dispositif détaché en gras, les anomalies de source gardées dans les motifs', () => {
+    const f = fiche('1')
+    const html = renderToStaticMarkup(<JurisprudenceSommaire doc={f.doc} resume={f.resume} locale="fr" />)
+    for (const l of ['Domaine du droit', 'Résumé éditorial', 'Décision attaquée', 'Question de droit', 'Règle de droit', 'Solution et motifs', 'Dispositif']) expect(html).toContain(l)
+    expect(html).toContain('rejet du pourvoi contre l&#x27;arrêt de la Cour d&#x27;Appel de Port-au-Prince du 5 août 1963')
+    expect(html).toContain('Anomalies de source conservées :')
+    // La sous-mention n'est pas rendue deux fois : « Dispositif : » ne figure plus dans les motifs.
+    expect(f.doc.motifs).not.toMatch(/Dispositif\s*:/)
+  })
+
+  it('n° 13 : sans sous-mention « Dispositif », la ligne n’apparaît pas — rien n’est inventé', () => {
+    const f = fiche('13')
+    expect(f.doc.dispositif).toBeNull()
+    const html = renderToStaticMarkup(<JurisprudenceSommaire doc={f.doc} resume={f.resume} locale="fr" />)
+    expect(html).toContain('Solution et motifs')
+    expect(html).not.toContain('>Dispositif<')
+    expect(html).toContain('jonction')
   })
 })
