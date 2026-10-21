@@ -388,7 +388,11 @@ export function AnnotatedText({
           const conc = concordanceMap[b.anchor]
           const acte = acteMap[b.anchor]
           const old = oldVersions[b.anchor]
-          const cx = connexeMap[b.anchor]
+          // Le repli connexe appartient à l'article du Code (bloc ANCRÉ), jamais à un homonyme d'annexe :
+          // 20 oct. 2026, la « Constitution de 1987 » de l'art. 6 du C. trav. se répétait sous 13 « Article 6 »
+          // d'annexes (salaire minimum, OFATMA…), et le C. com. sous 2 articles d'un décret annexé. Mesuré sur
+          // 35 fiches / 728 clés : aucune ne vivait SEULEMENT sous un homonyme.
+          const cx = b.noAnchors ? undefined : connexeMap[b.anchor]
           // État de l'article : la version d'article (datée, liée à l'acte) prévaut ; à défaut,
           // le statut de l'appareil. Une seule pastille.
           const marque = articleMarks?.get(b.anchor)

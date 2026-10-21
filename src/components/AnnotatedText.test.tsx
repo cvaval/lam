@@ -88,3 +88,39 @@ describe('AnnotatedText — rendu des tableaux', () => {
     for (const id of ['art-1', 'art-2']) expect(html).toContain(`id="${id}"`)
   })
 })
+
+// Code du travail, 20 oct. 2026 : le repli « Constitution de 1987 » de l'art. 6 du Code se répétait
+// sous chaque « Article 6 » des annexes (décrets du salaire minimum, règlements de l'OFATMA…).
+describe('AnnotatedText — législation connexe', () => {
+  const corps = [
+    'TITRE I — DISPOSITIONS GÉNÉRALES',
+    'Article 6. Aucun travailleur ne peut renoncer aux droits que lui confère le présent Code.',
+    'ANNEXE I — Décret fixant le salaire minimum',
+    'Article 6. Le présent Décret abroge tous Décrets ou dispositions de Décrets qui lui sont contraires.',
+  ].join('\n')
+  const ann: Annotations = {
+    title: 'Code du Travail',
+    annotationAuthor: 'Lam Veritab',
+    navToc: [],
+    toc: [
+      { level: 1, label: 'TITRE I — DISPOSITIONS GÉNÉRALES', anchor: 'sec-1', kind: 'code' },
+      { level: 1, label: 'ANNEXE I — Décret fixant le salaire minimum', anchor: 'sec-2', kind: 'connexe' },
+    ],
+    connexes: [],
+    jurisprudence: {},
+    indexEntries: [],
+    connexe: { 'art-6': [{ label: 'Constitution de 1987', text: 'Article 35.- La liberté de travail est garantie.', kind: 'source' }] },
+  }
+  const html = renderToStaticMarkup(<AnnotatedText text={corps} annotations={ann} locale="fr" />)
+
+  it("le repli s'affiche sous l'article du Code, une seule fois", () => {
+    expect((html.match(/data-situation="connexe"/g) ?? []).length).toBe(1)
+    const repli = html.indexOf('data-situation="connexe"')
+    expect(repli).toBeGreaterThan(html.indexOf('Aucun travailleur ne peut renoncer'))
+    expect(repli).toBeLessThan(html.indexOf('ANNEXE I'))
+  })
+
+  it("l'homonyme d'annexe reste affiché, sans le repli", () => {
+    expect(html).toContain('Le présent Décret abroge tous Décrets')
+  })
+})
