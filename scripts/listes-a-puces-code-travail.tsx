@@ -4,7 +4,11 @@
  *     jours en bullet points ») — chaque fête, ligne courte sans ponctuation finale, s'affichait en intertitre gras ;
  *   - art. 45 (barème du préavis) : 20 oct. 2026, « corriger les bullet points de l'article 45 », texte fourni par
  *     elle — les lignes commençant en minuscule (« de 3 mois… ») étaient recousues en un seul paragraphe ; « et » passe
- *     à la fin du 4ᵉ point, comme elle l'écrit.
+ *     à la fin du 4ᵉ point, comme elle l'écrit ;
+ *   - art. 41 et 42 (motifs de résiliation) : 20 oct. 2026, « corriger les bullets points des articles 41 et 42 »,
+ *     texte fourni par elle — même recousage. À l'art. 42, ses points ne suivent pas les retours à la ligne de la
+ *     base (« a provoqué… » devient un point ; l'absence et le refus des mesures de prévention en font un seul, de même
+ *     l'inaptitude et la condamnation) : on suit SON découpage, mots inchangés (vérifié).
  *
  * « • » en tête de ligne : `parseOfficialText` (BULLET_RE) en fait une vraie liste. Les mots ne changent pas (vérifié).
  * Rejouable : une opération déjà appliquée est sautée.
@@ -41,6 +45,14 @@ const FETES = [
   'Le 2 Novembre, Fêtes des Morts',
   'Le 25 Décembre, Jour de Noël.',
 ]
+const ART41 = [
+  'lorsque l’employeur ne lui verse pas intégralement, sous réserve des déductions autorisées par la loi, aux dates et lieux convenus ou usuels, la rémunération qui lui revient;',
+  'lorsque l’employeur, ou un membre de sa communauté domestique, ou une personne à son service agissant avec son consentement, exerce durant le travail des voies de fait ou se livre publiquement à des excès de langage, injures ou menaces contre le travailleur, rendant ainsi impossible l’harmonie des relations de travail;',
+  'lorsque l’employeur ou son représentant cause intentionnellement des dégats à ses instruments ou outils de travail;',
+  'lorsque l’employeur, un membre de sa famille, son représentant dans la direction des travaux ou un autre travailleur est atteint de maladie contagieuse, si le travailleur doit rester en contact immédiat avec la personne atteinte;',
+  'lorsque la sécurité ou la santé du travailleur ou de sa famille est gravement menacée, soit en raison de l’absence de condition d’hygiène au lieu de travail ou de l’insalubrité excessive de la région, soit parce que l’employeur n’observe pas les mesures de prévention et de sécurité prescrites par la loi;',
+  'lorsque l’employeur commet un manquement aux obligations que lui impose le contrat ou aux dispositions de l’article 31 du Code du Travail.',
+]
 const OPS: Op[] = [
   {
     article: 'art-110',
@@ -64,6 +76,34 @@ const OPS: Op[] = [
       PUCE + 'de 3 ans à 6 ans de service . . . 2 mois',
       PUCE + 'de 6 ans à 10 ans de service . . . 3 mois et',
       PUCE + 'à partir de 10 ans de service . . . 4 mois',
+    ],
+  },
+  {
+    article: 'art-41',
+    tete: 'Article 41. Le salarié qui désire mettre fin au contrat de travail conclu pour une durée déterminée ou non sans qu’il en résulte de responsabilité pour lui, en informera la Direction du Travail en invoquant l’un des motifs énumérés ci-dessous:',
+    avant: ART41,
+    apres: ART41.map((l) => PUCE + l),
+  },
+  {
+    article: 'art-42',
+    tete: 'Article 42. L’employeur qui désire mettre fin au contrat de travail du salarié conclu pour une durée déterminée ou non et sans qu’il résulte de responsabilité pour lui en ce qui concerne le préavis, en informera la Direction du Travail en invoquant l’un des motifs énumérés ci-dessous:',
+    avant: [
+      'lorsque le travailleur, durant son travail, s’est livré à des voies de faits contre son employeur ou contre un camarade; s’est livré publiquement à des excès de langage tels qu’injures ou menaces; a provoqué par sa conduite une grave perturbation à la discipline et une interruption du travail à l’établissement;',
+      'lorsqu’il a commis un délit ou une contravention contre les biens au préjudice direct de l’employeur ou quand il a causé intentionnellement ou par négligence coupable des dégats aux machines, instruments, matières premières, produits et autres objets ayant une relation immédiate avec le travail ou a compromis la sécurité du lieu où sont exécutés les travaux et des personnes qui s’y trouvent;',
+      'lorsque le travailleur s’abstient sans l’autorisation de l’employeur et sans motif valable de se présenter à son travail trois jours consécutifs ou quatre fois au cours du même mois;',
+      'lorsque le travailleur après avertissement écrit, ou donné en présence de deux témoins, aura refusé d’observer les mesures de prévention des accidents ou de se conformer aux règlements intérieurs de l’établissement;',
+      'lorsqu’à la conclusion du contrat de travail, le travailleur a induit l’employeur en erreur, en feignant de posséder des qualités ou connaissances qu’il ne possède manifestement pas ou en présentant des références ou attestations personnelles dont, par la suite, l’employeur constate la fausseté, ou lorsqu’il exécute son travail d’une manière qui démontre clairement son inaptitude aux travaux pour lesquels il a été engagé. Les dispositions de cet alinéa ne sont pas applicables aux travailleurs ayant plus de quatre (4) mois de service consécutifs;',
+      'lorsque le travailleur a été condamné à la peine d’emprisonnement de plus d’un mois par une sentence passée en force de chose jugée;',
+      'lorsque le travailleur commet un manquement aux obligations que lui impose son contrat ou aux dispositions de l’article 30 du Code du Travail.',
+    ],
+    apres: [
+      PUCE + 'lorsque le travailleur, durant son travail, s’est livré à des voies de faits contre son employeur ou contre un camarade; s’est livré publiquement à des excès de langage tels qu’injures ou menaces;',
+      PUCE + 'a provoqué par sa conduite une grave perturbation à la discipline et une interruption du travail à l’établissement;',
+      PUCE + 'lorsqu’il a commis un délit ou une contravention contre les biens au préjudice direct de l’employeur ou quand il a causé intentionnellement ou par négligence coupable des dégats aux machines, instruments, matières premières, produits et autres objets ayant une relation immédiate avec le travail ou a compromis la sécurité du lieu où sont exécutés les travaux et des personnes qui s’y trouvent;',
+      PUCE + 'lorsque le travailleur s’abstient sans l’autorisation de l’employeur et sans motif valable de se présenter à son travail trois jours consécutifs ou quatre fois au cours du même mois; lorsque le travailleur après avertissement écrit, ou donné en présence de deux témoins, aura refusé d’observer les mesures de prévention des accidents ou de se conformer aux règlements intérieurs de l’établissement;',
+      PUCE + 'lorsqu’à la conclusion du contrat de travail, le travailleur a induit l’employeur en erreur, en feignant de posséder des qualités ou connaissances qu’il ne possède manifestement pas ou en présentant des références ou attestations personnelles dont, par la suite, l’employeur constate la fausseté, ou',
+      PUCE + 'lorsqu’il exécute son travail d’une manière qui démontre clairement son inaptitude aux travaux pour lesquels il a été engagé. Les dispositions de cet alinéa ne sont pas applicables aux travailleurs ayant plus de quatre (4) mois de service consécutifs; lorsque le travailleur a été condamné à la peine d’emprisonnement de plus d’un mois par une sentence passée en force de chose jugée;',
+      PUCE + 'lorsque le travailleur commet un manquement aux obligations que lui impose son contrat ou aux dispositions de l’article 30 du Code du Travail.',
     ],
   },
 ]
