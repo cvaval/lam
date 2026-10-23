@@ -91,7 +91,8 @@ function decouper(body: string, a: Annotations): Ligne[] {
       ancre = null
       return { t, titre: true, ancre: null }
     }
-    const an = /^Art\./.test(s) ? articleAnchorFromHeading(s) : undefined
+    // Têtes « Art. N » (jusqu'au 19 oct. 2026) puis « Article N » (règle de corpus du 19 oct.) : les deux.
+    const an = /^Art(?:\.|icle\s)/.test(s) ? articleAnchorFromHeading(s) : undefined
     if (an) ancre = an
     return { t, titre: false, ancre }
   })
