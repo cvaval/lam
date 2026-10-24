@@ -153,3 +153,23 @@ Libellés créoles NOUVEAUX à valider : « Li tèks la », « Louvri PDF orijin
 « Okirans {i} sou {n} », « Okirans anvan an », « Okirans apre a », « Kache navigasyon an »,
 « Mo a pa parèt nan tèks ki afiche a (tit, rezime oswa orijinal la sèlman). », « Okirans mo yo chèche a ».
 
+
+### Incident du 24 oct. 2026 — déployé (`ec0dd51`), annulé (`8704037`), corrigé
+
+- 12 h 00 : après le déploiement, `/fr/search?q=garantie` → « Une erreur est survenue »
+  (réf. 98980361 : `P2024`, délai d'attente d'une connexion, `connection_limit=1`) ; second essai
+  en 20,6 s. Code annulé et redéployé aussitôt (`8704037`, la note reste).
+- **L'erreur `P2024` n'est PAS née du lot A** : journaux Vercel sur 7 jours, 40 fois avant —
+  `/fr/search` les 20 oct. (×3) et 23 oct., `/api/search/suggest` 32 fois, le battement de
+  session 2 fois. Cause : UNE connexion par instance, partagée par les requêtes simultanées
+  (frappe dans la recherche → autocomplétion), délai de 10 s. Remède proposé : relever
+  `connection_limit` (et `pool_timeout`) dans `DATABASE_URL` sur Vercel — décision de Me Vaval.
+- **Mais la relecture a trouvé un vrai défaut du lot A** : `localiserOccurrence` bouclait SANS FIN
+  quand le corps commence par un saut de ligne et qu'aucun en-tête ne précède l'occurrence
+  (`lastIndexOf('\n', -1)` relit la position 0). Un document de production est dans ce cas (une
+  loi de finances). Reproduit (processus tué après 20 s), corrigé, testé (4 cas).
+- Allégé en même temps : sans terme cherché (navigation d'une rubrique), les corps ne sont plus
+  chargés que pour les résultats sans extrait (comme avant le lot A) ; la disponibilité du texte
+  se lit par `octet_length` (taille dans l'en-tête TOAST, sans décompression) et non `length`.
+- Mesures depuis le poste, lecture seule (bruitées) : corps des 20 résultats de « garantie »
+  1,5 Mo en 0,4 s ; requête des versions 0,3 s ; la recherche elle-même 6 à 13 s depuis le poste.

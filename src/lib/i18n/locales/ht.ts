@@ -340,6 +340,10 @@ export const ht: Dictionary = {
     indexOnlyBadge: 'Endèks Monitè a — aksè restren',
     publications: 'piblikasyon',
     fuzzyTag: 'òtograf pwòch',
+    // Rezilta : tèks la ak orijinal la (24 okt. 2026) — fòm nouvo, pou Me Vaval valide
+    readText: 'Li tèks la',
+    openPdf: 'PDF',
+    openPdfLabel: 'Louvri PDF orijinal la (nouvo onglè)',
     abrogatedBy: 'abowje pa',
     fuzzySection: "Rezilta ki gen òtograf ki sanble",
     categoryLabel: 'Kategori',
@@ -400,6 +404,13 @@ export const ht: Dictionary = {
   },
   doc: {
     officialText: 'Tèks ofisyèl',
+    // Navigasyon ant okirans mo yo chèche a (24 okt. 2026) — fòm nouvo, pou Me Vaval valide
+    occurrenceOf: 'Okirans {i} sou {n}',
+    occurrencePrev: 'Okirans anvan an',
+    occurrenceNext: 'Okirans apre a',
+    occurrenceHide: 'Kache navigasyon an',
+    occurrenceNone: 'Mo a pa parèt nan tèks ki afiche a (tit, rezime oswa orijinal la sèlman).',
+    occurrenceRegion: 'Okirans mo yo chèche a',
     partialTranscript: 'Transkripsyon pasyèl',
     unofficialNote:
       'Vèsyon anglè ak kreyòl entèfas la ak rezime yo disponib pou enfòmasyon sèlman: yo PA OFISYÈL e yo pa gen okenn valè jiridik. Se sèl tèks ofisyèl an franse a ki fè otorite.',
