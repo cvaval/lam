@@ -7,7 +7,10 @@ contre le fac-similé (J.-F. Salès, 1992, 462 p.), avec les décisions de Me Va
 > Contrôles après écriture : 516 têtes, 0 clé de jurisprudence orpheline, annexes identiques à l'octet, replis
 > `connexe` intacts, **365 points d'énumération portent un marqueur** dans 82 articles (25 avant, toutes posées le 20 oct.) —
 > dont les 5 puces provisoires de l'art. 45 (§ 5).
-> **Reste à écrire** : l'art. 45, après le déploiement de la règle du barème (§ 5) ; les intitulés (§ 6, à trancher).
+> **24 oct. 2026 — seconde passe contre le J.O.** (*Le Moniteur* n° 18-A, scan fourni par Me Vaval) : le texte suit
+> désormais le **Journal officiel** (« Le Moniteur prévaut ») — 702 leçons en 304 articles, 20 opérations d'intitulés
+> (« yes »), marqueurs et alinéas du J.O. (§ 9).
+> **Reste à écrire** : l'art. 45, après le déploiement de la règle du barème (§ 5).
 
 ---
 
@@ -122,3 +125,41 @@ npx tsx --tsconfig <tsconfig jsx> scripts/corriger-ct-mot-a-mot.tsx <corrections
 
 L'instantané, les lectures sur l'image et les fichiers d'opérations sont **hors du dépôt** (public), dans
 `~/Library/CloudStorage/Dropbox/Lam Veritab/audit-code-travail/`. Le correctif refuse d'écrire si la fiche a changé.
+
+## 9. Seconde passe : le Journal officiel (24 oct. 2026)
+
+Me Vaval a fourni le J.O. (*Le Moniteur* n° 18-A du 5 mars 1984 : scan de 37 pages,
+`Dropbox/Moniteur/Code du travail_Le Moniteur No.18-A Lundi 5 Mars 1984.pdf`, et une transcription
+`Code_du_travail_1984_Le_Moniteur_18-A_1.docx`). Le J.O. devient le texte ; Salès, un témoin.
+
+**Témoins** : la transcription (faite par un outil : elle normalise) ; **Tesseract** sur le scan (couche texte du PDF
+inutilisable) ; l'**image**. Tri : transcription = Tesseract contre la base ⇒ leçon du J.O. confirmée (tirage de 21 sur
+l'image : 21 justes) ; Tesseract = base ⇒ erreur de la transcription ; sinon l'image (349 points, 7 lots).
+
+| | |
+| --- | --- |
+| Écarts base (Salès) ↔ J.O. | 873 |
+| **Leçons du J.O. écrites** | **702** (304 articles) — dont des mots (art. 2 « qu'elle », 14 « les travailleurs », 22 « devra être », 26 « Direction ou », 56 « reconduction »…), la casse et la ponctuation du J.O., et les chiffres sans les lettres que Salès ajoutait (« 50 o/o » pour « cinquante pour cent (50%) ») |
+| Coquilles du J.O. (base gardée) | 29 (« incrire », « afflicitive », « conditons », « look », « emprisonement », « minimun »…) + « toute entreprises » (art. 94) |
+| Césures et traits d'union de la transcription (base gardée) | 47 |
+| Illisibles (marge rognée, base gardée) | 8 |
+| Non appliqués, soumis | art. 422 « inviter » (J.O., lecture pâle) / « porter » ; art. 423 « Loi No 3 » (rogné) / « Loi No. 4 », « paragraphe » / « paragraphes … du Chapitre III », « Gdes 1.000.-- » / « 1.000 gourdes » |
+| Art. 109, 110, 111 | **non touchés** : le J.O. de 1984 porte leur rédaction d'origine, abrogée (1985) ou réécrite (décret du 23 mai 1989) — la version en vigueur reste affichée |
+
+**Intitulés** (Me Vaval : « yes » ; chacun vu au J.O.) : insérés — « Obligations de l'employeur » (avant l'art. 31),
+« Section I — De la résiliation de plein droit… » (38), « Section III — Du pourboire » (149), « Section IV — Du salaire
+annuel complémentaire ou boni » (154), « Règlements amiables » et « Conciliation » (171), « Du pourvoi contre les
+jugements » (506) ; promus — Sections II et III de la résiliation (39, 41), « Disposition générale » (après 480) ;
+renommés — Sections I, II, V des salaires, chapitre III des conflits ; **retiré** — le faux « TITRE VI: DE LA RECUSATION
+ET DU REPORT » et son « Article 22 », suite de la note de l'art. 504 (rendus à ses annotations ; ses 8 arrêts sur la
+récusation passent à l'art. 505). 20 clés de jurisprudence re-clefées, 0 orpheline.
+
+**Marqueurs et alinéas du J.O.** : tirets « – » (art. 1, 19, 411, 413), « 1. 2. » (11), « 1) 2) 3) » (12), « 1) » à « 12) »
+(94, le J.O. saute le 6) : rétabli) ; alinéas fondus (20, 81, 336) ou séparés (423) comme au J.O. ; **un alinéa manquait
+en base** (art. 459 : « il est permis la création de cantines communes… »).
+
+Au J.O., trois titres de chapitre sont fautifs et corrigés à la main sur l'exemplaire (Titre II ch. V et VI, Titre III
+ch. II), et le chapitre I du contrat d'apprentissage porte le titre du chapitre I du Titre VI : la base garde les bons.
+
+**Restent ouverts** : les quatre lectures soumises ci-dessus ; les notes de chapitre de Salès (« (Voir également…) »,
+signes « * » et « @ ») absentes du J.O. ; la rédaction de 1984 des art. 109-111 en repli « Ancienne rédaction ».
