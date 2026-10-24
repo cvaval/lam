@@ -39,6 +39,10 @@ function isContinuation(line: string): boolean {
   return /^[a-zà-öø-ÿ("']/.test(line)
 }
 
+/** Ligne de BARÈME à points de conduite, terminée par une valeur chiffrée (« de 3 mois à 12 mois de service . . .
+ *  15 jours », Code du travail, art. 45) : le livre la compose seule sur sa ligne, sans marqueur. */
+const BAREME_RE = /(?:\s?\.){3,}\s*\d[^.]{0,24}$/
+
 /** Intertitre : ligne courte d'origine, sans ponctuation de fin de phrase. */
 function isHeading(line: string): boolean {
   return line.length <= 64 && !/[.,;:!?]$/.test(line)
@@ -55,8 +59,11 @@ export function parseOfficialText(raw: string): OfficialBlock[] {
     para = null
   }
 
+  let precedente = ''
   for (const rawLine of raw.split('\n')) {
     const line = rawLine.replace(/\s+/g, ' ').trim()
+    const avant = precedente
+    precedente = line
     if (!line) {
       flushPara()
       continue
@@ -78,6 +85,16 @@ export function parseOfficialText(raw: string): OfficialBlock[] {
       const last = blocks[blocks.length - 1]
       if (last?.kind === 'ol') last.items.push(item)
       else blocks.push({ kind: 'ol', items: [item] })
+      continue
+    }
+
+    // Barème : une ligne à points de conduite qui suit une autre ligne de barème, ou l'annonce « … suivante: »,
+    // reste SEULE (jamais recousue à la précédente) et ne s'affiche jamais en intertitre gras. ⚠️ Pas au-delà : une
+    // ligne de sommaire du Moniteur (« Décret … ........ 12 ») hors d'une suite de barème garde son rendu.
+    // ≤ 110 caractères : au-delà, c'est une ligne d'OCR à deux colonnes mêlées (Moniteur n° 41 de 1985), pas un barème.
+    if (line.length <= 110 && BAREME_RE.test(line) && (BAREME_RE.test(avant) || /:$/.test(avant))) {
+      flushPara()
+      blocks.push({ kind: 'p', text: line, heading: false })
       continue
     }
 

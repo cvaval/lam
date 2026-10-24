@@ -330,6 +330,17 @@ sont pas collationnés mot à mot dans ce lot (sauf avis contraire, § 9).
 
 ## § 9. Ce qui reste à faire valider — avant le `--commit`
 
+> **Tranché par Me Vaval (23 oct. 2026)** :
+> - marqueurs du livre dans les 77 articles : « yes » ;
+> - art. 41 et 42 : « go back to the book's letter and split » — les « a) » du livre et SON découpage ;
+> - art. 45 : « books » — le barème du livre ;
+> - typographie : « should be as in the rest of the platform » — mesuré sur les 308 fiches annotées le 23 oct. :
+>   apostrophe **courbe** (211 fiches contre 97 ; le Code du travail l'a déjà) et **une espace avant « ; » et « : »**
+>   (139 contre 82 ; 161 contre 72) ⇒ espace à ajouter au Code (343 + 113), apostrophes inchangées ;
+> - lot 2 (annexes) et contrôle de la jurisprudence : « no » — hors de cette production.
+>
+> Restent ouverts : le J.O. n° 18-A (1), les intitulés (4).
+
 1. **Le J.O.** : *Le Moniteur* n° 18-A de 1984 n'est ni en base ni sur le disque. Me Vaval l'a-t-elle ? S'il arrive, il
    devient le texte (« Le Moniteur prévaut ») et Salès passe témoin.
 2. **Les quatre articles du 20 oct.** (§ 6.1) : art. 41 et 42 — garder les puces, ou rendre les « a) » du livre (et, au

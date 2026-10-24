@@ -1,0 +1,108 @@
+type,article,resume
+retablir,art-2,3 ligne(s) au découpage du livre
+retablir,art-3,2 ligne(s) au découpage du livre
+retablir,art-4,2 ligne(s) au découpage du livre
+retablir,art-5,2 ligne(s) au découpage du livre
+retablir,art-8,3 ligne(s) au découpage du livre
+retablir,art-10,2 ligne(s) au découpage du livre
+retablir,art-12,4 ligne(s) au découpage du livre ; marqueurs 1. 2. 3.
+retablir,art-14,2 ligne(s) au découpage du livre
+retablir,art-17,2 ligne(s) au découpage du livre
+retablir,art-33,4 ligne(s) au découpage du livre
+retablir,art-41,7 ligne(s) au découpage du livre ; marqueurs a) b) c) d) e) f)
+retablir,art-42,8 ligne(s) au découpage du livre ; marqueurs a) b) c) d) e) f) g)
+retablir,art-52,6 ligne(s) au découpage du livre ; marqueurs 1) 2) 3) 4)
+retablir,art-53,4 ligne(s) au découpage du livre ; marqueurs 1) 2)
+retablir,art-65,12 ligne(s) au découpage du livre ; marqueurs a) b) c) d) e) f) g) h) i) j) k)
+retablir,art-66,4 ligne(s) au découpage du livre ; marqueurs a) b) c)
+retablir,art-87,8 ligne(s) au découpage du livre ; marqueurs a) b) c) d) e) f) g)
+retablir,art-93,6 ligne(s) au découpage du livre ; marqueurs a) b) c) d) e)
+retablir,art-94,13 ligne(s) au découpage du livre ; marqueurs a) b) c) d) e) f) g) h) i) j) k) l)
+retablir,art-99,1 ligne(s) au découpage du livre
+retablir,art-190,3 ligne(s) au découpage du livre ; marqueurs 1) 2)
+retablir,art-264,2 ligne(s) au découpage du livre
+retablir,art-285,4 ligne(s) au découpage du livre ; marqueurs 1) 2) 3)
+retablir,art-307,5 ligne(s) au découpage du livre ; marqueurs a) b) c) d)
+retablir,art-359,5 ligne(s) au découpage du livre ; marqueurs a) b) c) d)
+retablir,art-381,2 ligne(s) au découpage du livre
+retablir,art-399,8 ligne(s) au découpage du livre ; marqueurs a) b) c) d) e) f) g)
+retablir,art-405,6 ligne(s) au découpage du livre ; marqueurs 1) 2) 3) 4) 5)
+retablir,art-406,13 ligne(s) au découpage du livre ; marqueurs 1) 2) 3) 4) 5) 6) 7) 8) 9) 10) 11) 12)
+retablir,art-435,2 ligne(s) au découpage du livre
+retablir,art-437,3 ligne(s) au découpage du livre ; marqueurs • •
+retablir,art-439,10 ligne(s) au découpage du livre ; marqueurs 1) 2) 3) 4) 5) 6) 7) 8) 9)
+retablir,art-448,2 ligne(s) au découpage du livre
+retablir,art-451,2 ligne(s) au découpage du livre
+retablir,art-457,1 ligne(s) au découpage du livre
+retablir,art-477,2 ligne(s) au découpage du livre
+retablir,art-499,1 ligne(s) au découpage du livre
+retablir,art-502,2 ligne(s) au découpage du livre
+retablir,art-504,6 ligne(s) au découpage du livre ; marqueurs 1) 2) 3) 4)
+marqueurs,art-1,marqueurs du livre : • •
+marqueurs,art-20,marqueurs du livre : • •
+marqueurs,art-22,marqueurs du livre : a) b) c) d) e) f) g)
+marqueurs,art-30,marqueurs du livre : a) b) c) d) e) f) g) h)
+marqueurs,art-31,marqueurs du livre : a) b) c) d) e)
+marqueurs,art-32,marqueurs du livre : a) b)
+marqueurs,art-37,marqueurs du livre : a) b) c)
+marqueurs,art-54,marqueurs du livre : a) b) c)
+marqueurs,art-69,marqueurs du livre : a) b) c) d) e)
+marqueurs,art-75,marqueurs du livre : a) b) c) d) e) f) g) h) i)
+marqueurs,art-89,marqueurs du livre : a) b) c) d) e) f)
+marqueurs,art-91,marqueurs du livre : a) b) c)
+marqueurs,art-92,marqueurs du livre : a) b) c) d) e)
+marqueurs,art-103,marqueurs du livre : a) b)
+marqueurs,art-104,marqueurs du livre : a) b)
+marqueurs,art-106,marqueurs du livre : a) b)
+marqueurs,art-114,marqueurs du livre : a) b) c) d) e) f)
+marqueurs,art-118,marqueurs du livre : a) b)
+marqueurs,art-132,marqueurs du livre : a) b) c) d)
+marqueurs,art-146,marqueurs du livre : a) b)
+marqueurs,art-181,marqueurs du livre : a) b)
+marqueurs,art-182,marqueurs du livre : a) b) c)
+marqueurs,art-189,marqueurs du livre : a) b) c) d) e) f)
+marqueurs,art-204,marqueurs du livre : a) b) c)
+marqueurs,art-205,marqueurs du livre : a) b) c) d)
+marqueurs,art-213,marqueurs du livre : a) b)
+marqueurs,art-217,marqueurs du livre : a) b)
+marqueurs,art-236,marqueurs du livre : a) b) c) d)
+marqueurs,art-238,marqueurs du livre : a) b) c) d) e) f) g) h) i) j) k)
+marqueurs,art-239,marqueurs du livre : a) b) c) d)
+marqueurs,art-241,marqueurs du livre : a) b) c) d) e)
+marqueurs,art-242,marqueurs du livre : a) b) c) d)
+marqueurs,art-247,marqueurs du livre : a) b) c)
+marqueurs,art-249,marqueurs du livre : a) b)
+marqueurs,art-257,marqueurs du livre : a) b) c)
+marqueurs,art-273,marqueurs du livre : a) b) c) d)
+marqueurs,art-274,marqueurs du livre : a) b) c)
+marqueurs,art-280,marqueurs du livre : a) b) c)
+marqueurs,art-293,marqueurs du livre : a) b) c)
+marqueurs,art-308,marqueurs du livre : a) b) c) d) e) f) g) h)
+marqueurs,art-312,marqueurs du livre : a) b) c) d) e)
+marqueurs,art-324,marqueurs du livre : a) b) c)
+marqueurs,art-327,marqueurs du livre : a) b)
+marqueurs,art-330,marqueurs du livre : a) b) c)
+marqueurs,art-339,marqueurs du livre : a) b) c) d) e) f)
+marqueurs,art-342,marqueurs du livre : a) b) c) d)
+marqueurs,art-347,marqueurs du livre : a) b) c)
+marqueurs,art-370,marqueurs du livre : a) b)
+marqueurs,art-392,marqueurs du livre : a) b) c)
+marqueurs,art-394,marqueurs du livre : a) b) c) d) e) f) g) h)
+marqueurs,art-410,marqueurs du livre : 1) 2) 3) 4)
+marqueurs,art-411,marqueurs du livre : • • • • • •
+marqueurs,art-414,marqueurs du livre : • • •
+marqueurs,art-417,marqueurs du livre : 1) 2) 3) 4)
+marqueurs,art-429,marqueurs du livre : • • • •
+marqueurs,art-474,marqueurs du livre : a) b) c)
+marqueurs,art-479,marqueurs du livre : • • •
+marqueurs,art-486,marqueurs du livre : • • • •
+remplacer,art-133,mot : « qu’il y aura de personnes » → « qu’il y aura des personnes »
+remplacer,art-426,cesure : « com menceront » → « commenceront »
+remplacer,art-289,"ponctuation : « en dissolution, etc. » → « en dissolution, etc... »"
+remplacer,art-302,"ponctuation : « médicaments, etc. dans » → « médicaments, etc... dans »"
+deplacer-commentaire,art-423,note de l'éditeur → annotations de art-423
+deplacer-commentaire,art-504,note de l'éditeur → annotations de art-504
+retablir,art-45,6 ligne(s) au découpage du livre
+marqueurs,art-38,marqueurs du livre : a) b) c) d) e)
+remplacer,art-480,alinea-fusionne : « à prononcer par le Tribunal de Travail. En cas de récidive » → « à prononcer par le Tribunal de Travail. En cas de récidive »
+remplacer,art-516,alinea-fusionne : « Claude WEIL Le Ministre des Affaires Etrangères » → « Claude WEIL Le Ministre des Affaires Etrangères »
