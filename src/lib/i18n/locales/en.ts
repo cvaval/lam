@@ -340,6 +340,10 @@ export const en: Dictionary = {
     indexOnlyBadge: 'Moniteur index — restricted access',
     publications: 'publications',
     fuzzyTag: 'similar spelling',
+    // Result: the text and the original (24 Oct. 2026)
+    readText: 'Read the text',
+    openPdf: 'PDF',
+    openPdfLabel: 'Open the original PDF (new tab)',
     abrogatedBy: 'repealed by',
     fuzzySection: "Results with similar spelling",
     categoryLabel: 'Category',
@@ -400,6 +404,13 @@ export const en: Dictionary = {
   },
   doc: {
     officialText: 'Official text',
+    // Navigating between occurrences of the searched term (24 Oct. 2026)
+    occurrenceOf: 'Occurrence {i} of {n}',
+    occurrencePrev: 'Previous occurrence',
+    occurrenceNext: 'Next occurrence',
+    occurrenceHide: 'Hide navigation',
+    occurrenceNone: 'The term does not appear in the text shown (title, summary or original only).',
+    occurrenceRegion: 'Occurrences of the searched term',
     partialTranscript: 'Partial transcript',
     unofficialNote:
       'The English and Kreyòl versions of the interface and summaries are provided for information only: they are UNOFFICIAL and have no legal value. Only the official French text is authoritative.',

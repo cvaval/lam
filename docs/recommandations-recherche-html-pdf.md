@@ -119,3 +119,24 @@ Points à trancher par Me Vaval :
 2. Pour un lecteur SANS droit PDF : bouton masqué (comme aujourd'hui sur la fiche) ou mention
    « PDF réservé » ? Recommandé : masqué.
 3. Ouvrir le PDF dans un **nouvel onglet** (actuel) ou dans la visionneuse intégrée (R6) ?
+
+## 4. Lot A — RÉALISÉ (24 oct. 2026, local, non déployé)
+
+Choix appliqués (recommandés, « oui » de Me Vaval) : le bouton PDF suit exactement les droits
+actuels ; masqué pour un lecteur sans droit ; le PDF s'ouvre dans un nouvel onglet.
+
+| Reco | Réalisation |
+|---|---|
+| R1 | `ResultCard` : le titre couvre la carte (clic partout → la fiche) ; actions « Lire le texte → » et « PDF ↗ » au-dessus (aucun lien imbriqué) ; PDF seul → action principale. Disponibilités par une requête pour la page affichée (`src/lib/search/versions.ts`), quel que soit le moteur. |
+| R2 | `NavigationOccurrences` sur la fiche (`?q=`) : départ à la 1ʳᵉ occurrence (ou la 1ʳᵉ après l'article de l'adresse), « Occurrence i sur n », précédente / suivante, `n` / `Maj+n`, mention claire quand le terme n'est pas dans le texte affiché ; sans animation si demandé. |
+| R3 | `src/lib/search/occurrence.ts` : 1ʳᵉ occurrence du CORPS (même motif que le surlignage), article qui la contient (`articleAnchorFromHeading`) ; le moteur intégré en tire l'extrait « Article N — … » et `anchor` ; lien `/doc/{id}?q=…#art-N`. |
+| R4 | `CodeRefText` surligne ; `Jurisprudence`, `OldVersion`, `RelatedLaw` reçoivent les termes et s'OUVRENT d'office quand ils en contiennent un (`surligner.tsx`). |
+
+Vérifié : 1 962 tests de l'application et 110 des scripts, TypeScript, ESLint, `build:check` ;
+recherche réelle sur le banc local (« cautionnement » → « Article 8 — … », ancre `art-8`).
+**Non vérifié dans le navigateur** : les pages de recherche et de fiche exigent une session, et
+aucune connexion n'est faite avec des identifiants — à contrôler par Me Vaval après déploiement.
+Libellés créoles NOUVEAUX à valider : « Li tèks la », « Louvri PDF orijinal la (nouvo onglè) »,
+« Okirans {i} sou {n} », « Okirans anvan an », « Okirans apre a », « Kache navigasyon an »,
+« Mo a pa parèt nan tèks ki afiche a (tit, rezime oswa orijinal la sèlman). », « Okirans mo yo chèche a ».
+

@@ -370,7 +370,7 @@ export function AnnotatedText({
               </div>
             )}
             {((cases && cases.length > 0) || (comm && comm.length > 0)) && (
-              <Jurisprudence cases={cases ?? []} comments={comm} variant={annotationsVariant} locale={locale} codeHrefs={codeHrefs} />
+              <Jurisprudence cases={cases ?? []} comments={comm} variant={annotationsVariant} locale={locale} codeHrefs={codeHrefs} terms={terms} />
             )}
           </>
         )
@@ -459,6 +459,7 @@ export function AnnotatedText({
                 blocks={cx}
                 locale={locale}
                 codeHrefs={codeHrefs}
+                terms={terms}
               />
               {extra}
             </article>
@@ -468,7 +469,7 @@ export function AnnotatedText({
         return (
           <div key={i} className="scroll-mt-24">
             <OfficialText text={split.text} rich={split.rich} hrefFor={hrefFor} locale={locale} terms={terms} noAnchors={b.noAnchors} civRefs={linkCivRefs} artRefs={artRefSet} sectionRefs={pointMode} loiAnchors={loiAnchors} codeHrefs={codeHrefs} ownCode={ownCode} />
-            {showOldPreamble && oldPreamble && <OldVersion text={oldPreamble} locale={locale} codeHrefs={codeHrefs} titre={annotations.oldVersionsLabel} />}
+            {showOldPreamble && oldPreamble && <OldVersion text={oldPreamble} locale={locale} codeHrefs={codeHrefs} titre={annotations.oldVersionsLabel} terms={terms} />}
             {extra}
           </div>
         )

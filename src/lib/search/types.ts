@@ -121,6 +121,11 @@ export interface SearchHit {
   title: string
   /** extrait surligné (HTML, termes en <mark>) — surlignage Sitwon (§09) */
   snippet: string
+  /**
+   * Ancre de l'ARTICLE contenant la 1ʳᵉ occurrence dans le corps (`art-1382`), pour que le clic
+   * mène au passage (`/doc/{id}?q=…#art-1382`). Calculée pour la page affichée (moteur intégré).
+   */
+  anchor?: string | null
   status?: DocStatus
   badge?: string
   number?: string | null

@@ -15,7 +15,8 @@ import { consumeSearchQuota, remainingQuota } from '@/lib/quota'
 import { guard, LIMITS } from '@/lib/security/ratelimit'
 import { RateLimitNotice } from '@/components/RateLimitNotice'
 import { can } from '@/lib/rbac'
-import { accessibleTypes, isIndexOnly } from '@/lib/access'
+import { accessibleTypes, canSeeSourcePdf, isIndexOnly } from '@/lib/access'
+import { versionsDisponibles } from '@/lib/search/versions'
 import { DOC_TYPE_LIST, DOC_TYPE_META, racinesReserveesHors } from '@/lib/brand'
 import { TYPE_SLUGS, corpusForType, isIndexCategory, type DocType, type DocStatus } from '@/lib/types'
 import { ROLES_SIEGE } from '@/lib/search/decision'
@@ -198,6 +199,14 @@ export default async function SearchPage({
     })
     for (const r of rows) abrogatedBy.set(r.id, r.abrogatedByNumber!)
   }
+
+  // « Lire le texte » et « PDF » sur chaque résultat (R1 du 24 oct. 2026) : pour la page affichée,
+  // une requête dit si le document a un TEXTE (corps transcrit) et un PDF SERVABLE (Blob privé).
+  // Le bouton PDF suit EXACTEMENT les droits de la fiche et de la route `/api/doc/{id}/pdf` :
+  // droit « PDF source », sauf pour les circulaires BRH. Rien de nouveau n'est ouvert.
+  const docIds = result.hits.filter((h) => h.kind === 'document').map((h) => h.id)
+  const versions = await versionsDisponibles(docIds)
+  const pdfPermis = (type: string | undefined) => type === 'CIRCULAIRE_BRH' || canSeeSourcePdf(user)
 
   // Le menu des domaines : l'arbre de la Législation annotée, aplati, pour que les deux
   // sections nomment les matières de la même façon.
@@ -420,7 +429,11 @@ export default async function SearchPage({
                   <span className="h-px flex-1 bg-chabon/30" />
                 </div>
               )}
-              <ResultCard hit={h} locale={locale} t={t} q={q} abrogatedByNumber={abrogatedBy.get(h.id)} />
+              <ResultCard
+                hit={h} locale={locale} t={t} q={q} abrogatedByNumber={abrogatedBy.get(h.id)}
+                texte={versions.get(h.id)?.texte ?? true}
+                pdf={Boolean(versions.get(h.id)?.pdf) && pdfPermis(h.type)}
+              />
             </Fragment>
           )
         })}

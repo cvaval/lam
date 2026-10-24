@@ -3,6 +3,7 @@ import type { JurisCase } from '@/lib/legislation/annotated'
 import { classes } from '@/lib/legislation/situations'
 import { CodeRefText, type CodeHrefs } from './CodeRefText'
 import { Repli } from './Repli'
+import { contientTerme } from './surligner'
 
 const LBL = {
   comments: { fr: 'Commentaires', en: 'Commentary', ht: 'Kòmantè' },
@@ -26,6 +27,7 @@ export function Jurisprudence({
   variant = 'juris',
   locale,
   codeHrefs,
+  terms,
 }: {
   cases: JurisCase[]
   comments?: string[]
@@ -33,6 +35,8 @@ export function Jurisprudence({
   locale: Locale
   /** Code civil : les notes citent « C. p. c. 949 » — lien vers le Code de procédure civile. */
   codeHrefs?: CodeHrefs
+  /** Termes d'une recherche : surlignés, et le repli s'OUVRE d'office s'il en contient un. */
+  terms?: string[]
 }) {
   const lt = (o: Record<Locale, string>) => o[locale] ?? o.fr
   const count = cases.length + (comments?.length ?? 0)
@@ -40,7 +44,12 @@ export function Jurisprudence({
   const juris = classes('jurisprudence')
   const annot = classes('annotations')
   return (
-    <Repli situation={variant === 'annotations' ? 'annotations' : 'jurisprudence'} locale={locale} compteur={count}>
+    <Repli
+      situation={variant === 'annotations' ? 'annotations' : 'jurisprudence'}
+      locale={locale}
+      compteur={count}
+      defautOuvert={contientTerme([...(comments ?? []), ...cases.flatMap((c) => [c.ref, c.excerpt])], terms)}
+    >
       {comments && comments.length > 0 && (
         <div className="mb-3">
           {cases.length > 0 && <p className={`mb-1.5 text-[10px] font-bold uppercase tracking-wide ${annot.texte}`}>{lt(LBL.comments)}</p>}
@@ -50,7 +59,7 @@ export function Jurisprudence({
                 <span aria-hidden className={`absolute left-0 top-0 ${annot.texte}`}>
                   ✍
                 </span>
-                <CodeRefText text={c} codeHrefs={codeHrefs} />
+                <CodeRefText text={c} codeHrefs={codeHrefs} terms={terms} />
               </li>
             ))}
           </ul>
@@ -71,18 +80,18 @@ export function Jurisprudence({
                 {c.ref ? (
                   <>
                     <p className="text-sm font-semibold leading-snug text-ank">
-                      <CodeRefText text={c.ref} codeHrefs={codeHrefs} />
+                      <CodeRefText text={c.ref} codeHrefs={codeHrefs} terms={terms} />
                     </p>
                     {c.excerpt && (
                       <p className="mt-1 text-[13px] leading-relaxed text-grafit">
-                        <CodeRefText text={c.excerpt} codeHrefs={codeHrefs} />
+                        <CodeRefText text={c.excerpt} codeHrefs={codeHrefs} terms={terms} />
                       </p>
                     )}
                   </>
                 ) : (
                   // Note sans intitulé distinct (Code civil) : l'extrait EST la note.
                   <p className="text-[13px] leading-relaxed text-ank/80">
-                    <CodeRefText text={c.excerpt ?? ''} codeHrefs={codeHrefs} />
+                    <CodeRefText text={c.excerpt ?? ''} codeHrefs={codeHrefs} terms={terms} />
                   </p>
                 )}
               </li>

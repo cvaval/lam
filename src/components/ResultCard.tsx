@@ -14,6 +14,8 @@ export function ResultCard({
   t,
   q,
   abrogatedByNumber,
+  texte = true,
+  pdf = false,
 }: {
   hit: SearchHit
   locale: Locale
@@ -23,6 +25,10 @@ export function ResultCard({
    *  Non cliquable ici : la carte entière est déjà un lien (une ancre imbriquée serait
    *  invalide) ; la fiche du texte porte le renvoi cliquable. */
   abrogatedByNumber?: string | null
+  /** Le document a un TEXTE (corps transcrit) : action « Lire le texte ». */
+  texte?: boolean
+  /** Un PDF original servable ET le droit de le voir (décidé par la page, mêmes règles que la fiche). */
+  pdf?: boolean
 }) {
   // Propage la requête au document/société → surlignage des termes à l'arrivée (§09).
   const qs = q && q.trim() ? `?q=${encodeURIComponent(q.trim().slice(0, 200))}` : ''
@@ -54,11 +60,15 @@ export function ResultCard({
   }
 
   const type = hit.type as DocType
+  // Le clic mène AU PASSAGE : la requête (surlignage, navigation entre occurrences) et l'ARTICLE de
+  // la 1ʳᵉ occurrence quand le moteur l'a localisé (`#art-N`, R3 du 24 oct. 2026).
+  const fiche = `/${locale}/doc/${hit.id}${qs}${hit.anchor ? `#${hit.anchor}` : ''}`
+  const actionSecondaire = 'relative z-10 inline-flex min-h-[36px] items-center gap-1 rounded-lg border border-chabon/15 bg-white px-3 text-[13px] font-medium text-chabon transition hover:border-chabon hover:bg-pil'
+  const actionPrincipale = 'relative z-10 inline-flex min-h-[36px] items-center gap-1 rounded-lg bg-chabon px-3 text-[13px] font-medium text-white transition hover:bg-chabon/90'
   return (
-    <Link
-      href={`/${locale}/doc/${hit.id}${qs}`}
-      className="block rounded-2xl border border-chabon/10 bg-white p-4 transition hover:-translate-y-0.5 hover:border-chabon"
-    >
+    // La carte reste cliquable PARTOUT (le lien du titre la couvre, `after:inset-0`) ; les actions
+    // « Lire le texte » et « PDF » passent au-dessus (`z-10`) — aucun lien imbriqué.
+    <div className="relative rounded-2xl border border-chabon/10 bg-white p-4 transition hover:-translate-y-0.5 hover:border-chabon">
       <div className="flex items-start gap-3">
         {hit.imageUrl && (
           // eslint-disable-next-line @next/next/no-img-element
@@ -76,7 +86,11 @@ export function ResultCard({
             {hit.fuzzy && <FuzzyTag t={t} />}
             {hit.number && <span className="text-xs font-medium text-ank/80">{hit.number}</span>}
           </div>
-          <h3 className="mt-2 font-semibold leading-snug text-ank">{hit.title}</h3>
+          <h3 className="mt-2 font-semibold leading-snug text-ank">
+            <Link href={fiche} className="after:absolute after:inset-0 after:rounded-2xl hover:underline">
+              {hit.title}
+            </Link>
+          </h3>
           {hit.snippet && (
             <p className="mt-1.5 text-sm leading-relaxed text-grafit" dangerouslySetInnerHTML={{ __html: hit.snippet }} />
           )}
@@ -87,9 +101,30 @@ export function ResultCard({
             {hit.niceClasses && <span>{t.search.niceClass}: {hit.niceClasses}</span>}
             {hit.holder && <span>{hit.holder}</span>}
           </div>
+          {(texte || pdf) && (
+            <div className="mt-3 flex flex-wrap gap-2">
+              {texte && (
+                <Link href={fiche} className={actionSecondaire}>
+                  {t.search.readText} <span aria-hidden="true">→</span>
+                </Link>
+              )}
+              {pdf && (
+                // L'original, servi par la route authentifiée (Blob privé, droits vérifiés à chaque appel).
+                <a
+                  href={`/api/doc/${hit.id}/pdf`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${t.search.openPdfLabel} — ${hit.title}`}
+                  className={texte ? actionSecondaire : actionPrincipale}
+                >
+                  {t.search.openPdf} <span aria-hidden="true">↗</span>
+                </a>
+              )}
+            </div>
+          )}
         </div>
       </div>
-    </Link>
+    </div>
   )
 }
 
