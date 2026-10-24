@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client'
+import { avecReessaiConnexion } from './db-reessai'
 
 // Singleton Prisma — évite d'épuiser le pool de connexions en dev (hot reload).
 const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient }
@@ -11,14 +12,20 @@ const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient }
  */
 const journaliserRequetes = process.env.PRISMA_LOG_QUERIES === '1'
 
-export const prisma =
-  globalForPrisma.prisma ??
-  new PrismaClient({
+function creerClient(): PrismaClient {
+  const client = new PrismaClient({
     log: journaliserRequetes
       ? [{ emit: 'event', level: 'query' }, 'warn', 'error']
       : process.env.NODE_ENV === 'development'
         ? ['warn', 'error']
         : ['error'],
   })
+  // Attente de connexion expirée (P2024) → requête rejouée (db-reessai.ts). Un middleware et non
+  // une extension : le type `PrismaClient` reste celui que tout le code attend.
+  client.$use((params, next) => avecReessaiConnexion(() => next(params)))
+  return client
+}
+
+export const prisma = globalForPrisma.prisma ?? creerClient()
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
