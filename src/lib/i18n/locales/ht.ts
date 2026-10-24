@@ -340,7 +340,7 @@ export const ht: Dictionary = {
     indexOnlyBadge: 'Endèks Monitè a — aksè restren',
     publications: 'piblikasyon',
     fuzzyTag: 'òtograf pwòch',
-    // Rezilta : tèks la ak orijinal la (24 okt. 2026) — fòm nouvo, pou Me Vaval valide
+    // Rezilta : tèks la ak orijinal la (24 okt. 2026) — Me Vaval valide yo 24 okt. 2026
     readText: 'Li tèks la',
     openPdf: 'PDF',
     openPdfLabel: 'Louvri PDF orijinal la (nouvo onglè)',
@@ -404,7 +404,7 @@ export const ht: Dictionary = {
   },
   doc: {
     officialText: 'Tèks ofisyèl',
-    // Navigasyon ant okirans mo yo chèche a (24 okt. 2026) — fòm nouvo, pou Me Vaval valide
+    // Navigasyon ant okirans mo yo chèche a (24 okt. 2026) — Me Vaval valide yo 24 okt. 2026
     occurrenceOf: 'Okirans {i} sou {n}',
     occurrencePrev: 'Okirans anvan an',
     occurrenceNext: 'Okirans apre a',
