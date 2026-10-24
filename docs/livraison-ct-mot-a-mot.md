@@ -170,6 +170,13 @@ art. 203, 204, 208, 210-214 et 216 (absent du J.O.) et chacun reçoit l'annotati
 renvois de Salès à l'Annexe II (p. 226, 231, 233 du livre) deviennent des annotations. Le lecteur, qui prenait ces « * »
 pour des puces, perd 11 faux points de liste.
 
+**Préambule et signatures** — ÉCRITS le 24 oct. : absents de la passe J.O. (l'outil ne collationnait que les
+articles), relus au J.O. p. 1 et 37 lors du versement du n° 18-A en Éditions Le Moniteur. 7 corrections : « dépendent ;
+modifiée », « Carte de Santé des Travailleurs », « Livret de Travail des Salariés » (la fiche portait « de
+travail-Livret… »), « l’Etat, d’assurer », « Sur le Rapport », « JEAN-CLAUDE DUVALIER », « PAR LE PRÉSIDENT : ».
+Laissés, comme pour les articles : accents des capitales (« PRÉSIDENT À VIE », « DÉCRÈTE »), coquille « Republique »,
+trait d’union de « Jean-Marie ». `remplacer` accepte désormais `ancre: "preambule"`.
+
 **Ancienne rédaction des art. 109-111** (« yes ») — ÉCRITE le 24 oct. après déploiement
 (`audit-code-travail/apres-deploiement-109-111.json`) : la rédaction de 1984 du J.O. en repli (« Texte abrogé » pour
 109 et 111, abrogés le 7 nov. 1985 ; « Ancienne rédaction » pour 110, réécrit le 23 mai 1989), avec la pastille de

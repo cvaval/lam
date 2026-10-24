@@ -6,7 +6,8 @@
  * Entrée : un fichier de corrections VALIDÉES (JSON, hors du dépôt — il cite le livre) : { "operations": [ … ] },
  * liste FERMÉE de types :
  *   - remplacer            { ancre, avant, apres, nature, preuve }   `avant` UNE fois dans l'article (lignes jointes par
- *                          « \n » : un « \n » dans `apres` crée un alinéa, en retirer un fusionne)
+ *                          « \n » : un « \n » dans `apres` crée un alinéa, en retirer un fusionne) ; `ancre:
+ *                          "preambule"` vise les visas et considérants (préambule absent de la passe J.O. du 24 oct.)
  *   - marqueurs            { ancre, points: [{ debut, marqueur }], preuve }   pose le marqueur DU LIVRE (« a) », « 1°) »,
  *                          « • ») en tête de la ligne de l'article qui commence par `debut` (une seule)
  *   - retablir             { ancre, lignes, preuve }   remet les lignes de l'article telles qu'avant une écriture antérieure
@@ -128,16 +129,24 @@ async function main() {
   let marqueursPoses = 0
   const structure: string[] = []  // ancres d'intitulés ajoutés, renommés ou retirés
   const lignesArticle = (ancre: string) => lignes.map((l, i) => ({ ...l, i })).filter((l) => l.code && l.ancre === ancre && !l.titre)
+  // Visas et considérants (avant l'art. 1, hors intitulés) — `remplacer` y accède par l'ancre « preambule ».
+  const lignesPreambule = () => {
+    const art1 = lignes.findIndex((l) => l.ancre === 'art-1')
+    const ls = lignes.map((l, i) => ({ ...l, i })).filter((l) => l.code && l.ancre === null && !l.titre && l.i < art1 && l.t.trim())
+    if (ls.some((l, k) => l.i !== ls[0].i + k)) throw new Error('⛔ préambule : lignes non contiguës')
+    return ls
+  }
 
   for (const op of operations) {
     if (op.type === 'remplacer') {
-      const ls = lignesArticle(op.ancre)
+      const ls = op.ancre === 'preambule' ? lignesPreambule() : lignesArticle(op.ancre)
       if (!ls.length) throw new Error(`⛔ ${op.ancre} : article introuvable`)
       const texte = ls.map((l) => l.t).join('\n')
       const n = texte.split(op.avant).length - 1
       if (n !== 1) throw new Error(`⛔ ${op.ancre} : « ${op.avant.slice(0, 50)} » trouvé ${n} fois`)
       const nouv = texte.replace(op.avant, op.apres).split('\n')
-      lignes.splice(ls[0].i, ls.length, ...nouv.map((t) => ({ t, titre: false, ancre: op.ancre, code: true })))
+      const ancre = op.ancre === 'preambule' ? null : op.ancre
+      lignes.splice(ls[0].i, ls.length, ...nouv.map((t) => ({ t, titre: false, ancre, code: true })))
       if (['ocr', 'coquille-du-livre', 'cesure', 'ponctuation', 'casse-accent'].includes(op.nature)) for (const m of motsLongs(op.avant)) listeBlanche.add(m)
       journal.push({ op: `remplacer:${op.nature}`, ancre: op.ancre, avant: op.avant, apres: op.apres })
     } else if (op.type === 'marqueurs') {
