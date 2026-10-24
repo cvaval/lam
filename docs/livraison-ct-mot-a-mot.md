@@ -143,7 +143,7 @@ l'image : 21 justes) ; Tesseract = base ⇒ erreur de la transcription ; sinon l
 | Coquilles du J.O. (base gardée) | 29 (« incrire », « afflicitive », « conditons », « look », « emprisonement », « minimun »…) + « toute entreprises » (art. 94) |
 | Césures et traits d'union de la transcription (base gardée) | 47 |
 | Illisibles (marge rognée, base gardée) | 8 |
-| Non appliqués, soumis | art. 422 « inviter » (J.O., lecture pâle) / « porter » ; art. 423 « Loi No 3 » (rogné) / « Loi No. 4 », « paragraphe » / « paragraphes … du Chapitre III », « Gdes 1.000.-- » / « 1.000 gourdes » |
+| Soumis, **tranchés : base gardée** (Me Vaval, 24 oct. : « c'est porter », « c'est Loi 4 du Code Penal ») | art. 422 « porter » (le J.O. pâli se lisait « inviter ») ; art. 423 « Loi No. 4 » (chiffre dans la marge rognée du J.O., p. 31 ; la transcription lisait « No 3 »), avec « paragraphes I et II du Chapitre III » et « 1.000 gourdes » |
 | Art. 109, 110, 111 | **non touchés** : le J.O. de 1984 porte leur rédaction d'origine, abrogée (1985) ou réécrite (décret du 23 mai 1989) — la version en vigueur reste affichée |
 
 **Intitulés** (Me Vaval : « yes » ; chacun vu au J.O.) : insérés — « Obligations de l'employeur » (avant l'art. 31),
@@ -161,5 +161,5 @@ en base** (art. 459 : « il est permis la création de cantines communes… »).
 Au J.O., trois titres de chapitre sont fautifs et corrigés à la main sur l'exemplaire (Titre II ch. V et VI, Titre III
 ch. II), et le chapitre I du contrat d'apprentissage porte le titre du chapitre I du Titre VI : la base garde les bons.
 
-**Restent ouverts** : les quatre lectures soumises ci-dessus ; les notes de chapitre de Salès (« (Voir également…) »,
+**Restent ouverts** : les notes de chapitre de Salès (« (Voir également…) »,
 signes « * » et « @ ») absentes du J.O. ; la rédaction de 1984 des art. 109-111 en repli « Ancienne rédaction ».
