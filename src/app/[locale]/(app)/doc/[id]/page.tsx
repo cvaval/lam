@@ -469,6 +469,13 @@ export default async function DocPage({
 
   const texteCherchable = longueurCherchable >= 200 * pagesFascicule
   /**
+   * VERSION HTML D'UN FASCICULE : un Word relu (`bodyClean`, `src/lib/doc/word.ts`) versé avec le PDF
+   * — le n° 18-A de 1984 (Code du travail), transcription revue par Me Vaval le 24 oct. 2026. Ce
+   * n'est pas une transcription automatique : il se lit au lecteur des textes officiels (intertitres,
+   * ancres d'article), et la mise en garde sur l'océrisation d'un microfilm ne le concerne pas.
+   */
+  const versionHtml = isScannedEdition && Boolean(doc.bodyClean?.trim())
+  /**
    * La transcription AFFICHABLE d'un fascicule scanné : le corps privé de son en-tête de
    * provenance (« [Fascicule scanné … Fichier : …] »), que `verser-texte-moniteur-dans-corps`
    * conserve parce que trois scripts s'en servent pour retrouver le PDF.
@@ -477,7 +484,7 @@ export default async function DocPage({
    * accents retirés — et rendrait « journal officiel de la republique ». Le texte lisible
    * est relu du PDF et versé dans `bodyOriginal`.
    */
-  const transcription = isScannedEdition
+  const transcription = isScannedEdition && !versionHtml
     ? (doc.bodyOriginal ?? '').replace(/^\[.*?\]/s, '').trim() || null
     : null
   /**
@@ -850,13 +857,17 @@ export default async function DocPage({
         </div>
       ) : isScannedEdition ? (
         <section className="rounded-2xl border border-chabon/10 bg-white p-6">
-          <p className={`mx-auto max-w-2xl text-sm leading-relaxed text-grafit ${transcription ? '' : 'mb-4 text-center'}`}>
-            {transcription
-              ? t.doc.scannedEditionTranscribed
-              : texteCherchable
-                ? t.doc.scannedEditionSearchable
-                : t.doc.scannedEdition}
-          </p>
+          {/* Version HTML : aucune des trois phrases ne vaut (« pas reproduit ici », « pas encore transcrit »,
+              « transcription automatique ») — le texte suit, sous son intitulé de texte officiel. */}
+          {!versionHtml && (
+            <p className={`mx-auto max-w-2xl text-sm leading-relaxed text-grafit ${transcription ? '' : 'mb-4 text-center'}`}>
+              {transcription
+                ? t.doc.scannedEditionTranscribed
+                : texteCherchable
+                  ? t.doc.scannedEditionSearchable
+                  : t.doc.scannedEdition}
+            </p>
+          )}
           <div className={`text-center ${transcription ? 'mt-4' : ''}`}>
             {canViewPdf ? (
               <a
@@ -902,6 +913,13 @@ export default async function DocPage({
                   {transcription}
                 </pre>
               )}
+            </div>
+          )}
+          {versionHtml && (
+            <div id={ANCRE_TEXTE} className="mt-6 scroll-mt-4 border-t border-chabon/10 pt-5">
+              <h2 className="mb-3 text-sm font-semibold text-ank">{t.doc.officialText}</h2>
+              <p className="mb-3 rounded-lg bg-pil px-3 py-2 text-[11px] leading-relaxed text-grafit">{t.doc.unofficialNote}</p>
+              <OfficialText text={effectiveBody} hrefFor={hrefFor} rich={richBlocks} locale={locale} terms={hlTerms} articleMarks={articleMarks} />
             </div>
           )}
         </section>
