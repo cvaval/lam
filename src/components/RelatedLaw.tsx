@@ -4,7 +4,6 @@ import type { ConnexeBlock } from '@/lib/legislation/annotated'
 import { natureDuConnexe, situationDuConnexe, NATURES_CONNEXE, type NatureConnexe, type Situation } from '@/lib/legislation/situations'
 import { CodeRefText, type CodeHrefs } from './CodeRefText'
 import { Repli } from './Repli'
-import { contientTerme } from './surligner'
 
 /**
  * Sous un article : son ancienne rédaction et ses blocs de législation connexe, UN REPLI PAR NATURE,
@@ -26,7 +25,6 @@ export function RelatedLaw({
   blocks = [],
   locale,
   codeHrefs,
-  terms,
 }: {
   old?: string
   /** Titre de l'ancienne rédaction, s'il diffère du registre (Constitution : « Ancienne version (1987) »). */
@@ -41,8 +39,6 @@ export function RelatedLaw({
   blocks?: ConnexeBlock[]
   locale: Locale
   codeHrefs?: CodeHrefs
-  /** Termes d'une recherche : surlignés, et chaque repli qui en contient un s'OUVRE d'office. */
-  terms?: string[]
 }) {
   const parNature = new Map<NatureConnexe, ConnexeBlock[]>()
   for (const b of blocks) {
@@ -53,10 +49,10 @@ export function RelatedLaw({
   return (
     <>
       {old && (
-        <Repli situation={oldSituation} locale={locale} titre={oldSituation === 'ancienne_redaction' ? oldTitre : undefined} id={oldId} defautOuvert={contientTerme([old], terms)}>
+        <Repli situation={oldSituation} locale={locale} titre={oldSituation === 'ancienne_redaction' ? oldTitre : undefined} id={oldId}>
           {oldEntete && <p className="mb-1.5 text-[11px] font-medium text-ank/80">{oldEntete}</p>}
           <p className="whitespace-pre-wrap text-[11.5px] italic leading-relaxed text-grafit">
-            <CodeRefText text={old} codeHrefs={codeHrefs} terms={terms} />
+            <CodeRefText text={old} codeHrefs={codeHrefs} />
           </p>
         </Repli>
       )}
@@ -64,7 +60,7 @@ export function RelatedLaw({
         const bs = parNature.get(n)!
         const situation: Situation = situationDuConnexe(n)
         return (
-          <Repli key={n} situation={situation} locale={locale} compteur={bs.length > 1 ? bs.length : undefined} defautOuvert={contientTerme(bs.flatMap((b) => [b.label, b.text]), terms)}>
+          <Repli key={n} situation={situation} locale={locale} compteur={bs.length > 1 ? bs.length : undefined}>
             <div className="space-y-3">
               {bs.map((b, i) => (
                 <div key={i}>
@@ -80,13 +76,13 @@ export function RelatedLaw({
                       </Link>
                     ) : (
                       <p className="text-[11.5px] font-semibold leading-snug text-ank/80">
-                        <CodeRefText text={b.label} codeHrefs={codeHrefs} terms={terms} />
+                        <CodeRefText text={b.label} codeHrefs={codeHrefs} />
                       </p>
                     ))}
                   {/* Le contenu d'un texte connexe cite les codes comme n'importe quelle
                       disposition (« - C. civ., 1728 ») : il passe par le linkificateur. */}
                   <p className="mt-1 whitespace-pre-wrap text-[11.5px] leading-relaxed text-grafit">
-                    <CodeRefText text={b.text} codeHrefs={codeHrefs} terms={terms} />
+                    <CodeRefText text={b.text} codeHrefs={codeHrefs} />
                   </p>
                 </div>
               ))}

@@ -6,7 +6,6 @@ import { searchDocumentsSql, searchDocumentsFuzzySql, type FtsFilters, type FtsO
 import { STOPWORDS } from './stopwords'
 import { fuzzyExpand } from './fuzzy'
 import { makeSnippet } from './highlight'
-import { extraitLocalise } from './occurrence'
 import { fold, extractAnnotationsText } from './normalize'
 import { SEARCH_FIELD_WEIGHTS, ANNOTATIONS_SEARCH_WEIGHT } from './fields'
 import { pickLocale } from '../i18n/pick'
@@ -372,29 +371,20 @@ export class FtsProvider implements SearchProvider {
   }
 
   /**
-   * Extrait et ARTICLE des résultats de la page affichée, tirés du CORPS du document : l'extrait
-   * est centré sur la 1ʳᵉ occurrence et préfixé de l'article qui la contient (« Article 1382 — … »),
-   * et `anchor` mène le clic à cet article (`occurrence.ts`, R3 du 24 oct. 2026). Terme absent du
-   * corps (titre, résumé, annotations) : l'extrait du résumé est gardé, à défaut le début du corps.
-   * Le corps (`bodyOriginal`) n'est transféré que pour les ≤ 20-50 résultats réellement montrés —
-   * c'était déjà le cas des 95 % sans résumé ; jamais pour l'ensemble des candidats.
+   * Restaure l'extrait texte (snippet) à partir du corps du document — UNIQUEMENT pour
+   * les hits document de la page affichée dont le résumé est absent (snippet vide). Le
+   * corps (`bodyOriginal`) n'est ainsi jamais transféré pour l'ensemble des candidats,
+   * seulement pour les ≤ 20-50 résultats réellement montrés.
    */
   private async enrichSnippets(hits: SearchHit[], terms: string[]): Promise<void> {
-    const docs = hits.filter((h) => h.kind === 'document')
-    if (!docs.length) return
+    const need = hits.filter((h) => h.kind === 'document' && !h.snippet)
+    if (!need.length) return
     const rows = await prisma.document.findMany({
-      where: { id: { in: docs.map((h) => h.id) } },
+      where: { id: { in: need.map((h) => h.id) } },
       select: { id: true, bodyOriginal: true },
     })
     const bodyById = new Map(rows.map((r) => [r.id, r.bodyOriginal]))
-    for (const h of docs) {
-      const body = bodyById.get(h.id)
-      const loc = extraitLocalise(body, terms)
-      if (loc) {
-        h.snippet = loc.snippet
-        h.anchor = loc.ancre
-      } else if (!h.snippet) h.snippet = makeSnippet(body || h.title, terms)
-    }
+    for (const h of need) h.snippet = makeSnippet(bodyById.get(h.id) || h.title, terms)
   }
 
   /**

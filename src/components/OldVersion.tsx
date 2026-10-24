@@ -2,7 +2,6 @@ import type { Locale } from '@/lib/types'
 import type { Situation } from '@/lib/legislation/situations'
 import { CodeRefText, type CodeHrefs } from './CodeRefText'
 import { Repli } from './Repli'
-import { contientTerme } from './surligner'
 
 /**
  * Ancienne rédaction d'un article amendé (ou texte d'un article abrogé) — repli fermé par défaut, au
@@ -20,7 +19,6 @@ export function OldVersion({
   titre,
   situation = 'ancienne_redaction',
   id,
-  terms,
 }: {
   text: string
   locale: Locale
@@ -28,13 +26,11 @@ export function OldVersion({
   titre?: string
   situation?: Extract<Situation, 'ancienne_redaction' | 'texte_abroge'>
   id?: string
-  /** Termes d'une recherche : surlignés, et le repli s'OUVRE d'office s'il en contient un. */
-  terms?: string[]
 }) {
   return (
-    <Repli situation={situation} locale={locale} titre={titre} id={id} defautOuvert={contientTerme([text], terms)}>
+    <Repli situation={situation} locale={locale} titre={titre} id={id}>
       <p className="whitespace-pre-wrap text-[11.5px] italic leading-relaxed text-grafit">
-        <CodeRefText text={text} codeHrefs={codeHrefs} terms={terms} />
+        <CodeRefText text={text} codeHrefs={codeHrefs} />
       </p>
     </Repli>
   )

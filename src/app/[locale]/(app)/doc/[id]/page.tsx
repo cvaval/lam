@@ -18,7 +18,6 @@ import { JurisprudenceComposition } from '@/components/JurisprudenceComposition'
 import { DocumentNotes, type NoteAffichee } from '@/components/DocumentNotes'
 import { signature, peutEtreAnonyme } from '@/lib/notes/rules'
 import { BackLink } from '@/components/BackLink'
-import { NavigationOccurrences } from '@/components/NavigationOccurrences'
 import { OfficialText, type ArticleMark } from '@/components/OfficialText'
 import { splitKeywords } from '@/lib/ai/keywords'
 import { parseCirculaireRef } from '@/lib/brh/gaps'
@@ -570,12 +569,6 @@ export default async function DocPage({
   return (
     <article className={`mx-auto space-y-6 ${annotations ? 'max-w-6xl' : 'max-w-3xl'}`}>
       <BackLink fallback={`/${locale}/search?type=${meta.slug}`} label={meta.label[locale]} />
-      {/* Arrivée depuis la recherche : aller À l'occurrence, puis de l'une à l'autre (R2, 24 oct. 2026). */}
-      {hlTerms && (
-        <NavigationOccurrences
-          l={{ of: t.doc.occurrenceOf, prev: t.doc.occurrencePrev, next: t.doc.occurrenceNext, hide: t.doc.occurrenceHide, none: t.doc.occurrenceNone, region: t.doc.occurrenceRegion }}
-        />
-      )}
 
       <header className="space-y-3">
         <div className="flex flex-wrap items-center gap-2">

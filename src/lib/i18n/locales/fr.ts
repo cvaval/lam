@@ -654,10 +654,6 @@ export const fr = {
     indexOnlyBadge: 'Index du Moniteur — accès restreint',
     publications: 'publications',
     fuzzyTag: 'orthographe proche',
-    // Résultat : le texte et l'original (24 oct. 2026)
-    readText: 'Lire le texte',
-    openPdf: 'PDF',
-    openPdfLabel: 'Ouvrir le PDF original (nouvel onglet)',
     abrogatedBy: 'abrogée par',
     fuzzySection: "Résultats avec une orthographe proche",
     categoryLabel: 'Catégorie',
@@ -718,13 +714,6 @@ export const fr = {
   },
   doc: {
     officialText: 'Texte officiel',
-    // Navigation entre les occurrences du terme cherché (24 oct. 2026)
-    occurrenceOf: 'Occurrence {i} sur {n}',
-    occurrencePrev: 'Occurrence précédente',
-    occurrenceNext: 'Occurrence suivante',
-    occurrenceHide: 'Masquer la navigation',
-    occurrenceNone: 'Le terme ne figure pas dans le texte affiché (titre, résumé ou original seulement).',
-    occurrenceRegion: 'Occurrences du terme cherché',
     partialTranscript: 'Transcription partielle',
     unofficialNote:
       "Les versions anglaise et kreyòl de l'interface et des résumés sont fournies à titre informatif : elles sont NON OFFICIELLES et n'ont aucune valeur juridique. Seul le texte officiel en français fait foi.",

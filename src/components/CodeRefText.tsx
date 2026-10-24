@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { segmentCodeRefs, type CodeKey } from '@/lib/doc/coderefs'
 import { segmentActeRefs } from '@/lib/doc/acterefs'
-import { motifTermes, surligner } from './surligner'
 
 /**
  * Rend un texte en transformant les renvois à un AUTRE code en liens : l'abréviation
@@ -16,9 +15,6 @@ import { motifTermes, surligner } from './surligner'
  *
  * Sans `codeHrefs`, le texte est rendu tel quel : le rendu des autres documents ne
  * change pas.
- *
- * `terms` : les termes d'une recherche, SURLIGNÉS (annotations, jurisprudence, ancienne rédaction —
- * 24 oct. 2026) comme dans le texte de l'article.
  *
  * `actes` (désignation → href) lie les ACTES nommés — « Décret du 8 octobre 1982 » — quand leur
  * texte ou leur Moniteur est en base (src/lib/doc/acterefs.ts). Il voyage dans le même objet que
@@ -45,36 +41,35 @@ export function codeArticleHref(base: string, article: number | null): string {
   return article == null ? base : `${base}#art-${article}`
 }
 
-export function CodeRefText({ text, codeHrefs, terms }: { text: string; codeHrefs?: CodeHrefs; terms?: string[] }) {
-  const re = motifTermes(terms)
+export function CodeRefText({ text, codeHrefs }: { text: string; codeHrefs?: CodeHrefs }) {
   const actes = segmentActeRefs(text, codeHrefs?.actes)
   if (actes)
     return (
       <>
         {actes.map((s, i) =>
           s.kind === 'text' ? (
-            <CodesSeuls key={i} text={s.text} codeHrefs={codeHrefs} re={re} />
+            <CodesSeuls key={i} text={s.text} codeHrefs={codeHrefs} />
           ) : (
             <Link key={i} href={s.href} className={CLS} title={s.cle}>
-              {surligner(s.text, re)}
+              {s.text}
             </Link>
           ),
         )}
       </>
     )
-  return <CodesSeuls text={text} codeHrefs={codeHrefs} re={re} />
+  return <CodesSeuls text={text} codeHrefs={codeHrefs} />
 }
 
-function CodesSeuls({ text, codeHrefs, re }: { text: string; codeHrefs?: CodeHrefs; re: RegExp | null }) {
+function CodesSeuls({ text, codeHrefs }: { text: string; codeHrefs?: CodeHrefs }) {
   const actifs = codesActifs(codeHrefs)
-  if (!actifs.length) return <>{surligner(text, re)}</>
+  if (!actifs.length) return <>{text}</>
   const segs = segmentCodeRefs(text, actifs)
-  if (!segs) return <>{surligner(text, re)}</>
+  if (!segs) return <>{text}</>
   return (
     <>
       {segs.map((s, i) =>
         s.kind === 'text' ? (
-          <span key={i}>{surligner(s.text, re)}</span>
+          <span key={i}>{s.text}</span>
         ) : (
           <Link
             key={i}
@@ -82,7 +77,7 @@ function CodesSeuls({ text, codeHrefs, re }: { text: string; codeHrefs?: CodeHre
             className={CLS}
             title={s.kind === 'article' ? `${NOM[s.code]}, article ${s.article}` : NOM[s.code]}
           >
-            {surligner(s.text, re)}
+            {s.text}
           </Link>
         ),
       )}
