@@ -10,7 +10,8 @@ contre le fac-similé (J.-F. Salès, 1992, 462 p.), avec les décisions de Me Va
 > **24 oct. 2026 — seconde passe contre le J.O.** (*Le Moniteur* n° 18-A, scan fourni par Me Vaval) : le texte suit
 > désormais le **Journal officiel** (« Le Moniteur prévaut ») — 702 leçons en 304 articles, 20 opérations d'intitulés
 > (« yes »), marqueurs et alinéas du J.O. (§ 9).
-> **Reste à écrire** : l'art. 45, après le déploiement de la règle du barème (§ 5).
+> **24 oct., après déploiement (`3e3c9bb`)** : art. 45 au barème du livre, rédaction de 1984 des art. 109-111 en repli,
+> repli « Législation connexe » du décret du 11 déc. 2024 sous l'art. 110 — ÉCRITS. Plus rien en attente.
 
 ---
 
@@ -80,8 +81,8 @@ caractères). Effet mesuré sur les 858 documents qui ont des points de conduite
 sommaires et des listes d'éditions du Moniteur (Code fiscal 2026 n° 48-A : entrées du sommaire qui cessent d'être en
 gras ; Moniteur n° 90 de 1991 : une pension par ligne au lieu de plusieurs recousues).
 
-**L'art. 45 s'écrira après le déploiement de cette règle** (`corrections-ct-art45.json`, hors dépôt) : sans elle, le
-barème redeviendrait un pavé. Jusque-là, il garde les puces du 20 oct.
+**L'art. 45 est ÉCRIT (24 oct., après déploiement de cette règle)** : cinq lignes de barème, points de conduite du
+livre, sans puces, « et » en tête de la 5e ligne — le J.O. (p. 5) a la même disposition, sans les points.
 
 ## 6. Points à trancher
 
@@ -169,7 +170,7 @@ art. 203, 204, 208, 210-214 et 216 (absent du J.O.) et chacun reçoit l'annotati
 renvois de Salès à l'Annexe II (p. 226, 231, 233 du livre) deviennent des annotations. Le lecteur, qui prenait ces « * »
 pour des puces, perd 11 faux points de liste.
 
-**Ancienne rédaction des art. 109-111** (« yes ») — PRÊTE, à écrire après déploiement
+**Ancienne rédaction des art. 109-111** (« yes ») — ÉCRITE le 24 oct. après déploiement
 (`audit-code-travail/apres-deploiement-109-111.json`) : la rédaction de 1984 du J.O. en repli (« Texte abrogé » pour
 109 et 111, abrogés le 7 nov. 1985 ; « Ancienne rédaction » pour 110, réécrit le 23 mai 1989), avec la pastille de
 l'article. Le lecteur (`AnnotatedText`) n'attache plus l'ancienne rédaction ni le statut aux homonymes d'annexe
