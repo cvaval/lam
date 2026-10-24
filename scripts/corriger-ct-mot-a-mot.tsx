@@ -74,6 +74,9 @@ type Op =
   | { type: 'inserer-intitule'; avant: string; label: string; kind?: string; preuve?: string }
   | { type: 'reecrire'; ancre: string; lignes: string[]; ecarts: { base: string; jo: string }[]; preuve?: string }
   | { type: 'retirer-ligne'; ligne: string; motif: string }
+  | { type: 'ajouter-commentaire'; ancre: string; texte: string; preuve?: string }
+  | { type: 'ancienne-redaction'; ancre: string; texte: string; preuve?: string }
+  | { type: 'statut'; ancre: string; valeur: 'abrogé' | 'modifié'; preuve?: string }
   | { type: 'renommer-intitule'; anchor: string; label: string; preuve?: string }
   | { type: 'retirer-intitule'; anchor: string; suivantes: string[]; vers: string; jurisprudenceVers?: string; preuve?: string }
 
@@ -150,6 +153,24 @@ async function main() {
         marqueursPoses++
       }
       journal.push({ op: 'marqueurs', ancre: op.ancre, apres: op.points.map((p) => p.marqueur).join(' ') })
+    } else if (op.type === 'ajouter-commentaire') {
+      // Note de l'éditeur dont l'appel (« * ») sort du corps : son contenu vit dans les annotations de l'article.
+      const cle = cles0.get(op.ancre)
+      if (!cle) throw new Error(`⛔ ${op.ancre} : clé d'annotation introuvable`)
+      brut.commentaires = brut.commentaires ?? {}
+      if ((brut.commentaires[cle] ?? []).includes(op.texte)) continue
+      brut.commentaires[cle] = [...(brut.commentaires[cle] ?? []), op.texte]
+      journal.push({ op: 'ajouter-commentaire', ancre: op.ancre, apres: op.texte })
+    } else if (op.type === 'ancienne-redaction') {
+      // Rédaction d'origine (J.O. n° 18-A de 1984) d'un article abrogé ou réécrit depuis : repli, la version en vigueur
+      // reste affichée (« Version en vigueur = celle qui s'affiche »).
+      brut.oldVersions = brut.oldVersions ?? {}
+      brut.oldVersions[op.ancre] = op.texte
+      journal.push({ op: 'ancienne-redaction', ancre: op.ancre, apres: op.texte.slice(0, 60) })
+    } else if (op.type === 'statut') {
+      brut.status = brut.status ?? {}
+      brut.status[op.ancre] = op.valeur
+      journal.push({ op: 'statut', ancre: op.ancre, apres: op.valeur })
     } else if (op.type === 'retirer-ligne') {
       // Ligne hors article devenue redondante (« Section I » quand l'intitulé de la table devient « Section I — Définition »).
       const c = lignes.map((l, k) => ({ ...l, k })).filter((l) => l.code && !l.titre && norm(l.t) === norm(op.ligne))
@@ -185,7 +206,10 @@ async function main() {
       marqueursPoses += op.lignes.filter((t) => MARQ.test(t)).length - ls.filter((l) => MARQ.test(l.t)).length
       journal.push({ op: 'retablir', ancre: op.ancre, avant: `${ls.length} ligne(s)`, apres: `${op.lignes.length} ligne(s)` })
     } else if (op.type === 'deplacer-commentaire') {
-      const cands = lignes.map((l, i) => ({ ...l, i })).filter((l) => l.code && !l.titre && norm(l.t) === norm(op.ligne) && l.ancre === (op.ancre || null))
+      let cands = lignes.map((l, i) => ({ ...l, i })).filter((l) => l.code && !l.titre && norm(l.t) === norm(op.ligne) && l.ancre === (op.ancre || null))
+      // Note hors article répétée (même renvoi sous « De la grève » et « Du lock-out ») : on garde celle que suit `vers`.
+      if (cands.length > 1 && op.vers)
+        cands = cands.filter((c) => lignes.slice(c.i + 1).find((l) => l.ancre)?.ancre === op.vers)
       if (cands.length !== 1) throw new Error(`⛔ ${op.ancre} : ligne trouvée ${cands.length} fois — « ${op.ligne.slice(0, 60)} »`)
       lignes.splice(cands[0].i, 1)
       const cle = cles0.get(op.vers ?? op.ancre)

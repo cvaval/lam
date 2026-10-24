@@ -161,5 +161,16 @@ en base** (art. 459 : « il est permis la création de cantines communes… »).
 Au J.O., trois titres de chapitre sont fautifs et corrigés à la main sur l'exemplaire (Titre II ch. V et VI, Titre III
 ch. II), et le chapitre I du contrat d'apprentissage porte le titre du chapitre I du Titre VI : la base garde les bons.
 
-**Restent ouverts** : les notes de chapitre de Salès (« (Voir également…) »,
-signes « * » et « @ ») absentes du J.O. ; la rédaction de 1984 des art. 109-111 en repli « Ancienne rédaction ».
+**Notes de Salès → annotations** (Me Vaval, 24 oct. : « move them into annotations ») — ÉCRIT : les 9 renvois et légendes
+placés sous un intitulé de chapitre (« (Voir également…) », « * = Modifié depuis par le Décret du 27 mai 1986. »,
+« @ = Repris verbatim… ») passent aux annotations du premier article du chapitre ; le signe « * » sort des têtes des
+art. 203, 204, 208, 210-214 et 216 (absent du J.O.) et chacun reçoit l'annotation « Modifié depuis par le Décret du
+27 mai 1986 (reproduit à l'Annexe I). » ; les appels « * » des art. 423, 496, 501, 502, 504 sortent du corps, et les
+renvois de Salès à l'Annexe II (p. 226, 231, 233 du livre) deviennent des annotations. Le lecteur, qui prenait ces « * »
+pour des puces, perd 11 faux points de liste.
+
+**Ancienne rédaction des art. 109-111** (« yes ») — PRÊTE, à écrire après déploiement
+(`audit-code-travail/apres-deploiement-109-111.json`) : la rédaction de 1984 du J.O. en repli (« Texte abrogé » pour
+109 et 111, abrogés le 7 nov. 1985 ; « Ancienne rédaction » pour 110, réécrit le 23 mai 1989), avec la pastille de
+l'article. Le lecteur (`AnnotatedText`) n'attache plus l'ancienne rédaction ni le statut aux homonymes d'annexe
+(mesuré : 330 anciennes rédactions et 1 454 statuts sous leur article, 6 doublons supprimés, aucun perdu).

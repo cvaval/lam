@@ -387,7 +387,10 @@ export function AnnotatedText({
           const label = labelsMap[b.anchor] ?? labelFromAnchor(b.anchor)
           const conc = concordanceMap[b.anchor]
           const acte = acteMap[b.anchor]
-          const old = oldVersions[b.anchor]
+          // Comme le repli connexe ci-dessous : l'ancienne rédaction et le statut appartiennent à l'article du Code (bloc
+          // ANCRÉ), jamais à un homonyme d'annexe — mesuré le 24 oct. 2026 sur 49 fiches : 330 anciennes rédactions et
+          // 1 454 statuts sous leur article, 6 doublons sous un homonyme (C. com., C. pén.), aucun SEULEMENT sous un homonyme.
+          const old = b.noAnchors ? undefined : oldVersions[b.anchor]
           // Le repli connexe appartient à l'article du Code (bloc ANCRÉ), jamais à un homonyme d'annexe :
           // 20 oct. 2026, la « Constitution de 1987 » de l'art. 6 du C. trav. se répétait sous 13 « Article 6 »
           // d'annexes (salaire minimum, OFATMA…), et le C. com. sous 2 articles d'un décret annexé. Mesuré sur
@@ -396,7 +399,7 @@ export function AnnotatedText({
           // État de l'article : la version d'article (datée, liée à l'acte) prévaut ; à défaut,
           // le statut de l'appareil. Une seule pastille.
           const marque = articleMarks?.get(b.anchor)
-          const situationArt: Situation | null = marque ? situationDeMarque(marque.kind) : situationDuStatutArticle(statusMap[b.anchor])
+          const situationArt: Situation | null = marque ? situationDeMarque(marque.kind) : situationDuStatutArticle(b.noAnchors ? undefined : statusMap[b.anchor])
           const enRepli = historiqueEnRepli?.get(b.anchor)
           const idOld = old ? (enRepli !== undefined ? `hist-${b.anchor}` : `anc-${b.anchor}`) : undefined
           const situationOld = situationArt === 'abroge' || situationArt === 'partiellement_abroge' ? 'texte_abroge' : 'ancienne_redaction'

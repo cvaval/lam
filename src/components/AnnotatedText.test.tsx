@@ -123,4 +123,14 @@ describe('AnnotatedText — législation connexe', () => {
   it("l'homonyme d'annexe reste affiché, sans le repli", () => {
     expect(html).toContain('Le présent Décret abroge tous Décrets')
   })
+
+  // Code du travail, art. 109-111 : la rédaction de 1984 (J.O. n° 18-A) et le statut « abrogé » — pas sous l'« Article 6 »
+  // (ici) d'une annexe.
+  it("l'ancienne rédaction et la pastille ne s'attachent qu'à l'article du Code", () => {
+    const a2: Annotations = { ...ann, connexe: {}, oldVersions: { 'art-6': 'Article 6.– Rédaction de 1984.' }, status: { 'art-6': 'abrogé' } } as Annotations
+    const h = renderToStaticMarkup(<AnnotatedText text={corps} annotations={a2} locale="fr" />)
+    expect((h.match(/data-situation="(?:texte_abroge|ancienne_redaction)"/g) ?? []).length).toBe(1)
+    expect((h.match(/Abrogé/g) ?? []).length).toBe(1)
+    expect(h.indexOf('data-situation="texte_abroge"')).toBeLessThan(h.indexOf('ANNEXE I'))
+  })
 })
