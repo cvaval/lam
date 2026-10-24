@@ -134,8 +134,21 @@ actuels ; masqué pour un lecteur sans droit ; le PDF s'ouvre dans un nouvel ong
 
 Vérifié : 1 962 tests de l'application et 110 des scripts, TypeScript, ESLint, `build:check` ;
 recherche réelle sur le banc local (« cautionnement » → « Article 8 — … », ancre `art-8`).
-**Non vérifié dans le navigateur** : les pages de recherche et de fiche exigent une session, et
-aucune connexion n'est faite avec des identifiants — à contrôler par Me Vaval après déploiement.
+**Vérifié CONNECTÉ dans le navigateur** (24 oct., à la demande de Me Vaval) sur le banc local
+`lam_banc` (`localhost:3100`) : 4 documents réels copiés de la production (lecture seule) — Code
+civil, décret énergie 2016 (texte + PDF), Moniteur n° 19 de 2003 (PDF seul), arrêt Brasserie de
+la Couronne —, trigger plein-texte posé, deux comptes d'essai `@smoke.invalid` (avec et sans droit
+PDF), sessions ouvertes en base puis FERMÉES. Constaté :
+- « garantie » : liens `#art-4` (loi banques), `#art-12` (décret), `#art-507` (Code civil) ;
+  extraits « Article N — … » ; « PDF ↗ » en nouvel onglet, servi `200 application/pdf` inline ;
+- fiche du Code civil ouverte sur l'article 507, occurrence encadrée, « Occurrence 3 sur 120 »
+  (les deux premières sont dans des replis ouverts d'office plus haut), `n` → 4 sur 120 ;
+- « moniteur mars 2003 » : le fascicule scanné n'a que « PDF ↗ », en bouton principal ;
+- compte SANS droit PDF : seul le PDF de la circulaire BRH reste proposé ; la route répond 403
+  pour le décret (garde serveur inchangée) ;
+- créole : « Okirans 1 sou 4 » sur l'arrêt ; téléphone 375 px : aucun débordement.
+Limite constatée : l'extrait (fenêtre de 240 caractères de `makeSnippet`) peut commencer par la
+fin de l'article PRÉCÉDENT (« Article 241 — … résenter.- C. p. c., 261 et s. Article 241 … »).
 Libellés créoles NOUVEAUX à valider : « Li tèks la », « Louvri PDF orijinal la (nouvo onglè) »,
 « Okirans {i} sou {n} », « Okirans anvan an », « Okirans apre a », « Kache navigasyon an »,
 « Mo a pa parèt nan tèks ki afiche a (tit, rezime oswa orijinal la sèlman). », « Okirans mo yo chèche a ».
